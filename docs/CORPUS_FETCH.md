@@ -1,5 +1,9 @@
 # Fetching more public historian data
 
+The [third public-data acquisition](../examples/public-data/round-3/README.md) adds 29 originals: maintenance-linked
+mining histories, field alarms, MRO catalog revisions, degradation experiments, hydraulic models, CAD originals
+and pump/photo references. The three passes total 130 files in 39 download groups; none adds a task score.
+
 The [second public-data acquisition](../examples/public-data/round-2/README.md) adds 47 further original files
 (203 MB), including dated excavator work-order examples, five public facility drawing/document sets and
 manufacturing quality/failure data. Its guide separates local-only/restricted sources, parser failures and

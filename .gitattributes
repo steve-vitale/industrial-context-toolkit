@@ -223,3 +223,6 @@ data/te_pid_layout.json text eol=lf
 # Publisher metadata snapshots are bound by raw-byte SHA256 in the acquisition registry.
 /data/public-source-evidence/** -text whitespace=cr-at-eol,-blank-at-eof
 /examples/public-data/** text eol=lf
+
+# Preserve the publisher's captured HTML, including its original trailing whitespace.
+/data/public-source-evidence/2026-11-07-round-3/nasa.html -text whitespace=cr-at-eol,-blank-at-eof,-trailing-space
