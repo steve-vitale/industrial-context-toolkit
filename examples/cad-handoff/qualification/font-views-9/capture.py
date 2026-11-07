@@ -36,7 +36,7 @@ def main():
             else: raise RuntimeError("Native camera request timed out; do not restart")
             if observed["request"]!=request: raise RuntimeError("Wrong native view receipt")
             # Padded lower-right model margin, then outside main window. Retain motion.
-            run("xdotool","mousemove","1590","1220")
+            run("xdotool","mousemove","1590","1180")
             time.sleep(.5)
             run("xdotool","mousemove","2380","1380")
             time.sleep(2)
