@@ -36,6 +36,8 @@ jobs:
         run: python examples/cad-handoff/qualification/recheck.py --out "$RUNNER_TEMP/cad-qualification"
       - name: Check CAD evidence replay rejects altered records
         run: python examples/cad-handoff/qualification/check_controls.py
+      - name: Recheck retained native layout losses and display diagnoses offline
+        run: python examples/cad-handoff/qualification/check_diagnosis4.py
       - name: Verify frozen first-use session evidence without model calls
         run: python -S examples/agent-rehearsal/recheck.py
       - name: Check linked public-maintenance relationship controls without downloads

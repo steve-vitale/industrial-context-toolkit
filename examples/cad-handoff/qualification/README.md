@@ -47,6 +47,13 @@ receipts describe the actual runs; the offline replay maps them to the retained 
 | Actual native UI | **Unproved.** Accessibility text shows startup/trial-expiry dialogs; two fresh window-capture attempts time out. No successful drawing edit/save/close/reopen was observed. See [the observation](UI-OBSERVATION-20261107.json). |
 | Engineering/plant acceptance | Not established. No plant data, operator review, timing, live platform import or company authority is inferred. |
 
+The later [layout diagnosis](diagnosis-4/README.md) confirms that the five blank authored layouts contain
+viewports in the sources, but the native importer exposes empty layout blocks and native returns lose the original
+viewport settings. Six predeclared working-copy controls isolate a main-viewport compatibility dependency on one
+exposed source. Adding one makes the drawing visible; that deliberate source revision is not a byte-preserving
+candidate or a new qualification pass. Translated long-label renders still suffer trial-mark overlap. A fresh
+UI restart still fails capture/indexed input. All original failures and frozen sources/methods remain unchanged.
+
 ## How the method was kept separate from validation
 
 The [original protocol](PROTOCOL.md) defines acceptance before development. [Round 1](round-1/README.md) keeps

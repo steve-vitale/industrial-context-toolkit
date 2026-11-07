@@ -1,0 +1,25 @@
+{
+  "role": "Agent observation record, not a screenshot/tool-generated acceptance receipt",
+  "app": "QCAD Professional Trial 3.33.1 Qt 5.13.2",
+  "old_returned_window_id": 14746660,
+  "new_returned_window_id": 429395364,
+  "actions": [
+    "Return to observed expired dialog; old window subsequently absent",
+    "Launch same pre-existing app; new window returned",
+    "Return at enabled startup dialog; subsequent text state still shows dialog",
+    "Raise observed startup dialog; focus remains General Properties Handle",
+    "Click fresh observed button 6; failed",
+    "Fresh text reobservation and click retry; same failure"
+  ],
+  "capture_errors": [
+    "window capture timed out: timed out waiting on channel",
+    "window capture timed out: timed out waiting on channel"
+  ],
+  "click_errors": [
+    "element 6 is not available in cached app state for qcad.exe",
+    "element 6 is not available in cached app state for qcad.exe"
+  ],
+  "final_observation": "Startup Trial dialog remains; focus General Properties Handle; no document open/save observed",
+  "screenshots_available": 0,
+  "qualification": "UI edit/save/close/reopen unproved; no locked desktop/security change observed; no authentication, license or privacy settings changed"
+}

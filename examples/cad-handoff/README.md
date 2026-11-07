@@ -85,6 +85,8 @@ are refused. It does not import or silently merge a native editor's other change
 
 The original saved example uses the ezdxf writer/reader. The later [qualification work](qualification/README.md)
 adds exact-byte candidates, matched baselines, QCAD native-engine edits and fresh-process stored-text readbacks.
+The [layout diagnosis](qualification/diagnosis-4/README.md) also retains real viewport-settings loss in native
+returns: exact source-preserving bytes alone do not establish that a receiver can interpret every layout.
 **No successful interactive native CAD open/edit/save/close/reopen is claimed.** Use
 [the receiving checklist](RECEIVING_CHECK.md) in the actual target. Save the returned DXF, then run `compare`.
 The [LibreCAD native-render attempt](NATIVE_ATTEMPT.md) retains its partial result and GUI automation failure;

@@ -1,0 +1,38 @@
+{
+  "role": "Agent-reviewed exposed diagnostic observations; not independent engineering approval",
+  "reviewed_images": [
+    "layout-activate-only.png",
+    "layout-add-main-restore-current.png",
+    "layout-add-main.png",
+    "layout-library-save.png",
+    "layout-original.png",
+    "layout-set-current-only.png",
+    "long-+0.28-candidate.png",
+    "long-+0.28-source.png",
+    "long--0.28-candidate.png",
+    "long--0.28-source.png"
+  ],
+  "source_candidate_probe_cases": 12,
+  "authored_missing_viewport_cases": 5,
+  "predeclared_hypotheses": 6,
+  "native_render_commands": 10,
+  "all_command_exits_zero": true,
+  "all_input_hashes_unchanged": true,
+  "image_diagnostics": {
+    "layout_RGB_equal_to_original": {
+      "layout-activate-only": true,
+      "layout-add-main-restore-current": false,
+      "layout-add-main": false,
+      "layout-library-save": true,
+      "layout-original": true,
+      "layout-set-current-only": true
+    },
+    "two_main_variants_RGB_identical": true
+  },
+  "visual_findings": [
+    "All six paper images directly inspected: only both added-main variants show the drawing through the viewport; the other four remain blank apart from a trial-mark fragment.",
+    "All four translated long-label native images directly inspected: planned A/B values are visible in part, but the same trial mark overlaps both positions.",
+    "Pre-substitution native bounds do not guarantee substituted Arial glyph containment; candidate reaches right frame edge. No complete readable label pass."
+  ],
+  "conclusion": "Main-viewport dependency isolated among tested revisions of one exposed source. Original cohort unchanged; full native visual/UI qualification remains incomplete. No installed/engineering/company acceptance."
+}
