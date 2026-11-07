@@ -1,0 +1,19 @@
+{
+  "schema": "cad-exchange-six-freeze-1",
+  "input_commit": "179c32d",
+  "exposure": "Fresh same-author procedural inputs committed before method; not independent plants or blind model testing",
+  "methods": {
+    "scripts/cad_exchange.py": "a64a9adfb1329de3167dc700a7034ebac9a10c42176189eb61dab13a8c758c0d",
+    "scripts/test_cad_exchange.py": "6cefdbfb8bef36d9485681354beb8d3585e54dc20f27e1311e7143be2da08cbc",
+    "scripts/cad_value_patch.py": "174d66f36befc2ee3b12cef769badecf9927b1705419f9ecf9238e4e9c610a04",
+    "scripts/cad_handoff.py": "70ad396dbcadf89741da6e1d017944e42f6fb2804e272b3cc5ee7f5eabbf6d30",
+    "examples/cad-handoff/qualification/verify_bytes.py": "606cf310be4637bec2663b39c1001ca3d7668af7316aaa2fc7cbd571e0b0cd52",
+    "examples/cad-handoff/qualification/run_exchange6.py": "dd3e9f04fd7cbb773a5d046c5e8cb0dd021c1846b8064a668b9026b5a21e9b10",
+    "examples/cad-handoff/qualification/check_exchange6.py": "799a2cb6e79900814c5c54a88a7250ead9d8a203f323e5b07cad95ef73e16e3e",
+    "examples/cad-handoff/qualification/EXCHANGE-6-PLAN.md": "bdf76bbb95eaa63bc1789c0899d33a62fa111cc09886f2f63688ba5745a028ae",
+    "examples/cad-handoff/qualification/exchange-6/INPUTS.json": "31375099add5a6cda8cbfa90c4d94013c17a976daef515105ecb67260e5bebc6"
+  },
+  "prior_method_freeze": "da9f427:examples/cad-handoff/qualification/EXCHANGE-6-FREEZE.json",
+  "repair": "Only raw library-baseline capture changed after the retained case-1 wrapper refusal; tool, comparator, keys and all other methods unchanged",
+  "evidence_check_update": "After the complete cohort: extend checker to retained browser downloads/sample HTML and exact per-case totals; verify temporary cleanup targets. Exchange implementation, comparator, writer, sources and keys remain frozen at da9f427."
+}

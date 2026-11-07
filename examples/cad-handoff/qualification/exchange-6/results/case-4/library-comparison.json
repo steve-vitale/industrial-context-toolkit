@@ -1,0 +1,39 @@
+{
+  "schema": "cad-comparison-1",
+  "before_sha256": "4b7b4c72f3ab68fd58673eb3a2567835baabc77751bf03df4b5ab0a6ed1c0a77",
+  "after_sha256": "acd03bfd2faf346de16fa9153a9826628647250a6dbcb410655c02f7a1224604",
+  "status": "pass",
+  "expected_edits": [
+    {
+      "id": "EX6/4/asset-0",
+      "attribute": "MODEL",
+      "before": "Pump-0-old",
+      "after": "Pump-0-new",
+      "reason": "Authored procedural replacement note; not installed-state evidence"
+    },
+    {
+      "id": "EX6/4/asset-1",
+      "attribute": "MODEL",
+      "before": "Pump-1-old",
+      "after": "Pump-1-new",
+      "reason": "Authored procedural replacement note; not installed-state evidence"
+    },
+    {
+      "id": "EX6/4/asset-2",
+      "attribute": "MODEL",
+      "before": "Pump-2-old",
+      "after": "Pump-2-new",
+      "reason": "Authored procedural replacement note; not installed-state evidence"
+    },
+    {
+      "id": "EX6/4/asset-1",
+      "attribute": "TAG",
+      "before": "FV-641",
+      "after": "FV-641A",
+      "reason": "Authored tag revision, same explicit stable ID"
+    }
+  ],
+  "unexpected": [],
+  "save_metadata_changed": true,
+  "boundary": "All ezdxf-exported entity tags including block definitions, attributes, layers and objects; all headers except listed save metadata and the two named EZDXF_META writer values. Same handles required. This is not a byte-identical DXF or proprietary project database/visual/engineering acceptance."
+}

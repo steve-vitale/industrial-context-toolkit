@@ -158,6 +158,12 @@ screens, tours or isolation mockups for a new plant.
 It retains the original, compares a proposed attribute edit on readback and emits unverified attribute context
 (`cad-context-1`) and candidate CSV. These are not native DWG/intelligent-P&ID project exports.
 
+For existing equipment-data corrections, `cad_exchange.py prepare` emits an immutable DXF plus complete catalog
+and local review form; `apply` accepts source/catalog-bound JSON proposals and uses `cad_value_patch.py` to
+preserve all bytes outside declared attribute spans. The [data review guide](../examples/cad-handoff/data-review/README.md)
+has the agent/browser commands. A native CAD UI is not required for this metadata operation. Native visual,
+interactive drafting and full-save acceptance remain separate claims; full returned DXFs are not imported here.
+
 The tutorial's explicit identity mapping projects the packet to a draft `one-map-sheet-1` with drawing-reference
 attributes. Normal `one_map.py build` and `changes` then produce before/proposed `twin-graph-2` snapshots and a
 revision report at the same mapped position. CAD attributes remain prefixed `cad_`, unverified and sourced;

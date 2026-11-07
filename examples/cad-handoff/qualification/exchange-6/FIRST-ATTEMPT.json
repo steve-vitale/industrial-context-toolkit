@@ -1,0 +1,12 @@
+{
+  "schema": "cad-exchange-six-first-attempt-1",
+  "method_commit": "da9f427",
+  "command": "python examples/cad-handoff/qualification/run_exchange6.py --out examples/cad-handoff/qualification/exchange-6/results",
+  "exit_code": 1,
+  "observed": "case-1 sidecar emitted one draft edit with zero unexpected strict differences; the library baseline wrapper then refused its R12 save before returning a packet",
+  "error": "cad_handoff.InputError: Candidate changes more than the declared attributes; no packet written",
+  "cause": "The runner incorrectly used the protective library proposal wrapper to collect a known-failing full-save baseline. Its refusal is correct; the baseline harness must retain the raw library save and compare it separately.",
+  "retained_outputs": "No results directory was published; private temporary outputs were cleaned by the runner on failure. This receipt retains the actual failure, not a recovered raw candidate.",
+  "exposure": "case-1 outcome is now exposed; the remaining five were not executed. Complete cohort will be reported as procedural/development validation, not held-out testing.",
+  "repair_boundary": "Change only the baseline harness; retain frozen exchange tool, source-preserving writer, comparator, inputs and expected keys unchanged. No exception or metric threshold is relaxed."
+}

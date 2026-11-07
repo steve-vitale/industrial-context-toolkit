@@ -1,0 +1,73 @@
+{
+  "schema": "cad-exchange-map-replay-1",
+  "commands": [
+    {
+      "argv": [
+        "python",
+        "examples/cad-handoff/project_to_map.py",
+        "examples/cad-handoff/worked",
+        "examples/cad-handoff/source/site-mapping.json",
+        "--out",
+        "out/cad-exchange-browser-map-before"
+      ],
+      "returncode": 0,
+      "stdout": "Draft CAD reference projection -> out/cad-exchange-browser-map-before\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python",
+        "examples/cad-handoff/project_to_map.py",
+        "out/cad-exchange-browser-return/candidate-context",
+        "examples/cad-handoff/source/site-mapping.json",
+        "--out",
+        "out/cad-exchange-browser-map-after"
+      ],
+      "returncode": 0,
+      "stdout": "Draft CAD reference projection -> out/cad-exchange-browser-map-after\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python",
+        "scripts/one_map.py",
+        "build",
+        "out/cad-exchange-browser-map-before/site.json",
+        "--out",
+        "out/cad-exchange-browser-map-before/map"
+      ],
+      "returncode": 0,
+      "stdout": "{\"nodes\": 5, \"edges\": 4, \"claims\": 8, \"conflicts\": 0, \"questions\": 0, \"events\": 0} rebuilt 1 reused 0 sheet(s); 1 queue rows; 0 reopened -> out/cad-exchange-browser-map-before/map\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python",
+        "scripts/one_map.py",
+        "build",
+        "out/cad-exchange-browser-map-after/site.json",
+        "--out",
+        "out/cad-exchange-browser-map-after/map"
+      ],
+      "returncode": 0,
+      "stdout": "{\"nodes\": 5, \"edges\": 4, \"claims\": 8, \"conflicts\": 0, \"questions\": 0, \"events\": 0} rebuilt 1 reused 0 sheet(s); 1 queue rows; 0 reopened -> out/cad-exchange-browser-map-after/map\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python",
+        "scripts/one_map.py",
+        "changes",
+        "out/cad-exchange-browser-map-before/map/graph.json",
+        "out/cad-exchange-browser-map-after/map/graph.json",
+        "--out",
+        "out/cad-exchange-browser-map-changes"
+      ],
+      "returncode": 0,
+      "stdout": "{\"items\": {\"added\": 0, \"removed\": 0, \"changed\": 1}, \"links\": {\"added\": 0, \"removed\": 0}, \"records\": {\"added\": 0, \"removed\": 0, \"changed\": 0}, \"documents\": {\"added\": 0, \"removed\": 0, \"changed\": 1}, \"conflicts\": {\"added\": 0, \"removed\": 0, \"changed\": 0}, \"expectations\": {\"added\": 0, \"removed\": 0, \"changed\": 0}} -> out/cad-exchange-browser-map-changes/changes.md, out/cad-exchange-browser-map-changes/changes.json\n",
+      "stderr": ""
+    }
+  ],
+  "map_changes_sha256": "bc283f4bd9c6c450887fbba08330e33e2751a03b4aff6a7e3529ec08b8f8bfb6",
+  "scope": "Same explicit mapped position; draft cad_ drawing attributes only, no installed authority or inferred connectivity"
+}

@@ -1,0 +1,73 @@
+{
+  "schema": "cad-exchange-six-inputs-1",
+  "cases": [
+    {
+      "id": "case-1",
+      "source": "inputs/case-1/source.dxf",
+      "source_sha256": "ca3c9e28f317d2b5571476b9acfbe9bf03a04e95dbcf6312e52601e926146a15",
+      "plan": "inputs/case-1/expected-plan.json",
+      "plan_sha256": "1d8f26b20282dac52d6fab0dae3ec8dcf166e94b4f222c0fe16d950ceb20731d",
+      "version": "R12",
+      "encoding": "cp1252",
+      "line_endings": "CRLF",
+      "assets": 1
+    },
+    {
+      "id": "case-2",
+      "source": "inputs/case-2/source.dxf",
+      "source_sha256": "af0cec01da57e20099d9cea3a5c46cf00de3f1ebc71c51cabb4e62920504c291",
+      "plan": "inputs/case-2/expected-plan.json",
+      "plan_sha256": "f3307eaf7f31052f9e6552b6abd1aac4c122ac1435a80b0679e2e80ce999335a",
+      "version": "R2000",
+      "encoding": "cp1252",
+      "line_endings": "LF",
+      "assets": 2
+    },
+    {
+      "id": "case-3",
+      "source": "inputs/case-3/source.dxf",
+      "source_sha256": "fbdb43fe76c9f0403de2ce255efe61db5da3cfd9bfee2803ad2ef68a695cb856",
+      "plan": "inputs/case-3/expected-plan.json",
+      "plan_sha256": "647d372666114169acf4f3a5de873952e6873fdde28752018a620acbb0649536",
+      "version": "R2004",
+      "encoding": "cp1251",
+      "line_endings": "CRLF",
+      "assets": 1
+    },
+    {
+      "id": "case-4",
+      "source": "inputs/case-4/source.dxf",
+      "source_sha256": "4b7b4c72f3ab68fd58673eb3a2567835baabc77751bf03df4b5ab0a6ed1c0a77",
+      "plan": "inputs/case-4/expected-plan.json",
+      "plan_sha256": "5426d6e9d2a666f3e6d4256b1bccb70cfb52ded2435f684345d515dd2856321b",
+      "version": "R2007",
+      "encoding": "utf-8",
+      "line_endings": "LF",
+      "assets": 3
+    },
+    {
+      "id": "case-5",
+      "source": "inputs/case-5/source.dxf",
+      "source_sha256": "63effb69e36924dc793ed031fe4562c4ec508041a2279fa2039a25c2e3a8bed1",
+      "plan": "inputs/case-5/expected-plan.json",
+      "plan_sha256": "90ff8cdc83193eb4cc7e086096c05445ea95a5b5eae334e8102acfd3b2a8fd60",
+      "version": "R2013",
+      "encoding": "utf-8",
+      "line_endings": "CRLF",
+      "assets": 1
+    },
+    {
+      "id": "case-6",
+      "source": "inputs/case-6/source.dxf",
+      "source_sha256": "33739d707396cabec6bb984cb0b6dc2f1a9a856b52bfdb13f89261e31a74a259",
+      "plan": "inputs/case-6/expected-plan.json",
+      "plan_sha256": "0b2697b729a957f35e1d22242f019f1734feaa0192f3833efede7caf16773605",
+      "version": "R2018",
+      "encoding": "utf-8",
+      "line_endings": "LF",
+      "assets": 1
+    }
+  ],
+  "provenance": "Six newly authored same-agent procedural cases, not real plants or blind model tests",
+  "recipe": "examples/cad-handoff/qualification/make_exchange6.py; ezdxf 1.4.5"
+}

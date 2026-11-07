@@ -1,0 +1,18 @@
+{
+  "schema": "cad-comparison-1",
+  "before_sha256": "fbdb43fe76c9f0403de2ce255efe61db5da3cfd9bfee2803ad2ef68a695cb856",
+  "after_sha256": "abfed129f34fdb321883029284e4f59d20dc1183bcbaffa9c93cb696c30c1d2d",
+  "status": "pass",
+  "expected_edits": [
+    {
+      "id": "EX6/3/asset-0",
+      "attribute": "MODEL",
+      "before": "Насос-0-old",
+      "after": "Модель-новая",
+      "reason": "Authored procedural replacement note; not installed-state evidence"
+    }
+  ],
+  "unexpected": [],
+  "save_metadata_changed": false,
+  "boundary": "All ezdxf-exported entity tags including block definitions, attributes, layers and objects; all headers except listed save metadata and the two named EZDXF_META writer values. Same handles required. This is not a byte-identical DXF or proprietary project database/visual/engineering acceptance."
+}

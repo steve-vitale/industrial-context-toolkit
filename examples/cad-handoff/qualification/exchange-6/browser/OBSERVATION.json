@@ -1,0 +1,99 @@
+{
+  "schema": "cad-exchange-browser-observation-1",
+  "date": "2026-11-07",
+  "method_commit": "0915eaf",
+  "browser": "Chromium 157.0.8103.38, Playwright connector",
+  "route": "Existing fictional valve fixture; generated local form served on 127.0.0.1:8796; no plant systems",
+  "observed": [
+    "Empty form download refused with No changed values",
+    "Changed MODEL without reason refused",
+    "ICT_ID and VENDOR_NOTE read-only; MODEL/SERIAL/SIZE/TAG editable",
+    "MODEL SRC-2 to SRC-3, SERIAL UNKNOWN to AV-88412, SIZE DN50 to DN65 with fictional reason",
+    "Actual cad-response.json downloaded and exact original bytes supplied to CLI",
+    "Three edits applied; unchanged strict comparison and independent byte reconstruction pass",
+    "Prepared fresh form on candidate; closed browser tab; normal navigation after close reopened form with SRC-3/AV-88412/DN65 and unchanged foreign field",
+    "390px and 1200px widths have no horizontal page overflow",
+    "Case-6 source contains script-closing img/event payload; remained literal read-only text, zero img elements, globalThis.injected absent",
+    "190-character changed value downloaded and applied with independent byte reconstruction pass",
+    "Instrumented case-6 reload/download observed only its loopback HTML request; no source-triggered external requests",
+    "Directly inspected hostile-mobile.png; no drawing-rendering claim"
+  ],
+  "tool_failures_retained": [
+    "file: navigation blocked by browser connector; subsequent hostile-field lookup timed out because previous valve page remained. No file: operation claimed.",
+    "Explicit new-tab API failed after successful tab close; subsequent lookup timed out on empty page. Normal browser_navigate then reopened candidate form successfully."
+  ],
+  "valve_byte_check": {
+    "status": "pass",
+    "values": 3,
+    "unplanned_byte_changes": 0,
+    "source_sha256": "c64f5ac8f53f7f35ed0f119abdc28c1e11eb5c7cc28011ddaf079940cfee2b7d",
+    "candidate_sha256": "f9a3dd8ffee4dde6d7a1026370774bbcab2c955746fab72cf9f11721f4fed88a",
+    "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+    "review": "same-author software check; not independent engineering review"
+  },
+  "hostile_byte_check": {
+    "status": "pass",
+    "values": 1,
+    "unplanned_byte_changes": 0,
+    "source_sha256": "33739d707396cabec6bb984cb0b6dc2f1a9a856b52bfdb13f89261e31a74a259",
+    "candidate_sha256": "c0ee09982636654ba69386b6afaea814018c57c2687bb6d5c5b379915810d0d7",
+    "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+    "review": "same-author software check; not independent engineering review"
+  },
+  "files": {
+    "hostile-candidate.dxf": {
+      "bytes": 18904,
+      "sha256": "c0ee09982636654ba69386b6afaea814018c57c2687bb6d5c5b379915810d0d7"
+    },
+    "hostile-exchange-receipt.json": {
+      "bytes": 791,
+      "sha256": "a1679156e86f2a133a6fe92205bd0cb98f6faf390ad33e68920655ba5dc137ad"
+    },
+    "hostile-mobile.png": {
+      "bytes": 96367,
+      "sha256": "3ca75812a6e31c16274f5d0dad81b446e27ceac9e14ae33c6971d330fa939881"
+    },
+    "hostile-plan.json": {
+      "bytes": 534,
+      "sha256": "0b2697b729a957f35e1d22242f019f1734feaa0192f3833efede7caf16773605"
+    },
+    "hostile-response-original.json": {
+      "bytes": 627,
+      "sha256": "fcec8ceb2efe3c32536d08a11956ec2b8fbfe6f395e81506f27b75c56e4d4313"
+    },
+    "map-changes.json": {
+      "bytes": 3138,
+      "sha256": "bc283f4bd9c6c450887fbba08330e33e2751a03b4aff6a7e3529ec08b8f8bfb6"
+    },
+    "MAP-REPLAY.json": {
+      "bytes": 2875,
+      "sha256": "1672e754eb7ede20b7c9ae0b46afe1c075abe1a9a7e2f14dd219f652c556d729"
+    },
+    "mobile.png": {
+      "bytes": 72508,
+      "sha256": "2cab7f151c8344838faa729aac50885ee8ee9d3e74c6772b053394791910249b"
+    },
+    "response-original.json": {
+      "bytes": 869,
+      "sha256": "8744bb82c88ec1bce672aac104eb3405969d56e931c318de881ea4a6172096b5"
+    },
+    "valve-candidate.dxf": {
+      "bytes": 20312,
+      "sha256": "f9a3dd8ffee4dde6d7a1026370774bbcab2c955746fab72cf9f11721f4fed88a"
+    },
+    "valve-exchange-receipt.json": {
+      "bytes": 791,
+      "sha256": "6c65480387cbf10414ddb5246f8fb414264f92da978887415b294fb39a01ef00"
+    },
+    "valve-plan.json": {
+      "bytes": 776,
+      "sha256": "d028c869e5f99ef946a259a0ceccfbff1556d572552d7ea4adf088527c35238c"
+    }
+  },
+  "limits": [
+    "One browser build and two authored fixtures; no human timing or adoption study",
+    "Interactive browser observation retained; offline CI replays downloaded proposals rather than launching a browser",
+    "Native CAD UI and CAD visual/editability/full-save acceptance remain unproved",
+    "Supplied reasons are not authenticated approval; data remain engineering drafts"
+  ]
+}

@@ -8,6 +8,11 @@ it does not establish native GUI or engineering acceptance, DWG or an intelligen
 
 ## Try the saved fixture
 
+For equipment-data review with an agent or local browser, use the [source-bound data review](data-review/README.md).
+It prepares a catalog/form and accepts returned JSON proposals without a full CAD save. A native CAD UI is
+needed to establish interactive drafting in that editor, but does not block this metadata-only operation.
+Its [separate acceptance and evidence](qualification/exchange-6/README.md) preserve all earlier native failures.
+
 Python 3.10+ and `pip install -r requirements.txt` (includes ezdxf 1.4.5). No network is used by these commands.
 Run from the repository root, with unused output destinations:
 

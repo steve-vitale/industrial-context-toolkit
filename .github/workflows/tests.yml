@@ -40,6 +40,8 @@ jobs:
         run: python examples/cad-handoff/qualification/check_diagnosis4.py
       - name: Recheck native record correspondence without waiving strict differences
         run: python examples/cad-handoff/qualification/check_correspondence5.py
+      - name: Rebuild equipment-data sidecars and replay browser downloads without a CAD UI
+        run: python examples/cad-handoff/qualification/check_exchange6.py
       - name: Verify frozen first-use session evidence without model calls
         run: python -S examples/agent-rehearsal/recheck.py
       - name: Check linked public-maintenance relationship controls without downloads

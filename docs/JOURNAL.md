@@ -8216,3 +8216,55 @@ stored a 1,140,911-byte ZIP, while the original remained 1,140,924 bytes with it
 CAD text rule normalized thirteen CRLF sequences. A binary ZIP override and forced re-add restore the original
 bytes; no report, oracle, method or result changes. Both hashes/sizes and the failed commit are retained in the
 checkout recovery record. The staged/committed ZIP is checked against its pin before publication.
+
+## 187. Separate equipment-data exchange from native CAD drafting
+
+Steve challenged why a native CAD UI should block the work and requested new designs. The UI gate proves
+interactive behavior in a receiving editor; it is not necessary for a source-preserving equipment-data operation.
+The original protocol and every native failure remain records. A separate predeclared contract selects immutable
+DXF plus source-bound attribute sidecar/form. Native-return-as-proposals is deferred because it needs an explicit
+contract for other intentional edits; generating a new drawing is a different existing route, not preservation.
+
+Commit 179c32d freezes acceptance and six fresh same-author procedural sources/keys before implementation.
+da9f427 freezes the exchange implementation, controls and runner before execution. The first attempt produces
+one strict-zero R12 sidecar edit, then stops when the protective library wrapper correctly refuses its baseline.
+The failure receipt discloses that private temporary artifacts were cleaned, not recovered. 0915eaf corrects
+only baseline capture to retain raw saves; no exchange tool, comparator, writer, input or key changes. Case 1 is
+exposed; all six are software/development validation, not independent plants or blind model tests.
+
+All six complete cases, nine assets and ten edits have zero unexpected strict differences and independent
+source-plus-plan reconstruction passes. R12 through R2018, LF/CRLF, cp1251/UTF-8, transformed/multiple blocks,
+paper viewport/label, foreign fields and XDATA are covered. The matched library saves all fail raw reconstruction;
+R12 has 77 strict rows and five others have zero decoded strict rows. Complete candidates, library baselines,
+comparisons, responses and source/key hashes are retained. No native full-save failure is resolved by this design.
+
+The reusable prepare/apply tool regenerates the complete catalog from the current source, validates source and
+catalog bindings and explicit before/after/reason fields, then uses the unchanged value-span writer. It retains
+exact original returned JSON bytes as well as normalized proposal, source, catalog, plan, candidate and sourced
+draft context. Existing destinations, malformed/extra/duplicate/unknown/identity/foreign edits, stale and competing
+revisions, binary/unprofiled input, multiline and overlong values refuse. Nine focused tests also exercise actual
+CLI application and geometry/layer/foreign/XDATA loss through the strict and separate byte checks.
+
+An actual local browser form downloads three proposed valve edits; that exact download goes through the CLI,
+independent reconstruction and a freshly prepared form showing SRC-3, AV-88412 and DN65. Empty/missing-reason
+forms refuse. Identity/foreign fields are read-only. A second authored form preserves hostile script-closing text
+literally without image creation or execution; a 190-character changed value downloads/applies correctly. At
+390/1200 pixels there is no horizontal page overflow. A mobile screenshot was directly inspected. Instrumented
+case-6 reload/download requests only its loopback HTML. No CAD geometry/layout appearance was tested by this form.
+
+The connector blocks file: navigation; the following field lookup therefore times out on the earlier page.
+Tab close succeeds but explicit new-tab creation fails and a following lookup times out. Ordinary browser
+navigation then creates/reopens the candidate form successfully. These tool failures remain in the browser receipt;
+the documented verified route is loopback HTTP. No authentication/license/permission change, CAD UI or plant access.
+
+Five actual existing projection/build/change CLIs carry the response to the same fictional valve map position.
+Only proposed cad_model/cad_serial/cad_size and source revision change; no installed authority or pipe links are
+inferred. The map report and command receipt are retained. Existing 21 source-preserving candidates, 42 native
+failures and frozen method bindings remain unchanged. The original native UI/visual/full-save qualification is
+still incomplete; the separate bounded metadata exchange is useful without it.
+
+Offline checking reconstructs all six candidates, re-scores retained baselines, regenerates the sample form and
+replays both downloaded browser responses against saved returned files. It does not launch a browser or native
+CAD. Method-binding/evidence checks were extended after execution without changing the exchange implementation.
+The agent guide, supported workflows, status, script and feature catalogs now route this job to the new tool;
+CAD still has no independent engineering review. Exact-head CI remains the integration gate.

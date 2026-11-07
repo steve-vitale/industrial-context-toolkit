@@ -1,0 +1,124 @@
+{
+  "schema": "cad-exchange-six-results-1",
+  "cases": [
+    {
+      "id": "case-1",
+      "source_sha256": "ca3c9e28f317d2b5571476b9acfbe9bf03a04e95dbcf6312e52601e926146a15",
+      "candidate_sha256": "6af58ee2e3058e152796d565cb732e6a8e2e55b8b9f6ec159ab69fcb90fd16c2",
+      "assets": 1,
+      "edits": 1,
+      "sidecar_strict_differences": 0,
+      "byte_check": {
+        "status": "pass",
+        "values": 1,
+        "unplanned_byte_changes": 0,
+        "source_sha256": "ca3c9e28f317d2b5571476b9acfbe9bf03a04e95dbcf6312e52601e926146a15",
+        "candidate_sha256": "6af58ee2e3058e152796d565cb732e6a8e2e55b8b9f6ec159ab69fcb90fd16c2",
+        "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+        "review": "same-author software check; not independent engineering review"
+      },
+      "library_strict_differences": 77,
+      "library_byte_check": "different bytes"
+    },
+    {
+      "id": "case-2",
+      "source_sha256": "af0cec01da57e20099d9cea3a5c46cf00de3f1ebc71c51cabb4e62920504c291",
+      "candidate_sha256": "9bd2540a954a7c3023c93805ad7e77790b9554175fcd15c68ab82118f4d864f9",
+      "assets": 2,
+      "edits": 2,
+      "sidecar_strict_differences": 0,
+      "byte_check": {
+        "status": "pass",
+        "values": 2,
+        "unplanned_byte_changes": 0,
+        "source_sha256": "af0cec01da57e20099d9cea3a5c46cf00de3f1ebc71c51cabb4e62920504c291",
+        "candidate_sha256": "9bd2540a954a7c3023c93805ad7e77790b9554175fcd15c68ab82118f4d864f9",
+        "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+        "review": "same-author software check; not independent engineering review"
+      },
+      "library_strict_differences": 0,
+      "library_byte_check": "different bytes"
+    },
+    {
+      "id": "case-3",
+      "source_sha256": "fbdb43fe76c9f0403de2ce255efe61db5da3cfd9bfee2803ad2ef68a695cb856",
+      "candidate_sha256": "abfed129f34fdb321883029284e4f59d20dc1183bcbaffa9c93cb696c30c1d2d",
+      "assets": 1,
+      "edits": 1,
+      "sidecar_strict_differences": 0,
+      "byte_check": {
+        "status": "pass",
+        "values": 1,
+        "unplanned_byte_changes": 0,
+        "source_sha256": "fbdb43fe76c9f0403de2ce255efe61db5da3cfd9bfee2803ad2ef68a695cb856",
+        "candidate_sha256": "abfed129f34fdb321883029284e4f59d20dc1183bcbaffa9c93cb696c30c1d2d",
+        "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+        "review": "same-author software check; not independent engineering review"
+      },
+      "library_strict_differences": 0,
+      "library_byte_check": "different bytes"
+    },
+    {
+      "id": "case-4",
+      "source_sha256": "4b7b4c72f3ab68fd58673eb3a2567835baabc77751bf03df4b5ab0a6ed1c0a77",
+      "candidate_sha256": "0e42cdbc9d8f9c15c7adc4f3e1e91042727d5ff805fa7de0b2219dab2c8867d0",
+      "assets": 3,
+      "edits": 4,
+      "sidecar_strict_differences": 0,
+      "byte_check": {
+        "status": "pass",
+        "values": 4,
+        "unplanned_byte_changes": 0,
+        "source_sha256": "4b7b4c72f3ab68fd58673eb3a2567835baabc77751bf03df4b5ab0a6ed1c0a77",
+        "candidate_sha256": "0e42cdbc9d8f9c15c7adc4f3e1e91042727d5ff805fa7de0b2219dab2c8867d0",
+        "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+        "review": "same-author software check; not independent engineering review"
+      },
+      "library_strict_differences": 0,
+      "library_byte_check": "different bytes"
+    },
+    {
+      "id": "case-5",
+      "source_sha256": "63effb69e36924dc793ed031fe4562c4ec508041a2279fa2039a25c2e3a8bed1",
+      "candidate_sha256": "de2c93ceee5f9180d16cf6d45e4a0ef11886da6804dd93aef5aec79e15d6707e",
+      "assets": 1,
+      "edits": 1,
+      "sidecar_strict_differences": 0,
+      "byte_check": {
+        "status": "pass",
+        "values": 1,
+        "unplanned_byte_changes": 0,
+        "source_sha256": "63effb69e36924dc793ed031fe4562c4ec508041a2279fa2039a25c2e3a8bed1",
+        "candidate_sha256": "de2c93ceee5f9180d16cf6d45e4a0ef11886da6804dd93aef5aec79e15d6707e",
+        "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+        "review": "same-author software check; not independent engineering review"
+      },
+      "library_strict_differences": 0,
+      "library_byte_check": "different bytes"
+    },
+    {
+      "id": "case-6",
+      "source_sha256": "33739d707396cabec6bb984cb0b6dc2f1a9a856b52bfdb13f89261e31a74a259",
+      "candidate_sha256": "c0ee09982636654ba69386b6afaea814018c57c2687bb6d5c5b379915810d0d7",
+      "assets": 1,
+      "edits": 1,
+      "sidecar_strict_differences": 0,
+      "byte_check": {
+        "status": "pass",
+        "values": 1,
+        "unplanned_byte_changes": 0,
+        "source_sha256": "33739d707396cabec6bb984cb0b6dc2f1a9a856b52bfdb13f89261e31a74a259",
+        "candidate_sha256": "c0ee09982636654ba69386b6afaea814018c57c2687bb6d5c5b379915810d0d7",
+        "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+        "review": "same-author software check; not independent engineering review"
+      },
+      "library_strict_differences": 0,
+      "library_byte_check": "different bytes"
+    }
+  ],
+  "cases_total": 6,
+  "assets_total": 9,
+  "edits_total": 10,
+  "source_preservation_passes": 6,
+  "scope": "Same-author procedural equipment-data exchange; not native UI, visual or engineering acceptance"
+}

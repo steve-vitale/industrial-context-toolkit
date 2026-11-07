@@ -13,6 +13,12 @@ other edits require review; the value patcher does not silently discard or merge
 
 ## Reproduce the evidence offline
 
+**A different operation is available without a CAD UI:** the [equipment-data sidecar route](../data-review/README.md)
+keeps the DXF intact, reviews existing attributes in a local form or agent-readable catalog and applies a returned
+JSON proposal through the unchanged byte-preserving writer. Its [separate six-case qualification](exchange-6/README.md)
+includes actual browser downloads and revision checks. It does not retroactively pass the original native UI,
+rendering or full-save requirements. Those requirements matter when promising behavior in the receiving CAD editor.
+
 From the repository root, with Python 3.10+ and the pinned `ezdxf==1.4.5` in `requirements.txt`:
 
 ```sh

@@ -16,6 +16,11 @@ its own reload. The installed LibreCAD route and QCAD native-engine partial resu
 and refuses to equate flattened text with retained attributes. Continue with the exact receiving checklist when
 a usable receiver is available. No new license, plant access or employee tester is required for the first three.
 
+For a different job, the [source-bound equipment-data review](../examples/cad-handoff/data-review/README.md)
+now works without a native CAD UI: a local form or agent returns proposed existing-attribute changes, and the
+source-preserving writer changes only their raw value spans. The separate six-case and browser-download evidence
+qualifies that metadata operation. It does not close this native receiving-editor gap or import geometry edits.
+
 The next depth work that can be done without people is more reserved unfamiliar export cases, repeated fresh-agent
 sessions with declared exposure, and actual receiving-editor regression fixtures. Keep them distinct from a manager
 trial. Human effort, company-source authority, accepted corrections and product demand require actual observations.

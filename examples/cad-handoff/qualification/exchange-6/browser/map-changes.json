@@ -1,0 +1,127 @@
+{
+ "schema": "one-map-changes-1",
+ "site": "S1",
+ "title": "Fictional CAD handoff reference",
+ "old": "out/cad-exchange-browser-map-before/map/graph.json",
+ "new": "out/cad-exchange-browser-map-after/map/graph.json",
+ "filter": null,
+ "items": {
+  "added": [],
+  "removed": [],
+  "changed": [
+   {
+    "id": "S1/P1/PAST1/FDV-2210",
+    "tag": "FDV-2210",
+    "kind": "instrument",
+    "owner": "Engineering",
+    "flags": [],
+    "changes": [
+     {
+      "what": "attribute cad_model",
+      "old": "SRC-2 (S1/DOC/PID-P1-CAD-FDV)",
+      "new": "SRC-3 (S1/DOC/PID-P1-CAD-FDV)"
+     },
+     {
+      "what": "attribute cad_serial",
+      "old": "UNKNOWN (S1/DOC/PID-P1-CAD-FDV)",
+      "new": "AV-88412 (S1/DOC/PID-P1-CAD-FDV)"
+     },
+     {
+      "what": "attribute cad_size",
+      "old": "DN50 (S1/DOC/PID-P1-CAD-FDV)",
+      "new": "DN65 (S1/DOC/PID-P1-CAD-FDV)"
+     },
+     {
+      "what": "attribute cad_source_sha256",
+      "old": "c64f5ac8f53f7f35ed0f119abdc28c1e11eb5c7cc28011ddaf079940cfee2b7d (S1/DOC/PID-P1-CAD-FDV)",
+      "new": "f9a3dd8ffee4dde6d7a1026370774bbcab2c955746fab72cf9f11721f4fed88a (S1/DOC/PID-P1-CAD-FDV)"
+     },
+     {
+      "what": "on P&ID",
+      "old": [
+       "CAD-FDV (cad_ict_id S1/P1/PAST1/FDV-2210 printed) (cad_insert_handle 3A printed) (cad_model SRC-2 printed) (cad_serial UNKNOWN printed) (cad_size DN50 printed) (cad_source_sha256 c64f5ac8f53f7f35ed0f119abdc28c1e11eb5c7cc28011ddaf079940cfee2b7d printed) (cad_tag FDV-2210 printed) (cad_vendor_note retain this unfamiliar attribute printed)"
+      ],
+      "new": [
+       "CAD-FDV (cad_ict_id S1/P1/PAST1/FDV-2210 printed) (cad_insert_handle 3A printed) (cad_model SRC-3 printed) (cad_serial AV-88412 printed) (cad_size DN65 printed) (cad_source_sha256 f9a3dd8ffee4dde6d7a1026370774bbcab2c955746fab72cf9f11721f4fed88a printed) (cad_tag FDV-2210 printed) (cad_vendor_note retain this unfamiliar attribute printed)"
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "links": {
+  "added": [],
+  "removed": []
+ },
+ "records": {
+  "added": [],
+  "removed": [],
+  "changed": []
+ },
+ "documents": {
+  "added": [],
+  "removed": [],
+  "changed": [
+   {
+    "id": "S1/DOC/PID-P1-CAD-FDV",
+    "title": "P&ID CAD-FDV",
+    "kind": "pid",
+    "owner": "Engineering",
+    "changes": [
+     {
+      "what": "content",
+      "old": "9226a9b5c7c1995aeb0d5f96e7945963f184f4b957bc48696309f64d0d931658",
+      "new": "bfc91fcde75948ac092caf9651f359c904902766cd5ddd1bbd7ad53f6cc23e8e"
+     },
+     {
+      "what": "revision",
+      "old": "c64f5ac8f53f",
+      "new": "f9a3dd8ffee4"
+     }
+    ]
+   }
+  ]
+ },
+ "conflicts": {
+  "added": [],
+  "removed": [],
+  "changed": []
+ },
+ "expectations": {
+  "added": [],
+  "removed": [],
+  "changed": []
+ },
+ "flags": [],
+ "counts": {
+  "items": {
+   "added": 0,
+   "removed": 0,
+   "changed": 1
+  },
+  "links": {
+   "added": 0,
+   "removed": 0
+  },
+  "records": {
+   "added": 0,
+   "removed": 0,
+   "changed": 0
+  },
+  "documents": {
+   "added": 0,
+   "removed": 0,
+   "changed": 1
+  },
+  "conflicts": {
+   "added": 0,
+   "removed": 0,
+   "changed": 0
+  },
+  "expectations": {
+   "added": 0,
+   "removed": 0,
+   "changed": 0
+  }
+ }
+}

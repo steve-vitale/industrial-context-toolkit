@@ -5400,6 +5400,32 @@
         "examples/cad-handoff/qualification/correspondence-5/UI-OBSERVATION.json",
         "examples/cad-handoff/qualification/check_correspondence5.py"
       ]
+    },
+    {
+      "id": "A340",
+      "function": "intake_and_reuse",
+      "date": "2026-11-07",
+      "change": "Implement source-bound equipment-data sidecars/local review form so metadata correction does not require a full CAD save or native CAD UI.",
+      "hypothesis": "Retaining the drawing and exchanging only explicit existing attribute proposals avoids native serialization changes while keeping source/revision/evidence binding and exact unknown CAD bytes.",
+      "evidence": "Six precommitted authored cases: nine assets/ten edits, zero unexpected strict differences, separate raw reconstruction passes. All six matched library saves differ in raw bytes; R12 has77 strict rows, other five0. Actual browser downloads for original valve and hostile-text case apply/reopen with exact byte checks; source IDs/foreign fields read-only, empty/missing reason refused, 390/1200px no page overflow. Five actual map CLIs preserve position and project three draft values/source revision. First baseline-wrapper refusal and file:/new-tab connector failures retained. Nine focused control tests pass.",
+      "runs": "Six same-author procedural cases; case1 exposed by retained first harness failure. Two actual browser forms/downloads, three valve edits and one long-value edit; no CAD/model call or new independent plant source. Offline candidate/baseline/browser-download replay.",
+      "verdict": "kept",
+      "why": "Qualifies the separately declared existing-equipment-data operation, not native interactive drafting, CAD layout rendering, full native save equivalence, proprietary project semantics or engineering/company release. Original protocol, methods and all native failures remain unchanged.",
+      "source": [
+        "docs/JOURNAL.md#187-separate-equipment-data-exchange-from-native-cad-drafting",
+        "examples/cad-handoff/data-review/README.md",
+        "examples/cad-handoff/qualification/EXCHANGE-6-PLAN.md",
+        "examples/cad-handoff/qualification/EXCHANGE-6-FREEZE.json",
+        "examples/cad-handoff/qualification/exchange-6/INPUTS.json",
+        "examples/cad-handoff/qualification/exchange-6/FIRST-ATTEMPT.json",
+        "examples/cad-handoff/qualification/exchange-6/README.md",
+        "examples/cad-handoff/qualification/exchange-6/results/summary.json",
+        "examples/cad-handoff/qualification/exchange-6/browser/OBSERVATION.json",
+        "examples/cad-handoff/qualification/exchange-6/browser/MAP-REPLAY.json",
+        "scripts/cad_exchange.py",
+        "scripts/test_cad_exchange.py",
+        "examples/cad-handoff/qualification/check_exchange6.py"
+      ]
     }
   ],
   "not_tried": [
