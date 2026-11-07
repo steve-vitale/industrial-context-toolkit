@@ -23,6 +23,12 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def text_digest(path):
+    # Software/metadata fingerprints are portable across Git checkout line endings;
+    # acquired originals above always keep their raw-byte hashes.
+    return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
+
+
 def inspect(path, ocr):
     suffix = path.suffix.lower()
     if suffix == ".csv":
@@ -100,9 +106,10 @@ def run(argv=None):
             receipts.append(fetch_corpus.fetch_pinned(sid, args.max_mb, fetch_corpus.EXTERNAL / sid))
     report = {"schema": "public-source-admission-1", "created": datetime.now(timezone.utc).isoformat(),
               "role": "acquired-unscored; structural/parser admission only", "python": platform.python_version(),
-              "ocr": args.ocr, "method_sha256": digest(Path(__file__)),
-              "extractor_sha256": digest(ROOT / "scripts/extract_text.py"),
-              "registry_sha256": digest(fetch_corpus.PUBLIC_SOURCE_REGISTRY),
+              "ocr": args.ocr, "fingerprint_convention": "code/registry CRLF normalized to LF; source files raw",
+              "method_sha256": text_digest(Path(__file__)),
+              "extractor_sha256": text_digest(ROOT / "scripts/extract_text.py"),
+              "registry_sha256": text_digest(fetch_corpus.PUBLIC_SOURCE_REGISTRY),
               "fetch_receipts": receipts, "sources": {}, "errors": []}
     for sid in selected:
         files = []
