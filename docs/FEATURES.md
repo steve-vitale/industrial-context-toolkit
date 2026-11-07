@@ -404,18 +404,18 @@ Example review: not yet: needs review
 
 **Inputs:** A DXF in the declared block-attribute profile, stable ICT_ID/TAG values, ezdxf and an explicit hash-bound edit plan
 
-**Outputs:** Exact original and proposed value-span DXFs, frozen decoded comparison plus independent raw reconstruction, retained native full-save differences and explicitly mapped draft CAD-reference revisions; no inferred pipe relationships
+**Outputs:** Exact original and proposed value-span DXFs, optional source-bound local form/agent JSON exchange, frozen decoded comparison plus independent raw reconstruction, retained native full-save differences and mapped draft CAD-reference revisions; no inferred pipe relationships
 
 **Time:** No human-effort measurement; authored and public-adapted software cases, native API and display checks are not a timed plant trial
 
-- **Tools:** `cad_handoff.py`, `cad_value_patch.py`
+- **Tools:** `cad_handoff.py`, `cad_value_patch.py`, `cad_exchange.py`
 - **How to use it:** [README.md](../examples/cad-handoff/README.md)
 
 <details>
 <summary>Example files, tests and independent review</summary>
 
-- **Registered example files:** [`PROVENANCE.json`](../examples/cad-handoff/source/PROVENANCE.json), [`edit-plan.json`](../examples/cad-handoff/source/edit-plan.json), [`comparison.json`](../examples/cad-handoff/worked/comparison.json), [`cad_context.json`](../examples/cad-handoff/worked/cad_context.json), [`cad_context.json`](../examples/cad-handoff/worked/candidate-context/cad_context.json), [`changes.json`](../examples/cad-handoff/worked/map-change/changes.json), [`REPORT.md`](../examples/cad-handoff/receiving-review/worked/REPORT.md), [`review.json`](../examples/cad-handoff/receiving-review/worked/review.json), [`receipt.json`](../examples/cad-handoff/receiving-review/worked/receipt.json), [`summary.json`](../examples/cad-handoff/native/qcad-r15/summary.json), [`replay.json`](../examples/cad-handoff/receiving-review/replay.json), [`INVENTORY.json`](../examples/cad-handoff/qualification/round-2/INVENTORY.json), [`offline-recheck.json`](../examples/cad-handoff/qualification/round-2/offline-recheck.json), [`VISUAL-REVIEW.json`](../examples/cad-handoff/qualification/round-2/VISUAL-REVIEW.json), [`summary.json`](../examples/cad-handoff/qualification/diagnosis-4/summary.json), [`INVENTORY.json`](../examples/cad-handoff/qualification/correspondence-5/INVENTORY.json), [`summary.json`](../examples/cad-handoff/qualification/correspondence-5/summary.json)
-- **Tests:** `test_cad_handoff.py`, `test_delivery_examples.py`
+- **Registered example files:** [`PROVENANCE.json`](../examples/cad-handoff/source/PROVENANCE.json), [`edit-plan.json`](../examples/cad-handoff/source/edit-plan.json), [`comparison.json`](../examples/cad-handoff/worked/comparison.json), [`cad_context.json`](../examples/cad-handoff/worked/cad_context.json), [`cad_context.json`](../examples/cad-handoff/worked/candidate-context/cad_context.json), [`changes.json`](../examples/cad-handoff/worked/map-change/changes.json), [`REPORT.md`](../examples/cad-handoff/receiving-review/worked/REPORT.md), [`review.json`](../examples/cad-handoff/receiving-review/worked/review.json), [`receipt.json`](../examples/cad-handoff/receiving-review/worked/receipt.json), [`summary.json`](../examples/cad-handoff/native/qcad-r15/summary.json), [`replay.json`](../examples/cad-handoff/receiving-review/replay.json), [`INVENTORY.json`](../examples/cad-handoff/qualification/round-2/INVENTORY.json), [`offline-recheck.json`](../examples/cad-handoff/qualification/round-2/offline-recheck.json), [`VISUAL-REVIEW.json`](../examples/cad-handoff/qualification/round-2/VISUAL-REVIEW.json), [`summary.json`](../examples/cad-handoff/qualification/diagnosis-4/summary.json), [`INVENTORY.json`](../examples/cad-handoff/qualification/correspondence-5/INVENTORY.json), [`summary.json`](../examples/cad-handoff/qualification/correspondence-5/summary.json), [`exchange.json`](../examples/cad-handoff/data-review/exchange.json), [`review.html`](../examples/cad-handoff/data-review/review.html), [`summary.json`](../examples/cad-handoff/qualification/exchange-6/results/summary.json), [`OBSERVATION.json`](../examples/cad-handoff/qualification/exchange-6/browser/OBSERVATION.json)
+- **Tests:** `test_cad_handoff.py`, `test_delivery_examples.py`, `test_cad_exchange.py`
 - **Independent review:** none yet
 
 </details>

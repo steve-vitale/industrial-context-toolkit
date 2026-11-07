@@ -1,0 +1,25 @@
+{
+  "schema": "cad-comparison-1",
+  "before_sha256": "af0cec01da57e20099d9cea3a5c46cf00de3f1ebc71c51cabb4e62920504c291",
+  "after_sha256": "9ad4f7b6a7cb662a46d988008d2668b9aeee5c6a5ab33e587097cebdd940c675",
+  "status": "pass",
+  "expected_edits": [
+    {
+      "id": "EX6/2/asset-0",
+      "attribute": "MODEL",
+      "before": "Pump-0-old",
+      "after": "Pump-0-new",
+      "reason": "Authored procedural replacement note; not installed-state evidence"
+    },
+    {
+      "id": "EX6/2/asset-1",
+      "attribute": "MODEL",
+      "before": "Pump-1-old",
+      "after": "Pump-1-new",
+      "reason": "Authored procedural replacement note; not installed-state evidence"
+    }
+  ],
+  "unexpected": [],
+  "save_metadata_changed": true,
+  "boundary": "All ezdxf-exported entity tags including block definitions, attributes, layers and objects; all headers except listed save metadata and the two named EZDXF_META writer values. Same handles required. This is not a byte-identical DXF or proprietary project database/visual/engineering acceptance."
+}

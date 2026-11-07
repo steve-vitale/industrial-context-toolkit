@@ -1630,7 +1630,8 @@
       "title": "Source-retaining DXF attribute handoff",
       "tools": [
         "scripts/cad_handoff.py",
-        "scripts/cad_value_patch.py"
+        "scripts/cad_value_patch.py",
+        "scripts/cad_exchange.py"
       ],
       "guide": "examples/cad-handoff/README.md",
       "example_outputs": [
@@ -1650,16 +1651,21 @@
         "examples/cad-handoff/qualification/round-2/VISUAL-REVIEW.json",
         "examples/cad-handoff/qualification/diagnosis-4/summary.json",
         "examples/cad-handoff/qualification/correspondence-5/INVENTORY.json",
-        "examples/cad-handoff/qualification/correspondence-5/summary.json"
+        "examples/cad-handoff/qualification/correspondence-5/summary.json",
+        "examples/cad-handoff/data-review/exchange.json",
+        "examples/cad-handoff/data-review/review.html",
+        "examples/cad-handoff/qualification/exchange-6/results/summary.json",
+        "examples/cad-handoff/qualification/exchange-6/browser/OBSERVATION.json"
       ],
       "tests": [
         "scripts/test_cad_handoff.py",
-        "scripts/test_delivery_examples.py"
+        "scripts/test_delivery_examples.py",
+        "scripts/test_cad_exchange.py"
       ],
       "job": "Retain a drawing and inspect proposed equipment-attribute edits before a controlled handoff",
       "you_need": "A DXF in the declared block-attribute profile, stable ICT_ID/TAG values, ezdxf and an explicit hash-bound edit plan",
       "time": "No human-effort measurement; authored and public-adapted software cases, native API and display checks are not a timed plant trial",
-      "you_get": "Exact original and proposed value-span DXFs, frozen decoded comparison plus independent raw reconstruction, retained native full-save differences and explicitly mapped draft CAD-reference revisions; no inferred pipe relationships",
+      "you_get": "Exact original and proposed value-span DXFs, optional source-bound local form/agent JSON exchange, frozen decoded comparison plus independent raw reconstruction, retained native full-save differences and mapped draft CAD-reference revisions; no inferred pipe relationships",
       "why": "Editable drawings need stable identities and unfamiliar data retained. Source-preserving candidate evidence is separate from native full-save failures, interactive editability, intelligent-CAD databases and company acceptance."
     },
     {

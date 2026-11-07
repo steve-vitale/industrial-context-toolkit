@@ -69,9 +69,10 @@ def run(out):
                                         (target / "library/comparison.json", target / "library-comparison.json")):
                 shutil.copyfile(origin, destination)
             # Temporary packet directories are inside this function's private temporary directory only.
-            shutil.rmtree(target / "exchange")
-            shutil.rmtree(target / "draft")
-            shutil.rmtree(target / "library")
+            for name in ("exchange", "draft", "library"):
+                removable = (target / name).resolve()
+                removable.relative_to(Path(tmp).resolve())  # verify the exact recursive target first
+                shutil.rmtree(removable)
             rows.append(row)
         summary = {"schema": "cad-exchange-six-results-1", "cases": rows,
                    "cases_total": len(rows), "assets_total": sum(r["assets"] for r in rows),
