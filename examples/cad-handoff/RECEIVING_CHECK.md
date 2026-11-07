@@ -25,3 +25,5 @@ declared losses, reviewer/date, acceptance scope and residual gaps. No first-par
 installed-state validation or human time saving follows from a DXF parse.
 
 The [QCAD headless experiment](native/qcad/README.md) obtained a native edited/reopened return, but strict preservation failed with 335 decoded differences. It does not complete this interactive checklist.
+
+Use [`cad_handoff.py review`](receiving-review/README.md) to retain a readable receiving packet beside the full strict queue. The [explicit R2000 run](native/qcad-r15/README.md) retains the version but still fails preservation (344 differences). These diagnostics do not waive any checklist item.

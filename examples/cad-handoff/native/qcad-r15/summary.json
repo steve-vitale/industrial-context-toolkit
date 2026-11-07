@@ -1,0 +1,144 @@
+{
+  "before_sha256": "c64f5ac8f53f7f35ed0f119abdc28c1e11eb5c7cc28011ddaf079940cfee2b7d",
+  "after_sha256": "8df41ae1f5f63cc15b72b4ef1c2972d5643087844bf932d5bde0cb31540e5372",
+  "strict_status": "differences",
+  "strict_difference_count": 344,
+  "version": {
+    "before": "AC1015",
+    "after": "AC1015"
+  },
+  "header_changes": {
+    "$DIMSTYLE": {
+      "before": {
+        "present": true,
+        "value": "ISO-25"
+      },
+      "after": {
+        "present": true,
+        "value": "Standard"
+      }
+    },
+    "$PLIMMAX": {
+      "before": {
+        "present": true,
+        "value": [
+          420.0,
+          297.0
+        ]
+      },
+      "after": {
+        "present": true,
+        "value": [
+          277.0,
+          202.5
+        ]
+      }
+    },
+    "$PLIMMIN": {
+      "before": {
+        "present": true,
+        "value": [
+          0.0,
+          0.0
+        ]
+      },
+      "after": {
+        "present": true,
+        "value": [
+          -20.0,
+          -7.5
+        ]
+      }
+    }
+  },
+  "entity_partitions": {
+    "added handle": 272,
+    "handle reused for different type": 1,
+    "removed handle": 53,
+    "same type changed": 17
+  },
+  "asset_attributes": [
+    {
+      "id": "S1/P1/PAST1/FDV-2210",
+      "attribute": "ICT_ID",
+      "before_present": true,
+      "before": "S1/P1/PAST1/FDV-2210",
+      "after_present": true,
+      "after": "S1/P1/PAST1/FDV-2210",
+      "planned_after": null,
+      "status": "unchanged"
+    },
+    {
+      "id": "S1/P1/PAST1/FDV-2210",
+      "attribute": "MODEL",
+      "before_present": true,
+      "before": "SRC-2",
+      "after_present": true,
+      "after": "SRC-3",
+      "planned_after": "SRC-3",
+      "status": "planned edit observed"
+    },
+    {
+      "id": "S1/P1/PAST1/FDV-2210",
+      "attribute": "SERIAL",
+      "before_present": true,
+      "before": "UNKNOWN",
+      "after_present": true,
+      "after": "AV-88412",
+      "planned_after": "AV-88412",
+      "status": "planned edit observed"
+    },
+    {
+      "id": "S1/P1/PAST1/FDV-2210",
+      "attribute": "SIZE",
+      "before_present": true,
+      "before": "DN50",
+      "after_present": true,
+      "after": "DN65",
+      "planned_after": "DN65",
+      "status": "planned edit observed"
+    },
+    {
+      "id": "S1/P1/PAST1/FDV-2210",
+      "attribute": "TAG",
+      "before_present": true,
+      "before": "FDV-2210",
+      "after_present": true,
+      "after": "FDV-2210",
+      "planned_after": null,
+      "status": "unchanged"
+    },
+    {
+      "id": "S1/P1/PAST1/FDV-2210",
+      "attribute": "VENDOR_NOTE",
+      "before_present": true,
+      "before": "retain this unfamiliar attribute",
+      "after_present": true,
+      "after": "retain this unfamiliar attribute",
+      "planned_after": null,
+      "status": "unchanged"
+    }
+  ],
+  "layout_changes": {
+    "Layout1": {
+      "before": {
+        "present": true,
+        "value": {
+          "block": "*Paper_Space",
+          "entities": {}
+        }
+      },
+      "after": {
+        "present": true,
+        "value": {
+          "block": "*Paper_Space",
+          "entities": {
+            "VIEWPORT": 1
+          }
+        }
+      }
+    }
+  },
+  "acceptance": "not performed",
+  "note": "Exposed diagnostic; full strict comparison is reproducible from the retained source, return and plan with cad_handoff.py review."
+}

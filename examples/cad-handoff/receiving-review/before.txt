@@ -1,0 +1,41 @@
+......EEEE
+======================================================================
+ERROR: test_existing_destination_and_stale_plan_preserve_originals (__main__.ReceivingReview.test_existing_destination_and_stale_plan_preserve_originals)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Steve\industrial-context-toolkit\scripts\test_cad_handoff.py", line 162, in test_existing_destination_and_stale_plan_preserve_originals
+    ch.review(self.source, self.source, None, out)
+    ^^^^^^^^^
+AttributeError: module 'cad_handoff' has no attribute 'review'
+
+======================================================================
+ERROR: test_identical_pair_and_escaped_attribute_do_not_imply_acceptance (__main__.ReceivingReview.test_identical_pair_and_escaped_attribute_do_not_imply_acceptance)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Steve\industrial-context-toolkit\scripts\test_cad_handoff.py", line 176, in test_identical_pair_and_escaped_attribute_do_not_imply_acceptance
+    report = ch.review(self.source, self.source, None, out)
+             ^^^^^^^^^
+AttributeError: module 'cad_handoff' has no attribute 'review'
+
+======================================================================
+ERROR: test_native_return_is_explained_without_changing_the_strict_gate (__main__.ReceivingReview.test_native_return_is_explained_without_changing_the_strict_gate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Steve\industrial-context-toolkit\scripts\test_cad_handoff.py", line 129, in test_native_return_is_explained_without_changing_the_strict_gate
+    report = ch.review(source, returned, plan, self.root / "review")
+             ^^^^^^^^^
+AttributeError: module 'cad_handoff' has no attribute 'review'
+
+======================================================================
+ERROR: test_planted_geometry_layer_and_foreign_attribute_remain_visible (__main__.ReceivingReview.test_planted_geometry_layer_and_foreign_attribute_remain_visible)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Steve\industrial-context-toolkit\scripts\test_cad_handoff.py", line 150, in test_planted_geometry_layer_and_foreign_attribute_remain_visible
+    report = ch.review(self.source, returned, None, self.root / "review")
+             ^^^^^^^^^
+AttributeError: module 'cad_handoff' has no attribute 'review'
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.704s
+
+FAILED (errors=4)

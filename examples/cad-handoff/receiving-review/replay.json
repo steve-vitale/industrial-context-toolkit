@@ -1,0 +1,58 @@
+{
+  "scope": "two exposed fictional native-return controls; not an engineering receiver benchmark",
+  "checks": {
+    "default-setting": {
+      "strict_failure_retained": true,
+      "every_entity_difference_partitioned": true,
+      "header_fields_explained": true,
+      "three_planned_edits_observed": true,
+      "no_acceptance": true,
+      "packet_hashes_verify": true,
+      "original_drawing_bytes_retained": true
+    },
+    "r15-setting": {
+      "strict_failure_retained": true,
+      "every_entity_difference_partitioned": true,
+      "header_fields_explained": true,
+      "three_planned_edits_observed": true,
+      "no_acceptance": true,
+      "packet_hashes_verify": true,
+      "original_drawing_bytes_retained": true
+    },
+    "inputs_unchanged": true
+  },
+  "runs": [
+    {
+      "args": [
+        "C:\\Python314\\python.exe",
+        "scripts/cad_handoff.py",
+        "review",
+        "C:\\Users\\Steve\\industrial-context-toolkit\\examples\\cad-handoff\\source\\valve.dxf",
+        "C:\\Users\\Steve\\industrial-context-toolkit\\examples\\cad-handoff\\native\\qcad\\returned.dxf",
+        "--plan",
+        "C:\\Users\\Steve\\industrial-context-toolkit\\examples\\cad-handoff\\source\\edit-plan.json",
+        "--out",
+        "C:\\Users\\Steve\\.cp-scratch\\cad-review-escaped-replay\\default-setting"
+      ],
+      "exit_code": 1,
+      "stdout": "Review: C:\\Users\\Steve\\.cp-scratch\\cad-review-escaped-replay\\default-setting\\REPORT.html; strict differences: 335 differences; no acceptance\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "C:\\Python314\\python.exe",
+        "scripts/cad_handoff.py",
+        "review",
+        "C:\\Users\\Steve\\industrial-context-toolkit\\examples\\cad-handoff\\source\\valve.dxf",
+        "C:\\Users\\Steve\\industrial-context-toolkit\\examples\\cad-handoff\\native\\qcad-r15\\returned.dxf",
+        "--plan",
+        "C:\\Users\\Steve\\industrial-context-toolkit\\examples\\cad-handoff\\source\\edit-plan.json",
+        "--out",
+        "C:\\Users\\Steve\\.cp-scratch\\cad-review-escaped-replay\\r15-setting"
+      ],
+      "exit_code": 1,
+      "stdout": "Review: C:\\Users\\Steve\\.cp-scratch\\cad-review-escaped-replay\\r15-setting\\REPORT.html; strict differences: 344 differences; no acceptance\n",
+      "stderr": ""
+    }
+  ]
+}

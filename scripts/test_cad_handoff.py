@@ -119,5 +119,120 @@ class Handoff(unittest.TestCase):
         self.assertFalse((self.root / "wrong-match").exists())
 
 
+class ReceivingReview(unittest.TestCase):
+    setUp = Handoff.setUp
+    def test_native_return_is_explained_without_changing_the_strict_gate(self):
+        root = Path(__file__).resolve().parents[1]
+        source = root / "examples/cad-handoff/source/valve.dxf"
+        returned = root / "examples/cad-handoff/native/qcad/returned.dxf"
+        plan = json.loads(source.with_name("edit-plan.json").read_text(encoding="utf-8"))
+        report = ch.review(source, returned, plan, self.root / "review")
+        self.assertEqual(report["strict_status"], "differences")
+        self.assertEqual(report["strict_difference_count"], 335)
+        self.assertEqual(sum(report["entity_partitions"].values()), 333)
+        self.assertEqual(len(report["header_changes"]), 54)
+        self.assertEqual([x["status"] for x in report["asset_attributes"]].count("planned edit observed"), 3)
+        self.assertFalse(any(x["status"] == "unexpected" for x in report["asset_attributes"]))
+        style = [x for x in report["drawing_changes"] if "style" in x.get("fields", {})]
+        self.assertTrue(any(x["fields"]["style"]["after"]["value"] == "textstyle3" for x in style))
+        self.assertTrue(any(x["after_type"] == "VIEWPORT" and x["category"] == "added handle" for x in report["drawing_changes"]))
+        self.assertEqual(report["acceptance"], "not performed")
+        self.assertEqual(json.loads((self.root / "review/strict-comparison.json").read_text(encoding="utf-8")),
+                         ch.compare(ch.snapshot(source), ch.snapshot(returned), plan))
+
+    def test_planted_geometry_layer_and_foreign_attribute_remain_visible(self):
+        doc = ch.load(self.source)
+        doc.modelspace().query("LINE")[0].dxf.end = (999, 20, 0)
+        doc.modelspace().query("INSERT")[0].get_attrib("VENDOR_PRIVATE").dxf.text = "unplanned"
+        doc.layers.get("PROCESS").dxf.color = 1
+        returned = self.root / "changed.dxf"
+        doc.saveas(returned)
+        report = ch.review(self.source, returned, None, self.root / "review")
+        self.assertTrue(any("end" in x.get("fields", {}) for x in report["drawing_changes"]))
+        self.assertTrue(any(x["attribute"] == "VENDOR_PRIVATE" and x["status"] == "unexpected" for x in report["asset_attributes"]))
+        self.assertTrue(any(x["before_type"] == "LAYER" for x in report["entity_changes"]))
+        self.assertEqual(report["strict_status"], "differences")
+
+    def test_existing_destination_and_stale_plan_preserve_originals(self):
+        original = self.source.read_bytes()
+        out = self.root / "review"
+        out.mkdir()
+        (out / "keep.txt").write_text("retained", encoding="utf-8")
+        with self.assertRaises(ch.InputError):
+            ch.review(self.source, self.source, None, out)
+        self.assertEqual((out / "keep.txt").read_text(), "retained")
+        stale = copy.deepcopy(self.plan)
+        stale["source_sha256"] = "0" * 64
+        with self.assertRaises(ch.InputError):
+            ch.review(self.source, self.source, stale, self.root / "stale")
+        self.assertFalse((self.root / "stale").exists())
+        self.assertEqual(self.source.read_bytes(), original)
+
+    def test_identical_pair_and_escaped_attribute_do_not_imply_acceptance(self):
+        doc = ch.load(self.source)
+        doc.modelspace().query("INSERT")[0].get_attrib("VENDOR_PRIVATE").dxf.text = "<script>bad</script>"
+        doc.saveas(self.source)
+        out = self.root / "review"
+        report = ch.review(self.source, self.source, None, out)
+        self.assertEqual(report["strict_status"], "pass")
+        self.assertEqual(report["acceptance"], "not performed")
+        self.assertNotIn("<script>", (out / "REPORT.html").read_text(encoding="utf-8"))
+        self.assertIn("&lt;script&gt;", (out / "REPORT.html").read_text(encoding="utf-8"))
+        self.assertNotIn("<script>", (out / "REPORT.md").read_text(encoding="utf-8"))
+        self.assertIn("&lt;script&gt;", (out / "REPORT.md").read_text(encoding="utf-8"))
+        self.assertEqual((out / "originals/before.dxf").read_bytes(), self.source.read_bytes())
+
+    def test_xdata_loss_stays_in_the_strict_queue_even_without_a_drawing_field_change(self):
+        doc = ch.load(self.source)
+        doc.modelspace().query("LINE")[0].discard_xdata("VENDOR_TEST")
+        returned = self.root / "lost-xdata.dxf"
+        doc.saveas(returned)
+        report = ch.review(self.source, returned, None, self.root / "review")
+        self.assertEqual(report["drawing_changes"], [])
+        self.assertEqual(report["strict_status"], "differences")
+        self.assertTrue(any("1000" in e["changed_groups"] for e in report["entity_changes"]))
+        self.assertIn("XDATA", report["boundary"])
+
+    def test_reassigned_handle_is_not_matched_by_geometry(self):
+        doc = ch.load(self.source)
+        line = doc.modelspace().query("LINE")[0]
+        old = line.dxf.handle
+        self.assertTrue(doc.entitydb.reset_handle(line, "FFF0"))
+        returned = self.root / "renumbered.dxf"
+        doc.saveas(returned)
+        report = ch.review(self.source, returned, None, self.root / "review")
+        queue = {x["handle"]: x for x in report["entity_changes"]}
+        self.assertEqual(queue[old]["category"], "removed handle")
+        self.assertEqual(queue["FFF0"]["category"], "added handle")
+        self.assertEqual(report["strict_status"], "differences")
+        self.assertIn("not added/removed physical objects", report["boundary"])
+
+    def test_missing_planned_edit_and_cli_difference_exit_are_not_success(self):
+        import subprocess
+        import sys
+        out = self.root / "review"
+        run = subprocess.run([sys.executable, str(Path(ch.__file__)), "review", str(self.source), str(self.source),
+                              "--plan", str(self.root / "plan.json"), "--out", str(out)], capture_output=True, text=True)
+        self.assertEqual(run.returncode, 2)  # missing input plan, no partial packet
+        self.assertFalse(out.exists())
+        (self.root / "plan.json").write_text(json.dumps(self.plan), encoding="utf-8")
+        run = subprocess.run([sys.executable, str(Path(ch.__file__)), "review", str(self.source), str(self.source),
+                              "--plan", str(self.root / "plan.json"), "--out", str(out)], capture_output=True, text=True)
+        self.assertEqual(run.returncode, 1, run.stdout + run.stderr)
+        report = json.loads((out / "review.json").read_text(encoding="utf-8"))
+        size = next(x for x in report["asset_attributes"] if x["attribute"] == "SIZE")
+        self.assertEqual(size["status"], "planned edit missing or different")
+
+    def test_malformed_plan_shapes_are_input_errors_before_packet_creation(self):
+        cases = [[], None, dict(self.plan, changes=[None]), dict(self.plan, changes=[{"id": []}]),
+                 dict(self.plan, changes=[dict(self.plan["changes"][0], reason=None)])]
+        for i, plan in enumerate(cases):
+            if plan is None:
+                continue  # None means review without a plan; explicitly supported.
+            with self.subTest(i=i), self.assertRaises(ch.InputError):
+                ch.review(self.source, self.source, plan, self.root / "refused")
+            self.assertFalse((self.root / "refused").exists())
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -7836,3 +7836,50 @@ wrapper keeps source hash/output guards and refuses process-zero/script-error fa
 native readback and returns the expected preservation exit 1 with 335 differences. CI checks frozen evidence
 without acquiring trial software. No binaries are redistributed. A 390-pixel browser check of the maintenance basis
 report shows no horizontal overflow, the omitted prior original row and all five local report links returning 200.
+
+## 176. Turn a failed CAD exchange into a readable receiving packet
+
+2026-11-07. Steve asked to continue improvements. Traced the retained source/return and all 335 strict differences.
+The native return keeps all six asset attribute values but changes style references and adds a paper-space viewport;
+the raw count cannot be treated as 335 engineering losses. Four new controls first fail against the old tool because
+no receiving-review function exists. The original strict comparator and its saved results remain unchanged.
+
+Added `cad_handoff.py review`: retained drawing bytes and plan values, complete strict comparison, source/method/
+Python/ezdxf pins, exact attribute outcomes and missing identities, explicit drawing fields, layouts, named table
+fields, per-header changes and an indexed queue partitioning every strict entity row. No geometric matching, automatic
+handle remap, equivalence normalization or loss waiver occurs. Complex payloads, child ATTRIB details, XDATA and other
+objects remain in the full strict queue. Named table fields do not cover full linetype/style behavior. Added/removed
+handles are not counts of physical objects. No context version is promoted.
+
+The default native return partitions into 262 added handles, 53 removed handles, 17 changed same-type records and one
+handle reused for another type: all 333 entity differences, plus version and header. There are 54 changed header
+values and 64 named-table field records to inspect. Three planned attribute edits are observed; foreign values remain.
+Reports explain the new viewport, style references, explicit width and attribute-definition flags. They retain raw
+exact before/after values without labeling these harmless. Completed reports with differences return exit 1; equality
+under the existing plan returns 0 only for the software gate; input/preparation failures return 2 before publication.
+
+Fourteen CAD test methods pass, including moved geometry, changed layers/foreign fields, lost XDATA despite unchanged
+drawing-field observations, renamed handles, missing planned edits, malformed plan shapes, output collision and HTML
+escaping. Eight delivery-evidence methods pass. Two real CLI replays retain the expected failure exits, satisfy 15
+exposed packet/input conditions and preserve source bytes. These are software development controls, not independent
+engineering review, human benefit or native interactive/company acceptance. The final packet is inspected at 390
+and 1280 pixel viewports: no horizontal overflow, mobile field labels visible, desktop table headers visible, all
+five report/source links return 200. A final Markdown control then fails on literal HTML cell content; the
+failure is retained. Both formats now escape source HTML syntax, and Markdown includes source/evidence links.
+The 14 CAD methods, eight evidence methods and both 15-condition replay runs pass after the repair. Full CI
+is a separate final gate.
+
+## 177. Test an explicit native export version without selecting a flattering count
+
+2026-11-07. Reused the official QCAD Professional 3.33.1 Qt5 trial headlessly with isolated settings; no new binary,
+account or paid license. A new helper differs only by passing R15 to documented exportFile. Source and three-edit plan
+are unchanged. Actual native export and fresh-document import retain AC1015 and all six expected attribute values.
+Changed header values fall from 54 to 3, but strict differences rise from 335 to 344: 272 added handles, 53 removed,
+17 same-type changes, one reused handle/different type and a whole-header difference. Style changes and an extra
+paper-space viewport remain. A raw count is not a severity score or proof of added/lost engineering objects.
+
+Preserved the helper, actual command/log, returned drawing, native readback, summary and hash receipt separately
+from the unchanged first return. Offline replay reconstructs the full strict comparison from public fictional inputs.
+No comparator rule was relaxed; matching version/attributes does not qualify the exchange, and no context change was
+promoted. Native interactive/display, full preservation classification, intelligent-CAD database and company acceptance
+remain open. This single exposed fixture does not establish a receiver ranking or a free production workflow.

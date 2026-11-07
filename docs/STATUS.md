@@ -63,7 +63,7 @@ create those controls.
 | Piece | Contribution | Boundary |
 |---|---|---|
 | Maintenance record handoff | [One fictional replacement](../examples/maintenance-handoff/README.md) links the existing before/after model, changes and closeout tools into a reproducible job. | Supplied identities and records; no CMMS acceptance, real recipient observation or measured review-time result. |
-| Bounded editable CAD exchange | [Retain DXF originals, propose explicit attribute edits, compare reloaded entity/header content and project mapped IDs into one-map](../examples/cad-handoff/README.md). | Declared block-attribute exchange through ezdxf. A [native LibreCAD render](../examples/cad-handoff/NATIVE_ATTEMPT.md) is partial, with unreadable expected text and failed GUI automation. Native editor open/edit/save, intelligent-CAD databases and company acceptance remain uncompleted; no inferred connectivity or automatic synchronization. |
+| Bounded editable CAD exchange | [Retain DXF originals, propose explicit attribute edits, compare reloaded entity/header content and project mapped IDs into one-map](../examples/cad-handoff/README.md). | Declared block-attribute exchange through ezdxf. A [native LibreCAD render](../examples/cad-handoff/NATIVE_ATTEMPT.md) is partial, with unreadable expected text and failed GUI automation. [Two actual QCAD native-engine returns](../examples/cad-handoff/receiving-review/README.md) retain attributes but fail strict preservation (335/344 differences). Readable receiving packets classify every row without waivers. Interactive editor acceptance, intelligent-CAD databases and company acceptance remain uncompleted; no inferred connectivity or automatic synchronization. |
 | Public photo-to-record exercise | [Two attributed nameplate photographs](../examples/photo-to-record/README.md), candidate fields, six retained OCR attempts and explicit unknown asset identities. | Empty and incorrect OCR results remain visible. Candidate readings need independent review and site identity evidence; neither OCR confidence nor a legible plate establishes installed state. |
 | Drawing intake and review report | A supplied extraction becomes a draft model, review queue, staging and readable HTML. | Approved extraction, engineering review and receiving-company acceptance. |
 | DEXPI routes | Read supported XML or the separate adapted-key/sheet contract; report omissions. | Exporter coverage and downstream eligibility vary; supported unplaced roles can feed source-qualified questions while equipment placement remains unknown. This does not extend platform-generator eligibility. |
@@ -96,6 +96,8 @@ with browser-only viewing and separate rebuild/verifier requirements. It is no c
 The [self-service gap record](SELF_SERVICE_GAPS.md) states which of the four current improvements have evidence
 and which remain open. In particular, [native CAD diagnosis](../examples/cad-handoff/native/diagnostic/README.md)
 does not establish a successful native edit/save/reopen; this LibreCAD route remains unqualified for the attributed profile.
+The subsequent QCAD native API returns are actual edit/document-reopen observations, with complete offline receiving
+reviews, but unresolved strict differences and no interactive, visual or company acceptance.
 
 Use the [acceptance exercise](ACCEPTANCE.md) for concrete tests, records and failure cases. It is prepared;
 actual participant, recipient, native-system and tenant observations remain **not run**.

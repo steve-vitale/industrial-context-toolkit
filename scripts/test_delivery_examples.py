@@ -105,6 +105,32 @@ class DeliveryEvidence(unittest.TestCase):
         self.assertEqual(actual["VENDOR_NOTE"], "retain this unfamiliar attribute")
         self.assertEqual(receipt["interactive_acceptance"], "not performed")
 
+    def test_r15_native_return_and_review_packet_reproduce_without_waivers(self):
+        import cad_handoff as cad
+        folder = ROOT / "examples/cad-handoff/native/qcad-r15"
+        receipt = read(folder / "receipt.json")
+        for name, expected in receipt["files"].items():
+            self.assertEqual(sha(folder / name), expected, name)
+        source = ROOT / "examples/cad-handoff/source/valve.dxf"
+        before, after = cad.snapshot(source), cad.snapshot(folder / "returned.dxf")
+        comparison = cad.compare(before, after, read(source.with_name("edit-plan.json")))
+        self.assertEqual((before["dxfversion"], after["dxfversion"]), ("AC1015", "AC1015"))
+        expected = dict(before["assets"][0]["attributes"])
+        for change in read(source.with_name("edit-plan.json"))["changes"]:
+            expected[change["attribute"]] = change["after"]
+        self.assertEqual(after["assets"][0]["attributes"], expected)
+        self.assertEqual(read(folder / "readback.json")["after"][0]["attributes"], expected)
+        self.assertEqual((comparison["status"], len(comparison["unexpected"])), ("differences", 344))
+        packet = ROOT / "examples/cad-handoff/receiving-review/worked"
+        receipt = read(packet / "receipt.json")
+        for name, expected in receipt["files"].items():
+            self.assertEqual(sha(packet / name), expected, name)
+        self.assertEqual((packet / "originals/before.dxf").read_bytes(), source.read_bytes())
+        self.assertEqual(read(packet / "strict-comparison.json"), read(ROOT / "examples/cad-handoff/native/qcad/comparison.json"))
+        report = read(packet / "review.json")
+        self.assertEqual((report["strict_status"], report["strict_difference_count"], report["acceptance"]), ("differences", 335, "not performed"))
+        self.assertEqual(sum(report["entity_partitions"].values()), 333)
+
     def test_saved_cad_proposal_retains_original_and_separate_context(self):
         folder = ROOT / "examples/cad-handoff"
         plan = read(folder / "source/edit-plan.json")
