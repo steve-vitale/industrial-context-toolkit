@@ -67,8 +67,16 @@ def main():
             run("wmctrl", "-ir", args.window_id, "-b", "remove,maximized_vert,maximized_horz")
             run("wmctrl", "-ir", args.window_id, "-e", "0,0,0,1120,900")
             run("xdotool", "key", "Escape", "Escape", "ctrl+o")
-            time.sleep(.3)
-            run("xdotool", "key", "ctrl+a", "type", "--clearmodifiers", "--", str(source))
+            for _ in range(40):
+                if "Open Drawing" in run("wmctrl", "-l"):
+                    break
+                time.sleep(.2)
+            else:
+                shot(row["id"] + "-" + row["kind"] + "-DIALOG-TIMEOUT.png")
+                raise RuntimeError("Native file dialog did not appear")
+            # Explicit filename focus; a fixed delay had allowed early keystrokes
+            # to reach the previous window and leave only a path suffix in the dialog.
+            run("xdotool", "mousemove", "500", "604", "click", "1", "key", "ctrl+a", "type", "--clearmodifiers", "--", str(source))
             run("xdotool", "key", "Tab", "Return")
             for _ in range(30):
                 if source.name + " - QCAD" in run("wmctrl", "-l"):
