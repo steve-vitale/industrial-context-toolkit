@@ -1,0 +1,34 @@
+{
+  "schema": "public-source-acquisition-1",
+  "acquired": "2026-11-07",
+  "role": "acquired-unscored",
+  "sources": {
+    "nyc-amps-2024w01": {
+      "name": "NYC Parks AMPS: predeclared 2024 first-week work orders and linked assets/materials/labor",
+      "categories": [
+        "maintenance",
+        "equipment-records",
+        "work-orders",
+        "parts-transactions",
+        "labor",
+        "context"
+      ],
+      "license": "Public API access; no dataset licenseId supplied; open redistribution license not established; local originals only",
+      "license_url": "https://www.nyc.gov/main/terms-of-use",
+      "attribution": "City of New York / NYC Parks, Asset Management Parks System (AMPS), public Open Data tables; no endorsement.",
+      "landing_url": "https://data.cityofnewyork.us/d/8sdw-8vja",
+      "api_url": "https://data.cityofnewyork.us/resource/8sdw-8vja.json",
+      "origin": "municipal asset management and maintenance administrative records, one source system",
+      "limits": "Projected original API responses, not full source-table dumps or an industrial plant. One fixed request-date week; sequential live joins are not a historical transactional snapshot. Source completion fields do not prove repair effectiveness. Parts movements/returns/corrections are not automatically consumption. No model/task score, cost/hour total, installed state, historical backlog or plant acceptance claim. Missing/ambiguous joins remain explicit. Live metadata/rows may change; mismatches refuse the pins. All raw records and full metadata stay local; no open redistribution license inferred.",
+      "kind": "pinned-files",
+      "url": "{url}",
+      "skipped": "Other dates, unreferenced assets, other entity namespaces, comments, worker identities and all downloaded code. No source records committed.",
+      "evidence_role": "acquired-unscored",
+      "exposure": "Schema and relationship inspection; no model inference or held-out claim.",
+      "source_family": "nyc-parks-amps",
+      "selection": "2024-01-01 <= evt_date < 2024-01-08; all outcomes",
+      "metadata_snapshot": "data/public-source-evidence/2026-11-07-round-4/amps-schema.json",
+      "metadata_snapshot_sha256": "0f3067f8db831f878fc448f2f797a27e678c2c16cf9e574670a496c30d23e2ca"
+    }
+  }
+}

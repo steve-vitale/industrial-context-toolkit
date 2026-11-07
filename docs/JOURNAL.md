@@ -7992,3 +7992,39 @@ downloaded and called usable. No repository-wide FreeCAD example-data license wa
 vendor and third-party figure rights are not assumed. These originals stay local; CAD XML/geometry/thumbnails
 remain uninspected and outside the existing frozen DXF cohort. No task score, model training, generalization
 cell, feature-review pass, plant acceptance or CAD qualification result is added by this acquisition.
+
+## 182. Acquire a predeclared linked public maintenance cohort
+
+2026-11-07. Filled a specific gap left by the category-wide acquisitions: asset, work-order, parts-transaction,
+transaction-detail and labor records from one public source system. NYC Parks AMPS is municipal maintenance,
+not an industrial plant trial. Selection and field projections were committed before row download: every
+work order with `2024-01-01 <= evt_date < 2024-01-08`, regardless of completion or other outcomes, and its
+documented related records. The 53 original projected API responses/full metadata files total 2,366,010 bytes:
+1,612 work orders, 933 referenced assets, 208 transactions, 263 transaction lines and 5,268 labor entries.
+Originals remain local; public records contain pins, queries, selected schemas, aggregate coverage and provenance.
+Across four passes: 183 files, 423,771,529 bytes in 40 download groups, plus four separately frozen DXFs.
+
+The first acquisition stopped on HTTP 503 at transaction batch 010; an unchanged retry stopped at asset batch
+005. Both incomplete receipts and the original recipe/selection remain in history. Bounded recovery reused
+only exact-query responses with matching raw bytes/hash/role, requesting missing queries with finite retries.
+No dates, fields, predicates, sorting, ceilings or outcomes were changed to improve coverage. Python 3.14's
+initial catalog TLS verification failed; verified system-TLS curl and then working Python 3.13 HTTPS were used,
+without disabling certificate checks. Sequential live reads do not establish a transactional/historical snapshot.
+
+All four publisher-described relationships resolve uniquely, with unique/nonempty checked row identifiers and
+no unexpected projected columns in this cohort. The transaction-to-work-order link requires the EVNT namespace;
+an identical code in another namespace is refused by a fictional control. All 53 raw pins match in the cached
+replay with network fetch replaced by refusal, zero calls and zero budget. A separate fresh HTTPS work-order
+query reproduces its 653,046-byte pin. Truncation and same-size mutation refuse. Ten fictional controls retain
+missing assets as coverage gaps, reject ambiguous keys, foreign parents/entities, outside dates, unexpected
+columns and an empty cohort. All 50 prior source pin groups, metadata and five existing method files are unchanged;
+acquisition/selection/history/metadata bindings match. CI runs the tiny no-download relationship controls.
+
+There are 1,547 nonempty completion values; the other 65 are missing values at acquisition, not automatically
+open/overdue/failed work. Nonempty reopened/correction fields are not interpreted as true flags. Parts movements
+may include returns/corrections; cost, hours, units and codes remain uninterpreted pending the source guide and
+dictionary. No dataset licenseId was supplied; local records are not republished or assumed public domain.
+No package was installed or downloaded code executed. Focused fetch and ledger modules pass 24 and 11 tests;
+the isolated Python environment/full-cache prerequisite check stops before running the full suite. Exact-head CI
+remains a separate publication check. No model score, verified repair effectiveness, industrial transfer,
+new matrix/feature-review result, changed CAD cohort or completed CAD qualification is inferred.

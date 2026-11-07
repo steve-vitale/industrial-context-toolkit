@@ -1,0 +1,643 @@
+{
+  "role": "selected publisher schema metadata; source record values omitted",
+  "views": [
+    {
+      "id": "8sdw-8vja",
+      "name": "Asset Management Parks System (AMPS) - Work Orders",
+      "source_url": "https://data.cityofnewyork.us/api/views/8sdw-8vja.json",
+      "raw_sha256": "cada17b0a56bb6c36ac3f0f010bc71bd63a07a283ac6eb87caa842ff541248a6",
+      "license_id": null,
+      "rows_updated_at": 1793605896,
+      "columns": [
+        {
+          "fieldName": "evt_code",
+          "dataTypeName": "number"
+        },
+        {
+          "fieldName": "evt_desc",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_type",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_date",
+          "dataTypeName": "calendar_date"
+        },
+        {
+          "fieldName": "evt_mrc",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_printed",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_obtype",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_object",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_standwork",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_ppm",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_freq",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_isstype",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_class",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_route",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_target",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_duration",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_parent",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_reqm",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_jobtype",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_priority",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_reported",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_start",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_due",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_completed",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_warranty",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_safety",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_reopened",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_schedend",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_created",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_updated",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_updatecount",
+          "dataTypeName": "number"
+        },
+        {
+          "fieldName": "evt_perioduom",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_sqlidentity",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_multiequip",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_completed_trunc",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_udfchar01",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_udfchar02",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_udfchar03",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_udfchar04",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_udfchar05",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_udfchar06",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_udfchar08",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_udfchar10",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_udfchar11",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_udfchar12",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_udfchar13",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_udfchar14",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_udfchar15",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_udfchar16",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_udfnum01",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_udfchkbox01",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_udfchkbox02",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_udfchkbox03",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_udfchkbox04",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "evt_udfchkbox05",
+          "dataTypeName": "text"
+        }
+      ]
+    },
+    {
+      "id": "e25p-jzfy",
+      "name": "Asset Management Parks System (AMPS) \u2013 Assets",
+      "source_url": "https://data.cityofnewyork.us/api/views/e25p-jzfy.json",
+      "raw_sha256": "2e8c94b31871113b9fe882700a2a106ec30fadb660b15b6facaad3c5ecba5fca",
+      "license_id": null,
+      "rows_updated_at": 1793606748,
+      "columns": [
+        {
+          "fieldName": "obj_obtype",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "obj_code",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "obj_desc",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "obj_class",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "obj_category",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "obj_position",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "obj_parent",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "obj_manufact",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "obj_mrc",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "obj_serialno",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "obj_status",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "obj_commiss",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "obj_withdraw",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "obj_record",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "obj_notused",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "obj_manufactmodel",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "obj_value",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "obj_updated",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "obj_updatecount",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "obj_gisobjid",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "obj_sqlidentity",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "obj_gislayer",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "obj_xlocation",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "obj_ylocation",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "obj_udfchar01",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "obj_udfchar02",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "obj_udfchar05",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "obj_udfchar06",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "obj_created",
+          "dataTypeName": "text"
+        }
+      ]
+    },
+    {
+      "id": "gcys-vvnq",
+      "name": "Asset Management Parks System (AMPS) \u2013 Transactions",
+      "source_url": "https://data.cityofnewyork.us/api/views/gcys-vvnq.json",
+      "raw_sha256": "3b5675426ad23787fd675811fb5e79fb1ebde149e713bf74b2763d61e7ff8a1f",
+      "license_id": null,
+      "rows_updated_at": 1793611792,
+      "columns": [
+        {
+          "fieldName": "tra_code",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "tra_desc",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "tra_type",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "tra_date",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "tra_req",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "tra_status",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "tra_fromentity",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "tra_fromcode",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "tra_toentity",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "tra_tocode",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "tra_updatecount",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "tra_created",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "tra_updated",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "tra_sqlidentity",
+          "dataTypeName": "number"
+        }
+      ]
+    },
+    {
+      "id": "ub9z-gccp",
+      "name": "Asset Management Parks System (AMPS) \u2013 Transaction Details",
+      "source_url": "https://data.cityofnewyork.us/api/views/ub9z-gccp.json",
+      "raw_sha256": "24d3d4465e7681281a74674ffef835fb1fae5e5bc0295000006c8cc9e517d96f",
+      "license_id": null,
+      "rows_updated_at": 1793615100,
+      "columns": [
+        {
+          "fieldName": "trl_trans",
+          "dataTypeName": "number"
+        },
+        {
+          "fieldName": "trl_type",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "trl_line",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "trl_date",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "trl_event",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "trl_act",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "trl_part",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "trl_reqline",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "trl_bin",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "trl_store",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "trl_price",
+          "dataTypeName": "number"
+        },
+        {
+          "fieldName": "trl_qty",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "trl_req",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "trl_created",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "trl_updated",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "trl_avgprice",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "trl_sqlidentity",
+          "dataTypeName": "number"
+        },
+        {
+          "fieldName": "trl_desc",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "trl_attach",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "par_code",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "par_desc",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "par_class",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "par_uom",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "par_notused",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "par_created",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "par_updated",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "par_updatecount",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "par_sqlidentity",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "par_udfchar01",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "par_udfchar02",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "par_laststatusupdate",
+          "dataTypeName": "text"
+        }
+      ]
+    },
+    {
+      "id": "xzj8-i3jk",
+      "name": "Asset Management Parks System (AMPS) \u2013 Labor",
+      "source_url": "https://data.cityofnewyork.us/api/views/xzj8-i3jk.json",
+      "raw_sha256": "b3c6574a160f8e875e5e2b7ad0ebcef018958592bb7a621e8565bad7227b3ee5",
+      "license_id": null,
+      "rows_updated_at": 1793612036,
+      "columns": [
+        {
+          "fieldName": "boo_event",
+          "dataTypeName": "number"
+        },
+        {
+          "fieldName": "boo_act",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "boo_date",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "boo_trade",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "boo_octype",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "boo_on",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "boo_off",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "boo_hours",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "boo_rate",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "boo_cost",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "boo_entered",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "boo_correction",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "boo_sqlidentity",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "boo_jecategory",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "boo_jesource",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "boo_desc",
+          "dataTypeName": "text"
+        },
+        {
+          "fieldName": "boo_code",
+          "dataTypeName": "number"
+        },
+        {
+          "fieldName": "boo_misc",
+          "dataTypeName": "text"
+        }
+      ]
+    }
+  ]
+}
