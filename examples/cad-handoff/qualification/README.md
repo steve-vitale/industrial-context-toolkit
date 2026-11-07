@@ -54,6 +54,12 @@ exposed source. Adding one makes the drawing visible; that deliberate source rev
 candidate or a new qualification pass. Translated long-label renders still suffer trial-mark overlap. A fresh
 UI restart still fails capture/indexed input. All original failures and frozen sources/methods remain unchanged.
 
+The later [record-correspondence audit](correspondence-5/README.md) retains every strict index while testing
+exact ordered decoded bodies and complete pointer correspondence. It finds 583 corresponding record occurrences
+across the 42 native returns, chiefly limited table records in the original example; all 16,209 strict rows stay
+visible. Even exact source-preserving controls leave ambiguous records unpaired, so unpaired does not mean lost.
+This exposed-data diagnostic does not establish whole-drawing equivalence or change any qualification verdict.
+
 ## How the method was kept separate from validation
 
 The [original protocol](PROTOCOL.md) defines acceptance before development. [Round 1](round-1/README.md) keeps
