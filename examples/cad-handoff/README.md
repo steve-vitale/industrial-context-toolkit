@@ -75,6 +75,10 @@ The saved passing readback uses the ezdxf writer and reader. **No native CAD edi
 claimed.** Use [the receiving checklist](RECEIVING_CHECK.md) in the actual target. Save the returned DXF, then run `compare`.
 The [LibreCAD native-render attempt](NATIVE_ATTEMPT.md) retains its partial result and GUI automation failure;
 it does not supply an editable-attribute or save/readback pass.
+The [receiving review command](receiving-review/README.md) turns a returned DXF into a readable packet, with
+planned/missing/unexpected attribute values, named fields/layouts and the complete strict queue. Its two actual
+QCAD native-engine returns remain unqualified (335 and 344 strict differences); no GUI acceptance is claimed.
+
 Handle renumbering, added objects, removed attributes and header differences produce differences; inspect them
 explicitly rather than treating a visually similar drawing as a pass.
 

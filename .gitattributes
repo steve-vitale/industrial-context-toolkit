@@ -209,3 +209,9 @@ data/te_pid_layout.json text eol=lf
 /examples/maintenance-intake/basis-before.txt -text whitespace=cr-at-eol,-blank-at-eof
 /examples/maintenance-intake/basis-worked/** -text whitespace=cr-at-eol,-blank-at-eof
 /examples/cad-handoff/native/qcad/returned.dxf -text whitespace=-trailing-space
+
+# Preserve captured CAD receiving-review and alternate native-return bytes.
+/examples/cad-handoff/receiving-review/** -text whitespace=cr-at-eol,-blank-at-eof
+/examples/cad-handoff/receiving-review/**/*.dxf -text whitespace=-trailing-space
+/examples/cad-handoff/native/qcad-r15/** -text whitespace=cr-at-eol,-blank-at-eof
+/examples/cad-handoff/native/qcad-r15/*.dxf -text whitespace=-trailing-space

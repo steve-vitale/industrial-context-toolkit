@@ -5212,6 +5212,44 @@
         "examples/cad-handoff/native/qcad/readback.json",
         "scripts/test_delivery_examples.py"
       ]
+    },
+    {
+      "id": "A331",
+      "function": "intake_and_reuse",
+      "date": "2026-11-07",
+      "change": "Add a readable CAD receiving packet that explains exact attributes, explicit fields/layouts and every strict record difference without waiver.",
+      "hypothesis": "An original/returned DXF pair can yield an actionable review queue without mistaking library diagnostics for engineering acceptance.",
+      "evidence": "Four controls first fail against old code; 14 CAD methods and eight evidence methods pass. Default native return retains all 335 strict differences while explaining 333 entity rows, 54 header values, styles, added viewport and planned/foreign attributes. Two actual CLI runs pass 15 exposed packet/input conditions while returning expected strict failure exits.",
+      "runs": "14 CAD regression methods, eight evidence methods, two CLI receiving packets",
+      "verdict": "kept",
+      "why": "Adds source-retaining review detail, not a new preservation pass. No geometric matching/normalization, loss waiver, context promotion, independent engineering review or manager benefit.",
+      "source": [
+        "docs/JOURNAL.md#176-turn-a-failed-cad-exchange-into-a-readable-receiving-packet",
+        "examples/cad-handoff/receiving-review/README.md",
+        "examples/cad-handoff/receiving-review/before.txt",
+        "examples/cad-handoff/receiving-review/worked/review.json",
+        "examples/cad-handoff/receiving-review/replay.json",
+        "scripts/cad_handoff.py",
+        "scripts/test_cad_handoff.py"
+      ]
+    },
+    {
+      "id": "A332",
+      "function": "intake_and_reuse",
+      "date": "2026-11-07",
+      "change": "Run the same native edit with an explicit R15/R2000 export version and fresh native document readback.",
+      "hypothesis": "Explicit source-compatible version may avoid a format change, while the complete strict comparison reveals whether wider preservation improves.",
+      "evidence": "Actual QCAD trial return retains AC1015 and all six expected attributes. Changed header values decrease 54 to 3, but strict differences increase 335 to 344; styles and added paper-space viewport remain. Raw return and command/log/readback are retained and offline comparisons reproduce.",
+      "runs": "1 additional native engine edit/export/fresh-document import plus offline comparison",
+      "verdict": "inconclusive",
+      "why": "Version compatibility is observed but strict preservation still fails. Difference counts are not severity or proved engineering losses; no waiver, receiver ranking, interactive/company acceptance or promoted context.",
+      "source": [
+        "docs/JOURNAL.md#177-test-an-explicit-native-export-version-without-selecting-a-flattering-count",
+        "examples/cad-handoff/native/qcad-r15/README.md",
+        "examples/cad-handoff/native/qcad-r15/receipt.json",
+        "examples/cad-handoff/native/qcad-r15/summary.json",
+        "examples/cad-handoff/receiving-review/replay.json"
+      ]
     }
   ],
   "not_tried": [

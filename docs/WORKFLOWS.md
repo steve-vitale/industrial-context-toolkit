@@ -164,5 +164,12 @@ revision report at the same mapped position. CAD attributes remain prefixed `cad
 no pipe/control relationship or installed-state authority is inferred. The original DXF remains alongside the
 projection. This is an explicit one-way publication, not automatic or bidirectional synchronization.
 
+`cad_handoff.py review` accepts an original/returned pair in that profile, plus an optional hash-bound edit plan,
+and writes a [receiving packet](../examples/cad-handoff/receiving-review/README.md): exact drawings, full strict
+comparison, planned/unexpected attribute values, explicit changed fields/layouts and every unresolved strict row.
+It returns exit 1 for a completed packet with differences, 0 only for strict decoded equality under the plan,
+and 2 for input/preparation failure. Neither completed result establishes acceptance or promotes a context revision.
+Two saved native returns reproduce offline; their original strict failures (335 and 344) remain failures.
+
 Native editor open/edit/save, opaque-content fidelity, receiving-company approval and subsequent accepted
 revision behavior remain to be qualified using the actual CAD tool/version and [acceptance plan](ACCEPTANCE.md).
