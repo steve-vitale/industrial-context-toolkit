@@ -8210,3 +8210,9 @@ The unchanged CAD regression module passes 28 tests. Ledger (339 attempts/116 id
 (22 reviewed of 30, CAD still needs review), matrix bindings, reader leaderboard and 152-script index checks
 pass. Diagnostic freeze hashes and all recorded original qualification methods compare exact; new guide links
 resolve. Full repository CI remains the separate integration gate for this change.
+
+Before creating the PR, a Git warning prompted actual blob/working-byte comparison: artifact commit 7a637a1
+stored a 1,140,911-byte ZIP, while the original remained 1,140,924 bytes with its inventory hash. The general
+CAD text rule normalized thirteen CRLF sequences. A binary ZIP override and forced re-add restore the original
+bytes; no report, oracle, method or result changes. Both hashes/sizes and the failed commit are retained in the
+checkout recovery record. The staged/committed ZIP is checked against its pin before publication.

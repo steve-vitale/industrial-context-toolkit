@@ -40,6 +40,11 @@ marked resolved, removed or subtracted. Headers/version differences remain exact
 [summary](summary.json) and [per-report archive inventory](INVENTORY.json); `evidence.zip` contains every full
 report. Reports link by SHA to the original source/return/plan and retained strict comparison in round 2.
 
+The first artifact commit `7a637a1` incorrectly treated the ZIP as CAD text, changing 13 CRLF byte sequences in
+the Git blob while the original local archive stayed exact. The later binary-file rule restores its original
+1,140,924 bytes and pinned hash; no report or diagnostic rule changed. The
+[checkout recovery](CHECKOUT-RECOVERY.json) retains both blob identities and the failed commit in history.
+
 | Retained route | Cases | Strict differences, still retained | Unique literal-body seeds | Closed exact decoded pairs |
 |---|---:|---:|---:|---:|
 | Source-preserving candidate | 21 | 0 | 1,820 | 586 |
