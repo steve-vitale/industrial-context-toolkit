@@ -43,8 +43,9 @@ attribute order, literal text and retained unfamiliar payloads. Generate and has
 candidate on reserved cases; publish generator, split, source/key provenance and recipe. Reserved authored cases are
 procedural validation, not independently authored plant evidence or model-training blindness.
 
-Also select at least three public drawing families by pinned upstream paths before inspecting their contents or
-running the candidate: LibreCAD library air/water, mechanical and power-engineering geometry. Keep exact originals
+Also select at least three public geometry categories by pinned upstream paths before inspecting their contents or
+running the candidate: LibreCAD library air/water, mechanical and power-engineering geometry, plus an ezdxf hatch
+example from a second upstream project. Categories from one library are not independent source families. Keep exact originals
 and license attribution. If they lack the required identities, report rejection of the unmodified files, and label
 any added test asset/metadata as an authored adaptation; never call an adapted fixture an untouched real plant.
 Apply the same baseline and candidate to all applicable selected cases. No selection by favorable outcome.
@@ -60,3 +61,5 @@ Protocol frozen; method and validation not completed. GUI capture initially fail
 accessibility text is available, but an indexed startup click reports coordinate input geometry unavailable.
 These are infrastructure failures, not CAD acceptance or a reason to mark the goal complete. Continue other
 qualification work while attempting the documented bounded UI recovery.
+
+Pre-method clarification: public selection measures category coverage across two upstream projects; it does not claim three independent plant/source families. This clarification precedes case execution or method code.
