@@ -1,0 +1,30 @@
+{
+  "schema": "public-acquisition-validation-1",
+  "cached_replay": {
+    "network": "http_get replaced by a raising function",
+    "max_mb": 0,
+    "files_verified": 47,
+    "unexpected_network_calls": 0,
+    "integrity": "all exact pins match",
+    "parser_errors": [
+      {
+        "source": "lanl-biomanufacturing",
+        "path": "Cyano_Data_6803_06.26.2025.csv",
+        "stage": "inspection",
+        "error": "'utf-8' codec can't decode byte 0xb5 in position 386: invalid start byte"
+      }
+    ],
+    "exit_code": 1
+  },
+  "previous_pin_groups": {
+    "groups": 25,
+    "unchanged": true
+  },
+  "fresh_fetch": "fresh-fetch.json",
+  "local_tests": {
+    "focused_module": "scripts/test_fetch_corpus.py",
+    "methods": 24,
+    "result": "pass",
+    "full_suite": "no tests ran; missing cached TE prerequisites in separate worktree"
+  }
+}

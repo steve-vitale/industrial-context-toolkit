@@ -1,5 +1,10 @@
 # More public inputs for maintenance and engineering work
 
+The [second acquisition](round-2/README.md) adds **47 more files (203 MB)**: historical excavator work orders,
+five facility drawing/document sets, industrial failure/quality data, process models, instrument photos and
+additional CAD originals. Both acquisitions total 101 files in 29 download groups; groups are not independent
+plants. Each acquisition retains its own provenance, failures, rights and inspection limits.
+
 The 2026-11-07 acquisition adds **54 files, 114,865,314 bytes, across 14 source groups**. They are downloaded
 locally, with original filenames/bytes, attribution, license information, published checksums where supplied,
 and a SHA-256 pin for every file. Four separate CAD originals are committed in the

@@ -5250,6 +5250,25 @@
         "examples/cad-handoff/native/qcad-r15/summary.json",
         "examples/cad-handoff/receiving-review/replay.json"
       ]
+    },
+    {
+      "id": "A333",
+      "function": "intake_and_reuse",
+      "date": "2026-11-07",
+      "change": "Acquire additional public originals across maintenance, engineering drawings/CAD, photos, process models, quality, historian and batch categories with explicit rights/exposure and failure records.",
+      "hypothesis": "Additional source families and difficult formats can support future task cases without reusing development cases as validation or treating downloads as accuracy evidence.",
+      "evidence": "47 original files, 203089339 bytes in 15 groups. All pins match in network-disabled cached replay; one fresh naval HTTPS fetch reproduces its pin. UTF-8 failure, malformed rows, missing PDF text, unresolved/conflicting rights and restricted IRIS metadata remain explicit. Six new CAD originals are not content-inspected. All 25 prior pin groups unchanged; 24 focused tests pass. Local full suite stopped before tests at missing TE cache prerequisites.",
+      "runs": "One acquisition with retained failed transport and verified system-TLS fallback, structural admission, cached replay and fresh-fetch integrity control",
+      "verdict": "kept",
+      "why": "Useful acquired-unscored inputs and reproducible source records. No interpretation/repair effectiveness/CAD acceptance or new generalization result inferred; adapters, keys and rights remain source-specific.",
+      "source": [
+        "docs/JOURNAL.md#180-expand-public-originals-without-promoting-acquisition-into-evaluation",
+        "examples/public-data/round-2/README.md",
+        "examples/public-data/round-2/admission.json",
+        "examples/public-data/round-2/discovery-outcomes.json",
+        "examples/public-data/round-2/fresh-fetch.json",
+        "data/public_sources_20261107_round2.json"
+      ]
     }
   ],
   "not_tried": [

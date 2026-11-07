@@ -1,0 +1,152 @@
+{
+  "schema": "public-source-discovery-outcomes-1",
+  "date": "2026-11-07",
+  "outcomes": [
+    {
+      "source": "IRIS",
+      "url": "https://zenodo.org/records/18671364",
+      "outcome": "Metadata only; no data files acquired. CC BY-NC-ND 4.0 does not fit the intended commercial consulting/reusable derivative corpus.",
+      "license": {
+        "id": "cc-by-nc-nd-4.0"
+      },
+      "files": [
+        {
+          "name": "point_cloud_stations_merged_zoneB_density_10%.ply",
+          "bytes": 675013584
+        },
+        {
+          "name": "images_xphase_4.zip",
+          "bytes": 2244464500
+        },
+        {
+          "name": "images_ZF.zip",
+          "bytes": 848310550
+        },
+        {
+          "name": "images_xphase_1.zip",
+          "bytes": 2176870533
+        },
+        {
+          "name": "images_xphase_2.zip",
+          "bytes": 2333081845
+        },
+        {
+          "name": "images_xphase_3.zip",
+          "bytes": 2299275701
+        },
+        {
+          "name": "images_ZF_camera_info.zip",
+          "bytes": 34167
+        },
+        {
+          "name": "images_xphase_camera_info.zip",
+          "bytes": 140814
+        },
+        {
+          "name": "piping_and_instrumentation_diagram.pdf",
+          "bytes": 3156886
+        },
+        {
+          "name": "cad_model.zip",
+          "bytes": 81839849
+        },
+        {
+          "name": "iris-vis.zip",
+          "bytes": 2783691733
+        },
+        {
+          "name": "point_cloud_stations_04.zip",
+          "bytes": 2635047214
+        },
+        {
+          "name": "point_cloud_stations_11.zip",
+          "bytes": 2691439853
+        },
+        {
+          "name": "point_cloud_stations_12.zip",
+          "bytes": 2639483671
+        },
+        {
+          "name": "point_cloud_stations_05.zip",
+          "bytes": 2687923817
+        },
+        {
+          "name": "point_cloud_stations_14.zip",
+          "bytes": 1013077982
+        },
+        {
+          "name": "point_cloud_stations_13.zip",
+          "bytes": 2623229988
+        },
+        {
+          "name": "point_cloud_stations_01.zip",
+          "bytes": 2469537649
+        },
+        {
+          "name": "point_cloud_stations_06.zip",
+          "bytes": 2744046283
+        },
+        {
+          "name": "point_cloud_stations_07.zip",
+          "bytes": 2838904809
+        },
+        {
+          "name": "point_cloud_stations_08.zip",
+          "bytes": 2614541453
+        },
+        {
+          "name": "point_cloud_stations_09.zip",
+          "bytes": 2483489639
+        },
+        {
+          "name": "point_cloud_stations_10.zip",
+          "bytes": 2604491101
+        },
+        {
+          "name": "point_cloud_stations_02.zip",
+          "bytes": 2566522323
+        },
+        {
+          "name": "point_cloud_stations_03.zip",
+          "bytes": 2267024448
+        },
+        {
+          "name": "point_cloud_stations_merged_zoneC_density_10%.ply",
+          "bytes": 704902422
+        },
+        {
+          "name": "point_cloud_stations_merged_zoneA_density_10%.ply",
+          "bytes": 540494562
+        },
+        {
+          "name": "point_cloud_stations_info.zip",
+          "bytes": 33439
+        },
+        {
+          "name": "annotations_segmentation_cubemaps_xphase.zip",
+          "bytes": 2532669698
+        },
+        {
+          "name": "annotations_boxes_cubemaps_ZF.zip",
+          "bytes": 222561269
+        }
+      ],
+      "metadata_snapshot": "data/public-source-evidence/2026-11-07-round-2/iris-restricted.json",
+      "metadata_snapshot_sha256": "06dc2fe286b1116e2f47e4891cf2bc412e5de12eab17d1d3f34b1c58c819d17b"
+    },
+    {
+      "source": "KALBRO",
+      "url": "https://zenodo.org/records/21079219",
+      "outcome": "Metadata advertises files but API files array empty; no data acquired."
+    },
+    {
+      "source": "salina-design-basis",
+      "path": "original.pdf",
+      "url": "https://www.salina-ks.gov/media/utilities/Document%20Library/Salina_WWTP_Improvement_Project_BDR_Report_Final_051121%20%281%29.pdf",
+      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1081)>",
+      "outcome": "Successful verified Windows system-TLS curl 8.13.0/Schannel HTTPS download after Python trust-chain failure; original failure retained. No insecure TLS option used.",
+      "bytes": 34623923,
+      "sha256": "13f04d33348a90c17acc043af46a8369c5fc60803300ab50a8d1064384186db4"
+    }
+  ]
+}

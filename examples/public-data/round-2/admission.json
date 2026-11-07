@@ -1,0 +1,1458 @@
+{
+  "schema": "public-source-admission-2",
+  "created": "2026-11-07T16:08:00.303807+00:00",
+  "role": "acquired-unscored; structural admission only",
+  "python": "3.14.2",
+  "fingerprint_convention": "method/registry CRLF normalized to LF; originals raw bytes",
+  "method_sha256": "f9f4de9d4b326ec20f6d3042368921378aef3ad8ca17d57a882bd4580f950e1e",
+  "base_inspector_sha256": "260c3f99f076e480bd0ffef6c882866798efa304c9d363badaba412b7ad512d2",
+  "extractor_sha256": "5c886220c3492729f8cf2e5d8ba7ec9788d29047620155ccedad3f84b37c0fb3",
+  "fetch_engine_sha256": "fb9f6480a2209054e30dfe56e69179570c1da6f766dc01fd04319077ae9e1e0b",
+  "registry_sha256": "f53bf3274f769c731e779a9ceadfa55eca2a70a52d83ada07096e55f1aa1e6e6",
+  "fetch_receipts": [
+    {
+      "source": "uci-gas-turbine",
+      "license": "CC BY 4.0",
+      "attribution": " (2019). Gas Turbine CO and NOx Emission Data Set. DOI:10.24432/C5WC95.",
+      "landing_url": "https://archive.ics.uci.edu/dataset/551/gas+turbine+co+and+nox+emission+data+set",
+      "fetched": "2026-11-07T16:08:00+00:00",
+      "files": [
+        {
+          "path": "original.zip",
+          "bytes": 1090294,
+          "sha256": "55fdb1acc25f05bd9c77aac285c424e9154ffb0dbf1bbadb56b69a1142231295",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        }
+      ],
+      "skipped": "Only the listed subset acquired; downloaded code never executed.",
+      "fetched_mb": 0.0
+    },
+    {
+      "source": "uci-naval",
+      "license": "CC BY 4.0",
+      "attribution": "Andrea Coraddu, Luca Oneto, Alessandro Ghio, Stefano Savio, Davide Anguita, Massimo Figari (2014). Condition Based Maintenance of Naval Propulsion Plants. DOI:10.24432/C5K31K.",
+      "landing_url": "https://archive.ics.uci.edu/dataset/316/condition+based+maintenance+of+naval+propulsion+plants",
+      "fetched": "2026-11-07T16:08:00+00:00",
+      "files": [
+        {
+          "path": "original.zip",
+          "bytes": 567071,
+          "sha256": "91a3815da80b5ab7e2d5b82ac82f1c2cbf89182c7a65bcdf240db1e014423cb9",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        }
+      ],
+      "skipped": "Only the listed subset acquired; downloaded code never executed.",
+      "fetched_mb": 0.0
+    },
+    {
+      "source": "uci-secom",
+      "license": "CC BY 4.0",
+      "attribution": "Michael McCann, Adrian Johnston (2008). SECOM. DOI:10.24432/C54305.",
+      "landing_url": "https://archive.ics.uci.edu/dataset/179/secom",
+      "fetched": "2026-11-07T16:08:00+00:00",
+      "files": [
+        {
+          "path": "original.zip",
+          "bytes": 1964989,
+          "sha256": "eea568baf3c2229096d7d294cf0b096b5502bd96d92c0b80a65b84714059be8e",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        }
+      ],
+      "skipped": "Only the listed subset acquired; downloaded code never executed.",
+      "fetched_mb": 0.0
+    },
+    {
+      "source": "uci-aps",
+      "license": "GPL-3.0-or-later in source; UCI CC BY 4.0 footer conflicts",
+      "attribution": " (2016). APS Failure at Scania Trucks. DOI:10.24432/C51S51.",
+      "landing_url": "https://archive.ics.uci.edu/dataset/421/aps+failure+at+scania+trucks",
+      "fetched": "2026-11-07T16:08:00+00:00",
+      "files": [
+        {
+          "path": "original.zip",
+          "bytes": 56618034,
+          "sha256": "5504d0402f54faaf97ac0ca085a621645763f5cfea2eb29c592b057d43d4db89",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        }
+      ],
+      "skipped": "Only the listed subset acquired; downloaded code never executed.",
+      "fetched_mb": 0.0
+    },
+    {
+      "source": "nestor-excavators",
+      "license": "Dataset-specific terms unresolved; NIST software notice is not substituted",
+      "attribution": "Hodkiewicz, M. and Ho, M. (2016), Cleaning historical maintenance work order data for reliability analysis. Historical CSVs distributed by NIST Nestor.",
+      "landing_url": "https://github.com/usnistgov/nestor/commit/3892b7178f1a09512557c8f32c1c84200ea665c7",
+      "fetched": "2026-11-07T16:08:00+00:00",
+      "files": [
+        {
+          "path": "nestor/datasets/excavators.csv",
+          "bytes": 286536,
+          "sha256": "4fdc10728bb8d579ae310ee12bb613dc7068ded2050c301674e78bbfbbd189f0",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "nestor/datasets/excavators-cleaned.csv",
+          "bytes": 781309,
+          "sha256": "006c4f71bc1ff2edc2adf064107a054a6cf2f2027a53ba2cf748ccb7b4e517a2",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "nestor/datasets/excavators.py",
+          "bytes": 2196,
+          "sha256": "89af897c4680ff79ae5caa5ccd6f2198def5e688b7e1f2b0124d7ce38e79362c",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "README.md",
+          "bytes": 4858,
+          "sha256": "16154f63c2a2f226eb36bdae8e962a34f4dc5491728790e00126c8b684eadfe9",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "LICENSE.md",
+          "bytes": 2535,
+          "sha256": "1cf4920c69e8e9a5b3a73ec3d12675c38d56ca64227dc3dc635b251875c455fa",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        }
+      ],
+      "skipped": "Only the listed subset acquired; downloaded code never executed.",
+      "fetched_mb": 0.0
+    },
+    {
+      "source": "lanl-biomanufacturing",
+      "license": "BSD-3-Clause",
+      "attribution": "Los Alamos National Laboratory contributors (2026). Data-Driven Insights to Accelerate Advanced Biomanufacturing. LA-UR-26-21221; cite retained README and manuscript.",
+      "landing_url": "https://github.com/lanl/Biomanufacturing-PCC6803-Dataset",
+      "fetched": "2026-11-07T16:08:00+00:00",
+      "files": [
+        {
+          "path": "Cyano_Data_6803_06.26.2025.csv",
+          "bytes": 36347,
+          "sha256": "b64ebedfe685e21d519eabb6069bbda93872c7d93381a16e5bb4c2bb037a7e7c",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "Cyano_Data_6803_09.29.2025_merged.csv",
+          "bytes": 36604,
+          "sha256": "34d7ea3843b13ae72ef6b21316a67962f139a3b5c27fb1ef3333ad04e5c50ce8",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "Abstract&DataDescription.md",
+          "bytes": 13018,
+          "sha256": "9a2d078d8bbea671b7c1b23cb15681eb27dabcbffdbdae6d53b19a990e84c89c",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "README.md",
+          "bytes": 5564,
+          "sha256": "ae11b249c19d313ad29fee324a1ff776837bf8f5d5420532ca0088b1f0b92bc0",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 3013,
+          "sha256": "5b27c10d3bc618a8a28a90bb9dcc9353af784a3fc5b3daa74224259569fc970f",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        }
+      ],
+      "skipped": "Only the listed subset acquired; downloaded code never executed.",
+      "fetched_mb": 0.0
+    },
+    {
+      "source": "historian-rca",
+      "license": "CC BY 4.0",
+      "attribution": "Scott Duncan (2026). HistorianRCA: A Root Cause Analysis Benchmark, version 1.0; retained CITATION.cff.",
+      "landing_url": "https://github.com/ScottDuncanAI/HistorianRCA",
+      "fetched": "2026-11-07T16:08:00+00:00",
+      "files": [
+        {
+          "path": "historian.parquet",
+          "bytes": 32556476,
+          "sha256": "e9ca73a10c10bbe643fc08d8bdcc1d88b12bccbb0d728c34255daed754941113",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "historian_60s.parquet",
+          "bytes": 24746158,
+          "sha256": "cab033957a15877f8570247ef37d2345ee4c1f7be48c747ee51ab985811c852c",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "tags.csv",
+          "bytes": 9625,
+          "sha256": "3e94abd9e996372a02ca4f18bb90100faa6a759fb14453f706b170375b4657d0",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "PROCESS_DESCRIPTION.md",
+          "bytes": 23405,
+          "sha256": "1f7b8a2da8e00c84ae27bcc3882b1a79755e919df5241f8a2e5e73032bd8696e",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "CHALLENGE.md",
+          "bytes": 7458,
+          "sha256": "91b744ae5bac73611d5c4d361b977f57c8dd6b882c2fb909c441b98a919f9f0b",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "README.md",
+          "bytes": 7477,
+          "sha256": "36dc6c4583d002a6cff262e47b5ff7d61b3265ceaebdbd80a1661250b43f57e9",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "CITATION.cff",
+          "bytes": 801,
+          "sha256": "068c65e3206c00b128bc5de983a3b837a92b2d48251cb9b51e695a4b3a2649c3",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 660,
+          "sha256": "974973c66ef88c3121b8c630ba5892ffb0cc8daa5a90fa521e30272624adabf5",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "tk-101-hold-tank.png",
+          "bytes": 117003,
+          "sha256": "a2adae1983f19c18efb19220ea19e2ba849d8d2fe6434f4c76398fca66b50545",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "tk-101-hold-tank.svg",
+          "bytes": 25018,
+          "sha256": "e208f656b53d9e456bcc43b803281b798bafc0105323283d1d289db430f16618",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        }
+      ],
+      "skipped": "Only the listed subset acquired; downloaded code never executed.",
+      "fetched_mb": 0.0
+    },
+    {
+      "source": "modelica-fluid",
+      "license": "BSD-3-Clause",
+      "attribution": "Modelica Association and contributors, Modelica Standard Library; retain LICENSE and per-file notices.",
+      "landing_url": "https://github.com/modelica/ModelicaStandardLibrary",
+      "fetched": "2026-11-07T16:08:00+00:00",
+      "files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1542,
+          "sha256": "4f708e2d4bdebaeb13896d3796ebf9f4eac0ddc31dc6cd391dff4aa76c63e2eb",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "README.md",
+          "bytes": 4045,
+          "sha256": "1f876fc79e1133ba9bb24e986f94260ea1820ce9a40f3941e4b5c69c674afb36",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "Modelica/Fluid/Examples/PumpingSystem.mo",
+          "bytes": 7752,
+          "sha256": "c262bb8968cb1bcbfa6a983a893b92b95061f50a31e07d5da8f4d556b62621d0",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "Modelica/Fluid/Examples/Tanks.mo",
+          "bytes": 13125,
+          "sha256": "64ac10c9fb5cd3f1d38a91957df0a323107258157232f136dfd537994cdc35b3",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "Modelica/Fluid/Examples/ControlledTankSystem.mo",
+          "bytes": 19186,
+          "sha256": "3884432bb8b36d198189c305abce88083fb01d305fa0e3a62fe74e913559a64f",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "Modelica/Fluid/Examples/DrumBoiler.mo",
+          "bytes": 18485,
+          "sha256": "9946b49905fe4f2ff8ebbe1dc423a4906dc21afbba7e377cdf7d65d726f573c3",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "Modelica/Fluid/Examples/HeatExchanger.mo",
+          "bytes": 23423,
+          "sha256": "75b0223200cb026a9e823932e061248d0f049d8e4a231871932ee26e5b12286b",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "Modelica/Fluid/Examples/AST_BatchPlant.mo",
+          "bytes": 101613,
+          "sha256": "5154dd1243500d80e11d805833ac828e7200e71587bff309b2d9cf089c6ff672",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        }
+      ],
+      "skipped": "Only the listed subset acquired; downloaded code never executed.",
+      "fetched_mb": 0.0
+    },
+    {
+      "source": "cad-extra-originals",
+      "license": "ezdxf MIT repository notice; preserve per-file provenance caveat",
+      "attribution": "ezdxf contributors; upstream example files at pinned commit, original bytes only.",
+      "landing_url": "https://github.com/mozman/ezdxf/tree/c498560bb491c357deda538360ed0c8fdb11f5a7/examples_dxf",
+      "fetched": "2026-11-07T16:08:00+00:00",
+      "files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1071,
+          "sha256": "db97ca426fc0d2b8124145de0f36181db73e6e713ce642d42fed2efc442edf19",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "examples_dxf/dimension_in_block.dxf",
+          "bytes": 88082,
+          "sha256": "923cc1d0d86bf6738139dbec26b66e299fbfa2c16a49ed206ad06cf719c6e6f2",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "examples_dxf/dimension_in_nested_blocks.dxf",
+          "bytes": 91234,
+          "sha256": "03b50bf9a29513147d2b66f6ec1a4377494ced38437082c979639dfa42d613ea",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "examples_dxf/multi_insert_with_attribs.dxf",
+          "bytes": 17346,
+          "sha256": "14951dbef1c750fefc0a452e0bd4fb5b281dc092820d5b6da31b3855dddb4411",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "examples_dxf/text_in_viewports.dxf",
+          "bytes": 78620,
+          "sha256": "51dc85fbbcc04c4c3c103d92b99524bde9ef7272a9f818ad321a683cd6877d10",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "examples_dxf/columns_R2018.dxf",
+          "bytes": 93392,
+          "sha256": "0110c42731224a851baca4fd93209a40ebcd19b18d98e75201715d3cd3baa649",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "examples_dxf/hatch_issues.dxf",
+          "bytes": 73197,
+          "sha256": "16ff6d4b687124d6ea681529260a4273858b87d9d5dd02eaec5d55d36dff30fb",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        }
+      ],
+      "skipped": "Only the listed subset acquired; downloaded code never executed.",
+      "fetched_mb": 0.0
+    },
+    {
+      "source": "commons-instruments",
+      "license": "Per-file CC0 / Public domain as declared on Commons",
+      "attribution": "Per-file artist/license in pins and retained Commons metadata.",
+      "landing_url": "https://commons.wikimedia.org",
+      "fetched": "2026-11-07T16:08:00+00:00",
+      "files": [
+        {
+          "path": "Pressure gauge of air supply pipe.jpg",
+          "bytes": 2424952,
+          "sha256": "1baa3c906ae90769eea87b4e6650e3ecc7b969eac8a5dc303337e8ac6df7fad1",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "Pressure gauge of brake pipe.jpg",
+          "bytes": 2387904,
+          "sha256": "796e44625f7681b2639c4c6a4d0bd61e212cb6f460224029807926e684d1c232",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "Regulator valve & pressure gauge.JPG",
+          "bytes": 656482,
+          "sha256": "5bf21a1d66f34f6cee38a36d859fce28836f304c1ac343650410e9335e75dc7b",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        }
+      ],
+      "skipped": "Only the listed subset acquired; downloaded code never executed.",
+      "fetched_mb": 0.0
+    },
+    {
+      "source": "pahala-drawings",
+      "license": "Public regulatory record; engineering drawing/report rights retained; local originals only",
+      "attribution": "Pahala WWTP concept design/build drawings (2021). Original authors/engineering firms and notices remain in PDF; government hosting does not establish federal authorship or blanket public domain.",
+      "landing_url": "https://www.epa.gov/system/files/documents/2021-08/pahala-wwtp-design-build-drawings-2021-07-23.pdf",
+      "fetched": "2026-11-07T16:08:00+00:00",
+      "files": [
+        {
+          "path": "original.pdf",
+          "bytes": 7302619,
+          "sha256": "6b61266b4fc32d6bd209648d8509d9e75be2d9bc584f499d855c2d4f16b8d0af",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        }
+      ],
+      "skipped": "Only the listed subset acquired; downloaded code never executed.",
+      "fetched_mb": 0.0
+    },
+    {
+      "source": "virden-drawings",
+      "license": "Public regulatory record; engineering drawing/report rights retained; local originals only",
+      "attribution": "Virden WWTF Phase 2 P&I drawings (2019). Original authors/engineering firms and notices remain in PDF; government hosting does not establish federal authorship or blanket public domain.",
+      "landing_url": "https://www.gov.mb.ca/sd/eal/registries/5697virden/2019-04-26_5697_00_phase_2_p_and_i_drwngs.pdf",
+      "fetched": "2026-11-07T16:08:00+00:00",
+      "files": [
+        {
+          "path": "original.pdf",
+          "bytes": 3285153,
+          "sha256": "41bdff902a2651f00869a1ed7e67ec16d6d027bda701210ee10486fd58160df0",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        }
+      ],
+      "skipped": "Only the listed subset acquired; downloaded code never executed.",
+      "fetched_mb": 0.0
+    },
+    {
+      "source": "haile-water-treatment",
+      "license": "Public regulatory record; engineering drawing/report rights retained; local originals only",
+      "attribution": "Haile Gold Mine contact wastewater treatment upgrade. Original authors/engineering firms and notices remain in PDF; government hosting does not establish federal authorship or blanket public domain.",
+      "landing_url": "https://des.sc.gov/sites/des/files/media/document/BOW_HGM_ContactWWTreatmentUpgrade.pdf",
+      "fetched": "2026-11-07T16:08:00+00:00",
+      "files": [
+        {
+          "path": "original.pdf",
+          "bytes": 13995478,
+          "sha256": "725168bb3f8587d7b3a082643289009dd572865afba0c9501541a7800723fb00",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        }
+      ],
+      "skipped": "Only the listed subset acquired; downloaded code never executed.",
+      "fetched_mb": 0.0
+    },
+    {
+      "source": "salina-design-basis",
+      "license": "Public regulatory record; engineering drawing/report rights retained; local originals only",
+      "attribution": "Salina WWTP improvement project basis of design (2021). Original authors/engineering firms and notices remain in PDF; government hosting does not establish federal authorship or blanket public domain.",
+      "landing_url": "https://www.salina-ks.gov/media/utilities/Document%20Library/Salina_WWTP_Improvement_Project_BDR_Report_Final_051121%20%281%29.pdf",
+      "fetched": "2026-11-07T16:08:00+00:00",
+      "files": [
+        {
+          "path": "original.pdf",
+          "bytes": 34623923,
+          "sha256": "13f04d33348a90c17acc043af46a8369c5fc60803300ab50a8d1064384186db4",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        }
+      ],
+      "skipped": "Only the listed subset acquired; downloaded code never executed.",
+      "fetched_mb": 0.0
+    },
+    {
+      "source": "ruttan-water-treatment",
+      "license": "Public regulatory record; engineering drawing/report rights retained; local originals only",
+      "attribution": "Ruttan Mine water treatment public submission (2025). Original authors/engineering firms and notices remain in PDF; government hosting does not establish federal authorship or blanket public domain.",
+      "landing_url": "https://gov.mb.ca/sd/eal/registries/294.30/20250618_letter.pdf",
+      "fetched": "2026-11-07T16:08:00+00:00",
+      "files": [
+        {
+          "path": "original.pdf",
+          "bytes": 18874266,
+          "sha256": "fd2aa661cccfb92a05a82232f773f8d92be033e83e47e5bb6da14fa73a7a183c",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        }
+      ],
+      "skipped": "Only the listed subset acquired; downloaded code never executed.",
+      "fetched_mb": 0.0
+    }
+  ],
+  "sources": {
+    "uci-gas-turbine": {
+      "categories": [
+        "historian",
+        "energy",
+        "condition-monitoring"
+      ],
+      "files": [
+        {
+          "path": "original.zip",
+          "bytes": 1090294,
+          "sha256": "55fdb1acc25f05bd9c77aac285c424e9154ffb0dbf1bbadb56b69a1142231295",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib zip directory only",
+            "extracted": false,
+            "members": [
+              {
+                "name": "gt_2011.csv",
+                "bytes": 562921,
+                "compressed_bytes": 219823,
+                "crc32": "1cabf1de"
+              },
+              {
+                "name": "gt_2012.csv",
+                "bytes": 577617,
+                "compressed_bytes": 226268,
+                "crc32": "6229a534"
+              },
+              {
+                "name": "gt_2013.csv",
+                "bytes": 540334,
+                "compressed_bytes": 212973,
+                "crc32": "c3e20605"
+              },
+              {
+                "name": "gt_2014.csv",
+                "bytes": 541009,
+                "compressed_bytes": 210658,
+                "crc32": "334f8f2f"
+              },
+              {
+                "name": "gt_2015.csv",
+                "bytes": 556928,
+                "compressed_bytes": 219660,
+                "crc32": "5412a696"
+              }
+            ],
+            "uncompressed_bytes": 2778809
+          }
+        }
+      ]
+    },
+    "uci-naval": {
+      "categories": [
+        "condition-monitoring",
+        "maintenance"
+      ],
+      "files": [
+        {
+          "path": "original.zip",
+          "bytes": 567071,
+          "sha256": "91a3815da80b5ab7e2d5b82ac82f1c2cbf89182c7a65bcdf240db1e014423cb9",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib zip directory only",
+            "extracted": false,
+            "members": [
+              {
+                "name": "UCI CBM Dataset/",
+                "bytes": 0,
+                "compressed_bytes": 0,
+                "crc32": "00000000"
+              },
+              {
+                "name": "UCI CBM Dataset/.DS_Store",
+                "bytes": 6148,
+                "compressed_bytes": 178,
+                "crc32": "6d88006a"
+              },
+              {
+                "name": "__MACOSX/",
+                "bytes": 0,
+                "compressed_bytes": 0,
+                "crc32": "00000000"
+              },
+              {
+                "name": "__MACOSX/UCI CBM Dataset/",
+                "bytes": 0,
+                "compressed_bytes": 0,
+                "crc32": "00000000"
+              },
+              {
+                "name": "__MACOSX/UCI CBM Dataset/._.DS_Store",
+                "bytes": 120,
+                "compressed_bytes": 52,
+                "crc32": "bcd719f4"
+              },
+              {
+                "name": "UCI CBM Dataset/data.txt",
+                "bytes": 3448926,
+                "compressed_bytes": 562534,
+                "crc32": "381b0347"
+              },
+              {
+                "name": "UCI CBM Dataset/Features.txt",
+                "bytes": 758,
+                "compressed_bytes": 333,
+                "crc32": "6b0fc45b"
+              },
+              {
+                "name": "__MACOSX/UCI CBM Dataset/._Features.txt",
+                "bytes": 120,
+                "compressed_bytes": 57,
+                "crc32": "8b386c46"
+              },
+              {
+                "name": "UCI CBM Dataset/README.txt",
+                "bytes": 5366,
+                "compressed_bytes": 2156,
+                "crc32": "b49644c7"
+              },
+              {
+                "name": "__MACOSX/UCI CBM Dataset/._README.txt",
+                "bytes": 120,
+                "compressed_bytes": 57,
+                "crc32": "8b386c46"
+              }
+            ],
+            "uncompressed_bytes": 3461558
+          }
+        }
+      ]
+    },
+    "uci-secom": {
+      "categories": [
+        "quality",
+        "manufacturing",
+        "condition-monitoring"
+      ],
+      "files": [
+        {
+          "path": "original.zip",
+          "bytes": 1964989,
+          "sha256": "eea568baf3c2229096d7d294cf0b096b5502bd96d92c0b80a65b84714059be8e",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib zip directory only",
+            "extracted": false,
+            "members": [
+              {
+                "name": "secom.data",
+                "bytes": 5389983,
+                "compressed_bytes": 1957400,
+                "crc32": "da1ee1ad"
+              },
+              {
+                "name": "secom.names",
+                "bytes": 4223,
+                "compressed_bytes": 1869,
+                "crc32": "16b663bc"
+              },
+              {
+                "name": "secom_labels.data",
+                "bytes": 40638,
+                "compressed_bytes": 5346,
+                "crc32": "d41f08b1"
+              }
+            ],
+            "uncompressed_bytes": 5434844
+          }
+        }
+      ]
+    },
+    "uci-aps": {
+      "categories": [
+        "maintenance",
+        "condition-monitoring"
+      ],
+      "files": [
+        {
+          "path": "original.zip",
+          "bytes": 56618034,
+          "sha256": "5504d0402f54faaf97ac0ca085a621645763f5cfea2eb29c592b057d43d4db89",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib zip directory only",
+            "extracted": false,
+            "members": [
+              {
+                "name": "aps_failure_test_set.csv",
+                "bytes": 11943558,
+                "compressed_bytes": 11943558,
+                "crc32": "fce34af1"
+              },
+              {
+                "name": "aps_failure_training_set.csv",
+                "bytes": 44669194,
+                "compressed_bytes": 44669194,
+                "crc32": "d435a0c2"
+              },
+              {
+                "name": "aps_failure_description.txt",
+                "bytes": 4874,
+                "compressed_bytes": 4874,
+                "crc32": "4e59e8f6"
+              }
+            ],
+            "uncompressed_bytes": 56617626
+          }
+        }
+      ]
+    },
+    "nestor-excavators": {
+      "categories": [
+        "maintenance",
+        "context",
+        "document-text",
+        "equipment-records"
+      ],
+      "files": [
+        {
+          "path": "nestor/datasets/excavators.csv",
+          "bytes": 286536,
+          "sha256": "4fdc10728bb8d579ae310ee12bb613dc7068ded2050c301674e78bbfbbd189f0",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib csv, official loader escapechar",
+            "columns": [
+              "BscStartDate",
+              "Asset",
+              "OriginalShorttext",
+              "PMType",
+              "Cost"
+            ],
+            "data_rows": 5326,
+            "row_widths": {
+              "5": 5325,
+              "7": 1
+            },
+            "meaning": "not scored",
+            "status": "partial",
+            "warnings": [
+              "Rows with unexpected widths retained in original; not a ready CMMS intake."
+            ]
+          }
+        },
+        {
+          "path": "nestor/datasets/excavators-cleaned.csv",
+          "bytes": 781309,
+          "sha256": "006c4f71bc1ff2edc2adf064107a054a6cf2f2027a53ba2cf748ccb7b4e517a2",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib csv, official loader escapechar",
+            "columns": [
+              "BscStartDate",
+              "Asset",
+              "OriginalShorttext",
+              "PMType",
+              "Cost",
+              "RunningTime",
+              "MajorSystem",
+              "Part",
+              "Action",
+              "Variant",
+              "FM",
+              "Location",
+              "Comments",
+              "FuncLocation",
+              "SuspSugg",
+              "Rule"
+            ],
+            "data_rows": 5308,
+            "row_widths": {
+              "16": 5306,
+              "18": 2
+            },
+            "meaning": "not scored",
+            "status": "partial",
+            "warnings": [
+              "Rows with unexpected widths retained in original; not a ready CMMS intake."
+            ]
+          }
+        },
+        {
+          "path": "nestor/datasets/excavators.py",
+          "bytes": 2196,
+          "sha256": "89af897c4680ff79ae5caa5ccd6f2198def5e688b7e1f2b0124d7ce38e79362c",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "README.md",
+          "bytes": 4858,
+          "sha256": "16154f63c2a2f226eb36bdae8e962a34f4dc5491728790e00126c8b684eadfe9",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "LICENSE.md",
+          "bytes": 2535,
+          "sha256": "1cf4920c69e8e9a5b3a73ec3d12675c38d56ca64227dc3dc635b251875c455fa",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        }
+      ]
+    },
+    "lanl-biomanufacturing": {
+      "categories": [
+        "batch",
+        "laboratory",
+        "quality",
+        "documents"
+      ],
+      "files": [
+        {
+          "path": "Cyano_Data_6803_06.26.2025.csv",
+          "bytes": 36347,
+          "sha256": "b64ebedfe685e21d519eabb6069bbda93872c7d93381a16e5bb4c2bb037a7e7c",
+          "integrity": "match",
+          "error": "'utf-8' codec can't decode byte 0xb5 in position 386: invalid start byte"
+        },
+        {
+          "path": "Cyano_Data_6803_09.29.2025_merged.csv",
+          "bytes": 36604,
+          "sha256": "34d7ea3843b13ae72ef6b21316a67962f139a3b5c27fb1ef3333ad04e5c50ce8",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib csv",
+            "data_rows": 255,
+            "columns": [
+              "Source Number",
+              "First Author",
+              "Year",
+              "DOI",
+              "Experiment Number",
+              "Wild Type or Transgenic",
+              "Transgenic Change",
+              "Nitrogen Source",
+              "Initial Nitrogen Concentration (mM)",
+              "Final Nitrogen Concentration (mM)",
+              "Mechanical Agitation",
+              "Carbon Source",
+              "Carbon Concentration/Pressure [ppm]",
+              "Additional Carbon Source",
+              "Additional Carbon Conc [mM]",
+              "Culture Amount in Media (mL)",
+              "BG-11 or Custom Media",
+              "Light Cycle",
+              "Light Intensity (\u00b5E/m^2*s)",
+              "Temperature",
+              "pH",
+              "Buffer",
+              "Buffer Concentration (mM)",
+              "Initial Nitrogen Limitation",
+              "Initial Phosphorous Limitation",
+              "Final Nitrogen Limitation",
+              "Final Phosphorous Limitation",
+              "Doubling Time [per day]",
+              "PHB Measurement Day/Growth Time Change (\u2206T)",
+              "Total Cultivation Time (days)",
+              "Growth Rate (Linear Regression) Slope",
+              "Starvation Days",
+              "PHB Accumulation (Linear Regression)  Slope (PHB%)",
+              "Maximum Biomass (OD)",
+              "Maximum PHB Accumulation (%)",
+              "PHB Increase 7 Days",
+              "PHB Increase 14 Days"
+            ],
+            "row_widths": {
+              "37": 255
+            }
+          }
+        },
+        {
+          "path": "Abstract&DataDescription.md",
+          "bytes": 13018,
+          "sha256": "9a2d078d8bbea671b7c1b23cb15681eb27dabcbffdbdae6d53b19a990e84c89c",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "README.md",
+          "bytes": 5564,
+          "sha256": "ae11b249c19d313ad29fee324a1ff776837bf8f5d5420532ca0088b1f0b92bc0",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 3013,
+          "sha256": "5b27c10d3bc618a8a28a90bb9dcc9353af784a3fc5b3daa74224259569fc970f",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        }
+      ]
+    },
+    "historian-rca": {
+      "categories": [
+        "historian",
+        "process-model",
+        "drawings",
+        "pid",
+        "context",
+        "documents"
+      ],
+      "files": [
+        {
+          "path": "historian.parquet",
+          "bytes": 32556476,
+          "sha256": "e9ca73a10c10bbe643fc08d8bdcc1d88b12bccbb0d728c34255daed754941113",
+          "integrity": "match",
+          "inspection": {
+            "parser": "Parquet framing only",
+            "footer_bytes": 2505,
+            "rows_and_schema": "not inspected; optional Parquet reader not installed"
+          }
+        },
+        {
+          "path": "historian_60s.parquet",
+          "bytes": 24746158,
+          "sha256": "cab033957a15877f8570247ef37d2345ee4c1f7be48c747ee51ab985811c852c",
+          "integrity": "match",
+          "inspection": {
+            "parser": "Parquet framing only",
+            "footer_bytes": 44838,
+            "rows_and_schema": "not inspected; optional Parquet reader not installed"
+          }
+        },
+        {
+          "path": "tags.csv",
+          "bytes": 9625,
+          "sha256": "3e94abd9e996372a02ca4f18bb90100faa6a759fb14453f706b170375b4657d0",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib csv",
+            "data_rows": 90,
+            "columns": [
+              "tag",
+              "description",
+              "units",
+              "range_lo",
+              "range_hi",
+              "instrument_class",
+              "role",
+              "loop",
+              "dcs_node",
+              "transport_lag_s",
+              "compression_deadband_pct",
+              "sensor_lag_s",
+              "update_period_s",
+              "unit"
+            ],
+            "row_widths": {
+              "14": 90
+            }
+          }
+        },
+        {
+          "path": "PROCESS_DESCRIPTION.md",
+          "bytes": 23405,
+          "sha256": "1f7b8a2da8e00c84ae27bcc3882b1a79755e919df5241f8a2e5e73032bd8696e",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "CHALLENGE.md",
+          "bytes": 7458,
+          "sha256": "91b744ae5bac73611d5c4d361b977f57c8dd6b882c2fb909c441b98a919f9f0b",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "README.md",
+          "bytes": 7477,
+          "sha256": "36dc6c4583d002a6cff262e47b5ff7d61b3265ceaebdbd80a1661250b43f57e9",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "CITATION.cff",
+          "bytes": 801,
+          "sha256": "068c65e3206c00b128bc5de983a3b837a92b2d48251cb9b51e695a4b3a2649c3",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 660,
+          "sha256": "974973c66ef88c3121b8c630ba5892ffb0cc8daa5a90fa521e30272624adabf5",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "tk-101-hold-tank.png",
+          "bytes": 117003,
+          "sha256": "a2adae1983f19c18efb19220ea19e2ba849d8d2fe6434f4c76398fca66b50545",
+          "integrity": "match",
+          "inspection": {
+            "parser": "scripts/extract_text.py",
+            "status": "unsupported",
+            "engine": "stdlib",
+            "engine_version": "",
+            "segments": 0,
+            "characters": 0,
+            "warnings": [
+              "no text reader for '.png' files; supported: .pdf .docx .docm .xlsx .xlsm .pptx .pptm .html .htm .txt .md .csv"
+            ],
+            "interpretation_accuracy": "not assessed"
+          }
+        },
+        {
+          "path": "tk-101-hold-tank.svg",
+          "bytes": 25018,
+          "sha256": "e208f656b53d9e456bcc43b803281b798bafc0105323283d1d289db430f16618",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        }
+      ]
+    },
+    "modelica-fluid": {
+      "categories": [
+        "process-model",
+        "flowsheets",
+        "batch",
+        "context",
+        "documents"
+      ],
+      "files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1542,
+          "sha256": "4f708e2d4bdebaeb13896d3796ebf9f4eac0ddc31dc6cd391dff4aa76c63e2eb",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "README.md",
+          "bytes": 4045,
+          "sha256": "1f876fc79e1133ba9bb24e986f94260ea1820ce9a40f3941e4b5c69c674afb36",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "Modelica/Fluid/Examples/PumpingSystem.mo",
+          "bytes": 7752,
+          "sha256": "c262bb8968cb1bcbfa6a983a893b92b95061f50a31e07d5da8f4d556b62621d0",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "Modelica/Fluid/Examples/Tanks.mo",
+          "bytes": 13125,
+          "sha256": "64ac10c9fb5cd3f1d38a91957df0a323107258157232f136dfd537994cdc35b3",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "Modelica/Fluid/Examples/ControlledTankSystem.mo",
+          "bytes": 19186,
+          "sha256": "3884432bb8b36d198189c305abce88083fb01d305fa0e3a62fe74e913559a64f",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "Modelica/Fluid/Examples/DrumBoiler.mo",
+          "bytes": 18485,
+          "sha256": "9946b49905fe4f2ff8ebbe1dc423a4906dc21afbba7e377cdf7d65d726f573c3",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "Modelica/Fluid/Examples/HeatExchanger.mo",
+          "bytes": 23423,
+          "sha256": "75b0223200cb026a9e823932e061248d0f049d8e4a231871932ee26e5b12286b",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "Modelica/Fluid/Examples/AST_BatchPlant.mo",
+          "bytes": 101613,
+          "sha256": "5154dd1243500d80e11d805833ac828e7200e71587bff309b2d9cf089c6ff672",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        }
+      ]
+    },
+    "cad-extra-originals": {
+      "categories": [
+        "cad",
+        "drawings"
+      ],
+      "files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1071,
+          "sha256": "db97ca426fc0d2b8124145de0f36181db73e6e713ce642d42fed2efc442edf19",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "examples_dxf/dimension_in_block.dxf",
+          "bytes": 88082,
+          "sha256": "923cc1d0d86bf6738139dbec26b66e299fbfa2c16a49ed206ad06cf719c6e6f2",
+          "integrity": "match",
+          "inspection": {
+            "parser": "intentionally not run",
+            "status": "content uninspected",
+            "reason": "Preserve acquisition/evaluation separation; filenames and hashes only."
+          }
+        },
+        {
+          "path": "examples_dxf/dimension_in_nested_blocks.dxf",
+          "bytes": 91234,
+          "sha256": "03b50bf9a29513147d2b66f6ec1a4377494ced38437082c979639dfa42d613ea",
+          "integrity": "match",
+          "inspection": {
+            "parser": "intentionally not run",
+            "status": "content uninspected",
+            "reason": "Preserve acquisition/evaluation separation; filenames and hashes only."
+          }
+        },
+        {
+          "path": "examples_dxf/multi_insert_with_attribs.dxf",
+          "bytes": 17346,
+          "sha256": "14951dbef1c750fefc0a452e0bd4fb5b281dc092820d5b6da31b3855dddb4411",
+          "integrity": "match",
+          "inspection": {
+            "parser": "intentionally not run",
+            "status": "content uninspected",
+            "reason": "Preserve acquisition/evaluation separation; filenames and hashes only."
+          }
+        },
+        {
+          "path": "examples_dxf/text_in_viewports.dxf",
+          "bytes": 78620,
+          "sha256": "51dc85fbbcc04c4c3c103d92b99524bde9ef7272a9f818ad321a683cd6877d10",
+          "integrity": "match",
+          "inspection": {
+            "parser": "intentionally not run",
+            "status": "content uninspected",
+            "reason": "Preserve acquisition/evaluation separation; filenames and hashes only."
+          }
+        },
+        {
+          "path": "examples_dxf/columns_R2018.dxf",
+          "bytes": 93392,
+          "sha256": "0110c42731224a851baca4fd93209a40ebcd19b18d98e75201715d3cd3baa649",
+          "integrity": "match",
+          "inspection": {
+            "parser": "intentionally not run",
+            "status": "content uninspected",
+            "reason": "Preserve acquisition/evaluation separation; filenames and hashes only."
+          }
+        },
+        {
+          "path": "examples_dxf/hatch_issues.dxf",
+          "bytes": 73197,
+          "sha256": "16ff6d4b687124d6ea681529260a4273858b87d9d5dd02eaec5d55d36dff30fb",
+          "integrity": "match",
+          "inspection": {
+            "parser": "intentionally not run",
+            "status": "content uninspected",
+            "reason": "Preserve acquisition/evaluation separation; filenames and hashes only."
+          }
+        }
+      ]
+    },
+    "commons-instruments": {
+      "categories": [
+        "photo",
+        "equipment-records"
+      ],
+      "files": [
+        {
+          "path": "Pressure gauge of air supply pipe.jpg",
+          "bytes": 2424952,
+          "sha256": "1baa3c906ae90769eea87b4e6650e3ecc7b969eac8a5dc303337e8ac6df7fad1",
+          "integrity": "match",
+          "inspection": {
+            "parser": "scripts/extract_text.py",
+            "status": "unsupported",
+            "engine": "stdlib",
+            "engine_version": "",
+            "segments": 0,
+            "characters": 0,
+            "warnings": [
+              "no text reader for '.jpg' files; supported: .pdf .docx .docm .xlsx .xlsm .pptx .pptm .html .htm .txt .md .csv"
+            ],
+            "interpretation_accuracy": "not assessed"
+          }
+        },
+        {
+          "path": "Pressure gauge of brake pipe.jpg",
+          "bytes": 2387904,
+          "sha256": "796e44625f7681b2639c4c6a4d0bd61e212cb6f460224029807926e684d1c232",
+          "integrity": "match",
+          "inspection": {
+            "parser": "scripts/extract_text.py",
+            "status": "unsupported",
+            "engine": "stdlib",
+            "engine_version": "",
+            "segments": 0,
+            "characters": 0,
+            "warnings": [
+              "no text reader for '.jpg' files; supported: .pdf .docx .docm .xlsx .xlsm .pptx .pptm .html .htm .txt .md .csv"
+            ],
+            "interpretation_accuracy": "not assessed"
+          }
+        },
+        {
+          "path": "Regulator valve & pressure gauge.JPG",
+          "bytes": 656482,
+          "sha256": "5bf21a1d66f34f6cee38a36d859fce28836f304c1ac343650410e9335e75dc7b",
+          "integrity": "match",
+          "inspection": {
+            "parser": "scripts/extract_text.py",
+            "status": "unsupported",
+            "engine": "stdlib",
+            "engine_version": "",
+            "segments": 0,
+            "characters": 0,
+            "warnings": [
+              "no text reader for '.jpg' files; supported: .pdf .docx .docm .xlsx .xlsm .pptx .pptm .html .htm .txt .md .csv"
+            ],
+            "interpretation_accuracy": "not assessed"
+          }
+        }
+      ]
+    },
+    "pahala-drawings": {
+      "categories": [
+        "drawings",
+        "pid",
+        "electrical",
+        "documents",
+        "scanned-documents",
+        "context"
+      ],
+      "files": [
+        {
+          "path": "original.pdf",
+          "bytes": 7302619,
+          "sha256": "6b61266b4fc32d6bd209648d8509d9e75be2d9bc584f499d855c2d4f16b8d0af",
+          "integrity": "match",
+          "inspection": {
+            "parser": "scripts/extract_text.py",
+            "status": "ok",
+            "engine": "pypdf",
+            "engine_version": "6.14.2",
+            "segments": 25,
+            "characters": 43355,
+            "warnings": [],
+            "interpretation_accuracy": "not assessed"
+          }
+        }
+      ]
+    },
+    "virden-drawings": {
+      "categories": [
+        "drawings",
+        "pid",
+        "electrical",
+        "documents",
+        "scanned-documents",
+        "context"
+      ],
+      "files": [
+        {
+          "path": "original.pdf",
+          "bytes": 3285153,
+          "sha256": "41bdff902a2651f00869a1ed7e67ec16d6d027bda701210ee10486fd58160df0",
+          "integrity": "match",
+          "inspection": {
+            "parser": "scripts/extract_text.py",
+            "status": "needs OCR",
+            "engine": "pypdf",
+            "engine_version": "6.14.2",
+            "segments": 0,
+            "characters": 0,
+            "warnings": [
+              "no text layer, needs OCR: pages 1-14 of 14"
+            ],
+            "interpretation_accuracy": "not assessed"
+          }
+        }
+      ]
+    },
+    "haile-water-treatment": {
+      "categories": [
+        "drawings",
+        "pid",
+        "electrical",
+        "documents",
+        "scanned-documents",
+        "context"
+      ],
+      "files": [
+        {
+          "path": "original.pdf",
+          "bytes": 13995478,
+          "sha256": "725168bb3f8587d7b3a082643289009dd572865afba0c9501541a7800723fb00",
+          "integrity": "match",
+          "inspection": {
+            "parser": "scripts/extract_text.py",
+            "status": "partial",
+            "engine": "pypdf",
+            "engine_version": "6.14.2",
+            "segments": 102,
+            "characters": 160704,
+            "warnings": [
+              "no text layer, needs OCR: pages 23-27, 62-80, 107, 123, 128-131, 133 of 133"
+            ],
+            "interpretation_accuracy": "not assessed"
+          }
+        }
+      ]
+    },
+    "salina-design-basis": {
+      "categories": [
+        "drawings",
+        "pid",
+        "electrical",
+        "documents",
+        "scanned-documents",
+        "context"
+      ],
+      "files": [
+        {
+          "path": "original.pdf",
+          "bytes": 34623923,
+          "sha256": "13f04d33348a90c17acc043af46a8369c5fc60803300ab50a8d1064384186db4",
+          "integrity": "match",
+          "inspection": {
+            "parser": "scripts/extract_text.py",
+            "status": "partial",
+            "engine": "pypdf",
+            "engine_version": "6.14.2",
+            "segments": 118,
+            "characters": 200067,
+            "warnings": [
+              "no text layer, needs OCR: pages 79-91, 99-104, 110-112, 114, 124, 127 of 143"
+            ],
+            "interpretation_accuracy": "not assessed"
+          }
+        }
+      ]
+    },
+    "ruttan-water-treatment": {
+      "categories": [
+        "drawings",
+        "pid",
+        "electrical",
+        "documents",
+        "scanned-documents",
+        "context"
+      ],
+      "files": [
+        {
+          "path": "original.pdf",
+          "bytes": 18874266,
+          "sha256": "fd2aa661cccfb92a05a82232f773f8d92be033e83e47e5bb6da14fa73a7a183c",
+          "integrity": "match",
+          "inspection": {
+            "parser": "scripts/extract_text.py",
+            "status": "partial",
+            "engine": "pypdf",
+            "engine_version": "6.14.2",
+            "segments": 59,
+            "characters": 63577,
+            "warnings": [
+              "no text layer, needs OCR: pages 17-19, 21-23, 59-63 of 70"
+            ],
+            "interpretation_accuracy": "not assessed"
+          }
+        }
+      ]
+    }
+  },
+  "errors": [
+    {
+      "source": "lanl-biomanufacturing",
+      "path": "Cyano_Data_6803_06.26.2025.csv",
+      "stage": "inspection",
+      "error": "'utf-8' codec can't decode byte 0xb5 in position 386: invalid start byte"
+    }
+  ]
+}

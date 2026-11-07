@@ -1,5 +1,10 @@
 # Fetching more public historian data
 
+The [second public-data acquisition](../examples/public-data/round-2/README.md) adds 47 further original files
+(203 MB), including dated excavator work-order examples, five public facility drawing/document sets and
+manufacturing quality/failure data. Its guide separates local-only/restricted sources, parser failures and
+uninspected CAD from sources ready for a future explicitly mapped task. It adds no evaluation pass or score.
+
 The [2026-11-07 public-data expansion](../examples/public-data/README.md) adds maintenance text, equipment
 photos, energy readings, experimental batches, uncertainty/actuator records, flowsheets and technical documents:
 54 pinned files across 14 download groups (115 MB), acquired and structurally inspected, **not scored**.
