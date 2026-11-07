@@ -1,0 +1,25 @@
+{
+  "schema": "cad-comparison-1",
+  "before_sha256": "4d2999c1ae48e4baceafab99c2d9a721e045f05d6e2ab4229a0796bd97cce86e",
+  "after_sha256": "7896abd6f3d00b476790590aa0f4465a7f8f5d41d61ad183dac72fbe95346fbd",
+  "status": "pass",
+  "expected_edits": [
+    {
+      "id": "reserve-mirror/asset-1",
+      "attribute": "MODEL",
+      "before": "Étage",
+      "after": "Étage-2",
+      "reason": "Authored qualification edit, not an installed equipment claim"
+    },
+    {
+      "id": "reserve-mirror/asset-2",
+      "attribute": "MODEL",
+      "before": "Étage",
+      "after": "Étage-2",
+      "reason": "Authored qualification edit, not an installed equipment claim"
+    }
+  ],
+  "unexpected": [],
+  "save_metadata_changed": true,
+  "boundary": "All ezdxf-exported entity tags including block definitions, attributes, layers and objects; all headers except listed save metadata and the two named EZDXF_META writer values. Same handles required. This is not a byte-identical DXF or proprietary project database/visual/engineering acceptance."
+}

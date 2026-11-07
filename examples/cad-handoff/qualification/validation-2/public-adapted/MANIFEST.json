@@ -1,0 +1,90 @@
+{
+  "schema": "cad-authored-public-adaptation-2",
+  "adaptation": {
+    "selection": "examples/cad-handoff/qualification/validation-2/public-originals/MANIFEST.json",
+    "selection_sha256_lf": "ed47ab2df963c4b0b0722a9248131cbadaa337463cb1bb2fde621c43e0c4c8e7",
+    "recipe_sha256_lf": "fa75d582db64de52fcef65e60aaf7e5b2361e42c95a938bc89db069fd5ca323f",
+    "freeze_sha256_lf": "e0aadba6e8d4e40ac979e538f7b2e53a5c331923222fb601c6e2a3beff2ef21b"
+  },
+  "cases": [
+    {
+      "id": "dimension_in_block",
+      "split": "public-adapted",
+      "original_sha256": "923cc1d0d86bf6738139dbec26b66e299fbfa2c16a49ed206ad06cf719c6e6f2",
+      "original_admission": {
+        "status": "refused",
+        "error": "InputError: INSERT C5 needs ICT_ID and TAG; unprofiled blocks are not guessed"
+      },
+      "source": "dimension_in_block/adapted.dxf",
+      "source_sha256": "1fa32eb65b341b03875aabe8b0f5f14c1c8f81bbd0822ea16e00f40ad4e56460",
+      "plan": "dimension_in_block/edit-plan.json",
+      "plan_sha256": "1a6c9f3658cf1f875f1b82cd7c164713769d84799448e04d37c9787092b714a0"
+    },
+    {
+      "id": "dimension_in_nested_blocks",
+      "split": "public-adapted",
+      "original_sha256": "03b50bf9a29513147d2b66f6ec1a4377494ced38437082c979639dfa42d613ea",
+      "original_admission": {
+        "status": "refused",
+        "error": "InputError: INSERT CB needs ICT_ID and TAG; unprofiled blocks are not guessed"
+      },
+      "source": "dimension_in_nested_blocks/adapted.dxf",
+      "source_sha256": "ba055e532019651085795c3781fc0566e7bfeaaa80eafb3241334fd6ff5dbb74",
+      "plan": "dimension_in_nested_blocks/edit-plan.json",
+      "plan_sha256": "ff0ad9853bb3ada8e329152a4b85b34717b126f9cfd18f1326833e26d49a7582"
+    },
+    {
+      "id": "multi_insert_with_attribs",
+      "split": "public-adapted",
+      "original_sha256": "14951dbef1c750fefc0a452e0bd4fb5b281dc092820d5b6da31b3855dddb4411",
+      "original_admission": {
+        "status": "refused",
+        "error": "InputError: INSERT 3B needs ICT_ID and TAG; unprofiled blocks are not guessed"
+      },
+      "source": "multi_insert_with_attribs/adapted.dxf",
+      "source_sha256": "5a189509680f740d7ef962feb2add38921a6321620fbef59ff328744d5df4349",
+      "plan": "multi_insert_with_attribs/edit-plan.json",
+      "plan_sha256": "52e13af5f249972a8eda5552cd6f9d7fda378cf0f09a082a30ff66cb1964bacb"
+    },
+    {
+      "id": "text_in_viewports",
+      "split": "public-adapted",
+      "original_sha256": "51dc85fbbcc04c4c3c103d92b99524bde9ef7272a9f818ad321a683cd6877d10",
+      "original_admission": {
+        "status": "refused",
+        "error": "InputError: No profiled asset INSERTs found; a flattened picture is not an asset handoff"
+      },
+      "source": "text_in_viewports/adapted.dxf",
+      "source_sha256": "4a3e3fc6736d7e76746afd0f6b6a5dfacd43bfee55596319701032c5d8fd0eb2",
+      "plan": "text_in_viewports/edit-plan.json",
+      "plan_sha256": "b4c0987086ff8e4365604eefea6d19824faf50f40cd9a737fb7aaaa86a23eab3"
+    },
+    {
+      "id": "columns_R2018",
+      "split": "public-adapted",
+      "original_sha256": "0110c42731224a851baca4fd93209a40ebcd19b18d98e75201715d3cd3baa649",
+      "original_admission": {
+        "status": "refused",
+        "error": "InputError: No profiled asset INSERTs found; a flattened picture is not an asset handoff"
+      },
+      "source": "columns_R2018/adapted.dxf",
+      "source_sha256": "f9eb420142b4bd03e8387418721240933b2f0c83239d6b07b37451e0652bbc51",
+      "plan": "columns_R2018/edit-plan.json",
+      "plan_sha256": "79f8a8aa5cb9c383dee6fd45b024223a772d8921c6789849aa11094695a2dc67"
+    },
+    {
+      "id": "hatch_issues",
+      "split": "public-adapted",
+      "original_sha256": "16ff6d4b687124d6ea681529260a4273858b87d9d5dd02eaec5d55d36dff30fb",
+      "original_admission": {
+        "status": "refused",
+        "error": "InputError: No profiled asset INSERTs found; a flattened picture is not an asset handoff"
+      },
+      "source": "hatch_issues/adapted.dxf",
+      "source_sha256": "d7219d93aa203f2b59de4d2bf0be9b69e41cdd4c035da2058a81c9475b765c46",
+      "plan": "hatch_issues/edit-plan.json",
+      "plan_sha256": "646180c720c4db976b2219f6eea35f7709b100a8f8e449a621fedf55fdb4abef"
+    }
+  ],
+  "scope": "Public geometry with explicitly authored annotations, not untouched plant truth; no candidate run"
+}

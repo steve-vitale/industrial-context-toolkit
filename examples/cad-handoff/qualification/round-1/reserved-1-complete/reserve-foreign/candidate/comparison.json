@@ -1,0 +1,25 @@
+{
+  "schema": "cad-comparison-1",
+  "before_sha256": "4029079e1721fb908eb337f73534d11fb7df0e75a8527ec434fbc41b5bae257d",
+  "after_sha256": "934b6ad8668673abbad5c7044bbeed608eb0fb6688efea582414a2db069d079c",
+  "status": "pass",
+  "expected_edits": [
+    {
+      "id": "reserve-foreign/asset-1",
+      "attribute": "MODEL",
+      "before": "장치-A",
+      "after": "장치-B",
+      "reason": "Authored qualification edit, not an installed equipment claim"
+    },
+    {
+      "id": "reserve-foreign/asset-2",
+      "attribute": "MODEL",
+      "before": "장치-A",
+      "after": "장치-B",
+      "reason": "Authored qualification edit, not an installed equipment claim"
+    }
+  ],
+  "unexpected": [],
+  "save_metadata_changed": true,
+  "boundary": "All ezdxf-exported entity tags including block definitions, attributes, layers and objects; all headers except listed save metadata and the two named EZDXF_META writer values. Same handles required. This is not a byte-identical DXF or proprietary project database/visual/engineering acceptance."
+}

@@ -1,0 +1,478 @@
+{
+  "date": "2026-11-07",
+  "reviewer": "Authoring agent; no independent human/engineering approval",
+  "basis": "Direct inspection of all seven labelled contact sheets (41 source/candidate pairs); two final native full-resolution candidate PNGs, plus the earlier Cyrillic pilot source/candidate pair.",
+  "reviewed_contact_sheets": [
+    "raw/render-review-3/qa/contact-1.png",
+    "raw/render-review-3/qa/contact-2.png",
+    "raw/render-review-3/qa/contact-3.png",
+    "raw/render-review-3/qa/contact-4.png",
+    "raw/render-review-3/qa/contact-5.png",
+    "raw/render-review-3/qa/contact-6.png",
+    "raw/render-review-3/qa/contact-7.png"
+  ],
+  "final_full_resolution_images": [
+    "validation-unicode-asset-01-candidate.png",
+    "validation-long-asset-01-candidate.png"
+  ],
+  "pair_counts": {
+    "full_model": 12,
+    "asset_labels": 23,
+    "paper_layout": 6,
+    "native_images": 82,
+    "identical_rgb_pairs": 6
+  },
+  "findings": [
+    {
+      "scope": "all contact sheets",
+      "observation": "Source/candidate geometry appears consistent at thumbnail inspection; planned field differences are visible in readable model/asset views. This does not verify every glyph or every geometric detail."
+    },
+    {
+      "scope": "validation-r12, cp1251, unicode, braces, foreign; dimensions and hatch",
+      "observation": "Retained QCAD trial marks overlap some text/geometry. No watermark removed or obscured."
+    },
+    {
+      "scope": "validation-cp1251 pilot with Standard -> Arial",
+      "observation": "Directly inspected source Двигатель and candidate Мотор are readable. The earlier txt -> Arial renders were pixel-identical and still showed question marks. Font substitution is display-only, not original typography fidelity."
+    },
+    {
+      "scope": "validation-unicode asset-01 final full-resolution candidate",
+      "observation": "Válvula Ж is readable; other labels and rotated placement remain visible."
+    },
+    {
+      "scope": "validation-long asset-01 final full-resolution candidate",
+      "observation": "The long B replacement is present but overlaps the retained trial mark; complete character-by-character visual verification is not possible."
+    },
+    {
+      "scope": "validation-cp1251, long, unicode, braces, foreign paper-2",
+      "observation": "Five source/candidate paper pairs show no useful drawing content, only retained trial-mark fragments. Nonzero ink counts alone are misleading."
+    },
+    {
+      "scope": "text_in_viewports paper-2",
+      "observation": "Six rectangular, elliptical and general viewport demonstrations are visible. Source/candidate RGB pixels are identical; no model asset-label change is visible in this paper pair."
+    },
+    {
+      "scope": "dimension_in_nested_blocks, text_in_viewports, columns_R2018 detail windows",
+      "observation": "Some surrounding long annotations/neighbouring labels run outside detail windows. Full-model views remain available; these crops do not prove complete label readability."
+    }
+  ],
+  "pairs": [
+    {
+      "case": "validation-r12",
+      "view": "model-full",
+      "images": [
+        "validation-r12-model-full-source.png",
+        "validation-r12-model-full-candidate.png"
+      ],
+      "changed_pixels": 456,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "validation-r12",
+      "view": "asset-01",
+      "images": [
+        "validation-r12-asset-01-source.png",
+        "validation-r12-asset-01-candidate.png"
+      ],
+      "changed_pixels": 2394,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "validation-r12",
+      "view": "asset-02",
+      "images": [
+        "validation-r12-asset-02-source.png",
+        "validation-r12-asset-02-candidate.png"
+      ],
+      "changed_pixels": 2435,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "validation-cp1251",
+      "view": "model-full",
+      "images": [
+        "validation-cp1251-model-full-source.png",
+        "validation-cp1251-model-full-candidate.png"
+      ],
+      "changed_pixels": 1513,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "validation-cp1251",
+      "view": "asset-01",
+      "images": [
+        "validation-cp1251-asset-01-source.png",
+        "validation-cp1251-asset-01-candidate.png"
+      ],
+      "changed_pixels": 9960,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "validation-cp1251",
+      "view": "asset-02",
+      "images": [
+        "validation-cp1251-asset-02-source.png",
+        "validation-cp1251-asset-02-candidate.png"
+      ],
+      "changed_pixels": 10140,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "validation-cp1251",
+      "view": "paper-2",
+      "images": [
+        "validation-cp1251-paper-2-source.png",
+        "validation-cp1251-paper-2-candidate.png"
+      ],
+      "changed_pixels": 0,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "validation-long",
+      "view": "model-full",
+      "images": [
+        "validation-long-model-full-source.png",
+        "validation-long-model-full-candidate.png"
+      ],
+      "changed_pixels": 7705,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "validation-long",
+      "view": "asset-01",
+      "images": [
+        "validation-long-asset-01-source.png",
+        "validation-long-asset-01-candidate.png"
+      ],
+      "changed_pixels": 10408,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "validation-long",
+      "view": "paper-2",
+      "images": [
+        "validation-long-paper-2-source.png",
+        "validation-long-paper-2-candidate.png"
+      ],
+      "changed_pixels": 0,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "validation-unicode",
+      "view": "model-full",
+      "images": [
+        "validation-unicode-model-full-source.png",
+        "validation-unicode-model-full-candidate.png"
+      ],
+      "changed_pixels": 2439,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "validation-unicode",
+      "view": "asset-01",
+      "images": [
+        "validation-unicode-asset-01-source.png",
+        "validation-unicode-asset-01-candidate.png"
+      ],
+      "changed_pixels": 6641,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "validation-unicode",
+      "view": "asset-02",
+      "images": [
+        "validation-unicode-asset-02-source.png",
+        "validation-unicode-asset-02-candidate.png"
+      ],
+      "changed_pixels": 5865,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "validation-unicode",
+      "view": "asset-03",
+      "images": [
+        "validation-unicode-asset-03-source.png",
+        "validation-unicode-asset-03-candidate.png"
+      ],
+      "changed_pixels": 5619,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "validation-unicode",
+      "view": "paper-2",
+      "images": [
+        "validation-unicode-paper-2-source.png",
+        "validation-unicode-paper-2-candidate.png"
+      ],
+      "changed_pixels": 0,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "validation-braces",
+      "view": "model-full",
+      "images": [
+        "validation-braces-model-full-source.png",
+        "validation-braces-model-full-candidate.png"
+      ],
+      "changed_pixels": 218,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "validation-braces",
+      "view": "asset-01",
+      "images": [
+        "validation-braces-asset-01-source.png",
+        "validation-braces-asset-01-candidate.png"
+      ],
+      "changed_pixels": 1090,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "validation-braces",
+      "view": "asset-02",
+      "images": [
+        "validation-braces-asset-02-source.png",
+        "validation-braces-asset-02-candidate.png"
+      ],
+      "changed_pixels": 1220,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "validation-braces",
+      "view": "paper-2",
+      "images": [
+        "validation-braces-paper-2-source.png",
+        "validation-braces-paper-2-candidate.png"
+      ],
+      "changed_pixels": 0,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "validation-foreign",
+      "view": "model-full",
+      "images": [
+        "validation-foreign-model-full-source.png",
+        "validation-foreign-model-full-candidate.png"
+      ],
+      "changed_pixels": 235,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "validation-foreign",
+      "view": "asset-01",
+      "images": [
+        "validation-foreign-asset-01-source.png",
+        "validation-foreign-asset-01-candidate.png"
+      ],
+      "changed_pixels": 514,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "validation-foreign",
+      "view": "asset-02",
+      "images": [
+        "validation-foreign-asset-02-source.png",
+        "validation-foreign-asset-02-candidate.png"
+      ],
+      "changed_pixels": 531,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "validation-foreign",
+      "view": "asset-03",
+      "images": [
+        "validation-foreign-asset-03-source.png",
+        "validation-foreign-asset-03-candidate.png"
+      ],
+      "changed_pixels": 485,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "validation-foreign",
+      "view": "paper-2",
+      "images": [
+        "validation-foreign-paper-2-source.png",
+        "validation-foreign-paper-2-candidate.png"
+      ],
+      "changed_pixels": 0,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "dimension_in_block",
+      "view": "model-full",
+      "images": [
+        "dimension_in_block-model-full-source.png",
+        "dimension_in_block-model-full-candidate.png"
+      ],
+      "changed_pixels": 13044,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "dimension_in_block",
+      "view": "asset-01",
+      "images": [
+        "dimension_in_block-asset-01-source.png",
+        "dimension_in_block-asset-01-candidate.png"
+      ],
+      "changed_pixels": 17549,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "dimension_in_block",
+      "view": "asset-02",
+      "images": [
+        "dimension_in_block-asset-02-source.png",
+        "dimension_in_block-asset-02-candidate.png"
+      ],
+      "changed_pixels": 16381,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "dimension_in_nested_blocks",
+      "view": "model-full",
+      "images": [
+        "dimension_in_nested_blocks-model-full-source.png",
+        "dimension_in_nested_blocks-model-full-candidate.png"
+      ],
+      "changed_pixels": 1299,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "dimension_in_nested_blocks",
+      "view": "asset-01",
+      "images": [
+        "dimension_in_nested_blocks-asset-01-source.png",
+        "dimension_in_nested_blocks-asset-01-candidate.png"
+      ],
+      "changed_pixels": 7215,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "dimension_in_nested_blocks",
+      "view": "asset-02",
+      "images": [
+        "dimension_in_nested_blocks-asset-02-source.png",
+        "dimension_in_nested_blocks-asset-02-candidate.png"
+      ],
+      "changed_pixels": 16412,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "dimension_in_nested_blocks",
+      "view": "asset-03",
+      "images": [
+        "dimension_in_nested_blocks-asset-03-source.png",
+        "dimension_in_nested_blocks-asset-03-candidate.png"
+      ],
+      "changed_pixels": 5458,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "dimension_in_nested_blocks",
+      "view": "asset-04",
+      "images": [
+        "dimension_in_nested_blocks-asset-04-source.png",
+        "dimension_in_nested_blocks-asset-04-candidate.png"
+      ],
+      "changed_pixels": 5576,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "multi_insert_with_attribs",
+      "view": "model-full",
+      "images": [
+        "multi_insert_with_attribs-model-full-source.png",
+        "multi_insert_with_attribs-model-full-candidate.png"
+      ],
+      "changed_pixels": 3173,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "multi_insert_with_attribs",
+      "view": "asset-01",
+      "images": [
+        "multi_insert_with_attribs-asset-01-source.png",
+        "multi_insert_with_attribs-asset-01-candidate.png"
+      ],
+      "changed_pixels": 5648,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "text_in_viewports",
+      "view": "model-full",
+      "images": [
+        "text_in_viewports-model-full-source.png",
+        "text_in_viewports-model-full-candidate.png"
+      ],
+      "changed_pixels": 289,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "text_in_viewports",
+      "view": "asset-01",
+      "images": [
+        "text_in_viewports-asset-01-source.png",
+        "text_in_viewports-asset-01-candidate.png"
+      ],
+      "changed_pixels": 9257,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "text_in_viewports",
+      "view": "paper-2",
+      "images": [
+        "text_in_viewports-paper-2-source.png",
+        "text_in_viewports-paper-2-candidate.png"
+      ],
+      "changed_pixels": 0,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "columns_R2018",
+      "view": "model-full",
+      "images": [
+        "columns_R2018-model-full-source.png",
+        "columns_R2018-model-full-candidate.png"
+      ],
+      "changed_pixels": 192,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "columns_R2018",
+      "view": "asset-01",
+      "images": [
+        "columns_R2018-asset-01-source.png",
+        "columns_R2018-asset-01-candidate.png"
+      ],
+      "changed_pixels": 9994,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "hatch_issues",
+      "view": "model-full",
+      "images": [
+        "hatch_issues-model-full-source.png",
+        "hatch_issues-model-full-candidate.png"
+      ],
+      "changed_pixels": 6202,
+      "status": "diagnostic inspected; not full visual acceptance"
+    },
+    {
+      "case": "hatch_issues",
+      "view": "asset-01",
+      "images": [
+        "hatch_issues-asset-01-source.png",
+        "hatch_issues-asset-01-candidate.png"
+      ],
+      "changed_pixels": 11834,
+      "status": "diagnostic inspected; not full visual acceptance"
+    }
+  ],
+  "status": "incomplete: no complete readable visual pass",
+  "limits": [
+    "All preservation results already exposed before display diagnosis; not a new blinded trial.",
+    "Standard -> Arial, monochrome and common native union bounds are explicit display settings, not original font/color fidelity.",
+    "Paper windows use earlier passive bounds; no successful native paper-bounds validation.",
+    "No actual interactive edit/save/close/reopen or company acceptance."
+  ]
+}

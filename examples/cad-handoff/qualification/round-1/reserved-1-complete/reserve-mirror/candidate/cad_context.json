@@ -1,0 +1,41 @@
+{
+  "schema": "cad-context-1",
+  "nodes": [
+    {
+      "id": "reserve-mirror/asset-1",
+      "tag": "FV-101",
+      "attributes": {
+        "ICT_ID": "reserve-mirror/asset-1",
+        "TAG": "FV-101",
+        "MODEL": "Étage",
+        "SERIAL": "UNCHANGED-0",
+        "SIZE": "DN50",
+        "VENDOR_PRIVATE": "retain {vendor} \\P 0"
+      },
+      "source": {
+        "sha256": "4d2999c1ae48e4baceafab99c2d9a721e045f05d6e2ab4229a0796bd97cce86e",
+        "insert_handle": "3D"
+      },
+      "status": "unverified"
+    },
+    {
+      "id": "reserve-mirror/asset-2",
+      "tag": "FV-102",
+      "attributes": {
+        "ICT_ID": "reserve-mirror/asset-2",
+        "TAG": "FV-102",
+        "MODEL": "Étage",
+        "SERIAL": "UNCHANGED-1",
+        "SIZE": "DN50",
+        "VENDOR_PRIVATE": "retain {vendor} \\P 1"
+      },
+      "source": {
+        "sha256": "4d2999c1ae48e4baceafab99c2d9a721e045f05d6e2ab4229a0796bd97cce86e",
+        "insert_handle": "47"
+      },
+      "status": "unverified"
+    }
+  ],
+  "relationships": [],
+  "note": "Attribute context snapshot only; pipe connectivity is not inferred. Map reviewed IDs to one-map site/plant/unit identities explicitly."
+}

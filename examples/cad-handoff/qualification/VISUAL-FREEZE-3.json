@@ -1,0 +1,13 @@
+{
+  "schema": "cad-display-freeze-3",
+  "role": "Display-only post-exposure checks; no preservation/scorer change or independent generalization claim",
+  "methods": {
+    "examples/cad-handoff/qualification/native-view-bounds.js": "e221c590fba717acb077c9cc7a3edd4890e3b13f714243c05f3b4271399c7672",
+    "examples/cad-handoff/qualification/render_review.py": "7ed4790f97d9ba7125f842506708e672dd8f3db2802be8c4ce00d31a2b3876f9",
+    "examples/cad-handoff/qualification/VISUAL-REVIEW-2-PLAN.md": "dad72882a3bafd25480fe477c4202b1a5311f6b16276a32724394fe32191d728"
+  },
+  "preservation_freeze_sha256_lf": "e0aadba6e8d4e40ac979e538f7b2e53a5c331923222fb601c6e2a3beff2ef21b",
+  "executable_sha256": "eb4fad8dcc881073d658564305c4301a2625c0d022fd5daa2f60d2b351978129",
+  "font_sha256": "c9b76220a5be42ead4733611e417cd65c5fd8aeaa33eb56576ac378a37d130a1",
+  "diagnostic": "cp1251 exposed display work: original fonts show question marks; txt->Arial has zero pixel effect; probed native Standard->Arial renders the stored Cyrillic values. All attempts retained. Drawings unchanged."
+}

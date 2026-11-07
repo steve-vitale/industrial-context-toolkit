@@ -84,9 +84,13 @@ def snapshot(path):
     save_entities = {v.dxf.handle for k, v in metadata.items()
                      if k in {"CREATED_BY_EZDXF", "WRITTEN_BY_EZDXF"}} if metadata is not None else set()
     save_values = {}
+    # ezdxf represents R12 block ownership with virtual BLOCK_RECORD objects, but their R12 exporter raises.
+    # Inspect the complete loaded R12 entity database through its R2000 tag projection, including those
+    # records/objects; do not skip them. This does not write/upgrade the drawing. Modern snapshots stay exact.
+    inspection_version = max(doc.dxfversion, "AC1015")
     for e in doc.entitydb.values():
         if e.is_alive:
-            collector = TagCollector(dxfversion=doc.dxfversion)
+            collector = TagCollector(dxfversion=inspection_version)
             e.export_dxf(collector)
             tags = [[t.code, plain(t.value)] for t in collector.tags]
             # INSERT/POLYLINE exporters append their child entities. Each child has its own entitydb row;

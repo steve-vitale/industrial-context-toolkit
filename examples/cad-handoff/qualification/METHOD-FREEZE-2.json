@@ -1,0 +1,29 @@
+{
+  "schema": "cad-method-freeze-2",
+  "created": "2026-11-07T16:52:27.682541+00:00",
+  "parent_method_freeze_sha256_lf": "23bcb6bed6b19ee1de38b9325c23332cd268dc5489c3a8af98007f37c9f9736c",
+  "before_replacement_results": true,
+  "methods": {
+    "scripts/cad_value_patch.py": "174d66f36befc2ee3b12cef769badecf9927b1705419f9ecf9238e4e9c610a04",
+    "scripts/cad_handoff.py": "70ad396dbcadf89741da6e1d017944e42f6fb2804e272b3cc5ee7f5eabbf6d30",
+    "examples/cad-handoff/qualification/verify_bytes.py": "606cf310be4637bec2663b39c1001ca3d7668af7316aaa2fc7cbd571e0b0cd52",
+    "examples/cad-handoff/qualification/run_cases.py": "465972bbaf74c31172f46ab8969920ddeef2f48a11c5d9220d7660e1b3a0f19a",
+    "examples/cad-handoff/qualification/native-batch.js": "18310a03591b0a0dd0ad2c4df21cd156724bd05561a067b223b6780d4c21eaa2",
+    "scripts/test_cad_handoff.py": "819ecd45e5fd78a66ac8ce604fd63981996178567b10b05db4fdfa15e72028ed",
+    "examples/cad-handoff/qualification/generate_fixtures.py": "610665221f5b9d28096b420d94103e4a38d1e3eb10ebfc8050ef9dc11da0308d",
+    "examples/cad-handoff/qualification/generate_round2.py": "d24f5604a1eb3037954672c2cd3efde70ad5908356d1afb5b05149a23c04de2a",
+    "examples/cad-handoff/qualification/adapt_public.py": "fa75d582db64de52fcef65e60aaf7e5b2361e42c95a938bc89db069fd5ca323f",
+    "examples/cad-handoff/qualification/ROUND-2-PLAN.md": "c5d18d4d2bb77989b04e123d296e5eb59f2bc0cea5782fdef93d296d6e705039"
+  },
+  "manifests": {
+    "examples/cad-handoff/qualification/validation-2/authored/MANIFEST.json": "a68a576352ec65fecfeaef6362bed0d1d1a9998612e9fc078366c8418feb29e2",
+    "examples/cad-handoff/qualification/validation-2/public-originals/MANIFEST.json": "ed47ab2df963c4b0b0722a9248131cbadaa337463cb1bb2fde621c43e0c4c8e7"
+  },
+  "development": "28 CAD tests and all eight exposed first fixtures pass candidate strict/byte gates; nine exposed candidates read back all stored attributes in a fresh QCAD process. Native full-save strict differences remain. R12 library save also has 82 strict differences.",
+  "preserved_comparator": "compare() AST exact, value patcher and byte checker exact; original native baselines still 335/344",
+  "native_exports": [
+    "default",
+    "R15"
+  ],
+  "qualification": "not established: replacement results, visual, UI, revision, controls and CI still required"
+}

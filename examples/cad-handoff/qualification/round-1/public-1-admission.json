@@ -1,0 +1,40 @@
+{
+  "freeze": "METHOD-FREEZE-1.json",
+  "role": "Unmodified originals admission only; no adaptation or positive exchange result. Initial unguarded admission stopped at first fragment; this outer loop retains each failure.",
+  "results": [
+    {
+      "id": "air-water",
+      "sha256": "ec8087fccdcba6166f503dd48c13746aed0206b8c0b5b4d65aa993d8703cd228",
+      "dxfversion": "AC1021",
+      "insert_count": 0,
+      "profile": "not admitted",
+      "error": "InputError: No profiled asset INSERTs found; a flattened picture is not an asset handoff",
+      "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 10, in <module>\n  File \"C:\\Users\\Steve\\industrial-context-toolkit\\scripts\\cad_handoff.py\", line 106, in snapshot\n    \"dxfversion\": doc.dxfversion, \"assets\": assets(doc), \"entities\": entities,\n                                            ~~~~~~^^^^^\n  File \"C:\\Users\\Steve\\industrial-context-toolkit\\scripts\\cad_handoff.py\", line 75, in assets\n    raise InputError(\"No profiled asset INSERTs found; a flattened picture is not an asset handoff\")\ncad_handoff.InputError: No profiled asset INSERTs found; a flattened picture is not an asset handoff\n"
+    },
+    {
+      "id": "mechanical",
+      "sha256": "c30846ed5da682698c634f4b4aa028f8a2040d79c0cfcf8fd58c9094d3b6259f",
+      "profile": "not admitted",
+      "error": "DXFStructureError: DXFStructureError: found ENDSEC tag without previous SECTION tag.",
+      "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 9, in <module>\n  File \"C:\\Users\\Steve\\AppData\\Roaming\\Python\\Python314\\site-packages\\ezdxf\\filemanagement.py\", line 154, in readfile\n    doc = read(fp)\n  File \"C:\\Users\\Steve\\AppData\\Roaming\\Python\\Python314\\site-packages\\ezdxf\\filemanagement.py\", line 95, in read\n    return Drawing.read(stream)\n           ~~~~~~~~~~~~^^^^^^^^\n  File \"C:\\Users\\Steve\\AppData\\Roaming\\Python\\Python314\\site-packages\\ezdxf\\document.py\", line 350, in read\n    return cls.load(tag_loader)\n           ~~~~~~~~^^^^^^^^^^^^\n  File \"C:\\Users\\Steve\\AppData\\Roaming\\Python\\Python314\\site-packages\\ezdxf\\document.py\", line 365, in load\n    doc._load(tag_loader)\n    ~~~~~~~~~^^^^^^^^^^^^\n  File \"C:\\Users\\Steve\\AppData\\Roaming\\Python\\Python314\\site-packages\\ezdxf\\document.py\", line 378, in _load\n    sections = loader.load_dxf_structure(tagger)\n  File \"C:\\Users\\Steve\\AppData\\Roaming\\Python\\Python314\\site-packages\\ezdxf\\lldxf\\loader.py\", line 105, in load_dxf_structure\n    raise DXFStructureError(\n    ...<2 lines>...\n    )\nezdxf.lldxf.const.DXFStructureError: DXFStructureError: found ENDSEC tag without previous SECTION tag.\n"
+    },
+    {
+      "id": "power",
+      "sha256": "a7dc6f0017c680e4f19245be1bb19afbac18e7f7c5e2a92f2a3325211f4eff08",
+      "dxfversion": "AC1021",
+      "insert_count": 0,
+      "profile": "not admitted",
+      "error": "InputError: No profiled asset INSERTs found; a flattened picture is not an asset handoff",
+      "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 10, in <module>\n  File \"C:\\Users\\Steve\\industrial-context-toolkit\\scripts\\cad_handoff.py\", line 106, in snapshot\n    \"dxfversion\": doc.dxfversion, \"assets\": assets(doc), \"entities\": entities,\n                                            ~~~~~~^^^^^\n  File \"C:\\Users\\Steve\\industrial-context-toolkit\\scripts\\cad_handoff.py\", line 75, in assets\n    raise InputError(\"No profiled asset INSERTs found; a flattened picture is not an asset handoff\")\ncad_handoff.InputError: No profiled asset INSERTs found; a flattened picture is not an asset handoff\n"
+    },
+    {
+      "id": "hatch",
+      "sha256": "70425c817f79364d6084ea390ecff4652d6e17d2e80d7c6eadbdc64268676672",
+      "dxfversion": "AC1027",
+      "insert_count": 0,
+      "profile": "not admitted",
+      "error": "InputError: No profiled asset INSERTs found; a flattened picture is not an asset handoff",
+      "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 10, in <module>\n  File \"C:\\Users\\Steve\\industrial-context-toolkit\\scripts\\cad_handoff.py\", line 106, in snapshot\n    \"dxfversion\": doc.dxfversion, \"assets\": assets(doc), \"entities\": entities,\n                                            ~~~~~~^^^^^\n  File \"C:\\Users\\Steve\\industrial-context-toolkit\\scripts\\cad_handoff.py\", line 75, in assets\n    raise InputError(\"No profiled asset INSERTs found; a flattened picture is not an asset handoff\")\ncad_handoff.InputError: No profiled asset INSERTs found; a flattened picture is not an asset handoff\n"
+    }
+  ]
+}

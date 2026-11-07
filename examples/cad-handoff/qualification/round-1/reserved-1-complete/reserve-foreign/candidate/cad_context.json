@@ -1,0 +1,41 @@
+{
+  "schema": "cad-context-1",
+  "nodes": [
+    {
+      "id": "reserve-foreign/asset-1",
+      "tag": "FV-101",
+      "attributes": {
+        "VENDOR_PRIVATE": "retain {vendor} \\P 0",
+        "SIZE": "DN50",
+        "SERIAL": "UNCHANGED-0",
+        "MODEL": "장치-A",
+        "TAG": "FV-101",
+        "ICT_ID": "reserve-foreign/asset-1"
+      },
+      "source": {
+        "sha256": "4029079e1721fb908eb337f73534d11fb7df0e75a8527ec434fbc41b5bae257d",
+        "insert_handle": "3D"
+      },
+      "status": "unverified"
+    },
+    {
+      "id": "reserve-foreign/asset-2",
+      "tag": "FV-102",
+      "attributes": {
+        "VENDOR_PRIVATE": "retain {vendor} \\P 1",
+        "SIZE": "DN50",
+        "SERIAL": "UNCHANGED-1",
+        "MODEL": "장치-A",
+        "TAG": "FV-102",
+        "ICT_ID": "reserve-foreign/asset-2"
+      },
+      "source": {
+        "sha256": "4029079e1721fb908eb337f73534d11fb7df0e75a8527ec434fbc41b5bae257d",
+        "insert_handle": "47"
+      },
+      "status": "unverified"
+    }
+  ],
+  "relationships": [],
+  "note": "Attribute context snapshot only; pipe connectivity is not inferred. Map reviewed IDs to one-map site/plant/unit identities explicitly."
+}

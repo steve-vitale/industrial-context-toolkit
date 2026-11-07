@@ -1,0 +1,87 @@
+{
+  "schema": "cad-qualification-fixtures-1",
+  "ezdxf": "1.4.5",
+  "generator_sha256_lf": "610665221f5b9d28096b420d94103e4a38d1e3eb10ebfc8050ef9dc11da0308d",
+  "exposure": "Round-1 cohort is exposed development/regression. These six replacement configurations and extra geometry are frozen before the corrected method; same-author procedural validation, not independent plant evidence.",
+  "cases": [
+    {
+      "id": "validation-r12",
+      "split": "reserved-authored",
+      "source": "validation-r12.dxf",
+      "source_sha256": "fd510949e9f7e0c46237d079553d29f61d1ee2fed49e9a26b1b51df565a91c06",
+      "plan": "validation-r12.plan.json",
+      "plan_sha256": "a000c46b065d58ff390e6f2eee5856e0690d7630a980769ebd692d1288649ac0",
+      "version": "R12",
+      "encoding": "cp1252",
+      "newline": "lf",
+      "assets": 2,
+      "provenance": "Authored fixtures generated with ezdxf, no independent plant truth"
+    },
+    {
+      "id": "validation-cp1251",
+      "split": "reserved-authored",
+      "source": "validation-cp1251.dxf",
+      "source_sha256": "2044da26edd9188d07300f6b8f2abf4053956f31a7827bba488ec02c1351e158",
+      "plan": "validation-cp1251.plan.json",
+      "plan_sha256": "a75fb0abe99c35371caa3c2ce25ec498efdcd92e16bbf541c662c154e5acf6c8",
+      "version": "R2000",
+      "encoding": "cp1251",
+      "newline": "mixed",
+      "assets": 2,
+      "provenance": "Authored fixtures generated with ezdxf, no independent plant truth"
+    },
+    {
+      "id": "validation-long",
+      "split": "reserved-authored",
+      "source": "validation-long.dxf",
+      "source_sha256": "320f335dfce8b55b4176e7bf130a4d2a35767c60bd25b39834cf6f42473991a0",
+      "plan": "validation-long.plan.json",
+      "plan_sha256": "b4bc1e7887da7bca2cb2e462f0e46984c7937ac3c0cead3df1f1f1af314fc9a9",
+      "version": "R2004",
+      "encoding": "cp1252",
+      "newline": "crlf",
+      "assets": 1,
+      "provenance": "Authored fixtures generated with ezdxf, no independent plant truth"
+    },
+    {
+      "id": "validation-unicode",
+      "split": "reserved-authored",
+      "source": "validation-unicode.dxf",
+      "source_sha256": "c7edb52b95b314e7519771e61c8d7ee00819e4f2a5ffb2638d5a268e27afd3f1",
+      "plan": "validation-unicode.plan.json",
+      "plan_sha256": "374b9f16357f6d26237a6619a23a09265552bd6941da5671d346e7e3c101c36a",
+      "version": "R2007",
+      "encoding": "utf8",
+      "newline": "crlf",
+      "assets": 3,
+      "provenance": "Authored fixtures generated with ezdxf, no independent plant truth"
+    },
+    {
+      "id": "validation-braces",
+      "split": "reserved-authored",
+      "source": "validation-braces.dxf",
+      "source_sha256": "614e83380bbe667c727363f02d32519b3340439028f0acd72807c82a45224abe",
+      "plan": "validation-braces.plan.json",
+      "plan_sha256": "5126be71101f71b51332b50fd52980c3f0146a19fded4e7f8b8571c6b45d8508",
+      "version": "R2013",
+      "encoding": "utf8",
+      "newline": "lf",
+      "assets": 2,
+      "provenance": "Authored fixtures generated with ezdxf, no independent plant truth"
+    },
+    {
+      "id": "validation-foreign",
+      "split": "reserved-authored",
+      "source": "validation-foreign.dxf",
+      "source_sha256": "0c37544e989ce0880dfc75935daae28595155ce6a7e6f89b11080cb751119636",
+      "plan": "validation-foreign.plan.json",
+      "plan_sha256": "044fdff05a338655773e42437feb581a293bb517d6aa692779fca69cd2f3eecf",
+      "version": "R2018",
+      "encoding": "utf8",
+      "newline": "mixed",
+      "assets": 3,
+      "provenance": "Authored fixtures generated with ezdxf, no independent plant truth"
+    }
+  ],
+  "replacement_generator_sha256_lf": "d24f5604a1eb3037954672c2cd3efde70ad5908356d1afb5b05149a23c04de2a"
+}

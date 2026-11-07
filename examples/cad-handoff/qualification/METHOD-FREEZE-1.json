@@ -1,0 +1,22 @@
+{
+  "schema": "cad-method-freeze-1",
+  "date": "2026-11-07",
+  "before_reserved_results": true,
+  "methods": {
+    "scripts/cad_value_patch.py": "174d66f36befc2ee3b12cef769badecf9927b1705419f9ecf9238e4e9c610a04",
+    "scripts/cad_handoff.py": "0e3d74c0941244139f926661e0a3e4733434667581a264f0d542782c7b5ced59",
+    "examples/cad-handoff/qualification/verify_bytes.py": "606cf310be4637bec2663b39c1001ca3d7668af7316aaa2fc7cbd571e0b0cd52",
+    "examples/cad-handoff/qualification/run_cases.py": "a561245ed5ee6c07324c5928fdda15b749013c5e29d17c1cacf2b1a0832e541d",
+    "examples/cad-handoff/qualification/native-batch.js": "bc49d77bdfb583f5085ee368bda209e40ec205cdaa8645432c9a19bc688c9cda",
+    "scripts/test_cad_handoff.py": "e945366f39c6832bb74d426f14d0a0aa3482f6aa57d49ee4f25f3bbf16263f0e",
+    "examples/cad-handoff/qualification/generate_fixtures.py": "610665221f5b9d28096b420d94103e4a38d1e3eb10ebfc8050ef9dc11da0308d"
+  },
+  "fixture_manifest_sha256_lf": "60fc1f69823ab4cd7fe91e73550d381eddfe8d30ae686d71a6cebd62dc4cb1da",
+  "public_manifest_sha256_lf": "a37090f50949107c2fd1faf38e166755e015e0de9ea01c29d7cf0a6713926604",
+  "development_evidence": "Two declared development cases, original valve and 23 CAD test methods. Reserved candidate results have not been opened.",
+  "native_exports": [
+    "default",
+    "R15"
+  ],
+  "qualification": "not established; all protocol gates remain required"
+}

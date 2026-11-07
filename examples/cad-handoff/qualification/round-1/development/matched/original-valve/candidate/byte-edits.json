@@ -1,0 +1,43 @@
+{
+  "schema": "cad-value-spans-1",
+  "spans": [
+    {
+      "handle": "3E",
+      "id": "S1/P1/PAST1/FDV-2210",
+      "attribute": "MODEL",
+      "source_start": 13588,
+      "source_end": 13593,
+      "before_hex": "5352432d32",
+      "after_hex": "5352432d33",
+      "candidate_start": 13588,
+      "candidate_end": 13593
+    },
+    {
+      "handle": "3F",
+      "id": "S1/P1/PAST1/FDV-2210",
+      "attribute": "SERIAL",
+      "source_start": 13785,
+      "source_end": 13792,
+      "before_hex": "554e4b4e4f574e",
+      "after_hex": "41562d3838343132",
+      "candidate_start": 13785,
+      "candidate_end": 13793
+    },
+    {
+      "handle": "40",
+      "id": "S1/P1/PAST1/FDV-2210",
+      "attribute": "SIZE",
+      "source_start": 13985,
+      "source_end": 13989,
+      "before_hex": "444e3530",
+      "after_hex": "444e3635",
+      "candidate_start": 13986,
+      "candidate_end": 13990
+    }
+  ],
+  "source_sha256": "c64f5ac8f53f7f35ed0f119abdc28c1e11eb5c7cc28011ddaf079940cfee2b7d",
+  "candidate_sha256": "f9a3dd8ffee4dde6d7a1026370774bbcab2c955746fab72cf9f11721f4fed88a",
+  "outside_spans": "identical bytes; source reconstruction passed",
+  "route": "source-preserving value edit; native-return changes are not imported",
+  "native_acceptance": "not established"
+}

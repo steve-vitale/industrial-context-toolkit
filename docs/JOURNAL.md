@@ -8028,3 +8028,63 @@ No package was installed or downloaded code executed. Focused fetch and ledger m
 the isolated Python environment/full-cache prerequisite check stops before running the full suite. Exact-head CI
 remains a separate publication check. No model score, verified repair effectiveness, industrial transfer,
 new matrix/feature-review result, changed CAD cohort or completed CAD qualification is inferred.
+
+## 183. Preserve DXF value edits and retain the unfinished native qualification gates
+
+2026-11-07. Followed the user's explicit CAD goal with a protocol before development, exact frozen inputs and
+methods before reserved execution, and matched library/value-span/native routes. The source-preserving patcher
+changes only explicit single-line ATTRIB value bodies; a separate offset-free source/plan reconstruction checks
+the result. The original strict comparator and its exclusions are unchanged. This is record-framed DXF with
+explicit ICT_ID/TAG, not DWG, a proprietary intelligent-P&ID database or inferred plant connectivity.
+
+Round 1 retains an R12 inspector failure, a literal-brace plain-text harness error, three public-profile refusals,
+one public parser failure, native full-save differences and unreadable native images. Its methods/raw results
+remain committed. These cases became exposed development/regression. Six replacement authored configurations
+and six public originals were committed at d79e437 before the R12 inspection correction. Method 2 was committed
+at 8fdc775 before replacement runs. The inspector now projects loaded pre-R2000 records through the R2000 tag
+exporter without upgrading source bytes or dropping virtual records. The patcher, comparator and independent
+byte checker remain identical to method 1. Twenty-eight CAD tests pass, including planted loss/refusal controls.
+
+All six untouched replacement public files refuse the required asset profile. Their frozen adaptation adds
+clearly authored test identifiers/annotations and an unused attribute without overwriting existing values.
+The derived manifest was separately bound/committed at 07fd3d3 before candidate execution. All six remain in the
+cohort. One ezdxf family is not six independent plants, and the adaptation's library save is not byte preservation
+from the untouched original. Previously acquired CAD originals outside this cohort were not silently added.
+
+All 21 candidates (nine exposed, six replacement authored, six public-adapted) pass unchanged strict comparison
+with zero unexpected differences and exact byte reconstruction. All 21 library saves fail raw reconstruction;
+R12 and nested-dimension strict differences remain visible. QCAD Professional trial 3.33.1 Qt5 native API reads
+the candidate values and retained foreign attributes correctly. All 42 native default/R15 full-save returns
+still have strict differences; the original valve's 335/344 baseline differences remain failures. Forty-five
+new-process stored-value readbacks match (nine development candidates plus 36 replacement returns/candidates).
+API fresh-process readback is not an observed native UI edit/save/close/reopen.
+
+The first native development driver's result summarization used a wrong comparison key and exited 1; raw
+files/receipts and failed summary remain. Corrected postprocessing checks those files without fabricating a
+successful original driver. Fictional revision controls reject two stale proposals without output, retain one
+concurrent MODEL conflict, and require a second explicit source-bound plan. Three graph/revision commands pass;
+original and selected DXF sources remain exact draft context, not an installed register or authenticated decision.
+
+The first 60 native images have clipped/low-contrast labels and missing Cyrillic glyphs. Display-only diagnostics
+were frozen separately and retain all attempts: txt-to-Arial has no RGB effect; native probes identify Standard.
+The later Standard-to-Arial/monochrome/native-union-bounds recipe produces 82 images: 12 model, 23 asset-label and
+six paper-layout pairs. All commands exit zero and input hashes remain exact. Inspection of all seven contact
+sheets plus two final full-resolution candidates and an earlier Cyrillic pilot pair finds readable selected
+changed labels, but trial marks obscure others. Five paper pairs have no useful drawing content; the sixth has
+viewport examples. All six paper pairs are RGB-identical. No complete readable visual or original-font fidelity
+pass is claimed. These already exposed display diagnostics are not new blinded preservation validation.
+
+An offline archive retains 1,189 exact records, 76,110,864 raw bytes, compressed to 11,358,590 bytes, excluding
+native software/settings/fonts. The first packaging attempt stopped on an INI file and remains local; its initial
+offline replay consequently failed on missing inventory. A control run exposed an unstable informational
+save_metadata_changed flag: ezdxf replaces zero creation dates with now during read. A delayed-read diagnostic,
+initial successful replay and pre-diagnostic code are retained. The replay now compares every strict field exactly
+and reports both informational flags; no strict rule or source byte changes. The final offline replay rebuilds
+all 21 exact candidates, re-scores all 63 native comparisons, checks all 45 saved readbacks and revision controls
+with zero errors. Four altered/omitted evidence/native-value controls refuse as intended. CI runs the replay and
+controls without model/native calls; exact-head CI and the full repository suite remain publication gates.
+
+The Windows app still shows startup/trial-expiry dialogs through accessibility text. Two fresh exact-window
+captures time out; no successful drawing interaction was observed. Full CAD qualification therefore remains
+unfinished, with readable complete visual review and actual native UI editing/reopen outstanding. No plant data,
+operator review, measured human effort, platform import or company/engineering acceptance is established.

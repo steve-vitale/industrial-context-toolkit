@@ -32,6 +32,10 @@ jobs:
         run: python -S examples/maintenance-intake/reproduce.py --basis-controls --out "$RUNNER_TEMP/maintenance-basis"
       - name: Explain two native CAD returns without waiving strict differences
         run: python examples/cad-handoff/receiving-review/reproduce.py --out "$RUNNER_TEMP/cad-receiving-review"
+      - name: Rebuild frozen CAD candidates and re-score retained native returns offline
+        run: python examples/cad-handoff/qualification/recheck.py --out "$RUNNER_TEMP/cad-qualification"
+      - name: Check CAD evidence replay rejects altered records
+        run: python examples/cad-handoff/qualification/check_controls.py
       - name: Verify frozen first-use session evidence without model calls
         run: python -S examples/agent-rehearsal/recheck.py
       - name: Check linked public-maintenance relationship controls without downloads
