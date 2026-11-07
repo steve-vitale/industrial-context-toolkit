@@ -10,7 +10,9 @@ import hashlib
 import json
 from pathlib import Path
 import subprocess
+import struct
 import time
+import zlib
 
 
 def main():
@@ -33,8 +35,26 @@ def main():
         return result.stdout
 
     def shot(name):
-        time.sleep(.6)  # allow native repaint, not an assertion of completion
-        run("scrot", str(args.out / name))
+        # Keep every frame. Stable image data is a repaint observation, not correctness.
+        time.sleep(2)
+        previous = None
+        for index in range(10):
+            frame = args.out / (name.removesuffix(".png") + f"-frame-{index}.png")
+            run("scrot", str(frame))
+            raw, offset, chunks = frame.read_bytes(), 8, []
+            while offset < len(raw):
+                size = struct.unpack(">I", raw[offset:offset + 4])[0]
+                if raw[offset + 4:offset + 8] == b"IDAT":
+                    chunks.append(raw[offset + 8:offset + 8 + size])
+                offset += size + 12
+            pixels = hashlib.sha256(zlib.decompress(b"".join(chunks))).hexdigest()
+            actions.append(dict(frame=frame.name, filtered_image_sha256=pixels))
+            if pixels == previous:
+                (args.out / name).write_bytes(raw)
+                return
+            previous = pixels
+            time.sleep(.6)
+        raise RuntimeError("Native screenshot image data did not stabilize; no visual pass")
 
     rows = json.loads(args.cases.read_text(encoding="utf-8"))[args.start:args.start + args.count]
     try:
