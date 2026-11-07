@@ -61,8 +61,8 @@ def main():
             run("xdotool", "mousemove", "950", "168", "click", "--repeat", "2", "--delay", "100", "1", "key", "z", "a")
             shot(row["id"] + "-" + row["kind"] + "-model.png")
             if row["paper"]:
-                # Third Block List row is the declared named layout on these six cases.
-                run("xdotool", "mousemove", "950", "205", "click", "--repeat", "2", "--delay", "100", "1", "key", "z", "a")
+                # Use the observed named layout row, not an inferred CAD entity.
+                run("xdotool", "mousemove", "950", str(row.get("paper_y", 205)), "click", "--repeat", "2", "--delay", "100", "1", "key", "z", "a")
                 shot(row["id"] + "-" + row["kind"] + "-paper.png")
             run("wmctrl", "-ia", args.window_id)
             run("xdotool", "key", "ctrl+w")
