@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-07",
+  "role": "source-discovery record; not evaluation",
+  "outcomes": [
+    {
+      "source": "mro-catalog",
+      "attempted": "https://data.mendeley.com/public-api/datasets/hr2ysn26ys/versions/1",
+      "result": "HTTP 404",
+      "resolution": "The public dataset endpoint returned version 7 and a full file/checksum inventory. Retained that metadata and explicitly pinned its first/latest English snapshots, not the initially browsed version 1."
+    },
+    {
+      "source": "bms-alarms",
+      "attempted": "https://zenodo.org/api/records/19855611",
+      "result": "Concept DOI resolves to version record 22301575 with five files; companion README still says four.",
+      "resolution": "Retained the actual version metadata and all five files, including rejected ambiguous cases. Publisher MD5 values match. No rows/keys were read."
+    },
+    {
+      "source": "nasa-capacitor-electrical-stress",
+      "attempted": "https://phm-datasets.s3.amazonaws.com/NASA/12.+Capacitor+Electrical+Stress.zip",
+      "result": "Verified HTTPS HEAD returned Content-Length 5038942729.",
+      "resolution": "Excluded full download: 5 GB exceeds this bounded acquisition. No partial archive represented as usable data."
+    },
+    {
+      "source": "freecad-originals",
+      "result": "No repository-wide license file found in the pinned complete recursive tree.",
+      "resolution": "Original CAD bytes retained locally only, without content inspection, redistribution or an assumption that the software license covers example files."
+    },
+    {
+      "source": "commons-fireboat",
+      "result": "Original image downloaded and hash-verified. Existing text extractor reports JPG unsupported with OCR off.",
+      "resolution": "Unsupported admission remains explicit. No blank-nameplate or OCR-success claim."
+    }
+  ]
+}

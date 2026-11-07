@@ -1,0 +1,169 @@
+{
+  "role": "acquired-unscored",
+  "selection": "TiNA: first, January 1, May 1 and last published day, before reading rows; BMS: all deposit files including rejected/held-out labels; MRO: first/latest English snapshot; FreeCAD: named attachment, fillet and overconstraint examples chosen by filename, contents reserved; all other small named sources.",
+  "per_file_cap_bytes": 40000000,
+  "total_cap_bytes": 125000000,
+  "files": [
+    {
+      "group": "tina-mining",
+      "name": "LICENSE",
+      "url": "https://raw.githubusercontent.com/ari-dasci/OD-TINA/927b1584ea4aeac2ac7daa084a82f899b114419b/LICENSE"
+    },
+    {
+      "group": "tina-mining",
+      "name": "README.md",
+      "url": "https://raw.githubusercontent.com/ari-dasci/OD-TINA/927b1584ea4aeac2ac7daa084a82f899b114419b/README.md"
+    },
+    {
+      "group": "tina-mining",
+      "name": "data/day=2017-09-06/data.parquet",
+      "url": "https://raw.githubusercontent.com/ari-dasci/OD-TINA/927b1584ea4aeac2ac7daa084a82f899b114419b/data/day%3D2017-09-06/data.parquet"
+    },
+    {
+      "group": "tina-mining",
+      "name": "data/day=2018-01-01/data.parquet",
+      "url": "https://raw.githubusercontent.com/ari-dasci/OD-TINA/927b1584ea4aeac2ac7daa084a82f899b114419b/data/day%3D2018-01-01/data.parquet"
+    },
+    {
+      "group": "tina-mining",
+      "name": "data/day=2018-05-01/data.parquet",
+      "url": "https://raw.githubusercontent.com/ari-dasci/OD-TINA/927b1584ea4aeac2ac7daa084a82f899b114419b/data/day%3D2018-05-01/data.parquet"
+    },
+    {
+      "group": "tina-mining",
+      "name": "data/day=2018-12-25/data.parquet",
+      "url": "https://raw.githubusercontent.com/ari-dasci/OD-TINA/927b1584ea4aeac2ac7daa084a82f899b114419b/data/day%3D2018-12-25/data.parquet"
+    },
+    {
+      "group": "epanet-networks",
+      "name": "LICENSE",
+      "url": "https://raw.githubusercontent.com/OpenWaterAnalytics/EPANET/57d8bd8ad60e89b57f2a1ac591f05c8e13589866/LICENSE"
+    },
+    {
+      "group": "epanet-networks",
+      "name": "README.md",
+      "url": "https://raw.githubusercontent.com/OpenWaterAnalytics/EPANET/57d8bd8ad60e89b57f2a1ac591f05c8e13589866/README.md"
+    },
+    {
+      "group": "epanet-networks",
+      "name": "example-networks/Net1.inp",
+      "url": "https://raw.githubusercontent.com/OpenWaterAnalytics/EPANET/57d8bd8ad60e89b57f2a1ac591f05c8e13589866/example-networks/Net1.inp"
+    },
+    {
+      "group": "epanet-networks",
+      "name": "example-networks/Net2.inp",
+      "url": "https://raw.githubusercontent.com/OpenWaterAnalytics/EPANET/57d8bd8ad60e89b57f2a1ac591f05c8e13589866/example-networks/Net2.inp"
+    },
+    {
+      "group": "epanet-networks",
+      "name": "example-networks/Net3.inp",
+      "url": "https://raw.githubusercontent.com/OpenWaterAnalytics/EPANET/57d8bd8ad60e89b57f2a1ac591f05c8e13589866/example-networks/Net3.inp"
+    },
+    {
+      "group": "freecad-originals",
+      "name": "README.md",
+      "url": "https://raw.githubusercontent.com/FreeCAD/Examples/40a806f3f3ef0e6a248fd5aed168a4d29213c421/README.md"
+    },
+    {
+      "group": "freecad-originals",
+      "name": "AttachmentTutorial.FCStd",
+      "url": "https://raw.githubusercontent.com/FreeCAD/Examples/40a806f3f3ef0e6a248fd5aed168a4d29213c421/AttachmentTutorial.FCStd"
+    },
+    {
+      "group": "freecad-originals",
+      "name": "100CadExercises/Page_015_Exercise2D-07_fillets_byHannu.fcstd",
+      "url": "https://raw.githubusercontent.com/FreeCAD/Examples/40a806f3f3ef0e6a248fd5aed168a4d29213c421/100CadExercises/Page_015_Exercise2D-07_fillets_byHannu.fcstd"
+    },
+    {
+      "group": "freecad-originals",
+      "name": "100CadExercises/Page_091_Exercise3D-32_Overconstrained_byHannu.fcstd",
+      "url": "https://raw.githubusercontent.com/FreeCAD/Examples/40a806f3f3ef0e6a248fd5aed168a4d29213c421/100CadExercises/Page_091_Exercise3D-32_Overconstrained_byHannu.fcstd"
+    },
+    {
+      "group": "bms-alarms",
+      "name": "DSPub237_rejected_ambiguous.parquet",
+      "url": "https://zenodo.org/api/records/22301575/files/DSPub237_rejected_ambiguous.parquet/content",
+      "expected_bytes": 19695,
+      "published_checksum": "md5:746b4a7c3b7cfe529305e461fe3952e8"
+    },
+    {
+      "group": "bms-alarms",
+      "name": "DSPub237_test.parquet",
+      "url": "https://zenodo.org/api/records/22301575/files/DSPub237_test.parquet/content",
+      "expected_bytes": 372062,
+      "published_checksum": "md5:494cfe6de746612be690aea7776cd287"
+    },
+    {
+      "group": "bms-alarms",
+      "name": "DSPub237.parquet",
+      "url": "https://zenodo.org/api/records/22301575/files/DSPub237.parquet/content",
+      "expected_bytes": 727963,
+      "published_checksum": "md5:2d46d0f49004d5208db5936cdcd3c3be"
+    },
+    {
+      "group": "bms-alarms",
+      "name": "DSPub237Metadata.parquet",
+      "url": "https://zenodo.org/api/records/22301575/files/DSPub237Metadata.parquet/content",
+      "expected_bytes": 3753,
+      "published_checksum": "md5:56ce5de6fcb59e599561212d67d5730f"
+    },
+    {
+      "group": "bms-alarms",
+      "name": "DSPub237Metadata_test.parquet",
+      "url": "https://zenodo.org/api/records/22301575/files/DSPub237Metadata_test.parquet/content",
+      "expected_bytes": 2938,
+      "published_checksum": "md5:819335090ce84f2a15c1abc4db565d19"
+    },
+    {
+      "group": "bms-alarms",
+      "name": "README.md",
+      "url": "https://raw.githubusercontent.com/industrial-alarms-datasets/bms-alarm-timeseries-periodic/d3b143ba11c6f0e2b651bb5cacf91dc44bf83474/README.md"
+    },
+    {
+      "group": "bms-alarms",
+      "name": "LICENSE",
+      "url": "https://raw.githubusercontent.com/industrial-alarms-datasets/bms-alarm-timeseries-periodic/d3b143ba11c6f0e2b651bb5cacf91dc44bf83474/LICENSE"
+    },
+    {
+      "group": "mro-catalog",
+      "name": "product-E-14-02-2026.csv",
+      "url": "https://data.mendeley.com/public-files/datasets/hr2ysn26ys/files/910fbead-5b27-4fa4-b4b1-795885eca815/file_downloaded",
+      "expected_bytes": 26342504,
+      "published_checksum": "sha256:4390ed291451ab0a722968dd357aa77b89f2f3e14609d8d3489d56e4223802af"
+    },
+    {
+      "group": "mro-catalog",
+      "name": "product-E-20-09-2026.csv",
+      "url": "https://data.mendeley.com/public-files/datasets/hr2ysn26ys/files/27d2d5ef-e705-4ab6-b92f-5e0dd0d83dbb/file_downloaded",
+      "expected_bytes": 28337366,
+      "published_checksum": "sha256:bc5b6c5087e639680bcfbae45fd3ca241bd9388cd6d980b07ab1a93ab9976c02"
+    },
+    {
+      "group": "nasa-milling",
+      "name": "3. Milling.zip",
+      "url": "https://phm-datasets.s3.amazonaws.com/NASA/3.+Milling.zip",
+      "expected_bytes": 14731306
+    },
+    {
+      "group": "nasa-cmapss",
+      "name": "6. Turbofan Engine Degradation Simulation Data Set.zip",
+      "url": "https://phm-datasets.s3.amazonaws.com/NASA/6.+Turbofan+Engine+Degradation+Simulation+Data+Set.zip",
+      "expected_bytes": 12429152
+    },
+    {
+      "group": "usda-pumping",
+      "name": "Chapter 8 - Irrigation Pumping Plants.pdf",
+      "url": "https://directives.nrcs.usda.gov/sites/default/files2/1720457430/Chapter%208%20-%20Irrigation%20Pumping%20Plants.pdf"
+    },
+    {
+      "group": "phoenix-nameplate",
+      "name": "PPI_Pump_Nameplate_Guidelines.pdf",
+      "url": "https://www.phoenixpumps.com/pdf/PPI_Pump_Nameplate_Guidelines.pdf"
+    },
+    {
+      "group": "commons-fireboat",
+      "name": "Nameplate_for_one_of_Fireboat_Firefighter_s_600V_DC_Marine_Motors.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/a/af/Nameplate_for_one_of_Fireboat_Firefighter_%27s_600V_DC_Marine_Motors.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"
+    }
+  ]
+}

@@ -7959,3 +7959,36 @@ TE-cache prerequisites in this separate worktree, so no local full-suite pass is
 code/runner/registry bindings still match; missing optional source caches remain explicitly unverified here.
 Exact-head CI is a separate publication check. No new task score, matrix cell, feature pass, plant acceptance
 or completed CAD qualification is added by this acquisition.
+
+## 181. Acquire maintenance-linked events, catalog revisions and additional engineering sources
+
+2026-11-07. Continued the user's public-data request with 29 original files, 103,450,866 bytes in ten download
+groups: four date-selected TiNA mining-machine partitions and notices, all five files of the current BMS alarm
+deposit plus companion notices, two QTE MRO catalog revisions, NASA-hosted milling/C-MAPSS archives, three
+EPANET networks and notices, three FreeCAD tutorial originals plus README, USDA/NRCS pumping guidance,
+Phoenix pump-nameplate guidance and a historic motor-plate photograph. The three acquisition passes now total
+130 files, 421,405,519 bytes in 39 groups, plus four separately frozen DXFs. Dates, revisions and download
+groups are not independent plants. Original source files stay local; public pins/primary metadata retain
+attribution, source families, rights/exposure limits and actual selection/transport outcomes.
+
+The Mendeley version endpoint returned 404; the working dataset API explicitly returned version 7, which was
+pinned rather than assuming the initially browsed version 1. Its two English-named CSVs actually have 35,233
+and 36,016 rows, Vietnamese/empty headers and a 12-to-16-column change. This is a catalog, not a linked
+installed-equipment/parts-consumption/repair-outcome register; the publisher's million-item title is not the
+unique row count of these files. The BMS concept DOI resolves to a newer five-file version, including rejected
+ambiguous series, despite the companion README saying four. All publisher checksums supplied match.
+
+All 29 raw pins match in a network-refused cached replay with zero budget and zero network calls. A separate
+fresh HTTPS fetch reproduces all five EPANET file pins (56,872 bytes); truncation and same-size mutation controls
+are refused. All 40 prior pin groups and the evaluated common fetch/extract/previous-admission methods remain
+unchanged. Focused fetch and ledger modules pass 24 and 11 tests. The broader local prerequisite check stops
+before running tests because this isolated worktree lacks TE caches; no local full-suite pass is inferred.
+
+No new package was installed or downloaded code executed. Parquet framing/footer checks do not read rows or
+labels; outer NASA ZIP inventories leave their nested archives unopened. USDA text extraction yields 208 page
+segments and Phoenix one, without diagram/transcription review. The JPG reader's explicit unsupported result
+with OCR off remains visible. The 5,038,942,729-byte capacitor archive was excluded after HEAD, not partly
+downloaded and called usable. No repository-wide FreeCAD example-data license was found; NASA contributor,
+vendor and third-party figure rights are not assumed. These originals stay local; CAD XML/geometry/thumbnails
+remain uninspected and outside the existing frozen DXF cohort. No task score, model training, generalization
+cell, feature-review pass, plant acceptance or CAD qualification result is added by this acquisition.

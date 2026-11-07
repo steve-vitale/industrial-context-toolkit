@@ -1,5 +1,10 @@
 # More public inputs for maintenance and engineering work
 
+The [third acquisition](round-3/README.md) adds **29 files (103 MB)**: maintenance-linked mining histories,
+field alarms, parts-catalog revisions, degradation experiments, hydraulic models, CAD originals and pump/photo
+references. All three passes total **130 files (421 MB) in 39 download groups**, plus four separate DXF originals.
+Source groups, dates and revisions are not independent plants. See each pass for its rights, failures and exposure.
+
 The [second acquisition](round-2/README.md) adds **47 more files (203 MB)**: historical excavator work orders,
 five facility drawing/document sets, industrial failure/quality data, process models, instrument photos and
 additional CAD originals. Both acquisitions total 101 files in 29 download groups; groups are not independent
