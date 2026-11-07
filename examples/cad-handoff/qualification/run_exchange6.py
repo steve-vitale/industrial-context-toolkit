@@ -43,7 +43,14 @@ def run(out):
                 raise ValueError("Plan differs from predeclared key")
             byte_result = verify_bytes.verify(source, draft / "candidate.dxf", expected)
             strict = ce.read_json(draft / "comparison.json")
-            baseline = ch.apply(source, expected, target / "library")
+            library = target / "library"
+            library.mkdir()
+            doc = ch.load(source)
+            for handle, change in ch.validate_plan(ch.snapshot(source), expected).items():
+                doc.entitydb[handle].dxf.text = change["after"]
+            doc.saveas(library / "candidate.dxf")
+            baseline = ch.compare(ch.snapshot(source), ch.snapshot(library / "candidate.dxf"), expected)
+            ch.write_json(library / "comparison.json", baseline)
             try:
                 verify_bytes.verify(source, target / "library/candidate.dxf", expected)
                 baseline_raw = "pass"
