@@ -19,6 +19,7 @@ function inspect(path) {
   var e=d.queryEntity(ids[i]),row={id:String(ids[i]),type:e.getType(),block:String(e.getBlockName())};
   if(e.getType()===RS.EntityAttribute) {
    row.parent=String(e.getParentId());row.tag=String(e.getTag());row.text=String(e.getData().getText());
+   row.font=String(e.getData().getFontName());row.font_file=String(e.getData().getFontFile());
   }
   try{row.bounds=bounds(e);}catch(error){row.bounds_error=String(error);}
   result.push(row);
