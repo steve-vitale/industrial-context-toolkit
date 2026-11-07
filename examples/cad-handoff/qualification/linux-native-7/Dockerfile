@@ -1,6 +1,6 @@
 # Infrastructure experiment, not a distributable CAD image or a CI prerequisite.
 # Supply the recorded immutable Ubuntu digest and downloaded publisher package hash.
-ARG BASE
+ARG BASE=ubuntu@sha256:fe81560990fae86dc4743202b2cb4d3df98d0bcf949173cecef15ce1127ef852
 FROM ${BASE}
 ARG QCAD_SHA256
 ENV DEBIAN_FRONTEND=noninteractive DISPLAY=:99 QT_X11_NO_MITSHM=1 QT_LINUX_ACCESSIBILITY_ALWAYS_ON=1
@@ -17,7 +17,7 @@ COPY qcad.tar.gz /tmp/qcad.tar.gz
 RUN test -n "$QCAD_SHA256" && echo "$QCAD_SHA256  /tmp/qcad.tar.gz" | sha256sum -c - \
     && mkdir /opt/qcad && tar -xzf /tmp/qcad.tar.gz --strip-components=1 -C /opt/qcad \
     && rm /tmp/qcad.tar.gz \
-    && useradd --create-home --uid 1000 cad && mkdir /work && chown cad:cad /work
+    && useradd --create-home --uid 1001 cad && mkdir /work && chown cad:cad /work
 COPY desktop.sh /opt/desktop.sh
 RUN chmod 755 /opt/desktop.sh && dpkg-query -W > /opt/installed-packages.tsv
 USER cad

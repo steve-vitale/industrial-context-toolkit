@@ -1,0 +1,10 @@
+{
+  "schema": "cad-linux-native-seven-build-failure-1",
+  "recipe_commit": "a2313fb",
+  "exit_code": 1,
+  "cause": "useradd: UID 1000 is not unique; pinned Ubuntu image already owns that UID",
+  "stage": "Container build, before any CAD execution",
+  "log_sha256": "ea4e08b6995a8a86208a204936449ce1a5d866ae5aa9426d3fd4b505d91a9ac2",
+  "log_bytes": 136055,
+  "repair": "Use separate UID1001; give pinned BASE default; retain DBus address for native UI accessibility observation. No source/comparator/qualification change."
+}

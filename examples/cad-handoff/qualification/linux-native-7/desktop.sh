@@ -1,5 +1,6 @@
 #!/bin/sh
 set -eu
+printf '%s\n' "$DBUS_SESSION_BUS_ADDRESS" > /work/dbus-address.txt
 Xvfb :99 -screen 0 1600x1000x24 -nolisten tcp > /work/xvfb.log 2>&1 &
 until xdpyinfo -display :99 >/dev/null 2>&1; do sleep 0.2; done
 openbox > /work/openbox.log 2>&1 &
