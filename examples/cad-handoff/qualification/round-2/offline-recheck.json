@@ -1,0 +1,1125 @@
+{
+  "scope": "Offline exact-source candidate rebuild and retained-native receipt/file re-score. No models, native commercial application, GUI or engineering acceptance.",
+  "cases": [
+    {
+      "id": "dev-legacy",
+      "routes": {
+        "library-save": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "fail",
+            "error": "Candidate differs from independent source-plus-plan reconstruction"
+          }
+        },
+        "value-spans": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "pass",
+            "values": 1,
+            "unplanned_byte_changes": 0,
+            "source_sha256": "fc35544fae08b380c27dad78b8b858698b55effb5fa25f947524b94f574d222b",
+            "candidate_sha256": "04e1653821f8db1e7a1b9358e62d53c0d3daa8f8cae655285f368267fc6f4455",
+            "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+            "review": "same-author software check; not independent engineering review"
+          }
+        }
+      },
+      "exact_candidate_rebuilt": true
+    },
+    {
+      "id": "dev-unicode",
+      "routes": {
+        "library-save": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "fail",
+            "error": "Candidate differs from independent source-plus-plan reconstruction"
+          }
+        },
+        "value-spans": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "pass",
+            "values": 2,
+            "unplanned_byte_changes": 0,
+            "source_sha256": "2d78038053f64dd77c424bde7eea5b265a87fceaa002ee896d7de2b4107f5e53",
+            "candidate_sha256": "758152f6dbc3e883d705199bf70773aae12d6ce5ae14c96071d9f3df9ad43b67",
+            "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+            "review": "same-author software check; not independent engineering review"
+          }
+        }
+      },
+      "exact_candidate_rebuilt": true
+    },
+    {
+      "id": "reserve-r12",
+      "routes": {
+        "library-save": {
+          "strict_status": "differences",
+          "strict_differences": 82,
+          "byte_check": {
+            "status": "fail",
+            "error": "Candidate differs from independent source-plus-plan reconstruction"
+          }
+        },
+        "value-spans": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "pass",
+            "values": 1,
+            "unplanned_byte_changes": 0,
+            "source_sha256": "eb85c71239672cc06a25574b68d2869cd6080cbbbed07f272713a6caa45dcc6c",
+            "candidate_sha256": "05b3c423ae3267edf83fc09df52b6a65e154505f0ab7b281a4983d0d5a674931",
+            "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+            "review": "same-author software check; not independent engineering review"
+          }
+        }
+      },
+      "exact_candidate_rebuilt": true
+    },
+    {
+      "id": "reserve-mirror",
+      "routes": {
+        "library-save": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "fail",
+            "error": "Candidate differs from independent source-plus-plan reconstruction"
+          }
+        },
+        "value-spans": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "pass",
+            "values": 2,
+            "unplanned_byte_changes": 0,
+            "source_sha256": "4d2999c1ae48e4baceafab99c2d9a721e045f05d6e2ab4229a0796bd97cce86e",
+            "candidate_sha256": "0f1e515f0fc26f3038119a6d7a52b194465b6f49f68bedd8201ced8705067b81",
+            "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+            "review": "same-author software check; not independent engineering review"
+          }
+        }
+      },
+      "exact_candidate_rebuilt": true
+    },
+    {
+      "id": "reserve-cyrillic",
+      "routes": {
+        "library-save": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "fail",
+            "error": "Candidate differs from independent source-plus-plan reconstruction"
+          }
+        },
+        "value-spans": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "pass",
+            "values": 1,
+            "unplanned_byte_changes": 0,
+            "source_sha256": "f5ab62872545ab20ad4c7988c23707d53fc632cd8151c4ff1f7dcc38828a8c2c",
+            "candidate_sha256": "dd0790e2e75c20ff4ddb7b90146a690767dfd7ab9744033f124ccf777857eede",
+            "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+            "review": "same-author software check; not independent engineering review"
+          }
+        }
+      },
+      "exact_candidate_rebuilt": true
+    },
+    {
+      "id": "reserve-multiple",
+      "routes": {
+        "library-save": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "fail",
+            "error": "Candidate differs from independent source-plus-plan reconstruction"
+          }
+        },
+        "value-spans": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "pass",
+            "values": 3,
+            "unplanned_byte_changes": 0,
+            "source_sha256": "c5975b671a480c54dd01baca83cba2fe24e6fa138f24ba5d2a68751bb8401cb0",
+            "candidate_sha256": "ebf59ee2ab69f0c36fc02d54463a32a52eeb006e48d3ef6995810b22a362ea6c",
+            "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+            "review": "same-author software check; not independent engineering review"
+          }
+        }
+      },
+      "exact_candidate_rebuilt": true
+    },
+    {
+      "id": "reserve-foreign",
+      "routes": {
+        "library-save": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "fail",
+            "error": "Candidate differs from independent source-plus-plan reconstruction"
+          }
+        },
+        "value-spans": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "pass",
+            "values": 2,
+            "unplanned_byte_changes": 0,
+            "source_sha256": "4029079e1721fb908eb337f73534d11fb7df0e75a8527ec434fbc41b5bae257d",
+            "candidate_sha256": "934b6ad8668673abbad5c7044bbeed608eb0fb6688efea582414a2db069d079c",
+            "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+            "review": "same-author software check; not independent engineering review"
+          }
+        }
+      },
+      "exact_candidate_rebuilt": true
+    },
+    {
+      "id": "reserve-mixed",
+      "routes": {
+        "library-save": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "fail",
+            "error": "Candidate differs from independent source-plus-plan reconstruction"
+          }
+        },
+        "value-spans": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "pass",
+            "values": 3,
+            "unplanned_byte_changes": 0,
+            "source_sha256": "72e0128a7500985168611a7b90e48b4cd2afa82f83707af009f3767a310053c9",
+            "candidate_sha256": "b45e20d68debe27dc52fe1486dc8708c6cbc6d99e644deda373144a9e12d0f03",
+            "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+            "review": "same-author software check; not independent engineering review"
+          }
+        }
+      },
+      "exact_candidate_rebuilt": true
+    },
+    {
+      "id": "validation-r12",
+      "routes": {
+        "library-save": {
+          "strict_status": "differences",
+          "strict_differences": 86,
+          "byte_check": {
+            "status": "fail",
+            "error": "Candidate differs from independent source-plus-plan reconstruction"
+          }
+        },
+        "value-spans": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "pass",
+            "values": 2,
+            "unplanned_byte_changes": 0,
+            "source_sha256": "fd510949e9f7e0c46237d079553d29f61d1ee2fed49e9a26b1b51df565a91c06",
+            "candidate_sha256": "a74ea6b836c6b625ded200daa88c7db3fb7817a4d374a747ad81a755b95d33f3",
+            "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+            "review": "same-author software check; not independent engineering review"
+          }
+        }
+      },
+      "exact_candidate_rebuilt": true
+    },
+    {
+      "id": "validation-cp1251",
+      "routes": {
+        "library-save": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "fail",
+            "error": "Candidate differs from independent source-plus-plan reconstruction"
+          }
+        },
+        "value-spans": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "pass",
+            "values": 2,
+            "unplanned_byte_changes": 0,
+            "source_sha256": "2044da26edd9188d07300f6b8f2abf4053956f31a7827bba488ec02c1351e158",
+            "candidate_sha256": "1f78177f035dda54c25a26c55d727e5bde3f3e51f219a33dc1f35c5c90b49566",
+            "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+            "review": "same-author software check; not independent engineering review"
+          }
+        }
+      },
+      "exact_candidate_rebuilt": true
+    },
+    {
+      "id": "validation-long",
+      "routes": {
+        "library-save": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "fail",
+            "error": "Candidate differs from independent source-plus-plan reconstruction"
+          }
+        },
+        "value-spans": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "pass",
+            "values": 1,
+            "unplanned_byte_changes": 0,
+            "source_sha256": "320f335dfce8b55b4176e7bf130a4d2a35767c60bd25b39834cf6f42473991a0",
+            "candidate_sha256": "49b483ae1782527d2aa68db8fa350a0b076e858519ead2bd145b14d213e20c5e",
+            "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+            "review": "same-author software check; not independent engineering review"
+          }
+        }
+      },
+      "exact_candidate_rebuilt": true
+    },
+    {
+      "id": "validation-unicode",
+      "routes": {
+        "library-save": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "fail",
+            "error": "Candidate differs from independent source-plus-plan reconstruction"
+          }
+        },
+        "value-spans": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "pass",
+            "values": 3,
+            "unplanned_byte_changes": 0,
+            "source_sha256": "c7edb52b95b314e7519771e61c8d7ee00819e4f2a5ffb2638d5a268e27afd3f1",
+            "candidate_sha256": "4e8715bb1b37d890618facec2fc2d9f87198808085bebdd2038698a6269fb1aa",
+            "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+            "review": "same-author software check; not independent engineering review"
+          }
+        }
+      },
+      "exact_candidate_rebuilt": true
+    },
+    {
+      "id": "validation-braces",
+      "routes": {
+        "library-save": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "fail",
+            "error": "Candidate differs from independent source-plus-plan reconstruction"
+          }
+        },
+        "value-spans": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "pass",
+            "values": 2,
+            "unplanned_byte_changes": 0,
+            "source_sha256": "614e83380bbe667c727363f02d32519b3340439028f0acd72807c82a45224abe",
+            "candidate_sha256": "37f87eecd7121e771cbeaf2f846739c671cfb6618ee4fde2e86d968defbe9acf",
+            "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+            "review": "same-author software check; not independent engineering review"
+          }
+        }
+      },
+      "exact_candidate_rebuilt": true
+    },
+    {
+      "id": "validation-foreign",
+      "routes": {
+        "library-save": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "fail",
+            "error": "Candidate differs from independent source-plus-plan reconstruction"
+          }
+        },
+        "value-spans": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "pass",
+            "values": 3,
+            "unplanned_byte_changes": 0,
+            "source_sha256": "0c37544e989ce0880dfc75935daae28595155ce6a7e6f89b11080cb751119636",
+            "candidate_sha256": "2cd41c3adbca29501bbd2b7ba4160caaf58f7e9579231c0b4c8a7357e776365a",
+            "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+            "review": "same-author software check; not independent engineering review"
+          }
+        }
+      },
+      "exact_candidate_rebuilt": true
+    },
+    {
+      "id": "dimension_in_block",
+      "routes": {
+        "library-save": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "fail",
+            "error": "Candidate differs from independent source-plus-plan reconstruction"
+          }
+        },
+        "value-spans": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "pass",
+            "values": 2,
+            "unplanned_byte_changes": 0,
+            "source_sha256": "1fa32eb65b341b03875aabe8b0f5f14c1c8f81bbd0822ea16e00f40ad4e56460",
+            "candidate_sha256": "aac3a254436bfb3c421d936bfaf17f469dacf1de84e6d74ff393ece403e7d398",
+            "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+            "review": "same-author software check; not independent engineering review"
+          }
+        }
+      },
+      "exact_candidate_rebuilt": true
+    },
+    {
+      "id": "dimension_in_nested_blocks",
+      "routes": {
+        "library-save": {
+          "strict_status": "differences",
+          "strict_differences": 6,
+          "byte_check": {
+            "status": "fail",
+            "error": "Candidate differs from independent source-plus-plan reconstruction"
+          }
+        },
+        "value-spans": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "pass",
+            "values": 4,
+            "unplanned_byte_changes": 0,
+            "source_sha256": "ba055e532019651085795c3781fc0566e7bfeaaa80eafb3241334fd6ff5dbb74",
+            "candidate_sha256": "5486ceede8bc952edcad68807fc2207681d557e9c7ed022599838ea08e060094",
+            "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+            "review": "same-author software check; not independent engineering review"
+          }
+        }
+      },
+      "exact_candidate_rebuilt": true
+    },
+    {
+      "id": "multi_insert_with_attribs",
+      "routes": {
+        "library-save": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "fail",
+            "error": "Candidate differs from independent source-plus-plan reconstruction"
+          }
+        },
+        "value-spans": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "pass",
+            "values": 1,
+            "unplanned_byte_changes": 0,
+            "source_sha256": "5a189509680f740d7ef962feb2add38921a6321620fbef59ff328744d5df4349",
+            "candidate_sha256": "04d7dc268cd3468b44c82824a23a741bac5b7ce9ec99835eb40b1734f7fbbef3",
+            "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+            "review": "same-author software check; not independent engineering review"
+          }
+        }
+      },
+      "exact_candidate_rebuilt": true
+    },
+    {
+      "id": "text_in_viewports",
+      "routes": {
+        "library-save": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "fail",
+            "error": "Candidate differs from independent source-plus-plan reconstruction"
+          }
+        },
+        "value-spans": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "pass",
+            "values": 1,
+            "unplanned_byte_changes": 0,
+            "source_sha256": "4a3e3fc6736d7e76746afd0f6b6a5dfacd43bfee55596319701032c5d8fd0eb2",
+            "candidate_sha256": "f41ab33031890b6329c20c03ef5c57c5e5ed35def37fdf71d718eb4b853845a6",
+            "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+            "review": "same-author software check; not independent engineering review"
+          }
+        }
+      },
+      "exact_candidate_rebuilt": true
+    },
+    {
+      "id": "columns_R2018",
+      "routes": {
+        "library-save": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "fail",
+            "error": "Candidate differs from independent source-plus-plan reconstruction"
+          }
+        },
+        "value-spans": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "pass",
+            "values": 1,
+            "unplanned_byte_changes": 0,
+            "source_sha256": "f9eb420142b4bd03e8387418721240933b2f0c83239d6b07b37451e0652bbc51",
+            "candidate_sha256": "4ca59e1d72aeabc8a642a784f1f524b1519058f900d165c9f237b86f055df771",
+            "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+            "review": "same-author software check; not independent engineering review"
+          }
+        }
+      },
+      "exact_candidate_rebuilt": true
+    },
+    {
+      "id": "hatch_issues",
+      "routes": {
+        "library-save": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "fail",
+            "error": "Candidate differs from independent source-plus-plan reconstruction"
+          }
+        },
+        "value-spans": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "pass",
+            "values": 1,
+            "unplanned_byte_changes": 0,
+            "source_sha256": "d7219d93aa203f2b59de4d2bf0be9b69e41cdd4c035da2058a81c9475b765c46",
+            "candidate_sha256": "7465179751b654bde4c9d01cad8186e2e5236b7db176a1e5b48e74e2b50f7160",
+            "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+            "review": "same-author software check; not independent engineering review"
+          }
+        }
+      },
+      "exact_candidate_rebuilt": true
+    },
+    {
+      "id": "original-valve",
+      "routes": {
+        "library-save": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "fail",
+            "error": "Candidate differs from independent source-plus-plan reconstruction"
+          }
+        },
+        "value-spans": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "pass",
+            "values": 3,
+            "unplanned_byte_changes": 0,
+            "source_sha256": "c64f5ac8f53f7f35ed0f119abdc28c1e11eb5c7cc28011ddaf079940cfee2b7d",
+            "candidate_sha256": "f9a3dd8ffee4dde6d7a1026370774bbcab2c955746fab72cf9f11721f4fed88a",
+            "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+            "review": "same-author software check; not independent engineering review"
+          }
+        }
+      },
+      "exact_candidate_rebuilt": true
+    }
+  ],
+  "errors": [],
+  "method_bindings": {
+    "method_2": "e0aadba6e8d4e40ac979e538f7b2e53a5c331923222fb601c6e2a3beff2ef21b",
+    "comparator_ast_unchanged": true,
+    "patcher_and_byte_checker_unchanged": true,
+    "public_adaptation_binding": "match",
+    "evidence": "frozen code/source bindings; not a model or engineering review"
+  },
+  "archive": {
+    "files": 1189,
+    "raw_bytes": 76110864,
+    "archive_sha256": "7d46ecddff7eb8f411e4bf69c1a1d40d320d3402233e539a8d34db0d59233cd0"
+  },
+  "development_native": {
+    "native_cases": 9,
+    "rescored_comparisons": [
+      {
+        "id": "original-valve",
+        "route": "candidate",
+        "strict_status": "pass",
+        "unexpected": 0,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "original-valve",
+        "route": "native_default",
+        "strict_status": "differences",
+        "unexpected": 335,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "original-valve",
+        "route": "native_r15",
+        "strict_status": "differences",
+        "unexpected": 344,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "dev-legacy",
+        "route": "candidate",
+        "strict_status": "pass",
+        "unexpected": 0,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "dev-legacy",
+        "route": "native_default",
+        "strict_status": "differences",
+        "unexpected": 342,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "dev-legacy",
+        "route": "native_r15",
+        "strict_status": "differences",
+        "unexpected": 351,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "dev-unicode",
+        "route": "candidate",
+        "strict_status": "pass",
+        "unexpected": 0,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "dev-unicode",
+        "route": "native_default",
+        "strict_status": "differences",
+        "unexpected": 354,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "dev-unicode",
+        "route": "native_r15",
+        "strict_status": "differences",
+        "unexpected": 364,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "reserve-mirror",
+        "route": "candidate",
+        "strict_status": "pass",
+        "unexpected": 0,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "reserve-mirror",
+        "route": "native_default",
+        "strict_status": "differences",
+        "unexpected": 354,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "reserve-mirror",
+        "route": "native_r15",
+        "strict_status": "differences",
+        "unexpected": 363,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "reserve-cyrillic",
+        "route": "candidate",
+        "strict_status": "pass",
+        "unexpected": 0,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "reserve-cyrillic",
+        "route": "native_default",
+        "strict_status": "differences",
+        "unexpected": 342,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "reserve-cyrillic",
+        "route": "native_r15",
+        "strict_status": "differences",
+        "unexpected": 352,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "reserve-multiple",
+        "route": "candidate",
+        "strict_status": "pass",
+        "unexpected": 0,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "reserve-multiple",
+        "route": "native_default",
+        "strict_status": "differences",
+        "unexpected": 366,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "reserve-multiple",
+        "route": "native_r15",
+        "strict_status": "differences",
+        "unexpected": 376,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "reserve-foreign",
+        "route": "candidate",
+        "strict_status": "pass",
+        "unexpected": 0,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "reserve-foreign",
+        "route": "native_default",
+        "strict_status": "differences",
+        "unexpected": 354,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "reserve-foreign",
+        "route": "native_r15",
+        "strict_status": "differences",
+        "unexpected": 364,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "reserve-mixed",
+        "route": "candidate",
+        "strict_status": "pass",
+        "unexpected": 0,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "reserve-mixed",
+        "route": "native_default",
+        "strict_status": "differences",
+        "unexpected": 366,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "reserve-mixed",
+        "route": "native_r15",
+        "strict_status": "differences",
+        "unexpected": 376,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "reserve-r12",
+        "route": "candidate",
+        "strict_status": "pass",
+        "unexpected": 0,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "reserve-r12",
+        "route": "native_default",
+        "strict_status": "differences",
+        "unexpected": 335,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "reserve-r12",
+        "route": "native_r15",
+        "strict_status": "differences",
+        "unexpected": 345,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      }
+    ],
+    "fresh_process_stored_readbacks": 9,
+    "scope": "Re-scores saved native files/API receipts; does not rerun native engine or verify UI interaction"
+  },
+  "replacement_native": {
+    "native_cases": 12,
+    "rescored_comparisons": [
+      {
+        "id": "validation-r12",
+        "route": "candidate",
+        "strict_status": "pass",
+        "unexpected": 0,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "validation-r12",
+        "route": "native_default",
+        "strict_status": "differences",
+        "unexpected": 351,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "validation-r12",
+        "route": "native_r15",
+        "strict_status": "differences",
+        "unexpected": 361,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "validation-cp1251",
+        "route": "candidate",
+        "strict_status": "pass",
+        "unexpected": 0,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "validation-cp1251",
+        "route": "native_default",
+        "strict_status": "differences",
+        "unexpected": 370,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "validation-cp1251",
+        "route": "native_r15",
+        "strict_status": "differences",
+        "unexpected": 380,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "validation-long",
+        "route": "candidate",
+        "strict_status": "pass",
+        "unexpected": 0,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "validation-long",
+        "route": "native_default",
+        "strict_status": "differences",
+        "unexpected": 358,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "validation-long",
+        "route": "native_r15",
+        "strict_status": "differences",
+        "unexpected": 369,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "validation-unicode",
+        "route": "candidate",
+        "strict_status": "pass",
+        "unexpected": 0,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "validation-unicode",
+        "route": "native_default",
+        "strict_status": "differences",
+        "unexpected": 382,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "validation-unicode",
+        "route": "native_r15",
+        "strict_status": "differences",
+        "unexpected": 393,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "validation-braces",
+        "route": "candidate",
+        "strict_status": "pass",
+        "unexpected": 0,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "validation-braces",
+        "route": "native_default",
+        "strict_status": "differences",
+        "unexpected": 370,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "validation-braces",
+        "route": "native_r15",
+        "strict_status": "differences",
+        "unexpected": 381,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "validation-foreign",
+        "route": "candidate",
+        "strict_status": "pass",
+        "unexpected": 0,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "validation-foreign",
+        "route": "native_default",
+        "strict_status": "differences",
+        "unexpected": 382,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "validation-foreign",
+        "route": "native_r15",
+        "strict_status": "differences",
+        "unexpected": 393,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "dimension_in_block",
+        "route": "candidate",
+        "strict_status": "pass",
+        "unexpected": 0,
+        "save_metadata_changed_retained": false,
+        "save_metadata_changed_observed": false
+      },
+      {
+        "id": "dimension_in_block",
+        "route": "native_default",
+        "strict_status": "differences",
+        "unexpected": 447,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "dimension_in_block",
+        "route": "native_r15",
+        "strict_status": "differences",
+        "unexpected": 458,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "dimension_in_nested_blocks",
+        "route": "candidate",
+        "strict_status": "pass",
+        "unexpected": 0,
+        "save_metadata_changed_retained": false,
+        "save_metadata_changed_observed": false
+      },
+      {
+        "id": "dimension_in_nested_blocks",
+        "route": "native_default",
+        "strict_status": "differences",
+        "unexpected": 491,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "dimension_in_nested_blocks",
+        "route": "native_r15",
+        "strict_status": "differences",
+        "unexpected": 502,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "multi_insert_with_attribs",
+        "route": "candidate",
+        "strict_status": "pass",
+        "unexpected": 0,
+        "save_metadata_changed_retained": false,
+        "save_metadata_changed_observed": false
+      },
+      {
+        "id": "multi_insert_with_attribs",
+        "route": "native_default",
+        "strict_status": "differences",
+        "unexpected": 336,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "multi_insert_with_attribs",
+        "route": "native_r15",
+        "strict_status": "differences",
+        "unexpected": 346,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "text_in_viewports",
+        "route": "candidate",
+        "strict_status": "pass",
+        "unexpected": 0,
+        "save_metadata_changed_retained": false,
+        "save_metadata_changed_observed": false
+      },
+      {
+        "id": "text_in_viewports",
+        "route": "native_default",
+        "strict_status": "differences",
+        "unexpected": 439,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "text_in_viewports",
+        "route": "native_r15",
+        "strict_status": "differences",
+        "unexpected": 461,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "columns_R2018",
+        "route": "candidate",
+        "strict_status": "pass",
+        "unexpected": 0,
+        "save_metadata_changed_retained": false,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "columns_R2018",
+        "route": "native_default",
+        "strict_status": "differences",
+        "unexpected": 495,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "columns_R2018",
+        "route": "native_r15",
+        "strict_status": "differences",
+        "unexpected": 506,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "hatch_issues",
+        "route": "candidate",
+        "strict_status": "pass",
+        "unexpected": 0,
+        "save_metadata_changed_retained": false,
+        "save_metadata_changed_observed": false
+      },
+      {
+        "id": "hatch_issues",
+        "route": "native_default",
+        "strict_status": "differences",
+        "unexpected": 422,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      },
+      {
+        "id": "hatch_issues",
+        "route": "native_r15",
+        "strict_status": "differences",
+        "unexpected": 433,
+        "save_metadata_changed_retained": true,
+        "save_metadata_changed_observed": true
+      }
+    ],
+    "fresh_process_stored_readbacks": 36,
+    "scope": "Re-scores saved native files/API receipts; does not rerun native engine or verify UI interaction"
+  },
+  "revision": {
+    "stale_refusals": 2,
+    "explicit_conflicts": [
+      {
+        "id": "S1/P1/PAST1/FDV-2210",
+        "attribute": "MODEL",
+        "before_present": true,
+        "before": "SRC-2",
+        "after_present": true,
+        "after": "MANUAL-OTHER",
+        "planned_after": "SRC-3",
+        "status": "planned edit missing or different"
+      }
+    ],
+    "revision_2_bytes": "pass",
+    "context_commands": 3,
+    "retained_sources": "exact",
+    "scope": "Fictional branches and draft drawing-reference context; no human edit, installed register or company acceptance"
+  },
+  "status": "pass",
+  "qualification": "not established: readable visual/UI gates and engineering acceptance are separate",
+  "rechecker_sha256_lf": "c6283ae90e6d379a6769a7fc5f27e08a4332a693c3cabb185e45ba2773742f70"
+}

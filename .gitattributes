@@ -235,5 +235,8 @@ data/te_pid_layout.json text eol=lf
 /examples/cad-handoff/qualification/validation-2/** -text whitespace=cr-at-eol,-blank-at-eof
 /examples/cad-handoff/qualification/validation-2/**/*.dxf -text whitespace=-trailing-space
 
+# Compressed qualification records contain exact original bytes, not text.
+/examples/cad-handoff/qualification/round-2/*.zip -text
+
 # Preserve the publisher's captured HTML, including its original trailing whitespace.
 /data/public-source-evidence/2026-11-07-round-3/nasa.html -text whitespace=cr-at-eol,-blank-at-eof,-trailing-space

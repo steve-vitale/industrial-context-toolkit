@@ -1,7 +1,10 @@
 # Preserve a bounded CAD handoff
 
-**Reusable DXF tool plus an authored fictional fixture.** It tests attribute edits without flattening the
-drawing. It is not a general intelligent-P&ID exporter, native DWG adapter or accepted CAD project.
+**Reusable DXF tools with source-retaining draft edits.** The value-span route changes only the declared
+single-line attribute bytes and retains every other source byte. It works on the supplied explicit identity
+profile without flattening the drawing. The separate library/native full-save baselines remain visible.
+The [qualification evidence](qualification/README.md) reports the actual cases, failed attempts and open gates;
+it does not establish native GUI or engineering acceptance, DWG or an intelligent-P&ID project database.
 
 ## Try the saved fixture
 
@@ -10,11 +13,11 @@ Run from the repository root, with unused output destinations:
 
 ```sh
 python scripts/cad_handoff.py inspect examples/cad-handoff/source/valve.dxf --out out/cad-inspect
-python scripts/cad_handoff.py apply examples/cad-handoff/source/valve.dxf examples/cad-handoff/source/edit-plan.json --out out/cad-proposal
+python scripts/cad_value_patch.py examples/cad-handoff/source/valve.dxf examples/cad-handoff/source/edit-plan.json --out out/cad-proposal
 python scripts/cad_handoff.py compare examples/cad-handoff/source/valve.dxf out/cad-proposal/candidate.dxf --plan examples/cad-handoff/source/edit-plan.json --out out/cad-readback.json
 ```
 
-Inspect the [saved proposal](worked/comparison.json), [source identity](source/PROVENANCE.json),
+Inspect the earlier [saved library proposal](worked/comparison.json), [source identity](source/PROVENANCE.json),
 [before context](worked/cad_context.json) and [proposed context](worked/candidate-context/cad_context.json).
 The fixture shares the fictional FDV-2210 identity with the [maintenance example](../maintenance-handoff/README.md).
 It proposes model SRC-3, serial AV-88412 and size DN65; acceptance of that engineering change remains separate.
@@ -23,6 +26,11 @@ The small authored symbol is not a reconstructed full P&ID.
 ## What is preserved and checked
 
 - The exact original DXF bytes remain in `source.dxf` and are never overwritten.
+- `cad_value_patch.py` reconstructs the source from the edited spans and refuses changes outside the declared
+  attribute values. Unknown raw data, original encodings, line endings and ordering stay byte-for-byte intact.
+  [Independent reconstruction](qualification/verify_bytes.py) consumes source/plan/candidate, not patch receipts.
+  The [offline recheck](qualification/README.md) rebuilds the committed cohort and re-scores retained returns.
+  The older `cad_handoff.py apply` route uses a library save; a decoded strict pass on that route is not raw-byte preservation.
 - Every model-space asset block has explicit `ICT_ID` and `TAG` attributes. Stable IDs survive a tag/value edit;
   they are supplied identities, not matches inferred from geometry or names.
 - Every other attribute, including the unfamiliar `VENDOR_NOTE`, remains. The tests deliberately change geometry,
@@ -65,14 +73,20 @@ Retain the original first. Qualify one tool/version and its exchange settings. T
 objects are refused. Nested assets, XREF resolution and proprietary application databases are not supported
 asset-intake routes. An unfamiliar field is retained, not interpreted.
 
-Run `inspect`, author an explicit plan using the new source hash and exact before-values, then run `apply`.
+Run `inspect`, author an explicit plan using the new source hash and exact before-values, then run
+`cad_value_patch.py SOURCE.dxf PLAN.json --out NEW_FOLDER`.
 The tool proposes edits to TAG, MANUFACTURER, MODEL, SERIAL and SIZE only. Units and engineering meaning remain
 the reviewer's responsibility. The plan's reason is supplied provenance, not an authenticated approval.
+The source-preserving route requires ASCII DXF record framing and unambiguous single-line ATTRIB values;
+binary/proxy input, multiline/ambiguous serialization, unsafe control sequences and overlong encoded values
+are refused. It does not import or silently merge a native editor's other changes back into the source.
 
 ## Native-editor acceptance remains a separate test
 
-The saved passing readback uses the ezdxf writer and reader. **No native CAD editor open/edit/save acceptance is
-claimed.** Use [the receiving checklist](RECEIVING_CHECK.md) in the actual target. Save the returned DXF, then run `compare`.
+The original saved example uses the ezdxf writer/reader. The later [qualification work](qualification/README.md)
+adds exact-byte candidates, matched baselines, QCAD native-engine edits and fresh-process stored-text readbacks.
+**No successful interactive native CAD open/edit/save/close/reopen is claimed.** Use
+[the receiving checklist](RECEIVING_CHECK.md) in the actual target. Save the returned DXF, then run `compare`.
 The [LibreCAD native-render attempt](NATIVE_ATTEMPT.md) retains its partial result and GUI automation failure;
 it does not supply an editable-attribute or save/readback pass.
 The [receiving review command](receiving-review/README.md) turns a returned DXF into a readable packet, with

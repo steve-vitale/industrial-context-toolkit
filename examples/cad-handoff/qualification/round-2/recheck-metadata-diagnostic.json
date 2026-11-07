@@ -1,0 +1,92 @@
+{
+  "expected": {
+    "schema": "cad-comparison-1",
+    "before_sha256": "d7219d93aa203f2b59de4d2bf0be9b69e41cdd4c035da2058a81c9475b765c46",
+    "after_sha256": "7465179751b654bde4c9d01cad8186e2e5236b7db176a1e5b48e74e2b50f7160",
+    "status": "pass",
+    "expected_edits": [
+      {
+        "id": "AUTHORED-QUAL/hatch_issues/1",
+        "attribute": "MANUFACTURER",
+        "before": "QUAL-BEFORE",
+        "after": "QUAL-AFTER",
+        "reason": "Authored preservation-test value only; not installed equipment information"
+      }
+    ],
+    "unexpected": [],
+    "save_metadata_changed": false,
+    "boundary": "All ezdxf-exported entity tags including block definitions, attributes, layers and objects; all headers except listed save metadata and the two named EZDXF_META writer values. Same handles required. This is not a byte-identical DXF or proprietary project database/visual/engineering acceptance."
+  },
+  "observed": {
+    "schema": "cad-comparison-1",
+    "before_sha256": "d7219d93aa203f2b59de4d2bf0be9b69e41cdd4c035da2058a81c9475b765c46",
+    "after_sha256": "7465179751b654bde4c9d01cad8186e2e5236b7db176a1e5b48e74e2b50f7160",
+    "status": "pass",
+    "expected_edits": [
+      {
+        "id": "AUTHORED-QUAL/hatch_issues/1",
+        "attribute": "MANUFACTURER",
+        "before": "QUAL-BEFORE",
+        "after": "QUAL-AFTER",
+        "reason": "Authored preservation-test value only; not installed equipment information"
+      }
+    ],
+    "unexpected": [],
+    "save_metadata_changed": true,
+    "boundary": "All ezdxf-exported entity tags including block definitions, attributes, layers and objects; all headers except listed save metadata and the two named EZDXF_META writer values. Same handles required. This is not a byte-identical DXF or proprietary project database/visual/engineering acceptance."
+  },
+  "source_save_metadata": {
+    "$LASTSAVEDBY": "mozman",
+    "$EXTMIN": [
+      -4.0,
+      -4.012294439398,
+      0.0
+    ],
+    "$EXTMAX": [
+      20.000013442231,
+      14.0,
+      0.0
+    ],
+    "$TDCREATE": 2461352.494872685,
+    "$TDUCREATE": 2460229.694927662,
+    "$TDUPDATE": 2461352.4532407406,
+    "$TDUUPDATE": 2460229.69960838,
+    "$TDINDWG": 0.0,
+    "$TDUSRTIMER": 0.0,
+    "$HANDSEED": "C3",
+    "$FINGERPRINTGUID": "{2841e4d8-1252-4abb-af5b-814de76c9664}",
+    "$VERSIONGUID": "{DE4305FA-1A05-4D8B-AE19-BEF39A6EA926}",
+    "ezdxf_dictionary_values": {
+      "C2": [
+        "1.4.5 @ 2026-11-07T16:52:40.613636+00:00"
+      ]
+    }
+  },
+  "candidate_save_metadata": {
+    "$LASTSAVEDBY": "mozman",
+    "$EXTMIN": [
+      -4.0,
+      -4.012294439398,
+      0.0
+    ],
+    "$EXTMAX": [
+      20.000013442231,
+      14.0,
+      0.0
+    ],
+    "$TDCREATE": 2461352.494884259,
+    "$TDUCREATE": 2460229.694927662,
+    "$TDUPDATE": 2461352.4532407406,
+    "$TDUUPDATE": 2460229.69960838,
+    "$TDINDWG": 0.0,
+    "$TDUSRTIMER": 0.0,
+    "$HANDSEED": "C3",
+    "$FINGERPRINTGUID": "{2841e4d8-1252-4abb-af5b-814de76c9664}",
+    "$VERSIONGUID": "{DE4305FA-1A05-4D8B-AE19-BEF39A6EA926}",
+    "ezdxf_dictionary_values": {
+      "C2": [
+        "1.4.5 @ 2026-11-07T16:52:40.613636+00:00"
+      ]
+    }
+  }
+}

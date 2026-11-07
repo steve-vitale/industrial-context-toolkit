@@ -1629,7 +1629,8 @@
       "category": "export",
       "title": "Source-retaining DXF attribute handoff",
       "tools": [
-        "scripts/cad_handoff.py"
+        "scripts/cad_handoff.py",
+        "scripts/cad_value_patch.py"
       ],
       "guide": "examples/cad-handoff/README.md",
       "example_outputs": [
@@ -1643,7 +1644,10 @@
         "examples/cad-handoff/receiving-review/worked/review.json",
         "examples/cad-handoff/receiving-review/worked/receipt.json",
         "examples/cad-handoff/native/qcad-r15/summary.json",
-        "examples/cad-handoff/receiving-review/replay.json"
+        "examples/cad-handoff/receiving-review/replay.json",
+        "examples/cad-handoff/qualification/round-2/INVENTORY.json",
+        "examples/cad-handoff/qualification/round-2/offline-recheck.json",
+        "examples/cad-handoff/qualification/round-2/VISUAL-REVIEW.json"
       ],
       "tests": [
         "scripts/test_cad_handoff.py",
@@ -1651,9 +1655,9 @@
       ],
       "job": "Retain a drawing and inspect proposed equipment-attribute edits before a controlled handoff",
       "you_need": "A DXF in the declared block-attribute profile, stable ICT_ID/TAG values, ezdxf and an explicit hash-bound edit plan",
-      "time": "No human-effort measurement; library operations on one small fictional fixture only",
-      "you_get": "Original bytes, declared decoded-entity/header comparison, proposed DXF and explicitly mapped draft one-map reference revisions; no inferred pipe relationships",
-      "why": "An editable drawing should retain identities and unfamiliar attributes rather than becoming only a picture. Native editor, intelligent-CAD database and company acceptance remain unrun."
+      "time": "No human-effort measurement; authored and public-adapted software cases, native API and display checks are not a timed plant trial",
+      "you_get": "Exact original and proposed value-span DXFs, frozen decoded comparison plus independent raw reconstruction, retained native full-save differences and explicitly mapped draft CAD-reference revisions; no inferred pipe relationships",
+      "why": "Editable drawings need stable identities and unfamiliar data retained. Source-preserving candidate evidence is separate from native full-save failures, interactive editability, intelligent-CAD databases and company acceptance."
     },
     {
       "id": "photo-to-record",

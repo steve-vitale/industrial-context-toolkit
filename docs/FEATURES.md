@@ -400,21 +400,21 @@ Example review: not yet: needs review
 
 Example review: not yet: needs review
 
-**Why it matters:** An editable drawing should retain identities and unfamiliar attributes rather than becoming only a picture. Native editor, intelligent-CAD database and company acceptance remain unrun.
+**Why it matters:** Editable drawings need stable identities and unfamiliar data retained. Source-preserving candidate evidence is separate from native full-save failures, interactive editability, intelligent-CAD databases and company acceptance.
 
 **Inputs:** A DXF in the declared block-attribute profile, stable ICT_ID/TAG values, ezdxf and an explicit hash-bound edit plan
 
-**Outputs:** Original bytes, declared decoded-entity/header comparison, proposed DXF and explicitly mapped draft one-map reference revisions; no inferred pipe relationships
+**Outputs:** Exact original and proposed value-span DXFs, frozen decoded comparison plus independent raw reconstruction, retained native full-save differences and explicitly mapped draft CAD-reference revisions; no inferred pipe relationships
 
-**Time:** No human-effort measurement; library operations on one small fictional fixture only
+**Time:** No human-effort measurement; authored and public-adapted software cases, native API and display checks are not a timed plant trial
 
-- **Tools:** `cad_handoff.py`
+- **Tools:** `cad_handoff.py`, `cad_value_patch.py`
 - **How to use it:** [README.md](../examples/cad-handoff/README.md)
 
 <details>
 <summary>Example files, tests and independent review</summary>
 
-- **Registered example files:** [`PROVENANCE.json`](../examples/cad-handoff/source/PROVENANCE.json), [`edit-plan.json`](../examples/cad-handoff/source/edit-plan.json), [`comparison.json`](../examples/cad-handoff/worked/comparison.json), [`cad_context.json`](../examples/cad-handoff/worked/cad_context.json), [`cad_context.json`](../examples/cad-handoff/worked/candidate-context/cad_context.json), [`changes.json`](../examples/cad-handoff/worked/map-change/changes.json), [`REPORT.md`](../examples/cad-handoff/receiving-review/worked/REPORT.md), [`review.json`](../examples/cad-handoff/receiving-review/worked/review.json), [`receipt.json`](../examples/cad-handoff/receiving-review/worked/receipt.json), [`summary.json`](../examples/cad-handoff/native/qcad-r15/summary.json), [`replay.json`](../examples/cad-handoff/receiving-review/replay.json)
+- **Registered example files:** [`PROVENANCE.json`](../examples/cad-handoff/source/PROVENANCE.json), [`edit-plan.json`](../examples/cad-handoff/source/edit-plan.json), [`comparison.json`](../examples/cad-handoff/worked/comparison.json), [`cad_context.json`](../examples/cad-handoff/worked/cad_context.json), [`cad_context.json`](../examples/cad-handoff/worked/candidate-context/cad_context.json), [`changes.json`](../examples/cad-handoff/worked/map-change/changes.json), [`REPORT.md`](../examples/cad-handoff/receiving-review/worked/REPORT.md), [`review.json`](../examples/cad-handoff/receiving-review/worked/review.json), [`receipt.json`](../examples/cad-handoff/receiving-review/worked/receipt.json), [`summary.json`](../examples/cad-handoff/native/qcad-r15/summary.json), [`replay.json`](../examples/cad-handoff/receiving-review/replay.json), [`INVENTORY.json`](../examples/cad-handoff/qualification/round-2/INVENTORY.json), [`offline-recheck.json`](../examples/cad-handoff/qualification/round-2/offline-recheck.json), [`VISUAL-REVIEW.json`](../examples/cad-handoff/qualification/round-2/VISUAL-REVIEW.json)
 - **Tests:** `test_cad_handoff.py`, `test_delivery_examples.py`
 - **Independent review:** none yet
 

@@ -5310,6 +5310,31 @@
         "examples/public-data/round-4/discovery-outcomes.json",
         "data/public_sources_20261107_round4.json"
       ]
+    },
+    {
+      "id": "A336",
+      "function": "intake_and_reuse",
+      "date": "2026-11-07",
+      "change": "Freeze and evaluate source-preserving DXF value edits with replacement cases, matched baselines, retained native returns, display failures and offline replay.",
+      "hypothesis": "A narrowly declared raw value-span proposal can retain unfamiliar CAD data without changing the strict comparator; native/UI and engineering gates remain separate.",
+      "evidence": "21/21 exact candidates and strict zero; all 21 library saves fail exact raw reconstruction; 42 native full-save returns retain strict failures. 45 fresh-process stored-value readbacks match. Offline replay re-scores 63 native comparisons and runs three revision commands; two stale proposals refuse, one conflict remains explicit. 28 CAD tests and four altered/omitted evidence controls pass. 82 final native PNGs: watermark/readability and five blank paper-layout pairs prevent full visual acceptance; actual UI interaction unproved. Method-1 failures, display attempts and replay metadata diagnostic retained.",
+      "runs": "Nine exposed development/regression cases; six pre-frozen replacement authored and six public-adapted cases, all matched. Native API/default/R15/new-process checks; display diagnostics after exposure. No model calls.",
+      "verdict": "inconclusive",
+      "why": "Bounded source-preserving software route works on the declared cohort; full CAD qualification remains unfinished. Public originals refuse the profile; adaptations are authored, one upstream family. No strict tolerance added, untouched-public/plant accuracy, UI acceptance, original typography fidelity or company authority inferred.",
+      "source": [
+        "docs/JOURNAL.md#183-preserve-dxf-value-edits-and-retain-the-unfinished-native-qualification-gates",
+        "examples/cad-handoff/qualification/README.md",
+        "examples/cad-handoff/qualification/PROTOCOL.md",
+        "examples/cad-handoff/qualification/METHOD-FREEZE-2.json",
+        "examples/cad-handoff/qualification/PUBLIC-ADAPTATION-2.json",
+        "examples/cad-handoff/qualification/round-1/README.md",
+        "examples/cad-handoff/qualification/round-2/README.md",
+        "examples/cad-handoff/qualification/round-2/INVENTORY.json",
+        "examples/cad-handoff/qualification/round-2/offline-recheck.json",
+        "examples/cad-handoff/qualification/round-2/VISUAL-REVIEW.json",
+        "examples/cad-handoff/qualification/round-2/recheck-metadata-diagnostic.json",
+        "scripts/test_cad_handoff.py"
+      ]
     }
   ],
   "not_tried": [
