@@ -1,0 +1,158 @@
+{
+  "scope": "Native engine only; plain-text getter is not stored text; failures kept; no GUI acceptance",
+  "results": [
+    {
+      "id": "original-valve",
+      "native_error": null,
+      "routes": {
+        "native_default": {
+          "status": "differences",
+          "strict_differences": 335,
+          "returned_sha256": "98bb72611921002e0f3b9491f6828facd2f8e9268fffe13f69614e12442ec8c8"
+        },
+        "native_r15": {
+          "status": "differences",
+          "strict_differences": 344,
+          "returned_sha256": "68e6e5971ea7d785df035b7a724b68fb9807a44ee8ede0b0cfc3946ce7f8d0e4"
+        }
+      },
+      "candidate_plain_text_disagreements": []
+    },
+    {
+      "id": "dev-legacy",
+      "native_error": null,
+      "routes": {
+        "native_default": {
+          "status": "differences",
+          "strict_differences": 342,
+          "returned_sha256": "08d96c1cf07d8c648fb5aa84cde002aff0446898093bfa48da48373bc2f5df8c"
+        },
+        "native_r15": {
+          "status": "differences",
+          "strict_differences": 351,
+          "returned_sha256": "64ba038ce8d9c92f2bcfe9dfb4ae07d5e8041f4beebf8bb2254f93fea0b04e95"
+        }
+      },
+      "candidate_plain_text_disagreements": []
+    },
+    {
+      "id": "dev-unicode",
+      "native_error": null,
+      "routes": {
+        "native_default": {
+          "status": "differences",
+          "strict_differences": 354,
+          "returned_sha256": "e1177ae42346027b0ca65019e6a779d68c2e93d33111d2baf757e0440774ee65"
+        },
+        "native_r15": {
+          "status": "differences",
+          "strict_differences": 364,
+          "returned_sha256": "bc21be53adb220a59b6c6620140402ca009c128b4cbe2672c0ca9b1741c3f065"
+        }
+      },
+      "candidate_plain_text_disagreements": []
+    },
+    {
+      "id": "reserve-mirror",
+      "native_error": null,
+      "routes": {
+        "native_default": {
+          "status": "differences",
+          "strict_differences": 354,
+          "returned_sha256": "6730589764cfbf378104c313318d743bb666fdaa093db11a8179e087fb6ea22e"
+        },
+        "native_r15": {
+          "status": "differences",
+          "strict_differences": 363,
+          "returned_sha256": "75c9b97f5e60c0764b79d8347926a8634d638b54a6ed84cd6bf11284216a7859"
+        }
+      },
+      "candidate_plain_text_disagreements": []
+    },
+    {
+      "id": "reserve-cyrillic",
+      "native_error": null,
+      "routes": {
+        "native_default": {
+          "status": "differences",
+          "strict_differences": 342,
+          "returned_sha256": "d3935e7b59c25efd570b385abec83b81610bee76513b7cc18c8c17ca38eb4bd4"
+        },
+        "native_r15": {
+          "status": "differences",
+          "strict_differences": 352,
+          "returned_sha256": "beef61d12b738d244c0aa3f63456dd6f72addf6f0e81680cde4a60e35d7c07fd"
+        }
+      },
+      "candidate_plain_text_disagreements": []
+    },
+    {
+      "id": "reserve-multiple",
+      "native_error": null,
+      "routes": {
+        "native_default": {
+          "status": "differences",
+          "strict_differences": 366,
+          "returned_sha256": "d99c671a9f88dc7ff3784d205d425dfdd497b8f53bbff7bc18d7efa0782bc214"
+        },
+        "native_r15": {
+          "status": "differences",
+          "strict_differences": 376,
+          "returned_sha256": "b08980a3220b9691eda33e17b99f06fd801726115a3b12cb0aa76bd4cf79880d"
+        }
+      },
+      "candidate_plain_text_disagreements": []
+    },
+    {
+      "id": "reserve-foreign",
+      "native_error": null,
+      "routes": {
+        "native_default": {
+          "status": "differences",
+          "strict_differences": 354,
+          "returned_sha256": "87ce6ce0340d707c3f3e7bdb46338d2c8bd3874e129f80e18cfad9684faf3ba6"
+        },
+        "native_r15": {
+          "status": "differences",
+          "strict_differences": 364,
+          "returned_sha256": "d04af25acb33f8be409f9d4866119f346b09fe41fe3ab6d6410017552980f2a8"
+        }
+      },
+      "candidate_plain_text_disagreements": []
+    },
+    {
+      "id": "reserve-mixed",
+      "native_error": "Error: Before value mismatch",
+      "routes": {
+        "native_default": {
+          "status": "no return",
+          "reason": "Error: Before value mismatch"
+        },
+        "native_r15": {
+          "status": "no return",
+          "reason": "Error: Before value mismatch"
+        }
+      },
+      "candidate_plain_text_disagreements": [
+        {
+          "id": "reserve-mixed/asset-1",
+          "attribute": "MODEL",
+          "expected_stored": "Model {B}",
+          "native_plain": "Model B"
+        },
+        {
+          "id": "reserve-mixed/asset-2",
+          "attribute": "MODEL",
+          "expected_stored": "Model {B}",
+          "native_plain": "Model B"
+        },
+        {
+          "id": "reserve-mixed/asset-3",
+          "attribute": "MODEL",
+          "expected_stored": "Model {B}",
+          "native_plain": "Model B"
+        }
+      ]
+    }
+  ]
+}

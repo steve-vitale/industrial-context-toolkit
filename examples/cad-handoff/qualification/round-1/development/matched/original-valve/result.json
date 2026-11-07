@@ -1,0 +1,27 @@
+{
+  "case": "original-valve",
+  "source_sha256": "c64f5ac8f53f7f35ed0f119abdc28c1e11eb5c7cc28011ddaf079940cfee2b7d",
+  "routes": {
+    "library-save": {
+      "strict_status": "pass",
+      "strict_differences": 0,
+      "byte_check": {
+        "status": "fail",
+        "error": "Candidate differs from independent source-plus-plan reconstruction"
+      }
+    },
+    "value-spans": {
+      "strict_status": "pass",
+      "strict_differences": 0,
+      "byte_check": {
+        "status": "pass",
+        "values": 3,
+        "unplanned_byte_changes": 0,
+        "source_sha256": "c64f5ac8f53f7f35ed0f119abdc28c1e11eb5c7cc28011ddaf079940cfee2b7d",
+        "candidate_sha256": "f9a3dd8ffee4dde6d7a1026370774bbcab2c955746fab72cf9f11721f4fed88a",
+        "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+        "review": "same-author software check; not independent engineering review"
+      }
+    }
+  }
+}

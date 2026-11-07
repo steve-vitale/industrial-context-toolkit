@@ -1,0 +1,32 @@
+{
+  "schema": "cad-comparison-1",
+  "before_sha256": "c64f5ac8f53f7f35ed0f119abdc28c1e11eb5c7cc28011ddaf079940cfee2b7d",
+  "after_sha256": "f9a3dd8ffee4dde6d7a1026370774bbcab2c955746fab72cf9f11721f4fed88a",
+  "status": "pass",
+  "expected_edits": [
+    {
+      "id": "S1/P1/PAST1/FDV-2210",
+      "attribute": "MODEL",
+      "before": "SRC-2",
+      "after": "SRC-3",
+      "reason": "Fictional WO-60311 observation in examples/one-map; proposed CAD edit, not an accepted engineering change"
+    },
+    {
+      "id": "S1/P1/PAST1/FDV-2210",
+      "attribute": "SERIAL",
+      "before": "UNKNOWN",
+      "after": "AV-88412",
+      "reason": "Fictional WO-60311 observation in examples/one-map; proposed CAD edit, not an accepted engineering change"
+    },
+    {
+      "id": "S1/P1/PAST1/FDV-2210",
+      "attribute": "SIZE",
+      "before": "DN50",
+      "after": "DN65",
+      "reason": "Fictional WO-60311 observation in examples/one-map; proposed CAD edit, not an accepted engineering change"
+    }
+  ],
+  "unexpected": [],
+  "save_metadata_changed": true,
+  "boundary": "All ezdxf-exported entity tags including block definitions, attributes, layers and objects; all headers except listed save metadata and the two named EZDXF_META writer values. Same handles required. This is not a byte-identical DXF or proprietary project database/visual/engineering acceptance."
+}

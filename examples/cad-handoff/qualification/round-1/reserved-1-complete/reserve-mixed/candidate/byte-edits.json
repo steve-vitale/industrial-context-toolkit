@@ -1,0 +1,43 @@
+{
+  "schema": "cad-value-spans-1",
+  "spans": [
+    {
+      "handle": "42",
+      "id": "reserve-mixed/asset-1",
+      "attribute": "MODEL",
+      "source_start": 15613,
+      "source_end": 15622,
+      "before_hex": "4d6f64656c207b417d",
+      "after_hex": "4d6f64656c207b427d",
+      "candidate_start": 15613,
+      "candidate_end": 15622
+    },
+    {
+      "handle": "4C",
+      "id": "reserve-mixed/asset-2",
+      "attribute": "MODEL",
+      "source_start": 18113,
+      "source_end": 18122,
+      "before_hex": "4d6f64656c207b417d",
+      "after_hex": "4d6f64656c207b427d",
+      "candidate_start": 18113,
+      "candidate_end": 18122
+    },
+    {
+      "handle": "56",
+      "id": "reserve-mixed/asset-3",
+      "attribute": "MODEL",
+      "source_start": 20828,
+      "source_end": 20837,
+      "before_hex": "4d6f64656c207b417d",
+      "after_hex": "4d6f64656c207b427d",
+      "candidate_start": 20828,
+      "candidate_end": 20837
+    }
+  ],
+  "source_sha256": "72e0128a7500985168611a7b90e48b4cd2afa82f83707af009f3767a310053c9",
+  "candidate_sha256": "b45e20d68debe27dc52fe1486dc8708c6cbc6d99e644deda373144a9e12d0f03",
+  "outside_spans": "identical bytes; source reconstruction passed",
+  "route": "source-preserving value edit; native-return changes are not imported",
+  "native_acceptance": "not established"
+}

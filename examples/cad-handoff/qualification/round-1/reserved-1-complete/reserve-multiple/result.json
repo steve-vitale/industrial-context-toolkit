@@ -1,0 +1,27 @@
+{
+  "case": "reserve-multiple",
+  "source_sha256": "c5975b671a480c54dd01baca83cba2fe24e6fa138f24ba5d2a68751bb8401cb0",
+  "routes": {
+    "library-save": {
+      "strict_status": "pass",
+      "strict_differences": 0,
+      "byte_check": {
+        "status": "fail",
+        "error": "Candidate differs from independent source-plus-plan reconstruction"
+      }
+    },
+    "value-spans": {
+      "strict_status": "pass",
+      "strict_differences": 0,
+      "byte_check": {
+        "status": "pass",
+        "values": 3,
+        "unplanned_byte_changes": 0,
+        "source_sha256": "c5975b671a480c54dd01baca83cba2fe24e6fa138f24ba5d2a68751bb8401cb0",
+        "candidate_sha256": "ebf59ee2ab69f0c36fc02d54463a32a52eeb006e48d3ef6995810b22a362ea6c",
+        "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+        "review": "same-author software check; not independent engineering review"
+      }
+    }
+  }
+}

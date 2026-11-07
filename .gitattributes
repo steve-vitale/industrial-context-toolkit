@@ -227,3 +227,8 @@ data/te_pid_layout.json text eol=lf
 # Frozen authored CAD qualification sources and plans are hashed as exact bytes.
 /examples/cad-handoff/qualification/fixtures/** -text whitespace=cr-at-eol,-blank-at-eof
 /examples/cad-handoff/qualification/fixtures/*.dxf -text whitespace=-trailing-space
+
+# Qualification receipts and historical method files retain their actual captured bytes.
+/examples/cad-handoff/qualification/round-1/** -text whitespace=cr-at-eol,-blank-at-eof
+/examples/cad-handoff/qualification/round-1/**/*.dxf -text whitespace=-trailing-space
+/examples/cad-handoff/qualification/history/** -text whitespace=cr-at-eol,-blank-at-eof

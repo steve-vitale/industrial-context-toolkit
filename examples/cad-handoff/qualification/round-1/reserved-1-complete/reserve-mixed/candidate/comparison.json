@@ -1,0 +1,32 @@
+{
+  "schema": "cad-comparison-1",
+  "before_sha256": "72e0128a7500985168611a7b90e48b4cd2afa82f83707af009f3767a310053c9",
+  "after_sha256": "b45e20d68debe27dc52fe1486dc8708c6cbc6d99e644deda373144a9e12d0f03",
+  "status": "pass",
+  "expected_edits": [
+    {
+      "id": "reserve-mixed/asset-1",
+      "attribute": "MODEL",
+      "before": "Model {A}",
+      "after": "Model {B}",
+      "reason": "Authored qualification edit, not an installed equipment claim"
+    },
+    {
+      "id": "reserve-mixed/asset-2",
+      "attribute": "MODEL",
+      "before": "Model {A}",
+      "after": "Model {B}",
+      "reason": "Authored qualification edit, not an installed equipment claim"
+    },
+    {
+      "id": "reserve-mixed/asset-3",
+      "attribute": "MODEL",
+      "before": "Model {A}",
+      "after": "Model {B}",
+      "reason": "Authored qualification edit, not an installed equipment claim"
+    }
+  ],
+  "unexpected": [],
+  "save_metadata_changed": true,
+  "boundary": "All ezdxf-exported entity tags including block definitions, attributes, layers and objects; all headers except listed save metadata and the two named EZDXF_META writer values. Same handles required. This is not a byte-identical DXF or proprietary project database/visual/engineering acceptance."
+}

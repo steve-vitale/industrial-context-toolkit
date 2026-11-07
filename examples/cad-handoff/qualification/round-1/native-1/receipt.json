@@ -1,0 +1,702 @@
+{
+  "command": [
+    "C:\\Users\\Steve\\.cp-scratch\\qcad-3.33.1-qt5-native-test\\application\\qcad-3.33.1-trial-win64\\qcadcmd.com",
+    "-platform",
+    "offscreen",
+    "-no-gui",
+    "-allow-multiple-instances",
+    "-config",
+    "C:\\Users\\Steve\\industrial-context-toolkit\\data\\external\\cad-qualification\\native-1\\settings",
+    "-autostart",
+    "C:\\Users\\Steve\\industrial-context-toolkit\\examples\\cad-handoff\\qualification\\native-batch.js",
+    "-m",
+    "C:\\Users\\Steve\\industrial-context-toolkit\\data\\external\\cad-qualification\\native-1\\manifest.json"
+  ],
+  "process_exit": 0,
+  "cases_expected": 8,
+  "cases_returned": 8,
+  "readbacks": [
+    {
+      "id": "original-valve",
+      "source": [
+        {
+          "parent": "70",
+          "attributes": {
+            "ICT_ID": "S1/P1/PAST1/FDV-2210",
+            "TAG": "FDV-2210",
+            "MODEL": "SRC-2",
+            "SERIAL": "UNKNOWN",
+            "SIZE": "DN50",
+            "VENDOR_NOTE": "retain this unfamiliar attribute"
+          }
+        }
+      ],
+      "candidate": [
+        {
+          "parent": "70",
+          "attributes": {
+            "ICT_ID": "S1/P1/PAST1/FDV-2210",
+            "TAG": "FDV-2210",
+            "MODEL": "SRC-3",
+            "SERIAL": "AV-88412",
+            "SIZE": "DN65",
+            "VENDOR_NOTE": "retain this unfamiliar attribute"
+          }
+        }
+      ],
+      "native_default": [
+        {
+          "parent": "70",
+          "attributes": {
+            "ICT_ID": "S1/P1/PAST1/FDV-2210",
+            "TAG": "FDV-2210",
+            "MODEL": "SRC-3",
+            "SERIAL": "AV-88412",
+            "SIZE": "DN65",
+            "VENDOR_NOTE": "retain this unfamiliar attribute"
+          }
+        }
+      ],
+      "native_r15": [
+        {
+          "parent": "70",
+          "attributes": {
+            "ICT_ID": "S1/P1/PAST1/FDV-2210",
+            "TAG": "FDV-2210",
+            "MODEL": "SRC-3",
+            "SERIAL": "AV-88412",
+            "SIZE": "DN65",
+            "VENDOR_NOTE": "retain this unfamiliar attribute"
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-legacy",
+      "source": [
+        {
+          "parent": "72",
+          "attributes": {
+            "ICT_ID": "dev-legacy/asset-1",
+            "TAG": "FV-101",
+            "MODEL": "A",
+            "SERIAL": "UNCHANGED-0",
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 0"
+          }
+        }
+      ],
+      "candidate": [
+        {
+          "parent": "72",
+          "attributes": {
+            "ICT_ID": "dev-legacy/asset-1",
+            "TAG": "FV-101",
+            "MODEL": "B",
+            "SERIAL": "UNCHANGED-0",
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 0"
+          }
+        }
+      ],
+      "native_default": [
+        {
+          "parent": "72",
+          "attributes": {
+            "ICT_ID": "dev-legacy/asset-1",
+            "TAG": "FV-101",
+            "MODEL": "B",
+            "SERIAL": "UNCHANGED-0",
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 0"
+          }
+        }
+      ],
+      "native_r15": [
+        {
+          "parent": "72",
+          "attributes": {
+            "ICT_ID": "dev-legacy/asset-1",
+            "TAG": "FV-101",
+            "MODEL": "B",
+            "SERIAL": "UNCHANGED-0",
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 0"
+          }
+        }
+      ]
+    },
+    {
+      "id": "dev-unicode",
+      "source": [
+        {
+          "parent": "79",
+          "attributes": {
+            "ICT_ID": "dev-unicode/asset-2",
+            "TAG": "FV-102",
+            "MODEL": "Pump \u03b1",
+            "SERIAL": "UNCHANGED-1",
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 1"
+          }
+        },
+        {
+          "parent": "72",
+          "attributes": {
+            "ICT_ID": "dev-unicode/asset-1",
+            "TAG": "FV-101",
+            "MODEL": "Pump \u03b1",
+            "SERIAL": "UNCHANGED-0",
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 0"
+          }
+        }
+      ],
+      "candidate": [
+        {
+          "parent": "79",
+          "attributes": {
+            "ICT_ID": "dev-unicode/asset-2",
+            "TAG": "FV-102",
+            "MODEL": "\u30dd\u30f3\u30d7 \u03b2",
+            "SERIAL": "UNCHANGED-1",
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 1"
+          }
+        },
+        {
+          "parent": "72",
+          "attributes": {
+            "ICT_ID": "dev-unicode/asset-1",
+            "TAG": "FV-101",
+            "MODEL": "\u30dd\u30f3\u30d7 \u03b2",
+            "SERIAL": "UNCHANGED-0",
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 0"
+          }
+        }
+      ],
+      "native_default": [
+        {
+          "parent": "79",
+          "attributes": {
+            "ICT_ID": "dev-unicode/asset-2",
+            "TAG": "FV-102",
+            "MODEL": "\u30dd\u30f3\u30d7 \u03b2",
+            "SERIAL": "UNCHANGED-1",
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 1"
+          }
+        },
+        {
+          "parent": "72",
+          "attributes": {
+            "ICT_ID": "dev-unicode/asset-1",
+            "TAG": "FV-101",
+            "MODEL": "\u30dd\u30f3\u30d7 \u03b2",
+            "SERIAL": "UNCHANGED-0",
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 0"
+          }
+        }
+      ],
+      "native_r15": [
+        {
+          "parent": "79",
+          "attributes": {
+            "ICT_ID": "dev-unicode/asset-2",
+            "TAG": "FV-102",
+            "MODEL": "\u30dd\u30f3\u30d7 \u03b2",
+            "SERIAL": "UNCHANGED-1",
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 1"
+          }
+        },
+        {
+          "parent": "72",
+          "attributes": {
+            "ICT_ID": "dev-unicode/asset-1",
+            "TAG": "FV-101",
+            "MODEL": "\u30dd\u30f3\u30d7 \u03b2",
+            "SERIAL": "UNCHANGED-0",
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 0"
+          }
+        }
+      ]
+    },
+    {
+      "id": "reserve-mirror",
+      "source": [
+        {
+          "parent": "79",
+          "attributes": {
+            "ICT_ID": "reserve-mirror/asset-2",
+            "TAG": "FV-102",
+            "MODEL": "\u00c9tage",
+            "SERIAL": "UNCHANGED-1",
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 1"
+          }
+        },
+        {
+          "parent": "72",
+          "attributes": {
+            "ICT_ID": "reserve-mirror/asset-1",
+            "TAG": "FV-101",
+            "MODEL": "\u00c9tage",
+            "SERIAL": "UNCHANGED-0",
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 0"
+          }
+        }
+      ],
+      "candidate": [
+        {
+          "parent": "79",
+          "attributes": {
+            "ICT_ID": "reserve-mirror/asset-2",
+            "TAG": "FV-102",
+            "MODEL": "\u00c9tage-2",
+            "SERIAL": "UNCHANGED-1",
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 1"
+          }
+        },
+        {
+          "parent": "72",
+          "attributes": {
+            "ICT_ID": "reserve-mirror/asset-1",
+            "TAG": "FV-101",
+            "MODEL": "\u00c9tage-2",
+            "SERIAL": "UNCHANGED-0",
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 0"
+          }
+        }
+      ],
+      "native_default": [
+        {
+          "parent": "79",
+          "attributes": {
+            "ICT_ID": "reserve-mirror/asset-2",
+            "TAG": "FV-102",
+            "MODEL": "\u00c9tage-2",
+            "SERIAL": "UNCHANGED-1",
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 1"
+          }
+        },
+        {
+          "parent": "72",
+          "attributes": {
+            "ICT_ID": "reserve-mirror/asset-1",
+            "TAG": "FV-101",
+            "MODEL": "\u00c9tage-2",
+            "SERIAL": "UNCHANGED-0",
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 0"
+          }
+        }
+      ],
+      "native_r15": [
+        {
+          "parent": "79",
+          "attributes": {
+            "ICT_ID": "reserve-mirror/asset-2",
+            "TAG": "FV-102",
+            "MODEL": "\u00c9tage-2",
+            "SERIAL": "UNCHANGED-1",
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 1"
+          }
+        },
+        {
+          "parent": "72",
+          "attributes": {
+            "ICT_ID": "reserve-mirror/asset-1",
+            "TAG": "FV-101",
+            "MODEL": "\u00c9tage-2",
+            "SERIAL": "UNCHANGED-0",
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 0"
+          }
+        }
+      ]
+    },
+    {
+      "id": "reserve-cyrillic",
+      "source": [
+        {
+          "parent": "72",
+          "attributes": {
+            "ICT_ID": "reserve-cyrillic/asset-1",
+            "TAG": "FV-101",
+            "MODEL": "\u041d\u0430\u0441\u043e\u0441",
+            "SERIAL": "UNCHANGED-0",
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 0"
+          }
+        }
+      ],
+      "candidate": [
+        {
+          "parent": "72",
+          "attributes": {
+            "ICT_ID": "reserve-cyrillic/asset-1",
+            "TAG": "FV-101",
+            "MODEL": "\u041d\u0430\u0441\u043e\u0441-2",
+            "SERIAL": "UNCHANGED-0",
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 0"
+          }
+        }
+      ],
+      "native_default": [
+        {
+          "parent": "72",
+          "attributes": {
+            "ICT_ID": "reserve-cyrillic/asset-1",
+            "TAG": "FV-101",
+            "MODEL": "\u041d\u0430\u0441\u043e\u0441-2",
+            "SERIAL": "UNCHANGED-0",
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 0"
+          }
+        }
+      ],
+      "native_r15": [
+        {
+          "parent": "72",
+          "attributes": {
+            "ICT_ID": "reserve-cyrillic/asset-1",
+            "TAG": "FV-101",
+            "MODEL": "\u041d\u0430\u0441\u043e\u0441-2",
+            "SERIAL": "UNCHANGED-0",
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 0"
+          }
+        }
+      ]
+    },
+    {
+      "id": "reserve-multiple",
+      "source": [
+        {
+          "parent": "86",
+          "attributes": {
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 2",
+            "ICT_ID": "reserve-multiple/asset-3",
+            "TAG": "FV-103",
+            "MODEL": "Train-1",
+            "SERIAL": "UNCHANGED-2"
+          }
+        },
+        {
+          "parent": "79",
+          "attributes": {
+            "ICT_ID": "reserve-multiple/asset-2",
+            "TAG": "FV-102",
+            "MODEL": "Train-1",
+            "SERIAL": "UNCHANGED-1",
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 1"
+          }
+        },
+        {
+          "parent": "72",
+          "attributes": {
+            "ICT_ID": "reserve-multiple/asset-1",
+            "TAG": "FV-101",
+            "MODEL": "Train-1",
+            "SERIAL": "UNCHANGED-0",
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 0"
+          }
+        }
+      ],
+      "candidate": [
+        {
+          "parent": "86",
+          "attributes": {
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 2",
+            "ICT_ID": "reserve-multiple/asset-3",
+            "TAG": "FV-103",
+            "MODEL": "Train-2",
+            "SERIAL": "UNCHANGED-2"
+          }
+        },
+        {
+          "parent": "79",
+          "attributes": {
+            "ICT_ID": "reserve-multiple/asset-2",
+            "TAG": "FV-102",
+            "MODEL": "Train-2",
+            "SERIAL": "UNCHANGED-1",
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 1"
+          }
+        },
+        {
+          "parent": "72",
+          "attributes": {
+            "ICT_ID": "reserve-multiple/asset-1",
+            "TAG": "FV-101",
+            "MODEL": "Train-2",
+            "SERIAL": "UNCHANGED-0",
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 0"
+          }
+        }
+      ],
+      "native_default": [
+        {
+          "parent": "86",
+          "attributes": {
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 2",
+            "ICT_ID": "reserve-multiple/asset-3",
+            "TAG": "FV-103",
+            "MODEL": "Train-2",
+            "SERIAL": "UNCHANGED-2"
+          }
+        },
+        {
+          "parent": "79",
+          "attributes": {
+            "ICT_ID": "reserve-multiple/asset-2",
+            "TAG": "FV-102",
+            "MODEL": "Train-2",
+            "SERIAL": "UNCHANGED-1",
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 1"
+          }
+        },
+        {
+          "parent": "72",
+          "attributes": {
+            "ICT_ID": "reserve-multiple/asset-1",
+            "TAG": "FV-101",
+            "MODEL": "Train-2",
+            "SERIAL": "UNCHANGED-0",
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 0"
+          }
+        }
+      ],
+      "native_r15": [
+        {
+          "parent": "86",
+          "attributes": {
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 2",
+            "ICT_ID": "reserve-multiple/asset-3",
+            "TAG": "FV-103",
+            "MODEL": "Train-2",
+            "SERIAL": "UNCHANGED-2"
+          }
+        },
+        {
+          "parent": "79",
+          "attributes": {
+            "ICT_ID": "reserve-multiple/asset-2",
+            "TAG": "FV-102",
+            "MODEL": "Train-2",
+            "SERIAL": "UNCHANGED-1",
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 1"
+          }
+        },
+        {
+          "parent": "72",
+          "attributes": {
+            "ICT_ID": "reserve-multiple/asset-1",
+            "TAG": "FV-101",
+            "MODEL": "Train-2",
+            "SERIAL": "UNCHANGED-0",
+            "SIZE": "DN50",
+            "VENDOR_PRIVATE": "retain vendor \n 0"
+          }
+        }
+      ]
+    },
+    {
+      "id": "reserve-foreign",
+      "source": [
+        {
+          "parent": "79",
+          "attributes": {
+            "VENDOR_PRIVATE": "retain vendor \n 1",
+            "SIZE": "DN50",
+            "SERIAL": "UNCHANGED-1",
+            "MODEL": "\uc7a5\uce58-A",
+            "TAG": "FV-102",
+            "ICT_ID": "reserve-foreign/asset-2"
+          }
+        },
+        {
+          "parent": "72",
+          "attributes": {
+            "VENDOR_PRIVATE": "retain vendor \n 0",
+            "SIZE": "DN50",
+            "SERIAL": "UNCHANGED-0",
+            "MODEL": "\uc7a5\uce58-A",
+            "TAG": "FV-101",
+            "ICT_ID": "reserve-foreign/asset-1"
+          }
+        }
+      ],
+      "candidate": [
+        {
+          "parent": "79",
+          "attributes": {
+            "VENDOR_PRIVATE": "retain vendor \n 1",
+            "SIZE": "DN50",
+            "SERIAL": "UNCHANGED-1",
+            "MODEL": "\uc7a5\uce58-B",
+            "TAG": "FV-102",
+            "ICT_ID": "reserve-foreign/asset-2"
+          }
+        },
+        {
+          "parent": "72",
+          "attributes": {
+            "VENDOR_PRIVATE": "retain vendor \n 0",
+            "SIZE": "DN50",
+            "SERIAL": "UNCHANGED-0",
+            "MODEL": "\uc7a5\uce58-B",
+            "TAG": "FV-101",
+            "ICT_ID": "reserve-foreign/asset-1"
+          }
+        }
+      ],
+      "native_default": [
+        {
+          "parent": "79",
+          "attributes": {
+            "VENDOR_PRIVATE": "retain vendor \n 1",
+            "SIZE": "DN50",
+            "SERIAL": "UNCHANGED-1",
+            "MODEL": "\uc7a5\uce58-B",
+            "TAG": "FV-102",
+            "ICT_ID": "reserve-foreign/asset-2"
+          }
+        },
+        {
+          "parent": "72",
+          "attributes": {
+            "VENDOR_PRIVATE": "retain vendor \n 0",
+            "SIZE": "DN50",
+            "SERIAL": "UNCHANGED-0",
+            "MODEL": "\uc7a5\uce58-B",
+            "TAG": "FV-101",
+            "ICT_ID": "reserve-foreign/asset-1"
+          }
+        }
+      ],
+      "native_r15": [
+        {
+          "parent": "79",
+          "attributes": {
+            "VENDOR_PRIVATE": "retain vendor \n 1",
+            "SIZE": "DN50",
+            "SERIAL": "UNCHANGED-1",
+            "MODEL": "\uc7a5\uce58-B",
+            "TAG": "FV-102",
+            "ICT_ID": "reserve-foreign/asset-2"
+          }
+        },
+        {
+          "parent": "72",
+          "attributes": {
+            "VENDOR_PRIVATE": "retain vendor \n 0",
+            "SIZE": "DN50",
+            "SERIAL": "UNCHANGED-0",
+            "MODEL": "\uc7a5\uce58-B",
+            "TAG": "FV-101",
+            "ICT_ID": "reserve-foreign/asset-1"
+          }
+        }
+      ]
+    },
+    {
+      "id": "reserve-mixed",
+      "source": [
+        {
+          "parent": "86",
+          "attributes": {
+            "TAG": "FV-103",
+            "ICT_ID": "reserve-mixed/asset-3",
+            "VENDOR_PRIVATE": "retain vendor \n 2",
+            "SIZE": "DN50",
+            "SERIAL": "UNCHANGED-2",
+            "MODEL": "Model A"
+          }
+        },
+        {
+          "parent": "79",
+          "attributes": {
+            "VENDOR_PRIVATE": "retain vendor \n 1",
+            "SIZE": "DN50",
+            "SERIAL": "UNCHANGED-1",
+            "MODEL": "Model A",
+            "TAG": "FV-102",
+            "ICT_ID": "reserve-mixed/asset-2"
+          }
+        },
+        {
+          "parent": "72",
+          "attributes": {
+            "VENDOR_PRIVATE": "retain vendor \n 0",
+            "SIZE": "DN50",
+            "SERIAL": "UNCHANGED-0",
+            "MODEL": "Model A",
+            "TAG": "FV-101",
+            "ICT_ID": "reserve-mixed/asset-1"
+          }
+        }
+      ],
+      "candidate": [
+        {
+          "parent": "86",
+          "attributes": {
+            "TAG": "FV-103",
+            "ICT_ID": "reserve-mixed/asset-3",
+            "VENDOR_PRIVATE": "retain vendor \n 2",
+            "SIZE": "DN50",
+            "SERIAL": "UNCHANGED-2",
+            "MODEL": "Model B"
+          }
+        },
+        {
+          "parent": "79",
+          "attributes": {
+            "VENDOR_PRIVATE": "retain vendor \n 1",
+            "SIZE": "DN50",
+            "SERIAL": "UNCHANGED-1",
+            "MODEL": "Model B",
+            "TAG": "FV-102",
+            "ICT_ID": "reserve-mixed/asset-2"
+          }
+        },
+        {
+          "parent": "72",
+          "attributes": {
+            "VENDOR_PRIVATE": "retain vendor \n 0",
+            "SIZE": "DN50",
+            "SERIAL": "UNCHANGED-0",
+            "MODEL": "Model B",
+            "TAG": "FV-101",
+            "ICT_ID": "reserve-mixed/asset-1"
+          }
+        }
+      ],
+      "error": "Error: Before value mismatch"
+    }
+  ],
+  "helper_sha256_lf": "bc49d77bdfb583f5085ee368bda209e40ec205cdaa8645432c9a19bc688c9cda",
+  "executable_sha256": "eb4fad8dcc881073d658564305c4301a2625c0d022fd5daa2f60d2b351978129",
+  "scope": "Native engine import/edit/export/destroy/fresh-document import only; no GUI acceptance"
+}

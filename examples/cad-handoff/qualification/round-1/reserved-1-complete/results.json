@@ -1,0 +1,149 @@
+{
+  "split": "reserved-authored",
+  "freeze": "METHOD-FREEZE-1.json",
+  "continuation": "Unchanged frozen method; outer loop retains a case-level inspector failure and proceeds through every remaining selected case. No fixes.",
+  "results": [
+    {
+      "case": "reserve-r12",
+      "source_sha256": "eb85c71239672cc06a25574b68d2869cd6080cbbbed07f272713a6caa45dcc6c",
+      "error": "DXFInternalEzdxfError: Exporting BLOCK_RECORDS for DXF R12.",
+      "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 14, in <module>\n  File \"C:\\Users\\Steve\\industrial-context-toolkit\\examples/cad-handoff/qualification\\run_cases.py\", line 28, in run_case\n    before = ch.snapshot(source)\n  File \"C:\\Users\\Steve\\industrial-context-toolkit\\scripts\\cad_handoff.py\", line 90, in snapshot\n    e.export_dxf(collector)\n    ~~~~~~~~~~~~^^^^^^^^^^^\n  File \"C:\\Users\\Steve\\AppData\\Roaming\\Python\\Python314\\site-packages\\ezdxf\\entities\\dxfentity.py\", line 657, in export_dxf\n    self.export_entity(tagwriter)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^\n  File \"C:\\Users\\Steve\\AppData\\Roaming\\Python\\Python314\\site-packages\\ezdxf\\entities\\blockrecord.py\", line 141, in export_entity\n    raise DXFInternalEzdxfError(\"Exporting BLOCK_RECORDS for DXF R12.\")\nezdxf.lldxf.const.DXFInternalEzdxfError: Exporting BLOCK_RECORDS for DXF R12.\n",
+      "routes": {}
+    },
+    {
+      "case": "reserve-mirror",
+      "source_sha256": "4d2999c1ae48e4baceafab99c2d9a721e045f05d6e2ab4229a0796bd97cce86e",
+      "routes": {
+        "library-save": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "fail",
+            "error": "Candidate differs from independent source-plus-plan reconstruction"
+          }
+        },
+        "value-spans": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "pass",
+            "values": 2,
+            "unplanned_byte_changes": 0,
+            "source_sha256": "4d2999c1ae48e4baceafab99c2d9a721e045f05d6e2ab4229a0796bd97cce86e",
+            "candidate_sha256": "0f1e515f0fc26f3038119a6d7a52b194465b6f49f68bedd8201ced8705067b81",
+            "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+            "review": "same-author software check; not independent engineering review"
+          }
+        }
+      }
+    },
+    {
+      "case": "reserve-cyrillic",
+      "source_sha256": "f5ab62872545ab20ad4c7988c23707d53fc632cd8151c4ff1f7dcc38828a8c2c",
+      "routes": {
+        "library-save": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "fail",
+            "error": "Candidate differs from independent source-plus-plan reconstruction"
+          }
+        },
+        "value-spans": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "pass",
+            "values": 1,
+            "unplanned_byte_changes": 0,
+            "source_sha256": "f5ab62872545ab20ad4c7988c23707d53fc632cd8151c4ff1f7dcc38828a8c2c",
+            "candidate_sha256": "dd0790e2e75c20ff4ddb7b90146a690767dfd7ab9744033f124ccf777857eede",
+            "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+            "review": "same-author software check; not independent engineering review"
+          }
+        }
+      }
+    },
+    {
+      "case": "reserve-multiple",
+      "source_sha256": "c5975b671a480c54dd01baca83cba2fe24e6fa138f24ba5d2a68751bb8401cb0",
+      "routes": {
+        "library-save": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "fail",
+            "error": "Candidate differs from independent source-plus-plan reconstruction"
+          }
+        },
+        "value-spans": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "pass",
+            "values": 3,
+            "unplanned_byte_changes": 0,
+            "source_sha256": "c5975b671a480c54dd01baca83cba2fe24e6fa138f24ba5d2a68751bb8401cb0",
+            "candidate_sha256": "ebf59ee2ab69f0c36fc02d54463a32a52eeb006e48d3ef6995810b22a362ea6c",
+            "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+            "review": "same-author software check; not independent engineering review"
+          }
+        }
+      }
+    },
+    {
+      "case": "reserve-foreign",
+      "source_sha256": "4029079e1721fb908eb337f73534d11fb7df0e75a8527ec434fbc41b5bae257d",
+      "routes": {
+        "library-save": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "fail",
+            "error": "Candidate differs from independent source-plus-plan reconstruction"
+          }
+        },
+        "value-spans": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "pass",
+            "values": 2,
+            "unplanned_byte_changes": 0,
+            "source_sha256": "4029079e1721fb908eb337f73534d11fb7df0e75a8527ec434fbc41b5bae257d",
+            "candidate_sha256": "934b6ad8668673abbad5c7044bbeed608eb0fb6688efea582414a2db069d079c",
+            "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+            "review": "same-author software check; not independent engineering review"
+          }
+        }
+      }
+    },
+    {
+      "case": "reserve-mixed",
+      "source_sha256": "72e0128a7500985168611a7b90e48b4cd2afa82f83707af009f3767a310053c9",
+      "routes": {
+        "library-save": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "fail",
+            "error": "Candidate differs from independent source-plus-plan reconstruction"
+          }
+        },
+        "value-spans": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "pass",
+            "values": 3,
+            "unplanned_byte_changes": 0,
+            "source_sha256": "72e0128a7500985168611a7b90e48b4cd2afa82f83707af009f3767a310053c9",
+            "candidate_sha256": "b45e20d68debe27dc52fe1486dc8708c6cbc6d99e644deda373144a9e12d0f03",
+            "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+            "review": "same-author software check; not independent engineering review"
+          }
+        }
+      }
+    }
+  ]
+}

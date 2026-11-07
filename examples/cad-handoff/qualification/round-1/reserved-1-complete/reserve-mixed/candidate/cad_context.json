@@ -1,0 +1,58 @@
+{
+  "schema": "cad-context-1",
+  "nodes": [
+    {
+      "id": "reserve-mixed/asset-1",
+      "tag": "FV-101",
+      "attributes": {
+        "VENDOR_PRIVATE": "retain {vendor} \\P 0",
+        "SIZE": "DN50",
+        "SERIAL": "UNCHANGED-0",
+        "MODEL": "Model {A}",
+        "TAG": "FV-101",
+        "ICT_ID": "reserve-mixed/asset-1"
+      },
+      "source": {
+        "sha256": "72e0128a7500985168611a7b90e48b4cd2afa82f83707af009f3767a310053c9",
+        "insert_handle": "3D"
+      },
+      "status": "unverified"
+    },
+    {
+      "id": "reserve-mixed/asset-2",
+      "tag": "FV-102",
+      "attributes": {
+        "VENDOR_PRIVATE": "retain {vendor} \\P 1",
+        "SIZE": "DN50",
+        "SERIAL": "UNCHANGED-1",
+        "MODEL": "Model {A}",
+        "TAG": "FV-102",
+        "ICT_ID": "reserve-mixed/asset-2"
+      },
+      "source": {
+        "sha256": "72e0128a7500985168611a7b90e48b4cd2afa82f83707af009f3767a310053c9",
+        "insert_handle": "47"
+      },
+      "status": "unverified"
+    },
+    {
+      "id": "reserve-mixed/asset-3",
+      "tag": "FV-103",
+      "attributes": {
+        "VENDOR_PRIVATE": "retain {vendor} \\P 2",
+        "SIZE": "DN50",
+        "SERIAL": "UNCHANGED-2",
+        "MODEL": "Model {A}",
+        "TAG": "FV-103",
+        "ICT_ID": "reserve-mixed/asset-3"
+      },
+      "source": {
+        "sha256": "72e0128a7500985168611a7b90e48b4cd2afa82f83707af009f3767a310053c9",
+        "insert_handle": "51"
+      },
+      "status": "unverified"
+    }
+  ],
+  "relationships": [],
+  "note": "Attribute context snapshot only; pipe connectivity is not inferred. Map reviewed IDs to one-map site/plant/unit identities explicitly."
+}

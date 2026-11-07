@@ -1,0 +1,25 @@
+{
+  "schema": "cad-comparison-1",
+  "before_sha256": "2d78038053f64dd77c424bde7eea5b265a87fceaa002ee896d7de2b4107f5e53",
+  "after_sha256": "5dd816b3a25eac7e77261879c4cf541f00f331ef9d60e34e09a910309e9cef9a",
+  "status": "pass",
+  "expected_edits": [
+    {
+      "id": "dev-unicode/asset-1",
+      "attribute": "MODEL",
+      "before": "Pump α",
+      "after": "ポンプ β",
+      "reason": "Authored qualification edit, not an installed equipment claim"
+    },
+    {
+      "id": "dev-unicode/asset-2",
+      "attribute": "MODEL",
+      "before": "Pump α",
+      "after": "ポンプ β",
+      "reason": "Authored qualification edit, not an installed equipment claim"
+    }
+  ],
+  "unexpected": [],
+  "save_metadata_changed": true,
+  "boundary": "All ezdxf-exported entity tags including block definitions, attributes, layers and objects; all headers except listed save metadata and the two named EZDXF_META writer values. Same handles required. This is not a byte-identical DXF or proprietary project database/visual/engineering acceptance."
+}

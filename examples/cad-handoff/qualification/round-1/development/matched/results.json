@@ -1,0 +1,92 @@
+{
+  "split": "development",
+  "results": [
+    {
+      "case": "dev-legacy",
+      "source_sha256": "fc35544fae08b380c27dad78b8b858698b55effb5fa25f947524b94f574d222b",
+      "routes": {
+        "library-save": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "fail",
+            "error": "Candidate differs from independent source-plus-plan reconstruction"
+          }
+        },
+        "value-spans": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "pass",
+            "values": 1,
+            "unplanned_byte_changes": 0,
+            "source_sha256": "fc35544fae08b380c27dad78b8b858698b55effb5fa25f947524b94f574d222b",
+            "candidate_sha256": "04e1653821f8db1e7a1b9358e62d53c0d3daa8f8cae655285f368267fc6f4455",
+            "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+            "review": "same-author software check; not independent engineering review"
+          }
+        }
+      }
+    },
+    {
+      "case": "dev-unicode",
+      "source_sha256": "2d78038053f64dd77c424bde7eea5b265a87fceaa002ee896d7de2b4107f5e53",
+      "routes": {
+        "library-save": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "fail",
+            "error": "Candidate differs from independent source-plus-plan reconstruction"
+          }
+        },
+        "value-spans": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "pass",
+            "values": 2,
+            "unplanned_byte_changes": 0,
+            "source_sha256": "2d78038053f64dd77c424bde7eea5b265a87fceaa002ee896d7de2b4107f5e53",
+            "candidate_sha256": "758152f6dbc3e883d705199bf70773aae12d6ce5ae14c96071d9f3df9ad43b67",
+            "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+            "review": "same-author software check; not independent engineering review"
+          }
+        }
+      }
+    },
+    {
+      "case": "original-valve",
+      "source_sha256": "c64f5ac8f53f7f35ed0f119abdc28c1e11eb5c7cc28011ddaf079940cfee2b7d",
+      "routes": {
+        "library-save": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "fail",
+            "error": "Candidate differs from independent source-plus-plan reconstruction"
+          }
+        },
+        "value-spans": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "pass",
+            "values": 3,
+            "unplanned_byte_changes": 0,
+            "source_sha256": "c64f5ac8f53f7f35ed0f119abdc28c1e11eb5c7cc28011ddaf079940cfee2b7d",
+            "candidate_sha256": "f9a3dd8ffee4dde6d7a1026370774bbcab2c955746fab72cf9f11721f4fed88a",
+            "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+            "review": "same-author software check; not independent engineering review"
+          }
+        }
+      }
+    }
+  ],
+  "method_sha256_lf": {
+    "scripts/cad_value_patch.py": "174d66f36befc2ee3b12cef769badecf9927b1705419f9ecf9238e4e9c610a04",
+    "scripts/cad_handoff.py": "0e3d74c0941244139f926661e0a3e4733434667581a264f0d542782c7b5ced59",
+    "examples/cad-handoff/qualification/verify_bytes.py": "e81a5b621944f305a8d41e10b1928803e4c7a3db1876e949115f85e7f527034c"
+  },
+  "scope": "authored software cases; no native GUI or plant acceptance"
+}

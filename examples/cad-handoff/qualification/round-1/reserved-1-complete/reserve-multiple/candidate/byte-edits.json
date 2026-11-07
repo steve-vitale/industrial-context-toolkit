@@ -1,0 +1,43 @@
+{
+  "schema": "cad-value-spans-1",
+  "spans": [
+    {
+      "handle": "41",
+      "id": "reserve-multiple/asset-1",
+      "attribute": "MODEL",
+      "source_start": 13360,
+      "source_end": 13367,
+      "before_hex": "547261696e2d31",
+      "after_hex": "547261696e2d32",
+      "candidate_start": 13360,
+      "candidate_end": 13367
+    },
+    {
+      "handle": "4B",
+      "id": "reserve-multiple/asset-2",
+      "attribute": "MODEL",
+      "source_start": 15222,
+      "source_end": 15229,
+      "before_hex": "547261696e2d31",
+      "after_hex": "547261696e2d32",
+      "candidate_start": 15222,
+      "candidate_end": 15229
+    },
+    {
+      "handle": "55",
+      "id": "reserve-multiple/asset-3",
+      "attribute": "MODEL",
+      "source_start": 17079,
+      "source_end": 17086,
+      "before_hex": "547261696e2d31",
+      "after_hex": "547261696e2d32",
+      "candidate_start": 17079,
+      "candidate_end": 17086
+    }
+  ],
+  "source_sha256": "c5975b671a480c54dd01baca83cba2fe24e6fa138f24ba5d2a68751bb8401cb0",
+  "candidate_sha256": "ebf59ee2ab69f0c36fc02d54463a32a52eeb006e48d3ef6995810b22a362ea6c",
+  "outside_spans": "identical bytes; source reconstruction passed",
+  "route": "source-preserving value edit; native-return changes are not imported",
+  "native_acceptance": "not established"
+}
