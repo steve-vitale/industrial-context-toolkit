@@ -5450,6 +5450,28 @@
         "examples/cad-handoff/qualification/package_linux7.py",
         "scripts/test_cad_linux_evidence.py"
       ]
+    },
+    {
+      "id": "A342",
+      "function": "intake_and_reuse",
+      "date": "2026-11-07",
+      "change": "Isolate transient pointer highlighting in retained native CAD paper views without changing drawing bytes.",
+      "hypothesis": "Explicit hover and blank-canvas traversal can explain the old two-state mismatch before changing CAD preparation or accepting a visual difference.",
+      "evidence": "Source opened twice and candidate once in the pinned Linux native receiver, no save: 21 paper views and 42 stable frames. New initial and explicit ellipse-hover canvas states exactly match the two old same-source states. Their 13556-pixel difference decomposes into 6788 concave and 6768 elliptic highlight pixels. All nine pointer-neutral views are identical. Explicit concave text hover differs at1076 pixels. Input hashes remain exact and actual application quits0.73 exact records in2224420-byte lossless archive. Offline replay recomputes states/stability and rejects five semantic receiving errors.",
+      "runs": "One previously exposed public-adapted drawing, two exact-source openings and one candidate opening, seven native pointer states each. One serial native batch using the previous terminal-exit configuration in a fresh container; no CAD entity API, save, model call or fresh holdout. Offline replay is separate from native execution.",
+      "verdict": "kept",
+      "why": "Explains this full 13556-pixel mismatch as pointer-highlight state and identifies an observation-method correction. No source/candidate bytes, original strict comparison or historical failures changed. Complete readable layout/font acceptance, five original missing-main-viewport layouts, native full-save preservation and fresh native validation remain open. No independent engineer/company acceptance follows.",
+      "source": [
+        "docs/JOURNAL.md#189-isolate-pointer-highlighting-before-comparing-native-cad-views",
+        "examples/cad-handoff/qualification/RECEIVER-STATE-8-PLAN.md",
+        "examples/cad-handoff/qualification/receiver-state-8/README.md",
+        "examples/cad-handoff/qualification/receiver-state-8/FREEZE.json",
+        "examples/cad-handoff/qualification/receiver-state-8/ENVIRONMENT.json",
+        "examples/cad-handoff/qualification/receiver-state-8/INVENTORY.json",
+        "examples/cad-handoff/qualification/receiver-state-8/summary.json",
+        "examples/cad-handoff/qualification/check_receiver8.py",
+        "scripts/test_cad_linux_evidence.py"
+      ]
     }
   ],
   "not_tried": [

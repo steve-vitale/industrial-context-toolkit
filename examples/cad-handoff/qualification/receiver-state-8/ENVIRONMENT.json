@@ -1,0 +1,62 @@
+{
+  "Id": "bbe26ffa4e41016c8e560ce4d9e47f13314d4bac6f28829655bf18adab9a1d30",
+  "Image": "sha256:bb4390214744897de88b2198f0cbf812aec4be42923311298e7a5e3a5646bef8",
+  "State": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-11-07T23:31:50.7089532Z",
+    "FinishedAt": "2026-11-07T23:33:29.945229381Z"
+  },
+  "Path": "dbus-run-session",
+  "Args": [
+    "--",
+    "/opt/desktop.sh"
+  ],
+  "User": "cad",
+  "ImageName": "ict-cad-native-ui:7",
+  "resources": {
+    "Memory": 3221225472,
+    "NanoCpus": 2000000000,
+    "PidsLimit": 256,
+    "SecurityOpt": [
+      "no-new-privileges"
+    ],
+    "CapDrop": [
+      "ALL"
+    ],
+    "PortBindings": {
+      "6080/tcp": [
+        {
+          "HostIp": "127.0.0.1",
+          "HostPort": "6087"
+        }
+      ]
+    }
+  },
+  "mounts": [
+    {
+      "Type": "bind",
+      "Source": "C:/Users/Steve/.cp-scratch/cad-receiver-state-8/work",
+      "Destination": "/work",
+      "Mode": "",
+      "RW": true,
+      "Propagation": "rprivate"
+    }
+  ],
+  "profile": "Local terminal run7b configuration, copied before start; exact digest in archived SETUP.json. Settings and licensed binaries are not redistributed.",
+  "startup": "Observed trial welcome acknowledged by one native click at (822,512); no first-start/language changes required. Trial panel visible throughout.",
+  "terminal_action": "After the scripted batch returned exit 0, a full screenshot was captured, then actual X11 ctrl+q; docker wait returned 0. No document save command issued.",
+  "public_source_reference": {
+    "tag": "v3.33.1.0",
+    "annotated_tag_object": "aae153a31ee8769c973722a254920ac358aa9261",
+    "source_commit": "897079c2d11aaa0869f839a6cf5df8a937dbddbe",
+    "correction": "Pre-execution plan called the annotated tag object a commit; version-tag source URL and actual binary are unchanged."
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "schema": "cad-pointer-state-eight-replay-1",
+  "whole_cad_qualified": false,
+  "exposure": "One already exposed public-adapted drawing; development, not fresh validation",
+  "native_paper_views": 21,
+  "pointer_neutral_views": 9,
+  "neutral_source_candidate_different_pixels": 0,
+  "earlier_repeat_difference": {
+    "different_pixels": 13556,
+    "bbox": [
+      37,
+      240,
+      668,
+      525
+    ]
+  },
+  "per_stage_difference_from_neutral": {
+    "initial": {
+      "different_pixels": 6788,
+      "bbox": [
+        37,
+        380,
+        360,
+        525
+      ]
+    },
+    "ellipse-1": {
+      "different_pixels": 6768,
+      "bbox": [
+        370,
+        240,
+        668,
+        320
+      ]
+    },
+    "clear-1": {
+      "different_pixels": 0,
+      "bbox": null
+    },
+    "concave": {
+      "different_pixels": 1076,
+      "bbox": [
+        37,
+        380,
+        360,
+        525
+      ]
+    },
+    "clear-2": {
+      "different_pixels": 0,
+      "bbox": null
+    },
+    "ellipse-2": {
+      "different_pixels": 6768,
+      "bbox": [
+        370,
+        240,
+        668,
+        320
+      ]
+    },
+    "clear-3": {
+      "different_pixels": 0,
+      "bbox": null
+    }
+  },
+  "receiving_refusals": [
+    "one_canvas_pixel_changed",
+    "hover_state_substituted_for_clear",
+    "abnormal_receiver_exit",
+    "omitted_case",
+    "changed_input_identity"
+  ],
+  "native_exit_code": 0,
+  "conclusion": "The old two canvas states reproduce as pointer-highlight states; neutral traversal clears the discrepancy on these exact inputs",
+  "open_gates": [
+    "Complete readable layout/font acceptance",
+    "Five original missing-main-viewport layout failures",
+    "Native full-save preservation failures",
+    "Fresh native validation",
+    "Engineering/company acceptance"
+  ]
+}
