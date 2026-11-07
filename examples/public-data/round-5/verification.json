@@ -1,0 +1,66 @@
+{
+  "schema": "public-source-verification-5",
+  "files": 35,
+  "bytes": 196525541,
+  "groups": 9,
+  "cached_replay": {
+    "exit_code": 0,
+    "network_calls": 0,
+    "fetched_bytes": 0
+  },
+  "prior_pin_groups_unchanged": 51,
+  "prior_methods_unchanged": true,
+  "metadata_and_acquisition_bindings": "match",
+  "altered_original_controls": {
+    "industrial-yeast/truncation": "refused",
+    "industrial-yeast/same-size mutation": "refused",
+    "alpi-packaging/truncation": "refused",
+    "alpi-packaging/same-size mutation": "refused",
+    "synthetic-maint-sensor/truncation": "refused",
+    "synthetic-maint-sensor/same-size mutation": "refused",
+    "uci-steel-faults/truncation": "refused",
+    "uci-steel-faults/same-size mutation": "refused",
+    "uci-ccpp/truncation": "refused",
+    "uci-ccpp/same-size mutation": "refused",
+    "idta-digital-nameplate/truncation": "refused",
+    "idta-digital-nameplate/same-size mutation": "refused",
+    "biosteam-sugarcane/truncation": "refused",
+    "biosteam-sugarcane/same-size mutation": "refused",
+    "commons-ksb-pump/truncation": "refused",
+    "commons-ksb-pump/same-size mutation": "refused",
+    "nist-pmi-cases/truncation": "refused",
+    "nist-pmi-cases/same-size mutation": "refused"
+  },
+  "limitations": "Integrity/structural admission only; no model, solver, CAD or engineering acceptance.",
+  "fresh_https": {
+    "source": "industrial-yeast",
+    "files": [
+      {
+        "path": "batch_metadata.csv",
+        "bytes": 6600,
+        "sha256": "85eae02c4f14390d2357d2478f064b9e870f466c4064759ffa25080f74f558f0"
+      },
+      {
+        "path": "evaluation_profiles.csv",
+        "bytes": 265,
+        "sha256": "331d9c7175390981c95fb12bea2975ae35b372bf2a85a6f902deefb3de46c757"
+      },
+      {
+        "path": "fermentation_timeseries.csv",
+        "bytes": 50988,
+        "sha256": "dcef289e927f61d774bebe1f28c5370b69314ac512703672ddcd687f14b9d421"
+      },
+      {
+        "path": "README.md",
+        "bytes": 10309,
+        "sha256": "94ae0e73e8d5c0770a46d6a05d8a61d6c92769c4ec1450101acc7374cfda07df"
+      },
+      {
+        "path": "summary_stats.json",
+        "bytes": 5400,
+        "sha256": "e742b08abedc3d82a7365839f8bfd2428abf8b696b45761c67f98e0ce7d47dcd"
+      }
+    ],
+    "status": "all pins match"
+  }
+}

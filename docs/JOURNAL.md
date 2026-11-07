@@ -8129,3 +8129,41 @@ verifies both archives, all frozen methods/inputs, 12 retained source/candidate/
 five losses, six hypothesis outcomes and ten original image pins. An omitted-variant control refuses. Existing
 strict comparison/value patcher/byte checker are unchanged. Full native visual/UI qualification remains unfinished;
 the new diagnostic is evidence of a failure mechanism, not a new feature or accuracy/generalization pass.
+
+## 185. Acquire industrial batches, alarms and engineering exchange references
+
+The next public-source selection and publisher metadata were committed at 89b3dfe before the declared file
+acquisition. All 35 files succeeded: 196,525,541 bytes in nine groups. Five passes now total 218 originals,
+620,297,070 bytes in 49 download groups, plus the four separately frozen DXFs. Groups, shuffled representations,
+revisions and related systems are not independent plants. No downloaded code, model, solver or CAD application
+ran for this acquisition, and no archive was extracted.
+
+The industrial yeast deposit supplies 59 batch metadata rows and 1,090 repeated time-series measurements; its
+publisher says only ten batches have the rich process variables and withholds the original operator PDF logs.
+ALPI supplies actual industrial packaging alarms, with raw/processed material separately named inside an unopened
+archive. Synthetic maintenance/tag Parquet files remain explicitly synthetic and framing-only. UCI quality and
+power CSVs supply 1,941 and 9,568 rows respectively, with correct observed widths; power rows are shuffled and
+have no timestamps. The IDTA JSON/AASX templates, BioSTEAM system definitions and KSB nameplate photo are
+source preparation, not installed records or ready adapters. Photo OCR was off and its unsupported result remains.
+
+NIST CTC drawings and three complete definition/STEP/native-model archives deepen CAD/PMI reference coverage.
+Their archive directories are inventoried, while CAD/STEP/geometry/PMI contents remain unopened. These are
+mechanical test cases, outside the current ASCII DXF qualification; no frozen CAD inputs, methods, comparison,
+failure result or gate changed. The standalone PDFs yielded unreviewed text, not verified graphical annotations.
+NIST HEAD requests returned 403 but the predeclared ordinary HTTPS GETs succeeded. ALPI's Python certificate
+chain failed; verified Windows curl/Schannel obtained the originals without disabling TLS verification.
+
+All acquired byte/SHA-256 pins match; publisher MD5/SHA-1/LFS pins were checked when supplied. Cached replay
+checks all nine groups with zero network calls/fetched bytes. All 18 truncation/same-size mutation controls
+refuse. A separate fresh HTTPS acquisition of all five yeast files matches. All 51 prior pin groups and ten
+recorded common/CAD methods remain unchanged. The fifth-pass guide links sources, rights and useful next tasks;
+its acquisition, admission, verification, selection and baseline are retained.
+
+IRIS-v2 is recorded as an unacquired research lead because CC BY-NC-ND terms do not supply commercial/derivative
+example rights. Two CSB pages were unavailable; no reports obtained or counted. Real industrial linked repair
+outcomes, reviewed P&ID revisions, native GUI acceptance and customer environment acceptance remain open.
+No accuracy, training split, workflow-matrix cell, feature review, reader leaderboard or time-saving claim changes.
+
+Focused fetch and extraction modules pass 24 and 63 tests. Ledger, feature catalog, published-claim bindings,
+corpus matrix, reader leaderboard and script index checks pass; published claims match evidence files, without
+rerunning models. Changed local documentation links resolve, and all previous pin values compare unchanged.

@@ -158,7 +158,9 @@ Need public records to try first? The [public-data guide](examples/public-data/R
 text, nameplates, energy readings, experimental batches, flowsheets and technical documents, with commands,
 actual parser results and the remaining adapter/key requirements. The [linked maintenance cohort](examples/public-data/round-4/README.md)
 adds public assets, dated work orders, parts movements and labor from one municipal system, with relationship
-checks and interpretation limits. Acquisition is separate from evaluation.
+checks and interpretation limits. The [latest additions](examples/public-data/round-5/README.md) include
+industrial batch logs, packaging alarms and NIST CAD/STEP references, with source rights and repeatable fetches.
+Acquisition is separate from evaluation.
 
 ## Start with one question
 
