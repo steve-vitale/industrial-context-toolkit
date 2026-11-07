@@ -234,5 +234,134 @@ class ReceivingReview(unittest.TestCase):
             self.assertFalse((self.root / "refused").exists())
 
 
+class SourcePreservingValues(unittest.TestCase):
+    """Development controls only; no reserved qualification fixture is read here."""
+
+    def setUp(self):
+        import cad_value_patch
+        self.patch = cad_value_patch
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.root = Path(self.tmp.name)
+        self.source = self.root / "source.dxf"
+        drawing(self.source)
+        self.raw = self.source.read_bytes().replace(b"\r\n", b"\n")
+        self.raw = self.raw.replace(b"  0\nEOF", b"999\nUnfamiliar raw comment\n  0\nEOF")
+        self.source.write_bytes(self.raw)
+        self.plan = {"schema": "cad-edit-plan-1", "source_sha256": ch.digest(self.source), "changes": [
+            {"id": "fixture/valve-01", "attribute": "MODEL", "before": "A", "after": "B",
+             "reason": "Authored development control"}]}
+
+    def test_exact_literal_replacement_and_unchanged_strict_comparator(self):
+        marker = b"  1\nA\n"
+        self.assertEqual(self.raw.count(marker), 1)
+        out = self.root / "patched"
+        report = self.patch.apply(self.source, self.plan, out)
+        self.assertEqual(report["unexpected"], [])
+        self.assertEqual((out / "candidate.dxf").read_bytes(), self.raw.replace(marker, b"  1\nB\n"))
+        self.assertEqual((out / "source.dxf").read_bytes(), self.raw)
+        self.assertEqual(self.source.read_bytes(), self.raw)
+        self.assertTrue(ch.compare(ch.snapshot(self.source), ch.snapshot(out / "candidate.dxf"))["unexpected"])
+
+    def test_crlf_and_multiple_values_retain_every_other_byte(self):
+        raw = self.raw.replace(b"\n", b"\r\n")
+        self.source.write_bytes(raw)
+        self.plan["source_sha256"] = ch.digest(self.source)
+        self.plan["changes"].append(dict(id="fixture/valve-01", attribute="SERIAL", before="123", after="98765",
+                                          reason="Second declared development edit"))
+        out = self.root / "crlf"
+        self.patch.apply(self.source, self.plan, out)
+        expected = raw.replace(b"  1\r\nA\r\n", b"  1\r\nB\r\n").replace(b"  1\r\n123\r\n", b"  1\r\n98765\r\n")
+        self.assertEqual((out / "candidate.dxf").read_bytes(), expected)
+
+    def test_control_characters_multiline_and_ambiguous_escapes_refuse_without_packet(self):
+        for i, text in enumerate(["new\nline", "new\rline", "new\tfield", "bad\0field", r"new\Pline", r"\U+0041"]):
+            plan = copy.deepcopy(self.plan)
+            plan["changes"][0]["after"] = text
+            out = self.root / ("bad-"+str(i))
+            with self.subTest(text=text), self.assertRaises(ch.InputError):
+                self.patch.apply(self.source, plan, out)
+            self.assertFalse(out.exists())
+
+    def test_binary_and_duplicate_raw_primary_text_refuse(self):
+        cases = [b"AutoCAD Binary DXF\r\n\x1a\x00", self.raw.replace(b"  1\nA\n", b"  1\nA\n  1\nA\n")]
+        for i, raw in enumerate(cases):
+            self.source.write_bytes(raw)
+            plan = copy.deepcopy(self.plan)
+            plan["source_sha256"] = ch.digest(self.source)
+            out = self.root / ("ambiguous-"+str(i))
+            with self.subTest(i=i), self.assertRaises(ch.InputError):
+                self.patch.apply(self.source, plan, out)
+            self.assertFalse(out.exists())
+
+    def test_second_revision_old_plan_and_existing_output_refuse(self):
+        out = self.root / "first"
+        self.patch.apply(self.source, self.plan, out)
+        candidate = out / "candidate.dxf"
+        with self.assertRaises(ch.InputError):
+            self.patch.apply(candidate, self.plan, self.root / "stale")
+        with self.assertRaises(ch.InputError):
+            self.patch.apply(self.source, self.plan, out)
+        second = copy.deepcopy(self.plan)
+        second["source_sha256"] = ch.digest(candidate)
+        second["changes"][0].update(before="B", after="C")
+        self.patch.apply(candidate, second, self.root / "second")
+        self.assertEqual((out / "source.dxf").read_bytes(), self.raw)
+        self.assertEqual(ch.snapshot(candidate)["assets"][0]["attributes"]["MODEL"], "B")
+
+    def test_source_changed_during_patch_refuses(self):
+        from unittest.mock import patch
+        original = self.patch.patch_bytes
+        def concurrent_edit(raw, spans):
+            result = original(raw, spans)
+            self.source.write_bytes(raw.replace(b"Unfamiliar raw comment", b"Concurrent manual note"))
+            return result
+        with patch.object(self.patch, "patch_bytes", side_effect=concurrent_edit), self.assertRaises(ch.InputError):
+            self.patch.apply(self.source, self.plan, self.root / "race")
+        self.assertFalse((self.root / "race").exists())
+
+    def test_stale_duplicate_identity_and_before_controls_refuse(self):
+        for i, mutate in enumerate([lambda p: p.update(source_sha256="0"*64),
+                                    lambda p: p["changes"][0].update(before="stale"),
+                                    lambda p: p["changes"].append(p["changes"][0]),
+                                    lambda p: p["changes"][0].update(attribute="ICT_ID")]):
+            plan = copy.deepcopy(self.plan)
+            mutate(plan)
+            out = self.root / ("refuse-"+str(i))
+            with self.subTest(i=i), self.assertRaises(ch.InputError):
+                self.patch.apply(self.source, plan, out)
+            self.assertFalse(out.exists())
+
+    def test_independent_audit_detects_comment_change_ignored_by_strict_snapshot(self):
+        import sys
+        sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "examples/cad-handoff/qualification"))
+        from verify_bytes import verify
+        out = self.root / "checked"
+        self.patch.apply(self.source, self.plan, out)
+        candidate = out / "candidate.dxf"
+        self.assertEqual(verify(self.source, candidate, self.plan)["status"], "pass")
+        raw = candidate.read_bytes()
+        self.assertIn(b"Unfamiliar raw comment", raw)
+        candidate.write_bytes(raw.replace(b"Unfamiliar raw comment", b"Dropped provenance!!!"))
+        self.assertEqual(ch.compare(ch.snapshot(self.source), ch.snapshot(candidate), self.plan)["unexpected"], [])
+        with self.assertRaises(ValueError):
+            verify(self.source, candidate, self.plan)
+
+    def test_mutated_geometry_layer_foreign_and_xdata_in_candidate_fail(self):
+        out = self.root / "mutated"
+        self.patch.apply(self.source, self.plan, out)
+        candidate = out / "candidate.dxf"
+        for i, mutation in enumerate([
+            lambda d: setattr(d.modelspace().query("LINE")[0].dxf, "end", (99, 0, 0)),
+            lambda d: setattr(d.layers.get("PROCESS").dxf, "color", 1),
+            lambda d: setattr(d.modelspace().query("INSERT")[0].get_attrib("VENDOR_PRIVATE").dxf, "text", "lost"),
+            lambda d: d.modelspace().query("LINE")[0].discard_xdata("VENDOR_TEST")]):
+            doc = ch.load(candidate)
+            mutation(doc)
+            returned = self.root / ("loss-"+str(i)+".dxf")
+            doc.saveas(returned)
+            self.assertTrue(ch.compare(ch.snapshot(self.source), ch.snapshot(returned), self.plan)["unexpected"])
+
+
 if __name__ == "__main__":
     unittest.main()
