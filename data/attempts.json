@@ -5269,6 +5269,26 @@
         "examples/public-data/round-2/fresh-fetch.json",
         "data/public_sources_20261107_round2.json"
       ]
+    },
+    {
+      "id": "A334",
+      "function": "intake_and_reuse",
+      "date": "2026-11-07",
+      "change": "Acquire public maintenance-linked histories, field alarms, catalog revisions and additional degradation, hydraulic, CAD, pump/photo sources with retained provenance and exposure boundaries.",
+      "hypothesis": "Targeting thinner source categories can prepare future tasks without confusing catalog/event records with linked repair outcomes or consuming reserved CAD content during development.",
+      "evidence": "29 originals, 103450866 bytes in ten groups. All raw pins match in network-refused cached replay with zero calls; five fresh HTTPS EPANET files reproduce 56872 bytes. Publisher checksums match; truncation/same-size mutation refuse. All 40 prior pin groups and existing evaluated common methods unchanged. MRO schemas/actual counts, unsupported JPG and uninspected nested archives/CAD remain explicit. Focused modules pass 24 and 11 tests; full local prerequisite check stops at missing TE caches.",
+      "runs": "One acquired cohort, one network-refused cached replay, one fresh HTTPS group and two altered-input controls; no model calls.",
+      "verdict": "kept",
+      "why": "Acquired-unscored source preparation; rights, adapters, interpretation keys, linked repair outcomes and CAD/site acceptance remain separate. No new evaluated matrix cell or independent-plant count.",
+      "source": [
+        "docs/JOURNAL.md#181-acquire-maintenance-linked-events-catalog-revisions-and-additional-engineering-sources",
+        "examples/public-data/round-3/README.md",
+        "examples/public-data/round-3/admission.json",
+        "examples/public-data/round-3/verification.json",
+        "examples/public-data/round-3/fresh-fetch.json",
+        "examples/public-data/round-3/discovery-outcomes.json",
+        "data/public_sources_20261107_round3.json"
+      ]
     }
   ],
   "not_tried": [
