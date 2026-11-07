@@ -1,0 +1,37 @@
+{
+  "plan_commit": "5767878",
+  "role": "Exposed development; no fresh validation",
+  "input_archive_sha256": "ef06595864726d23f79e35abac03eb2b2412961d41d3b3122ca63dfb3074f73b",
+  "inputs": {
+    "raw/visual-inputs/validation-cp1251-source.dxf": {
+      "bytes": 24941,
+      "sha256": "2044da26edd9188d07300f6b8f2abf4053956f31a7827bba488ec02c1351e158"
+    },
+    "raw/visual-inputs/validation-cp1251-candidate.dxf": {
+      "bytes": 24933,
+      "sha256": "1f78177f035dda54c25a26c55d727e5bde3f3e51f219a33dc1f35c5c90b49566"
+    },
+    "raw/visual-inputs/validation-long-source.dxf": {
+      "bytes": 23587,
+      "sha256": "320f335dfce8b55b4176e7bf130a4d2a35767c60bd25b39834cf6f42473991a0"
+    },
+    "raw/visual-inputs/validation-long-candidate.dxf": {
+      "bytes": 23613,
+      "sha256": "49b483ae1782527d2aa68db8fa350a0b076e858519ead2bd145b14d213e20c5e"
+    },
+    "raw/visual-inputs/validation-unicode-source.dxf": {
+      "bytes": 30294,
+      "sha256": "c7edb52b95b314e7519771e61c8d7ee00819e4f2a5ffb2638d5a268e27afd3f1"
+    },
+    "raw/visual-inputs/validation-unicode-candidate.dxf": {
+      "bytes": 30303,
+      "sha256": "4e8715bb1b37d890618facec2fc2d9f87198808085bebdd2038698a6269fb1aa"
+    }
+  },
+  "methods_lf": {
+    "native_views.js": "ca90c01b0676108a424d00a4479994bf34d97cb3173d032d6d9132d04da1c3cc",
+    "desktop.sh": "5636126b3abb1606dd57219877c2433ea169bd7600d14b58fb9b62e3260978b2",
+    "capture.py": "392bbdf6afb0f4ac3157611c868c069ac1c5faf5dfbbc34c3f1cc7786031cbda"
+  },
+  "extra_coverage": "A common source/candidate whole-model frame is also captured for each selected case/profile, beside all six asset frames."
+}
