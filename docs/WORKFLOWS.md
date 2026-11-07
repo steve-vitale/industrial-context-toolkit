@@ -179,5 +179,7 @@ Two saved native returns reproduce offline; their original strict failures (335 
 
 The [Linux native UI experiment](../examples/cad-handoff/qualification/linux-native-7/README.md) observes one exposed
 valve's actual edit/save/close/reopen and fresh-process reopen; its full save retains 287 strict differences.
+The [pointer-state controls](../examples/cad-handoff/qualification/receiver-state-8/README.md) explain the earlier
+public-paper pixel mismatch and produce nine identical neutral repeated source/candidate views on one exposed drawing.
 Full readable layout/font acceptance, opaque-content fidelity, fresh native validation, receiving-company approval
 and subsequent accepted revision behavior remain to be qualified in the actual target and [acceptance plan](ACCEPTANCE.md).

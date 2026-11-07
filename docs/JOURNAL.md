@@ -8329,3 +8329,36 @@ The broad goal remains active: complete readable visual/font acceptance, receive
 validation remain. The useful metadata route, one actual Linux UI sequence and full-save failures are reported
 separately. Original protocols, methods, sources, keys and earlier failures remain unchanged; no plant/company
 authority, engineering release or timed human benefit is inferred.
+
+
+## 189. Isolate pointer highlighting before comparing native CAD views
+
+The exposed public paper mismatch now has a bounded explanation. A precommitted plan and
+recipe used the same pinned Linux native receiver in a fresh container, copying the prior
+terminal-exit configuration locally before startup. Native source/source/candidate openings
+ran serially without saving. Seven observed pointer states per opening retain 21 final
+screenshots and 42 stable frames. Exact input hashes remain unchanged; native Ctrl+Q and
+Docker wait report normal application exit 0. Configuration and licensed binaries remain local.
+
+The initial canvas state matches the old first exact-source repeat exactly. Deliberately
+hovering the elliptic viewport matches the old second repeat exactly. Moving through empty
+canvas before moving outside removes the highlight: all nine neutral views are identical.
+The two old regions account for all 13,556 pixels (6,788 concave + 6,768 elliptic). Explicit
+hover over concave text gives a separate 1,076-pixel state, retained rather than mislabelled
+as the whole viewport. This was a transient observation-state difference, not evidence of
+changed DXF content. QCAD's matching public source changes highlighted display paths' colors;
+that source lead preceded the actual control and does not substitute for it.
+
+The 73 exact records are retained in a 2,224,420-byte lossless archive with per-member pins.
+An offline successor checker independently decodes frames and replays the full canvas
+comparisons against the earlier archive. Five planted receiving errors refuse: changed
+pixel, wrong hover state, abnormal exit, omitted case and changed input identity. The new
+check is in the separate unfrozen Linux evidence test module; original frozen CAD tests,
+comparison, patcher, raw checker and every earlier source/result remain unchanged.
+
+This is development on one exposed drawing in a reused configuration, not fresh validation.
+The changed metadata anchor is outside this paper view, so zero paper differences prove no
+visible changed-value coverage. Complete readable layouts/fonts, five known original layout
+failures, native full-save preservation and fresh native validation remain open. Next work
+needs a separately frozen pointer-neutral observation method and reserved inputs, not an
+upgrade of these repeated observations to independent qualification or company acceptance.

@@ -102,6 +102,9 @@ The later [Linux native UI observation](../examples/cad-handoff/qualification/li
 single exposed valve's real edit/save/close/reopen and fresh-process reopen, beside its 287 strict full-save
 differences. Existing-cohort model/paper views and same-original rendering controls retain layout/font failures;
 they do not establish whole-workflow native or company acceptance.
+The subsequent [pointer-state experiment](../examples/cad-handoff/qualification/receiver-state-8/README.md)
+explains that public-paper mismatch: deliberate highlighting reproduces both old states; nine neutral repeated
+source/candidate views have zero canvas differences. One exposed drawing does not close font/layout or fresh-validation gates.
 
 Use the [acceptance exercise](ACCEPTANCE.md) for concrete tests, records and failure cases. It is prepared;
 actual participant, recipient, native-system and tenant observations remain **not run**.

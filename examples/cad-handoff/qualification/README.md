@@ -97,5 +97,9 @@ Its full save still fails with 287 strict differences. The exact-span candidate 
 the public paper view's two different pixel states. No whole-cohort readable/font pass or fresh native holdout.
 The earlier Windows/native-engine/rendering failures remain independent of the Linux observations.
 
-Next acceptance work is complete readable layout/label/font review, resolving receiver-state differences and fresh
-native validation. Retain any defect and freeze a new method and fresh cases before claiming a qualification gain.
+The subsequent [pointer-state controls](receiver-state-8/README.md) explain the 13,556-pixel public-paper difference:
+deliberate hover reproduces the old states exactly; nine pointer-neutral source/repeat/candidate views have zero
+canvas differences. This is development on one exposed drawing, not fresh validation or a whole-layout readable pass.
+
+Next acceptance work is complete readable layout/label/font review and fresh native validation with a separately
+frozen observation method. Retain every original full-save/layout/font failure before claiming a qualification gain.

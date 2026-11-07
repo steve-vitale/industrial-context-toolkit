@@ -19,6 +19,17 @@ class RetainedLinuxNativeEvidence(unittest.TestCase):
         summary = self.module().check()
         self.assertFalse(summary["whole_cad_qualified"])
 
+    def test_pointer_states_and_neutral_source_candidate_replay(self):
+        path = Path(__file__).resolve().parents[1] / "examples/cad-handoff/qualification/check_receiver8.py"
+        spec = importlib.util.spec_from_file_location("cad_pointer_state_replay", path)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        result = module.check()
+        self.assertEqual(result["neutral_source_candidate_different_pixels"], 0)
+        self.assertEqual(result["pointer_neutral_views"], 9)
+        self.assertEqual(len(result["receiving_refusals"]), 5)
+        self.assertFalse(result["whole_cad_qualified"])
+
     def test_evidence_extraction_rejects_paths_links_and_omission(self):
         import hashlib
         import io
