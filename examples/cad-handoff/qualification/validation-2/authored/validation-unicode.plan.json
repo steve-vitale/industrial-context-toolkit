@@ -1,0 +1,27 @@
+{
+  "schema": "cad-edit-plan-1",
+  "source_sha256": "c7edb52b95b314e7519771e61c8d7ee00819e4f2a5ffb2638d5a268e27afd3f1",
+  "changes": [
+    {
+      "id": "validation-unicode/asset-1",
+      "attribute": "MODEL",
+      "before": "Valve \u03a9",
+      "after": "V\u00e1lvula \u0416",
+      "reason": "Authored qualification edit, not an installed equipment claim"
+    },
+    {
+      "id": "validation-unicode/asset-2",
+      "attribute": "MODEL",
+      "before": "Valve \u03a9",
+      "after": "V\u00e1lvula \u0416",
+      "reason": "Authored qualification edit, not an installed equipment claim"
+    },
+    {
+      "id": "validation-unicode/asset-3",
+      "attribute": "MODEL",
+      "before": "Valve \u03a9",
+      "after": "V\u00e1lvula \u0416",
+      "reason": "Authored qualification edit, not an installed equipment claim"
+    }
+  ]
+}
