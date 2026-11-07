@@ -363,5 +363,174 @@ class SourcePreservingValues(unittest.TestCase):
             self.assertTrue(ch.compare(ch.snapshot(self.source), ch.snapshot(returned), self.plan)["unexpected"])
 
 
+class QualificationPreparation(unittest.TestCase):
+    """Development controls for retaining the full attempted cohort and authored profiles."""
+    def adapter(self):
+        path = Path(__file__).resolve().parents[1] / 'examples/cad-handoff/qualification/adapt_public.py'
+        spec = importlib.util.spec_from_file_location('cad_public_fixture_adapter', path)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        return module
+
+    def test_adapter_preserves_existing_attributes_and_adds_only_declared_test_values(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            source, target = root / 'original.dxf', root / 'adapted.dxf'
+            drawing(source)
+            original = source.read_bytes()
+            before = ch.snapshot(source)['assets'][0]
+            plan, recipe = self.adapter().adapt(source, 'development', target)
+            after = ch.snapshot(target)['assets'][0]
+            self.assertEqual(source.read_bytes(), original)
+            self.assertEqual(after['id'], before['id'])
+            for key, value in before['attributes'].items():
+                self.assertEqual(after['attributes'][key], value)
+            self.assertEqual(plan['changes'][0]['attribute'], 'MANUFACTURER')
+            self.assertEqual(after['attributes']['MANUFACTURER'], 'QUAL-BEFORE')
+            self.assertFalse(recipe['authored_anchor'])
+            self.assertEqual(recipe['additions'][0]['attributes'], {'MANUFACTURER': 'QUAL-BEFORE'})
+
+    def test_adapter_empty_geometry_anchor_and_ambiguous_original_are_distinct(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            source = root / 'geometry.dxf'
+            doc = ezdxf.new('R2000')
+            doc.modelspace().add_line((0, 0), (10, 20))
+            doc.saveas(source)
+            plan, recipe = self.adapter().adapt(source, 'geometry-development', root / 'adapted.dxf')
+            self.assertTrue(recipe['authored_anchor'])
+            self.assertTrue(plan['changes'][0]['id'].startswith('AUTHORED-QUAL/'))
+            drawing(source)
+            doc = ch.load(source)
+            doc.modelspace().query('INSERT')[0].add_attrib('TAG', 'DUPLICATE')
+            doc.saveas(source)
+            with self.assertRaisesRegex(ch.InputError, 'Duplicate original attribute'):
+                self.adapter().adapt(source, 'bad-development', root / 'refused.dxf')
+            self.assertFalse((root / 'refused.dxf').exists())
+
+    def test_runner_retains_failed_case_then_runs_next_case_and_refuses_empty_cohort(self):
+        import subprocess
+        import sys
+        runner = Path(__file__).resolve().parents[1] / 'examples/cad-handoff/qualification/run_cases.py'
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            source = root / 'good.dxf'
+            drawing(source)
+            bad = root / 'bad.dxf'
+            bad.write_bytes(b'not a DXF\n')
+            plan = dict(schema='cad-edit-plan-1', source_sha256=ch.digest(source), changes=[
+                dict(id='fixture/valve-01', attribute='MODEL', before='A', after='B', reason='development')])
+            planpath = root / 'plan.json'
+            ch.write_json(planpath, plan)
+            cases = [dict(id=p.stem, split='development', source=p.name, source_sha256=ch.digest(p),
+                          plan=planpath.name, plan_sha256=ch.digest(planpath)) for p in (bad, source)]
+            manifest = root / 'MANIFEST.json'
+            ch.write_json(manifest, dict(cases=cases))
+            command = [sys.executable, str(runner), '--split', 'exposed-regression', '--manifest', str(manifest)]
+            result = subprocess.run(command + ['--out', str(root / 'results')], capture_output=True, text=True)
+            self.assertEqual(result.returncode, 1, result.stderr)
+            records = json.loads((root / 'results/results.json').read_bytes())['results']
+            self.assertEqual([r['case'] for r in records], ['bad', 'good'])
+            self.assertIn('error', records[0])
+            self.assertEqual(records[1]['routes']['value-spans']['byte_check']['status'], 'pass')
+            ch.write_json(manifest, dict(cases=[]))
+            result = subprocess.run(command + ['--out', str(root / 'empty')], capture_output=True, text=True)
+            self.assertEqual(result.returncode, 2)
+            self.assertIn('empty cohort is not a pass', result.stderr)
+            self.assertFalse((root / 'empty').exists())
+
+    def test_public_runner_requires_bound_adaptation_and_the_complete_selected_cohort(self):
+        import hashlib
+        import subprocess
+        import sys
+        repo = Path(__file__).resolve().parents[1]
+        here = repo / 'examples/cad-handoff/qualification'
+        digest = lambda p: hashlib.sha256(p.read_bytes().replace(b'\r\n', b'\n')).hexdigest()
+        # A disposable development selection; no reserved public drawing is read by this test.
+        with tempfile.TemporaryDirectory(prefix='cad-public-guard-', dir=repo) as folder:
+            root = Path(folder)
+            source = root / 'original.dxf'
+            drawing(source)
+            selection = root / 'selection.json'
+            ch.write_json(selection, dict(cases=[dict(id='guard-development', source=source.name,
+                                                    source_sha256=ch.digest(source))]))
+            methods = ['scripts/cad_value_patch.py', 'scripts/cad_handoff.py',
+                       'examples/cad-handoff/qualification/verify_bytes.py',
+                       'examples/cad-handoff/qualification/run_cases.py',
+                       'examples/cad-handoff/qualification/adapt_public.py']
+            freeze = root / 'freeze.json'
+            ch.write_json(freeze, dict(methods={p: digest(repo / p) for p in methods},
+                manifests={selection.relative_to(repo).as_posix(): digest(selection)}))
+            adapted = root / 'adapted'
+            result = subprocess.run([sys.executable, str(here / 'adapt_public.py'), '--selection', str(selection),
+                '--freeze', str(freeze), '--out', str(adapted)], capture_output=True, text=True)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            manifest = adapted / 'MANIFEST.json'
+            admission = root / 'admission.json'
+            command = [sys.executable, str(here / 'run_cases.py'), '--split', 'public-adapted',
+                       '--manifest', str(manifest), '--freeze', str(freeze), '--admission', str(admission)]
+            ch.write_json(admission, dict(freeze_sha256_lf=digest(freeze), manifest_sha256_lf='0' * 64))
+            result = subprocess.run(command + ['--out', str(root / 'unbound')], capture_output=True, text=True)
+            self.assertEqual(result.returncode, 2)
+            self.assertIn('does not bind', result.stderr)
+            self.assertFalse((root / 'unbound').exists())
+            ch.write_json(admission, dict(freeze_sha256_lf=digest(freeze), manifest_sha256_lf=digest(manifest)))
+            result = subprocess.run(command + ['--out', str(root / 'good')], capture_output=True, text=True)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            data = json.loads(manifest.read_bytes())
+            data['cases'] = []
+            ch.write_json(manifest, data)
+            ch.write_json(admission, dict(freeze_sha256_lf=digest(freeze), manifest_sha256_lf=digest(manifest)))
+            result = subprocess.run(command + ['--out', str(root / 'omitted')], capture_output=True, text=True)
+            self.assertEqual(result.returncode, 2)
+            self.assertIn('omits, adds or changes', result.stderr)
+            self.assertFalse((root / 'omitted').exists())
+
+
+class R12Inspection(unittest.TestCase):
+    """Exposed round-1 R12 failure is now development, not fresh validation."""
+    def test_r12_retains_virtual_records_and_detects_planted_losses(self):
+        import cad_value_patch
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            source = root / "legacy.dxf"
+            doc = ezdxf.new("R12")
+            doc.layers.new("PIPE", dxfattribs={"color": 3})
+            doc.appids.new("VENDOR")
+            block = doc.blocks.new("PUMP")
+            block.add_circle((0, 0), 2)
+            for i, tag in enumerate(("ICT_ID", "TAG", "MODEL", "FOREIGN")):
+                block.add_attdef(tag, (3, -i), height=0.7)
+            ref = doc.modelspace().add_blockref("PUMP", (5, 9))
+            ref.add_auto_attribs(dict(ICT_ID="r12-development/pump", TAG="P-01", MODEL="A", FOREIGN="keep"))
+            line = doc.modelspace().add_line((0, 0), (20, 5), dxfattribs={"layer": "PIPE"})
+            line.set_xdata("VENDOR", [(1000, "foreign")])
+            doc.saveas(source)
+            before = ch.snapshot(source)
+            virtual = [v for v in before["entities"].values() if v["type"] == "BLOCK_RECORD"]
+            self.assertTrue(virtual)
+            self.assertTrue(all(v["tags"] for v in virtual))
+            plan = dict(schema="cad-edit-plan-1", source_sha256=ch.digest(source), changes=[
+                dict(id="r12-development/pump", attribute="MODEL", before="A", after="B", reason="development control")])
+            cad_value_patch.apply(source, plan, root / "candidate")
+            candidate = root / "candidate/candidate.dxf"
+            self.assertEqual(ch.compare(before, ch.snapshot(candidate), plan)["unexpected"], [])
+            self.assertIn(b"AC1009", candidate.read_bytes())
+            for i, mutation in enumerate([
+                lambda d: setattr(d.modelspace().query("LINE")[0].dxf, "end", (99, 0, 0)),
+                lambda d: setattr(d.layers.get("PIPE").dxf, "color", 1),
+                lambda d: setattr(d.styles.get("Standard").dxf, "width", 1.5),
+                lambda d: setattr(d.modelspace().query("INSERT")[0].get_attrib("FOREIGN").dxf, "text", "lost"),
+                lambda d: d.modelspace().query("LINE")[0].discard_xdata("VENDOR"),
+                lambda d: setattr(d.blocks.get("PUMP").query("CIRCLE")[0].dxf, "radius", 3),
+            ]):
+                changed = ch.load(candidate)
+                mutation(changed)
+                returned = root / ("loss-" + str(i) + ".dxf")
+                changed.saveas(returned)
+                with self.subTest(loss=i):
+                    self.assertTrue(ch.compare(before, ch.snapshot(returned), plan)["unexpected"])
+
+
 if __name__ == "__main__":
     unittest.main()

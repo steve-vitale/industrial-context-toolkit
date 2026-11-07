@@ -16,13 +16,15 @@ function rows(d) {
   var e=d.queryEntity(ids[i]);if(e.getType()!==RS.EntityAttribute)continue;
   var parent=String(e.getParentId());if(!groups[parent])groups[parent]={};
   var tag=e.getTag();if(groups[parent][tag])throw new Error("Duplicate native attribute");
-  groups[parent][tag]={entity:e,value:e.getPlainText()};
+  // Stored DXF text and its formatted display are different evidence. Do not compare plain text to a raw plan.
+  groups[parent][tag]={entity:e,value:String(e.getData().getText()),plain:String(e.getPlainText())};
  }
  return groups;
 }
 function values(groups) {
  var out=[];for(var p in groups) {
-  var row={parent:p,attributes:{}};for(var t in groups[p])row.attributes[t]=groups[p][t].value;
+  var row={parent:p,attributes:{},plain_text:{}};
+  for(var t in groups[p]){row.attributes[t]=groups[p][t].value;row.plain_text[t]=groups[p][t].plain;}
   out.push(row);
  }return out;
 }
@@ -52,8 +54,12 @@ function main() {
    var plan=readJson(c.plan);
    result.source=readClosed(c.source);
    result.candidate=readClosed(c.candidate);
-   result.native_default=exportEdited(c.source,plan,c.native_default,"");
-   result.native_r15=exportEdited(c.source,plan,c.native_r15,"R15");
+   if(!manifest.read_only) {
+    try{result.native_default=exportEdited(c.source,plan,c.native_default,"");}
+    catch(e){result.native_default_error=String(e);}
+    try{result.native_r15=exportEdited(c.source,plan,c.native_r15,"R15");}
+    catch(e){result.native_r15_error=String(e);}
+   }
   }catch(e){result.error=String(e);}
   print("ICT_QUAL_NATIVE "+JSON.stringify(result));
  }
