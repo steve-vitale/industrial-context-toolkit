@@ -1,0 +1,79 @@
+{
+  "schema": "cad-linux-native-seven-environment-1",
+  "plan_commit": "681b33a",
+  "package": {
+    "url": "https://qcad.org/archives/qcad/qcad-3.33.1-trial-linux-qt5.14-x86_64.tar.gz",
+    "sha256": "4ccb431dee651f7e5e201acf9ab0ae51f81c6b8b64e88a0a4258809996f595db",
+    "bytes": 114625643,
+    "publisher_version": "3.33.1 Qt5.14 x86_64 trial",
+    "rights": "Local evaluation only; package not redistributed; trial restrictions unchanged"
+  },
+  "base": "ubuntu@sha256:fe81560990fae86dc4743202b2cb4d3df98d0bcf949173cecef15ce1127ef852",
+  "docker_server": {
+    "Platform": {
+      "Name": "Docker Desktop 4.94.0 (241994)"
+    },
+    "Version": "29.8.2",
+    "ApiVersion": "1.56",
+    "MinAPIVersion": "1.40",
+    "Os": "linux",
+    "Arch": "amd64",
+    "Components": [
+      {
+        "Name": "Engine",
+        "Version": "29.8.2",
+        "Details": {
+          "ApiVersion": "1.56",
+          "Arch": "amd64",
+          "BuildTime": "Wed Sep 30 19:32:25 2026",
+          "Experimental": "false",
+          "GitCommit": "8af9fe3",
+          "GoVersion": "go1.26.8",
+          "KernelVersion": "6.18.54.1-microsoft-standard-WSL2",
+          "MinAPIVersion": "1.40",
+          "Module": "github.com/moby/moby/v2",
+          "ModuleVersion": "v2.0.0+unknown",
+          "Os": "linux"
+        }
+      },
+      {
+        "Name": "containerd",
+        "Version": "v2.3.6",
+        "Details": {
+          "GitCommit": "ee2735368117d2eb259779949d5e75cdafec9761"
+        }
+      },
+      {
+        "Name": "runc",
+        "Version": "1.5.1",
+        "Details": {
+          "GitCommit": "v1.5.1-0-g8f2685a4"
+        }
+      },
+      {
+        "Name": "docker-init",
+        "Version": "0.19.0",
+        "Details": {
+          "GitCommit": "de40ad0"
+        }
+      }
+    ],
+    "GitCommit": "8af9fe3",
+    "GoVersion": "go1.26.8",
+    "KernelVersion": "6.18.54.1-microsoft-standard-WSL2",
+    "BuildTime": "2026-09-30T19:32:25.000000000+00:00"
+  },
+  "methods": {
+    "Dockerfile": "2d8f0a3ae032dbd23a84bb9f772c114f6ac3f445e5af7da471bf94a44edf4554",
+    "desktop.sh": "9ed67be8b2e2d97be190e93a2e16af5e9729ea0deb07b6444db31c09253086f6",
+    "observe_ui.py": "db54e47ada40d34ffcb02fa1e0a3f6d02898c624957d639ac6b725876f6248c8"
+  },
+  "initial_recipe_commit": "a2313fb",
+  "built_image": {
+    "id": "sha256:bb4390214744897de88b2198f0cbf812aec4be42923311298e7a5e3a5646bef8",
+    "repo_digests": [
+      "ict-cad-native-ui@sha256:bb4390214744897de88b2198f0cbf812aec4be42923311298e7a5e3a5646bef8"
+    ],
+    "created": "2026-11-07T22:32:04.801263018Z"
+  }
+}

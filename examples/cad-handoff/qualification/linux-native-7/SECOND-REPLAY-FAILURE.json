@@ -1,0 +1,6 @@
+{
+  "failure": "Adding two replay/extraction tests to scripts/test_cad_handoff.py caused frozen method verification to reject that file. The30-test attempt reports one error: Changed frozen method/input: scripts/test_cad_handoff.py. No CAD evidence result was scored.",
+  "provenance": "Observed test runner output, transcribed here. Attempted source is retained by this commit; next commit restores the original frozen file and registers a separate successor module.",
+  "attempted_test_sha256_lf": "95c9b3ae9e8858c4c4af8539b7cab23a85f66b5808be9caec59f1d6b3994b36d",
+  "repair": "Keep the original28 CAD tests byte/normalized-hash unchanged. Run new native-evidence checks from a separate test module. Do not update or weaken the old freeze."
+}

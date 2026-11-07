@@ -8268,3 +8268,64 @@ replays both downloaded browser responses against saved returned files. It does 
 CAD. Method-binding/evidence checks were extended after execution without changing the exchange implementation.
 The agent guide, supported workflows, status, script and feature catalogs now route this job to the new tool;
 CAD still has no independent engineering review. Exact-head CI remains the integration gate.
+
+## 188. Observe native CAD as a receiving check beside source-preserving data exchange
+
+The sidecar route separates metadata entry from CAD resaving; it does not answer whether a recipient can use
+the drawing. The pre-execution Linux native plan (`681b33a`) retained that distinction and the full original
+qualification gates. Windows capture still failed. An isolated Ubuntu/X11 desktop ran the publisher's pinned
+QCAD Professional trial 3.33.1 Qt5 package without changing licensing/security settings or redistributing CAD
+software/fonts. The package hash, base/image identities, installed versions and GUI recipes are retained.
+
+On the exposed fictional valve, actual native property controls changed MODEL, SERIAL and SIZE. Native Save As
+used its default R27 [2013] DXF. The document closed and reopened; six labeled fields showed planned and unchanged
+values and enabled/editable states. A temporary foreign-field edit was visible, then undone and discarded on
+Quit. The saved returned DXF remained byte-identical. The app exited normally; a fresh container/native process
+opened the retained return and showed the same values. These are Linux UI observations, not native edit/export
+API calls, Windows acceptance, independent review or a fresh holdout.
+
+The exact returned file still has **287 strict differences**, including AC1015-to-AC1027 conversion and header,
+style/record/layout changes. The unchanged receiving reviewer and conservative correspondence diagnostic retain
+every row: 71 source records, 232 returned records, 20 unique-body seeds and 13 closed pairs; the others remain
+unpaired, not automatically lost or harmless. The native save is not imported as a preservation pass.
+
+The unchanged value-span candidate has zero unexpected strict differences and passes separate raw reconstruction.
+It opens natively with readable valve labels and editable fields. Same-session source/candidate canvas comparison
+finds 425 differing pixels within the three changed label area. This exposed diagnostic is not a new frozen visual
+equivalence scorer. All 21 previously exposed sources/candidates have native model views; six paper pairs add
+12 views. Native input hashes remain unchanged. Five authored paper pairs stay blank. The rotated Cyrillic zoom
+does not establish readable canvas glyphs despite correct Unicode in the property field.
+
+The public Layout1 source/candidate pair differs at 13,556 canvas pixels. Two subsequent native opens of the
+**same exact original** reproduce those two states: repeat 1 equals the candidate view, repeat 2 equals the
+first original view. This rules out attributing that pixel difference to changed candidate bytes. The underlying
+receiver/view-state cause remains unresolved. No whole-cohort layout/font pass is claimed.
+
+Failures remain: initial image build on an occupied UID1000; stale X99 lock after same-container restart;
+title clicks causing maximization; two accidentally overlapping capture batches (explicitly excluded); early
+typing leaving a path suffix in a file dialog; and the first offline replay matching an Attributes popup menu
+instead of the actual labeled panel. Corrected capture recipes were committed before their new runs. Completed
+GUI batches were then run serially in fresh destinations. The initial impression of missing white linework was
+disproved by direct RGB comparison of the checked region, not published as a CAD-loss result.
+
+The first 75.7 MB ZIP is retained locally. A 31.0 MB lossless solid-compressed archive retains the same **842 exact
+logical records / 104,277,450 raw bytes**, including failed attempts; all member pins match the initial ZIP.
+No CAD executable, font binary, application settings, DBus address or autosave is published. Manual action notes
+are explicitly transcribed tool observations, not a continuous event recording. Actual screenshots, native
+accessibility output, returned DXF, GUI commands, logs and image frames are separate bound evidence.
+
+Offline replay reconstructs every candidate and retained strict/review/correspondence result, checks exact labeled
+native fields and 54 view records, and recomputes the pixel/repeat controls. Five semantic receiving controls reject
+stale values, foreign loss, disabled editability, swapped fields and omitted coverage. Separate archive tests reject
+traversal, alternate-stream paths, links and omitted members. This runs in the CAD test module without a desktop,
+network, Docker or commercial CAD. It verifies retained observations; it does not rerun the native GUI.
+
+Initially adding the two new checks to the original CAD test file triggered its frozen-method binding refusal
+before native evidence was scored. That attempted source and failure are retained in Git. The original 28-test
+file was restored from its prior commit without changing any freeze; the two new checks now live in the separate
+`test_cad_linux_evidence.py` module registered in full mode.
+
+The broad goal remains active: complete readable visual/font acceptance, receiver-state diagnosis and fresh native
+validation remain. The useful metadata route, one actual Linux UI sequence and full-save failures are reported
+separately. Original protocols, methods, sources, keys and earlier failures remain unchanged; no plant/company
+authority, engineering release or timed human benefit is inferred.

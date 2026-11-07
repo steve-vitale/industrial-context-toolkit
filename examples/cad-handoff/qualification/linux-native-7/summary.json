@@ -1,0 +1,108 @@
+{
+  "schema": "cad-linux-native-seven-observation-1",
+  "date": "2026-11-07",
+  "exposure": "All 21 inputs previously exposed; development/compatibility observations, no fresh native holdout or independent human review",
+  "whole_cad_qualified": false,
+  "receiver": "QCAD Professional Trial 3.33.1 Qt 5.14.2 Linux x86_64 in isolated Ubuntu 24.04 X11 desktop",
+  "native_ui": "Three actual UI attribute edits, Save As default R27, document close/reopen, temporary foreign edit/undo/discard and later fresh app-process reopen observed on original fictional valve. No CAD edit/export API used.",
+  "source_sha256": "c64f5ac8f53f7f35ed0f119abdc28c1e11eb5c7cc28011ddaf079940cfee2b7d",
+  "returned_sha256": "6a029cfc7e09457c2c8c77ba61a89a9b80080815b6e6560218ae73c728c6e718",
+  "native_full_save_strict_differences": 287,
+  "correspondence_counts": {
+    "before_records": 71,
+    "after_records": 232,
+    "unique_body_seeds": 20,
+    "closed_pairs": 13,
+    "unpaired_before": 58,
+    "unpaired_after": 219
+  },
+  "candidate_byte_check": {
+    "status": "pass",
+    "values": 3,
+    "unplanned_byte_changes": 0,
+    "source_sha256": "c64f5ac8f53f7f35ed0f119abdc28c1e11eb5c7cc28011ddaf079940cfee2b7d",
+    "candidate_sha256": "f9a3dd8ffee4dde6d7a1026370774bbcab2c955746fab72cf9f11721f4fed88a",
+    "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+    "review": "same-author software check; not independent engineering review"
+  },
+  "valve_canvas_delta": {
+    "crop": [
+      113,
+      175,
+      807,
+      780
+    ],
+    "bbox": [
+      256,
+      427,
+      340,
+      507
+    ],
+    "changed_pixels": 425,
+    "interpretation": "Same-session source/value-candidate native canvas; differences are in the three changed label area. Exposed diagnostic, not a frozen equivalence scorer or whole-cohort visual pass."
+  },
+  "native_field_observation": "Six exact field/value bindings from native AT-SPI tree, enabled/editable states, independently matching returned DXF. Temporary foreign-field edit was undone then discarded; saved DXF unchanged.",
+  "valid_view_batches": [
+    "visual-stable-1",
+    "visual-stable-2",
+    "visual-stable-3c",
+    "visual-stable-4b",
+    "visual-stable-5"
+  ],
+  "native_view_counts": {
+    "models": 42,
+    "paper": 12,
+    "same_original_repeat_model": 2,
+    "same_original_repeat_paper": 2
+  },
+  "visual_result": "Five authored Qualification sheet source/candidate pairs remain blank. The public Layout1 displays viewports; source/candidate native canvases differ at 13556 pixels, but repeated exact-source control reproduces the same two states. No candidate-byte-loss attribution or complete visual/readability pass. Zoomed rotated Cyrillic label remains unreadable/question-mark-like on canvas while native property field retains the actual Unicode.",
+  "published_images": {
+    "valve-before.png": "34-source-same-session.png",
+    "valve-candidate.png": "32-value-candidate-open.png",
+    "valve-native-return.png": "31-fresh-return-selected.png",
+    "blank-source-layout.png": "43-cp1251-original-paper.png",
+    "cyrillic-zoom.png": "50-cyrillic-candidate-selected-zoom.png"
+  },
+  "retained_failures": [
+    "First image build: pre-existing UID1000; corrected to1001 before any CAD run",
+    "Same-container restart after normal native quit: fatal stale X99 lock; infrastructure stopped137, fresh container started from identical image",
+    "Initial GUI title clicks caused window maximization and mismatched view sizes; retained visual-1/2, fixed before later captures",
+    "visual-stable-3 and visual-stable-4 overlap: invalid comparison observations, retained and rerun serially",
+    "visual-stable-3b incomplete: early typing left a filename suffix in native file dialog; title timeout retained. Actual dialog/focus guard added before3c/4b/5",
+    "Initial visual impression of missing white linework was disproved by raw RGB comparison: checked circle crop182 white pixels on both, zero different pixels. No missing-geometry verdict."
+  ],
+  "limits": [
+    "Linux trial receiver only; Windows capture/interaction remains unproved",
+    "Whole original CAD goal remains incomplete: strict native full-save preservation fails; full readable layout/label/font acceptance and fresh native validation remain open",
+    "Native GUI capture recipe and repeat controls are exposed diagnostics, not training, independent review or performance trials",
+    "Original protocol, strict comparator, raw patcher, frozen cases and all historical failures unchanged",
+    "No plant data, company/engineering acceptance, authenticated release or measured review time"
+  ],
+  "capture_recipes": [
+    {
+      "path": "gui_observe.py",
+      "commit_before_use": "ff314f0",
+      "sha256_lf": "64c318b7cdd363066b798848451fa668ec40cb8281d7bb880523a2bc4526df13"
+    },
+    {
+      "path": "gui_observe-v2.py",
+      "commit_before_use": "68b66f7",
+      "sha256_lf": "f46b5663729e74027b57032c0d21f8e31b00edf774828bbeedb4747df6c8d993"
+    },
+    {
+      "path": "gui_observe-v3.py",
+      "commit_before_use": "73d3447",
+      "sha256_lf": "a5eaf8b2d06c9487f5953b64ac5ba5a2224543064da3c6267bc62792f3aeab14"
+    },
+    {
+      "path": "gui_observe-v4.py",
+      "commit_before_use": "bcd613a",
+      "sha256_lf": "44e8210acdd82fbd3c92831f02a3fda701c23c93ba9b98b5a14f3dcabfc1bed2"
+    },
+    {
+      "path": "gui_observe-v5.py",
+      "commit_before_use": "3193829",
+      "sha256_lf": "c9c609edddf952d02e845d521921c2b5ac227761806f201c0273a091e04a29ec"
+    }
+  ]
+}

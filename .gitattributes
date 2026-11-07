@@ -239,6 +239,7 @@ data/te_pid_layout.json text eol=lf
 # Compressed qualification records contain exact original bytes, not text.
 /examples/cad-handoff/qualification/round-2/*.zip -text
 /examples/cad-handoff/qualification/diagnosis-4/*.zip -text
+/examples/cad-handoff/qualification/linux-native-7/*.tar.xz -text
 
 # Preserve the publisher's captured HTML, including its original trailing whitespace.
 /data/public-source-evidence/2026-11-07-round-3/nasa.html -text whitespace=cr-at-eol,-blank-at-eof,-trailing-space
