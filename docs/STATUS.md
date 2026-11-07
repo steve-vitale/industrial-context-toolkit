@@ -63,7 +63,7 @@ create those controls.
 | Piece | Contribution | Boundary |
 |---|---|---|
 | Maintenance record handoff | [One fictional replacement](../examples/maintenance-handoff/README.md) links the existing before/after model, changes and closeout tools into a reproducible job. | Supplied identities and records; no CMMS acceptance, real recipient observation or measured review-time result. |
-| Bounded editable CAD exchange | [Source-retaining DXF edits and mapped draft context](../examples/cad-handoff/README.md), plus a [local form/agent equipment-data exchange](../examples/cad-handoff/data-review/README.md) that avoids CAD resaving. Six fresh authored cases preserve all unplanned bytes; real browser downloads/reopen are retained. | Profiled existing attributes only. This metadata operation requires no CAD UI. Native interactive drafting, readable CAD layouts, full-editor-save preservation and company acceptance remain unproved. The original QCAD returns still fail strict preservation (335/344 differences); no inferred connectivity or automatic synchronization. |
+| Bounded editable CAD exchange | [Source-retaining DXF edits and mapped draft context](../examples/cad-handoff/README.md), plus a [local form/agent equipment-data exchange](../examples/cad-handoff/data-review/README.md) that avoids CAD resaving. Six fresh authored cases preserve all unplanned bytes; real browser downloads/reopen are retained. A [Linux native UI experiment](../examples/cad-handoff/qualification/linux-native-7/README.md) observes actual edit/save/close/reopen on the exposed valve and readable native candidate labels. | Profiled existing attributes only; this metadata operation requires no CAD UI. Full native save still fails: 287 new Linux strict differences, original Windows 335/344 unchanged. Complete layout/font acceptance, fresh native validation and company acceptance remain open; no inferred connectivity or automatic synchronization. |
 | Public photo-to-record exercise | [Two attributed nameplate photographs](../examples/photo-to-record/README.md), candidate fields, six retained OCR attempts and explicit unknown asset identities. | Empty and incorrect OCR results remain visible. Candidate readings need independent review and site identity evidence; neither OCR confidence nor a legible plate establishes installed state. |
 | Drawing intake and review report | A supplied extraction becomes a draft model, review queue, staging and readable HTML. | Approved extraction, engineering review and receiving-company acceptance. |
 | DEXPI routes | Read supported XML or the separate adapted-key/sheet contract; report omissions. | Exporter coverage and downstream eligibility vary; supported unplaced roles can feed source-qualified questions while equipment placement remains unknown. This does not extend platform-generator eligibility. |
@@ -98,6 +98,10 @@ and which remain open. In particular, [native CAD diagnosis](../examples/cad-han
 does not establish a successful native edit/save/reopen; this LibreCAD route remains unqualified for the attributed profile.
 The subsequent QCAD native API returns are actual edit/document-reopen observations, with complete offline receiving
 reviews, but unresolved strict differences and no interactive, visual or company acceptance.
+The later [Linux native UI observation](../examples/cad-handoff/qualification/linux-native-7/README.md) records a
+single exposed valve's real edit/save/close/reopen and fresh-process reopen, beside its 287 strict full-save
+differences. Existing-cohort model/paper views and same-original rendering controls retain layout/font failures;
+they do not establish whole-workflow native or company acceptance.
 
 Use the [acceptance exercise](ACCEPTANCE.md) for concrete tests, records and failure cases. It is prepared;
 actual participant, recipient, native-system and tenant observations remain **not run**.

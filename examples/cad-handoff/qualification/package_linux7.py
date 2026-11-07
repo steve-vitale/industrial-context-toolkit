@@ -3,7 +3,8 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
-import zipfile
+import tarfile
+import io
 
 
 def main():
@@ -11,7 +12,7 @@ def main():
     parser.add_argument("work", type=Path)
     parser.add_argument("out", type=Path)
     args = parser.parse_args()
-    archive = args.out / "evidence.zip"
+    archive = args.out / "evidence.tar.xz"
     if archive.exists() or (args.out / "INVENTORY.json").exists():
         parser.error("Evidence exists; retain earlier archive")
     allowed = {".json", ".dxf", ".png", ".py", ".md", ".txt", ".log", ".tsv", ".stdout", ".stderr"}
@@ -30,16 +31,15 @@ def main():
         if args.work / name not in files:
             raise ValueError("Missing required observation: " + name)
     pins = {}
-    with zipfile.ZipFile(archive, "x", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as zipped:
+    with tarfile.open(archive, "w:xz", preset=6) as packed:
         for path in files:
             raw = path.read_bytes()
             name = "raw/" + path.relative_to(args.work).as_posix()
-            info = zipfile.ZipInfo(name, date_time=(2026, 11, 7, 0, 0, 0))
-            info.compress_type = zipfile.ZIP_DEFLATED
-            info.external_attr = 0o100600 << 16
-            zipped.writestr(info, raw)
+            info = tarfile.TarInfo(name)
+            info.size, info.mtime, info.mode = len(raw), 1794009600, 0o600
+            packed.addfile(info, io.BytesIO(raw))
             pins[name] = dict(bytes=len(raw), sha256=hashlib.sha256(raw).hexdigest())
-    inventory = dict(schema="cad-evidence-archive-2", role="Retained native GUI observations and failed attempts; incomplete CAD qualification",
+    inventory = dict(schema="cad-linux-evidence-tar-xz-1", role="Retained native GUI observations and failed attempts; incomplete CAD qualification",
                      raw_bytes=sum(p["bytes"] for p in pins.values()), files=pins,
                      archive=dict(path=archive.name, bytes=archive.stat().st_size,
                                   sha256=hashlib.sha256(archive.read_bytes()).hexdigest()),

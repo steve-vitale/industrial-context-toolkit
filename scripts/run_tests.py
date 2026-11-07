@@ -92,6 +92,7 @@ SOURCE_TESTS = (
 # These tests need cached data or third-party imports, even though none needs a gateway.
 FULL_ONLY_TESTS = (
     "scripts/test_cad_handoff.py",
+    "scripts/test_cad_linux_evidence.py",
     "scripts/test_cad_exchange.py",
     "scripts/test_generate_any_model.py",
     "scripts/test_description_workflow.py",

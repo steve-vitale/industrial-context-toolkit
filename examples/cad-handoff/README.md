@@ -92,7 +92,10 @@ The original saved example uses the ezdxf writer/reader. The later [qualificatio
 adds exact-byte candidates, matched baselines, QCAD native-engine edits and fresh-process stored-text readbacks.
 The [layout diagnosis](qualification/diagnosis-4/README.md) also retains real viewport-settings loss in native
 returns: exact source-preserving bytes alone do not establish that a receiver can interpret every layout.
-**No successful interactive native CAD open/edit/save/close/reopen is claimed.** Use
+A later [Linux QCAD UI experiment](qualification/linux-native-7/README.md) observes actual edit/save/close/reopen
+and fresh-process reopen on the exposed fictional valve. Its full native save still fails with 287 strict
+differences; the source-preserving candidate has zero unexpected differences and readable valve labels.
+Complete native layout/font acceptance and fresh native validation remain open. Use
 [the receiving checklist](RECEIVING_CHECK.md) in the actual target. Save the returned DXF, then run `compare`.
 The [LibreCAD native-render attempt](NATIVE_ATTEMPT.md) retains its partial result and GUI automation failure;
 it does not supply an editable-attribute or save/readback pass.

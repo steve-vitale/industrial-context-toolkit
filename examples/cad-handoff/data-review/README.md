@@ -4,6 +4,12 @@ Use this when your maintenance/engineering job is to correct **existing equipmen
 redraw geometry. An agent can prepare the exchange and apply your proposed values. A reviewer can use the
 local form. No CAD application, account, commercial subscription or model API is required for these steps.
 
+A native CAD session checks the **receiving drawing**, separately from this metadata entry. The
+[Linux receiving experiment](../qualification/linux-native-7/README.md) opens the source-preserving valve
+candidate with readable labels and editable fields. A full native editor save still produces strict differences,
+so this form applies only declared value spans against the original. Layouts, fonts, geometry changes and target
+editor acceptance need their own checks; they are not dependencies for preparing a data proposal here.
+
 The source must meet the [DXF handoff profile](../README.md#use-your-own-dxf): explicit unique ICT_ID and TAG
 attributes on each model-space asset INSERT. Only present TAG, MANUFACTURER, MODEL, SERIAL and SIZE fields can
 change. Foreign fields remain visible and read-only; missing identities are a preparation task, not guessed.

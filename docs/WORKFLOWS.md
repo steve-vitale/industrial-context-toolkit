@@ -177,5 +177,7 @@ It returns exit 1 for a completed packet with differences, 0 only for strict dec
 and 2 for input/preparation failure. Neither completed result establishes acceptance or promotes a context revision.
 Two saved native returns reproduce offline; their original strict failures (335 and 344) remain failures.
 
-Native editor open/edit/save, opaque-content fidelity, receiving-company approval and subsequent accepted
-revision behavior remain to be qualified using the actual CAD tool/version and [acceptance plan](ACCEPTANCE.md).
+The [Linux native UI experiment](../examples/cad-handoff/qualification/linux-native-7/README.md) observes one exposed
+valve's actual edit/save/close/reopen and fresh-process reopen; its full save retains 287 strict differences.
+Full readable layout/font acceptance, opaque-content fidelity, fresh native validation, receiving-company approval
+and subsequent accepted revision behavior remain to be qualified in the actual target and [acceptance plan](ACCEPTANCE.md).

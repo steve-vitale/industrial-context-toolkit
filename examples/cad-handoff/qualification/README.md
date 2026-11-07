@@ -3,8 +3,9 @@
 For a supplied, explicitly identified DXF asset, `scripts/cad_value_patch.py` proposes single-line attribute
 changes while preserving all other source bytes. In the frozen software cohort, **all 21 candidates have zero
 unexpected strict differences and reproduce exactly from source plus plan**. This is a useful bounded handoff
-route. Full native CAD qualification is **not established**: native full saves still differ, some visual checks
-remain unreadable, and the interactive edit/save/close/reopen gate is unproved.
+route. Full native CAD qualification is **not established**: native full saves still differ and complete readable
+visual acceptance remains open. A later [Linux native UI experiment](linux-native-7/README.md) observes an actual
+edit/save/close/reopen on the exposed valve, with a retained returned DXF and fresh-process reopen.
 
 Use the [handoff guide](../README.md) for your own inputs. It explains the supported record-framed DXF profile,
 explicit `ICT_ID`/`TAG`, hash-bound before/after plan, permitted fields and refusal conditions. This does not
@@ -50,7 +51,7 @@ receipts describe the actual runs; the offline replay maps them to the retained 
 | Fresh process | 45 retained new-process readbacks match stored attributes: nine development candidates and 36 replacement candidate/default/R15 returns. This is API readback, not a UI edit. |
 | Native rendering | 82 images cover 12 full-model, 23 asset-label and six paper-layout pairs. All command exits are zero and inputs remain unchanged. Review of all seven contact sheets finds watermark overlap and five blank drawing-layout views; the sixth paper pair contains viewports. All six paper pairs have identical RGB pixels. No complete readable visual pass or original-font fidelity is claimed. |
 | Revision/conflicts | Two stale proposals refuse without output; one concurrent MODEL disagreement remains explicit; an explicit second plan produces an exact candidate and sourced draft context. Three graph/revision commands pass. Fictional branches, not a human edit or authenticated company decision. |
-| Actual native UI | **Unproved.** Accessibility text shows startup/trial-expiry dialogs; two fresh window-capture attempts time out. No successful drawing edit/save/close/reopen was observed. See [the observation](UI-OBSERVATION-20261107.json). |
+| Actual native UI | Windows capture/interaction remains unproved ([original observation](UI-OBSERVATION-20261107.json)). A later [Linux experiment](linux-native-7/README.md) observes one exposed valve's three UI edits, native Save As, document close/reopen and fresh-process reopen; its returned file still fails with 287 strict differences. No fresh native holdout or whole-workflow qualification. |
 | Engineering/plant acceptance | Not established. No plant data, operator review, timing, live platform import or company authority is inferred. |
 
 The later [layout diagnosis](diagnosis-4/README.md) confirms that the five blank authored layouts contain
@@ -88,6 +89,13 @@ It makes the inspected Cyrillic labels readable without changing DXF input bytes
 typography. Trial marks were retained. [The visual review](round-2/VISUAL-REVIEW.json) names observations and limits;
 these post-exposure diagnostics are not a new blinded preservation trial.
 
-Next acceptance work is readable complete layout/label review and a recorded actual native UI edit/save/reopen
-with retained return. If that reveals a preservation-method defect, retain the failure and freeze a new method
-and fresh cases before claiming a qualification gain. More files alone cannot fill those gates.
+The later [Linux native experiment](linux-native-7/README.md) fills the single-valve UI observation gap on a separate
+receiver: three actual native property edits, default Save As, document close/reopen and fresh-process reopen.
+Its full save still fails with 287 strict differences. The exact-span candidate opens with readable valve labels;
+425 native canvas pixels differ in the three changed label area. Fifty-four model/paper views cover the existing
+21 exposed sources/candidates; five authored paper pairs remain blank and a same-original repeat control reproduces
+the public paper view's two different pixel states. No whole-cohort readable/font pass or fresh native holdout.
+The earlier Windows/native-engine/rendering failures remain independent of the Linux observations.
+
+Next acceptance work is complete readable layout/label/font review, resolving receiver-state differences and fresh
+native validation. Retain any defect and freeze a new method and fresh cases before claiming a qualification gain.

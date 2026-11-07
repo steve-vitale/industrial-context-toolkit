@@ -5,6 +5,8 @@ import json
 from pathlib import Path
 import sys
 import tempfile
+import tarfile
+from pathlib import PurePosixPath
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
@@ -33,7 +35,8 @@ def labeled_fields(tree):
     result = {}
     def visit(node):
         children = node.get("children", [])
-        if children and children[0].get("name") == "Attributes":
+        if (node.get("role") == "panel" and children and children[0].get("role") == "label"
+                and children[0].get("name") == "Attributes"):
             for label, field in zip(children[1::2], children[2::2]):
                 require(label["role"] == "label" and label["name"].endswith(":"), "Native attribute label missing")
                 result[field["path"]] = label["name"][:-1]
@@ -59,6 +62,35 @@ def view_coverage(rows, cases):
     require(all("sha256_after_view" in row for row in rows), "Native view producer did not finish")
 
 
+def unpack(base, destination):
+    inventory = read(base / "INVENTORY.json")
+    archive = base / inventory["archive"]["path"]
+    require(archive.stat().st_size == inventory["archive"]["bytes"] and ch.digest(archive) == inventory["archive"]["sha256"],
+            "Archive integrity mismatch")
+    require(inventory["raw_bytes"] == sum(p["bytes"] for p in inventory["files"].values()) <= 256 * 1024 * 1024,
+            "Unbounded or inconsistent evidence size")
+    seen = set()
+    with tarfile.open(archive, "r:xz") as packed:
+        for member in packed:
+            name = PurePosixPath(member.name)
+            require(member.isfile() and not name.is_absolute() and len(name.parts) > 1 and ".." not in name.parts and name.parts[0] == "raw"
+                    and name.as_posix() == member.name and ":" not in member.name
+                    and "\\" not in member.name and member.name not in seen and member.name in inventory["files"],
+                    "Unsafe, duplicate or unregistered archive member")
+            pin = inventory["files"][member.name]
+            require(member.size == pin["bytes"] and 0 <= member.size <= 4 * 1024 * 1024, "Changed or unbounded member size")
+            with packed.extractfile(member) as stream:
+                data = stream.read(member.size + 1)
+            require(len(data) == member.size and hashlib.sha256(data).hexdigest() == pin["sha256"], "Archive member differs")
+            target = destination.joinpath(*name.parts)
+            require(target.resolve().is_relative_to(destination.resolve()), "Archive target escapes replay directory")
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(data)
+            seen.add(member.name)
+    require(seen == set(inventory["files"]), "Evidence member omitted")
+    return destination / "raw"
+
+
 def check():
     from PIL import Image, ImageChops
 
@@ -66,15 +98,23 @@ def check():
     summary = read(base / "summary.json")
     recheck.method_bindings()
     environment = read(base / "ENVIRONMENT.json")
+    require(recheck.text_hash(HERE / "package_linux7.py") == read(base / "INVENTORY.json")["packager_sha256_lf"],
+            "Evidence packager changed")
     for name, pin in environment["methods"].items():
         require(recheck.text_hash(base / name) == pin, "Native environment recipe changed: " + name)
     require(summary["whole_cad_qualified"] is False, "Partial GUI observation promoted to qualification")
     with tempfile.TemporaryDirectory(prefix="ict-linux-native-replay-") as temporary:
         root = Path(temporary)
-        raw, _ = recheck.unpack(base, root / "unpacked")
+        raw = unpack(base, root / "unpacked")
         terminal = read(raw / "infrastructure/terminal-inspect.stdout")[0]["State"]
         require(terminal["Status"] == "exited" and terminal["Running"] is False and terminal["ExitCode"] == 0,
                 "Final native process exit not retained")
+        require(read(raw / "infrastructure/terminal-inspect.stdout")[0]["Image"] == environment["built_image"]["id"],
+                "Actual native image differs from recorded environment")
+        for recipe in summary["capture_recipes"]:
+            require(recheck.text_hash(raw / recipe["path"]) == recipe["sha256_lf"], "Captured GUI recipe differs")
+        require(recheck.text_hash(base / "gui_observe.py") == summary["capture_recipes"][-1]["sha256_lf"],
+                "Current GUI recipe differs from retained final recipe")
         for name, member in summary["published_images"].items():
             require((base / name).read_bytes() == (raw / member).read_bytes(), "Published screenshot differs")
         source = raw / "original-valve.dxf"
@@ -117,12 +157,15 @@ def check():
             proposed = root / case["id"] / "candidate.dxf"
             require(proposed.read_bytes() == (retained / "packet/candidate.dxf").read_bytes(), "Cohort candidate differs")
             verify(case["source"], proposed, read(case["plan"]))
-        views, model_count, paper_count = [], 0, 0
+        views, model_count, paper_count, previous_end = [], 0, 0, ""
         for folder in summary["valid_view_batches"]:
             view_root = raw / folder
             batch = read(view_root / "cases.json")
             views.extend(batch)
             actions = read(view_root / "actions.json")
+            times = [action["at"] for action in actions if "at" in action]
+            require(times and times[0] > previous_end and times == sorted(times), "Native GUI batches overlap or reorder")
+            previous_end = times[-1]
             for row in batch:
                 kind = "source.dxf" if row["kind"] == "source" else "packet/candidate.dxf"
                 require(ch.digest(raw / "cohort" / row["id"] / kind) == row["sha256_after_view"], "Viewed input changed")
