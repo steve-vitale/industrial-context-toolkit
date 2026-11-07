@@ -7864,7 +7864,10 @@ escaping. Eight delivery-evidence methods pass. Two real CLI replays retain the 
 exposed packet/input conditions and preserve source bytes. These are software development controls, not independent
 engineering review, human benefit or native interactive/company acceptance. The final packet is inspected at 390
 and 1280 pixel viewports: no horizontal overflow, mobile field labels visible, desktop table headers visible, all
-five report/source links return 200. Full CI is a separate final gate.
+five report/source links return 200. A final Markdown control then fails on literal HTML cell content; the
+failure is retained. Both formats now escape source HTML syntax, and Markdown includes source/evidence links.
+The 14 CAD methods, eight evidence methods and both 15-condition replay runs pass after the repair. Full CI
+is a separate final gate.
 
 ## 177. Test an explicit native export version without selecting a flattering count
 

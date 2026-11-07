@@ -291,7 +291,7 @@ def render_review(out, report):
             lines.extend([f"{len(rows)} records; see review.json and strict-comparison.json for every exact change.", ""])
         else:
             lines.extend(["| " + " | ".join(headers) + " |", "|" + "---|" * len(headers)])
-            lines.extend("| " + " | ".join(c.replace("|", "\\|").replace("\n", " ") for c in row) + " |" for row in rows)
+            lines.extend("| " + " | ".join(html.escape(c).replace("|", "\\|").replace("\n", " ") for c in row) + " |" for row in rows)
             lines.append("")
         body = "<table><thead><tr>" + "".join("<th>" + html.escape(c) + "</th>" for c in headers) + "</tr></thead><tbody>"
         body += "".join("<tr>" + "".join("<td data-label='" + html.escape(label, quote=True) + "'>" + html.escape(c) + "</td>"
@@ -324,7 +324,7 @@ def render_review(out, report):
             ", ".join(sorted(a["changed_groups"], key=int)), a["strict_difference_index"]) for a in report["entity_changes"]], folded=True)
     lines += ["## Boundaries and next step", "", report["boundary"], "",
               "Qualify the intended receiver/settings, inspect appearance and editable data, investigate every remaining difference, then retain an owner-reviewed receiving checklist. No context update is promoted by this report.", "",
-              "Files: review.json, strict-comparison.json, originals/before.dxf, originals/after.dxf and receipt.json.", ""]
+              "Files: [review data](review.json), [strict comparison](strict-comparison.json), [original drawing](originals/before.dxf), [returned drawing](originals/after.dxf) and [receipt](receipt.json).", ""]
     parts += ["<h2>Boundaries and next step</h2><p>" + html.escape(report["boundary"]) + "</p><p>" + html.escape(lines[-4]) + "</p>",
               "<p><a href='review.json'>Exact review data</a> · <a href='strict-comparison.json'>Full strict comparison</a> · <a href='originals/before.dxf'>Original drawing</a> · <a href='originals/after.dxf'>Returned drawing</a> · <a href='receipt.json'>File receipt</a></p>"]
     (out / "REPORT.md").write_text("\n".join(lines), encoding="utf-8", newline="\n")

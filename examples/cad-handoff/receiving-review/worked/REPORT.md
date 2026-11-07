@@ -30,13 +30,13 @@ Declared save metadata changed: True. These named exclusions are retained in the
 
 | Record | Before | Returned |
 |---|---|---|
-| Layout1 | {"block": "*Paper_Space", "entities": {}} | {"block": "*Paper_Space", "entities": {"VIEWPORT": 1}} |
+| Layout1 | {&quot;block&quot;: &quot;*Paper_Space&quot;, &quot;entities&quot;: {}} | {&quot;block&quot;: &quot;*Paper_Space&quot;, &quot;entities&quot;: {&quot;VIEWPORT&quot;: 1}} |
 
 ## Block definitions
 
 | Record | Before | Returned |
 |---|---|---|
-| *Paper_Space | {"base_point": [0.0, 0.0, 0.0], "flags": 0, "layer": "0", "name": "*Paper_Space", "xref_path": ""} | {"base_point": [0.0, 0.0, 0.0], "flags": 0, "layer": "0", "name": "*Paper_Space", "paperspace": 1, "xref_path": ""} |
+| *Paper_Space | {&quot;base_point&quot;: [0.0, 0.0, 0.0], &quot;flags&quot;: 0, &quot;layer&quot;: &quot;0&quot;, &quot;name&quot;: &quot;*Paper_Space&quot;, &quot;xref_path&quot;: &quot;&quot;} | {&quot;base_point&quot;: [0.0, 0.0, 0.0], &quot;flags&quot;: 0, &quot;layer&quot;: &quot;0&quot;, &quot;name&quot;: &quot;*Paper_Space&quot;, &quot;paperspace&quot;: 1, &quot;xref_path&quot;: &quot;&quot;} |
 
 ## Named layers, styles and tables
 
@@ -83,4 +83,4 @@ Diagnostic only; the original strict comparison and its exit status remain autho
 
 Qualify the intended receiver/settings, inspect appearance and editable data, investigate every remaining difference, then retain an owner-reviewed receiving checklist. No context update is promoted by this report.
 
-Files: review.json, strict-comparison.json, originals/before.dxf, originals/after.dxf and receipt.json.
+Files: [review data](review.json), [strict comparison](strict-comparison.json), [original drawing](originals/before.dxf), [returned drawing](originals/after.dxf) and [receipt](receipt.json).

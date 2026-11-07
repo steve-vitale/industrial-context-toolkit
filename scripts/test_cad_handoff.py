@@ -178,6 +178,8 @@ class ReceivingReview(unittest.TestCase):
         self.assertEqual(report["acceptance"], "not performed")
         self.assertNotIn("<script>", (out / "REPORT.html").read_text(encoding="utf-8"))
         self.assertIn("&lt;script&gt;", (out / "REPORT.html").read_text(encoding="utf-8"))
+        self.assertNotIn("<script>", (out / "REPORT.md").read_text(encoding="utf-8"))
+        self.assertIn("&lt;script&gt;", (out / "REPORT.md").read_text(encoding="utf-8"))
         self.assertEqual((out / "originals/before.dxf").read_bytes(), self.source.read_bytes())
 
     def test_xdata_loss_stays_in_the_strict_queue_even_without_a_drawing_field_change(self):
