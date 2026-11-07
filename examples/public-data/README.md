@@ -1,5 +1,11 @@
 # More public inputs for maintenance and engineering work
 
+The [fifth acquisition](round-5/README.md) adds **35 originals (197 MB)**: industrial yeast production batches,
+packaging-machine alarms, NIST native CAD/STEP/PMI references, manufacturing quality and power-plant data,
+equipment templates, process definitions, a pump photo and explicitly synthetic maintenance/tag records.
+All five passes total **218 files (620 MB) in 49 download groups**, plus four separate DXF originals.
+The guide identifies useful next tasks, licenses, actual inspection and categories that remain unfilled.
+
 The [fourth acquisition](round-4/README.md) supplies linked municipal maintenance records: 1,612 work orders,
 933 assets, 208 parts transactions, 263 transaction lines and 5,268 labor entries from NYC Parks AMPS. All four
 passes total **183 files (424 MB) in 40 download groups**, plus four separate DXF originals. The new guide checks

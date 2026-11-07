@@ -1,0 +1,207 @@
+{
+  "role": "acquired-unscored; no model call, training or CAD inspection",
+  "date": "2026-11-07",
+  "file_cap_bytes": 100000000,
+  "total_cap_bytes": 300000000,
+  "selection": "Complete small deposits; exact named source paths and complete pinned Parquet files. No row/outcome filtering. NIST archives bounded; no archive extraction or CAD opening. Preserve original train/test/labels; future evaluation requires a new exposure declaration.",
+  "files": {
+    "industrial-yeast": [
+      {
+        "path": "batch_metadata.csv",
+        "url": "https://ndownloader.figshare.com/files/69324427",
+        "bytes": 6600,
+        "md5": "dd5b28aef4d057a9f7cc9e9ef2f1bf8c"
+      },
+      {
+        "path": "evaluation_profiles.csv",
+        "url": "https://ndownloader.figshare.com/files/69324430",
+        "bytes": 265,
+        "md5": "71740fce7b36860a5f738ebdd431b494"
+      },
+      {
+        "path": "fermentation_timeseries.csv",
+        "url": "https://ndownloader.figshare.com/files/69324433",
+        "bytes": 50988,
+        "md5": "7bedf28605748a593da1e5cd54d2defc"
+      },
+      {
+        "path": "README.md",
+        "url": "https://ndownloader.figshare.com/files/69396969",
+        "bytes": 10309,
+        "md5": "96317df84a77ceecb953e621b6eb8991"
+      },
+      {
+        "path": "summary_stats.json",
+        "url": "https://ndownloader.figshare.com/files/69397038",
+        "bytes": 5400,
+        "md5": "8bc885f2269078065bf473c4db218a7f"
+      }
+    ],
+    "alpi-packaging": [
+      {
+        "path": "alarms_log_data.zip",
+        "url": "https://researchdata.cab.unipd.it/1031/3/alarms_log_data.zip",
+        "format": "zip"
+      },
+      {
+        "path": "readme.md",
+        "url": "https://researchdata.cab.unipd.it/1031/2/readme.md"
+      },
+      {
+        "path": "dataset.py",
+        "url": "https://researchdata.cab.unipd.it/1031/1/dataset.py"
+      }
+    ],
+    "synthetic-maint-sensor": [
+      {
+        "path": "README.md",
+        "url": "https://huggingface.co/datasets/Jvachier/industrial-maintenance-synthetic/resolve/d19fef76d9969f162d8633360187920137baeb2b/README.md",
+        "bytes": 4860
+      },
+      {
+        "path": "maintenance.parquet",
+        "url": "https://huggingface.co/datasets/Jvachier/industrial-maintenance-synthetic/resolve/d19fef76d9969f162d8633360187920137baeb2b/maintenance.parquet",
+        "bytes": 72296084,
+        "sha256": "54db4c8b4037ace0de70baf0cf7cfaad6f97b4efbaefd16715a49597a9f94f97"
+      },
+      {
+        "path": "sensor_tags.parquet",
+        "url": "https://huggingface.co/datasets/Jvachier/industrial-maintenance-synthetic/resolve/d19fef76d9969f162d8633360187920137baeb2b/sensor_tags.parquet",
+        "bytes": 21352662,
+        "sha256": "5a79c6dad0aaa0d6778b4eec67f9f9dde7885bac6c72bf8ec6436baaa460f12e"
+      }
+    ],
+    "uci-steel-faults": [
+      {
+        "path": "data.csv",
+        "url": "https://archive.ics.uci.edu/static/public/198/data.csv"
+      },
+      {
+        "path": "original.zip",
+        "url": "https://archive.ics.uci.edu/static/public/198/steel+plates+faults.zip",
+        "format": "zip"
+      }
+    ],
+    "uci-ccpp": [
+      {
+        "path": "data.csv",
+        "url": "https://archive.ics.uci.edu/static/public/294/data.csv"
+      },
+      {
+        "path": "original.zip",
+        "url": "https://archive.ics.uci.edu/static/public/294/combined+cycle+power+plant.zip",
+        "format": "zip"
+      }
+    ],
+    "idta-digital-nameplate": [
+      {
+        "path": "LICENSE.txt",
+        "url": "https://raw.githubusercontent.com/admin-shell-io/submodel-templates/5285185b1ef9425fe45068bcbda8faaf74f3eb89/LICENSE.txt",
+        "bytes": 18650
+      },
+      {
+        "path": "published/Digital nameplate/3/0/README.md",
+        "url": "https://raw.githubusercontent.com/admin-shell-io/submodel-templates/5285185b1ef9425fe45068bcbda8faaf74f3eb89/published/Digital%20nameplate/3/0/README.md",
+        "bytes": 2295
+      },
+      {
+        "path": "published/Digital nameplate/3/0/IDTA 02006-3-0_Template_Digital Nameplate.json",
+        "url": "https://raw.githubusercontent.com/admin-shell-io/submodel-templates/5285185b1ef9425fe45068bcbda8faaf74f3eb89/published/Digital%20nameplate/3/0/IDTA%2002006-3-0_Template_Digital%20Nameplate.json",
+        "bytes": 84780
+      },
+      {
+        "path": "published/Digital nameplate/3/0/3/README.md",
+        "url": "https://raw.githubusercontent.com/admin-shell-io/submodel-templates/5285185b1ef9425fe45068bcbda8faaf74f3eb89/published/Digital%20nameplate/3/0/3/README.md",
+        "bytes": 845
+      },
+      {
+        "path": "published/Digital nameplate/3/0/3/IDTA 02006-3-0-3_Template_Digital Nameplate.json",
+        "url": "https://raw.githubusercontent.com/admin-shell-io/submodel-templates/5285185b1ef9425fe45068bcbda8faaf74f3eb89/published/Digital%20nameplate/3/0/3/IDTA%2002006-3-0-3_Template_Digital%20Nameplate.json",
+        "bytes": 83244
+      },
+      {
+        "path": "published/Digital nameplate/3/0/3/IDTA 02006-3-0-3_Template_Digital Nameplate.aasx",
+        "url": "https://raw.githubusercontent.com/admin-shell-io/submodel-templates/5285185b1ef9425fe45068bcbda8faaf74f3eb89/published/Digital%20nameplate/3/0/3/IDTA%2002006-3-0-3_Template_Digital%20Nameplate.aasx",
+        "bytes": 108810
+      },
+      {
+        "path": "published/Digital nameplate/3/0/3/IDTA 02006-3-0-3_Template_Digital Nameplate_forAASMetamodelV3.1.aasx",
+        "url": "https://raw.githubusercontent.com/admin-shell-io/submodel-templates/5285185b1ef9425fe45068bcbda8faaf74f3eb89/published/Digital%20nameplate/3/0/3/IDTA%2002006-3-0-3_Template_Digital%20Nameplate_forAASMetamodelV3.1.aasx",
+        "bytes": 108811
+      }
+    ],
+    "biosteam-sugarcane": [
+      {
+        "path": "LICENSE.txt",
+        "url": "https://raw.githubusercontent.com/BioSTEAMDevelopmentGroup/Bioindustrial-Park/c1e3393d347046aec23386cef368267200e20ac8/LICENSE.txt",
+        "bytes": 1100
+      },
+      {
+        "path": "biorefineries/sugarcane/README.rst",
+        "url": "https://raw.githubusercontent.com/BioSTEAMDevelopmentGroup/Bioindustrial-Park/c1e3393d347046aec23386cef368267200e20ac8/biorefineries/sugarcane/README.rst",
+        "bytes": 3186
+      },
+      {
+        "path": "biorefineries/cane/systems/sugar.py",
+        "url": "https://raw.githubusercontent.com/BioSTEAMDevelopmentGroup/Bioindustrial-Park/c1e3393d347046aec23386cef368267200e20ac8/biorefineries/cane/systems/sugar.py",
+        "bytes": 5710
+      },
+      {
+        "path": "biorefineries/cane/systems/sugarcane/__init__.py",
+        "url": "https://raw.githubusercontent.com/BioSTEAMDevelopmentGroup/Bioindustrial-Park/c1e3393d347046aec23386cef368267200e20ac8/biorefineries/cane/systems/sugarcane/__init__.py",
+        "bytes": 693
+      },
+      {
+        "path": "biorefineries/cane/systems/sugarcane/ethanol.py",
+        "url": "https://raw.githubusercontent.com/BioSTEAMDevelopmentGroup/Bioindustrial-Park/c1e3393d347046aec23386cef368267200e20ac8/biorefineries/cane/systems/sugarcane/ethanol.py",
+        "bytes": 4531
+      },
+      {
+        "path": "biorefineries/cane/systems/sugarcane/sugar_ethanol.py",
+        "url": "https://raw.githubusercontent.com/BioSTEAMDevelopmentGroup/Bioindustrial-Park/c1e3393d347046aec23386cef368267200e20ac8/biorefineries/cane/systems/sugarcane/sugar_ethanol.py",
+        "bytes": 4348
+      },
+      {
+        "path": "biorefineries/cane/systems/sugarcane/cellulosic_ethanol.py",
+        "url": "https://raw.githubusercontent.com/BioSTEAMDevelopmentGroup/Bioindustrial-Park/c1e3393d347046aec23386cef368267200e20ac8/biorefineries/cane/systems/sugarcane/cellulosic_ethanol.py",
+        "bytes": 2563
+      }
+    ],
+    "commons-ksb-pump": [
+      {
+        "path": "20260426_Grube_Goettelborn_08.jpg",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/2/2a/20260426_Grube_G%C3%B6ttelborn_08.jpg",
+        "bytes": 9426644,
+        "sha1": "1078bc158a953e22c68e12435deafe1736b159cc"
+      }
+    ],
+    "nist-pmi-cases": [
+      {
+        "path": "CTC-01.pdf",
+        "url": "https://www.nist.gov/document/nist-cad-model-ctc-01",
+        "format": "pdf",
+        "cached_original": "data/external/public-discovery-5/nist-ctc1.html"
+      },
+      {
+        "path": "CTC-02.pdf",
+        "url": "https://www.nist.gov/document/nist-cad-model-ctc-02",
+        "format": "pdf"
+      },
+      {
+        "path": "ctc-definitions.zip",
+        "url": "https://www.nist.gov/document/nist-ctc-test-case-definitions",
+        "format": "zip"
+      },
+      {
+        "path": "step-files.zip",
+        "url": "https://www.nist.gov/document/nist-pmi-step-files",
+        "format": "zip"
+      },
+      {
+        "path": "native-models.zip",
+        "url": "https://www.nist.gov/document/nist-ftc-ctc-pmi-cad-models",
+        "format": "zip"
+      }
+    ]
+  }
+}

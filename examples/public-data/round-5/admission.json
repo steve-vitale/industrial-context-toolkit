@@ -1,0 +1,1923 @@
+{
+  "schema": "public-source-admission-5",
+  "created": "2026-11-07T18:41:22.109958+00:00",
+  "role": "acquired-unscored; integrity and structural admission only",
+  "python": "3.14.2",
+  "fingerprint_convention": "methods/registry CRLF normalized to LF; originals raw bytes",
+  "methods": {
+    "examples/public-data/round-5/reproduce.py": "18ab32d75344f0ca4cc9a124164a04e8d61a76979dae8c06842b374bc9251f0c",
+    "examples/public-data/round-2/reproduce.py": "f9f4de9d4b326ec20f6d3042368921378aef3ad8ca17d57a882bd4580f950e1e",
+    "examples/public-data/reproduce.py": "260c3f99f076e480bd0ffef6c882866798efa304c9d363badaba412b7ad512d2",
+    "scripts/extract_text.py": "5c886220c3492729f8cf2e5d8ba7ec9788d29047620155ccedad3f84b37c0fb3",
+    "scripts/fetch_corpus.py": "fb9f6480a2209054e30dfe56e69179570c1da6f766dc01fd04319077ae9e1e0b",
+    "data/public_sources_20261107_round5.json": "07b380fde930476b952935b90cd367245c04432ac0e8226fe3b1b4acb0740292"
+  },
+  "fetch_receipts": [],
+  "sources": {
+    "industrial-yeast": {
+      "categories": [
+        "batch",
+        "historian",
+        "quality",
+        "maintenance-context"
+      ],
+      "files": [
+        {
+          "path": "batch_metadata.csv",
+          "bytes": 6600,
+          "sha256": "85eae02c4f14390d2357d2478f064b9e870f466c4064759ffa25080f74f558f0",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib csv",
+            "data_rows": 59,
+            "columns": [
+              "batch_id",
+              "lot_no",
+              "strain_id",
+              "seed_lot_no",
+              "seed_volume_m3",
+              "seed_y30_kg",
+              "yield_y30_kg",
+              "n_records",
+              "time_start_h",
+              "time_end_h",
+              "data_completeness",
+              "has_process_variables",
+              "notes"
+            ],
+            "row_widths": {
+              "13": 59
+            }
+          }
+        },
+        {
+          "path": "evaluation_profiles.csv",
+          "bytes": 265,
+          "sha256": "331d9c7175390981c95fb12bea2975ae35b372bf2a85a6f902deefb3de46c757",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib csv",
+            "data_rows": 18,
+            "columns": [
+              "time_h",
+              "alcohol_profile_vv_pct",
+              "growth_modulus_profile"
+            ],
+            "row_widths": {
+              "3": 18
+            }
+          }
+        },
+        {
+          "path": "fermentation_timeseries.csv",
+          "bytes": 50988,
+          "sha256": "dcef289e927f61d774bebe1f28c5370b69314ac512703672ddcd687f14b9d421",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib csv",
+            "data_rows": 1090,
+            "columns": [
+              "batch_id",
+              "lot_no",
+              "time_h",
+              "airflow_m3_h",
+              "volume_m3",
+              "ph",
+              "alcohol_vv_pct",
+              "cell_concentration_gpl",
+              "biomass_y30_kg",
+              "growth_modulus",
+              "sugar_feed_rate_kg_rs_h",
+              "total_fermentable_sugar_kg",
+              "remark",
+              "delta_alcohol",
+              "delta_growth_modulus",
+              "auto_growth_modulus"
+            ],
+            "row_widths": {
+              "16": 1090
+            }
+          }
+        },
+        {
+          "path": "README.md",
+          "bytes": 10309,
+          "sha256": "94ae0e73e8d5c0770a46d6a05d8a61d6c92769c4ec1450101acc7374cfda07df",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "summary_stats.json",
+          "bytes": 5400,
+          "sha256": "e742b08abedc3d82a7365839f8bfd2428abf8b696b45761c67f98e0ce7d47dcd",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib json",
+            "root_type": "dict",
+            "root_items": 22
+          }
+        }
+      ]
+    },
+    "alpi-packaging": {
+      "categories": [
+        "alarm-events",
+        "historian",
+        "maintenance"
+      ],
+      "files": [
+        {
+          "path": "alarms_log_data.zip",
+          "bytes": 8517314,
+          "sha256": "ecc199cbd5ed461b654b92d546b354954d815afc072d1c59e3dfddf9b1a3f95d",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib zip directory only",
+            "extracted": false,
+            "members": [
+              {
+                "name": "alarms_log_data/",
+                "bytes": 0,
+                "compressed_bytes": 0,
+                "crc32": "00000000"
+              },
+              {
+                "name": "alarms_log_data/processed/",
+                "bytes": 0,
+                "compressed_bytes": 0,
+                "crc32": "00000000"
+              },
+              {
+                "name": "alarms_log_data/processed/all_alarms.json",
+                "bytes": 124409451,
+                "compressed_bytes": 2716062,
+                "crc32": "96ed63b2"
+              },
+              {
+                "name": "alarms_log_data/processed/all_alarms.npz",
+                "bytes": 2335663,
+                "compressed_bytes": 2214430,
+                "crc32": "b49d83f7"
+              },
+              {
+                "name": "alarms_log_data/processed/all_alarms.pickle",
+                "bytes": 23493981,
+                "compressed_bytes": 1288530,
+                "crc32": "21ac4298"
+              },
+              {
+                "name": "alarms_log_data/raw/",
+                "bytes": 0,
+                "compressed_bytes": 0,
+                "crc32": "00000000"
+              },
+              {
+                "name": "alarms_log_data/raw/alarms.csv",
+                "bytes": 13180280,
+                "compressed_bytes": 2297054,
+                "crc32": "a2381be2"
+              }
+            ],
+            "uncompressed_bytes": 163419375
+          }
+        },
+        {
+          "path": "readme.md",
+          "bytes": 9696,
+          "sha256": "1cec86dc414a0ad8b040539f1ed774211257eab5558812dc195621b3937fce93",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "dataset.py",
+          "bytes": 29156,
+          "sha256": "1aa4f8a2db091856d8face23729537d7b1b5b058d8e4efc4d2d013a67b3ba7df",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        }
+      ]
+    },
+    "synthetic-maint-sensor": {
+      "categories": [
+        "maintenance",
+        "equipment-records",
+        "context",
+        "historian-mapping"
+      ],
+      "files": [
+        {
+          "path": "README.md",
+          "bytes": 4860,
+          "sha256": "a40511fcc1847177e66d838ffe8f050ddf19634da0f0abc6e69239f42e15a8e4",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "maintenance.parquet",
+          "bytes": 72296084,
+          "sha256": "54db4c8b4037ace0de70baf0cf7cfaad6f97b4efbaefd16715a49597a9f94f97",
+          "integrity": "match",
+          "inspection": {
+            "parser": "Parquet framing only",
+            "footer_bytes": 13339,
+            "rows_and_schema": "not inspected; optional Parquet reader not installed"
+          }
+        },
+        {
+          "path": "sensor_tags.parquet",
+          "bytes": 21352662,
+          "sha256": "5a79c6dad0aaa0d6778b4eec67f9f9dde7885bac6c72bf8ec6436baaa460f12e",
+          "integrity": "match",
+          "inspection": {
+            "parser": "Parquet framing only",
+            "footer_bytes": 5968,
+            "rows_and_schema": "not inspected; optional Parquet reader not installed"
+          }
+        }
+      ]
+    },
+    "uci-steel-faults": {
+      "categories": [
+        "quality",
+        "manufacturing",
+        "condition-monitoring"
+      ],
+      "files": [
+        {
+          "path": "data.csv",
+          "bytes": 299947,
+          "sha256": "883ed09b2a46fcde7144dd173092c645aacb45499dea703d00228d3ddc3c60de",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib csv",
+            "data_rows": 1941,
+            "columns": [
+              "X_Minimum",
+              "X_Maximum",
+              "Y_Minimum",
+              "Y_Maximum",
+              "Pixels_Areas",
+              "X_Perimeter",
+              "Y_Perimeter",
+              "Sum_of_Luminosity",
+              "Minimum_of_Luminosity",
+              "Maximum_of_Luminosity",
+              "Length_of_Conveyer",
+              "TypeOfSteel_A300",
+              "TypeOfSteel_A400",
+              "Steel_Plate_Thickness",
+              "Edges_Index",
+              "Empty_Index",
+              "Square_Index",
+              "Outside_X_Index",
+              "Edges_X_Index",
+              "Edges_Y_Index",
+              "Outside_Global_Index",
+              "LogOfAreas",
+              "Log_X_Index",
+              "Log_Y_Index",
+              "Orientation_Index",
+              "Luminosity_Index",
+              "SigmoidOfAreas",
+              "Pastry",
+              "Z_Scratch",
+              "K_Scratch",
+              "Stains",
+              "Dirtiness",
+              "Bumps",
+              "Other_Faults"
+            ],
+            "row_widths": {
+              "34": 1941
+            }
+          }
+        },
+        {
+          "path": "original.zip",
+          "bytes": 100890,
+          "sha256": "cb8eb9859198b63f053e443513036b401746fa517ef58bd17c846c6741c93919",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib zip directory only",
+            "extracted": false,
+            "members": [
+              {
+                "name": "Faults.NNA",
+                "bytes": 299482,
+                "compressed_bytes": 100392,
+                "crc32": "7ddc2f4c"
+              },
+              {
+                "name": "Faults27x7_var",
+                "bytes": 497,
+                "compressed_bytes": 244,
+                "crc32": "70e3bcbc"
+              }
+            ],
+            "uncompressed_bytes": 299979
+          }
+        }
+      ]
+    },
+    "uci-ccpp": {
+      "categories": [
+        "historian",
+        "energy",
+        "process-measurements"
+      ],
+      "files": [
+        {
+          "path": "data.csv",
+          "bytes": 308694,
+          "sha256": "3c1fc11025f8424f8d95802d8b7086dffd3f73a552c6dcab3d973620986194b2",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib csv",
+            "data_rows": 9568,
+            "columns": [
+              "AT",
+              "V",
+              "AP",
+              "RH",
+              "PE"
+            ],
+            "row_widths": {
+              "5": 9568
+            }
+          }
+        },
+        {
+          "path": "original.zip",
+          "bytes": 3674852,
+          "sha256": "cc7b2a4977c0a44e8221c91d9a7e5746b3c68186cff7e5c61c70af6432b98c7a",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib zip directory only",
+            "extracted": false,
+            "members": [
+              {
+                "name": "CCPP/",
+                "bytes": 0,
+                "compressed_bytes": 0,
+                "crc32": "00000000"
+              },
+              {
+                "name": "CCPP/Folds5x2_pp.ods",
+                "bytes": 1723202,
+                "compressed_bytes": 1661775,
+                "crc32": "6f9e0f7b"
+              },
+              {
+                "name": "CCPP/Folds5x2_pp.xlsx",
+                "bytes": 2029440,
+                "compressed_bytes": 2010620,
+                "crc32": "58f310db"
+              },
+              {
+                "name": "CCPP/Readme.txt",
+                "bytes": 1793,
+                "compressed_bytes": 962,
+                "crc32": "14dd4c10"
+              },
+              {
+                "name": "CCPP/Readme.txt~",
+                "bytes": 1738,
+                "compressed_bytes": 939,
+                "crc32": "1441ba17"
+              }
+            ],
+            "uncompressed_bytes": 3756173
+          }
+        }
+      ]
+    },
+    "idta-digital-nameplate": {
+      "categories": [
+        "equipment-records",
+        "context",
+        "technical-documents",
+        "exchange-model"
+      ],
+      "files": [
+        {
+          "path": "LICENSE.txt",
+          "bytes": 18650,
+          "sha256": "7e7170e3cebf88a9f60c7b8421418323c09304da1af4d5e90f4da1dc1c8a2661",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "published/Digital nameplate/3/0/README.md",
+          "bytes": 2295,
+          "sha256": "c29738053ca981c9b3d5e41053120cb3083f415200fa67f723ec7d12b8c7d70b",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "published/Digital nameplate/3/0/IDTA 02006-3-0_Template_Digital Nameplate.json",
+          "bytes": 84780,
+          "sha256": "3ef1ba9dbe711794037501ae364a0124e79eba7aa0a3b18276cb650d8644c576",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib json",
+            "root_type": "dict",
+            "root_items": 3
+          }
+        },
+        {
+          "path": "published/Digital nameplate/3/0/3/README.md",
+          "bytes": 845,
+          "sha256": "1edc31fb1ad3a8f4ee4efb4c35b82ed9d1ed7a1b78e639e9527183475b57734f",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "published/Digital nameplate/3/0/3/IDTA 02006-3-0-3_Template_Digital Nameplate.json",
+          "bytes": 83244,
+          "sha256": "79dd7e957964411925e5a3119def8c08fed775b6d942133c664b77304e50a217",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib json",
+            "root_type": "dict",
+            "root_items": 3
+          }
+        },
+        {
+          "path": "published/Digital nameplate/3/0/3/IDTA 02006-3-0-3_Template_Digital Nameplate.aasx",
+          "bytes": 108810,
+          "sha256": "3815901aa7a66db2eee07574d9df803771a2f08d441c06de22f71ddef99e6079",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib AASX ZIP directory only",
+            "extracted": false,
+            "members": [
+              {
+                "name": "aasx/aasx-origin",
+                "bytes": 19
+              },
+              {
+                "name": "aasx/DigitalNameplateAAS/DigitalNameplateAAS.aas.xml",
+                "bytes": 101277
+              },
+              {
+                "name": "_rels/.rels",
+                "bytes": 267
+              },
+              {
+                "name": "aasx/_rels/aasx-origin.rels",
+                "bytes": 300
+              },
+              {
+                "name": "aasx/files/idta-smt-badge.png",
+                "bytes": 44324
+              },
+              {
+                "name": "aasx/files/example_markings.png",
+                "bytes": 70307
+              },
+              {
+                "name": "aasx/DigitalNameplateAAS/_rels/DigitalNameplateAAS.aas.xml.rels",
+                "bytes": 417
+              },
+              {
+                "name": "[Content_Types].xml",
+                "bytes": 391
+              }
+            ],
+            "semantic_or_schema_conformance": "not assessed"
+          }
+        },
+        {
+          "path": "published/Digital nameplate/3/0/3/IDTA 02006-3-0-3_Template_Digital Nameplate_forAASMetamodelV3.1.aasx",
+          "bytes": 108811,
+          "sha256": "a2be0a6a111768b9c55bca8fde574a4ee22514a02bb84ad8a9729ea12d40f2a1",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib AASX ZIP directory only",
+            "extracted": false,
+            "members": [
+              {
+                "name": "aasx/aasx-origin",
+                "bytes": 19
+              },
+              {
+                "name": "aasx/DigitalNameplateAAS/DigitalNameplateAAS.aas.xml",
+                "bytes": 101277
+              },
+              {
+                "name": "_rels/.rels",
+                "bytes": 267
+              },
+              {
+                "name": "aasx/_rels/aasx-origin.rels",
+                "bytes": 300
+              },
+              {
+                "name": "aasx/files/idta-smt-badge.png",
+                "bytes": 44324
+              },
+              {
+                "name": "aasx/files/example_markings.png",
+                "bytes": 70307
+              },
+              {
+                "name": "aasx/DigitalNameplateAAS/_rels/DigitalNameplateAAS.aas.xml.rels",
+                "bytes": 417
+              },
+              {
+                "name": "[Content_Types].xml",
+                "bytes": 391
+              }
+            ],
+            "semantic_or_schema_conformance": "not assessed"
+          }
+        }
+      ]
+    },
+    "biosteam-sugarcane": {
+      "categories": [
+        "process-model",
+        "flowsheets",
+        "batch",
+        "context"
+      ],
+      "files": [
+        {
+          "path": "LICENSE.txt",
+          "bytes": 1100,
+          "sha256": "1cd90147c1a59779a82f8881b98b3e18e093293096d782b7232c007b772e4c66",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "biorefineries/sugarcane/README.rst",
+          "bytes": 3186,
+          "sha256": "310394678ce9979fd35a1f3b2115bee6a562f7561285282a6e36e76bf673da6a",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "biorefineries/cane/systems/sugar.py",
+          "bytes": 5710,
+          "sha256": "d5a72383f1e4930fdba884c1cd22e2adbf834c5d9b6bacf6b99d4022b328e332",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "biorefineries/cane/systems/sugarcane/__init__.py",
+          "bytes": 693,
+          "sha256": "d5900166b17d55f753e2f72935ff97b512b90725c8db6db8e867c1524a3fc751",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "biorefineries/cane/systems/sugarcane/ethanol.py",
+          "bytes": 4531,
+          "sha256": "743483b7197ada60c06da218b4ee8d33b08c41e3cd4713415943f45132ffbf0d",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "biorefineries/cane/systems/sugarcane/sugar_ethanol.py",
+          "bytes": 4348,
+          "sha256": "49e5227da6c9fe93cd8f07e982a8e77a371dea9999edcaaf5a5acaf031663eee",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "biorefineries/cane/systems/sugarcane/cellulosic_ethanol.py",
+          "bytes": 2563,
+          "sha256": "e916a0b70aa3c33bfdf2b3f5ee29378714d4eecc3b5f1c34e1af90a21f759676",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        }
+      ]
+    },
+    "commons-ksb-pump": {
+      "categories": [
+        "photo",
+        "equipment-records"
+      ],
+      "files": [
+        {
+          "path": "20260426_Grube_Goettelborn_08.jpg",
+          "bytes": 9426644,
+          "sha256": "a91ef8d913d25a094647699f0bf8e8c9e34cd37e771ee3e7ee350532ea9083d2",
+          "integrity": "match",
+          "inspection": {
+            "parser": "scripts/extract_text.py",
+            "status": "unsupported",
+            "engine": "stdlib",
+            "engine_version": "",
+            "segments": 0,
+            "characters": 0,
+            "warnings": [
+              "no text reader for '.jpg' files; supported: .pdf .docx .docm .xlsx .xlsm .pptx .pptm .html .htm .txt .md .csv"
+            ],
+            "interpretation_accuracy": "not assessed"
+          }
+        }
+      ]
+    },
+    "nist-pmi-cases": {
+      "categories": [
+        "cad",
+        "drawings",
+        "technical-documents",
+        "manufacturing"
+      ],
+      "files": [
+        {
+          "path": "CTC-01.pdf",
+          "bytes": 55077,
+          "sha256": "5f71e173eff4381afb5dc79d9ff44d213f436a59519bd2142746f378f7d70e93",
+          "integrity": "match",
+          "inspection": {
+            "parser": "scripts/extract_text.py",
+            "status": "ok",
+            "engine": "pypdf",
+            "engine_version": "6.14.2",
+            "segments": 1,
+            "characters": 154,
+            "warnings": [],
+            "interpretation_accuracy": "not assessed"
+          }
+        },
+        {
+          "path": "CTC-02.pdf",
+          "bytes": 210564,
+          "sha256": "e9aabbf22d9f05b6d3ee40288b10ff99837af203033afbd80a3bcc5754159672",
+          "integrity": "match",
+          "inspection": {
+            "parser": "scripts/extract_text.py",
+            "status": "ok",
+            "engine": "pypdf",
+            "engine_version": "6.14.2",
+            "segments": 3,
+            "characters": 1880,
+            "warnings": [],
+            "interpretation_accuracy": "not assessed"
+          }
+        },
+        {
+          "path": "ctc-definitions.zip",
+          "bytes": 5464750,
+          "sha256": "79ebc74d99eb05c0d23de1c1d8730651fa2a24def56f647bac21dd439ec40690",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib zip directory only",
+            "extracted": false,
+            "members": [
+              {
+                "name": "NIST_MBE_PMI_CTC_Definitions/",
+                "bytes": 0,
+                "compressed_bytes": 0,
+                "crc32": "00000000"
+              },
+              {
+                "name": "NIST_MBE_PMI_CTC_Definitions/NIST-CTC-PMI-Definitions.xlsx",
+                "bytes": 27275,
+                "compressed_bytes": 24058,
+                "crc32": "8e5dc48f"
+              },
+              {
+                "name": "NIST_MBE_PMI_CTC_Definitions/nist_atc_all_asme1.pdf",
+                "bytes": 2218707,
+                "compressed_bytes": 2193659,
+                "crc32": "cc4a56b5"
+              },
+              {
+                "name": "NIST_MBE_PMI_CTC_Definitions/nist_ctc_01_asme1_rd.pdf",
+                "bytes": 114242,
+                "compressed_bytes": 100002,
+                "crc32": "02ae1ed4"
+              },
+              {
+                "name": "NIST_MBE_PMI_CTC_Definitions/nist_ctc_01_asme1_rd.stp",
+                "bytes": 235156,
+                "compressed_bytes": 34461,
+                "crc32": "9e67edd0"
+              },
+              {
+                "name": "NIST_MBE_PMI_CTC_Definitions/nist_ctc_01_asme1_rd_elem_ids.pdf",
+                "bytes": 212009,
+                "compressed_bytes": 178008,
+                "crc32": "8f3e7c39"
+              },
+              {
+                "name": "NIST_MBE_PMI_CTC_Definitions/nist_ctc_02_asme1_rc.pdf",
+                "bytes": 427564,
+                "compressed_bytes": 409000,
+                "crc32": "5e98c534"
+              },
+              {
+                "name": "NIST_MBE_PMI_CTC_Definitions/nist_ctc_02_asme1_rc.stp",
+                "bytes": 1154618,
+                "compressed_bytes": 200942,
+                "crc32": "ef3351d4"
+              },
+              {
+                "name": "NIST_MBE_PMI_CTC_Definitions/nist_ctc_02_asme1_rc_elem_ids.pdf",
+                "bytes": 834639,
+                "compressed_bytes": 748424,
+                "crc32": "b60e0769"
+              },
+              {
+                "name": "NIST_MBE_PMI_CTC_Definitions/nist_ctc_03_asme1_rc.pdf",
+                "bytes": 193183,
+                "compressed_bytes": 179064,
+                "crc32": "21039beb"
+              },
+              {
+                "name": "NIST_MBE_PMI_CTC_Definitions/nist_ctc_03_asme1_rc.stp",
+                "bytes": 252113,
+                "compressed_bytes": 36385,
+                "crc32": "c73507d7"
+              },
+              {
+                "name": "NIST_MBE_PMI_CTC_Definitions/nist_ctc_03_asme1_rc_elem_ids.pdf",
+                "bytes": 288423,
+                "compressed_bytes": 242729,
+                "crc32": "6ffed6d6"
+              },
+              {
+                "name": "NIST_MBE_PMI_CTC_Definitions/nist_ctc_04_asme1_rd.pdf",
+                "bytes": 124181,
+                "compressed_bytes": 110094,
+                "crc32": "9c17e18a"
+              },
+              {
+                "name": "NIST_MBE_PMI_CTC_Definitions/nist_ctc_04_asme1_rd.stp",
+                "bytes": 793056,
+                "compressed_bytes": 111504,
+                "crc32": "4d565bb8"
+              },
+              {
+                "name": "NIST_MBE_PMI_CTC_Definitions/nist_ctc_04_asme1_rd_elem_ids.pdf",
+                "bytes": 300399,
+                "compressed_bytes": 264791,
+                "crc32": "8190c3a7"
+              },
+              {
+                "name": "NIST_MBE_PMI_CTC_Definitions/nist_ctc_05_asme1_rd.pdf",
+                "bytes": 180750,
+                "compressed_bytes": 165184,
+                "crc32": "9fd2e5c8"
+              },
+              {
+                "name": "NIST_MBE_PMI_CTC_Definitions/nist_ctc_05_asme1_rd.stp",
+                "bytes": 326835,
+                "compressed_bytes": 58392,
+                "crc32": "d46fe1fb"
+              },
+              {
+                "name": "NIST_MBE_PMI_CTC_Definitions/nist_ctc_05_asme1_rd_elem_ids.pdf",
+                "bytes": 377621,
+                "compressed_bytes": 324827,
+                "crc32": "3b48ff6a"
+              },
+              {
+                "name": "NIST_MBE_PMI_CTC_Definitions/nist_ctc_suppl_elem_visibility.pdf",
+                "bytes": 82824,
+                "compressed_bytes": 77739,
+                "crc32": "aefb5571"
+              },
+              {
+                "name": "NIST_MBE_PMI_CTC_Definitions/README.txt",
+                "bytes": 2447,
+                "compressed_bytes": 1065,
+                "crc32": "8a06984a"
+              }
+            ],
+            "uncompressed_bytes": 8146042
+          }
+        },
+        {
+          "path": "step-files.zip",
+          "bytes": 13976599,
+          "sha256": "8fa78429e6d8d9b0d7681d223b6aa9ec98c3772185c55b1a0e3679b21c181911",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib zip directory only",
+            "extracted": false,
+            "members": [
+              {
+                "name": "NIST-PMI-STEP-Files/",
+                "bytes": 0,
+                "compressed_bytes": 0,
+                "crc32": "00000000"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/AP203 geometry only/",
+                "bytes": 0,
+                "compressed_bytes": 0,
+                "crc32": "00000000"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/AP203 geometry only/nist_ctc_01_asme1_rd.stp",
+                "bytes": 235171,
+                "compressed_bytes": 34450,
+                "crc32": "f2669422"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/AP203 geometry only/nist_ctc_02_asme1_rc.stp",
+                "bytes": 1154600,
+                "compressed_bytes": 200917,
+                "crc32": "1c86dd3a"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/AP203 geometry only/nist_ctc_03_asme1_rc.stp",
+                "bytes": 252128,
+                "compressed_bytes": 36379,
+                "crc32": "b75f43f2"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/AP203 geometry only/nist_ctc_04_asme1_rd.stp",
+                "bytes": 793048,
+                "compressed_bytes": 111602,
+                "crc32": "4a140bf7"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/AP203 geometry only/nist_ctc_05_asme1_rd.stp",
+                "bytes": 326817,
+                "compressed_bytes": 58368,
+                "crc32": "605a41e9"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/AP203 geometry only/nist_ftc_06_asme1_rd.stp",
+                "bytes": 222799,
+                "compressed_bytes": 32118,
+                "crc32": "c15c2714"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/AP203 geometry only/nist_ftc_07_asme1_rd.stp",
+                "bytes": 402531,
+                "compressed_bytes": 68062,
+                "crc32": "173fafec"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/AP203 geometry only/nist_ftc_08_asme1_rc.stp",
+                "bytes": 450741,
+                "compressed_bytes": 58198,
+                "crc32": "318e2811"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/AP203 geometry only/nist_ftc_09_asme1_rd.stp",
+                "bytes": 263916,
+                "compressed_bytes": 42792,
+                "crc32": "391b9517"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/AP203 geometry only/nist_ftc_10_asme1_rb.stp",
+                "bytes": 323601,
+                "compressed_bytes": 52958,
+                "crc32": "a38358d8"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/AP203 geometry only/nist_ftc_11_asme1_rb.stp",
+                "bytes": 7634,
+                "compressed_bytes": 2179,
+                "crc32": "551f6e33"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/AP203 with PMI/",
+                "bytes": 0,
+                "compressed_bytes": 0,
+                "crc32": "00000000"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/AP203 with PMI/nist_ctc_01_asme1_ap203.stp",
+                "bytes": 1190836,
+                "compressed_bytes": 230799,
+                "crc32": "90cf7664"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/AP203 with PMI/nist_ctc_02_asme1_ap203.stp",
+                "bytes": 3361535,
+                "compressed_bytes": 648437,
+                "crc32": "f46d1b5e"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/AP203 with PMI/nist_ctc_03_asme1_ap203.stp",
+                "bytes": 2020297,
+                "compressed_bytes": 374534,
+                "crc32": "3e703ac6"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/AP203 with PMI/nist_ctc_04_asme1_ap203.stp",
+                "bytes": 1388915,
+                "compressed_bytes": 235254,
+                "crc32": "ff3a4a64"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/AP203 with PMI/nist_ctc_05_asme1_ap203.stp",
+                "bytes": 1069563,
+                "compressed_bytes": 192776,
+                "crc32": "0ed922fa"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/nist_ctc_01_asme1_ap242-e1.stp",
+                "bytes": 396445,
+                "compressed_bytes": 77137,
+                "crc32": "3daeb641"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/nist_ctc_02_asme1_ap242-e2.stp",
+                "bytes": 1981342,
+                "compressed_bytes": 370301,
+                "crc32": "679cf677"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/nist_ctc_03_asme1_ap242-e2.stp",
+                "bytes": 673846,
+                "compressed_bytes": 124592,
+                "crc32": "23e738cb"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/nist_ctc_04_asme1_ap242-e1.stp",
+                "bytes": 1287291,
+                "compressed_bytes": 228904,
+                "crc32": "37f7f311"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/nist_ctc_05_asme1_ap242-e1.stp",
+                "bytes": 878030,
+                "compressed_bytes": 152905,
+                "crc32": "e8e6e879"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/nist_ftc_06_asme1_ap242-e2.stp",
+                "bytes": 1971192,
+                "compressed_bytes": 376305,
+                "crc32": "c86aea84"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/nist_ftc_07_asme1_ap242-e2.stp",
+                "bytes": 1478375,
+                "compressed_bytes": 292729,
+                "crc32": "9ac6400d"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/nist_ftc_08_asme1_ap242-e1-tg.stp",
+                "bytes": 2120356,
+                "compressed_bytes": 439069,
+                "crc32": "652b0ccc"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/nist_ftc_08_asme1_ap242-e2.stp",
+                "bytes": 4722264,
+                "compressed_bytes": 1325062,
+                "crc32": "15bf441c"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/nist_ftc_09_asme1_ap242-e1.stp",
+                "bytes": 6109836,
+                "compressed_bytes": 1639662,
+                "crc32": "ab1a5df9"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/nist_ftc_10_asme1_ap242-e2.stp",
+                "bytes": 1879881,
+                "compressed_bytes": 358198,
+                "crc32": "73f29a22"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/nist_ftc_11_asme1_ap242-e2.stp",
+                "bytes": 1946454,
+                "compressed_bytes": 577610,
+                "crc32": "d7375a67"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/nist_stc_06_asme1_ap242-e3.stp",
+                "bytes": 1006401,
+                "compressed_bytes": 204987,
+                "crc32": "1a1f976b"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/nist_stc_07_asme1_ap242-e3.stp",
+                "bytes": 1945387,
+                "compressed_bytes": 334030,
+                "crc32": "28002e91"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/nist_stc_08_asme1_ap242-e3.stp",
+                "bytes": 2251152,
+                "compressed_bytes": 428770,
+                "crc32": "8adb54e5"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/nist_stc_09_asme1_ap242-e3.stp",
+                "bytes": 5287678,
+                "compressed_bytes": 966649,
+                "crc32": "d5a397c1"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/nist_stc_10_asme1_ap242-e2.stp",
+                "bytes": 4875056,
+                "compressed_bytes": 1360671,
+                "crc32": "7323c3db"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/PDF/",
+                "bytes": 0,
+                "compressed_bytes": 0,
+                "crc32": "00000000"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/PDF/nist_ctc_01_asme1_rd.pdf",
+                "bytes": 55077,
+                "compressed_bytes": 51467,
+                "crc32": "73dd2522"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/PDF/nist_ctc_02_asme1_rc.pdf",
+                "bytes": 210564,
+                "compressed_bytes": 205453,
+                "crc32": "cfcf7d15"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/PDF/nist_ctc_03_asme1_rc.pdf",
+                "bytes": 94974,
+                "compressed_bytes": 91495,
+                "crc32": "78018f17"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/PDF/nist_ctc_04_asme1_rd.pdf",
+                "bytes": 60260,
+                "compressed_bytes": 56722,
+                "crc32": "aa45ff9d"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/PDF/nist_ctc_05_asme1_rd.pdf",
+                "bytes": 88700,
+                "compressed_bytes": 83623,
+                "crc32": "3726efdf"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/PDF/nist_ftc_06_asme1_rd.pdf",
+                "bytes": 167608,
+                "compressed_bytes": 161511,
+                "crc32": "27cb9aef"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/PDF/nist_ftc_07_asme1_rd.pdf",
+                "bytes": 720347,
+                "compressed_bytes": 707871,
+                "crc32": "0613b5b2"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/PDF/nist_ftc_08_asme1_rc.pdf",
+                "bytes": 240361,
+                "compressed_bytes": 234130,
+                "crc32": "467c1f7c"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/PDF/nist_ftc_09_asme1_rd.pdf",
+                "bytes": 314889,
+                "compressed_bytes": 308678,
+                "crc32": "718b7333"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/PDF/nist_ftc_10_asme1_rb.pdf",
+                "bytes": 369659,
+                "compressed_bytes": 362912,
+                "crc32": "c5ea4ae8"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/PDF/nist_ftc_11_asme1_rb.pdf",
+                "bytes": 69874,
+                "compressed_bytes": 63983,
+                "crc32": "2ed190a7"
+              },
+              {
+                "name": "NIST-PMI-STEP-Files/README.txt",
+                "bytes": 1711,
+                "compressed_bytes": 752,
+                "crc32": "e555a9bc"
+              }
+            ],
+            "uncompressed_bytes": 56669142
+          }
+        },
+        {
+          "path": "native-models.zip",
+          "bytes": 60294624,
+          "sha256": "17e14dbf207f447f16e0182a7eda5254ee19afff591dd409b8b510103dd05d10",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib zip directory only",
+            "extracted": false,
+            "members": [
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/",
+                "bytes": 0,
+                "compressed_bytes": 0,
+                "crc32": "00000000"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CATIA V5-6R2019/",
+                "bytes": 0,
+                "compressed_bytes": 0,
+                "crc32": "00000000"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CATIA V5-6R2019/nist_ctc_01_asme1_rd_ct5290_ra.CATPart",
+                "bytes": 1089645,
+                "compressed_bytes": 230976,
+                "crc32": "5f01e2c6"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CATIA V5-6R2019/nist_ctc_02_asme1_rc_ct5290_ra.CATPart",
+                "bytes": 3996974,
+                "compressed_bytes": 1636355,
+                "crc32": "d992d683"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CATIA V5-6R2019/nist_ctc_03_asme1_rc_ct5290_ra.CATPart",
+                "bytes": 1139724,
+                "compressed_bytes": 251083,
+                "crc32": "8210f6be"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CATIA V5-6R2019/nist_ctc_04_asme1_rd_ct5290_ra.CATPart",
+                "bytes": 2771869,
+                "compressed_bytes": 731791,
+                "crc32": "ac6ee89b"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CATIA V5-6R2019/nist_ctc_05_asme1_rd_ct5290_ra.CATPart",
+                "bytes": 1444966,
+                "compressed_bytes": 442416,
+                "crc32": "911328be"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CATIA V5-6R2019/nist_ftc_06_asme1_rd_ct5290_ra.CATPart",
+                "bytes": 2836702,
+                "compressed_bytes": 716487,
+                "crc32": "02ca1e1d"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CATIA V5-6R2019/nist_ftc_07_asme1_rd_ct5290_ra.CATPart",
+                "bytes": 1524108,
+                "compressed_bytes": 438433,
+                "crc32": "e7ec1ffa"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CATIA V5-6R2019/nist_ftc_08_asme1_rc_ct5290_ra.CATPart",
+                "bytes": 1947383,
+                "compressed_bytes": 414575,
+                "crc32": "8fe3f437"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CATIA V5-6R2019/nist_ftc_09_asme1_rd_ct5290_ra.CATPart",
+                "bytes": 1825402,
+                "compressed_bytes": 374993,
+                "crc32": "513f806e"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CATIA V5-6R2019/nist_ftc_10_asme1_rb_ct5290_ra.CATPart",
+                "bytes": 1865490,
+                "compressed_bytes": 487243,
+                "crc32": "cb4cbf8f"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CATIA V5-6R2019/nist_ftc_11_asme1_rb_ct5290_ra.CATPart",
+                "bytes": 569878,
+                "compressed_bytes": 133869,
+                "crc32": "b5a90a72"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CATIA V5-6R2019/NIST_PMI_CATIA_V5-6R2021/",
+                "bytes": 0,
+                "compressed_bytes": 0,
+                "crc32": "00000000"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CATIA V5-6R2019/NIST_PMI_CATIA_V5-6R2021/nist_ftc_06_asme1_ct5315_rd.CATPart",
+                "bytes": 2857607,
+                "compressed_bytes": 718852,
+                "crc32": "32e4eb93"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CATIA V5-6R2019/NIST_PMI_CATIA_V5-6R2021/nist_ftc_10_asme1_ct5315_rb.CATPart",
+                "bytes": 2190399,
+                "compressed_bytes": 558126,
+                "crc32": "54ce766f"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CATIA V5-6R2019/NIST_PMI_CATIA_V5-6R2021/nist_ftc_11_asme1_ct5315_rb.CATPart",
+                "bytes": 627895,
+                "compressed_bytes": 125678,
+                "crc32": "909021b1"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CATIA V5-6R2019/README.txt",
+                "bytes": 121,
+                "compressed_bytes": 100,
+                "crc32": "5ca8f70a"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Creo 10/",
+                "bytes": 0,
+                "compressed_bytes": 0,
+                "crc32": "00000000"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Creo 10/nist_ctc_01_asme1_rd_cr10030.prt.5",
+                "bytes": 744830,
+                "compressed_bytes": 332097,
+                "crc32": "6777c3d3"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Creo 10/nist_ctc_02_asme1_rc_cr10030.prt.8",
+                "bytes": 3544189,
+                "compressed_bytes": 1367157,
+                "crc32": "50ce3c6e"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Creo 10/nist_ctc_03_asme1_rc_cr10030.prt.4",
+                "bytes": 831612,
+                "compressed_bytes": 391677,
+                "crc32": "ad27fb62"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Creo 10/nist_ctc_04_asme1_rd_cr10030.prt.4",
+                "bytes": 1921790,
+                "compressed_bytes": 637431,
+                "crc32": "55d5110e"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Creo 10/nist_ctc_05_asme1_rd_cr10030.prt.5",
+                "bytes": 1137422,
+                "compressed_bytes": 489195,
+                "crc32": "4519f82b"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Creo 10/nist_ftc_06_asme1_rd_cr10030.prt.14",
+                "bytes": 1223521,
+                "compressed_bytes": 434697,
+                "crc32": "ba7b5e34"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Creo 10/nist_ftc_07_asme1_rd_cr10030.prt.8",
+                "bytes": 1073670,
+                "compressed_bytes": 536230,
+                "crc32": "b97cf05f"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Creo 10/nist_ftc_08_asme1_rc_cr10030.prt.8",
+                "bytes": 965600,
+                "compressed_bytes": 476193,
+                "crc32": "13b0d011"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Creo 10/nist_ftc_09_asme1_rd_cr10030.prt.8",
+                "bytes": 703533,
+                "compressed_bytes": 334298,
+                "crc32": "e2b865ab"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Creo 10/nist_ftc_10_asme1_rb_cr10030.prt.10",
+                "bytes": 1157355,
+                "compressed_bytes": 542017,
+                "crc32": "4f7197a3"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Creo 10/nist_ftc_11_asme1_rb_cr10030.prt.2",
+                "bytes": 376886,
+                "compressed_bytes": 240758,
+                "crc32": "dd7d81a4"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Creo 4/",
+                "bytes": 0,
+                "compressed_bytes": 0,
+                "crc32": "00000000"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Creo 4/nist_ctc_01_asme1_rd_cr4050_ra.prt.1",
+                "bytes": 699321,
+                "compressed_bytes": 302093,
+                "crc32": "04ff35c9"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Creo 4/nist_ctc_02_asme1_rc_cr4050_ra.prt.1",
+                "bytes": 3334511,
+                "compressed_bytes": 1280977,
+                "crc32": "474e3479"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Creo 4/nist_ctc_03_asme1_rc_cr4050_ra.prt.1",
+                "bytes": 695767,
+                "compressed_bytes": 290043,
+                "crc32": "b15b07ec"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Creo 4/nist_ctc_04_asme1_rd_cr4050_ra.prt.1",
+                "bytes": 1794267,
+                "compressed_bytes": 592720,
+                "crc32": "4f9d1219"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Creo 4/nist_ctc_05_asme1_rd_cr4050_ra.prt.1",
+                "bytes": 1046605,
+                "compressed_bytes": 431973,
+                "crc32": "3692151d"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Creo 4/nist_ftc_06_asme1_rd_cr4050_ra.prt.1",
+                "bytes": 1213202,
+                "compressed_bytes": 475728,
+                "crc32": "99003cdd"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Creo 4/nist_ftc_07_asme1_rd_cr4050_ra.prt.1",
+                "bytes": 1008963,
+                "compressed_bytes": 536938,
+                "crc32": "eca09260"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Creo 4/nist_ftc_08_asme1_rc_cr4050_ra.prt.1",
+                "bytes": 890878,
+                "compressed_bytes": 466118,
+                "crc32": "97b63eb5"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Creo 4/nist_ftc_09_asme1_rd_cr4050_ra.prt.1",
+                "bytes": 699492,
+                "compressed_bytes": 371613,
+                "crc32": "804f0621"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Creo 4/nist_ftc_10_asme1_rb_cr4050_ra.prt.1",
+                "bytes": 1107625,
+                "compressed_bytes": 514043,
+                "crc32": "6ae23d47"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Creo 4/nist_ftc_11_asme1_rb_cr4050_ra.prt.1",
+                "bytes": 354529,
+                "compressed_bytes": 225927,
+                "crc32": "e1fb3e52"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CTC Definitions/",
+                "bytes": 0,
+                "compressed_bytes": 0,
+                "crc32": "00000000"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CTC Definitions/NIST-CTC-PMI-Definitions.xlsx",
+                "bytes": 27275,
+                "compressed_bytes": 24058,
+                "crc32": "8e5dc48f"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CTC Definitions/nist_atc_all_asme1.pdf",
+                "bytes": 2218707,
+                "compressed_bytes": 2193659,
+                "crc32": "cc4a56b5"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CTC Definitions/nist_ctc_01_asme1_rd.pdf",
+                "bytes": 114242,
+                "compressed_bytes": 100002,
+                "crc32": "02ae1ed4"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CTC Definitions/nist_ctc_01_asme1_rd.stp",
+                "bytes": 235156,
+                "compressed_bytes": 34461,
+                "crc32": "9e67edd0"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CTC Definitions/nist_ctc_01_asme1_rd_elem_ids.pdf",
+                "bytes": 212009,
+                "compressed_bytes": 178008,
+                "crc32": "8f3e7c39"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CTC Definitions/nist_ctc_02_asme1_rc.pdf",
+                "bytes": 427564,
+                "compressed_bytes": 409000,
+                "crc32": "5e98c534"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CTC Definitions/nist_ctc_02_asme1_rc.stp",
+                "bytes": 1154618,
+                "compressed_bytes": 200942,
+                "crc32": "ef3351d4"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CTC Definitions/nist_ctc_02_asme1_rc_elem_ids.pdf",
+                "bytes": 834639,
+                "compressed_bytes": 748424,
+                "crc32": "b60e0769"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CTC Definitions/nist_ctc_03_asme1_rc.pdf",
+                "bytes": 193183,
+                "compressed_bytes": 179064,
+                "crc32": "21039beb"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CTC Definitions/nist_ctc_03_asme1_rc.stp",
+                "bytes": 252113,
+                "compressed_bytes": 36385,
+                "crc32": "c73507d7"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CTC Definitions/nist_ctc_03_asme1_rc_elem_ids.pdf",
+                "bytes": 288423,
+                "compressed_bytes": 242729,
+                "crc32": "6ffed6d6"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CTC Definitions/nist_ctc_04_asme1_rd.pdf",
+                "bytes": 124181,
+                "compressed_bytes": 110094,
+                "crc32": "9c17e18a"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CTC Definitions/nist_ctc_04_asme1_rd.stp",
+                "bytes": 793056,
+                "compressed_bytes": 111504,
+                "crc32": "4d565bb8"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CTC Definitions/nist_ctc_04_asme1_rd_elem_ids.pdf",
+                "bytes": 300399,
+                "compressed_bytes": 264791,
+                "crc32": "8190c3a7"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CTC Definitions/nist_ctc_05_asme1_rd.pdf",
+                "bytes": 180750,
+                "compressed_bytes": 165184,
+                "crc32": "9fd2e5c8"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CTC Definitions/nist_ctc_05_asme1_rd.stp",
+                "bytes": 326835,
+                "compressed_bytes": 58392,
+                "crc32": "d46fe1fb"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CTC Definitions/nist_ctc_05_asme1_rd_elem_ids.pdf",
+                "bytes": 377621,
+                "compressed_bytes": 324827,
+                "crc32": "3b48ff6a"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CTC Definitions/nist_ctc_suppl_elem_visibility.pdf",
+                "bytes": 82824,
+                "compressed_bytes": 77739,
+                "crc32": "aefb5571"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/CTC Definitions/README.txt",
+                "bytes": 2447,
+                "compressed_bytes": 1065,
+                "crc32": "8a06984a"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/FTC Definitions/",
+                "bytes": 0,
+                "compressed_bytes": 0,
+                "crc32": "00000000"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/FTC Definitions/NIST-FTC-PMI-Definitions.xlsx",
+                "bytes": 21446,
+                "compressed_bytes": 18524,
+                "crc32": "4f1bd637"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/FTC Definitions/nist_ftc_06_asme1_rd.pdf",
+                "bytes": 171484,
+                "compressed_bytes": 161737,
+                "crc32": "9e285822"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/FTC Definitions/nist_ftc_06_asme1_rd.stp",
+                "bytes": 222784,
+                "compressed_bytes": 32126,
+                "crc32": "0fbeb734"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/FTC Definitions/nist_ftc_06_asme1_rd_elem_ids.pdf",
+                "bytes": 544813,
+                "compressed_bytes": 469781,
+                "crc32": "81682208"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/FTC Definitions/nist_ftc_06_asme1_rd_fsi.pdf",
+                "bytes": 132978,
+                "compressed_bytes": 126521,
+                "crc32": "e622230a"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/FTC Definitions/nist_ftc_07_asme1_rd.pdf",
+                "bytes": 720347,
+                "compressed_bytes": 707871,
+                "crc32": "0613b5b2"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/FTC Definitions/nist_ftc_07_asme1_rd.stp",
+                "bytes": 402549,
+                "compressed_bytes": 68086,
+                "crc32": "7894c9f6"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/FTC Definitions/nist_ftc_07_asme1_rd_elem_ids.pdf",
+                "bytes": 1342598,
+                "compressed_bytes": 1255990,
+                "crc32": "984c2965"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/FTC Definitions/nist_ftc_07_asme1_rd_fsi.pdf",
+                "bytes": 108355,
+                "compressed_bytes": 102823,
+                "crc32": "74bda950"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/FTC Definitions/nist_ftc_08_asme1_rc.pdf",
+                "bytes": 244241,
+                "compressed_bytes": 234367,
+                "crc32": "6c6442ad"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/FTC Definitions/nist_ftc_08_asme1_rc.stp",
+                "bytes": 450747,
+                "compressed_bytes": 58200,
+                "crc32": "8b225518"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/FTC Definitions/nist_ftc_08_asme1_rc1_fsi.pdf",
+                "bytes": 113105,
+                "compressed_bytes": 107184,
+                "crc32": "dd0f97a4"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/FTC Definitions/nist_ftc_08_asme1_rc_elem_ids.pdf",
+                "bytes": 814790,
+                "compressed_bytes": 718662,
+                "crc32": "589e139b"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/FTC Definitions/nist_ftc_09_asme1_rd.pdf",
+                "bytes": 318757,
+                "compressed_bytes": 308889,
+                "crc32": "b8b08cc5"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/FTC Definitions/nist_ftc_09_asme1_rd.stp",
+                "bytes": 263934,
+                "compressed_bytes": 42817,
+                "crc32": "53c15b51"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/FTC Definitions/nist_ftc_09_asme1_rd_elem_ids.pdf",
+                "bytes": 719472,
+                "compressed_bytes": 614900,
+                "crc32": "a3cf2e85"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/FTC Definitions/nist_ftc_09_asme1_rd_fsi.pdf",
+                "bytes": 112067,
+                "compressed_bytes": 105981,
+                "crc32": "b973c6a4"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/FTC Definitions/nist_ftc_10_asme1_rb.pdf",
+                "bytes": 875826,
+                "compressed_bytes": 858279,
+                "crc32": "fc28fa29"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/FTC Definitions/nist_ftc_10_asme1_rb.stp",
+                "bytes": 323619,
+                "compressed_bytes": 52980,
+                "crc32": "cd7c48b4"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/FTC Definitions/nist_ftc_10_asme1_rb_elem_ids.pdf",
+                "bytes": 1927669,
+                "compressed_bytes": 1769808,
+                "crc32": "74f9429f"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/FTC Definitions/nist_ftc_10_asme1_rb_fsi.pdf",
+                "bytes": 121395,
+                "compressed_bytes": 114866,
+                "crc32": "6e461668"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/FTC Definitions/nist_ftc_11_asme1_rb.pdf",
+                "bytes": 73748,
+                "compressed_bytes": 64227,
+                "crc32": "a1944ba9"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/FTC Definitions/nist_ftc_11_asme1_rb.stp",
+                "bytes": 7652,
+                "compressed_bytes": 2197,
+                "crc32": "94680309"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/FTC Definitions/nist_ftc_11_asme1_rb_elem_ids.pdf",
+                "bytes": 369834,
+                "compressed_bytes": 309592,
+                "crc32": "61937772"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/FTC Definitions/nist_ftc_11_asme1_rb_fsi.pdf",
+                "bytes": 94608,
+                "compressed_bytes": 89374,
+                "crc32": "56d39308"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/FTC Definitions/nist_ftc_assembly_7-8-9-10.pdf",
+                "bytes": 252701,
+                "compressed_bytes": 218334,
+                "crc32": "402a5971"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/FTC Definitions/nist_ftc_suppl_elem_visibility.pdf",
+                "bytes": 91072,
+                "compressed_bytes": 85680,
+                "crc32": "8e39f850"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/FTC Definitions/README.txt",
+                "bytes": 2602,
+                "compressed_bytes": 1145,
+                "crc32": "17eb995c"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Inventor 2021/",
+                "bytes": 0,
+                "compressed_bytes": 0,
+                "crc32": "00000000"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Inventor 2021/INV_nist_ctc_01_asme1_2021.ipt",
+                "bytes": 492544,
+                "compressed_bytes": 454423,
+                "crc32": "ff002ac7"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Inventor 2021/INV_nist_ctc_02_asme1_2021.ipt",
+                "bytes": 1330176,
+                "compressed_bytes": 1259873,
+                "crc32": "ee262611"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Inventor 2021/INV_nist_ctc_03_asme1_2021.ipt",
+                "bytes": 498688,
+                "compressed_bytes": 459862,
+                "crc32": "a77f9e74"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Inventor 2021/INV_nist_ctc_04_asme1_2021.ipt",
+                "bytes": 802816,
+                "compressed_bytes": 751886,
+                "crc32": "a903b593"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Inventor 2021/INV_nist_ctc_05_asme1_2021.ipt",
+                "bytes": 643072,
+                "compressed_bytes": 599488,
+                "crc32": "05ab11e2"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Inventor 2021/INV_nist_ftc_06_asme1_2021.ipt",
+                "bytes": 753152,
+                "compressed_bytes": 698888,
+                "crc32": "fac1d9c4"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Inventor 2021/INV_nist_ftc_07_asme1_2021.ipt",
+                "bytes": 1210368,
+                "compressed_bytes": 1130047,
+                "crc32": "837b35d7"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Inventor 2021/INV_nist_ftc_08_asme1_2021.ipt",
+                "bytes": 942080,
+                "compressed_bytes": 878516,
+                "crc32": "f8f14862"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Inventor 2021/INV_nist_ftc_09_asme1_2021.ipt",
+                "bytes": 673280,
+                "compressed_bytes": 612224,
+                "crc32": "6e30a13a"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Inventor 2021/INV_nist_ftc_10_asme1_2021.ipt",
+                "bytes": 969728,
+                "compressed_bytes": 898958,
+                "crc32": "73fd0dc1"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/Inventor 2021/INV_nist_ftc_11_asme1_2021.ipt",
+                "bytes": 212992,
+                "compressed_bytes": 182887,
+                "crc32": "ea527d73"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/NX 1980/",
+                "bytes": 0,
+                "compressed_bytes": 0,
+                "crc32": "00000000"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/NX 1980/nist_ctc_01_asme1_nx1980_rd.prt",
+                "bytes": 974843,
+                "compressed_bytes": 483968,
+                "crc32": "a10f2c0a"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/NX 1980/nist_ctc_02_asme1_nx1980_rc.prt",
+                "bytes": 2571772,
+                "compressed_bytes": 1681167,
+                "crc32": "a0e288a1"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/NX 1980/nist_ctc_03_asme1_nx1980_rc.prt",
+                "bytes": 1206573,
+                "compressed_bytes": 645635,
+                "crc32": "ca4d6391"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/NX 1980/nist_ctc_04_asme1_nx1980_rd.prt",
+                "bytes": 2124813,
+                "compressed_bytes": 1147908,
+                "crc32": "debe6309"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/NX 1980/nist_ctc_05_asme1_nx1980_rd.prt",
+                "bytes": 1007355,
+                "compressed_bytes": 621870,
+                "crc32": "b2c3f689"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/NX 1980/nist_ftc_06_asme1_nx1980_rd.prt",
+                "bytes": 2149636,
+                "compressed_bytes": 909767,
+                "crc32": "b292548f"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/NX 1980/nist_ftc_07_asme1_nx1980_rd.prt",
+                "bytes": 2971061,
+                "compressed_bytes": 1894762,
+                "crc32": "a7663117"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/NX 1980/nist_ftc_08_asme1_nx1980_rc.prt",
+                "bytes": 1824014,
+                "compressed_bytes": 1147557,
+                "crc32": "f231d937"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/NX 1980/nist_ftc_09_asme1_nx1980_rd.prt",
+                "bytes": 2823233,
+                "compressed_bytes": 1241285,
+                "crc32": "9678f814"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/NX 1980/nist_ftc_10_asme1_nx1980_rb.prt",
+                "bytes": 7528521,
+                "compressed_bytes": 1638247,
+                "crc32": "ef2a51fc"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/NX 1980/nist_ftc_11_asme1_nx1980_rb.prt",
+                "bytes": 859943,
+                "compressed_bytes": 335404,
+                "crc32": "941b00bb"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/SolidWorks MBD 2018/",
+                "bytes": 0,
+                "compressed_bytes": 0,
+                "crc32": "00000000"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/SolidWorks MBD 2018/nist_ctc_01_asme1_rd_sw1802.SLDPRT",
+                "bytes": 521280,
+                "compressed_bytes": 503001,
+                "crc32": "d61e5ee9"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/SolidWorks MBD 2018/nist_ctc_02_asme1_rc_sw1802.SLDPRT",
+                "bytes": 1211931,
+                "compressed_bytes": 1188638,
+                "crc32": "1336abf4"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/SolidWorks MBD 2018/nist_ctc_03_asme1_rc_sw1802.SLDPRT",
+                "bytes": 412896,
+                "compressed_bytes": 407387,
+                "crc32": "ae2c6047"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/SolidWorks MBD 2018/nist_ctc_04_asme1_rd_sw1802.SLDPRT",
+                "bytes": 849634,
+                "compressed_bytes": 833482,
+                "crc32": "9b293289"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/SolidWorks MBD 2018/nist_ctc_05_asme1_rd_sw1802.SLDPRT",
+                "bytes": 455262,
+                "compressed_bytes": 448700,
+                "crc32": "364fa038"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/SolidWorks MBD 2018/nist_ftc_06_asme1_rd_sw1802.SLDPRT",
+                "bytes": 610832,
+                "compressed_bytes": 602947,
+                "crc32": "ec42f987"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/SolidWorks MBD 2018/nist_ftc_07_asme1_rd_sw1802.SLDPRT",
+                "bytes": 1021476,
+                "compressed_bytes": 1009381,
+                "crc32": "a2d89a1f"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/SolidWorks MBD 2018/nist_ftc_08_asme1_rc_sw1802.SLDPRT",
+                "bytes": 899165,
+                "compressed_bytes": 887831,
+                "crc32": "3575a89a"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/SolidWorks MBD 2018/nist_ftc_09_asme1_rd_sw1802.SLDPRT",
+                "bytes": 795987,
+                "compressed_bytes": 786589,
+                "crc32": "51112461"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/SolidWorks MBD 2018/nist_ftc_10_asme1_rb_sw1802.SLDPRT",
+                "bytes": 977559,
+                "compressed_bytes": 966142,
+                "crc32": "3cd6b109"
+              },
+              {
+                "name": "NIST-FTC-CTC-PMI-CAD-models/SolidWorks MBD 2018/nist_ftc_11_asme1_rb_sw1802.SLDPRT",
+                "bytes": 269897,
+                "compressed_bytes": 261481,
+                "crc32": "a2688b2f"
+              }
+            ],
+            "uncompressed_bytes": 114801545
+          }
+        }
+      ]
+    }
+  },
+  "errors": []
+}

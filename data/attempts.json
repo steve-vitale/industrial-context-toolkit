@@ -5357,6 +5357,27 @@
         "examples/cad-handoff/qualification/diagnosis-4/UI-OBSERVATION.json",
         "examples/cad-handoff/qualification/check_diagnosis4.py"
       ]
+    },
+    {
+      "id": "A338",
+      "function": "intake_and_reuse",
+      "date": "2026-11-07",
+      "change": "Acquire additional industrial batches/alarms, CAD/STEP references, quality/power data, asset templates, process sources and a photo with pinned originals and explicit synthetic/rights boundaries.",
+      "hypothesis": "More public inputs can deepen category coverage while preserving source families, reference separation and existing CAD/evaluation methods.",
+      "evidence": "35 originals, 196525541 bytes in nine groups; all pinned originals pass structural admission. Cached replay has zero network calls/fetched bytes; all 18 truncation/same-size controls refuse. Five fresh yeast HTTPS downloads match. All 51 prior pin groups and ten recorded methods unchanged. 59 batch metadata rows, 1090 time-series rows, 1941 quality rows, 9568 power rows; no task scores. Parquet rows and archive/CAD contents remain unopened; photo OCR unsupported with OCR off. NIST HEAD 403 recovers through declared GET; ALPI uses verified system HTTPS. IRIS NC-ND research lead excluded from consulting examples.",
+      "runs": "One predeclared acquisition cohort, one initial admission, one offline network-refused replay, one full yeast re-fetch and 18 altered-original controls. No downloaded code, solver, CAD or model execution.",
+      "verdict": "kept",
+      "why": "Acquired-unscored preparation with concrete next jobs and unchanged historical evidence. Synthetic data/templates/mechanical test cases do not establish real industrial repair outcomes, P&ID revision truth, qualified CAD or plant acceptance.",
+      "source": [
+        "docs/JOURNAL.md#185-acquire-industrial-batches-alarms-and-engineering-exchange-references",
+        "examples/public-data/round-5/README.md",
+        "examples/public-data/round-5/SELECTION.json",
+        "examples/public-data/round-5/acquisition.json",
+        "examples/public-data/round-5/admission.json",
+        "examples/public-data/round-5/verification.json",
+        "examples/public-data/round-5/discovery-outcomes.json",
+        "data/public_sources_20261107_round5.json"
+      ]
     }
   ],
   "not_tried": [

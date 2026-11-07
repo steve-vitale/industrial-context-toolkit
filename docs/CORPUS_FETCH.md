@@ -1,5 +1,11 @@
 # Fetching more public historian data
 
+The [fifth public-data acquisition](../examples/public-data/round-5/README.md) adds 35 originals (197 MB) across
+nine groups: industrial batches and packaging alarms, NIST CAD/STEP references, manufacturing quality,
+power-plant measurements, equipment templates, process definitions, a pump photo and synthetic maintenance/tag
+records. All five passes total 218 files in 49 groups. Acquisition, structural admission and evaluation remain
+distinct; mechanical CAD references do not qualify the ASCII DXF workflow.
+
 The [fourth public-data acquisition](../examples/public-data/round-4/README.md) adds a predeclared one-week NYC
 Parks cohort with linked assets, work orders, parts transactions/lines and labor. Its 53 pinned API responses
 and metadata files bring the four passes to 183 files in 40 groups. Relationship coverage is checked; source
