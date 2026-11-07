@@ -8167,3 +8167,52 @@ No accuracy, training split, workflow-matrix cell, feature review, reader leader
 Focused fetch and extraction modules pass 24 and 63 tests. Ledger, feature catalog, published-claim bindings,
 corpus matrix, reader leaderboard and script index checks pass; published claims match evidence files, without
 rerunning models. Changed local documentation links resolve, and all previous pin values compare unchanged.
+
+## 186. Trace native record correspondence without waiving the strict failures
+
+The previous goal turn acquired public sources (PR 22), concrete progress without closing CAD qualification.
+This continuation returns to the original protocol. Fresh Computer Use inventories return the same live QCAD
+window 429395364 with trial-expiry/startup dialogs, no document and disabled Save. Two captures time out with
+window capture timed out: timed out waiting on channel, including fresh window selection before recovery.
+Two freshly observed indexed clicks on expiry OK 208 fail with element 208 is not available in cached app state
+for qcad.exe. A final text refresh still shows the modal/live window. No restart solely on timeout, screenshot,
+drawing interaction, UI-saved return, license, authentication, privacy or security change is claimed.
+
+Plan and 39 authored decoded-graph controls were committed at e62e8d1 before implementing the correspondence
+diagnostic. Its matcher, separately coded direct checker, runner and inputs were frozen at e89ad4b before
+running the full exposed round-2 cohort. Both software checks are agent-authored; neither is independent
+engineering review. Every unique ordered literal body must match, with only own handles and declared pointer
+values renamed; the complete reference subset must close. Duplicate bodies, dangling/ambiguous dependencies,
+literal XDATA/arbitrary handles, missing/explicit defaults, geometry/style/foreign/unknown changes stay unpaired.
+No geometry-nearest match, numeric tolerance, default expansion or comparator exclusion was added.
+
+All 21 candidates remain strict zero. All 42 native returns retain their strict failures and all 16,209 rows,
+with separate before/after-side correspondence at every original index. Default saves have 558 unique-body
+seeds and 307 closed pairs; R15 has 509 seeds and 276 pairs. Counts aggregate related record occurrences, not
+independent plant observations. Even exact candidate controls leave 1,719 before-side records unpaired under
+this deliberately conservative unique/reference rule. Unpaired means not proved here, not automatically lost.
+
+The original valve's default return retains 335 differences and thirteen matching table-related records
+(nine TABLE, two LTYPE, one STYLE, one APPID). Its R15 return retains 344 and fourteen. Direct tracing of the
+same MODEL handle 3E confirms the planned value, plus removal of explicit alignment codes 11/21/31 and addition
+of style name textstyle3/code 280 zero. ICT_ID shows the same non-value changes. These go beyond handle
+renaming; their visual/engineering effect is not dismissed as harmless defaults.
+
+All 39 controls pass their predeclared pair/strict oracles. The 1,140,924-byte archive retains 64 reports/summary
+records (13,008,195 raw bytes), bound to the prior source/return/plan/comparison hashes. Offline replay rebuilds
+all 63 results exactly and directly checks every positive pair, all strict indexes/sides and complete cohort
+coverage. Fabricated-pair and omitted-report controls refuse. This diagnostic is added to CI; strict comparator,
+raw patcher, byte checker, frozen sources and prior results remain unchanged. Actual readable native visuals,
+observed UI edit/save/close/reopen and engineering/company acceptance remain unproved. No qualification gain,
+new held-out claim, accuracy score or source-preservation method change is inferred.
+
+The unchanged CAD regression module passes 28 tests. Ledger (339 attempts/116 ideas), feature catalog
+(22 reviewed of 30, CAD still needs review), matrix bindings, reader leaderboard and 152-script index checks
+pass. Diagnostic freeze hashes and all recorded original qualification methods compare exact; new guide links
+resolve. Full repository CI remains the separate integration gate for this change.
+
+Before creating the PR, a Git warning prompted actual blob/working-byte comparison: artifact commit 7a637a1
+stored a 1,140,911-byte ZIP, while the original remained 1,140,924 bytes with its inventory hash. The general
+CAD text rule normalized thirteen CRLF sequences. A binary ZIP override and forced re-add restore the original
+bytes; no report, oracle, method or result changes. Both hashes/sizes and the failed commit are retained in the
+checkout recovery record. The staged/committed ZIP is checked against its pin before publication.

@@ -1,0 +1,14 @@
+{
+  "role": "Actual repository byte-preservation recovery; initial failing blob remains in commit history",
+  "initial_commit": "7a637a1ed85b57a801faa406463ba7eb3e3be01c",
+  "initial_blob": {
+    "bytes": 1140911,
+    "sha256": "c469eca6b10d9246576be7253e9301bacad0ec4c4d92af06b07ed96f49b35b74"
+  },
+  "unchanged_original": {
+    "bytes": 1140924,
+    "sha256": "57795837802952ab2f310c010c6ec12caa5f2285e5dd4cad7e8a615c591efb69"
+  },
+  "cause": "General CAD text eol=lf policy normalized 13 CRLF sequences inside ZIP; initial warning verified against actual Git blob.",
+  "correction": "Explicit binary -text rule for CAD ZIPs and forced re-add of unchanged original; no report, oracle, method, corpus or verdict changed."
+}
