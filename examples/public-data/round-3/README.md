@@ -67,8 +67,9 @@ plant P&IDs/electrical drawings, scanned documents, process flowsheets, historia
 maintenance text, photos, DEXPI and DXF. This pass deepens several thinner categories; it does not relabel
 additional dates, revisions, tutorial models or annotations as independent plants.
 
-Public **linked asset registers, dated work orders, parts consumption, closure and verified repair outcomes**
-are still missing. A product catalog plus coded maintenance events from another source cannot fill that gap.
+The [later AMPS acquisition](../round-4/README.md) now supplies linked municipal asset/work-order/parts/labor
+records and completion fields. **Linked industrial plant histories, verified parts consumption and repair
+effectiveness** remain missing. A product catalog plus coded events from another source cannot fill those gaps.
 Engineering-reviewed drawing revisions, native CAD acceptance and plant system/permission/ownership checks
 also remain separate work. No source was added to the training, reader leaderboard or existing frozen CAD
 qualification cohorts by this acquisition.

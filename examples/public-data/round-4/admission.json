@@ -1,0 +1,1223 @@
+{
+  "schema": "public-source-admission-4",
+  "created": "2026-11-07T17:20:16.696874+00:00",
+  "role": "acquired-unscored; raw integrity and structural relationship coverage only",
+  "python": "3.13.14",
+  "methods": {
+    "examples/public-data/round-4/reproduce.py": "efef69b287fd8ad4623b78d8fb55759c66aee307fedd945668f802d70642bf4b",
+    "examples/public-data/round-4/acquire.py": "74809131aec2966a489b76130295fc025aed8ac5fcacf9fd60b4e7e4006e771c",
+    "examples/public-data/round-4/SELECTION.md": "2236c4b4479620a2e04085e1892655a390d917736de2d5cc7d313b193932daf3",
+    "scripts/fetch_corpus.py": "fb9f6480a2209054e30dfe56e69179570c1da6f766dc01fd04319077ae9e1e0b",
+    "data/public_sources_20261107_round4.json": "4029b1938812b7b114853083f105ebe160cf62d95b0e7be6d7ed10a7fbbdea24"
+  },
+  "fetch_receipts": [
+    {
+      "source": "nyc-amps-2024w01",
+      "license": "Public API access; no dataset licenseId supplied; open redistribution license not established; local originals only",
+      "attribution": "City of New York / NYC Parks, Asset Management Parks System (AMPS), public Open Data tables; no endorsement.",
+      "landing_url": "https://data.cityofnewyork.us/d/8sdw-8vja",
+      "fetched": "2026-11-07T17:20:16+00:00",
+      "files": [
+        {
+          "path": "metadata-work-orders.json",
+          "bytes": 84836,
+          "sha256": "cada17b0a56bb6c36ac3f0f010bc71bd63a07a283ac6eb87caa842ff541248a6",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "metadata-assets.json",
+          "bytes": 53998,
+          "sha256": "2e8c94b31871113b9fe882700a2a106ec30fadb660b15b6facaad3c5ecba5fca",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "metadata-transactions.json",
+          "bytes": 24705,
+          "sha256": "3b5675426ad23787fd675811fb5e79fb1ebde149e713bf74b2763d61e7ff8a1f",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "metadata-details.json",
+          "bytes": 57023,
+          "sha256": "24d3d4465e7681281a74674ffef835fb1fae5e5bc0295000006c8cc9e517d96f",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "metadata-labor.json",
+          "bytes": 32496,
+          "sha256": "b3c6574a160f8e875e5e2b7ad0ebcef018958592bb7a621e8565bad7227b3ee5",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "work-orders-000.json",
+          "bytes": 653046,
+          "sha256": "9e39f7720522f89011d2ed27806b8fcb0cb720f856afc69d73b2194d5fb5e319",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "assets-000.json",
+          "bytes": 27702,
+          "sha256": "b76a1eb06e5d13cd68afa3d1f14f62993256099d46ab8bb918ec51d387aa57e1",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "assets-001.json",
+          "bytes": 28092,
+          "sha256": "2dd3b1de3e1bcf930b4caabb5779b9a6f1f9d24d9d711afe05b3b7bd7effce51",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "assets-002.json",
+          "bytes": 27000,
+          "sha256": "1d2c799fa919333a2378a0d1c28d700f2156e680ae7236192dadb1a85405ac59",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "assets-003.json",
+          "bytes": 27279,
+          "sha256": "c08eb627bcba1bf90e9f5cc11434f20f2d817216266f21dc13616cb3aa2d5f48",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "assets-004.json",
+          "bytes": 27122,
+          "sha256": "506521ae211512e1843055ee3d6e88b46781046a525fa09b0e62321d1fc7eb00",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "assets-005.json",
+          "bytes": 27245,
+          "sha256": "8a6096aa74613c8521b0a32e689fd43d0b26d8eb9826732d30b31e065a9ea89f",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "assets-006.json",
+          "bytes": 27223,
+          "sha256": "d4f10829a3805d24718b5a030bf566e2399c5ed4791093dbe9bc29275649e172",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "assets-007.json",
+          "bytes": 28038,
+          "sha256": "ff206fae8bdbb6b7b44fef2a3f80c2005cd928961df288d4b5e1bc63eabc3d3d",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "assets-008.json",
+          "bytes": 26443,
+          "sha256": "8092a6b80c66b301b653a89d418ab09ff5c22255083607cae02def4f8c083386",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "assets-009.json",
+          "bytes": 8921,
+          "sha256": "7c721d72ab217344c1d7678c030f134ca4b1b32bf7f5a742d476243a8701d039",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "transactions-000.json",
+          "bytes": 1261,
+          "sha256": "0d74a38cda1eda46abd202921e3d5a2f331999ccf34b88a672eddf550faf6ce6",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "transactions-001.json",
+          "bytes": 3277,
+          "sha256": "c4b8b9074925bedba05df237ceecc4be9c93a4b52976b5cd52648e4e9deb7856",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "transactions-002.json",
+          "bytes": 12679,
+          "sha256": "6842e71feedcc8ec52e97a43b1305ed4b9b829363fee0f11a81603c72ae5e8a5",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "transactions-003.json",
+          "bytes": 1527,
+          "sha256": "e2f25a159c5c14f57c49971e00c2c65719798068a9105567f1186999f218ca84",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "transactions-004.json",
+          "bytes": 3314,
+          "sha256": "597918158a4d5be8cbc229018b2a16e99050009352b76e2a1322014747f5ca6a",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "transactions-005.json",
+          "bytes": 3,
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "transactions-006.json",
+          "bytes": 9416,
+          "sha256": "07b547ddabb32ed008004ba6d116a09fb802f47f3e75d698541a3e5e8830acc5",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "transactions-007.json",
+          "bytes": 2017,
+          "sha256": "70dc9e42de62bf240dfa0b63d32a77536e0162f95fe123530b23e907da0eff01",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "transactions-008.json",
+          "bytes": 6359,
+          "sha256": "f90aa4085443ff41aa1a9c2932f3b08fe9b116a57bd985a9a20b73fee33b0242",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "transactions-009.json",
+          "bytes": 3,
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "transactions-010.json",
+          "bytes": 3588,
+          "sha256": "7fd91f8dcff2a32520576cc2241b8fc180cbeb0802be580e7dd7b3d0f00071f9",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "transactions-011.json",
+          "bytes": 1511,
+          "sha256": "3442deb3e54f29f895898af9eb5c922c1ab1a41e5c9b43b5775dc3526a7fd98a",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "transactions-012.json",
+          "bytes": 1539,
+          "sha256": "fd308f5410fcbba7a7e67ffa1b8620c61c6f1979ede50b504180bebb1d9d13b0",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "transactions-013.json",
+          "bytes": 2025,
+          "sha256": "70ed241a8623aaa9944b91a0ccc789236da08d1ba26f9ba68bc8de0307a013b7",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "transactions-014.json",
+          "bytes": 1765,
+          "sha256": "ce75071fc349bbae63a5e8f18f96bade3e183bd8923f576cb25b7c210c38e4f2",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "transactions-015.json",
+          "bytes": 2521,
+          "sha256": "858b5f9a764b738ad5db40761d10a290c4e734bbb1d7d0fa7e9f47a064222087",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "transactions-016.json",
+          "bytes": 3,
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "details-000.json",
+          "bytes": 50768,
+          "sha256": "966f01c91ab06185d191a49ef77895556f2b5b6aa5053b58e3d99459d72f25bb",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "details-001.json",
+          "bytes": 41576,
+          "sha256": "4fc8f0a483c7e0d1ca6fe590af870006fca911a121bfcd0e051d1b3e8cee9f37",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "details-002.json",
+          "bytes": 2915,
+          "sha256": "a145e830d7a5e1db1827bdc9e2fb5c2750b2bbb0290e58147134dc290ac546fc",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "labor-000.json",
+          "bytes": 430573,
+          "sha256": "c0e36e323041a03b2cb892351cb730301d807f463595ae30987149ef08d36927",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "labor-001.json",
+          "bytes": 48587,
+          "sha256": "7c333aed5118e25418e6200c959e30a1cdcae88370d4a01d3b7890206c5a1cd6",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "labor-002.json",
+          "bytes": 56661,
+          "sha256": "0746d2ce716a1596267fd0a90379cc9f2af70d94bd59ed93cbbd74b83f50144f",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "labor-003.json",
+          "bytes": 27534,
+          "sha256": "4b590653dc95db583f494a61286db01494f791147b0f55cde6c3c802d0acd8d8",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "labor-004.json",
+          "bytes": 45398,
+          "sha256": "54dcf827f07cdd10112d4932bdea3311373e621c64f3f1269c928f2ca3e3551d",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "labor-005.json",
+          "bytes": 24264,
+          "sha256": "66f969d8e841c19eecd596663108e15416135fa225976c37f1e287fe5a22ecf9",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "labor-006.json",
+          "bytes": 45041,
+          "sha256": "7fdd09fb7b650935d27b631c10178c689c64f50836f95fd2ea03019570e626bd",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "labor-007.json",
+          "bytes": 38853,
+          "sha256": "4788297a6553e9eeb9fcdb0db8557cdd0db1d172a289218e27b3292979784115",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "labor-008.json",
+          "bytes": 106121,
+          "sha256": "60149b1a29c27c69fe4700025726fe71365737d08a39269eecf1ca536399c28e",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "labor-009.json",
+          "bytes": 17249,
+          "sha256": "5a8077ad7b0bea88c0a747130238c01108c0029385f5e1454f6dcdfc872163f8",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "labor-010.json",
+          "bytes": 37244,
+          "sha256": "d950bdc2d996442f3e3ae8ef21bf64925020fb1a461269a85748cd307fa5c5d7",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "labor-011.json",
+          "bytes": 23745,
+          "sha256": "71cfabf25b9162a8c25e5f369f87a49a22622d7433a03f9e78590e7d1602c883",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "labor-012.json",
+          "bytes": 36080,
+          "sha256": "056246294ab43600f383fdf51448e1e1d1bc1ec5ae6313d547e2661a4605b35c",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "labor-013.json",
+          "bytes": 24515,
+          "sha256": "608683b9d4d8a3c1b9265b208c49a5c4db5fa30c13f2a1fa0250e7212b583d8a",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "labor-014.json",
+          "bytes": 35137,
+          "sha256": "7d84d5af266e8c3cefc542e9247e5ba5438e59ddd665a5020a6df81c4eb66ea6",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "labor-015.json",
+          "bytes": 52496,
+          "sha256": "e7e8ed118a056d3ff2f8e9df51c0a944c735dfe8d21d0844e2baef40f42c509c",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "labor-016.json",
+          "bytes": 7276,
+          "sha256": "cfed1d15e31c012969c8a49e035c30ba11d28ce4a128fcd641dba6783e315454",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        }
+      ],
+      "skipped": "Other dates, unreferenced assets, other entity namespaces, comments, worker identities and all downloaded code. No source records committed.",
+      "fetched_mb": 0.0
+    }
+  ],
+  "files": [
+    {
+      "path": "metadata-work-orders.json",
+      "bytes": 84836,
+      "sha256": "cada17b0a56bb6c36ac3f0f010bc71bd63a07a283ac6eb87caa842ff541248a6",
+      "role": "metadata",
+      "integrity": "match",
+      "inspection": {
+        "view_id": "8sdw-8vja",
+        "projected_schema_source": true,
+        "license_id": null,
+        "field_names": [
+          "evt_code",
+          "evt_desc",
+          "evt_type",
+          "evt_date",
+          "evt_mrc",
+          "evt_printed",
+          "evt_obtype",
+          "evt_object",
+          "evt_standwork",
+          "evt_ppm",
+          "evt_freq",
+          "evt_isstype",
+          "evt_class",
+          "evt_route",
+          "evt_target",
+          "evt_duration",
+          "evt_parent",
+          "evt_reqm",
+          "evt_jobtype",
+          "evt_priority",
+          "evt_reported",
+          "evt_start",
+          "evt_due",
+          "evt_completed",
+          "evt_warranty",
+          "evt_safety",
+          "evt_reopened",
+          "evt_schedend",
+          "evt_created",
+          "evt_updated",
+          "evt_updatecount",
+          "evt_perioduom",
+          "evt_sqlidentity",
+          "evt_multiequip",
+          "evt_completed_trunc",
+          "evt_udfchar01",
+          "evt_udfchar02",
+          "evt_udfchar03",
+          "evt_udfchar04",
+          "evt_udfchar05",
+          "evt_udfchar06",
+          "evt_udfchar08",
+          "evt_udfchar10",
+          "evt_udfchar11",
+          "evt_udfchar12",
+          "evt_udfchar13",
+          "evt_udfchar14",
+          "evt_udfchar15",
+          "evt_udfchar16",
+          "evt_udfnum01",
+          "evt_udfchkbox01",
+          "evt_udfchkbox02",
+          "evt_udfchkbox03",
+          "evt_udfchkbox04",
+          "evt_udfchkbox05"
+        ]
+      }
+    },
+    {
+      "path": "metadata-assets.json",
+      "bytes": 53998,
+      "sha256": "2e8c94b31871113b9fe882700a2a106ec30fadb660b15b6facaad3c5ecba5fca",
+      "role": "metadata",
+      "integrity": "match",
+      "inspection": {
+        "view_id": "e25p-jzfy",
+        "projected_schema_source": true,
+        "license_id": null,
+        "field_names": [
+          "obj_obtype",
+          "obj_code",
+          "obj_desc",
+          "obj_class",
+          "obj_category",
+          "obj_position",
+          "obj_parent",
+          "obj_manufact",
+          "obj_mrc",
+          "obj_serialno",
+          "obj_status",
+          "obj_commiss",
+          "obj_withdraw",
+          "obj_record",
+          "obj_notused",
+          "obj_manufactmodel",
+          "obj_value",
+          "obj_updated",
+          "obj_updatecount",
+          "obj_gisobjid",
+          "obj_sqlidentity",
+          "obj_gislayer",
+          "obj_xlocation",
+          "obj_ylocation",
+          "obj_udfchar01",
+          "obj_udfchar02",
+          "obj_udfchar05",
+          "obj_udfchar06",
+          "obj_created"
+        ]
+      }
+    },
+    {
+      "path": "metadata-transactions.json",
+      "bytes": 24705,
+      "sha256": "3b5675426ad23787fd675811fb5e79fb1ebde149e713bf74b2763d61e7ff8a1f",
+      "role": "metadata",
+      "integrity": "match",
+      "inspection": {
+        "view_id": "gcys-vvnq",
+        "projected_schema_source": true,
+        "license_id": null,
+        "field_names": [
+          "tra_code",
+          "tra_desc",
+          "tra_type",
+          "tra_date",
+          "tra_req",
+          "tra_status",
+          "tra_fromentity",
+          "tra_fromcode",
+          "tra_toentity",
+          "tra_tocode",
+          "tra_updatecount",
+          "tra_created",
+          "tra_updated",
+          "tra_sqlidentity"
+        ]
+      }
+    },
+    {
+      "path": "metadata-details.json",
+      "bytes": 57023,
+      "sha256": "24d3d4465e7681281a74674ffef835fb1fae5e5bc0295000006c8cc9e517d96f",
+      "role": "metadata",
+      "integrity": "match",
+      "inspection": {
+        "view_id": "ub9z-gccp",
+        "projected_schema_source": true,
+        "license_id": null,
+        "field_names": [
+          "trl_trans",
+          "trl_type",
+          "trl_line",
+          "trl_date",
+          "trl_event",
+          "trl_act",
+          "trl_part",
+          "trl_reqline",
+          "trl_bin",
+          "trl_store",
+          "trl_price",
+          "trl_qty",
+          "trl_req",
+          "trl_created",
+          "trl_updated",
+          "trl_avgprice",
+          "trl_sqlidentity",
+          "trl_desc",
+          "trl_attach",
+          "par_code",
+          "par_desc",
+          "par_class",
+          "par_uom",
+          "par_notused",
+          "par_created",
+          "par_updated",
+          "par_updatecount",
+          "par_sqlidentity",
+          "par_udfchar01",
+          "par_udfchar02",
+          "par_laststatusupdate"
+        ]
+      }
+    },
+    {
+      "path": "metadata-labor.json",
+      "bytes": 32496,
+      "sha256": "b3c6574a160f8e875e5e2b7ad0ebcef018958592bb7a621e8565bad7227b3ee5",
+      "role": "metadata",
+      "integrity": "match",
+      "inspection": {
+        "view_id": "xzj8-i3jk",
+        "projected_schema_source": true,
+        "license_id": null,
+        "field_names": [
+          "boo_event",
+          "boo_act",
+          "boo_date",
+          "boo_trade",
+          "boo_octype",
+          "boo_on",
+          "boo_off",
+          "boo_hours",
+          "boo_rate",
+          "boo_cost",
+          "boo_entered",
+          "boo_correction",
+          "boo_sqlidentity",
+          "boo_jecategory",
+          "boo_jesource",
+          "boo_desc",
+          "boo_code",
+          "boo_misc"
+        ]
+      }
+    },
+    {
+      "path": "work-orders-000.json",
+      "bytes": 653046,
+      "sha256": "9e39f7720522f89011d2ed27806b8fcb0cb720f856afc69d73b2194d5fb5e319",
+      "role": "work-orders",
+      "integrity": "match",
+      "inspection": {
+        "rows": 1612,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "assets-000.json",
+      "bytes": 27702,
+      "sha256": "b76a1eb06e5d13cd68afa3d1f14f62993256099d46ab8bb918ec51d387aa57e1",
+      "role": "assets",
+      "integrity": "match",
+      "inspection": {
+        "rows": 100,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "assets-001.json",
+      "bytes": 28092,
+      "sha256": "2dd3b1de3e1bcf930b4caabb5779b9a6f1f9d24d9d711afe05b3b7bd7effce51",
+      "role": "assets",
+      "integrity": "match",
+      "inspection": {
+        "rows": 100,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "assets-002.json",
+      "bytes": 27000,
+      "sha256": "1d2c799fa919333a2378a0d1c28d700f2156e680ae7236192dadb1a85405ac59",
+      "role": "assets",
+      "integrity": "match",
+      "inspection": {
+        "rows": 100,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "assets-003.json",
+      "bytes": 27279,
+      "sha256": "c08eb627bcba1bf90e9f5cc11434f20f2d817216266f21dc13616cb3aa2d5f48",
+      "role": "assets",
+      "integrity": "match",
+      "inspection": {
+        "rows": 100,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "assets-004.json",
+      "bytes": 27122,
+      "sha256": "506521ae211512e1843055ee3d6e88b46781046a525fa09b0e62321d1fc7eb00",
+      "role": "assets",
+      "integrity": "match",
+      "inspection": {
+        "rows": 100,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "assets-005.json",
+      "bytes": 27245,
+      "sha256": "8a6096aa74613c8521b0a32e689fd43d0b26d8eb9826732d30b31e065a9ea89f",
+      "role": "assets",
+      "integrity": "match",
+      "inspection": {
+        "rows": 100,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "assets-006.json",
+      "bytes": 27223,
+      "sha256": "d4f10829a3805d24718b5a030bf566e2399c5ed4791093dbe9bc29275649e172",
+      "role": "assets",
+      "integrity": "match",
+      "inspection": {
+        "rows": 100,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "assets-007.json",
+      "bytes": 28038,
+      "sha256": "ff206fae8bdbb6b7b44fef2a3f80c2005cd928961df288d4b5e1bc63eabc3d3d",
+      "role": "assets",
+      "integrity": "match",
+      "inspection": {
+        "rows": 100,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "assets-008.json",
+      "bytes": 26443,
+      "sha256": "8092a6b80c66b301b653a89d418ab09ff5c22255083607cae02def4f8c083386",
+      "role": "assets",
+      "integrity": "match",
+      "inspection": {
+        "rows": 100,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "assets-009.json",
+      "bytes": 8921,
+      "sha256": "7c721d72ab217344c1d7678c030f134ca4b1b32bf7f5a742d476243a8701d039",
+      "role": "assets",
+      "integrity": "match",
+      "inspection": {
+        "rows": 33,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "transactions-000.json",
+      "bytes": 1261,
+      "sha256": "0d74a38cda1eda46abd202921e3d5a2f331999ccf34b88a672eddf550faf6ce6",
+      "role": "transactions",
+      "integrity": "match",
+      "inspection": {
+        "rows": 5,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "transactions-001.json",
+      "bytes": 3277,
+      "sha256": "c4b8b9074925bedba05df237ceecc4be9c93a4b52976b5cd52648e4e9deb7856",
+      "role": "transactions",
+      "integrity": "match",
+      "inspection": {
+        "rows": 13,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "transactions-002.json",
+      "bytes": 12679,
+      "sha256": "6842e71feedcc8ec52e97a43b1305ed4b9b829363fee0f11a81603c72ae5e8a5",
+      "role": "transactions",
+      "integrity": "match",
+      "inspection": {
+        "rows": 50,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "transactions-003.json",
+      "bytes": 1527,
+      "sha256": "e2f25a159c5c14f57c49971e00c2c65719798068a9105567f1186999f218ca84",
+      "role": "transactions",
+      "integrity": "match",
+      "inspection": {
+        "rows": 6,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "transactions-004.json",
+      "bytes": 3314,
+      "sha256": "597918158a4d5be8cbc229018b2a16e99050009352b76e2a1322014747f5ca6a",
+      "role": "transactions",
+      "integrity": "match",
+      "inspection": {
+        "rows": 13,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "transactions-005.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "role": "transactions",
+      "integrity": "match",
+      "inspection": {
+        "rows": 0,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "transactions-006.json",
+      "bytes": 9416,
+      "sha256": "07b547ddabb32ed008004ba6d116a09fb802f47f3e75d698541a3e5e8830acc5",
+      "role": "transactions",
+      "integrity": "match",
+      "inspection": {
+        "rows": 37,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "transactions-007.json",
+      "bytes": 2017,
+      "sha256": "70dc9e42de62bf240dfa0b63d32a77536e0162f95fe123530b23e907da0eff01",
+      "role": "transactions",
+      "integrity": "match",
+      "inspection": {
+        "rows": 8,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "transactions-008.json",
+      "bytes": 6359,
+      "sha256": "f90aa4085443ff41aa1a9c2932f3b08fe9b116a57bd985a9a20b73fee33b0242",
+      "role": "transactions",
+      "integrity": "match",
+      "inspection": {
+        "rows": 25,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "transactions-009.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "role": "transactions",
+      "integrity": "match",
+      "inspection": {
+        "rows": 0,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "transactions-010.json",
+      "bytes": 3588,
+      "sha256": "7fd91f8dcff2a32520576cc2241b8fc180cbeb0802be580e7dd7b3d0f00071f9",
+      "role": "transactions",
+      "integrity": "match",
+      "inspection": {
+        "rows": 14,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "transactions-011.json",
+      "bytes": 1511,
+      "sha256": "3442deb3e54f29f895898af9eb5c922c1ab1a41e5c9b43b5775dc3526a7fd98a",
+      "role": "transactions",
+      "integrity": "match",
+      "inspection": {
+        "rows": 6,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "transactions-012.json",
+      "bytes": 1539,
+      "sha256": "fd308f5410fcbba7a7e67ffa1b8620c61c6f1979ede50b504180bebb1d9d13b0",
+      "role": "transactions",
+      "integrity": "match",
+      "inspection": {
+        "rows": 6,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "transactions-013.json",
+      "bytes": 2025,
+      "sha256": "70ed241a8623aaa9944b91a0ccc789236da08d1ba26f9ba68bc8de0307a013b7",
+      "role": "transactions",
+      "integrity": "match",
+      "inspection": {
+        "rows": 8,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "transactions-014.json",
+      "bytes": 1765,
+      "sha256": "ce75071fc349bbae63a5e8f18f96bade3e183bd8923f576cb25b7c210c38e4f2",
+      "role": "transactions",
+      "integrity": "match",
+      "inspection": {
+        "rows": 7,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "transactions-015.json",
+      "bytes": 2521,
+      "sha256": "858b5f9a764b738ad5db40761d10a290c4e734bbb1d7d0fa7e9f47a064222087",
+      "role": "transactions",
+      "integrity": "match",
+      "inspection": {
+        "rows": 10,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "transactions-016.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "role": "transactions",
+      "integrity": "match",
+      "inspection": {
+        "rows": 0,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "details-000.json",
+      "bytes": 50768,
+      "sha256": "966f01c91ab06185d191a49ef77895556f2b5b6aa5053b58e3d99459d72f25bb",
+      "role": "details",
+      "integrity": "match",
+      "inspection": {
+        "rows": 140,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "details-001.json",
+      "bytes": 41576,
+      "sha256": "4fc8f0a483c7e0d1ca6fe590af870006fca911a121bfcd0e051d1b3e8cee9f37",
+      "role": "details",
+      "integrity": "match",
+      "inspection": {
+        "rows": 115,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "details-002.json",
+      "bytes": 2915,
+      "sha256": "a145e830d7a5e1db1827bdc9e2fb5c2750b2bbb0290e58147134dc290ac546fc",
+      "role": "details",
+      "integrity": "match",
+      "inspection": {
+        "rows": 8,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "labor-000.json",
+      "bytes": 430573,
+      "sha256": "c0e36e323041a03b2cb892351cb730301d807f463595ae30987149ef08d36927",
+      "role": "labor",
+      "integrity": "match",
+      "inspection": {
+        "rows": 2138,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "labor-001.json",
+      "bytes": 48587,
+      "sha256": "7c333aed5118e25418e6200c959e30a1cdcae88370d4a01d3b7890206c5a1cd6",
+      "role": "labor",
+      "integrity": "match",
+      "inspection": {
+        "rows": 242,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "labor-002.json",
+      "bytes": 56661,
+      "sha256": "0746d2ce716a1596267fd0a90379cc9f2af70d94bd59ed93cbbd74b83f50144f",
+      "role": "labor",
+      "integrity": "match",
+      "inspection": {
+        "rows": 284,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "labor-003.json",
+      "bytes": 27534,
+      "sha256": "4b590653dc95db583f494a61286db01494f791147b0f55cde6c3c802d0acd8d8",
+      "role": "labor",
+      "integrity": "match",
+      "inspection": {
+        "rows": 137,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "labor-004.json",
+      "bytes": 45398,
+      "sha256": "54dcf827f07cdd10112d4932bdea3311373e621c64f3f1269c928f2ca3e3551d",
+      "role": "labor",
+      "integrity": "match",
+      "inspection": {
+        "rows": 228,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "labor-005.json",
+      "bytes": 24264,
+      "sha256": "66f969d8e841c19eecd596663108e15416135fa225976c37f1e287fe5a22ecf9",
+      "role": "labor",
+      "integrity": "match",
+      "inspection": {
+        "rows": 123,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "labor-006.json",
+      "bytes": 45041,
+      "sha256": "7fdd09fb7b650935d27b631c10178c689c64f50836f95fd2ea03019570e626bd",
+      "role": "labor",
+      "integrity": "match",
+      "inspection": {
+        "rows": 225,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "labor-007.json",
+      "bytes": 38853,
+      "sha256": "4788297a6553e9eeb9fcdb0db8557cdd0db1d172a289218e27b3292979784115",
+      "role": "labor",
+      "integrity": "match",
+      "inspection": {
+        "rows": 192,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "labor-008.json",
+      "bytes": 106121,
+      "sha256": "60149b1a29c27c69fe4700025726fe71365737d08a39269eecf1ca536399c28e",
+      "role": "labor",
+      "integrity": "match",
+      "inspection": {
+        "rows": 521,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "labor-009.json",
+      "bytes": 17249,
+      "sha256": "5a8077ad7b0bea88c0a747130238c01108c0029385f5e1454f6dcdfc872163f8",
+      "role": "labor",
+      "integrity": "match",
+      "inspection": {
+        "rows": 88,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "labor-010.json",
+      "bytes": 37244,
+      "sha256": "d950bdc2d996442f3e3ae8ef21bf64925020fb1a461269a85748cd307fa5c5d7",
+      "role": "labor",
+      "integrity": "match",
+      "inspection": {
+        "rows": 190,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "labor-011.json",
+      "bytes": 23745,
+      "sha256": "71cfabf25b9162a8c25e5f369f87a49a22622d7433a03f9e78590e7d1602c883",
+      "role": "labor",
+      "integrity": "match",
+      "inspection": {
+        "rows": 119,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "labor-012.json",
+      "bytes": 36080,
+      "sha256": "056246294ab43600f383fdf51448e1e1d1bc1ec5ae6313d547e2661a4605b35c",
+      "role": "labor",
+      "integrity": "match",
+      "inspection": {
+        "rows": 180,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "labor-013.json",
+      "bytes": 24515,
+      "sha256": "608683b9d4d8a3c1b9265b208c49a5c4db5fa30c13f2a1fa0250e7212b583d8a",
+      "role": "labor",
+      "integrity": "match",
+      "inspection": {
+        "rows": 123,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "labor-014.json",
+      "bytes": 35137,
+      "sha256": "7d84d5af266e8c3cefc542e9247e5ba5438e59ddd665a5020a6df81c4eb66ea6",
+      "role": "labor",
+      "integrity": "match",
+      "inspection": {
+        "rows": 174,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "labor-015.json",
+      "bytes": 52496,
+      "sha256": "e7e8ed118a056d3ff2f8e9df51c0a944c735dfe8d21d0844e2baef40f42c509c",
+      "role": "labor",
+      "integrity": "match",
+      "inspection": {
+        "rows": 265,
+        "schema": "explicit source API field projection"
+      }
+    },
+    {
+      "path": "labor-016.json",
+      "bytes": 7276,
+      "sha256": "cfed1d15e31c012969c8a49e035c30ba11d28ce4a128fcd641dba6783e315454",
+      "role": "labor",
+      "integrity": "match",
+      "inspection": {
+        "rows": 39,
+        "schema": "explicit source API field projection"
+      }
+    }
+  ],
+  "errors": [],
+  "relationship_coverage": {
+    "keys": {
+      "work-orders": {
+        "rows": 1612,
+        "distinct_nonempty_keys": 1612,
+        "missing_keys": 0,
+        "duplicate_keys": 0,
+        "excess_duplicate_rows": 0,
+        "unexpected_columns": []
+      },
+      "assets": {
+        "rows": 933,
+        "distinct_nonempty_keys": 933,
+        "missing_keys": 0,
+        "duplicate_keys": 0,
+        "excess_duplicate_rows": 0,
+        "unexpected_columns": []
+      },
+      "transactions": {
+        "rows": 208,
+        "distinct_nonempty_keys": 208,
+        "missing_keys": 0,
+        "duplicate_keys": 0,
+        "excess_duplicate_rows": 0,
+        "unexpected_columns": []
+      },
+      "details": {
+        "rows": 263,
+        "distinct_nonempty_keys": 263,
+        "missing_keys": 0,
+        "duplicate_keys": 0,
+        "excess_duplicate_rows": 0,
+        "unexpected_columns": []
+      },
+      "labor": {
+        "rows": 5268,
+        "distinct_nonempty_keys": 5268,
+        "missing_keys": 0,
+        "duplicate_keys": 0,
+        "excess_duplicate_rows": 0,
+        "unexpected_columns": []
+      }
+    },
+    "links": {
+      "work_orders_to_assets": {
+        "missing_reference": 0,
+        "unmatched": 0,
+        "unique_match": 1612,
+        "ambiguous": 0
+      },
+      "transactions_to_work_orders": {
+        "missing_reference": 0,
+        "unmatched": 0,
+        "unique_match": 208,
+        "ambiguous": 0
+      },
+      "details_to_transactions": {
+        "missing_reference": 0,
+        "unmatched": 0,
+        "unique_match": 263,
+        "ambiguous": 0
+      },
+      "labor_to_work_orders": {
+        "missing_reference": 0,
+        "unmatched": 0,
+        "unique_match": 5268,
+        "ambiguous": 0
+      }
+    },
+    "errors": [],
+    "administrative_observations": {
+      "work_orders_with_completion_value": 1547,
+      "work_orders_with_reopened_value": 1612,
+      "work_orders_with_part_transactions": 114,
+      "labor_rows_with_correction_value": 5268
+    },
+    "interpretation": "Structural/source observations only. Completion is not repair effectiveness; parts movements are not automatically consumption; no cost/hour totals computed."
+  }
+}

@@ -5289,6 +5289,27 @@
         "examples/public-data/round-3/discovery-outcomes.json",
         "data/public_sources_20261107_round3.json"
       ]
+    },
+    {
+      "id": "A335",
+      "function": "intake_and_reuse",
+      "date": "2026-11-07",
+      "change": "Acquire a predeclared linked municipal asset/work-order/parts/labor cohort, retaining incomplete transport attempts and exact source relationships.",
+      "hypothesis": "A fixed date cohort and publisher-defined identifiers can fill the linked-administrative-record gap without inventing associations or equating completion with repair effectiveness.",
+      "evidence": "53 projected API response/metadata files, 2366010 bytes: 1612 work orders, 933 assets, 208 transactions, 263 lines, 5268 labor entries. All four relationships unique; checked row keys nonempty/unique. Offline replay zero network calls; fresh HTTPS work-order query matches 653046 bytes. Changed-byte and ten fictional relationship controls pass. All 50 prior source groups and existing methods unchanged; source/selection/history/metadata bindings match. Two HTTP 503 attempts retained. Focused modules 24 and 11 tests pass; full local prerequisites missing.",
+      "runs": "One predeclared request-date cohort with two retained incomplete attempts and exact-query transport recovery; cached replay, one fresh-query integrity check and fictional controls; no model calls.",
+      "verdict": "kept",
+      "why": "Useful acquired-unscored linked records from one municipal system. Codes/units/returns/flags and current sequential snapshot need interpretation; no industrial transfer, repair effectiveness, data redistribution license or CAD acceptance inferred.",
+      "source": [
+        "docs/JOURNAL.md#182-acquire-a-predeclared-linked-public-maintenance-cohort",
+        "examples/public-data/round-4/README.md",
+        "examples/public-data/round-4/SELECTION.md",
+        "examples/public-data/round-4/acquisition.json",
+        "examples/public-data/round-4/admission.json",
+        "examples/public-data/round-4/verification.json",
+        "examples/public-data/round-4/discovery-outcomes.json",
+        "data/public_sources_20261107_round4.json"
+      ]
     }
   ],
   "not_tried": [

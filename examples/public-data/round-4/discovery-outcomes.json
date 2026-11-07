@@ -1,0 +1,28 @@
+{
+  "schema": "public-source-discovery-4",
+  "selection_commit_before_rows": "07663b6",
+  "transport_recovery_commit_before_resume": "c65ba17",
+  "source_family": "nyc-parks-amps",
+  "discovery": "Publisher Socrata catalog returned work-order, asset, transaction, transaction-detail and labor view IDs. Publisher metadata describes the four joins; no text-based guessed relationships used.",
+  "transport": [
+    {
+      "stage": "initial catalog discovery",
+      "outcome": "Default Python 3.14 HTTPS trust rejected api.us.socrata.com with CERTIFICATE_VERIFY_FAILED. Verified system-TLS curl fetched catalog/metadata; UTF-8 decoding was specified after a local cp1252 decode failure. Python 3.13 successfully verified publisher HTTPS and was used for acquisition/reproduction. No certificate checks disabled or trust settings changed."
+    },
+    {
+      "stage": "first acquisition",
+      "outcome": "Stopped on HTTP 503 at transaction batch 010. Earlier bodies and exact query/hash receipt retained in local amps-linked and history/acquisition-incomplete-1.json. No complete-cohort claim."
+    },
+    {
+      "stage": "unchanged retry",
+      "outcome": "Stopped on HTTP 503 at asset batch 005. Separate bodies/receipt retained in local amps-linked-retry-1 and history/acquisition-incomplete-2.json. No date/schema/predicate changes."
+    },
+    {
+      "stage": "bounded recovery",
+      "outcome": "New output, oldest successful exact-query bytes reused only after raw hash/size/role checks; missing queries allow at most three transient transport attempts. Complete cohort: 53 bodies, 2366010 bytes, of which 1164985 newly downloaded by recovery. All five projected record tables and all attempted queries retained; no row outcomes used to change selection."
+    }
+  ],
+  "rights": "No licenseId in any of the five publisher metadata documents. Local original API responses/full metadata only; registry links publisher terms and retains attribution. No open redistribution license assumed and no source rows committed.",
+  "interpretation": "One fixed request-date week, current sequential public reads. Completion, reopened/correction values and parts movements are not verified repair effectiveness, Boolean truth flags, net consumption, current installed truth or industrial validation. Source User Guide/Data Dictionary interpretation remains a next task.",
+  "evaluation": "No model calls, downloaded code execution, package installation, source key/model scores, changed CAD split, task leaderboard/generalization cell or independent engineering review."
+}

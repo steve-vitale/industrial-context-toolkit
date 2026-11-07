@@ -1,0 +1,46 @@
+{
+  "schema": "public-source-verification-4",
+  "offline_cached_replay": {
+    "exit_code": 0,
+    "files": 53,
+    "response_bytes": 2366010,
+    "network_calls": 0,
+    "fetched_bytes": 0
+  },
+  "prior_source_groups_unchanged": 50,
+  "existing_methods_unchanged": true,
+  "acquisition_selection_history_and_metadata_bindings": "match",
+  "changed_original_controls": {
+    "truncation": {
+      "status": "refused",
+      "error": "truncation: 653,045 bytes, pinned 653,046. Upstream changed; not saved."
+    },
+    "same_size_mutation": {
+      "status": "refused",
+      "error": "same_size_mutation: sha256 d111c7746bff1cac..., pinned 9e39f7720522f890.... Upstream changed; not saved."
+    }
+  },
+  "relationship_controls": {
+    "correct_relationships": "all four links unique",
+    "missing_asset": "retained as unmatched; no fabricated parent",
+    "duplicate_asset": "ambiguous and error; no first-match collapse",
+    "wrong_entity_same_identifier": "refused despite matching numeric code",
+    "transactions_foreign_parent": "reported as error",
+    "details_foreign_parent": "reported as error",
+    "labor_foreign_parent": "reported as error",
+    "exclusive_end_date": "refused",
+    "uncontracted_column": "refused",
+    "empty_cohort": "refused"
+  },
+  "methods": {
+    "verify.py": "d4722b0ab5d4f02524759411b0630f52e4a9f639552d39064ed5222b9bf27cc4",
+    "check_controls.py": "b7de3396b89b8a66133d62856204b2eed095da847348591b37a4a14cb8401664"
+  },
+  "fresh_https_query": {
+    "path": "work-orders-000.json",
+    "url": "https://data.cityofnewyork.us/resource/8sdw-8vja.json?%24select=evt_code%2Cevt_desc%2Cevt_type%2Cevt_date%2Cevt_object%2Cevt_obtype%2Cevt_class%2Cevt_jobtype%2Cevt_priority%2Cevt_reported%2Cevt_start%2Cevt_due%2Cevt_completed%2Cevt_reopened%2Cevt_parent%2Cevt_updated%2Cevt_updatecount&%24where=evt_date+%3E%3D+%272024-01-01T00%3A00%3A00%27+AND+evt_date+%3C+%272024-01-08T00%3A00%3A00%27&%24order=evt_code&%24limit=5001",
+    "bytes": 653046,
+    "sha256": "9e39f7720522f89011d2ed27806b8fcb0cb720f856afc69d73b2194d5fb5e319",
+    "status": "pin match"
+  }
+}

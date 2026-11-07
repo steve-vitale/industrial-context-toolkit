@@ -1,5 +1,10 @@
 # More public inputs for maintenance and engineering work
 
+The [fourth acquisition](round-4/README.md) supplies linked municipal maintenance records: 1,612 work orders,
+933 assets, 208 parts transactions, 263 transaction lines and 5,268 labor entries from NYC Parks AMPS. All four
+passes total **183 files (424 MB) in 40 download groups**, plus four separate DXF originals. The new guide checks
+all four relationships and explains what still needs interpretation; administrative closure is not repair effectiveness.
+
 The [third acquisition](round-3/README.md) adds **29 files (103 MB)**: maintenance-linked mining histories,
 field alarms, parts-catalog revisions, degradation experiments, hydraulic models, CAD originals and pump/photo
 references. All three passes total **130 files (421 MB) in 39 download groups**, plus four separate DXF originals.
@@ -81,7 +86,8 @@ No work-order records were obtained there. NIST software licensing was not subst
 terms. The failed OSTI mechanical-handbook download was replaced by a successful DOE-hosted original; both
 attempts are recorded in [discovery outcomes](discovery-outcomes.json).
 
-Still missing: public, linked equipment registers plus dated work orders/parts/closure/effectiveness records;
+The [later AMPS acquisition](round-4/README.md) now supplies linked municipal assets/work orders/parts/labor and
+completion fields. Still missing: linked industrial plant histories and verified repair effectiveness;
 engineering-reviewed multi-revision CAD/P&ID truth; tested native GUI edit/save/reopen; and customer environment
 acceptance. Public records cannot supply a plant's SharePoint permissions, CMMS authority, historian/PLC endpoints,
 current installed identities or approvals. Those remain supplied inputs for the tools, not invented fixtures.
