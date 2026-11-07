@@ -19,6 +19,7 @@ def main():
     parser.add_argument("out", type=Path)
     parser.add_argument("--start", type=int, default=0)
     parser.add_argument("--count", type=int, default=6)
+    parser.add_argument("--window-id", required=True, help="Main X11 window observed with wmctrl -l")
     args = parser.parse_args()
     args.out.mkdir(exist_ok=False)
     actions = []
@@ -40,7 +41,12 @@ def main():
         for row in rows:
             source = Path(row["path"])
             original = source.read_bytes()
-            run("xdotool", "mousemove", "500", "9", "click", "1", "key", "Escape", "Escape", "ctrl+o")
+            # Title clicks at consecutive close/open boundaries can become a double-click
+            # and maximize the window. Activate the observed window directly instead.
+            run("wmctrl", "-ia", args.window_id)
+            run("wmctrl", "-ir", args.window_id, "-b", "remove,maximized_vert,maximized_horz")
+            run("wmctrl", "-ir", args.window_id, "-e", "0,0,0,1120,900")
+            run("xdotool", "key", "Escape", "Escape", "ctrl+o")
             time.sleep(.3)
             run("xdotool", "key", "ctrl+a", "type", "--clearmodifiers", "--", str(source))
             run("xdotool", "key", "Tab", "Return")
@@ -58,7 +64,8 @@ def main():
                 # Third Block List row is the declared named layout on these six cases.
                 run("xdotool", "mousemove", "950", "205", "click", "--repeat", "2", "--delay", "100", "1", "key", "z", "a")
                 shot(row["id"] + "-" + row["kind"] + "-paper.png")
-            run("xdotool", "mousemove", "500", "9", "click", "1", "key", "ctrl+w")
+            run("wmctrl", "-ia", args.window_id)
+            run("xdotool", "key", "ctrl+w")
             if source.read_bytes() != original:
                 raise RuntimeError("Opening/viewing changed source bytes")
             row["sha256_after_view"] = hashlib.sha256(original).hexdigest()
