@@ -8088,3 +8088,44 @@ The Windows app still shows startup/trial-expiry dialogs through accessibility t
 captures time out; no successful drawing interaction was observed. Full CAD qualification therefore remains
 unfinished, with readable complete visual review and actual native UI editing/reopen outstanding. No plant data,
 operator review, measured human effort, platform import or company/engineering acceptance is established.
+
+## 184. Diagnose blank native layouts without rewriting the qualification sources
+
+2026-11-07. Continued the CAD goal after merging the preservation evidence in PR20, retaining the original
+acceptance criteria, frozen methods, source bytes and strict failures. A read-only native block/layout probe
+and display plan were committed at bbd53c2 before execution on all 12 replacement source/candidate pairs.
+All 24 raw input hashes remain exact. The five authored Qualification sheet layouts contain one display viewport
+each in their sources/candidates, but QCAD Professional trial 3.33.1 Qt5 exposes empty imported layout blocks.
+Both retained native save formats have different paper/main viewport settings instead of those original display
+settings. These are genuine layout-information losses, not just informational metadata differences or blank sources.
+
+Six hypotheses on the already exposed cp1251 source were declared at c25c4b8 and exact working copies bound at
+6efea49 before native import: original bytes, library save, add main viewport, add main and restore the original
+current handle, change current handle only, and activate the layout only. Both added-main variants expose one
+display viewport with original bounds [15, 5, 115, 75]; the other four expose none. A separate rendering recipe
+was committed at 3143237 before all ten new native images. Direct inspection of all six paper images shows the
+drawing only in the two added-main variants. Their RGB pixels are identical; the other four are identical to the
+blank original render. This isolates a main-viewport compatibility dependency among tested revisions of one
+exposed drawing. It is not independent validation, proof of a universal CAD rule or a qualified automatic repair.
+The primary ezdxf layout-internals and API documentation differ about whether a main viewport is required.
+No working copy replaces the original frozen source/generator or changes a preservation result.
+
+The four other images test equal-scale translated long-label source/candidate windows. Every native command
+exits zero, retaining input hashes and trial marks. All four were directly inspected: the mark still overlaps
+the text at both positions; pre-substitution bounds also do not prove complete substituted-glyph containment.
+The long candidate reaches the right frame edge. This recipe remains failed and is not expanded into an
+unnecessary full-cohort batch. No mark was removed, masked or suppressed and no output pixels were edited.
+
+The UI attempt sent Return to the observed expired dialog; the old window subsequently disappeared. Launching
+the same pre-existing app yielded a fresh native window. Two capture attempts still report window capture timed
+out: timed out waiting on channel. Return/raising the new startup dialog does not dismiss it or move the reported
+focus from General Properties Handle. Two clicks using freshly observed startup button 6 fail with element 6
+is not available in cached app state for qcad.exe. No drawing interaction, edit/save/close/reopen, screenshot,
+license change, authentication/security change or company acceptance is claimed. Bounded recovery stops here.
+
+The separate 191,869-byte archive retains 36 exact records (839,158 raw bytes), including all commands/logs,
+probe receipts, comparison fields and ten PNGs; native settings/software/fonts are excluded. Its offline check
+verifies both archives, all frozen methods/inputs, 12 retained source/candidate/native viewport comparisons,
+five losses, six hypothesis outcomes and ten original image pins. An omitted-variant control refuses. Existing
+strict comparison/value patcher/byte checker are unchanged. Full native visual/UI qualification remains unfinished;
+the new diagnostic is evidence of a failure mechanism, not a new feature or accuracy/generalization pass.

@@ -5335,6 +5335,28 @@
         "examples/cad-handoff/qualification/round-2/recheck-metadata-diagnostic.json",
         "scripts/test_cad_handoff.py"
       ]
+    },
+    {
+      "id": "A337",
+      "function": "intake_and_reuse",
+      "date": "2026-11-07",
+      "change": "Diagnose five blank native layout imports with predeclared working-copy controls and retain failed translated-label/UI recovery attempts.",
+      "hypothesis": "Matched main-viewport, current-handle and layout-activation controls can explain actual native layout loss without changing qualification sources or relaxing strict comparison.",
+      "evidence": "Read-only probe covers 12 replacement source/candidate pairs with unchanged raw hashes. Five authored layouts contain display viewports that native import does not expose; both saved native formats lose their settings. Six frozen diagnostic copies: only two added-main variants expose the original viewport bounds and render the drawing; other four remain blank. All ten render exits zero and inputs unchanged; translated long labels still obscured/clipped. Offline check validates 36 exact records, prior native return fields and omitted-variant refusal. Fresh UI capture/indexed-input recovery still fails.",
+      "runs": "All 12 replacement pairs; six predeclared variants of one exposed cp1251 source; six paper PNGs and two translated long-label pairs. No model call; no fresh independent qualification set.",
+      "verdict": "inconclusive",
+      "why": "One observed compatibility dependency is explained and failures retained. Deliberately revised sources are not byte-preserving candidates or a qualified repair. Frozen methods/sources/strict failures unchanged. Complete readable visual review and actual native UI edit/save/close/reopen remain unproved.",
+      "source": [
+        "docs/JOURNAL.md#184-diagnose-blank-native-layouts-without-rewriting-the-qualification-sources",
+        "examples/cad-handoff/qualification/DISPLAY-DIAGNOSIS-4-PLAN.md",
+        "examples/cad-handoff/qualification/LAYOUT-HYPOTHESES-4.md",
+        "examples/cad-handoff/qualification/LAYOUT-HYPOTHESES-4-FREEZE.json",
+        "examples/cad-handoff/qualification/diagnosis-4/README.md",
+        "examples/cad-handoff/qualification/diagnosis-4/INVENTORY.json",
+        "examples/cad-handoff/qualification/diagnosis-4/summary.json",
+        "examples/cad-handoff/qualification/diagnosis-4/UI-OBSERVATION.json",
+        "examples/cad-handoff/qualification/check_diagnosis4.py"
+      ]
     }
   ],
   "not_tried": [
