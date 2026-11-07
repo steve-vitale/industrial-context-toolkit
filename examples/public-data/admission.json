@@ -1,0 +1,1540 @@
+{
+  "schema": "public-source-admission-1",
+  "created": "2026-11-07T15:25:56.282914+00:00",
+  "role": "acquired-unscored; structural/parser admission only",
+  "python": "3.14.2",
+  "ocr": "auto",
+  "fingerprint_convention": "code/registry CRLF normalized to LF; source files raw",
+  "method_sha256": "260c3f99f076e480bd0ffef6c882866798efa304c9d363badaba412b7ad512d2",
+  "extractor_sha256": "5c886220c3492729f8cf2e5d8ba7ec9788d29047620155ccedad3f84b37c0fb3",
+  "registry_sha256": "e277b1caa29bbff61304bfca4170e118811701849e0fc06ca8e8f719dd9870e4",
+  "fetch_engine_sha256": "fb9f6480a2209054e30dfe56e69179570c1da6f766dc01fd04319077ae9e1e0b",
+  "fetch_catalog_sha256": "c4174d9d9fc06313b9fdd6562c6e8c54ab22da42205e15422181612b1ccf9606",
+  "fetch_receipts": [
+    {
+      "source": "uci-steel-energy",
+      "license": "CC BY 4.0",
+      "attribution": "Sathishkumar V E, Changsun Shin, Yongyun Cho (2021). Steel Industry Energy Consumption. UCI. DOI:10.24432/C52G8C.",
+      "landing_url": "https://archive.ics.uci.edu/dataset/851/steel+industry+energy+consumption",
+      "fetched": "2026-11-07T15:25:56+00:00",
+      "files": [
+        {
+          "path": "data.csv",
+          "bytes": 2731389,
+          "sha256": "9b1cee6f9cb9cd9df2b95814ca90a9a2ff15b7f5f1fba0fae3c643e82072eacc",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        }
+      ],
+      "skipped": "none: official CSV and metadata snapshot",
+      "fetched_mb": 0.0
+    },
+    {
+      "source": "uci-ai4i",
+      "license": "CC BY 4.0",
+      "attribution": "Stephan Matzka (2020). AI4I 2020 Predictive Maintenance Dataset. UCI. DOI:10.24432/C5HS5C.",
+      "landing_url": "https://archive.ics.uci.edu/dataset/601/ai4i+2020+predictive+maintenance+dataset",
+      "fetched": "2026-11-07T15:25:56+00:00",
+      "files": [
+        {
+          "path": "data.csv",
+          "bytes": 518125,
+          "sha256": "ffc3c28f35b1a1636eacd2bf46aca0ff5e795b4a8eb934309c5819079e9b5a18",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        }
+      ],
+      "skipped": "none: official CSV and metadata snapshot",
+      "fetched_mb": 0.0
+    },
+    {
+      "source": "wine-competition",
+      "license": "CC BY 4.0",
+      "attribution": "Contreras Ruiz, Alba; Alonso del Real, Javier; Barrio, Eladio; Querol, Amparo. dataset of the data obtained for publication: Saccharomyces cerevisiae wine strains show a wide range of competitive abilities and differential nutrient uptake behavior in co-culture with S. kudriavzevii. DOI:10.5281/zenodo.18757697. Version v1.",
+      "landing_url": "https://zenodo.org/records/18757697",
+      "fetched": "2026-11-07T15:25:56+00:00",
+      "files": [
+        {
+          "path": "dataset competencias.xlsx",
+          "bytes": 269041,
+          "sha256": "3c1bf733f9bf117bd945ab3f7eb5a1913f88cb85d5eeec4c70211dd00a90918a",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        }
+      ],
+      "skipped": "none",
+      "fetched_mb": 0.0
+    },
+    {
+      "source": "candida-bioreactor",
+      "license": "CC BY 4.0",
+      "attribution": "Palcevska, Jelizaveta; Raita, Svetlana; Kusnere, Zane; Geiba, Zane. Experimental dataset on mutant generation, amino acid inhibitor-based screening, and process optimization for enhanced protein and essential amino acid production in Candida utilis. DOI:10.5281/zenodo.19854128. Version v1.",
+      "landing_url": "https://zenodo.org/records/19854128",
+      "fetched": "2026-11-07T15:25:56+00:00",
+      "files": [
+        {
+          "path": "Dataset_Experimental_results_flask_bioreactor_cultivation_mutant_yeast_strain_C_utilis 1.xlsx",
+          "bytes": 2015669,
+          "sha256": "0db1575b017cb2eef8a0091bf0c23cde5aba8681a3c774ce835b99268a420f2e",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "Candida_utilis_dataset-description (1).pdf",
+          "bytes": 145080,
+          "sha256": "6b3e16659ee6b9647ef3cd10e8cb1e43d7ec476ce5706468a15903b35179cf60",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        }
+      ],
+      "skipped": "none",
+      "fetched_mb": 0.0
+    },
+    {
+      "source": "pomace-fermentation",
+      "license": "CC BY 4.0",
+      "attribution": "Mamani, Maribel; Valentina, Guzm\u00e1n; Castillo, Benjam\u00edn; Rogel, Cristian; Quispe, Cristina; Vald\u00e9s Vergara, Cristian Rodrigo. Lactic acid production from apple, pear and grape pomace hydrolysates by six lactic acid bacterial species: fermentation dataset and fitted models. DOI:10.5281/zenodo.22152061. Version v1.",
+      "landing_url": "https://zenodo.org/records/22152061",
+      "fetched": "2026-11-07T15:25:56+00:00",
+      "files": [
+        {
+          "path": "zenodo_deposit.zip",
+          "bytes": 170025,
+          "sha256": "0c4fe9b69e4511ebb232632c73ace9c255c25b032bfd65ac062e8436a5dda654",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        }
+      ],
+      "skipped": "none",
+      "fetched_mb": 0.0
+    },
+    {
+      "source": "sequencing-batch-reactor",
+      "license": "CC BY 4.0",
+      "attribution": "De Vicente, Marta; Tom\u00e1s-Pej\u00f3, Elia; Gonz\u00e1lez-Fern\u00e1ndez, Cristina. Anaerobic sequencing batch reactor enhances SCFAs productivity while facilitating downstream processing. DOI:10.5281/zenodo.18247081. Version v1.",
+      "landing_url": "https://zenodo.org/records/18247081",
+      "fetched": "2026-11-07T15:25:56+00:00",
+      "files": [
+        {
+          "path": "dataset_SBR.xlsx",
+          "bytes": 59165,
+          "sha256": "948002e402bf3b64e91810da9ed8ed4b347ba796d61542c32dd350e1fc7f6153",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        }
+      ],
+      "skipped": [
+        {
+          "name": "Inoculum_sequence_R2_reverse_001.fastq",
+          "bytes": 158486903,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "HRT10_sequence_R2_reverse_001.fastq",
+          "bytes": 129921257,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "Inoculum sequence_R1_foward_001.fastq",
+          "bytes": 158708471,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "HRT15_sequence_R1_foward_001.fastq",
+          "bytes": 134746382,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "HRT20_sequence_R2_reverse_001.fastq",
+          "bytes": 138386980,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "HRT20_sequence_R1_foward_001.fastq",
+          "bytes": 138731334,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "HRT15_sequence_R2_reverse_001.fastq",
+          "bytes": 134438032,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "HRT10_sequence_R1_foward_001.fastq",
+          "bytes": 130211179,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        }
+      ],
+      "fetched_mb": 0.0
+    },
+    {
+      "source": "distillation-modalities",
+      "license": "CC BY 4.0",
+      "attribution": "Arweiler, Justus; Jungjohann, Indra; Werner, Jennifer; Muraleedharan, Aparna; Schmid, Jochen; Leitte, Heike; Burger, Jakob; M\u00fcnnemann, Kerstin; Bortz, Michael; Jirasek, Fabian; Hasse, Hans. Batch Distillation Data for Developing Machine Learning Anomaly Detection Methods. DOI:10.5281/zenodo.22250958. Version 1.1.3.",
+      "landing_url": "https://zenodo.org/records/22250958",
+      "fetched": "2026-11-07T15:25:56+00:00",
+      "files": [
+        {
+          "path": "03_Batch_Distillation_Plant_M-202210_Timeseries_Sensor_Uncertainties.zip",
+          "bytes": 31912981,
+          "sha256": "10052b724868c247dabab6a9b9de9e834742f7b87ee361c1c2b963a4316579f4",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "02_Batch_Distillation_Plant_M-202210_Timeseries_Actuators.zip",
+          "bytes": 8777587,
+          "sha256": "31d0e4147960b74113e06d5856d381334b7282c50729ba6e55916df516bef27a",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "04_Batch_Distillation_Plant_M-202210_Tabular_Ambient_Conditions.zip",
+          "bytes": 90643,
+          "sha256": "041950c07df32b6ea6186485399e0c35ff16fcc7c192a7942c19d515b708455a",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "plant_M-202210_metadata.yaml",
+          "bytes": 416,
+          "sha256": "1041dc385b74332c34c904a100f1dd4eafdbf33b804eb1d92ec3c28f44613749",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "14_Batch_Distillation_Plant_M-202210_Timeseries_Simulation_Configuration.zip",
+          "bytes": 257956,
+          "sha256": "009e58c3197db44276e5efd788f94980afeb0e07bcafb399525da7e6553e5744",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "Batch_Distillation_Plant_M-202210_Modality_Availability_Matrix.csv",
+          "bytes": 30361,
+          "sha256": "f7d7b24e05e0a1991870aa42ca5de61b3e4ff73d096619f992cfe3536d4802e1",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "Batch_Distillation_Plant_M-202210_Modality_Availability_Overview.md",
+          "bytes": 4633,
+          "sha256": "837c84c977ba9900873e1a9b74029a5d41646151641bb06ab56d197a9c6b7e38",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "10_Batch_Distillation_Plant_M-202210_GC_Composition.zip",
+          "bytes": 29130130,
+          "sha256": "4aacac36e8af1cc08ba23780830e29c1472ef0be4eb2a4de0ddbc54ca83eb859",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        }
+      ],
+      "skipped": [
+        {
+          "name": "01_Batch_Distillation_Plant_M-202210_Timeseries_Sensors.zip",
+          "bytes": 36470058,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "09_Batch_Distillation_Plant_M-202210_NMR_Composition_Equipment.zip",
+          "bytes": 13067666,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "Batch_Distillation_Plant_M-202210_Example_Subset.zip",
+          "bytes": 489693403,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "05_Batch_Distillation_Plant_M-202210_Tabular_Mixture_Information.zip",
+          "bytes": 83361313,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "06_Batch_Distillation_Plant_M-202210_Tabular_Plant_Information.zip",
+          "bytes": 392921,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "12_Batch_Distillation_Plant_M-202210_Image.zip",
+          "bytes": 38184293197,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "08_Batch_Distillation_Plant_M-202210_NMR_Composition.zip",
+          "bytes": 6856191247,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "11_Batch_Distillation_Plant_M-202210_Audio.zip",
+          "bytes": 47400111053,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "00_Batch_Distillation_Plant_M-202210_Timeseries_Label_Anomaly_Metadata.zip",
+          "bytes": 1726509,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "07_Batch_Distillation_Plant_M-202210_Tabular_Operation_Logs.zip",
+          "bytes": 140441,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "13_Batch_Distillation_Plant_M-202210_Timeseries_Simulation.zip",
+          "bytes": 2079339300,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        }
+      ],
+      "fetched_mb": 0.0
+    },
+    {
+      "source": "maintie",
+      "license": "MIT",
+      "attribution": "NLP-TLP research group; cite the original paper as requested in the retained README.",
+      "landing_url": "https://github.com/nlp-tlp/MaintIE",
+      "fetched": "2026-11-07T15:25:56+00:00",
+      "files": [
+        {
+          "path": "LICENSE.md",
+          "bytes": 1068,
+          "sha256": "a406579cd136771c705c521db86ca7d60a6f3de7c9b5460e6193a2df27861bde",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "README.md",
+          "bytes": 10931,
+          "sha256": "3e6105601d6e36d83995896a5b0b8c509b0b1b152018b1049fa41efa0e4c9aee",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "GUIDELINES.md",
+          "bytes": 12969,
+          "sha256": "e068ee321b76a8aa5d826e532511d524835f5fa276d0e411bbe0d0b120dfb7e3",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "SCHEME.md",
+          "bytes": 50421,
+          "sha256": "5fe24b49a2dc14309db17f9314883f5481c76ebed8785b9bd5fe15e93d97cf73",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "data/gold_release.json",
+          "bytes": 817880,
+          "sha256": "ef811cf4ffd0c90e6a13b1369e24e9d1d08f9a294d873ab4fb1a580096d7d6e0",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "data/silver_release.json",
+          "bytes": 4607249,
+          "sha256": "af8f785e5c03fdaefeb9b94dad7d24cbd030c2fa4b53ee452069d035f4bf4877",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "data/scheme.json",
+          "bytes": 134144,
+          "sha256": "0352bd240953829105d3017caf72dbf008e9c2ceee201add1ade22d818b582c0",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        }
+      ],
+      "skipped": "Models, code and results are not fetched; publisher data splits retained.",
+      "fetched_mb": 0.0
+    },
+    {
+      "source": "maintnorm",
+      "license": "MIT",
+      "attribution": "NLP-TLP research group; cite the original paper as requested in the retained README.",
+      "landing_url": "https://github.com/nlp-tlp/MaintNorm",
+      "fetched": "2026-11-07T15:25:56+00:00",
+      "files": [
+        {
+          "path": "LICENSE.md",
+          "bytes": 1074,
+          "sha256": "6d10b76838d36d156e42c879b0712f7db0525104b1ea8e9beea0afe4e60203b3",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "README.md",
+          "bytes": 8655,
+          "sha256": "09b918211579d0be0566d20143ce900b797c6448e75c9068a449f0b0b633708c",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "DATA.md",
+          "bytes": 9835,
+          "sha256": "1eb6590f7e7381b8c0bd5ca8de404662e38d728539807a25bca1180a39a04eaf",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "data/combined/test.norm",
+          "bytes": 82679,
+          "sha256": "8f9fe79cf30b880dfc59770a71ea11650aba804c34101c7fedde6b8518149b27",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "data/combined/train.norm",
+          "bytes": 660249,
+          "sha256": "9c685cb68099e370ad6c6f1e54507a96bec1038604c4d1fecd44941d24a735ec",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "data/combined/val.norm",
+          "bytes": 82751,
+          "sha256": "5fc2a6322897a647e888bbf33b8c449cd93138140d700e5a010db774766eaa69",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "data/company_a/test.norm",
+          "bytes": 26874,
+          "sha256": "cf91bfcf4e7f934f9d9d1b09811822a529603049f0aaec1bef332f434d8a0529",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "data/company_a/train.norm",
+          "bytes": 215103,
+          "sha256": "0cbd2efe0dca234891e0d4ec9a7560c65003359f9657132df05f115d37fa77ed",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "data/company_a/val.norm",
+          "bytes": 26781,
+          "sha256": "6b06cad2ab591ebf142c6e06afa41a74d5eb499d941b5ee8e9c9aca34b5528b0",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "data/company_b/test.norm",
+          "bytes": 29256,
+          "sha256": "a564dea24ecce9ecdcd5a92ca146351c7e20c57c801a83dab03a370d5887a948",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "data/company_b/train.norm",
+          "bytes": 232547,
+          "sha256": "41ca9c5053bb37867361b424ed5140f3b356c0a436f7e3c9a0fc2228b46835e4",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "data/company_b/val.norm",
+          "bytes": 29479,
+          "sha256": "53c25e2760e459200b3dab421baf62b7c3fad3f860fbf82184d448ed1d4a755d",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "data/company_c/test.norm",
+          "bytes": 26549,
+          "sha256": "fcfabb40697fa1eece6879b9d3ec68f689283b7cbcf08e2dc38889c9c49bbf41",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "data/company_c/train.norm",
+          "bytes": 212599,
+          "sha256": "884b021847cf2250c5a14b5f33341cd2d3580021a6954b9e44e54d233e1b5149",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "data/company_c/val.norm",
+          "bytes": 26491,
+          "sha256": "e226fc23297108276e0343c07cedf5ca3be23281080445eae2d37644b5800a64",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        }
+      ],
+      "skipped": "Models, code and results are not fetched; publisher data splits retained.",
+      "fetched_mb": 0.0
+    },
+    {
+      "source": "idaes-processes",
+      "license": "IDAES BSD-style license with DOE notice",
+      "attribution": "IDAES PSE Framework example contributors; retain LICENSE.md and upstream per-file notices.",
+      "landing_url": "https://github.com/IDAES/examples",
+      "fetched": "2026-11-07T15:25:56+00:00",
+      "files": [
+        {
+          "path": "LICENSE.md",
+          "bytes": 2877,
+          "sha256": "4fdde00bd663a045a688899c7e6924bd3b747204518e75540273c97f4bc98fa0",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "README.md",
+          "bytes": 3023,
+          "sha256": "165774813a6d1259dcc59641f0924c9f7f86455aecd8a03459013b2cf0bb2352",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "idaes_examples/notebooks/docs/flowsheets/methanol_flowsheet.png",
+          "bytes": 11674,
+          "sha256": "b997eeaac68a43b2ed9b1ae9e72cdf0ca8203cdd4bb4528210ad0d689321b623",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "idaes_examples/notebooks/docs/flowsheets/methanol_flowsheet.py",
+          "bytes": 33307,
+          "sha256": "33b24cf585d5ba779d20545f60bcd5d51238dbb217347048cacab9c2fd2bd504",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "idaes_examples/notebooks/docs/flowsheets/methanol_flowsheet_recycle.png",
+          "bytes": 17709,
+          "sha256": "f7d610f0a8ce188c7783b541e46ccf3c8f07a67cc218e642ffbc2e7432519feb",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "idaes_examples/notebooks/docs/flowsheets/methanol_flowsheet_w_recycle.py",
+          "bytes": 37020,
+          "sha256": "86a2d999e295c83cbf1377a00cbaa8dc1f79a165cf9d02e0b64685923d9df2f6",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "idaes_examples/notebooks/docs/flowsheets/methanol_synthesis.ipynb",
+          "bytes": 188120,
+          "sha256": "644413e7a595796bc5ce81bb02ced76e57054d6fd08cc75ad982bbd6a52ce6a6",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "idaes_examples/notebooks/docs/flowsheets/temperature_swing_adsorption/index.md",
+          "bytes": 58,
+          "sha256": "33933cea5f20412a24e685bbcc7d8e96fc50c936ac00f1fdcef9987829b173c0",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "idaes_examples/notebooks/docs/flowsheets/temperature_swing_adsorption/temperature_swing_adsorption.ipynb",
+          "bytes": 91673,
+          "sha256": "772bd9e2eae897ae11f50796828ffd4a553bba448e971a7c9c9c2062c7372927",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "idaes_examples/notebooks/docs/flowsheets/temperature_swing_adsorption/tsa_cycle.svg",
+          "bytes": 25645,
+          "sha256": "7480555c4b7b738278d67704fb1a1dce958ca21d73b2550da81b11268736bd48",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        }
+      ],
+      "skipped": "Duplicate generated notebook variants, solvers and all unrelated examples excluded.",
+      "fetched_mb": 0.0
+    },
+    {
+      "source": "commons-equipment",
+      "license": "per-file CC0 or CC BY-SA 4.0",
+      "attribution": "Per file: Olgailga2; Haweroth; N509FZ. Exact source page, original SHA1, artist and license in each pin.",
+      "landing_url": "https://commons.wikimedia.org",
+      "fetched": "2026-11-07T15:25:56+00:00",
+      "files": [
+        {
+          "path": "Motor_nameplate_Malmbergs.jpg",
+          "bytes": 3600407,
+          "sha256": "eef378946ba1049296ef94dcb0d7db8fd4a67652b08e4bf35c9f91767edda15b",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "Nameplate_of_Italian_Generator.jpg",
+          "bytes": 2109471,
+          "sha256": "011eb9a37184dc2ab559d9dd4996c45fcea5be1cce99b1388e0847f7c3bbaca8",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "ZXAM2502A-4_traction_motor_nameplate_on_19_0077_(20210721133155).jpg",
+          "bytes": 5721406,
+          "sha256": "b92664921d0a88265098e2fe3fc5306599aed2dc73ccc4def1bf181a8f46273c",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        }
+      ],
+      "skipped": "Other images not admitted; no derivatives created.",
+      "fetched_mb": 0.0
+    },
+    {
+      "source": "doe-mechanical",
+      "license": "Public U.S. DOE technical report; retain report rights/disclaimer, third-party figures not separately cleared",
+      "attribution": "U.S. Department of Energy (1993), DOE-HDBK-1018/1-93, Mechanical Science Volume 1. OSTI 10154822.",
+      "landing_url": "https://www.osti.gov/biblio/10154822",
+      "fetched": "2026-11-07T15:25:56+00:00",
+      "files": [
+        {
+          "path": "mechanical-science-v1.pdf",
+          "bytes": 3166437,
+          "sha256": "c1e37601164acf95cbaecad93b1db9841ad8d7670bf30a4fdd6ff0a87c6a0070",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        },
+        {
+          "path": "mechanical-science-v2.pdf",
+          "bytes": 3091979,
+          "sha256": "f569f8de24e0c9b23fa8f5c965c3d0740daa5e41db0f029ad8e3893d3fd9e2fd",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        }
+      ],
+      "skipped": "No copyrighted manufacturer manuals copied into git.",
+      "fetched_mb": 0.0
+    },
+    {
+      "source": "doe-engineering-drawings",
+      "license": "Public DOE handbook; distribution statement and report notices retained",
+      "attribution": "U.S. Department of Energy (1993), DOE-HDBK-1016/1-93, Engineering Symbology, Prints and Drawings, Volume 1.",
+      "landing_url": "https://www.energy.gov/ehss/articles/doe-hdbk-10161-93",
+      "fetched": "2026-11-07T15:25:56+00:00",
+      "files": [
+        {
+          "path": "engineering-drawings-v1.pdf",
+          "bytes": 4783691,
+          "sha256": "98e614c25f9949a6e0b3130a78642a48d23e47e4e1be855c00dfff13fb4e71e5",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        }
+      ],
+      "skipped": "No supplied extraction key or plant revision history.",
+      "fetched_mb": 0.0
+    },
+    {
+      "source": "doe-operations-maintenance",
+      "license": "Public DOE-hosted technical guide; report disclaimer retained; third-party material not separately cleared",
+      "attribution": "G. P. Sullivan, R. Pugh, A. P. Melendez, W. D. Hunt (2010), Operations and Maintenance Best Practices, Release 3.0. PNNL for U.S. DOE FEMP.",
+      "landing_url": "https://www.energy.gov/cmei/femp/articles/operations-and-maintenance-best-practices-guide-achieving-operational-efficiency",
+      "fetched": "2026-11-07T15:25:56+00:00",
+      "files": [
+        {
+          "path": "operations-maintenance-guide.pdf",
+          "bytes": 8562032,
+          "sha256": "9cf0adbc462c73b7ec20f97b21643ba709c2c7c4571ff6630a2d628d78e3147c",
+          "fetched_bytes": 0,
+          "status": "already present, checks OK"
+        }
+      ],
+      "skipped": "No manufacturer procedures, tariffs, site baselines or current operational approvals supplied.",
+      "fetched_mb": 0.0
+    }
+  ],
+  "sources": {
+    "uci-steel-energy": {
+      "categories": [
+        "energy",
+        "historian"
+      ],
+      "files": [
+        {
+          "path": "data.csv",
+          "bytes": 2731389,
+          "sha256": "9b1cee6f9cb9cd9df2b95814ca90a9a2ff15b7f5f1fba0fae3c643e82072eacc",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib csv",
+            "data_rows": 35040,
+            "columns": [
+              "date",
+              "Usage_kWh",
+              "Lagging_Current_Reactive.Power_kVarh",
+              "Leading_Current_Reactive_Power_kVarh",
+              "CO2(tCO2)",
+              "Lagging_Current_Power_Factor",
+              "Leading_Current_Power_Factor",
+              "NSM",
+              "WeekStatus",
+              "Day_of_week",
+              "Load_Type"
+            ],
+            "row_widths": {
+              "11": 35040
+            }
+          }
+        }
+      ]
+    },
+    "uci-ai4i": {
+      "categories": [
+        "condition-monitoring",
+        "maintenance"
+      ],
+      "files": [
+        {
+          "path": "data.csv",
+          "bytes": 518125,
+          "sha256": "ffc3c28f35b1a1636eacd2bf46aca0ff5e795b4a8eb934309c5819079e9b5a18",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib csv",
+            "data_rows": 10000,
+            "columns": [
+              "UID",
+              "Product ID",
+              "Type",
+              "Air temperature",
+              "Process temperature",
+              "Rotational speed",
+              "Torque",
+              "Tool wear",
+              "Machine failure",
+              "TWF",
+              "HDF",
+              "PWF",
+              "OSF",
+              "RNF"
+            ],
+            "row_widths": {
+              "14": 10000
+            }
+          }
+        }
+      ]
+    },
+    "wine-competition": {
+      "categories": [
+        "batch",
+        "laboratory"
+      ],
+      "files": [
+        {
+          "path": "dataset competencias.xlsx",
+          "bytes": 269041,
+          "sha256": "3c1bf733f9bf117bd945ab3f7eb5a1913f88cb85d5eeec4c70211dd00a90918a",
+          "integrity": "match",
+          "inspection": {
+            "parser": "scripts/extract_text.py",
+            "status": "ok",
+            "engine": "stdlib",
+            "engine_version": "",
+            "segments": 13964,
+            "characters": 202232,
+            "warnings": [],
+            "interpretation_accuracy": "not assessed"
+          }
+        }
+      ]
+    },
+    "candida-bioreactor": {
+      "categories": [
+        "batch",
+        "laboratory",
+        "documents"
+      ],
+      "files": [
+        {
+          "path": "Dataset_Experimental_results_flask_bioreactor_cultivation_mutant_yeast_strain_C_utilis 1.xlsx",
+          "bytes": 2015669,
+          "sha256": "0db1575b017cb2eef8a0091bf0c23cde5aba8681a3c774ce835b99268a420f2e",
+          "integrity": "match",
+          "inspection": {
+            "parser": "scripts/extract_text.py",
+            "status": "ok",
+            "engine": "stdlib",
+            "engine_version": "",
+            "segments": 9817,
+            "characters": 123401,
+            "warnings": [
+              "1 embedded object(s) not read (e.g. xl/embeddings/Microsoft_Word_Document.docx)"
+            ],
+            "interpretation_accuracy": "not assessed"
+          }
+        },
+        {
+          "path": "Candida_utilis_dataset-description (1).pdf",
+          "bytes": 145080,
+          "sha256": "6b3e16659ee6b9647ef3cd10e8cb1e43d7ec476ce5706468a15903b35179cf60",
+          "integrity": "match",
+          "inspection": {
+            "parser": "scripts/extract_text.py",
+            "status": "ok",
+            "engine": "pypdf",
+            "engine_version": "6.14.2",
+            "segments": 3,
+            "characters": 4564,
+            "warnings": [],
+            "interpretation_accuracy": "not assessed"
+          }
+        }
+      ]
+    },
+    "pomace-fermentation": {
+      "categories": [
+        "batch",
+        "laboratory"
+      ],
+      "files": [
+        {
+          "path": "zenodo_deposit.zip",
+          "bytes": 170025,
+          "sha256": "0c4fe9b69e4511ebb232632c73ace9c255c25b032bfd65ac062e8436a5dda654",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib zip directory only",
+            "members": 9,
+            "uncompressed_bytes": 265215,
+            "extracted": false,
+            "member_extensions": [
+              ".csv",
+              ".md",
+              ".py",
+              ".xlsx"
+            ]
+          }
+        }
+      ]
+    },
+    "sequencing-batch-reactor": {
+      "categories": [
+        "batch",
+        "laboratory"
+      ],
+      "files": [
+        {
+          "path": "dataset_SBR.xlsx",
+          "bytes": 59165,
+          "sha256": "948002e402bf3b64e91810da9ed8ed4b347ba796d61542c32dd350e1fc7f6153",
+          "integrity": "match",
+          "inspection": {
+            "parser": "scripts/extract_text.py",
+            "status": "ok",
+            "engine": "stdlib",
+            "engine_version": "",
+            "segments": 3789,
+            "characters": 29876,
+            "warnings": [],
+            "interpretation_accuracy": "not assessed"
+          }
+        }
+      ]
+    },
+    "distillation-modalities": {
+      "categories": [
+        "batch",
+        "historian",
+        "quality",
+        "documents"
+      ],
+      "files": [
+        {
+          "path": "03_Batch_Distillation_Plant_M-202210_Timeseries_Sensor_Uncertainties.zip",
+          "bytes": 31912981,
+          "sha256": "10052b724868c247dabab6a9b9de9e834742f7b87ee361c1c2b963a4316579f4",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib zip directory only",
+            "members": 520,
+            "uncompressed_bytes": 179605386,
+            "extracted": false,
+            "member_extensions": [
+              ".csv"
+            ]
+          }
+        },
+        {
+          "path": "02_Batch_Distillation_Plant_M-202210_Timeseries_Actuators.zip",
+          "bytes": 8777587,
+          "sha256": "31d0e4147960b74113e06d5856d381334b7282c50729ba6e55916df516bef27a",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib zip directory only",
+            "members": 520,
+            "uncompressed_bytes": 96224470,
+            "extracted": false,
+            "member_extensions": [
+              ".csv"
+            ]
+          }
+        },
+        {
+          "path": "04_Batch_Distillation_Plant_M-202210_Tabular_Ambient_Conditions.zip",
+          "bytes": 90643,
+          "sha256": "041950c07df32b6ea6186485399e0c35ff16fcc7c192a7942c19d515b708455a",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib zip directory only",
+            "members": 173,
+            "uncompressed_bytes": 17719,
+            "extracted": false,
+            "member_extensions": [
+              ".csv"
+            ]
+          }
+        },
+        {
+          "path": "plant_M-202210_metadata.yaml",
+          "bytes": 416,
+          "sha256": "1041dc385b74332c34c904a100f1dd4eafdbf33b804eb1d92ec3c28f44613749",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "14_Batch_Distillation_Plant_M-202210_Timeseries_Simulation_Configuration.zip",
+          "bytes": 257956,
+          "sha256": "009e58c3197db44276e5efd788f94980afeb0e07bcafb399525da7e6553e5744",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib zip directory only",
+            "members": 293,
+            "uncompressed_bytes": 540401,
+            "extracted": false,
+            "member_extensions": [
+              ".xml"
+            ]
+          }
+        },
+        {
+          "path": "Batch_Distillation_Plant_M-202210_Modality_Availability_Matrix.csv",
+          "bytes": 30361,
+          "sha256": "f7d7b24e05e0a1991870aa42ca5de61b3e4ff73d096619f992cfe3536d4802e1",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib csv",
+            "data_rows": 119,
+            "columns": [
+              "experiment_key",
+              "system",
+              "operating_point",
+              "experiment_id",
+              "00_labels_operation",
+              "01_sensors_startup",
+              "01_sensors_operation",
+              "01_sensors_shutdown",
+              "02_actuators_startup",
+              "02_actuators_operation",
+              "02_actuators_shutdown",
+              "03_uncertainty_startup",
+              "03_uncertainty_operation",
+              "03_uncertainty_shutdown",
+              "04_ambient_conditions",
+              "05_mixture_information",
+              "06_plant_information",
+              "07_operation_logs",
+              "08_nmr_measurement",
+              "08_nmr_tabular",
+              "08_nmr_timeseries",
+              "08_nmr_raw_spectra",
+              "09_nmr_equipment",
+              "10_gc_tabular",
+              "10_gc_timeseries",
+              "11_audio_startup",
+              "11_audio_operation",
+              "11_audio_shutdown",
+              "12_image_startup",
+              "12_image_operation",
+              "12_image_shutdown",
+              "13_simulation",
+              "14_simulation_config"
+            ],
+            "row_widths": {
+              "33": 119
+            }
+          }
+        },
+        {
+          "path": "Batch_Distillation_Plant_M-202210_Modality_Availability_Overview.md",
+          "bytes": 4633,
+          "sha256": "837c84c977ba9900873e1a9b74029a5d41646151641bb06ab56d197a9c6b7e38",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "10_Batch_Distillation_Plant_M-202210_GC_Composition.zip",
+          "bytes": 29130130,
+          "sha256": "4aacac36e8af1cc08ba23780830e29c1472ef0be4eb2a4de0ddbc54ca83eb859",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib zip directory only",
+            "members": 309,
+            "uncompressed_bytes": 95031078,
+            "extracted": false,
+            "member_extensions": [
+              ".csv"
+            ]
+          }
+        }
+      ]
+    },
+    "maintie": {
+      "categories": [
+        "maintenance",
+        "context",
+        "document-text"
+      ],
+      "files": [
+        {
+          "path": "LICENSE.md",
+          "bytes": 1068,
+          "sha256": "a406579cd136771c705c521db86ca7d60a6f3de7c9b5460e6193a2df27861bde",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "README.md",
+          "bytes": 10931,
+          "sha256": "3e6105601d6e36d83995896a5b0b8c509b0b1b152018b1049fa41efa0e4c9aee",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "GUIDELINES.md",
+          "bytes": 12969,
+          "sha256": "e068ee321b76a8aa5d826e532511d524835f5fa276d0e411bbe0d0b120dfb7e3",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "SCHEME.md",
+          "bytes": 50421,
+          "sha256": "5fe24b49a2dc14309db17f9314883f5481c76ebed8785b9bd5fe15e93d97cf73",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "data/gold_release.json",
+          "bytes": 817880,
+          "sha256": "ef811cf4ffd0c90e6a13b1369e24e9d1d08f9a294d873ab4fb1a580096d7d6e0",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib json",
+            "root_type": "list",
+            "root_items": 1076
+          }
+        },
+        {
+          "path": "data/silver_release.json",
+          "bytes": 4607249,
+          "sha256": "af8f785e5c03fdaefeb9b94dad7d24cbd030c2fa4b53ee452069d035f4bf4877",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib json",
+            "root_type": "list",
+            "root_items": 7000
+          }
+        },
+        {
+          "path": "data/scheme.json",
+          "bytes": 134144,
+          "sha256": "0352bd240953829105d3017caf72dbf008e9c2ceee201add1ade22d818b582c0",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib json",
+            "root_type": "dict",
+            "root_items": 2
+          }
+        }
+      ]
+    },
+    "maintnorm": {
+      "categories": [
+        "maintenance",
+        "document-text"
+      ],
+      "files": [
+        {
+          "path": "LICENSE.md",
+          "bytes": 1074,
+          "sha256": "6d10b76838d36d156e42c879b0712f7db0525104b1ea8e9beea0afe4e60203b3",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "README.md",
+          "bytes": 8655,
+          "sha256": "09b918211579d0be0566d20143ce900b797c6448e75c9068a449f0b0b633708c",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "DATA.md",
+          "bytes": 9835,
+          "sha256": "1eb6590f7e7381b8c0bd5ca8de404662e38d728539807a25bca1180a39a04eaf",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "data/combined/test.norm",
+          "bytes": 82679,
+          "sha256": "8f9fe79cf30b880dfc59770a71ea11650aba804c34101c7fedde6b8518149b27",
+          "integrity": "match",
+          "inspection": {
+            "parser": "record separators",
+            "records": 1200,
+            "token_lines": 6311,
+            "labels_present": true
+          }
+        },
+        {
+          "path": "data/combined/train.norm",
+          "bytes": 660249,
+          "sha256": "9c685cb68099e370ad6c6f1e54507a96bec1038604c4d1fecd44941d24a735ec",
+          "integrity": "match",
+          "inspection": {
+            "parser": "record separators",
+            "records": 9600,
+            "token_lines": 50785,
+            "labels_present": true
+          }
+        },
+        {
+          "path": "data/combined/val.norm",
+          "bytes": 82751,
+          "sha256": "5fc2a6322897a647e888bbf33b8c449cd93138140d700e5a010db774766eaa69",
+          "integrity": "match",
+          "inspection": {
+            "parser": "record separators",
+            "records": 1200,
+            "token_lines": 6326,
+            "labels_present": true
+          }
+        },
+        {
+          "path": "data/company_a/test.norm",
+          "bytes": 26874,
+          "sha256": "cf91bfcf4e7f934f9d9d1b09811822a529603049f0aaec1bef332f434d8a0529",
+          "integrity": "match",
+          "inspection": {
+            "parser": "record separators",
+            "records": 400,
+            "token_lines": 2059,
+            "labels_present": true
+          }
+        },
+        {
+          "path": "data/company_a/train.norm",
+          "bytes": 215103,
+          "sha256": "0cbd2efe0dca234891e0d4ec9a7560c65003359f9657132df05f115d37fa77ed",
+          "integrity": "match",
+          "inspection": {
+            "parser": "record separators",
+            "records": 3200,
+            "token_lines": 16797,
+            "labels_present": true
+          }
+        },
+        {
+          "path": "data/company_a/val.norm",
+          "bytes": 26781,
+          "sha256": "6b06cad2ab591ebf142c6e06afa41a74d5eb499d941b5ee8e9c9aca34b5528b0",
+          "integrity": "match",
+          "inspection": {
+            "parser": "record separators",
+            "records": 400,
+            "token_lines": 2088,
+            "labels_present": true
+          }
+        },
+        {
+          "path": "data/company_b/test.norm",
+          "bytes": 29256,
+          "sha256": "a564dea24ecce9ecdcd5a92ca146351c7e20c57c801a83dab03a370d5887a948",
+          "integrity": "match",
+          "inspection": {
+            "parser": "record separators",
+            "records": 400,
+            "token_lines": 2202,
+            "labels_present": true
+          }
+        },
+        {
+          "path": "data/company_b/train.norm",
+          "bytes": 232547,
+          "sha256": "41ca9c5053bb37867361b424ed5140f3b356c0a436f7e3c9a0fc2228b46835e4",
+          "integrity": "match",
+          "inspection": {
+            "parser": "record separators",
+            "records": 3200,
+            "token_lines": 17515,
+            "labels_present": true
+          }
+        },
+        {
+          "path": "data/company_b/val.norm",
+          "bytes": 29479,
+          "sha256": "53c25e2760e459200b3dab421baf62b7c3fad3f860fbf82184d448ed1d4a755d",
+          "integrity": "match",
+          "inspection": {
+            "parser": "record separators",
+            "records": 400,
+            "token_lines": 2202,
+            "labels_present": true
+          }
+        },
+        {
+          "path": "data/company_c/test.norm",
+          "bytes": 26549,
+          "sha256": "fcfabb40697fa1eece6879b9d3ec68f689283b7cbcf08e2dc38889c9c49bbf41",
+          "integrity": "match",
+          "inspection": {
+            "parser": "record separators",
+            "records": 400,
+            "token_lines": 2050,
+            "labels_present": true
+          }
+        },
+        {
+          "path": "data/company_c/train.norm",
+          "bytes": 212599,
+          "sha256": "884b021847cf2250c5a14b5f33341cd2d3580021a6954b9e44e54d233e1b5149",
+          "integrity": "match",
+          "inspection": {
+            "parser": "record separators",
+            "records": 3200,
+            "token_lines": 16473,
+            "labels_present": true
+          }
+        },
+        {
+          "path": "data/company_c/val.norm",
+          "bytes": 26491,
+          "sha256": "e226fc23297108276e0343c07cedf5ca3be23281080445eae2d37644b5800a64",
+          "integrity": "match",
+          "inspection": {
+            "parser": "record separators",
+            "records": 400,
+            "token_lines": 2036,
+            "labels_present": true
+          }
+        }
+      ]
+    },
+    "idaes-processes": {
+      "categories": [
+        "process-model",
+        "flowsheets",
+        "documents"
+      ],
+      "files": [
+        {
+          "path": "LICENSE.md",
+          "bytes": 2877,
+          "sha256": "4fdde00bd663a045a688899c7e6924bd3b747204518e75540273c97f4bc98fa0",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "README.md",
+          "bytes": 3023,
+          "sha256": "165774813a6d1259dcc59641f0924c9f7f86455aecd8a03459013b2cf0bb2352",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "idaes_examples/notebooks/docs/flowsheets/methanol_flowsheet.png",
+          "bytes": 11674,
+          "sha256": "b997eeaac68a43b2ed9b1ae9e72cdf0ca8203cdd4bb4528210ad0d689321b623",
+          "integrity": "match",
+          "inspection": {
+            "parser": "scripts/extract_text.py",
+            "status": "ok (ocr)",
+            "engine": "tesseract",
+            "engine_version": "5.4.0.20240606",
+            "segments": 1,
+            "characters": 179,
+            "warnings": [],
+            "interpretation_accuracy": "not assessed"
+          }
+        },
+        {
+          "path": "idaes_examples/notebooks/docs/flowsheets/methanol_flowsheet.py",
+          "bytes": 33307,
+          "sha256": "33b24cf585d5ba779d20545f60bcd5d51238dbb217347048cacab9c2fd2bd504",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "idaes_examples/notebooks/docs/flowsheets/methanol_flowsheet_recycle.png",
+          "bytes": 17709,
+          "sha256": "f7d610f0a8ce188c7783b541e46ccf3c8f07a67cc218e642ffbc2e7432519feb",
+          "integrity": "match",
+          "inspection": {
+            "parser": "scripts/extract_text.py",
+            "status": "ok (ocr)",
+            "engine": "tesseract",
+            "engine_version": "5.4.0.20240606",
+            "segments": 1,
+            "characters": 234,
+            "warnings": [],
+            "interpretation_accuracy": "not assessed"
+          }
+        },
+        {
+          "path": "idaes_examples/notebooks/docs/flowsheets/methanol_flowsheet_w_recycle.py",
+          "bytes": 37020,
+          "sha256": "86a2d999e295c83cbf1377a00cbaa8dc1f79a165cf9d02e0b64685923d9df2f6",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "idaes_examples/notebooks/docs/flowsheets/methanol_synthesis.ipynb",
+          "bytes": 188120,
+          "sha256": "644413e7a595796bc5ce81bb02ced76e57054d6fd08cc75ad982bbd6a52ce6a6",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib json",
+            "root_type": "dict",
+            "root_items": 4,
+            "cells": 36,
+            "executed": false
+          }
+        },
+        {
+          "path": "idaes_examples/notebooks/docs/flowsheets/temperature_swing_adsorption/index.md",
+          "bytes": 58,
+          "sha256": "33933cea5f20412a24e685bbcc7d8e96fc50c936ac00f1fdcef9987829b173c0",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        },
+        {
+          "path": "idaes_examples/notebooks/docs/flowsheets/temperature_swing_adsorption/temperature_swing_adsorption.ipynb",
+          "bytes": 91673,
+          "sha256": "772bd9e2eae897ae11f50796828ffd4a553bba448e971a7c9c9c2062c7372927",
+          "integrity": "match",
+          "inspection": {
+            "parser": "stdlib json",
+            "root_type": "dict",
+            "root_items": 4,
+            "cells": 30,
+            "executed": false
+          }
+        },
+        {
+          "path": "idaes_examples/notebooks/docs/flowsheets/temperature_swing_adsorption/tsa_cycle.svg",
+          "bytes": 25645,
+          "sha256": "7480555c4b7b738278d67704fb1a1dce958ca21d73b2550da81b11268736bd48",
+          "integrity": "match",
+          "inspection": {
+            "parser": "not run",
+            "status": "retained as source bytes; no execution"
+          }
+        }
+      ]
+    },
+    "commons-equipment": {
+      "categories": [
+        "photo",
+        "equipment-records"
+      ],
+      "files": [
+        {
+          "path": "Motor_nameplate_Malmbergs.jpg",
+          "bytes": 3600407,
+          "sha256": "eef378946ba1049296ef94dcb0d7db8fd4a67652b08e4bf35c9f91767edda15b",
+          "integrity": "match",
+          "inspection": {
+            "parser": "scripts/extract_text.py",
+            "status": "ok (ocr)",
+            "engine": "tesseract",
+            "engine_version": "5.4.0.20240606",
+            "segments": 1,
+            "characters": 153,
+            "warnings": [],
+            "interpretation_accuracy": "not assessed"
+          }
+        },
+        {
+          "path": "Nameplate_of_Italian_Generator.jpg",
+          "bytes": 2109471,
+          "sha256": "011eb9a37184dc2ab559d9dd4996c45fcea5be1cce99b1388e0847f7c3bbaca8",
+          "integrity": "match",
+          "inspection": {
+            "parser": "scripts/extract_text.py",
+            "status": "needs OCR",
+            "engine": "tesseract",
+            "engine_version": "5.4.0.20240606",
+            "segments": 0,
+            "characters": 0,
+            "warnings": [
+              "OCR found no text: page 1 of 1 (a blank page, or an image OCR could not read)"
+            ],
+            "interpretation_accuracy": "not assessed"
+          }
+        },
+        {
+          "path": "ZXAM2502A-4_traction_motor_nameplate_on_19_0077_(20210721133155).jpg",
+          "bytes": 5721406,
+          "sha256": "b92664921d0a88265098e2fe3fc5306599aed2dc73ccc4def1bf181a8f46273c",
+          "integrity": "match",
+          "inspection": {
+            "parser": "scripts/extract_text.py",
+            "status": "ok (ocr)",
+            "engine": "tesseract",
+            "engine_version": "5.4.0.20240606",
+            "segments": 1,
+            "characters": 6,
+            "warnings": [],
+            "interpretation_accuracy": "not assessed"
+          }
+        }
+      ]
+    },
+    "doe-mechanical": {
+      "categories": [
+        "documents",
+        "scanned-documents",
+        "equipment-reference"
+      ],
+      "files": [
+        {
+          "path": "mechanical-science-v1.pdf",
+          "bytes": 3166437,
+          "sha256": "c1e37601164acf95cbaecad93b1db9841ad8d7670bf30a4fdd6ff0a87c6a0070",
+          "integrity": "match",
+          "inspection": {
+            "parser": "scripts/extract_text.py",
+            "status": "partial",
+            "engine": "pypdf",
+            "engine_version": "6.14.2",
+            "segments": 115,
+            "characters": 167229,
+            "warnings": [
+              "no text layer, needs OCR: pages 4, 6, 8, 10, 12, 62, 88 of 122"
+            ],
+            "interpretation_accuracy": "not assessed"
+          }
+        },
+        {
+          "path": "mechanical-science-v2.pdf",
+          "bytes": 3091979,
+          "sha256": "f569f8de24e0c9b23fa8f5c965c3d0740daa5e41db0f029ad8e3893d3fd9e2fd",
+          "integrity": "match",
+          "inspection": {
+            "parser": "scripts/extract_text.py",
+            "status": "partial",
+            "engine": "pypdf",
+            "engine_version": "6.14.2",
+            "segments": 124,
+            "characters": 190243,
+            "warnings": [
+              "no text layer, needs OCR: pages 4, 6, 8, 10, 12, 72 of 130"
+            ],
+            "interpretation_accuracy": "not assessed"
+          }
+        }
+      ]
+    },
+    "doe-engineering-drawings": {
+      "categories": [
+        "drawings",
+        "pid",
+        "electrical",
+        "documents",
+        "scanned-documents"
+      ],
+      "files": [
+        {
+          "path": "engineering-drawings-v1.pdf",
+          "bytes": 4783691,
+          "sha256": "98e614c25f9949a6e0b3130a78642a48d23e47e4e1be855c00dfff13fb4e71e5",
+          "integrity": "match",
+          "inspection": {
+            "parser": "scripts/extract_text.py",
+            "status": "partial",
+            "engine": "pypdf",
+            "engine_version": "6.14.2",
+            "segments": 113,
+            "characters": 103170,
+            "warnings": [
+              "no text layer, needs OCR: pages 4, 6, 8, 10, 12, 42, 90 of 120"
+            ],
+            "interpretation_accuracy": "not assessed"
+          }
+        }
+      ]
+    },
+    "doe-operations-maintenance": {
+      "categories": [
+        "documents",
+        "maintenance",
+        "energy",
+        "opportunity-screen"
+      ],
+      "files": [
+        {
+          "path": "operations-maintenance-guide.pdf",
+          "bytes": 8562032,
+          "sha256": "9cf0adbc462c73b7ec20f97b21643ba709c2c7c4571ff6630a2d628d78e3147c",
+          "integrity": "match",
+          "inspection": {
+            "parser": "scripts/extract_text.py",
+            "status": "partial",
+            "engine": "pypdf",
+            "engine_version": "6.14.2",
+            "segments": 307,
+            "characters": 777455,
+            "warnings": [
+              "no text layer, needs OCR: pages 2, 6, 8, 20, 44, 48, 58, 94, 286, 294, 302, 304, 308, 318 of 321"
+            ],
+            "interpretation_accuracy": "not assessed"
+          }
+        }
+      ]
+    }
+  },
+  "errors": [],
+  "execution_note": "Actual offline replay: common engine network function replaced by a raising function, --fetch --max-mb 0 --ocr auto; 54 cached originals checked. Every source inspection payload exactly matches the retained pre-wrapper admission. No task scoring or CAD reserved-case inspection."
+}

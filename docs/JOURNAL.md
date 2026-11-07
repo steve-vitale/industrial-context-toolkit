@@ -7883,3 +7883,48 @@ from the unchanged first return. Offline replay reconstructs the full strict com
 No comparator rule was relaxed; matching version/attributes does not qualify the exchange, and no context change was
 promoted. Native interactive/display, full preservation classification, intelligent-CAD database and company acceptance
 remain open. This single exposed fixture does not establish a receiver ranking or a free production workflow.
+
+## 178. Freeze CAD qualification before trying a preservation candidate
+
+2026-11-07. Set the explicit goal to eliminate unexplained handoff differences without tuning to the valve and
+to qualify only a stated exchange route. Committed the protocol before candidate implementation or reserved-case
+runs. It keeps library save, direct native save and proposed source-preserving field edits separate; the strict
+comparator and existing 335/344-difference failures remain intact. Acceptance includes byte-span preservation,
+independent reconstruction, native readback/visual/editability, revision conflict controls and actual GUI
+edit/save/close/reopen. Four unfamiliar public CAD originals were pinned before method development: three
+geometry categories in LibreCAD and an ezdxf hatch example, two upstream projects. No task runs on them yet.
+
+The existing QCAD Qt5 application launched to its first-start dialog, and accessibility text was readable.
+Screenshot capture failed with FrameArrived timeout; the indexed click reported coordinate geometry unavailable,
+and one observed keyboard recovery reported an unusable app window. UI input stopped. No drawing was opened or
+edited, no GUI acceptance inferred, and no method/comparator tolerance was changed. Independent acquisition and
+method work can continue; this UI gate remains open.
+
+## 179. Acquire public records across maintenance and engineering categories
+
+2026-11-07. At the user's request, acquired 54 exact original files (114,865,314 bytes) in 14 download groups:
+MaintIE/MaintNorm maintenance language, UCI steel energy and synthetic AI4I failures, three equipment nameplates,
+four fermentation/reactor laboratory deposits, additional modalities of the existing distillation plant,
+IDAES methanol/adsorption examples, and DOE technical references/instructional drawings. Retained primary
+metadata, license/attribution, original source URLs, upstream checksums where supplied, SHA256 pins, omissions,
+source-family/exposure descriptions and actual discovery failures. No downloaded code, notebook or macro ran.
+The existing DEXPI head is unchanged and all 634 files are already held; no duplicate coverage claimed.
+
+Every new file's hash matches. A real empty-directory HTTPS fetch of the steel CSV reproduced its pin; the
+54-file cached replay passed with network replaced by a raising function and a zero download budget. A
+cross-check caught a Windows default-encoding rewrite of an existing non-ASCII DWSIM member name while appending
+pins; restored the original old groups byte-semantically and verified all 12 pre-existing groups unchanged.
+
+Actual admission retained the failures: generator OCR returned no text; traction motor OCR only six characters;
+the other motor's 153 characters are unreviewed. Three batch workbooks read as text; one embedded Word object
+was explicitly skipped. Four DOE PDFs produced partial text with the affected pages listed. Archives were only
+inventoried; lab workbook/historian/model-schema adapters and interpretation keys remain needed before task
+scoring. These are acquired-unscored inputs, not new generalization/feature passes, independent plants, completed
+maintenance, savings or production acceptance. No CAD reserved input was opened for this admission.
+
+Full CI then caught a provenance failure: adding catalog registration to `fetch_corpus.py` invalidated historical
+matrix cells that fingerprint that file. Retained the failed run (PR run 42385590694, 89/90 programs; matrix
+freshness failed). Restored the exact original evaluated fetcher and put the new catalog in an opt-in example
+wrapper that reuses its unchanged verification functions. Historical cells, result values and bindings are not
+rewritten. The new source groups stay outside that matrix. Re-ran the matrix freshness check and acquisition
+tests; original admission retained alongside the post-wrapper replay.

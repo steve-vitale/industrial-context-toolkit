@@ -126,3 +126,20 @@ Photo-derived transcription/OCR artifacts retain their source attribution and re
 industrial derivatives are CC BY-SA 2.0 Germany. Helper software retains the repository license.
 Neither author endorses the toolkit. Manifests pin original bytes and distinguish assistant-authored unreviewed
 candidates from verified installed equipment information.
+
+## Additional public inputs acquired 2026-11-07
+
+The [public-data guide](examples/public-data/README.md), acquisition registry and common pin table retain source
+URLs, versions/commits, attribution, per-file licenses and hashes for 14 additional download groups. Originals
+remain in ignored local storage, not in the repository: NLP-TLP MaintIE/MaintNorm (MIT, original notices retained),
+UCI steel-energy/AI4I and five experimental Zenodo deposits (CC BY 4.0), IDAES process examples (upstream BSD-style
+license/DOE notice), three Commons nameplates (per-file CC0 or CC BY-SA 4.0), and DOE public technical reports.
+Publisher metadata snapshots accompany the registry. Downloading a public report does not clear third-party
+figures for republication; none are republished here. The archived DOE fundamentals handbooks are references,
+not active standards. Attribution does not imply endorsement or plant acceptance.
+
+Four exact public DXF originals are redistributed in `examples/cad-handoff/qualification/public-sources/`:
+three LibreCAD library drawings at commit c20884671c5f4566e7494890c5060569cc8d8330 under the retained GPL-2.0
+notice, and ezdxf's clockwise-arcs hatch example at c498560bb491c357deda538360ed0c8fdb11f5a7 under its retained
+MIT notice. The folder includes upstream notices and the full GPL-2.0 text; its manifest binds original bytes.
+They are reserved qualification inputs. This redistribution does not change the license of toolkit helper code.

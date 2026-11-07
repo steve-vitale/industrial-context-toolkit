@@ -262,6 +262,26 @@ class PinnedFilesTest(unittest.TestCase):
         self.assertTrue(set(fc.FILE_SOURCES) <= set(pins))
         self.assertIn("never vendored", fc.FILE_SOURCES["skab"]["license"])
 
+    def test_public_acquisition_provenance_and_totals_are_bound(self):
+        import hashlib
+        registry = json.loads((ROOT / "data/public_sources_20261107.json").read_text(encoding="utf-8"))
+        pins = fc.load_pins()
+        self.assertEqual(fc.validate_file_pins(pins, registry["sources"]), [])
+        counts = registry["acquisition_totals"]
+        self.assertEqual(counts["source_groups"], len(registry["sources"]))
+        self.assertEqual(counts["files"], sum(len(pins[s]) for s in registry["sources"]))
+        self.assertEqual(counts["bytes"], sum(p["bytes"] for s in registry["sources"] for p in pins[s].values()))
+        for sid, source in registry["sources"].items():
+            with self.subTest(source=sid):
+                self.assertTrue(source["categories"])
+                self.assertTrue(source["origin"])
+                self.assertTrue(source["limits"])
+                self.assertTrue(source["exposure"])
+                self.assertEqual(source["evidence_role"], "acquired-unscored")
+                if "metadata_snapshot" in source:
+                    raw = (ROOT / source["metadata_snapshot"]).read_bytes()
+                    self.assertEqual(hashlib.sha256(raw).hexdigest(), source["metadata_snapshot_sha256"])
+
     def test_present_file_needs_no_network(self):
         with tempfile.TemporaryDirectory() as d:
             (Path(d) / "dir").mkdir()

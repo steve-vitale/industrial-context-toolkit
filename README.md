@@ -154,6 +154,10 @@ another reader's output in the documented format. Use the [reader integration gu
 to compare results on matched sheets. [Contributing a public drawing with a verified key](docs/CONTRIBUTE_A_PID.md)
 helps evaluate every reader on more sources. The [demo series](docs/DEMO_SERIES.md) shows how selected tools and examples connect.
 
+Need public records to try first? The [public-data guide](examples/public-data/README.md) adds pinned maintenance
+text, nameplates, energy readings, experimental batches, flowsheets and technical documents, with commands,
+actual parser results and the remaining adapter/key requirements. Acquisition is separate from evaluation.
+
 ## Start with one question
 
 The [first-question guide](examples/first-pilot/README.md) owns the no-install path and copyable brief.
