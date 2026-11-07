@@ -12,8 +12,8 @@ From the repository root:
 
 ```sh
 # One group; standard library only, original bytes in ignored data/external/<group>/.
-python scripts/fetch_corpus.py maintie --max-mb 10
-python scripts/fetch_corpus.py uci-steel-energy --max-mb 5
+python examples/public-data/fetch_sources.py maintie --max-mb 10
+python examples/public-data/fetch_sources.py uci-steel-energy --max-mb 5
 
 # All 14 groups; 125 MB total missing-download cap, then integrity/format inspection.
 python examples/public-data/reproduce.py --fetch --max-mb 125 --out data/external/public-admission-1
@@ -25,6 +25,8 @@ python examples/public-data/reproduce.py --ocr auto --out data/external/public-a
 `--out` must be a new directory. Repeat `--source GROUP` to select groups. Fetches accept only the committed
 URLs/pins, refuse changed upstream bytes, and reuse matching local files without network access. No notebook,
 script, macro, external workbook link or archive member is executed. Archives are inventoried, not extracted.
+The opt-in catalog uses the unchanged `fetch_corpus.py` pin-checking engine. Historical corpus results keep
+their original code fingerprints; the new groups are registered only in this separate command's process.
 PDF text extraction needs pypdf or Poppler; optional raster-image OCR needs Tesseract. Missing dependencies and
 partial PDF text are reported explicitly. The standard-library fetch and hash checks still work without them.
 
@@ -33,6 +35,7 @@ archive directories, document segments and limitations. It does not contain a tr
 engineering review, model predictions or claimed task scores. A new local report may differ in parser versions.
 Source and metadata pins are in [the acquisition registry](../../data/public_sources_20261107.json) and
 [the common pin table](../../data/corpus_pins.json).
+The [original pre-wrapper admission](admission-original.json) is retained with its execution-content provenance.
 
 The OCR baseline is deliberately retained: the generator nameplate produced **no text**, and the traction motor
 produced only **six characters**. The other motor produced 153 characters, without a verified field key. These

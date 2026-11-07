@@ -40,12 +40,6 @@ fetched again, so a re-run with everything present needs no network:
                  These three were held out for drift, then used to develop the cyclic/auto method.
   battledim-2019 BattLeDIM 2019 SCADA CSVs, configuration, README (CC BY 4.0): held out for cyclic/auto, same network.
 
-Sources added 2026-11-07 are registered in data/public_sources_20261107.json: maintenance short texts, energy,
-synthetic failure records, nameplates, experimental batches, additional distillation modalities, process examples
-and technical documents. They use this same fetch/pin path, but are acquired-unscored: not automatically part of
-the generalization matrix, training, held-out results or feature reviews. examples/public-data/README.md has the
-14 group names, limits and actual parser admission. No downloaded notebook, script or macro is executed.
-
 Model use: none. Stdlib only. No downloaded code is executed. Claude (the coding agent) wrote the code.
 
   python scripts/fetch_corpus.py pronto [--max-mb 500]
@@ -68,7 +62,7 @@ from pathlib import Path, PurePosixPath
 
 ROOT = Path(__file__).resolve().parents[1]
 EXTERNAL = ROOT / "data" / "external"
-USER_AGENT = "industrial-context-toolkit fetch_corpus.py (data download; https://github.com/steve-vitale/industrial-context-toolkit)"
+USER_AGENT = "pid-digital-twin fetch_corpus.py (data download; https://github.com/steve-vitale/pid-to-digital-twin)"
 
 PRONTO_ZIP_MEMBERS_ROOT = "PRONTO benchmark case study/"
 SOURCES = {
@@ -260,12 +254,6 @@ FILE_SOURCES = {
         "skipped": "the demands, the 2018 development year, the .xlsx copies and the EPANET models: the row-6 "
                    "adapter reads the 2019 pressures, flows and level and the leak table only"},
 }
-
-
-# Additional public categories admitted 2026-11-07. Metadata and exposure remain separate from
-# scored corpus/method results; the existing pin verifier and cache apply unchanged.
-PUBLIC_SOURCE_REGISTRY = ROOT / "data" / "public_sources_20261107.json"
-FILE_SOURCES.update(json.loads(PUBLIC_SOURCE_REGISTRY.read_text(encoding="utf-8"))["sources"])
 
 
 def load_pins(path=PINS):

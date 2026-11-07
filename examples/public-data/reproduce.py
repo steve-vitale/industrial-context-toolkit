@@ -17,6 +17,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts"))
 import extract_text  # noqa: E402
 import fetch_corpus  # noqa: E402
+import fetch_sources  # noqa: E402
 
 
 def digest(path):
@@ -77,15 +78,15 @@ def inspect(path, ocr):
 
 def run(argv=None):
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--source", action="append", choices=sorted(json.loads(
-        fetch_corpus.PUBLIC_SOURCE_REGISTRY.read_text(encoding="utf-8"))["sources"]),
+    sources = fetch_sources.register()
+    ap.add_argument("--source", action="append", choices=sorted(sources),
         help="repeat to select groups; default all 14")
     ap.add_argument("--fetch", action="store_true", help="opt in to pinned public downloads; default offline")
     ap.add_argument("--max-mb", type=float, default=125, help="total missing download budget, decimal MB")
     ap.add_argument("--ocr", choices=["off", "auto"], default="off")
     ap.add_argument("--out", type=Path, required=True, help="new directory; existing evidence is never replaced")
     args = ap.parse_args(argv)
-    registry = json.loads(fetch_corpus.PUBLIC_SOURCE_REGISTRY.read_text(encoding="utf-8"))
+    registry = json.loads(fetch_sources.REGISTRY.read_text(encoding="utf-8"))
     pins = fetch_corpus.load_pins()
     selected = args.source or list(registry["sources"])
     selected = list(dict.fromkeys(selected))
@@ -109,7 +110,9 @@ def run(argv=None):
               "ocr": args.ocr, "fingerprint_convention": "code/registry CRLF normalized to LF; source files raw",
               "method_sha256": text_digest(Path(__file__)),
               "extractor_sha256": text_digest(ROOT / "scripts/extract_text.py"),
-              "registry_sha256": text_digest(fetch_corpus.PUBLIC_SOURCE_REGISTRY),
+              "registry_sha256": text_digest(fetch_sources.REGISTRY),
+              "fetch_engine_sha256": text_digest(ROOT / "scripts/fetch_corpus.py"),
+              "fetch_catalog_sha256": text_digest(Path(__file__).with_name("fetch_sources.py")),
               "fetch_receipts": receipts, "sources": {}, "errors": []}
     for sid in selected:
         files = []

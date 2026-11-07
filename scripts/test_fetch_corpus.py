@@ -264,8 +264,9 @@ class PinnedFilesTest(unittest.TestCase):
 
     def test_public_acquisition_provenance_and_totals_are_bound(self):
         import hashlib
-        registry = json.loads(fc.PUBLIC_SOURCE_REGISTRY.read_text(encoding="utf-8"))
+        registry = json.loads((ROOT / "data/public_sources_20261107.json").read_text(encoding="utf-8"))
         pins = fc.load_pins()
+        self.assertEqual(fc.validate_file_pins(pins, registry["sources"]), [])
         counts = registry["acquisition_totals"]
         self.assertEqual(counts["source_groups"], len(registry["sources"]))
         self.assertEqual(counts["files"], sum(len(pins[s]) for s in registry["sources"]))

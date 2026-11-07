@@ -3,7 +3,8 @@
 The [2026-11-07 public-data expansion](../examples/public-data/README.md) adds maintenance text, equipment
 photos, energy readings, experimental batches, uncertainty/actuator records, flowsheets and technical documents:
 54 pinned files across 14 download groups (115 MB), acquired and structurally inspected, **not scored**.
-It uses this same fetcher and pin checks. Four reserved CAD originals are registered separately there.
+Its opt-in command reuses this unchanged fetcher's pin checks. Four reserved CAD originals are registered
+separately there; historical corpus code fingerprints and results are unchanged.
 
 **Why it matters:** tools tested on one dataset can fail quietly on the next. The historian tools began with the
 Braatz Tennessee Eastman runs; later methods were developed and evaluated on other listed sources too. Read the

@@ -1,0 +1,22 @@
+{
+  "schema": "public-source-catalog-cold-fetch-1",
+  "scope": "Actual opt-in wrapper HTTPS fetch into an empty temporary root; bytes pinned and verified; original source not executed",
+  "receipt": {
+    "source": "uci-ai4i",
+    "license": "CC BY 4.0",
+    "attribution": "Stephan Matzka (2020). AI4I 2020 Predictive Maintenance Dataset. UCI. DOI:10.24432/C5HS5C.",
+    "landing_url": "https://archive.ics.uci.edu/dataset/601/ai4i+2020+predictive+maintenance+dataset",
+    "fetched": "2026-11-07T15:26:54+00:00",
+    "files": [
+      {
+        "path": "data.csv",
+        "bytes": 518125,
+        "sha256": "ffc3c28f35b1a1636eacd2bf46aca0ff5e795b4a8eb934309c5819079e9b5a18",
+        "fetched_bytes": 518125,
+        "status": "fetched"
+      }
+    ],
+    "skipped": "none: official CSV and metadata snapshot",
+    "fetched_mb": 0.518
+  }
+}

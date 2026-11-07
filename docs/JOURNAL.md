@@ -7921,3 +7921,10 @@ was explicitly skipped. Four DOE PDFs produced partial text with the affected pa
 inventoried; lab workbook/historian/model-schema adapters and interpretation keys remain needed before task
 scoring. These are acquired-unscored inputs, not new generalization/feature passes, independent plants, completed
 maintenance, savings or production acceptance. No CAD reserved input was opened for this admission.
+
+Full CI then caught a provenance failure: adding catalog registration to `fetch_corpus.py` invalidated historical
+matrix cells that fingerprint that file. Retained the failed run (PR run 42385590694, 89/90 programs; matrix
+freshness failed). Restored the exact original evaluated fetcher and put the new catalog in an opt-in example
+wrapper that reuses its unchanged verification functions. Historical cells, result values and bindings are not
+rewritten. The new source groups stay outside that matrix. Re-ran the matrix freshness check and acquisition
+tests; original admission retained alongside the post-wrapper replay.
