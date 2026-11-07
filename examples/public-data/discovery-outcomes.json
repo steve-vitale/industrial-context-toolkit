@@ -1,0 +1,30 @@
+{
+  "schema": "public-source-discovery-outcomes-1",
+  "date": "2026-11-07",
+  "outcomes": [
+    {
+      "source": "DEXPI TrainingTestCases",
+      "url": "https://gitlab.com/api/v4/projects/8453791/repository/commits?per_page=1",
+      "observed_head": "a23d61e2e089eb2ca464cd552f9ae580a2785963",
+      "outcome": "Same pinned commit as the 634-file existing corpus. No new source claimed."
+    },
+    {
+      "source": "Nestor excavator maintenance records",
+      "loader": "https://github.com/usnistgov/nestor/blob/master/nestor/datasets/excavators.py",
+      "attempt": "https://prognosticsdl.systemhealthlab.com/api/3/action/package_show?id=f4780ee0-efa6-45b6-b6dc-cfc60bfb5687",
+      "error": "urlopen error [Errno 11001] getaddrinfo failed",
+      "outcome": "No records acquired or dataset license inferred from NIST code license."
+    },
+    {
+      "source": "DOE mechanical science Volume 1",
+      "attempt": "https://www.osti.gov/servlets/purl/10154822",
+      "error": "Remote end closed connection without response",
+      "replacement": "https://www.energy.gov/sites/default/files/2026-04/DOE-HDBK-1018-93_VOL1.pdf",
+      "outcome": "Successful DOE-hosted original pinned in the common corpus pin table."
+    },
+    {
+      "source": "large raw modalities and complete linked CMMS records",
+      "outcome": "Large distillation image/audio/NMR/simulation and reactor sequencing archives excluded with exact sizes in the acquisition registry. No commercial OEM manual or uncleared CMMS export redistributed."
+    }
+  ]
+}

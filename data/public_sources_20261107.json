@@ -1,0 +1,419 @@
+{
+  "schema": "public-source-acquisition-1",
+  "acquired": "2026-11-07T15:04:38+00:00",
+  "about": "New pinned public inputs, acquired and structurally inspected, not model/task evaluation results. Originals stay in ignored data/external. Source family and exposure are explicit. Original publisher splits/annotations retained; future inference must exclude labels. CAD reserved originals are registered separately in examples/cad-handoff/qualification/public-sources/MANIFEST.json.",
+  "sources": {
+    "uci-steel-energy": {
+      "name": "Steel Industry Energy Consumption",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Sathishkumar V E, Changsun Shin, Yongyun Cho (2021). Steel Industry Energy Consumption. UCI. DOI:10.24432/C52G8C.",
+      "landing_url": "https://archive.ics.uci.edu/dataset/851/steel+industry+energy+consumption",
+      "api_url": "https://archive.ics.uci.edu/dataset/851/steel+industry+energy+consumption",
+      "categories": [
+        "energy",
+        "historian"
+      ],
+      "origin": "measured industrial data",
+      "limits": "Usage_kWh is interval energy, not instantaneous kW. CO2 column name and publisher units conflict; do not derive carbon savings. No intervention or causal savings key.",
+      "skipped": "none: official CSV and metadata snapshot",
+      "kind": "pinned-files",
+      "url": "{url}",
+      "evidence_role": "acquired-unscored",
+      "exposure": "Source metadata and file structure inspected for admission; no model or task score.",
+      "metadata_snapshot": "data/public-source-evidence/2026-11-07/uci-steel-energy.json",
+      "metadata_snapshot_sha256": "eb003eacd9268841c144198c78c7f797127aee5686656938d9c13c63427f1475"
+    },
+    "uci-ai4i": {
+      "name": "AI4I 2020 Predictive Maintenance",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Stephan Matzka (2020). AI4I 2020 Predictive Maintenance Dataset. UCI. DOI:10.24432/C5HS5C.",
+      "landing_url": "https://archive.ics.uci.edu/dataset/601/ai4i+2020+predictive+maintenance+dataset",
+      "api_url": "https://archive.ics.uci.edu/dataset/601/ai4i+2020+predictive+maintenance+dataset",
+      "categories": [
+        "condition-monitoring",
+        "maintenance"
+      ],
+      "origin": "synthetic",
+      "limits": "Synthetic failure labels, no measured plant history. UID/Product ID are not an installed equipment register; rows lack real event timestamps, work-order closure and intervention outcomes.",
+      "skipped": "none: official CSV and metadata snapshot",
+      "kind": "pinned-files",
+      "url": "{url}",
+      "evidence_role": "acquired-unscored",
+      "exposure": "Source metadata and file structure inspected for admission; no model or task score.",
+      "metadata_snapshot": "data/public-source-evidence/2026-11-07/uci-ai4i.json",
+      "metadata_snapshot_sha256": "6f4ebc54f8aa6830ebd02b4ac25c37692083914e82458dfd639739b5ad1462a2"
+    },
+    "wine-competition": {
+      "name": "dataset of the data obtained for publication: Saccharomyces cerevisiae wine strains show a wide range of competitive abilities and differential nutrient uptake behavior in co-culture with S. kudriavzevii",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Contreras Ruiz, Alba; Alonso del Real, Javier; Barrio, Eladio; Querol, Amparo. dataset of the data obtained for publication: Saccharomyces cerevisiae wine strains show a wide range of competitive abilities and differential nutrient uptake behavior in co-culture with S. kudriavzevii. DOI:10.5281/zenodo.18757697. Version v1.",
+      "landing_url": "https://zenodo.org/records/18757697",
+      "api_url": "https://zenodo.org/records/18757697",
+      "categories": [
+        "batch",
+        "laboratory"
+      ],
+      "origin": "experimental laboratory data",
+      "limits": "Experimental lab fermentations; co-culture and monoculture triplicates. Wide workbook needs an explicit adapter and units/experiment identity before batch comparison.",
+      "skipped": "none",
+      "kind": "pinned-files",
+      "url": "{url}",
+      "evidence_role": "acquired-unscored",
+      "exposure": "Source metadata and file structure inspected for admission; no model or task score.",
+      "record_id": 18757697,
+      "version": "v1",
+      "metadata_snapshot": "data/public-source-evidence/2026-11-07/wine-competition.json",
+      "metadata_snapshot_sha256": "04a890c04901bbab14bae216febe11241b019e9ceb8ffe082f615d68764f8a83"
+    },
+    "candida-bioreactor": {
+      "name": "Experimental dataset on mutant generation, amino acid inhibitor-based screening, and process optimization for enhanced protein and essential amino acid production in Candida utilis",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Palcevska, Jelizaveta; Raita, Svetlana; Kusnere, Zane; Geiba, Zane. Experimental dataset on mutant generation, amino acid inhibitor-based screening, and process optimization for enhanced protein and essential amino acid production in Candida utilis. DOI:10.5281/zenodo.19854128. Version v1.",
+      "landing_url": "https://zenodo.org/records/19854128",
+      "api_url": "https://zenodo.org/records/19854128",
+      "categories": [
+        "batch",
+        "laboratory",
+        "documents"
+      ],
+      "origin": "experimental laboratory data",
+      "limits": "Experimental flask and 5 L bioreactor results; no factory acceptance, generic historian timestamps or approved recipe. Workbook adapter not implemented.",
+      "skipped": "none",
+      "kind": "pinned-files",
+      "url": "{url}",
+      "evidence_role": "acquired-unscored",
+      "exposure": "Source metadata and file structure inspected for admission; no model or task score.",
+      "record_id": 19854128,
+      "version": "v1",
+      "metadata_snapshot": "data/public-source-evidence/2026-11-07/candida-bioreactor.json",
+      "metadata_snapshot_sha256": "bf42cd2ffdb1daa75e284fb7653003084772a17dabd7bdba6549b3306dc4bb09"
+    },
+    "pomace-fermentation": {
+      "name": "Lactic acid production from apple, pear and grape pomace hydrolysates by six lactic acid bacterial species: fermentation dataset and fitted models",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Mamani, Maribel; Valentina, Guzm\u00e1n; Castillo, Benjam\u00edn; Rogel, Cristian; Quispe, Cristina; Vald\u00e9s Vergara, Cristian Rodrigo. Lactic acid production from apple, pear and grape pomace hydrolysates by six lactic acid bacterial species: fermentation dataset and fitted models. DOI:10.5281/zenodo.22152061. Version v1.",
+      "landing_url": "https://zenodo.org/records/22152061",
+      "api_url": "https://zenodo.org/records/22152061",
+      "categories": [
+        "batch",
+        "laboratory"
+      ],
+      "origin": "experimental laboratory data",
+      "limits": "Experimental fermentation records and fitted-model artifacts. Code is retained as archive bytes only and never executed. No online batch-control claim.",
+      "skipped": "none",
+      "kind": "pinned-files",
+      "url": "{url}",
+      "evidence_role": "acquired-unscored",
+      "exposure": "Source metadata and file structure inspected for admission; no model or task score.",
+      "record_id": 22152061,
+      "version": "v1",
+      "metadata_snapshot": "data/public-source-evidence/2026-11-07/pomace-fermentation.json",
+      "metadata_snapshot_sha256": "ba627fa7716baba00a35275e687058051c9a0ef8536f2ab49ced0577d6a60a7c"
+    },
+    "sequencing-batch-reactor": {
+      "name": "Anaerobic sequencing batch reactor enhances SCFAs productivity while facilitating downstream processing",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "De Vicente, Marta; Tom\u00e1s-Pej\u00f3, Elia; Gonz\u00e1lez-Fern\u00e1ndez, Cristina. Anaerobic sequencing batch reactor enhances SCFAs productivity while facilitating downstream processing. DOI:10.5281/zenodo.18247081. Version v1.",
+      "landing_url": "https://zenodo.org/records/18247081",
+      "api_url": "https://zenodo.org/records/18247081",
+      "categories": [
+        "batch",
+        "laboratory"
+      ],
+      "origin": "experimental laboratory data",
+      "limits": "Experimental reactor workbook; phase/operation interpretation needs an adapter. Sequencing reads excluded; no automatic plant recipe inference.",
+      "skipped": [
+        {
+          "name": "Inoculum_sequence_R2_reverse_001.fastq",
+          "bytes": 158486903,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "HRT10_sequence_R2_reverse_001.fastq",
+          "bytes": 129921257,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "Inoculum sequence_R1_foward_001.fastq",
+          "bytes": 158708471,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "HRT15_sequence_R1_foward_001.fastq",
+          "bytes": 134746382,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "HRT20_sequence_R2_reverse_001.fastq",
+          "bytes": 138386980,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "HRT20_sequence_R1_foward_001.fastq",
+          "bytes": 138731334,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "HRT15_sequence_R2_reverse_001.fastq",
+          "bytes": 134438032,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "HRT10_sequence_R1_foward_001.fastq",
+          "bytes": 130211179,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        }
+      ],
+      "kind": "pinned-files",
+      "url": "{url}",
+      "evidence_role": "acquired-unscored",
+      "exposure": "Source metadata and file structure inspected for admission; no model or task score.",
+      "record_id": 18247081,
+      "version": "v1",
+      "metadata_snapshot": "data/public-source-evidence/2026-11-07/sequencing-batch-reactor.json",
+      "metadata_snapshot_sha256": "e4a8b85308514c2aae015b8f6b6c160548f813f32da1d476350ba647e3f3b4a9"
+    },
+    "distillation-modalities": {
+      "name": "Batch Distillation Data for Developing Machine Learning Anomaly Detection Methods",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Arweiler, Justus; Jungjohann, Indra; Werner, Jennifer; Muraleedharan, Aparna; Schmid, Jochen; Leitte, Heike; Burger, Jakob; M\u00fcnnemann, Kerstin; Bortz, Michael; Jirasek, Fabian; Hasse, Hans. Batch Distillation Data for Developing Machine Learning Anomaly Detection Methods. DOI:10.5281/zenodo.22250958. Version 1.1.3.",
+      "landing_url": "https://zenodo.org/records/22250958",
+      "api_url": "https://zenodo.org/records/22250958",
+      "categories": [
+        "batch",
+        "historian",
+        "quality",
+        "documents"
+      ],
+      "origin": "experimental laboratory data",
+      "limits": "Additional modalities of the SAME laboratory plant as the existing public-distillation example. Not a new independent source family. No tuning or new accuracy result; interpolation/uncertainty annotations require explicit alignment.",
+      "skipped": [
+        {
+          "name": "01_Batch_Distillation_Plant_M-202210_Timeseries_Sensors.zip",
+          "bytes": 36470058,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "09_Batch_Distillation_Plant_M-202210_NMR_Composition_Equipment.zip",
+          "bytes": 13067666,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "Batch_Distillation_Plant_M-202210_Example_Subset.zip",
+          "bytes": 489693403,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "05_Batch_Distillation_Plant_M-202210_Tabular_Mixture_Information.zip",
+          "bytes": 83361313,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "06_Batch_Distillation_Plant_M-202210_Tabular_Plant_Information.zip",
+          "bytes": 392921,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "12_Batch_Distillation_Plant_M-202210_Image.zip",
+          "bytes": 38184293197,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "08_Batch_Distillation_Plant_M-202210_NMR_Composition.zip",
+          "bytes": 6856191247,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "11_Batch_Distillation_Plant_M-202210_Audio.zip",
+          "bytes": 47400111053,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "00_Batch_Distillation_Plant_M-202210_Timeseries_Label_Anomaly_Metadata.zip",
+          "bytes": 1726509,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "07_Batch_Distillation_Plant_M-202210_Tabular_Operation_Logs.zip",
+          "bytes": 140441,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        },
+        {
+          "name": "13_Batch_Distillation_Plant_M-202210_Timeseries_Simulation.zip",
+          "bytes": 2079339300,
+          "reason": "Outside bounded process-data acquisition: genomic reads or large raw image/audio/NMR/simulation/previously acquired modalities."
+        }
+      ],
+      "kind": "pinned-files",
+      "url": "{url}",
+      "evidence_role": "acquired-unscored",
+      "exposure": "Source metadata and file structure inspected for admission; no model or task score.",
+      "record_id": 22250958,
+      "version": "1.1.3",
+      "metadata_snapshot": "data/public-source-evidence/2026-11-07/distillation-modalities.json",
+      "metadata_snapshot_sha256": "a2c665665c7d065276639bdc926686c6a73992cd467808b8575abd244124b8e6"
+    },
+    "maintie": {
+      "name": "MaintIE annotated maintenance work-order short texts",
+      "license": "MIT",
+      "license_url": "https://github.com/nlp-tlp/MaintIE/blob/825e7710e4129598da997276a38b3cb40b200bc2/LICENSE.md",
+      "attribution": "NLP-TLP research group; cite the original paper as requested in the retained README.",
+      "landing_url": "https://github.com/nlp-tlp/MaintIE",
+      "api_url": "https://github.com/nlp-tlp/MaintIE",
+      "categories": [
+        "maintenance",
+        "context",
+        "document-text"
+      ],
+      "origin": "sanitized maintenance text from external organizations",
+      "limits": "Lexically normalized and sanitized work-order texts with expert fine-grained and coarse annotations; sensitive identifiers masked. No dated full work-order/equipment register, completed repair or installed-state authority. Gold/silver files contain answer annotations: inference must receive a separately prepared text-only packet.",
+      "skipped": "Models, code and results are not fetched; publisher data splits retained.",
+      "kind": "pinned-files",
+      "url": "{url}",
+      "evidence_role": "acquired-unscored",
+      "exposure": "Source metadata and file structure inspected for admission; no model or task score.",
+      "commit": "825e7710e4129598da997276a38b3cb40b200bc2",
+      "source_family": "nlp-tlp-maintenance"
+    },
+    "maintnorm": {
+      "name": "MaintNorm lexical normalization and masking corpus",
+      "license": "MIT",
+      "license_url": "https://github.com/nlp-tlp/MaintNorm/blob/e98ca406f7afffbb0ab3243aa7c922f3b64bc7c8/LICENSE.md",
+      "attribution": "NLP-TLP research group; cite the original paper as requested in the retained README.",
+      "landing_url": "https://github.com/nlp-tlp/MaintNorm",
+      "api_url": "https://github.com/nlp-tlp/MaintNorm",
+      "categories": [
+        "maintenance",
+        "document-text"
+      ],
+      "origin": "sanitized maintenance text from external organizations",
+      "limits": "Mining work-order short texts, token normalization pairs and original source splits. Same research group/domain as MaintIE; overlap not ruled out. No new independent plant count or full CMMS intake claim. Labels must be hidden from future inference packets.",
+      "skipped": "Models, code and results are not fetched; publisher data splits retained.",
+      "kind": "pinned-files",
+      "url": "{url}",
+      "evidence_role": "acquired-unscored",
+      "exposure": "Source metadata and file structure inspected for admission; no model or task score.",
+      "commit": "e98ca406f7afffbb0ab3243aa7c922f3b64bc7c8",
+      "source_family": "nlp-tlp-maintenance"
+    },
+    "idaes-processes": {
+      "name": "IDAES methanol synthesis and temperature swing adsorption examples",
+      "license": "IDAES BSD-style license with DOE notice",
+      "license_url": "https://github.com/IDAES/examples/blob/eb64e38ac429b7e3ae4f8db071f8d8cad2eef675/LICENSE.md",
+      "attribution": "IDAES PSE Framework example contributors; retain LICENSE.md and upstream per-file notices.",
+      "landing_url": "https://github.com/IDAES/examples",
+      "api_url": "https://github.com/IDAES/examples",
+      "categories": [
+        "process-model",
+        "flowsheets",
+        "documents"
+      ],
+      "origin": "externally authored process models/tutorials",
+      "limits": "Adds methanol and adsorption process coverage within the existing IDAES upstream family. Not measured plant data. Notebooks/Python are data only, never executed or assumed compatible with the toolkit model schema.",
+      "skipped": "Duplicate generated notebook variants, solvers and all unrelated examples excluded.",
+      "kind": "pinned-files",
+      "url": "{url}",
+      "evidence_role": "acquired-unscored",
+      "exposure": "Source metadata and file structure inspected for admission; no model or task score.",
+      "commit": "eb64e38ac429b7e3ae4f8db071f8d8cad2eef675",
+      "source_family": "idaes"
+    },
+    "commons-equipment": {
+      "name": "Three additional equipment nameplates",
+      "license": "per-file CC0 or CC BY-SA 4.0",
+      "license_url": "https://commons.wikimedia.org/wiki/Commons:Licensing",
+      "attribution": "Per file: Olgailga2; Haweroth; N509FZ. Exact source page, original SHA1, artist and license in each pin.",
+      "landing_url": "https://commons.wikimedia.org",
+      "api_url": "https://commons.wikimedia.org",
+      "categories": [
+        "photo",
+        "equipment-records"
+      ],
+      "origin": "external equipment photographs",
+      "limits": "Images alone do not establish current installed equipment or plant tag. No OCR or field-reading accuracy scored; no invented unreadable fields. Per-file attribution/share-alike terms apply.",
+      "skipped": "Other images not admitted; no derivatives created.",
+      "kind": "pinned-files",
+      "url": "{url}",
+      "evidence_role": "acquired-unscored",
+      "exposure": "Source metadata and file structure inspected for admission; no model or task score.",
+      "metadata_snapshot": "data/public-source-evidence/2026-11-07/commons-equipment.json",
+      "metadata_snapshot_sha256": "34f36cd423573d9800625b5bcd1322d6988c2afa4652d86a03c34ec3b75658a8"
+    },
+    "doe-mechanical": {
+      "name": "DOE Fundamentals Handbook Mechanical Science, Volume 1, DOE-HDBK-1018/1-93",
+      "license": "Public U.S. DOE technical report; retain report rights/disclaimer, third-party figures not separately cleared",
+      "license_url": "https://www.osti.gov/servlets/purl/10154822",
+      "attribution": "U.S. Department of Energy (1993), DOE-HDBK-1018/1-93, Mechanical Science Volume 1. OSTI 10154822.",
+      "landing_url": "https://www.osti.gov/biblio/10154822",
+      "api_url": "https://www.osti.gov/biblio/10154822",
+      "categories": [
+        "documents",
+        "scanned-documents",
+        "equipment-reference"
+      ],
+      "origin": "public technical handbook",
+      "limits": "Reference engineering text, not a maintenance procedure approved for a plant. Retain original PDF locally; no figure or third-party image is redistributed in this repository. Archived/cancelled handbook, not an active standard. OSTI download failed; the DOE-hosted original is the acquisition source.",
+      "skipped": "No copyrighted manufacturer manuals copied into git.",
+      "kind": "pinned-files",
+      "url": "{url}",
+      "evidence_role": "acquired-unscored",
+      "exposure": "Source metadata and file structure inspected for admission; no model or task score."
+    },
+    "doe-engineering-drawings": {
+      "name": "DOE Fundamentals Handbook Engineering Symbology, Prints and Drawings, Volume 1",
+      "license": "Public DOE handbook; distribution statement and report notices retained",
+      "license_url": "https://www.energy.gov/ehss/articles/doe-hdbk-10161-93",
+      "attribution": "U.S. Department of Energy (1993), DOE-HDBK-1016/1-93, Engineering Symbology, Prints and Drawings, Volume 1.",
+      "landing_url": "https://www.energy.gov/ehss/articles/doe-hdbk-10161-93",
+      "api_url": "https://www.energy.gov/ehss/articles/doe-hdbk-10161-93",
+      "categories": [
+        "drawings",
+        "pid",
+        "electrical",
+        "documents",
+        "scanned-documents"
+      ],
+      "origin": "public technical handbook with instructional diagrams",
+      "limits": "Archived/cancelled handbook, not an active standard. Instructional P&IDs/electrical diagrams, not real plant drawing acceptance or keyed extraction results. Original PDF local only; no figure redistributed.",
+      "skipped": "No supplied extraction key or plant revision history.",
+      "kind": "pinned-files",
+      "url": "{url}",
+      "evidence_role": "acquired-unscored",
+      "exposure": "Source metadata and file structure inspected for admission; no model or task score."
+    },
+    "doe-operations-maintenance": {
+      "name": "Operations and Maintenance Best Practices, Release 3.0",
+      "license": "Public DOE-hosted technical guide; report disclaimer retained; third-party material not separately cleared",
+      "license_url": "https://www.energy.gov/cmei/femp/articles/operations-and-maintenance-best-practices-guide-achieving-operational-efficiency",
+      "attribution": "G. P. Sullivan, R. Pugh, A. P. Melendez, W. D. Hunt (2010), Operations and Maintenance Best Practices, Release 3.0. PNNL for U.S. DOE FEMP.",
+      "landing_url": "https://www.energy.gov/cmei/femp/articles/operations-and-maintenance-best-practices-guide-achieving-operational-efficiency",
+      "api_url": "https://www.energy.gov/cmei/femp/articles/operations-and-maintenance-best-practices-guide-achieving-operational-efficiency",
+      "categories": [
+        "documents",
+        "maintenance",
+        "energy",
+        "opportunity-screen"
+      ],
+      "origin": "public technical guide",
+      "limits": "Reference practices and historical examples, not site-specific savings guarantees or current operating instructions. Original PDF local only; do not redistribute third-party photos/figures.",
+      "skipped": "No manufacturer procedures, tariffs, site baselines or current operational approvals supplied.",
+      "kind": "pinned-files",
+      "url": "{url}",
+      "evidence_role": "acquired-unscored",
+      "exposure": "Source metadata and file structure inspected for admission; no model or task score."
+    }
+  },
+  "acquisition_totals": {
+    "source_groups": 14,
+    "files": 54,
+    "bytes": 114865314
+  },
+  "pins_file": "data/corpus_pins.json"
+}

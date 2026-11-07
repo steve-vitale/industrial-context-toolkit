@@ -1,5 +1,10 @@
 # Fetching more public historian data
 
+The [2026-11-07 public-data expansion](../examples/public-data/README.md) adds maintenance text, equipment
+photos, energy readings, experimental batches, uncertainty/actuator records, flowsheets and technical documents:
+54 pinned files across 14 download groups (115 MB), acquired and structurally inspected, **not scored**.
+It uses this same fetcher and pin checks. Four reserved CAD originals are registered separately there.
+
 **Why it matters:** tools tested on one dataset can fail quietly on the next. The historian tools began with the
 Braatz Tennessee Eastman runs; later methods were developed and evaluated on other listed sources too. Read the
 [generalization results](GENERALIZATION.md) and [experiment history](TRIED.md) for each method's development and
