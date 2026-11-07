@@ -3,6 +3,8 @@ import argparse
 import hashlib
 import json
 import sys
+import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
@@ -39,6 +41,7 @@ def predicate(field, identifiers, numeric=False):
 def run(argv=None):
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--out', type=Path, required=True, help='new local directory for original API responses')
+    ap.add_argument('--reuse', type=Path, action='append', default=[], help='reuse exact successful query bytes from retained incomplete attempts, oldest first')
     args = ap.parse_args(argv)
     if args.out.exists():
         ap.error('Output exists; retain it and choose another directory')
@@ -48,20 +51,50 @@ def run(argv=None):
                   selection_sha256=digest(Path(__file__).with_name('SELECTION.md').read_bytes().replace(b'\r\n', b'\n')),
                   selection='2024-01-01 <= evt_date < 2024-01-08; all outcomes',
                   snapshot_consistency='sequential live reads; no transactional snapshot', files=[], errors=[])
-    used = 0
+    used, downloaded = 0, 0
+    cached = {}
+    for directory in args.reuse:
+        previous = json.loads((directory / 'ACQUISITION.json').read_bytes())
+        for item in previous['files']:
+            if item.get('error') or not item.get('sha256') or item['url'] in cached:
+                continue
+            if Path(item['path']).name != item['path']:
+                ap.error('Unsafe cached filename')
+            raw = (directory / item['path']).read_bytes()
+            if len(raw) != item['bytes'] or digest(raw) != item['sha256']:
+                ap.error('Cached bytes no longer match their retained attempt')
+            cached[item['url']] = (raw, directory.name, item['role'])
 
     def get(name, url, role):
-        nonlocal used
+        nonlocal used, downloaded
         entry = dict(path=name, url=url, role=role)
         report['files'].append(entry)
         try:
-            request = urllib.request.Request(url, headers={'User-Agent': 'industrial-context-toolkit public data acquisition'})
-            with urllib.request.urlopen(request, timeout=60) as response:
-                data = response.read(20_000_001 - used)
-                entry['http_status'] = response.status
+            if url in cached:
+                data, previous, previous_role = cached[url]
+                if previous_role != role:
+                    raise ValueError('Cached query role mismatch')
+                entry['reused_from'] = previous
+            else:
+                entry['transport_attempts'] = []
+                for attempt in range(3):
+                    try:
+                        request = urllib.request.Request(url, headers={'User-Agent': 'industrial-context-toolkit public data acquisition'})
+                        with urllib.request.urlopen(request, timeout=60) as response:
+                            data = response.read(20_000_001 - used)
+                            entry['http_status'] = response.status
+                        downloaded += len(data)
+                        entry['transport_attempts'].append(dict(attempt=attempt + 1, status='received'))
+                        break
+                    except (urllib.error.URLError, TimeoutError) as error:
+                        entry['transport_attempts'].append(dict(attempt=attempt + 1, error=f'{type(error).__name__}: {error}'))
+                        if attempt == 2 or isinstance(error, urllib.error.HTTPError) and error.code not in (429, 502, 503, 504):
+                            raise
+                        time.sleep(2)
             used += len(data)
             (args.out / name).write_bytes(data)
             entry.update(bytes=len(data), sha256=digest(data))
+            print(name, len(data), 'bytes', 'cached' if 'reused_from' in entry else 'received', flush=True)
             if used > 20_000_000:
                 raise ValueError('20 MB total response budget exceeded; retained bounded body is incomplete')
             return json.loads(data)
@@ -99,7 +132,8 @@ def run(argv=None):
         report['rows'] = {k: len(v) for k, v in zip(TABLES, [work, assets, trans, details, labor])}
     except Exception as error:
         report['errors'].append(f'{type(error).__name__}: {error}')
-    report['downloaded_bytes'] = used
+    report['body_bytes'] = used
+    report['downloaded_bytes'] = downloaded
     report['finished'] = datetime.now(timezone.utc).isoformat()
     (args.out / 'ACQUISITION.json').write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
     print(json.dumps({k: report[k] for k in ('rows', 'downloaded_bytes', 'errors') if k in report}, indent=2))

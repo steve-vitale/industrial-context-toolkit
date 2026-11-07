@@ -25,3 +25,13 @@ field definitions. This is municipal maintenance, not an industrial plant trial.
 
 The existing drawing/CAD splits, methods and scores remain unchanged. This acquisition cannot qualify CAD,
 establish current installed truth or add an independent plant/engineering acceptance result.
+
+## Transport addendum, after two incomplete attempts
+
+The first attempt stopped at transaction batch 010 with HTTP 503; an unchanged second attempt stopped at
+asset batch 005 with HTTP 503. Both incomplete receipts remain in history. No dates, field projections,
+relationship predicates, ordering, batch sizes or cohort ceilings change. Resume into a new directory from
+the oldest successful exact-query response, checking its recorded bytes/hash/role. Missing queries get at
+most three transport attempts with two-second intervals for transient failures. Keep each attempt result.
+The 20 MB ceiling bounds the complete response cohort, including reused bodies; downloaded bytes are also
+reported separately. This is acquisition recovery, without changing cases in response to their outcomes.
