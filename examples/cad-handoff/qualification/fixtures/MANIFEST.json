@@ -1,0 +1,112 @@
+{
+  "schema": "cad-qualification-fixtures-1",
+  "ezdxf": "1.4.5",
+  "generator_sha256_lf": "610665221f5b9d28096b420d94103e4a38d1e3eb10ebfc8050ef9dc11da0308d",
+  "exposure": "Configurations authored before candidate implementation. Reserved results must remain unopened until method freeze.",
+  "cases": [
+    {
+      "id": "dev-legacy",
+      "split": "development",
+      "source": "dev-legacy.dxf",
+      "source_sha256": "fc35544fae08b380c27dad78b8b858698b55effb5fa25f947524b94f574d222b",
+      "plan": "dev-legacy.plan.json",
+      "plan_sha256": "a01bea41dff9ffe5b5e6227a85a054d1aa9ef2992be1ee96dec96889f169ac2b",
+      "version": "R2000",
+      "encoding": "cp1252",
+      "newline": "crlf",
+      "assets": 1,
+      "provenance": "Authored fixtures generated with ezdxf, no independent plant truth"
+    },
+    {
+      "id": "dev-unicode",
+      "split": "development",
+      "source": "dev-unicode.dxf",
+      "source_sha256": "2d78038053f64dd77c424bde7eea5b265a87fceaa002ee896d7de2b4107f5e53",
+      "plan": "dev-unicode.plan.json",
+      "plan_sha256": "949d42c47d81404e29d6f4ffc958723d1100de493e323f3fad02b0cd0ab9ac27",
+      "version": "R2013",
+      "encoding": "utf8",
+      "newline": "lf",
+      "assets": 2,
+      "provenance": "Authored fixtures generated with ezdxf, no independent plant truth"
+    },
+    {
+      "id": "reserve-r12",
+      "split": "reserved-authored",
+      "source": "reserve-r12.dxf",
+      "source_sha256": "eb85c71239672cc06a25574b68d2869cd6080cbbbed07f272713a6caa45dcc6c",
+      "plan": "reserve-r12.plan.json",
+      "plan_sha256": "4302158f72730d980a43e61de502c37e772e01dd2e03f2480082bb44bfe61bda",
+      "version": "R12",
+      "encoding": "cp1252",
+      "newline": "lf",
+      "assets": 1,
+      "provenance": "Authored fixtures generated with ezdxf, no independent plant truth"
+    },
+    {
+      "id": "reserve-mirror",
+      "split": "reserved-authored",
+      "source": "reserve-mirror.dxf",
+      "source_sha256": "4d2999c1ae48e4baceafab99c2d9a721e045f05d6e2ab4229a0796bd97cce86e",
+      "plan": "reserve-mirror.plan.json",
+      "plan_sha256": "7a65b01a917d65de74bef0579637f8755b075713425ee2c0ba4820df09df7560",
+      "version": "R2000",
+      "encoding": "cp1252",
+      "newline": "crlf",
+      "assets": 2,
+      "provenance": "Authored fixtures generated with ezdxf, no independent plant truth"
+    },
+    {
+      "id": "reserve-cyrillic",
+      "split": "reserved-authored",
+      "source": "reserve-cyrillic.dxf",
+      "source_sha256": "f5ab62872545ab20ad4c7988c23707d53fc632cd8151c4ff1f7dcc38828a8c2c",
+      "plan": "reserve-cyrillic.plan.json",
+      "plan_sha256": "32fe9f9ff4b9ff1e07c020136a76c75591069e9fc3b347f4380fb5ccaff51676",
+      "version": "R2004",
+      "encoding": "cp1251",
+      "newline": "crlf",
+      "assets": 1,
+      "provenance": "Authored fixtures generated with ezdxf, no independent plant truth"
+    },
+    {
+      "id": "reserve-multiple",
+      "split": "reserved-authored",
+      "source": "reserve-multiple.dxf",
+      "source_sha256": "c5975b671a480c54dd01baca83cba2fe24e6fa138f24ba5d2a68751bb8401cb0",
+      "plan": "reserve-multiple.plan.json",
+      "plan_sha256": "f777464163fc5639d55495ffa7e4f7434530711c71e469704d7dacc34e6af9d3",
+      "version": "R2007",
+      "encoding": "utf8",
+      "newline": "lf",
+      "assets": 3,
+      "provenance": "Authored fixtures generated with ezdxf, no independent plant truth"
+    },
+    {
+      "id": "reserve-foreign",
+      "split": "reserved-authored",
+      "source": "reserve-foreign.dxf",
+      "source_sha256": "4029079e1721fb908eb337f73534d11fb7df0e75a8527ec434fbc41b5bae257d",
+      "plan": "reserve-foreign.plan.json",
+      "plan_sha256": "8ad2e0dd0201533f16841f98002532148c4448bd7bdc0873a75e0ed84afc7461",
+      "version": "R2013",
+      "encoding": "utf8",
+      "newline": "crlf",
+      "assets": 2,
+      "provenance": "Authored fixtures generated with ezdxf, no independent plant truth"
+    },
+    {
+      "id": "reserve-mixed",
+      "split": "reserved-authored",
+      "source": "reserve-mixed.dxf",
+      "source_sha256": "72e0128a7500985168611a7b90e48b4cd2afa82f83707af009f3767a310053c9",
+      "plan": "reserve-mixed.plan.json",
+      "plan_sha256": "cbd055894713e0f5275d940e4bd611828af05ad0cfe0b37b093c6845f0527075",
+      "version": "R2018",
+      "encoding": "utf8",
+      "newline": "mixed",
+      "assets": 3,
+      "provenance": "Authored fixtures generated with ezdxf, no independent plant truth"
+    }
+  ]
+}
