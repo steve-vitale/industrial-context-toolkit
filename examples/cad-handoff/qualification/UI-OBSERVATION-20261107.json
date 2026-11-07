@@ -1,0 +1,21 @@
+{
+  "role": "Agent observation record; no screenshot or interactive acceptance",
+  "app": "QCAD Professional Trial 3.33.1 Qt 5.13.2",
+  "returned_window_id": 14746660,
+  "observed_accessibility": {
+    "startup_trial_dialog": true,
+    "expired_trial_dialog": true,
+    "expired_text": "This trial version of QCAD Professional will now close: Trial version limitation: Restart required.",
+    "document_open_observed": false,
+    "save_enabled": false,
+    "focused_element": "20 edit General Properties Handle"
+  },
+  "capture_attempts": [
+    "Error: window capture timed out: timed out waiting on channel",
+    "Error: window capture timed out: timed out waiting on channel"
+  ],
+  "recovery": "Fresh list_windows, exactly one returned QCAD window, get_window with returned id/app, retry once; same error.",
+  "input_actions_this_attempt": 0,
+  "screenshots_available": 0,
+  "qualification": "Interactive open/edit/save/close/reopen remains unverified. No API or render receipt substitutes for it. No lock state was observed, and no security/authentication/permission state was changed."
+}
