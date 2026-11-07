@@ -7928,3 +7928,34 @@ freshness failed). Restored the exact original evaluated fetcher and put the new
 wrapper that reuses its unchanged verification functions. Historical cells, result values and bindings are not
 rewritten. The new source groups stay outside that matrix. Re-ran the matrix freshness check and acquisition
 tests; original admission retained alongside the post-wrapper replay.
+
+## 180. Expand public originals without promoting acquisition into evaluation
+
+2026-11-07. The user requested more public data across all categories. Acquired another 47 original files,
+203,089,339 bytes in 15 download groups: historical excavator work orders from official Nestor Git history,
+five facility drawing/design/submission PDFs, UCI turbine/Scania/SECOM/naval data, LANL cultivation data,
+HistorianRCA data/description/tags/diagram, six Modelica process examples, three instrument photographs and
+six additional CAD originals plus their notices. Together with entry 179: 101 files in 29 download groups
+(not independent plants), plus the four separately frozen CAD originals. Original downloads remain local.
+Pins, primary metadata, rights/attribution, source families, exclusions and admission failures are public.
+
+Retained the original Salina Python trust-chain failure; verified Windows system TLS downloaded the original
+successfully without disabling certificate verification. IRIS's linked CAD/photo/P&ID source is restricted
+CC BY-NC-ND, so only its metadata/file inventory was retained. KALBRO's API exposed no files. The Nestor data
+license remains unresolved; source software rights are not substituted. APS's source GPL notice and UCI page
+footer conflict; keep originals local and do not commit derivatives. No commercial reuse clearance is inferred.
+
+Actual admission retains the earlier LANL CSV's UTF-8 failure, one unexpected-width raw Nestor row and two
+cleaned rows. Virden has no text layer on all 14 pages; three other facility PDFs have partial text with page
+numbers preserved. Parquet framing only was checked; archives were inventoried without reading/extracting
+members. CAD contents were intentionally not inspected; filenames/raw hashes do not establish a held-out
+qualification split or native compatibility. Nothing downloaded was executed; no package installed.
+
+The first admission and exact method/registry fingerprints remain in history. The current inspector adds
+explicit malformed-row warnings without repairing records. All 47 pins match in the network-disabled cached
+replay; a fresh empty-directory naval HTTPS download reproduces its pin. All 25 prior pin groups remain
+semantically unchanged. The focused fetch module passes 24 tests; the broader local suite stops at missing
+TE-cache prerequisites in this separate worktree, so no local full-suite pass is claimed. Existing matrix
+code/runner/registry bindings still match; missing optional source caches remain explicitly unverified here.
+Exact-head CI is a separate publication check. No new task score, matrix cell, feature pass, plant acceptance
+or completed CAD qualification is added by this acquisition.

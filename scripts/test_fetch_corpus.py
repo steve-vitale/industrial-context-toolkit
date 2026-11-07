@@ -264,23 +264,42 @@ class PinnedFilesTest(unittest.TestCase):
 
     def test_public_acquisition_provenance_and_totals_are_bound(self):
         import hashlib
-        registry = json.loads((ROOT / "data/public_sources_20261107.json").read_text(encoding="utf-8"))
         pins = fc.load_pins()
-        self.assertEqual(fc.validate_file_pins(pins, registry["sources"]), [])
-        counts = registry["acquisition_totals"]
-        self.assertEqual(counts["source_groups"], len(registry["sources"]))
-        self.assertEqual(counts["files"], sum(len(pins[s]) for s in registry["sources"]))
-        self.assertEqual(counts["bytes"], sum(p["bytes"] for s in registry["sources"] for p in pins[s].values()))
-        for sid, source in registry["sources"].items():
-            with self.subTest(source=sid):
-                self.assertTrue(source["categories"])
-                self.assertTrue(source["origin"])
-                self.assertTrue(source["limits"])
-                self.assertTrue(source["exposure"])
-                self.assertEqual(source["evidence_role"], "acquired-unscored")
-                if "metadata_snapshot" in source:
-                    raw = (ROOT / source["metadata_snapshot"]).read_bytes()
-                    self.assertEqual(hashlib.sha256(raw).hexdigest(), source["metadata_snapshot_sha256"])
+        for registry_name in ("public_sources_20261107.json", "public_sources_20261107_round2.json"):
+            registry = json.loads((ROOT / "data" / registry_name).read_text(encoding="utf-8"))
+            with self.subTest(registry=registry_name):
+                self.assertEqual(fc.validate_file_pins(pins, registry["sources"]), [])
+                counts = registry["acquisition_totals"]
+                self.assertEqual(counts["source_groups"], len(registry["sources"]))
+                self.assertEqual(counts["files"], sum(len(pins[s]) for s in registry["sources"]))
+                self.assertEqual(counts["bytes"], sum(p["bytes"] for s in registry["sources"] for p in pins[s].values()))
+            for sid, source in registry["sources"].items():
+                with self.subTest(source=sid):
+                    self.assertTrue(source["categories"])
+                    self.assertTrue(source["origin"])
+                    self.assertTrue(source["limits"])
+                    self.assertTrue(source["exposure"])
+                    self.assertEqual(source["evidence_role"], "acquired-unscored")
+                    if "metadata_snapshot" in source:
+                        raw = (ROOT / source["metadata_snapshot"]).read_bytes()
+                        self.assertEqual(hashlib.sha256(raw).hexdigest(), source["metadata_snapshot_sha256"])
+
+    def test_round2_reserved_cad_is_not_inspected_and_parquet_bounds_are_checked(self):
+        import importlib.util
+        import struct
+        from unittest.mock import patch
+        path = ROOT / "examples/public-data/round-2/reproduce.py"
+        spec = importlib.util.spec_from_file_location("round2_admission_test", path)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        with patch.object(module.base, "inspect", side_effect=AssertionError("contents exposed")):
+            result = module.inspect(Path("does-not-exist.dxf"), "cad-extra-originals")
+        self.assertEqual(result["status"], "content uninspected")
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / "bad.parquet"
+            path.write_bytes(b"PAR1" + struct.pack("<I", 1000) + b"PAR1")
+            with self.assertRaisesRegex(ValueError, "footer outside"):
+                module.inspect(path, "historian-rca")
 
     def test_present_file_needs_no_network(self):
         with tempfile.TemporaryDirectory() as d:
