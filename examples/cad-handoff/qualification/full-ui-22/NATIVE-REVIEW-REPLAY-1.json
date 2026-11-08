@@ -1,0 +1,20 @@
+{
+  "scope": "Exact actual-native engineering review and selected second proposal replay; no native launch or acceptance",
+  "methods_sha256_lf": {
+    "recheck_native_reviews.py": "690526327651a323dde82f38f0443fed8dcf8c6106e04c4986d8f8bce751833a",
+    "review_native_revision.py": "56899524f673938b74c317c9a2066ce17afb50b6c250bfb981bb7992debce9ce",
+    "recheck_native_revisions.py": "ee35b0abf8a6816915cd17855745cc02adeed7928d1b76840de5f5a41e1ce119",
+    "native_revisions.py": "412a3b6681f3417a498ee3911f9de94ebf2f6b3273d4e4dd78bb985e1a36b538",
+    "NATIVE-REVISION-REVIEW-1.json": "b9ed208c1bf109b09a7e979734e000d36c2112a3438c19de4d6faee4f8e645fe"
+  },
+  "cases": {
+    "cp1251-concurrent-edited-1": {
+      "review_case": "validation-cp1251",
+      "result_sha256_lf": "554c3d9bd8fb0c30acc7d097082c6a1906d92d17e23124ee3f0ac8e80070c1dc"
+    },
+    "braces-concurrent-edited-1": {
+      "review_case": "validation-braces",
+      "result_sha256_lf": "4cd4352f40af1d0ffd8fea161ee631dd96b8dffe6217172d069eb224bc7a0e98"
+    }
+  }
+}
