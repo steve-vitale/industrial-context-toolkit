@@ -48,3 +48,8 @@ python examples/cad-handoff/qualification/full-ui-22/native_paper_records.py PRI
 
 The producer and inputs are [frozen](PAPER-RECORD-FREEZE-1.json) as a
 post-observation diagnosis; no blind validation result is claimed.
+
+The separate [native paper rendering](PAPER-RENDER-BRIEF.md) now completes on the
+originals and returned/candidate routes. All twelve case views are blank; the
+repeated public control shows paper content. This is a failed readable-delivery
+result, not a paper acceptance inferred from matching images.

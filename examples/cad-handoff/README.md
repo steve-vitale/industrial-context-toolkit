@@ -1,5 +1,10 @@
 # Preserve a bounded CAD handoff
 
+For an engineer or engineering manager, [current qualification scope and results](../../docs/CAD_QUALIFICATION.md)
+separates receiving a consultant return, proposing attribute changes and the
+tested native full-save preservation failures. Use the
+[receiving workflow](../../docs/DRAWING_HANDOFF.md) to prepare one useful decision brief.
+
 **Reusable DXF tools with source-retaining draft edits.** The value-span route changes only the declared
 single-line attribute bytes and retains every other source byte. It works on the supplied explicit identity
 profile without flattening the drawing. The separate library/native full-save baselines remain visible.

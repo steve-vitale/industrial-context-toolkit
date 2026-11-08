@@ -9752,3 +9752,51 @@ Authorized receiving and every engineering disposition stay pending. The whole
 portable original-scope brief reproduces, retaining both SERIAL findings and
 preservation queues. No visual-reading, installed-state or human benefit result
 is inferred from this actual software receiving exercise.
+
+## 225. Finish second-revision receiving without changing the method
+
+Both original fresh four-file receiver handles terminate normally with native,
+controller, container and host exits zero. Each retains 231 helper calls, 115
+observations, eight editable-field checks, twenty views/eighty images and zero
+edits. Complete archives and external identities retain the actual executions.
+The original second adapter replays both packets. Its unchanged pixel recipe
+gives thirty comparisons with zero outside-region pixels and twenty exact frame
+identities. The combined offline replayer reproduces both full receipts, all
+pixel results/difference images and twenty actually inspected source/candidate
+model images. No native process was restarted after an observation wait.
+
+The selected MODEL correction is visible and concurrent SERIAL retained. Existing
+CP1251 labels are upside down, geometry crosses text, overview text is too small
+for complete field checking and some long literal-brace identity text extends
+beyond the fixed detail canvas. Exact complete field identities/editability use
+the separate native observations. Do not enlarge cameras or masks to turn these
+limits into a readability pass. Every native second save still has453unexpected
+strict differences; the completed receiver is not a preservation pass.
+
+## 226. Finish paper observation and retain failed readable delivery
+
+Declare the bounded paper check before execution and pin all fourteen exact
+inputs, original-derived frames, driver, configuration identity and native image
+at a7c386b. Reuse the existing offscreen native bitmap exporter and corrected
+X/Y/width/height conversion; do not build another UI recorder. All fourteen
+processes and the original host/container exit normally. Source bytes remain
+unchanged. Retain original commands, output/error streams, images and terminal
+inspection, excluding configuration contents.
+
+Actually inspect all fourteen images. Twelve case sheets are blank except the
+native trial mark: originals, value candidates, no-edit/concurrent returns,
+selected second candidates and second native returns. The repeated exposed
+public-adapted viewport/text control displays six examples and matches exactly;
+it differs from a blank case image at122616pixels. All ten case comparisons have
+zero changed pixels, which is equal-blank failure, not readable delivery. The
+earlier raw record audit independently retains the original missing-main
+dependency and the native loss of the display viewport/settings. No source
+repair, typography acceptance or broad vendor failure is inferred.
+
+The full source/provenance/command/pixel replay passes. Two control test methods
+pass without skips in10.632seconds: complete original-result reproduction and
+four reindexed wrong-camera, omitted-command, failed-container and replaced-source
+subcontrols. The engineer/manager scope page separates useful original-request
+receiving, source-preserving attribute proposals, failed native full saves and
+failed paper delivery. Final-method freeze and newly reserved transfer remain
+unfinished; engineering/company acceptance is never inferred.

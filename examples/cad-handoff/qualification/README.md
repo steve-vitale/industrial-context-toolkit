@@ -3,9 +3,12 @@
 The [current complete-procedure development](full-ui-22/README.md) combines
 multi-asset native UI edits, save/close/reopen, exact-frame captures and complete
 observation transport. Complete exposed model receiving and exact frame checks
-now reproduce offline, with matched full-save failures retained. Fresh reserved,
-paper/layout and revision/conflict receiving gates remain open. For the
-engineer/manager task, start with [drawing receiving](../../../docs/DRAWING_HANDOFF.md).
+now reproduce offline, including an actual native second revision. Matched
+full-save failures remain; [paper delivery fails](full-ui-22/PAPER-RENDER-BRIEF.md)
+on the two known problem sources. Final freezing and fresh reserved validation
+remain open. For the engineer/manager task, start with
+[drawing receiving](../../../docs/DRAWING_HANDOFF.md) and
+[current qualification scope/results](../../../docs/CAD_QUALIFICATION.md).
 
 For a supplied, explicitly identified DXF asset, `scripts/cad_value_patch.py` proposes single-line attribute
 changes while preserving all other source bytes. In the frozen software cohort, **all 21 candidates have zero

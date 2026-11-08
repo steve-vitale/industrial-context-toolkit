@@ -216,6 +216,17 @@ processes complete under unchanged methods. Both no-edit and one-edit saves
 retain 453 strict differences; native save preservation fails again. Complete
 packets are pinned in [SECOND-RETAINED-1](SECOND-RETAINED-1.json). The [reusable
 receiving example](../../../drawing-handoff/native-second-revision/README.md)
-keeps the original request and selected second source distinct. Fresh four-file
-receivers are separately live; their completion, pixels and visual review are
-not yet claimed. Paper rendering and fresh reserved qualification remain open.
+keeps the original request and selected second source distinct. Both fresh
+four-file second receivers now terminate normally and replay, including all
+30 unchanged pixel comparisons, 20 exact identities and the actual twenty-image
+visual record. Fixed detail views clip some long identity text; inherited
+rotation, line crossings and substituted typography remain limitations. See
+[the current native brief](NATIVE-REVISION-BRIEF.md) and `recheck_second_receiving.py`.
+
+[Paper rendering](PAPER-RENDER-BRIEF.md) also completes: all twelve case views
+are blank except the trial mark; both repeated public-control views show paper
+content and match exactly. Ten equal-blank comparisons do not pass readability.
+The paper route is failed, not an unrun gate. No source-repair study or strict
+waiver follows. Final-method freeze and new reserved validation remain open;
+[current qualification scope](../../../../docs/CAD_QUALIFICATION.md) relates
+these results to the engineer's actual receiving job.

@@ -44,8 +44,11 @@ retains failed direct-Qt/synchronous-helper methods, actual installed-binding
 probes and a separately frozen event-driven successor. Both normal cases and all
 11 intended fault refusals pass complete receiving; offline controls reject lost
 history, replaced sources, hidden failures and unbound observations. N118's exposed
-transport work is complete. Complete CAD edit/save qualification, reserved transfer,
-foreign/multiple-asset coverage and engineering acceptance remain open. Inspect
+transport work is complete. The [current CAD qualification scope](CAD_QUALIFICATION.md)
+now includes actual multi-asset/foreign-field edits, second revisions and complete
+model receiving. Native full-save preservation and readable paper delivery fail
+on the declared exposed cases; final frozen-method reserved validation remains
+open. Engineering acceptance is not inferred. Inspect
 the version-specific CI before treating a branch addition as an integrated release.
 
 An earlier full-suite release baseline was **`a439f14`**:

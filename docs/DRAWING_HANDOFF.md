@@ -6,6 +6,9 @@ An engineer prepares and checks the evidence. An engineering manager uses the
 brief to arrange corrections, resolve scope and route the receiving decision.
 Start with one sheet or a clearly bounded set of sheets.
 
+For the distinction between useful receiving checks, source-preserving attribute
+proposals and a failed native full-save route, see [what CAD qualification establishes](CAD_QUALIFICATION.md).
+
 ## Run one receiving job
 
 Use [receive_drawings.py](../scripts/receive_drawings.py) to run the existing

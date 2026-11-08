@@ -76,8 +76,26 @@ archived file and pixel hashes. Changes are visible in detail views; inherited
 rotations, line crossings, small overview text and the declared font substitution
 remain limitations. This supplies no engineering or paper acceptance.
 
-Actual second-revision native receiving, paper/layout, final-method freezing and
-fresh reserved transfer remain open. Original strict failures remain unchanged.
+The [second-revision receivers](SECOND-RETAINED-2.json) now complete normally and
+replay: 115 observations, eight editable-field checks, 20 views/80 images and
+zero edits each. The unchanged model comparison recipe has 30 comparisons with
+zero pixels outside declared regions and 20 exact frame identities. Actual
+inspection of [all twenty source/candidate model images](SECOND-VISUAL-1.json)
+shows the selected MODEL correction with the concurrent SERIAL retained; fixed
+detail views clip some long identity labels, CP1251 text remains rotated, and
+overview text is too small to verify every field. Exact identities/editability
+rest on native field checks. These are measured model-view results, not complete
+readability or engineering acceptance.
+
+[Actual paper rendering](PAPER-RENDER-BRIEF.md) now fails readable delivery on
+these known sources and returns, despite equal blank pixels. Final-method
+freezing and fresh reserved transfer remain open. Original strict failures
+remain unchanged; second native saves still have 453 differences per case.
+
+```sh
+python examples/cad-handoff/qualification/full-ui-22/recheck_second_receiving.py
+```
+
 The [paper-record diagnosis](PAPER-RECORD-BRIEF.md) identifies a concrete loss in
 both no-edit and concurrent native returns; it does not waive those failures.
 The [receiving workflow](../../../../docs/DRAWING_HANDOFF.md) describes how to
