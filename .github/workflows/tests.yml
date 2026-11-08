@@ -47,6 +47,11 @@ jobs:
           python -S examples/cad-handoff/qualification/observer-transport-21/recheck_evidence.py
           python -S examples/cad-handoff/qualification/observer-transport-21/test_mailbox.py -v
           python -S examples/cad-handoff/qualification/observer-transport-21/test_evidence.py -v
+          python -S examples/cad-handoff/qualification/observer-transport-21/recheck_bridge_development.py
+          python -S examples/cad-handoff/qualification/observer-transport-21/recheck_async.py
+          python -S examples/cad-handoff/qualification/observer-transport-21/test_bridge_evidence.py -v
+          python -S examples/cad-handoff/qualification/observer-transport-21/test_native_io.py -v
+          python -S examples/cad-handoff/qualification/observer-transport-21/test_ui_settle.py -v
       - name: Rebuild equipment-data sidecars and replay browser downloads without a CAD UI
         run: python examples/cad-handoff/qualification/check_exchange6.py
       - name: Verify frozen first-use session evidence without model calls
