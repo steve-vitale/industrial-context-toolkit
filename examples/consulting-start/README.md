@@ -21,6 +21,12 @@ supplier responses and receiving observations. It adds a manual scoped review, n
 The [platform comparison](../../docs/COMPETITIVE_WORKFLOWS.md) helps decide when an existing product or
 specialist is a better destination for that work.
 
+For an agreed calculation or what-if job, the optional
+[calculation review worksheet](CALCULATION_REVIEW.md) records input provenance, model assumptions,
+baseline/scenario differences, reference checks and an editable receiving case. It does not run a simulator.
+The [Flowstead observation](../external-simulator-review/flowstead/README.md) illustrates a very limited
+external-tool check; it is not evidence of plant applicability or an accepted design calculation.
+
 The recommended starting scope is a commercial hypothesis to test, not evidence of willingness to pay.
 Ask about the last actual occurrence, its current workaround and the person who could fund the review.
 Record a declined scope and its reason as carefully as an accepted one. Product requirements should follow
