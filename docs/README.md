@@ -62,6 +62,7 @@ separates public software work from recipient and company-system acceptance.
 | Compare selected batch/event/recipe/lab/outcome records and check their calculation inputs | [Recorded batch joins](../examples/batch-analysis/record-joins/README.md): explicit identities, availability, gaps and retained originals |
 | Check a supplied loop list | [Loop audit](../examples/loop-audit/README.md) |
 | Check a returned connection's exact ports, direction and signal type | [Port consistency and revision checks](PID_CONNECTIONS.md) · [Public rule methods](PID_RULES_RESEARCH.md) |
+| Trace a qualified route across sheets and compare the next revision | [Path review](PID_GRAPH_QUESTIONS.md) · [Three-sheet exercise](../examples/pid-path-review/README.md) |
 | Exchange captured structured-source evidence | [Local source handoff](../examples/source-handoff/README.md) |
 | Compare saved model/method answers on declared tasks | [Task/model benchmarks](../benchmarks/README.md) |
 | Add a public P&ID with an independently verified answer key | [Contribute a P&ID](CONTRIBUTE_A_PID.md) |
@@ -81,6 +82,7 @@ separates public software work from recipient and company-system acceptance.
 | Grow from one team to a site or 50–100 plants; recognize failures and when to involve a managed service | [Organizational scaling and readiness](SCALING_ENGINEERING_CONTEXT.md) |
 | Choose an implementation for separated IT/OT, no-port plants or approved hybrid access | [Environment choices and tradeoffs](INTERNAL_CONNECTIVITY.md#choose-the-data-path-before-the-assistant) |
 | Test a real recipient, company handoff and next revision | [Acceptance exercise](ACCEPTANCE.md) |
+| Scope a first paid maintenance/drawing review | [Working together](WORK_WITH_ME.md) · [Scope, quote and handover forms](../examples/consulting-start/README.md) |
 
 These tasks are optional branches, not prerequisites for every investigation. A plain source-question brief may
 be enough. Exact file contracts belong in the [workflow map](WORKFLOWS.md); all tools are in [FEATURES.md](FEATURES.md).

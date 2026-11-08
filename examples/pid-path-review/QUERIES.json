@@ -1,0 +1,37 @@
+[
+  {
+    "id": "local",
+    "from": "DEMO/P1/U1/P-101",
+    "to": "DEMO/P1/U1/HV-101",
+    "network": "process",
+    "basis": "logical"
+  },
+  {
+    "id": "remote",
+    "from": "DEMO/P1/U1/P-101",
+    "to": "DEMO/P1/U1/V-301",
+    "network": "process",
+    "basis": "logical"
+  },
+  {
+    "id": "signal",
+    "from": "DEMO/P1/U1/PIC-101",
+    "to": "DEMO/P1/U1/FY-201",
+    "network": "signal",
+    "basis": "logical"
+  },
+  {
+    "id": "reverse",
+    "from": "DEMO/P1/U1/P-101",
+    "to": "DEMO/P1/U1/T-001",
+    "network": "process",
+    "basis": "logical"
+  },
+  {
+    "id": "missing",
+    "from": "DEMO/P1/U1/P-101",
+    "to": "DEMO/P1/U1/B99",
+    "network": "process",
+    "basis": "logical"
+  }
+]

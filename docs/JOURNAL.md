@@ -8869,3 +8869,66 @@ path consumer needs explicit accepted/exploratory traversal rules, conflict-qual
 projection and source-revision invalidation. A three-sheet exercise is declared as proposed/unrun;
 the author's outcomes are not reproduced results. No graph authority, cause-and-effect engine,
 DEXPI exchange qualification or new CAD performance is inferred from the post.
+
+## 201. Run cross-sheet questions with explicit review boundaries
+
+2026-11-08. The user requested the identified gaps be addressed and a practical route to paid work.
+The [plan, authored schedules, graph assumptions and fixed key](../examples/pid-path-review/PLAN.md)
+were committed at `4f58d2a` before implementing the path consumer. The same assistant authors/sees
+sources, key and code; this is exposed fictional software development, not independent interpretation.
+
+Code review of the first working prototype found an incorrect media assumption: an off-page pairing
+alone was admitted as a process continuation. Its code and actual result remain in `attempt-1`.
+The schedules identify process and signal meaning, but the first prepared graph omitted that explicit
+declaration. New prepared inputs with source-bound network_kind claims were frozen at `24eed65`.
+Original graphs/key remain; the successor still qualifies their omitted meaning. This is a new input
+cohort/preparation correction, not a model gain or untouched held-out result.
+
+The [reusable consumer](PID_GRAPH_QUESTIONS.md) reads supported twin-graph-1/2 snapshots with exact
+scoped IDs. Reviewed-only and explicit exploratory policies separate physical/logical process and
+signal/impulse relationships, retain applicable open conflicts, direction, rejected records, missing
+media/source/claim evidence and missing continuations. It returns a readable HTML/Markdown report,
+typed source-qualified association register, full structured result and exact retained graph/receipt.
+No graph producer or earlier CAD comparator/profile/key is changed. The source originals named in a
+graph are not independently fetched or authenticated; original verification remains an intake task.
+
+The actual ten policy/key outcomes match beside the naive unrestricted undirected walk. That baseline
+finds all routes, including the known reversed edge, without qualifying disputed or uncertain paths.
+The successor blocks the reversed route under both policies. It distinguishes supported local facts
+from qualified downstream associations. Correcting the third sheet reopens the old remote answer;
+the local answer's basis stays unchanged while two wider register rows change. An unrelated stored
+record addition reopens neither. Complete prior packets and their rendered projections re-score on
+receipt. New incident-edge/conflict controls reopen affected answers; tampered and rehashed false
+answers/projections refuse. Eighteen regression methods pass without skips. Graph/search/history/output
+limits refuse oversized scopes rather than publishing truncated negative results.
+
+Browser inspection of generated HTML checked the visible 3 in / 4 in disagreement, both source
+locators, review owner and separate item/association status. The initial preformatted layout was
+replaced with readable sections and download links; earlier unpublished outputs remain in scratch.
+The browser's file-protocol restriction was handled through a temporary loopback-only static server;
+an out-of-allowed-root screenshot request refused, and the workspace screenshot succeeded. The server
+was stopped after review. This is display QA, not recipient acceptance or a mobile usefulness study.
+
+Public multi-sheet image interpretation and independent source/key review remain unrun. This is not
+a consequence/LOTO engine, complete line/valve register, DEXPI export, live watcher, authenticated review
+service or native CAD qualification. Existing company/engineering receiving responsibilities remain.
+
+## 202. Make a bounded paid review concrete
+
+2026-11-08. The [service entry](WORK_WITH_ME.md) now leads with a specific maintenance and drawing
+information review: one decision/system, agreed source quantities, source-linked findings, owner actions
+and one returned-record check. An example scope of three sheets and 25 selected assets is a proposal
+to agree, not a tested commercial price, delivery promise or customer outcome.
+
+The [first-assignment package](../examples/consulting-start/README.md) contains a first-conversation
+record, source/deliverable/acceptance scope, private quote worksheet and receiving/follow-on review.
+It includes preparation, interpretation, review, receiving work and revision effort in the quote basis.
+The assessment can finish with owned evidence gaps; client engineering release and authoritative-system
+readback remain separate. Repeat paid work and observed receiving needs inform future product choices.
+No customer, price, testimonial, measured saving, credential or outreach is invented. Contact remains
+Steve's LinkedIn only; unpublished post copy stays outside this repository.
+
+Primary NIST maintenance-decision and work-order-quality publications support the decision-first source
+method, not toolkit accuracy or willingness to pay. SBA business-planning resources were checked as a
+separate business starting point. Templates are a prepared commercial hypothesis; an actual scoped
+quote, paying recipient, observed effort and accepted delivery remain external evidence to obtain.

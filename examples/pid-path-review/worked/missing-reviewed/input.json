@@ -1,0 +1,722 @@
+{
+  "schema": "twin-graph-2",
+  "model_kind": "one_map",
+  "site": "DEMO",
+  "title": "Fictional reviewed assumptions for path controls",
+  "source_model": "authored schedules",
+  "nodes": [
+    {
+      "id": "DEMO",
+      "kind": "site",
+      "tag": "DEMO",
+      "name": "Fictional three-sheet system",
+      "aliases": [],
+      "status": "confirmed",
+      "attributes": [],
+      "source": {
+        "kind": "authored_schedule",
+        "document": "PID-101-A.txt",
+        "revision": "A",
+        "locator": "header",
+        "sha256": "d9fb1c8638d67a75f55932399afbbc52cf1db56163e0572ee8b0591d7f14fd0d"
+      }
+    },
+    {
+      "id": "DEMO/P1/U1/P-101",
+      "kind": "equipment",
+      "tag": "P-101",
+      "name": "P-101",
+      "aliases": [],
+      "status": "confirmed",
+      "attributes": [
+        {
+          "name": "tag",
+          "value": "P-101",
+          "status": "confirmed",
+          "source": {
+            "kind": "authored_schedule",
+            "document": "PID-101-A.txt",
+            "revision": "A",
+            "locator": "line 2",
+            "sha256": "d9fb1c8638d67a75f55932399afbbc52cf1db56163e0572ee8b0591d7f14fd0d"
+          }
+        }
+      ],
+      "source": {
+        "kind": "authored_schedule",
+        "document": "PID-101-A.txt",
+        "revision": "A",
+        "locator": "line 2",
+        "sha256": "d9fb1c8638d67a75f55932399afbbc52cf1db56163e0572ee8b0591d7f14fd0d"
+      }
+    },
+    {
+      "id": "DEMO/P1/U1/HV-101",
+      "kind": "manual_valve",
+      "tag": "HV-101",
+      "name": "HV-101",
+      "aliases": [],
+      "status": "confirmed",
+      "attributes": [
+        {
+          "name": "tag",
+          "value": "HV-101",
+          "status": "confirmed",
+          "source": {
+            "kind": "authored_schedule",
+            "document": "PID-101-A.txt",
+            "revision": "A",
+            "locator": "line 2",
+            "sha256": "d9fb1c8638d67a75f55932399afbbc52cf1db56163e0572ee8b0591d7f14fd0d"
+          }
+        }
+      ],
+      "source": {
+        "kind": "authored_schedule",
+        "document": "PID-101-A.txt",
+        "revision": "A",
+        "locator": "line 2",
+        "sha256": "d9fb1c8638d67a75f55932399afbbc52cf1db56163e0572ee8b0591d7f14fd0d"
+      }
+    },
+    {
+      "id": "DEMO/P1/U1/A12",
+      "kind": "offpage_connector",
+      "tag": "A12",
+      "name": "A12",
+      "aliases": [],
+      "status": "confirmed",
+      "attributes": [
+        {
+          "name": "tag",
+          "value": "A12",
+          "status": "confirmed",
+          "source": {
+            "kind": "authored_schedule",
+            "document": "PID-101-A.txt",
+            "revision": "A",
+            "locator": "line 3",
+            "sha256": "d9fb1c8638d67a75f55932399afbbc52cf1db56163e0572ee8b0591d7f14fd0d"
+          }
+        }
+      ],
+      "source": {
+        "kind": "authored_schedule",
+        "document": "PID-101-A.txt",
+        "revision": "A",
+        "locator": "line 3",
+        "sha256": "d9fb1c8638d67a75f55932399afbbc52cf1db56163e0572ee8b0591d7f14fd0d"
+      }
+    },
+    {
+      "id": "DEMO/P1/U1/B21",
+      "kind": "offpage_connector",
+      "tag": "B21",
+      "name": "B21",
+      "aliases": [],
+      "status": "confirmed",
+      "attributes": [
+        {
+          "name": "tag",
+          "value": "B21",
+          "status": "confirmed",
+          "source": {
+            "kind": "authored_schedule",
+            "document": "PID-102-A.txt",
+            "revision": "A",
+            "locator": "line 2",
+            "sha256": "22a77aaed4bf90639a2d21932209db15f5b9d296ae25a81690a8161fabbedcd5"
+          }
+        }
+      ],
+      "source": {
+        "kind": "authored_schedule",
+        "document": "PID-102-A.txt",
+        "revision": "A",
+        "locator": "line 2",
+        "sha256": "22a77aaed4bf90639a2d21932209db15f5b9d296ae25a81690a8161fabbedcd5"
+      }
+    },
+    {
+      "id": "DEMO/P1/U1/HV-201",
+      "kind": "manual_valve",
+      "tag": "HV-201",
+      "name": "HV-201",
+      "aliases": [],
+      "status": "confirmed",
+      "attributes": [
+        {
+          "name": "tag",
+          "value": "HV-201",
+          "status": "confirmed",
+          "source": {
+            "kind": "authored_schedule",
+            "document": "PID-102-A.txt",
+            "revision": "A",
+            "locator": "line 2",
+            "sha256": "22a77aaed4bf90639a2d21932209db15f5b9d296ae25a81690a8161fabbedcd5"
+          }
+        }
+      ],
+      "source": {
+        "kind": "authored_schedule",
+        "document": "PID-102-A.txt",
+        "revision": "A",
+        "locator": "line 2",
+        "sha256": "22a77aaed4bf90639a2d21932209db15f5b9d296ae25a81690a8161fabbedcd5"
+      }
+    },
+    {
+      "id": "DEMO/P1/U1/B23",
+      "kind": "offpage_connector",
+      "tag": "B23",
+      "name": "B23",
+      "aliases": [],
+      "status": "confirmed",
+      "attributes": [
+        {
+          "name": "tag",
+          "value": "B23",
+          "status": "confirmed",
+          "source": {
+            "kind": "authored_schedule",
+            "document": "PID-102-A.txt",
+            "revision": "A",
+            "locator": "line 3",
+            "sha256": "22a77aaed4bf90639a2d21932209db15f5b9d296ae25a81690a8161fabbedcd5"
+          }
+        }
+      ],
+      "source": {
+        "kind": "authored_schedule",
+        "document": "PID-102-A.txt",
+        "revision": "A",
+        "locator": "line 3",
+        "sha256": "22a77aaed4bf90639a2d21932209db15f5b9d296ae25a81690a8161fabbedcd5"
+      }
+    },
+    {
+      "id": "DEMO/P1/U1/C32",
+      "kind": "offpage_connector",
+      "tag": "C32",
+      "name": "C32",
+      "aliases": [],
+      "status": "confirmed",
+      "attributes": [
+        {
+          "name": "tag",
+          "value": "C32",
+          "status": "confirmed",
+          "source": {
+            "kind": "authored_schedule",
+            "document": "PID-103-A.txt",
+            "revision": "A",
+            "locator": "line 2",
+            "sha256": "894e2db28595ff57eea378035c6ad15d7f9599b0639bfcd60a7a712e96bc3107"
+          }
+        }
+      ],
+      "source": {
+        "kind": "authored_schedule",
+        "document": "PID-103-A.txt",
+        "revision": "A",
+        "locator": "line 2",
+        "sha256": "894e2db28595ff57eea378035c6ad15d7f9599b0639bfcd60a7a712e96bc3107"
+      }
+    },
+    {
+      "id": "DEMO/P1/U1/V-301",
+      "kind": "equipment",
+      "tag": "V-301",
+      "name": "V-301",
+      "aliases": [],
+      "status": "confirmed",
+      "attributes": [
+        {
+          "name": "tag",
+          "value": "V-301",
+          "status": "confirmed",
+          "source": {
+            "kind": "authored_schedule",
+            "document": "PID-103-A.txt",
+            "revision": "A",
+            "locator": "line 3",
+            "sha256": "894e2db28595ff57eea378035c6ad15d7f9599b0639bfcd60a7a712e96bc3107"
+          }
+        }
+      ],
+      "source": {
+        "kind": "authored_schedule",
+        "document": "PID-103-A.txt",
+        "revision": "A",
+        "locator": "line 3",
+        "sha256": "894e2db28595ff57eea378035c6ad15d7f9599b0639bfcd60a7a712e96bc3107"
+      }
+    },
+    {
+      "id": "DEMO/P1/U1/PIC-101",
+      "kind": "controller",
+      "tag": "PIC-101",
+      "name": "PIC-101",
+      "aliases": [],
+      "status": "confirmed",
+      "attributes": [
+        {
+          "name": "tag",
+          "value": "PIC-101",
+          "status": "confirmed",
+          "source": {
+            "kind": "authored_schedule",
+            "document": "PID-101-A.txt",
+            "revision": "A",
+            "locator": "line 4",
+            "sha256": "d9fb1c8638d67a75f55932399afbbc52cf1db56163e0572ee8b0591d7f14fd0d"
+          }
+        }
+      ],
+      "source": {
+        "kind": "authored_schedule",
+        "document": "PID-101-A.txt",
+        "revision": "A",
+        "locator": "line 4",
+        "sha256": "d9fb1c8638d67a75f55932399afbbc52cf1db56163e0572ee8b0591d7f14fd0d"
+      }
+    },
+    {
+      "id": "DEMO/P1/U1/AS",
+      "kind": "offpage_connector",
+      "tag": "AS",
+      "name": "AS",
+      "aliases": [],
+      "status": "confirmed",
+      "attributes": [
+        {
+          "name": "tag",
+          "value": "AS",
+          "status": "confirmed",
+          "source": {
+            "kind": "authored_schedule",
+            "document": "PID-101-A.txt",
+            "revision": "A",
+            "locator": "line 4",
+            "sha256": "d9fb1c8638d67a75f55932399afbbc52cf1db56163e0572ee8b0591d7f14fd0d"
+          }
+        }
+      ],
+      "source": {
+        "kind": "authored_schedule",
+        "document": "PID-101-A.txt",
+        "revision": "A",
+        "locator": "line 4",
+        "sha256": "d9fb1c8638d67a75f55932399afbbc52cf1db56163e0572ee8b0591d7f14fd0d"
+      }
+    },
+    {
+      "id": "DEMO/P1/U1/BS",
+      "kind": "offpage_connector",
+      "tag": "BS",
+      "name": "BS",
+      "aliases": [],
+      "status": "confirmed",
+      "attributes": [
+        {
+          "name": "tag",
+          "value": "BS",
+          "status": "confirmed",
+          "source": {
+            "kind": "authored_schedule",
+            "document": "PID-102-A.txt",
+            "revision": "A",
+            "locator": "line 4",
+            "sha256": "22a77aaed4bf90639a2d21932209db15f5b9d296ae25a81690a8161fabbedcd5"
+          }
+        }
+      ],
+      "source": {
+        "kind": "authored_schedule",
+        "document": "PID-102-A.txt",
+        "revision": "A",
+        "locator": "line 4",
+        "sha256": "22a77aaed4bf90639a2d21932209db15f5b9d296ae25a81690a8161fabbedcd5"
+      }
+    },
+    {
+      "id": "DEMO/P1/U1/FY-201",
+      "kind": "instrument",
+      "tag": "FY-201",
+      "name": "FY-201",
+      "aliases": [],
+      "status": "confirmed",
+      "attributes": [
+        {
+          "name": "tag",
+          "value": "FY-201",
+          "status": "confirmed",
+          "source": {
+            "kind": "authored_schedule",
+            "document": "PID-102-A.txt",
+            "revision": "A",
+            "locator": "line 4",
+            "sha256": "22a77aaed4bf90639a2d21932209db15f5b9d296ae25a81690a8161fabbedcd5"
+          }
+        }
+      ],
+      "source": {
+        "kind": "authored_schedule",
+        "document": "PID-102-A.txt",
+        "revision": "A",
+        "locator": "line 4",
+        "sha256": "22a77aaed4bf90639a2d21932209db15f5b9d296ae25a81690a8161fabbedcd5"
+      }
+    },
+    {
+      "id": "DEMO/P1/U1/T-001",
+      "kind": "equipment",
+      "tag": "T-001",
+      "name": "T-001",
+      "aliases": [],
+      "status": "confirmed",
+      "attributes": [
+        {
+          "name": "tag",
+          "value": "T-001",
+          "status": "confirmed",
+          "source": {
+            "kind": "authored_schedule",
+            "document": "PID-101-A.txt",
+            "revision": "A",
+            "locator": "line 5",
+            "sha256": "d9fb1c8638d67a75f55932399afbbc52cf1db56163e0572ee8b0591d7f14fd0d"
+          }
+        }
+      ],
+      "source": {
+        "kind": "authored_schedule",
+        "document": "PID-101-A.txt",
+        "revision": "A",
+        "locator": "line 5",
+        "sha256": "d9fb1c8638d67a75f55932399afbbc52cf1db56163e0572ee8b0591d7f14fd0d"
+      }
+    },
+    {
+      "id": "DEMO/P1/U1/B99",
+      "kind": "offpage_connector",
+      "tag": "B99",
+      "name": "B99",
+      "aliases": [],
+      "status": "confirmed",
+      "attributes": [
+        {
+          "name": "tag",
+          "value": "B99",
+          "status": "confirmed",
+          "source": {
+            "kind": "authored_schedule",
+            "document": "PID-102-A.txt",
+            "revision": "A",
+            "locator": "line 5",
+            "sha256": "22a77aaed4bf90639a2d21932209db15f5b9d296ae25a81690a8161fabbedcd5"
+          }
+        }
+      ],
+      "source": {
+        "kind": "authored_schedule",
+        "document": "PID-102-A.txt",
+        "revision": "A",
+        "locator": "line 5",
+        "sha256": "22a77aaed4bf90639a2d21932209db15f5b9d296ae25a81690a8161fabbedcd5"
+      }
+    },
+    {
+      "id": "DEMO/CONFLICT/C-size",
+      "kind": "conflict",
+      "tag": "C-size",
+      "name": "Continuation line size disagrees: 3 in versus 4 in",
+      "aliases": [],
+      "status": "unverified",
+      "attributes": [],
+      "source": {
+        "kind": "authored_schedule",
+        "document": "PID-103-A.txt",
+        "revision": "A",
+        "locator": "line 2",
+        "sha256": "894e2db28595ff57eea378035c6ad15d7f9599b0639bfcd60a7a712e96bc3107"
+      },
+      "conflict": {
+        "id": "C-size",
+        "type": "boundary",
+        "what": "Continuation line size disagrees: 3 in versus 4 in",
+        "subject": "DEMO/P1/U1/C32",
+        "attribute": "size",
+        "source_a": {
+          "source": {
+            "kind": "authored_schedule",
+            "document": "PID-102-A.txt",
+            "revision": "A",
+            "locator": "line 3",
+            "sha256": "22a77aaed4bf90639a2d21932209db15f5b9d296ae25a81690a8161fabbedcd5"
+          },
+          "says": "3 in"
+        },
+        "source_b": {
+          "source": {
+            "kind": "authored_schedule",
+            "document": "PID-103-A.txt",
+            "revision": "A",
+            "locator": "line 2",
+            "sha256": "894e2db28595ff57eea378035c6ad15d7f9599b0639bfcd60a7a712e96bc3107"
+          },
+          "says": "4 in"
+        },
+        "record_owner": "Engineering reviewer (fictional role)",
+        "status": "open",
+        "detected": true,
+        "history": []
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "L101",
+      "type": "connects",
+      "from": "DEMO/P1/U1/P-101",
+      "to": "DEMO/P1/U1/HV-101",
+      "status": "confirmed",
+      "direction": "known",
+      "source": {
+        "kind": "authored_schedule",
+        "document": "PID-101-A.txt",
+        "revision": "A",
+        "locator": "line 2",
+        "sha256": "d9fb1c8638d67a75f55932399afbbc52cf1db56163e0572ee8b0591d7f14fd0d"
+      },
+      "attributes": [],
+      "layer": "stream"
+    },
+    {
+      "id": "L102",
+      "type": "connects",
+      "from": "DEMO/P1/U1/HV-101",
+      "to": "DEMO/P1/U1/A12",
+      "status": "confirmed",
+      "direction": "known",
+      "source": {
+        "kind": "authored_schedule",
+        "document": "PID-101-A.txt",
+        "revision": "A",
+        "locator": "line 2",
+        "sha256": "d9fb1c8638d67a75f55932399afbbc52cf1db56163e0572ee8b0591d7f14fd0d"
+      },
+      "attributes": [],
+      "layer": "stream"
+    },
+    {
+      "id": "PAIR12",
+      "type": "connects",
+      "from": "DEMO/P1/U1/A12",
+      "to": "DEMO/P1/U1/B21",
+      "status": "confirmed",
+      "direction": "known",
+      "source": {
+        "kind": "authored_schedule",
+        "document": "PID-101-A.txt",
+        "revision": "A",
+        "locator": "line 3",
+        "sha256": "d9fb1c8638d67a75f55932399afbbc52cf1db56163e0572ee8b0591d7f14fd0d"
+      },
+      "attributes": [
+        {
+          "name": "network_kind",
+          "value": "process",
+          "status": "confirmed",
+          "source": {
+            "kind": "authored_schedule",
+            "document": "PID-101-A.txt",
+            "revision": "A",
+            "locator": "line 3",
+            "sha256": "d9fb1c8638d67a75f55932399afbbc52cf1db56163e0572ee8b0591d7f14fd0d"
+          }
+        }
+      ],
+      "layer": "offpage_pair"
+    },
+    {
+      "id": "L201",
+      "type": "connects",
+      "from": "DEMO/P1/U1/B21",
+      "to": "DEMO/P1/U1/HV-201",
+      "status": "confirmed",
+      "direction": "known",
+      "source": {
+        "kind": "authored_schedule",
+        "document": "PID-102-A.txt",
+        "revision": "A",
+        "locator": "line 2",
+        "sha256": "22a77aaed4bf90639a2d21932209db15f5b9d296ae25a81690a8161fabbedcd5"
+      },
+      "attributes": [],
+      "layer": "stream"
+    },
+    {
+      "id": "L202",
+      "type": "connects",
+      "from": "DEMO/P1/U1/HV-201",
+      "to": "DEMO/P1/U1/B23",
+      "status": "confirmed",
+      "direction": "known",
+      "source": {
+        "kind": "authored_schedule",
+        "document": "PID-102-A.txt",
+        "revision": "A",
+        "locator": "line 2",
+        "sha256": "22a77aaed4bf90639a2d21932209db15f5b9d296ae25a81690a8161fabbedcd5"
+      },
+      "attributes": [],
+      "layer": "stream"
+    },
+    {
+      "id": "PAIR23",
+      "type": "connects",
+      "from": "DEMO/P1/U1/B23",
+      "to": "DEMO/P1/U1/C32",
+      "status": "confirmed",
+      "direction": "known",
+      "source": {
+        "kind": "authored_schedule",
+        "document": "PID-102-A.txt",
+        "revision": "A",
+        "locator": "line 3",
+        "sha256": "22a77aaed4bf90639a2d21932209db15f5b9d296ae25a81690a8161fabbedcd5"
+      },
+      "attributes": [
+        {
+          "name": "size",
+          "value": "3 in",
+          "status": "confirmed",
+          "source": {
+            "kind": "authored_schedule",
+            "document": "PID-102-A.txt",
+            "revision": "A",
+            "locator": "line 3",
+            "sha256": "22a77aaed4bf90639a2d21932209db15f5b9d296ae25a81690a8161fabbedcd5"
+          }
+        },
+        {
+          "name": "network_kind",
+          "value": "process",
+          "status": "confirmed",
+          "source": {
+            "kind": "authored_schedule",
+            "document": "PID-102-A.txt",
+            "revision": "A",
+            "locator": "line 3",
+            "sha256": "22a77aaed4bf90639a2d21932209db15f5b9d296ae25a81690a8161fabbedcd5"
+          }
+        }
+      ],
+      "layer": "offpage_pair"
+    },
+    {
+      "id": "L301",
+      "type": "connects",
+      "from": "DEMO/P1/U1/C32",
+      "to": "DEMO/P1/U1/V-301",
+      "status": "confirmed",
+      "direction": "known",
+      "source": {
+        "kind": "authored_schedule",
+        "document": "PID-103-A.txt",
+        "revision": "A",
+        "locator": "line 3",
+        "sha256": "894e2db28595ff57eea378035c6ad15d7f9599b0639bfcd60a7a712e96bc3107"
+      },
+      "attributes": [],
+      "layer": "stream"
+    },
+    {
+      "id": "SIG1",
+      "type": "signal_line",
+      "from": "DEMO/P1/U1/PIC-101",
+      "to": "DEMO/P1/U1/AS",
+      "status": "confirmed",
+      "direction": "known",
+      "source": {
+        "kind": "authored_schedule",
+        "document": "PID-101-A.txt",
+        "revision": "A",
+        "locator": "line 4",
+        "sha256": "d9fb1c8638d67a75f55932399afbbc52cf1db56163e0572ee8b0591d7f14fd0d"
+      },
+      "attributes": []
+    },
+    {
+      "id": "SIGPAIR",
+      "type": "signal_line",
+      "from": "DEMO/P1/U1/AS",
+      "to": "DEMO/P1/U1/BS",
+      "status": "unverified",
+      "direction": "unknown",
+      "source": {
+        "kind": "authored_schedule",
+        "document": "PID-101-A.txt",
+        "revision": "A",
+        "locator": "line 4",
+        "sha256": "d9fb1c8638d67a75f55932399afbbc52cf1db56163e0572ee8b0591d7f14fd0d"
+      },
+      "attributes": []
+    },
+    {
+      "id": "SIG2",
+      "type": "signal_line",
+      "from": "DEMO/P1/U1/BS",
+      "to": "DEMO/P1/U1/FY-201",
+      "status": "confirmed",
+      "direction": "known",
+      "source": {
+        "kind": "authored_schedule",
+        "document": "PID-102-A.txt",
+        "revision": "A",
+        "locator": "line 4",
+        "sha256": "22a77aaed4bf90639a2d21932209db15f5b9d296ae25a81690a8161fabbedcd5"
+      },
+      "attributes": []
+    },
+    {
+      "id": "REVERSE",
+      "type": "connects",
+      "from": "DEMO/P1/U1/T-001",
+      "to": "DEMO/P1/U1/P-101",
+      "status": "confirmed",
+      "direction": "known",
+      "source": {
+        "kind": "authored_schedule",
+        "document": "PID-101-A.txt",
+        "revision": "A",
+        "locator": "line 5",
+        "sha256": "d9fb1c8638d67a75f55932399afbbc52cf1db56163e0572ee8b0591d7f14fd0d"
+      },
+      "attributes": [],
+      "layer": "stream"
+    },
+    {
+      "id": "MISSING",
+      "type": "connects",
+      "from": "DEMO/P1/U1/HV-201",
+      "to": "DEMO/P1/U1/B99",
+      "status": "confirmed",
+      "direction": "known",
+      "source": {
+        "kind": "authored_schedule",
+        "document": "PID-102-A.txt",
+        "revision": "A",
+        "locator": "line 5",
+        "sha256": "22a77aaed4bf90639a2d21932209db15f5b9d296ae25a81690a8161fabbedcd5"
+      },
+      "attributes": [],
+      "layer": "stream"
+    }
+  ],
+  "questions": [],
+  "events": [],
+  "not_exported": []
+}

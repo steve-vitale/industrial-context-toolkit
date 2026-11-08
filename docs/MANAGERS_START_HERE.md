@@ -28,6 +28,9 @@ brief, source snapshots and blank forms. It is fictional; no plant has accepted 
 
 For a return containing the right tags but possibly the wrong input, use
 [port-aware revision checks](PID_CONNECTIONS.md) and assign the retained correction queue.
+For a prepared multi-sheet graph, the [path review](PID_GRAPH_QUESTIONS.md) shows supported or qualified
+connections and missing continuations. A missing route is an evidence gap, not proof of disconnection.
+To agree a bounded outside assignment, use the [paid review scope and acceptance forms](../examples/consulting-start/README.md).
 
 For repeat-failure investigation, first assemble the work-order descriptions, identity/operating context and
 permitted observations behind a specific question. The [first-question brief](../examples/first-pilot/README.md)

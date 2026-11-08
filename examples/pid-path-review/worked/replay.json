@@ -1,0 +1,95 @@
+{
+  "policy_cases": [
+    {
+      "id": "local",
+      "policy": "reviewed",
+      "expected": "supported",
+      "actual": "supported",
+      "naive_undirected": true
+    },
+    {
+      "id": "local",
+      "policy": "exploratory",
+      "expected": "supported",
+      "actual": "supported",
+      "naive_undirected": true
+    },
+    {
+      "id": "remote",
+      "policy": "reviewed",
+      "expected": "not_established",
+      "actual": "not_established",
+      "naive_undirected": true
+    },
+    {
+      "id": "remote",
+      "policy": "exploratory",
+      "expected": "qualified",
+      "actual": "qualified",
+      "naive_undirected": true
+    },
+    {
+      "id": "signal",
+      "policy": "reviewed",
+      "expected": "not_established",
+      "actual": "not_established",
+      "naive_undirected": true
+    },
+    {
+      "id": "signal",
+      "policy": "exploratory",
+      "expected": "qualified",
+      "actual": "qualified",
+      "naive_undirected": true
+    },
+    {
+      "id": "reverse",
+      "policy": "reviewed",
+      "expected": "not_established",
+      "actual": "not_established",
+      "naive_undirected": true
+    },
+    {
+      "id": "reverse",
+      "policy": "exploratory",
+      "expected": "not_established",
+      "actual": "not_established",
+      "naive_undirected": true
+    },
+    {
+      "id": "missing",
+      "policy": "reviewed",
+      "expected": "supported",
+      "actual": "supported",
+      "naive_undirected": true
+    },
+    {
+      "id": "missing",
+      "policy": "exploratory",
+      "expected": "supported",
+      "actual": "supported",
+      "naive_undirected": true
+    }
+  ],
+  "revisions": [
+    {
+      "id": "local",
+      "prior_answer": "unchanged",
+      "after_correction": "supported",
+      "changed_register_rows": 2,
+      "after_unrelated": "unchanged"
+    },
+    {
+      "id": "remote",
+      "prior_answer": "reopened",
+      "after_correction": "supported",
+      "changed_register_rows": 2,
+      "after_unrelated": "unchanged"
+    }
+  ],
+  "original_missing_network_retained": true,
+  "sources": "Four authored schedule revisions, three sheets; no image reading",
+  "exposure": "Same assistant authors/sees schedules, graph assumptions, key and implementation; no blind or engineering review",
+  "engineering_acceptance": false,
+  "cad_qualification": false
+}

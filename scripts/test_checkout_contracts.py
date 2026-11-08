@@ -78,6 +78,7 @@ RAW_FAMILIES += ('examples/cad-handoff/qualification/record-paths-15',)
 RAW_FAMILIES += ('examples/cad-handoff/qualification/header-boundaries-16',)
 RAW_FAMILIES += ('examples/cad-handoff/qualification/layout-construction-17',)
 RAW_FAMILIES += ('examples/pid-port-review',)
+RAW_FAMILIES += ('examples/pid-path-review',)
 TARGETS += [path.relative_to(ROOT).as_posix()
             for path in sorted((ROOT / 'examples/engineering-change').rglob('*'))
             if path.is_file() and path.suffix != '.png' and '__pycache__' not in path.parts]

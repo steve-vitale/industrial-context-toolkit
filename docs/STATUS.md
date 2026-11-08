@@ -42,11 +42,13 @@ Offline publication checks match
 **64 pass / 23 fail / 8 n/a**; its failures are retained research results, not failing unit tests.
 Pipeline freshness remains **50/52**: manual `te.pid_live` and `te.replay` receipts are stale.
 Saved predictions regenerate 23 matching tables and seven with documented historical formatting adjustments;
-five earlier diagnostic tables still lack predictions. The feature catalog has **32 features**, of which
+five earlier diagnostic tables still lack predictions. The feature catalog has **33 features**, of which
 **22 have current independently reviewed example outputs**; the generalization-matrix review is stale after
 the selected intake receipt refresh. Its numerical results are unchanged. The new CAD and photo examples still
 need independent review. The new [port revision example](../examples/pid-port-review/README.md) also awaits independent review; its separately fixed key is author-visible.
 Neither a passing software test nor a matching source hash establishes an accepted engineering conclusion.
+The new [cross-sheet path example](../examples/pid-path-review/README.md) also awaits independent review;
+its authored schedules, graph assumptions and key are exposed development material.
 
 The coherence audit corrected [core graph reduction](GRAPH_EXPORT.md#two-profiles-the-full-record-and-the-part-a-change-system-needs): connections stay
 whole when retained memberships cannot explicitly represent them, or when they carry substantive claims or
@@ -176,10 +178,15 @@ the presets; all six dxflib imports retain them. Across 168 complete recorded pu
 comparisons, only targeted plot getters differ. This is exposed diagnosis with no CAD save or new
 strict-comparison run. Full CAD and the remaining gates stay unqualified.
 
-The [cross-sheet question design note](PID_GRAPH_QUESTIONS.md) records the next graph-use gap:
-an explicit traversal policy must carry applicable conflicts and review status into answers and
-derived registers. Its three-sheet exercise is proposed and unrun; no path-query command or
-failure-consequence engine is claimed.
+The [cross-sheet path consumer](PID_GRAPH_QUESTIONS.md) now carries source/review qualifications and
+applicable endpoint/edge conflicts into selected routes and query-relative association registers.
+The exposed three-sheet schedule exercise matches ten policy outcomes beside an unrestricted baseline,
+retains a missing-network-meaning preparation failure, and demonstrates selective prior-answer reopening.
+Its 17 regression methods are software controls, not independent drawing interpretation or engineering
+acceptance. Public multi-sheet reader validation, full line/valve registers, failure consequences and
+native CAD qualification remain open. The [first paid-assignment forms](../examples/consulting-start/README.md)
+make scope, quote preparation and recipient acceptance concrete; actual customers, willingness to pay,
+prices and measured savings are not established by these documents.
 
 Use the [acceptance exercise](ACCEPTANCE.md) for concrete tests, records and failure cases. It is prepared;
 actual participant, recipient, native-system and tenant observations remain **not run**.

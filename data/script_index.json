@@ -558,6 +558,11 @@
       "kind": "tool",
       "guide": "docs/PID_CONNECTIONS.md",
       "purpose": "Check supplied exact P&ID port connections, direction and type against a source-bound catalog and revision requirements; retain missing/unknown/other observations without reading drawings or qualifying CAD."
+    },
+    "scripts/pid_path_review.py": {
+      "kind": "tool",
+      "guide": "docs/PID_GRAPH_QUESTIONS.md",
+      "purpose": "Trace supplied graph paths under explicit physical/logical and process/signal review policies; retain conflict-qualified associations and source-revision comparisons without engineering or CAD acceptance."
     }
   }
 }

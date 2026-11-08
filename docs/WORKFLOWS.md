@@ -9,6 +9,11 @@ revision through the existing description, generation and context contracts belo
 
 ## First choose what the question needs
 
+For a route question on an already prepared graph, use the [path consumer](PID_GRAPH_QUESTIONS.md).
+It reads existing twin-graph-1/2 records, retains conflict/status qualifications and returns a source-bound
+review packet with selected path, reachable associations and an explicit prior-revision comparison.
+It is a consumer, not a new graph producer, original-document reader or live synchronization service.
+
 - **Your plant's draft structure:** use the [P&ID image](../examples/own-drawing/README.md),
   [description](../examples/from-description/README.md) or [DEXPI XML](../examples/from-dexpi-xml/README.md) route.
   Review the resulting model and its source evidence before enriching or connecting it.
