@@ -1,0 +1,14 @@
+{
+  "role": "Transcribed observed local development failure; no native execution",
+  "attempt": "development-1",
+  "command": "python examples/cad-handoff/qualification/build_layout10.py --out C:/Users/Steve/.cp-scratch/cad-layout-preparation-10/development-1",
+  "exit": 1,
+  "wrapper_failure": "FileNotFoundError: cohort/validation-braces/prepared.dxf",
+  "diagnostic": "Direct propose(source) succeeds; apply fails at ch.compare with an incomplete edit-plan object",
+  "cause": "cad_handoff.InputError: Plan must name cad-edit-plan-1 and the exact current source SHA-256",
+  "location": "prepare_layout10.py apply, ch.compare(before, after, {'source_sha256': ..., 'changes': []})",
+  "publication": "No cohort proposal output was published. Cohort refusals were not written before the wrapper's later missing-file error.",
+  "correction": "Call the comparator without a plan for deliberate source-revision comparisons. Persist each cohort row and distinguish preparation InputError from verifier/software failure. Retain this attempt; use a new output folder.",
+  "native_runs": 0,
+  "originals_changed": false
+}

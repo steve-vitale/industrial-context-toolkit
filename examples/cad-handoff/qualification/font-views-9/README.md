@@ -25,6 +25,12 @@ source-font replacement, drawing save, original-typography claim or repair to a 
 No font installation, trial-mark removal or license/clock alteration occurred. Publisher
 executables, font files, native settings and DBus addresses are not distributed.
 
+**Configuration provenance correction:** the later [selected-settings audit](../layout-preparation-10/PROFILE-PROVENANCE-ERRATUM.md)
+finds both native logs selected `/work/qcad-config`. The copied configuration hash
+does not prove which settings CAD loaded. Actual font/value/frame/image observations
+remain retained; full loaded-settings reproduction or a verified-settings control
+cannot be inferred. No old method, receipt, result or unresolved difference was changed.
+
 The native API reads exact values, parent/ICT_ID identities, fonts and bounds after startup;
 it activates actual GUI documents and sets the camera. It never changes entities or saves
 or exports a drawing. This experiment therefore does not add a new native UI edit/save run.

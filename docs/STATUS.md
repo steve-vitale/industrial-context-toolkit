@@ -111,6 +111,13 @@ after mapping make the inspected Cyrillic, mixed Unicode and long asset labels r
 Existing linework overlaps, default-font glyph failures and a 62-pixel default overview discrepancy remain; no original
 typography fidelity, repaired paper layouts, full-save equivalence or fresh qualification is inferred.
 
+The [minimal layout experiment](../examples/cad-handoff/qualification/layout-preparation-10/README.md) adds a
+structure-based proposal while retaining every original non-seed byte: five proposals, 14 exact no-ops and two
+R12 refusals across all 21 exposed cases. Each prepared paper image matches its library add-main baseline;
+25 native images and 330 field observations are retained. This is a separate source revision requiring review.
+Original blank-layout/full-save failures, trial-mark overlap and original top-edge label clipping remain visible;
+complete readability, fresh validation and native full-save/revision qualification stay open.
+
 Use the [acceptance exercise](ACCEPTANCE.md) for concrete tests, records and failure cases. It is prepared;
 actual participant, recipient, native-system and tenant observations remain **not run**.
 

@@ -1,0 +1,12 @@
+{
+  "role": "Transcribed observed local development failure; no native execution",
+  "attempt": "development-2",
+  "exit": 1,
+  "completed": "All 21 cohort rows were written; produced proposals passed the separate source/output byte reconstruction",
+  "wrapper_failure": "TypeError: 'slice' object cannot be interpreted as an integer",
+  "location": "build_layout10.py: x,y=v.dxf.center[:2]",
+  "cause": "ezdxf Vec3 supports indexed components but not this slice",
+  "correction": "Read center.x and center.y; reset bounds per layout. Retain all development-2 files and use a new output directory.",
+  "native_runs": 0,
+  "originals_changed": false
+}
