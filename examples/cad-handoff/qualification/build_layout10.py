@@ -25,11 +25,17 @@ def main():
         out=args.out/'cohort'/case['id'];out.parent.mkdir(exist_ok=True)
         try:
             receipt=prepare.apply(case['source'],out)
-            checked=verify(case['source'],out/'prepared.dxf',recheck.ch.digest(case['source']))
-            row=dict(id=case['id'],status=receipt['status'],layouts=len(receipt['layouts']),byte_check=checked)
-        except (ValueError,prepare.ch.ezdxf.DXFError) as error:
+        except (prepare.ch.InputError,prepare.ch.ezdxf.DXFError) as error:
             row=dict(id=case['id'],status='refused',error=str(error))
+        else:
+            try:
+                checked=verify(case['source'],out/'prepared.dxf',recheck.ch.digest(case['source']))
+            except Exception as error:
+                prepare.ch.write_json(args.out/'software-failure.json',dict(case_id=case['id'],error=str(error)))
+                raise
+            row=dict(id=case['id'],status=receipt['status'],layouts=len(receipt['layouts']),byte_check=checked)
         cohort.append(row)
+        prepare.ch.write_json(args.out/'cohort-results.json',cohort)
     for case_id in IDS:
         case=next(c for c in all_cases if c['id']==case_id)
         out=args.out/case_id;out.mkdir()
@@ -49,7 +55,7 @@ def main():
         shutil.copyfile(prepared,out/'prepared.dxf')
         rebound=copy.deepcopy(plan);rebound['source_sha256']=recheck.ch.digest(prepared)
         prepare.ch.write_json(out/'candidate-plan.json',rebound)
-        recheck.cad_value_patch.apply(prepared,rebound,out/'value-packet') if hasattr(recheck,'cad_value_patch') else recheck.patcher.apply(prepared,rebound,out/'value-packet')
+        recheck.patcher.apply(prepared,rebound,out/'value-packet')
         shutil.copyfile(out/'value-packet/candidate.dxf',out/'candidate.dxf')
         checked=recheck.verify(prepared,out/'candidate.dxf',rebound)
         prepare.ch.write_json(out/'candidate-byte-check.json',checked)
@@ -69,7 +75,7 @@ def main():
             for route in ROUTES:
                 path=out/(route+'.dxf')
                 before,after=prepare.ch.snapshot(source),prepare.ch.snapshot(path)
-                comparison=prepare.ch.compare(before,after,dict(source_sha256=before['sha256'],changes=[]))
+                comparison=prepare.ch.compare(before,after)
                 prepare.ch.write_json(out/(route+'-from-original-strict.json'),comparison)
                 jobs.append(dict(id=case_id+'-'+route,case_id=case_id,route=route,
                     path=case_id+'/'+route+'.dxf',sha256=prepare.ch.digest(path),

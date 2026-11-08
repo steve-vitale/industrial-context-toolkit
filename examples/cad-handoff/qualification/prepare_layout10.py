@@ -173,7 +173,7 @@ def apply(source,out):
         (root/'prepared.dxf').write_bytes(prepared)
         # Retain, never waive, strict differences from this deliberate source revision.
         before,after = ch.snapshot(root/'original.dxf'),ch.snapshot(root/'prepared.dxf')
-        comparison = ch.compare(before,after,{'source_sha256':receipt['source_sha256'],'changes':[]})
+        comparison = ch.compare(before,after)
         ch.write_json(root/'original-to-prepared-strict.json',comparison)
         ch.write_json(root/'revision.json',receipt)
         if source.read_bytes()!=original:
