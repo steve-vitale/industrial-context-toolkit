@@ -1,0 +1,40 @@
+{
+  "exposure": "Same assistant authors/sees schedules, graph assumptions, key and implementation; no blind or engineering review",
+  "cases": {
+    "local": {
+      "reviewed": "supported",
+      "exploratory": "supported",
+      "naive_undirected": true
+    },
+    "remote": {
+      "reviewed": "not_established",
+      "exploratory": "qualified",
+      "naive_undirected": true
+    },
+    "signal": {
+      "reviewed": "not_established",
+      "exploratory": "qualified",
+      "naive_undirected": true
+    },
+    "reverse": {
+      "reviewed": "not_established",
+      "exploratory": "not_established",
+      "naive_undirected": true
+    },
+    "missing": {
+      "reviewed": "supported",
+      "exploratory": "supported",
+      "naive_undirected": true
+    }
+  },
+  "missing_boundary": "DEMO/P1/U1/B99",
+  "revision": {
+    "remote": "reopened",
+    "local": "unchanged",
+    "unrelated": "unchanged"
+  },
+  "remote_register": {
+    "tag_status": "confirmed",
+    "association_status": "qualified"
+  }
+}
