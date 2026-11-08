@@ -1,0 +1,54 @@
+{
+  "correction": "Original pre-run exposure premise was overbroad. Two selected raw originals already appear in earlier admission records; retain fixed cohort and all results, no post-result replacement.",
+  "supersedes_exposure_statement_in": [
+    "SELECTION.json",
+    "../PUBLIC-VALIDATION-11-PLAN.md"
+  ],
+  "prior_catalog": {
+    "path": "examples/cad-handoff/qualification/public-sources/MANIFEST.json",
+    "sha256_lf": "a37090f50949107c2fd1faf38e166755e015e0de9ea01c29d7cf0a6713926604"
+  },
+  "cases": [
+    {
+      "id": "libre-air-water",
+      "original_sha256": "ec8087fccdcba6166f503dd48c13746aed0206b8c0b5b4d65aa993d8703cd228",
+      "exposure": "exposed-regression",
+      "prior_id": "air-water"
+    },
+    {
+      "id": "libre-power",
+      "original_sha256": "a7dc6f0017c680e4f19245be1bb19afbac18e7f7c5e2a92f2a3325211f4eff08",
+      "exposure": "exposed-regression",
+      "prior_id": "power"
+    },
+    {
+      "id": "libre-motion",
+      "original_sha256": "2e9f2859dc07d92b9cd5307c98c0a02a26b645eca37c36557d54ccd92e8385dd",
+      "exposure": "newly-inspected",
+      "prior_id": null
+    },
+    {
+      "id": "qcad-hydraulic",
+      "original_sha256": "035875e4ff37e2a39508412459536ec94ea66af4d3f72e7c6438ac9d5b1a3a07",
+      "exposure": "newly-inspected",
+      "prior_id": null
+    },
+    {
+      "id": "qcad-mechanical",
+      "original_sha256": "1b0f8246eb34f213424bb2d9f44110b5da60c6a786245ad49b2551232144bf8f",
+      "exposure": "newly-inspected",
+      "prior_id": null
+    },
+    {
+      "id": "qcad-template",
+      "original_sha256": "3973e1456461b6971d8f4d1ee2a5bbe803fc478fe0e2eba581c7988c6d8aaa5d",
+      "exposure": "newly-inspected",
+      "prior_id": null
+    }
+  ],
+  "counts": {
+    "newly_inspected": 4,
+    "exposed_regression": 2
+  },
+  "boundary": "Newly inspected relative to recorded prior source/admission history; not independent plant/source families, model-training blindness or proof of no outside exposure. Corrected receiving observations are exposed development on all six."
+}

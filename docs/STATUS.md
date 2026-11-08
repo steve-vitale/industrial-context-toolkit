@@ -119,6 +119,14 @@ R12 refusals across all 21 exposed cases. Each prepared paper image matches its 
 Original blank-layout/full-save failures, trial-mark overlap and original top-edge label clipping remain visible;
 complete readability, fresh validation and native full-save/revision qualification stay open.
 
+The later [public transfer cohort](../examples/cad-handoff/qualification/public-validation-11/README.md)
+adds six exact public-adapted candidates and 144 matching native/fresh-process field observations.
+All twelve native full saves still fail strict preservation. Its receiving review found that the
+bitmap helper expects X/Y/width/height rather than min/max coordinates; both 24-image batches
+are retained. The earlier layout-10 canonical-frame claim is narrowed accordingly. Corrected
+frames do not remove inherited label overlap or trial marks; complete readable/native UI
+acceptance, unexplained full-save differences and unfamiliar-source coverage remain open.
+
 Use the [acceptance exercise](ACCEPTANCE.md) for concrete tests, records and failure cases. It is prepared;
 actual participant, recipient, native-system and tenant observations remain **not run**.
 

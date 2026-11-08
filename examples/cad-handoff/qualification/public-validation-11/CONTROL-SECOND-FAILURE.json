@@ -1,0 +1,11 @@
+{
+  "record_type": "Transcription of warnings from local controls-2 run; not a native receipt",
+  "method_commit": "3003ae1",
+  "process_exit": 0,
+  "reported_booleans": "All true, but not accepted as a clean control run",
+  "warning": "Found non-unique entity handle; data validation is required",
+  "cause": "Authored foreign revision added a handle without advancing HEADER HANDSEED, colliding with reader-generated records",
+  "correction": "Allocate at or above the existing HANDSEED and all loaded handles, then advance HANDSEED in the deliberate source revision",
+  "rerun": "New controls-3 after correction commit; preserve controls-1 and controls-2",
+  "original_cad_candidate_or_comparator_changed": false
+}

@@ -1,0 +1,84 @@
+{
+  "cases": 6,
+  "exact_candidates": 6,
+  "native_strict": [
+    {
+      "id": "libre-air-water",
+      "route": "default",
+      "strict_differences": 348
+    },
+    {
+      "id": "libre-air-water",
+      "route": "r15",
+      "strict_differences": 358
+    },
+    {
+      "id": "libre-power",
+      "route": "default",
+      "strict_differences": 346
+    },
+    {
+      "id": "libre-power",
+      "route": "r15",
+      "strict_differences": 356
+    },
+    {
+      "id": "libre-motion",
+      "route": "default",
+      "strict_differences": 350
+    },
+    {
+      "id": "libre-motion",
+      "route": "r15",
+      "strict_differences": 360
+    },
+    {
+      "id": "qcad-hydraulic",
+      "route": "default",
+      "strict_differences": 422
+    },
+    {
+      "id": "qcad-hydraulic",
+      "route": "r15",
+      "strict_differences": 432
+    },
+    {
+      "id": "qcad-mechanical",
+      "route": "default",
+      "strict_differences": 403
+    },
+    {
+      "id": "qcad-mechanical",
+      "route": "r15",
+      "strict_differences": 415
+    },
+    {
+      "id": "qcad-template",
+      "route": "default",
+      "strict_differences": 424
+    },
+    {
+      "id": "qcad-template",
+      "route": "r15",
+      "strict_differences": 436
+    }
+  ],
+  "source_exposure": {
+    "newly_inspected": 4,
+    "exposed_regression": 2
+  },
+  "native_fields": 72,
+  "fresh_process_fields": 72,
+  "whole_cad_qualified": false,
+  "remaining": [
+    "Complete readable receiving acceptance; reviewed images retain overlaps/marks",
+    "Actual native receiving UI edit/save/close/reopen on newly inspected sources",
+    "Explain native full-save differences",
+    "Fresh foreign-payload/text/layout coverage; current public adaptation adds only ordinary test fields",
+    "Engineering/company acceptance not inferred"
+  ],
+  "retained_images": 24,
+  "corrected_images": 24,
+  "source_revision_loss_controls": 36,
+  "matched_rgb_diagnostics": 24
+}

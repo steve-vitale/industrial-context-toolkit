@@ -248,3 +248,6 @@ data/te_pid_layout.json text eol=lf
 
 # Preserve the publisher's captured HTML, including its original trailing whitespace.
 /data/public-source-evidence/2026-11-07-round-3/nasa.html -text whitespace=cr-at-eol,-blank-at-eof,-trailing-space
+
+# Exact public CAD receiving records must override the broad CAD text policy above.
+/examples/cad-handoff/qualification/public-validation-11/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
