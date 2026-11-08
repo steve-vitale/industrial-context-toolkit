@@ -29,9 +29,9 @@ def one(t,role,name):
     rows=matching(t,role,name);require(len(rows)==1,'Ambiguous/missing native control: '+str((role,name,len(rows))));return rows[0]
 
 class Workflow:
-    def __init__(self):
-        self.job=json.loads((ROOT/'job.json').read_bytes());self.seq=0;self.event=0;self.phase=0
-        self.out=ROOT/'ui';self.out.mkdir();self.actions=[]
+    def __init__(self,out_name='ui',initial_seq=0):
+        self.job=json.loads((ROOT/'job.json').read_bytes());self.seq=initial_seq;self.event=0;self.phase=0
+        self.out=ROOT/out_name;self.out.mkdir();self.actions=[]
     def record(self,kind,**kw):
         self.event+=1;row=dict(event=self.event,at=time.time(),kind=kind,**kw);self.actions.append(row)
         write(self.out/'actions.json',self.actions)
@@ -44,7 +44,7 @@ class Workflow:
     def control(self,operation,node,text=None):
         require(node['enabled'] and node['showing'],'Control not enabled/showing')
         self.record('control',operation=operation,observed=node,text=text)
-        args=['python3','/work/ui_control.py',operation,node['path']]
+        args=['python3',str(Path(__file__).with_name('ui_control.py')),operation,node['path']]
         if text is not None:args.append(text)
         self.command(args);time.sleep(.35)
     def wait(self,predicate,description,seconds=35):

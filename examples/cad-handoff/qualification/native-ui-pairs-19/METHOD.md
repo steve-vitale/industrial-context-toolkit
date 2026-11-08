@@ -28,6 +28,9 @@ deselect with the documented T,N shortcut, capture common frames, Save As to a n
 reopen the return, reselect and verify the same values. For the edited process, use the same sequence but type
 QUAL-AFTER into only MANUFACTURER and commit with Tab before deselection/save. This X11 entry recipe supports
 ASCII single-line values only; these six cases have no foreign attribute. Neither limitation is a broader pass.
+Text entry must click the observed field, require focused state and retain the active X11 window before keys;
+verify the actual field text before Tab and native/UI values after commit. Accessibility grabFocus alone is
+insufficient for keyboard activation of the floating Property Editor, as the retained failed edit demonstrates.
 
 A fresh receiving process serially opens source, no-edit return, edited return and exact-span candidate.
 It verifies filename, native attributes, UI enabled/editable state and deselected common views for each,

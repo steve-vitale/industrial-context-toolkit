@@ -24,3 +24,15 @@ The jobs-3 successor's Untitled prefix rule also matched the top-level applicati
 before opening any drawing. The actual ready tree contains 'Untitled 1 - QCAD Professional Trial' and
 ' Untitled 1'. The corrected pure selector requires a full Untitled-number name, not that prefix. Test it
 against both retained ready/opened trees and ambiguity controls before the next native execution.
+
+The corrected jobs-4 baseline completed its native no-edit save/close/reopen/attribute checks and normal
+application exit (controller 0, native 0). Its full-save strict comparison retains 300 unexpected differences.
+The separate edited process failed after keyboard entry: its attribute panel disappeared. A fresh read-only
+observation establishes that MANUFACTURER stayed QUAL-BEFORE, the drawing stayed unmodified and all 14
+entities became selected. Accessibility grabFocus alone did not activate the floating Property Editor;
+Ctrl+A went to the drawing. Event-dispatch success was not an edit. No return was saved by that attempt.
+
+Freeze a corrected input bridge before further input: click the observed editable field bounds, require
+native focused state, retain the active X11 window, verify actual field text before Tab, then independently
+verify UI and stored native values. A separately labelled recovery may continue the same unmodified process
+after explicitly clearing selection. It retains both failures and never becomes a fresh procedure pass.
