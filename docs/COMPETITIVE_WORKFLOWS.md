@@ -24,6 +24,27 @@ review of generated engineering material. Its [PAVIS partnership](https://flow2m
 engineering services. Thus neither human review nor consulting is an uncontested market gap.
 The SLA distinguishes standard subscription scope; it does not mean those services are unavailable.
 
+### Flowstead: distinguish the calculation from the unfinished plant job
+
+The additional short link [gXuMHZsU](https://lnkd.in/p/gXuMHZsU) resolves to
+[Hazem ElMancy's 2026-11-06 browser launch post](https://www.linkedin.com/posts/hazemmancy_processengineering-chemicalengineering-processsimulation-share-7524462037176074240-LHoB/),
+already assessed in the [calculation review](PROCESS_ANALYTICS.md#lessons-from-flowstead-accessible-calculations-with-a-retained-basis).
+It advertises a free, account-free browser tool, editable DWSIM files and browser-path benchmarks.
+Those are the author's claims; our [single desktop observation](../examples/external-simulator-review/flowstead/README.md)
+does not establish mobile usability, file interoperability, privacy or the entire benchmark suite.
+
+The commercial implication is a hypothesis to test: a client with a suitable free or already licensed
+calculator may still need help establishing the installed equipment, reconciling source revisions,
+selecting defensible inputs and getting a reviewed result back into its working records. Ask which of
+those steps is actually unfinished and funded. Do not quote a simulator build or sell access to a free
+tool when the client's problem is source preparation or receiving verification. Specialist numerical
+review is a separate scope requiring the relevant competence and validation basis.
+
+Use the same lesson for maintenance and drawing jobs: deliver one inspectable finding before proposing
+a platform, and leave the recipient an editable, source-bound package. The
+[first-result trial](DELIVERY_ROADMAP.md#measure-the-whole-first-result) defines the remaining access,
+portability and effort checks; no new browser intake or simulator integration is implied.
+
 ## Ideas worth applying now
 
 1. **Show one unit accumulating useful information.** Follow stable asset IDs from an original record to

@@ -7,6 +7,8 @@ Selected finding reconstructed by recipient and source locations checked: ____
 Open findings, intended owners and next evidence requests: ____
 Corrections read back from the authoritative system (IDs/revisions/date), or not yet done: ____
 Next revision to test / responsible owner / date: ____
+Recipient reopened the retained report, editable inputs and source basis outside the delivery session: ____
+Specific work the recipient completed unaided / specific step still needing help: ____
 
 | Comparable effort component | Existing method | This assignment | Measurement basis / errors / missing scope |
 |---|---|---|---|

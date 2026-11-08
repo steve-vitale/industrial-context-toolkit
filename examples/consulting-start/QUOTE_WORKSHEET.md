@@ -3,6 +3,11 @@
 Copy this to an approved private location. This template contains no suggested market rate or customer price.
 Use the agreed [scope](SCOPE.md), a permitted source sample and your actual capacity/costs.
 
+Client's existing/free tool or internal service and the work it already covers: ____
+Specific unfinished preparation, interpretation, correction or receiving work being quoted: ____
+Why the client needs outside help / buyer's stated reason, or not yet established: ____
+What the client will receive and can retain/use without an ongoing subscription to us: ____
+
 | Work component | Estimated hours | Basis / uncertainty |
 |---|---|---|
 | Intake, permissions and scope clarification | ____ | ____ |
