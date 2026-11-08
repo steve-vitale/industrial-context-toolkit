@@ -8,7 +8,7 @@ import shutil
 
 HERE = Path(__file__).resolve().parent
 BASE = HERE.parent / 'native-ui-pairs-19'
-PROFILES = ['normal', 'malformed', 'wrong-sequence', 'wrong-run', 'unsupported', 'read-open',
+PROFILES = ['binding-probe', 'normal', 'malformed', 'wrong-sequence', 'wrong-run', 'unsupported', 'read-open',
             'reply-collision', 'reply-write', 'error-write', 'missing-reply', 'changed-request', 'native-exit']
 
 
@@ -32,7 +32,8 @@ def main():
     shutil.copyfile(args.configuration, args.out / '.configuration/QCAD3.conf')
     for name in ('mailbox.py', 'workflow.py', 'payload.js', 'launch_case.py', 'cleanup.py', 'PLAN.md'):
         shutil.copyfile(HERE / name, args.out / name)
-    shutil.copyfile(HERE / 'observer.js', args.out / 'observe_case.js')
+    shutil.copyfile(HERE / ('binding_probe.js' if args.profile == 'binding-probe' else 'observer.js'), args.out / 'observe_case.js')
+    if args.profile == 'binding-probe': shutil.copyfile(HERE / 'probe_workflow.py', args.out / 'workflow.py')
     shutil.copyfile(BASE / 'workflow.py', args.out / 'original_workflow.py')
     for name in ('ui_control.py', 'inspect_ui.py', 'native_controls.py'):
         shutil.copyfile(BASE / name, args.out / name)
