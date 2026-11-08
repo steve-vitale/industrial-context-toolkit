@@ -700,5 +700,94 @@ class RetainedLinuxNativeEvidence(unittest.TestCase):
 
 
 
+class NativeUIPairs19Evidence(unittest.TestCase):
+    def receiver(self):
+        path=Path(__file__).resolve().parents[1]/'examples/cad-handoff/qualification/check_ui19.py'
+        spec=importlib.util.spec_from_file_location('cad_ui19_receiver_test',path)
+        result=importlib.util.module_from_spec(spec);spec.loader.exec_module(result);return result
+
+    def test_ui19_complete_replay_keeps_failed_recording_and_camera_checks(self):
+        receiver=self.receiver();result=receiver.check();self.assertFalse(result['whole_cad_qualified'])
+        self.assertEqual(len(result['packets']),7)
+        self.assertTrue(result['packets'][0]['original_edited_controller_failed'])
+        self.assertFalse(result['packets'][0]['recovery_is_clean_pass'])
+        cases=result['packets'][1:]
+        self.assertEqual(sum(j['views']for c in cases for j in c['jobs']),144)
+        self.assertEqual(sum(j['fields']for c in cases for j in c['jobs']),60)
+        self.assertEqual(sum(len(j['recording']['expected_metadata_mismatches'])for c in cases for j in c['jobs']),12)
+        self.assertTrue(any(c['original_analysis_failure']for c in cases))
+        self.assertTrue(all(n>0 for c in cases for n in c['native_strict_differences'].values()))
+        self.assertTrue(all(c['whole_cad_qualified']is False for c in cases))
+
+    def test_ui19_refuses_missing_ui_values_actions_and_frozen_inputs(self):
+        receiver=self.receiver()
+        with tempfile.TemporaryDirectory()as temporary:
+            root=receiver.unpack(receiver.BASE/'evidence/libre-air-water',Path(temporary))
+            job=root/'jobs/libre-air-water-edited';basis=receiver.read(root/'cases/libre-air-water/basis.json');cohort=receiver.read(root/'cohort/COHORT.json')
+            actions_path=job/'ui/actions.json';original=actions_path.read_bytes();actions=json.loads(original)
+            for kind in ('missing_observation','disabled_field','lost_close'):
+                altered=copy.deepcopy(actions)
+                if kind=='missing_observation':altered.pop(next(i for i,r in enumerate(altered)if r['kind']=='native_observation'))
+                elif kind=='disabled_field':next(r for r in altered if r['kind']=='native_fields')['observed']['ICT_ID']['editable']=False
+                else:altered.pop(next(i for i,r in enumerate(altered)if r.get('command')==['xdotool','key','--clearmodifiers','Escape','Escape','ctrl+w']))
+                for index,row in enumerate(altered,1):row['event']=index
+                actions_path.write_text(json.dumps(altered),encoding='utf-8')
+                with self.subTest(kind=kind),self.assertRaises(ValueError):receiver.job_check(job,basis,cohort)
+                actions_path.write_bytes(original)
+            snapshot=next((job/'ui').glob('*-selected.json'));data=snapshot.read_bytes();snapshot.unlink()
+            with self.assertRaisesRegex(ValueError,'tree coverage'):receiver.job_check(job,basis,cohort)
+            snapshot.write_bytes(data)
+            source=job/'source.dxf';source.write_bytes(source.read_bytes()+b' ')
+            with self.assertRaisesRegex(ValueError,'Job input changed'):receiver.job_check(job,basis,cohort)
+
+    def test_ui19_refuses_wrong_return_values_even_with_updated_return_hash(self):
+        receiver=self.receiver()
+        with tempfile.TemporaryDirectory()as temporary:
+            root=receiver.unpack(receiver.BASE/'evidence/libre-air-water',Path(temporary)/'raw-input')
+            job=root/'jobs/libre-air-water-edited';returned=job/'returned.dxf';doc=ch.load(returned)
+            asset=ch.assets(doc)[0];doc.entitydb[asset['attribute_handles']['MANUFACTURER']].dxf.text='WRONG-RETURN';doc.saveas(returned)
+            path=job/'ui/actions.json';actions=receiver.read(path)
+            next(r for r in actions if r['kind']=='returned_file')['sha256']=ch.digest(returned)
+            path.write_text(json.dumps(actions),encoding='utf-8')
+            with self.assertRaisesRegex(ValueError,'DXF returned attribute readback'):receiver.receive_case(root,Path(temporary)/'out')
+
+    def test_ui19_retains_wrong_expected_metadata_as_failure(self):
+        receiver=self.receiver()
+        with tempfile.TemporaryDirectory()as temporary:
+            root=receiver.unpack(receiver.BASE/'evidence/libre-air-water',Path(temporary))
+            job=root/'jobs/libre-air-water-edited';basis=receiver.read(root/'cases/libre-air-water/basis.json');cohort=receiver.read(root/'cohort/COHORT.json')
+            result=receiver.job_check(job,basis,cohort)
+            self.assertEqual(result['recording']['status'],'failed')
+            self.assertEqual(len(result['recording']['expected_metadata_mismatches']),2)
+            for row in result['recording']['expected_metadata_mismatches']:
+                self.assertEqual(row['recorded']['MANUFACTURER'],'QUAL-AFTER')
+                self.assertEqual(row['source_phase_expected']['MANUFACTURER'],'QUAL-BEFORE')
+
+    def test_ui19_archive_refuses_traversal_duplicate_link_and_omission(self):
+        import hashlib,io,tarfile
+        receiver=self.receiver()
+        with tempfile.TemporaryDirectory()as temporary:
+            for kind in ('traversal','duplicate','link','omission','boolean-size'):
+                base=Path(temporary)/kind;base.mkdir();data=b'bound evidence';name='raw/../escape'if kind=='traversal'else'raw/note'
+                archive=base/'evidence.tar.xz'
+                with tarfile.open(archive,'w:xz')as packed:
+                    if kind!='omission':
+                        for _ in range(2 if kind=='duplicate'else 1):
+                            entry=tarfile.TarInfo(name);entry.size=len(data)
+                            if kind=='link':entry.type=tarfile.SYMTYPE;entry.linkname='../../escape'
+                            packed.addfile(entry,io.BytesIO(data))
+                ch.write_json(base/'INVENTORY.json',dict(archive=dict(path=archive.name,bytes=archive.stat().st_size,sha256=ch.digest(archive)),raw_bytes=len(data),files={name:dict(bytes=True if kind=='boolean-size'else len(data),sha256=hashlib.sha256(data).hexdigest())}))
+                with self.subTest(kind=kind),self.assertRaises(ValueError):receiver.unpack(base,base/'out')
+                self.assertFalse((base/'escape').exists())
+
+    def test_ui19_archive_extraction_runs_without_site_packages(self):
+        receiver=self.receiver()
+        code="import sys;from pathlib import Path;sys.path.insert(0,sys.argv[1]);import ui19_archive as a;a.unpack(Path(sys.argv[2]),Path(sys.argv[3]));print('bounded extraction complete')"
+        with tempfile.TemporaryDirectory()as temporary:
+            result=subprocess.run([sys.executable,'-S','-c',code,str(receiver.HERE),str(receiver.BASE/'evidence/development'),temporary],capture_output=True,text=True)
+            self.assertEqual(result.returncode,0,result.stderr)
+            self.assertIn('bounded extraction complete',result.stdout)
+
+
 if __name__ == "__main__":
     unittest.main()
