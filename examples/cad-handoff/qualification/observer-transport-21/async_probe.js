@@ -25,7 +25,7 @@ asyncPoll21.timeout.connect(function(){
   asyncReport21.signals={started:typeof asyncProcess21.started,finished:typeof asyncProcess21.finished,errorOccurred:typeof asyncProcess21.errorOccurred};
   asyncProcess21.started.connect(function(){asyncStarted21=true;asyncReport21.ticks_at_start=asyncTicks21;print('ICT_ASYNC_STARTED');});
   asyncProcess21.errorOccurred.connect(function(error){asyncFail21('QProcess error '+Number(error));});
-  asyncProcess21.finished.connect(function(code,status){
+  asyncProcess21['finished(int,QProcess::ExitStatus)'].connect(function(code,status){
    try{
     asyncTerminal21=true;asyncDeadline21.stop();asyncBeat21.stop();
     asyncReport21.exit=Number(code);asyncReport21.exit_status=Number(status);
