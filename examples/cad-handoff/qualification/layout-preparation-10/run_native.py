@@ -3,6 +3,7 @@ import hashlib
 import json
 from pathlib import Path
 import subprocess
+import shutil
 from datetime import datetime,timezone
 
 ROOT=Path('/work')
@@ -18,6 +19,15 @@ def main():
     manifest=json.loads((ROOT/'MANIFEST.json').read_bytes())
     out=ROOT/'native'
     out.mkdir(exist_ok=False)
+    supplied=ROOT/'.local-configuration/QCAD3.conf'
+    expected='5d2fe06c831c2c8032d446d51801a73f754cd120a2c0b415e051483c81b14550'
+    if digest(supplied)!=expected:raise ValueError('Local configuration identity mismatch; no CAD starts')
+    installed=Path('/home/cad/.config/QCAD/QCAD3.conf')
+    installed.parent.mkdir(parents=True,exist_ok=True)
+    shutil.copyfile(supplied,installed)
+    if digest(installed)!=expected:raise ValueError('Installed configuration mismatch; no CAD starts')
+    write(out/'configuration-before.json',dict(source_sha256=digest(supplied),installed_sha256=digest(installed),
+          verified_before_native_start=True,contents='Local only; excluded from published evidence'))
     rows=[]
     base=['/opt/qcad/qcad','-platform','offscreen','-no-gui','-allow-multiple-instances',
           '-config','/work/qcad-config','-font-substitution','Standard','DejaVu Sans']
