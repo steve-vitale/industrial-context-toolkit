@@ -1,0 +1,30 @@
+{
+  "scope": "Before native second revision saves; same original UI/method/resource/configuration criteria; exposed inputs only",
+  "preparation_sha256_lf": "407c27359629e4fe0482e9654d4750d82450776b832f60bee8ff1fa450fe0b0f",
+  "host_wrapper_sha256": "adc64e4b55e2477ebdfedd07700c65f6943f70468866b47c1439c6bd171919bf",
+  "selected_methods_sha256_lf": "d342cd6bb5654e2cd053a9e31de6439aeed9c4c6f3da28ac64f3e4356a18c5a9",
+  "all_selected_files_verified": true,
+  "configuration_sha256": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c",
+  "runs": [
+    {
+      "case": "validation-cp1251",
+      "role": "baseline",
+      "label": "cp1251-second-baseline-1"
+    },
+    {
+      "case": "validation-cp1251",
+      "role": "edited",
+      "label": "cp1251-second-edited-1"
+    },
+    {
+      "case": "validation-braces",
+      "role": "baseline",
+      "label": "braces-second-baseline-1"
+    },
+    {
+      "case": "validation-braces",
+      "role": "edited",
+      "label": "braces-second-edited-1"
+    }
+  ]
+}
