@@ -121,3 +121,11 @@ remain. Seventeen input/semantic controls and three receiving controls reject th
 Next acceptance work remains complete readable layout/label/font review and fresh native validation with a
 separately frozen observation method, alongside the original native full-save/editability/revision gates.
 Retain every original full-save/layout/font failure before claiming a qualification gain.
+
+The subsequent [six-source public transfer](public-validation-11/README.md) adds six exact
+candidates and 144 native/fresh-process field observations, while all twelve new native
+full saves still fail strict preservation. It also discovers the bitmap window contract
+error: min/max coordinates were passed to an X/Y/width/height option. All original images
+remain, and a corrected receiving batch uses unchanged canonical frames. The earlier
+layout-10 frame claim is narrowed explicitly. New source structure does not by itself
+establish readable layouts, unknown-payload transfer, native UI acceptance or qualification.

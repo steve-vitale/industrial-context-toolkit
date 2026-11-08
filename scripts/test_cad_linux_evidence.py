@@ -8,6 +8,62 @@ import cad_handoff as ch
 
 
 class RetainedLinuxNativeEvidence(unittest.TestCase):
+    def public_module(self, name):
+        folder = Path(__file__).resolve().parents[1] / "examples/cad-handoff/qualification/public-validation-11"
+        spec = importlib.util.spec_from_file_location("cad_public11_" + name, folder / (name + ".py"))
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        return module
+
+    def test_bitmap_window_contract_uses_size_instead_of_maximum(self):
+        convert = self.public_module("window").xywh
+        for bounds in ([-10, -14, 46, 10], [10, 20, 30, 50], [-30, -40, -10, -20], [0, 0, 1, 1]):
+            x, y, width, height = convert(bounds)
+            self.assertEqual([x, y, x + width, y + height], bounds)
+        for bounds in ([0, 0, 0, 1], [0, 0, 1, -1], [0, 0, float('inf'), 1], [True, 0, 1, 1]):
+            with self.assertRaises(ValueError):
+                convert(bounds)
+
+    def test_public_native_receiving_rejects_missing_case_and_wrong_profile(self):
+        import json
+        receiving = self.public_module("receive")
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / 'native.stdout'
+            profile = {'configuration_file': '/home/cad/.config/QCAD/QCAD3.conf'}
+            path.write_text('ICT_TRANSFER11_PROFILE ' + json.dumps(profile) + '\nICT_QUAL_NATIVE {"id":"one"}\n', encoding='utf-8')
+            self.assertEqual(len(receiving.native_rows(path, 'ICT_QUAL_NATIVE ', ['one'])), 1)
+            with self.assertRaisesRegex(ValueError, 'coverage'):
+                receiving.native_rows(path, 'ICT_QUAL_NATIVE ', ['one', 'omitted'])
+            profile['configuration_file'] = '/work/installed-but-unselected.conf'
+            path.write_text('ICT_TRANSFER11_PROFILE ' + json.dumps(profile) + '\nICT_QUAL_NATIVE {"id":"one"}\n', encoding='utf-8')
+            with self.assertRaisesRegex(ValueError, 'profile'):
+                receiving.native_rows(path, 'ICT_QUAL_NATIVE ', ['one'])
+
+    def test_public_native_receiving_checks_every_stored_field(self):
+        receiving = self.public_module("receive")
+        rows = [{'attributes': {'ICT_ID': 'asset', 'MODEL': 'expected', 'FOREIGN': 'keep'}}]
+        expected = {'asset': dict(rows[0]['attributes'])}
+        self.assertEqual(receiving.native_fields(rows, expected), 3)
+        rows[0]['attributes']['FOREIGN'] = 'lost'
+        with self.assertRaisesRegex(ValueError, 'fields'):
+            receiving.native_fields(rows, expected)
+        with self.assertRaisesRegex(ValueError, 'duplicate'):
+            receiving.fields(rows + rows)
+
+    def test_fresh_public_candidates_native_returns_and_retained_failures(self):
+        path = Path(__file__).resolve().parents[1] / "examples/cad-handoff/qualification/check_public11.py"
+        spec = importlib.util.spec_from_file_location("cad_public11_full", path)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        result = module.check()
+        self.assertEqual(result['exact_candidates'], 6)
+        self.assertEqual(result['native_fields'], 72)
+        self.assertEqual(result['fresh_process_fields'], 72)
+        self.assertEqual(result['corrected_images'], 24)
+        self.assertEqual(result['source_revision_loss_controls'], 36)
+        self.assertTrue(all(r['strict_differences'] > 0 for r in result['native_strict']))
+        self.assertFalse(result['whole_cad_qualified'])
+
     def module(self):
         path = Path(__file__).resolve().parents[1] / "examples/cad-handoff/qualification/check_linux7.py"
         spec = importlib.util.spec_from_file_location("cad_linux_native_replay", path)

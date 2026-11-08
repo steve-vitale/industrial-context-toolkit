@@ -136,6 +136,14 @@ frozen comparator remain unchanged. No source or archived result was rewritten.
 
 ## Offline replay
 
+Later [window-contract correction](../public-validation-11/WINDOW-CORRECTION.md): this
+batch passed min/max coordinates to a native bitmap option that expects X/Y/width/height.
+Its matched-image equality and native data observations remain actual saved evidence,
+but the commands did not implement the declared canonical frames. They cannot establish
+complete paper framing or label readability. Original files, methods and measurements remain intact.
+Attributing image-edge clipping to the source viewport requires correctly framed views;
+the affected images alone do not establish that cause.
+
 ```sh
 python examples/cad-handoff/qualification/check_layout10.py
 python -m unittest discover -s scripts -p test_cad_linux_evidence.py
