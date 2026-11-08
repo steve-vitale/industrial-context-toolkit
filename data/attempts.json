@@ -5934,6 +5934,60 @@
         "examples/cad-handoff/qualification/observer-transport-21/test_mailbox.py",
         "examples/cad-handoff/qualification/observer-transport-21/test_evidence.py"
       ]
+    },
+    {
+      "function": "intake_and_reuse",
+      "date": "2026-11-08",
+      "hypothesis": null,
+      "id": "A363",
+      "change": "Implement the frozen private Python I/O owner with complete invocation binding and synchronous QProcess completion.",
+      "evidence": "Frozen eef0788 produces two native status replies, then the original UI typing check fails. A separate Cancel also times out. After an acknowledged stop and no live helper, another separately frozen Cancel completes; same native0/controller1/container1. The 3407-file archive retains all 1645 calls and both cleanup outcomes.",
+      "runs": "1 exposed native bridge attempt; two separately frozen cleanup actions",
+      "verdict": "inconclusive",
+      "why": "The I/O owner works for status but the complete normal workflow fails. Later exact filename text does not recover the unlogged original mismatch. Blocking helper waits are removed in a separately frozen successor; the original failure remains.",
+      "source": [
+        "examples/cad-handoff/qualification/observer-transport-21/bridge-development-1/NOTE.md",
+        "examples/cad-handoff/qualification/observer-transport-21/BRIDGE-PROTOCOL.md",
+        "examples/cad-handoff/qualification/observer-transport-21/UI-FAILURE-PLAN.md",
+        "examples/cad-handoff/qualification/observer-transport-21/recheck_bridge_development.py"
+      ]
+    },
+    {
+      "function": "intake_and_reuse",
+      "date": "2026-11-08",
+      "hypothesis": null,
+      "id": "A364",
+      "change": "Probe actual asynchronous QProcess signals and UI responsiveness while the same helper remains live.",
+      "evidence": "Frozen 05628bb refuses an ambiguous finished signal before helper start; separate same-process normal cleanup retains controller1/native0/container1. Frozen 93cedc9 uses the installed full signature and completes one filename dispatch/cancel before releasing the live helper, 1107 native timer ticks, exact UTF-8 output and all exits0.",
+      "runs": "2 separately frozen exposed capability probes",
+      "verdict": "kept",
+      "why": "Actual installed overload, ownership, scheduling and output evidence supports the successor. The failed first probe remains distinct; capability success does not establish full transport or CAD acceptance.",
+      "source": [
+        "examples/cad-handoff/qualification/observer-transport-21/ASYNC-PLAN.md",
+        "examples/cad-handoff/qualification/observer-transport-21/probes/async-probe-1/NOTE.md",
+        "examples/cad-handoff/qualification/observer-transport-21/probes/async-probe-2/NOTE.md",
+        "examples/cad-handoff/qualification/observer-transport-21/recheck_async.py",
+        "examples/cad-handoff/qualification/observer-transport-21/test_bridge_evidence.py"
+      ]
+    },
+    {
+      "function": "intake_and_reuse",
+      "date": "2026-11-08",
+      "hypothesis": null,
+      "id": "A365",
+      "change": "Replace blocking GUI waits with a serial event-driven helper and receive the complete predeclared normal/fault campaign.",
+      "evidence": "Frozen 4ba46e1 completes air/water and template, each with 14 bound replies, expected native fields, three exact camera frames and a seal. All eleven intended faults retain failed controller/host/container outcomes and native0. Thirteen packets retain 3715 files and 1123 helper calls. Seven complete-receiving methods and six prior-outcome controls pass without skips, including semantic faults after recomputed inventories.",
+      "runs": "2 exposed normal native runs plus 11 separately launched predeclared fault profiles",
+      "verdict": "kept",
+      "why": "Completes N118 exposed transport behavior and offline loss controls without altering old evidence or strict/byte criteria. It does not prove the historical camera20 error cause or qualify native CAD saving, reserved transfer, foreign/multiple assets, readability, revisions or engineering/company acceptance. Version-specific integration/CI remains separate.",
+      "source": [
+        "examples/cad-handoff/qualification/observer-transport-21/BRIDGE-METHODS-2.json",
+        "examples/cad-handoff/qualification/observer-transport-21/bridge-2/README.md",
+        "examples/cad-handoff/qualification/observer-transport-21/BRIDGE-RESULTS-2.json",
+        "examples/cad-handoff/qualification/observer-transport-21/recheck_bridge.py",
+        "examples/cad-handoff/qualification/observer-transport-21/test_bridge_receiving.py",
+        "docs/JOURNAL.md#210-yield-the-native-event-loop-and-receive-the-entire-transport-campaign"
+      ]
     }
   ],
   "not_tried": [
@@ -7330,16 +7384,32 @@
     {
       "id": "N118",
       "function": "intake_and_reuse",
-      "status": "not-done",
+      "status": "done",
       "idea": "Make native observer request/reply transport immutable and sequence-bound with complete error history before freezing the corrected full UI method.",
-      "why_not_yet": "Camera20 template retains an anonymous QFile request-open error despite normal native exits and86 successful replies. Strict receiving refuses; the explicit diagnostic stays failed. Replaceable request path and fixed unknown-error filename leave the underlying read failure and total error history unresolved. Add missing/read/write/sequence/error controls on exposed development before fresh reserved qualification; preserve the original failure. A362 retains two failed direct-Qt normal attempts and two installed-binary probes. Missing QFile APIs/absent QFileDevice explain the new failures; verified QProcess/UTF-8 streams support a frozen prospective Python I/O-owner bridge with actual OS errors. Helper implementation, complete native normal/fault receiving and full CAD gates remain unfinished.",
+      "why_not_yet": "Completed A365 for exposed native observation transport: immutable exact-wire messages and complete helper history, actual I/O-owner errors, event-driven GUI scheduling, both normal cases and all eleven intended fault refusals with semantic receiving controls. A363/A364 retain the synchronous/UI and signal failures separately. Historical camera20 read-open cause is still unknown; N119 tracks complete corrected-method and fresh reserved CAD qualification. No native-save or engineering acceptance promotion.",
       "source": [
         "examples/cad-handoff/qualification/camera-repeat-20/development-3/NOTE.md",
         "examples/cad-handoff/qualification/camera-repeat-20/SUMMARY.json",
         "examples/cad-handoff/qualification/observer-transport-21/README.md",
         "examples/cad-handoff/qualification/observer-transport-21/PLAN.md",
         "examples/cad-handoff/qualification/observer-transport-21/PROBE-PLAN.md",
-        "examples/cad-handoff/qualification/observer-transport-21/BRIDGE-PLAN.md"
+        "examples/cad-handoff/qualification/observer-transport-21/BRIDGE-PLAN.md",
+        "examples/cad-handoff/qualification/observer-transport-21/bridge-development-1/NOTE.md",
+        "examples/cad-handoff/qualification/observer-transport-21/ASYNC-PLAN.md",
+        "examples/cad-handoff/qualification/observer-transport-21/bridge-2/README.md",
+        "examples/cad-handoff/qualification/observer-transport-21/recheck_bridge.py"
+      ]
+    },
+    {
+      "id": "N119",
+      "function": "intake_and_reuse",
+      "status": "not-done",
+      "idea": "Freeze and qualify the corrected complete native CAD workflow on fresh reserved cases with foreign/literal/encoding fields, multiple assets and revision/conflict checks.",
+      "why_not_yet": "N118 only completes read-only transport development. Combine the immutable recorder, absolute camera and event-driven observer into a complete executable UI method before selecting new reserved inputs. Retain matched no-edit/native-edit/library/value-span routes, exact original strict/byte checks and all failures. Actual edit/save/close/reopen/fresh receiving, complete visual/editability review and explicit stale/revision conflicts remain required by the original protocol. No plant or engineering acceptance is inferred.",
+      "source": [
+        "examples/cad-handoff/qualification/PROTOCOL.md",
+        "examples/cad-handoff/qualification/observer-transport-21/README.md",
+        "docs/JOURNAL.md#210-yield-the-native-event-loop-and-receive-the-entire-transport-campaign"
       ]
     }
   ]

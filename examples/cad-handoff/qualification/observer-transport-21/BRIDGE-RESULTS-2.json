@@ -1,0 +1,110 @@
+{
+  "normal-air": {
+    "status": "normal-native-bridge-received",
+    "profile": "normal",
+    "case": "libre-air-water",
+    "helper_calls": 373,
+    "requests": 14,
+    "fields": 1,
+    "absolute_frames": 3,
+    "whole_cad_qualified": false
+  },
+  "normal-template": {
+    "status": "normal-native-bridge-received",
+    "profile": "normal",
+    "case": "qcad-template",
+    "helper_calls": 365,
+    "requests": 14,
+    "fields": 1,
+    "absolute_frames": 3,
+    "whole_cad_qualified": false
+  },
+  "fault-malformed": {
+    "status": "original-failed-bridge-attempt-retained",
+    "profile": "malformed",
+    "case": "libre-air-water",
+    "helper_calls": 34,
+    "helper_failures": 1,
+    "whole_cad_qualified": false
+  },
+  "fault-wrong-sequence": {
+    "status": "original-failed-bridge-attempt-retained",
+    "profile": "wrong-sequence",
+    "case": "libre-air-water",
+    "helper_calls": 34,
+    "helper_failures": 1,
+    "whole_cad_qualified": false
+  },
+  "fault-wrong-run": {
+    "status": "original-failed-bridge-attempt-retained",
+    "profile": "wrong-run",
+    "case": "libre-air-water",
+    "helper_calls": 34,
+    "helper_failures": 1,
+    "whole_cad_qualified": false
+  },
+  "fault-unsupported": {
+    "status": "original-failed-bridge-attempt-retained",
+    "profile": "unsupported",
+    "case": "libre-air-water",
+    "helper_calls": 35,
+    "helper_failures": 1,
+    "whole_cad_qualified": false
+  },
+  "fault-read-open": {
+    "status": "original-failed-bridge-attempt-retained",
+    "profile": "read-open",
+    "case": "libre-air-water",
+    "helper_calls": 35,
+    "helper_failures": 1,
+    "whole_cad_qualified": false
+  },
+  "fault-reply-collision": {
+    "status": "original-failed-bridge-attempt-retained",
+    "profile": "reply-collision",
+    "case": "libre-air-water",
+    "helper_calls": 35,
+    "helper_failures": 1,
+    "whole_cad_qualified": false
+  },
+  "fault-reply-write": {
+    "status": "original-failed-bridge-attempt-retained",
+    "profile": "reply-write",
+    "case": "libre-air-water",
+    "helper_calls": 35,
+    "helper_failures": 1,
+    "whole_cad_qualified": false
+  },
+  "fault-error-write": {
+    "status": "original-failed-bridge-attempt-retained",
+    "profile": "error-write",
+    "case": "libre-air-water",
+    "helper_calls": 35,
+    "helper_failures": 1,
+    "whole_cad_qualified": false
+  },
+  "fault-missing-reply": {
+    "status": "original-failed-bridge-attempt-retained",
+    "profile": "missing-reply",
+    "case": "libre-air-water",
+    "helper_calls": 35,
+    "helper_failures": 0,
+    "whole_cad_qualified": false
+  },
+  "fault-changed-request": {
+    "status": "original-failed-bridge-attempt-retained",
+    "profile": "changed-request",
+    "case": "libre-air-water",
+    "helper_calls": 35,
+    "helper_failures": 1,
+    "whole_cad_qualified": false
+  },
+  "fault-native-exit": {
+    "status": "original-failed-bridge-attempt-retained",
+    "profile": "native-exit",
+    "case": "libre-air-water",
+    "helper_calls": 38,
+    "helper_failures": 0,
+    "whole_cad_qualified": false
+  }
+}

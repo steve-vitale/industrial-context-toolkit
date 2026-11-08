@@ -9278,3 +9278,62 @@ strict, byte, source, revision and reserved gates remain. The historical camera2
 read-open cause, helper implementation and full receiving, corrected-method freeze,
 foreign/text/multiple-asset/reserved transfer, complete readability and engineering/
 company acceptance remain unfinished. No plant, human-benefit or qualification claim.
+
+## 210. Yield the native event loop and receive the entire transport campaign
+
+2026-11-08. Progress on the active CAD goal, not complete CAD qualification.
+The eef0788 Python I/O bridge returns two status observations, then the old UI
+routine refuses immediate filename readback. The exact mismatch was not logged.
+Later read-only inspection sees the exact filename without retyping. A separately
+frozen Cancel times out. The second separately frozen cleanup publishes a run-bound
+stop, observes acknowledgement and no live helper, then cancels the still-open
+dialog and closes the same unmodified unnamed process normally. Original
+controller/host/container exit 1 and native exit 0 remain. All 3407 actual files
+and 1645 helper invocations are retained. This supports scheduling interference;
+it does not prove Qt internals or turn the failed normal attempt into a pass.
+
+ASYNC-PLAN precedes implementation. Frozen 05628bb fails before helper start:
+the installed finished signal is overloaded. The native error supplies the full
+signature; separate cleanup verifies the original process/no helper/no dialog
+before normal close. Frozen 93cedc9 uses that signature. While its helper waits
+for release, the native UI opens a dialog, types the literal filename once,
+observes exact completion and cancels. Only then is the helper released. Native
+signals retain exact UTF-8 output, actual PID/parent/UID and 1107 timer ticks.
+All exits are zero; the drawing stays unnamed and unmodified. Preserve both
+probes. API/scheduling evidence is distinct from transport and CAD qualification.
+
+Frozen 4ba46e1 replaces blocking GUI waits with one event-driven helper at a time.
+The unchanged Python owner retains exact argument/result/event hashes and actual
+OS errors; QCAD supplies read-only observations. Both exposed normal cases pass
+complete receiving: 14 replies each, expected editable fields and three absolute
+frames, final seal and normal close. Every one of the eleven predeclared fault
+profiles retains a failed original attempt and appropriate error/history or
+controlled timeout/native-exit evidence. Separate cleanup never restarts a failed
+native process or promotes its controller. Thirteen lossless packets retain
+3715 files, 35,280,068 raw bytes, 1,330,860 archive bytes and 1123 helper calls.
+
+Offline controls go beyond archive hashes: lost replies/errors/history, wrong
+wire/sequence, replaced source/method pins, lost seal, unbound client/native
+observations, hidden signal failures, jointly false scheduling reports and
+promoted exits refuse after recomputed inventories. Seven complete-campaign and
+six predecessor-evidence regression methods pass locally without skips. The
+helper's twelve and bounded text observer's three methods also pass; the earlier
+two helper-test fixture failures remain in validation/bridge-development-1.
+Full local offline validation and exact-head integration/CI are recorded separately.
+
+N118's exposed transport work is complete; N119 tracks the original larger goal.
+Next freeze the complete corrected UI method before fresh reserved inputs. Keep
+matched no-edit/native-edit/library/value-span routes and original strict/byte
+criteria, with foreign/literal/encoding text, multiple assets, actual save/close/
+reopen/fresh readback, visual/editability and revision/conflict checks. Original
+native full-save losses and camera20's historical read-open cause remain. There
+is no human/site benefit or company/engineering acceptance claim.
+
+The experiment README now separates historical failures, probes and the active
+successor and links portable replay. The workflow reproduction guide explains
+that offline receiving requires no CAD installation, while new native execution
+needs a permitted package and a declared compatible lab; the original local
+image is not distributed. The public README and GitHub description already
+include the maintenance/engineering scopes from PR44. Live metadata readback
+confirms those scopes and Steve's LinkedIn; no new commercial feature or outreach
+is implied by this infrastructure repair.

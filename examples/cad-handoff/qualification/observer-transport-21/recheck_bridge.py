@@ -20,6 +20,13 @@ def check_files(files, label):
         for role in FOLDERS:
             for path in (attempt / 'mailbox' / role, attempt / 'mailbox/staging' / role): path.mkdir(parents=True, exist_ok=True)
         result = receive(attempt, root / 'case/basis.json', HERE / 'BRIDGE-METHODS-2.json')
+    if result['profile'] == 'normal':
+        actions = json.loads(files['attempt/job/ui/actions.json'])
+        replies = [r['reply']['observation'] for r in actions if r['kind'] == 'mailbox_reply']
+        observations = [r['reply'] for r in actions if r['kind'] == 'native_observation']
+        require(observations == replies, 'Complete native/client observation relationship differs')
+        frames = [r['observation'] for r in actions if r['kind'] == 'absolute_frame']
+        require(frames == [r for r in replies if r['request']['action'] == 'frame'], 'Absolute frames not bound to actual native replies')
     require(result == json.loads(files['receiving/result.json']), 'Original receiving receipt differs')
     command = json.loads(files['receiving/command.json'])
     require(command['exit'] == 0 and json.loads(command['stdout']) == result, 'Original receiving command differs')
