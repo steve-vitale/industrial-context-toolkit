@@ -119,6 +119,26 @@ class Resubmission(unittest.TestCase):
         self.assertTrue(any(r['check']=='cad' and r['status']=='basis_changed' for r in brief['revision']['basis_changes']))
         self.assertTrue(all(r['current_status']=='basis_changed' for r in brief['revision']['items'] if r['kind'].startswith('cad_')))
 
+    def test_restored_cad_field_uses_current_unchanged_evidence(self):
+        job=copy.deepcopy(self.job);job['drawings']=job['drawings'][1:];job['drawings'][0]['cad'].pop('plan')
+        p=self.root/'unplanned-cad.json';p.write_text(json.dumps(job),encoding='utf-8')
+        prior=self.root/'unplanned-cad';receiving.run(p,prior)
+        job['drawings'][0]['cad']['after']=job['drawings'][0]['cad']['before']
+        brief=self.run_job('restored-cad',job,prior)
+        fields=[r for r in brief['revision']['items'] if r['kind']=='cad_attribute']
+        self.assertEqual(len(fields),3)
+        self.assertTrue(all(r['current_status']=='unchanged_from_original' for r in fields))
+        self.assertTrue(all(r['current_source_check']['before']==r['current_source_check']['after'] for r in fields))
+        self.assertFalse(brief['release_accepted']);self.assertEqual(brief['authorized_decision'],'pending')
+
+    def test_earlier_safety_follow_up_survives_a_later_return(self):
+        job=copy.deepcopy(self.job);job['drawings']=job['drawings'][1:]
+        self.run_job('middle-omission',job)
+        brief=self.run_job('later-return',self.job,self.root/'middle-omission')
+        follow=[r for r in brief['items'] if r['kind']=='revision_follow_up']
+        self.assertTrue(any(r['priority']=='safety' for r in follow))
+        self.assertFalse(brief['release_accepted'])
+
     def test_previous_inventory_tampering_refuses_before_publication(self):
         prior=self.root/'damaged';shutil.copytree(self.prior,prior)
         p=prior/'BRIEF.md';p.write_bytes(p.read_bytes()+b'changed')

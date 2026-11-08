@@ -6260,6 +6260,27 @@
         "examples/cad-handoff/qualification/full-ui-22/concurrent-pixels-1/braces/RESULT.json",
         "docs/JOURNAL.md#219-retain-the-last-concurrent-receivers-and-stop-expanding-the-native-critical-path"
       ]
+    },
+    {
+      "id": "A380",
+      "function": "intake_and_reuse",
+      "date": "2026-11-08",
+      "hypothesis": "An engineer should be able to receive the next consultant return through the same own-input command without losing original scope, earlier findings or safety priority.",
+      "change": "Add optional previous-packet verification/reproduction, source-bound basis comparison, previous/current findings, explicit missing-scope follow-ups and a fully portable revision packet.",
+      "evidence": "The actual command produces2checks/12current items and13previous/current findings on the exposed corrected fixture; all7request outcomes match the prior authored acceptance key, with5supported and2unresolved. The complete portable revision brief reproduces. Fifteen resubmission tests pass, including changed requests/original readings/CAD plan, omitted drawings/safety scope, missing observations, inventory and repinned-finding refusals, nested-output preservation and markup-only-S. Earlier nested-output and lost-safety-priority control failures remain documented.",
+      "runs": "One actual receiving CLI and one portable CLI replay;15targeted resubmission methods plus7existing own-input,9markup and19runner methods, all pass with no skips",
+      "verdict": "kept",
+      "why": "Deepens the same engineer/manager job through correction and resubmission rather than adding another CAD reader or native harness. Current support is not engineering closure; original CAD strict335/322/321failures, paper/native-second-revision and fresh reserved qualification remain open.",
+      "source": [
+        "scripts/receive_drawings.py",
+        "scripts/test_drawing_resubmission.py",
+        "examples/drawing-handoff/RESUBMISSION-PLAN.md",
+        "examples/drawing-handoff/RESUBMISSION-CONTROLS.json",
+        "examples/drawing-handoff/resubmission-worked/BRIEF.md",
+        "examples/drawing-handoff/resubmission-worked/revision.json",
+        "docs/DRAWING_HANDOFF.md#receive-a-correction-or-resubmission",
+        "docs/JOURNAL.md#220-receive-a-resubmission-without-losing-earlier-scope-or-safety-priority"
+      ]
     }
   ],
   "not_tried": [

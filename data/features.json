@@ -1781,16 +1781,20 @@
         "examples/pid-markup-review/VISUAL-QA.json",
         "examples/drawing-handoff/job-worked/BRIEF.md",
         "examples/drawing-handoff/job-worked/brief.json",
-        "examples/drawing-handoff/job-worked/job.json"
+        "examples/drawing-handoff/job-worked/job.json",
+        "examples/drawing-handoff/resubmission-worked/BRIEF.md",
+        "examples/drawing-handoff/resubmission-worked/revision.json",
+        "examples/drawing-handoff/RESUBMISSION-CONTROLS.json"
       ],
       "tests": [
         "scripts/test_pid_markups.py",
-        "scripts/test_receive_drawings.py"
+        "scripts/test_receive_drawings.py",
+        "scripts/test_drawing_resubmission.py"
       ],
       "job": "Check requested drawing changes and prepare a sourced correction/clarification handoff",
       "you_need": "Original, exact markups/instructions sent out, returned revision, supplied annotation inventory and source-bound readings; Python3.10+ standard library for the local packet",
       "time": "Actual interpretation/review effort and model-reading accuracy unmeasured",
-      "you_get": "Each request supported/partial/missed/unverifiable, before/returned locators, other observed changes/coverage gaps, exact retained sources and portable draft packet",
+      "you_get": "Each request supported/partial/missed/unverifiable, before/returned locators, other observed changes/coverage gaps, exact retained sources and portable draft packet; optional previous/current receiving findings with explicit changed scope and unreassessed items",
       "why": "A new revision or present tag does not prove requested topology or notes were updated. Fictional software controls retain missing evidence and stale revisions without claiming automatic visual reading, full drawing equivalence or company acceptance."
     },
     {

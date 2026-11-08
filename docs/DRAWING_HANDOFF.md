@@ -40,6 +40,36 @@ job. No named owner, engineering acceptance or CAD/readable-sheet equivalence is
 invented. If both representations are supplied for one drawing, their physical
 correspondence remains an explicit review item.
 
+## Receive a correction or resubmission
+
+Keep the original drawing IDs and original/instruction scope in a new job. Supply
+fresh source-bound readings for the new return, then run:
+
+```sh
+python scripts/receive_drawings.py --manifest YOUR_NEXT_JOB.json --previous EARLIER_RECEIVING_FOLDER --out NEW_RECEIVING_FOLDER
+```
+
+The command verifies the earlier packet inventory and reproduces its findings
+from retained inputs before comparing. `BRIEF.md` adds a previous/current table;
+`revision.json` retains each finding, both versions and current source checks.
+The new packet carries the earlier packet and writes `previous_packet` into its
+portable `job.json`, so replay needs only the new folder. Keep output outside the
+earlier packet. Inventories detect changes; they are not authenticated signatures.
+
+Changed original bytes, original readings, request inventory or CAD plan are
+explicit **changes of basis**. Omitted drawings/checks remain unresolved follow-ups.
+A disappeared collateral finding needs a current source-bound observation or an
+unchanged CAD field check to establish that it matches the original; missing
+evidence does not close it. Historical follow-ups remain pending for reconciliation.
+Current support and restored values still require engineering disposition.
+
+Try [resubmission-job.json](../examples/drawing-handoff/resubmission-job.json)
+with `--previous examples/drawing-handoff/job-worked`. The fictional markup return
+supports five of seven requests; illegibility, baseline mismatch, unknown material
+and safety review remain visible. Its separate CAD return still has 335 strict
+differences. The [worked resubmission](../examples/drawing-handoff/resubmission-worked/BRIEF.md)
+retains those distinctions. No reader, CAD UI or engineering acceptance is invoked.
+
 ## Choose the checks that answer your question
 
 | Your question | Input and executable route | Result to use |

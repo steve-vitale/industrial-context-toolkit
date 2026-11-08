@@ -6,6 +6,11 @@ and generates actions from their actual results. The [generated brief](job-worke
 and [portable job](job-worked/job.json) are reproducible without a CAD UI or model
 call. The two teaching drawings remain explicitly separate.
 
+For the next return, supply a [resubmission job](resubmission-job.json) and add
+`--previous EARLIER_RECEIVING_FOLDER`. The [resubmission brief](resubmission-worked/BRIEF.md)
+compares findings under the retained request scope, preserves unresolved evidence
+and carries both source packets. See the [resubmission guide](../../docs/DRAWING_HANDOFF.md#receive-a-correction-or-resubmission).
+
 The fixed rehearsal below is retained as an earlier regression case; its
 case-specific brief generator is not the own-input entry point.
 

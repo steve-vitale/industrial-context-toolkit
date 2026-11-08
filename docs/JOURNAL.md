@@ -9624,3 +9624,45 @@ save-preservation findings remain. Actual second-revision native receiving,
 paper/layout, final-method freezing and fresh reserved transfer remain open.
 No new native session is started. Prioritize the own-input receiving workflow
 and its source-linked engineer/manager results, retaining the research failures.
+
+## 220. Receive a resubmission without losing earlier scope or safety priority
+
+Freeze `RESUBMISSION-PLAN.md` before implementation. The existing receiving
+command gains optional `--previous`: verify the earlier inventory, reproduce its
+brief from retained inputs, then match findings by drawing ID under the exact
+original/instruction scope. Original source/reading changes, request changes and
+CAD plan changes remain explicit basis changes. Omitted checks remain unresolved;
+a disappeared collateral finding needs a current source-bound observation or
+unchanged CAD field evidence. Both packets and a portable previous-packet path
+are retained. No named owner or engineering disposition is invented.
+
+The first nested-output control fails: writing a new return inside the previous
+packet adds files after the captured-byte check. Refuse overlapping packet roots
+before replay/publication. A separate omitted-safety-scope control fails because
+its follow-up defaults to normal priority. Retain the earlier safety priority
+through missing/changed scope and historical follow-ups. Both observed failures,
+baseline commits, commands and corrections are recorded in
+`examples/drawing-handoff/RESUBMISSION-CONTROLS.json`.
+
+Fifteen resubmission methods pass, with no skips. They compare the corrected
+markup outcomes to the prior authored acceptance key and challenge portable
+replay, drawing order, omissions, changed request/original-reading/CAD-plan scope,
+missing observations, stale inventory, repinned false findings, nested output,
+safety priority and actual markup-only `python -S` execution. Restored CAD fields
+use explicit current unchanged-field evidence, and an earlier safety follow-up
+survives a later return. The seven earlier
+own-input methods, nine markup methods and nineteen runner methods also pass.
+
+The actual resubmission command produces two checks and twelve current review
+items, with thirteen previous/current findings. Five requests are supported;
+illegibility, baseline mismatch, unknown material and safety review remain. A
+current FC observation establishes restoration of the earlier collateral fail-
+action change; its engineering disposition remains pending. The separate CAD
+preservation queue still has 335 differences. A second actual CLI invocation
+from the portable job reproduces the complete brief.
+The worked packet was produced at `9b9feb1`; the safety-priority correction at
+`93bbe8d` reproduces that complete brief on portable replay. Its original receipt
+and method hash remain intact. These are exposed fictional
+readings and software revision checks, not new visual-reading accuracy or timed
+engineer benefit. Native second revision, paper/layout and fresh reserved CAD
+qualification remain open; the underlying strict/byte tools are unchanged.

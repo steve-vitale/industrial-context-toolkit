@@ -26,8 +26,9 @@ The [manager review packet](examples/manager-review/README.md) gives you a no-in
 copyable scope/review/effort forms. Use the tools below when you or your team are ready to prepare your own records.
 For consultant drawing returns, follow the [engineer-to-manager receiving workflow](docs/DRAWING_HANDOFF.md):
 requested changes, source evidence, correction actions and the organization's receiving decision.
-The [worked next return](examples/drawing-handoff/next-return-2/REVISION-BRIEF.md) shows
-what closes after a correction, what stays open and why old readings cannot verify a new file.
+The [worked resubmission](examples/drawing-handoff/resubmission-worked/BRIEF.md) uses
+the reusable command to show which findings change after correction and what stays unresolved.
+Changed request scope and missing evidence remain explicit; engineering disposition stays pending.
 
 **Using an agent?** Point it at this repository and ask:
 

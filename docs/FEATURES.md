@@ -659,7 +659,7 @@ Example review: not yet: needs review
 
 **Inputs:** Original, exact markups/instructions sent out, returned revision, supplied annotation inventory and source-bound readings; Python3.10+ standard library for the local packet
 
-**Outputs:** Each request supported/partial/missed/unverifiable, before/returned locators, other observed changes/coverage gaps, exact retained sources and portable draft packet
+**Outputs:** Each request supported/partial/missed/unverifiable, before/returned locators, other observed changes/coverage gaps, exact retained sources and portable draft packet; optional previous/current receiving findings with explicit changed scope and unreassessed items
 
 **Time:** Actual interpretation/review effort and model-reading accuracy unmeasured
 
@@ -669,8 +669,8 @@ Example review: not yet: needs review
 <details>
 <summary>Example files, tests and independent review</summary>
 
-- **Registered example files:** [`ACCEPTANCE.json`](../examples/pid-markup-review/ACCEPTANCE.json), [`PROVENANCE.json`](../examples/pid-markup-review/PROVENANCE.json), [`result.json`](../examples/pid-markup-review/worked/result.json), [`REPORT.md`](../examples/pid-markup-review/worked/REPORT.md), [`receipt.json`](../examples/pid-markup-review/worked/receipt.json), [`result.json`](../examples/pid-markup-review/corrected/result.json), [`VISUAL-QA.json`](../examples/pid-markup-review/VISUAL-QA.json), [`BRIEF.md`](../examples/drawing-handoff/job-worked/BRIEF.md), [`brief.json`](../examples/drawing-handoff/job-worked/brief.json), [`job.json`](../examples/drawing-handoff/job-worked/job.json)
-- **Tests:** `test_pid_markups.py`, `test_receive_drawings.py`
+- **Registered example files:** [`ACCEPTANCE.json`](../examples/pid-markup-review/ACCEPTANCE.json), [`PROVENANCE.json`](../examples/pid-markup-review/PROVENANCE.json), [`result.json`](../examples/pid-markup-review/worked/result.json), [`REPORT.md`](../examples/pid-markup-review/worked/REPORT.md), [`receipt.json`](../examples/pid-markup-review/worked/receipt.json), [`result.json`](../examples/pid-markup-review/corrected/result.json), [`VISUAL-QA.json`](../examples/pid-markup-review/VISUAL-QA.json), [`BRIEF.md`](../examples/drawing-handoff/job-worked/BRIEF.md), [`brief.json`](../examples/drawing-handoff/job-worked/brief.json), [`job.json`](../examples/drawing-handoff/job-worked/job.json), [`BRIEF.md`](../examples/drawing-handoff/resubmission-worked/BRIEF.md), [`revision.json`](../examples/drawing-handoff/resubmission-worked/revision.json), [`RESUBMISSION-CONTROLS.json`](../examples/drawing-handoff/RESUBMISSION-CONTROLS.json)
+- **Tests:** `test_pid_markups.py`, `test_receive_drawings.py`, `test_drawing_resubmission.py`
 - **Independent review:** none yet
 
 </details>
