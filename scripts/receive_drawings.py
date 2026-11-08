@@ -24,14 +24,111 @@ def value(value):return json.dumps(value,ensure_ascii=False,sort_keys=True)
 def observation(record):return value(record['value']) if record['state']=='known' else record['state']+': '+record.get('reason','source review required')
 
 
-def run(manifest_path,out):
+def packet_files(root):
+    require(root.is_dir(),'Previous packet must be a directory')
+    paths=list(root.rglob('*'))
+    require(not any(p.is_symlink() for p in paths),'Previous packet must contain retained local files, not symlinks')
+    return {p.relative_to(root).as_posix():p.read_bytes() for p in paths if p.is_file()}
+
+
+def previous_packet(root):
+    files=packet_files(root);receipt=markup.parse(files['receipt.json'])
+    require(receipt.get('schema')=='drawing-receiving-receipt-1','Expected a previous receiving packet')
+    require(receipt['files']=={n:sha(raw) for n,raw in files.items() if n!='receipt.json'},'Previous packet inventory changed')
+    job=markup.parse(files['job.json'])
+    refs=[r for d in job['drawings'] for r in ([d['markup_manifest']] if 'markup_manifest' in d else [])+list(d.get('cad',{}).values())]
+    if 'previous_packet' in job:refs.append(job['previous_packet'])
+    require(all((root/r).resolve().is_relative_to(root) and (root/r).resolve()!=root for r in refs),'Previous portable job must use its retained inputs')
+    with tempfile.TemporaryDirectory(prefix='drawing-previous-replay-') as temporary:
+        reproduced=run(root/'job.json',Path(temporary)/'packet')
+    require(reproduced==markup.parse(files['brief.json']),'Previous findings do not reproduce from retained inputs')
+    require(packet_files(root)==files,'Previous packet changed during replay')
+    return files,reproduced,job
+
+
+def contexts(root,job):
+    result={}
+    for number,drawing in enumerate(job['drawings'],1):
+        folder=root/'drawings'/f'{number:03d}';identity=drawing['id']
+        if 'markup_manifest' in drawing:
+            prepared=markup.prepare(folder/'markup/manifest.json');manifest,requests,readings,index=prepared[:4]
+            basis=dict(documents=sorted([{k:v for k,v in d.items() if k!='path'} for d in manifest['documents'] if d['role']!='returned'],key=markup.typed),
+                requests=manifest['requests']['sha256'],reading_method=readings['method'],
+                original_observations=sorted([o for o in readings['observations'] if o['role']=='original'],key=markup.typed))
+            result[identity,'markup']=dict(basis=basis,index=index)
+        if 'cad' in drawing:
+            report=markup.parse((folder/'cad/review.json').read_bytes());plan=folder/'cad/originals/plan.json'
+            result[identity,'cad']=dict(basis=dict(original=report['before_sha256'],plan=sha(plan.read_bytes()) if plan.exists() else None),report=report)
+        if 'markup_manifest' in drawing and 'cad' in drawing:
+            result[identity,'association']=dict(basis=[result[identity,k]['basis'] for k in ('markup','cad')])
+    return result
+
+
+def item_key(row):
+    kind=row['kind'];detail=row['detail']
+    if kind=='request':return row['drawing'],'markup',markup.typed(['request',detail['id']])
+    if kind in ('other_change','coverage_gap'):return row['drawing'],'markup',markup.typed(['fact',detail['key']])
+    if kind=='cad_attribute':return row['drawing'],'cad',markup.typed(['attribute',detail['id'],detail['attribute']])
+    if kind=='cad_identity':return row['drawing'],'cad',markup.typed(['identity',detail['id']])
+    return row['drawing'],'association' if kind=='representation_correspondence' else 'cad',kind
+
+
+def revision(root,job,prior,old_brief,old_job,rows):
+    old_context=contexts(prior,old_job);current_context=contexts(root,job)
+    old={item_key(r):r for r in old_brief['items'] if r['kind']!='revision_follow_up'}
+    current={item_key(r):r for r in rows};transitions=[];changes=[]
+    def follow(drawing,finding,detail):
+        rows.append(dict(drawing=drawing,kind='revision_follow_up',status='needs_assessment',finding=finding,
+            next_action='Reconcile this earlier finding against its retained scope and the current evidence; closure is not established.',
+            suggested_role='Responsible engineer / drawing custodian',owner=None,disposition='pending',priority='normal',
+            evidence='previous/BRIEF.md',detail=detail,review_required=True,needs_attention=True))
+    for key,context in old_context.items():
+        latest=current_context.get(key)
+        status='not_reassessed' if latest is None else 'basis_changed' if latest['basis']!=context['basis'] else 'same_basis'
+        if status!='same_basis':
+            detail=dict(drawing=key[0],check=key[1],status=status,previous_basis=context['basis'],current_basis=latest['basis'] if latest else None)
+            changes.append(detail);follow(key[0],key[1]+': '+status.replace('_',' ')+'; earlier findings remain open for reconciliation',detail)
+    for key,previous in old.items():
+        latest=current.get(key);context=current_context.get(key[:2]);basis=old_context[key[:2]]['basis']
+        evidence=None
+        if context is None:status='not_reassessed'
+        elif context['basis']!=basis:status='basis_changed'
+        elif latest:status=latest['status']
+        else:
+            status='not_reassessed'
+            if previous['kind'] in ('other_change','coverage_gap'):
+                fact=markup.fact_key(previous['detail']['key']);index=context['index']
+                original,returned=[markup.resolve(index.get((role,fact),[])) for role in ('original','returned')]
+                evidence=dict(original=original,returned=returned)
+                if original['state']==returned['state']=='known' and markup.typed(original['value'])==markup.typed(returned['value']):status='matches_original_reading'
+            elif previous['kind']=='cad_attribute':
+                matches=[r for r in context['report']['asset_attributes'] if r['id']==previous['detail']['id'] and r['attribute']==previous['detail']['attribute']]
+                if len(matches)==1 and matches[0]['status']=='unchanged':status='unchanged_from_original';evidence=matches[0]
+            if status=='not_reassessed':follow(key[0],'Earlier finding not established by current evidence: '+previous['finding'],dict(previous=previous,current_evidence=evidence))
+        transitions.append(dict(drawing=key[0],kind=previous['kind'],finding=previous['finding'],previous_status=previous['status'],
+            current_status=status,previous=previous,current=latest,current_source_check=evidence,engineering_closure='pending'))
+    for key,row in current.items():
+        if key not in old:transitions.append(dict(drawing=key[0],kind=row['kind'],finding=row['finding'],previous_status=None,
+            current_status=row['status'],previous=None,current=row,current_source_check=None,engineering_closure='pending'))
+    for row in old_brief['items']:
+        if row['kind']=='revision_follow_up':follow(row['drawing'],row['finding'],dict(retained_previous_follow_up=row))
+    return dict(schema='drawing-receiving-revision-1',previous_brief='previous/BRIEF.md',basis_changes=changes,items=transitions,
+        boundary='These are changes in source-supported software findings. Missing findings are not closure; authorized engineering dispositions remain pending.')
+
+
+def run(manifest_path,out,previous=None):
     manifest_path=Path(manifest_path).resolve();out=Path(out).resolve()
     require(not out.exists(),'Output exists; retain the earlier receiving packet')
     captured={manifest_path:manifest_path.read_bytes()};job=markup.parse(captured[manifest_path])
     require(isinstance(job,dict) and job.get('schema')=='drawing-receiving-1','Expected drawing-receiving-1 job')
-    require(set(job)=={'schema','id','drawings'},'Job fields must be schema, id and drawings')
+    require({'schema','id','drawings'}<=set(job)<= {'schema','id','drawings','previous_packet'},'Job fields must be schema, id, drawings and optional previous_packet')
     markup.text(job['id'],'Job id')
     require(isinstance(job['drawings'],list) and job['drawings'],'Supply at least one drawing')
+    require(previous is None or 'previous_packet' not in job,'Supply previous packet in the job or --previous, not both')
+    prior=(Path(previous).resolve() if previous is not None else (manifest_path.parent/job['previous_packet']).resolve() if 'previous_packet' in job else None)
+    if prior is not None:
+        prior_files,old_brief,old_job=previous_packet(prior)
+        captured.update({prior/name:raw for name,raw in prior_files.items()})
     prepared=[];ids=set();cad=None
     def path(value):
         markup.text(value,'Local input path');p=(manifest_path.parent/value).resolve()
@@ -117,6 +214,13 @@ def run(manifest_path,out):
                 add('representation_correspondence','not_verified','Readable sheets and CAD were associated by the supplied job.',
                     'Confirm that these exact readable sheets and CAD revisions correspond; software has not established that equivalence.',
                     'Responsible engineer / drawing custodian',base+'/',dict(basis='Supplied association only; no inferred cross-format equivalence'))
+        revision_report=None
+        if prior is not None:
+            for name,raw in prior_files.items():
+                p=root/'previous'/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(raw)
+            portable['previous_packet']='previous'
+            revision_report=revision(root,portable,root/'previous',old_brief,old_job,rows)
+            write(root/'revision.json',revision_report)
         rows.sort(key=lambda r:(r['priority']!='safety',not r['needs_attention'],r['drawing']))
         suggestions=[]
         if any(r['status'] in ('not_supported','partly_supported') for r in rows):suggestions.append('return_for_correction')
@@ -125,11 +229,16 @@ def run(manifest_path,out):
         brief=dict(schema='drawing-receiving-brief-1',job_id=job['id'],checks=check_results,items=rows,suggested_actions=suggestions,
             authorized_decision='pending',release_accepted=False,automatic_drawing_reading=False,
             boundary='Findings reflect supplied source-bound readings and supported DXF checks. Readability, complete coverage, geometry/functional interpretation and organizational release remain review responsibilities.')
+        if revision_report is not None:brief['revision']=revision_report
         write(root/'brief.json',brief);write(root/'job.json',portable);(root/'input-job.json').write_bytes(captured[manifest_path])
         lines=['# Drawing receiving brief','',job['id'],'','Suggested actions: '+', '.join(suggestions)+'. Authorized decision: **pending**.','',
             '| Drawing | Finding | Next action | Suggested role | Evidence |','|---|---|---|---|---|']
         for row in rows:lines.append('| '+' | '.join([cell(row['drawing']),cell(row['finding']+' — '+row['status']),cell(row['next_action']),cell(row['suggested_role']),'[Source checks]('+row['evidence']+')'])+' |')
         lines+=['','Owners and dispositions remain pending. Complete values, source checks and locations are retained in [brief.json](brief.json).','',brief['boundary']]
+        if revision_report is not None:
+            lines+=['','## Changes since the previous return','','[Previous brief](previous/BRIEF.md) · [Complete revision evidence](revision.json)','','| Drawing / earlier finding | Previous result | Current result |','|---|---|---|']
+            for row in revision_report['items']:lines.append('| '+' | '.join(cell(v) for v in (row['drawing']+' / '+row['finding'],row['previous_status'] or 'Not previously listed',row['current_status']))+' |')
+            lines+=['',revision_report['boundary']]
         (root/'BRIEF.md').write_text('\n'.join(lines)+'\n',encoding='utf-8',newline='\n')
         require(all(p.read_bytes()==raw for p,raw in captured.items()),'Input changed before publication')
         write(root/'receipt.json',dict(schema='drawing-receiving-receipt-1',input_job_sha256=sha(captured[manifest_path]),
@@ -140,8 +249,9 @@ def run(manifest_path,out):
 
 
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--manifest',required=True,type=Path);p.add_argument('--out',required=True,type=Path);a=p.parse_args()
-    try:r=run(a.manifest,a.out)
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--manifest',required=True,type=Path);p.add_argument('--out',required=True,type=Path)
+    p.add_argument('--previous',type=Path,help='Earlier receiving packet to retain and compare against');a=p.parse_args()
+    try:r=run(a.manifest,a.out,a.previous)
     except (ValueError,OSError,KeyError,TypeError) as error:print('REFUSED: '+str(error),file=sys.stderr);return 2
     print('Receiving packet written:',len(r['checks']),'checks;',len(r['items']),'review items; authorized decision pending.');return 0
 
