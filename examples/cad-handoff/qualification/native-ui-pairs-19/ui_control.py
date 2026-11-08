@@ -23,8 +23,10 @@ def main():
     row=dict(operation=args.operation,path=args.path,name=node.name,role=node.getRoleName(),commands=[])
     if args.operation=='press':
         action=node.queryAction()
-        if action.nActions!=1:raise ValueError('Expected one observed native action')
-        row['action']=action.getName(0);row['result']=action.doAction(0)
+        presses=[i for i in range(action.nActions)if action.getName(i).lower()=='press']
+        if len(presses)!=1:raise ValueError('Expected one observed native Press action')
+        row['action']=action.getName(presses[0]);row['result']=action.doAction(presses[0])
+        if row['result']is not True:raise ValueError('Native action refused')
     else:
         row['focus_result']=node.queryComponent().grabFocus()
         if row['focus_result']is not True:raise ValueError('Native control focus refused')
