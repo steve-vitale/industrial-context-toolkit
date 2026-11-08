@@ -17,6 +17,11 @@ MDI opening and print-getter calls as a repair for the diagnosed plot-storage ga
 jobs, complete public-inventory comparisons and actual cleanup failures. It does not close any native-save,
 reserved edit/save/reopen or engineering acceptance gate.
 
+The [matched native UI procedure](native-ui-pairs-19/PROGRESS.md) is now in exposed development. A completed
+no-edit process and a separately labelled edit recovery retain their strict failures; the fresh six-case
+cohort, portable evidence receiving and new qualification remain unfinished. No recovery is counted as a
+clean full-procedure pass.
+
 ## Reproduce the evidence offline
 
 **A different operation is available without a CAD UI:** the [equipment-data sidecar route](../data-review/README.md)

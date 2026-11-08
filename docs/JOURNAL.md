@@ -9036,3 +9036,29 @@ corrected bounded archive reader has no such import and passes under `-S`; trave
 and symlink controls exercise it directly. No native process was rerun and no native observation changed.
 Controller exit summaries record observed host-tool results rather than original captured terminal
 transcripts; the actual action receipts, startup images and native command/state history remain.
+
+## 206. Develop matched native UI saves without hiding automation failures
+
+2026-11-08. [The declared six-case UI plan](../examples/cad-handoff/qualification/native-ui-pairs-19/PLAN.md)
+was committed at 7c1f031 before implementation. Startup/dialog-only preflight completed without a drawing
+open/save; its original action-count and modal accessibility timeout remain. Drawing procedure 681deeb and
+subsequent separately committed corrections retain a failed empty staging launch, covered-MDI ambiguity and
+an overbroad Untitled-title match. Pure control selection now passes both actual retained trees and refuses
+missing/duplicate document controls. No case or strict preservation rule was changed to fit the automation.
+
+One no-edit libre-air-water process completed actual native UI Save As, document close/reopen, editable fields
+and normal exit. Its three common-frame canvas comparisons have zero changed pixels; its full save still
+fails with 300 strict differences. A separate edited process's accessibility focus did not activate the
+floating Property Editor: Ctrl+A selected all drawing entities, and the native document remained unmodified
+with the original field value. It stopped before save. Corrected actual-field clicking, focus and text checks
+were frozen at 639d109 before a continuation in the same process. That recovery completed the planned field
+change, native save/close/reopen and normal native exit, while retaining the original failed controller/container.
+Both returned files retain 300 source differences and their paired comparison retains 57 entity differences.
+These diagnostic observations do not complete the planned clean matched method or qualify a native return.
+
+The [development checkpoint](../examples/cad-handoff/qualification/native-ui-pairs-19/PROGRESS.md) separates
+these observations from the fresh 18-process exposed cohort frozen at 5f27559. Historical/recovered jobs are
+not adopted into that run. At this checkpoint, portable raw-evidence receiving, complete cohort analysis,
+loss controls and CI are unfinished; observations remain local and provisional. All six software candidates
+pass unchanged strict/raw checks; the six library saves fail exact byte reconstruction. New reserved evaluation,
+complete native readability/editability and revision/foreign-attribute gates, and company acceptance remain open.
