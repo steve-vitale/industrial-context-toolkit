@@ -32,6 +32,12 @@ third-party licenses; do not copy implementation code from an incompatible proje
 provide [diagram parsing and graph contextualization](https://docs.cognite.com/cdf/integration/guides/contextualization/diagram_parsing).
 Evaluate buying, partnering or adapting against the scoped engineering job rather than claiming a new category.
 
+The [2026-11-08 platform comparison](COMPETITIVE_WORKFLOWS.md) records Entellia/Flow2MTP's connected
+engineering and brownfield positioning beside Cognite and Siemens offerings. Before adding formats or
+another generation feature, identify the client's existing tools and the source preparation, interpretation
+or receiving job still needing help. The optional requirements/handoff worksheet deepens that review;
+it does not create an MTP integration or a new product category.
+
 [ChemE-as-Code and Process Atlas](https://www.pi-research.org/post/26-11-05-cheme-as-code/) were publicly released
 on 2026-11-05 with linked engineering files, external calculation tools and consistency/freshness checks. Its
 authors report an agent-created preliminary engineering package and explicitly state that no independent

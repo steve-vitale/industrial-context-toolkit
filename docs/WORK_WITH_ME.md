@@ -32,6 +32,12 @@ and the recipient has the next actions. It need not mean every missing field has
 engineering issue resolved. The client retains engineering release and source-system acceptance.
 Use the [scope and acceptance template](../examples/consulting-start/SCOPE.md) to make that distinction explicit.
 
+For an agreed package-unit or automation handoff, an optional
+[requirements review worksheet](../examples/consulting-start/AUTOMATION_HANDOFF.md) separates requested
+behavior, supplier responses and receiving evidence. Scope the interpretation and responsible reviewers
+before promising this extension. The [platform comparison](COMPETITIVE_WORKFLOWS.md) helps assess an
+existing vendor tool or specialist alongside the toolkit.
+
 ## Starting jobs
 
 | Job | Starting inputs | Proposed deliverable |

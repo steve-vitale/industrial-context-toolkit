@@ -89,6 +89,10 @@ be enough. Exact file contracts belong in the [workflow map](WORKFLOWS.md); all 
 
 ## Reference and research records
 
+For current commercial overlap and useful workflow ideas, see the
+[engineering-platform comparison](COMPETITIVE_WORKFLOWS.md) and the broader [prior-art survey](PRIOR_ART.md).
+The comparison distinguishes vendor descriptions, toolkit evidence and untested consulting opportunities.
+
 | Read this when… | Canonical reference |
 |---|---|
 | You need to know which formats and steps actually connect | [Supported workflows and formats](WORKFLOWS.md) |
