@@ -135,10 +135,50 @@ def receive_job(job,out):
     return dict(case=case,scope='Exposed read-only camera repeat; original native save failures unchanged',whole_cad_qualified=False,
                 fields=len(fields),observations=len(observations),views=len(rows),images=image_count,native_exit=process['exit'],controller_exit=process['controller_exit'],pixels=comparisons)
 
+def receive_packet(packet,out):
+    manifest=read(packet/'INVENTORY.json')
+    require(manifest['packager_sha256']==sha(HERE/'package_ui19.py'),'Camera archive writer changed')
+    root=unpack(packet,out/'unpacked');job=root/'job';case=read(job/'job.json')['case']
+    require(manifest['kind']==dict(route='exposed-camera-repeat',case=case),'Camera packet kind differs')
+    assembly=read(root/'ASSEMBLY.json');env=read(job/'ENVIRONMENT.json')
+    require(assembly['case']==case and assembly['container']==env['container']and assembly['assembly_sha256']==sha(HERE/'package_camera20.py')
+            and assembly['archive_writer_sha256']==sha(HERE/'package_ui19.py'),'Camera assembly provenance differs')
+    batch=root/'batch'
+    if case=='libre-air-water':
+        require({p.name for p in batch.iterdir()}=={'LAUNCH.json','TERMINAL-INSPECT.json'},'Original air launch coverage differs')
+        launch=read(batch/'LAUNCH.json');inspection=read(batch/'TERMINAL-INSPECT.json')[0]
+    else:
+        require({p.name for p in batch.iterdir()}=={'FREEZE.json',case+'-stage.json',case+'-launch.json',case+'-inspection.json'},'Camera batch coverage differs')
+        launch=read(batch/(case+'-launch.json'));inspection_record=read(batch/(case+'-inspection.json'))
+        require(inspection_record['exit']==0,'Camera terminal inspect failed');inspection=json.loads(inspection_record['stdout'])[0]
+        frozen=read(batch/'FREEZE.json')
+        require(frozen['cases']==list(CASES[1:])and frozen['image']==env['image']and frozen['max_running']==3,'Remaining camera cohort changed')
+        for suffix,path in [('camera-repeat-20/batch.py',BASE/'batch.py'),('camera-repeat-20/PLAN.md',BASE/'PLAN.md'),('prepare_camera19.py',HERE/'prepare_camera19.py'),('native-ui-pairs-19/camera_repeat.py',HERE/'native-ui-pairs-19/camera_repeat.py')]:
+            pins=[pin for name,pin in frozen['methods'].items()if name.replace('\\','/').endswith('/'+suffix)]
+            require(pins==[sha(path)],'Camera frozen batch method differs: '+suffix)
+        require(read(batch/(case+'-stage.json'))['exit']==0,'Camera staging failed')
+    require(launch['exit']==0 and launch['stdout'].strip()==inspection['Id']and inspection['Name']=='/'+env['container']
+            and inspection['Image']==env['image']and inspection['State']==env['state'],'Camera original launch/terminal identity differs')
+    require(inspection['Config']['User']==env['user']and inspection['HostConfig']['NetworkMode']==env['network'],'Camera original launch environment differs')
+    command=launch['command']
+    # Verify the full declared command rather than inferring execution from a success marker.
+    mounts=inspection['Mounts'];require(len(mounts)==1 and mounts[0]['Destination']=='/work','Camera original mount differs')
+    expected=['docker','run','-d','--name',env['container'],'--network','none','--user','1001:1001','--memory','3g','--cpus','2','--shm-size','256m','--pids-limit','256','--cap-drop','ALL','--security-opt','no-new-privileges','--mount','type=bind,source='+mounts[0]['Source']+',target=/work','--entrypoint','dbus-run-session',env['image'],'--','python3','/work/launch_case.py']
+    # Docker Desktop reports the mounted Windows source as /run/desktop/mnt/host/c/...
+    # The submitted launch records its Windows spelling; bind it to the inspection mount.
+    mount_arg=command[command.index('--mount')+1]
+    submitted=mount_arg.removeprefix('type=bind,source=').removesuffix(',target=/work')
+    actual=mounts[0]['Source']
+    normalized='/run/desktop/mnt/host/'+submitted[0].lower()+submitted[2:]if len(submitted)>2 and submitted[1:3]==':/'else submitted
+    require(actual in (submitted,normalized),'Camera launch mount is not the observed directory')
+    expected[expected.index('--mount')+1]=mount_arg
+    require(command==expected,'Camera actual launch command differs')
+    return receive_job(job,out/'pixels')
+
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('job',type=Path);p.add_argument('out',type=Path);p.add_argument('--packet',action='store_true');a=p.parse_args()
     a.out.mkdir(parents=True)
-    job=unpack(a.job,a.out/'unpacked')/'job'if a.packet else a.job
-    result=receive_job(job,a.out/'pixels');(a.out/'RESULT.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
+    result=receive_packet(a.job,a.out)if a.packet else receive_job(a.job,a.out/'pixels')
+    (a.out/'RESULT.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
     print(json.dumps({k:v for k,v in result.items()if k!='pixels'}))
 if __name__=='__main__':main()
