@@ -6,5 +6,14 @@
   "exit": 1,
   "observed_failure": "AssertionError: ValueError not raised",
   "cause": "A new output inside the previous packet adds files after the final captured-file check, invalidating the previous inventory without changing captured bytes.",
-  "correction": "Refuse output paths within or containing the previous packet before replay or publication. The permanent test also compares every previous file byte after refusal."
+  "correction": "Refuse output paths within or containing the previous packet before replay or publication. The permanent test also compares every previous file byte after refusal.",
+  "additional_observation": {
+    "baseline_commit": "9b9feb1",
+    "command": "python scripts/test_drawing_resubmission.py Resubmission.test_omitted_safety_scope_stays_first_in_the_review_queue -v",
+    "tool_chunk": "c39457",
+    "exit": 1,
+    "observed_failure": "AssertionError: 'normal' != 'safety'",
+    "cause": "A follow-up for an omitted check used normal priority instead of retaining the earlier safety priority.",
+    "correction": "Carry earlier safety priority into changed/omitted-scope and retained historical follow-ups."
+  }
 }

@@ -77,17 +77,18 @@ def revision(root,job,prior,old_brief,old_job,rows):
     old_context=contexts(prior,old_job);current_context=contexts(root,job)
     old={item_key(r):r for r in old_brief['items'] if r['kind']!='revision_follow_up'}
     current={item_key(r):r for r in rows};transitions=[];changes=[]
-    def follow(drawing,finding,detail):
+    def follow(drawing,finding,detail,priority='normal'):
         rows.append(dict(drawing=drawing,kind='revision_follow_up',status='needs_assessment',finding=finding,
             next_action='Reconcile this earlier finding against its retained scope and the current evidence; closure is not established.',
-            suggested_role='Responsible engineer / drawing custodian',owner=None,disposition='pending',priority='normal',
+            suggested_role='Responsible engineer / drawing custodian',owner=None,disposition='pending',priority=priority,
             evidence='previous/BRIEF.md',detail=detail,review_required=True,needs_attention=True))
     for key,context in old_context.items():
         latest=current_context.get(key)
         status='not_reassessed' if latest is None else 'basis_changed' if latest['basis']!=context['basis'] else 'same_basis'
         if status!='same_basis':
             detail=dict(drawing=key[0],check=key[1],status=status,previous_basis=context['basis'],current_basis=latest['basis'] if latest else None)
-            changes.append(detail);follow(key[0],key[1]+': '+status.replace('_',' ')+'; earlier findings remain open for reconciliation',detail)
+            priority='safety' if any(r['priority']=='safety' for k,r in old.items() if k[:2]==key) else 'normal'
+            changes.append(detail);follow(key[0],key[1]+': '+status.replace('_',' ')+'; earlier findings remain open for reconciliation',detail,priority)
     for key,previous in old.items():
         latest=current.get(key);context=current_context.get(key[:2]);basis=old_context[key[:2]]['basis']
         evidence=None
@@ -104,14 +105,14 @@ def revision(root,job,prior,old_brief,old_job,rows):
             elif previous['kind']=='cad_attribute':
                 matches=[r for r in context['report']['asset_attributes'] if r['id']==previous['detail']['id'] and r['attribute']==previous['detail']['attribute']]
                 if len(matches)==1 and matches[0]['status']=='unchanged':status='unchanged_from_original';evidence=matches[0]
-            if status=='not_reassessed':follow(key[0],'Earlier finding not established by current evidence: '+previous['finding'],dict(previous=previous,current_evidence=evidence))
+            if status=='not_reassessed':follow(key[0],'Earlier finding not established by current evidence: '+previous['finding'],dict(previous=previous,current_evidence=evidence),previous['priority'])
         transitions.append(dict(drawing=key[0],kind=previous['kind'],finding=previous['finding'],previous_status=previous['status'],
             current_status=status,previous=previous,current=latest,current_source_check=evidence,engineering_closure='pending'))
     for key,row in current.items():
         if key not in old:transitions.append(dict(drawing=key[0],kind=row['kind'],finding=row['finding'],previous_status=None,
             current_status=row['status'],previous=None,current=row,current_source_check=None,engineering_closure='pending'))
     for row in old_brief['items']:
-        if row['kind']=='revision_follow_up':follow(row['drawing'],row['finding'],dict(retained_previous_follow_up=row))
+        if row['kind']=='revision_follow_up':follow(row['drawing'],row['finding'],dict(retained_previous_follow_up=row),row['priority'])
     return dict(schema='drawing-receiving-revision-1',previous_brief='previous/BRIEF.md',basis_changes=changes,items=transitions,
         boundary='These are changes in source-supported software findings. Missing findings are not closure; authorized engineering dispositions remain pending.')
 

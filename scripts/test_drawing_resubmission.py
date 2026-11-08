@@ -64,6 +64,12 @@ class Resubmission(unittest.TestCase):
         self.assertTrue(any(r['kind']=='revision_follow_up' and r['needs_attention'] for r in brief['items']))
         self.assertTrue(any(r['kind']=='cad_preservation' and r['current_status']=='not_reassessed' for r in brief['revision']['items']))
 
+    def test_omitted_safety_scope_stays_first_in_the_review_queue(self):
+        job=copy.deepcopy(self.job);job['drawings']=job['drawings'][1:]
+        brief=self.run_job('omitted-safety-scope',job)
+        self.assertEqual(brief['items'][0]['kind'],'revision_follow_up')
+        self.assertEqual(brief['items'][0]['priority'],'safety')
+
     def test_output_inside_previous_packet_refuses_without_changing_it(self):
         prior=self.root/'nested-output-prior';shutil.copytree(self.prior,prior)
         before=receiving.packet_files(prior)
