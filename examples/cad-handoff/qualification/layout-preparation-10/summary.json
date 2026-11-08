@@ -1,0 +1,170 @@
+{
+  "schema": "cad-layout-preparation-ten-summary-1",
+  "whole_cad_qualified": false,
+  "exposure": "All inputs exposed development; no fresh validation",
+  "structural_cases": 21,
+  "minimal_proposals": 5,
+  "exact_noops": 14,
+  "unsupported_r12_refusals": 2,
+  "verified_profile_paper_images": 25,
+  "native_field_values_verified": 330,
+  "semantic_input_controls": 17,
+  "receiving_controls": 2,
+  "prepared_to_candidate_strict_unexpected": 0,
+  "prepared_to_candidate_unplanned_bytes": 0,
+  "original_to_route_strict_counts": [
+    {
+      "id": "validation-braces-original",
+      "differences": 0
+    },
+    {
+      "id": "validation-braces-library",
+      "differences": 0
+    },
+    {
+      "id": "validation-braces-library-main",
+      "differences": 2
+    },
+    {
+      "id": "validation-braces-prepared",
+      "differences": 1
+    },
+    {
+      "id": "validation-braces-candidate",
+      "differences": 3
+    },
+    {
+      "id": "validation-cp1251-original",
+      "differences": 0
+    },
+    {
+      "id": "validation-cp1251-library",
+      "differences": 0
+    },
+    {
+      "id": "validation-cp1251-library-main",
+      "differences": 2
+    },
+    {
+      "id": "validation-cp1251-prepared",
+      "differences": 1
+    },
+    {
+      "id": "validation-cp1251-candidate",
+      "differences": 3
+    },
+    {
+      "id": "validation-foreign-original",
+      "differences": 0
+    },
+    {
+      "id": "validation-foreign-library",
+      "differences": 0
+    },
+    {
+      "id": "validation-foreign-library-main",
+      "differences": 2
+    },
+    {
+      "id": "validation-foreign-prepared",
+      "differences": 1
+    },
+    {
+      "id": "validation-foreign-candidate",
+      "differences": 4
+    },
+    {
+      "id": "validation-long-original",
+      "differences": 0
+    },
+    {
+      "id": "validation-long-library",
+      "differences": 0
+    },
+    {
+      "id": "validation-long-library-main",
+      "differences": 2
+    },
+    {
+      "id": "validation-long-prepared",
+      "differences": 1
+    },
+    {
+      "id": "validation-long-candidate",
+      "differences": 2
+    },
+    {
+      "id": "validation-unicode-original",
+      "differences": 0
+    },
+    {
+      "id": "validation-unicode-library",
+      "differences": 0
+    },
+    {
+      "id": "validation-unicode-library-main",
+      "differences": 2
+    },
+    {
+      "id": "validation-unicode-prepared",
+      "differences": 1
+    },
+    {
+      "id": "validation-unicode-candidate",
+      "differences": 4
+    }
+  ],
+  "library_main_to_minimal_prepared_pixels": [
+    {
+      "batch": "native-2",
+      "case_id": "validation-braces",
+      "before": "library-main",
+      "after": "prepared",
+      "different_pixels": 0,
+      "bbox": null
+    },
+    {
+      "batch": "native-2",
+      "case_id": "validation-cp1251",
+      "before": "library-main",
+      "after": "prepared",
+      "different_pixels": 0,
+      "bbox": null
+    },
+    {
+      "batch": "native-2",
+      "case_id": "validation-foreign",
+      "before": "library-main",
+      "after": "prepared",
+      "different_pixels": 0,
+      "bbox": null
+    },
+    {
+      "batch": "native-2",
+      "case_id": "validation-long",
+      "before": "library-main",
+      "after": "prepared",
+      "different_pixels": 0,
+      "bbox": null
+    },
+    {
+      "batch": "native-2",
+      "case_id": "validation-unicode",
+      "before": "library-main",
+      "after": "prepared",
+      "different_pixels": 0,
+      "bbox": null
+    }
+  ],
+  "published_images": {
+    "original-paper.png": "native-2/native/validation-unicode-original.png",
+    "proposed-paper.png": "native-2/native/validation-unicode-prepared.png",
+    "candidate-paper.png": "native-2/native/validation-unicode-candidate.png"
+  },
+  "limits": [
+    "Separate proposed source revision, never automatic adoption",
+    "Original five layout and native full-save failures remain failures",
+    "Trial marks overlap content; original foreign/unicode labels clip at original top viewport edge",
+    "Original typography, complete readable review, fresh validation, native edit/save/reopen and revision acceptance remain separate gates"
+  ]
+}
