@@ -61,10 +61,25 @@ def run(initial,out):
                                     'Clarify the illegible instruction.' if status=='not_verifiable' else 'Resolve the requested baseline/intent.')
         if item['priority']=='safety':action='Safety review remains required even though current readings support the request.'
         rows.append(dict(id=item['id'],request=item['text'],previous=old[item['id']]['status'],current=status,priority=item['priority'],
-                         next_action=action,engineering_closure='pending',owner=None,current_evidence='corrected/REPORT.html'))
+                         next_action=action,engineering_closure='pending',owner=None,current_evidence='corrected/REPORT.html',
+                         source_checks=item['checks'],request_evidence=item['evidence']))
+    baseline_questions=[dict(request=row['id'],key=check['key'],requested_before=check['before'],
+                        observed_original=check['original'],observed_return=check['returned'])
+                        for row in rows for check in row['source_checks'] if check['status']=='baseline_mismatch']
+    coverage_actions=[dict(key=gap['key'],original=gap['original'],returned=gap['returned'],owner=None,
+                      next_action='Obtain a source-bound current reading; do not infer preservation or removal from an absent observation.')
+                      for gap in current['other_fact_coverage_gaps']]
+    check('baseline question retains requested and observed values',len(baseline_questions)==1 and baseline_questions[0]['request']=='M06' and
+          baseline_questions[0]['requested_before']=='duty' and baseline_questions[0]['observed_original']['value']=='standby' and
+          baseline_questions[0]['observed_return']['value']=='standby')
+    check('coverage action retains the actual unknown material',len(coverage_actions)==1 and
+          coverage_actions[0]['key']['subject']=='FV-101' and coverage_actions[0]['key']['name']=='material' and
+          coverage_actions[0]['original']['value']=='316' and coverage_actions[0]['returned']['state']=='unknown' and
+          not coverage_actions[0]['returned']['observations'])
     report=dict(schema='drawing-handoff-revision-rehearsal-1',release_accepted=False,authorized_decision='pending',items=rows,
                 initial_return_sha256=old_return['sha256'],current_return_sha256=new_return['sha256'],
                 current_other_observed_changes=current['other_observed_changes'],current_coverage_gaps=current['other_fact_coverage_gaps'],
+                baseline_questions=baseline_questions,coverage_actions=coverage_actions,
                 separate_cad_strict_differences=cad['strict_difference_count'],cad_finding_resolved=False,
                 scope='Existing exposed fictional returns with authored readings; actual comparison, not independent image reading or engineering closure')
     write(out/'revision.json',report)
@@ -77,7 +92,16 @@ def run(initial,out):
     for row in rows:
         values=[row['id']+': '+row['request'],labels[row['previous']],labels[row['current']],row['next_action']]
         md.append('| '+' | '.join(value.replace('|','&#124;').replace('\n',' ') for value in values)+' |')
-    md += ['',f"Other current observed changes: {len(current['other_observed_changes'])}. Current coverage gaps: {len(current['other_fact_coverage_gaps'])}. Follow their complete evidence in revision.json and the corrected packet.",
+    def reading(value):
+        return json.dumps(value.get('value'),ensure_ascii=True) if value['state']=='known' else value['state']+' ('+value.get('reason','unresolved reading')+')'
+    md += ['', '**Clarify the baseline**', '']
+    for question in baseline_questions:
+        md.append(f"- {question['request']}: the instruction starts from {json.dumps(question['requested_before'])}; the original reads {reading(question['observed_original'])} and the return reads {reading(question['observed_return'])}. Confirm the intended change and correct baseline; a matching return alone does not resolve the instruction.")
+    md += ['', '**Obtain the missing evidence**', '']
+    for gap in coverage_actions:
+        key=gap['key']
+        md.append(f"- {key['sheet']} / {key['subject']} / {key['name']}: original {reading(gap['original'])}; return {reading(gap['returned'])}. {gap['next_action']}")
+    md += ['',f"Other current observed changes: {len(current['other_observed_changes'])}. Current coverage gaps: {len(current['other_fact_coverage_gaps'])}. revision.json retains each request's full current source checks, original/return observations and locations; follow the corrected packet for the source files.",
            'The separate CAD preservation finding remains unresolved at 335 strict differences. This P&ID correction does not close it.',
            'All engineering closure decisions remain pending and owners unassigned. The old packet and old findings are retained.',
            'The deliberate new-source/old-reading control refused; updating the manifest alone cannot carry findings onto a new return.']
