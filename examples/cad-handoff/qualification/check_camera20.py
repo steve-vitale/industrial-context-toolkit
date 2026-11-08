@@ -86,7 +86,7 @@ def pixels(job,rows,basis,out):
                 result.append(dict(mode=mode,frame=frame,left=left,right=right,exact_camera_status='failed'if different else'pass',camera_differences=different,diagnostic_only=bool(different),pixel_status='pass'if measures['outside_region']==0 else'failed',**measures))
     return result
 
-def receive_job(job,out):
+def receive_job(job,out,diagnostic_observer_errors=False):
     basis=read(job/'job.json');case=basis['case']
     require(case in CASES and basis['role']=='receiving','Camera case/role differs')
     original=read(HERE/'native-ui-pairs-19/evidence'/case/'INVENTORY.json')['files']
@@ -114,7 +114,14 @@ def receive_job(job,out):
     require(not any(r['kind']=='returned_file'for r in actions),'Read-only camera job saved a drawing')
     observations=[r['reply']for r in actions if r['kind']=='native_observation']
     require([r['request']['seq']for r in observations]==list(range(1,len(observations)+1)),'Camera observation missing/reordered')
-    require({p.name for p in(job/'replies').glob('*.json')}=={str(r['request']['seq'])+'.json'for r in observations},'Camera reply coverage differs')
+    expected_replies={str(r['request']['seq'])+'.json'for r in observations}
+    actual_replies={p.name for p in(job/'replies').glob('*.json')};saved_errors=[]
+    if actual_replies!=expected_replies:
+        require(diagnostic_observer_errors and expected_replies<=actual_replies,'Camera reply coverage differs')
+        for name in sorted(actual_replies-expected_replies):
+            error=read(job/'replies'/name)
+            require(isinstance(error,dict)and set(error)<=set(('request','error'))and isinstance(error.get('error'),str)and bool(error['error']),'Unrecognized extra reply; diagnostic cannot verify coverage')
+            saved_errors.append(dict(path='replies/'+name,sha256=sha(job/'replies'/name),record=error))
     before=basis['attributes'];after=dict(before,MANUFACTURER='QUAL-AFTER')
     for r in observations:
         require(equal(r,read(job/'replies'/(str(r['request']['seq'])+'.json'))),'Camera raw reply differs from actions')
@@ -132,10 +139,16 @@ def receive_job(job,out):
         require(equal(actual,row['observed']),'Camera actual field tree differs')
     rows,image_count=captures(job,actions,basis,observations)
     comparisons=pixels(job,rows,basis,out)
-    return dict(case=case,scope='Exposed read-only camera repeat; original native save failures unchanged',whole_cad_qualified=False,
+    result=dict(case=case,scope='Exposed read-only camera repeat; original native save failures unchanged',whole_cad_qualified=False,
                 fields=len(fields),observations=len(observations),views=len(rows),images=image_count,native_exit=process['exit'],controller_exit=process['controller_exit'],pixels=comparisons)
+    if diagnostic_observer_errors:
+        result['diagnostic_observer_errors']=dict(status='failed'if saved_errors else'pass',saved_errors=saved_errors,
+            error_history='A fixed unknown-error filename may overwrite earlier errors; saved file proves at least one, not the total occurrence count',qualification=False)
+        for pair in comparisons:
+            pair['diagnostic_only']=True;pair['diagnostic_reasons']=['Explicit observer-error diagnostic mode']
+    return result
 
-def receive_packet(packet,out):
+def receive_packet(packet,out,diagnostic_observer_errors=False):
     manifest=read(packet/'INVENTORY.json')
     require(manifest['packager_sha256']==sha(HERE/'package_ui19.py'),'Camera archive writer changed')
     root=unpack(packet,out/'unpacked');job=root/'job';case=read(job/'job.json')['case']
@@ -173,12 +186,14 @@ def receive_packet(packet,out):
     require(actual in (submitted,normalized),'Camera launch mount is not the observed directory')
     expected[expected.index('--mount')+1]=mount_arg
     require(command==expected,'Camera actual launch command differs')
-    return receive_job(job,out/'pixels')
+    return receive_job(job,out/'pixels',diagnostic_observer_errors)
 
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('job',type=Path);p.add_argument('out',type=Path);p.add_argument('--packet',action='store_true');a=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('job',type=Path);p.add_argument('out',type=Path);p.add_argument('--packet',action='store_true')
+    p.add_argument('--diagnostic-observer-errors',action='store_true',help='Retain extra error replies as failed; all image comparisons remain diagnostic, never a clean receive')
+    a=p.parse_args()
     a.out.mkdir(parents=True)
-    result=receive_packet(a.job,a.out)if a.packet else receive_job(a.job,a.out/'pixels')
+    result=receive_packet(a.job,a.out,a.diagnostic_observer_errors)if a.packet else receive_job(a.job,a.out/'pixels',a.diagnostic_observer_errors)
     (a.out/'RESULT.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
     print(json.dumps({k:v for k,v in result.items()if k!='pixels'}))
 if __name__=='__main__':main()

@@ -1,0 +1,12 @@
+{
+  "command": [
+    "C:\\Python314\\python.exe",
+    "C:\\Users\\Steve\\industrial-context-toolkit\\examples\\cad-handoff\\qualification\\check_camera20.py",
+    "C:\\Users\\Steve\\.cp-scratch\\cad-native-ui-pairs-19\\camera-packets-1\\qcad-template",
+    "C:\\Users\\Steve\\.cp-scratch\\cad-native-ui-pairs-19\\camera-final-replay-2\\qcad-template",
+    "--packet"
+  ],
+  "exit": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\Steve\\industrial-context-toolkit\\examples\\cad-handoff\\qualification\\check_camera20.py\", line 184, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"C:\\Users\\Steve\\industrial-context-toolkit\\examples\\cad-handoff\\qualification\\check_camera20.py\", line 181, in main\n    result=receive_packet(a.job,a.out)if a.packet else receive_job(a.job,a.out/'pixels')\n           ~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\Steve\\industrial-context-toolkit\\examples\\cad-handoff\\qualification\\check_camera20.py\", line 176, in receive_packet\n    return receive_job(job,out/'pixels')\n  File \"C:\\Users\\Steve\\industrial-context-toolkit\\examples\\cad-handoff\\qualification\\check_camera20.py\", line 117, in receive_job\n    require({p.name for p in(job/'replies').glob('*.json')}=={str(r['request']['seq'])+'.json'for r in observations},'Camera reply coverage differs')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Steve\\industrial-context-toolkit\\examples\\cad-handoff\\qualification\\ui19_archive.py\", line 8, in require\n    if not test:raise ValueError(message)\n                ^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: Camera reply coverage differs\n"
+}
