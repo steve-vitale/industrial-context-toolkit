@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "python",
+    "$ROOT\\scripts\\cad_value_patch.py",
+    "$OUT\\concurrent\\candidate.dxf",
+    "$OUT\\stale-before-plan.json",
+    "--out",
+    "$OUT\\stale-before"
+  ],
+  "expected_exit": 2
+}

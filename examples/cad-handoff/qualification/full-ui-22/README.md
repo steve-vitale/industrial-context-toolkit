@@ -164,3 +164,20 @@ network or model call is needed. These are exposed model-view development result
 Paper/layout receiving, complete revision/conflict and planted-loss work, final
 method freezing and fresh reserved transfer remain open. Native full-save
 preservation still fails at 322/321 differences; visual equality does not waive it.
+
+## Multi-asset revision and planted losses
+
+The [revision decision brief](REVISION-LOSS-BRIEF.md) adds a complete exposed
+software rehearsal on both sources: original proposal, simulated concurrent
+return, stale refusals, explicit second plan and draft map revision. Thirty-two
+actual CLI calls reproduce; each return retains two separate findings, and the
+selected result still reports the unrequested SERIAL against the original plan.
+Twelve single raw planted losses are detected by both unchanged strict and
+independent byte checks. Seven admission/refusal conditions per case include
+output collision and ambiguous target serialization. Full commands, returned
+files and exact control mutations are retained in [revision-loss-1](revision-loss-1/RESULT.json).
+
+This fills the exposed software branch/loss exercise. The concurrent branch was
+authored by the patcher, so actual native manual-edit/revision receiving remains
+open, alongside paper/layout, final-method freezing and fresh reserved transfer.
+It supplies no installed-state or engineering acceptance.

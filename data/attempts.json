@@ -6146,6 +6146,25 @@
         "examples/cad-handoff/qualification/full-ui-22/recheck_waiting.py",
         "docs/JOURNAL.md#214-complete-exposed-model-receiving-and-bind-projected-fields-to-the-dxf"
       ]
+    },
+    {
+      "id": "A374",
+      "function": "intake_and_reuse",
+      "date": "2026-11-08",
+      "hypothesis": "A selected second CAD plan must not hide a concurrent change outside the original request, and single raw losses must remain detectable on both exposed multi-asset sources.",
+      "change": "Freeze and execute the two-source revision/loss rehearsal, keeping original scope, explicit selection, exact source-backed context and matched preservation controls.",
+      "evidence": "32 actual CLI calls pass and reproduce in a new folder. Each simulated return retains a MODEL disagreement plus an unrequested SERIAL; two stale proposals and five admission/collision conditions refuse per case. Selected plan strict/independent bytes pass, while original-plan comparison retains one SERIAL difference. Twelve single raw losses each yield one strict difference and byte-check refusal. Both draft maps retain two assets, every field and exact drawings.",
+      "runs": "Two exposed authored cases, then complete matched replay; no native launch or model call",
+      "verdict": "kept",
+      "why": "Useful receiving behavior without erasing original scope or changing strict/byte methods. Concurrent branches are authored by software; native manual-edit, paper/layout and fresh reserved qualification remain required.",
+      "source": [
+        "examples/cad-handoff/qualification/full-ui-22/REVISION-LOSS-PLAN.md",
+        "examples/cad-handoff/qualification/full-ui-22/REVISION-LOSS-METHODS-1.json",
+        "examples/cad-handoff/qualification/full-ui-22/revision_losses.py",
+        "examples/cad-handoff/qualification/full-ui-22/revision-loss-1/RESULT.json",
+        "examples/cad-handoff/qualification/full-ui-22/REVISION-LOSS-BRIEF.md",
+        "docs/JOURNAL.md#215-keep-the-original-request-visible-through-a-selected-cad-revision"
+      ]
     }
   ],
   "not_tried": [
@@ -7563,13 +7582,14 @@
       "function": "intake_and_reuse",
       "status": "not-done",
       "idea": "Freeze and qualify the corrected complete native CAD workflow on fresh reserved cases with foreign/literal/encoding fields, multiple assets and revision/conflict checks.",
-      "why_not_yet": "Complete exposed multi-asset native edit/save/reopen, all-file fresh model receiving and exact model pixels now reproduce under full-ui-22. Original failed attempts, strict full-save differences, host-history refusals and unchanged strict/byte gates remain retained. Paper/layout receiving, complete revision/conflict and planted CAD-loss checks, final-method freeze and newly reserved transfer remain required. No plant or engineering acceptance is inferred.",
+      "why_not_yet": "Complete exposed multi-asset native edit/save/reopen, all-file fresh model receiving, exact model pixels and software revision/planted-loss rehearsals reproduce under full-ui-22. Original failed attempts, strict full-save differences, host-history refusals and unchanged strict/byte gates remain retained. Actual native concurrent manual-edit/revision receiving, paper/layout, final-method freeze and newly reserved transfer remain required. No plant or engineering acceptance is inferred.",
       "source": [
         "examples/cad-handoff/qualification/PROTOCOL.md",
         "examples/cad-handoff/qualification/observer-transport-21/README.md",
         "docs/JOURNAL.md#210-yield-the-native-event-loop-and-receive-the-entire-transport-campaign",
         "examples/cad-handoff/qualification/full-ui-22/README.md",
-        "docs/JOURNAL.md#214-complete-exposed-model-receiving-and-bind-projected-fields-to-the-dxf"
+        "docs/JOURNAL.md#214-complete-exposed-model-receiving-and-bind-projected-fields-to-the-dxf",
+        "examples/cad-handoff/qualification/full-ui-22/REVISION-LOSS-BRIEF.md"
       ]
     }
   ]

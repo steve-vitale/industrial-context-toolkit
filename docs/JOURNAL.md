@@ -9499,3 +9499,34 @@ pixel results/difference images and inspected-view hashes. Paper/layout, complet
 revision/conflict and planted-loss work, final-method freezing and fresh reserved
 transfer remain open. Native strict preservation remains failed. CI on 3e61e9f
 passes; the later projection/receiving additions require their own exact-head CI.
+
+## 215. Keep the original request visible through a selected CAD revision
+
+The complete adc6af8 commit passes both PR and push Linux CI, including the full
+cached-data suite and snapshot MCP jobs. The next bounded development exercise
+freezes its plan at 55bfe9b and implementation/method bindings at 04a93e9 before
+execution. It reuses both exposed full-ui-22 sources; no reserved input is admitted.
+
+Thirty-two actual CLI calls complete, then reproduce in a second new folder.
+Each fictional concurrent return supports one requested MODEL, disagrees with
+the other and changes a SERIAL outside the original plan. Both stale hash and
+stale before-value proposals refuse without output. A separately bound second
+plan explicitly selects the requested MODEL and retains the concurrent SERIAL.
+Strict and independent byte checks pass against that selected plan, but one
+unexpected SERIAL remains against the original request. Two-asset draft map
+projections and their change records retain all fields and both exact sources.
+This is supplied fictional branch selection, not an automatic merge, actual
+field observation, native human edit or company acceptance.
+
+All twelve individual raw losses are detected: geometry, layer, style, foreign
+attribute, foreign XDATA and block geometry on each source. Each yields exactly
+one strict difference and an independent byte-reconstruction refusal beside the
+passing unchanged candidate. Identity, duplicate-target, newline, ambiguous
+serialization and output-collision controls also refuse; existing outputs remain
+exact. The manager-facing brief keeps technical selection and the original scope
+question separate. Complete source packets, mutations and command outcomes are
+retained in `full-ui-22/revision-loss-1`; CI reproduces its stable result.
+
+This completes an exposed software revision/loss rehearsal. Native concurrent
+manual-edit receiving, paper/layout, final-method freezing and fresh reserved
+transfer remain open. Native full saves still fail the strict preservation gate.

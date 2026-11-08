@@ -105,6 +105,12 @@ The [corrected-return rehearsal](../examples/drawing-handoff/next-return-2/REVIS
 shows a useful partial closeout: five requests supported by current readings,
 two still open, safety review pending and a separate CAD finding still unresolved.
 
+For concurrent edits, the [two-asset revision rehearsal](../examples/cad-handoff/qualification/full-ui-22/REVISION-LOSS-BRIEF.md)
+shows why the original scope must stay visible: a selected second plan passes
+its own comparison while an unrequested SERIAL remains a difference against
+the original request. Keep that question for the responsible reviewer; changing
+the baseline does not approve it.
+
 For a first trial, compare an agent-assisted review with an engineer's normal
 review on the same bounded transmittal. Record preparation, review and correction
 effort separately, missed/false findings and remaining uncertainty. No timing or

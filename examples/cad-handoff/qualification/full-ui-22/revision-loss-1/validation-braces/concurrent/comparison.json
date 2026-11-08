@@ -1,0 +1,32 @@
+{
+  "schema": "cad-comparison-1",
+  "before_sha256": "614e83380bbe667c727363f02d32519b3340439028f0acd72807c82a45224abe",
+  "after_sha256": "214ef337a42e21c730bccdc93f49ab27e7e74abe6659212b019b730b684bf4c2",
+  "status": "pass",
+  "expected_edits": [
+    {
+      "id": "validation-braces/asset-1",
+      "attribute": "MODEL",
+      "before": "Assembly {C}",
+      "after": "OTHER-CHOICE",
+      "reason": "Authored qualification edit, not an installed equipment claim"
+    },
+    {
+      "id": "validation-braces/asset-2",
+      "attribute": "MODEL",
+      "before": "Assembly {C}",
+      "after": "Assembly {D}",
+      "reason": "Authored qualification edit, not an installed equipment claim"
+    },
+    {
+      "id": "validation-braces/asset-2",
+      "attribute": "SERIAL",
+      "before": "UNCHANGED-1",
+      "after": "FIELD-OBSERVED",
+      "reason": "Fictional concurrent branch; not an observed installed serial"
+    }
+  ],
+  "unexpected": [],
+  "save_metadata_changed": true,
+  "boundary": "All ezdxf-exported entity tags including block definitions, attributes, layers and objects; all headers except listed save metadata and the two named EZDXF_META writer values. Same handles required. This is not a byte-identical DXF or proprietary project database/visual/engineering acceptance."
+}

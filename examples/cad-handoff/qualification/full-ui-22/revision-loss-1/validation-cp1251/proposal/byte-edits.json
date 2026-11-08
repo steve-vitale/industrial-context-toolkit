@@ -1,0 +1,32 @@
+{
+  "schema": "cad-value-spans-1",
+  "spans": [
+    {
+      "handle": "41",
+      "id": "validation-cp1251/asset-1",
+      "attribute": "MODEL",
+      "source_start": 14432,
+      "source_end": 14441,
+      "before_hex": "c4e2e8e3e0f2e5ebfc",
+      "after_hex": "cceef2eef0",
+      "candidate_start": 14432,
+      "candidate_end": 14437
+    },
+    {
+      "handle": "4B",
+      "id": "validation-cp1251/asset-2",
+      "attribute": "MODEL",
+      "source_start": 16454,
+      "source_end": 16463,
+      "before_hex": "c4e2e8e3e0f2e5ebfc",
+      "after_hex": "cceef2eef0",
+      "candidate_start": 16450,
+      "candidate_end": 16455
+    }
+  ],
+  "source_sha256": "2044da26edd9188d07300f6b8f2abf4053956f31a7827bba488ec02c1351e158",
+  "candidate_sha256": "1f78177f035dda54c25a26c55d727e5bde3f3e51f219a33dc1f35c5c90b49566",
+  "outside_spans": "identical bytes; source reconstruction passed",
+  "route": "source-preserving value edit; native-return changes are not imported",
+  "native_acceptance": "not established"
+}

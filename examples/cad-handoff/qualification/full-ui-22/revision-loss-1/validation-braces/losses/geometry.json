@@ -1,0 +1,147 @@
+{
+  "mutation": {
+    "type": "LINE",
+    "handle": "51",
+    "group": 10,
+    "before_hex": "302e30",
+    "after_hex": "312e3235",
+    "operation": "replace value"
+  },
+  "comparison": {
+    "schema": "cad-comparison-1",
+    "before_sha256": "614e83380bbe667c727363f02d32519b3340439028f0acd72807c82a45224abe",
+    "after_sha256": "20c483c55d95ffea0e5a0a5407d7796cf83110a0836a10c61f57cafbdc01fc8c",
+    "status": "differences",
+    "expected_edits": [
+      {
+        "id": "validation-braces/asset-1",
+        "attribute": "MODEL",
+        "before": "Assembly {C}",
+        "after": "Assembly {D}",
+        "reason": "Authored qualification edit, not an installed equipment claim"
+      },
+      {
+        "id": "validation-braces/asset-2",
+        "attribute": "MODEL",
+        "before": "Assembly {C}",
+        "after": "Assembly {D}",
+        "reason": "Authored qualification edit, not an installed equipment claim"
+      }
+    ],
+    "unexpected": [
+      {
+        "kind": "entity",
+        "handle": "51",
+        "before": {
+          "type": "LINE",
+          "tags": [
+            [
+              0,
+              "LINE"
+            ],
+            [
+              5,
+              "51"
+            ],
+            [
+              330,
+              "17"
+            ],
+            [
+              100,
+              "AcDbEntity"
+            ],
+            [
+              8,
+              "PIPE"
+            ],
+            [
+              100,
+              "AcDbLine"
+            ],
+            [
+              10,
+              0.0
+            ],
+            [
+              20,
+              20.0
+            ],
+            [
+              30,
+              0.0
+            ],
+            [
+              11,
+              110.0
+            ],
+            [
+              21,
+              20.0
+            ],
+            [
+              31,
+              0.0
+            ]
+          ]
+        },
+        "after": {
+          "type": "LINE",
+          "tags": [
+            [
+              0,
+              "LINE"
+            ],
+            [
+              5,
+              "51"
+            ],
+            [
+              330,
+              "17"
+            ],
+            [
+              100,
+              "AcDbEntity"
+            ],
+            [
+              8,
+              "PIPE"
+            ],
+            [
+              100,
+              "AcDbLine"
+            ],
+            [
+              10,
+              1.25
+            ],
+            [
+              20,
+              20.0
+            ],
+            [
+              30,
+              0.0
+            ],
+            [
+              11,
+              110.0
+            ],
+            [
+              21,
+              20.0
+            ],
+            [
+              31,
+              0.0
+            ]
+          ]
+        }
+      }
+    ],
+    "save_metadata_changed": true,
+    "boundary": "All ezdxf-exported entity tags including block definitions, attributes, layers and objects; all headers except listed save metadata and the two named EZDXF_META writer values. Same handles required. This is not a byte-identical DXF or proprietary project database/visual/engineering acceptance."
+  },
+  "byte_refusal": "Candidate differs from independent source-plus-plan reconstruction"
+}

@@ -1,0 +1,195 @@
+{
+  "mutation": {
+    "type": "INSERT",
+    "handle": "3D",
+    "group": 1000,
+    "before_hex": "666f726569676e206964656e746974792030",
+    "after_hex": "4c4f53542d5844415441",
+    "operation": "replace value"
+  },
+  "comparison": {
+    "schema": "cad-comparison-1",
+    "before_sha256": "2044da26edd9188d07300f6b8f2abf4053956f31a7827bba488ec02c1351e158",
+    "after_sha256": "84ad0fe39359568850c1c47848aef9286896d9c2321beb6cf4ec159d114b3644",
+    "status": "differences",
+    "expected_edits": [
+      {
+        "id": "validation-cp1251/asset-1",
+        "attribute": "MODEL",
+        "before": "\u0414\u0432\u0438\u0433\u0430\u0442\u0435\u043b\u044c",
+        "after": "\u041c\u043e\u0442\u043e\u0440",
+        "reason": "Authored qualification edit, not an installed equipment claim"
+      },
+      {
+        "id": "validation-cp1251/asset-2",
+        "attribute": "MODEL",
+        "before": "\u0414\u0432\u0438\u0433\u0430\u0442\u0435\u043b\u044c",
+        "after": "\u041c\u043e\u0442\u043e\u0440",
+        "reason": "Authored qualification edit, not an installed equipment claim"
+      }
+    ],
+    "unexpected": [
+      {
+        "kind": "entity",
+        "handle": "3D",
+        "before": {
+          "type": "INSERT",
+          "tags": [
+            [
+              0,
+              "INSERT"
+            ],
+            [
+              5,
+              "3D"
+            ],
+            [
+              102,
+              "{ACAD_XDICTIONARY"
+            ],
+            [
+              360,
+              "45"
+            ],
+            [
+              102,
+              "}"
+            ],
+            [
+              330,
+              "17"
+            ],
+            [
+              100,
+              "AcDbEntity"
+            ],
+            [
+              8,
+              "PIPE"
+            ],
+            [
+              100,
+              "AcDbBlockReference"
+            ],
+            [
+              66,
+              1
+            ],
+            [
+              2,
+              "ASSET"
+            ],
+            [
+              10,
+              15.0
+            ],
+            [
+              20,
+              20.0
+            ],
+            [
+              30,
+              0.0
+            ],
+            [
+              50,
+              210.0
+            ],
+            [
+              1001,
+              "FOREIGN_VENDOR"
+            ],
+            [
+              1000,
+              "foreign identity 0"
+            ],
+            [
+              1040,
+              4.125
+            ]
+          ]
+        },
+        "after": {
+          "type": "INSERT",
+          "tags": [
+            [
+              0,
+              "INSERT"
+            ],
+            [
+              5,
+              "3D"
+            ],
+            [
+              102,
+              "{ACAD_XDICTIONARY"
+            ],
+            [
+              360,
+              "45"
+            ],
+            [
+              102,
+              "}"
+            ],
+            [
+              330,
+              "17"
+            ],
+            [
+              100,
+              "AcDbEntity"
+            ],
+            [
+              8,
+              "PIPE"
+            ],
+            [
+              100,
+              "AcDbBlockReference"
+            ],
+            [
+              66,
+              1
+            ],
+            [
+              2,
+              "ASSET"
+            ],
+            [
+              10,
+              15.0
+            ],
+            [
+              20,
+              20.0
+            ],
+            [
+              30,
+              0.0
+            ],
+            [
+              50,
+              210.0
+            ],
+            [
+              1001,
+              "FOREIGN_VENDOR"
+            ],
+            [
+              1000,
+              "LOST-XDATA"
+            ],
+            [
+              1040,
+              4.125
+            ]
+          ]
+        }
+      }
+    ],
+    "save_metadata_changed": true,
+    "boundary": "All ezdxf-exported entity tags including block definitions, attributes, layers and objects; all headers except listed save metadata and the two named EZDXF_META writer values. Same handles required. This is not a byte-identical DXF or proprietary project database/visual/engineering acceptance."
+  },
+  "byte_refusal": "Candidate differs from independent source-plus-plan reconstruction"
+}
