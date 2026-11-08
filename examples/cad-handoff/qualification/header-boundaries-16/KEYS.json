@@ -1,0 +1,297 @@
+{
+  "known_variables": [
+    "ANGBASE",
+    "ANGDIR",
+    "ATTMODE",
+    "AUNITS",
+    "AUPREC",
+    "CECOLOR",
+    "CELTSCALE",
+    "CHAMFERA",
+    "CHAMFERB",
+    "CHAMFERC",
+    "CHAMFERD",
+    "CLAYER",
+    "CMLJUST",
+    "CMLSCALE",
+    "DIMADEC",
+    "DIMALT",
+    "DIMALTD",
+    "DIMALTF",
+    "DIMALTRND",
+    "DIMALTTD",
+    "DIMALTTZ",
+    "DIMALTU",
+    "DIMALTZ",
+    "DIMAPOST",
+    "DIMASZ",
+    "DIMATFIT",
+    "DIMAUNIT",
+    "DIMAZIN",
+    "DIMBLK",
+    "DIMBLK1",
+    "DIMBLK2",
+    "DIMCEN",
+    "DIMCLRD",
+    "DIMCLRE",
+    "DIMCLRT",
+    "DIMDEC",
+    "DIMDLE",
+    "DIMDLI",
+    "DIMDSEP",
+    "DIMEXE",
+    "DIMEXO",
+    "DIMFRAC",
+    "DIMGAP",
+    "DIMJUST",
+    "DIMLDRBLK",
+    "DIMLFAC",
+    "DIMLIM",
+    "DIMLUNIT",
+    "DIMLWD",
+    "DIMLWE",
+    "DIMPOST",
+    "DIMRND",
+    "DIMSAH",
+    "DIMSCALE",
+    "DIMSD1",
+    "DIMSD2",
+    "DIMSE1",
+    "DIMSE2",
+    "DIMSOXD",
+    "DIMTAD",
+    "DIMTDEC",
+    "DIMTFAC",
+    "DIMTIH",
+    "DIMTIX",
+    "DIMTM",
+    "DIMTOFL",
+    "DIMTOH",
+    "DIMTOL",
+    "DIMTOLJ",
+    "DIMTP",
+    "DIMTSZ",
+    "DIMTVP",
+    "DIMTXSTY",
+    "DIMTXT",
+    "DIMTZIN",
+    "DIMUPT",
+    "DIMZIN",
+    "DISPSILH",
+    "DWGCODEPAGE",
+    "DRAWORDERCTL",
+    "ELEVATION",
+    "EXTMAX",
+    "EXTMIN",
+    "FACETRES",
+    "FILLETRAD",
+    "FILLMODE",
+    "IMAGEFRAME",
+    "INSBASE",
+    "INSUNITS",
+    "ISOLINES",
+    "LIMCHECK",
+    "LIMMAX",
+    "LIMMIN",
+    "LTSCALE",
+    "LUNITS",
+    "LUPREC",
+    "MAXACTVP",
+    "MEASUREMENT",
+    "MIRRTEXT",
+    "ORTHOMODE",
+    "PDMODE",
+    "PDSIZE",
+    "PELEVATION",
+    "PELLIPSE",
+    "PEXTMAX",
+    "PEXTMIN",
+    "PINSBASE",
+    "PLIMCHECK",
+    "PLIMMAX",
+    "PLIMMIN",
+    "PLINEGEN",
+    "PLINEWID",
+    "PROXYGRAPHICS",
+    "PSLTSCALE",
+    "PUCSNAME",
+    "PUCSORG",
+    "PUCSXDIR",
+    "PUCSYDIR",
+    "QTEXTMODE",
+    "REGENMODE",
+    "SHADEDGE",
+    "SHADEDIF",
+    "SKETCHINC",
+    "SKPOLY",
+    "SPLFRAME",
+    "SPLINESEGS",
+    "SPLINETYPE",
+    "SURFTAB1",
+    "SURFTAB2",
+    "SURFTYPE",
+    "SURFU",
+    "SURFV",
+    "TEXTQLTY",
+    "TEXTSIZE",
+    "TEXTSTYLE",
+    "THICKNESS",
+    "TILEMODE",
+    "TRACEWID",
+    "TREEDEPTH",
+    "UCSNAME",
+    "UCSORG",
+    "UCSXDIR",
+    "UCSYDIR",
+    "UNITMODE",
+    "USERI1",
+    "USERI2",
+    "USERI3",
+    "USERI4",
+    "USERI5",
+    "USERR1",
+    "USERR2",
+    "USERR3",
+    "USERR4",
+    "USERR5",
+    "USRTIMER",
+    "VISRETAIN",
+    "WORLDVIEW"
+  ],
+  "dimension_variables": [
+    {
+      "name": "DIMSCALE",
+      "type": "VarTypeDouble"
+    },
+    {
+      "name": "DIMLFAC",
+      "type": "VarTypeDouble"
+    },
+    {
+      "name": "DIMTXT",
+      "type": "VarTypeDouble"
+    },
+    {
+      "name": "DIMGAP",
+      "type": "VarTypeDouble"
+    },
+    {
+      "name": "DIMASZ",
+      "type": "VarTypeDouble"
+    },
+    {
+      "name": "DIMDLI",
+      "type": "VarTypeDouble"
+    },
+    {
+      "name": "DIMEXE",
+      "type": "VarTypeDouble"
+    },
+    {
+      "name": "DIMEXO",
+      "type": "VarTypeDouble"
+    },
+    {
+      "name": "DIMTAD",
+      "type": "VarTypeInt"
+    },
+    {
+      "name": "DIMTIH",
+      "type": "VarTypeBool"
+    },
+    {
+      "name": "DIMTSZ",
+      "type": "VarTypeDouble"
+    },
+    {
+      "name": "DIMLUNIT",
+      "type": "VarTypeInt"
+    },
+    {
+      "name": "DIMDEC",
+      "type": "VarTypeInt"
+    },
+    {
+      "name": "DIMDSEP",
+      "type": "VarTypeInt"
+    },
+    {
+      "name": "DIMZIN",
+      "type": "VarTypeInt"
+    },
+    {
+      "name": "DIMAUNIT",
+      "type": "VarTypeInt"
+    },
+    {
+      "name": "DIMADEC",
+      "type": "VarTypeInt"
+    },
+    {
+      "name": "DIMAZIN",
+      "type": "VarTypeInt"
+    },
+    {
+      "name": "DIMCLRT",
+      "type": "VarTypeColor"
+    },
+    {
+      "name": "DIMBLK",
+      "type": "VarTypeInt"
+    },
+    {
+      "name": "DIMBLK1",
+      "type": "VarTypeInt"
+    },
+    {
+      "name": "DIMBLK2",
+      "type": "VarTypeInt"
+    }
+  ],
+  "layout_getters": [
+    "getName",
+    "getTabOrder",
+    "getMinLimits",
+    "getMaxLimits",
+    "getInsertionBase",
+    "getMinExtents",
+    "getMaxExtents",
+    "getPlotPaperMarginLeftMM",
+    "getPlotPaperMarginBottomMM",
+    "getPlotPaperMarginRightMM",
+    "getPlotPaperMarginTopMM",
+    "getPlotPaperSize",
+    "getPlotOrigin",
+    "getPlotWindowAreaMin",
+    "getPlotWindowAreaMax",
+    "getNumeratorCustomScale",
+    "getDenominatorCustomScale",
+    "getPlotPaperUnits",
+    "getPlotRotation",
+    "getPlotType",
+    "getUseStandardScale",
+    "getStandardScale",
+    "getStandardScaleType",
+    "getCanonicalMediaName"
+  ],
+  "sources": [
+    {
+      "path": "src/core/RS.h",
+      "url": "https://raw.githubusercontent.com/qcad/qcad/897079c2d11aaa0869f839a6cf5df8a937dbddbe/src/core/RS.h",
+      "bytes": 29164,
+      "sha256": "d06e0c157bce3613348268a8fad6d898adc51f852aa03ef16fb1931d3e7aa79b"
+    },
+    {
+      "path": "src/core/RDimStyle.cpp",
+      "url": "https://raw.githubusercontent.com/qcad/qcad/897079c2d11aaa0869f839a6cf5df8a937dbddbe/src/core/RDimStyle.cpp",
+      "bytes": 10849,
+      "sha256": "05b17387f8ab30060ea535c6b026e5d33eefd2ff2cd3daccd2132f5889f443f6"
+    },
+    {
+      "path": "src/core/RLayout.h",
+      "url": "https://raw.githubusercontent.com/qcad/qcad/897079c2d11aaa0869f839a6cf5df8a937dbddbe/src/core/RLayout.h",
+      "bytes": 11564,
+      "sha256": "5a0c02a1e713e0733753ee890d45c8ca5b527f1d0c34033ee28de6414c65b709"
+    }
+  ]
+}

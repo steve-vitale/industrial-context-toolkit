@@ -1,0 +1,1001 @@
+{
+  "archive": {
+    "path": "evidence.tar.xz",
+    "bytes": 259192,
+    "sha256": "2ae5fd0a499a4b61361b24b63bfde614931b6141df1c8e14889a823e3bf2ab29"
+  },
+  "raw_bytes": 57764702,
+  "files": {
+    "raw/FOLLOWUP-SOURCE.json": {
+      "bytes": 224,
+      "sha256": "9be2f7569273a497a2e4108154017b9d6f11922659787285866d194b5d7b9c3f"
+    },
+    "raw/HOST-LAUNCH-FAILURE.json": {
+      "bytes": 534,
+      "sha256": "a5ee93d500216227d7f7c1f14f8147b134f5dadf469684876e62570b4b2ca416"
+    },
+    "raw/METHODS.json": {
+      "bytes": 793,
+      "sha256": "4f040c60dd7b700c80075fac9ce62d4c3bad13dbbbc6e9af22b48c31972dea4f"
+    },
+    "raw/REASSEMBLY.json": {
+      "bytes": 2125,
+      "sha256": "d39800f9b244e7d0722abae1e4cdcc9b6bd7723322cddced94b1f2ab4a5c9b9c"
+    },
+    "raw/analysis-fresh-failure/RESULT.json": {
+      "bytes": 209,
+      "sha256": "fdfb9fc8b663c9115ee26206c23abe33cbe29bca3a3da954c5085fece5d042c2"
+    },
+    "raw/analysis-fresh-failure/analyze.py": {
+      "bytes": 11089,
+      "sha256": "058d953e96c073e6962fb39ed86179eac56b996addc6f7826e915c9de07dd933"
+    },
+    "raw/analysis-fresh-failure/stderr.txt": {
+      "bytes": 1369,
+      "sha256": "e6941db8f089d2fc5a9a6f3c390d4d19dc022f5340f160ebfd8cd333f5894877"
+    },
+    "raw/analysis-fresh-failure/stdout.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/analysis-syntax-failure/RESULT.json": {
+      "bytes": 209,
+      "sha256": "fdfb9fc8b663c9115ee26206c23abe33cbe29bca3a3da954c5085fece5d042c2"
+    },
+    "raw/analysis-syntax-failure/analyze.py": {
+      "bytes": 11088,
+      "sha256": "e6f6ed017edc86e4271c5e4ce8ffcbe1b66f34b6a01963989ef4a37910753b82"
+    },
+    "raw/analysis-syntax-failure/stderr.txt": {
+      "bytes": 345,
+      "sha256": "fdbcb39ae71d348aebb687a46058074e2b6954a0f0fac7bf57b4346ad5e8d438"
+    },
+    "raw/analysis-syntax-failure/stdout.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/attempt-1/CASES.json": {
+      "bytes": 899,
+      "sha256": "87cb2eee886f22649d358c37b13a870d86024e98e2b92d23c168a6d6eb141951"
+    },
+    "raw/attempt-1/CONTAINER-LOG.json": {
+      "bytes": 98,
+      "sha256": "3813c43a346e855def341aae9c291d3ae890353ebe77c489d5fda815e92cf7b4"
+    },
+    "raw/attempt-1/ENVIRONMENT.json": {
+      "bytes": 978,
+      "sha256": "e8e720eab0728c8cb3e4d2fe77ea00889cc4e56fb250ebf2da0de55122d7e4d2"
+    },
+    "raw/attempt-1/FREEZE.json": {
+      "bytes": 1547,
+      "sha256": "4a19688e4c39c817e6aeef48ef7dc2488f554681929416024857423b95055db7"
+    },
+    "raw/attempt-1/KEYS.json": {
+      "bytes": 5384,
+      "sha256": "7c630d851443c4ba71043c69c579fac92f1263a4895fb8842eabd43fa7284304"
+    },
+    "raw/attempt-1/SOURCES.json": {
+      "bytes": 4602,
+      "sha256": "5cdf7fc58a6229ff8fb2384cdaff2ed5c2bc219ab5c7690c3c5ba1e00d002661"
+    },
+    "raw/attempt-1/analysis/empty--OpenDesign.json": {
+      "bytes": 122,
+      "sha256": "9d19c25877d9d0d8439f9651f4bc1b3054461de015ebc1f15ba4fe26d146608c"
+    },
+    "raw/attempt-1/analysis/empty--dxflib.json": {
+      "bytes": 122,
+      "sha256": "9d19c25877d9d0d8439f9651f4bc1b3054461de015ebc1f15ba4fe26d146608c"
+    },
+    "raw/attempt-1/analysis/libre-air-water--OpenDesign-OpenDesign.json": {
+      "bytes": 857994,
+      "sha256": "c2a1d5956569f58ef00e065fea15aa52dc69d93dd8fb009446910a8e69c31acc"
+    },
+    "raw/attempt-1/analysis/libre-air-water--OpenDesign-dxflib.json": {
+      "bytes": 174,
+      "sha256": "abf8a7f61c9ad7e68e7378e05a9da3446c584527cc9dcf2425f086f2e42dfb91"
+    },
+    "raw/attempt-1/analysis/libre-air-water--dxflib-OpenDesign.json": {
+      "bytes": 177,
+      "sha256": "c845e04d6b0a6eab11e2bffbab8b869e74f87151cc87e6ea0516316121b3bdb6"
+    },
+    "raw/attempt-1/analysis/libre-air-water--dxflib-dxflib.json": {
+      "bytes": 174,
+      "sha256": "abf8a7f61c9ad7e68e7378e05a9da3446c584527cc9dcf2425f086f2e42dfb91"
+    },
+    "raw/attempt-1/analysis/libre-motion--OpenDesign-OpenDesign.json": {
+      "bytes": 861318,
+      "sha256": "f8056cee7cf3ceb13ba59ffc42062bcd04635909ca8a0fc3576afddcdaaee103"
+    },
+    "raw/attempt-1/analysis/libre-motion--OpenDesign-dxflib.json": {
+      "bytes": 174,
+      "sha256": "63df00241baf6ec173aefbc03e98336abe27835455c8c0b67618b573ef877e7d"
+    },
+    "raw/attempt-1/analysis/libre-motion--dxflib-OpenDesign.json": {
+      "bytes": 177,
+      "sha256": "c845e04d6b0a6eab11e2bffbab8b869e74f87151cc87e6ea0516316121b3bdb6"
+    },
+    "raw/attempt-1/analysis/libre-motion--dxflib-dxflib.json": {
+      "bytes": 174,
+      "sha256": "63df00241baf6ec173aefbc03e98336abe27835455c8c0b67618b573ef877e7d"
+    },
+    "raw/attempt-1/analysis/libre-power--OpenDesign-OpenDesign.json": {
+      "bytes": 854127,
+      "sha256": "f34dea33fcc8d971acdbf070d3e153fb1705673ed398e6d73f59003cf95fa745"
+    },
+    "raw/attempt-1/analysis/libre-power--OpenDesign-dxflib.json": {
+      "bytes": 174,
+      "sha256": "2e522953baa194f1cb9422fc75905bbc29f80d42dc85f7aa7fe11bdc2886e63b"
+    },
+    "raw/attempt-1/analysis/libre-power--dxflib-OpenDesign.json": {
+      "bytes": 177,
+      "sha256": "c845e04d6b0a6eab11e2bffbab8b869e74f87151cc87e6ea0516316121b3bdb6"
+    },
+    "raw/attempt-1/analysis/libre-power--dxflib-dxflib.json": {
+      "bytes": 174,
+      "sha256": "2e522953baa194f1cb9422fc75905bbc29f80d42dc85f7aa7fe11bdc2886e63b"
+    },
+    "raw/attempt-1/analysis/qcad-hydraulic--OpenDesign-OpenDesign.json": {
+      "bytes": 952908,
+      "sha256": "0c4c83e5f6b98d6018bc1276d465ceeddaaf90e37a3b3c81b5c0a28a227de081"
+    },
+    "raw/attempt-1/analysis/qcad-hydraulic--OpenDesign-dxflib.json": {
+      "bytes": 174,
+      "sha256": "282f53dd4753b066e4e7f3ab13397c9f9829fdb62149e8253d5d31d6dc89bde2"
+    },
+    "raw/attempt-1/analysis/qcad-hydraulic--dxflib-OpenDesign.json": {
+      "bytes": 122,
+      "sha256": "61ed0f4375deb5cecaa9fd555d59a00a282a9691962a3eb1d7c247cecdf80d92"
+    },
+    "raw/attempt-1/analysis/qcad-hydraulic--dxflib-dxflib.json": {
+      "bytes": 174,
+      "sha256": "282f53dd4753b066e4e7f3ab13397c9f9829fdb62149e8253d5d31d6dc89bde2"
+    },
+    "raw/attempt-1/analysis/qcad-mechanical--OpenDesign-OpenDesign.json": {
+      "bytes": 828392,
+      "sha256": "11311b1989db285639e90440fabdab662bd8181d565b1608e37371bad1d09e3d"
+    },
+    "raw/attempt-1/analysis/qcad-mechanical--OpenDesign-dxflib.json": {
+      "bytes": 174,
+      "sha256": "4ba86f14c5c29c7eaace9c64f571e016112e40836cc40091b3226876c15a0942"
+    },
+    "raw/attempt-1/analysis/qcad-mechanical--dxflib-OpenDesign.json": {
+      "bytes": 174,
+      "sha256": "31965c1071c3d6a532d85f0771b404fccdfde1b8c6ee49684672de3115b684ec"
+    },
+    "raw/attempt-1/analysis/qcad-mechanical--dxflib-dxflib.json": {
+      "bytes": 174,
+      "sha256": "4ba86f14c5c29c7eaace9c64f571e016112e40836cc40091b3226876c15a0942"
+    },
+    "raw/attempt-1/analysis/qcad-template--OpenDesign-OpenDesign.json": {
+      "bytes": 839518,
+      "sha256": "c93bb43528b4a514bf2fbfee2429ffb6244a373e62e0efe44ecff9c39121f86e"
+    },
+    "raw/attempt-1/analysis/qcad-template--OpenDesign-dxflib.json": {
+      "bytes": 174,
+      "sha256": "abf8a7f61c9ad7e68e7378e05a9da3446c584527cc9dcf2425f086f2e42dfb91"
+    },
+    "raw/attempt-1/analysis/qcad-template--dxflib-OpenDesign.json": {
+      "bytes": 174,
+      "sha256": "02a44644c417c2a8273a1a8a3f1bdf5538da001b2c05864f39364634416a8a7f"
+    },
+    "raw/attempt-1/analysis/qcad-template--dxflib-dxflib.json": {
+      "bytes": 174,
+      "sha256": "abf8a7f61c9ad7e68e7378e05a9da3446c584527cc9dcf2425f086f2e42dfb91"
+    },
+    "raw/attempt-1/cases/empty/returns/OpenDesign.dxf": {
+      "bytes": 144434,
+      "sha256": "fa6d532ab4e84bed91577d20d03a49217808e5a2268925549c2cca77cfdf2568"
+    },
+    "raw/attempt-1/cases/empty/returns/dxflib.dxf": {
+      "bytes": 24394,
+      "sha256": "757aa965d455fb440c7f5922a2c575d5ddc4e1c449bab229e7d1bf992deecad8"
+    },
+    "raw/attempt-1/cases/libre-air-water/returns/OpenDesign-OpenDesign.dxf": {
+      "bytes": 194066,
+      "sha256": "ac967e144057c9557fbde022dcea734fb7d82e703cc673b14bb018dae7683a28"
+    },
+    "raw/attempt-1/cases/libre-air-water/returns/OpenDesign-dxflib.dxf": {
+      "bytes": 31410,
+      "sha256": "00ece97bcbef3740dd57cfbb528433e973dc5159d323a5e370a8e38d985a1208"
+    },
+    "raw/attempt-1/cases/libre-air-water/returns/dxflib-OpenDesign.dxf": {
+      "bytes": 191737,
+      "sha256": "d97a0c6a3588fa62158546f51118c84b1819a6b59e47f56212c25b8d619f9b38"
+    },
+    "raw/attempt-1/cases/libre-air-water/returns/dxflib-dxflib.dxf": {
+      "bytes": 28559,
+      "sha256": "5437e3a6cb4b7ff7257f86bef96ee02eb5936ee1d00e0f637756250059a77e29"
+    },
+    "raw/attempt-1/cases/libre-air-water/source.dxf": {
+      "bytes": 21102,
+      "sha256": "245a50eefeabc483f16269375a3bf9bd892b9cebd125e76f5ae744f5466f4db8"
+    },
+    "raw/attempt-1/cases/libre-motion/returns/OpenDesign-OpenDesign.dxf": {
+      "bytes": 194287,
+      "sha256": "72432f54828e42c4a3199bdc12d6163a7803294ba792b6f437f64882bc7c8d8b"
+    },
+    "raw/attempt-1/cases/libre-motion/returns/OpenDesign-dxflib.dxf": {
+      "bytes": 31550,
+      "sha256": "184c0ad5a613353d143867775588300405bfb20581531e434e1c7f78c4436d9e"
+    },
+    "raw/attempt-1/cases/libre-motion/returns/dxflib-OpenDesign.dxf": {
+      "bytes": 191962,
+      "sha256": "e4abe1beda9f7ab696b9b2aacd874a8d1453d9855dbcf95b60eb1353f4789494"
+    },
+    "raw/attempt-1/cases/libre-motion/returns/dxflib-dxflib.dxf": {
+      "bytes": 28701,
+      "sha256": "ea1abec9e42012b05e9de05f49ebd3167d195768fb9c2d0d620a68faf328ece2"
+    },
+    "raw/attempt-1/cases/libre-motion/source.dxf": {
+      "bytes": 21301,
+      "sha256": "724b0557adc753c59e23e864dc08f6de1c1ca50767b4da012be0fadf54d77b04"
+    },
+    "raw/attempt-1/cases/libre-power/returns/OpenDesign-OpenDesign.dxf": {
+      "bytes": 193874,
+      "sha256": "4b20c9de62b61a1b674e57c61a7ae9d44d31e2b90543083c77104e5fb232b058"
+    },
+    "raw/attempt-1/cases/libre-power/returns/OpenDesign-dxflib.dxf": {
+      "bytes": 31366,
+      "sha256": "c75fd3c4f77319b74124db74b65349f1cfaf57c5cb3d19bdea791a4f431e92a5"
+    },
+    "raw/attempt-1/cases/libre-power/returns/dxflib-OpenDesign.dxf": {
+      "bytes": 191549,
+      "sha256": "fe5d22b26623b1060ea21b42d4440aace6487f79c281f39c5acbe1d002607370"
+    },
+    "raw/attempt-1/cases/libre-power/returns/dxflib-dxflib.dxf": {
+      "bytes": 28515,
+      "sha256": "c959ca6d51dc1a416bd6d99a3375fe766b12b8ac00e4e01ec64b9f7a9e8f6409"
+    },
+    "raw/attempt-1/cases/libre-power/source.dxf": {
+      "bytes": 20916,
+      "sha256": "8876b0c66ec7794914a2218072386f5d169a6813a675a579747fa6242cfac2bd"
+    },
+    "raw/attempt-1/cases/qcad-hydraulic/returns/OpenDesign-OpenDesign.dxf": {
+      "bytes": 200054,
+      "sha256": "d94ef9e3b3eebb6a01f7c0aae210b7689c6d0f755b261aecf538a6a0ffb6772a"
+    },
+    "raw/attempt-1/cases/qcad-hydraulic/returns/OpenDesign-dxflib.dxf": {
+      "bytes": 40104,
+      "sha256": "b9fdf5673a7edbd44b51edd9ae2db384a6048b61bb53757cefa175019c7ed0fc"
+    },
+    "raw/attempt-1/cases/qcad-hydraulic/returns/dxflib-dxflib.dxf": {
+      "bytes": 37114,
+      "sha256": "73352f91f9faac5afbf98ed02782e0a83211a6e8e2309134578cbfc4aef4c54f"
+    },
+    "raw/attempt-1/cases/qcad-hydraulic/source.dxf": {
+      "bytes": 30360,
+      "sha256": "4d768e3a5ca0ba8d5e4762851a349f1679381b51d5fdf2a9b2fc89e86aa430db"
+    },
+    "raw/attempt-1/cases/qcad-mechanical/returns/OpenDesign-OpenDesign.dxf": {
+      "bytes": 151860,
+      "sha256": "cea34288cbc68e0977e08489c13ed1851dbca100e9c2043731b4af14066b1e9a"
+    },
+    "raw/attempt-1/cases/qcad-mechanical/returns/OpenDesign-dxflib.dxf": {
+      "bytes": 30632,
+      "sha256": "7e3530fc00fb071a55f949bae5e6251305b7da122fbd4857d0a09ea08da45562"
+    },
+    "raw/attempt-1/cases/qcad-mechanical/returns/dxflib-OpenDesign.dxf": {
+      "bytes": 148039,
+      "sha256": "f8aabdb2cdbf9fe82287e6cacbe0a76dd0ab55b1491193277beec3c77908ee37"
+    },
+    "raw/attempt-1/cases/qcad-mechanical/returns/dxflib-dxflib.dxf": {
+      "bytes": 29797,
+      "sha256": "c56dae52a812486679340ebceaf96f49dfcf39f46f4a72503dff9292214aeefc"
+    },
+    "raw/attempt-1/cases/qcad-mechanical/source.dxf": {
+      "bytes": 41571,
+      "sha256": "30c4a41b51dd5474889db30ca336a2cfe18df6d2dc2c6fea5affb5091327a26d"
+    },
+    "raw/attempt-1/cases/qcad-template/returns/OpenDesign-OpenDesign.dxf": {
+      "bytes": 152891,
+      "sha256": "71d21f8d0ad95bef3c2a498e45cba44d6dacc3e0bb036dec783869116155d3cb"
+    },
+    "raw/attempt-1/cases/qcad-template/returns/OpenDesign-dxflib.dxf": {
+      "bytes": 30940,
+      "sha256": "e530b7d95b474e73a57ad249fdaa6b3fd09eee592d4e94a80a58808fc8f20de9"
+    },
+    "raw/attempt-1/cases/qcad-template/returns/dxflib-OpenDesign.dxf": {
+      "bytes": 149123,
+      "sha256": "ea066314669ba6954c8dea822ef4eed998b4a0cd41f76c979bb8c480e87c6a79"
+    },
+    "raw/attempt-1/cases/qcad-template/returns/dxflib-dxflib.dxf": {
+      "bytes": 30101,
+      "sha256": "5a0b3b768c1844418e9b685479c11bcf3171fdb6d6df253c0c791797fb7aecde"
+    },
+    "raw/attempt-1/cases/qcad-template/source.dxf": {
+      "bytes": 42619,
+      "sha256": "6e87cef8ca4178b20e9d4e2b892917636ba2fe02e030ea076379c8d57e6a1f88"
+    },
+    "raw/attempt-1/export.json": {
+      "bytes": 7005,
+      "sha256": "0b5dd7d55805bf12ddb67acef2e2e7770b5f76eca905991544b06c236768c066"
+    },
+    "raw/attempt-1/fresh.json": {
+      "bytes": 7026,
+      "sha256": "295933a9d122061ee0329f8926114116385105e82a2107a3dd7b0db32adb2262"
+    },
+    "raw/attempt-1/native/COMPLETE.json": {
+      "bytes": 251,
+      "sha256": "8508ee0f516d6590a70a7edb2bf975972e2ec9dff4f5de426ef337597e1f9aae"
+    },
+    "raw/attempt-1/native/commands.json": {
+      "bytes": 1641,
+      "sha256": "ff4714315e6c54b518bc597d38be9ee80302ef554660b6fba882bebe77a0ceca"
+    },
+    "raw/attempt-1/native/export.stderr": {
+      "bytes": 53837,
+      "sha256": "270f1b66aa8ca5d219fb80e19f0f11480698ab1310d148a0423f09b8941c46fd"
+    },
+    "raw/attempt-1/native/fresh-success.json": {
+      "bytes": 6750,
+      "sha256": "b1b11cf3710130af5ae82341112e33dd864c40957d894271a7a0dba5410b2e75"
+    },
+    "raw/attempt-1/native/fresh.stderr": {
+      "bytes": 35949,
+      "sha256": "21558747cfe85f5d34b7d545fad6cf075ce9c8a3ecfc46298db7c897285b94ae"
+    },
+    "raw/attempt-1/native/fresh.stdout": {
+      "bytes": 1601203,
+      "sha256": "6b91d0e084f51f1a355e40182b8a1cce5709979a861ee177381857baae0741a7"
+    },
+    "raw/attempt-1/native_headers.js": {
+      "bytes": 5967,
+      "sha256": "4286e8214568c9633cc10f52075c9a99c3559d2dad7a85be82d907a2d2c0b465"
+    },
+    "raw/attempt-1/run_native.py": {
+      "bytes": 4147,
+      "sha256": "31f5d4498d0d535e4aac7f484d867fd03d885fe8a09365e672c50bde084d73a8"
+    },
+    "raw/chunks/000/000.part": {
+      "bytes": 524288,
+      "sha256": "6f8add60d37dabe1130fb772ecafc9a7253b7b8241300b4259532f6bafbe07d8"
+    },
+    "raw/chunks/000/001.part": {
+      "bytes": 524288,
+      "sha256": "35c86fdb33385499ae6a10f3c7defe81544204ac36d13fb2880b5f6e08c663b5"
+    },
+    "raw/chunks/000/002.part": {
+      "bytes": 524288,
+      "sha256": "b97dd36c62392cd895875b6581e9a038f3d1d8c583e66b4a9ffe7fd19067b192"
+    },
+    "raw/chunks/000/003.part": {
+      "bytes": 524288,
+      "sha256": "7ce01ff04dd260312a162a6fce032e30257fd452921c2aaa6f73f355440d5a12"
+    },
+    "raw/chunks/000/004.part": {
+      "bytes": 524288,
+      "sha256": "9c3aa6d476a4576be8903c20516bafe9255bed872e5502b33f70a8aeecdd27b4"
+    },
+    "raw/chunks/000/005.part": {
+      "bytes": 524288,
+      "sha256": "b07f32be398ad4ee09c175fddd0c18061218b6c6b5785ada75f67e2e16ef7dad"
+    },
+    "raw/chunks/000/006.part": {
+      "bytes": 524288,
+      "sha256": "ac0449451eb1a9ef126b1043b6ef70ae639d7fcfa14df3963f8d373b08214f6e"
+    },
+    "raw/chunks/000/007.part": {
+      "bytes": 386280,
+      "sha256": "4266c4f1099c8d15edf857b760ece68762fbf31c879d5bc9b0e158ebdba988d4"
+    },
+    "raw/chunks/001/000.part": {
+      "bytes": 524288,
+      "sha256": "ba444e12c9a3062674c9433edb5d28b242807038262e54a4400f3f86af4faae9"
+    },
+    "raw/chunks/001/001.part": {
+      "bytes": 524288,
+      "sha256": "8241ed714a4d6ccc98fcd2b8c9a3a1116a3e618616201e93b9400d4bfab173ae"
+    },
+    "raw/chunks/001/002.part": {
+      "bytes": 524288,
+      "sha256": "d745da371fe43d7ce13c4989b3183a21aeebae5865e3560c772338e14e3e26b4"
+    },
+    "raw/chunks/001/003.part": {
+      "bytes": 524288,
+      "sha256": "fcaad44cfe31d0cef3b998146d62db307b495925e3a0a7eff7fdbb962dbf7774"
+    },
+    "raw/chunks/001/004.part": {
+      "bytes": 524288,
+      "sha256": "1ea07cee19674ab52a7a357f3094e47e2278534241d88919cd53728135131ebc"
+    },
+    "raw/chunks/001/005.part": {
+      "bytes": 524288,
+      "sha256": "a825062d93b89eac0f63c2d3246fd8464e8e8629e19ac8b3fe2d0b9b8cde77c2"
+    },
+    "raw/chunks/001/006.part": {
+      "bytes": 238999,
+      "sha256": "9ec7de33328373a9348868bdfcf187f93f49a88379fe70d9ce3865b69a7bc405"
+    },
+    "raw/chunks/002/000.part": {
+      "bytes": 524288,
+      "sha256": "46f4476120552548246aadfb9e6d6fe85f19b3d355f197f71a2d674937f9f43f"
+    },
+    "raw/chunks/002/001.part": {
+      "bytes": 524288,
+      "sha256": "b5ba34434e8639020068b603f291f3d7765557ab40fa022bdd419470e5aa0acc"
+    },
+    "raw/chunks/002/002.part": {
+      "bytes": 524288,
+      "sha256": "970c1cea8853b411314ca78fba8bfa551b7aa3996c1c814a08f686f02f21b86e"
+    },
+    "raw/chunks/002/003.part": {
+      "bytes": 524288,
+      "sha256": "aedf3a2dbac6545736b2ab537debf9d925f0284b760a5033613e45b0a0a94a44"
+    },
+    "raw/chunks/002/004.part": {
+      "bytes": 347891,
+      "sha256": "0f935be143e6985ee4a4d0cd9f363030113ce66715f73f4199fd19c0fbd85b10"
+    },
+    "raw/chunks/003/000.part": {
+      "bytes": 524288,
+      "sha256": "60f708750575855ee1f13cf9ecd6e032065a7765898a1542637d56759749a266"
+    },
+    "raw/chunks/003/001.part": {
+      "bytes": 524288,
+      "sha256": "8de1a3f32289366323adf8976c867403b083410cdae20226dac93dc26dd33860"
+    },
+    "raw/chunks/003/002.part": {
+      "bytes": 524288,
+      "sha256": "02cb3d1821f42350c4318191e0acdb3acea31958a10870f4520679323691499a"
+    },
+    "raw/chunks/003/003.part": {
+      "bytes": 524288,
+      "sha256": "88fe815740c2f9caea7fb3109067e655d484d90637f416e6ae44eeb220defc0b"
+    },
+    "raw/chunks/003/004.part": {
+      "bytes": 524288,
+      "sha256": "2589e24b6b2cd044a05c6f7e24e0b9dea50bf75bba0565d69bebf958c45c14db"
+    },
+    "raw/chunks/003/005.part": {
+      "bytes": 524288,
+      "sha256": "f230cf8ce8638b28f6bd82ed501e3aa56b755f0b4038adc067b06883c5bac981"
+    },
+    "raw/chunks/003/006.part": {
+      "bytes": 524288,
+      "sha256": "d31e05a84376fdc57d9b654349556b1c0bb0982987ee4e76563d1a703c69646d"
+    },
+    "raw/chunks/003/007.part": {
+      "bytes": 524288,
+      "sha256": "0dd6ed988783e98ebbe9de47b7e42122ed89c47a58d1dc601d4ce83e70635c12"
+    },
+    "raw/chunks/003/008.part": {
+      "bytes": 524288,
+      "sha256": "90e4b809f59817c313de8f8c1ba331bd6db44b0b7444cd2f60f5c8a8111507e4"
+    },
+    "raw/chunks/003/009.part": {
+      "bytes": 524288,
+      "sha256": "323d8f73e2c19a7f4b4a9d354209670c3d2ac2af57c2591e2e9113b8cc86422f"
+    },
+    "raw/chunks/003/010.part": {
+      "bytes": 524288,
+      "sha256": "7383dc031db9acfeb3af0f2258125495c65398035c4c04b68c266157a6102447"
+    },
+    "raw/chunks/003/011.part": {
+      "bytes": 524288,
+      "sha256": "aa0b35aec541358fbed22b54f9c69feb021c86202b511a52c09f367ae8335a00"
+    },
+    "raw/chunks/003/012.part": {
+      "bytes": 524288,
+      "sha256": "18dde16183489a42c7d32b7a10d5109979491b5ae0aee36599af6544ec850e8a"
+    },
+    "raw/chunks/003/013.part": {
+      "bytes": 524288,
+      "sha256": "73511afc4a1d8c678da379718805d5eb1ee5106d504218200686e8e85c9625fa"
+    },
+    "raw/chunks/003/014.part": {
+      "bytes": 524288,
+      "sha256": "b776945a3b0bf0a941337a127a882bfad7fcbcdc5689a2ee658ffdbeaddf8f06"
+    },
+    "raw/chunks/003/015.part": {
+      "bytes": 524288,
+      "sha256": "e31902a00d27fa356a727d1c4fbeb5eb34762a0d22e46219ff6ad800cc4a3947"
+    },
+    "raw/chunks/003/016.part": {
+      "bytes": 143996,
+      "sha256": "c5b70cf9514d1b0b01fe936659463c03f608bee93c81d91490841dcf6d2329aa"
+    },
+    "raw/chunks/004/000.part": {
+      "bytes": 524288,
+      "sha256": "ad92c721987340c904c23220e3c5e355e04fc905b5fe9dfba9ccbae997b94f17"
+    },
+    "raw/chunks/004/001.part": {
+      "bytes": 524288,
+      "sha256": "5e5a53e0cd0d5322470ea266e5b7e29993dca1d1da5d670c355b3e9310ab7c4c"
+    },
+    "raw/chunks/004/002.part": {
+      "bytes": 524288,
+      "sha256": "31f1830cee6255953d44d451585f8bb1d7134972f5f0b89b4b6a464a8d29424a"
+    },
+    "raw/chunks/004/003.part": {
+      "bytes": 524288,
+      "sha256": "918b962d74b543606ece37ccec43a136ec93fbe2f6befac103a8437f1cb391f1"
+    },
+    "raw/chunks/004/004.part": {
+      "bytes": 524288,
+      "sha256": "21141ba6bf1c0d3746e9e6344e7bfcec22c37b28bc3caf44e6c3b1e2c3ed7124"
+    },
+    "raw/chunks/004/005.part": {
+      "bytes": 524288,
+      "sha256": "115d2d63c4b175a4ef4fb0b4dd38bc9aa26fecb1dcf7d2aa2372f2714797ebec"
+    },
+    "raw/chunks/004/006.part": {
+      "bytes": 63963,
+      "sha256": "0e8dbd794718cc455b74db69e30e474c2d84417e2ca7def6090e0911b9c9017f"
+    },
+    "raw/dimension-2/CASES.json": {
+      "bytes": 899,
+      "sha256": "87cb2eee886f22649d358c37b13a870d86024e98e2b92d23c168a6d6eb141951"
+    },
+    "raw/dimension-2/CONTAINER-LOG.json": {
+      "bytes": 98,
+      "sha256": "3813c43a346e855def341aae9c291d3ae890353ebe77c489d5fda815e92cf7b4"
+    },
+    "raw/dimension-2/ENVIRONMENT.json": {
+      "bytes": 980,
+      "sha256": "518809337e4175dce57632083797b437d62246a5355a84ad10103570048e5eeb"
+    },
+    "raw/dimension-2/FREEZE.json": {
+      "bytes": 1552,
+      "sha256": "c3ca62dacc91902cff20ccd208f9204da5703404e43c2a7778b39fba488b67a4"
+    },
+    "raw/dimension-2/KEYS.json": {
+      "bytes": 5384,
+      "sha256": "7c630d851443c4ba71043c69c579fac92f1263a4895fb8842eabd43fa7284304"
+    },
+    "raw/dimension-2/SOURCES.json": {
+      "bytes": 4602,
+      "sha256": "5cdf7fc58a6229ff8fb2384cdaff2ed5c2bc219ab5c7690c3c5ba1e00d002661"
+    },
+    "raw/dimension-2/analysis/libre-air-water--known-OpenDesign.json": {
+      "bytes": 857994,
+      "sha256": "0931c4e73cee95c7c917f88d707fcbffc42c2a97d27f1f76b9753308221e8d16"
+    },
+    "raw/dimension-2/analysis/libre-air-water--known-dxflib.json": {
+      "bytes": 174,
+      "sha256": "abf8a7f61c9ad7e68e7378e05a9da3446c584527cc9dcf2425f086f2e42dfb91"
+    },
+    "raw/dimension-2/analysis/libre-air-water--style-OpenDesign.json": {
+      "bytes": 857998,
+      "sha256": "c49da067aaf874bb914b817828e904ba558788f6f2870ceb34afe76ec5986fe8"
+    },
+    "raw/dimension-2/analysis/libre-air-water--style-dxflib.json": {
+      "bytes": 174,
+      "sha256": "abf8a7f61c9ad7e68e7378e05a9da3446c584527cc9dcf2425f086f2e42dfb91"
+    },
+    "raw/dimension-2/analysis/libre-air-water--unchanged-OpenDesign.json": {
+      "bytes": 857994,
+      "sha256": "3a57d0645e9565b97f9b14c7dff9f4c44805feebab0acccf95ba998d8745611f"
+    },
+    "raw/dimension-2/analysis/libre-air-water--unchanged-dxflib.json": {
+      "bytes": 174,
+      "sha256": "abf8a7f61c9ad7e68e7378e05a9da3446c584527cc9dcf2425f086f2e42dfb91"
+    },
+    "raw/dimension-2/analysis/libre-air-water--unrelated-OpenDesign.json": {
+      "bytes": 857997,
+      "sha256": "6e9e974f57c536929f386c7c022662555883bef37ee9e77ceec1c98ca4f23016"
+    },
+    "raw/dimension-2/analysis/libre-air-water--unrelated-dxflib.json": {
+      "bytes": 174,
+      "sha256": "abf8a7f61c9ad7e68e7378e05a9da3446c584527cc9dcf2425f086f2e42dfb91"
+    },
+    "raw/dimension-2/analysis/libre-motion--known-OpenDesign.json": {
+      "bytes": 861318,
+      "sha256": "f404fc2bd075e8bc842dbccfd2d2e3063066b7b725595d8692d381f43442c674"
+    },
+    "raw/dimension-2/analysis/libre-motion--known-dxflib.json": {
+      "bytes": 174,
+      "sha256": "63df00241baf6ec173aefbc03e98336abe27835455c8c0b67618b573ef877e7d"
+    },
+    "raw/dimension-2/analysis/libre-motion--style-OpenDesign.json": {
+      "bytes": 861322,
+      "sha256": "59b6871453f835cce2757eab7dd5b00979a699db542aa8e69afa5b185b961680"
+    },
+    "raw/dimension-2/analysis/libre-motion--style-dxflib.json": {
+      "bytes": 174,
+      "sha256": "63df00241baf6ec173aefbc03e98336abe27835455c8c0b67618b573ef877e7d"
+    },
+    "raw/dimension-2/analysis/libre-motion--unchanged-OpenDesign.json": {
+      "bytes": 861318,
+      "sha256": "fdda7bff2299826494f557ea2fbb089f9f6fa6c8847f755868789111fa083f8a"
+    },
+    "raw/dimension-2/analysis/libre-motion--unchanged-dxflib.json": {
+      "bytes": 174,
+      "sha256": "63df00241baf6ec173aefbc03e98336abe27835455c8c0b67618b573ef877e7d"
+    },
+    "raw/dimension-2/analysis/libre-motion--unrelated-OpenDesign.json": {
+      "bytes": 861321,
+      "sha256": "cc92c26e67bab6a30a3a4f1d2562ded5873bca2656c852bdb2831ee09dac2de2"
+    },
+    "raw/dimension-2/analysis/libre-motion--unrelated-dxflib.json": {
+      "bytes": 174,
+      "sha256": "63df00241baf6ec173aefbc03e98336abe27835455c8c0b67618b573ef877e7d"
+    },
+    "raw/dimension-2/analysis/libre-power--known-OpenDesign.json": {
+      "bytes": 854127,
+      "sha256": "260ba64caa664078df1aeabc3c1751590d8d05f635eae1864b6defa16e53f92e"
+    },
+    "raw/dimension-2/analysis/libre-power--known-dxflib.json": {
+      "bytes": 174,
+      "sha256": "2e522953baa194f1cb9422fc75905bbc29f80d42dc85f7aa7fe11bdc2886e63b"
+    },
+    "raw/dimension-2/analysis/libre-power--style-OpenDesign.json": {
+      "bytes": 854131,
+      "sha256": "801925a4be43f6e6efab90502c36e0f3a49fc68d42ae339904c4f87c92f5ca64"
+    },
+    "raw/dimension-2/analysis/libre-power--style-dxflib.json": {
+      "bytes": 174,
+      "sha256": "2e522953baa194f1cb9422fc75905bbc29f80d42dc85f7aa7fe11bdc2886e63b"
+    },
+    "raw/dimension-2/analysis/libre-power--unchanged-OpenDesign.json": {
+      "bytes": 854127,
+      "sha256": "1d02dc31ccff8e7be2de9de3ca0440a816784643c86193514e881408e5871dd9"
+    },
+    "raw/dimension-2/analysis/libre-power--unchanged-dxflib.json": {
+      "bytes": 174,
+      "sha256": "2e522953baa194f1cb9422fc75905bbc29f80d42dc85f7aa7fe11bdc2886e63b"
+    },
+    "raw/dimension-2/analysis/libre-power--unrelated-OpenDesign.json": {
+      "bytes": 854130,
+      "sha256": "a07f56d3de8016fed44355f73d335e8636431d8f3973bed6fb027ff549ec9a7f"
+    },
+    "raw/dimension-2/analysis/libre-power--unrelated-dxflib.json": {
+      "bytes": 174,
+      "sha256": "2e522953baa194f1cb9422fc75905bbc29f80d42dc85f7aa7fe11bdc2886e63b"
+    },
+    "raw/dimension-2/analysis/qcad-hydraulic--known-OpenDesign.json": {
+      "bytes": 952907,
+      "sha256": "afa21a050ca57d17ea2c2dbe628402dbdbb593af6dba0575044f49601e5e02c9"
+    },
+    "raw/dimension-2/analysis/qcad-hydraulic--known-dxflib.json": {
+      "bytes": 174,
+      "sha256": "282f53dd4753b066e4e7f3ab13397c9f9829fdb62149e8253d5d31d6dc89bde2"
+    },
+    "raw/dimension-2/analysis/qcad-hydraulic--style-OpenDesign.json": {
+      "bytes": 952912,
+      "sha256": "53011b8492c975a7d9160a435894e0c04ee0e2569fc534b8fe5e3d472e56aeb2"
+    },
+    "raw/dimension-2/analysis/qcad-hydraulic--style-dxflib.json": {
+      "bytes": 174,
+      "sha256": "282f53dd4753b066e4e7f3ab13397c9f9829fdb62149e8253d5d31d6dc89bde2"
+    },
+    "raw/dimension-2/analysis/qcad-hydraulic--unchanged-OpenDesign.json": {
+      "bytes": 952908,
+      "sha256": "53576d572bb42f415e3d61c74436f1ed247cec4fa395a1ab0147d4e9b52570ef"
+    },
+    "raw/dimension-2/analysis/qcad-hydraulic--unchanged-dxflib.json": {
+      "bytes": 174,
+      "sha256": "282f53dd4753b066e4e7f3ab13397c9f9829fdb62149e8253d5d31d6dc89bde2"
+    },
+    "raw/dimension-2/analysis/qcad-hydraulic--unrelated-OpenDesign.json": {
+      "bytes": 952910,
+      "sha256": "6ac33b31f4b0e6b91549f974bbbb122dea7059f1e42435de580a17dad87f2cdf"
+    },
+    "raw/dimension-2/analysis/qcad-hydraulic--unrelated-dxflib.json": {
+      "bytes": 174,
+      "sha256": "282f53dd4753b066e4e7f3ab13397c9f9829fdb62149e8253d5d31d6dc89bde2"
+    },
+    "raw/dimension-2/analysis/qcad-mechanical--known-OpenDesign.json": {
+      "bytes": 828392,
+      "sha256": "8c4c5012612ca3da37c57372575a48c5bfbffef5d5c8efd73cfa67933f4c283f"
+    },
+    "raw/dimension-2/analysis/qcad-mechanical--known-dxflib.json": {
+      "bytes": 174,
+      "sha256": "4ba86f14c5c29c7eaace9c64f571e016112e40836cc40091b3226876c15a0942"
+    },
+    "raw/dimension-2/analysis/qcad-mechanical--style-OpenDesign.json": {
+      "bytes": 828396,
+      "sha256": "3cba3fd52967e2ce6e21be35ba00c3a39065cb2e0ef84720d28afdca237b5022"
+    },
+    "raw/dimension-2/analysis/qcad-mechanical--style-dxflib.json": {
+      "bytes": 174,
+      "sha256": "4ba86f14c5c29c7eaace9c64f571e016112e40836cc40091b3226876c15a0942"
+    },
+    "raw/dimension-2/analysis/qcad-mechanical--unchanged-OpenDesign.json": {
+      "bytes": 828392,
+      "sha256": "4191e6ac3a83f46500298774e152bdb6f9e0d1b553bf4fb910557433e2859b5e"
+    },
+    "raw/dimension-2/analysis/qcad-mechanical--unchanged-dxflib.json": {
+      "bytes": 174,
+      "sha256": "4ba86f14c5c29c7eaace9c64f571e016112e40836cc40091b3226876c15a0942"
+    },
+    "raw/dimension-2/analysis/qcad-mechanical--unrelated-OpenDesign.json": {
+      "bytes": 828395,
+      "sha256": "dcc9ee4965379157b676751569e651634764f3f7389f1e6638c5355d0c6a5c67"
+    },
+    "raw/dimension-2/analysis/qcad-mechanical--unrelated-dxflib.json": {
+      "bytes": 174,
+      "sha256": "4ba86f14c5c29c7eaace9c64f571e016112e40836cc40091b3226876c15a0942"
+    },
+    "raw/dimension-2/analysis/qcad-template--known-OpenDesign.json": {
+      "bytes": 839518,
+      "sha256": "38e205b47b426c8c5977df2a36c19031206bfd15848f9b4ba89334c161f319d4"
+    },
+    "raw/dimension-2/analysis/qcad-template--known-dxflib.json": {
+      "bytes": 174,
+      "sha256": "abf8a7f61c9ad7e68e7378e05a9da3446c584527cc9dcf2425f086f2e42dfb91"
+    },
+    "raw/dimension-2/analysis/qcad-template--style-OpenDesign.json": {
+      "bytes": 839522,
+      "sha256": "1f01faa52ef498e48809da575769eec9619008d882ff8eae2abad2bd28d5edf6"
+    },
+    "raw/dimension-2/analysis/qcad-template--style-dxflib.json": {
+      "bytes": 174,
+      "sha256": "abf8a7f61c9ad7e68e7378e05a9da3446c584527cc9dcf2425f086f2e42dfb91"
+    },
+    "raw/dimension-2/analysis/qcad-template--unchanged-OpenDesign.json": {
+      "bytes": 839518,
+      "sha256": "a41c25c56591238d6e06f2d357728ee8fd28f8dca4b1f5f8f7f5c6a3021de0ae"
+    },
+    "raw/dimension-2/analysis/qcad-template--unchanged-dxflib.json": {
+      "bytes": 174,
+      "sha256": "abf8a7f61c9ad7e68e7378e05a9da3446c584527cc9dcf2425f086f2e42dfb91"
+    },
+    "raw/dimension-2/analysis/qcad-template--unrelated-OpenDesign.json": {
+      "bytes": 839521,
+      "sha256": "3401bd3ea1891f3017be875dbd6c612c13569c481edf21087fc044eb786485c5"
+    },
+    "raw/dimension-2/analysis/qcad-template--unrelated-dxflib.json": {
+      "bytes": 174,
+      "sha256": "abf8a7f61c9ad7e68e7378e05a9da3446c584527cc9dcf2425f086f2e42dfb91"
+    },
+    "raw/dimension-2/cases/libre-air-water/returns/known-OpenDesign.dxf": {
+      "bytes": 194066,
+      "sha256": "47574bfe176a917f3d5aefc032afbbf8a8339e4e0ce77ba86aa792b016327d7e"
+    },
+    "raw/dimension-2/cases/libre-air-water/returns/known-dxflib.dxf": {
+      "bytes": 31410,
+      "sha256": "aacb66aca681f9c1070909680017765a2d540ecf78edb815221c89d66a721522"
+    },
+    "raw/dimension-2/cases/libre-air-water/returns/style-OpenDesign.dxf": {
+      "bytes": 194070,
+      "sha256": "782438d55f9ff3834d03b73d28346be1d05851e15322f9b074b4ea918ca17d38"
+    },
+    "raw/dimension-2/cases/libre-air-water/returns/style-dxflib.dxf": {
+      "bytes": 31414,
+      "sha256": "8e55433bf742946fa631ddfce033d16a8f55598c7b0b83a72a468b05644ddf8d"
+    },
+    "raw/dimension-2/cases/libre-air-water/returns/unchanged-OpenDesign.dxf": {
+      "bytes": 194066,
+      "sha256": "a8096cd40b4c6640c7f03b939af3240f2596b3b4bdd7d220728b138c8fec5c1c"
+    },
+    "raw/dimension-2/cases/libre-air-water/returns/unchanged-dxflib.dxf": {
+      "bytes": 31410,
+      "sha256": "aacb66aca681f9c1070909680017765a2d540ecf78edb815221c89d66a721522"
+    },
+    "raw/dimension-2/cases/libre-air-water/returns/unrelated-OpenDesign.dxf": {
+      "bytes": 194066,
+      "sha256": "b6d78704cb0195e857b42548f05af1c54ba76c440f67a2abec6e08362c88838c"
+    },
+    "raw/dimension-2/cases/libre-air-water/returns/unrelated-dxflib.dxf": {
+      "bytes": 31413,
+      "sha256": "429ef5b8b9671d16fe4c05837824650717a516ff4791b68de1ae2ac6699ff3a0"
+    },
+    "raw/dimension-2/cases/libre-air-water/source.dxf": {
+      "bytes": 21102,
+      "sha256": "245a50eefeabc483f16269375a3bf9bd892b9cebd125e76f5ae744f5466f4db8"
+    },
+    "raw/dimension-2/cases/libre-motion/returns/known-OpenDesign.dxf": {
+      "bytes": 194287,
+      "sha256": "a2b24af8e8c5b153096edf4df0fe572b943ff5bd14a8808ac5173517ffdb4d6c"
+    },
+    "raw/dimension-2/cases/libre-motion/returns/known-dxflib.dxf": {
+      "bytes": 31550,
+      "sha256": "5eeb4058f502be6384cbbf56488a9360c196447817159bfa544ff2c7c2552d0b"
+    },
+    "raw/dimension-2/cases/libre-motion/returns/style-OpenDesign.dxf": {
+      "bytes": 194291,
+      "sha256": "4d80416985ef79089951b4055cee88cf69ed60a22751b6b85a6dcc538ee54a21"
+    },
+    "raw/dimension-2/cases/libre-motion/returns/style-dxflib.dxf": {
+      "bytes": 31554,
+      "sha256": "f9175b5dcf422896e4a54a0368cd4d563b38b142f3bb1bdb8cf76b9d4ac40dd9"
+    },
+    "raw/dimension-2/cases/libre-motion/returns/unchanged-OpenDesign.dxf": {
+      "bytes": 194287,
+      "sha256": "df917a67ce611cd956080a631a16155af19321177b98a0a195278883655ac689"
+    },
+    "raw/dimension-2/cases/libre-motion/returns/unchanged-dxflib.dxf": {
+      "bytes": 31550,
+      "sha256": "5eeb4058f502be6384cbbf56488a9360c196447817159bfa544ff2c7c2552d0b"
+    },
+    "raw/dimension-2/cases/libre-motion/returns/unrelated-OpenDesign.dxf": {
+      "bytes": 194287,
+      "sha256": "616fe8cd233d7d95b89923f0a60e624f93999df7cd370c57cad2f728ab69f127"
+    },
+    "raw/dimension-2/cases/libre-motion/returns/unrelated-dxflib.dxf": {
+      "bytes": 31553,
+      "sha256": "aa56c6036149c8daf8bbe0b1c4bf2aa1b0fe510f1d1ca1515966cdf00ed55a19"
+    },
+    "raw/dimension-2/cases/libre-motion/source.dxf": {
+      "bytes": 21301,
+      "sha256": "724b0557adc753c59e23e864dc08f6de1c1ca50767b4da012be0fadf54d77b04"
+    },
+    "raw/dimension-2/cases/libre-power/returns/known-OpenDesign.dxf": {
+      "bytes": 193874,
+      "sha256": "ff04fbff23a40790a7ec8f91727c57e3df14b546907fee39fb3aafef62662f11"
+    },
+    "raw/dimension-2/cases/libre-power/returns/known-dxflib.dxf": {
+      "bytes": 31366,
+      "sha256": "a10699becd595205bcfb67e533446473f799764b5dc0abaf93783752ceeb17dd"
+    },
+    "raw/dimension-2/cases/libre-power/returns/style-OpenDesign.dxf": {
+      "bytes": 193876,
+      "sha256": "663df024cdd3b843911d64bfdcf318c0cdd7075350b3918594974affeaea81ce"
+    },
+    "raw/dimension-2/cases/libre-power/returns/style-dxflib.dxf": {
+      "bytes": 31370,
+      "sha256": "7fc4be449fdde98c379c2181698f2448fc3f79a300cb694c745afb0bb8efc015"
+    },
+    "raw/dimension-2/cases/libre-power/returns/unchanged-OpenDesign.dxf": {
+      "bytes": 193874,
+      "sha256": "a152b28a7bdccc89caf45b61972c41aa0a600b26168cbff600ad14ee5e6f2965"
+    },
+    "raw/dimension-2/cases/libre-power/returns/unchanged-dxflib.dxf": {
+      "bytes": 31366,
+      "sha256": "a10699becd595205bcfb67e533446473f799764b5dc0abaf93783752ceeb17dd"
+    },
+    "raw/dimension-2/cases/libre-power/returns/unrelated-OpenDesign.dxf": {
+      "bytes": 193874,
+      "sha256": "fc9afa8c67717ef5da59d9e80ddf1771e973c0469882878058bcc4a93865638d"
+    },
+    "raw/dimension-2/cases/libre-power/returns/unrelated-dxflib.dxf": {
+      "bytes": 31369,
+      "sha256": "e6d69708593edb736d82f450fc464d6cf864dcd37c185c3c7ba806b638667cdb"
+    },
+    "raw/dimension-2/cases/libre-power/source.dxf": {
+      "bytes": 20916,
+      "sha256": "8876b0c66ec7794914a2218072386f5d169a6813a675a579747fa6242cfac2bd"
+    },
+    "raw/dimension-2/cases/qcad-hydraulic/returns/known-OpenDesign.dxf": {
+      "bytes": 200051,
+      "sha256": "10c0f87d1bca34dbbb4cb2fb31c700ecab07304a90b886c864b926701138da43"
+    },
+    "raw/dimension-2/cases/qcad-hydraulic/returns/known-dxflib.dxf": {
+      "bytes": 40104,
+      "sha256": "ce26939e4a4a64b7f7211a547aab09e31e9b516a1b8be70e55ba8f0bbccbc89e"
+    },
+    "raw/dimension-2/cases/qcad-hydraulic/returns/style-OpenDesign.dxf": {
+      "bytes": 200058,
+      "sha256": "8462eb59049e5128a29ae26292d4f670cb29f5aa1ad2cf165da7899adfc6e907"
+    },
+    "raw/dimension-2/cases/qcad-hydraulic/returns/style-dxflib.dxf": {
+      "bytes": 40108,
+      "sha256": "e87b43288bdb8b40f43cb97875d352a3a9a11f7c9a03b6b8effb7d7f01fc2c24"
+    },
+    "raw/dimension-2/cases/qcad-hydraulic/returns/unchanged-OpenDesign.dxf": {
+      "bytes": 200054,
+      "sha256": "58e1b9df6daf43cdc42025edb7e1635de67af1bb2f649f7a403ef43b11a52b4b"
+    },
+    "raw/dimension-2/cases/qcad-hydraulic/returns/unchanged-dxflib.dxf": {
+      "bytes": 40104,
+      "sha256": "ce26939e4a4a64b7f7211a547aab09e31e9b516a1b8be70e55ba8f0bbccbc89e"
+    },
+    "raw/dimension-2/cases/qcad-hydraulic/returns/unrelated-OpenDesign.dxf": {
+      "bytes": 200051,
+      "sha256": "9eebfdcd09896a072e8126a384197675f40b540c63a63330b6b1a0b4b14d261f"
+    },
+    "raw/dimension-2/cases/qcad-hydraulic/returns/unrelated-dxflib.dxf": {
+      "bytes": 40107,
+      "sha256": "48f2d4863c720f53591544c6ce2c324737b17004e7463eb3c7be4069a774d871"
+    },
+    "raw/dimension-2/cases/qcad-hydraulic/source.dxf": {
+      "bytes": 30360,
+      "sha256": "4d768e3a5ca0ba8d5e4762851a349f1679381b51d5fdf2a9b2fc89e86aa430db"
+    },
+    "raw/dimension-2/cases/qcad-mechanical/returns/known-OpenDesign.dxf": {
+      "bytes": 151862,
+      "sha256": "b4ff97d01075340ba1e99b04a7f7678d32e9ff5313dda35c7565e58f49cc6abf"
+    },
+    "raw/dimension-2/cases/qcad-mechanical/returns/known-dxflib.dxf": {
+      "bytes": 30632,
+      "sha256": "72ce272ce2af09cd6d9f4a147e28690afb42873fd269450f829aa8ce9a5d54e4"
+    },
+    "raw/dimension-2/cases/qcad-mechanical/returns/style-OpenDesign.dxf": {
+      "bytes": 151866,
+      "sha256": "c2b5d0ca9355413ccec76e2ad58654fd198390b9bb1e7848b25ac05ca6fbd9c4"
+    },
+    "raw/dimension-2/cases/qcad-mechanical/returns/style-dxflib.dxf": {
+      "bytes": 30636,
+      "sha256": "049aeb93758c628426bababd12699b11f8ffc830b790884bb9839672e9840930"
+    },
+    "raw/dimension-2/cases/qcad-mechanical/returns/unchanged-OpenDesign.dxf": {
+      "bytes": 151862,
+      "sha256": "6fe463620b660ae814649744ba123f16533ac57e3b1cc3880ec14763805c2ae4"
+    },
+    "raw/dimension-2/cases/qcad-mechanical/returns/unchanged-dxflib.dxf": {
+      "bytes": 30632,
+      "sha256": "72ce272ce2af09cd6d9f4a147e28690afb42873fd269450f829aa8ce9a5d54e4"
+    },
+    "raw/dimension-2/cases/qcad-mechanical/returns/unrelated-OpenDesign.dxf": {
+      "bytes": 151862,
+      "sha256": "00b19d6fdaa51f1bd1b3c0d1a3232efec26b58fa3a3c77933151a86402945056"
+    },
+    "raw/dimension-2/cases/qcad-mechanical/returns/unrelated-dxflib.dxf": {
+      "bytes": 30635,
+      "sha256": "80215cb7a962580a5be22e8cb3272b224d2eba1633c90f1745a86eb44f65dce9"
+    },
+    "raw/dimension-2/cases/qcad-mechanical/source.dxf": {
+      "bytes": 41571,
+      "sha256": "30c4a41b51dd5474889db30ca336a2cfe18df6d2dc2c6fea5affb5091327a26d"
+    },
+    "raw/dimension-2/cases/qcad-template/returns/known-OpenDesign.dxf": {
+      "bytes": 152891,
+      "sha256": "a35ceaea4ec2ad79915d1220074d013d2a8a4baaee25cad4a474bc19742b275e"
+    },
+    "raw/dimension-2/cases/qcad-template/returns/known-dxflib.dxf": {
+      "bytes": 30940,
+      "sha256": "d063ad9a70483523e64e29b8d682fb0c207fad0d2d5b88ad247e253bd82c81bc"
+    },
+    "raw/dimension-2/cases/qcad-template/returns/style-OpenDesign.dxf": {
+      "bytes": 152895,
+      "sha256": "2f008c6cf053d6d979dcfe6e64dd3894793b1b020dc8c843a8aba63b6f9d8d04"
+    },
+    "raw/dimension-2/cases/qcad-template/returns/style-dxflib.dxf": {
+      "bytes": 30944,
+      "sha256": "ea990516f813f49ba88b634f0dfbca8fa31a690e88a19bc7e02e3e44e2e2ec96"
+    },
+    "raw/dimension-2/cases/qcad-template/returns/unchanged-OpenDesign.dxf": {
+      "bytes": 152891,
+      "sha256": "ba062d3c6f7d8adb8463497950eb01210add8227497793d637b1bb465a540a64"
+    },
+    "raw/dimension-2/cases/qcad-template/returns/unchanged-dxflib.dxf": {
+      "bytes": 30940,
+      "sha256": "d063ad9a70483523e64e29b8d682fb0c207fad0d2d5b88ad247e253bd82c81bc"
+    },
+    "raw/dimension-2/cases/qcad-template/returns/unrelated-OpenDesign.dxf": {
+      "bytes": 152891,
+      "sha256": "edbd9001e6974c95389a84b4a44119e587274789e91f8f7aa18685f0e9a1f54b"
+    },
+    "raw/dimension-2/cases/qcad-template/returns/unrelated-dxflib.dxf": {
+      "bytes": 30943,
+      "sha256": "543813787c7130e78f1feb3bbaa10ca20e140da4481d1857ec1eaf2de6a6ea63"
+    },
+    "raw/dimension-2/cases/qcad-template/source.dxf": {
+      "bytes": 42619,
+      "sha256": "6e87cef8ca4178b20e9d4e2b892917636ba2fe02e030ea076379c8d57e6a1f88"
+    },
+    "raw/dimension-2/export.json": {
+      "bytes": 14611,
+      "sha256": "a5d16c7aadb1e8dc36e0091e04077126851555324f40f51b3efcdaf6956444b8"
+    },
+    "raw/dimension-2/fresh.json": {
+      "bytes": 14632,
+      "sha256": "0a6247c419c003159f3a0e24e6d21053d0c5594447f81bb63fcc2928f3e7334b"
+    },
+    "raw/dimension-2/native/COMPLETE.json": {
+      "bytes": 200,
+      "sha256": "dd28a8b784279181bc4a0be4cc60fa6f28e75c6f58232b24d71ac27f9f909303"
+    },
+    "raw/dimension-2/native/commands.json": {
+      "bytes": 1641,
+      "sha256": "1ca96a7ae29235a18841aabb52a5ca89f1d92a6a3072c1c7ab9deb340b4b86b9"
+    },
+    "raw/dimension-2/native/export.stderr": {
+      "bytes": 189819,
+      "sha256": "005aa9c973ad75847d2508a25676c9eca612911634e7257c7ff0fc1c3d88f92e"
+    },
+    "raw/dimension-2/native/fresh-success.json": {
+      "bytes": 14632,
+      "sha256": "0a6247c419c003159f3a0e24e6d21053d0c5594447f81bb63fcc2928f3e7334b"
+    },
+    "raw/dimension-2/native/fresh.stderr": {
+      "bytes": 137711,
+      "sha256": "7c8eba7492ff4288ebbee1765e56b28d4fab8a355c505f747544a22dd35ef362"
+    },
+    "raw/dimension-2/native_headers.js": {
+      "bytes": 6331,
+      "sha256": "760f94956598769df01e0f20fbbf9f45ce421d0c684a9fdcfe2d602b07ef291f"
+    },
+    "raw/dimension-2/run_native.py": {
+      "bytes": 4147,
+      "sha256": "31f5d4498d0d535e4aac7f484d867fd03d885fe8a09365e672c50bde084d73a8"
+    }
+  },
+  "exclusions": [
+    "Native settings contents (selected hashes retained)",
+    "Publisher software/fonts/libraries",
+    "Python bytecode",
+    "Public source contents (URLs/byte hashes retained)"
+  ],
+  "packager_sha256": "a022949eff9198989a4d092c6579bd8beb3c2f71c232f1afb7ba50fc2e5e25f0"
+}

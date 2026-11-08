@@ -5666,6 +5666,28 @@
         "examples/cad-handoff/qualification/record-paths-15/SYMBOL-PLAN.md",
         "examples/cad-handoff/qualification/record-paths-15/SYMBOL-FREEZE.json"
       ]
+    },
+    {
+      "id": "A351",
+      "function": "intake_and_reuse",
+      "date": "2026-11-08",
+      "change": "Observe complete native known-header/dimensional/layout stores and test which dimensional store controls both writers.",
+      "hypothesis": "Matched single-cell native changes can distinguish ordinary imported header storage from the separate dimension style without waiving original strict differences.",
+      "evidence": "First26 jobs:25 exports/fresh imports,17 exact public repeats and8 failed layout repeats at46 leaves;6 strict differences,17 profile refusals,1 hydraulic native failure,2 explicitly unprofiled empty controls. Separate48-job intervention:48 exact single-cell operations,48 predicted raw DIMASZ outcomes and48 exact fresh inventories;24 strict differences and24 profile refusals remain. Style-only9.875 is written, known-only9.875 overwritten, unrelated USERI5=1234 retained.",
+      "runs": "Six exact previously exposed save14 adapted sources, crossed import/export observation plus separately declared/frozen unchanged/known/style/unrelated dimensional controls. Original raw headers, every returned file/report and host/analysis failures retained; no new holdout or native UI run.",
+      "verdict": "kept",
+      "why": "Establishes a bounded causal direction for this low-level native API and exposes previously unobserved layout repeat failures. Pinned constructor source is a concrete lead, not proof of the installed build internal cause. No full CAD, fresh readable/UI/revision or engineering qualification follows; other payloads remain open.",
+      "source": [
+        "docs/JOURNAL.md#198-separate-ordinary-headers-from-native-dimensional-style",
+        "examples/cad-handoff/qualification/header-boundaries-16/README.md",
+        "examples/cad-handoff/qualification/header-boundaries-16/PLAN.md",
+        "examples/cad-handoff/qualification/header-boundaries-16/DIMENSION-PLAN.md",
+        "examples/cad-handoff/qualification/header-boundaries-16/FREEZE.json",
+        "examples/cad-handoff/qualification/header-boundaries-16/DIMENSION-FREEZE.json",
+        "examples/cad-handoff/qualification/header-boundaries-16/SUMMARY.json",
+        "examples/cad-handoff/qualification/header-boundaries-16/INVENTORY.json",
+        "examples/cad-handoff/qualification/check_headers16.py"
+      ]
     }
   ],
   "not_tried": [

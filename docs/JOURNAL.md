@@ -8765,3 +8765,37 @@ The first offline receiver refused because it counted both debug and warning occ
 its source/failure remain beside the correction counting the exact four Export Error warnings. A quoted
 one-line attempt to retain that diagnostic failed syntax checking before execution; the scripted successor
 retained the actual reproducible receiver failure without rerunning CAD.
+
+## 198. Separate ordinary headers from native dimensional style
+
+The [header plan](../examples/cad-handoff/qualification/header-boundaries-16/PLAN.md) precedes a frozen
+26-job observer: the same six exact save14 sources, both importers/writers, and two empty controls.
+All157 known variables,22 dimensional variants,24 layout getters and the earlier public inventory
+are captured initially, after import/export, close/reopen and fresh process. Actual outcomes retain
+25 exports/fresh imports and one known hydraulic symbol-name failure. Original strict receiving gives
+6 differences,17 asset-profile refusals and2 explicitly unprofiled descriptive empty controls.
+
+Ordinary imported dimensional values can disagree with the separate dimension style. Saving replaces
+several known-variable values with that style. The separately declared/frozen48-job intervention uses
+all six sources and both writers, with unchanged, known-only DIMASZ, style-only DIMASZ and unrelated
+USERI5 controls. Exact before/after inventories permit only the intended recorded cell. All48 comply;
+all48 raw DIMASZ headers follow the style: target-only style9.875 is written and target-only ordinary
+known9.875 is overwritten. Unrelated USERI5=1234 persists. All48 fresh public inventories repeat,
+while24 strict differences and24 profile refusals remain. This establishes the bounded API direction,
+not every application's interactive file-open path or full source/geometry preservation.
+
+The expanded layout fields also expose new failures: only17 of25 first-cohort fresh inventories repeat
+exactly. Eight dxflib receiving jobs differ at46 plot/layout leaves. The original analysis refused that
+assertion; its source/actual refusal remain. A descriptive successor retains every changed path/value
+and labels all eight failed repeats. No field is dropped. Pinned public RLayout constructors leave
+primitive plot members without initializers, a source lead consistent with the unreliable observations;
+the installed build's exact internal cause still needs a direct control and is not claimed established.
+
+The host daemon was stopped before native launch; the failure remains and state was checked before
+starting the existing Docker installation/first container. The first analysis also had a syntax error,
+preserved beside its actual refusal and correction. No native run was restarted after a timeout.
+All original raw headers, zero-time literals, returned files, known-variable changes,74 original strict
+or explicit non-applicable reports, native commands/profile/resource limits and terminal states are
+received offline from bounded exact chunks. Old core methods, fixtures and strict failures are unchanged.
+Other paper/header/resource causes, complete readable receiving and fresh native UI/editability/revision
+qualification remain open. These exposed software controls establish no plant/company/engineering acceptance.

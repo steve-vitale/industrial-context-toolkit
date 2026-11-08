@@ -10,6 +10,113 @@ import cad_handoff as ch
 
 
 class RetainedLinuxNativeEvidence(unittest.TestCase):
+    def headers_module(self):
+        path = Path(__file__).resolve().parents[1] / 'examples/cad-handoff/qualification/check_headers16.py'
+        spec = importlib.util.spec_from_file_location('cad_headers16_receiver', path)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        return module
+
+    def test_header_controls_retain_fresh_layout_failures(self):
+        result = self.headers_module().check()
+        self.assertEqual(result['observation_jobs'], 26)
+        self.assertEqual(result['observation_exports'], 25)
+        self.assertEqual(result['observation_fresh_imports'], 25)
+        self.assertEqual(result['observation_exact_public_inventory_repeats'], 17)
+        self.assertEqual(len(result['fresh_layout_differences']), 8)
+        changes = [r for row in result['fresh_layout_differences'] for r in row['differences']]
+        self.assertEqual(len(changes), 46)
+        self.assertTrue(all(r['path'].startswith('/headers/layouts/') for r in changes))
+        self.assertEqual(result['dimension_exports'], 48)
+        self.assertEqual(result['dimension_exact_public_inventory_repeats'], 48)
+        self.assertEqual(result['exact_single_cell_operations'], 48)
+        self.assertEqual(result['directional_DIMASZ_controls'], 48)
+        self.assertEqual(result['dimension_strict_statuses'], dict(differences=24, refused=24))
+        self.assertFalse(result['whole_cad_qualified'])
+
+    def test_dimensional_operation_refuses_the_other_store_changing(self):
+        operation = self.headers_module().a.operation
+        original = dict(objects=[], variables=[], file_version='R24', headers=dict(layouts=[],
+            known_variables=[dict(name='DIMASZ', enum_id=24, present=True, value=dict(type='number', value=0.18)),
+                             dict(name='USERI5', enum_id=144, present=False, value=dict(type='undefined'))],
+            dimension_variables=[dict(name='DIMASZ', has_override=True, value=dict(type='number', value=2.5))]))
+        known = copy.deepcopy(original)
+        known['headers']['known_variables'][0]['value']['value'] = 9.875
+        operation(original, known, 'known')
+        style = copy.deepcopy(original)
+        style['headers']['dimension_variables'][0]['value']['value'] = 9.875
+        operation(original, style, 'style')
+        both = copy.deepcopy(known)
+        both['headers']['dimension_variables'] = style['headers']['dimension_variables']
+        for label in ('known', 'style', 'unchanged'):
+            with self.subTest(label=label):
+                with self.assertRaisesRegex(ValueError, 'Undeclared recorded change'):
+                    operation(original, both, label)
+
+    def test_raw_header_keeps_literal_zero_time_and_line_endings(self):
+        analysis = self.headers_module().a
+        data = b'  0\r\nSECTION\r\n  2\r\nHEADER\r\n  9\r\n$TDCREATE\r\n 40\r\n0.0\r\n  9\n$DIMASZ\n 40\n9.875\n  0\r\nENDSEC\r\n'
+        with tempfile.TemporaryDirectory() as temporary:
+            p = Path(temporary) / 'literal.dxf'
+            p.write_bytes(data)
+            result = analysis.raw_header(p)
+            self.assertEqual(bytes.fromhex(result['raw_hex']), data)
+            self.assertEqual(analysis.raw_number(result, '$TDCREATE', 40), 0.0)
+            self.assertEqual(analysis.raw_number(result, '$DIMASZ', 40), 9.875)
+        self.assertEqual(len(analysis.changes({'typed': False}, {'typed': 0})), 1)
+
+    def test_header_reassembly_refuses_escaping_duplicate_and_missing_parts(self):
+        import hashlib
+        receiving = self.headers_module()
+        data = b'exact native observations'
+        with tempfile.TemporaryDirectory() as temporary:
+            parent = Path(temporary)
+            for mode in ('valid', 'escape', 'duplicate', 'missing', 'wrong_hash', 'unreferenced'):
+                root = parent / mode
+                (root / 'chunks').mkdir(parents=True)
+                (root / 'chunks/one.part').write_bytes(data)
+                parts = ['chunks/one.part'] * (2 if mode == 'duplicate' else 1)
+                if mode == 'missing':
+                    parts = ['chunks/missing.part']
+                if mode == 'unreferenced':
+                    (root / 'chunks/extra.part').write_bytes(data)
+                pin = dict(bytes=len(data) * len(parts), sha256=hashlib.sha256(data * len(parts)).hexdigest(), parts=parts)
+                if mode == 'wrong_hash':
+                    pin['sha256'] = '0' * 64
+                ch.write_json(root / 'REASSEMBLY.json', {'../escape.bin' if mode == 'escape' else 'native.stdout': pin})
+                with self.subTest(mode=mode):
+                    if mode == 'valid':
+                        receiving.reassemble(root)
+                        self.assertEqual((root / 'native.stdout').read_bytes(), data)
+                    else:
+                        with self.assertRaises(ValueError):
+                            receiving.reassemble(root)
+                self.assertFalse((parent / 'escape.bin').exists())
+
+    def test_header_native_inventory_cannot_drop_a_known_variable(self):
+        receiving = self.headers_module()
+        keys = receiving.b.read(receiving.BASE / 'KEYS.json')
+        state = dict(objects=[], variables=[], headers=dict(layouts=[],
+            known_variables=[dict(name=k, enum_id=i, present=False, value=dict(type='undefined'))
+                             for i, k in enumerate(keys['known_variables'])],
+            dimension_variables=[dict(name=r['name'], has_override=False, value=dict(type='undefined'))
+                                 for r in keys['dimension_variables']]))
+        profile = dict(configuration_file='/home/cad/.config/QCAD/QCAD3.conf', qt_version='5.14.2',
+            importer_filters=['DXF Files [dxflib] (*.dxf)'], exporter_filters=['R15 [2000/LT2000] DXF Drawing [dxflib] (*.dxf)'])
+        job = dict(id='failed', importer='dxflib', exporter='dxflib', version='R15')
+        row = dict(id='failed', import_filter=profile['importer_filters'][0], export_filter=profile['exporter_filters'][0],
+                   initial=state, error='retained failure')
+        with tempfile.TemporaryDirectory() as temporary:
+            p = Path(temporary) / 'native.stdout'
+            def save():
+                p.write_text('ICT_HEADER16_PROFILE ' + json.dumps(profile) + '\nICT_HEADER16 ' + json.dumps(row) + '\n', encoding='utf-8')
+            save()
+            receiving.a.native_rows(p, [job], keys, True)
+            state['headers']['known_variables'].pop()
+            save()
+            with self.assertRaisesRegex(ValueError, 'known-variable observation omitted'):
+                receiving.a.native_rows(p, [job], keys, True)
+
     def records_module(self):
         path = Path(__file__).resolve().parents[1] / 'examples/cad-handoff/qualification/check_records15.py'
         spec = importlib.util.spec_from_file_location('cad_records15_receiver', path)
