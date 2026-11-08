@@ -17,6 +17,7 @@ def main():
         if sha(ROOT/n)!=pin:raise ValueError('Frozen input differs: '+n)
     mailbox=Path('/home/cad/ict-mailbox-21');mailbox.mkdir(mode=0o700)
     for name in ('requests','replies','errors','staging'):(mailbox/name).mkdir(mode=0o700)
+    for name in ('requests','replies','errors'):(mailbox/'staging'/name).mkdir(mode=0o700)
     CONFIG.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/'.configuration/QCAD3.conf',CONFIG)
     (ROOT/'dbus-address.txt').write_text(os.environ['DBUS_SESSION_BUS_ADDRESS'])
     out=ROOT/'native';out.mkdir();(ROOT/'replies').mkdir()
@@ -33,6 +34,21 @@ def main():
     row=dict(command=cmd,configuration_before=sha(CONFIG),started=datetime.now(timezone.utc).isoformat(),job=json.loads((ROOT/'job.json').read_bytes()))
     with(out/'stdout.txt').open('wb')as stdout,(out/'stderr.txt').open('wb')as stderr:
         p=subprocess.Popen(cmd,cwd='/opt/qcad',stdout=stdout,stderr=stderr);row['pid']=p.pid;write(out/'PROCESS.json',row)
+        # /opt/qcad/qcad is a shell wrapper. Faults must target its actual Qt child.
+        for _ in range(100):
+            children=Path('/proc/'+str(p.pid)+'/task/'+str(p.pid)+'/children').read_text().split()
+            engines=[]
+            for child in children:
+                arguments=Path('/proc/'+child+'/cmdline').read_bytes().split(b'\0')
+                if arguments and arguments[0]==b'/opt/qcad/qcad-bin':engines.append(int(child))
+            if len(engines)==1:break
+            time.sleep(.1)
+        else:
+            row['engine_observation_error']='Actual Qt child not uniquely observed; same process retained';write(out/'PROCESS.json',row)
+            p.wait();raise ValueError(row['engine_observation_error'])
+        row['engine_pid']=engines[0]
+        row['engine_start_identity']=Path('/proc/'+str(engines[0])+'/stat').read_text().split()[21]
+        write(out/'PROCESS.json',row)
         with(out/'controller.stdout').open('wb')as co,(out/'controller.stderr').open('wb')as ce:
             controller=subprocess.Popen(['python3','/work/workflow.py'],stdout=co,stderr=ce)
             row['controller_pid']=controller.pid;write(out/'PROCESS.json',row)

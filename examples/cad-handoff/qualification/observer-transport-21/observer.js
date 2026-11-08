@@ -4,31 +4,37 @@ include('/work/payload.js');
 var root21='/home/cad/ict-mailbox-21', protocol21='ict-native-mailbox/1';
 var seq21=0, error21=0, seen21={}, timer21=new QTimer(), run21=null;
 var stage21='startup', path21=null, file21=null, text21=null;
+// QCAD's 5.14.2 project uses generated 5.5 bindings. Invoke registered parent
+// prototypes explicitly; QFile objects need not inherit their methods correctly.
+function fileError21(f){return Number(QFileDevice.prototype.error.call(f));}
+function fileMessage21(f){return String(QIODevice.prototype.errorString.call(f));}
 function name21(n){return ('00000000'+n).slice(-8)+'.json';}
 function facts21(){
- var info=path21===null?null:new QFileInfo(path21);
- return {path:path21,exists:info===null?null:info.exists(),
-  size:info===null?null:Number(info.size()),
-  code:file21===null?null:Number(file21.error()),
-  message:file21===null?null:String(file21.errorString())};
+ var out={path:path21,exists:null,size:null,code:null,message:null};
+ try{var info=path21===null?null:new QFileInfo(path21);
+  out.exists=info===null?null:info.exists();out.size=info===null?null:Number(info.size());
+  out.code=file21===null?null:fileError21(file21);out.message=file21===null?null:fileMessage21(file21);
+ }catch(err){out.diagnostic_failure=String(err);}
+ return out;
 }
 function read21(path){
  path21=path;stage21='read-open';file21=new QFile(path);
  if(!file21.open(QIODevice.ReadOnly))throw new Error('Request read-open failed');
- if(file21.size()>65536){file21.close();throw new Error('Request exceeds wire limit');}
+ if(new QFileInfo(path).size()>65536){file21.close();throw new Error('Request exceeds wire limit');}
  stage21='read-text';var t=new QTextStream(file21);t.setCodec('UTF-8');var s=t.readAll();
- if(t.status()!==QTextStream.Ok||file21.error()!==QFile.NoError){file21.close();throw new Error('Request read failed');}
+ if(Number(t.status())!==0||fileError21(file21)!==0){file21.close();throw new Error('Request read failed');}
  file21.close();return s;
 }
 function publish21(folder,name,value){
- var target=root21+'/'+folder+'/'+name, temporary=root21+'/staging/'+folder+'-'+name;
+ var target=root21+'/'+folder+'/'+name, temporary=root21+'/staging/'+folder+'/'+name;
  stage21='publish-collision';path21=target;file21=null;
  if(new QFileInfo(target).exists()||new QFileInfo(temporary).exists())throw new Error('Publication collision');
  stage21='write-open';path21=temporary;file21=new QFile(temporary);
- if(typeof QIODevice.NewOnly!=='number')throw new Error('NewOnly QtScript binding unavailable');
- if(!file21.open(QIODevice.WriteOnly|QIODevice.NewOnly))throw new Error('Publication write-open failed');
+ // The old generated enum lacks NewOnly; Qt 5.14.2 defines it as 0x0040.
+ // Its OpenMode flags constructor accepts an integer, retaining the actual flag.
+ if(!file21.open(new QIODevice.OpenMode(0x0042)))throw new Error('Publication write-open failed');
  stage21='write-text';var t=new QTextStream(file21);t.setCodec('UTF-8');t.writeString(JSON.stringify(value)+'\n');t.flush();
- if(t.status()!==QTextStream.Ok||!file21.flush()||file21.error()!==QFile.NoError){file21.close();throw new Error('Publication flush failed');}
+ if(Number(t.status())!==0||!QFileDevice.prototype.flush.call(file21)||fileError21(file21)!==0){file21.close();throw new Error('Publication flush failed');}
  file21.close();stage21='publish-copy';path21=temporary+'.pending';
  // Keep the closed original staging record, then publish a distinct closed copy.
  if(!file21.copy(path21))throw new Error('Publication staging copy failed');
@@ -55,7 +61,7 @@ timer21.timeout.connect(function(){
   }
   // Every previously published request remains immutable throughout this process.
   for(var old in seen21){if(read21(root21+'/requests/'+old)!==seen21[old])throw new Error('Published request changed');}
-  var names=new QDir(root21+'/requests').entryList(['*.json'],QDir.Files,QDir.Name);
+  var names=new QDir(root21+'/requests').entryList(['*.json'],new QDir.Filters(QDir.Files),new QDir.SortFlags(QDir.Name));
   var expected=name21(seq21+1),next=[];
   for(var k=0;k<names.length;k++)if(!seen21.hasOwnProperty(String(names[k])))next.push(String(names[k]));
   if(next.length===0)return;

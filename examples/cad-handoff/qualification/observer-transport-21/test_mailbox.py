@@ -14,6 +14,7 @@ class MailboxControls(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
         for name in ('requests', 'replies', 'errors', 'staging'): (self.root / name).mkdir()
+        for name in ('requests', 'replies', 'errors'): (self.root / 'staging' / name).mkdir()
         self.run = '1' * 32
         self.body = dict(action='status')
         self.request = wire(dict(protocol=PROTOCOL, run_id=self.run, seq=1, body=self.body))
@@ -35,7 +36,7 @@ class MailboxControls(unittest.TestCase):
         self.assertEqual(p.read_bytes(), b'original')
 
     def test_staging_collision_retains_original(self):
-        p = self.root / 'staging/requests-00000001.json'; p.write_bytes(b'original')
+        p = self.root / 'staging/requests/00000001.json'; p.write_bytes(b'original')
         with self.assertRaises(FileExistsError): publish(self.root / 'requests/00000001.json', self.request)
         self.assertEqual(p.read_bytes(), b'original')
 
@@ -54,7 +55,7 @@ class MailboxControls(unittest.TestCase):
     def test_missing_extra_and_staging_loss_refuse(self):
         self.packet()
         for folder, name in [('replies', '00000001.json'), ('requests', '00000001.json'),
-                             ('staging', 'replies-00000001.json')]:
+                             ('staging/replies', '00000001.json')]:
             p = self.root / folder / name; kept = p.with_suffix('.kept'); p.rename(kept)
             with self.assertRaises(ValueError): audit(self.root, self.run, [self.body])
             kept.rename(p)

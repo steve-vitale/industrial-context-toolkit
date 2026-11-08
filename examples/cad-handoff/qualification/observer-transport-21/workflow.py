@@ -15,7 +15,7 @@ class TransportWorkflow(Workflow):
     def __init__(self):
         super().__init__()
         self.config = json.loads((ROOT / 'transport.json').read_bytes())
-        self.native_pid = json.loads((ROOT / 'native/PROCESS.json').read_bytes())['pid']
+        self.native_pid = json.loads((ROOT / 'native/PROCESS.json').read_bytes())['engine_pid']
         self.start_identity = Path(f'/proc/{self.native_pid}/stat').read_text().split()[21]
         self.mailbox = Mailbox('/home/cad/ict-mailbox-21', self.config['run_id'], self.alive,
                                self.record, ROOT / 'native/stdout.txt', timeout=5)
@@ -86,7 +86,7 @@ class TransportWorkflow(Workflow):
 
         def after(client, path):
             if profile == 'read-open': path.chmod(0)
-            if profile == 'reply-write': (client.root / 'staging').chmod(0o500)
+            if profile == 'reply-write': (client.root / 'staging/replies').chmod(0o500)
             if profile == 'changed-request':
                 path.chmod(0o644); path.write_bytes(b'{changed after publication}\n')
             if profile in ('read-open', 'reply-write', 'changed-request'):

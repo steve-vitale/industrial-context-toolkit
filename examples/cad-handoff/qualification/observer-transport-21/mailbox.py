@@ -21,7 +21,7 @@ def sha(data):
 def publish(path, data):
     """Exclusive publication on one filesystem; retain complete staging bytes."""
     path = Path(path)
-    stage = path.parent.parent / 'staging' / (path.parent.name + '-' + path.name)
+    stage = path.parent.parent / 'staging' / path.parent.name / path.name
     with stage.open('xb') as stream:
         stream.write(data)
         stream.flush()
@@ -62,8 +62,9 @@ class Mailbox:
             raise ValueError('Mailbox already failed; no dependent request')
         if list((self.root / 'errors').iterdir()):
             raise ValueError('Native error journal retained')
-        if self.console_path.exists() and b'ICT_MAILBOX_FATAL ' in self.console_path.read_bytes():
-            raise ValueError('Native console retains fatal transport error')
+        for path in (self.console_path, self.console_path.with_name('stderr.txt')):
+            if path.exists() and (b'ICT_MAILBOX_FATAL ' in path.read_bytes() or b'Script Exception:' in path.read_bytes()):
+                raise ValueError('Native console retains fatal transport error')
         if not self.alive():
             raise ValueError('Actual native process exited; no restart')
         for name, data in self.published.items():
@@ -118,9 +119,11 @@ def audit(root, run_id, expected_requests):
     for folder in ('requests', 'replies'):
         if set(p.name for p in (root / folder).iterdir()) != expected_names:
             raise ValueError('Missing/extra ' + folder)
-    stages = {f'{role}-{name}' for role in ('requests', 'replies') for name in expected_names}
-    if set(p.name for p in (root / 'staging').iterdir()) != stages:
+    if set(p.name for p in (root / 'staging').iterdir()) != {'requests', 'replies', 'errors'}:
         raise ValueError('Incomplete staging history')
+    for role in ('requests', 'replies', 'errors'):
+        if set(p.name for p in (root / 'staging' / role).iterdir()) != (expected_names if role != 'errors' else set()):
+            raise ValueError('Incomplete staging history')
     observations = []
     for seq, body in enumerate(expected_requests, 1):
         name = f'{seq:08d}.json'
@@ -128,7 +131,7 @@ def audit(root, run_id, expected_requests):
         if req != wire(dict(protocol=PROTOCOL, run_id=run_id, seq=seq, body=body)):
             raise ValueError('Request differs from intended action')
         for folder, data in [('requests', req), ('replies', rep)]:
-            if (root / 'staging' / (folder + '-' + name)).read_bytes() != data:
+            if (root / 'staging' / folder / name).read_bytes() != data:
                 raise ValueError('Published/staging bytes differ')
         observations.append(validate_reply(rep, req, run_id, seq))
     return dict(status='normal-mailbox-received', requests=len(observations), observations=observations,
