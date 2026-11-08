@@ -90,7 +90,10 @@ def audit(files, identity):
     actions = data(base+'ui/actions.json')
     require([r['event'] for r in actions] == list(range(1,len(actions)+1)) and actions[-1]['kind'] == 'mailbox_failure', 'Client refusal/action sequence differs')
     requests = [r for r in actions if r['kind'] == 'mailbox_request']
-    require([r['seq'] for r in requests] == list(range(1,call['seq']+1)), 'Client request coverage differs')
+    require([r['seq'] for r in requests] == list(range(1,call['seq'])), 'Client request coverage differs')
+    for folder in ('requests','staging/requests','replies','staging/replies'):
+        require({n[len(prefix+folder+'/'):] for n in files if n.startswith(prefix+folder+'/')} ==
+                set(history['completed_request_hashes']), 'Unposted next request or missing prior message differs')
     for row in requests:
         slot = f"{row['seq']:08d}.json"; request = files[prefix+'requests/'+slot]
         require(request == files[prefix+'staging/requests/'+slot] and row['wire'].encode('ascii') == request and row['sha256'] == digest(request), 'Client actual request bytes differ')
@@ -99,7 +102,7 @@ def audit(files, identity):
     views = [r for r in actions if r['kind'] == 'capture']
     return dict(status='failed-receiving-attempt-retained',case=data(base+'job.json')['case'],helper_calls=4097,
                 successful_prefix_calls=4096,completed_requests=history['replies'],call_status_counts=dict(counts),
-                captured_views=len(views),last_rejected_sequence=call['seq'],native_cleanup_exit=0,
+                captured_views=len(views),last_rejected_sequence=call['seq'],next_request_posted=False,native_cleanup_exit=0,
                 original_controller_exit=1,original_host_exit=1,normal_receiving_complete=False,whole_cad_qualified=False)
 
 
