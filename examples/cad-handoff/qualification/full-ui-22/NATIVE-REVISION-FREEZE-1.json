@@ -1,0 +1,37 @@
+{
+  "scope": "Exposed native revision adapter, frozen before preparation/native runs; historical methods unchanged",
+  "selected_methods_sha256_lf": "d342cd6bb5654e2cd053a9e31de6439aeed9c4c6f3da28ac64f3e4356a18c5a9",
+  "files_sha256_lf": {
+    "examples/cad-handoff/qualification/full-ui-22/native_revisions.py": "412a3b6681f3417a498ee3911f9de94ebf2f6b3273d4e4dd78bb985e1a36b538",
+    "examples/cad-handoff/qualification/full-ui-22/NATIVE-REVISION-PLAN.md": "8d97ff90357a2ef9b8a5f6308cdb3c338c3239547b4fd7a40aca8df83a8a1baf",
+    "examples/cad-handoff/qualification/full-ui-22/NATIVE-REVISION-METHODS-1.json": "d342cd6bb5654e2cd053a9e31de6439aeed9c4c6f3da28ac64f3e4356a18c5a9",
+    "examples/cad-handoff/qualification/full-ui-22/PREPARATION-1.json": "e45630682015094a5d1b2416386f4e9641488cdbe862b614f24518168da26c34",
+    "scripts/cad_handoff.py": "70ad396dbcadf89741da6e1d017944e42f6fb2804e272b3cc5ee7f5eabbf6d30",
+    "scripts/cad_value_patch.py": "174d66f36befc2ee3b12cef769badecf9927b1705419f9ecf9238e4e9c610a04",
+    "examples/cad-handoff/qualification/verify_bytes.py": "606cf310be4637bec2663b39c1001ca3d7668af7316aaa2fc7cbd571e0b0cd52"
+  },
+  "inputs": [
+    {
+      "case": "validation-cp1251",
+      "source": "examples/cad-handoff/qualification/validation-2/authored/validation-cp1251.dxf",
+      "source_sha256": "2044da26edd9188d07300f6b8f2abf4053956f31a7827bba488ec02c1351e158",
+      "plan": "examples/cad-handoff/qualification/full-ui-22/revision-loss-1/validation-cp1251/concurrent-plan.json",
+      "plan_sha256": "f8baeb3750b28c51f0773169fdbd595551a98601d02f46679c0d655d68a1dfc5",
+      "candidate": "examples/cad-handoff/qualification/full-ui-22/revision-loss-1/validation-cp1251/concurrent/candidate.dxf",
+      "candidate_sha256": "3d3dab97cf7aaa1a8dc68b6cf9ecf5cb913adea5d527242e89d8647d46ad402f",
+      "baseline_inventory": "examples/cad-handoff/qualification/full-ui-22/development-1/cp1251-baseline-1/INVENTORY.json",
+      "baseline_inventory_sha256_lf": "69ceea4c7ec5acacaed3b7025874841117cf49194b48f66717a8be3e680fd04f"
+    },
+    {
+      "case": "validation-braces",
+      "source": "examples/cad-handoff/qualification/validation-2/authored/validation-braces.dxf",
+      "source_sha256": "614e83380bbe667c727363f02d32519b3340439028f0acd72807c82a45224abe",
+      "plan": "examples/cad-handoff/qualification/full-ui-22/revision-loss-1/validation-braces/concurrent-plan.json",
+      "plan_sha256": "b3b0f4cb604f10080b4ce1c0ab90cb903dd81557735efa0712b06ff47a9f1ed9",
+      "candidate": "examples/cad-handoff/qualification/full-ui-22/revision-loss-1/validation-braces/concurrent/candidate.dxf",
+      "candidate_sha256": "214ef337a42e21c730bccdc93f49ab27e7e74abe6659212b019b730b684bf4c2",
+      "baseline_inventory": "examples/cad-handoff/qualification/full-ui-22/development-1/braces-baseline-1/INVENTORY.json",
+      "baseline_inventory_sha256_lf": "d051342b19cf6a6d8b567a36c564cac1b86fd6e89164df5dd348ea1afecd21e0"
+    }
+  ]
+}
