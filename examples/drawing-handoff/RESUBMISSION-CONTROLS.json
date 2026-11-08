@@ -1,0 +1,10 @@
+{
+  "scope": "Observed local software-control failure; not a fabricated subprocess transcript",
+  "baseline_commit": "bc17f4a",
+  "command": "python scripts/test_drawing_resubmission.py Resubmission.test_output_inside_previous_packet_refuses_without_changing_it -v",
+  "tool_chunk": "c50cd5",
+  "exit": 1,
+  "observed_failure": "AssertionError: ValueError not raised",
+  "cause": "A new output inside the previous packet adds files after the final captured-file check, invalidating the previous inventory without changing captured bytes.",
+  "correction": "Refuse output paths within or containing the previous packet before replay or publication. The permanent test also compares every previous file byte after refusal."
+}

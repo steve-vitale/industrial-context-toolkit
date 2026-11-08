@@ -127,6 +127,7 @@ def run(manifest_path,out,previous=None):
     require(previous is None or 'previous_packet' not in job,'Supply previous packet in the job or --previous, not both')
     prior=(Path(previous).resolve() if previous is not None else (manifest_path.parent/job['previous_packet']).resolve() if 'previous_packet' in job else None)
     if prior is not None:
+        require(not out.is_relative_to(prior) and not prior.is_relative_to(out),'Output must be outside the previous packet and cannot contain it')
         prior_files,old_brief,old_job=previous_packet(prior)
         captured.update({prior/name:raw for name,raw in prior_files.items()})
     prepared=[];ids=set();cad=None

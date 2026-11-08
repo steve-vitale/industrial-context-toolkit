@@ -64,6 +64,13 @@ class Resubmission(unittest.TestCase):
         self.assertTrue(any(r['kind']=='revision_follow_up' and r['needs_attention'] for r in brief['items']))
         self.assertTrue(any(r['kind']=='cad_preservation' and r['current_status']=='not_reassessed' for r in brief['revision']['items']))
 
+    def test_output_inside_previous_packet_refuses_without_changing_it(self):
+        prior=self.root/'nested-output-prior';shutil.copytree(self.prior,prior)
+        before=receiving.packet_files(prior)
+        with self.assertRaisesRegex(ValueError,'outside the previous packet'):
+            receiving.run(self.jobfile,prior/'new-return',prior)
+        self.assertEqual(receiving.packet_files(prior),before)
+
     def changed_markup(self,label,change):
         root=self.root/(label+'-input');shutil.copytree(ROOT/'examples/pid-markup-review/corrected',root)
         manifest=self.read(root/'manifest.json');change(root,manifest)
@@ -88,6 +95,23 @@ class Resubmission(unittest.TestCase):
         row=next(r for r in brief['revision']['items'] if r['kind']=='other_change')
         self.assertEqual(row['current']['kind'],'coverage_gap');self.assertEqual(row['current_status'],'needs_assessment')
         self.assertEqual(row['current']['detail']['returned']['state'],'unknown')
+
+    def test_reinterpreted_original_reading_is_a_changed_basis(self):
+        def change(root,manifest):
+            p=root/manifest['readings']['path'];readings=self.read(p)
+            original=next(r for r in readings['observations'] if r['role']=='original' and r['key'].get('name')=='size')
+            original['value']='DN40'
+            p.write_text(json.dumps(readings),encoding='utf-8');manifest['readings']['sha256']=receiving.sha(p.read_bytes())
+        brief=self.changed_markup('reinterpreted-original',change)
+        self.assertEqual(brief['revision']['basis_changes'][0]['status'],'basis_changed')
+
+    def test_rebased_cad_plan_remains_explicit(self):
+        job=copy.deepcopy(self.job);plan=self.read(Path(job['drawings'][1]['cad']['plan']))
+        plan['changes'][0]['after']='DIFFERENT-SCOPE';p=self.root/'new-cad-plan.json'
+        p.write_text(json.dumps(plan),encoding='utf-8');job['drawings'][1]['cad']['plan']=str(p)
+        brief=self.run_job('rebased-plan',job)
+        self.assertTrue(any(r['check']=='cad' and r['status']=='basis_changed' for r in brief['revision']['basis_changes']))
+        self.assertTrue(all(r['current_status']=='basis_changed' for r in brief['revision']['items'] if r['kind'].startswith('cad_')))
 
     def test_previous_inventory_tampering_refuses_before_publication(self):
         prior=self.root/'damaged';shutil.copytree(self.prior,prior)
