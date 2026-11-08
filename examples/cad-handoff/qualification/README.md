@@ -101,5 +101,15 @@ The subsequent [pointer-state controls](receiver-state-8/README.md) explain the 
 deliberate hover reproduces the old states exactly; nine pointer-neutral source/repeat/candidate views have zero
 canvas differences. This is development on one exposed drawing, not fresh validation or a whole-layout readable pass.
 
-Next acceptance work is complete readable layout/label/font review and fresh native validation with a separately
-frozen observation method. Retain every original full-save/layout/font failure before claiming a qualification gain.
+The subsequent [font/frame controls](font-views-9/README.md) test a process-local Standard-to-DejaVu Sans
+display profile on three exposed authored pairs. Native bounds measured after mapping provide common complete
+asset frames. All 36 accepted native views and 144 unique native field values are retained; mapped Cyrillic,
+mixed Unicode and long target labels are readable in the inspected asset views. All nine mapped pairs have zero
+changed canvas pixels outside exact planned MODEL bounds. The default font lacks 13 required Cyrillic characters;
+its long overview still has 62 pixels outside the native label bounds. Existing linework/label overlaps remain.
+This is display development, not original typography fidelity or fresh qualification. Two failed/interrupted
+batches remain alongside the completed matched batches; no strict/raw-byte rule was relaxed.
+
+Next acceptance work is a general preparation method, complete readable layout/label/font review and fresh native
+validation with a separately frozen observation method. Retain every original full-save/layout/font failure before
+claiming a qualification gain.

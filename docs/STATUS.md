@@ -30,7 +30,7 @@ benchmark suites and the optional MCP/protocol job. This is software evidence, n
 company-client acceptance or plant validation. Check [committed-version CI](https://github.com/steve-vitale/industrial-context-toolkit/actions/workflows/tests.yml)
 for later revisions; the dated development records below apply only to their stated inputs and versions.
 
-The current runner registers **71 source-only and 90 full-suite programs**. The earlier 2026-11-06 local Windows run
+The current runner registers **71 source-only and 92 full-suite programs**. The earlier 2026-11-06 local Windows run
 passed **89/89 programs**, with **seven individual unittest cases skipped** and three platform notices explaining
 skips. It is not a complete run of every optional check. The drawing-to-map fixture now pins LF source bytes to
 fix [Linux CI regression #7](https://github.com/steve-vitale/industrial-context-toolkit/issues/7); use
@@ -105,6 +105,11 @@ they do not establish whole-workflow native or company acceptance.
 The subsequent [pointer-state experiment](../examples/cad-handoff/qualification/receiver-state-8/README.md)
 explains that public-paper mismatch: deliberate highlighting reproduces both old states; nine neutral repeated
 source/candidate views have zero canvas differences. One exposed drawing does not close font/layout or fresh-validation gates.
+The [font/frame experiment](../examples/cad-handoff/qualification/font-views-9/README.md) retains 36 matched native
+views of three exposed authored pairs. A declared Standard-to-DejaVu Sans display mapping and bounds measured
+after mapping make the inspected Cyrillic, mixed Unicode and long asset labels readable without changing DXF bytes.
+Existing linework overlaps, default-font glyph failures and a 62-pixel default overview discrepancy remain; no original
+typography fidelity, repaired paper layouts, full-save equivalence or fresh qualification is inferred.
 
 Use the [acceptance exercise](ACCEPTANCE.md) for concrete tests, records and failure cases. It is prepared;
 actual participant, recipient, native-system and tenant observations remain **not run**.

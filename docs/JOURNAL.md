@@ -8362,3 +8362,48 @@ visible changed-value coverage. Complete readable layouts/fonts, five known orig
 failures, native full-save preservation and fresh native validation remain open. Next work
 needs a separately frozen pointer-neutral observation method and reserved inputs, not an
 upgrade of these repeated observations to independent qualification or company acceptance.
+
+## 190. Measure native text after the declared display font is active
+
+The next precommitted development plan compares the pinned Linux native receiver's default
+font with process-local Standard-to-DejaVu Sans substitution, using three already exposed
+authored source/candidate pairs. The API reads native values/font/bounds, activates GUI
+documents and positions a common camera; it never edits or saves. Bounds are measured after
+the profile starts, united across both versions and padded before each source/candidate pair.
+This avoids the earlier use of pre-substitution bounds. The equipment-data agent/local-form
+route remains usable without a CAD UI; native delivery checks are a separate obligation.
+
+The original complete batch traversed below the actual canvas; its 18 views/36 frames remain
+retained. A correction was committed before repeating. The agent then mistakenly sent Quit
+while the corrected capture was live; that process later exited 1, with 14 final views and
+28 frames but no completed actions receipt. The interruption was recorded before a fresh
+container repeat. Both accepted batches separately reported capture exit 0 before Quit;
+the default native process exited normally before the substituted process started. All
+359 exact records, including failures, are retained in a 13,612,032-byte lossless archive.
+Action notes are transcriptions; actual images, native receipts, per-command captures,
+logs and terminal container states are retained separately. No binary/font/settings release.
+
+The accepted matched batches retain 36 views and 144 unique native attribute observations.
+All exact field values, including foreign values, match source/candidate snapshots. All
+three candidates rebuild with strict zero and independent raw reconstruction zero. Default
+Standard.cxf lacks 13 required Cyrillic characters; its native views show question marks.
+Mapped native probes resolve DejaVu Sans with Qt coverage of all supplied characters.
+Direct assistant inspection of every accepted view finds complete target labels in the
+mapped asset views, including Cyrillic, mixed Unicode and both long strings. Overview
+labels are too small for character review. Source rotation and some linework/label overlap
+remain. The mapping changes typography; intended original-font fidelity is unproved.
+
+All nine mapped source/candidate canvas pairs change pixels only within exact unexpanded
+native MODEL bounds. The default long overview has 62 pixels outside its exact MODEL bounds;
+a two-pixel expansion contains them, but this is an exposed diagnostic, not an acceptance
+tolerance or explanation. The 62 remain unresolved. Full raw pixel totals for all 18 pairs
+remain published, with exact and expanded counts. No image was altered to obtain agreement.
+
+The offline checker independently decodes stable frames, recomputes cameras/projections and
+all pixel diagnostics, and rejects seven semantic corruptions: planned value, foreign loss,
+missing glyph, clipped camera, wrong document, unplanned pixel and omitted view. All four
+successor evidence tests pass locally; original frozen CAD tests remain untouched. Offline
+replay verifies saved observations, not new native execution or engineering acceptance.
+Five original paper-layout failures, native full-save preservation, original typography,
+general preparation and separately frozen fresh native validation remain open. These exposed
+fixes do not make new holdouts, and the full goal remains active.

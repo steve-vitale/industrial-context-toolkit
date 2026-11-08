@@ -30,6 +30,18 @@ class RetainedLinuxNativeEvidence(unittest.TestCase):
         self.assertEqual(len(result["receiving_refusals"]), 5)
         self.assertFalse(result["whole_cad_qualified"])
 
+    def test_font_profiles_complete_frames_and_planted_receiving_errors(self):
+        path = Path(__file__).resolve().parents[1] / "examples/cad-handoff/qualification/check_font9.py"
+        spec = importlib.util.spec_from_file_location("cad_font_frame_replay", path)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        result = module.check()
+        self.assertEqual(result["native_views"], 36)
+        self.assertEqual(result["unique_native_attributes"], 144)
+        self.assertEqual(result["default_long_overview_pixels_outside_exact_model_bounds"], 62)
+        self.assertEqual(len(result["receiving_refusals"]), 7)
+        self.assertFalse(result["whole_cad_qualified"])
+
     def test_evidence_extraction_rejects_paths_links_and_omission(self):
         import hashlib
         import io
