@@ -30,7 +30,7 @@ retained under `C:/Users/Steve/.cp-scratch/cad-native-ui-pairs-19/`; the bounded
 retain the original cohort and failures without settings contents or publisher binaries. Earlier sealed
 packets are intact. Complete repository/CI validation of this addition is a separate gate.
 
-## Original fresh cohort complete; separate camera follow-up active
+## Original fresh cohort complete; first camera control terminal
 
 Freeze `5f27559` precedes a new 18-process cohort: baseline, edited and fresh receiving process for each
 of the six drawings. Four isolated processes may run concurrently. The batch locks method hashes before
@@ -44,11 +44,19 @@ strict preservation (298–377 differences); matched pairs retain 50–53 unexpe
 pixel comparisons have zero outside-region changes, with nine diagnostic because camera equality fails.
 The original results and failures remain in the replayable summary without qualification promotion.
 
-The first separately frozen camera-only run is `ict-cad-ui19-camera-air1`, staged under
-`camera-1/libre-air-water` in the local execution root. It uses the same exact source/returns/candidate,
-retains old and absolute camera recipes and changes no CAD entities or files. Observe actual native
-state/results; no success is inferred from launch. The recorder regression passes while reproducing the
-original mutable-event failure. Full six-case camera and future full-method/reserved work remain unfinished.
+The first separately frozen camera-only run, `ict-cad-ui19-camera-air1`, completed controller/native/container
+exit zero with all 24 views. Both old and absolute camera recipes repeat exactly across its four files;
+this air case did not reproduce drift. Frozen input hashes remain unchanged. Local terminal inspection is
+retained under `camera-1` in the execution root. Complete pixel receiving and the remaining five cases
+are not yet run; this is an API/terminal control, not evidence of a gain on the failing motion/power cases.
+The recorder regression reproduces the original mutable-event failure beside immutable snapshots.
+Full six-case camera and future full-method/reserved work remain unfinished.
+
+The first full local suite and exact-head CI failed on a provenance check that assumed every packet used
+the newest packager. Historical sources were already retained; current repacking reproduces the affected
+archives byte-for-byte. A subsequent replay exposed a load-clock-dependent parser metadata flag. Original
+failures, inventories and summary remain in validation; source-bound raw HEADER evidence and live parser
+diagnostics are now separate in the presentation. Successor full/CI validation remains a separate gate.
 
 Do not infer completed coverage from this plan or a live batch. Inspect the actual process handles and
 finished receipts, then retain all attempted outcomes, recompute complete comparisons and assemble bounded

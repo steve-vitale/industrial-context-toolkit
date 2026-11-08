@@ -9094,3 +9094,25 @@ A fresh camera-only process now tests old and direct factor/offset view setters 
 without entity edits or saves. Its actual result, complete repository/CI gates and later six-case
 follow-up remain separate. Original full-save failures, reserved/generalization, foreign/other-text,
 revision/conflict and engineering/company acceptance gates remain open.
+
+
+The first full local suite finished 94/95 programs, with seven individual skips and three platform notices.
+Exact-head CI [42505046833](https://github.com/steve-vitale/industrial-context-toolkit/actions/runs/42505046833)
+failed the same packager check. Its current-only generator assumption was wrong: the first two case
+archives used the frozen source already retained under receiver-2. The only packager source change adds
+receiver-2 to historical collection; case packing is unchanged. Current repacking reproduces both archives
+byte-for-byte. Original inventories, failure logs/command/source and CI step output remain in validation.
+The receiver now resolves packager identities to retained frozen sources; unknown identities refuse.
+
+The next complete replay differed in two ancillary candidate save_metadata_changed flags. Installed and
+upstream ezdxf1.4.5 setup replaces loaded $TDCREATE with inspection time. A delayed inspection and a
+controlled two-clock regression reproduce the effect for identical raw headers. The reporting repair was
+committed before regenerating the stable presentation: original summary and actual differences remain,
+actual unchanged comparator reports are returned as live diagnostics, and complete raw HEADER bytes
+supply the candidate metadata evidence. A changed raw header refuses. No comparator, original source,
+byte requirement or native failure was changed. Successor integration/CI results remain separate.
+
+The first camera-only air process subsequently completed normal controller/native/container exit0 and
+24views with exact four-file cameras for both recipes. All frozen inputs remain unchanged. This case
+reproduces neither original camera failure; it establishes API/terminal behavior only. Full pixel receiving
+and the other five camera cases remain unfinished, as does the original qualification objective.
