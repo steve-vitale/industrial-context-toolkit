@@ -36,6 +36,84 @@
       "failed-receiving/receive.py": "7ea81ef53bcad3449b86a44c977d005749736967bd895ec35dace5aa8a7de1be",
       "failed-receiving/FREEZE.json": "ab821e94be06cfc4da0b682361b40429bb01295a05d8b151ce10b832c7dde388",
       "failed-receiving/EXIT.json": "607f2d8ec83a83310890b6c399295c7ea27527cd26f36cee94f7386dc9d71eb8"
-    }
+    },
+    "failed_receiving_message": "Native recorded expectation differs"
+  },
+  "cp1251-baseline-1": {
+    "scope": "Original exposed development attempt; no reserved input or engineering acceptance",
+    "freeze": {
+      "files": {
+        "BRIDGE-PROTOCOL.md": "dc29afa322d7e159af91b5b6182c82dc94d6554a09e6e689b382c3643af40b5a",
+        "bridge_workflow.py": "c19ad17d0543949f8da5028f95f7f4eb639b48e86c1a5275dd4e193af88db338",
+        "contract.py": "c4a5d8498d9e83adba8ea30f7c2110d80606c6d02d7e0cd7c6cb5089c73d0b02",
+        "inspect_ui.py": "c41e118f8108e02dcef6ba9d90cf280d68851ba4b7cb6a870b96a4c9deb5c03e",
+        "job.json": "15e9d1d931ac703225911392086ac88174a82bef51cf7aacdf4f3dfe695d3438",
+        "launch_case.py": "de30596352798067073872eaecf8c92018c3040e5bf8e75a519a7896201d1ecd",
+        "mailbox.py": "c90d937b5faa7d16fa1922ee14487f93067a9b9560aa05ffacfa9a7a8c718b82",
+        "METHOD.md": "f7e96945f4123976e3c920964bcb55d9e38a5cc30ec64d9ac94943dc7852bf2d",
+        "native_controls.py": "767246eef54db970e4a1a590b2e5797a41305046dfebc98dfdc7bc759105e832",
+        "native_io.py": "dbb67603c0809b4813aca4c450b1e9e670b4ab8cceb9d147d6c238bed31abec5",
+        "observe_case.js": "1d800b1b294682e61998e6f3294b291538afd54fc5a4051baed551419aa0c9ed",
+        "original_workflow.py": "8e600a8ff2504df0e3eeb5c04a0053618130889354b94c56e3fcc215b22c7c23",
+        "payload.js": "abc5089dd34553672b8d6815f5be937a1643dbd319a11edf724511a4f2cc2579",
+        "plan.json": "a75fb0abe99c35371caa3c2ce25ec498efdcd92e16bbf541c662c154e5acf6c8",
+        "PLAN.md": "af884180a36b17627fe0953fa1c40e3ff2da120414b68a75e75947b098d024bb",
+        "source.dxf": "2044da26edd9188d07300f6b8f2abf4053956f31a7827bba488ec02c1351e158",
+        "transport.json": "a88059c2de82528dc0294575b6658fee6e97c956e99587b7ee5bdc195f2b5cfc",
+        "ui_control.py": "92d04306a6600039f484e2be3835681bbfdf3bc0e143b924033098b146d2e85d",
+        "ui_settle.py": "2f921354d7ee8568969625cff1fa3a086291cee548358a2cba319cfe48b70872",
+        "ui_text.py": "29df32c04ad02df1e98d2f6faa9f030e37c81d884fb36dd462a0782ef3719704",
+        "workflow.py": "3a80e1396fc1d7fbd7ad9b4fb7476af3c725478d40a711893944d9dc4dbc0675",
+        ".configuration/QCAD3.conf": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c"
+      },
+      "producer_sha256": "f21a2ef8229c4ac2acd530b96841b19109fc19bcb044409a4c180ee7133b5826",
+      "scope": "Frozen before native full UI development; not fresh validation or qualification"
+    },
+    "original_identity": {
+      "attempt/job/JOB-FREEZE.json": "c0e407bb4f6a0d4e8a951bdbf828a56f7ea5d018aa096ada178db3dc762fe685",
+      "execution/COMMAND.json": "9a76728abf0a0d44a7398222542acc22b96b262d6d60ed9dc776f854ce10b5b1",
+      "execution/EXIT.json": "267aefd78a72c9453478263faba0b4430d9c3bd7f3b3f027154ac04225645a88",
+      "failed-receiving/receive.py": "281cfc10b6eaa6cb6cb147e1023a74895e69a80f8f01c73c0ed01c21ce0d21c0",
+      "failed-receiving/FREEZE.json": "776e540d319f5e81a93715dd0f4fbeedd1c737cf9982b1de09660acec61d00ef",
+      "failed-receiving/EXIT.json": "607f2d8ec83a83310890b6c399295c7ea27527cd26f36cee94f7386dc9d71eb8"
+    },
+    "failed_receiving_message": "Plan needs at least one explicit change"
+  },
+  "braces-edited-1": {
+    "scope": "Original exposed development attempt; no reserved input or engineering acceptance",
+    "freeze": {
+      "files": {
+        "BRIDGE-PROTOCOL.md": "dc29afa322d7e159af91b5b6182c82dc94d6554a09e6e689b382c3643af40b5a",
+        "bridge_workflow.py": "c19ad17d0543949f8da5028f95f7f4eb639b48e86c1a5275dd4e193af88db338",
+        "contract.py": "c4a5d8498d9e83adba8ea30f7c2110d80606c6d02d7e0cd7c6cb5089c73d0b02",
+        "inspect_ui.py": "c41e118f8108e02dcef6ba9d90cf280d68851ba4b7cb6a870b96a4c9deb5c03e",
+        "job.json": "51d4d323f25747278888cdae03a6b8eb3604f737d4cb1e8d8b30257c61555e2d",
+        "launch_case.py": "de30596352798067073872eaecf8c92018c3040e5bf8e75a519a7896201d1ecd",
+        "mailbox.py": "c90d937b5faa7d16fa1922ee14487f93067a9b9560aa05ffacfa9a7a8c718b82",
+        "METHOD.md": "f7e96945f4123976e3c920964bcb55d9e38a5cc30ec64d9ac94943dc7852bf2d",
+        "native_controls.py": "767246eef54db970e4a1a590b2e5797a41305046dfebc98dfdc7bc759105e832",
+        "native_io.py": "dbb67603c0809b4813aca4c450b1e9e670b4ab8cceb9d147d6c238bed31abec5",
+        "observe_case.js": "1d800b1b294682e61998e6f3294b291538afd54fc5a4051baed551419aa0c9ed",
+        "original_workflow.py": "8e600a8ff2504df0e3eeb5c04a0053618130889354b94c56e3fcc215b22c7c23",
+        "payload.js": "abc5089dd34553672b8d6815f5be937a1643dbd319a11edf724511a4f2cc2579",
+        "plan.json": "5126be71101f71b51332b50fd52980c3f0146a19fded4e7f8b8571c6b45d8508",
+        "PLAN.md": "af884180a36b17627fe0953fa1c40e3ff2da120414b68a75e75947b098d024bb",
+        "source.dxf": "614e83380bbe667c727363f02d32519b3340439028f0acd72807c82a45224abe",
+        "transport.json": "64c02e363e071ba6c5959609f06684b04840b03e637d7e8a3baaa3ca13f0ccff",
+        "ui_control.py": "92d04306a6600039f484e2be3835681bbfdf3bc0e143b924033098b146d2e85d",
+        "ui_settle.py": "2f921354d7ee8568969625cff1fa3a086291cee548358a2cba319cfe48b70872",
+        "ui_text.py": "29df32c04ad02df1e98d2f6faa9f030e37c81d884fb36dd462a0782ef3719704",
+        "workflow.py": "3a80e1396fc1d7fbd7ad9b4fb7476af3c725478d40a711893944d9dc4dbc0675",
+        ".configuration/QCAD3.conf": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c"
+      },
+      "producer_sha256": "f21a2ef8229c4ac2acd530b96841b19109fc19bcb044409a4c180ee7133b5826",
+      "scope": "Frozen before native full UI development; not fresh validation or qualification"
+    },
+    "original_identity": {
+      "attempt/job/JOB-FREEZE.json": "df68f0071a3795d6263a234a2beb586f461cd840e562627c9a04600a9c7f6ed1",
+      "execution/COMMAND.json": "7f91374f8541d127174c570c405d031342ba41615a98224c173fc4f043018adb",
+      "execution/EXIT.json": "267aefd78a72c9453478263faba0b4430d9c3bd7f3b3f027154ac04225645a88"
+    },
+    "failed_receiving_message": null
   }
 }

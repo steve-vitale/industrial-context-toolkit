@@ -34,7 +34,9 @@ def package(attempt, execution, failures, receipt, out):
     actual = receive(attempt,HERE/'PREPARATION-1.json',HERE/'METHODS-1.json')
     require(equal(actual,read(receipt/'RESULT.json')) and read(execution/'EXIT.json')['exit'] == 0, 'Actual receiving result/host exit differs')
     files = {}
-    for prefix,folder in [('attempt',attempt),('execution',execution),('receiving',receipt),('failed-receiving',failures)]:
+    folders = [('attempt',attempt),('execution',execution),('receiving',receipt)]
+    if str(failures) != '-': folders.append(('failed-receiving',failures))
+    for prefix,folder in folders:
         for path in folder.rglob('*'):
             if path.is_file(): files[prefix+'/'+path.relative_to(folder).as_posix()] = path.read_bytes()
     for name in ('METHODS-1.json','PREPARATION-1.json','receive.py','evidence.py'):

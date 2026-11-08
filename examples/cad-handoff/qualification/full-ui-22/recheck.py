@@ -13,7 +13,9 @@ def check_files(files,label):
     require(json.loads(files['attempt/job/JOB-FREEZE.json']) == pins['freeze'], 'Original input/method freeze differs')
     require(json.loads(files['methods/METHODS-1.json']) == read(HERE/'METHODS-1.json') and json.loads(files['methods/PREPARATION-1.json']) == read(HERE/'PREPARATION-1.json'), 'External method/preparation differs')
     require(json.loads(files['execution/EXIT.json'])['exit'] == 0 and json.loads(files['receiving/EXIT.json'])['exit'] == 0, 'Actual execution/receiving outcome differs')
-    require(json.loads(files['failed-receiving/EXIT.json'])['exit'] == 1 and b'Native recorded expectation differs' in files['failed-receiving/stderr.txt'], 'Original receiver-order failure omitted')
+    if pins.get('failed_receiving_message'):
+        require(json.loads(files['failed-receiving/EXIT.json'])['exit'] == 1 and pins['failed_receiving_message'].encode('utf-8') in files['failed-receiving/stderr.txt'], 'Original receiver failure omitted')
+    else: require(not any(n.startswith('failed-receiving/') for n in files), 'Unexpected failed-receiver history')
     with tempfile.TemporaryDirectory(prefix='ict-full-ui22-') as temporary:
         root = Path(temporary)
         for name,data in files.items():
