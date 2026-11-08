@@ -73,6 +73,10 @@ metrics or excluding the residual rows would not answer those questions.
 
 ## Primary method references
 
+**Subsequent evidence:** [GUI-scene-13](../gui-scene-13/README.md) resolves the old 62-pixel cause with exact
+native primitive replay and curve-removal controls. This earlier experiment's failed predictions and
+results remain unchanged. Full-save and fresh receiving qualification remain open.
+
 The public QCAD source is pinned to `897079c2d11aaa0869f839a6cf5df8a937dbddbe`, the peeled
 `v3.33.1.0` tag (verified with `git ls-remote`). It documents the
 [operation flag](https://github.com/qcad/qcad/blob/897079c2d11aaa0869f839a6cf5df8a937dbddbe/src/operations/RAddObjectsOperation.h),

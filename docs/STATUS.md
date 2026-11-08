@@ -131,8 +131,11 @@ The [causal CAD controls](../examples/cad-handoff/qualification/root-cause-12/RE
 native exports and 432 fresh-process field observations. They isolate and correct an unintended current-layer
 change in the API edit harness. No-edit full saves still have 4,650 strict rows across twelve pairs; second
 saves add 6,138. A before-load constructor change does not fix them. R15's matched residual is traced to
-embedded save-time values, without excluding it. The 62-pixel GUI residual remains unresolved after isolated
-raster controls. Whole CAD qualification, complete readability and fresh UI/revision acceptance remain open.
+embedded save-time values, without excluding it. The subsequent [actual-GUI trace](../examples/cad-handoff/qualification/gui-scene-13/README.md)
+explains the 62-pixel residual: native separate cubic glyph strokes extend beyond geometric bounds. Ordinary
+and observed canvases match; actual primitive replay reproduces all 1,978 delta pixels exactly, and removing
+curves removes all 62. Original failures and strict comparison remain intact. Whole CAD qualification,
+native full-save preservation, complete readability and fresh UI/revision acceptance remain open.
 
 Use the [acceptance exercise](ACCEPTANCE.md) for concrete tests, records and failure cases. It is prepared;
 actual participant, recipient, native-system and tenant observations remain **not run**.
