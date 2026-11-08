@@ -9150,3 +9150,11 @@ on the camera method. No CAD file is edited/saved in this follow-up. The unchang
 strict comparator, source-span patcher, original native failures and complete
 qualification objective remain; new reserved/full-workflow transfer, foreign/text,
 multi-asset and revision/conflict gates are not closed.
+
+
+The complete CAD evidence module subsequently finished51/51 tests in237.029s,
+zero skips and exit0. Actual command, raw test source and stdout/stderr/exit are
+retained in camera-repeat-20/validation/integration-1. All original replay and
+loss controls pass beside the five new methods. This is not the full95-program
+repository suite. Three original native receiving containers remain live; no
+camera-cohort success or reserved qualification is inferred from the tests.

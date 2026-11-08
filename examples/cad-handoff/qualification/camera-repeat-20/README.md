@@ -45,7 +45,10 @@ focused regression methods pass, with no skips. They challenge missing views/
 replies, incorrect/disabled fields, changed drawing bytes despite an updated job
 freeze, exact camera/formula disagreements, and an unrelated pixel with consistent
 full image/crop/digests. A detected pixel loss is reported as failed, not waived.
-This is not a new full repository/CI pass.
+The complete CAD evidence module subsequently passed all 51 tests with zero
+skips; its actual command, source and logs are retained under
+[validation](validation/integration-1/COMMAND.json). This is not a new full
+repository/CI pass.
 
 Receiving code was committed before the first pixel comparison. Its
 [first refusal](development-1/NOTE.md) remains: a newly serialized LF basis was
