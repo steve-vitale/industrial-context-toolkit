@@ -22,6 +22,22 @@ Its other checks confirm missing inherited methods/classes, working QIODevice
 parent size/errorString calls and NewOnly collision refusal. Probe completion is
 not a normal transport pass; inspect the retained checks and failed predecessor.
 
+The exact native reports are readable in [probe1](probes/binding-probe-1/BINDINGS.json)
+and [probe2](probes/binding-probe-2/BINDINGS.json). Their adjacent hashed archives
+retain all actual inputs, methods, UI actions, console, raw collision file,
+controller and container receipts. Both failed-attempt archives are complete too.
+Recheck all four outcomes offline, then challenge source/method changes, lost
+failure evidence, promoted exits and matching but false report projections:
+
+```sh
+python -S examples/cad-handoff/qualification/observer-transport-21/recheck_evidence.py
+python -S examples/cad-handoff/qualification/observer-transport-21/test_evidence.py -v
+```
+
+The five evidence regression methods pass locally without skips; they directly
+challenge semantic receiving after bypassing the outer archive inventory. This
+is exposed software validation, not an independent observer or engineering review.
+
 [BRIDGE-PLAN.md](BRIDGE-PLAN.md) declares the next method before implementation:
 let a pinned local Python helper own physical mailbox I/O and report its actual
 OS errors, while QCAD produces read-only native observations through verified

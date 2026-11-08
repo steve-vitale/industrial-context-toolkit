@@ -42,6 +42,11 @@ jobs:
         run: python examples/cad-handoff/qualification/check_diagnosis4.py
       - name: Recheck native record correspondence without waiving strict differences
         run: python examples/cad-handoff/qualification/check_correspondence5.py
+      - name: Retain failed observer attempts and recheck installed capability evidence
+        run: |
+          python -S examples/cad-handoff/qualification/observer-transport-21/recheck_evidence.py
+          python -S examples/cad-handoff/qualification/observer-transport-21/test_mailbox.py -v
+          python -S examples/cad-handoff/qualification/observer-transport-21/test_evidence.py -v
       - name: Rebuild equipment-data sidecars and replay browser downloads without a CAD UI
         run: python examples/cad-handoff/qualification/check_exchange6.py
       - name: Verify frozen first-use session evidence without model calls

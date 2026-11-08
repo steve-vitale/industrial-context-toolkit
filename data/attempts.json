@@ -5910,6 +5910,30 @@
         "examples/agent-first-use/workflow-check/README.md",
         "examples/agent-first-use/workflow-check/actual/VALIDATION.json"
       ]
+    },
+    {
+      "id": "A362",
+      "function": "intake_and_reuse",
+      "date": "2026-11-08",
+      "change": "Make native observation transport immutable and error-complete; probe actual installed bindings when direct-Qt attempts fail.",
+      "hypothesis": "Private sequence-bound messages and complete fail-stop history remove replaceable-path and anonymous-overwrite dependencies if actual native APIs support the method.",
+      "evidence": "Two frozen normal attempts fail before a normal reply: missing inherited QFile methods, then absent QFileDevice. Complete packets and same-process normal cleanup retained. Two probes confirm missing bindings, actual NewOnly collision refusal and QIODevice parent size/errorString. Probe1 retains a codec refusal; probe2 verifies Python completion and exact UTF-8 stdout/stderr including UID1001 and µ valve. Eleven mailbox and five semantic evidence methods pass without skips; all four outcomes recheck offline.",
+      "runs": "Criteria ca96ca0 precede implementation a720dcf; successor e395618 and probes a493c4f/01258ba frozen before each native attempt. Same agent authors/sees all exposed development; pinned isolated QCAD/Qt image and prior source/configuration. No CAD opened/saved; no reserved or independent validation.",
+      "verdict": "inconclusive",
+      "why": "Installed evidence replaces unsupported API assumptions; complete console fallback prevents a false all-clear. N118 remains open: frozen prospective Python I/O-owner bridge, actual normal/fault receiving and corrected full UI method remain to implement. Original camera20 read-open cause, native-save strict losses, reserved/foreign/text/multi-asset/revision and engineering gates remain.",
+      "source": [
+        "docs/JOURNAL.md#209-observe-installed-native-bindings-before-replacing-failed-observer-transport",
+        "examples/cad-handoff/qualification/observer-transport-21/README.md",
+        "examples/cad-handoff/qualification/observer-transport-21/PLAN.md",
+        "examples/cad-handoff/qualification/observer-transport-21/PROBE-PLAN.md",
+        "examples/cad-handoff/qualification/observer-transport-21/BRIDGE-PLAN.md",
+        "examples/cad-handoff/qualification/observer-transport-21/development-1/NOTE.md",
+        "examples/cad-handoff/qualification/observer-transport-21/development-2/NOTE.md",
+        "examples/cad-handoff/qualification/observer-transport-21/probes/binding-probe-2/BINDINGS.json",
+        "examples/cad-handoff/qualification/observer-transport-21/recheck_evidence.py",
+        "examples/cad-handoff/qualification/observer-transport-21/test_mailbox.py",
+        "examples/cad-handoff/qualification/observer-transport-21/test_evidence.py"
+      ]
     }
   ],
   "not_tried": [
@@ -7308,10 +7332,14 @@
       "function": "intake_and_reuse",
       "status": "not-done",
       "idea": "Make native observer request/reply transport immutable and sequence-bound with complete error history before freezing the corrected full UI method.",
-      "why_not_yet": "Camera20 template retains an anonymous QFile request-open error despite normal native exits and86 successful replies. Strict receiving refuses; the explicit diagnostic stays failed. Replaceable request path and fixed unknown-error filename leave the underlying read failure and total error history unresolved. Add missing/read/write/sequence/error controls on exposed development before fresh reserved qualification; preserve the original failure.",
+      "why_not_yet": "Camera20 template retains an anonymous QFile request-open error despite normal native exits and86 successful replies. Strict receiving refuses; the explicit diagnostic stays failed. Replaceable request path and fixed unknown-error filename leave the underlying read failure and total error history unresolved. Add missing/read/write/sequence/error controls on exposed development before fresh reserved qualification; preserve the original failure. A362 retains two failed direct-Qt normal attempts and two installed-binary probes. Missing QFile APIs/absent QFileDevice explain the new failures; verified QProcess/UTF-8 streams support a frozen prospective Python I/O-owner bridge with actual OS errors. Helper implementation, complete native normal/fault receiving and full CAD gates remain unfinished.",
       "source": [
         "examples/cad-handoff/qualification/camera-repeat-20/development-3/NOTE.md",
-        "examples/cad-handoff/qualification/camera-repeat-20/SUMMARY.json"
+        "examples/cad-handoff/qualification/camera-repeat-20/SUMMARY.json",
+        "examples/cad-handoff/qualification/observer-transport-21/README.md",
+        "examples/cad-handoff/qualification/observer-transport-21/PLAN.md",
+        "examples/cad-handoff/qualification/observer-transport-21/PROBE-PLAN.md",
+        "examples/cad-handoff/qualification/observer-transport-21/BRIDGE-PLAN.md"
       ]
     }
   ]

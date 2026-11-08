@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python",
+    "-S",
+    "examples\\cad-handoff\\qualification\\observer-transport-21\\test_evidence.py",
+    "-v"
+  ],
+  "script_sha256": "4171d651c62530bb8e37eabbb4674f546f57580fd6f6761d4f1fad5f8fe3704a",
+  "exit": 0,
+  "stdout": "",
+  "stderr": "test_all_original_failures_and_probe_outcomes_remain_distinct (__main__.NativeCapabilityEvidence.test_all_original_failures_and_probe_outcomes_remain_distinct) ... ok\ntest_failed_attempt_cannot_be_promoted_by_editing_exit_or_losing_console (__main__.NativeCapabilityEvidence.test_failed_attempt_cannot_be_promoted_by_editing_exit_or_losing_console) ... ok\ntest_matching_report_tampering_still_fails_installed_capability_checks (__main__.NativeCapabilityEvidence.test_matching_report_tampering_still_fails_installed_capability_checks) ... ok\ntest_original_codec_refusal_cannot_be_replaced_by_success (__main__.NativeCapabilityEvidence.test_original_codec_refusal_cannot_be_replaced_by_success) ... ok\ntest_source_or_method_changes_refuse_after_outer_inventory_bypass (__main__.NativeCapabilityEvidence.test_source_or_method_changes_refuse_after_outer_inventory_bypass) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.117s\n\nOK\n"
+}

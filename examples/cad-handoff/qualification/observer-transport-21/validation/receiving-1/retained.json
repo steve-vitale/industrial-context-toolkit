@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python",
+    "-S",
+    "examples\\cad-handoff\\qualification\\observer-transport-21\\recheck_evidence.py"
+  ],
+  "script_sha256": "9fce728db3ea1b1c4e6ad60804e8708d82fcd2f72edbac3f0bc710ba87759838",
+  "exit": 0,
+  "stdout": "{\n  \"attempts\": [\n    {\n      \"kind\": \"development-1\",\n      \"status\": \"original-failed-attempt-retained\",\n      \"whole_cad_qualified\": false\n    },\n    {\n      \"kind\": \"development-2\",\n      \"status\": \"original-failed-attempt-retained\",\n      \"whole_cad_qualified\": false\n    },\n    {\n      \"kind\": \"binding-probe-1\",\n      \"status\": \"probe-complete-with-retained-codec-refusal\",\n      \"whole_cad_qualified\": false\n    },\n    {\n      \"kind\": \"binding-probe-2\",\n      \"status\": \"probe-observed-process-and-utf8-stream-capabilities\",\n      \"whole_cad_qualified\": false\n    }\n  ],\n  \"whole_cad_qualified\": false\n}\n",
+  "stderr": ""
+}

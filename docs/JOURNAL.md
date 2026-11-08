@@ -9232,3 +9232,49 @@ LinkedIn; no outreach, LinkedIn content planning, simulator/MTP adapter or alert
 service was added. CI now runs the portable entry-point check. Current-head CI,
 full integration and the native transport repair remain distinct work; useful
 reproduction does not close the original CAD qualification or human/site gates.
+
+
+## 209. Observe installed native bindings before replacing failed observer transport
+
+2026-11-08. Prior goal turn made progress: PR44 merged3ad016f with both exact-head
+CI jobs passing and a matching clean main tree. N118 criteria were frozenca96ca0
+before implementation: private immutable numbered messages, exact run/wire binding,
+complete errors, fail-stop behavior and actual normal/fault receiving. Original
+UI19/camera20 and strict CAD/byte methods remain unchanged.
+
+Frozen a720dcf fails before a normal reply: inherited QFile size/error methods are
+absent and the error handler itself fails. All81actual files and controller1/
+native0/container1 outcomes remain; inspect and normally close the same live
+process with a separate cleanup receipt. Frozen e395618 fails on absent QFileDevice.
+Its full error/publication failure reach the native console and the client refuses
+immediately. Preserve the complete second packet and separate same-process cleanup.
+Neither opened or saved a drawing. No attempt was repaired or restarted in place.
+
+Upstream QCAD's5.14.2 project selects generated5.5 bindings; source did not prove
+installed availability. Probe a493c4f confirms missing inherited APIs/classes,
+working QIODevice parent size/errorString and actual NewOnly collision refusal.
+Python through QProcess completes, but codecForName's string overload refuses.
+Retain that capability failure. Separately frozen01258ba decodes actual stdout
+JSON containing UID1001 and µ valve, plus exact stderr, with QTextStream. Both
+probes complete controller/native/container0; probe1's codec check stays failed.
+Two hashed probe archives each retain66actual files. Native/client reports agree.
+
+The launcher now distinguishes the shell wrapper from the actual Qt child PID/
+start identity. Future pause faults must target that child and retain controlled
+UI unavailability; separately resume/close the same process, not restart it.
+Eleven mailbox tests and five semantic evidence tests pass without skips. They
+challenge changed sources/methods, lost errors, promoted exits and jointly altered
+reports beyond an outer inventory. Offline receiving rechecks all four distinct
+outcomes. Actual commands, methods, raw console, UI and process/export receipts
+remain under observer-transport-21. CI adds those offline checks; current branch
+integration is separate from verified PR44 CI.
+
+BRIDGE-PLAN.md is frozen before successor implementation: a pinned local Python
+helper owns physical mailbox I/O and reports actual OS errno/stage/path, with a
+complete immutable invocation history. QCAD still produces native observations
+through observed QProcess/stream APIs; UI controls own drawing work. Never invent
+an unavailable QFile code or promote either failed attempt. All original fault,
+strict, byte, source, revision and reserved gates remain. The historical camera20
+read-open cause, helper implementation and full receiving, corrected-method freeze,
+foreign/text/multiple-asset/reserved transfer, complete readability and engineering/
+company acceptance remain unfinished. No plant, human-benefit or qualification claim.
