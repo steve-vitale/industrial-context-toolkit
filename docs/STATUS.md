@@ -23,7 +23,22 @@ Company review, accepted identities and receiving-system checks determine what c
 
 ## Current verification
 
-The earlier full-suite release baseline was **`a439f14`**:
+The latest verified merged baseline is **`5a6397e`** (PR43). Its exact-head
+[pull-request CI](https://github.com/steve-vitale/industrial-context-toolkit/actions/runs/42506688565)
+and [push CI](https://github.com/steve-vitale/industrial-context-toolkit/actions/runs/42506684160)
+both succeeded: **95/95 scripts, zero failed, 37 individual unittest cases skipped**.
+The CAD evidence module had no skipped cases. This is not a complete zero-skip
+suite or native engineering acceptance; original failed runs remain retained.
+
+The new [workflow reproduction guide](REPRODUCE_A_WORKFLOW.md) and
+[portable entry-point check](../examples/agent-first-use/workflow-check/README.md)
+run seven supplied workflows and five regression suites using the standard library.
+Actual author-run checks reproduce the pre-existing markup key, maintenance/knowledge
+revision conditions and complete batch result. These are software/exposed-case
+checks, not a new independent agent session or a manager trial. The
+[repository guide](REPOSITORY_GUIDE.md) identifies canonical references and generated catalogs.
+
+An earlier full-suite release baseline was **`a439f14`**:
 [main CI run 41590240463](https://github.com/steve-vitale/industrial-context-toolkit/actions/runs/41590240463).
 It passed **77/77 test programs**, with **18 individual unittest cases skipped**, plus six saved task/model
 benchmark suites and the optional MCP/protocol job. This is software evidence, not human usefulness,
@@ -48,8 +63,9 @@ Offline publication checks match
 Pipeline freshness remains **50/52**: manual `te.pid_live` and `te.replay` receipts are stale.
 Saved predictions regenerate 23 matching tables and seven with documented historical formatting adjustments;
 five earlier diagnostic tables still lack predictions. The feature catalog has **33 features**, of which
-**22 have current independently reviewed example outputs**; the generalization-matrix review is stale after
-the selected intake receipt refresh. Its numerical results are unchanged. The new CAD and photo examples still
+**21 have current independently reviewed example outputs**; the generalization-matrix review is stale after
+the selected intake receipt refresh, and repository-check review does not cover the new workflow-reproduction
+receipts. Numerical results are unchanged. The new CAD and photo examples still
 need independent review. The new [port revision example](../examples/pid-port-review/README.md) also awaits independent review; its separately fixed key is author-visible.
 Neither a passing software test nor a matching source hash establishes an accepted engineering conclusion.
 The new [cross-sheet path example](../examples/pid-path-review/README.md) also awaits independent review;

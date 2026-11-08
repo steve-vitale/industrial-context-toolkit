@@ -25,3 +25,22 @@ The next depth work that can be done without people is more reserved unfamiliar 
 sessions with declared exposure, and actual receiving-editor regression fixtures. Keep them distinct from a manager
 trial. Human effort, company-source authority, accepted corrections and product demand require actual observations.
 Do not add a background alert service or another MCP server to disguise those missing observations.
+
+## Keep discovery and reproduction aligned with the actual scope
+
+The [repository guide](REPOSITORY_GUIDE.md) now identifies directory responsibilities,
+canonical references and the existing generated script/feature registries. The
+[workflow reproduction guide](REPRODUCE_A_WORKFLOW.md) supplies actual entry commands,
+expected findings, next-revision/wrong-input checks and the supplied-preparation boundary.
+Its [portable runner](../examples/agent-first-use/workflow-check/README.md) exercises
+seven existing workflows and five regression suites; it is an author-run fixture check,
+not another fresh-agent or manager-benefit result. The README now exposes maintenance
+intake, markup/endpoint/path review, CAD metadata proposals, photo/document preparation,
+recorded analysis, onboarding and manual consulting/calculation/automation methods.
+
+Native camera reproducibility is tracked in its [separate experiment](../examples/cad-handoff/qualification/camera-repeat-20/README.md).
+An improved camera does not repair native save losses or close foreign/text,
+multi-asset, reserved transfer, complete readability and revision/conflict gates.
+Human usefulness, complete effort, company acceptance and buyer demand still require
+actual observations. Public fixtures let an agent reproduce the software now without
+inventing those observations or requiring contact with the author.

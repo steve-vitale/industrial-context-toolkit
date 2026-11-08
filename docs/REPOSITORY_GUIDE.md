@@ -16,7 +16,7 @@ use [the executable reproduction guide](REPRODUCE_A_WORKFLOW.md).
 | `benchmarks/`, `predictions/`, `extraction/`, `runs/` | Task/key/run metadata, saved predictions, extraction recipes and raw-run retention policy. | Use [benchmarks/README.md](../benchmarks/README.md) and [predictions/README.md](../predictions/README.md). Saved scoring is distinct from making a new model call. |
 | `out/` | Committed case-study results and generated demonstration artifacts. | Some are evidence inputs to checks, not disposable build files. Regenerate only through the owning recipe; choose a fresh external folder for your own job. |
 | `pipeline/`, `docker/`, `.github/` | Declared demonstration stages, local lab packaging and CI. | These reproduce selected assemblies/checks. They do not configure an arbitrary plant or establish native platform acceptance. |
-| `assets/`, `drafts/` | Supporting visuals and historical draft material. | Use current guides for supported behavior. LinkedIn publishing/content planning belongs in the separate dedicated repository. |
+| `assets/`, `drafts/` | Supporting visuals, visual prototypes/builders and captured review evidence. | The [interactive-tour prototype](../drafts/interactive-tour/README.md) and other draft guides state their scope. Use current tool guides for own-input behavior. LinkedIn publishing/content planning belongs in the separate dedicated repository. |
 
 Existing evidence paths are retained because manifests, source pins and historical replay commands refer to
 them. Improve discovery through these entry points rather than moving a hashed fixture without migrating and

@@ -299,7 +299,7 @@
     {
       "id": "repo-checks",
       "category": "check",
-      "title": "Checks a stranger (or their agent) can run on this repository",
+      "title": "Reproduce workflows and check repository claims",
       "tools": [
         "scripts/check_claims.py",
         "scripts/pipeline.py",
@@ -311,7 +311,10 @@
       "guide": "docs/REVIEWING.md",
       "example_outputs": [
         "out/claims_check.md",
-        "examples/test-coverage/expected.json"
+        "examples/test-coverage/expected.json",
+        "examples/agent-first-use/workflow-check/actual/VALIDATION.json",
+        "examples/agent-first-use/workflow-check/actual/RESULT.json",
+        "examples/agent-first-use/workflow-check/actual/COLLISION-CONTROL.json"
       ],
       "tests": [
         "scripts/test_check_claims.py",
@@ -319,12 +322,13 @@
         "scripts/test_script_index.py",
         "scripts/test_feature_catalog.py",
         "scripts/test_run_tests.py",
-        "scripts/test_checkout_contracts.py"
+        "scripts/test_checkout_contracts.py",
+        "examples/agent-first-use/workflow-check/reproduce.py"
       ],
-      "job": "Decide whether to trust this repository at all",
+      "job": "Inspect published result claims and exercise documented workflow entry points",
       "you_need": "Python alone for claim and freshness checks; full tests also need Git, pinned packages and required public caches; optional-source omissions are reported separately",
       "time": "Under a minute for the claim check",
-      "you_get": "Headline claims checked against results files, stage freshness, and selected tests with skipped cases and coverage limits visible",
+      "you_get": "Registered claims checked against result files, stage freshness, current workflow commands/reports and known-answer checks, plus regression results with skipped cases and coverage limits visible. Replaying supplied fixtures is separate from a new model or native/site run.",
       "why": "Before trusting any tool with your plant's data, you should be able to check its claims yourself in minutes."
     },
     {
@@ -1676,7 +1680,11 @@
         "examples/cad-handoff/qualification/camera-repeat-20/results/libre-air-water.json",
         "examples/cad-handoff/qualification/camera-repeat-20/results/libre-motion.json",
         "examples/cad-handoff/qualification/camera-repeat-20/results/libre-power.json",
-        "examples/cad-handoff/qualification/camera-repeat-20/results/qcad-hydraulic.json"
+        "examples/cad-handoff/qualification/camera-repeat-20/results/qcad-hydraulic.json",
+        "examples/cad-handoff/qualification/camera-repeat-20/SUMMARY.json",
+        "examples/cad-handoff/qualification/camera-repeat-20/results/qcad-mechanical.json",
+        "examples/cad-handoff/qualification/camera-repeat-20/results/qcad-template-diagnostic.json",
+        "examples/cad-handoff/qualification/camera-repeat-20/development-3/qcad-template-receive.json"
       ],
       "tests": [
         "scripts/test_cad_handoff.py",

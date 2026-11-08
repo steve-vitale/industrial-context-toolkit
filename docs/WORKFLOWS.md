@@ -34,6 +34,15 @@ It is a consumer, not a new graph producer, original-document reader or live syn
 
 ## Files with different jobs
 
+The [calculation review](../examples/consulting-start/CALCULATION_REVIEW.md),
+[automation requirements/handoff](../examples/consulting-start/AUTOMATION_HANDOFF.md)
+and [scope/quote/receiving forms](../examples/consulting-start/README.md) are manual
+methods beside these file contracts. They record supplied requirements, external
+tool/reference assumptions, unresolved questions and receiving checks. They do
+not add a numerical solver, MTP/rMTP adapter, PLC deployment or ongoing service.
+The [platform comparison](COMPETITIVE_WORKFLOWS.md) explains the existing-tool and
+unfinished-client-job basis; no customer demand or comparative advantage is measured.
+
 <a id="three-files-with-different-jobs"></a>
 
 | File shape | Role | Important boundary |

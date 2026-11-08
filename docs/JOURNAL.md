@@ -9172,3 +9172,63 @@ proposed exposed-development camera procedure, without tolerance or image
 alignment. It does not prove installed proprietary internals or new independent
 transfer. All original failures remain. Mechanical/template have now started
 automatically and are live; both remain required before a cohort conclusion.
+
+
+### 207 final cohort: retain an observation-channel failure
+
+The last two original runs completed normal native/controller/container exit0.
+All six packets are retained. Mechanical receives; template strictly refuses
+because it also retains replies/unknown.json: Cannot read request. All86 normal
+sequential replies remain, but the observer's QFile open failed at least once.
+Its fixed anonymous-error filename can overwrite earlier failures, so total
+error history is unknown. A replace/read filesystem race is an unproven lead,
+not a confirmed root cause. Original failed command, host exit1, source and
+freeze remain in camera-repeat-20/development-3.
+
+Commit04070aa freezes an explicit failed diagnostic before its first run.
+Default strict receiving still refuses extra/missing replies. The diagnostic
+retains the extra error record as failed and all18 template comparisons as
+diagnostic; missing normal replies or other corrupt evidence still refuse.
+All108 image pairs have zero outside-region changes,27 diagnostic only: nine
+old-camera pairs and18 template pairs. Absolute requested/actual and four-file
+cameras match on every retained view. All6 exposed cases/516normal observations,
+24fields,144views/576images remain development; five packets receive and one
+strictly refuses. Seven focused methods pass in105.456s,0skips,including all6
+packet replays, the original refusal and missing-reply refusal in diagnostic mode.
+Source comparator/patcher/byte checks and original UI19 evidence remain unchanged.
+
+Next: immutable sequence-bound request/reply transport with retained error
+history and fault controls, then a complete corrected fullUI method frozen before
+fresh reserved admission. Original full-save, foreign/text, multiasset,
+readability/editability, revision/conflict and engineering acceptance stay open.
+
+## 208. Make current scopes discoverable and execute their reproduction paths
+
+2026-11-08. Steve asked for all lessons/gaps, current README/description and clear
+organization for other people's agents. The README now surfaces maintenance
+intake, markup/port/path checks, CAD metadata and return review, photo/document
+preparation, recorded analysis, onboarding and manual consulting/calculation/
+automation methods. It distinguishes supplied readings and authored detailed
+layouts from executable checking. WORKFLOWS adds the missing CAD/path contracts.
+Existing evidence paths remain intact rather than breaking hashes for cosmetic
+moves. The repository guide assigns directory/reference ownership; existing
+script/feature registries remain canonical, with current CAD evidence registered.
+
+The workflow guide provides seven actual first-result routes, known findings,
+source/review boundaries and failure/revision checks. An initial author-run
+executes8workflow commands and5regression programs successfully. The portable
+cross-workflow runner was then frozen00ebbc7 before execution; all13commands,
+eight additional source/result checks and63tests pass with0skips. The existing-
+destination control refuses and all399retained files stay byte-identical. Actual
+plan/commands/logs/results and metadata readback are retained under
+examples/agent-first-use/workflow-check/actual. This is one exposed author-run
+software exercise, not independent agent/manager evidence or a measured saving.
+
+The authenticated GitHub CLI updated and read back the description because the
+connector exposes no metadata-edit action. It includes records, P&ID/CAD review,
+photo/document fields, models/context, recorded data, Ignition/PI, self-service,
+onboarding, consulting worksheets and benchmarks. Contact remains Steve's
+LinkedIn; no outreach, LinkedIn content planning, simulator/MTP adapter or alert
+service was added. CI now runs the portable entry-point check. Current-head CI,
+full integration and the native transport repair remain distinct work; useful
+reproduction does not close the original CAD qualification or human/site gates.

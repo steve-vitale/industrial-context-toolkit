@@ -1,4 +1,4 @@
-# Exact camera repeat: four of six development cases received
+# Exact camera repeat: six runs with a retained observation failure
 
 2026-11-08. Follow the original [frozen camera design](../native-ui-pairs-19/CAMERA-REPEAT-PLAN.md)
 and this [receiving/continuation plan](PLAN.md). These six cases are already
@@ -22,7 +22,7 @@ outside the originally declared label region. This case did not reproduce the
 earlier motion/power camera drift, so air alone establishes API and receiving
 behavior but no measured improvement on the failing cases.
 
-## The two previously failing cases now reproduce the difference
+## The old camera drift repeats; the final channel failure remains
 
 Three more original runs subsequently completed normal controller/native/
 container exits and portable receiving. Each retains 86 observations, four field
@@ -34,14 +34,28 @@ panels and 24 views/96 images. Every comparison has zero outside-region changes.
 | [Motion](results/libre-motion.json) | 6 (two frames) | 0 | 18 |
 | [Power](results/libre-power.json) | 3 (one frame) | 0 | 18 |
 | [Hydraulic](results/qcad-hydraulic.json) | 0 | 0 | 18 |
+| [Mechanical](results/qcad-mechanical.json) | 0 | 0 | 18 |
+| [Template diagnostic](results/qcad-template-diagnostic.json) | 0 | 0 | 18, all diagnostic because observation channel failed |
 
 The old recipe reproduces exact-camera failures on the same motion and power
 frames. The absolute recipe retains exact requested/observed and four-file
-factor/offset equality on all four received cases, without a numerical tolerance
+factor/offset equality on all retained views, without a numerical tolerance
 or image alignment. This supports the proposed camera procedure on exposed
 development data, not a newly independent validation or proof of the installed
-proprietary engine's internal implementation. The mechanical/template processes
-are still running; the whole six-case conclusion remains open.
+proprietary engine's internal implementation. All six original native applications,
+controllers and containers are now terminal with exit zero. Five packets receive;
+template strictly refuses because an extra error reply is retained. The
+[complete summary](SUMMARY.json) separates those outcomes.
+
+Template has all 86 sequential normal replies and a saved anonymous
+`Cannot read request` error. Its original [failure and source](development-3/NOTE.md)
+remain. The helper's request-file open failed; a replace/read filesystem race is
+an unproven lead. Anonymous errors share a filename, so this record proves at
+least one failure and not the total count. An explicit diagnostic verifies the
+retained fields/views while marking every template pixel pair diagnostic and
+its observation channel failed. It never passes strict receiving. All 108 pixel
+pairs have zero outside-region changes; 27 remain diagnostic (nine old-camera
+pairs and all 18 template pairs). This is not a clean six-case qualification.
 
 An assistant inspected the retained source overview and candidate label screenshots.
 The qualification labels intersect the public symbol and the zoomed annotation
@@ -60,13 +74,15 @@ python examples/cad-handoff/qualification/check_camera20.py \
 python -m unittest discover -s scripts -p test_cad_linux_evidence.py -k CameraRepeat20Evidence -v
 ```
 
-Each received case has an `evidence/<case>` packet usable by the same command.
-Actual portable replays succeeded in separate destinations. The five
-focused regression methods pass, with no skips. They challenge missing views/
+Each case has an `evidence/<case>` packet usable by the same command. Template
+intentionally refuses in strict mode. To retain its failed observation diagnostic,
+add `--diagnostic-observer-errors` in a different new output directory; this mode
+cannot make a clean receive. Actual portable replays retain both outcomes.
+The focused regression methods challenge missing views/
 replies, incorrect/disabled fields, changed drawing bytes despite an updated job
 freeze, exact camera/formula disagreements, and an unrelated pixel with consistent
 full image/crop/digests. A detected pixel loss is reported as failed, not waived.
-The complete CAD evidence module subsequently passed all 51 tests with zero
+The earlier complete CAD evidence module passed all 51 tests with zero
 skips; its actual command, source and logs are retained under
 [validation](validation/integration-1/COMMAND.json). This is not a new full
 repository/CI pass.
@@ -81,11 +97,11 @@ preservation rule; proprietary binaries and settings contents are excluded.
 ## Continuation
 
 The remaining batch code/plan were frozen at `43fec6a` before three original
-containers launched; those three are now terminal and the final two started
-automatically under the same maximum of three concurrent processes. Inspect
-those actual handles, never restart on a
-timeout, and retain any failure in the same process. Complete all six portable
-receipts and both old/new image sets before drawing a camera-method conclusion.
+containers launched; the final two started automatically under the same maximum
+of three concurrent processes. All original handles are now terminal; no timeout
+restart occurred. Six original portable packets, all old/new views and the
+template refusal are retained. Native request/reply transport and complete error
+history must be corrected and tested before a complete combined method freeze.
 
 The completion-time receiver packages only original terminal handles and never
 launches CAD. Its [first finalizer refusal](development-2/NOTE.md), caused by

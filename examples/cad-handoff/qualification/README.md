@@ -24,11 +24,12 @@ metadata failures and exact-camera failures on two cases. Nine of 54 pixel compa
 zero outside-region changes does not waive the camera gate. Original failures/recovery remain separate.
 New reserved validation and whole qualification remain unfinished.
 
-The separate [camera repeat](camera-repeat-20/README.md) now has one fully received
-original air/water run: both camera recipes repeat exactly, with 18 pixel
-comparisons and zero outside-region changes. It reproduces neither prior camera
-failure; the other five cases are unfinished. The repeat edits/saves no CAD file
-and changes no original qualification verdict.
+The separate [camera repeat](camera-repeat-20/README.md) retains all six terminal
+native runs. Old motion/power drift repeats; absolute cameras match exactly on
+all retained views. Five packets receive and template refuses an extra native
+request-read error; its separate failed diagnostic remains explicit. All 108
+pixel comparisons have zero outside-region changes, with 27 diagnostic only.
+The repeat edits/saves no CAD file and changes no original qualification verdict.
 
 ## Reproduce the evidence offline
 

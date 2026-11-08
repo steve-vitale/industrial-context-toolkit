@@ -26,6 +26,8 @@ jobs:
         run: python -S examples/manager-review/reproduce.py --out "$RUNNER_TEMP/manager-review"
       - name: Exercise agent self-service preparation and saved public drawing route
         run: python -S examples/agent-first-use/reproduce.py --out "$RUNNER_TEMP/agent-first-use"
+      - name: Reproduce documented workflow entry points and failure controls
+        run: python -S examples/agent-first-use/workflow-check/reproduce.py --out "$RUNNER_TEMP/workflow-check"
       - name: Exercise reusable maintenance intake across three revisions
         run: python -S examples/maintenance-intake/reproduce.py --out "$RUNNER_TEMP/maintenance-intake"
       - name: Exercise disappeared findings with changed comparison basis

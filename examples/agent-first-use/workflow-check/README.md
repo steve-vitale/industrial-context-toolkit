@@ -22,6 +22,12 @@ and complete committed batch result. Port/path runners check their own frozen
 keys and intentionally wrong baselines. Read those results, not only the boolean.
 An existing output directory refuses before work and is never replaced.
 
+The [actual author-run receipt](actual/VALIDATION.json) records all 13 commands
+passing, eight additional source/result checks and 63 regression tests with zero
+skips. The [collision control](actual/COLLISION-CONTROL.json) refused the existing
+destination and verified all 399 retained files unchanged. The executed runner
+was frozen at `00ebbc7` before this run. Linux/current-head CI is a separate check.
+
 These results test command discovery, software contracts and the supplied cases.
 They do not measure new image reading, manager usefulness, end-to-end human time,
 native CAD/platform acceptance or commercial demand. See the guide for supplied

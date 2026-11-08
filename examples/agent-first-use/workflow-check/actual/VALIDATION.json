@@ -1,0 +1,24 @@
+{
+  "scope": "Actual author-run portable fixture exercise, not independent agent or plant evidence",
+  "commands": 13,
+  "all_commands_exit_zero": true,
+  "additional_checks": {
+    "markup_statuses_match_preexisting_key": true,
+    "markup_counts_match_preexisting_key": true,
+    "other_changes_and_coverage_gap_retained": true,
+    "markup_not_automatic_or_accepted": true,
+    "maintenance_revision_checks": true,
+    "knowledge_revision_checks": true,
+    "batch_entire_result_matches_committed_expected": true,
+    "drawing_report_present": true
+  },
+  "regression_tests": {
+    "test_knowledge_capture.stderr.txt": 12,
+    "test_maintenance_intake.stderr.txt": 13,
+    "test_pid_connections.stderr.txt": 11,
+    "test_pid_markups.stderr.txt": 9,
+    "test_pid_path_review.stderr.txt": 18
+  },
+  "total_tests": 63,
+  "skipped": 0
+}

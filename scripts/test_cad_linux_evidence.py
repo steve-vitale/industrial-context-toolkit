@@ -961,6 +961,36 @@ class CameraRepeat20Evidence(unittest.TestCase):
             self.assertEqual(len(altered),1);self.assertEqual(altered[0]['outside_region'],1)
             self.assertEqual(altered[0]['pixel_status'],'failed');self.assertFalse(altered[0]['diagnostic_only'])
 
+    def test_camera20_all_six_packets_keep_template_failure_and_absolute_camera_results(self):
+        r=self.receiver()
+        with tempfile.TemporaryDirectory()as temporary:
+            root=Path(temporary);results=[]
+            for case in r.CASES:
+                out=root/case;out.mkdir()
+                if case=='qcad-template':
+                    with self.assertRaisesRegex(ValueError,'Camera reply coverage differs'):
+                        r.receive_packet(r.BASE/'evidence'/case,out/'strict')
+                    result=r.receive_packet(r.BASE/'evidence'/case,out/'diagnostic',True)
+                    status=result['diagnostic_observer_errors'];self.assertEqual(status['status'],'failed')
+                    self.assertEqual(status['saved_errors'][0]['record'],{'error':'Error: Cannot read request'})
+                    self.assertFalse(status['qualification']);self.assertTrue(all(p['diagnostic_only']for p in result['pixels']))
+                else:result=r.receive_packet(r.BASE/'evidence'/case,out)
+                results.append(result)
+                self.assertFalse(result['whole_cad_qualified']);self.assertEqual((result['fields'],result['views'],result['images']),(4,24,96))
+                self.assertTrue(all(p['outside_region']==0 for p in result['pixels']))
+                self.assertTrue(all(p['exact_camera_status']=='pass'for p in result['pixels']if p['mode']=='absolute'))
+            for case,expected in [('libre-motion',6),('libre-power',3)]:
+                result=next(x for x in results if x['case']==case)
+                self.assertEqual(sum(p['exact_camera_status']=='failed'for p in result['pixels']if p['mode']=='zoom-to'),expected)
+
+    def test_camera20_error_diagnostic_still_refuses_missing_normal_reply(self):
+        r=self.receiver()
+        with tempfile.TemporaryDirectory()as temporary:
+            root=Path(temporary);job=r.unpack(r.BASE/'evidence/qcad-template',root/'input')/'job'
+            (job/'replies/1.json').unlink()
+            with self.assertRaisesRegex(ValueError,'Camera reply coverage differs'):
+                r.receive_job(job,root/'must-not-compare',True)
+
 
 if __name__ == "__main__":
     unittest.main()

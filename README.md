@@ -4,8 +4,9 @@
 
 **Open source tools and repeatable methods for maintenance and engineering teams.** Reconcile equipment and
 work-order records, prepare drawing recovery, check a consultant's P&ID markups, review editable CAD returns,
-and retain shared engineering context. Build draft models and drawings from P&IDs, descriptions and supported
-DEXPI exports; check supplied ports and cross-sheet paths; prepare document/photo field candidates; analyze
+and retain shared engineering context. Prepare sourced draft models from supplied P&ID readings, descriptions
+and supported DEXPI exports, with authored layouts for detailed draft drawings. Check supplied ports and
+cross-sheet paths; prepare document/photo field candidates; analyze
 recorded process and batch data; and generate Ignition/PI staging files. Sources, revisions, review states and
 unresolved disagreements stay visible as the work moves between tools and people.
 

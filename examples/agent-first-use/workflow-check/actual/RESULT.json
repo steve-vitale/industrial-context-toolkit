@@ -1,0 +1,186 @@
+{
+  "scope": "Replay seven documented fixture workflows and five regression suites; not an independent agent or plant trial.",
+  "commands": [
+    {
+      "label": "maintenance",
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-S",
+        "examples/maintenance-intake/reproduce.py",
+        "--out",
+        "C:\\Users\\Steve\\.cp-scratch\\repo-organization-portable-1\\maintenance"
+      ],
+      "exit": 0,
+      "stdout_sha256": "24c290ea3859f419e7db8a87ec2cb1edf36f9c4e2ceace9226ac77195826d0ff",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "markups",
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-S",
+        "scripts/check_pid_markups.py",
+        "--manifest",
+        "examples/pid-markup-review/inputs/manifest.json",
+        "--out",
+        "C:\\Users\\Steve\\.cp-scratch\\repo-organization-portable-1\\markups"
+      ],
+      "exit": 0,
+      "stdout_sha256": "7272efee6302c39f35dbab6958c86d44cc83e1548d279c8cb24d8499d3111370",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "ports",
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-S",
+        "examples/pid-port-review/replay.py",
+        "--out",
+        "C:\\Users\\Steve\\.cp-scratch\\repo-organization-portable-1\\ports"
+      ],
+      "exit": 0,
+      "stdout_sha256": "dbc0469d9e658c1caca0408bfbc1a48ffe682dc803006f1acbad5823dcad8c01",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "paths",
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-S",
+        "examples/pid-path-review/reproduce.py",
+        "--out",
+        "C:\\Users\\Steve\\.cp-scratch\\repo-organization-portable-1\\paths"
+      ],
+      "exit": 0,
+      "stdout_sha256": "9c81b98be6a22a315b5882ead6c18614eb58af51c7f1dd49c74e6c8840e36a64",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "drawing",
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-S",
+        "scripts/import_site_drawing.py",
+        "--manifest",
+        "examples/own-drawing/manifest.json",
+        "--out",
+        "C:\\Users\\Steve\\.cp-scratch\\repo-organization-portable-1\\drawing"
+      ],
+      "exit": 0,
+      "stdout_sha256": "1b4ef8eaded3118727640e977d13a9c9d35347b2e7a8e17b02e523dfddd11a2d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "drawing-report",
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-S",
+        "scripts/deliverable_report.py",
+        "C:\\Users\\Steve\\.cp-scratch\\repo-organization-portable-1\\drawing"
+      ],
+      "exit": 0,
+      "stdout_sha256": "4fa4b633405692a5bd9f564bfd33d6a9057d77c09999807ce689852e8ae50a2a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "knowledge",
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-B",
+        "-S",
+        "examples/engineering-onboarding/contribution-loop/reproduce.py",
+        "--out",
+        "C:\\Users\\Steve\\.cp-scratch\\repo-organization-portable-1\\knowledge"
+      ],
+      "exit": 0,
+      "stdout_sha256": "a0ffa673b5965f4c358f7487e3d6fb5b2dd626c43b6a9385363b683086514a13",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "batches",
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-B",
+        "-S",
+        "scripts/batch_analysis.py",
+        "--csv",
+        "examples/batch-analysis/observations.csv",
+        "--plan",
+        "examples/batch-analysis/plan.json",
+        "--graph",
+        "examples/batch-analysis/graph.json",
+        "--out",
+        "C:\\Users\\Steve\\.cp-scratch\\repo-organization-portable-1\\batches"
+      ],
+      "exit": 0,
+      "stdout_sha256": "3859e07bd2e8a3d0663ce39828199a007ec2b74ad729b78606baf515b9175124",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "test_maintenance_intake",
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-S",
+        "scripts/test_maintenance_intake.py"
+      ],
+      "exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "f95b41ef9816b666611ea69f0fba133fdae72896e9dd67dc003ac7779cb671e5"
+    },
+    {
+      "label": "test_pid_markups",
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-S",
+        "scripts/test_pid_markups.py"
+      ],
+      "exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "1c4de9e3ad7f962e27805a262cf5495f60a9c86ad0c5e6f3e7f322afbb7cc1a8"
+    },
+    {
+      "label": "test_pid_connections",
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-S",
+        "scripts/test_pid_connections.py"
+      ],
+      "exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e46cb966f838581d29222f0976f7c4786c1e2c6b6066158b9cef8204208c3818"
+    },
+    {
+      "label": "test_pid_path_review",
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-S",
+        "scripts/test_pid_path_review.py"
+      ],
+      "exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "877923cb5e00ec6ba965d889e3d59f5dc6bb45bf06c92f140e555de89b907638"
+    },
+    {
+      "label": "test_knowledge_capture",
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-S",
+        "scripts/test_knowledge_capture.py"
+      ],
+      "exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "accdfe850a1a38df5573a89cd16a14ddda6b282365c39843f43717de2bd03334"
+    }
+  ],
+  "checks": {
+    "markup_statuses_match_preexisting_key": true,
+    "markup_counts_match_preexisting_key": true,
+    "other_changes_and_coverage_gap_retained": true,
+    "markup_not_automatic_or_accepted": true,
+    "maintenance_revision_checks": true,
+    "knowledge_revision_checks": true,
+    "batch_entire_result_matches_committed_expected": true,
+    "drawing_report_present": true
+  },
+  "all_pass": true
+}
