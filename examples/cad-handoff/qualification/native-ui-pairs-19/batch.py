@@ -21,19 +21,24 @@ def state(name):
     return json.loads(r.stdout)[0]
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('cases',type=Path);p.add_argument('jobs',type=Path);p.add_argument('configuration',type=Path)
-    a=p.parse_args();records=a.jobs/'batch';records.mkdir();pending=[];running={};completed=set()
+    p.add_argument('--suffix',default='5');p.add_argument('--max-running',type=int,default=3)
+    p.add_argument('--adopt-air-pair-4',action='store_true',help='Explicit historical jobs-4 adoption only; refuses their retained failures')
+    a=p.parse_args()
+    if not a.suffix.isdigit()or not 1<=a.max_running<=6:p.error('Require numeric suffix and 1..6 processes')
+    records=a.jobs/'batch';records.mkdir(parents=True);pending=[];running={};completed=set()
+    frozen={p.name:hashlib.sha256(p.read_bytes()).hexdigest()for p in HERE.iterdir()if p.is_file()and(p.suffix in ('.py','.js')or p.name in ('PLAN.md','METHOD.md'))}
     selected=[]
     for case in CASES:
         for role in ('baseline','edited','receiving'):
-            key=case+'-'+role;existing=case=='libre-air-water'and role in ('baseline','edited')
-            container='ict-cad-ui19-air-'+role+'4' if existing else 'ict-cad-ui19-'+key+'4'
+            key=case+'-'+role;existing=a.adopt_air_pair_4 and case=='libre-air-water'and role in ('baseline','edited')
+            container='ict-cad-ui19-air-'+role+'4' if existing else 'ict-cad-ui19-'+key+a.suffix
             row=dict(key=key,case=case,role=role,container=container)
             selected.append(row)
             if existing:running[key]=row
             else:
                 if (a.jobs/key).exists():raise ValueError('Unregistered existing job; do not reuse')
                 pending.append(row)
-    write(records/'COHORT.json',dict(jobs=selected,method_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),image=IMAGE,max_running=3,scope='Exposed development, no restart; pre-existing air baseline/edit processes explicitly adopted'))
+    write(records/'COHORT.json',dict(jobs=selected,methods=frozen,image=IMAGE,max_running=a.max_running,scope='Exposed development, no restart; any historical process adoption is explicit'))
     while pending or running:
         for key,row in list(running.items()):
             root=a.jobs/key;s=state(row['container']);write(records/(key+'-inspect.json'),s)
@@ -42,10 +47,12 @@ def main():
             if s['State']['Status']=='exited':
                 if s['State']['ExitCode']!=0 or not(root/'ui/RESULT.json').exists():raise ValueError('Native job exited without complete evidence: '+key)
                 completed.add(key);del running[key];print('complete',key,flush=True)
-        while len(running)<3:
+        while len(running)<a.max_running:
             available=[r for r in pending if r['role']!='receiving' or all(r['case']+'-'+x in completed for x in ('baseline','edited'))]
             if not available:break
             row=available[0];pending.remove(row);key=row['key'];root=a.jobs/key
+            for name,pin in frozen.items():
+                if hashlib.sha256((HERE/name).read_bytes()).hexdigest()!=pin:raise ValueError('Cohort method changed; refuse new launches: '+name)
             command([sys.executable,str(HERE/'prepare.py'),'job',str(root),str(a.cases/row['case']),row['role'],str(a.configuration),str(a.jobs)],records/(key+'-stage.json'))
             args=['docker','run','-d','--name',row['container'],'--network','none','--user','1001:1001','--memory','3g','--cpus','2','--shm-size','256m','--pids-limit','256','--cap-drop','ALL','--security-opt','no-new-privileges','--mount','type=bind,source='+root.resolve().as_posix()+',target=/work','--entrypoint','dbus-run-session',IMAGE,'--','python3','/work/launch_case.py']
             command(args,records/(key+'-launch.json'));running[key]=row;print('started',key,flush=True)

@@ -77,6 +77,7 @@ class Workflow:
         t=self.wait(lambda t:any(n['enabled'] for n in matching(one(t,'dialog','Trial'),'push button','OK')),'Trial OK enabled',40)
         self.control('press',one(one(t,'dialog','Trial'),'push button','OK'))
         self.wait(lambda t:not matching(t,'dialog'),'Trial dismissed');self.snapshot('ready')
+        self.command(['ps','-eo','pid,ppid,stat,etime,args'])
         require(self.observe()['filename']=='','Unexpected startup document')
     def open_file(self,path):
         self.focus_canvas();self.keys('Escape','Escape','ctrl+o');dialog=self.dialog('Open Drawing')
@@ -149,6 +150,8 @@ class Workflow:
             if role=='edited':
                 fields=self.select_and_verify(path,expected,True);self.control('type',fields['MANUFACTURER'],'QUAL-AFTER')
                 expected['MANUFACTURER']='QUAL-AFTER';self.snapshot('edited');self.fields(expected)
+                obs=self.observe();require(obs['modified']is True,'Native edit was not committed')
+                require({a['tag']:a['text']for a in obs['attributes']}==expected,'Native stored edited values differ')
             self.save_as('/work/returned.dxf');self.close_doc();self.open_file('/work/returned.dxf')
             self.select_and_verify('/work/returned.dxf',expected);self.capture('/work/returned.dxf','returned');self.close_doc()
         else:
