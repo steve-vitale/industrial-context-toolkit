@@ -1,7 +1,7 @@
 """Semantic receiving controls; exact wire bytes remain a separate unchanged gate."""
 import copy
 import unittest
-from receive import equal, text_trace
+from receive import equal, text_trace, ordered_host_names
 
 
 def sample():
@@ -50,6 +50,18 @@ class ReceivingControls(unittest.TestCase):
                 else: trace[variant] = [0,0,1,1]
                 command['stdout'] = json.dumps(trace)
                 with self.assertRaises(ValueError): text_trace(row,command)
+
+
+class HostHistoryControls(unittest.TestCase):
+    def test_numeric_history_includes_counters_beyond_999_and_9999(self):
+        for count in (1003,10001):
+            expected=[f'{i:04d}.json' for i in range(1,count+1)]
+            self.assertEqual(ordered_host_names(['HANDLE.json']+expected[::-1]),expected)
+
+    def test_missing_alias_duplicate_or_extra_host_record_refuses(self):
+        for names in (['HANDLE.json','0002.json'],['HANDLE.json','00001.json'],
+                      ['HANDLE.json','0001.json','0001.json'],['HANDLE.json','0001.json','extra.json']):
+            with self.subTest(names=names),self.assertRaises(ValueError):ordered_host_names(names)
 
 
 if __name__ == '__main__': unittest.main()

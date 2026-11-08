@@ -34,6 +34,14 @@ def equal(a, b):
     return json.dumps(a,sort_keys=True,separators=(',',':'),ensure_ascii=True,allow_nan=False) == json.dumps(b,sort_keys=True,separators=(',',':'),ensure_ascii=True,allow_nan=False)
 
 
+def ordered_host_names(names):
+    names=list(names)
+    numbered=sorted((n for n in names if re.fullmatch(r'[0-9]{4,}\.json',n)),key=lambda n:int(n[:-5]))
+    require(numbered and len(set(names))==len(names) and set(names)==set(numbered)|{'HANDLE.json'} and
+            numbered==[f'{i:04d}.json' for i in range(1,len(numbered)+1)], 'Complete numbered host history differs')
+    return numbered
+
+
 def walk(node):
     yield node
     for child in node.get('children', []): yield from walk(child)
@@ -271,7 +279,7 @@ def receive(root, preparation, methods):
     require(process['exit'] == process['controller_exit'] == 0 and process['configuration_before'] == preparation['configuration_sha256'] and equal(process['job'],dict(basis,role=role)), 'Native process/controller/configuration differs')
     require(process['command'] == ['/opt/qcad/qcad','-allow-multiple-instances','-config','/home/cad/.config/QCAD/QCAD3.conf','-font-substitution','Standard','DejaVu Sans','-exec','/work/observe_case.js'] and isinstance(process['engine_pid'],int) and process['engine_pid'] != process['pid'] and process['engine_start_identity'].isdigit(), 'Actual native Qt child/command differs')
     require(handle['image'] == methods['image'] and config['profile'] == 'normal' and config['protocol'] == 'ict-native-mailbox/1' and config['io_protocol'] == 'ict-native-io/1', 'Image/transport profile differs')
-    commands = [read(p) for p in sorted((root/'host').glob('0*.json'))]
+    commands = [read(root/'host'/name) for name in ordered_host_names(p.name for p in (root/'host').iterdir())]
     inspections = [json.loads(r['stdout'])[0] for r in commands if r['command'][:2] == ['docker','inspect'] and r['exit'] == 0]
     require(inspections and inspections[-1]['Id'] == handle['id'] and inspections[-1]['State'] == inventory['native_container_state'] and inspections[-1]['State']['Status'] == 'exited' and inspections[-1]['State']['ExitCode'] == 0 and not inspections[-1]['State']['OOMKilled'], 'Same-container native terminal state differs')
     environment = inspections[-1]
