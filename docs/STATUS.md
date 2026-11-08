@@ -161,6 +161,15 @@ unrelated-renamed controls fail. Both exported controls still refuse the asset p
 candidates still pass; old runs and failed preparations remain. Other payloads and fresh
 UI/readability/revision qualification remain open.
 
+The [header/dimension controls](../examples/cad-handoff/qualification/header-boundaries-16/README.md)
+separate the ordinary imported header from the native dimension style. All48 predeclared single-cell
+controls on the same six exposed sources establish that both tested writers use the style for DIMASZ:
+style-only changes are written, known-header-only changes are overwritten, and an unrelated USERI5
+persists. The original26-job observation retains25 exports, one hydraulic failure and no strict pass.
+Expanded receiving finds8 failed fresh layout/plot inventories (46 exact value leaves), despite17
+exact repeats. Those newly observed failures remain; the pinned constructor source is a lead, not
+proof of the installed build's internal cause. Full CAD and the remaining gates stay unqualified.
+
 Use the [acceptance exercise](ACCEPTANCE.md) for concrete tests, records and failure cases. It is prepared;
 actual participant, recipient, native-system and tenant observations remain **not run**.
 
