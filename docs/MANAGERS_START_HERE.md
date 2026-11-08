@@ -30,7 +30,7 @@ For a return containing the right tags but possibly the wrong input, use
 [port-aware revision checks](PID_CONNECTIONS.md) and assign the retained correction queue.
 For the full drawing-return routine, use [the engineer/manager receiving workflow](DRAWING_HANDOFF.md)
 and its [worked correction and clarification brief](../examples/drawing-handoff/worked/BRIEF.md).
-The [corrected-return brief](../examples/drawing-handoff/next-return/REVISION-BRIEF.md)
+The [corrected-return brief](../examples/drawing-handoff/next-return-2/REVISION-BRIEF.md)
 keeps both versions and separates supported corrections from unresolved instructions and pending approval.
 For a prepared multi-sheet graph, the [path review](PID_GRAPH_QUESTIONS.md) shows supported or qualified
 connections and missing continuations. A missing route is an evidence gap, not proof of disconnection.

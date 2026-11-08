@@ -1,0 +1,14 @@
+{
+  "command_source": "exec tool f755a5",
+  "exit": 1,
+  "scope": "First direct comparison to committed valid fixture; original output retained in scratch",
+  "matched_files": [
+    "cad-source.dxf",
+    "identity-mapping.json",
+    "sheet.json",
+    "site.json",
+    "projection.json"
+  ],
+  "different_file": "drawing_register.csv",
+  "next_check": "Compare actual old and repaired producers in the same environment, keeping byte and CSV-record comparisons separate"
+}

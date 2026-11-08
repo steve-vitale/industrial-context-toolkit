@@ -38,6 +38,14 @@ allocated different handles. This does not waive any strict row. Only 14 records
 close in the original-to-return comparison; 79 original and 239 returned records
 remain unpaired, with version/header differences also unresolved.
 
+The same unchanged diagnostic and independent pair checker applied to the
+[literal-brace returns](analysis/braces-pair-1/reports/SUMMARY.json) close all 52
+paired strict rows: 49 linetypes and three styles have different handle allocation.
+The original-to-return diagnosis closes only 18 record pairs, leaving 75 original
+and 235 returned records unpaired; all 321 strict differences remain failures.
+`check_braces_pair.py` reconstructs this diagnosis from the committed original and
+complete native archives, without relying on the original scratch paths.
+
 The first offline receiver refused semantic JSON object insertion order. Its
 original source, exit and trace remain in the packet. The correction compares
 semantic maps with sorted keys; exact transport wire bytes and ordered arrays
@@ -57,6 +65,8 @@ python examples/cad-handoff/qualification/full-ui-22/test_evidence.py -v
 python examples/cad-handoff/qualification/full-ui-22/check_failed.py
 python examples/cad-handoff/qualification/full-ui-22/test_waiting.py -v
 python examples/cad-handoff/qualification/full-ui-22/waiting_probe_evidence.py check
+python examples/cad-handoff/qualification/full-ui-22/check_braces_pair.py
+python examples/cad-handoff/qualification/full-ui-22/recheck_waiting.py
 ```
 
 The actual-packet controls change evidence and recompute its inventory before
@@ -69,11 +79,12 @@ between separate asset-label regions and a change on an exclusive mask edge.
 No new native launch, model call or download is used.
 
 The initial visual inspection shows the expected Cyrillic change in the rotated
-asset-1 label view with the nearby other labels present. Complete visual review,
-matched no-edit/edited/fresh-process receiving, paper/layout checks, exact pixel
-comparisons, revisions/conflicts, planted CAD losses and final-method reserved
-validation remain unfinished. The historical authored paper-layout issue is not
-waived. No operator, independent engineering reviewer or plant data is involved.
+asset-1 label view with the nearby other labels present. The completed waiting
+receiver below now adds full model receiving, exact pixel comparisons and bound
+same-agent model-view observations. Paper/layout, revisions/conflicts, planted
+CAD losses and final-method reserved validation remain unfinished. The historical
+authored paper-layout issue is not waived. No operator, independent engineering
+reviewer or plant data is involved.
 
 For the engineering job this evidence supports, use [drawing receiving](../../../../docs/DRAWING_HANDOFF.md).
 That workflow makes requested changes and unresolved preservation findings useful
@@ -116,3 +127,40 @@ zero idle events. This establishes this observed waiting lifecycle, not full
 receiving, paper/layout preservation or CAD qualification. The complete waiting
 receiving method is frozen in [WAITING-METHODS-3.json](WAITING-METHODS-3.json);
 fresh reserved cases remain unadmitted.
+
+## Complete waiting-method model receiving
+
+Both [CP1251](waiting-development-1/cp1251-receiving-wait-1/RESULT.json) and
+[literal-brace](waiting-development-1/braces-receiving-wait-1/RESULT.json) runs
+complete with native/controller/container/host exits zero. Each opens the source,
+matched no-edit return, edited return and source-preserving candidate; retains
+115 observations, eight editable-field checks and 20 views/80 images; seals its
+complete history and closes normally. There are 231 helper calls, with idle time
+no longer spending invocation identities. Original strict/byte gates remain.
+
+The first offline receipt exposes another recorder bug: `0*.json` omits host
+commands after 0999. Its source/trace stay in the CP1251 packet. The
+[separately planned correction](HOST-HISTORY-PLAN.md) receives canonical contiguous
+numeric history beyond 999 and 9999, rejecting gaps, aliases and extra records.
+Both complete original attempts then receive without a native restart. The
+[second analysis freeze](WAITING-ANALYSIS-2.json) changes host enumeration only;
+the native method and original exact camera/mask recipe remain intact.
+
+All 30 [model-frame comparisons](analysis/waiting-pixels-1) have zero changed pixels
+outside their predeclared regions. Source/no-edit has no allowed region. The
+candidate and native edited view are also pixel-identical for every fixed frame;
+20 exact identities bind the corresponding versions. The
+[visual record](analysis/waiting-visual-1/OBSERVATIONS.json) records actual agent
+inspection of all 20 source/candidate overview, asset and label views. Detail
+labels show the intended Cyrillic and brace changes with other values retained;
+existing rotation/line intersections remain, and overview labels are too small
+for value verification. Pixel identity supports equivalence of these captured
+views, not correctness of the original drafting or engineering function.
+
+`recheck_waiting.py` reopens the complete archives, binds their returns to the
+original native packets, re-runs receiving and all pixel comparisons, and checks
+the retained difference images and inspected-view hashes. No CAD application,
+network or model call is needed. These are exposed model-view development results.
+Paper/layout receiving, complete revision/conflict and planted-loss work, final
+method freezing and fresh reserved transfer remain open. Native full-save
+preservation still fails at 322/321 differences; visual equality does not waive it.

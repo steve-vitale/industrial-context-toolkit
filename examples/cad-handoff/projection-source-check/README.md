@@ -16,6 +16,12 @@ replay correctly rejects its changed frozen test-module hash. That refusal is
 retained in [replay](replay/). The original test module is restored; five new
 projection methods live separately in scripts/test_cad_projection.py and the
 normal suite includes them. Historical method freezes and acceptance stay exact.
+The separated five-method module, 19 runner controls and full original
+21-candidate/native/context revision replay pass. A first comparison to committed
+fixtures finds the CSV register's checkout line endings differ. Actual old and
+repaired producers in the same environment emit six byte-identical files for
+both valid before/after projections; the committed CSV records also match.
+[Exact and record-level results](UNCHANGED-PROJECTIONS.json) retain that distinction.
 
 ```sh
 python scripts/test_cad_projection.py -v

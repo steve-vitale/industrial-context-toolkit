@@ -101,7 +101,7 @@ the corrected region's connections and other observed changes. Retain resolved
 and unresolved history; do not carry a previous supported label onto a new source.
 After organizational acceptance, reconcile accepted records through the existing
 [map revision route](RUNNING_THE_MAP.md), with installed-state authority explicit.
-The [corrected-return rehearsal](../examples/drawing-handoff/next-return/REVISION-BRIEF.md)
+The [corrected-return rehearsal](../examples/drawing-handoff/next-return-2/REVISION-BRIEF.md)
 shows a useful partial closeout: five requests supported by current readings,
 two still open, safety review pending and a separate CAD finding still unresolved.
 

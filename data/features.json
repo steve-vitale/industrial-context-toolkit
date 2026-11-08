@@ -1684,19 +1684,26 @@
         "examples/cad-handoff/qualification/camera-repeat-20/SUMMARY.json",
         "examples/cad-handoff/qualification/camera-repeat-20/results/qcad-mechanical.json",
         "examples/cad-handoff/qualification/camera-repeat-20/results/qcad-template-diagnostic.json",
-        "examples/cad-handoff/qualification/camera-repeat-20/development-3/qcad-template-receive.json"
+        "examples/cad-handoff/qualification/camera-repeat-20/development-3/qcad-template-receive.json",
+        "examples/cad-handoff/projection-source-check/UNCHANGED-PROJECTIONS.json",
+        "examples/cad-handoff/qualification/full-ui-22/waiting-development-1/cp1251-receiving-wait-1/RESULT.json",
+        "examples/cad-handoff/qualification/full-ui-22/waiting-development-1/braces-receiving-wait-1/RESULT.json",
+        "examples/cad-handoff/qualification/full-ui-22/analysis/waiting-pixels-1/cp1251/RESULT.json",
+        "examples/cad-handoff/qualification/full-ui-22/analysis/waiting-pixels-1/braces/RESULT.json",
+        "examples/cad-handoff/qualification/full-ui-22/analysis/waiting-visual-1/OBSERVATIONS.json"
       ],
       "tests": [
         "scripts/test_cad_handoff.py",
         "scripts/test_delivery_examples.py",
         "scripts/test_cad_exchange.py",
-        "scripts/test_cad_linux_evidence.py"
+        "scripts/test_cad_linux_evidence.py",
+        "scripts/test_cad_projection.py"
       ],
       "job": "Retain a drawing and inspect proposed equipment-attribute edits before a controlled handoff",
       "you_need": "A DXF in the declared block-attribute profile, stable ICT_ID/TAG values, ezdxf and an explicit hash-bound edit plan",
       "time": "No human-effort measurement; authored and public-adapted software cases, native API and display checks are not a timed plant trial",
       "you_get": "Exact original and proposed value-span DXFs, optional source-bound local form/agent JSON exchange, frozen decoded comparison plus independent raw reconstruction, retained native full-save differences and mapped draft CAD-reference revisions; no inferred pipe relationships",
-      "why": "Editable drawings need stable identities and unfamiliar data retained. Source-preserving metadata exchange is separate from native full-save failures. The six-case exposed UI cohort retains actual native edit/save/close/reopen plus fresh receiving; the separate old/absolute-camera repeat retains every original failure. Complete native preservation, broader field/asset and reserved transfer, readability, revision/conflict and company acceptance remain open."
+      "why": "Editable drawings need stable identities and unfamiliar data retained. Source-preserving metadata exchange is separate from native full-save failures. Exposed multi-asset native edit/save/reopen and fresh model receiving retain foreign fields and exact model-view comparisons; the context projection re-reads all fields and identities from its retained DXF. Native strict preservation, paper/layout, revision/conflict, final-method reserved transfer and company acceptance remain open."
     },
     {
       "id": "photo-to-record",

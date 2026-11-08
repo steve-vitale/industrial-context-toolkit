@@ -9438,3 +9438,64 @@ histories recheck with six calls, two requests and zero idle events. Full
 receiving on both exposed cases is a subsequent separately frozen attempt under
 WAITING-METHODS-3; it is not inferred from the probe. N119 remains open for the
 original complete CAD, paper/visual, revision/conflict and reserved-case scope.
+
+## 213. Put the actual open evidence questions in front of the manager
+
+The first corrected-return brief counts a coverage gap without naming it and
+labels M06 a baseline mismatch without showing the values. Freeze a presentation
+plan at 4e00fe5, then runner d395982 before another actual three-command replay.
+The successor passes thirteen checks, retaining the original eleven and adding
+the exact two evidence questions. M06 requests duty-to-standby, while both the
+original and return read standby. FV-101 material is 316 in the original and
+unknown in the return because no observation was supplied. Neither item closes
+by inference. Each request's current complete checks and source locations are now
+also present directly in revision.json. The short brief names the clarification
+and missing-reading actions. The prior eleven-check packet remains unchanged;
+the complete corrected comparison result is byte-identical between presentations.
+No tool comparison, engineering decision, reader accuracy or human-benefit claim
+changes. The README and manager/workflow entry points link the more useful brief.
+
+## 214. Complete exposed model receiving and bind projected fields to the DXF
+
+Reuse the frozen correspondence diagnostic on the literal-brace native pair,
+pinning inputs at 6c5e27f and runner 6839dc6 before execution. The existing
+independent checker closes every paired strict row: 49 linetypes and three styles
+have changed handle allocation. Original-to-return still has 321 strict
+differences, with only 18 record pairs closed and 75 original/235 returned records
+unpaired. The portable checker reconstructs all three reports from committed
+sources/archives; no strict row is waived.
+
+Source inspection also finds that project_to_map.py trusts context attributes and
+INSERT handles carrying a matching source hash. Freeze a plan at 741cc1f; four
+actual controls then pass through the old adapter when they should refuse:
+changed MODEL, changed handle, hidden node/mapping and invented reviewed status.
+The repair re-reads the retained DXF with the existing parser and requires its
+complete exact unverified node set before mapping. Both exposed two-asset encoding
+cases retain every field and source byte. A combined 33-method run passes, but
+the historical replay correctly refuses the changed frozen original test-module
+hash. Restore that module exactly and place the five new methods separately;
+those five, 19 runner controls and the complete 21-case native/context revision
+replay pass. The first valid-fixture comparison finds CSV checkout line endings;
+actual old/current producers emit six byte-identical files for both projections,
+and committed CSV records match. All refusals and scope distinctions are retained.
+
+Both waiting native receivers finish with all four files, 115 observations,
+eight editable-field checks, 20 views/80 images and zero native/controller/host/
+container exits. Each uses 231 helper invocations. The first offline CP1251
+receipt refuses because its `0*.json` glob omits command records after 0999;
+the original host has 1003 records and a later actual terminal inspection.
+Retain the refused receiver/source, freeze the correction at f8e2d43, and receive
+canonical contiguous numeric histories beyond 999 and 9999. Six receiver controls
+pass and both original native attempts receive without restarting either.
+
+The original exact pixel recipe yields 30 comparisons and zero pixels outside
+the predeclared regions. Twenty additional exact pixel identities bind source
+to no-edit and candidate to edited views. Actual agent inspection covers all
+twenty source/candidate model views: Cyrillic and literal braces remain readable
+at detail scale, while overview values are too small and existing linework/axis
+intersections remain. The records state the display substitution and agent-only
+scope. Complete portable replay rechecks receiving, original matched returns,
+pixel results/difference images and inspected-view hashes. Paper/layout, complete
+revision/conflict and planted-loss work, final-method freezing and fresh reserved
+transfer remain open. Native strict preservation remains failed. CI on 3e61e9f
+passes; the later projection/receiving additions require their own exact-head CI.

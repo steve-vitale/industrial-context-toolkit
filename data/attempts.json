@@ -6069,6 +6069,83 @@
         "examples/cad-handoff/qualification/full-ui-22/waiting-probes/probe-2/RESULT.json",
         "docs/JOURNAL.md#212-follow-a-corrected-return-and-retain-an-idle-call-failure"
       ]
+    },
+    {
+      "id": "A370",
+      "function": "intake_and_reuse",
+      "date": "2026-11-08",
+      "hypothesis": "A manager needs the actual baseline discrepancy and missing fact, not only an outcome label and gap count.",
+      "change": "Expose requested/observed baseline values, each request source check and the missing material reading in the corrected-return decision brief.",
+      "evidence": "Plan4e00fe5 and runnerd395982 precede a new three-CLI/thirteen-check rehearsal. The original eleven checks remain; two check exact evidence questions: M06 requested duty but both readings standby; FV-101 material original316/currentunknown with no observation. Complete corrected comparison JSON stays byte-identical to the retained first next-return packet.",
+      "runs": "One presentation successor on the same exposed corrected drawing; three actual CLI calls, thirteen checks",
+      "verdict": "kept",
+      "why": "Makes clarification and missing-evidence actions concrete while preserving both packets, supplied-reading limits, pending owners/approval and the separate unresolved CAD finding. No new image interpretation or human usability result.",
+      "source": [
+        "examples/drawing-handoff/DECISION-DETAIL-PLAN.md",
+        "examples/drawing-handoff/revisions.py",
+        "examples/drawing-handoff/next-return-2/REVISION-BRIEF.md",
+        "examples/drawing-handoff/next-return-2/replay.json",
+        "examples/drawing-handoff/NEXT_RETURN_COMPARISON.json",
+        "docs/JOURNAL.md#213-put-the-actual-open-evidence-questions-in-front-of-the-manager"
+      ]
+    },
+    {
+      "id": "A371",
+      "function": "intake_and_reuse",
+      "date": "2026-11-08",
+      "hypothesis": null,
+      "change": "Apply the existing frozen decoded correspondence diagnostic to the literal-brace matched native pair and reproduce it from committed archives.",
+      "evidence": "Input freeze6c5e27f and runner6839dc6 precede execution. Independent direct pair checking and full report replay pass. All52 paired strict rows have closed exact decoded correspondence:49linetype and3style handle allocations. Source-to-return still321strict differences;18closed pairs,75original/235returned unpaired.",
+      "runs": "Three reports on the exposed literal-brace original/baseline/edited files; existing matcher and independent checker unchanged",
+      "verdict": "kept",
+      "why": "Explains the matched native-row differences without relaxing strict comparison, inventing physical identity or qualifying full preservation.",
+      "source": [
+        "examples/cad-handoff/qualification/full-ui-22/analysis/braces-pair-1/BEFORE.json",
+        "examples/cad-handoff/qualification/full-ui-22/analysis/braces-pair-1/reports/SUMMARY.json",
+        "examples/cad-handoff/qualification/full-ui-22/check_braces_pair.py",
+        "docs/JOURNAL.md#214-complete-exposed-model-receiving-and-bind-projected-fields-to-the-dxf"
+      ]
+    },
+    {
+      "id": "A372",
+      "function": "intake_and_reuse",
+      "date": "2026-11-08",
+      "hypothesis": "A matching drawing hash cannot establish that separately editable context fields actually came from that drawing.",
+      "change": "Re-read the complete retained DXF node/field/handle set before its explicit draft context projection.",
+      "evidence": "Four pre-repair controls incorrectly project changed MODEL, changed handle, omitted node/mapping and invented review status. The repaired adapter refuses all four; both exposed two-asset CP1251/UTF8 cases retain complete attributes and source bytes. Combined33methods pass. Historical replay refuses the modified frozen test module; restore it and run the five new methods separately,19runner controls and21candidate/native/context replay with0errors. Actual old/current producers emit all6files byte-identically on two existing valid projections; committed CSV record equality is reported separately from line endings.",
+      "runs": "Four original failing controls; five-method successor, complete prior CAD module, runner/revision replay and matched valid producers",
+      "verdict": "kept",
+      "why": "Repairs local sourced-field integrity without changing core strict/byte tools, existing valid content, historical freezes, installed authority or engineering acceptance.",
+      "source": [
+        "examples/cad-handoff/projection-source-check/PLAN.md",
+        "examples/cad-handoff/projection-source-check/README.md",
+        "examples/cad-handoff/projection-source-check/UNCHANGED-PROJECTIONS.json",
+        "examples/cad-handoff/project_to_map.py",
+        "scripts/test_cad_projection.py",
+        "docs/JOURNAL.md#214-complete-exposed-model-receiving-and-bind-projected-fields-to-the-dxf"
+      ]
+    },
+    {
+      "id": "A373",
+      "function": "intake_and_reuse",
+      "date": "2026-11-08",
+      "hypothesis": "The waiting helper permits complete source/baseline/edited/candidate receiving under unchanged invocation, field, camera and preservation criteria.",
+      "change": "Complete and retain both exposed waiting-method native receivers, correct complete numeric host-history enumeration and replay fixed model-frame pixels.",
+      "evidence": "Both original native/controller/host/container exits0; each231calls,115observations,8field checks,20views/80images. First offline CP receipt retains a0*.json host-index refusal after record0999; frozen correction admits contiguous canonical counters beyond999/9999 with six controls. Both complete receipts and all30 original frame comparisons reproduce;0pixels outside predeclared regions. Twenty direct pixel identities bind baseline/source and native-edited/candidate views. Same-agent visual observations retain20 actual source/candidate views and drafting/readability limits.",
+      "runs": "Two complete exposed fresh native receiving processes; original failed offline receipt and successor; full portable receiving/pixel replay",
+      "verdict": "kept",
+      "why": "Completes exposed model-view receiving without raising limits, changing masks or restarting native attempts. Original strict322/321full-save failures remain. Paper/layout, revisions/conflicts, planted CAD losses and fresh reserved qualification remain open; no engineering acceptance.",
+      "source": [
+        "examples/cad-handoff/qualification/full-ui-22/WAITING-METHODS-3.json",
+        "examples/cad-handoff/qualification/full-ui-22/WAITING-ANALYSIS-2.json",
+        "examples/cad-handoff/qualification/full-ui-22/HOST-HISTORY-PLAN.md",
+        "examples/cad-handoff/qualification/full-ui-22/WAITING-RETAINED-1.json",
+        "examples/cad-handoff/qualification/full-ui-22/waiting-development-1/cp1251-receiving-wait-1/RESULT.json",
+        "examples/cad-handoff/qualification/full-ui-22/waiting-development-1/braces-receiving-wait-1/RESULT.json",
+        "examples/cad-handoff/qualification/full-ui-22/analysis/waiting-visual-1/OBSERVATIONS.json",
+        "examples/cad-handoff/qualification/full-ui-22/recheck_waiting.py",
+        "docs/JOURNAL.md#214-complete-exposed-model-receiving-and-bind-projected-fields-to-the-dxf"
+      ]
     }
   ],
   "not_tried": [
@@ -7486,11 +7563,13 @@
       "function": "intake_and_reuse",
       "status": "not-done",
       "idea": "Freeze and qualify the corrected complete native CAD workflow on fresh reserved cases with foreign/literal/encoding fields, multiple assets and revision/conflict checks.",
-      "why_not_yet": "N118 only completes read-only transport development. Combine the immutable recorder, absolute camera and event-driven observer into a complete executable UI method before selecting new reserved inputs. Retain matched no-edit/native-edit/library/value-span routes, exact original strict/byte checks and all failures. Actual edit/save/close/reopen/fresh receiving, complete visual/editability review and explicit stale/revision conflicts remain required by the original protocol. No plant or engineering acceptance is inferred.",
+      "why_not_yet": "Complete exposed multi-asset native edit/save/reopen, all-file fresh model receiving and exact model pixels now reproduce under full-ui-22. Original failed attempts, strict full-save differences, host-history refusals and unchanged strict/byte gates remain retained. Paper/layout receiving, complete revision/conflict and planted CAD-loss checks, final-method freeze and newly reserved transfer remain required. No plant or engineering acceptance is inferred.",
       "source": [
         "examples/cad-handoff/qualification/PROTOCOL.md",
         "examples/cad-handoff/qualification/observer-transport-21/README.md",
-        "docs/JOURNAL.md#210-yield-the-native-event-loop-and-receive-the-entire-transport-campaign"
+        "docs/JOURNAL.md#210-yield-the-native-event-loop-and-receive-the-entire-transport-campaign",
+        "examples/cad-handoff/qualification/full-ui-22/README.md",
+        "docs/JOURNAL.md#214-complete-exposed-model-receiving-and-bind-projected-fields-to-the-dxf"
       ]
     }
   ]

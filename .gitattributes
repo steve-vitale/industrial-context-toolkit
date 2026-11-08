@@ -275,3 +275,6 @@ examples/pid-path-review/** -text whitespace=blank-at-eol,blank-at-eof,space-bef
 /examples/cad-handoff/qualification/full-ui-22/failed-development-1/** linguist-generated=true
 /examples/cad-handoff/qualification/full-ui-22/waiting-probes/** linguist-generated=true
 /examples/cad-handoff/qualification/full-ui-22/validation/** linguist-generated=true
+/examples/cad-handoff/qualification/full-ui-22/waiting-development-1/** linguist-generated=true
+# Retain original local projection-control command output bytes.
+/examples/cad-handoff/projection-source-check/** -text whitespace=cr-at-eol,-blank-at-eof,-trailing-space

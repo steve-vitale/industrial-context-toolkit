@@ -68,6 +68,8 @@ jobs:
           python examples/cad-handoff/qualification/full-ui-22/check_failed.py
           python examples/cad-handoff/qualification/full-ui-22/test_waiting.py -v
           python examples/cad-handoff/qualification/full-ui-22/waiting_probe_evidence.py check
+          python examples/cad-handoff/qualification/full-ui-22/check_braces_pair.py
+          python examples/cad-handoff/qualification/full-ui-22/recheck_waiting.py
       - name: Rebuild equipment-data sidecars and replay browser downloads without a CAD UI
         run: python examples/cad-handoff/qualification/check_exchange6.py
       - name: Verify frozen first-use session evidence without model calls

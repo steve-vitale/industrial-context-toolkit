@@ -40,7 +40,7 @@ The collision's exit 2 leaves the first packet unchanged.
 
 ## Receive the next revision
 
-The [next-return brief](next-return/REVISION-BRIEF.md) follows the same seven
+The [next-return brief](next-return-2/REVISION-BRIEF.md) follows the same seven
 requests through a corrected consultant return. Five are supported by the new
 readings; M05's illegible instruction and M06's baseline mismatch stay open.
 The supported safety item still requires engineering review. The separate CAD
@@ -52,11 +52,18 @@ After the command above, run this fixed revision rehearsal into another new fold
 python -S examples/drawing-handoff/revisions.py --initial out/drawing-receiving-rehearsal --out out/drawing-next-return
 ```
 
-Three real CLI calls and 11 checks verify the corrected result, its portable
+Three real CLI calls and 13 checks verify the corrected result, its portable
 replay and refusal of old readings paired with new drawing bytes. The previous
 packet stays unchanged. Both versions, source locations and open engineering
 decisions are retained. The [extension plan](REVISION-PLAN.md) precedes its
 implementation and execution; the corrected fixture and key were already exposed.
+The [decision-detail plan](DECISION-DETAIL-PLAN.md) adds the actual baseline and
+missing-evidence questions: the instruction says duty while both P-102 readings
+say standby; FV-101 material reads 316 in the original and is unknown in the return.
+Each current request's source checks and locations are retained directly in revision.json.
+The [first next-return brief](next-return/REVISION-BRIEF.md) and its eleven-check
+packet remain intact. The [complete comparison result is byte-identical](NEXT_RETURN_COMPARISON.json)
+between both presentations.
 
 The [plan](PLAN.md) was committed before the rehearsal and runner. These exposed
 fixtures already informed their tools. The fixture readings are authored, not

@@ -1,0 +1,14 @@
+{
+  "scope": "Offline exact-source candidate rebuild and retained-native receipt/file re-score. No models, native commercial application, GUI or engineering acceptance.",
+  "cases": [],
+  "errors": [
+    {
+      "stage": "bindings/archive/native/revision",
+      "error": "ValueError: Changed frozen method/input: scripts/test_cad_handoff.py",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\Steve\\.cp-scratch\\cad-full-ui-22\\worktree\\examples\\cad-handoff\\qualification\\recheck.py\", line 240, in main\n    report['method_bindings'] = method_bindings()\n                                ~~~~~~~~~~~~~~~^^\n  File \"C:\\Users\\Steve\\.cp-scratch\\cad-full-ui-22\\worktree\\examples\\cad-handoff\\qualification\\recheck.py\", line 40, in method_bindings\n    require(text_hash(ROOT / path) == wanted, 'Changed frozen method/input: ' + path)\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Steve\\.cp-scratch\\cad-full-ui-22\\worktree\\examples\\cad-handoff\\qualification\\recheck.py\", line 34, in require\n    raise ValueError(message)\nValueError: Changed frozen method/input: scripts/test_cad_handoff.py\n"
+    }
+  ],
+  "status": "fail",
+  "qualification": "not established: readable visual/UI gates and engineering acceptance are separate",
+  "rechecker_sha256_lf": "c6283ae90e6d379a6769a7fc5f27e08a4332a693c3cabb185e45ba2773742f70"
+}
