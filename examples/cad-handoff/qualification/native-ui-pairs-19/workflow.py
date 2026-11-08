@@ -60,7 +60,14 @@ class Workflow:
         require(target.exists(),'Native observation timeout; keep same process')
         result=json.loads(target.read_bytes());self.record('native_observation',reply=result)
         require('error' not in result,'Native read-only observation failed: '+str(result.get('error')));return result
-    def canvas(self):return one(tree(),'filler','Drawing View')
+    def canvas(self):
+        # Qt exposes the covered Untitled MDI canvas as showing too. Bind to the active filename.
+        active=self.observe()['filename'];t=tree()
+        frames=[n for n in walk(t) if n.get('role')=='frame' and n.get('showing') and
+                (n.get('name','').strip()==Path(active).name if active else n.get('name','').strip().startswith('Untitled '))]
+        require(len(frames)==1,'Ambiguous/missing active native document frame')
+        result=one(frames[0],'filler','Drawing View');self.record('canvas_binding',filename=active,frame=frames[0]['path'],canvas=result)
+        return result
     def focus_canvas(self):self.control('focus',self.canvas())
     def dialog(self,title):
         t=self.wait(lambda t:len(matching(t,'dialog',title))==1,title)

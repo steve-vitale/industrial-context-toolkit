@@ -7,6 +7,9 @@ Each independent process restores the same selected settings. Keep the observed 
 verify the actual Drawing View rectangle and native camera at every capture. Acknowledge only the ordinary
 trial notice after its OK button becomes enabled. All clicks use current accessible control bounds; paths are
 discovered anew. Retain complete compact JSON trees at each major phase, not only the selected controls.
+Bind the canvas to the unique MDI document frame whose name equals the observed active file basename
+(the unique Untitled frame before/after file use). Covered MDI canvases may still report showing; never
+select the first Drawing View across the application. Retain the frame/path binding on each use.
 
 Open files using the actual Open Drawing dialog and its observed All Files (*) filter. Record that choice;
 do not silently change the reader. Save As must show R27 [2013] DXF Drawing [OpenDesign] (*.dxf), as observed

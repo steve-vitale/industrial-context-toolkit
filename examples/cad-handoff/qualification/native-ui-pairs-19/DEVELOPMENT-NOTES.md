@@ -11,3 +11,11 @@ The empty failed job is retained, not reused. Software preparation cases-1 compl
 all six source-preserving candidates pass strict comparison and independent byte reconstruction. All six
 library saves pass the strict semantic comparison but fail exact byte reconstruction. Native results remain
 separate; none is inferred from those software checks.
+
+The first real baseline process opened source.dxf and the observer read the exact original parent handle
+20018 and all three expected attributes. The controller then refused two showing Drawing View controls.
+The full tree establishes the cause: QCAD's covered Untitled 1 MDI child remains marked showing alongside
+the active source.dxf child. Their rectangles differ; this is not missing drawing geometry. No edit or save
+occurred. A successor binds the canvas to the unique document frame named by the observed active filename,
+then requires exactly one showing Drawing View inside that frame. It does not choose by coordinate/order.
+The original controller/tree/failure stay in jobs-2; this case remains exposed development.
