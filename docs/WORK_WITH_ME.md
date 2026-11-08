@@ -38,6 +38,11 @@ behavior, supplier responses and receiving evidence. Scope the interpretation an
 before promising this extension. The [platform comparison](COMPETITIVE_WORKFLOWS.md) helps assess an
 existing vendor tool or specialist alongside the toolkit.
 
+A separately scoped [calculation review](../examples/consulting-start/CALCULATION_REVIEW.md) can use a
+suitable existing numerical tool, with sourced inputs, explicit assumptions, independent checks and an
+editable handoff. Agree domain competence, validation and the receiving job before including it; the
+maintenance/drawing review remains a complete starting assignment without simulation.
+
 ## Starting jobs
 
 | Job | Starting inputs | Proposed deliverable |

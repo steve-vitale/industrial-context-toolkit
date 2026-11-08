@@ -10,6 +10,10 @@ current Cognite contextualization and Siemens' project-connected engineering ass
 brownfield preparation, reusable templates and professional review all have commercial overlap. The older
 survey below is historical search scope, not a claim of an uncontested market or feature exclusivity.
 
+[Flowstead and DWSIM](PROCESS_ANALYTICS.md#lessons-from-flowstead-accessible-calculations-with-a-retained-basis)
+also provide existing numerical-engine and browser-interface options. The toolkit's structural DWSIM corpus
+exercise is distinct from the newly observed single external browser solve and from numerical validation.
+
 ## Done better elsewhere
 
 - **Reading P&IDs with a trained model.** The PID2Graph paper (Stürmer, Graumann and Koch, arXiv 2411.13929; data

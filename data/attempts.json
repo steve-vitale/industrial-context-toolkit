@@ -5801,6 +5801,28 @@
         "examples/consulting-start/AUTOMATION_HANDOFF.md",
         "examples/consulting-start/FIRST_CONVERSATION.md"
       ]
+    },
+    {
+      "id": "A357",
+      "function": "intake_and_reuse",
+      "date": "2026-11-08",
+      "change": "Inspect Flowstead/DWSIM source and one actual public browser solve; add a manual portable calculation/scenario review worksheet.",
+      "hypothesis": "An accessible existing numerical engine with a retained case/input/model/reference basis can complement a bounded engineering review without adding another solver or implying that structural import validates simulation.",
+      "evidence": "Source review pinned to c2d431f67673c6dc94d4218a81ed60cd5ae9a6c3. Public desktop browser loaded without an account and solved the supplied water saturation case. Both worksheet temperatures 99.97C and displayed enthalpy difference2256.540kJ/kg meet three selected upstream reference tolerances. The IAPWS attribution was not independently rederived. Object-list pointer selection failed under the toolbar; a programmatic same-button selection was used and retained. Exact live build, full benchmark suite, privacy, mobile, file exchange, dynamics, safety and plant applicability remain unqualified.",
+      "runs": "One actual public desktop-browser calculation plus Decimal checks of displayed values; upstream source/test inspection and documentation/template work. No model/provider calls, private data, local simulator build, toolkit adapter or third-party code copied.",
+      "verdict": "kept",
+      "why": "Makes numerical review and editable case handoff concrete while distinguishing repeatability, reference checks and intended-use validation. Existing maintenance/drawing assignments remain useful without a simulator; no accepted customer result or numerical-platform superiority is claimed.",
+      "source": [
+        "docs/JOURNAL.md#204-review-a-browser-simulator-through-a-real-selected-calculation",
+        "docs/PROCESS_ANALYTICS.md#lessons-from-flowstead-accessible-calculations-with-a-retained-basis",
+        "docs/COMPETITIVE_WORKFLOWS.md",
+        "docs/PRIOR_ART.md",
+        "docs/WORK_WITH_ME.md",
+        "examples/consulting-start/README.md",
+        "examples/consulting-start/CALCULATION_REVIEW.md",
+        "examples/external-simulator-review/flowstead/README.md",
+        "examples/external-simulator-review/flowstead/observations.json"
+      ]
     }
   ],
   "not_tried": [

@@ -102,6 +102,48 @@ Use [connectivity](INTERNAL_CONNECTIVITY.md) for Copilot-only, local, replica an
 CSV analysis needs no new OT port. Live read access is possible through a separately approved integration;
 plant control is a further engineering and authorization boundary.
 
+## Lessons from Flowstead: accessible calculations with a retained basis
+
+Reviewed 2026-11-08 after [Hazem ElMancy's browser-simulator post](https://www.linkedin.com/posts/hazemmancy_processengineering-chemicalengineering-processsimulation-share-7524462037176074240-LHoB/).
+[Flowstead](https://github.com/HazemMancy/Flowstead) uses DWSIM and publishes a browser implementation.
+Its [engine-version record](https://github.com/HazemMancy/Flowstead/blob/c2d431f67673c6dc94d4218a81ed60cd5ae9a6c3/ENGINE_VERSION.md)
+pins an engine source/version and patches; its
+[benchmark guide](https://github.com/HazemMancy/Flowstead/blob/c2d431f67673c6dc94d4218a81ed60cd5ae9a6c3/benchmarks/README.md)
+distinguishes engine-generated regression values from separately sourced references. Those are different
+forms of evidence. Its browser tests exercise the actual worker path; we inspected that test code, not the
+complete test run. The project declares GPL-3.0-or-later. No implementation or case files were copied here.
+
+One [public browser observation](../examples/external-simulator-review/flowstead/README.md) opened the
+app without an account and solved its supplied water-saturation case. The selected displayed temperatures
+and enthalpy difference match the project's reference tolerances. A pointer-selection failure and
+programmatic workaround are retained. The exact live build, phone experience, offline operation, file
+exchange, privacy behavior and the rest of the numerical/safety features were not qualified.
+
+Useful lessons for the existing manager workflow:
+
+- **Make the first result easy to inspect.** The toolkit already exports readable offline reports. A future
+  browser input/review experiment should start with one job and demonstrate load, review, correction and
+  save/reopen at phone and desktop widths. No new browser intake application is implemented by this note.
+- **Keep numerical work with an appropriate engine.** An assistant can help prepare a sourced case and
+  explain its results. Pin the actual engine, model, parameter basis and calculation settings. Model suitability,
+  warnings and independent checks remain engineering work; fluent explanation is not numerical evidence.
+- **Retain an editable case beside the report.** Supply original inputs, units/conversions, property model,
+  assumptions, engine/version, reference checks and source locators. Exercise open/recompute/readback in
+  the named receiving environment. A PDF or diagram alone is not a reproducible simulation.
+- **Reopen findings when their assumptions change.** Keep the case and report as explicit sources in the
+  existing [context path](CONTEXT_REGISTER.md). A source revision should trigger a review of the calculation's
+  basis; no automatic simulator-to-context adapter or dependent-model execution exists here.
+
+Use the [manual calculation worksheet](../examples/consulting-start/CALCULATION_REVIEW.md) to scope an
+optional review using a suitable existing simulator. It records baseline/scenario inputs, uncertainty,
+references, failure cases, recipient and next revision. This is a potential consulting extension, not an
+established service result or permission to treat preliminary safety calculations as accepted designs.
+
+The toolkit's earlier [42 FOSSEE DWSIM flowsheets](GENERALIZATION.md) test structural adaptation and
+generation plumbing. They do not execute DWSIM, validate thermodynamics or establish a Flowstead adapter.
+Choose and qualify a numerical integration for an actual prediction job; keep maintenance reconciliation
+and returned-drawing reviews usable without adding a simulator.
+
 ## Lessons from Cassandra and K-log
 
 [Darren Platt's post, published 2026-11-02](https://www.linkedin.com/posts/dplatt_agentic-fermentation-llm-share-7522868844382703617-WIs0/)

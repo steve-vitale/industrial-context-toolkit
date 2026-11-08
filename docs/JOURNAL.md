@@ -8961,3 +8961,36 @@ The inspected Flow2MTP page calls a 2025 MTP release current; PI's official anno
 actual target version. No normative text was accessed and no package conformance is claimed.
 The prior-art survey is explicitly dated; current runner counts and the prior bcd75f6 release checks
 are corrected in STATUS without claiming a new full-suite run for this documentation-only update.
+
+## 204. Review a browser simulator through a real selected calculation
+
+2026-11-08. Steve shared Hazem ElMancy's Flowstead browser post. Its short link was resolved publicly;
+the post, upstream README, engine-version record, browser/benchmark guides, selected expected case,
+worker client and browser-test code were inspected. Source review was pinned to upstream commit
+`c2d431f67673c6dc94d4218a81ed60cd5ae9a6c3`; no code or third-party case was vendored, and no native
+simulator build was performed. Numerical execution below occurred in the public browser application.
+The [analytics guide](PROCESS_ANALYTICS.md#lessons-from-flowstead-accessible-calculations-with-a-retained-basis)
+now distinguishes this candidate external engine/interface from the toolkit's earlier 42-flow-sheet
+structural DWSIM exercise, which did not solve the numerical models.
+
+An actual desktop-browser run opened the public site without an account, waited for DWSIM 10.2.12 ready,
+loaded its Dew and bubble points example, and pressed Solve. The page reported convergence. Both
+stream worksheets displayed 99.97 degrees C; liquid/vapour mass enthalpies were 418.991/2675.531 kJ/kg.
+Decimal arithmetic gives a 2256.540 kJ/kg difference. The three selected comparisons agree with the
+upstream reference entries within their fixed tolerances; those entries were read before execution,
+and their IAPWS attribution was not independently rederived. The
+[observation record](../examples/external-simulator-review/flowstead/observations.json) retains that scope.
+
+The object-list pointer click failed because the toolbar intercepted it. Programmatic selection of
+the same observed button opened the stream inspector; its Worksheet tab was clicked normally.
+Console error-severity progress messages occurred despite convergence. These facts are retained;
+no unassisted-pointer or mobile-usability pass is claimed. A malformed browser-find argument was corrected
+to the documented text search, with no change to the site or numerical case. The public page was closed.
+No full upstream benchmark, live-build correspondence, network/privacy audit, offline-cache check,
+file round trip, dynamics, safety calculation or plant applicability was qualified.
+
+The new [manual calculation worksheet](../examples/consulting-start/CALCULATION_REVIEW.md) covers
+input/source/units and property-model assumptions, baseline/scenario differences, independent reference
+checks, failure cases, receiving open/recompute/readback and revisions that reopen the result.
+It is an optional scoped review, not a simulator integration or an established consulting result.
+Existing tools, historical outputs, keys and CAD qualification criteria are unchanged.

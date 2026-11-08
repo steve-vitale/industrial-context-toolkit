@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-08",
+  "kind": "author-observed external public browser calculation; not toolkit execution",
+  "live_url": "https://hazemmancy.github.io/Flowstead/flowsheet.html",
+  "browser": "Desktop Chromium, reported Chrome/157.0.0.0 on Windows NT 10.0",
+  "account_required_for_observed_job": false,
+  "live_engine_reported": "DWSIM 10.2.12 ready",
+  "live_deployment_commit": "not established",
+  "inspected_source": {
+    "repository": "https://github.com/HazemMancy/Flowstead",
+    "commit": "c2d431f67673c6dc94d4218a81ed60cd5ae9a6c3",
+    "files": ["README.md", "ENGINE_VERSION.md", "LICENSE", "web/README.md", "web/src/engine.js", "web/tests/browser.test.mjs", "benchmarks/README.md", "benchmarks/02-dew-bubble-point/input.json", "benchmarks/02-dew-bubble-point/expected.json"],
+    "license_observed": "README declares GPL-3.0-or-later; LICENSE is GNU GPL version 3",
+    "third_party_code_or_cases_vendored": false
+  },
+  "case": "Dew and bubble points / 02-dew-bubble-point",
+  "input_basis_from_published_case": {
+    "property_package": "Steam Tables (IAPWS-IF97)",
+    "component": "Water",
+    "pressure_Pa": 101325,
+    "mass_flow_kg_per_s_each": 1,
+    "vapour_fraction_liquid": 0,
+    "vapour_fraction_vapour": 1
+  },
+  "live_solve_status": "Converged in 0.4 s",
+  "displayed_rows": {
+    "SAT-LIQ": {"temperature_C": "99.97", "pressure_bara": "1.013", "vapour_fraction": "0.0000", "mass_flow_kg_per_h": "3,600.0", "mass_enthalpy_kJ_per_kg": "418.991"},
+    "SAT-VAP": {"temperature_C": "99.97", "pressure_bara": "1.013", "vapour_fraction": "1.0000", "mass_flow_kg_per_h": "3,600.0", "mass_enthalpy_kJ_per_kg": "2,675.531"}
+  },
+  "comparison_basis": "Selected upstream reference entries read before execution; IAPWS attribution not independently rederived. Decimal arithmetic on rounded display values; not every benchmark field checked.",
+  "selected_comparisons": [
+    {"quantity": "SAT-LIQ temperature", "reference_K": 373.1243, "reference_C": 99.9743, "observed_C": 99.97, "absolute_difference_K": 0.0043, "allowed_absolute_K": 0.01, "within_selected_tolerance": true},
+    {"quantity": "SAT-VAP temperature", "reference_K": 373.1243, "reference_C": 99.9743, "observed_C": 99.97, "absolute_difference_K": 0.0043, "allowed_absolute_K": 0.01, "within_selected_tolerance": true},
+    {"quantity": "vapour minus liquid mass enthalpy", "reference_kJ_per_kg": 2256.4, "observed_kJ_per_kg": 2256.540, "absolute_difference_kJ_per_kg": 0.140, "allowed_relative": 0.001, "allowed_absolute_kJ_per_kg": 2.2564, "within_selected_tolerance": true}
+  ],
+  "interaction_limit": "Pointer selection of the object-list button timed out because toolbar elements intercepted it. Used programmatic click on the same observed button; Worksheet tab clicked normally. This is not an unassisted-pointer usability pass.",
+  "console_limit": "Engine progress messages were logged at error severity; selected solve nevertheless converged.",
+  "not_tested": ["full upstream benchmark suite", "independent thermodynamic formulation", "live build/source correspondence", "network or privacy audit", "offline cache behavior", "iPhone/iPad/Android usability", "save/reopen DWSIM file exchange", "dynamics or PID behavior", "PSV or other safety/design calculations", "plant applicability or accepted engineering result"]
+}
