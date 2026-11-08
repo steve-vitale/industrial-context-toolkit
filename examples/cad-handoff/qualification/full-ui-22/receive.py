@@ -26,7 +26,10 @@ def require(ok, message):
 def read(path): return json.loads(Path(path).read_bytes())
 def digest(data): return hashlib.sha256(data).hexdigest()
 def sha(path): return digest(Path(path).read_bytes())
-def equal(a, b): return wire(a) == wire(b)
+def equal(a, b):
+    # Semantic JSON object order is immaterial; lists/types remain exact.
+    # Exact transport wire/staging/publication bytes are checked separately.
+    return json.dumps(a,sort_keys=True,separators=(',',':'),ensure_ascii=True,allow_nan=False) == json.dumps(b,sort_keys=True,separators=(',',':'),ensure_ascii=True,allow_nan=False)
 
 
 def walk(node):
