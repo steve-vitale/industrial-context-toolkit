@@ -19,6 +19,7 @@ def main():
     p.add_argument('case', type=Path); p.add_argument('configuration', type=Path); p.add_argument('out', type=Path)
     p.add_argument('--profile', required=True); p.add_argument('--name', required=True)
     p.add_argument('--bridge', action='store_true')
+    p.add_argument('--async-bridge', action='store_true')
     a = p.parse_args()
     a.out.mkdir(parents=True)
     records = a.out / 'host'; records.mkdir()
@@ -31,7 +32,8 @@ def main():
         if check and r.returncode: raise ValueError('Host command failed; see retained command ' + str(counter))
         return r
     # Refuse a used output before launching anything; stage.py separately refuses the job.
-    command([sys.executable, str(HERE / 'stage.py'), str(a.case), str(a.configuration), str(a.out / 'job'), '--profile', a.profile] + (['--bridge'] if a.bridge else []))
+    command([sys.executable, str(HERE / 'stage.py'), str(a.case), str(a.configuration), str(a.out / 'job'), '--profile', a.profile] +
+            (['--bridge'] if a.bridge else []) + (['--async-bridge'] if a.async_bridge else []))
     job = a.out / 'job'
     args = ['docker', 'run', '-d', '--name', a.name, '--network', 'none', '--user', '1001:1001',
             '--memory', '3g', '--cpus', '2', '--shm-size', '256m', '--pids-limit', '256', '--cap-drop', 'ALL',
