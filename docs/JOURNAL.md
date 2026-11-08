@@ -9530,3 +9530,21 @@ retained in `full-ui-22/revision-loss-1`; CI reproduces its stable result.
 This completes an exposed software revision/loss rehearsal. Native concurrent
 manual-edit receiving, paper/layout, final-method freezing and fresh reserved
 transfer remain open. Native full saves still fail the strict preservation gate.
+
+## 216. Check what paper preview changes before using it as an observer
+
+The exact retained CP1251 native UI tree exposes both paper-layout names,
+Edit Block and Print Preview; its bytes match the complete receiving archive.
+That proves the controls were exposed, not that paper navigation succeeded.
+Pinned public QCAD PrintPreview source contains branches that change dimensions,
+margins or document acceptance variables. Declining its prompts is therefore not
+an adequate source-based argument for unchanged document state. This public
+source version is not proof of the installed implementation's identity.
+
+`full-ui-22/PAPER-SOURCE-1.json` retains the primary URL/hash and bound UI member;
+the design note requires direct active-layout verification, before/after state
+for any print-preview experiment and paper-coordinate regions derived from actual
+viewport transforms. Model label regions cannot silently be reused on paper.
+Blank equivalent images do not establish readable delivery. No current native
+process was touched for this inspection, no paper result is promoted, and the
+old missing-main-viewport and plot-storage failures remain open.

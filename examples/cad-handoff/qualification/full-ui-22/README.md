@@ -181,3 +181,8 @@ This fills the exposed software branch/loss exercise. The concurrent branch was
 authored by the patcher, so actual native manual-edit/revision receiving remains
 open, alongside paper/layout, final-method freezing and fresh reserved transfer.
 It supplies no installed-state or engineering acceptance.
+
+The [paper-receiving design notes](PAPER-RECEIVING-NOTES.md) bind the next paper
+investigation to a retained native layout-control tree and pinned public source.
+Print Preview may mutate document settings; its entry cannot silently fill a
+read-only paper-view gate. No new paper probe is claimed by those notes.

@@ -6165,6 +6165,22 @@
         "examples/cad-handoff/qualification/full-ui-22/REVISION-LOSS-BRIEF.md",
         "docs/JOURNAL.md#215-keep-the-original-request-visible-through-a-selected-cad-revision"
       ]
+    },
+    {
+      "id": "A375",
+      "function": "intake_and_reuse",
+      "date": "2026-11-08",
+      "hypothesis": "Print Preview cannot be assumed to be an unchanged-state paper observer merely because the user declines automatic adjustment.",
+      "change": "Inspect pinned public PrintPreview branches and bind already retained native layout controls before designing the remaining paper probe.",
+      "evidence": "Pinned public source changes dimensions/margins after one affirmative branch, or document acceptance variables in other branches. Exact old native UI member exposes two paper layout names, Edit Block and Print Preview and matches its committed archive hash. Source URL/hash, line ranges and evidence limits are retained.",
+      "runs": "Primary-source inspection plus one exact already retained native UI tree; no new native paper action",
+      "verdict": "kept",
+      "why": "Changes the next paper-method design: verify active layouts and document state, distinguish viewport coordinates and retain blank/readability failures. This is not installed-source identity, a completed paper probe or qualification.",
+      "source": [
+        "examples/cad-handoff/qualification/full-ui-22/PAPER-SOURCE-1.json",
+        "examples/cad-handoff/qualification/full-ui-22/PAPER-RECEIVING-NOTES.md",
+        "docs/JOURNAL.md#216-check-what-paper-preview-changes-before-using-it-as-an-observer"
+      ]
     }
   ],
   "not_tried": [
