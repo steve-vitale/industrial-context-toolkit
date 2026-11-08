@@ -40,6 +40,14 @@ decoded canvas pixels agree, with ten attempts maximum. Move the pointer to (230
 application and property editor, before every capture. Any clipping/font/geometry differences remain findings.
 Later analysis must retain all changed pixels; no outcome-dependent frame or mask expansion.
 
+Pixel analysis, declared before inspecting any new comparison: use the fresh receiving process's source
+and exact-span-candidate observations to form the MANUFACTURER label region, taking the union of their native
+projected bounds, rounding outward and adding exactly two pixels on each side. Never derive this permitted
+region from a native returned file. Compare source/no-edit return with no permitted region; compare
+source/candidate and no-edit/edited return with this one fixed label region. Require identical canvas size,
+camera and frame basis. Retain total and outside-region changed pixels and a complete difference image.
+An empty outside-region result is a bounded image check, not human readability or geometry acceptance.
+
 Source and candidate bytes are read-only evidence. Every job binds exact sources, expected fields, frames,
 configuration and methods. Capture all native action commands/results, complete UI trees, read-only replies,
 screenshots, returned files, source before/after hashes and actual process status. Full-save strict differences
