@@ -181,5 +181,9 @@ The [Linux native UI experiment](../examples/cad-handoff/qualification/linux-nat
 valve's actual edit/save/close/reopen and fresh-process reopen; its full save retains 287 strict differences.
 The [pointer-state controls](../examples/cad-handoff/qualification/receiver-state-8/README.md) explain the earlier
 public-paper pixel mismatch and produce nine identical neutral repeated source/candidate views on one exposed drawing.
+The [font/frame controls](../examples/cad-handoff/qualification/font-views-9/README.md) test a declared local display
+font and post-mapping common bounds on three exposed pairs: inspected Cyrillic, mixed Unicode and long target
+labels fit the native asset views. The default font's missing glyphs, 62-pixel long-overview diagnostic and inherited
+linework overlaps stay visible. This changes the receiver display profile, not the drawing or original typography.
 Full readable layout/font acceptance, opaque-content fidelity, fresh native validation, receiving-company approval
 and subsequent accepted revision behavior remain to be qualified in the actual target and [acceptance plan](ACCEPTANCE.md).
