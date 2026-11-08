@@ -9337,3 +9337,58 @@ image is not distributed. The public README and GitHub description already
 include the maintenance/engineering scopes from PR44. Live metadata readback
 confirms those scopes and Steve's LinkedIn; no new commercial feature or outreach
 is implied by this infrastructure repair.
+
+
+## 211. Exercise multiple native assets and prepare an engineering receiving decision
+
+The full-ui-22 plan (31e55e7), two already-exposed authored cases (0aad7b2),
+method (113e6e1) and prepared frames/configuration (74b347a) precede native
+execution. No fresh reserved cases were admitted. The CP1251 edited run commits
+both Cyrillic MODEL changes through observed native Property Editor controls,
+saves, closes/reopens, verifies all twelve attribute values and exits normally.
+Its complete packet has 2,470 helper calls, 73 observations, eight editable-field
+checks and ten model views/40 images. The return still fails strict preservation
+with 322 unexpected differences. A matched no-edit process also completes and
+has 322; the UTF8/literal-brace edited case completes with 321. All original
+native/controller/container/host outcomes remain intact in lossless packets.
+
+The first receiving implementation mistakenly made semantic object key order
+significant; its failure/source are retained. The corrected comparison leaves
+exact wire bytes and arrays unchanged. A first test invocation hits a local
+module-name collision; the next passes twelve actual-packet loss-control methods.
+Six inventory/selection and four text/semantic methods pass separately. The
+no-edit receiver initially supplies an empty edit plan, which the original
+comparator correctly refuses. Retain that failure and use its existing no-plan
+contract in the successor; the comparator is unchanged.
+
+The matched native returns differ in 53 entity rows beyond the intended edits.
+All 53 have independently checked closed exact decoded correspondences under the
+existing reference-aware diagnostic: 50 linetype and three style rows have
+changed handle allocation. This explains those paired rows at the declared
+decoded level, without waiving strict comparison. Only 14 original-to-return
+records have closed correspondences; 79 original/239 returned records remain
+unpaired, plus version/header differences. The full native save remains failed;
+counts and visible similarity cannot establish preservation or raw-byte equality.
+Fresh-process receiving, complete visual/paper checks, revisions/conflicts,
+planted CAD losses and final-method reserved validation remain unfinished.
+
+The user refocused the active goal on engineers' and engineering managers' use.
+The drawing receiving guide now starts from one transmittal and connects markup
+intent, editable-CAD preservation, source coverage, correction actions, review
+roles and an authorized receiving decision. A separately frozen rehearsal plan
+(a8409ab) and runner (2813444) execute four real CLI calls and 14 checks. Seven
+markup outcomes, the unrequested fail-action change, material coverage gap and
+separate valve CAD's 335 strict differences remain visible in the worked brief.
+The portable markup replay reproduces its full result; an output collision
+refuses without changing the first packet. Suggested roles are not assignments.
+This is agent-authored simulation, not independent image/engineering review or
+measured benefit. The nine-method markup and 28-method CAD modules pass locally.
+Broader integration and exact-head CI remain separate.
+
+
+The first manager brief is retained in drawing-handoff/history/first-brief. Its
+successor spells out the actual requests in plain language and places supported
+non-safety rows after unresolved items; another real four-command/14-check replay
+retains identical comparison facts. The three full-ui-22 packets also reproduce
+their complete offline receipts with all original strict failures retained. Local
+claim, feature, script, ledger and new-link checks pass; exact-head CI is pending.

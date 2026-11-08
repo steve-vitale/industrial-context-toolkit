@@ -11,6 +11,10 @@ The reusable local tool compares prepared readings and keeps the evidence; **it 
 arbitrary PDFs, handwriting or CAD drawings**. An engineer or an approved assistant supplies those readings.
 Actual image-reading accuracy, completeness and human review effort remain unmeasured.
 
+For the complete engineer/manager job, use [drawing receiving](DRAWING_HANDOFF.md):
+transmittal scope, this comparison, editable-CAD checks where applicable, a short
+correction/clarification brief and a new source-bound review of the next return.
+
 ## Start with an approved assistant or manual review
 
 If your approved assistant already accesses the documents in SharePoint, use that access. The toolkit adds

@@ -24,6 +24,8 @@ awaiting one; those reviews are not engineering sign-offs.
 **Maintenance or engineering manager?** [Start with the decision you need to make](docs/MANAGERS_START_HERE.md).
 The [manager review packet](examples/manager-review/README.md) gives you a no-install brief, owner actions and
 copyable scope/review/effort forms. Use the tools below when you or your team are ready to prepare your own records.
+For consultant drawing returns, follow the [engineer-to-manager receiving workflow](docs/DRAWING_HANDOFF.md):
+requested changes, source evidence, correction actions and the organization's receiving decision.
 
 **Using an agent?** Point it at this repository and ask:
 

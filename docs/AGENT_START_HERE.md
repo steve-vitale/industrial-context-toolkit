@@ -21,6 +21,12 @@ or engineering manager, useful starting jobs are:
 - Check a consultant's returned P&ID against the exact markups sent out, retaining partial/missed changes and other observed changes.
 - Where the endpoint matters, use [exact port checks](PID_CONNECTIONS.md) to distinguish the right tag on the wrong input; retain uncertain meanings and coverage.
 
+For a drawing return, use [the receiving workflow](DRAWING_HANDOFF.md) to connect
+those checks to the user's decision. Return a short evidence-linked brief with
+missed/partial requests, safety items, other changes, unchecked scope and next
+actions. Suggest review roles without inventing named owners or approval. Keep
+CAD preservation findings separate from whether requested P&ID changes match.
+
 Ask only what changes the next step. With no context, ask which recurring job is causing trouble and what
 records the user can make available in their approved environment. If their message or supplied files already
 answer that, proceed. Do not require a business case, a platform choice, a complete plant model or contact with

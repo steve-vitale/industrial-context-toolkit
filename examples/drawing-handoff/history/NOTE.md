@@ -1,0 +1,1 @@
+The first complete rehearsal is retained here. The successor brief spells out each request, uses readable outcome labels and keeps supported non-safety items after unresolved work. Comparison facts and the 14 checks remain unchanged; both were actual executions on the same exposed fictional inputs.

@@ -107,8 +107,8 @@ review on the same bounded transmittal. Record preparation, review and correctio
 effort separately, missed/false findings and remaining uncertainty. No timing or
 benefit is established by the repository's fictional simulations.
 
-The [receiving rehearsal](../examples/drawing-handoff/PLAN.md) declares the saved
-examples and expected outcomes. The [CAD qualification protocol](../examples/cad-handoff/qualification/PROTOCOL.md)
+The [receiving rehearsal](../examples/drawing-handoff/README.md) includes real
+commands, saved packets and a worked decision brief. The [CAD qualification protocol](../examples/cad-handoff/qualification/PROTOCOL.md)
 defines the separate software evidence needed for a declared format/editor route;
 it does not replace this project receiving decision. For a larger drawing backlog,
 [connect with me on LinkedIn and message me there](https://www.linkedin.com/in/steve-vitale/).

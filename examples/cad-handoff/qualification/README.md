@@ -1,5 +1,11 @@
 # DXF preservation evidence and unfinished qualification
 
+The [current complete-procedure development](full-ui-22/README.md) combines
+multi-asset native UI edits, save/close/reopen, exact-frame captures and complete
+observation transport. It retains matched full-save failures; fresh reserved,
+paper/visual, revision/conflict and complete receiving gates remain open. For the
+engineer/manager task, start with [drawing receiving](../../../docs/DRAWING_HANDOFF.md).
+
 For a supplied, explicitly identified DXF asset, `scripts/cad_value_patch.py` proposes single-line attribute
 changes while preserving all other source bytes. In the frozen software cohort, **all 21 candidates have zero
 unexpected strict differences and reproduce exactly from source plus plan**. This is a useful bounded handoff

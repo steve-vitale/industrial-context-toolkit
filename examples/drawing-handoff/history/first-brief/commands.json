@@ -1,0 +1,60 @@
+[
+  {
+    "label": "markup",
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-S",
+      "scripts/check_pid_markups.py",
+      "--manifest",
+      "examples/pid-markup-review/inputs/manifest.json",
+      "--out",
+      "C:\\Users\\Steve\\.cp-scratch\\cad-full-ui-22\\engineering-rehearsal-2\\markup"
+    ],
+    "exit": 0,
+    "expected_exit": 0
+  },
+  {
+    "label": "cad",
+    "command": [
+      "C:\\Python314\\python.exe",
+      "scripts/cad_handoff.py",
+      "review",
+      "examples/cad-handoff/source/valve.dxf",
+      "examples/cad-handoff/native/qcad/returned.dxf",
+      "--plan",
+      "examples/cad-handoff/source/edit-plan.json",
+      "--out",
+      "C:\\Users\\Steve\\.cp-scratch\\cad-full-ui-22\\engineering-rehearsal-2\\cad"
+    ],
+    "exit": 1,
+    "expected_exit": 1
+  },
+  {
+    "label": "portable",
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-S",
+      "scripts/check_pid_markups.py",
+      "--manifest",
+      "C:\\Users\\Steve\\.cp-scratch\\cad-full-ui-22\\engineering-rehearsal-2\\markup\\manifest.json",
+      "--out",
+      "C:\\Users\\Steve\\.cp-scratch\\cad-full-ui-22\\engineering-rehearsal-2\\portable"
+    ],
+    "exit": 0,
+    "expected_exit": 0
+  },
+  {
+    "label": "collision",
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-S",
+      "scripts/check_pid_markups.py",
+      "--manifest",
+      "C:\\Users\\Steve\\.cp-scratch\\cad-full-ui-22\\engineering-rehearsal-2\\markup\\manifest.json",
+      "--out",
+      "C:\\Users\\Steve\\.cp-scratch\\cad-full-ui-22\\engineering-rehearsal-2\\markup"
+    ],
+    "exit": 2,
+    "expected_exit": 2
+  }
+]
