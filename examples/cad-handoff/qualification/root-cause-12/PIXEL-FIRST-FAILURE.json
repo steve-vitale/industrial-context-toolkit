@@ -1,0 +1,8 @@
+{
+  "native_process_exit": 0,
+  "controller_exit": 1,
+  "images": 0,
+  "cause": "QtScript exposes only QPainter(); device must be supplied to begin(img). Fatal native stdout, caught by receiving; exit 0 did not mean probe completion.",
+  "stdout_sha256": "e7d42cc93810f7030c626e83d28b7c287b8f12d7c95578303a24a0f17296cf98",
+  "correction": "Separate native_pixels_begin.js and fresh pixels-2 attempt; no altered input, profile or acceptance rule."
+}

@@ -127,6 +127,13 @@ are retained. The earlier layout-10 canonical-frame claim is narrowed accordingl
 frames do not remove inherited label overlap or trial marks; complete readable/native UI
 acceptance, unexplained full-save differences and unfamiliar-source coverage remain open.
 
+The [causal CAD controls](../examples/cad-handoff/qualification/root-cause-12/README.md) add 144 exposed
+native exports and 432 fresh-process field observations. They isolate and correct an unintended current-layer
+change in the API edit harness. No-edit full saves still have 4,650 strict rows across twelve pairs; second
+saves add 6,138. A before-load constructor change does not fix them. R15's matched residual is traced to
+embedded save-time values, without excluding it. The 62-pixel GUI residual remains unresolved after isolated
+raster controls. Whole CAD qualification, complete readability and fresh UI/revision acceptance remain open.
+
 Use the [acceptance exercise](ACCEPTANCE.md) for concrete tests, records and failure cases. It is prepared;
 actual participant, recipient, native-system and tenant observations remain **not run**.
 

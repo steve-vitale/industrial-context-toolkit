@@ -8580,3 +8580,53 @@ New regression controls reject missing cases, wrong selected settings, changed u
 values and incorrect bitmap coordinate semantics. Original strict methods and their tests
 remain unchanged. Full CAD qualification, readable receiving UI/editability and explained
 native full-save differences remain open; no engineering/company acceptance is inferred.
+
+## 194. Separate CAD save reconstruction from operation and receiving defects
+
+The [root-cause plan](../examples/cad-handoff/qualification/root-cause-12/PLAN.md) precedes new native
+execution on all six already exposed public-11 derived inputs. Three serial 48-export experiments retain
+no-operation, patched-input, edited-input and second-save branches in default/R15 format. Each branch starts
+with a newly imported document, closes/reopens its output and is read again in a separate process. Exact
+source/candidate/plan hashes, settings selection, terminal container state, warnings and every output remain.
+
+No-operation first saves have exactly the same per-case strict counts as edited saves: 4,650 rows across
+twelve source/format pairs. Second no-operation saves have 6,138 rows. A pre-save therefore does not create
+a stable preservation baseline. The unchanged conservative correspondence/checker verifies 370 exact closed
+decoded pairs on first saves and 936 on second saves; all 10,788 strict rows remain indexed. Unpaired records
+are unresolved, not automatically lost or harmless. Added resources, header defaults and literal style changes
+are retained beside handle/owner changes. The proprietary reader/writer implementation is not public core code.
+
+Matched returns isolate a separate defect in the historical API edit harness: addObject(a) defaults to using
+current attributes and moves the edited ATTRIB to the current layer. A separately frozen intervention uses
+addObject(a,false). All six default-format no-operation -> edited comparisons then have zero strict differences
+apart from permitted planned text, as do patched/no-operation -> edited comparisons without a plan. All six
+R15 pairs retain one DWGPROPS COOKIE XRECORD difference: groups 41/42 equal each saved file's header TDUCREATE
+and TDUPDATE values. Those embedded values remain inside the strict boundary. No metadata exclusion, comparator
+or original frozen native harness is changed. This is a successor diagnostic method, not retroactive qualification.
+
+The native warnings prompted a beforeLoad=true constructor hypothesis. A third precommitted control keeps the
+preserving operation and logs initial/imported objects. It has the same comparison-count vectors and collision
+warnings as attempt-2; initial documents still have 60 objects. The hypothesis is rejected. Public pinned core
+code explains that import clears before loading and resource initialization is unconditional in either mode.
+This source trace is separate from proof of the proprietary plugin or binary build provenance.
+
+Every observed planned and unchanged field matches: 144 per experiment, with 144 more in its fresh process.
+All 48 complete property sets match by native parent/tag in each experiment. Literal array ordering differs
+between processes because the query iterates a QSet; that ordering statistic is retained separately and does
+not relax strict CAD comparisons. The exposed API runs do not substitute for fresh actual native UI acceptance.
+
+The old font-9 62-pixel failure is localized to one yellow candidate-text row at y=537, just above the geometric
+top at y=538.0512493261092. Five frozen raster attempts retain an unsupported QPainter constructor, blank
+predictions, a successful yellow-device control and impossible inherited-path element counts, then a working
+copy of every native path element through supported RPainterPath getters into Qt paths. Twelve nonempty
+width/AA/cap profiles and four additional zero-width hairline profiles fail to reproduce the full original
+GUI delta exactly. A stroke/raster explanation remains a hypothesis; the original failure and earlier actual
+settings-provenance limitation stay open. Successful process exit, image count or device control is not a pass.
+
+The [cause register](../examples/cad-handoff/qualification/root-cause-12/README.md) connects the previous frame,
+hover, glyph, viewport, annotation-layout, configuration, control-handle, Git-conversion and exposure problems
+to their source records and distinguishes fixes, limited interventions and unknowns. The independent offline
+receiver re-scores all branches, verifies exact candidates, native fields/settings, row indices/conservative
+pairs and every raster prediction. Planted controls refuse omitted jobs, unplanned layer/geometry changes and
+a forged zero-difference claim. Full native preservation, exact residual rendering, complete readable receiving,
+fresh UI/revision qualification and engineering/company acceptance remain unestablished.

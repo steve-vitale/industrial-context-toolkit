@@ -129,3 +129,10 @@ error: min/max coordinates were passed to an X/Y/width/height option. All origin
 remain, and a corrected receiving batch uses unchanged canonical frames. The earlier
 layout-10 frame claim is narrowed explicitly. New source structure does not by itself
 establish readable layouts, unknown-payload transfer, native UI acceptance or qualification.
+
+The [root-cause investigation](root-cause-12/README.md) separates no-edit saving from attribute operations:
+144 matched native exports confirm an unintended current-layer change in the historical API harness;
+an explicit preserve-attributes call fixes that defect on the six exposed cases. Full saves still rebuild
+records without an edit, second saves remain unstable, and R15 retains embedded timestamp differences.
+The before-load constructor hypothesis is rejected. The 62-pixel GUI residual is localized but not exactly
+reproduced by isolated glyph renders; it remains a failure. Every original comparison and acceptance gate stays.

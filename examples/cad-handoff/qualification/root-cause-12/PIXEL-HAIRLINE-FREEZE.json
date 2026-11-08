@@ -1,0 +1,20 @@
+{
+  "inputs": {
+    "candidate.dxf": "49b483ae1782527d2aa68db8fa350a0b076e858519ead2bd145b14d213e20c5e",
+    "native_pixels.js": "976eca2eb905c055bccb2dd5c2eabc66b50cc75eab69d56372c279934dbaa190",
+    "PIXEL-INPUTS.json": "b2c53b8d237382791dd590fc37158816a3152467f08936b48ea7d2dd858e90e4",
+    "run_pixels.py": "9ef2b8d4683ba641a1f95532ef2403f83f823bcac777f8957f6d1b7f4d07a8ea",
+    "source.dxf": "320f335dfce8b55b4176e7bf130a4d2a35767c60bd25b39834cf6f42473991a0"
+  },
+  "configuration_sha256": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c",
+  "methods_sha256_lf": {
+    "PIXEL-PLAN.md": "629a47dbf8413f30139952e33b7b890b907313bb4e4bc60850ee377e17b1f232",
+    "native_pixels.js": "2d80d58b6cbeb7cb43800886f9296f860af3ed67683c6477316c49c5888f77e6",
+    "run_pixels.py": "b864d4c187dd772b87a6b8d5fe8983d68c63565ede6940a18e5f1a4d6810e21e",
+    "native_pixels_begin.js": "da3c1b7a64c2d53f2311daaabfdc2f4944d64008c07c917608d568e3df19655c",
+    "native_pixels_device.js": "659c3b1d14853f9a5cd9b7131e8581c02390fdf8ab7396d2f135d5f33ac85eb1",
+    "native_pixels_copy.js": "976eca2eb905c055bccb2dd5c2eabc66b50cc75eab69d56372c279934dbaa190",
+    "run_pixels_hairline.py": "9ef2b8d4683ba641a1f95532ef2403f83f823bcac777f8957f6d1b7f4d07a8ea"
+  },
+  "correction": "Copied glyph paths now render, but none of the 12 profiles exactly reproduces the actual GUI delta. Pinned public RGraphicsViewImage.cpp line 1802 explicitly substitutes zero-width hairlines for thin display pens. Width 0 was omitted from the original raster grid and is distinct from an explicit width-1 pen. Test the four zero-width AA/cap combinations before interpreting the 62 pixels; do not select/waive an acceptance mask."
+}

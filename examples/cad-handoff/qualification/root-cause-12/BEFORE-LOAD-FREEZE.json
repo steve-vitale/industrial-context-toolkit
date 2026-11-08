@@ -1,0 +1,40 @@
+{
+  "image": "sha256:bb4390214744897de88b2198f0cbf812aec4be42923311298e7a5e3a5646bef8",
+  "configuration_sha256": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c",
+  "selection": "All six public-validation-11 adapted inputs; all exposed development here",
+  "inputs": {
+    "export.json": "1f3136062b5d519f1573b058abbc9aef2de015f80ff36e8f4c2adc7af1b60108",
+    "fresh.json": "6707103b5ee48288b50ad3039244d11f591e59afbc8c20df7cfe784080d31e3b",
+    "native_probe.js": "a6ef5eeba764ace55ca4cca45f36b974ca6e8c3f0bedcba0be53e672d5ef2184",
+    "run_native.py": "e639a7894a588fc90db5f5654c5513ba32fea34b741c5f2c7398988b956406ec",
+    "cases/libre-air-water/candidate.dxf": "257efa01da7a490316489aa312ed88548b819c1af9179fb70fafb351188f3795",
+    "cases/libre-air-water/plan.json": "bce43ca6cd52bcb57bf1779c15ebe4aaaa2eecdb1c7395f681132cc0064522fa",
+    "cases/libre-air-water/source.dxf": "245a50eefeabc483f16269375a3bf9bd892b9cebd125e76f5ae744f5466f4db8",
+    "cases/libre-motion/candidate.dxf": "c95e3478d9ca1cd4f80599a9408ca35dc843e922900fad1ea937d7dc47781e13",
+    "cases/libre-motion/plan.json": "23c734be478b2de9a2dad6dec09377bdf27d263db8c4dd14b2c25be01ac717f1",
+    "cases/libre-motion/source.dxf": "724b0557adc753c59e23e864dc08f6de1c1ca50767b4da012be0fadf54d77b04",
+    "cases/libre-power/candidate.dxf": "e81029818228769f74d15ef9f8d8ef1d918df2a6eaab74737ff0cd936d72ba1c",
+    "cases/libre-power/plan.json": "0bca0796d3c1b63b4d63d9f8c70782fa90177b96f8907d00b9ac10aa419c7566",
+    "cases/libre-power/source.dxf": "8876b0c66ec7794914a2218072386f5d169a6813a675a579747fa6242cfac2bd",
+    "cases/qcad-hydraulic/candidate.dxf": "7fa5a8c9d2e46f9c4550f2076aade1e9881db57e4b7b8723601c60a60b065e41",
+    "cases/qcad-hydraulic/plan.json": "e47d9c074c3aa81897fe41ee52cb01fc3a97e8313f0ae6975dcff484422f9379",
+    "cases/qcad-hydraulic/source.dxf": "4d768e3a5ca0ba8d5e4762851a349f1679381b51d5fdf2a9b2fc89e86aa430db",
+    "cases/qcad-mechanical/candidate.dxf": "2fe359c84d62f61d6f88b380fefd25cfdcad81b37523f5b6e435cc92f5ff789b",
+    "cases/qcad-mechanical/plan.json": "97ccbc68a37961f2d5a54c23365c79fcaace66108dd41444810d874bfea2292a",
+    "cases/qcad-mechanical/source.dxf": "30c4a41b51dd5474889db30ca336a2cfe18df6d2dc2c6fea5affb5091327a26d",
+    "cases/qcad-template/candidate.dxf": "b7d67a66dc6877a6d3fc3d6f05148fe2c68861d19ff4e0df8d7f40275ec349d0",
+    "cases/qcad-template/plan.json": "ad70bfaa02bc87d5efe675aa8c22e9c80957d98473b77391b8f88b8ca13e3ae2",
+    "cases/qcad-template/source.dxf": "6e87cef8ca4178b20e9d4e2b892917636ba2fe02e030ea076379c8d57e6a1f88"
+  },
+  "methods_sha256_lf": {
+    "PLAN.md": "def354194d9d527babd0ed65f5b18dfddb4958b65954827e23f31f9b36ee3089",
+    "prepare.py": "0bd7e18a5b5339b6b94f8093201b20b4d448814f2fa23da271c464386eb98774",
+    "native_probe.js": "ed8737bffa26087dbd2c893708299e0825eb2c78edb086e58c785207ed5bb323",
+    "run_native.py": "e639a7894a588fc90db5f5654c5513ba32fea34b741c5f2c7398988b956406ec",
+    "PRESERVE-ATTRIBUTES-PLAN.md": "7b05806df8b7af89abbce1f3cd93238a8fe09212a071dc3f26a65a3f25fe4282",
+    "prepare_preserving.py": "5f64f574cc13b152228a405d30c5f0420dd279ef10bd18f5696b641170cb8672",
+    "BEFORE-LOAD-PLAN.md": "551a3e6168a324d96df599b3983b3ab934286bb9b6aa6f74746970b6e9d9b19b",
+    "native_probe_before_load.js": "a6ef5eeba764ace55ca4cca45f36b974ca6e8c3f0bedcba0be53e672d5ef2184"
+  },
+  "intervention": "Explicit beforeLoad=true; read-only native pre/post import object handle/type logging; same preserve-attributes operation"
+}
