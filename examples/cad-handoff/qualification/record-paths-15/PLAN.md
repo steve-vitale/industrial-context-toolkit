@@ -15,6 +15,11 @@ proof of the installed proprietary OpenDesign implementation.
    (40), and ordered mixed (1,90,40) XRECORDs. Include a separate native-private
    string control (1000), which is what the public writer uses; do not call
    that private wire format generic standard XRECORD support.
+   Pre-preparation inspection finds an existing QCAD_OBJECTS dictionary in
+   mechanical/template sources. Extend it, retaining all inherited entries;
+   the paired raw rename necessarily relocates those entries too. Record
+   them separately rather than claiming a newly added record is the only
+   affected content. The other four sources have no existing private dictionary.
 2. Make the paired foreign source by changing only the literal dictionary key
    QCAD_OBJECTS to ICT15_FOREIGN_OBJECTS in those exact bytes. All record handles,
    values, owner links, metadata and line endings stay identical. Retain both
