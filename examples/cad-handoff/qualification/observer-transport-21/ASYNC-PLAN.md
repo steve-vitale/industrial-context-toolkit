@@ -33,3 +33,10 @@ helper, no blocking native waits, exact START/END history and the same immutable
 I/O protocol, error ownership, stop/seal handshake and normal/fault receiving.
 Do not rewrite BRIDGE-METHODS-1.json or the failed bridge. N118 and the complete
 native CAD, reserved-transfer, text/asset, readability and revision gates stay open.
+
+The first frozen probe05628bb refuses the ambiguous `finished` signal connection
+before helper start. Its actual native error names both installed overloads and
+requires the full `finished(int,QProcess::ExitStatus)` signature. Keep this failed
+probe. Freeze a separate cleanup that requires the same process, no helper and no
+dialog before normal close. The next probe uses that observed full signature with
+unchanged acceptance criteria; it does not repair or restart the failed process.
