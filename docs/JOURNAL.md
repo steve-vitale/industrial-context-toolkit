@@ -8702,3 +8702,66 @@ does not execute CAD. Original strict methods and prior tests are unchanged; new
 jobs, a forged pass and the incomplete probe, and preserve literal zero-time header bytes. All sources
 are exposed/authored diagnostics. Full native-save payload preservation, complete readability, fresh
 reserved-source native UI/editability/revision qualification and engineering/company acceptance remain open.
+
+## 197. Trace record interpretation through crossed native routes
+
+The [record-path plan](../examples/cad-handoff/qualification/record-paths-15/PLAN.md) precedes new preparation
+and execution on six already exposed adapted originals. Each receives five authored XRECORDs; the paired
+foreign source changes only the literal QCAD_OBJECTS root dictionary key. Two originals already have
+private records; these are retained and their relocation is explicitly part of the intervention. All
+twelve source-preserving candidates pass independent raw reconstruction and the original strict comparison.
+The experiment crosses explicitly selected OpenDesign/dxflib importers and exporters, recording every
+public document variable/object/attribute before and after export, close/reopen and fresh process import.
+
+The observed boundaries differ. dxflib imports private mixed data by overwriting one document variable
+per payload item; only the final real remains. The foreign namespace produces no test variables. The
+pinned public importer implements that selection/assignment. OpenDesign exposes all three mixed values
+as a public array from either nested namespace, retaining it after export. Its file contains an empty
+record; the dxflib writer instead leaves a dangling dictionary reference. All twelve OpenDesign->dxflib
+returns show that dangling link. This locates the represented array loss at the export/file boundary
+without asserting identity with closed-source code. Scalar integers/reals/private strings can survive,
+while group1 strings become1000 and foreign paths move into QCAD_OBJECTS. Scalar equality is not complete
+record, scope or CAD preservation. The native-private1000 control is not claimed generic standard support.
+
+The attribute observations locate another incompatibility: all72 dxflib-imported test attributes name
+the native model-space block as parent, matching the public addAttribute constructor's current-block
+argument. The24 dxflib-written raw sequences contain INSERT/ATTRIB data without the attribute-follow
+flag or sequence terminator; the decoded INSERTs lack attached attributes. The existing asset-profile
+guard refuses these files rather than inventing identity or returning a zero-difference comparison.
+
+The final controller observes all48 declared jobs:46 exports and46 exact fresh public-inventory repeats,
+12 strict comparisons with differences,34 profile refusals and two actual export failures. Both hydraulic
+dxflib->OpenDesign branches report Invalid Symbol Table name; both original failures remain.
+The controller records cohort_status=differences and exits1 despite completing diagnostic coverage. An
+earlier stopped batch retains26 successful exports and their7 strict reports/19 profile refusals, with
+no fresh phase. Raw files, phase selection and every receiving disposition remain, including partial files.
+
+Preparation/analysis failures are also retained. A helper name collision was corrected before execution.
+The first native run refused two matching importer filters; the next copy omitted empty output folders.
+Both failed runs remain; successors use exact filters and a directory/collision preflight. The third
+run stopped at the real hydraulic failure. The separately frozen fourth method collects subsequent
+job outcomes and derives its fresh subset only from successful export observations, without marking the
+cohort successful. The first receiver crashed at a dangling link; it now keeps the path and unresolved
+handle. A shadowed local variable miscounted exports as5; the original report remains beside the
+count-corrected report, which differs only at5->46. No native execution was repeated for that correction.
+
+The [offline receiver](../examples/cad-handoff/qualification/check_records15.py) verifies raw archive,
+frozen methods/inputs, exact namespace pairs/candidates, public properties, selected settings, terminal
+states, complete failure coverage and all retained reports. Tests retain prior methods and add omitted
+failed-job, lost-order, dangling-reference, attribute-parent and48/46/46 count checks. These are exposed
+authored diagnostic results, not fresh qualification. Original strict/byte tools, historical failures,
+other unresolved payloads, complete readable receiving, fresh UI/editability/revision gates and actual
+company/engineering acceptance remain unchanged and open.
+
+The separately declared and frozen six-job native-name intervention identifies the hydraulic symbol
+failure. dxflib retains block name 2/2-directional valve, whereas OpenDesign import sanitizes the slash.
+For both exact earlier namespace-source bytes, renaming only that block to 2_2-directional valve permits
+OpenDesign export. Unchanged and unrelated-anchor-renamed controls still fail. Before/after-operation
+inventories match exactly except the intended name, including recorded IDs/handles, custom properties,
+attributes and variables. These inventories do not enumerate complete geometry. Both successful returns
+repeat their inventory in a fresh process but still refuse the original asset-profile guard; this is a
+bounded causal export diagnosis, not a repair or qualification. Original raw sources are unchanged.
+The first offline receiver refused because it counted both debug and warning occurrences of each error;
+its source/failure remain beside the correction counting the exact four Export Error warnings. A quoted
+one-line attempt to retain that diagnostic failed syntax checking before execution; the scripted successor
+retained the actual reproducible receiver failure without rerunning CAD.

@@ -148,6 +148,19 @@ helper are retained as failed controls. The diagnostic receiver now retains lite
 than an inspection-library synthesized creation time. No strict waiver, new holdout or native UI
 qualification follows; opaque exporter payloads and the original remaining gates stay open.
 
+The [crossed record-path controls](../examples/cad-handoff/qualification/record-paths-15/README.md)
+locate additional losses: dxflib reduces a mixed private record during import, while OpenDesign exposes
+the full array but both writers fail to serialize it intact. Foreign dictionary identity and string
+group codes are reconstructed. All 48 final jobs are observed: 46 exports/fresh imports, 12 strict
+differences, 34 asset-profile refusals and two hydraulic symbol-table export failures. Twelve returns
+have dangling links. The 72 dxflib-imported attributes target model space; all 24 dxflib-written returns
+lack attribute sequence markers, explaining why displayed text is insufficient for this attributed
+profile. Six separately frozen hydraulic controls identify the retained slash in block name
+2/2-directional valve: target-only native renaming permits both exports, while unchanged and
+unrelated-renamed controls fail. Both exported controls still refuse the asset profile. Exact
+candidates still pass; old runs and failed preparations remain. Other payloads and fresh
+UI/readability/revision qualification remain open.
+
 Use the [acceptance exercise](ACCEPTANCE.md) for concrete tests, records and failure cases. It is prepared;
 actual participant, recipient, native-system and tenant observations remain **not run**.
 
