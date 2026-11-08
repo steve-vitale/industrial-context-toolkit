@@ -9116,3 +9116,37 @@ The first camera-only air process subsequently completed normal controller/nativ
 24views with exact four-file cameras for both recipes. All frozen inputs remain unchanged. This case
 reproduces neither original camera failure; it establishes API/terminal behavior only. Full pixel receiving
 and the other five camera cases remain unfinished, as does the original qualification objective.
+
+
+## 207. Receive the first exact-camera repeat and launch the remaining controls
+
+2026-11-08. The previous native-cohort package merged as PR43 after exact-head
+pull-request42506688565 and push42506684160 CI both succeeded. Both actual full
+suite logs report95/95 programs, zero failures and37 individual skipped cases;
+this is not a complete zero-skip suite. Original full-save and recording/camera
+failures remain. Local main was verified at merge5a6397e before a separate branch.
+
+The already frozen camera-only design has now received the original air/water
+run as a [portable packet](../examples/cad-handoff/qualification/camera-repeat-20/README.md):
+86 native observations, four field panels,24 views/96 images and normal exits.
+Both recipes repeat exact four-file cameras, and all18 fixed-region comparisons
+have zero outside-region changes. Air reproduces neither earlier motion/power
+failure; it cannot establish their repair. The same author/agent sees the inputs
+and writes the receiver; no independent engineer or reserved evaluation is involved.
+
+Before first pixel comparison,3ad1475 froze source-bound receiving. Its first
+actual refusal was an LF reserialization digest compared to the original CRLF
+basis; failed command/source remain. Repair90f11ff retains exact source bases and
+compares values after their original inventory hashes;19aff8c binds raw checkout
+bytes. Subsequent actual direct and separate portable replays pass. Five new
+regression methods pass without skips, including an unrelated pixel with updated
+full/crop/digests. Visual inspection finds source/adaptation label-symbol overlap
+and zoomed annotation clipping; equality does not establish complete readability.
+
+Plan/batch43fec6a froze the remaining five runs before launch. Three processes
+are currently live and two queued, with no controller failure at the checkpoint.
+Keep their actual handles and complete every old/new comparison before deciding
+on the camera method. No CAD file is edited/saved in this follow-up. The unchanged
+strict comparator, source-span patcher, original native failures and complete
+qualification objective remain; new reserved/full-workflow transfer, foreign/text,
+multi-asset and revision/conflict gates are not closed.

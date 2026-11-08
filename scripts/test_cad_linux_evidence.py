@@ -878,5 +878,89 @@ class NativeUIPairs19Evidence(unittest.TestCase):
                 receiver.ui19_metadata.candidate_report(comparison,source,candidate,False,Path(temporary)/'must-not-exist.json')
 
 
+class CameraRepeat20Evidence(unittest.TestCase):
+    def receiver(self):
+        path=Path(__file__).resolve().parents[1]/'examples/cad-handoff/qualification/check_camera20.py'
+        spec=importlib.util.spec_from_file_location('camera20_receiver',path)
+        module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);return module
+
+    def fixture(self,receiver,root):
+        return receiver.unpack(receiver.BASE/'evidence/libre-air-water',root)/'job'
+
+    def test_camera20_complete_original_air_packet_replays_without_promotion(self):
+        r=self.receiver()
+        with tempfile.TemporaryDirectory()as temporary:
+            out=Path(temporary);result=r.receive_packet(r.BASE/'evidence/libre-air-water',out)
+            self.assertEqual((result['observations'],result['fields'],result['views'],result['images']),(86,4,24,96))
+            self.assertFalse(result['whole_cad_qualified'])
+            self.assertEqual(len(result['pixels']),18)
+            self.assertTrue(all(p['outside_region']==0 and p['exact_camera_status']=='pass'for p in result['pixels']))
+
+    def test_camera20_missing_replies_views_and_wrong_editable_fields_refuse(self):
+        r=self.receiver()
+        with tempfile.TemporaryDirectory()as temporary:
+            root=Path(temporary);job=self.fixture(r,root/'input');path=job/'ui/actions.json';original=path.read_bytes()
+            actions=json.loads(original)
+            reply=job/'replies/1.json';original_reply=reply.read_bytes();reply.unlink()
+            with self.assertRaisesRegex(ValueError,'reply coverage'):
+                r.receive_job(job,root/'missing-reply')
+            reply.write_bytes(original_reply)
+            for change in ('omitted_view','disabled_field','wrong_expectation'):
+                changed=copy.deepcopy(actions)
+                if change=='omitted_view':
+                    index=next(i for i,a in enumerate(changed)if a['kind']=='capture');changed.pop(index)
+                else:
+                    row=next(a for a in changed if a['kind']=='native_fields')
+                    if change=='disabled_field':row['observed']['TAG']['enabled']=False
+                    else:row['expected']['MANUFACTURER']='WRONG'
+                path.write_text(json.dumps(changed),encoding='utf-8')
+                with self.assertRaises(ValueError,msg=change):r.receive_job(job,root/change)
+                path.write_bytes(original)
+
+    def test_camera20_absolute_formula_and_actual_native_camera_are_exact(self):
+        r=self.receiver()
+        with tempfile.TemporaryDirectory()as temporary:
+            job=self.fixture(r,Path(temporary));actions=r.read(job/'ui/actions.json')
+            actual=next(a['observation']for a in actions if a['kind']=='capture'and a['mode']=='absolute')
+            frame=actual['request']['frame'];r.absolute_request(actual,frame)
+            for kind in ('requested_factor','actual_offset','margin','nonfinite_frame'):
+                changed=copy.deepcopy(actual);bounds=list(frame)
+                if kind=='requested_factor':changed['camera_control']['factor']+=1e-12
+                elif kind=='actual_offset':changed['view']['offset'][0]+=1e-12
+                elif kind=='margin':changed['camera_control']['margin']+=1
+                else:bounds[2]=float('nan')
+                with self.assertRaises(ValueError,msg=kind):r.absolute_request(changed,bounds)
+
+    def test_camera20_changed_return_refuses_even_with_updated_job_freeze(self):
+        r=self.receiver()
+        with tempfile.TemporaryDirectory()as temporary:
+            root=Path(temporary);job=self.fixture(r,root/'input');path=job/'edited.dxf'
+            path.write_bytes(path.read_bytes()+b'\n')
+            frozen=r.read(job/'JOB-FREEZE.json');frozen['files']['edited.dxf']=r.sha(path)
+            (job/'JOB-FREEZE.json').write_text(json.dumps(frozen),encoding='utf-8')
+            with self.assertRaisesRegex(ValueError,'original drawing/return changed'):
+                r.receive_job(job,root/'bad-return')
+
+    def test_camera20_unrelated_pixel_is_detected_with_consistent_full_crop_and_digests(self):
+        from PIL import Image
+        import hashlib
+        r=self.receiver()
+        with tempfile.TemporaryDirectory()as temporary:
+            root=Path(temporary);job=self.fixture(r,root/'input');path=job/'ui/actions.json';actions=r.read(path)
+            row=next(a for a in actions if a['kind']=='capture'and a['label']=='candidate'and a['mode']=='absolute'and a['frame']=='overview')
+            x,y,_,_=row['canvas']['rectangle']
+            for item in row['images']:
+                fullpath=job/'ui'/item['path'];croppath=fullpath.with_suffix('.canvas.png')
+                with Image.open(fullpath)as full,Image.open(croppath)as crop:
+                    full=full.convert('RGB');crop=crop.convert('RGB');old=crop.getpixel((0,0));new=(old[0]^255,old[1],old[2])
+                    full.putpixel((x,y),new);crop.putpixel((0,0),new)
+                    full.save(fullpath);crop.save(croppath);item['pixel_sha256']=hashlib.sha256(crop.tobytes()).hexdigest()
+            path.write_text(json.dumps(actions),encoding='utf-8')
+            result=r.receive_job(job,root/'pixels')
+            altered=[p for p in result['pixels']if p['mode']=='absolute'and p['frame']=='overview'and p['right']=='candidate']
+            self.assertEqual(len(altered),1);self.assertEqual(altered[0]['outside_region'],1)
+            self.assertEqual(altered[0]['pixel_status'],'failed');self.assertFalse(altered[0]['diagnostic_only'])
+
+
 if __name__ == "__main__":
     unittest.main()
