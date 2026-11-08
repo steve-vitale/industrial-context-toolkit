@@ -11,6 +11,8 @@ Next actual work order, drawing return or project milestone: ____
 - What would the recipient need in hand to move that specific job forward?
 - Which records can be shared in an approved private location? What needs a walkdown or another owner?
 - Who already performs this work? Would a scoped outside review complement their work?
+- Which relevant tools, licenses or vendor services are already available? What remains undone and why?
+- Could the existing team or provider deliver this result? What specific outside contribution would help?
 - What would make a small paid assessment worth approving? Who reviews the quote and deliverable?
 - What would make you decline, narrow or defer this assignment?
 

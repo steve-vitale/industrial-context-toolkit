@@ -8932,3 +8932,32 @@ Primary NIST maintenance-decision and work-order-quality publications support th
 method, not toolkit accuracy or willingness to pay. SBA business-planning resources were checked as a
 separate business starting point. Templates are a prepared commercial hypothesis; an actual scoped
 quote, paying recipient, observed effort and accepted delivery remain external evidence to obtain.
+
+## 203. Compare connected engineering workflows before expanding the toolkit
+
+2026-11-08. Steve shared Semodia's Flow2MTP-in-Entellia post. The short link initially failed in the
+web reader; a public redirect resolved to the Semodia post, whose text was read in the browser and web
+reader. No login, outreach, trial, vendor-generated file or full video workflow was executed or evaluated.
+The [comparison](COMPETITIVE_WORKFLOWS.md) distinguishes first-party descriptions from independent evidence.
+Entellia markets connected engineering and brownfield workflows, Cognite contextualization connects
+industrial records, and Siemens advertises a project-connected TIA Portal engineering assistant.
+These establish overlap, not a measured growth rate, relative performance, price or customer demand.
+
+The useful additions are explicit engineering handoffs: one unit through successive work products,
+behavior requirements separate from topology, applicability checks before pattern reuse, and a named
+receiver/version before an export. The new [manual worksheet](../examples/consulting-start/AUTOMATION_HANDOFF.md)
+separates owner requirements, supplier responses and actual receiving observations, with source locators,
+unknowns, owners and a subsequent revision. It extends the existing scoped consulting package; it is
+not a new executable feature, FDS completeness claim, standards adapter or operational control instruction.
+
+The vendor's subscription SLA separately scopes engineering/integration services and requires professional
+review. Its PAVIS partnership advertises engineering services too. Review and consulting are therefore
+not claimed as uncontested advantages. Discovery now asks which licenses/providers already exist and
+what specific work remains undone. The delivery roadmap prioritizes a useful paid review and its receiver
+over another format or broad generation feature.
+
+The inspected Flow2MTP page calls a 2025 MTP release current; PI's official announcement is dated
+2026-01-20 and releases MTP Specification 2.0. This discrepancy is retained as a reason to settle the
+actual target version. No normative text was accessed and no package conformance is claimed.
+The prior-art survey is explicitly dated; current runner counts and the prior bcd75f6 release checks
+are corrected in STATUS without claiming a new full-suite run for this documentation-only update.

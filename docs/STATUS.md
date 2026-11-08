@@ -30,7 +30,12 @@ benchmark suites and the optional MCP/protocol job. This is software evidence, n
 company-client acceptance or plant validation. Check [committed-version CI](https://github.com/steve-vitale/industrial-context-toolkit/actions/workflows/tests.yml)
 for later revisions; the dated development records below apply only to their stated inputs and versions.
 
-The current runner registers **73 source-only and 94 full-suite programs**. The earlier 2026-11-06 local Windows run
+The current runner registers **74 source-only and 95 full-suite programs**. On **`bcd75f6`**, both jobs in
+[CI run 42491979757](https://github.com/steve-vitale/industrial-context-toolkit/actions/runs/42491979757) passed;
+the Linux full suite passed 95/95 programs with 37 individual unittest cases skipped. The matching local
+Windows run passed 95/95 programs with seven cases skipped and three explanatory platform notices.
+Those checks apply to that version; this later documentation update adds no executable capability.
+The earlier 2026-11-06 local Windows run
 passed **89/89 programs**, with **seven individual unittest cases skipped** and three platform notices explaining
 skips. It is not a complete run of every optional check. The drawing-to-map fixture now pins LF source bytes to
 fix [Linux CI regression #7](https://github.com/steve-vitale/industrial-context-toolkit/issues/7); use

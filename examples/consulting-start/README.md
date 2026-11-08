@@ -15,6 +15,12 @@ Demonstrate a result with the existing [markup return](../pid-markup-review/READ
 Use the example appropriate to the buyer's problem, then inspect a permitted sample of their own records.
 Examples remain public teaching evidence; do not imply that fictional work came from a client.
 
+If a project also needs process-to-automation agreement, use the optional
+[unit requirements and handoff worksheet](AUTOMATION_HANDOFF.md). It separates owner requirements,
+supplier responses and receiving observations. It adds a manual scoped review, not an MTP generator.
+The [platform comparison](../../docs/COMPETITIVE_WORKFLOWS.md) helps decide when an existing product or
+specialist is a better destination for that work.
+
 The recommended starting scope is a commercial hypothesis to test, not evidence of willingness to pay.
 Ask about the last actual occurrence, its current workaround and the person who could fund the review.
 Record a declined scope and its reason as carefully as an accepted one. Product requirements should follow

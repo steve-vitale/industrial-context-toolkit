@@ -5,6 +5,11 @@ them do it better, and what this repository adds. This is a survey made on 2026-
 Where a figure comes from a page summary and wasn't checked against the source text, it says so. "Not found" means
 the search didn't find it, not that it doesn't exist.
 
+**2026-11-08 update:** the [engineering-platform comparison](COMPETITIVE_WORKFLOWS.md) adds Entellia/Flow2MTP,
+current Cognite contextualization and Siemens' project-connected engineering assistant. Connected engineering,
+brownfield preparation, reusable templates and professional review all have commercial overlap. The older
+survey below is historical search scope, not a claim of an uncontested market or feature exclusivity.
+
 ## Done better elsewhere
 
 - **Reading P&IDs with a trained model.** The PID2Graph paper (Stürmer, Graumann and Koch, arXiv 2411.13929; data
@@ -58,5 +63,5 @@ proof that nothing like them is anywhere:
 - pyDEXPI and the [DEXPI TrainingTestCases](https://gitlab.com/dexpi/TrainingTestCases) for DEXPI, through XML.
 - MEASUR and OpenPinch for the energy calculations that follow a screen.
 
-**In short:** this isn't a better digitizer. It is a free, checkable way for a plant engineer to get a draft model
-out of their drawings, see how far to trust each part of it, and know what to measure next.
+This repository provides a free, checkable way for a plant engineer to prepare a draft model from supported
+records, inspect its evidence and review limits, and choose what to verify next.
