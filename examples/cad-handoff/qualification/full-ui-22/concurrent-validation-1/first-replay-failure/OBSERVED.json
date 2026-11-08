@@ -1,0 +1,10 @@
+{
+  "evidence_kind": "Observation of actual exec tool output; not an original subprocess transcript",
+  "command": [
+    "python",
+    "examples/cad-handoff/qualification/full-ui-22/recheck_native_revisions.py"
+  ],
+  "exit": 1,
+  "error": "Private mailbox directory inventory differs",
+  "cause": "File-only archive restoration omitted empty protocol directories. Existing legacy recheck recreates them; no native attempt was rerun."
+}

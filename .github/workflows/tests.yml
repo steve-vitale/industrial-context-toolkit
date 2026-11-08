@@ -71,6 +71,9 @@ jobs:
           python examples/cad-handoff/qualification/full-ui-22/check_braces_pair.py
           python examples/cad-handoff/qualification/full-ui-22/recheck_waiting.py
           python examples/cad-handoff/qualification/full-ui-22/revision_losses.py --out /tmp/cad-multiasset-revision --expect examples/cad-handoff/qualification/full-ui-22/revision-loss-1/RESULT.json
+          python examples/cad-handoff/qualification/full-ui-22/recheck_native_revisions.py
+          python examples/cad-handoff/qualification/full-ui-22/test_native_revisions.py -v
+          python examples/cad-handoff/qualification/full-ui-22/recheck_native_reviews.py --out /tmp/cad-native-review-replay
       - name: Rebuild equipment-data sidecars and replay browser downloads without a CAD UI
         run: python examples/cad-handoff/qualification/check_exchange6.py
       - name: Verify frozen first-use session evidence without model calls

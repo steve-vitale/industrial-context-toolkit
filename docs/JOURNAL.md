@@ -9548,3 +9548,35 @@ viewport transforms. Model label regions cannot silently be reused on paper.
 Blank equivalent images do not establish readable delivery. No current native
 process was touched for this inspection, no paper result is promoted, and the
 old missing-main-viewport and plot-storage failures remain open.
+
+## 217. Retain native concurrent changes against the original request
+
+The native revision plan is committed at 7746b1a, adapters/input identities at
+aa78808 and derived cases/launch identities at 1fe5a28 before execution. Both
+exposed sources complete three actual Property Editor edits, Save As, close/
+reopen and normal native/controller/container/host exits. Each retains 159 helper
+calls, 79 observations, ten editable-field checks and ten views/40 images.
+There is no new reserved source, human operator or plant record.
+
+The actual returns retain the FV-101 MODEL disagreement and FV-102 unrequested
+SERIAL. Twenty existing CLI calls produce original-scope reviews, stale-hash/
+before refusals, separately bound one-value second proposals and exact-source
+draft map changes. Strict/independent bytes pass against each actual native
+return; against the original request, 322/321 strict differences remain. These
+are not asset counts, and changing the source does not resolve preservation or
+authorize the SERIAL. All twenty commands and their stable results reproduce
+from the native archives. The manager brief links the distinct decisions.
+
+The first offline replay fails because the file-only archive's restorer omitted
+empty protocol directories. Complete failed control logs and the replay tool
+observation remain. A separately frozen restorer reuses the original recheck's
+declared-directory rule. Native attempts, their archives/identities, original
+adapter and strict/byte methods are unchanged. Both original packets replay;
+six control methods pass on both, with twelve altered-evidence refusals after
+reindexing. The original adapter's experimental check branch remains failed;
+`recheck_native_revisions.py` is the corrected public entry point.
+
+Fresh four-file receivers launch separately from exact committed return hashes.
+Their completion, model pixel comparisons and visual review are not yet claimed.
+Second-revision native receiving, paper/layout, final freezing and fresh reserved
+transfer remain open; no engineering or company acceptance follows.

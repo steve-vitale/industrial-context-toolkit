@@ -110,6 +110,9 @@ shows why the original scope must stay visible: a selected second plan passes
 its own comparison while an unrequested SERIAL remains a difference against
 the original request. Keep that question for the responsible reviewer; changing
 the baseline does not approve it.
+The [actual native-return rehearsal](../examples/cad-handoff/qualification/full-ui-22/NATIVE-REVISION-BRIEF.md)
+adds saved CAD files and native edit/reopen checks. Its second proposals preserve
+the returned files while keeping the original native-save failures unresolved.
 
 For a first trial, compare an agent-assisted review with an engineer's normal
 review on the same bounded transmittal. Record preparation, review and correction

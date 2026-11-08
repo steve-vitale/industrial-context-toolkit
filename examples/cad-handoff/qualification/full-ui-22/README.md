@@ -186,3 +186,19 @@ The [paper-receiving design notes](PAPER-RECEIVING-NOTES.md) bind the next paper
 investigation to a retained native layout-control tree and pinned public source.
 Print Preview may mutate document settings; its entry cannot silently fill a
 read-only paper-view gate. No new paper probe is claimed by those notes.
+
+## Initial actual native concurrent returns
+
+The [native revision brief](NATIVE-REVISION-BRIEF.md) now follows the fictional
+branch story through actual Property Editor edits and saved returns on both
+sources. Each original attempt completes three edits, ten field checks,
+ten views/40 images and normal exits; complete archives replay offline. Both
+MODEL and SERIAL findings remain explicit against the original requests.
+Selected one-value second proposals preserve those native returns exactly,
+without closing their 322/321 original strict preservation failures.
+
+The twenty original-scope CLI calls reproduce; six receiving-control methods
+pass on both actual packets. The first offline restore failure remains alongside
+the corrected replayer. Fresh concurrent receiving is a separate live phase;
+second native revision, paper/layout, final freezing and reserved validation are
+still unfinished. See the brief for current reproduction commands and boundaries.
