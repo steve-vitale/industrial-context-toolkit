@@ -6,6 +6,32 @@ An engineer prepares and checks the evidence. An engineering manager uses the
 brief to arrange corrections, resolve scope and route the receiving decision.
 Start with one sheet or a clearly bounded set of sheets.
 
+## Run one receiving job
+
+Use [receive_drawings.py](../scripts/receive_drawings.py) to run the existing
+markup and/or supported DXF checks and assemble one brief from their results:
+
+```sh
+python scripts/receive_drawings.py --manifest YOUR_JOB.json --out NEW_RECEIVING_FOLDER
+```
+
+The job format is shown in [job.json](../examples/drawing-handoff/job.json).
+Give each drawing its own ID, then supply `markup_manifest`, `cad` or both.
+Paths resolve from the job file. A CAD entry names `before`, `after` and an
+optional attribute `plan`. A markup manifest is the existing source-bound
+original/instructions/return and readings contract described below; your agent
+prepares those readings using its available reader. This command performs no
+image interpretation. Markup-only use requires the Python standard library;
+DXF use requires the repository's pinned CAD dependency.
+
+Open `BRIEF.md` for the receiving actions and `brief.json` for full source checks
+and locations. Each detailed checker packet retains its original evidence.
+`job.json` in the output is rewritten to those retained sources, so another agent
+can reproduce the job in a new folder. `input-job.json` keeps the exact submitted
+job. No named owner, engineering acceptance or CAD/readable-sheet equivalence is
+invented. If both representations are supplied for one drawing, their physical
+correspondence remains an explicit review item.
+
 ## Choose the checks that answer your question
 
 | Your question | Input and executable route | Result to use |
