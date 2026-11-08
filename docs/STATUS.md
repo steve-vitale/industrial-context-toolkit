@@ -168,7 +168,18 @@ style-only changes are written, known-header-only changes are overwritten, and a
 persists. The original26-job observation retains25 exports, one hydraulic failure and no strict pass.
 Expanded receiving finds8 failed fresh layout/plot inventories (46 exact value leaves), despite17
 exact repeats. Those newly observed failures remain; the pinned constructor source is a lead, not
-proof of the installed build's internal cause. Full CAD and the remaining gates stay unqualified.
+proof of the installed build's internal cause by itself. The subsequent [installed-constructor
+intervention](../examples/cad-handoff/qualification/layout-construction-17/README.md) now confirms the
+tested initialization gap: 272 actual constructor calls preserve both plot-field presets, detached
+native getters report them, and the unrelated tab field resets. OpenDesign file imports overwrite
+the presets; all six dxflib imports retain them. Across 168 complete recorded public-inventory
+comparisons, only targeted plot getters differ. This is exposed diagnosis with no CAD save or new
+strict-comparison run. Full CAD and the remaining gates stay unqualified.
+
+The [cross-sheet question design note](PID_GRAPH_QUESTIONS.md) records the next graph-use gap:
+an explicit traversal policy must carry applicable conflicts and review status into answers and
+derived registers. Its three-sheet exercise is proposed and unrun; no path-query command or
+failure-consequence engine is claimed.
 
 Use the [acceptance exercise](ACCEPTANCE.md) for concrete tests, records and failure cases. It is prepared;
 actual participant, recipient, native-system and tenant observations remain **not run**.

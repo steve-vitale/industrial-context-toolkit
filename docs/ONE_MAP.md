@@ -12,6 +12,10 @@ read by the drawing reader ([examples/drawing-to-map](../examples/drawing-to-map
 "Equipment and instrument records" below means the **maintenance equipment export**, the **instrument index** and
 the **loop list**. The **sheet index** says which unit each P&ID sheet covers (`drawing_register` in the site file).
 
+For questions across sheets, see the [path and review-status design note](PID_GRAPH_QUESTIONS.md): current
+pairings retain evidence and disagreements; a future path-query consumer needs explicit traversal rules.
+Network membership, physical adjacency and operating consequences require different evidence.
+
 ## The path
 
 For a bounded equipment/work-order comparison, you can start without P&ID sheets. The
