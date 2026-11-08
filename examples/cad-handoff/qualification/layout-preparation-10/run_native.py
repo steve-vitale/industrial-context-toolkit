@@ -30,9 +30,10 @@ def main():
           verified_before_native_start=True,contents='Local only; excluded from published evidence'))
     rows=[]
     base=['/opt/qcad/qcad','-platform','offscreen','-no-gui','-allow-multiple-instances',
-          '-config','/work/qcad-config','-font-substitution','Standard','DejaVu Sans']
+          '-config',str(installed),'-font-substitution','Standard','DejaVu Sans']
     def run(name,command):
-        entry=dict(id=name,command=command,started=datetime.now(timezone.utc).isoformat())
+        entry=dict(id=name,command=command,started=datetime.now(timezone.utc).isoformat(),
+                   configuration_sha256_before=digest(installed))
         rows.append(entry);write(out/'commands.json',rows)
         print('START',name,flush=True)
         with (out/(name+'.stdout')).open('wb') as stdout,(out/(name+'.stderr')).open('wb') as stderr:
@@ -42,11 +43,15 @@ def main():
             entry['exit']=child.wait()
         entry['finished']=datetime.now(timezone.utc).isoformat();write(out/'commands.json',rows)
         if entry['exit']:raise RuntimeError('Native command failed: '+name)
+        entry['configuration_sha256_after']=digest(installed)
+        if ('absConfigFile: "'+str(installed)+'"').encode() not in (out/(name+'.stderr')).read_bytes():
+            raise ValueError('Native command did not report the intended settings file: '+name)
+        write(out/'commands.json',rows)
         print('END',name,entry['exit'],flush=True)
     pins={j['path']:digest(ROOT/j['path']) for j in manifest['jobs']}
     if pins!={j['path']:j['sha256'] for j in manifest['jobs']}:raise ValueError('Input pin mismatch')
     write(out/'before.json',pins)
-    run('probe',base+['-autostart','/work/native_probe.js','-m','/work/MANIFEST.json'])
+    run('probe',base+['-autostart','/work/native_profile.js','-m','/work/MANIFEST.json'])
     probe=json.loads((ROOT/'native-probe.json').read_bytes())
     if [r['id'] for r in probe['rows']]!=[j['id'] for j in manifest['jobs']] or any(r.get('error') for r in probe['rows']):
         raise ValueError('Native probe incomplete/error; retain and stop')
