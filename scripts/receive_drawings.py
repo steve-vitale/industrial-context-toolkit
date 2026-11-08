@@ -80,7 +80,11 @@ def run(manifest_path,out):
                     require(item['status'] in actions,'Unknown markup outcome')
                     action=actions[item['status']]
                     if item['priority']=='safety':action='Engineering safety review remains required. '+action
-                    add('request',item['status'],item['id']+': '+item['text'],action,'Responsible engineer / drawing author',link,item,item['priority'])
+                    finding=item['id']+': '+item['text']
+                    for check in item['checks']:
+                        if check['status']=='baseline_mismatch':
+                            finding+='; '+markup.describe_key(check['key'])+': original '+observation(check['original'])+', returned '+observation(check['returned'])
+                    add('request',item['status'],finding,action,'Responsible engineer / drawing author',link,item,item['priority'])
                 for kind,key,action in [('other_change','other_observed_changes','Assess the unrequested change and document its disposition.'),
                                         ('coverage_gap','other_fact_coverage_gaps','Obtain the missing/conflicting source evidence; retain unknown.')]:
                     for item in report[key]:
