@@ -91,7 +91,7 @@ def analyze(root):
             snapshots[(identity,name)]=ch.snapshot(base/(name+'.dxf'))
         for fmt in ('default','r15'):
             for route in ROUTES:snapshots[(identity,route+'-'+fmt)]=ch.snapshot(base/'returns'/(route+'-'+fmt+'.dxf'))
-    observations=0;state_repeats=0
+    observations=0;state_repeats=0;property_repeats=0
     for job,row,reread in zip(jobs,native,fresh):
         identity,routefmt=job['id'].split('/');route,fmt=routefmt.split('-')
         plan=read(root/'cases'/identity/'plan.json')
@@ -105,6 +105,11 @@ def analyze(root):
         require(expected_fields(snapshots[(identity,routefmt)])==expected,'Saved-file decoded attribute differs')
         observations+=sum(len(v) for v in expected.values())
         state_repeats+=int(row['reopened']==reread['imported'])
+        # QSet traversal order is not a property of a CAD attribute. Check every complete keyed row,
+        # retaining the separate literal array-repeat count above rather than concealing order changes.
+        key=lambda v:(v['parent'],v['tag'])
+        property_repeats+=int(sorted(row['reopened'],key=key)==sorted(reread['imported'],key=key))
+    require(property_repeats==48,'Fresh-process observed attribute property differs')
     rows=[]
     for identity in IDS:
         source=snapshots[(identity,'source')];candidate=snapshots[(identity,'candidate')]
@@ -120,7 +125,7 @@ def analyze(root):
                 ('first_to_second',noop,snapshots[(identity,'repeat-'+fmt)],None)):
                 rows.append(dict(id=identity,format=fmt,comparison=name,**comparison(left,right,edits)))
     return dict(cases=len(IDS),exports=len(jobs),native_fields_per_stage=observations,
-        fresh_state_exact_repeats=state_repeats,comparisons=rows,whole_cad_qualified=False,
+        fresh_state_exact_repeats=state_repeats,fresh_keyed_property_repeats=property_repeats,comparisons=rows,whole_cad_qualified=False,
         scope='Exposed development causal controls; original strict comparison; no UI/render/plant acceptance')
 
 if __name__=='__main__':

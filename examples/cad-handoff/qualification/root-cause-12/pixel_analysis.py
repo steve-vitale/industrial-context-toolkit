@@ -16,8 +16,8 @@ def projected(box,view):
 def changed(delta):
     bands=delta.split();mask=ImageChops.lighter(ImageChops.lighter(bands[0],bands[1]),bands[2]);return sum(mask.histogram()[1:])
 
-def analyze(root):
-    reference=root/'reference';receipt=a.read(reference/'106.json');spec=a.read(root/'pixels-2/PIXEL-INPUTS.json')
+def analyze(root,attempt='pixels-2'):
+    reference=root/'reference';receipt=a.read(reference/'106.json');spec=a.read(root/attempt/'PIXEL-INPUTS.json')
     left=image(reference/'106.png').crop(CROP);right=image(reference/'107.png').crop(CROP);actual=ImageChops.difference(left,right)
     a.require(spec['view']==receipt['view'],'Isolated / GUI camera differs')
     boxes=[];floats=[]
@@ -33,8 +33,8 @@ def analyze(root):
             if actual.getpixel((x,y))!=(0,0,0) and not any(l<=x<=r and t<=y<=b for l,t,r,b in boxes):points.append((x,y))
     results=[]
     for profile in spec['profiles']:
-        source=image(root/'pixels-2/images'/('source-'+profile['id']+'.png'))
-        candidate=image(root/'pixels-2/images'/('candidate-'+profile['id']+'.png'))
+        source=image(root/attempt/'images'/('source-'+profile['id']+'.png'))
+        candidate=image(root/attempt/'images'/('candidate-'+profile['id']+'.png'))
         a.require(source.size==candidate.size==left.size,'Raster dimensions differ')
         predicted=ImageChops.difference(source,candidate);error=ImageChops.difference(actual,predicted)
         results.append(dict(profile=profile['id'],**{k:v for k,v in profile.items()if k!='id'},
@@ -48,5 +48,5 @@ def analyze(root):
         original_62_pixel_failure_retained=True,whole_cad_qualified=False)
 
 if __name__=='__main__':
-    result=analyze(Path(sys.argv[1]));a.write(Path(sys.argv[2]),result)
+    result=analyze(Path(sys.argv[1]),sys.argv[3] if len(sys.argv)>3 else 'pixels-2');a.write(Path(sys.argv[2]),result)
     for row in result['profiles']:print(row['profile'],row['whole_canvas_delta_mismatching_pixels'],row['outside_pixel_color_mismatches'])
