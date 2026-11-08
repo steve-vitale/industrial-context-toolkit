@@ -10,6 +10,92 @@ import cad_handoff as ch
 
 
 class RetainedLinuxNativeEvidence(unittest.TestCase):
+    def open_module(self):
+        path = Path(__file__).resolve().parents[1] / 'examples/cad-handoff/qualification/check_open18.py'
+        spec = importlib.util.spec_from_file_location('cad_open18_receiver', path)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        return module
+
+    def test_normal_application_does_not_repair_native_plot_storage(self):
+        result = self.open_module().check()
+        self.assertEqual(result['document_jobs'], 84)
+        self.assertEqual(result['inventory_comparisons'], 546)
+        self.assertEqual(sum(r['calls'] for r in result['constructors'].values()), 426)
+        for route in ('bare', 'mdi'):
+            for stage in ('opened', 'noop', 'after_print'):
+                self.assertEqual(result['attribution'][route][stage],
+                                 dict(observations=372, follows_presets=192, equal_across_presets=180))
+        for kind in ('noop', 'print'):
+            self.assertEqual(result['differences'][kind], dict(comparisons=84, target=0, non_target=0))
+        self.assertEqual(result['print_value_changed_leaves'], 0)
+        self.assertEqual(result['mdi_closes_accepted'], 42)
+        self.assertEqual(result['mdi_wrappers_still_counted'], 42)
+        self.assertFalse(result['strict_comparison_run'])
+        self.assertFalse(result['whole_cad_qualified'])
+
+    def test_open_receiving_refuses_missing_or_altered_native_evidence(self):
+        receiver = self.open_module()
+        with tempfile.TemporaryDirectory() as temporary:
+            root = receiver.old.unpack(receiver.BASE, Path(temporary))
+            path = root / 'attempt-1/native/mdi-preset-a.stdout'
+            original = path.read_bytes()
+            for kind in ('missing_job', 'missing_getter', 'wrong_filter', 'no_view', 'lost_close', 'unrelated_change'):
+                lines = original.decode('utf-8').splitlines()
+                index = next(i for i, line in enumerate(lines) if line.startswith('ICT_OPEN18_JOB '))
+                row = json.loads(lines[index].split(' ', 1)[1])
+                if kind == 'missing_getter':
+                    row['after_print']['headers']['layouts'][0]['properties'].pop()
+                elif kind == 'wrong_filter':
+                    row['filter'] = 'DXF Files [dxflib] (*.dxf)'
+                elif kind == 'no_view':
+                    row['has_view'] = False
+                elif kind == 'lost_close':
+                    row['close_result'] = False
+                elif kind == 'unrelated_change':
+                    row['after_print']['file_version'] = 'an unrelated changed value'
+                if kind == 'missing_job':
+                    lines.pop(index)
+                else:
+                    lines[index] = 'ICT_OPEN18_JOB ' + json.dumps(row)
+                path.write_text('\n'.join(lines) + '\n', encoding='utf-8')
+                with self.subTest(kind=kind), self.assertRaises(ValueError):
+                    receiver.receive(root)
+                path.write_bytes(original)
+
+    def test_open_analysis_preserves_unrelated_changes_in_full_comparison(self):
+        receiver = self.open_module()
+        with tempfile.TemporaryDirectory() as temporary:
+            root = receiver.old.unpack(receiver.BASE, Path(temporary)) / 'attempt-1'
+            path = root / 'native/mdi-preset-a.stdout'
+            lines = path.read_text(encoding='utf-8').splitlines()
+            index = next(i for i, line in enumerate(lines) if line.startswith('ICT_OPEN18_JOB '))
+            row = json.loads(lines[index].split(' ', 1)[1])
+            row['after_print']['file_version'] = 'unexpected version'
+            lines[index] = 'ICT_OPEN18_JOB ' + json.dumps(row)
+            path.write_text('\n'.join(lines) + '\n', encoding='utf-8')
+            result, detail = receiver.analysis.analyze(root)
+            self.assertGreater(result['differences']['print']['non_target'], 0)
+            self.assertTrue(any(c['path'] == '/file_version' for r in detail['comparisons'] for c in r['changes']))
+            self.assertFalse(result['whole_cad_qualified'])
+
+    def test_open_receiving_keeps_controller_and_cleanup_failures(self):
+        receiver = self.open_module()
+        with tempfile.TemporaryDirectory() as temporary:
+            root = receiver.old.unpack(receiver.BASE, Path(temporary))
+            for name, replacement in [('MDI-CLOSE-ACTIONS.json', []), ('STARTUP-ACTIONS.json', []),
+                                      ('CONTROLLER-STATUS.json', {'native_process_restarts': 1})]:
+                path = root / 'attempt-1' / name
+                original = path.read_bytes()
+                path.write_text(json.dumps(replacement), encoding='utf-8')
+                with self.subTest(name=name), self.assertRaises(ValueError):
+                    receiver.receive(root)
+                path.write_bytes(original)
+            path = root / 'attempt-1/native/bare-observe.stderr'
+            path.write_text(path.read_text(encoding='utf-8').replace("'QCoreApplication.quit' [undefined] is not a function", 'omitted'), encoding='utf-8')
+            with self.assertRaises(ValueError):
+                receiver.receive(root)
+
     def layout_module(self):
         path = Path(__file__).resolve().parents[1] / 'examples/cad-handoff/qualification/check_layout17.py'
         spec = importlib.util.spec_from_file_location('cad_layout17_receiver', path)

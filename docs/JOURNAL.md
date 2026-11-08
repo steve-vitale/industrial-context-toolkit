@@ -8994,3 +8994,38 @@ input/source/units and property-model assumptions, baseline/scenario differences
 checks, failure cases, receiving open/recompute/readback and revisions that reopen the result.
 It is an optional scoped review, not a simulator integration or an established consulting result.
 Existing tools, historical outputs, keys and CAD qualification criteria are unchanged.
+
+## 205. Test the normal application initialization path
+
+2026-11-08. The [full-application diagnostic](../examples/cad-handoff/qualification/open-initialization-18/README.md)
+compares bare API and normal installed MDI opening after the same full GUI startup. Plan `a876098` and
+method freeze `c3ed2e1` precede execution; the six drawings are exact exposed header16/layout17 sources,
+not new validation. Three modes per route reuse the pinned forwarding helper and settings input. The
+426 actual constructor calls retain the twelve plot locations and reset the unrelated tab-order location.
+
+All six processes complete their 14 jobs. In both routes and at all three stages, 192 of 372 plot getter
+observations follow the two diagnostic patterns: 144 from dxflib imports and 48 from empty controls.
+The other 180, from OpenDesign file imports, agree across presets. Neither ordinary MDI setup nor eight
+installed Print getters repairs that native storage. Print returns agree across presets independently
+of these unreliable layout getters. There are 546 complete public-inventory comparisons: no-op/print
+produce zero changes, mode comparisons retain 3,189 target leaves, and route comparisons retain 342, all
+in the observation-only process pairing. No recorded non-target difference is hidden. Native geometry
+and opaque payloads are not completely inventoried.
+
+The ordinary trial notice required acknowledgement. The first controller erroneously matched its hidden
+window three more times and was interrupted; all four actions remain. The visible-only controller also
+retains Return attempts during the notice's disabled-OK countdown. Every frozen script's final cleanup
+fails: the bare path calls an unavailable QtScript quit function; the MDI cleanup iterates closed
+wrappers whose documents are already null. All 42 per-job MDI closes returned true, yet their wrappers
+remained counted inside the timer callback. Normal external window-close requests end the completed
+processes; the original batch exits zero with no restart or OOM. This is not a clean scripted-shutdown
+or interactive edit/save/close/reopen pass. Selected working settings hashes before and after actual
+close are retained; their contents and all compiled/publisher binaries are excluded from the packet.
+
+The offline receiver recomputes the full tables from retained native records, checks prior identities,
+frozen inputs, commands, coverage, constructor bytes and controller/terminal history, and rejects missing
+or altered observations. A separate planted unrelated version change remains visible in complete
+comparison output. This closes the ordinary-open/getter repair hypothesis on development data, without
+changing the strict comparator, old failures or the full qualification criteria. No CAD file was saved
+and no reserved result consumed; native preservation, receiving/readability/editability, revision gates
+and actual engineering/company acceptance remain open.

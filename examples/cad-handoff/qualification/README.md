@@ -12,6 +12,11 @@ explicit `ICT_ID`/`TAG`, hash-bound before/after plan, permitted fields and refu
 infer installed identity, pipe connectivity or a proprietary intelligent-P&ID database. Native returns with
 other edits require review; the value patcher does not silently discard or merge those edits.
 
+The later [full-application initialization comparison](open-initialization-18/README.md) rejects ordinary
+MDI opening and print-getter calls as a repair for the diagnosed plot-storage gap. It retains 84 development
+jobs, complete public-inventory comparisons and actual cleanup failures. It does not close any native-save,
+reserved edit/save/reopen or engineering acceptance gate.
+
 ## Reproduce the evidence offline
 
 **A different operation is available without a CAD UI:** the [equipment-data sidecar route](../data-review/README.md)

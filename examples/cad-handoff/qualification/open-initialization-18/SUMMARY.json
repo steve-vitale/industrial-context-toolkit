@@ -1,0 +1,113 @@
+{
+  "processes": 6,
+  "document_jobs": 84,
+  "constructors": {
+    "bare-observe": {
+      "calls": 71,
+      "variants": {
+        "_ZN7RLayoutC1EP9RDocumentRK7QString": 71
+      },
+      "field_observations": 923
+    },
+    "bare-preset-a": {
+      "calls": 71,
+      "variants": {
+        "_ZN7RLayoutC1EP9RDocumentRK7QString": 71
+      },
+      "field_observations": 923
+    },
+    "bare-preset-b": {
+      "calls": 71,
+      "variants": {
+        "_ZN7RLayoutC1EP9RDocumentRK7QString": 71
+      },
+      "field_observations": 923
+    },
+    "mdi-observe": {
+      "calls": 71,
+      "variants": {
+        "_ZN7RLayoutC1EP9RDocumentRK7QString": 71
+      },
+      "field_observations": 923
+    },
+    "mdi-preset-a": {
+      "calls": 71,
+      "variants": {
+        "_ZN7RLayoutC1EP9RDocumentRK7QString": 71
+      },
+      "field_observations": 923
+    },
+    "mdi-preset-b": {
+      "calls": 71,
+      "variants": {
+        "_ZN7RLayoutC1EP9RDocumentRK7QString": 71
+      },
+      "field_observations": 923
+    }
+  },
+  "inventory_comparisons": 546,
+  "differences": {
+    "noop": {
+      "comparisons": 84,
+      "target": 0,
+      "non_target": 0
+    },
+    "print": {
+      "comparisons": 84,
+      "target": 0,
+      "non_target": 0
+    },
+    "mode": {
+      "comparisons": 252,
+      "target": 3189,
+      "non_target": 0
+    },
+    "route": {
+      "comparisons": 126,
+      "target": 342,
+      "non_target": 0
+    }
+  },
+  "attribution": {
+    "bare": {
+      "opened": {
+        "observations": 372,
+        "follows_presets": 192,
+        "equal_across_presets": 180
+      },
+      "noop": {
+        "observations": 372,
+        "follows_presets": 192,
+        "equal_across_presets": 180
+      },
+      "after_print": {
+        "observations": 372,
+        "follows_presets": 192,
+        "equal_across_presets": 180
+      }
+    },
+    "mdi": {
+      "opened": {
+        "observations": 372,
+        "follows_presets": 192,
+        "equal_across_presets": 180
+      },
+      "noop": {
+        "observations": 372,
+        "follows_presets": 192,
+        "equal_across_presets": 180
+      },
+      "after_print": {
+        "observations": 372,
+        "follows_presets": 192,
+        "equal_across_presets": 180
+      }
+    }
+  },
+  "print_value_changed_leaves": 0,
+  "mdi_closes_accepted": 42,
+  "mdi_wrappers_still_counted": 42,
+  "cad_files_saved": 0,
+  "strict_comparison_run": false,
+  "whole_cad_qualified": false
+}

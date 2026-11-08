@@ -5823,6 +5823,29 @@
         "examples/external-simulator-review/flowstead/README.md",
         "examples/external-simulator-review/flowstead/observations.json"
       ]
+    },
+    {
+      "id": "A358",
+      "function": "intake_and_reuse",
+      "date": "2026-11-08",
+      "change": "Compare normal MDI and bare API document initialization within matched full GUI startups, then observe installed print getters separately.",
+      "hypothesis": "The normal application open/new path or print getters might initialize the native primitive plot fields that constructors and dxflib imports leave preset-dependent.",
+      "evidence": "Six terminal native processes,84 jobs and426 constructor calls. Both routes retain192/372 plot observations after opening,no-op and print getters;180 OpenDesign observations agree across presets. All546 full inventory comparisons retain3189 mode and342 observation-only route target leaves,zero recorded non-target differences. No-op/print inventory and print-return comparisons have zero differences. No CAD save or strict comparison here.",
+      "runs": "Plan a876098 and method freeze c3ed2e1 before execution. Six exact exposed header16/layout17 drawings,both importers,empty controls and reused pinned helper. Startup notice/countdown,interrupted hidden-window controller and both scripted cleanup failures retained; normal external UI close ends the same processes without restart. Offline full-record replay and adversarial controls; same assistant authors method and receiver,no independent engineer or reserved evaluation.",
+      "verdict": "rejected",
+      "why": "Reject ordinary MDI opening and merely reading print settings as the repair for this bounded initialization gap. The42 accepted MDI closes leave42 deferred wrappers counted during the callback; cleanup is not an interactive close/reopen pass. Diagnostic presets remain unadopted. Original strict comparison and all CAD qualification gates remain unchanged and open.",
+      "source": [
+        "docs/JOURNAL.md#205-test-the-normal-application-initialization-path",
+        "examples/cad-handoff/qualification/open-initialization-18/README.md",
+        "examples/cad-handoff/qualification/open-initialization-18/PLAN.md",
+        "examples/cad-handoff/qualification/open-initialization-18/FREEZE.json",
+        "examples/cad-handoff/qualification/open-initialization-18/SUMMARY.json",
+        "examples/cad-handoff/qualification/open-initialization-18/INVENTORY.json",
+        "examples/cad-handoff/qualification/open-initialization-18/CLEANUP-NOTE.md",
+        "examples/cad-handoff/qualification/open-initialization-18/MDI-CLEANUP-NOTE.md",
+        "examples/cad-handoff/qualification/check_open18.py",
+        "scripts/test_cad_linux_evidence.py"
+      ]
     }
   ],
   "not_tried": [
