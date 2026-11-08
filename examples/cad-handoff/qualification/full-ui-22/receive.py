@@ -16,6 +16,7 @@ from bridge_receive import audit_history
 from mailbox import wire
 from contract import group_native, verify_inventory, verify_selection
 import cad_handoff as ch
+from verify_bytes import verify as verify_bytes
 from PIL import Image
 sys.path.insert(0, str(HERE))
 
@@ -233,6 +234,8 @@ def captures(actions, basis, role, job, observed):
 def receive(root, preparation, methods):
     root = Path(root); job = root/'job'; methods = read(methods); preparation = read(preparation)
     inventory = read(root/'INVENTORY.json')
+    for name,pin in preparation['preparation']['comparison_source_sha256_lf'].items():
+        require(digest((ROOT/name).read_bytes().replace(b'\r\n',b'\n')) == pin, 'Original comparison method changed: '+name)
     actual = {p.relative_to(root).as_posix():dict(bytes=p.stat().st_size,sha256=sha(p)) for p in root.rglob('*') if p.is_file() and p != root/'INVENTORY.json'}
     require(actual == inventory['files'], 'Complete attempt inventory differs')
     basis = read(job/'job.json'); role = basis.pop('role')
@@ -254,6 +257,9 @@ def receive(root, preparation, methods):
     require(sha(job/'source.dxf') == basis['source_sha256'] and sha(job/'plan.json') == basis['plan_sha256'] and frozen['files']['.configuration/QCAD3.conf'] == preparation['configuration_sha256'], 'Source/plan/configuration basis differs')
     source = ch.snapshot(job/'source.dxf'); plan = read(job/'plan.json'); ch.validate_plan(source,plan)
     require(equal(source['assets'],basis['assets']) and plan['changes'] == basis['changes'], 'Prepared assets/plan differ from original DXF')
+    if role == 'receiving':
+        require(sha(job/'candidate.dxf') == prepared['files']['software/candidate/candidate.dxf'], 'Receiving candidate differs from prepared source-preserving candidate')
+        require(not ch.compare(source,ch.snapshot(job/'candidate.dxf'),plan)['unexpected'] and verify_bytes(job/'source.dxf',job/'candidate.dxf',plan)['status'] == 'pass', 'Receiving candidate strict/independent-byte gate failed')
     process = read(job/'native/PROCESS.json'); config = read(job/'transport.json'); handle = read(root/'host/HANDLE.json')
     require(process['exit'] == process['controller_exit'] == 0 and process['configuration_before'] == preparation['configuration_sha256'] and equal(process['job'],dict(basis,role=role)), 'Native process/controller/configuration differs')
     require(process['command'] == ['/opt/qcad/qcad','-allow-multiple-instances','-config','/home/cad/.config/QCAD/QCAD3.conf','-font-substitution','Standard','DejaVu Sans','-exec','/work/observe_case.js'] and isinstance(process['engine_pid'],int) and process['engine_pid'] != process['pid'] and process['engine_start_identity'].isdigit(), 'Actual native Qt child/command differs')
