@@ -16,6 +16,14 @@ python scripts/receive_drawings.py --manifest YOUR_JOB.json --out NEW_RECEIVING_
 ```
 
 The job format is shown in [job.json](../examples/drawing-handoff/job.json).
+Try the fictional example from the repository root:
+
+```sh
+python scripts/receive_drawings.py --manifest examples/drawing-handoff/job.json --out YOUR_NEW_FOLDER
+```
+
+Compare the [generated brief](../examples/drawing-handoff/job-worked/BRIEF.md),
+then replace the example's references with your own prepared inputs.
 Give each drawing its own ID, then supply `markup_manifest`, `cad` or both.
 Paths resolve from the job file. A CAD entry names `before`, `after` and an
 optional attribute `plan`. A markup manifest is the existing source-bound

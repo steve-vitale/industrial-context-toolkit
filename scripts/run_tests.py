@@ -96,6 +96,7 @@ SOURCE_TESTS = (
 FULL_ONLY_TESTS = (
     "scripts/test_cad_handoff.py",
     "scripts/test_cad_projection.py",
+    "scripts/test_receive_drawings.py",
     "scripts/test_cad_linux_evidence.py",
     "scripts/test_cad_exchange.py",
     "scripts/test_generate_any_model.py",

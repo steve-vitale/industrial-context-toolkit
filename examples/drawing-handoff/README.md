@@ -1,5 +1,14 @@
 # Turn drawing findings into a receiving brief
 
+For your own records, use the [receiving job command](../../docs/DRAWING_HANDOFF.md#run-one-receiving-job)
+with [job.json](job.json) as the format example. It combines existing checkers
+and generates actions from their actual results. The [generated brief](job-worked/BRIEF.md)
+and [portable job](job-worked/job.json) are reproducible without a CAD UI or model
+call. The two teaching drawings remain explicitly separate.
+
+The fixed rehearsal below is retained as an earlier regression case; its
+case-specific brief generator is not the own-input entry point.
+
 An engineer needs to know which requested changes were implemented. An engineering
 manager needs to know what to return, what to clarify and which technical review
 remains. This rehearsal joins the existing tools to that receiving routine, with

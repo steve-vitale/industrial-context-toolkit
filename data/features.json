@@ -1767,7 +1767,8 @@
       "category": "check",
       "title": "Requested P&ID markup checks against a consultant return",
       "tools": [
-        "scripts/check_pid_markups.py"
+        "scripts/check_pid_markups.py",
+        "scripts/receive_drawings.py"
       ],
       "guide": "docs/PID_MARKUP_REVIEW.md",
       "example_outputs": [
@@ -1777,10 +1778,14 @@
         "examples/pid-markup-review/worked/REPORT.md",
         "examples/pid-markup-review/worked/receipt.json",
         "examples/pid-markup-review/corrected/result.json",
-        "examples/pid-markup-review/VISUAL-QA.json"
+        "examples/pid-markup-review/VISUAL-QA.json",
+        "examples/drawing-handoff/job-worked/BRIEF.md",
+        "examples/drawing-handoff/job-worked/brief.json",
+        "examples/drawing-handoff/job-worked/job.json"
       ],
       "tests": [
-        "scripts/test_pid_markups.py"
+        "scripts/test_pid_markups.py",
+        "scripts/test_receive_drawings.py"
       ],
       "job": "Check requested drawing changes and prepare a sourced correction/clarification handoff",
       "you_need": "Original, exact markups/instructions sent out, returned revision, supplied annotation inventory and source-bound readings; Python3.10+ standard library for the local packet",

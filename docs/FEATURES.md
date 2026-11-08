@@ -663,14 +663,14 @@ Example review: not yet: needs review
 
 **Time:** Actual interpretation/review effort and model-reading accuracy unmeasured
 
-- **Tools:** `check_pid_markups.py`
+- **Tools:** `check_pid_markups.py`, `receive_drawings.py`
 - **How to use it:** [PID_MARKUP_REVIEW.md](../docs/PID_MARKUP_REVIEW.md)
 
 <details>
 <summary>Example files, tests and independent review</summary>
 
-- **Registered example files:** [`ACCEPTANCE.json`](../examples/pid-markup-review/ACCEPTANCE.json), [`PROVENANCE.json`](../examples/pid-markup-review/PROVENANCE.json), [`result.json`](../examples/pid-markup-review/worked/result.json), [`REPORT.md`](../examples/pid-markup-review/worked/REPORT.md), [`receipt.json`](../examples/pid-markup-review/worked/receipt.json), [`result.json`](../examples/pid-markup-review/corrected/result.json), [`VISUAL-QA.json`](../examples/pid-markup-review/VISUAL-QA.json)
-- **Tests:** `test_pid_markups.py`
+- **Registered example files:** [`ACCEPTANCE.json`](../examples/pid-markup-review/ACCEPTANCE.json), [`PROVENANCE.json`](../examples/pid-markup-review/PROVENANCE.json), [`result.json`](../examples/pid-markup-review/worked/result.json), [`REPORT.md`](../examples/pid-markup-review/worked/REPORT.md), [`receipt.json`](../examples/pid-markup-review/worked/receipt.json), [`result.json`](../examples/pid-markup-review/corrected/result.json), [`VISUAL-QA.json`](../examples/pid-markup-review/VISUAL-QA.json), [`BRIEF.md`](../examples/drawing-handoff/job-worked/BRIEF.md), [`brief.json`](../examples/drawing-handoff/job-worked/brief.json), [`job.json`](../examples/drawing-handoff/job-worked/job.json)
+- **Tests:** `test_pid_markups.py`, `test_receive_drawings.py`
 - **Independent review:** none yet
 
 </details>

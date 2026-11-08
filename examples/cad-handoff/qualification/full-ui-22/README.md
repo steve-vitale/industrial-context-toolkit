@@ -199,6 +199,9 @@ without closing their 322/321 original strict preservation failures.
 
 The twenty original-scope CLI calls reproduce; six receiving-control methods
 pass on both actual packets. The first offline restore failure remains alongside
-the corrected replayer. Fresh concurrent receiving is a separate live phase;
-second native revision, paper/layout, final freezing and reserved validation are
-still unfinished. See the brief for current reproduction commands and boundaries.
+the corrected replayer. Both fresh concurrent receivers now complete and replay
+offline, with the unchanged model pixel comparisons passing. Their frames have
+not received a separate visual inspection. Second native revision, paper/layout,
+final freezing and reserved validation remain unfinished. See the brief for
+current reproduction commands and boundaries. New native apparatus is not the
+critical path for the [reusable receiving job](../../../../docs/DRAWING_HANDOFF.md).

@@ -1,0 +1,18 @@
+{
+  "schema": "drawing-receiving-1",
+  "id": "Fictional transmittal: two separate teaching drawings",
+  "drawings": [
+    {
+      "id": "P&ID markup teaching drawing",
+      "markup_manifest": "drawings/001/markup/manifest.json"
+    },
+    {
+      "id": "Separate valve CAD teaching drawing",
+      "cad": {
+        "before": "drawings/002/cad/originals/before.dxf",
+        "after": "drawings/002/cad/originals/after.dxf",
+        "plan": "drawings/002/cad/originals/plan.json"
+      }
+    }
+  ]
+}

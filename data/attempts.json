@@ -6222,6 +6222,44 @@
         "examples/cad-handoff/qualification/full-ui-22/NATIVE-REVISION-BRIEF.md",
         "docs/JOURNAL.md#217-retain-native-concurrent-changes-against-the-original-request"
       ]
+    },
+    {
+      "id": "A378",
+      "function": "intake_and_reuse",
+      "date": "2026-11-08",
+      "hypothesis": "The combined receiving brief should be derived from a user-supplied job and actual existing checker results, rather than a fixed case-specific brief generator or further native UI machinery.",
+      "change": "Add a reusable receiving entry point, source-linked action brief and portable job using unchanged markup/DXF checkers; connect the front guides to it.",
+      "evidence": "Two existing teaching drawings generate13review items. Seven tests pass: exact original checker results/findings, portable complete brief replay, occupied output preservation, stale later-drawing refusal before publication, duplicate ID refusal, markup-only -S execution and explicitly unverified supplied cross-format association. Full source checks and actual before/returned values remain; owner/release decisions pending.",
+      "runs": "Own-input command and portable replay plus7meaningful software controls on exposed fixtures; no native CAD or model call",
+      "verdict": "kept",
+      "why": "Changes the critical path toward engineer/manager use while preserving original strict checks, reader boundaries and all CAD qualification requirements. This establishes orchestration, not new extraction accuracy, engineer timing or engineering acceptance.",
+      "source": [
+        "scripts/receive_drawings.py",
+        "scripts/test_receive_drawings.py",
+        "examples/drawing-handoff/REUSABLE-PLAN.md",
+        "examples/drawing-handoff/job.json",
+        "examples/drawing-handoff/job-worked/BRIEF.md",
+        "docs/DRAWING_HANDOFF.md#run-one-receiving-job",
+        "docs/JOURNAL.md#218-put-the-users-receiving-job-ahead-of-native-harness-development"
+      ]
+    },
+    {
+      "id": "A379",
+      "function": "intake_and_reuse",
+      "date": "2026-11-08",
+      "hypothesis": "The existing frozen receiving procedure can inspect all four exact concurrent drawing variants in fresh native processes without further native machinery.",
+      "change": "Complete and retain the two already-launched receivers, then replay their complete archives using the existing corrected restorer and score the unchanged model pixel recipe.",
+      "evidence": "Both original native/controller/container/host runs exit0. Each receipt retains231helper calls,115observations,8editable-field checks,20views/80images and0edits. Both archived receipts replay. Thirty comparisons report0outside pixels and20exact frame identities. No separate visual inspection of these new frames. Original strict322/321failures remain.",
+      "runs": "Two exposed concurrent four-file fresh native receivers; two offline receipt replays and frozen pixel comparisons",
+      "verdict": "kept",
+      "why": "Finishes the already-running evidence without extending the native harness critical path. Actual native second revision, paper/layout, final freeze and fresh reserved transfer remain open. No whole-CAD, plant or engineering acceptance.",
+      "source": [
+        "examples/cad-handoff/qualification/full-ui-22/NATIVE-CONCURRENT-RETAINED-2.json",
+        "examples/cad-handoff/qualification/full-ui-22/NATIVE-REVISION-BRIEF.md",
+        "examples/cad-handoff/qualification/full-ui-22/concurrent-pixels-1/cp1251/RESULT.json",
+        "examples/cad-handoff/qualification/full-ui-22/concurrent-pixels-1/braces/RESULT.json",
+        "docs/JOURNAL.md#219-retain-the-last-concurrent-receivers-and-stop-expanding-the-native-critical-path"
+      ]
     }
   ],
   "not_tried": [
@@ -7639,7 +7677,7 @@
       "function": "intake_and_reuse",
       "status": "not-done",
       "idea": "Freeze and qualify the corrected complete native CAD workflow on fresh reserved cases with foreign/literal/encoding fields, multiple assets and revision/conflict checks.",
-      "why_not_yet": "Complete exposed multi-asset native edit/save/reopen, first-plan fresh model receiving, exact model pixels, software planted-loss checks and actual native three-edit concurrent returns/original-scope reviews reproduce. Fresh concurrent four-file receiving is separately launched; second-revision native receiving, paper/layout, final-method freeze and newly reserved transfer remain required. Original full-save322/321failures and all earlier failed evidence remain. No plant or engineering acceptance is inferred.",
+      "why_not_yet": "Complete exposed multi-asset native edit/save/reopen, first-plan fresh model receiving, exact model pixels, software planted-loss checks and actual native three-edit concurrent returns/original-scope reviews reproduce. Fresh concurrent four-file receiving now completes and replays with unchanged model pixel checks; separate visual inspection, second-revision native receiving, paper/layout, final-method freeze and newly reserved transfer remain required. Original full-save322/321failures and all earlier failed evidence remain. No plant or engineering acceptance is inferred.",
       "source": [
         "examples/cad-handoff/qualification/PROTOCOL.md",
         "examples/cad-handoff/qualification/observer-transport-21/README.md",

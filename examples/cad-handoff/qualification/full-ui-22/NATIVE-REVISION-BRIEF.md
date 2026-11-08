@@ -61,8 +61,18 @@ no CAD application, models or network requests. The original experimental
 `native_revisions.py check` branch retains the empty-directory failure; it is
 not the current replay command.
 
-Fresh four-file concurrent receiving has been launched separately; no completion
-or pixel result is claimed here. Actual second-revision native receiving,
-paper/layout, final-method freezing and fresh reserved transfer remain open.
+Both fresh four-file concurrent receivers have now completed with normal exits.
+Each retains 231 helper calls, 115 observations, eight editable-field checks and
+20 views/80 images, with no edit in the receiving process. Their complete packets
+are pinned by [the second retained inventory](NATIVE-CONCURRENT-RETAINED-2.json).
+The existing `recheck_native_revisions.check_packet` replays both archives without
+CAD. The unchanged pixel recipe produces 30 comparisons with zero differences
+outside the declared regions and 20 exact source/baseline or candidate/edited
+frame identities; [pixel results](concurrent-pixels-1/cp1251/RESULT.json) and
+[the second case](concurrent-pixels-1/braces/RESULT.json) retain every comparison.
+These new frames have not received a separate visual inspection.
+
+Actual second-revision native receiving, paper/layout, final-method freezing and
+fresh reserved transfer remain open. Original strict failures remain unchanged.
 The [receiving workflow](../../../../docs/DRAWING_HANDOFF.md) describes how to
 prepare an accept/return/escalate brief from your own drawing records.
