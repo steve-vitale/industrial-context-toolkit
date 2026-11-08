@@ -5579,6 +5579,26 @@
         "examples/cad-handoff/qualification/check_public11.py",
         "examples/cad-handoff/qualification/public-validation-11/EXPOSURE-ERRATUM.json"
       ]
+    },
+    {
+      "id": "A347",
+      "function": "intake_and_reuse",
+      "date": "2026-11-07",
+      "change": "Separate full-save reconstruction from native operation side effects, test the before-load hypothesis and trace receiving failures to their original evidence.",
+      "hypothesis": "Matched no-operation, exact-patched, edited and repeated saves can locate which changes require an edit; exact raster controls can test the unexplained GUI pixels without waiving differences.",
+      "evidence": "Three precommitted 48-export experiments on six exposed public-derived sources. First no-edit saves retain4650 strict rows; second saves6138. Explicit addObject(a,false) removes the unintended current-layer edit: six default matched branches are strict0; six R15 branches retain one embedded DWGPROPS timestamp record each.432 fresh-process field observations match. Constructor beforeLoad=true has unchanged counts/warnings and is rejected.24 full-save diagnoses retain10788 indexed rows and1306 conservative closed exact record occurrences. Five raster attempts retain constructor/binding failures;16 nonempty profiles fail exact reproduction of the original62 pixels, which remain open.",
+      "runs": "Plans/methods/inputs frozen before each native intervention;144 actual API exports and corresponding fresh reads in pinned network-disabled Qt5 receiver. All sources are exposed development. Original strict/byte methods and historical evidence unchanged; no new model, native UI, plant or independent engineer trial.",
+      "verdict": "inconclusive",
+      "why": "Confirms and corrects a native test-harness current-attributes defect and locates embedded timestamp differences. No-edit/full-save reconstruction, remaining unmatched records and exact GUI raster cause remain unresolved preservation gates. Counterfactual constructor result and failed raster controls prevent unsupported root-cause claims or tolerance changes.",
+      "source": [
+        "docs/JOURNAL.md#194-separate-cad-save-reconstruction-from-operation-and-receiving-defects",
+        "examples/cad-handoff/qualification/root-cause-12/README.md",
+        "examples/cad-handoff/qualification/root-cause-12/PLAN.md",
+        "examples/cad-handoff/qualification/root-cause-12/BEFORE-LOAD-PLAN.md",
+        "examples/cad-handoff/qualification/root-cause-12/INVENTORY.json",
+        "examples/cad-handoff/qualification/root-cause-12/SUMMARY.json",
+        "examples/cad-handoff/qualification/check_root12.py"
+      ]
     }
   ],
   "not_tried": [

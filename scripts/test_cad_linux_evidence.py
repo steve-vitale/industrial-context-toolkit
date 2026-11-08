@@ -1,5 +1,7 @@
 """Offline retained Linux CAD UI evidence and bounded archive receiving controls."""
 import importlib.util
+import copy
+import json
 from pathlib import Path
 import tempfile
 import unittest
@@ -8,6 +10,58 @@ import cad_handoff as ch
 
 
 class RetainedLinuxNativeEvidence(unittest.TestCase):
+    def root_module(self):
+        path = Path(__file__).resolve().parents[1] / "examples/cad-handoff/qualification/check_root12.py"
+        spec = importlib.util.spec_from_file_location("cad_root12_receiver", path)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        return module
+
+    def test_causal_controls_retain_full_save_and_pixel_failures(self):
+        result = self.root_module().check()
+        self.assertEqual(result['native_exports'], 144)
+        self.assertEqual(result['fresh_process_fields'], 432)
+        self.assertEqual(result['original_noedit_strict_rows'], 4650)
+        self.assertEqual(result['second_noedit_strict_rows'], 6138)
+        self.assertEqual(result['fixed_default_matched_differences'], [0] * 6)
+        self.assertEqual(result['fixed_r15_matched_differences'], [1] * 6)
+        self.assertTrue(result['before_load_count_vectors_equal'])
+        self.assertEqual(result['original_outside_text_pixels'], 62)
+        self.assertEqual(result['raster_profiles_with_exact_gui_delta'], 0)
+        self.assertFalse(result['whole_cad_qualified'])
+
+    def test_causal_receiver_refuses_omitted_jobs_and_unplanned_layer_changes(self):
+        receiving = self.root_module().analyze
+        before = [dict(parent='7', tag='ICT_ID', text='asset', layer_id='11'),
+                  dict(parent='7', tag='MODEL', text='before', layer_id='11')]
+        after = copy.deepcopy(before)
+        after[1]['text'] = 'after'
+        plan = dict(changes=[dict(id='asset', attribute='MODEL', before='before', after='after')])
+        receiving.operation_state(before, after, plan)
+        after[1]['layer_id'] = '0'
+        with self.assertRaisesRegex(ValueError, 'unplanned observed property'):
+            receiving.operation_state(before, after, plan)
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / 'native.stdout'
+            path.write_text('ICT_ROOT12_PROFILE ' + json.dumps(dict(configuration_file=receiving.CONFIG)) + '\n'
+                            + 'ICT_ROOT12 ' + json.dumps(dict(id='one')) + '\n', encoding='utf-8')
+            receiving.native_rows(path, ['one'])
+            with self.assertRaisesRegex(ValueError, 'omitted'):
+                receiving.native_rows(path, ['one', 'two'])
+
+    def test_causal_comparison_detects_geometry_and_refuses_a_forged_zero(self):
+        receiver = self.root_module()
+        source = Path(__file__).resolve().parents[1] / 'examples/cad-handoff/qualification/validation-2/authored/validation-long.dxf'
+        before = ch.snapshot(source)
+        after = copy.deepcopy(before)
+        circle = next(r for r in after['entities'].values() if r['type'] == 'CIRCLE')
+        next(t for t in circle['tags'] if t[0] == 40)[1] += 0.25
+        report = receiver.analyze.comparison(before, after)
+        self.assertGreater(report['strict_differences'], 0)
+        forged = dict(report, strict_differences=0, strict_status='pass')
+        with self.assertRaisesRegex(ValueError, 'exact re-score'):
+            receiver.equal_report(report, forged)
+
     def public_module(self, name):
         folder = Path(__file__).resolve().parents[1] / "examples/cad-handoff/qualification/public-validation-11"
         spec = importlib.util.spec_from_file_location("cad_public11_" + name, folder / (name + ".py"))
