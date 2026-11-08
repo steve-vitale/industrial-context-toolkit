@@ -5620,6 +5620,29 @@
         "examples/cad-handoff/qualification/gui-scene-13/SUMMARY.json",
         "examples/cad-handoff/qualification/check_scene13.py"
       ]
+    },
+    {
+      "id": "A349",
+      "function": "intake_and_reuse",
+      "date": "2026-11-07",
+      "change": "Locate native version/resource reconstruction, hash-order repeatability and foreign metadata survival with frozen exposed controls.",
+      "hypothesis": "Separate original-version exports, empty native documents, registered/used metadata and a testing-only fixed hash seed can distinguish reconstruction and ordering from genuine returned-file omissions.",
+      "evidence": "63 complete exports plus63 fresh public-inventory repeats and65 offline strict reports. Explicit source versions work but retain351/349/353/432/403/424 strict rows. All added line-type names exist before import. Fixed-seed independent repeats have zero strict differences on six cases; unseeded comparisons each have53. All17 valid-integer controls retain attributes/used XDATA/USERI5 but lose the named XRECORD and unused APPID. Initial out-of-range integers, incomplete probe and inspection-clock diagnostics remain.",
+      "runs": "Six exposed public-adapted originals, four empty exports, twelve paired authored payload revisions, two independent six-source seed runs and seventeen valid-integer successors. Plans and input/method freezes precede each native execution; no fresh holdout, UI edit or engineer trial.",
+      "verdict": "kept",
+      "why": "Explains bounded version, default-resource and repeatability components, corrects a flawed integer control and demonstrates actual foreign-data omission. Strict comparator and source-preserving method remain unchanged. Opaque implementation loss stage, remaining payload differences and full native qualification remain open.",
+      "source": [
+        "docs/JOURNAL.md#196-separate-native-save-ordering-from-actual-metadata-omissions",
+        "examples/cad-handoff/qualification/save-boundaries-14/README.md",
+        "examples/cad-handoff/qualification/save-boundaries-14/PLAN.md",
+        "examples/cad-handoff/qualification/save-boundaries-14/HASH-PLAN.md",
+        "examples/cad-handoff/qualification/save-boundaries-14/PAYLOAD-PLAN.md",
+        "examples/cad-handoff/qualification/save-boundaries-14/INTEGER-PLAN.md",
+        "examples/cad-handoff/qualification/save-boundaries-14/RECEIVER-CORRECTION.md",
+        "examples/cad-handoff/qualification/save-boundaries-14/INVENTORY.json",
+        "examples/cad-handoff/qualification/save-boundaries-14/SUMMARY.json",
+        "examples/cad-handoff/qualification/check_boundaries14.py"
+      ]
     }
   ],
   "not_tried": [

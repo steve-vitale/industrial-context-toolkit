@@ -137,6 +137,17 @@ and observed canvases match; actual primitive replay reproduces all 1,978 delta 
 curves removes all 62. Original failures and strict comparison remain intact. Whole CAD qualification,
 native full-save preservation, complete readability and fresh UI/revision acceptance remain open.
 
+The [save-boundary controls](../examples/cad-handoff/qualification/save-boundaries-14/README.md)
+add 63 complete exports/fresh imports and 65 offline strict reports. Explicit source-version selection
+works but does not fix preservation. Default line types are present before import; empty exports have
+252–262 records. A testing-only fixed Qt hash seed makes two independent runs match strictly on all six
+exposed cases, isolating a 53-resource-record repeatability component. Actual foreign-data omissions remain:
+all 17 valid-integer controls lose the named XRECORD and unused APPID, while tested used XDATA, asset
+attributes and valid USERI5 values survive. Earlier out-of-range integer probes and an incomplete native
+helper are retained as failed controls. The diagnostic receiver now retains literal header bytes rather
+than an inspection-library synthesized creation time. No strict waiver, new holdout or native UI
+qualification follows; opaque exporter payloads and the original remaining gates stay open.
+
 Use the [acceptance exercise](ACCEPTANCE.md) for concrete tests, records and failure cases. It is prepared;
 actual participant, recipient, native-system and tenant observations remain **not run**.
 

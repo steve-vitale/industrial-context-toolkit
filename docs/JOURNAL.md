@@ -8664,3 +8664,41 @@ primitive streams and all saved image controls. It does not execute native Qt/CA
 evidence suite and add full replay, wrong-pen/viewport and outside-pixel refusal controls. Native full-save
 differences/unresolved payloads, complete readable receiving, fresh UI/revision qualification and actual
 engineering/company acceptance remain open. This is one exposed diagnostic success, not generalization.
+
+## 196. Separate native save ordering from actual metadata omissions
+
+The [save-boundary plan](../examples/cad-handoff/qualification/save-boundaries-14/PLAN.md) precedes native
+execution on the six exposed public-adapted sources. Explicit R15/R21/R24 export writes each source's
+actual ACADVER, while default export writes AC1024. Source-version matching still fails strict preservation
+with 351, 349, 353, 432, 403 and 424 rows. Empty native exports have 252–262 serialized records; all 32/33
+new line-type names already exist in the public native document before source import. Named table/dictionary
+associations retain every literal payload/reference difference and are not equivalence or deletion rules.
+
+The declared fixed-hash intervention produces zero strict differences between two independently launched
+QT_HASH_SEED=0 processes on all six inputs. Each differs from the unseeded return in 53 resource records.
+This locates a bounded Qt hash-order repeatability component. Qt documents the seed for testing/debugging;
+it is not a recommended production setting, exact native-original preservation or a new comparator waiver.
+
+Paired authored source revisions distinguish registered application names from used XDATA. A native no-edit
+save retains the ordered used string/double/integer payload and the asset attributes but omits a named
+root-dictionary XRECORD and unused application registrations. The first USERI5 values 60000..60005 were
+outside signed 16-bit range and become input-minus-65536 already on import. This was a flawed control,
+not valid-data loss. A separately declared/frozen successor uses 6000..6005 and five boundary values
+-32768, -1, 0, 1, 32767. All 17 preserve valid integers and tested fields; all 17 still lose the XRECORD
+and unused registration. Public object/custom-property observations cannot establish an opaque plugin's
+exact import/export loss stage. That implementation remains unavailable, and the stage is left unknown.
+
+Failures remain visible. A PowerShell edit failed, and the next native run mistakenly used a placeholder;
+its controller correctly refused zero observed jobs despite native exit zero. The successor probe was
+completed and frozen separately, with identical data bytes. An initial empty-document analysis failed
+the existing asset-profile guard. Its generic successor then failed offline reproduction because ezdxf
+substitutes current time for a zero creation time. The final descriptive helper retains complete original
+HEADER bytes instead; both earlier diagnostics remain. No native run was overwritten or restarted.
+
+The [receiver](../examples/cad-handoff/qualification/check_boundaries14.py) verifies exact source provenance,
+frozen inputs/methods, byte-preserving candidates, selected configuration, terminal native identities,
+all public properties and 65 strict reports from 63 complete exports/fresh imports. It runs offline and
+does not execute CAD. Original strict methods and prior tests are unchanged; new controls refuse omitted
+jobs, a forged pass and the incomplete probe, and preserve literal zero-time header bytes. All sources
+are exposed/authored diagnostics. Full native-save payload preservation, complete readability, fresh
+reserved-source native UI/editability/revision qualification and engineering/company acceptance remain open.

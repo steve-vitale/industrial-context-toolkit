@@ -22,6 +22,7 @@ def analyze_payload(root):
     rows=b.native_rows(root/'native/export.stdout',b.read(root/'export.json'))
     fresh=b.native_rows(root/'native/fresh.stdout',b.read(root/'fresh.json'))
     cases=b.read(root/'CASES.json');out=[];reports={}
+    b.require([c['id']for c in cases]==[r['id']for r in rows],'Payload case coverage differs')
     for case,observed,reopened in zip(cases,rows,fresh):
         identity=case['id'];folder=root/'cases'/identity
         b.require(b.canonical_inventory(observed['reopened'])==b.canonical_inventory(reopened['imported']),'Fresh payload native inventory differs')
@@ -31,6 +32,7 @@ def analyze_payload(root):
             source['xrecord']==[[1,case['marker']],[90,31415926],[40,2.718281828]]and source['useri5']==case['useri5'],'Authored sentinels differ')
         b.require({k:v for k,v in source.items()if k!='attributes'}=={k:v for k,v in candidate.items()if k!='attributes'},'Candidate changed foreign sentinel')
         returned=payload(folder/'returned.dxf',case)
+        b.require(b.ch.load(folder/'returned.dxf').dxfversion==case['version'],'Payload actual output version differs')
         report=b.ch.compare(b.ch.snapshot(folder/'source.dxf'),b.ch.snapshot(folder/'returned.dxf'))
         reports[identity]=report
         out.append(dict(id=identity,source=source,candidate=candidate,returned=returned,
@@ -53,6 +55,7 @@ def analyze_seeds(a,c,unseeded):
     for identity in b.IDS:
         paths=[r/'cases'/identity for r in(a,c,unseeded)]
         for p in paths[1:]:b.require(b.sha(p/'source.dxf')==b.sha(paths[0]/'source.dxf'),'Seed source differs')
+        for p in paths:b.require(b.ch.load(p/'returns/default.dxf').dxfversion=='AC1024','Seed actual default output version differs')
         for name,left,right in [('seed0a_to_seed0b',paths[0]/'returns/default.dxf',paths[1]/'returns/default.dxf'),
                                 ('unseeded_to_seed0a',paths[2]/'returns/default.dxf',paths[0]/'returns/default.dxf')]:
             report=b.ch.compare(b.ch.snapshot(left),b.ch.snapshot(right));reports[identity+'/'+name]=report

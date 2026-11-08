@@ -10,6 +10,57 @@ import cad_handoff as ch
 
 
 class RetainedLinuxNativeEvidence(unittest.TestCase):
+    def boundaries_module(self):
+        path = Path(__file__).resolve().parents[1] / 'examples/cad-handoff/qualification/check_boundaries14.py'
+        spec = importlib.util.spec_from_file_location('cad_boundaries14_receiver', path)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        return module
+
+    def test_save_boundaries_keep_metadata_losses_and_seed_control_separate(self):
+        result = self.boundaries_module().check()
+        self.assertEqual(result['native_exports'], 63)
+        self.assertEqual(result['fresh_public_inventory_repeats'], 63)
+        self.assertEqual(result['strict_reports'], 65)
+        self.assertEqual(result['seed_repeat_strict_differences'], [0] * 6)
+        self.assertEqual(result['unseeded_to_seeded_differences'], [53] * 6)
+        self.assertEqual(result['valid_integer_controls'], 17)
+        self.assertEqual(result['missing_xrecord_controls'], 17)
+        self.assertEqual(result['missing_unused_registration_controls'], 17)
+        self.assertTrue(result['retained_incomplete_probe'])
+        self.assertTrue(all(n > 0 for n in result['source_to_original_differences']))
+        self.assertFalse(result['whole_cad_qualified'])
+
+    def test_boundary_receiver_refuses_placeholder_missing_job_and_forged_pass(self):
+        receiving = self.boundaries_module()
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / 'native.stdout'
+            manifest = dict(jobs=[dict(id='one'), dict(id='two')])
+            path.write_text('placeholder\n', encoding='utf-8')
+            with self.assertRaises(ValueError):
+                receiving.b.native_rows(path, manifest)
+            path.write_text('ICT_BOUND14_PROFILE ' + json.dumps(dict(configuration_file='/home/cad/.config/QCAD/QCAD3.conf'))
+                            + '\nICT_BOUND14 {"id":"one"}\n', encoding='utf-8')
+            with self.assertRaisesRegex(ValueError, 'coverage'):
+                receiving.b.native_rows(path, manifest)
+        with self.assertRaisesRegex(ValueError, 'exact re-score'):
+            receiving.equal(dict(status='differences', unexpected=[dict(kind='entity')]), dict(status='pass', unexpected=[]))
+
+    def test_empty_native_diagnostic_keeps_literal_zero_creation_time(self):
+        import tarfile
+        receiving = self.boundaries_module()
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / 'empty.dxf'
+            with tarfile.open(receiving.BASE / 'evidence.tar.xz', 'r:xz') as archive:
+                path.write_bytes(archive.extractfile('raw/attempt-1/empty/default.dxf').read())
+            first = receiving.b.diagnostic_inventory(path)
+            second = receiving.b.diagnostic_inventory(path)
+            self.assertEqual(first, second)
+            header = bytes.fromhex(first['raw_header_hex'])
+            self.assertIn(b'$TDCREATE', header)
+            self.assertIn(header, path.read_bytes())
+            self.assertNotIn('header', first)
+
     def scene_module(self):
         path = Path(__file__).resolve().parents[1] / 'examples/cad-handoff/qualification/check_scene13.py'
         spec = importlib.util.spec_from_file_location('cad_scene13_receiver', path)

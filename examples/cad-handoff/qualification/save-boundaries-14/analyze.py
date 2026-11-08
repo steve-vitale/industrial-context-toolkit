@@ -66,9 +66,18 @@ def diagnostic_inventory(path):
         tags=[[t.code,ch.plain(t.value)]for t in collector.tags]
         end=next((i for i,t in enumerate(tags)if i and t[0]==0),len(tags))
         entities[entity.dxf.handle]=dict(type=entity.dxftype(),tags=tags[:end])
+    # ezdxf replaces a zero TDCREATE with wall-clock time on import. Retain the
+    # original HEADER section bytes instead of reporting that synthesized value.
+    lines=path.read_bytes().splitlines(keepends=True)
+    require(len(lines)%2==0,'Incomplete raw DXF pair')
+    sections=[i for i in range(0,len(lines)-3,2)if lines[i].strip()==b'0'and lines[i+1].strip()==b'SECTION'and
+        lines[i+2].strip()==b'2'and lines[i+3].strip()==b'HEADER']
+    require(len(sections)==1,'Missing/ambiguous raw HEADER')
+    start=sections[0];ends=[i for i in range(start+4,len(lines)-1,2)if lines[i].strip()==b'0'and lines[i+1].strip()==b'ENDSEC']
+    require(bool(ends),'Unterminated raw HEADER');header=b''.join(lines[start:ends[0]+2])
     return dict(version=doc.dxfversion,raw_sha256=sha(path),records=len(entities),
         types=dict(sorted(Counter(r['type']for r in entities.values()).items())),
-        paths=named_paths(doc),entities=entities,header={k:ch.plain(doc.header[k])for k in doc.header.varnames()})
+        paths=named_paths(doc),entities=entities,raw_header_hex=header.hex())
 def named_comparison(source,output,empty):
     rows=[]
     for path,handles in output['paths'].items():
