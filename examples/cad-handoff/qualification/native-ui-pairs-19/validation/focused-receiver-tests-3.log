@@ -1,0 +1,29 @@
+test_camera_repeat_snapshots_events_without_rewriting_original_recorder (test_cad_linux_evidence.NativeUIPairs19Evidence.test_camera_repeat_snapshots_events_without_rewriting_original_recorder) ... ok
+test_ui19_accepts_retained_packager_sources_and_refuses_unbound_metadata (test_cad_linux_evidence.NativeUIPairs19Evidence.test_ui19_accepts_retained_packager_sources_and_refuses_unbound_metadata) ... ok
+test_ui19_archive_extraction_runs_without_site_packages (test_cad_linux_evidence.NativeUIPairs19Evidence.test_ui19_archive_extraction_runs_without_site_packages) ... ok
+test_ui19_archive_refuses_traversal_duplicate_link_and_omission (test_cad_linux_evidence.NativeUIPairs19Evidence.test_ui19_archive_refuses_traversal_duplicate_link_and_omission) ... ok
+test_ui19_complete_replay_keeps_failed_recording_and_camera_checks (test_cad_linux_evidence.NativeUIPairs19Evidence.test_ui19_complete_replay_keeps_failed_recording_and_camera_checks) ... ERROR
+test_ui19_exposes_unplanned_pixels_even_when_capture_hashes_are_updated (test_cad_linux_evidence.NativeUIPairs19Evidence.test_ui19_exposes_unplanned_pixels_even_when_capture_hashes_are_updated) ... ok
+test_ui19_refuses_missing_ui_values_actions_and_frozen_inputs (test_cad_linux_evidence.NativeUIPairs19Evidence.test_ui19_refuses_missing_ui_values_actions_and_frozen_inputs) ... ok
+test_ui19_refuses_wrong_return_values_even_with_updated_return_hash (test_cad_linux_evidence.NativeUIPairs19Evidence.test_ui19_refuses_wrong_return_values_even_with_updated_return_hash) ... ok
+test_ui19_retains_wrong_expected_metadata_as_failure (test_cad_linux_evidence.NativeUIPairs19Evidence.test_ui19_retains_wrong_expected_metadata_as_failure) ... ok
+
+======================================================================
+ERROR: test_ui19_complete_replay_keeps_failed_recording_and_camera_checks (test_cad_linux_evidence.NativeUIPairs19Evidence.test_ui19_complete_replay_keeps_failed_recording_and_camera_checks)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Steve\industrial-context-toolkit\scripts\test_cad_linux_evidence.py", line 734, in test_ui19_complete_replay_keeps_failed_recording_and_camera_checks
+    receiver=self.receiver();result=receiver.check();self.assertFalse(result['whole_cad_qualified'])
+                                    ~~~~~~~~~~~~~~^^
+  File "C:\Users\Steve\industrial-context-toolkit\examples\cad-handoff\qualification\check_ui19.py", line 279, in check
+    require(equal(result,read(BASE/'SUMMARY.json')),'Published UI evidence summary differs')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steve\industrial-context-toolkit\examples\cad-handoff\qualification\ui19_archive.py", line 8, in require
+    if not test:raise ValueError(message)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Published UI evidence summary differs
+
+----------------------------------------------------------------------
+Ran 9 tests in 49.981s
+
+FAILED (errors=1)

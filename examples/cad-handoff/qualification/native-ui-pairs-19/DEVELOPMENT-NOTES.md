@@ -66,3 +66,21 @@ the shared dictionary and recording another event changes the old method's first
 QUAL-AFTER; the successor retains QUAL-BEFORE followed by QUAL-AFTER. The original cohort method and
 its failed metadata remain unchanged. Six focused receiving/archive/recorder tests pass locally, with
 zero skips; complete seven-packet replay and actual new-camera execution remain separate checks.
+
+The first full local suite completed 94/95 programs, with one error in the new complete replay check:
+it required every inventory's packager hash to equal the current file. Air/motion were packed by the
+earlier source already retained and frozen in receiver-2. Its only source difference adds receiver-2
+to the historical collection list; case packing is unchanged. The actual failure/command/test/receiver
+source are retained under validation/full-suite-1. Repacking both cases with the current tool produces
+byte-identical archives and inventories differing only in packager_sha256. Original inventories remain
+unchanged. The corrected receiver resolves generator identity to retained, frozen historical source;
+unknown identities still refuse. No drawing, observation, original metadata or CAD criterion changes.
+
+After that correction, a complete replay differed in two candidate save_metadata_changed flags, not
+strict differences or bytes. Installed ezdxf 1.4.5 calls _setup_metadata during loaded-document setup
+and sets $TDCREATE to the current inspection time. A delayed source/candidate inspection reproduces
+different parsed times for identical raw headers. Original summary, actual/expected/difference files
+and the failed focused replay remain in validation. The successor presentation separates the unstable
+parser flag, retains its actual comparator report/live diagnostic and independently checks complete
+raw HEADER bytes. A deterministic two-clock control and a changed-header refusal challenge that boundary.
+The strict comparator, byte reconstruction, original raw records and every native failure stay unchanged.

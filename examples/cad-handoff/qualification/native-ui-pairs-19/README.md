@@ -68,6 +68,25 @@ are at most 4 MiB; raw packets at most 256 MiB. Settings contents and publisher/
 excluded; recorded identities remain. The seven archives total 27,058,032 bytes. Packet names:
 development, libre-air-water, libre-motion, libre-power, qcad-hydraulic, qcad-mechanical, qcad-template.
 
+Packager identities resolve to their retained source versions, not automatically to the latest file.
+The first full local suite exposed that mistaken assumption (94/95 programs passed, one failed).
+Its [actual failure, command and source](validation/full-suite-1/) remain. The first two case packets
+used the source retained under receiver-2 in the development archive; its only difference from today's
+packager is adding receiver-2 history to the historical packet, not case packing. Today's packager
+reproduced both case archives byte-for-byte. [Original inventories stay unchanged](validation/PACKAGER-REPRODUCTION.json),
+and the receiver rejects packager identities without retained, frozen source evidence.
+
+A subsequent replay exposed a separate load-clock diagnostic: ezdxf 1.4.5's
+[_finalize_setup/_setup_metadata](https://github.com/mozman/ezdxf/blob/v1.4.5/src/ezdxf/document.py)
+replaces the loaded $TDCREATE with the inspection time. The unchanged comparator's ancillary
+save_metadata_changed flag can therefore differ for identical file headers. The
+[original summary and actual replay difference](validation/INITIAL-SUMMARY.json) are retained.
+The stable presentation now separates that flag from strict content results and checks the complete
+raw candidate HEADER byte-for-byte. Actual unmodified comparator flags are returned in
+live_parser_diagnostics on every check; they are explicitly non-reproducible diagnostics. A controlled
+two-clock test reproduces the effect and a changed raw header refuses. This reporting correction changes
+no comparator, CAD acceptance rule or native return. All original strict failures remain.
+
 Regression controls remove observations, trees, close actions and fields; alter source/return data;
 plant an unrelated pixel with updated capture hashes; challenge archive traversal, duplicates, links,
 omissions and invalid sizes; and reproduce the recorder bug beside snapshot semantics. Run through

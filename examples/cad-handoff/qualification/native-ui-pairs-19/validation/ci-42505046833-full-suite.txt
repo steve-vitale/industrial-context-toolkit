@@ -1,0 +1,134 @@
+2026-11-08T17:32:10.7064076Z Mode: FULL CACHED-DATA. No downloads, installs, or plant/gateway connections. Full tests include a temporary OPC UA replay service/client on 127.0.0.1 with an ephemeral port; source-only excludes it.
+2026-11-08T17:32:10.7064887Z PASS  scripts/test_pid_path_review.py: OK
+2026-11-08T17:32:10.7065181Z PASS  scripts/test_pid_connections.py: OK
+2026-11-08T17:32:10.7065485Z PASS  scripts/test_pid_markups.py: OK
+2026-11-08T17:32:10.7065762Z PASS  scripts/test_maintenance_intake.py: OK
+2026-11-08T17:32:10.7066050Z PASS  scripts/test_delivery_examples.py: OK
+2026-11-08T17:32:10.7066315Z PASS  scripts/test_batch_analysis.py: OK
+2026-11-08T17:32:10.7066595Z PASS  scripts/test_check_analysis_basis.py: OK
+2026-11-08T17:32:10.7066892Z PASS  scripts/test_join_batch_records.py: OK
+2026-11-08T17:32:10.7067202Z PASS  scripts/test_investigation_example.py: OK
+2026-11-08T17:32:10.7067608Z PASS  scripts/test_benchmark.py: test: 1 run/cohort results, 1 model/method groups
+2026-11-08T17:32:10.7067995Z PASS  scripts/test_source_support.py: OK
+2026-11-08T17:32:10.7068276Z PASS  scripts/test_artifact_value_review.py: OK
+2026-11-08T17:32:10.7068608Z PASS  scripts/test_display_contract.py: 26 checks; 0 failed
+2026-11-08T17:32:10.7069080Z PASS  scripts/test_process_mimic.py: OK
+2026-11-08T17:32:10.7069472Z PASS  scripts/test_tiling.py: round trip: ok over 200 random sheets (worst count ratio 1.000)
+2026-11-08T17:32:10.7069741Z PASS  scripts/test_apply_review.py: all passed
+2026-11-08T17:32:10.7069928Z PASS  scripts/test_review_identity.py: OK
+2026-11-08T17:32:10.7070196Z PASS  scripts/test_scorer_controls.py: ALL CONTROLS PASS across 12 drawings
+2026-11-08T17:32:10.7070448Z PASS  scripts/test_pid2graph_synthetic_adapter.py: OK
+2026-11-08T17:32:10.7070652Z PASS  scripts/test_dexpi_adapter.py: OK (skipped=1)
+2026-11-08T17:32:10.7071278Z       SKIP (unittest) 1 case(s); run this unittest script with -v for identities/reasons
+2026-11-08T17:32:10.7071537Z PASS  scripts/test_dexpi_to_twin.py: OK (skipped=1)
+2026-11-08T17:32:10.7071778Z       SKIP (unittest) 1 case(s); run this unittest script with -v for identities/reasons
+2026-11-08T17:32:10.7072023Z PASS  scripts/test_dexpi_reader.py: OK (skipped=9)
+2026-11-08T17:32:10.7072271Z       SKIP (unittest) 9 case(s); run this unittest script with -v for identities/reasons
+2026-11-08T17:32:10.7072506Z PASS  scripts/test_source_evidence.py: OK
+2026-11-08T17:32:10.7072683Z PASS  scripts/test_source_capture_mode.py: OK
+2026-11-08T17:32:10.7072862Z PASS  scripts/test_source_handoff.py: OK
+2026-11-08T17:32:10.7073031Z PASS  scripts/test_score_tags.py: OK
+2026-11-08T17:32:10.7073195Z PASS  scripts/test_replicate_stats.py: OK
+2026-11-08T17:32:10.7073365Z PASS  scripts/test_review_kit.py: OK
+2026-11-08T17:32:10.7073906Z PASS  scripts/test_generate_validation.py: twin: wrote review_queue.csv, ignition/tags.json, pi/pi_builder_af.csv, pi/custom_uoms.csv, pi/attribute_descriptions.csv, pi/IMPORT_STEPS.txt, pi/reconciliation.json, svg/sheet_*.svg (1) in /tmp/tmp22rn8m1g
+2026-11-08T17:32:10.7074484Z PASS  scripts/test_export_review_boundaries.py: OK
+2026-11-08T17:32:10.7074677Z PASS  scripts/test_site_drawing_intake.py: OK
+2026-11-08T17:32:10.7075233Z PASS  scripts/test_site_extraction_workflow.py: {"sheet": "0", "model": null, "provider": null, "seconds": 0.0, "error": "600-second timeout"}
+2026-11-08T17:32:10.7075562Z PASS  scripts/test_pi_mapping.py: OK
+2026-11-08T17:32:10.7075729Z PASS  scripts/test_check_pi_export.py: OK
+2026-11-08T17:32:10.7075922Z PASS  scripts/test_gateway_acceptance_preflight.py: OK
+2026-11-08T17:32:10.7076114Z PASS  scripts/test_review_effort.py: OK
+2026-11-08T17:32:10.7076282Z PASS  scripts/test_map_points.py: OK
+2026-11-08T17:32:10.7076443Z PASS  scripts/test_run_tests.py: OK
+2026-11-08T17:32:10.7076619Z PASS  scripts/test_pipeline.py: 45/45 checks passed
+2026-11-08T17:32:10.7076807Z PASS  scripts/test_bayer_rt.py: OK
+2026-11-08T17:32:10.7076968Z PASS  scripts/test_check_claims.py: OK
+2026-11-08T17:32:10.7077132Z PASS  scripts/test_rescore.py: OK
+2026-11-08T17:32:10.7077300Z PASS  scripts/test_own_drawing_example.py: OK
+2026-11-08T17:32:10.7077473Z PASS  scripts/test_loop_audit.py: OK
+2026-11-08T17:32:10.7077635Z PASS  scripts/test_one_map.py: OK
+2026-11-08T17:32:10.7077797Z PASS  scripts/test_ontology.py: OK
+2026-11-08T17:32:10.7077965Z PASS  scripts/test_plant_workflows.py: OK
+2026-11-08T17:32:10.7078161Z PASS  scripts/test_context_map_format.py: OK (skipped=1)
+2026-11-08T17:32:10.7078412Z       SKIP (unittest) 1 case(s); run this unittest script with -v for identities/reasons
+2026-11-08T17:32:10.7078659Z PASS  scripts/test_sheet_from_prediction.py: OK
+2026-11-08T17:32:10.7079005Z PASS  scripts/test_extract_text.py: OK (skipped=18)
+2026-11-08T17:32:10.7079264Z       SKIP (unittest) 18 case(s); run this unittest script with -v for identities/reasons
+2026-11-08T17:32:10.7079512Z PASS  scripts/test_evaluate_vendor.py: OK
+2026-11-08T17:32:10.7079681Z PASS  scripts/test_drawing_case.py: OK
+2026-11-08T17:32:10.7079849Z PASS  scripts/test_reader_template.py: OK
+2026-11-08T17:32:10.7080028Z PASS  scripts/test_reader_leaderboard.py: OK
+2026-11-08T17:32:10.7080205Z PASS  scripts/test_script_index.py: OK
+2026-11-08T17:32:10.7080378Z PASS  scripts/test_attempts_ledger.py: OK
+2026-11-08T17:32:10.7080562Z PASS  scripts/test_graph_export.py: OK (skipped=1)
+2026-11-08T17:32:10.7080802Z       SKIP (unittest) 1 case(s); run this unittest script with -v for identities/reasons
+2026-11-08T17:32:10.7081045Z PASS  scripts/test_graph_provenance.py: OK
+2026-11-08T17:32:10.7081283Z PASS  scripts/test_snapshot_packet.py: OK
+2026-11-08T17:32:10.7081499Z PASS  scripts/test_knowledge_snapshot.py: OK
+2026-11-08T17:32:10.7081678Z PASS  scripts/test_knowledge_capture.py: OK
+2026-11-08T17:32:10.7081938Z PASS  scripts/test_feature_catalog.py: wrote docs/FEATURES.md: 22 of 33 have reviewed examples
+2026-11-08T17:32:10.7082674Z PASS  scripts/test_corpus_matrix.py:   row 8 x pronto-fig1: data/external/pronto-more/PRONTO benchmark case study/Technical documents/Technical report/Multiphase flow facility case study technical report.pdf
+2026-11-08T17:32:10.7083197Z       SKIP (unittest) 3 case(s); run this unittest script with -v for identities/reasons
+2026-11-08T17:32:10.7083434Z PASS  scripts/test_question_engine.py: OK
+2026-11-08T17:32:10.7083604Z PASS  scripts/test_estimate_impact.py: OK
+2026-11-08T17:32:10.7083775Z PASS  scripts/test_statements.py: OK
+2026-11-08T17:32:10.7083957Z PASS  scripts/test_bound_statement_example.py: OK
+2026-11-08T17:32:10.7084142Z PASS  scripts/test_context_register.py: OK
+2026-11-08T17:32:10.7084331Z PASS  scripts/test_context_examples.py: OK (skipped=1)
+2026-11-08T17:32:10.7084574Z       SKIP (unittest) 1 case(s); run this unittest script with -v for identities/reasons
+2026-11-08T17:32:10.7084808Z PASS  scripts/test_pump_revision.py: OK
+2026-11-08T17:32:10.7084979Z PASS  scripts/test_team_context.py: OK
+2026-11-08T17:32:10.7085420Z PASS  scripts/test_checkout_contracts.py: Git byte contracts: 1874 indexed + 3748 checkout target comparisons; 761 existing raw-packet files retained per configuration
+2026-11-08T17:32:10.7085811Z PASS  scripts/test_deliverable_report.py: OK
+2026-11-08T17:32:10.7085988Z PASS  scripts/test_fetch_corpus.py: OK
+2026-11-08T17:32:10.7086347Z PASS  scripts/test_cad_handoff.py: OK
+2026-11-08T17:32:10.7086746Z FAIL  scripts/test_cad_linux_evidence.py: Retained observations reproduce; CAD GUI execution, complete label readability and engineering acceptance are not rerun or inferred
+2026-11-08T17:32:10.7090315Z e, "observed": true}, {"case": "native-4:validation-cp1251-original", "retained": true, "observed": true}, {"case": "native-4:validation-cp1251-library", "retained": true, "observed": true}, {"case": "native-4:validation-cp1251-library-main", "retained": true, "observed": true}, {"case": "native-4:validation-cp1251-prepared", "retained": true, "observed": true}, {"case": "native-4:validation-cp1251-candidate", "retained": true, "observed": true}, {"case": "native-4:validation-foreign-original", "retained": true, "observed": true}, {"case": "native-4:validation-foreign-library", "retained": true, "observed": true}, {"case": "native-4:validation-foreign-library-main", "retained": true, "observed": true}, {"case": "native-4:validation-foreign-prepared", "retained": true, "observed": true}, {"case": "native-4:validation-foreign-candidate", "retained": true, "observed": true}, {"case": "native-4:validation-long-original", "retained": true, "observed": true}, {"case": "native-4:validation-long-library", "retained": true, "observed": true}, {"case": "native-4:validation-long-library-main", "retained": true, "observed": true}, {"case": "native-4:validation-long-prepared", "retained": true, "observed": true}, {"case": "native-4:validation-long-candidate", "retained": true, "observed": true}, {"case": "native-4:validation-unicode-original", "retained": true, "observed": true}, {"case": "native-4:validation-unicode-library", "retained": true, "observed": true}, {"case": "native-4:validation-unicode-library-main", "retained": true, "observed": true}, {"case": "native-4:validation-unicode-prepared", "retained": true, "observed": true}, {"case": "native-4:validation-unicode-candidate", "retained": true, "observed": true}]
+2026-11-08T17:32:10.7093585Z PASS: exact native return/review/287 strict failures, 21 candidate rebuilds, 42 model/12 paper view records, 5 receiving controls
+2026-11-08T17:32:10.7094071Z Retained observations reproduce; CAD GUI execution, complete label readability and engineering acceptance are not rerun or inferred
+2026-11-08T17:32:10.7094468Z  ...E........................Found non-unique entity handle #A, data validation is required.
+2026-11-08T17:32:10.7094744Z Found non-unique entity handle #B, data validation is required.
+2026-11-08T17:32:10.7094988Z Found non-unique entity handle #C, data validation is required.
+2026-11-08T17:32:10.7095324Z Found non-unique entity handle #8, data validation is required.
+2026-11-08T17:32:10.7095517Z ................
+2026-11-08T17:32:10.7095662Z ======================================================================
+2026-11-08T17:32:10.7096089Z ERROR: test_ui19_complete_replay_keeps_failed_recording_and_camera_checks (__main__.NativeUIPairs19Evidence.test_ui19_complete_replay_keeps_failed_recording_and_camera_checks)
+2026-11-08T17:32:10.7096530Z ----------------------------------------------------------------------
+2026-11-08T17:32:10.7096745Z Traceback (most recent call last):
+2026-11-08T17:32:10.7100749Z   File "/home/runner/work/industrial-context-toolkit/industrial-context-toolkit/scripts/test_cad_linux_evidence.py", line 734, in test_ui19_complete_replay_keeps_failed_recording_and_camera_checks
+2026-11-08T17:32:10.7101352Z     receiver=self.receiver();result=receiver.check();self.assertFalse(result['whole_cad_qualified'])
+2026-11-08T17:32:10.7101630Z                                     ^^^^^^^^^^^^^^^^
+2026-11-08T17:32:10.7102048Z   File "/home/runner/work/industrial-context-toolkit/industrial-context-toolkit/examples/cad-handoff/qualification/check_ui19.py", line 256, in check
+2026-11-08T17:32:10.7102555Z     require(read(base/'INVENTORY.json')['packager_sha256']==sha(HERE/'package_ui19.py'),'UI evidence packager differs')
+2026-11-08T17:32:10.7103274Z   File "/home/runner/work/industrial-context-toolkit/industrial-context-toolkit/examples/cad-handoff/qualification/ui19_archive.py", line 8, in require
+2026-11-08T17:32:10.7103658Z     if not test:raise ValueError(message)
+2026-11-08T17:32:10.7103823Z                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-08T17:32:10.7103987Z ValueError: UI evidence packager differs
+2026-11-08T17:32:10.7104105Z 
+2026-11-08T17:32:10.7104196Z ----------------------------------------------------------------------
+2026-11-08T17:32:10.7104399Z Ran 44 tests in 94.950s
+2026-11-08T17:32:10.7104486Z 
+2026-11-08T17:32:10.7104537Z FAILED (errors=1)
+2026-11-08T17:32:54.2609933Z 
+2026-11-08T17:32:54.2610488Z PASS  scripts/test_cad_exchange.py: OK
+2026-11-08T17:32:54.2610840Z PASS  scripts/test_generate_any_model.py: OK
+2026-11-08T17:32:54.2611134Z PASS  scripts/test_description_workflow.py: OK
+2026-11-08T17:32:54.2611414Z PASS  scripts/test_engineering_change.py: OK
+2026-11-08T17:32:54.2611688Z PASS  scripts/test_csv_tools.py: OK
+2026-11-08T17:32:54.2612647Z PASS  scripts/test_te_channels.py: PASS: 52 unique recorded channels + SC-212 unmapped; original paths, analyzer provenance, history/read-only/quality configuration, unchanged alarms, parent review inheritance; isolated Docker COPY payload imports and replay mapping
+2026-11-08T17:32:54.2613567Z PASS  scripts/test_along_line.py: all passed
+2026-11-08T17:32:54.2613847Z PASS  scripts/test_trace_connections_v2.py: OK
+2026-11-08T17:32:54.2614120Z PASS  scripts/test_scan_cleanup.py: OK
+2026-11-08T17:32:54.2614394Z PASS  scripts/test_line_layers.py: OK (skipped=2)
+2026-11-08T17:32:54.2614780Z       SKIP (unittest) 2 case(s); run this unittest script with -v for identities/reasons
+2026-11-08T17:32:54.2615170Z PASS  scripts/test_gateway_diff.py: all passed
+2026-11-08T17:32:54.2615465Z PASS  scripts/test_current_gateway_artifacts.py: OK
+2026-11-08T17:32:54.2615863Z PASS  scripts/test_fault_detection_eval.py: OK: fault detection eval tests, 0 failure(s)
+2026-11-08T17:32:54.2616266Z PASS  scripts/test_te_topology.py: OK
+2026-11-08T17:32:54.2616522Z PASS  scripts/test_te_control_loops.py: OK
+2026-11-08T17:32:54.2616784Z PASS  scripts/test_te_pid_roundtrip.py: OK
+2026-11-08T17:32:54.2617076Z PASS  scripts/test_open100_structural.py: all passed
+2026-11-08T17:32:54.2617493Z PASS  scripts/test_build_3d_scene.py: 82/82 3D scene contract checks passed
+2026-11-08T17:32:54.2617908Z PASS  scripts/test_verify_3d_render.py: 27/27 render verification checks passed
+2026-11-08T17:32:54.2618483Z FULL CACHED-DATA: 94/95 scripts passed; 1 failed; 37 unittest case(s) skipped; 0 platform notice(s); 0 additional skipped-check notice(s).
+2026-11-08T17:32:54.2709282Z ##[error]Process completed with exit code 1.

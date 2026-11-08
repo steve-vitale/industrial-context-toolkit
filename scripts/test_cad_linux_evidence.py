@@ -836,6 +836,47 @@ class NativeUIPairs19Evidence(unittest.TestCase):
             self.assertEqual(result.returncode,0,result.stderr)
             self.assertIn('bounded extraction complete',result.stdout)
 
+    def test_ui19_accepts_retained_packager_sources_and_refuses_unbound_metadata(self):
+        receiver=self.receiver()
+        with tempfile.TemporaryDirectory()as temporary:
+            root=receiver.unpack(receiver.BASE/'evidence/development',Path(temporary)/'history')
+            receiver.historical(root,Path(temporary)/'history-check')
+            sources={receiver.sha(receiver.HERE/'package_ui19.py')}
+            sources.update(receiver.sha(root/folder/'package_ui19.py')for folder in ('receiver-1','receiver-2'))
+            for case in ('libre-air-water','libre-motion','libre-power'):
+                receiver.package_identity(receiver.BASE/'evidence'/case,sources)
+            altered=Path(temporary)/'altered';altered.mkdir()
+            inventory=receiver.read(receiver.BASE/'evidence/libre-air-water/INVENTORY.json')
+            inventory['packager_sha256']='0'*64
+            (altered/'INVENTORY.json').write_text(json.dumps(inventory),encoding='utf-8')
+            with self.assertRaisesRegex(ValueError,'packager source not retained'):
+                receiver.package_identity(altered,sources)
+            receiver.packaging_reproduction()
+
+    def test_ui19_raw_header_evidence_survives_load_clock_and_refuses_header_changes(self):
+        from datetime import datetime
+        from unittest.mock import patch
+        receiver=self.receiver()
+        with tempfile.TemporaryDirectory()as temporary:
+            root=receiver.unpack(receiver.BASE/'evidence/qcad-hydraulic',Path(temporary)/'input')
+            case=root/'cases/qcad-hydraulic';source=case/'source.dxf';candidate=case/'software/candidate/candidate.dxf'
+            with patch('ezdxf.document.datetime')as clock:
+                clock.now.return_value=datetime(2026,1,1);before=ch.snapshot(source)
+                clock.now.return_value=datetime(2026,1,2);after=ch.snapshot(candidate)
+            comparison=ch.compare(before,after,receiver.read(case/'plan.json'))
+            self.assertTrue(comparison['save_metadata_changed'])
+            self.assertEqual(comparison['unexpected'],[])
+            result=receiver.ui19_metadata.candidate_report(comparison,source,candidate,False,Path(temporary)/'actual-parser.json')
+            self.assertTrue(receiver.read(Path(temporary)/'actual-parser.json')['save_metadata_changed'])
+            self.assertNotIn('save_metadata_changed',result['comparison'])
+            self.assertTrue(result['save_metadata']['header_bytes_equal'])
+            original=candidate.read_bytes();header=receiver.ui19_metadata.raw_header(candidate)
+            self.assertIn(b'$TDCREATE',header)
+            changed=header.replace(b'$TDCREATE',b'$TDUPDATE',1)
+            candidate.write_bytes(original.replace(header,changed,1))
+            with self.assertRaisesRegex(ValueError,'raw HEADER changed'):
+                receiver.ui19_metadata.candidate_report(comparison,source,candidate,False,Path(temporary)/'must-not-exist.json')
+
 
 if __name__ == "__main__":
     unittest.main()

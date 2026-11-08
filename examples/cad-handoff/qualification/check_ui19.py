@@ -14,6 +14,7 @@ import cad_handoff as ch
 from verify_bytes import verify
 from PIL import Image
 import diagnose_ui19
+import ui19_metadata
 def module(name,path):
     spec=importlib.util.spec_from_file_location(name,path);m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);return m
 analysis=module('cad_ui19_analysis',BASE/'analyze.py')
@@ -200,6 +201,11 @@ def receive_case(root,out):
         require(all(v['status']=='complete'for v in results[0]['native'].values()),'Incomplete clean UI case')
         for original,new in zip(results[0]['pixels'],diagnostic):
             require(all(equal(original[k],new[k])for k in original),'Diagnostic differs from original pixel calculation')
+        initial=read(BASE/'validation/INITIAL-SUMMARY.json')
+        prior=next(c for c in initial['packets'][1:]if c['case']==name)['analysis']['candidate_strict']['save_metadata_changed']
+        retained=ui19_metadata.candidate_report(results[0]['candidate_strict'],case/'source.dxf',case/'software/candidate/candidate.dxf',prior,out/'candidate-comparison-parser.json')
+        results[0]['candidate_strict']=retained['comparison']
+        results[0]['candidate_save_metadata']=retained['save_metadata']
     native_strict={}
     for role in ('baseline','edited'):
         comparison=read(out/(name+'-'+role+'-strict.json'));native_strict[role]=len(comparison['unexpected'])
@@ -241,22 +247,43 @@ def historical(root,out):
         images[frame]=analysis.image_pair(ai,bi,None,out/(frame+'.png'));require(images[frame]['changed_pixels']==0,'Historical no-edit pixels changed')
     return dict(route='historical-development',paired_strict_differences=len(pair['unexpected']),baseline_pixels=images,original_edited_controller_failed=True,recovery_is_clean_pass=False,whole_cad_qualified=False)
 
+def package_identity(base,source_hashes):
+    require(read(base/'INVENTORY.json')['packager_sha256']in source_hashes,'UI evidence packager source not retained')
+
+def packaging_reproduction():
+    folder=BASE/'validation';rows=read(folder/'PACKAGER-REPRODUCTION.json')['cases']
+    require([r['case']for r in rows]==['libre-air-water','libre-motion'],'Packaging reproduction coverage differs')
+    for row in rows:
+        original=BASE/'evidence'/row['case']/'INVENTORY.json';recorded=read(original)
+        require(row['reproduced_inventory']==row['case']+'-current-INVENTORY.json','Packaging reproduction path differs')
+        current=read(folder/row['reproduced_inventory'])
+        require(sha(original)==row['recorded_inventory_sha256']and row['archive_byte_identical']is True,'Original packaging evidence differs')
+        require(current['packager_sha256']==sha(HERE/'package_ui19.py'),'Reproduced packager differs')
+        require(equal(dict(recorded,packager_sha256=current['packager_sha256']),current),'Reproduced archive/inventory differs')
+    require(read(folder/'full-suite-1/EXIT.json')['exit']==1 and'UI evidence packager differs'in(folder/'full-suite-1/stdout.txt').read_text(encoding='utf-8'),'Original failed packaging check omitted')
+
 def check():
     methods=read(BASE/'REPLAY-METHODS.json')
-    expected=['examples/cad-handoff/qualification/'+name for name in ('check_ui19.py','diagnose_ui19.py','ui19_archive.py','package_ui19.py','verify_bytes.py')]+['scripts/cad_handoff.py']
+    expected=['examples/cad-handoff/qualification/'+name for name in ('check_ui19.py','diagnose_ui19.py','ui19_archive.py','ui19_metadata.py','package_ui19.py','verify_bytes.py')]+['scripts/cad_handoff.py']
     require(set(methods)==set(expected),'UI evidence replay method scope differs')
     # Repository Python text can be checked out as CRLF; native evidence retains exact byte hashes.
     for name,pin in methods.items():
         require(hashlib.sha256((ROOT/name).read_bytes().replace(b'\r\n',b'\n')).hexdigest()==pin,'UI evidence replay method differs: '+name)
-    summaries=[]
+    summaries=[];live_parser_diagnostics=[];packagers={sha(HERE/'package_ui19.py')}
     with tempfile.TemporaryDirectory(prefix='ict-ui19-')as temporary:
         temp=Path(temporary)
         for packet in ['development','libre-air-water','libre-motion','libre-power','qcad-hydraulic','qcad-mechanical','qcad-template']:
             base=BASE/'evidence'/packet
-            require(read(base/'INVENTORY.json')['packager_sha256']==sha(HERE/'package_ui19.py'),'UI evidence packager differs')
+            package_identity(base,packagers)
             root=unpack(base,temp/packet)
             summaries.append(historical(root,temp/(packet+'-out'))if packet=='development'else receive_case(root,temp/(packet+'-out')))
+            parser_report=temp/(packet+'-out')/'candidate-comparison-parser.json'
+            if parser_report.exists():live_parser_diagnostics.append(dict(case=packet,comparison=read(parser_report),status='Load-time diagnostic, not a reproducible source-metadata claim'))
+            if packet=='development':
+                # These exact historical sources are already checked by historical() against their freezes.
+                packagers.update(sha(root/receiver/'package_ui19.py')for receiver in ('receiver-1','receiver-2'))
+    packaging_reproduction()
     result=dict(packets=summaries,whole_cad_qualified=False)
     require(equal(result,read(BASE/'SUMMARY.json')),'Published UI evidence summary differs')
-    return result
+    return dict(result,live_parser_diagnostics=live_parser_diagnostics)
 if __name__=='__main__':print(json.dumps(check(),indent=2))
