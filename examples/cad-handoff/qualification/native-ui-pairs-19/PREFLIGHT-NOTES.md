@@ -17,3 +17,9 @@ Earlier methods, captured errors and native dialog trees remain separate; an acc
 relabelled a clean automation pass. The source discovery's guessed SelectByHandle.ui URL returned 404;
 the actual public source names SelectByHandleDialog.ui, which was retrieved. Public source is a method lead,
 not proof of installed script bytes. Native dialog observations establish the recipe used here.
+
+The same preflight process subsequently completed the Save As and Selection by Handle dialog probes,
+cancelled both, and exited normally via the native window close (QCAD exit 0, container exit 0, no OOM).
+The discard-only filename was never created; the last native observation remained an empty, unmodified
+untitled document. Exact preflight methods and receipts remain in the original scratch directory. The
+drawing workflow uses separate source files, preserving this startup-only observer and its freeze.
