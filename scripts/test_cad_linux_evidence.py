@@ -10,6 +10,61 @@ import cad_handoff as ch
 
 
 class RetainedLinuxNativeEvidence(unittest.TestCase):
+    def records_module(self):
+        path = Path(__file__).resolve().parents[1] / 'examples/cad-handoff/qualification/check_records15.py'
+        spec = importlib.util.spec_from_file_location('cad_records15_receiver', path)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        return module
+
+    def test_crossed_records_retain_failed_routes_and_dangling_links(self):
+        result = self.records_module().check()
+        self.assertEqual(result['attempted_final_exports'], 48)
+        self.assertEqual(result['completed_final_exports'], 46)
+        self.assertEqual(result['fresh_public_inventory_repeats'], 46)
+        self.assertEqual(result['retained_earlier_exports'], 26)
+        self.assertEqual(result['final_statuses'], dict(differences=12, refused=34, native_failed=2))
+        self.assertEqual(result['final_returns_with_dangling_links'], 12)
+        self.assertEqual(result['dxflib_imported_attributes_parented_to_modelspace'], 72)
+        self.assertEqual(result['dxflib_returns_without_attribute_sequence_markers'], 24)
+        self.assertFalse(result['whole_cad_qualified'])
+
+    def test_record_paths_keep_full_order_and_dangling_reference(self):
+        receiving = self.records_module()
+        doc = ch.ezdxf.new('R2010')
+        dictionary = doc.rootdict.add_new_dict('FOREIGN')
+        record = dictionary.add_xrecord('payload')
+        record.extend([(1, 'retain'), (90, 123), (40, 4.5)])
+        rows = receiving.a.records(doc)
+        payload = next(r for r in rows if r['path'] == ['FOREIGN', 'payload'])
+        self.assertEqual(payload['ordered_tags'], [[1, 'retain'], [90, 123], [40, 4.5]])
+        dictionary.add('broken', 'FFFFFF')
+        missing = next(r for r in receiving.a.records(doc) if r['path'] == ['FOREIGN', 'broken'])
+        self.assertEqual(missing['type'], 'dangling-reference')
+        self.assertEqual(missing['handle'], 'FFFFFF')
+        self.assertIsNone(missing['ordered_tags'])
+        forged = copy.deepcopy(payload)
+        forged['ordered_tags'] = [[40, 4.5]]
+        with self.assertRaisesRegex(ValueError, 'exact re-score'):
+            receiving.equal(payload, forged)
+
+    def test_failed_native_job_cannot_disappear_from_manifest(self):
+        receiving = self.records_module()
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / 'native.stdout'
+            profile = dict(configuration_file='/home/cad/.config/QCAD/QCAD3.conf', qt_version='5.14.2',
+                           importer_filters=['DXF Files [dxflib] (*.dxf)'],
+                           exporter_filters=['R15 [2000/LT2000] DXF Drawing [OpenDesign] (*.dxf)'])
+            row = dict(id='failed', error='native export failure', import_filter=profile['importer_filters'][0],
+                       export_filter=profile['exporter_filters'][0])
+            path.write_text('ICT_RECORD15_PROFILE ' + json.dumps(profile) + '\nICT_RECORD15 ' + json.dumps(row) + '\n', encoding='utf-8')
+            job = dict(id='failed', importer='dxflib', exporter='OpenDesign', version='R15')
+            receiving.a.native_rows(path, [job], allow_errors=True)
+            with self.assertRaisesRegex(ValueError, 'coverage/error'):
+                receiving.a.native_rows(path, [])
+            with self.assertRaisesRegex(ValueError, 'coverage/error'):
+                receiving.a.native_rows(path, [job])
+
     def boundaries_module(self):
         path = Path(__file__).resolve().parents[1] / 'examples/cad-handoff/qualification/check_boundaries14.py'
         spec = importlib.util.spec_from_file_location('cad_boundaries14_receiver', path)
