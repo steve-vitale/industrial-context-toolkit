@@ -6281,6 +6281,76 @@
         "docs/DRAWING_HANDOFF.md#receive-a-correction-or-resubmission",
         "docs/JOURNAL.md#220-receive-a-resubmission-without-losing-earlier-scope-or-safety-priority"
       ]
+    },
+    {
+      "id": "A381",
+      "function": "intake_and_reuse",
+      "date": "2026-11-08",
+      "hypothesis": "The actual no-edit and concurrent native returns may share a concrete paper-layout loss independent of their different asset edits.",
+      "change": "Audit every decoded layout and raw LAYOUT/VIEWPORT record from the two exposed originals, matched no-edit/native concurrent archives and both source-preserving candidate stages.",
+      "evidence": "The complete audit reproduces. Both native routes on both cases change A3/420x297 settings to A4/210x297 with changed rotation and omit the original ID3 display viewport; only generated ID1 remains. No-edit/concurrent complete recorded paper layouts are identical within each case. Original value candidates retain original paper records; second candidates retain their already-lossy native source paper records. Four observed losses are two cases on two routes, not four drawings. Original sources lack ID1; no broad vendor or valid-layout accuracy claim.",
+      "runs": "One frozen post-observation record audit plus complete offline replay;10source/return/candidate document inventories with raw ID/owner cross-checks; no new native/model calls",
+      "verdict": "kept",
+      "why": "Explains an engineering-relevant part of the unchanged strict failure queue. It locates the native round-trip boundary, not the precise importer/writer function, and establishes no rendered paper acceptance or waiver.",
+      "source": [
+        "examples/cad-handoff/qualification/full-ui-22/native_paper_records.py",
+        "examples/cad-handoff/qualification/full-ui-22/PAPER-RECORD-FREEZE-1.json",
+        "examples/cad-handoff/qualification/full-ui-22/PAPER-RECORD-BRIEF.md",
+        "examples/cad-handoff/qualification/full-ui-22/paper-records-1/RESULT.json",
+        "docs/JOURNAL.md#221-identify-the-same-paper-loss-in-no-edit-and-concurrent-native-returns"
+      ]
+    },
+    {
+      "id": "A382",
+      "function": "intake_and_reuse",
+      "date": "2026-11-08",
+      "hypothesis": "Actual inspection of retained concurrent source/candidate views can distinguish visible intended labels from measured pixels and expose readability limitations.",
+      "change": "View all20archived source/candidate model canvases and bind observations to exact file/pixel hashes without editing images or prior pixel results.",
+      "evidence": "All20images actually inspected: both overview/asset1/labels1/asset2/labels2 pairs forCP1251 andliteralbraces. Declared MODEL/SERIAL changes are visible in details; original rotations, line crossings, small overview labels and the declared DejaVu substitution remain limitations. Existing30comparisons/0outside pixels and20exact identities remain unchanged.",
+      "runs": "Twenty actual view_image inspections of frozen images, with complete archive-member hash binding; no new model/native calls",
+      "verdict": "kept",
+      "why": "Closes the separate agent inspection step for the first concurrent model receiving phase. This is not independent engineering review, readable paper delivery or whole-CAD preservation.",
+      "source": [
+        "examples/cad-handoff/qualification/full-ui-22/concurrent-visual-1/OBSERVATIONS.json",
+        "examples/cad-handoff/qualification/full-ui-22/NATIVE-REVISION-BRIEF.md",
+        "docs/JOURNAL.md#222-inspect-every-concurrent-source-and-candidate-model-view"
+      ]
+    },
+    {
+      "id": "A383",
+      "function": "intake_and_reuse",
+      "date": "2026-11-08",
+      "hypothesis": "The unchanged native UI procedure can execute an explicitly selected second revision while preserving both assets and the concurrent SERIAL; repeated native saves may or may not preserve the drawing.",
+      "change": "Freeze exact actual-native source/second-plan/candidate preparation, then run matched no-edit and one-edit saves under the same image, configuration, UI method and unchanged strict/byte/pixel criteria.",
+      "evidence": "Four original native/controller/container/host runs terminate0. Each no-edit receipt has61observations/4editable-field checks; each edit receipt67observations/6field checks/1committedMODEL edit. Each retains10views/40images. All4native saves still have453unexpected strict differences relative to the selected native source. Source-preserving selected candidates pass strict0 and independent bytes0. Five receiving-control methods replay4positive packets and reject10reindexed source/plan, omitted-commit, foreign-editability and failed-controller cases;193.460seconds, no skips.",
+      "runs": "Four complete matched native saves and bounded complete archives;5offline control methods;2fresh four-file receivers separately launched and not yet claimed complete",
+      "verdict": "kept",
+      "why": "Completes actual second-revision native editing/save/reopen evidence while retaining a failed preservation result. Re-saving native-generated sources does not establish stable strict preservation. Fresh receiving/pixels/visuals, paper display, final freeze and reserved transfer remain open.",
+      "source": [
+        "examples/cad-handoff/qualification/full-ui-22/SECOND-REVISION-PLAN.md",
+        "examples/cad-handoff/qualification/full-ui-22/SECOND-REVISION-FREEZE-1.json",
+        "examples/cad-handoff/qualification/full-ui-22/SECOND-RETAINED-1.json",
+        "examples/cad-handoff/qualification/full-ui-22/test_second_revisions.py",
+        "docs/JOURNAL.md#223-run-the-second-revision-through-unchanged-native-save-and-reopen"
+      ]
+    },
+    {
+      "id": "A384",
+      "function": "intake_and_reuse",
+      "date": "2026-11-08",
+      "hypothesis": "The reusable receiving/resubmission command can turn actual native second returns into an original-scope engineer brief without erasing concurrent or preservation findings.",
+      "change": "Feed two actual native returned files through original-scope initial/resubmission jobs and a separately identified selected-native-source job; retain provenance, both exact source packets and a portable replay.",
+      "evidence": "Four actual CLI invocations complete. Original-scope resubmission has8review items: both MODEL requests now supported per case, both SERIAL changes remain unrequested, original-source strict queues321/320remain. Its complete portable brief reproduces with no basis changes and releasepending. Selected-source review independently retains453strict differences per case; counts from different baselines are not merged.",
+      "runs": "Initial, original-scope resubmission, selected-source receiving and complete portable replay on2exposed authored drawings with actual native returns",
+      "verdict": "kept",
+      "why": "Connects native qualification evidence to the same own-input engineer/manager workflow. No hard-coded finding generator, image-reading claim, field observation, authenticated disposition or engineering acceptance.",
+      "source": [
+        "examples/drawing-handoff/native-second-revision/README.md",
+        "examples/drawing-handoff/native-second-revision/PROVENANCE.json",
+        "examples/drawing-handoff/native-second-revision/resubmission/BRIEF.md",
+        "examples/drawing-handoff/native-second-revision/selected-scope/BRIEF.md",
+        "docs/JOURNAL.md#224-receive-actual-native-corrections-under-the-original-request"
+      ]
     }
   ],
   "not_tried": [
@@ -7698,7 +7768,7 @@
       "function": "intake_and_reuse",
       "status": "not-done",
       "idea": "Freeze and qualify the corrected complete native CAD workflow on fresh reserved cases with foreign/literal/encoding fields, multiple assets and revision/conflict checks.",
-      "why_not_yet": "Complete exposed multi-asset native edit/save/reopen, first-plan fresh model receiving, exact model pixels, software planted-loss checks and actual native three-edit concurrent returns/original-scope reviews reproduce. Fresh concurrent four-file receiving now completes and replays with unchanged model pixel checks; separate visual inspection, second-revision native receiving, paper/layout, final-method freeze and newly reserved transfer remain required. Original full-save322/321failures and all earlier failed evidence remain. No plant or engineering acceptance is inferred.",
+      "why_not_yet": "Exposed native second-revision matched saves now complete and replay: correct MODEL/retained concurrent SERIAL, with453strict differences on every native save. Fresh second-revision four-file receivers are separately live. Earlier concurrent model visual inspection and paper-record diagnosis reproduce; original native322/321failures and concrete paper losses remain. Fresh receiving/pixel/visual completion, actual paper rendering, final-method freeze and newly reserved transfer remain required. No plant or engineering acceptance is inferred.",
       "source": [
         "examples/cad-handoff/qualification/PROTOCOL.md",
         "examples/cad-handoff/qualification/observer-transport-21/README.md",

@@ -70,6 +70,12 @@ and safety review remain visible. Its separate CAD return still has 335 strict
 differences. The [worked resubmission](../examples/drawing-handoff/resubmission-worked/BRIEF.md)
 retains those distinctions. No reader, CAD UI or engineering acceptance is invoked.
 
+The [actual native-return example](../examples/drawing-handoff/native-second-revision/README.md)
+uses the same command on authored two-asset drawings and real native saved returns.
+The second MODEL correction is supported while an unrequested SERIAL and drawing
+preservation failures remain. Original-scope and explicitly selected-source
+comparisons stay separate, with both exact returns retained.
+
 ## Choose the checks that answer your question
 
 | Your question | Input and executable route | Result to use |
@@ -83,6 +89,12 @@ checks together. A matching equipment value does not establish correct piping,
 port connectivity, fail action or control function. The current CAD edit route
 handles declared equipment attributes; general geometry editing, native DWG and
 intelligent-P&ID database exchange need their own demonstrated methods.
+
+Include paper sheets in that delivery scope. Matching model views and asset
+fields cannot establish paper preservation: the [exposed native record audit](../examples/cad-handoff/qualification/full-ui-22/PAPER-RECORD-BRIEF.md)
+finds changed paper settings and a lost display viewport even after a no-edit
+round trip. Keep the exact original, confirm required layout/page settings and
+route any paper discrepancy as an unresolved receiving finding.
 
 ## Before sending work out
 

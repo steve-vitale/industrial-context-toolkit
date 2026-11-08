@@ -74,6 +74,13 @@ jobs:
           python examples/cad-handoff/qualification/full-ui-22/recheck_native_revisions.py
           python examples/cad-handoff/qualification/full-ui-22/test_native_revisions.py -v
           python examples/cad-handoff/qualification/full-ui-22/recheck_native_reviews.py --out /tmp/cad-native-review-replay
+          python examples/cad-handoff/qualification/full-ui-22/test_second_revisions.py -v
+          python examples/cad-handoff/qualification/full-ui-22/native_paper_records.py /tmp/cad-paper-record-audit
+          python -c "import json; from pathlib import Path; assert json.loads(Path('/tmp/cad-paper-record-audit/RESULT.json').read_bytes()) == json.loads(Path('examples/cad-handoff/qualification/full-ui-22/paper-records-1/RESULT.json').read_bytes()), 'Native paper record audit differs'"
+      - name: Receive an actual native second return under the original request
+        run: |
+          python scripts/receive_drawings.py --manifest examples/drawing-handoff/native-second-revision/resubmission/job.json --out /tmp/cad-original-scope-receiving
+          python -c "import json; from pathlib import Path; assert json.loads(Path('/tmp/cad-original-scope-receiving/brief.json').read_bytes()) == json.loads(Path('examples/drawing-handoff/native-second-revision/resubmission/brief.json').read_bytes()), 'Original-scope receiving brief differs'"
       - name: Rebuild equipment-data sidecars and replay browser downloads without a CAD UI
         run: python examples/cad-handoff/qualification/check_exchange6.py
       - name: Verify frozen first-use session evidence without model calls

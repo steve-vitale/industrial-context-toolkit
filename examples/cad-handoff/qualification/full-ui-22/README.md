@@ -200,8 +200,22 @@ without closing their 322/321 original strict preservation failures.
 The twenty original-scope CLI calls reproduce; six receiving-control methods
 pass on both actual packets. The first offline restore failure remains alongside
 the corrected replayer. Both fresh concurrent receivers now complete and replay
-offline, with the unchanged model pixel comparisons passing. Their frames have
-not received a separate visual inspection. Second native revision, paper/layout,
+offline, with the unchanged model pixel comparisons passing. Actual agent
+inspection of all twenty source/candidate model frames is bound in the
+[visual record](concurrent-visual-1/OBSERVATIONS.json), with readability limits.
+Second native revision, paper/layout,
 final freezing and reserved validation remain unfinished. See the brief for
 current reproduction commands and boundaries. New native apparatus is not the
 critical path for the [reusable receiving job](../../../../docs/DRAWING_HANDOFF.md).
+
+The [paper-record diagnosis](PAPER-RECORD-BRIEF.md) retains a concrete native
+preservation failure: both no-edit and concurrent returns change paper settings
+and omit the original display viewport. The [second-revision plan](SECOND-REVISION-PLAN.md)
+uses those actual native returns as explicitly new sources; matched baseline/edit
+processes complete under unchanged methods. Both no-edit and one-edit saves
+retain 453 strict differences; native save preservation fails again. Complete
+packets are pinned in [SECOND-RETAINED-1](SECOND-RETAINED-1.json). The [reusable
+receiving example](../../../drawing-handoff/native-second-revision/README.md)
+keeps the original request and selected second source distinct. Fresh four-file
+receivers are separately live; their completion, pixels and visual review are
+not yet claimed. Paper rendering and fresh reserved qualification remain open.

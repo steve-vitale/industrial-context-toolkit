@@ -9666,3 +9666,89 @@ and method hash remain intact. These are exposed fictional
 readings and software revision checks, not new visual-reading accuracy or timed
 engineer benefit. Native second revision, paper/layout and fresh reserved CAD
 qualification remain open; the underlying strict/byte tools are unchanged.
+
+## 221. Identify the same paper loss in no-edit and concurrent native returns
+
+Inspect the earliest retained original DXF records and complete native returns,
+then freeze a post-observation diagnostic before its reproducible audit. This is
+exposed-case diagnosis, not a preregistered blind test. The new audit retains all
+decoded layouts and raw LAYOUT/VIEWPORT tags, cross-checking raw IDs and owners.
+It covers two originals, matched no-edit native returns, actual concurrent native
+returns, original-source value candidates and selected second candidates.
+
+Both no-edit and concurrent routes change A3/420x297 settings to A4/210x297 with
+changed rotation and omit the original ID3 display viewport. The returned sheet
+has only a generated ID1 main viewport. Within each case, no-edit/concurrent
+recorded paper inventories are identical. Four missing-display observations are
+two drawings on two routes. Layout1 originally has no display viewport and is not
+counted as losing one. Both originals also lack an ID1 main viewport, the earlier
+layout-preparation dependency; these are known problematic source layouts.
+
+Original-source attribute candidates preserve the original paper records.
+Selected second candidates preserve the native source's already changed paper.
+Neither outcome repairs a source or accepts the original native round trip.
+The full audit reproduces offline; CI adds its complete JSON comparison. Exact
+import-versus-save responsibility, current rendered paper acceptance and the rest
+of the 322/321 strict queue remain unestablished. No source/comparator is changed.
+
+## 222. Inspect every concurrent source and candidate model view
+
+Actually view all twenty retained concurrent model images: source and candidate
+overview, asset1, labels1, asset2 and labels2 for each encoding case. Bind every
+view to its original archive-member SHA-256 and decoded pixel hash. The declared
+MODEL and SERIAL changes are visible in detail views. The overview text is too
+small for field verification; existing CP1251 rotations, line intersections and
+the test-profile DejaVu substitution remain explicit limitations. Exact foreign
+field values/editability rest on the separate native checks, not screenshots.
+No new non-label displacement was observed; the existing frozen pixel results
+remain the measured evidence. This is same-agent visual inspection, not an
+independent engineering, operator or paper review.
+
+## 223. Run the second revision through unchanged native save and reopen
+
+Freeze exact actual native concurrent returns, selected one-value second plans,
+retained candidate bytes and preparation before native execution. The preparation
+replays the original complete packets and independently binds each new source to
+the original saved native return. Preserve original preparation lineage, all
+original UI/observer/resource/configuration methods and strict/byte criteria.
+
+All four matched second-revision runs terminate normally: native, controller,
+container and original host zero. No-edit receipts retain 61 observations and
+four editable-field checks; one-edit receipts retain 67 observations, six field
+checks and one actual committed MODEL correction. Each has ten views/40 images.
+Both assets, foreign fields and the fictional concurrent SERIAL remain exact.
+Every native save still has 453 unexpected strict differences. Re-saving a native
+source is therefore not evidence that strict preservation has stabilized.
+
+The selected source-preserving candidates still match their previously selected
+bytes with zero unexpected strict differences and independent source/plan byte
+reconstruction. No native differences are imported into those candidates.
+Five offline control methods pass: four complete externally pinned packet replays
+and ten negative source/plan reindexing, missing MODEL commit, foreign-field
+editability and hidden-controller controls. All run without skips in 193.460 s.
+No native restart or comparison waiver is used.
+
+Pin both baseline/edit returns before launching the separately declared fresh
+four-file receivers. Those two receivers are live; no completion, new pixel or
+new visual result is inferred. Paper display, final freezing and fresh reserved
+transfer remain open. Original 322/321 and new 453 preservation failures remain.
+
+## 224. Receive actual native corrections under the original request
+
+Use the unchanged own-input receiving command for an initial actual concurrent
+return, its actual native second return under the same original drawing/plan,
+and a separately identified selected-native-source comparison. Bind supplied
+second-return DXFs to their original complete archive members. Four actual CLI
+invocations include complete portable replay; no bespoke finding generator runs.
+
+The original-scope resubmission has eight current items: both requested MODELs
+are supported in each case, SERIAL remains unrequested in each, and 321/320
+original-source strict differences remain. Its basis-change list is empty because
+the original source and instructions are unchanged. The selected-source packet
+shows the one correct MODEL and 453 strict differences per case. These baselines
+answer different questions; their drawing-record counts are not added or used
+as counts of assets. Both complete briefs/source histories remain linked.
+Authorized receiving and every engineering disposition stay pending. The whole
+portable original-scope brief reproduces, retaining both SERIAL findings and
+preservation queues. No visual-reading, installed-state or human benefit result
+is inferred from this actual software receiving exercise.

@@ -70,9 +70,15 @@ CAD. The unchanged pixel recipe produces 30 comparisons with zero differences
 outside the declared regions and 20 exact source/baseline or candidate/edited
 frame identities; [pixel results](concurrent-pixels-1/cp1251/RESULT.json) and
 [the second case](concurrent-pixels-1/braces/RESULT.json) retain every comparison.
-These new frames have not received a separate visual inspection.
+The [separate visual observations](concurrent-visual-1/OBSERVATIONS.json) now bind
+actual agent inspection of all twenty source/candidate model images to their
+archived file and pixel hashes. Changes are visible in detail views; inherited
+rotations, line crossings, small overview text and the declared font substitution
+remain limitations. This supplies no engineering or paper acceptance.
 
 Actual second-revision native receiving, paper/layout, final-method freezing and
 fresh reserved transfer remain open. Original strict failures remain unchanged.
+The [paper-record diagnosis](PAPER-RECORD-BRIEF.md) identifies a concrete loss in
+both no-edit and concurrent native returns; it does not waive those failures.
 The [receiving workflow](../../../../docs/DRAWING_HANDOFF.md) describes how to
 prepare an accept/return/escalate brief from your own drawing records.

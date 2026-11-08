@@ -272,6 +272,10 @@ examples/pid-path-review/** -text whitespace=blank-at-eol,blank-at-eof,space-bef
 /examples/drawing-handoff/**/originals/*.dxf -text whitespace=cr-at-eol,-blank-at-eof,-trailing-space
 /examples/drawing-handoff/job-worked/** linguist-generated=true
 /examples/drawing-handoff/resubmission-worked/** linguist-generated=true
+/examples/drawing-handoff/native-second-revision/** linguist-generated=true
+/examples/drawing-handoff/native-second-revision/README.md linguist-generated=false
+# Native linetype descriptions retain their exact trailing blanks.
+/examples/drawing-handoff/native-second-revision/native-returns/*.dxf -text whitespace=cr-at-eol,-blank-at-eof,-trailing-space
 # Collapse generated CAD evidence in reviews; source methods and guides stay visible.
 /examples/cad-handoff/qualification/full-ui-22/development-1/** linguist-generated=true
 /examples/cad-handoff/qualification/full-ui-22/failed-development-1/** linguist-generated=true
@@ -281,6 +285,8 @@ examples/pid-path-review/** -text whitespace=blank-at-eol,blank-at-eof,space-bef
 /examples/cad-handoff/qualification/full-ui-22/revision-loss-1/** -text linguist-generated=true whitespace=cr-at-eol,-blank-at-eof,-trailing-space
 /examples/cad-handoff/qualification/full-ui-22/concurrent-development-1/** -text linguist-generated=true whitespace=cr-at-eol,-blank-at-eof,-trailing-space
 /examples/cad-handoff/qualification/full-ui-22/concurrent-pixels-1/** -text linguist-generated=true
+/examples/cad-handoff/qualification/full-ui-22/paper-records-1/** -text linguist-generated=true
+/examples/cad-handoff/qualification/full-ui-22/second-development-1/** -text linguist-generated=true whitespace=cr-at-eol,-blank-at-eof,-trailing-space
 /examples/cad-handoff/qualification/full-ui-22/concurrent-review-1/** -text linguist-generated=true whitespace=cr-at-eol,-blank-at-eof,-trailing-space
 /examples/cad-handoff/qualification/full-ui-22/concurrent-validation-1/** -text linguist-generated=true whitespace=cr-at-eol,-blank-at-eof,-trailing-space
 /examples/cad-handoff/qualification/full-ui-22/concurrent-validation-2/** -text linguist-generated=true whitespace=cr-at-eol,-blank-at-eof,-trailing-space
