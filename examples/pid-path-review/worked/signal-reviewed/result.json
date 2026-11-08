@@ -1,0 +1,155 @@
+{
+  "schema": "pid-path-review-1",
+  "tool_bindings": {
+    "pid_path_review.py": "6331d3ce0edea4fd8ebd3163d39bf491aaee804b8d4b66e2d95d5dc6acac3a48",
+    "one_map.py": "db67f6e1db96f547eebe46a865734fd58f4375c7b98d44a19146822c37d9010e",
+    "graph_export.py": "bd4854c679193c49b555128b8c4d87225d2c4cfb596459fecdf61393fd697dcb"
+  },
+  "query": {
+    "from": "DEMO/P1/U1/PIC-101",
+    "to": "DEMO/P1/U1/FY-201",
+    "network": "signal",
+    "basis": "logical",
+    "policy": "reviewed"
+  },
+  "answer": {
+    "status": "not_established",
+    "path_nodes": [],
+    "steps": [],
+    "qualifications": [],
+    "dependencies": {
+      "adjacency:DEMO/P1/U1/AS": "f4582e46a1087ade95a04c8caaa388d720f97fb82c5f9eaf074bac0bc91e8f7e",
+      "adjacency:DEMO/P1/U1/PIC-101": "3504cf2b842113e08329a912ae67d948b46a780fb82d6f4bf893d68964decb8c",
+      "conflicts:DEMO/P1/U1/AS": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "conflicts:DEMO/P1/U1/BS": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "conflicts:DEMO/P1/U1/FY-201": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "conflicts:DEMO/P1/U1/PIC-101": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "conflicts:SIG1": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "conflicts:SIGPAIR": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "edge:SIG1": "5351675c32b2fd48518a1590b62b41619be1ae5c7149b011d5a7c92f4593de46",
+      "edge:SIGPAIR": "5c83c28b418fc9131e34f994f232acce29c72fdebb9f36b3eccf3da645590845",
+      "node:DEMO/P1/U1/AS": "ec5bd0f8268a79ff0971eceaa59c35dc86257404a2d4fb9e8d6981e48e64b6c9",
+      "node:DEMO/P1/U1/BS": "3150acd757197f120547f5ad3cd278460cf876b04966fe70265b8e341d99e7ae",
+      "node:DEMO/P1/U1/FY-201": "4d4a2116b962d3eaaf31ddf605eb4506ef3e5719cb6aaff881897e5bed0a53ad",
+      "node:DEMO/P1/U1/PIC-101": "a67af79ce5114b60f550729fc467e0faabed7b459051d3713f604a2379a05400"
+    }
+  },
+  "register": [
+    {
+      "id": "DEMO/P1/U1/AS",
+      "tag": "AS",
+      "kind": "offpage_connector",
+      "item_status": "confirmed",
+      "association_status": "supported",
+      "facts": [
+        {
+          "name": "tag",
+          "value": "AS",
+          "status": "confirmed",
+          "source": {
+            "kind": "authored_schedule",
+            "document": "PID-101-A.txt",
+            "revision": "A",
+            "locator": "line 4",
+            "sha256": "d9fb1c8638d67a75f55932399afbbc52cf1db56163e0572ee8b0591d7f14fd0d"
+          }
+        }
+      ],
+      "evidence": {
+        "source": {
+          "kind": "authored_schedule",
+          "document": "PID-101-A.txt",
+          "revision": "A",
+          "locator": "line 4",
+          "sha256": "d9fb1c8638d67a75f55932399afbbc52cf1db56163e0572ee8b0591d7f14fd0d"
+        }
+      },
+      "path_nodes": [
+        "DEMO/P1/U1/PIC-101",
+        "DEMO/P1/U1/AS"
+      ],
+      "path_edges": [
+        "SIG1"
+      ],
+      "qualifications": []
+    },
+    {
+      "id": "DEMO/P1/U1/PIC-101",
+      "tag": "PIC-101",
+      "kind": "controller",
+      "item_status": "confirmed",
+      "association_status": "supported",
+      "facts": [
+        {
+          "name": "tag",
+          "value": "PIC-101",
+          "status": "confirmed",
+          "source": {
+            "kind": "authored_schedule",
+            "document": "PID-101-A.txt",
+            "revision": "A",
+            "locator": "line 4",
+            "sha256": "d9fb1c8638d67a75f55932399afbbc52cf1db56163e0572ee8b0591d7f14fd0d"
+          }
+        }
+      ],
+      "evidence": {
+        "source": {
+          "kind": "authored_schedule",
+          "document": "PID-101-A.txt",
+          "revision": "A",
+          "locator": "line 4",
+          "sha256": "d9fb1c8638d67a75f55932399afbbc52cf1db56163e0572ee8b0591d7f14fd0d"
+        }
+      },
+      "path_nodes": [
+        "DEMO/P1/U1/PIC-101"
+      ],
+      "path_edges": [],
+      "qualifications": []
+    }
+  ],
+  "boundaries": [
+    {
+      "node": "DEMO/P1/U1/AS",
+      "edge": "SIGPAIR",
+      "reason": "review_or_evidence_required",
+      "qualifications": [
+        {
+          "record": "SIGPAIR",
+          "reason": "review_status_unverified"
+        },
+        {
+          "record": "SIGPAIR",
+          "reason": "direction_unknown"
+        }
+      ],
+      "evidence": {
+        "source": {
+          "kind": "authored_schedule",
+          "document": "PID-101-A.txt",
+          "revision": "A",
+          "locator": "line 4",
+          "sha256": "d9fb1c8638d67a75f55932399afbbc52cf1db56163e0572ee8b0591d7f14fd0d"
+        }
+      }
+    }
+  ],
+  "coverage": {
+    "supplied_nodes": 16,
+    "supplied_edges": 12,
+    "reached_nodes": 2,
+    "search_complete": true
+  },
+  "limits": [
+    "Supplied review labels and source references are not authenticated engineering acceptance.",
+    "No established path means insufficient supported coverage, not physical disconnection.",
+    "Topology does not establish operating consequences, current lineup or maintenance isolation.",
+    "The register is a query-relative association projection, not complete line/valve lists or a plant inventory."
+  ],
+  "comparison": {
+    "prior_answer": "first_run",
+    "changed_dependencies": [],
+    "register_changes": []
+  }
+}

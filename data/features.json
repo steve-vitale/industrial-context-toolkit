@@ -1788,6 +1788,32 @@
       "time": "Human preparation/interpretation/review effort unmeasured; no blind image-reading result",
       "you_get": "Exact required and other connections, source/port/type findings and unknowns, portable reports/queue and exact source receipts",
       "why": "Correct tags can hide wrong terminal connections. Separately fixed source/key records test exact prepared-record comparison, not independent engineering review, universal design rules or CAD preservation."
+    },
+    {
+      "id": "pid-path-review",
+      "category": "check",
+      "title": "Source-qualified cross-sheet paths and revision handoff",
+      "tools": [
+        "scripts/pid_path_review.py"
+      ],
+      "guide": "docs/PID_GRAPH_QUESTIONS.md",
+      "example_outputs": [
+        "examples/pid-path-review/ACCEPTANCE.json",
+        "examples/pid-path-review/FREEZE.json",
+        "examples/pid-path-review/PREPARATION-FREEZE.json",
+        "examples/pid-path-review/worked/replay.json",
+        "examples/pid-path-review/worked/remote-reviewed/REPORT.html",
+        "examples/pid-path-review/worked/remote-exploratory/REGISTER.csv",
+        "examples/pid-path-review/worked/remote-corrected/result.json"
+      ],
+      "tests": [
+        "scripts/test_pid_path_review.py"
+      ],
+      "job": "Check a selected route across supplied sheets and retain unresolved boundaries after a revision",
+      "you_need": "A prepared twin-graph-1/2 snapshot, exact scoped IDs, supplied source/review and direction/media meanings; Python3.10+ standard library",
+      "time": "Preparation, independent engineering review and human time savings unmeasured",
+      "you_get": "Reviewed-only or qualified exploratory route, missing continuations, separate own facts and association status, portable register/report and verified prior-answer comparison",
+      "why": "An unrestricted graph walk can cross disputed or reversed connections. Exposed fictional software controls and a separately frozen preparation correction preserve these distinctions; no blind drawing accuracy, complete plant registers, operating consequences or CAD qualification is established."
     }
   ]
 }
