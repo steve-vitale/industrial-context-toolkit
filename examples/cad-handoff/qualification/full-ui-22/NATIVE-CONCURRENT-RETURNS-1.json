@@ -1,0 +1,16 @@
+{
+  "scope": "Freeze exact original no-edit and actual concurrent edited returns before fresh receiving",
+  "preparation_sha256_lf": "630a71523af7b3d86f0f2483abe413298886ff895eeb868e38af40eaec6bbfe2",
+  "cases": {
+    "validation-cp1251": {
+      "baseline_sha256": "f0290b590931870575190a17e321ee59f20c415ce4e98c5f81b5d4ea9d608358",
+      "edited_sha256": "267770b66f3cc175fa822c04e738e5cfe7e927491cfb95ff47a2db6242b9e953",
+      "fresh_label": "cp1251-concurrent-receiving-1"
+    },
+    "validation-braces": {
+      "baseline_sha256": "de1bb04c4516b49abdfd82b0de87c04f9d8d405d5cccf41060fd9a089c64c3a6",
+      "edited_sha256": "25aa6294826284917784d54ed8241a55738a4f4c3c74b4b93ff51d6add6622f2",
+      "fresh_label": "braces-concurrent-receiving-1"
+    }
+  }
+}
