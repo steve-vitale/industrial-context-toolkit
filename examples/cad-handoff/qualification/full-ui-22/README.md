@@ -23,7 +23,9 @@ differences and the independent byte-span check for both declared cases.
 The matched CP1251 no-edit run has 61 observations, four editable-field checks,
 ten views/40 images and the same 322 source-to-return strict count. The separate
 UTF8/literal-brace edited run completes both edits, 73 observations, eight field
-checks and ten views/40 images, retaining 321 strict differences. All three
+checks and ten views/40 images, retaining 321 strict differences. Its matched
+no-edit run also completes, with 61 observations, four field checks and ten
+views/40 images; 321 strict differences remain. All four
 original attempts are listed in [the retained identities](RETAINED-ATTEMPTS-1.json)
 and recheck offline. The no-edit receiver's first empty-plan call is retained as
 a refusal; its successor uses the original comparator's existing no-plan API.
@@ -52,6 +54,9 @@ python examples/cad-handoff/qualification/full-ui-22/test_contract.py -v
 python examples/cad-handoff/qualification/full-ui-22/test_receiving.py -v
 python examples/cad-handoff/qualification/full-ui-22/test_pixels.py -v
 python examples/cad-handoff/qualification/full-ui-22/test_evidence.py -v
+python examples/cad-handoff/qualification/full-ui-22/check_failed.py
+python examples/cad-handoff/qualification/full-ui-22/test_waiting.py -v
+python examples/cad-handoff/qualification/full-ui-22/waiting_probe_evidence.py check
 ```
 
 The actual-packet controls change evidence and recompute its inventory before
@@ -73,3 +78,41 @@ waived. No operator, independent engineering reviewer or plant data is involved.
 For the engineering job this evidence supports, use [drawing receiving](../../../../docs/DRAWING_HANDOFF.md).
 That workflow makes requested changes and unresolved preservation findings useful
 to a reviewer while the separate software qualification remains open.
+
+## Fresh receiving exposed an idle-call limit
+
+Both original fresh-process receivers failed on helper invocation 4097. The
+frozen helper admits 4096 invocations; idle polls consumed 3,883 calls for CP1251
+and 3,871 for literal braces. CP1251 captured 18 of 20 views; the brace case
+captured 20 but failed before completion. Neither has a normal receiving receipt
+or completed pixel verdict. These are observed transport refusals, not evidence
+of a CAD-file defect or a completed drawing check.
+
+The complete [CP1251](failed-development-1/cp1251-receiving-1/RESULT.json) and
+[brace](failed-development-1/braces-receiving-1/RESULT.json) failure packets retain
+every invocation, original error, client refusal, host outcome and separate
+same-process cleanup. The original last error has null run/call IDs and no
+predecessor hash because admission refused before those fields were initialized;
+those records are preserved. The checker audits the successful 4096-call prefix
+with the original transport auditor and checks the final rejection separately.
+Four altered-evidence controls per packet reject invented completion, hidden
+controller failure and changed final call/error records. The first archive
+packager's file-count refusal is retained too; its successor retains both complete
+mailbox snapshots under the separately declared failure format.
+
+The [waiting-helper plan](WAITING-HELPER-PLAN.md) addresses idle polling without
+raising the original invocation or wire bounds. One asynchronous child waits for
+the next request or cleanup stop. Six subprocess controls pass, including a wait
+beyond five seconds, malformed/run/sequence errors, changed prior request bytes
+and a reply-publication collision. The first test's event-count arithmetic error
+is retained separately from its passing successor.
+
+The [first native probe](waiting-probes/probe-1/RESULT.json) retains a recorder
+field-name collision and its cleanup. The [corrected probe](waiting-probes/probe-2/RESULT.json)
+completes: the same child remains live during native filename typing/cancellation
+for 43.986 seconds, then serves the request; the next poll acknowledges stop.
+Both complete transport histories recheck with six invocations, two requests and
+zero idle events. This establishes this observed waiting lifecycle, not full
+receiving, paper/layout preservation or CAD qualification. The complete waiting
+receiving method is frozen in [WAITING-METHODS-3.json](WAITING-METHODS-3.json);
+fresh reserved cases remain unadmitted.

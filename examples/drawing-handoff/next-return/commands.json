@@ -1,0 +1,44 @@
+[
+  {
+    "label": "corrected",
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-S",
+      "scripts/check_pid_markups.py",
+      "--manifest",
+      "C:\\Users\\Steve\\.cp-scratch\\cad-full-ui-22\\worktree\\examples\\pid-markup-review\\corrected\\manifest.json",
+      "--out",
+      "C:\\Users\\Steve\\.cp-scratch\\cad-full-ui-22\\engineering-revision-1\\corrected"
+    ],
+    "exit": 0,
+    "expected_exit": 0
+  },
+  {
+    "label": "portable",
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-S",
+      "scripts/check_pid_markups.py",
+      "--manifest",
+      "C:\\Users\\Steve\\.cp-scratch\\cad-full-ui-22\\engineering-revision-1\\corrected\\manifest.json",
+      "--out",
+      "C:\\Users\\Steve\\.cp-scratch\\cad-full-ui-22\\engineering-revision-1\\portable"
+    ],
+    "exit": 0,
+    "expected_exit": 0
+  },
+  {
+    "label": "stale",
+    "command": [
+      "C:\\Python314\\python.exe",
+      "-S",
+      "scripts/check_pid_markups.py",
+      "--manifest",
+      "C:\\Users\\Steve\\.cp-scratch\\cad-full-ui-22\\engineering-revision-1\\stale-input\\manifest.json",
+      "--out",
+      "C:\\Users\\Steve\\.cp-scratch\\cad-full-ui-22\\engineering-revision-1\\stale-output"
+    ],
+    "exit": 2,
+    "expected_exit": 2
+  }
+]

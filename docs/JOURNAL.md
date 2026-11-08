@@ -9392,3 +9392,49 @@ non-safety rows after unresolved items; another real four-command/14-check repla
 retains identical comparison facts. The three full-ui-22 packets also reproduce
 their complete offline receipts with all original strict failures retained. Local
 claim, feature, script, ledger and new-link checks pass; exact-head CI is pending.
+
+## 212. Follow a corrected return and retain an idle-call failure
+
+The engineer/manager rehearsal now follows the same seven requests through the
+already exposed corrected consultant return. Plan 3807311 precedes runner
+8a1f3a4 and actual execution: three CLI calls / eleven checks pass. Five requests
+are supported by current supplied readings; the illegible instruction and
+baseline mismatch remain open. A supported safety item still needs review. The
+new brief retains both complete packets and evidence, leaves owners/authorized
+decisions pending and does not close the separate CAD preservation finding.
+Pairing the new drawing bytes with old source-bound readings refuses before a
+result is written; the original packet stays byte-exact. This is a fictional,
+agent-authored tutorial, not an independent image review or a timed user trial.
+
+The fourth original native packet, the literal-brace no-edit baseline, completes
+and rechecks with 2,418 helper calls, 61 observations and ten views/40 images.
+It retains 321 strict differences. All four original edited/baseline packets
+reproduce offline. The previous published head ed70f9f passes the complete Linux
+CI run 42522574770; later changes require their own CI.
+
+Both independently launched full fresh receivers hit the frozen 4,096 invocation
+ceiling on call 4,097. CP1251 spends 3,883 calls idle and captures 18/20 views;
+literal braces spends 3,871 idle and captures 20/20 but fails before completion.
+Exact final call/error records expose admission before result IDs/predecessor
+binding, so null IDs and an absent predecessor are preserved, not repaired.
+Separate same-process acknowledged cleanup closes each native application with
+exit zero; original host/controller/container failure remains one. The separate
+failure auditor checks the original successful prefix and final rejection. Eight
+altered-evidence controls refuse. The first packager's overlooked duplicate-file
+count also refuses; its source and failure are retained beside a separately
+declared capacity for both complete mailbox snapshots. No normal receiving or
+pixel verdict is issued from either incomplete attempt.
+
+Plan dd7a2d8 declares a waiting helper rather than a larger quota. The original
+admission, request revalidation, immutable publication, event/error journal and
+wire/invocation limits remain. Six actual subprocess controls pass; the first
+test's event-count arithmetic failure is retained as a tool-output observation.
+The first native probe completes typing/cancel and a real request but fails while
+recording a helper event under an already used field name. Retain its original
+failure and same-process cleanup. A separately frozen corrected recorder then
+completes: one child stays live through 43.986 seconds of idle/UI activity,
+serves the request, and the next child acknowledges cleanup stop. Both probe
+histories recheck with six calls, two requests and zero idle events. Full
+receiving on both exposed cases is a subsequent separately frozen attempt under
+WAITING-METHODS-3; it is not inferred from the probe. N119 remains open for the
+original complete CAD, paper/visual, revision/conflict and reserved-case scope.

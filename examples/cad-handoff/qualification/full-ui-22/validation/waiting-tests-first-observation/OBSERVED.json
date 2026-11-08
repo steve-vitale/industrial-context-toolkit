@@ -1,0 +1,13 @@
+{
+  "command": [
+    "python",
+    "examples/cad-handoff/qualification/full-ui-22/test_waiting.py",
+    "-v"
+  ],
+  "exit": 1,
+  "observation_source": "exec tool a463f8; original subprocess output displayed in chat",
+  "tests": 6,
+  "passed": 5,
+  "failure": "test_idle_beyond_old_deadline_request_then_stop: expected 5 invocation events, observed 4. Actual sequence is initialize/poll/publish/poll; test arithmetic correction required.",
+  "source_sha256": "96d6bd41cb5716f69de7e86e005a961380cf301104ead262c6695528fa7994bf"
+}

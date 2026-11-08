@@ -1,0 +1,10 @@
+review_item_id,priority,status,check_statuses,review_required,request
+M02,safety,not_supported,unchanged,yes,Remove HV-102
+M01,normal,supported,matches_request,yes,Change FV-101 size from DN50 to DN80
+M03,normal,partly_supported,matches_request;matches_request;unchanged,yes,Add XV-103 bypass from P-101 discharge through to TK-101
+M04,normal,not_supported,unchanged,yes,Add the PT-101 to PIC-101 signal connection
+M05,normal,not_verifiable,,yes,Illegible annotation; request clarification
+M06,normal,baseline_mismatch,baseline_mismatch,yes,Change P-102 service from duty to standby
+M07,normal,not_verifiable,not_verifiable,yes,Change drain note from open tundish to closed system
+OTHER-001,needs_assessment,other_observed_change,,yes,FV-101: fail_action · DEMO/U1/PID-101
+COVERAGE-001,normal,not_verifiable,,yes,FV-101: material · DEMO/U1/PID-101

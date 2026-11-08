@@ -36,6 +36,8 @@ jobs:
         run: python examples/cad-handoff/receiving-review/reproduce.py --out "$RUNNER_TEMP/cad-receiving-review"
       - name: Rehearse drawing findings to an engineering receiving brief
         run: python examples/drawing-handoff/reproduce.py --out "$RUNNER_TEMP/drawing-handoff"
+      - name: Recheck a corrected drawing return and refuse stale readings
+        run: python -S examples/drawing-handoff/revisions.py --initial "$RUNNER_TEMP/drawing-handoff" --out "$RUNNER_TEMP/drawing-handoff-revision"
       - name: Rebuild frozen CAD candidates and re-score retained native returns offline
         run: python examples/cad-handoff/qualification/recheck.py --out "$RUNNER_TEMP/cad-qualification"
       - name: Check CAD evidence replay rejects altered records
@@ -63,6 +65,9 @@ jobs:
           python examples/cad-handoff/qualification/full-ui-22/test_receiving.py -v
           python examples/cad-handoff/qualification/full-ui-22/test_pixels.py -v
           python examples/cad-handoff/qualification/full-ui-22/test_evidence.py -v
+          python examples/cad-handoff/qualification/full-ui-22/check_failed.py
+          python examples/cad-handoff/qualification/full-ui-22/test_waiting.py -v
+          python examples/cad-handoff/qualification/full-ui-22/waiting_probe_evidence.py check
       - name: Rebuild equipment-data sidecars and replay browser downloads without a CAD UI
         run: python examples/cad-handoff/qualification/check_exchange6.py
       - name: Verify frozen first-use session evidence without model calls

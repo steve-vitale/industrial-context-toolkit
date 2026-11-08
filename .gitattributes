@@ -269,4 +269,9 @@ examples/pid-port-review/** -text whitespace=blank-at-eol,blank-at-eof,space-bef
 examples/pid-path-review/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 /examples/drawing-handoff/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 # Retain the original CAD linetype descriptions, including their trailing blanks.
-/examples/drawing-handoff/**/cad/originals/*.dxf -text whitespace=cr-at-eol,-blank-at-eof,-trailing-space
+/examples/drawing-handoff/**/originals/*.dxf -text whitespace=cr-at-eol,-blank-at-eof,-trailing-space
+# Collapse generated CAD evidence in reviews; source methods and guides stay visible.
+/examples/cad-handoff/qualification/full-ui-22/development-1/** linguist-generated=true
+/examples/cad-handoff/qualification/full-ui-22/failed-development-1/** linguist-generated=true
+/examples/cad-handoff/qualification/full-ui-22/waiting-probes/** linguist-generated=true
+/examples/cad-handoff/qualification/full-ui-22/validation/** linguist-generated=true

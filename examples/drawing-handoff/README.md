@@ -38,6 +38,26 @@ file inventory. The CAD command's expected exit 1 records strict differences;
 the markup command's exit 0 records a written comparison with open findings.
 The collision's exit 2 leaves the first packet unchanged.
 
+## Receive the next revision
+
+The [next-return brief](next-return/REVISION-BRIEF.md) follows the same seven
+requests through a corrected consultant return. Five are supported by the new
+readings; M05's illegible instruction and M06's baseline mismatch stay open.
+The supported safety item still requires engineering review. The separate CAD
+preservation issue remains unresolved.
+
+After the command above, run this fixed revision rehearsal into another new folder:
+
+```sh
+python -S examples/drawing-handoff/revisions.py --initial out/drawing-receiving-rehearsal --out out/drawing-next-return
+```
+
+Three real CLI calls and 11 checks verify the corrected result, its portable
+replay and refusal of old readings paired with new drawing bytes. The previous
+packet stays unchanged. Both versions, source locations and open engineering
+decisions are retained. The [extension plan](REVISION-PLAN.md) precedes its
+implementation and execution; the corrected fixture and key were already exposed.
+
 The [plan](PLAN.md) was committed before the rehearsal and runner. These exposed
 fixtures already informed their tools. The fixture readings are authored, not
 an independent reading of images. Suggested actions are a working aid for review;
