@@ -5,6 +5,12 @@ Use this page when the task is to reproduce the toolkit or learn its approach. C
 run its real commands, inspect its sources and result, and state exactly what was demonstrated.
 These exercises use exposed public/fictional examples, not the user's plant or a blind accuracy evaluation.
 
+To check all seven current fixture routes and five targeted regression suites in
+one run, use the [cross-workflow runner](../examples/agent-first-use/workflow-check/README.md):
+`python -S examples/agent-first-use/workflow-check/reproduce.py --out ../ict-repro-check`.
+It retains the actual commands, logs, reports and known-answer checks. Choose a single
+row below when you only need one job; this whole check is not a prerequisite for using a tool.
+
 ## 1. Record the version and choose a clean destination
 
 Clone the [public repository](https://github.com/steve-vitale/industrial-context-toolkit), enter its root and
