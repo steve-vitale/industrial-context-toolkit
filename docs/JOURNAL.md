@@ -9116,3 +9116,119 @@ The first camera-only air process subsequently completed normal controller/nativ
 24views with exact four-file cameras for both recipes. All frozen inputs remain unchanged. This case
 reproduces neither original camera failure; it establishes API/terminal behavior only. Full pixel receiving
 and the other five camera cases remain unfinished, as does the original qualification objective.
+
+
+## 207. Receive the first exact-camera repeat and launch the remaining controls
+
+2026-11-08. The previous native-cohort package merged as PR43 after exact-head
+pull-request42506688565 and push42506684160 CI both succeeded. Both actual full
+suite logs report95/95 programs, zero failures and37 individual skipped cases;
+this is not a complete zero-skip suite. Original full-save and recording/camera
+failures remain. Local main was verified at merge5a6397e before a separate branch.
+
+The already frozen camera-only design has now received the original air/water
+run as a [portable packet](../examples/cad-handoff/qualification/camera-repeat-20/README.md):
+86 native observations, four field panels,24 views/96 images and normal exits.
+Both recipes repeat exact four-file cameras, and all18 fixed-region comparisons
+have zero outside-region changes. Air reproduces neither earlier motion/power
+failure; it cannot establish their repair. The same author/agent sees the inputs
+and writes the receiver; no independent engineer or reserved evaluation is involved.
+
+Before first pixel comparison,3ad1475 froze source-bound receiving. Its first
+actual refusal was an LF reserialization digest compared to the original CRLF
+basis; failed command/source remain. Repair90f11ff retains exact source bases and
+compares values after their original inventory hashes;19aff8c binds raw checkout
+bytes. Subsequent actual direct and separate portable replays pass. Five new
+regression methods pass without skips, including an unrelated pixel with updated
+full/crop/digests. Visual inspection finds source/adaptation label-symbol overlap
+and zoomed annotation clipping; equality does not establish complete readability.
+
+Plan/batch43fec6a froze the remaining five runs before launch. Three processes
+are currently live and two queued, with no controller failure at the checkpoint.
+Keep their actual handles and complete every old/new comparison before deciding
+on the camera method. No CAD file is edited/saved in this follow-up. The unchanged
+strict comparator, source-span patcher, original native failures and complete
+qualification objective remain; new reserved/full-workflow transfer, foreign/text,
+multi-asset and revision/conflict gates are not closed.
+
+
+The complete CAD evidence module subsequently finished51/51 tests in237.029s,
+zero skips and exit0. Actual command, raw test source and stdout/stderr/exit are
+retained in camera-repeat-20/validation/integration-1. All original replay and
+loss controls pass beside the five new methods. This is not the full95-program
+repository suite. Three original native receiving containers remain live; no
+camera-cohort success or reserved qualification is inferred from the tests.
+
+
+### 207 follow-up: reproduce the old drift beside exact absolute cameras
+
+Motion,power and hydraulic subsequently completed original controller/native/
+container exits0 and independent portable receiving. Across the four received
+cases:344 native observations,16field panels,96views/384images and72pixelpairs.
+Every pair has zero outside-region changes. Old zoomTo reproduces motion's two
+failed frames and power's one (nine diagnostic pairs); absolute requested/actual
+and four-file cameras match exactly on all four cases. This is evidence for the
+proposed exposed-development camera procedure, without tolerance or image
+alignment. It does not prove installed proprietary internals or new independent
+transfer. All original failures remain. Mechanical/template have now started
+automatically and are live; both remain required before a cohort conclusion.
+
+
+### 207 final cohort: retain an observation-channel failure
+
+The last two original runs completed normal native/controller/container exit0.
+All six packets are retained. Mechanical receives; template strictly refuses
+because it also retains replies/unknown.json: Cannot read request. All86 normal
+sequential replies remain, but the observer's QFile open failed at least once.
+Its fixed anonymous-error filename can overwrite earlier failures, so total
+error history is unknown. A replace/read filesystem race is an unproven lead,
+not a confirmed root cause. Original failed command, host exit1, source and
+freeze remain in camera-repeat-20/development-3.
+
+Commit04070aa freezes an explicit failed diagnostic before its first run.
+Default strict receiving still refuses extra/missing replies. The diagnostic
+retains the extra error record as failed and all18 template comparisons as
+diagnostic; missing normal replies or other corrupt evidence still refuse.
+All108 image pairs have zero outside-region changes,27 diagnostic only: nine
+old-camera pairs and18 template pairs. Absolute requested/actual and four-file
+cameras match on every retained view. All6 exposed cases/516normal observations,
+24fields,144views/576images remain development; five packets receive and one
+strictly refuses. Seven focused methods pass in105.456s,0skips,including all6
+packet replays, the original refusal and missing-reply refusal in diagnostic mode.
+Source comparator/patcher/byte checks and original UI19 evidence remain unchanged.
+
+Next: immutable sequence-bound request/reply transport with retained error
+history and fault controls, then a complete corrected fullUI method frozen before
+fresh reserved admission. Original full-save, foreign/text, multiasset,
+readability/editability, revision/conflict and engineering acceptance stay open.
+
+## 208. Make current scopes discoverable and execute their reproduction paths
+
+2026-11-08. Steve asked for all lessons/gaps, current README/description and clear
+organization for other people's agents. The README now surfaces maintenance
+intake, markup/port/path checks, CAD metadata and return review, photo/document
+preparation, recorded analysis, onboarding and manual consulting/calculation/
+automation methods. It distinguishes supplied readings and authored detailed
+layouts from executable checking. WORKFLOWS adds the missing CAD/path contracts.
+Existing evidence paths remain intact rather than breaking hashes for cosmetic
+moves. The repository guide assigns directory/reference ownership; existing
+script/feature registries remain canonical, with current CAD evidence registered.
+
+The workflow guide provides seven actual first-result routes, known findings,
+source/review boundaries and failure/revision checks. An initial author-run
+executes8workflow commands and5regression programs successfully. The portable
+cross-workflow runner was then frozen00ebbc7 before execution; all13commands,
+eight additional source/result checks and63tests pass with0skips. The existing-
+destination control refuses and all399retained files stay byte-identical. Actual
+plan/commands/logs/results and metadata readback are retained under
+examples/agent-first-use/workflow-check/actual. This is one exposed author-run
+software exercise, not independent agent/manager evidence or a measured saving.
+
+The authenticated GitHub CLI updated and read back the description because the
+connector exposes no metadata-edit action. It includes records, P&ID/CAD review,
+photo/document fields, models/context, recorded data, Ignition/PI, self-service,
+onboarding, consulting worksheets and benchmarks. Contact remains Steve's
+LinkedIn; no outreach, LinkedIn content planning, simulator/MTP adapter or alert
+service was added. CI now runs the portable entry-point check. Current-head CI,
+full integration and the native transport repair remain distinct work; useful
+reproduction does not close the original CAD qualification or human/site gates.

@@ -34,6 +34,15 @@ It is a consumer, not a new graph producer, original-document reader or live syn
 
 ## Files with different jobs
 
+The [calculation review](../examples/consulting-start/CALCULATION_REVIEW.md),
+[automation requirements/handoff](../examples/consulting-start/AUTOMATION_HANDOFF.md)
+and [scope/quote/receiving forms](../examples/consulting-start/README.md) are manual
+methods beside these file contracts. They record supplied requirements, external
+tool/reference assumptions, unresolved questions and receiving checks. They do
+not add a numerical solver, MTP/rMTP adapter, PLC deployment or ongoing service.
+The [platform comparison](COMPETITIVE_WORKFLOWS.md) explains the existing-tool and
+unfinished-client-job basis; no customer demand or comparative advantage is measured.
+
 <a id="three-files-with-different-jobs"></a>
 
 | File shape | Role | Important boundary |
@@ -82,6 +91,8 @@ does not establish accepted correction. No drawings, live connector or MCP servi
 |---|---|---|
 | `check_pid_connections.py` | `pid-port-review-1` manifest, exact sources, versioned port catalog, prepared observations/requirements and declared coverage | Port/direction/type consistency, expected and other connections, portable draft queue. No image reading, DEXPI adapter, design approval or CAD qualification. See [port checks](PID_CONNECTIONS.md). |
 | `check_pid_markups.py` | `pid-markup-review-1` manifest binding original/markup/returned local documents, complete declared annotation inventory and explicit source-bound drawing readings | Offline per-change review, other observed changes/coverage gaps, exact sources and portable packet. No image/PDF interpretation, automatic markup discovery, CAD editing, company acceptance or map update. See [markup review](PID_MARKUP_REVIEW.md). |
+| `pid_path_review.py` | Prepared `twin-graph-1/2`, exact source/target IDs, physical/logical or process/signal policy, supplied review/source status and optional prior answer | Source-qualified route, missing continuations, typed associations/register and explicit revised-answer comparison. No original-drawing reading, operating inference, live synchronization or automatic graph repair. See [path review](PID_GRAPH_QUESTIONS.md). |
+| `cad_handoff.py`, `cad_value_patch.py`, `cad_exchange.py` | Declared record-framed ASCII DXF block-attribute profile with explicit `ICT_ID`/`TAG`; comparison or exact source/before-value-bound existing-attribute proposal | Source-retaining comparison/context and value-span candidate; optional local form/agent JSON exchange. Native full-save differences stay in the strict queue. No general geometry editing/merge, DWG or intelligent-P&ID qualification. See [CAD handoff](../examples/cad-handoff/README.md) and [equipment-data exchange](../examples/cad-handoff/data-review/README.md). |
 | `dexpi_reader.py` | Supported DEXPI XML | A Native process-model-shaped JSON plus an omissions/placement report by default. Explicit `--capture-source` adds the complete policy-filtered structured-source packet and coverage summary. Vendor dialects, mapped classes and downstream eligibility need review; not every source role is used by every generator. |
 | `source_handoff.py` | An explicitly selected process model already containing a captured `source_evidence` packet | Optional local Native/evidence/manifest trio and bounded inspection brief. No automatic capture, original-document fetching, company publication or source-aware graph/context/MCP consumer. See the [handoff guide](../examples/source-handoff/README.md). |
 | `dexpi_to_twin.py` | The pre-adapted DEXPI sheets/keys contract | An extracted twin/review bundle. This route is distinct from the direct XML reader and does not import arbitrary CAD formats. |

@@ -1,0 +1,13 @@
+{
+  "command": [
+    "C:\\Python314\\python.exe",
+    "examples/cad-handoff/qualification/check_camera20.py",
+    "C:\\Users\\Steve\\.cp-scratch\\cad-native-ui-pairs-19\\camera-packets-1\\qcad-template",
+    "C:\\Users\\Steve\\.cp-scratch\\cad-native-ui-pairs-19\\camera-template-diagnostic-1",
+    "--packet",
+    "--diagnostic-observer-errors"
+  ],
+  "exit": 0,
+  "stdout": "{\"case\": \"qcad-template\", \"scope\": \"Exposed read-only camera repeat; original native save failures unchanged\", \"whole_cad_qualified\": false, \"fields\": 4, \"observations\": 86, \"views\": 24, \"images\": 96, \"native_exit\": 0, \"controller_exit\": 0, \"diagnostic_observer_errors\": {\"status\": \"failed\", \"saved_errors\": [{\"path\": \"replies/unknown.json\", \"sha256\": \"abf3828df25c29cb92ae8c7c922cb8485dd39b27b5b5f1c7f6c6fd4ace31ca99\", \"record\": {\"error\": \"Error: Cannot read request\"}}], \"error_history\": \"A fixed unknown-error filename may overwrite earlier errors; saved file proves at least one, not the total occurrence count\", \"qualification\": false}}\n",
+  "stderr": ""
+}

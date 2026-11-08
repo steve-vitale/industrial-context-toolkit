@@ -12,6 +12,13 @@ and [offline review packet](../examples/manager-review/README.md) put the decisi
 owners, receiving verification and actual effort ahead of choosing a platform. Work planning, asset information,
 drawing recovery and project/change handoff are the first jobs; broader methods remain available behind them.
 
+The [repository guide](REPOSITORY_GUIDE.md) owns directory/reference organization;
+the [workflow reproduction guide](REPRODUCE_A_WORKFLOW.md) supplies executable entry
+commands and the source/interpretation/receiving boundaries. Its portable fixture
+runner now checks seven current routes beside wrong-input and revision controls.
+This implements the software-discovery/repetition part of the first-result trial.
+Actual recipient effort, usefulness and company readback remain separate observations.
+
 | Priority | Work | Observable completion |
 |---|---|---|
 | 1 | Make maintenance reconciliation and drawing recovery easy to start | Runnable examples, own-input steps, defined outputs and a direct contact path. |

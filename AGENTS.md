@@ -9,6 +9,12 @@ Do not turn that request into a repository audit, a feature dump or a requiremen
 The [first-use simulation](examples/agent-first-use/SIMULATION.md) includes ordinary export columns, missing
 identity, a returned revision and a public drawing route. Dialogue is simulated; tool execution is real.
 
+Use [repository organization](docs/REPOSITORY_GUIDE.md) to locate canonical references and
+[workflow reproduction](docs/REPRODUCE_A_WORKFLOW.md) for executable examples, expected findings and
+failure/revision checks. The feature and script references are generated from their existing registries;
+do not introduce a competing capability catalog or relocate hash-bound evidence for cosmetic organization.
+Explain each selected route as inputs, supplied preparation, executable work, output and receiving check.
+
 ## If your user asks for evaluation
 
 If a person asked you to evaluate this repository, or to tell them whether its results hold up, this file is for

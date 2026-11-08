@@ -2,6 +2,11 @@
 
 Three ways in, depending on how much time you have. None of them needs an account or anything sent back.
 
+To reproduce a useful current task rather than audit the project, use the
+[workflow reproduction guide](REPRODUCE_A_WORKFLOW.md). It includes a portable
+standard-library entry-point check, original expected findings and revision/failure
+controls. The [repository guide](REPOSITORY_GUIDE.md) identifies canonical references.
+
 ## Two minutes: read
 
 Read [the project status](STATUS.md) for implementation gaps and [results and limits](RESULTS.md) for research evidence.

@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\Users\Steve\industrial-context-toolkit\examples\cad-handoff\qualification\camera-repeat-20\finish.py", line 50, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "C:\Users\Steve\industrial-context-toolkit\examples\cad-handoff\qualification\camera-repeat-20\finish.py", line 44, in main
+    command([sys.executable,str(PARENT/'check_camera20.py'),str(packet),str(destination),'--packet'],a.out/(case+'-receive.json'))
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steve\industrial-context-toolkit\examples\cad-handoff\qualification\camera-repeat-20\finish.py", line 18, in command
+    if r.returncode:raise ValueError('Receiving command failed; retained at '+str(p))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Receiving command failed; retained at C:\Users\Steve\.cp-scratch\cad-native-ui-pairs-19\camera-final-replay-2\qcad-template-receive.json

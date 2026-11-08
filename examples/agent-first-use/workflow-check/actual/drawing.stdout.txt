@@ -1,0 +1,42 @@
+{
+  "inputs_valid": true,
+  "exports_written": true,
+  "output": "C:\\Users\\Steve\\.cp-scratch\\repo-organization-portable-1\\drawing",
+  "summary": {
+    "systems": 1,
+    "equipment": 2,
+    "equipment_on_several_sheets": 0,
+    "instruments": 36,
+    "line_items": 53,
+    "offpage_connectors": 9,
+    "streams_extracted": 345,
+    "instrument_parent_method": {
+      "geometry_nearest": 16,
+      "linked": 20
+    },
+    "instruments_without_equipment": 0,
+    "line_items_without_equipment": 2,
+    "placeholder_tags": 2,
+    "offpage_pairs": 0,
+    "offpage_status": {
+      "unpaired: target drawing is not in this sheet set": 8,
+      "unpaired: no drawing number read from the text": 1
+    },
+    "sheet_drawing_numbers": {
+      "0": [
+        null,
+        "unknown"
+      ]
+    }
+  },
+  "operational_export_allowed": false,
+  "limitations": [
+    "Imported extraction and producer claims were supplied, not independently verified; no model was run.",
+    "PNG structure and CRCs checked, not full pixel decoding, readability or revision authority.",
+    "Class roles, tag conventions, linked parents and geometry fallback require engineering review.",
+    "Connections are unverified undirected logical links; direct pipe adjacency is not established. SVG segments are not pipe routes.",
+    "Supplied confidence and the existing 0.75 highlighting rule are uncalibrated for this drawing; no trained risk model was applied.",
+    "No point mapping, signal identity, range, quality, native import or operational approval was established.",
+    "Draft-only status is descriptive metadata, not a technical deployment interlock in other tools."
+  ]
+}

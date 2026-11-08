@@ -2,15 +2,19 @@
 
 [![tests](https://github.com/steve-vitale/industrial-context-toolkit/actions/workflows/tests.yml/badge.svg)](https://github.com/steve-vitale/industrial-context-toolkit/actions/workflows/tests.yml)
 
-**Open source tools for maintenance and engineering teams to organize equipment information, review record
-disagreements and prepare checkable engineering handoffs.** Build draft plant models, drawings and shared context
-from P&IDs, process descriptions, supported DEXPI exports and plant records. Review assets and controls, connect
-records and documents, follow revisions, analyze recorded process data, and prepare Ignition/PI staging files.
-Sources, review states and unresolved disagreements stay visible as the work moves between tools and people.
+**Open source tools and repeatable methods for maintenance and engineering teams.** Reconcile equipment and
+work-order records, prepare drawing recovery, check a consultant's P&ID markups, review editable CAD returns,
+and retain shared engineering context. Prepare sourced draft models from supplied P&ID readings, descriptions
+and supported DEXPI exports, with authored layouts for detailed draft drawings. Check supplied ports and
+cross-sheet paths; prepare document/photo field candidates; analyze
+recorded process and batch data; and generate Ignition/PI staging files. Sources, revisions, review states and
+unresolved disagreements stay visible as the work moves between tools and people.
 
 The repository also contains worked tutorials, assembled screen/replay/3D demonstrations and reproducible
 task/model benchmarks. These support different parts of a maintained digital twin and engineering knowledge base;
 the [supported workflows](docs/WORKFLOWS.md) state which inputs and outputs connect today.
+Manual calculation/automation handoff worksheets, engineering onboarding and scoped consulting forms complement
+the executable tools. They add no simulator, PLC deployment or managed alert service.
 
 **Status:** prototypes tested on public and fictional inputs. Outputs need engineering review; site accuracy,
 live mappings and receiving-platform acceptance need evidence from your environment. The
@@ -41,6 +45,10 @@ read-only snapshots; it does not search SharePoint, refresh sources or connect t
 
 ## Tools, tutorials and case studies
 
+[Repository structure and canonical references](docs/REPOSITORY_GUIDE.md) ·
+[Reproduce a current workflow](docs/REPRODUCE_A_WORKFLOW.md) ·
+[Complete feature evidence](docs/FEATURES.md) · [Script roles](docs/SCRIPTS.md)
+
 | Choose a destination | What you get |
 |---|---|
 | **Tools — use your inputs** | Draft models/drawings, review and revision tools, graph/context, recorded-data analysis, platform staging and bounded read-only MCP. [Choose a job below](#start-wherever-you-are); the [format map](docs/WORKFLOWS.md) states the file contracts. |
@@ -60,10 +68,14 @@ See [working together](docs/WORK_WITH_ME.md) for inputs, deliverables and how a 
 
 | Your engineering job | Starting material and guide | Work product |
 |---|---|---|
+| Reconcile maintenance records | [Equipment and replacement work-order exports](docs/MAINTENANCE_INTAKE.md) | Original-row disagreements, identity/coverage questions, proposed owner actions and a retained next-revision comparison. |
 | Build your plant's first draft asset model | [P&ID image](examples/own-drawing/README.md) or [DEXPI XML](examples/from-dexpi-xml/README.md) | Sourced assets and represented connections, review material, graph and platform-staging routes. |
 | Build from process knowledge | [Written description](examples/from-description/README.md) | An authored, source-linked model and layout, checked locally and rendered as draft P&ID sheets and exports. |
 | Check whether a consultant incorporated P&ID markups | [Original, markups sent out and returned revision](docs/PID_MARKUP_REVIEW.md) | A check for each requested change, other observed changes, source locations and a correction/clarification queue. Readings are supplied by an engineer or approved assistant. |
 | Review a returned editable CAD drawing | [Profiled DXF pair and optional edit plan](examples/cad-handoff/receiving-review/README.md) | Readable attribute/field/layout comparison, exact drawings and a complete unresolved strict queue. Qualify the receiving editor separately. |
+| Propose equipment-data edits without resaving geometry | [DXF equipment-data exchange](examples/cad-handoff/data-review/README.md) | A local form or agent proposal and a source-preserving value-span candidate. The original drawing stays intact; native full-save qualification remains separate. |
+| Check exact endpoints and cross-sheet routes | [Port checks](docs/PID_CONNECTIONS.md) · [graph-path review](docs/PID_GRAPH_QUESTIONS.md) | Wrong-input/missing connection checks, source-qualified paths, unresolved continuations and affected-answer revisions from supplied readings/graphs. |
+| Prepare fields from photos and scanned documents | [Nameplate exercise](examples/photo-to-record/README.md) · [document text](docs/DOCUMENT_TEXT.md) | Text/field candidates with source locations, unreadable values and review needs. OCR does not establish installed asset identity. |
 | Review and enrich the model | [Sourced statements](docs/STATEMENT_REVIEW.md) · [model correction and mapping](docs/REVIEW_LOOP.md) | Checkable claims, supported local corrections and supplied signal mappings. |
 | Investigate controls or performance | [Loop list audit](examples/loop-audit/README.md) · [question engine](docs/OPPORTUNITY_SCREEN.md) | Explicit discrepancies, investigation questions and evidence requests tied to represented assets. |
 | Analyze or replay recorded process data | [Historian CSV](examples/historian-csv/README.md) · [batch analysis](examples/batch-analysis/README.md) · [analytics guide](docs/PROCESS_ANALYTICS.md) | Normal bands, phase calculations, selected record joins and a read-only OPC UA replay route for local tests. |
@@ -73,6 +85,7 @@ See [working together](docs/WORK_WITH_ME.md) for inputs, deliverables and how a 
 | Keep the map current through plant routines | [Running the map](docs/RUNNING_THE_MAP.md) · [an MOC on the map](examples/one-map/README.md#the-pasteurizer-through-an-moc-pid-revision-moc-open-and-close-work-order-walkdown) | P&ID revision change reports, MOC-open affected records by owner and the closeout check, work order closeout, walkdown rulings, HACCP/PHA/criticality change flags. |
 | Prepare platform files and supplied point mappings | [Generation/export contracts](docs/WORKFLOWS.md) · [review and mapping](examples/review-and-mapping/README.md) · [PI mapping](docs/PI_MAPPING.md) | Draft Ignition tag files, PI AF staging and explicit mapping records. Review signal identities and verify acceptance in the receiving system. |
 | Evaluate or improve a method | [Drawing comparison](examples/vendor-evaluation/README.md) · [task/model benchmarks](benchmarks/README.md) · [review a frozen model](benchmarks/source-support/artifact-values/README.md) | Compare saved answers against reviewed source/key cases, with missing answers, mistakes and evidence limits visible. |
+| Retain team knowledge or scope outside help | [Onboarding contributions](docs/ENGINEERING_ONBOARDING.md) · [consulting starter](examples/consulting-start/README.md) | Source-qualified notes and subsequent revisions, or manual scope/quote/receiving forms for one agreed job. Calculation and automation worksheets record a review basis; they do not implement a solver or controls. |
 
 **Prefer a first result without installation?** Use the [first-question guide](examples/first-pilot/README.md)
 by hand or with company-approved Copilot. For a team assignment, the [organization starting guide](docs/ORGANIZATION_START.md)

@@ -1,0 +1,12 @@
+{
+  "command": [
+    "C:\\Python314\\python.exe",
+    "C:\\Users\\Steve\\industrial-context-toolkit\\examples\\cad-handoff\\qualification\\check_camera20.py",
+    "C:\\Users\\Steve\\.cp-scratch\\cad-native-ui-pairs-19\\camera-1\\libre-air-water",
+    "C:\\Users\\Steve\\.cp-scratch\\cad-native-ui-pairs-19\\camera-analysis-1\\libre-air-water"
+  ],
+  "exit": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\Steve\\industrial-context-toolkit\\examples\\cad-handoff\\qualification\\check_camera20.py\", line 143, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"C:\\Users\\Steve\\industrial-context-toolkit\\examples\\cad-handoff\\qualification\\check_camera20.py\", line 141, in main\n    result=receive_job(job,a.out/'pixels');(a.out/'RESULT.json').write_text(json.dumps(result,indent=2)+'\\n',encoding='utf-8')\n  File \"C:\\Users\\Steve\\industrial-context-toolkit\\examples\\cad-handoff\\qualification\\check_camera20.py\", line 95, in receive_job\n    require(hashlib.sha256(basis_bytes).hexdigest()==original['raw/cases/'+case+'/basis.json']['sha256'],'Camera source basis changed')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Steve\\industrial-context-toolkit\\examples\\cad-handoff\\qualification\\ui19_archive.py\", line 8, in require\n    if not test:raise ValueError(message)\n                ^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: Camera source basis changed\n",
+  "receiver_sha256": "906848fadd262c5be14069df7bc2be6d3456de3864b417e33532f908a21dd215"
+}

@@ -1,0 +1,979 @@
+{
+  "case": "libre-motion",
+  "scope": "Exposed read-only camera repeat; original native save failures unchanged",
+  "whole_cad_qualified": false,
+  "fields": 4,
+  "observations": 86,
+  "views": 24,
+  "images": 96,
+  "native_exit": 0,
+  "controller_exit": 0,
+  "pixels": [
+    {
+      "mode": "zoom-to",
+      "frame": "overview",
+      "left": "source",
+      "right": "baseline",
+      "exact_camera_status": "failed",
+      "camera_differences": [
+        {
+          "label": "baseline",
+          "source_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 6.289263415824891,
+            "offset": [
+              20.46684571211015,
+              47.862565912624135
+            ]
+          },
+          "observed_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 6.289263415824891,
+            "offset": [
+              20.46684571211015,
+              47.86256591262412
+            ]
+          },
+          "source_canvas": [
+            114,
+            175,
+            693,
+            612
+          ],
+          "observed_canvas": [
+            114,
+            175,
+            693,
+            612
+          ]
+        },
+        {
+          "label": "edited",
+          "source_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 6.289263415824891,
+            "offset": [
+              20.46684571211015,
+              47.862565912624135
+            ]
+          },
+          "observed_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 6.289263415824891,
+            "offset": [
+              20.46684571211015,
+              47.86256591262412
+            ]
+          },
+          "source_canvas": [
+            114,
+            175,
+            693,
+            612
+          ],
+          "observed_canvas": [
+            114,
+            175,
+            693,
+            612
+          ]
+        },
+        {
+          "label": "candidate",
+          "source_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 6.289263415824891,
+            "offset": [
+              20.46684571211015,
+              47.862565912624135
+            ]
+          },
+          "observed_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 6.289263415824891,
+            "offset": [
+              20.46684571211015,
+              47.86256591262412
+            ]
+          },
+          "source_canvas": [
+            114,
+            175,
+            693,
+            612
+          ],
+          "observed_canvas": [
+            114,
+            175,
+            693,
+            612
+          ]
+        }
+      ],
+      "diagnostic_only": true,
+      "pixel_status": "pass",
+      "changed_pixels": 0,
+      "outside_region": 0,
+      "permitted_region": null,
+      "size": [
+        693,
+        612
+      ]
+    },
+    {
+      "mode": "zoom-to",
+      "frame": "overview",
+      "left": "source",
+      "right": "candidate",
+      "exact_camera_status": "failed",
+      "camera_differences": [
+        {
+          "label": "baseline",
+          "source_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 6.289263415824891,
+            "offset": [
+              20.46684571211015,
+              47.862565912624135
+            ]
+          },
+          "observed_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 6.289263415824891,
+            "offset": [
+              20.46684571211015,
+              47.86256591262412
+            ]
+          },
+          "source_canvas": [
+            114,
+            175,
+            693,
+            612
+          ],
+          "observed_canvas": [
+            114,
+            175,
+            693,
+            612
+          ]
+        },
+        {
+          "label": "edited",
+          "source_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 6.289263415824891,
+            "offset": [
+              20.46684571211015,
+              47.862565912624135
+            ]
+          },
+          "observed_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 6.289263415824891,
+            "offset": [
+              20.46684571211015,
+              47.86256591262412
+            ]
+          },
+          "source_canvas": [
+            114,
+            175,
+            693,
+            612
+          ],
+          "observed_canvas": [
+            114,
+            175,
+            693,
+            612
+          ]
+        },
+        {
+          "label": "candidate",
+          "source_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 6.289263415824891,
+            "offset": [
+              20.46684571211015,
+              47.862565912624135
+            ]
+          },
+          "observed_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 6.289263415824891,
+            "offset": [
+              20.46684571211015,
+              47.86256591262412
+            ]
+          },
+          "source_canvas": [
+            114,
+            175,
+            693,
+            612
+          ],
+          "observed_canvas": [
+            114,
+            175,
+            693,
+            612
+          ]
+        }
+      ],
+      "diagnostic_only": true,
+      "pixel_status": "pass",
+      "changed_pixels": 263,
+      "outside_region": 0,
+      "permitted_region": [
+        146,
+        299,
+        241,
+        315
+      ],
+      "size": [
+        693,
+        612
+      ]
+    },
+    {
+      "mode": "zoom-to",
+      "frame": "overview",
+      "left": "baseline",
+      "right": "edited",
+      "exact_camera_status": "failed",
+      "camera_differences": [
+        {
+          "label": "baseline",
+          "source_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 6.289263415824891,
+            "offset": [
+              20.46684571211015,
+              47.862565912624135
+            ]
+          },
+          "observed_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 6.289263415824891,
+            "offset": [
+              20.46684571211015,
+              47.86256591262412
+            ]
+          },
+          "source_canvas": [
+            114,
+            175,
+            693,
+            612
+          ],
+          "observed_canvas": [
+            114,
+            175,
+            693,
+            612
+          ]
+        },
+        {
+          "label": "edited",
+          "source_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 6.289263415824891,
+            "offset": [
+              20.46684571211015,
+              47.862565912624135
+            ]
+          },
+          "observed_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 6.289263415824891,
+            "offset": [
+              20.46684571211015,
+              47.86256591262412
+            ]
+          },
+          "source_canvas": [
+            114,
+            175,
+            693,
+            612
+          ],
+          "observed_canvas": [
+            114,
+            175,
+            693,
+            612
+          ]
+        },
+        {
+          "label": "candidate",
+          "source_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 6.289263415824891,
+            "offset": [
+              20.46684571211015,
+              47.862565912624135
+            ]
+          },
+          "observed_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 6.289263415824891,
+            "offset": [
+              20.46684571211015,
+              47.86256591262412
+            ]
+          },
+          "source_canvas": [
+            114,
+            175,
+            693,
+            612
+          ],
+          "observed_canvas": [
+            114,
+            175,
+            693,
+            612
+          ]
+        }
+      ],
+      "diagnostic_only": true,
+      "pixel_status": "pass",
+      "changed_pixels": 263,
+      "outside_region": 0,
+      "permitted_region": [
+        146,
+        299,
+        241,
+        315
+      ],
+      "size": [
+        693,
+        612
+      ]
+    },
+    {
+      "mode": "zoom-to",
+      "frame": "asset",
+      "left": "source",
+      "right": "baseline",
+      "exact_camera_status": "failed",
+      "camera_differences": [
+        {
+          "label": "baseline",
+          "source_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 12.643220165613252,
+            "offset": [
+              11.186176909165905,
+              26.410914527745174
+            ]
+          },
+          "observed_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 12.643220165613252,
+            "offset": [
+              11.186176909165905,
+              26.41091452774517
+            ]
+          },
+          "source_canvas": [
+            114,
+            175,
+            693,
+            612
+          ],
+          "observed_canvas": [
+            114,
+            175,
+            693,
+            612
+          ]
+        },
+        {
+          "label": "edited",
+          "source_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 12.643220165613252,
+            "offset": [
+              11.186176909165905,
+              26.410914527745174
+            ]
+          },
+          "observed_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 12.643220165613252,
+            "offset": [
+              11.186176909165905,
+              26.41091452774517
+            ]
+          },
+          "source_canvas": [
+            114,
+            175,
+            693,
+            612
+          ],
+          "observed_canvas": [
+            114,
+            175,
+            693,
+            612
+          ]
+        },
+        {
+          "label": "candidate",
+          "source_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 12.643220165613252,
+            "offset": [
+              11.186176909165905,
+              26.410914527745174
+            ]
+          },
+          "observed_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 12.643220165613252,
+            "offset": [
+              11.186176909165905,
+              26.41091452774517
+            ]
+          },
+          "source_canvas": [
+            114,
+            175,
+            693,
+            612
+          ],
+          "observed_canvas": [
+            114,
+            175,
+            693,
+            612
+          ]
+        }
+      ],
+      "diagnostic_only": true,
+      "pixel_status": "pass",
+      "changed_pixels": 0,
+      "outside_region": 0,
+      "permitted_region": null,
+      "size": [
+        693,
+        612
+      ]
+    },
+    {
+      "mode": "zoom-to",
+      "frame": "asset",
+      "left": "source",
+      "right": "candidate",
+      "exact_camera_status": "failed",
+      "camera_differences": [
+        {
+          "label": "baseline",
+          "source_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 12.643220165613252,
+            "offset": [
+              11.186176909165905,
+              26.410914527745174
+            ]
+          },
+          "observed_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 12.643220165613252,
+            "offset": [
+              11.186176909165905,
+              26.41091452774517
+            ]
+          },
+          "source_canvas": [
+            114,
+            175,
+            693,
+            612
+          ],
+          "observed_canvas": [
+            114,
+            175,
+            693,
+            612
+          ]
+        },
+        {
+          "label": "edited",
+          "source_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 12.643220165613252,
+            "offset": [
+              11.186176909165905,
+              26.410914527745174
+            ]
+          },
+          "observed_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 12.643220165613252,
+            "offset": [
+              11.186176909165905,
+              26.41091452774517
+            ]
+          },
+          "source_canvas": [
+            114,
+            175,
+            693,
+            612
+          ],
+          "observed_canvas": [
+            114,
+            175,
+            693,
+            612
+          ]
+        },
+        {
+          "label": "candidate",
+          "source_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 12.643220165613252,
+            "offset": [
+              11.186176909165905,
+              26.410914527745174
+            ]
+          },
+          "observed_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 12.643220165613252,
+            "offset": [
+              11.186176909165905,
+              26.41091452774517
+            ]
+          },
+          "source_canvas": [
+            114,
+            175,
+            693,
+            612
+          ],
+          "observed_canvas": [
+            114,
+            175,
+            693,
+            612
+          ]
+        }
+      ],
+      "diagnostic_only": true,
+      "pixel_status": "pass",
+      "changed_pixels": 756,
+      "outside_region": 0,
+      "permitted_region": [
+        178,
+        256,
+        364,
+        284
+      ],
+      "size": [
+        693,
+        612
+      ]
+    },
+    {
+      "mode": "zoom-to",
+      "frame": "asset",
+      "left": "baseline",
+      "right": "edited",
+      "exact_camera_status": "failed",
+      "camera_differences": [
+        {
+          "label": "baseline",
+          "source_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 12.643220165613252,
+            "offset": [
+              11.186176909165905,
+              26.410914527745174
+            ]
+          },
+          "observed_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 12.643220165613252,
+            "offset": [
+              11.186176909165905,
+              26.41091452774517
+            ]
+          },
+          "source_canvas": [
+            114,
+            175,
+            693,
+            612
+          ],
+          "observed_canvas": [
+            114,
+            175,
+            693,
+            612
+          ]
+        },
+        {
+          "label": "edited",
+          "source_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 12.643220165613252,
+            "offset": [
+              11.186176909165905,
+              26.410914527745174
+            ]
+          },
+          "observed_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 12.643220165613252,
+            "offset": [
+              11.186176909165905,
+              26.41091452774517
+            ]
+          },
+          "source_canvas": [
+            114,
+            175,
+            693,
+            612
+          ],
+          "observed_canvas": [
+            114,
+            175,
+            693,
+            612
+          ]
+        },
+        {
+          "label": "candidate",
+          "source_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 12.643220165613252,
+            "offset": [
+              11.186176909165905,
+              26.410914527745174
+            ]
+          },
+          "observed_view": {
+            "width": 693,
+            "height": 612,
+            "factor": 12.643220165613252,
+            "offset": [
+              11.186176909165905,
+              26.41091452774517
+            ]
+          },
+          "source_canvas": [
+            114,
+            175,
+            693,
+            612
+          ],
+          "observed_canvas": [
+            114,
+            175,
+            693,
+            612
+          ]
+        }
+      ],
+      "diagnostic_only": true,
+      "pixel_status": "pass",
+      "changed_pixels": 756,
+      "outside_region": 0,
+      "permitted_region": [
+        178,
+        256,
+        364,
+        284
+      ],
+      "size": [
+        693,
+        612
+      ]
+    },
+    {
+      "mode": "zoom-to",
+      "frame": "labels",
+      "left": "source",
+      "right": "baseline",
+      "exact_camera_status": "pass",
+      "camera_differences": [],
+      "diagnostic_only": false,
+      "pixel_status": "pass",
+      "changed_pixels": 0,
+      "outside_region": 0,
+      "permitted_region": null,
+      "size": [
+        693,
+        612
+      ]
+    },
+    {
+      "mode": "zoom-to",
+      "frame": "labels",
+      "left": "source",
+      "right": "candidate",
+      "exact_camera_status": "pass",
+      "camera_differences": [],
+      "diagnostic_only": false,
+      "pixel_status": "pass",
+      "changed_pixels": 961,
+      "outside_region": 0,
+      "permitted_region": [
+        115,
+        245,
+        330,
+        276
+      ],
+      "size": [
+        693,
+        612
+      ]
+    },
+    {
+      "mode": "zoom-to",
+      "frame": "labels",
+      "left": "baseline",
+      "right": "edited",
+      "exact_camera_status": "pass",
+      "camera_differences": [],
+      "diagnostic_only": false,
+      "pixel_status": "pass",
+      "changed_pixels": 961,
+      "outside_region": 0,
+      "permitted_region": [
+        115,
+        245,
+        330,
+        276
+      ],
+      "size": [
+        693,
+        612
+      ]
+    },
+    {
+      "mode": "absolute",
+      "frame": "overview",
+      "left": "source",
+      "right": "baseline",
+      "exact_camera_status": "pass",
+      "camera_differences": [],
+      "diagnostic_only": false,
+      "pixel_status": "pass",
+      "changed_pixels": 0,
+      "outside_region": 0,
+      "permitted_region": null,
+      "size": [
+        693,
+        612
+      ]
+    },
+    {
+      "mode": "absolute",
+      "frame": "overview",
+      "left": "source",
+      "right": "candidate",
+      "exact_camera_status": "pass",
+      "camera_differences": [],
+      "diagnostic_only": false,
+      "pixel_status": "pass",
+      "changed_pixels": 265,
+      "outside_region": 0,
+      "permitted_region": [
+        146,
+        299,
+        241,
+        315
+      ],
+      "size": [
+        693,
+        612
+      ]
+    },
+    {
+      "mode": "absolute",
+      "frame": "overview",
+      "left": "baseline",
+      "right": "edited",
+      "exact_camera_status": "pass",
+      "camera_differences": [],
+      "diagnostic_only": false,
+      "pixel_status": "pass",
+      "changed_pixels": 265,
+      "outside_region": 0,
+      "permitted_region": [
+        146,
+        299,
+        241,
+        315
+      ],
+      "size": [
+        693,
+        612
+      ]
+    },
+    {
+      "mode": "absolute",
+      "frame": "asset",
+      "left": "source",
+      "right": "baseline",
+      "exact_camera_status": "pass",
+      "camera_differences": [],
+      "diagnostic_only": false,
+      "pixel_status": "pass",
+      "changed_pixels": 0,
+      "outside_region": 0,
+      "permitted_region": null,
+      "size": [
+        693,
+        612
+      ]
+    },
+    {
+      "mode": "absolute",
+      "frame": "asset",
+      "left": "source",
+      "right": "candidate",
+      "exact_camera_status": "pass",
+      "camera_differences": [],
+      "diagnostic_only": false,
+      "pixel_status": "pass",
+      "changed_pixels": 756,
+      "outside_region": 0,
+      "permitted_region": [
+        178,
+        256,
+        364,
+        284
+      ],
+      "size": [
+        693,
+        612
+      ]
+    },
+    {
+      "mode": "absolute",
+      "frame": "asset",
+      "left": "baseline",
+      "right": "edited",
+      "exact_camera_status": "pass",
+      "camera_differences": [],
+      "diagnostic_only": false,
+      "pixel_status": "pass",
+      "changed_pixels": 756,
+      "outside_region": 0,
+      "permitted_region": [
+        178,
+        256,
+        364,
+        284
+      ],
+      "size": [
+        693,
+        612
+      ]
+    },
+    {
+      "mode": "absolute",
+      "frame": "labels",
+      "left": "source",
+      "right": "baseline",
+      "exact_camera_status": "pass",
+      "camera_differences": [],
+      "diagnostic_only": false,
+      "pixel_status": "pass",
+      "changed_pixels": 0,
+      "outside_region": 0,
+      "permitted_region": null,
+      "size": [
+        693,
+        612
+      ]
+    },
+    {
+      "mode": "absolute",
+      "frame": "labels",
+      "left": "source",
+      "right": "candidate",
+      "exact_camera_status": "pass",
+      "camera_differences": [],
+      "diagnostic_only": false,
+      "pixel_status": "pass",
+      "changed_pixels": 961,
+      "outside_region": 0,
+      "permitted_region": [
+        115,
+        245,
+        330,
+        276
+      ],
+      "size": [
+        693,
+        612
+      ]
+    },
+    {
+      "mode": "absolute",
+      "frame": "labels",
+      "left": "baseline",
+      "right": "edited",
+      "exact_camera_status": "pass",
+      "camera_differences": [],
+      "diagnostic_only": false,
+      "pixel_status": "pass",
+      "changed_pixels": 961,
+      "outside_region": 0,
+      "permitted_region": [
+        115,
+        245,
+        330,
+        276
+      ],
+      "size": [
+        693,
+        612
+      ]
+    }
+  ]
+}

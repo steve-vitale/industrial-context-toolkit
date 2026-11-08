@@ -4,6 +4,11 @@ Use this guide when a person points an assistant at this repository and asks wha
 Start with their work and available records. Use the [reviewer checks](../AGENTS.md#ten-minutes-no-accounts-no-network)
 when they ask whether published results hold up; a repository audit is a different job from helping them use a tool.
 
+For layout and reference ownership, use the [repository guide](REPOSITORY_GUIDE.md).
+To reproduce the approach on supplied examples, use the [workflow reproduction guide](REPRODUCE_A_WORKFLOW.md):
+real entry commands, expected findings, failure/revision checks and the distinction between replay, a new
+reading and native acceptance. Do not read the whole research journal before helping with one supported job.
+
 ## First response
 
 Explain the useful work in ordinary terms, then recommend one route from the supplied context. For a maintenance
