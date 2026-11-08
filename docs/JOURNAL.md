@@ -8535,6 +8535,14 @@ template supplies layers but no original geometry. Every exact upstream Git blob
 All untouched sources refuse the ICT_ID/TAG profile. The unchanged adapter authors test
 identities and one unused field; preservation starts at those reserialized derived files.
 
+The final prior-catalog/raw-hash audit corrected the pre-run exposure premise: `aw10.dxf`
+and `pe3.dxf` already occur in round-1 admission records. The initial all-six-uninspected
+claim was overbroad. The [exposure erratum](../examples/cad-handoff/qualification/public-validation-11/EXPOSURE-ERRATUM.json)
+classifies four newly inspected sources and two exposed regression originals, retaining
+the fixed six-case cohort and every result rather than replacing cases after outcomes.
+Offline receiving binds that classification to the exact earlier catalog. Newly inspected
+does not prove independent plant provenance or unknown external/model-training exposure.
+
 All six exact candidates pass the unchanged strict comparison and separate source/plan
 raw reconstruction. All six matched library-save baselines pass decoded comparison but
 fail exact byte preservation. A network-disabled, normal-user container uses the pinned

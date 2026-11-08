@@ -50,13 +50,14 @@ class RetainedLinuxNativeEvidence(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'duplicate'):
             receiving.fields(rows + rows)
 
-    def test_fresh_public_candidates_native_returns_and_retained_failures(self):
+    def test_public_candidates_native_returns_and_retained_failures(self):
         path = Path(__file__).resolve().parents[1] / "examples/cad-handoff/qualification/check_public11.py"
         spec = importlib.util.spec_from_file_location("cad_public11_full", path)
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
         result = module.check()
         self.assertEqual(result['exact_candidates'], 6)
+        self.assertEqual(result['source_exposure'], {'newly_inspected': 4, 'exposed_regression': 2})
         self.assertEqual(result['native_fields'], 72)
         self.assertEqual(result['fresh_process_fields'], 72)
         self.assertEqual(result['corrected_images'], 24)

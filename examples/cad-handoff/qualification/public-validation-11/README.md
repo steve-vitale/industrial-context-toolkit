@@ -2,10 +2,17 @@
 
 This adds source structures beyond the drawings used to develop the exact attribute
 writer. The [plan](../PUBLIC-VALIDATION-11-PLAN.md) and six
-[selected paths](SELECTION.json) were committed at `d1885d0`, before drawing content was
-opened. The [methods](METHODS.json) were frozen at `02c8fa2`; exact derived inputs were
+[selected paths](SELECTION.json) were committed at `d1885d0`, before this run downloaded
+or opened the selected files. The [methods](METHODS.json) were frozen at `02c8fa2`; exact derived inputs were
 [bound](ADMISSION.json) at `c28959e`, before candidate execution. No original comparator,
 patcher, tolerance, layout producer or earlier evidence was changed.
+
+**Exposure correction:** the [prior-catalog/raw-hash audit](EXPOSURE-ERRATUM.json) found
+that `aw10.dxf` and `pe3.dxf` were already in round-1 admission records. The pre-run claim
+that all six contents were uninspected was overbroad. The fixed cohort is **four newly
+inspected sources plus two exposed regression originals**, with all six results retained.
+No case was replaced after observing its outcome. Newly inspected does not establish
+independent plant provenance, model-training blindness or unknown outside exposure.
 
 | Check | Observed result |
 |---|---|

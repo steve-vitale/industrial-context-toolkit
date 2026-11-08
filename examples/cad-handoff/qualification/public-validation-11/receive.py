@@ -57,6 +57,16 @@ def compare(actual,saved):
 def check(root,rendered=True):
     transfer.verify_methods()
     admission=read(HERE/'ADMISSION.json')
+    exposure=read(HERE/'EXPOSURE-ERRATUM.json')
+    prior_path=QUAL.parents[2]/exposure['prior_catalog']['path']
+    require(hashlib.sha256(prior_path.read_bytes().replace(b'\r\n',b'\n')).hexdigest()==exposure['prior_catalog']['sha256_lf'],'Prior exposure catalog changed')
+    prior_hashes={r['sha256'] for r in read(prior_path)['sources']}
+    require([(c['id'],c['original_sha256'],c['exposure']) for c in exposure['cases']]==
+            [(c['id'],c['original_sha256'],'exposed-regression' if c['original_sha256'] in prior_hashes else 'newly-inspected') for c in admission['cases']],
+            'Exposure classification disagrees with exact prior originals')
+    actual_exposure=dict(newly_inspected=sum(c['original_sha256'] not in prior_hashes for c in admission['cases']),
+                         exposed_regression=sum(c['original_sha256'] in prior_hashes for c in admission['cases']))
+    require(exposure['counts']==actual_exposure,'Published exposure counts disagree with source history')
     require(read(root/'inputs/ADMISSION.json')==admission,'Derived admission receipt differs')
     native=root/'native-1';manifest=read(HERE/'NATIVE-INPUTS.json')
     require(read(native/'NATIVE.json')==manifest,'Frozen native manifest differs')
@@ -105,9 +115,9 @@ def check(root,rendered=True):
         stderr=(native/'native'/(r['id']+'.stderr')).read_text(encoding='utf-8')
         require('absConfigFile: "/home/cad/.config/QCAD/QCAD3.conf"' in stderr,'Selected configuration stderr missing')
     require(read(native/'native-environment.json')['State']['Status']=='exited' and read(native/'native-environment.json')['State']['ExitCode']==0,'Native controller not normally terminal')
-    summary=dict(cases=len(first),exact_candidates=len(first),native_strict=counts,
+    summary=dict(cases=len(first),exact_candidates=len(first),native_strict=counts,source_exposure=exposure['counts'],
                  native_fields=first_fields,fresh_process_fields=fresh_fields,whole_cad_qualified=False,
-                 remaining=['Complete readable receiving acceptance; reviewed images retain overlaps/marks','Actual fresh-cohort native UI edit/save/close/reopen',
+                 remaining=['Complete readable receiving acceptance; reviewed images retain overlaps/marks','Actual native receiving UI edit/save/close/reopen on newly inspected sources',
                             'Planted-loss and second-revision controls on this cohort','Explain native full-save differences',
                             'Fresh foreign-payload/text/layout coverage; current public adaptation adds only ordinary test fields',
                             'Engineering/company acceptance not inferred'])
