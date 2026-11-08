@@ -54,7 +54,7 @@ class Probe(BridgeWorkflow):
         events_now=[json.loads(p.read_bytes()) for p in sorted(replies.iterdir())]
         completed=[r for r in events_now if r['result'].get('status')=='request' and r['result']['owner_pid']==helper['pid']]
         require(len(completed)==1,'Actual request was not served by same waiting helper')
-        self.record('waiting_request_received',helper=helper,observation=observed,event=completed[0])
+        self.record('waiting_request_received',helper=helper,observation=observed,helper_event=completed[0])
         next_helper=self.wait_helper();marker=dict(protocol='ict-native-io/1',run_id=self.config['run_id'],scope='cleanup-only')
         publish(Path('/home/cad/ict-mailbox-21/controls/stop.json'),wire(marker))
         self.record('waiting_stop_published',helper=next_helper,marker=marker)
@@ -81,5 +81,5 @@ if __name__=='__main__':
     try: w.run()
     except Exception:
         write(w.out/'FAILURE.json',dict(traceback=traceback.format_exc(),native_pid=w.native_pid,
-              native_start_identity=w.start_identity,native_live=w.alive(),scope='Original waiting probe failure; same processes retained'))
+              native_start_identity=w.start_identity,native_live=w.alive(),run_id=w.config['run_id'],scope='Original waiting probe failure; same processes retained'))
         raise
