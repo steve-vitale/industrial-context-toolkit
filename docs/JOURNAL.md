@@ -8473,3 +8473,10 @@ Local verification passes the five successor Linux evidence tests, all 28 unchan
 CAD tests and all three checkout byte-contract tests. Ledger (344 attempts), feature catalog
 (30 features, 22 reviewed) and script index (153 scripts) are current. These local checks
 remain distinct from full-suite/exact-head CI and independent engineering review.
+
+A final read-only cross-audit finds the accepted font-9 logs also selected
+`/work/qcad-config`. Their copied profile hash is provenance, not proof of loaded
+settings. The [erratum](../examples/cad-handoff/qualification/layout-preparation-10/PROFILE-PROVENANCE-ERRATUM.md)
+explicitly narrows that claim without changing any old code, freezes, numerical
+results, actual images or font/value observations. The current fourth-batch settings
+proof applies only to that batch and cannot retroactively qualify earlier runs.
