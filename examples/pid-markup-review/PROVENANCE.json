@@ -1,0 +1,30 @@
+{
+  "role": "Fictional authored development example; executable comparison and controls, not independent drawing interpretation",
+  "plan_commit": "2d90314",
+  "initial_tool_and_acceptance_key_commit": "89c2845",
+  "initial_outcomes": "Matched acceptance key on first run; initial private packet retained during authoring",
+  "source": "All SVGs, markups and observations authored for this example; no plant/consultant/customer records",
+  "reading_method": "Fixture observations authored from same design; no model read drawings/PDF/handwriting",
+  "implementation": "scripts/check_pid_markups.py",
+  "tool_sha256_lf": "e47ab37770f9031a3338649724bef83cf3800227c3d65d96fc2121519b6a358e",
+  "visual": "Direct author-session image inspection; Edge via local Playwright; mobile420/desktop1500 no horizontal overflow, seven markup headings, source text inside SVG frame; not independent engineering review",
+  "browser_fallback": "Connected browser rejected file URLs and timed out on local HTTP. Initial Edge CLI preview was followed by exact-viewport local Playwright capture; ephemeral preview dependencies stay outside repository.",
+  "ui_refinements": "Explicit flow arrows; readable field/status names; mobile stacked cells. Expected factual outcomes unchanged.",
+  "limits": [
+    "Inventory completeness and original/returned interpretations are supplied",
+    "No model-reading accuracy or timed human benefit measured",
+    "No automatic source fetching, company signoff, installed-state verification, CAD editing or context-map update"
+  ],
+  "files": {
+    "inputs/manifest.json": "42d1b17e7e0ef7d403f3caaf63b2d2c0ed215b164760156c5477400323c5350f",
+    "inputs/markup.svg": "a6ef9819027d3704337f8ed9cc41309e539e088e6d6e7dcb530930f933780493",
+    "inputs/original.svg": "05c2203d6b4b68b493dd3fd4cba8e477f10780492cdc4bd5a7386d8ea048ac71",
+    "inputs/readings.json": "a13a2ff9bc039529bc54c1d2b7b60ad9cd41a2ab6bce8b1ed592e64495a99ecd",
+    "inputs/requests.json": "3de278bd83d8410f9350b81c860babd5f679e39c473dba37aacc448fe06b6430",
+    "inputs/returned.svg": "d65b96b1649fd0b62b5a8d378e443dc3768deb1d6d301e044e803582cdd93e7c"
+  },
+  "screenshots": {
+    "markup-preview.png": "1655b55de2d1829d4072ef7b7e39b5b73b17b86de045d609082f2b587843a5d4",
+    "mobile-report.png": "0305ab78b89125deab61e5ef84951dc78e558df35769bd71c8ee6278c6facf38"
+  }
+}

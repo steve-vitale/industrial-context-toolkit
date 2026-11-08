@@ -548,6 +548,11 @@
     "scripts/cad_exchange.py": {
       "kind": "tool",
       "guide": "examples/cad-handoff/data-review/README.md"
+    },
+    "scripts/check_pid_markups.py": {
+      "kind": "tool",
+      "guide": "docs/PID_MARKUP_REVIEW.md",
+      "purpose": "Compare explicitly source-bound P&ID markup requests with supplied original/returned readings; retain per-check evidence, other observed changes and coverage gaps without reading images or accepting a drawing."
     }
   }
 }

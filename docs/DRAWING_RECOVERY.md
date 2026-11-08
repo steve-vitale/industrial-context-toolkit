@@ -14,6 +14,7 @@ backlog, source cut-off, target CAD acceptance and review capacity before quotin
 | Supported structured P&ID export | [DEXPI tutorial](../examples/from-dexpi-xml/README.md) | Supported exporter/version, source records and review of conversion omissions. |
 | Description and process knowledge | [Description tutorial](../examples/from-description/README.md) | Authored model, source-linked interpretation and detailed drawing layout. |
 | Editable CAD with retained asset attributes | [Bounded DXF exchange](../examples/cad-handoff/README.md) | The declared profile, stable IDs, reviewed changes and a tested receiving CAD tool/version. |
+| Markups sent to a consultant, with a returned drawing | [Requested markup review](PID_MARKUP_REVIEW.md) | Original/markup/returned sources and explicit page-scoped readings of each change; no complete plant graph is required. |
 
 For a plant with no P&IDs, a drawing is reconstructed from records and field observations. Agree what is
 as-designed, observed as-installed, and known as-operated. Walk down uncertain connections, valve positions,

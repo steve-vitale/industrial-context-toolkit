@@ -30,7 +30,7 @@ benchmark suites and the optional MCP/protocol job. This is software evidence, n
 company-client acceptance or plant validation. Check [committed-version CI](https://github.com/steve-vitale/industrial-context-toolkit/actions/workflows/tests.yml)
 for later revisions; the dated development records below apply only to their stated inputs and versions.
 
-The current runner registers **71 source-only and 92 full-suite programs**. The earlier 2026-11-06 local Windows run
+The current runner registers **72 source-only and 93 full-suite programs**. The earlier 2026-11-06 local Windows run
 passed **89/89 programs**, with **seven individual unittest cases skipped** and three platform notices explaining
 skips. It is not a complete run of every optional check. The drawing-to-map fixture now pins LF source bytes to
 fix [Linux CI regression #7](https://github.com/steve-vitale/industrial-context-toolkit/issues/7); use
@@ -42,7 +42,7 @@ Offline publication checks match
 **64 pass / 23 fail / 8 n/a**; its failures are retained research results, not failing unit tests.
 Pipeline freshness remains **50/52**: manual `te.pid_live` and `te.replay` receipts are stale.
 Saved predictions regenerate 23 matching tables and seven with documented historical formatting adjustments;
-five earlier diagnostic tables still lack predictions. The feature catalog has **30 features**, of which
+five earlier diagnostic tables still lack predictions. The feature catalog has **31 features**, of which
 **22 have current independently reviewed example outputs**; the generalization-matrix review is stale after
 the selected intake receipt refresh. Its numerical results are unchanged. The new CAD and photo examples still
 need independent review.
@@ -62,6 +62,7 @@ create those controls.
 
 | Piece | Contribution | Boundary |
 |---|---|---|
+| Consultant P&ID markup return review | [Original/markups/returned review](PID_MARKUP_REVIEW.md) with explicit per-change checks, other observed changes and a portable packet; imperfect and corrected fictional returns reproduce offline. | Supplied source-bound interpretation and annotation inventory; no automatic PDF/handwriting reading, model accuracy, full-sheet equivalence, engineering release or map update. |
 | Maintenance record handoff | [One fictional replacement](../examples/maintenance-handoff/README.md) links the existing before/after model, changes and closeout tools into a reproducible job. | Supplied identities and records; no CMMS acceptance, real recipient observation or measured review-time result. |
 | Bounded editable CAD exchange | [Source-retaining DXF edits and mapped draft context](../examples/cad-handoff/README.md), plus a [local form/agent equipment-data exchange](../examples/cad-handoff/data-review/README.md) that avoids CAD resaving. Six fresh authored cases preserve all unplanned bytes; real browser downloads/reopen are retained. A [Linux native UI experiment](../examples/cad-handoff/qualification/linux-native-7/README.md) observes actual edit/save/close/reopen on the exposed valve and readable native candidate labels. | Profiled existing attributes only; this metadata operation requires no CAD UI. Full native save still fails: 287 new Linux strict differences, original Windows 335/344 unchanged. Complete layout/font acceptance, fresh native validation and company acceptance remain open; no inferred connectivity or automatic synchronization. |
 | Public photo-to-record exercise | [Two attributed nameplate photographs](../examples/photo-to-record/README.md), candidate fields, six retained OCR attempts and explicit unknown asset identities. | Empty and incorrect OCR results remain visible. Candidate readings need independent review and site identity evidence; neither OCR confidence nor a legible plate establishes installed state. |

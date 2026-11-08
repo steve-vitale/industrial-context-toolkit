@@ -1,0 +1,20 @@
+{
+  "role": "Authored development acceptance before execution; no independent visual-reading key",
+  "markup_statuses": {
+    "M01": "supported",
+    "M02": "not_supported",
+    "M03": "partly_supported",
+    "M04": "not_supported",
+    "M05": "not_verifiable",
+    "M06": "baseline_mismatch",
+    "M07": "not_verifiable"
+  },
+  "counts": {"supported": 1, "not_supported": 2, "partly_supported": 1, "not_verifiable": 2, "baseline_mismatch": 1},
+  "other_observed_changes": 1,
+  "other_fact_coverage_gaps": 1,
+  "safety_markup_kept": "M02",
+  "corrected_return_statuses": {
+    "M01": "supported", "M02": "supported", "M03": "supported", "M04": "supported",
+    "M05": "not_verifiable", "M06": "baseline_mismatch", "M07": "supported"
+  }
+}
