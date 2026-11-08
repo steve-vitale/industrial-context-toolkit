@@ -90,9 +90,10 @@ def receive_job(job,out):
     basis=read(job/'job.json');case=basis['case']
     require(case in CASES and basis['role']=='receiving','Camera case/role differs')
     original=read(HERE/'native-ui-pairs-19/evidence'/case/'INVENTORY.json')['files']
-    # The original basis is source-bound separately; only the receiving role is added.
-    basis_bytes=(json.dumps({k:v for k,v in basis.items()if k!='role'},indent=2)+'\n').encode()
-    require(hashlib.sha256(basis_bytes).hexdigest()==original['raw/cases/'+case+'/basis.json']['sha256'],'Camera source basis changed')
+    # Retain original bytes, including CRLF; reserialization is not a source digest.
+    original_basis=BASE/'bases'/(case+'.json')
+    require(sha(original_basis)==original['raw/cases/'+case+'/basis.json']['sha256'],'Original camera basis bytes changed')
+    require(equal(read(original_basis),{k:v for k,v in basis.items()if k!='role'}),'Camera source basis changed')
     process=ui.environment(job);require(equal(process['job'],basis),'Camera actual process basis differs')
     require(read(job/'ui/RESULT.json')==dict(status='controller-complete',role='receiving',case=case,whole_cad_qualified=False)and not(job/'ui/FAILURE.json').exists(),'Camera controller incomplete/failed')
     frozen=read(job/'JOB-FREEZE.json');methods=read(BASE/'METHODS.json')
