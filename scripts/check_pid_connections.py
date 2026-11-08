@@ -1,0 +1,336 @@
+"""Check supplied source-bound P&ID port connections and explicit revision requirements.
+
+Standard library only. Reads prepared records, not drawing images or live signals. See
+docs/PID_CONNECTIONS.md. Exit 0 writes a draft packet even with findings; exit 2 refuses input.
+"""
+import argparse
+from collections import Counter, defaultdict
+import csv
+import hashlib
+import html
+import json
+from pathlib import Path
+import re
+import shutil
+import sys
+import tempfile
+
+from check_pid_markups import InputError, parse, require, text, typed
+
+
+def sha(raw):
+    return hashlib.sha256(raw).hexdigest()
+
+
+def write(path, value):
+    path.write_text(json.dumps(value, indent=2, ensure_ascii=False, allow_nan=False) + '\n', encoding='utf-8', newline='\n')
+
+
+def endpoint(value):
+    require(isinstance(value, dict) and set(value) == {'tag', 'port'}, 'Endpoint needs exact tag and port')
+    for k in value:
+        text(value[k], 'Endpoint ' + k)
+    return value['tag'], value['port']
+
+
+def connection(row):
+    require(isinstance(row, dict), 'Connection must be an object')
+    a, b = endpoint(row.get('from')), endpoint(row.get('to'))
+    require(row.get('relation') in ('process', 'signal'), 'Connection relation must be process or signal')
+    require('medium' in row and (row['medium'] is None or isinstance(row['medium'], str) and row['medium'].strip()),
+            'Medium must be nonempty text or explicit null')
+    return a, b, row['relation'], row['medium']
+
+
+def selector(row):
+    return endpoint(row['from']), row['relation'], row['medium']
+
+
+def prepare(manifest_path):
+    path = Path(manifest_path).resolve()
+    root = path.parent
+    manifest = parse(path.read_bytes())
+    require(isinstance(manifest, dict) and manifest.get('schema') == 'pid-port-review-1', 'Expected pid-port-review-1')
+    captured = {}
+
+    def pin(ref):
+        require(isinstance(ref, dict), 'Missing file reference')
+        name = text(ref.get('path'), 'File path')
+        require(not Path(name).is_absolute() and ':' not in name and '\\' not in name, 'Use relative local paths')
+        target = (root / name).resolve()
+        require(target.is_relative_to(root) and target.is_file(), 'Input must stay inside manifest folder')
+        require(re.fullmatch('[0-9a-f]{64}', ref.get('sha256', '')) is not None, 'Invalid SHA-256')
+        raw = target.read_bytes()
+        require(sha(raw) == ref['sha256'], 'Stale file binding: ' + name)
+        require(name not in captured or captured[name] == raw, 'Input changed while reading')
+        captured[name] = raw
+        return raw
+
+    documents = {}
+    require(isinstance(manifest.get('documents'), list) and manifest['documents'], 'Declare documents')
+    for doc in manifest['documents']:
+        require(isinstance(doc, dict), 'Document must be an object')
+        did = text(doc.get('id'), 'Document ID')
+        require(did not in documents, 'Duplicate document ID')
+        require(doc.get('role') in ('original', 'markup', 'returned'), 'Unknown document role')
+        text(doc.get('revision'), 'Source revision')
+        pin(doc)
+        documents[did] = doc
+    require({d['role'] for d in documents.values()} == {'original', 'markup', 'returned'}, 'Retain all three source roles')
+    catalog, records = parse(pin(manifest.get('catalog'))), parse(pin(manifest.get('records')))
+    require(isinstance(catalog, dict) and catalog.get('schema') == 'pid-port-catalog-1', 'Expected pid-port-catalog-1')
+    text(catalog.get('revision'), 'Catalog revision'); text(catalog.get('authority'), 'Catalog authority/limits')
+    require(isinstance(catalog.get('symbols'), list) and catalog['symbols'], 'Catalog needs symbols')
+    symbols = {}
+    for symbol in catalog['symbols']:
+        require(isinstance(symbol, dict), 'Symbol must be an object')
+        sid = text(symbol.get('id'), 'Symbol ID')
+        require(sid not in symbols, 'Duplicate symbol ID')
+        text(symbol.get('glyph'), 'Separate glyph reference')
+        require(isinstance(symbol.get('ports'), list) and symbol['ports'], 'Symbol needs explicit ports')
+        ports = {}
+        for port in symbol['ports']:
+            require(isinstance(port, dict), 'Port must be an object')
+            pid = text(port.get('id'), 'Port ID')
+            require(pid not in ports, 'Duplicate port ID')
+            require(port.get('direction') in ('in', 'out', 'bidirectional', None), 'Unknown port direction value')
+            require(port.get('relation') in ('process', 'signal', None), 'Unknown port relation value')
+            require('medium' in port and (port['medium'] is None or isinstance(port['medium'], str)
+                                         and port['medium'].strip()), 'Port needs medium or explicit null')
+            require('direction' in port and 'relation' in port, 'Use explicit null for unknown port meaning')
+            ports[pid] = port
+        symbols[sid] = ports
+    require(isinstance(records, dict) and records.get('schema') == 'pid-port-records-1', 'Expected pid-port-records-1')
+    text(records.get('method'), 'Reading method/limitations')
+    text(records.get('sheet'), 'Qualified sheet identity')
+    require(records.get('identity') in ('confirmed', 'uncertain'), 'Declare source correspondence confidence')
+
+    def evidence(row, role):
+        refs = row.get('evidence')
+        require(isinstance(refs, list) and refs, 'Every record needs source evidence')
+        for ref in refs:
+            require(isinstance(ref, dict), 'Evidence must be an object')
+            doc = documents.get(ref.get('document'))
+            require(doc is not None and doc['role'] == role, 'Wrong evidence source role')
+            require(ref.get('sha256') == doc['sha256'], 'Stale observation document hash')
+            require(type(ref.get('page')) is int and ref['page'] > 0, 'Declare positive page/record page')
+            box = ref.get('box_0_1000')
+            require(isinstance(box, list) and len(box) == 4 and
+                    all(type(x) in (int, float) and 0 <= x <= 1000 for x in box) and
+                    box[0] < box[2] and box[1] < box[3], 'Invalid evidence region')
+            text(ref.get('description'), 'Evidence reading/location')
+
+    for key in ('assets', 'connections', 'requirements', 'allowed_connections', 'coverage'):
+        require(isinstance(records.get(key), list), 'Declare ' + key)
+    require(records['assets'] and records['requirements'], 'Assets and requirements cannot be empty')
+    for asset in records['assets']:
+        require(isinstance(asset, dict), 'Asset must be an object')
+        text(asset.get('tag'), 'Asset tag'); text(asset.get('symbol'), 'Asset symbol')
+        evidence(asset, 'returned')
+    for key, role in (('connections', 'returned'), ('requirements', 'markup'), ('allowed_connections', 'original')):
+        ids = set()
+        for row in records[key]:
+            connection(row)
+            rid = text(row.get('id'), 'Record ID')
+            require(rid not in ids, 'Duplicate ' + key + ' ID')
+            ids.add(rid)
+            evidence(row, role)
+            if key == 'connections':
+                require(row.get('state') in ('known', 'unknown'), 'Declare observation state')
+                if row['state'] == 'unknown':
+                    text(row.get('reason'), 'Unknown observation reason')
+    selectors = [selector(r) for r in records['requirements']]
+    require(len(set(selectors)) == len(selectors), 'Conflicting requirements: one desired outgoing connection per selector')
+    desired = {selector(r): connection(r) for r in records['requirements']}
+    require(all(selector(r) not in desired or connection(r) == desired[selector(r)]
+                for r in records['allowed_connections']), 'Allowed baseline conflicts with requested replacement')
+    for row in records['coverage']:
+        require(isinstance(row, dict), 'Coverage must be an object')
+        endpoint(row.get('from'))
+        require(row.get('relation') in ('process', 'signal') and 'medium' in row, 'Coverage needs relation and medium')
+        require(row['medium'] is None or isinstance(row['medium'], str) and row['medium'].strip(), 'Invalid coverage medium')
+        require(type(row.get('complete')) is bool, 'Coverage complete must be Boolean')
+        text(row.get('basis'), 'Coverage basis/limitations')
+        evidence(row, 'returned')
+    return manifest, catalog, records, symbols, captured
+
+
+def evaluate(records, symbols):
+    assets = defaultdict(list)
+    for asset in records['assets']:
+        assets[asset['tag']].append(asset)
+    inventory_issues = []
+    for tag, rows in assets.items():
+        if len(rows) != 1:
+            inventory_issues.append({'tag': tag, 'code': 'ambiguous_tag'})
+        for row in rows:
+            if row['symbol'] not in symbols:
+                inventory_issues.append({'tag': tag, 'code': 'unknown_symbol'})
+
+    def inspect(row):
+        problems, unknown = [], []
+        if records['identity'] != 'confirmed':
+            unknown.append('source_identity_uncertain')
+        if row.get('state') == 'unknown':
+            unknown.append('observation_unknown')
+        if row['medium'] is None:
+            unknown.append('connection_medium_unknown')
+        for side, directions in (('from', ('out', 'bidirectional')), ('to', ('in', 'bidirectional'))):
+            tag, pid = endpoint(row[side])
+            choices = assets.get(tag, [])
+            if len(choices) != 1:
+                unknown.append(side + '_identity_unresolved')
+                continue
+            ports = symbols.get(choices[0]['symbol'])
+            if ports is None:
+                unknown.append(side + '_symbol_unknown')
+                continue
+            port = ports.get(pid)
+            if port is None:
+                problems.append(side + '_port_missing')
+                continue
+            for field in ('direction', 'relation', 'medium'):
+                if port[field] is None:
+                    unknown.append(side + '_' + field + '_unknown')
+            if port['direction'] is not None and port['direction'] not in directions:
+                problems.append(side + '_direction_incompatible')
+            if port['relation'] is not None and port['relation'] != row['relation']:
+                problems.append(side + '_relation_incompatible')
+            if port['medium'] is not None and row['medium'] is not None and port['medium'] != row['medium']:
+                problems.append(side + '_medium_incompatible')
+        return {'status': 'incompatible' if problems else 'unknown' if unknown else 'consistent',
+                'issues': problems, 'unknowns': unknown}
+
+    observed = [dict(r, validation=inspect(r)) for r in records['connections']]
+    required = []
+    for req in records['requirements']:
+        exact = [r for r in observed if connection(r) == connection(req)]
+        scope = [r for r in observed if selector(r) == selector(req)]
+        coverage = [r for r in records['coverage'] if selector(r) == selector(req)]
+        checked = inspect(req)
+        # Unknown observations cannot be overridden by a positive observation of the same selector.
+        unknown = any(r['state'] == 'unknown' for r in scope)
+        duplicates = Counter(connection(r) for r in scope if r['state'] == 'known')
+        if checked['status'] != 'consistent' or unknown:
+            status = 'unknown' if checked['status'] != 'incompatible' else 'incompatible'
+        elif any(n > 1 for n in duplicates.values()):
+            status = 'ambiguous'
+        elif any(r['validation']['status'] == 'consistent' and r['state'] == 'known' for r in exact):
+            status = 'supported'
+        elif coverage and all(r['complete'] for r in coverage):
+            status = 'missing'
+        else:
+            status = 'unknown'
+        required.append(dict(req, status=status, validation=checked,
+                             observed_ids=[r['id'] for r in scope], coverage=coverage, review_required=True))
+    allowed = {connection(r) for r in records['allowed_connections'] + records['requirements']}
+    others = [r for r in observed if r['state'] == 'known' and connection(r) not in allowed]
+    return {'schema': 'pid-port-result-1', 'sheet': records['sheet'], 'method': records['method'],
+            'requirements': required, 'connections': observed, 'inventory_issues': inventory_issues,
+            'other_connections': others, 'counts': dict(Counter(r['status'] for r in required)),
+            'engineering_accepted': False, 'cad_qualified': False, 'automatic_drawing_reading': False,
+            'structure_valid': True,
+            'limits': 'Prepared records only. Positive checks do not establish complete drawing equivalence, '
+                      'functional adequacy, standards compliance, installed condition or CAD preservation.'}
+
+
+def run(manifest_path, out):
+    manifest, catalog, records, symbols, captured = prepare(manifest_path)
+    result = evaluate(records, symbols)
+    result['catalog'] = {'revision': catalog['revision'], 'sha256': manifest['catalog']['sha256'], 'authority': catalog['authority']}
+    result['documents'] = manifest['documents']
+    out = Path(out).absolute()
+    require(not out.exists(), 'Output exists; retain prior packet and choose a new folder')
+    require(out.parent.is_dir(), 'Output parent must exist')
+    stage = Path(tempfile.mkdtemp(prefix='.pid-port-', dir=out.parent))
+    try:
+        # Map captured inputs to generated names; never let a source path overwrite packet files.
+        mapped = {}
+        for i, (name, raw) in enumerate(sorted(captured.items())):
+            suffix = Path(name).suffix.lower()
+            require(re.fullmatch(r'\.[a-z0-9]{1,10}', suffix) is not None, 'Simple source extension required')
+            dest = 'sources/' + str(i + 1).zfill(3) + suffix
+            (stage / 'sources').mkdir(exist_ok=True)
+            (stage / dest).write_bytes(raw)
+            mapped[name] = dest
+        portable = json.loads(typed(manifest))
+        for ref in portable['documents'] + [portable['catalog'], portable['records']]:
+            ref['path'] = mapped[ref['path']]
+        # Public results name the portable copies so a moved packet remains usable.
+        result['documents'] = portable['documents']
+        write(stage / 'manifest.json', portable)
+        write(stage / 'input-manifest.json', manifest)
+        write(stage / 'result.json', result)
+        rows = ['# P&ID connection revision review', '', 'Draft comparison of prepared records; all findings require review.', '',
+                '| Request | Status | Observed connections |', '|---|---|---|']
+        safe = lambda s: str(s).replace('|', '\\|').replace('\n', ' ')
+        rows += ['| ' + ' | '.join(map(safe, (r['id'], r['status'], ', '.join(r['observed_ids']) or 'none supplied'))) + ' |'
+                 for r in result['requirements']]
+        rows += ['', 'Other observed connections: ' + (', '.join(r['id'] for r in result['other_connections']) or 'none supplied'),
+                 '', result['limits'], '', 'See result.json for exact endpoints, validation issues, coverage and source locators.', '']
+        (stage / 'REPORT.md').write_text('\n'.join(rows), encoding='utf-8', newline='\n')
+        with (stage / 'review_queue.csv').open('w', encoding='utf-8', newline='') as stream:
+            writer = csv.DictWriter(stream, fieldnames=['id', 'kind', 'finding', 'owner', 'disposition', 'receiving_check'])
+            writer.writeheader()
+            for req in required_rows(result):
+                # Avoid spreadsheet formula execution when a user opens the queue.
+                writer.writerow({k: ("'" + str(v) if str(v).lstrip().startswith(('=', '+', '-', '@')) else v)
+                                 for k, v in req.items()})
+        # Escaped offline HTML with a concise manager view and expandable exact records.
+        body = '<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width">'
+        body += '<title>P&ID connection review</title><style>body{font:16px system-ui;max-width:75rem;margin:2rem auto;padding:0 1rem}pre{white-space:pre-wrap;overflow-wrap:anywhere}a,td{overflow-wrap:anywhere}table{width:100%;border-collapse:collapse;table-layout:fixed}td,th{text-align:left;padding:.5rem;border-bottom:1px solid #ccc}summary{cursor:pointer;margin:1rem 0}</style>'
+        body += '<h1>P&ID connection review</h1><p>Draft; engineering and CAD acceptance remain open.</p><pre>'
+        body += html.escape(result['sheet']) + '</pre><table><tr><th>Request</th><th>Expected connection</th><th>Finding</th></tr>'
+        for req in result['requirements']:
+            label = req['from']['tag'] + '.' + req['from']['port'] + ' → ' + req['to']['tag'] + '.' + req['to']['port']
+            body += '<tr>' + ''.join('<td>' + html.escape(v) + '</td>' for v in (req['id'], label, req['status'])) + '</tr>'
+        body += '</table><p>Other observed connections: ' + html.escape(', '.join(r['id'] for r in result['other_connections']) or 'none supplied') + '</p>'
+        body += '<p><a href="review_queue.csv">Correction and clarification queue</a></p><p>' + html.escape(result['limits']) + '</p>'
+        body += '<details><summary>Exact evidence, compatibility findings and coverage</summary><pre>'
+        body += html.escape(json.dumps(result, indent=2, ensure_ascii=False)) + '</pre></details><h2>Retained sources</h2><ul>'
+        body += ''.join('<li><a href="' + d['path'] + '">' + html.escape(d['id'] + ' / ' + d['revision']) + '</a></li>' for d in portable['documents']) + '</ul>'
+        (stage / 'REPORT.html').write_text(body, encoding='utf-8', newline='\n')
+        receipt = {'schema': 'pid-port-receipt-1', 'files': {p.relative_to(stage).as_posix(): sha(p.read_bytes())
+                   for p in sorted(stage.rglob('*')) if p.is_file()},
+                   'code': {name: sha((Path(__file__).parent / name).read_bytes().replace(b'\r\n', b'\n'))
+                            for name in ('check_pid_connections.py', 'check_pid_markups.py')}}
+        write(stage / 'receipt.json', receipt)
+        stage.rename(out)
+    finally:
+        if stage.exists():
+            shutil.rmtree(stage)
+    return result
+
+
+def required_rows(result):
+    for req in result['requirements']:
+        yield {'id': req['id'], 'kind': 'requested_connection', 'finding': req['status'], 'owner': '', 'disposition': '',
+               'receiving_check': 'Review exact endpoints and source coverage; retain a fresh revision and readings after correction'}
+    for conn in result['other_connections']:
+        yield {'id': conn['id'], 'kind': 'other_observed_connection', 'finding': 'needs_assessment', 'owner': '', 'disposition': '',
+               'receiving_check': 'Confirm whether change was intended; preserve prior and returned evidence'}
+    for conn in result['connections']:
+        if conn['validation']['status'] != 'consistent':
+            yield {'id': conn['id'], 'kind': 'connection_validation', 'finding': typed(conn['validation']), 'owner': '', 'disposition': '',
+                   'receiving_check': 'Resolve supplied identity, port meaning or incompatible connection'}
+    for issue in result['inventory_issues']:
+        yield {'id': issue['tag'], 'kind': 'inventory', 'finding': issue['code'], 'owner': '', 'disposition': '',
+               'receiving_check': 'Resolve exact identity and catalog mapping before relying on connection checks'}
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--manifest', required=True, type=Path)
+    parser.add_argument('--out', required=True, type=Path)
+    args = parser.parse_args()
+    try:
+        result = run(args.manifest, args.out)
+    except (InputError, OSError, ValueError, TypeError, KeyError) as exc:
+        print('REFUSED:', exc, file=sys.stderr)
+        return 2
+    print(json.dumps(result['counts'], sort_keys=True), '- draft packet:', args.out)
+    return 0
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())

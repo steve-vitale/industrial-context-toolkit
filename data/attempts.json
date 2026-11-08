@@ -5688,6 +5688,31 @@
         "examples/cad-handoff/qualification/header-boundaries-16/INVENTORY.json",
         "examples/cad-handoff/qualification/check_headers16.py"
       ]
+    },
+    {
+      "id": "A352",
+      "function": "intake_and_reuse",
+      "date": "2026-11-08",
+      "change": "Add exact typed port connection checks and an additive optional markup fact, with separately fixed source schedules/key and a scoped public engineering-rule review.",
+      "hypothesis": "Explicit port identity and supplied endpoint meaning detect wrong-input distinctions hidden by tag-only facts while incomplete coverage and uncertain interpretations remain open.",
+      "evidence": "Frozen initial key: R1 supported,R2/R3 missing,R4 unknown; other C3/C4 retained. Corrected: R1/R2/R3 supported,R4 unknown,no other connections. Exact-key tag representation matches the same tags despite PV/SP mismatch; exact-port representation differs. Eleven new regression methods plus nine original markup methods pass. Original packet replay changes only tool source hash and its receipt; all other old packet bytes/factual outcomes unchanged.",
+      "runs": "Plan/source/key commit1e9b761 before implementation. Exposed fictional CSV/text schedules; same assistant authors/sees inputs,key,code; no independent reviewer, blind model run or visual reading. First import syntax failure and old-code-hash replay failures retained. New outputs are actual standard-library execution; public sources fingerprinted and linked.",
+      "verdict": "kept",
+      "why": "Addresses exact endpoint semantics and a bounded manager correction handoff without converting a design heuristic into a universal rule. Public DEXPI/pyDEXPI methods reviewed, not newly integrated. No engineering acceptance, complete drawing equivalence, human saving or new CAD qualification; prior native failures unchanged.",
+      "source": [
+        "docs/JOURNAL.md#199-check-exact-ports-without-confusing-structure-engineering-and-cad",
+        "docs/PID_CONNECTIONS.md",
+        "docs/PID_RULES_RESEARCH.md",
+        "examples/pid-port-review/PLAN.md",
+        "examples/pid-port-review/ACCEPTANCE.json",
+        "examples/pid-port-review/README.md",
+        "examples/pid-port-review/worked/replay.json",
+        "examples/pid-port-review/attempt-1/FAILURE.json",
+        "examples/pid-port-review/attempt-1/OLD-PACKET-FAILURE.json",
+        "examples/pid-markup-review/CODE-UPDATE.json",
+        "scripts/check_pid_connections.py",
+        "scripts/test_pid_connections.py"
+      ]
     }
   ],
   "not_tried": [

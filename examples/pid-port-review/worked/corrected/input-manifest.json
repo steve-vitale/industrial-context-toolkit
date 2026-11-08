@@ -1,0 +1,34 @@
+{
+  "schema": "pid-port-review-1",
+  "documents": [
+    {
+      "id": "original",
+      "role": "original",
+      "path": "source/original.csv",
+      "revision": "A",
+      "sha256": "197105a61c3a602646603a0a96ae67da72c92bc84213455b50d7fe80c5a60fe7"
+    },
+    {
+      "id": "markup",
+      "role": "markup",
+      "path": "source/markup.txt",
+      "revision": "A-M1",
+      "sha256": "9b2d7dbb1897005b85846d0b05b9e10bec796176005f02dff015232f19970778"
+    },
+    {
+      "id": "returned",
+      "role": "returned",
+      "path": "source/corrected.csv",
+      "revision": "C",
+      "sha256": "5ddfbf7c5425eed1d0e18e5701a3ab4aaf1c632091196268b71a46a5e8fd554f"
+    }
+  ],
+  "catalog": {
+    "path": "source/catalog.json",
+    "sha256": "bd5cd6ff4461f656f2f5e0d0aec7630f6b3b143b0bec64d17de8949341d00506"
+  },
+  "records": {
+    "path": "records.json",
+    "sha256": "791a05001ec72c8fca57359b54cee58c3fd6e956ee1aa3ad29ad538745bac94b"
+  }
+}

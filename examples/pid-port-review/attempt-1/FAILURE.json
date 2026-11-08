@@ -1,0 +1,8 @@
+{
+  "command": "python -X utf8 examples/pid-port-review/replay.py --out C:/Users/Steve/.cp-scratch/pid-port-review-attempt-1",
+  "exit_code": 1,
+  "failure": "SyntaxError at check_pid_connections.py line 174: missing closing parenthesis on endpoint-loop iterable",
+  "execution_boundary": "Import failed before source preparation or evaluation; no native CAD or model call",
+  "retained_source": "check_pid_connections.py.txt",
+  "resolution": "Add missing parenthesis; retain first attempt; use a new output folder"
+}

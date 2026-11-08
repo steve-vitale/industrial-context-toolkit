@@ -1,0 +1,49 @@
+{
+  "initial": {
+    "requirements": {
+      "R1": "supported",
+      "R2": "missing",
+      "R3": "missing",
+      "R4": "unknown"
+    },
+    "other_connections": [
+      "C3",
+      "C4"
+    ]
+  },
+  "corrected": {
+    "requirements": {
+      "R1": "supported",
+      "R2": "supported",
+      "R3": "supported",
+      "R4": "unknown"
+    },
+    "other_connections": []
+  },
+  "baseline": {
+    "schema": "pid-port-baseline-1",
+    "tag_only_wrong_input_supported": true,
+    "port_aware_wrong_input_supported": false,
+    "requested": {
+      "sheet": "fictional WT/01",
+      "subject": "PT-103",
+      "relation": "signal",
+      "to": "PIC-103",
+      "kind": "port_connection",
+      "port": "OUT",
+      "to_port": "SP",
+      "medium": "electric"
+    },
+    "observed": {
+      "sheet": "fictional WT/01",
+      "subject": "PT-103",
+      "relation": "signal",
+      "to": "PIC-103",
+      "kind": "port_connection",
+      "port": "OUT",
+      "to_port": "PV",
+      "medium": "electric"
+    },
+    "scope": "Exact fact-key equivalence using the same wrong-input endpoint observation. The old representation drops both ports and medium; it cannot express that distinction. Supported here means endpoint identity match, not a markup acceptance or accuracy measurement."
+  }
+}

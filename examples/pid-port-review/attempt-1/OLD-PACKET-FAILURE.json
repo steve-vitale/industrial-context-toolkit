@@ -1,0 +1,7 @@
+{
+  "command": "python -X utf8 scripts/test_pid_markups.py",
+  "result": "9 tests ran; two subtests in committed-packet replay failed (worked and corrected)",
+  "cause": "The saved result includes the checker source hash. The additive port fact changed that hash; the prior committed result bound the old source.",
+  "resolution": "Replay both old fixtures; require the only result-value difference to be tool_sha256_lf, require all other packet files except result/receipt to be byte-identical, retain old revision and exact hashes in CODE-UPDATE.json. Do not relax the test.",
+  "scope": "Software receipt freshness regression; no factual outcome or old key changed"
+}

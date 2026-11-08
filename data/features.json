@@ -1760,6 +1760,34 @@
       "time": "Actual interpretation/review effort and model-reading accuracy unmeasured",
       "you_get": "Each request supported/partial/missed/unverifiable, before/returned locators, other observed changes/coverage gaps, exact retained sources and portable draft packet",
       "why": "A new revision or present tag does not prove requested topology or notes were updated. Fictional software controls retain missing evidence and stale revisions without claiming automatic visual reading, full drawing equivalence or company acceptance."
+    },
+    {
+      "id": "pid-port-review",
+      "category": "check",
+      "title": "Exact port consistency and requested P&ID connection revision checks",
+      "tools": [
+        "scripts/check_pid_connections.py"
+      ],
+      "guide": "docs/PID_CONNECTIONS.md",
+      "example_outputs": [
+        "examples/pid-port-review/ACCEPTANCE.json",
+        "examples/pid-port-review/PUBLIC-SOURCES.json",
+        "examples/pid-port-review/worked/replay.json",
+        "examples/pid-port-review/worked/initial/result.json",
+        "examples/pid-port-review/worked/initial/REPORT.html",
+        "examples/pid-port-review/worked/initial/review_queue.csv",
+        "examples/pid-port-review/worked/corrected/result.json",
+        "examples/pid-port-review/README.md"
+      ],
+      "tests": [
+        "scripts/test_pid_connections.py",
+        "scripts/test_pid_markups.py"
+      ],
+      "job": "Find a connection on the wrong input, a missing requested signal or an unrequested connection in supplied revision records",
+      "you_need": "Original, exact instructions and returned revision; prepared endpoint records, explicit coverage and versioned locally reviewed port meanings; Python3.10+ standard library",
+      "time": "Human preparation/interpretation/review effort unmeasured; no blind image-reading result",
+      "you_get": "Exact required and other connections, source/port/type findings and unknowns, portable reports/queue and exact source receipts",
+      "why": "Correct tags can hide wrong terminal connections. Separately fixed source/key records test exact prepared-record comparison, not independent engineering review, universal design rules or CAD preservation."
     }
   ]
 }

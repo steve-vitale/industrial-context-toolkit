@@ -61,6 +61,7 @@ separates public software work from recipient and company-system acceptance.
 | Calculate recorded feed/energy by explicit phase, optionally bound to twin asset IDs | [Fictional batch tutorial and reusable tool](../examples/batch-analysis/README.md) |
 | Compare selected batch/event/recipe/lab/outcome records and check their calculation inputs | [Recorded batch joins](../examples/batch-analysis/record-joins/README.md): explicit identities, availability, gaps and retained originals |
 | Check a supplied loop list | [Loop audit](../examples/loop-audit/README.md) |
+| Check a returned connection's exact ports, direction and signal type | [Port consistency and revision checks](PID_CONNECTIONS.md) · [Public rule methods](PID_RULES_RESEARCH.md) |
 | Exchange captured structured-source evidence | [Local source handoff](../examples/source-handoff/README.md) |
 | Compare saved model/method answers on declared tasks | [Task/model benchmarks](../benchmarks/README.md) |
 | Add a public P&ID with an independently verified answer key | [Contribute a P&ID](CONTRIBUTE_A_PID.md) |

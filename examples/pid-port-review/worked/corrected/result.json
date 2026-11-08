@@ -1,0 +1,430 @@
+{
+  "schema": "pid-port-result-1",
+  "sheet": "fictional WT/01",
+  "method": "Author-prepared endpoint records from exact CSV columns and manually transcribed instructions. Whole-record locators, not drawing regions. Same assistant authored sources/key/code; no independent review or image reading. Assets are an authored fixture inventory.",
+  "requirements": [
+    {
+      "id": "R1",
+      "from": {
+        "tag": "PT-102",
+        "port": "OUT"
+      },
+      "to": {
+        "tag": "PIC-102",
+        "port": "PV"
+      },
+      "relation": "signal",
+      "medium": "electric",
+      "evidence": [
+        {
+          "document": "markup",
+          "sha256": "9b2d7dbb1897005b85846d0b05b9e10bec796176005f02dff015232f19970778",
+          "page": 1,
+          "box_0_1000": [
+            0,
+            0,
+            1000,
+            1000
+          ],
+          "description": "R1: exact endpoints in retained record"
+        }
+      ],
+      "status": "supported",
+      "validation": {
+        "status": "consistent",
+        "issues": [],
+        "unknowns": []
+      },
+      "observed_ids": [
+        "C2"
+      ],
+      "coverage": [
+        {
+          "from": {
+            "tag": "PT-102",
+            "port": "OUT"
+          },
+          "relation": "signal",
+          "medium": "electric",
+          "complete": true,
+          "basis": "Complete fictional schedule for selector",
+          "evidence": [
+            {
+              "document": "returned",
+              "sha256": "5ddfbf7c5425eed1d0e18e5701a3ab4aaf1c632091196268b71a46a5e8fd554f",
+              "page": 1,
+              "box_0_1000": [
+                0,
+                0,
+                1000,
+                1000
+              ],
+              "description": "Declared scope; this is a fixture assumption, not verified visual coverage"
+            }
+          ]
+        }
+      ],
+      "review_required": true
+    },
+    {
+      "id": "R2",
+      "from": {
+        "tag": "PT-104",
+        "port": "OUT"
+      },
+      "to": {
+        "tag": "PIC-104",
+        "port": "PV"
+      },
+      "relation": "signal",
+      "medium": "electric",
+      "evidence": [
+        {
+          "document": "markup",
+          "sha256": "9b2d7dbb1897005b85846d0b05b9e10bec796176005f02dff015232f19970778",
+          "page": 1,
+          "box_0_1000": [
+            0,
+            0,
+            1000,
+            1000
+          ],
+          "description": "R2: exact endpoints in retained record"
+        }
+      ],
+      "status": "supported",
+      "validation": {
+        "status": "consistent",
+        "issues": [],
+        "unknowns": []
+      },
+      "observed_ids": [
+        "C6"
+      ],
+      "coverage": [
+        {
+          "from": {
+            "tag": "PT-104",
+            "port": "OUT"
+          },
+          "relation": "signal",
+          "medium": "electric",
+          "complete": true,
+          "basis": "Complete fictional schedule for selector",
+          "evidence": [
+            {
+              "document": "returned",
+              "sha256": "5ddfbf7c5425eed1d0e18e5701a3ab4aaf1c632091196268b71a46a5e8fd554f",
+              "page": 1,
+              "box_0_1000": [
+                0,
+                0,
+                1000,
+                1000
+              ],
+              "description": "Declared scope; this is a fixture assumption, not verified visual coverage"
+            }
+          ]
+        }
+      ],
+      "review_required": true
+    },
+    {
+      "id": "R3",
+      "from": {
+        "tag": "PT-103",
+        "port": "OUT"
+      },
+      "to": {
+        "tag": "PIC-103",
+        "port": "SP"
+      },
+      "relation": "signal",
+      "medium": "electric",
+      "evidence": [
+        {
+          "document": "markup",
+          "sha256": "9b2d7dbb1897005b85846d0b05b9e10bec796176005f02dff015232f19970778",
+          "page": 1,
+          "box_0_1000": [
+            0,
+            0,
+            1000,
+            1000
+          ],
+          "description": "R3: exact endpoints in retained record"
+        }
+      ],
+      "status": "supported",
+      "validation": {
+        "status": "consistent",
+        "issues": [],
+        "unknowns": []
+      },
+      "observed_ids": [
+        "C5"
+      ],
+      "coverage": [
+        {
+          "from": {
+            "tag": "PT-103",
+            "port": "OUT"
+          },
+          "relation": "signal",
+          "medium": "electric",
+          "complete": true,
+          "basis": "Complete fictional schedule for selector",
+          "evidence": [
+            {
+              "document": "returned",
+              "sha256": "5ddfbf7c5425eed1d0e18e5701a3ab4aaf1c632091196268b71a46a5e8fd554f",
+              "page": 1,
+              "box_0_1000": [
+                0,
+                0,
+                1000,
+                1000
+              ],
+              "description": "Declared scope; this is a fixture assumption, not verified visual coverage"
+            }
+          ]
+        }
+      ],
+      "review_required": true
+    },
+    {
+      "id": "R4",
+      "from": {
+        "tag": "PT-105",
+        "port": "OUT"
+      },
+      "to": {
+        "tag": "PIC-105",
+        "port": "PV"
+      },
+      "relation": "signal",
+      "medium": "electric",
+      "evidence": [
+        {
+          "document": "markup",
+          "sha256": "9b2d7dbb1897005b85846d0b05b9e10bec796176005f02dff015232f19970778",
+          "page": 1,
+          "box_0_1000": [
+            0,
+            0,
+            1000,
+            1000
+          ],
+          "description": "R4: exact endpoints in retained record"
+        }
+      ],
+      "status": "unknown",
+      "validation": {
+        "status": "consistent",
+        "issues": [],
+        "unknowns": []
+      },
+      "observed_ids": [],
+      "coverage": [
+        {
+          "from": {
+            "tag": "PT-105",
+            "port": "OUT"
+          },
+          "relation": "signal",
+          "medium": "electric",
+          "complete": false,
+          "basis": "Declared unreadable area, no observation; do not infer absence",
+          "evidence": [
+            {
+              "document": "returned",
+              "sha256": "5ddfbf7c5425eed1d0e18e5701a3ab4aaf1c632091196268b71a46a5e8fd554f",
+              "page": 1,
+              "box_0_1000": [
+                0,
+                0,
+                1000,
+                1000
+              ],
+              "description": "Declared scope; this is a fixture assumption, not verified visual coverage"
+            }
+          ]
+        }
+      ],
+      "review_required": true
+    }
+  ],
+  "connections": [
+    {
+      "id": "C1",
+      "from": {
+        "tag": "PT-101",
+        "port": "OUT"
+      },
+      "to": {
+        "tag": "PIC-101",
+        "port": "PV"
+      },
+      "relation": "signal",
+      "medium": "electric",
+      "state": "known",
+      "evidence": [
+        {
+          "document": "returned",
+          "sha256": "5ddfbf7c5425eed1d0e18e5701a3ab4aaf1c632091196268b71a46a5e8fd554f",
+          "page": 1,
+          "box_0_1000": [
+            0,
+            0,
+            1000,
+            1000
+          ],
+          "description": "C1: complete exact CSV row"
+        }
+      ],
+      "validation": {
+        "status": "consistent",
+        "issues": [],
+        "unknowns": []
+      }
+    },
+    {
+      "id": "C2",
+      "from": {
+        "tag": "PT-102",
+        "port": "OUT"
+      },
+      "to": {
+        "tag": "PIC-102",
+        "port": "PV"
+      },
+      "relation": "signal",
+      "medium": "electric",
+      "state": "known",
+      "evidence": [
+        {
+          "document": "returned",
+          "sha256": "5ddfbf7c5425eed1d0e18e5701a3ab4aaf1c632091196268b71a46a5e8fd554f",
+          "page": 1,
+          "box_0_1000": [
+            0,
+            0,
+            1000,
+            1000
+          ],
+          "description": "C2: complete exact CSV row"
+        }
+      ],
+      "validation": {
+        "status": "consistent",
+        "issues": [],
+        "unknowns": []
+      }
+    },
+    {
+      "id": "C5",
+      "from": {
+        "tag": "PT-103",
+        "port": "OUT"
+      },
+      "to": {
+        "tag": "PIC-103",
+        "port": "SP"
+      },
+      "relation": "signal",
+      "medium": "electric",
+      "state": "known",
+      "evidence": [
+        {
+          "document": "returned",
+          "sha256": "5ddfbf7c5425eed1d0e18e5701a3ab4aaf1c632091196268b71a46a5e8fd554f",
+          "page": 1,
+          "box_0_1000": [
+            0,
+            0,
+            1000,
+            1000
+          ],
+          "description": "C5: complete exact CSV row"
+        }
+      ],
+      "validation": {
+        "status": "consistent",
+        "issues": [],
+        "unknowns": []
+      }
+    },
+    {
+      "id": "C6",
+      "from": {
+        "tag": "PT-104",
+        "port": "OUT"
+      },
+      "to": {
+        "tag": "PIC-104",
+        "port": "PV"
+      },
+      "relation": "signal",
+      "medium": "electric",
+      "state": "known",
+      "evidence": [
+        {
+          "document": "returned",
+          "sha256": "5ddfbf7c5425eed1d0e18e5701a3ab4aaf1c632091196268b71a46a5e8fd554f",
+          "page": 1,
+          "box_0_1000": [
+            0,
+            0,
+            1000,
+            1000
+          ],
+          "description": "C6: complete exact CSV row"
+        }
+      ],
+      "validation": {
+        "status": "consistent",
+        "issues": [],
+        "unknowns": []
+      }
+    }
+  ],
+  "inventory_issues": [],
+  "other_connections": [],
+  "counts": {
+    "supported": 3,
+    "unknown": 1
+  },
+  "engineering_accepted": false,
+  "cad_qualified": false,
+  "automatic_drawing_reading": false,
+  "structure_valid": true,
+  "limits": "Prepared records only. Positive checks do not establish complete drawing equivalence, functional adequacy, standards compliance, installed condition or CAD preservation.",
+  "catalog": {
+    "revision": "fictional-electric-1",
+    "sha256": "bd5cd6ff4461f656f2f5e0d0aec7630f6b3b143b0bec64d17de8949341d00506",
+    "authority": "Author-defined fictional endpoint meanings; CC0-1.0. No standards conformance asserted."
+  },
+  "documents": [
+    {
+      "id": "original",
+      "path": "sources/005.csv",
+      "revision": "A",
+      "role": "original",
+      "sha256": "197105a61c3a602646603a0a96ae67da72c92bc84213455b50d7fe80c5a60fe7"
+    },
+    {
+      "id": "markup",
+      "path": "sources/004.txt",
+      "revision": "A-M1",
+      "role": "markup",
+      "sha256": "9b2d7dbb1897005b85846d0b05b9e10bec796176005f02dff015232f19970778"
+    },
+    {
+      "id": "returned",
+      "path": "sources/003.csv",
+      "revision": "C",
+      "role": "returned",
+      "sha256": "5ddfbf7c5425eed1d0e18e5701a3ab4aaf1c632091196268b71a46a5e8fd554f"
+    }
+  ]
+}

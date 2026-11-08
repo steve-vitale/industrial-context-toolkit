@@ -553,6 +553,11 @@
       "kind": "tool",
       "guide": "docs/PID_MARKUP_REVIEW.md",
       "purpose": "Compare explicitly source-bound P&ID markup requests with supplied original/returned readings; retain per-check evidence, other observed changes and coverage gaps without reading images or accepting a drawing."
+    },
+    "scripts/check_pid_connections.py": {
+      "kind": "tool",
+      "guide": "docs/PID_CONNECTIONS.md",
+      "purpose": "Check supplied exact P&ID port connections, direction and type against a source-bound catalog and revision requirements; retain missing/unknown/other observations without reading drawings or qualifying CAD."
     }
   }
 }

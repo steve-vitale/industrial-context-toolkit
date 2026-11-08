@@ -8799,3 +8799,32 @@ or explicit non-applicable reports, native commands/profile/resource limits and 
 received offline from bounded exact chunks. Old core methods, fixtures and strict failures are unchanged.
 Other paper/header/resource causes, complete readable receiving and fresh native UI/editability/revision
 qualification remain open. These exposed software controls establish no plant/company/engineering acceptance.
+
+
+## 199. Check exact ports without confusing structure, engineering and CAD
+
+2026-11-08. The public JSON/symbol-generation discussion raised a concrete missing distinction:
+correct instrument tags can still connect to the wrong input. The plan, fixed fictional CSV/text
+sources, catalog and separately authored acceptance key were committed at `1e9b761` before the new
+checker. The same assistant authored and saw all inputs/key/code; this is exposed development,
+not independent human review, blind model evaluation or visual interpretation accuracy.
+
+The standard-library tool checks exact ports, direction, relation and signal medium against supplied
+catalog meanings. It retains incomplete coverage, unknown types, uncertain/duplicate identities,
+other observed connections and every source binding. The existing markup route gains an optional
+port-level fact; its old match semantics and keys remain. All prior CAD comparators/failures are intact.
+
+The actual initial replay matches the frozen key: R1 supported, R2/R3 missing under explicit coverage,
+R4 unknown, with old wrong-input C3 and unrequested C4 retained. The separate corrected return supports
+R1/R2/R3 while R4 stays unknown; there are no other supplied connections. The controlled old/new fact
+representation comparison shows the terminal distinction, not a reader-accuracy improvement.
+Eleven new regression methods and nine original markup methods pass. First import syntax failure and
+two old packet code-fingerprint replay failures are retained. Both old packets were replayed unchanged:
+the only result-value change is the tool source hash; all other old packet bytes except receipts match.
+`examples/pid-markup-review/CODE-UPDATE.json` pins the old revision and exact before/after hashes.
+
+Public DEXPI/pyDEXPI and five published engineering-rule examples were reviewed with source/version
+fingerprints. No upstream code was copied, adapter claimed or design heuristic made a universal rule.
+The manager route provides a correction queue and receiving boundary; actual preparation/review effort,
+independent engineering judgment, full image interpretation and CAD qualification remain unmeasured/open.
+The registered repository checks and exact-head CI are reported separately from these bounded controls.

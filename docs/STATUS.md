@@ -1,6 +1,6 @@
 # State of the toolkit
 
-Implementation snapshot: **2026-11-06**. The public package is **Industrial Context Toolkit** (renamed from Engineering Context Toolkit on 2026-11-05; old links redirect).
+Implementation snapshot: **2026-11-08**. The public package is **Industrial Context Toolkit** (renamed from Engineering Context Toolkit on 2026-11-05; old links redirect).
 Use the [job selector](../README.md#start-wherever-you-are) to choose a tool or the
 [first-question guide](../examples/first-pilot/README.md) for a no-install contribution.
 The [workflow map](WORKFLOWS.md) owns supported inputs and outputs; this page owns current readiness and gaps.
@@ -30,7 +30,7 @@ benchmark suites and the optional MCP/protocol job. This is software evidence, n
 company-client acceptance or plant validation. Check [committed-version CI](https://github.com/steve-vitale/industrial-context-toolkit/actions/workflows/tests.yml)
 for later revisions; the dated development records below apply only to their stated inputs and versions.
 
-The current runner registers **72 source-only and 93 full-suite programs**. The earlier 2026-11-06 local Windows run
+The current runner registers **73 source-only and 94 full-suite programs**. The earlier 2026-11-06 local Windows run
 passed **89/89 programs**, with **seven individual unittest cases skipped** and three platform notices explaining
 skips. It is not a complete run of every optional check. The drawing-to-map fixture now pins LF source bytes to
 fix [Linux CI regression #7](https://github.com/steve-vitale/industrial-context-toolkit/issues/7); use
@@ -42,10 +42,10 @@ Offline publication checks match
 **64 pass / 23 fail / 8 n/a**; its failures are retained research results, not failing unit tests.
 Pipeline freshness remains **50/52**: manual `te.pid_live` and `te.replay` receipts are stale.
 Saved predictions regenerate 23 matching tables and seven with documented historical formatting adjustments;
-five earlier diagnostic tables still lack predictions. The feature catalog has **31 features**, of which
+five earlier diagnostic tables still lack predictions. The feature catalog has **32 features**, of which
 **22 have current independently reviewed example outputs**; the generalization-matrix review is stale after
 the selected intake receipt refresh. Its numerical results are unchanged. The new CAD and photo examples still
-need independent review.
+need independent review. The new [port revision example](../examples/pid-port-review/README.md) also awaits independent review; its separately fixed key is author-visible.
 Neither a passing software test nor a matching source hash establishes an accepted engineering conclusion.
 
 The coherence audit corrected [core graph reduction](GRAPH_EXPORT.md#two-profiles-the-full-record-and-the-part-a-change-system-needs): connections stay
