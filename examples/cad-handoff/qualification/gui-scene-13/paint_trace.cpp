@@ -82,7 +82,7 @@ void QPainter::drawLines(const QLineF *lines,int count) {
 }
 void QPainter::fillPath(const QPainterPath &path,const QBrush &b) {
     static auto call=original<void(*)(QPainter*,const QPainterPath&,const QBrush&)>("_ZN8QPainter8fillPathERK12QPainterPathRK6QBrush");
-    record(this,"fill",{{"elements",pathElements(path)},{"fill_rule",int(path.fillRule())},{"fill_brush",brush(b)}});
+    record(this,"fill",{{"elements",pathElements(path)},{"fill_rule",int(path.fillRule())},{"fill_brush",::brush(b)}});
     Forwarding scope;call(this,path,b);
 }
 bool QPainter::begin(QPaintDevice *d) {
