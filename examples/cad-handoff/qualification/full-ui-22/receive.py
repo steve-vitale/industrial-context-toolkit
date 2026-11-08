@@ -17,6 +17,7 @@ from mailbox import wire
 from contract import group_native, verify_inventory, verify_selection
 import cad_handoff as ch
 from PIL import Image
+sys.path.insert(0, str(HERE))
 
 
 def require(ok, message):
@@ -289,7 +290,7 @@ def receive(root, preparation, methods):
         require(saved[0]['path'] == '/work/returned.dxf' and saved[0]['sha256'] == sha(job/'returned.dxf'), 'Retained native return changed')
         document = ch.load(job/'returned.dxf'); require(document.dxfversion == 'AC1027', 'Native Save As format differs')
         returned = ch.assets(document); require({a['id']:a['attributes'] for a in returned} == state['after' if role == 'edited' else 'before'] and len(returned) == len(basis['assets']), 'Returned DXF asset/foreign values differ')
-        comparison = ch.compare(source,ch.snapshot(job/'returned.dxf'),plan if role == 'edited' else dict(plan,changes=[]))
+        comparison = ch.compare(source,ch.snapshot(job/'returned.dxf'),plan if role == 'edited' else None)
         comparisons = dict(unexpected=len(comparison['unexpected']),status=comparison['status'],report=comparison)
     return dict(status='full-ui-development-packet-received',case=basis['case'],role=role,helper_calls=history['calls'],observations=len(observed),
                 editable_field_checks=state['editable_field_checks'],committed_edits=state['committed_edits'],**image_result,
