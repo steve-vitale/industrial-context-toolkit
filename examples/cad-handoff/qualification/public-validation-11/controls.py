@@ -27,8 +27,13 @@ def foreign_revision(raw,path):
     record=next(r for r in records if raw_records.own_handle(r)==attr.dxf.handle.upper())
     clone=raw[record['start']:record['end']]
     handle=format(max(int(k,16) for k in doc.entitydb.keys())+1,'X').encode()
-    for code,value in [(5,handle),(2,b'QUAL_FOREIGN_CONTROL'),(1,b'KEEP-FOREIGN-1')]:
-        clone=raw_value(clone,raw_records.records(clone)[0],code,value)
+    changes={5:handle,2:b'QUAL_FOREIGN_CONTROL',1:b'KEEP-FOREIGN-1'}
+    spans=[]
+    for code,value in changes.items():
+        tags=[t for t in record['tags'] if t[0]==code]
+        if len(tags)!=1:raise ValueError('Ambiguous foreign-control source tag')
+        t=tags[0];spans.append((t[2]-record['start'],t[3]-record['start'],value))
+    for start,end,value in sorted(spans,reverse=True):clone=clone[:start]+value+clone[end:]
     seqend=next(r for r in records if raw_records.own_handle(r)==ref.seqend.dxf.handle.upper())
     raw=raw[:seqend['start']]+clone+raw[seqend['start']:]
     # Use an existing registered application and a record without prior XDATA.

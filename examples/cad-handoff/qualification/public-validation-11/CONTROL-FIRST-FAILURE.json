@@ -1,0 +1,10 @@
+{
+  "record_type": "Transcription of observed local execution error; not a native tool receipt",
+  "method_commit": "b18180a",
+  "output": "controls-1/libre-air-water/unplanned-geometry.dxf retained locally",
+  "error": "cad_handoff.InputError: A complete explicit DXF EOF record is required",
+  "cause": "The raw-control helper passed an isolated ATTRIB record to the unchanged complete-DXF parser",
+  "correction": "Use already parsed full-file spans translated into the retained ATTRIB record; do not relax the parser",
+  "rerun": "New controls-2 directory after correction commit; original failure and geometry control retained",
+  "cad_sources_or_native_methods_changed": false
+}
