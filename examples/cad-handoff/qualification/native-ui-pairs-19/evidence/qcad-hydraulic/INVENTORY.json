@@ -1,0 +1,1616 @@
+{
+  "kind": {
+    "route": "clean-exposed-case",
+    "case": "qcad-hydraulic"
+  },
+  "archive": {
+    "path": "evidence.tar.xz",
+    "bytes": 4255144,
+    "sha256": "d3a9039fd38e9ba4588922a27d97e4140a2afa550b35ad049089329ed8a7aeeb"
+  },
+  "raw_bytes": 37240182,
+  "files": {
+    "raw/cases/qcad-hydraulic/basis.json": {
+      "bytes": 689,
+      "sha256": "b2461280051bfb4bac927309a29587b5756a3eeadb09dc988842f71e4776283c"
+    },
+    "raw/cases/qcad-hydraulic/plan.json": {
+      "bytes": 406,
+      "sha256": "848c0a0efb097eef4e2d7a4423799fb6a31f104a92d3c70d40f3515bda4dbebd"
+    },
+    "raw/cases/qcad-hydraulic/software/candidate/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/cases/qcad-hydraulic/software/candidate/asset_candidates.csv": {
+      "bytes": 120,
+      "sha256": "dec5290d6faafc193f56417a6a97c5d699512f4cc3ab554e12ce3add524a5310"
+    },
+    "raw/cases/qcad-hydraulic/software/candidate/byte-edits.json": {
+      "bytes": 748,
+      "sha256": "3e3ec599af73a4243563f1106453010e3450b9f3223eaeacca4bbc55f3646050"
+    },
+    "raw/cases/qcad-hydraulic/software/candidate/cad_context.json": {
+      "bytes": 619,
+      "sha256": "a8705e9bdc081e5808da0e69ac62c0d9b584adaf6440136661ac3943d6c8d072"
+    },
+    "raw/cases/qcad-hydraulic/software/candidate/candidate-context/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/cases/qcad-hydraulic/software/candidate/candidate-context/asset_candidates.csv": {
+      "bytes": 119,
+      "sha256": "98b62bf4d12e2bfc8cdf2d2439b2885bf61eeb348c215309c1cc77d30c9a6a5b"
+    },
+    "raw/cases/qcad-hydraulic/software/candidate/candidate-context/cad_context.json": {
+      "bytes": 618,
+      "sha256": "74330059f6a955b15df27b95f743b69c33cb71bcc5dee8af63dd6b4e7b74c88d"
+    },
+    "raw/cases/qcad-hydraulic/software/candidate/candidate-context/snapshot.json": {
+      "bytes": 125098,
+      "sha256": "2e62f86c1395f79d163d71e116b95047878311211d46b11d96b654f767f8ea8c"
+    },
+    "raw/cases/qcad-hydraulic/software/candidate/candidate-context/source.dxf": {
+      "bytes": 30359,
+      "sha256": "7fa5a8c9d2e46f9c4550f2076aade1e9881db57e4b7b8723601c60a60b065e41"
+    },
+    "raw/cases/qcad-hydraulic/software/candidate/candidate.dxf": {
+      "bytes": 30359,
+      "sha256": "7fa5a8c9d2e46f9c4550f2076aade1e9881db57e4b7b8723601c60a60b065e41"
+    },
+    "raw/cases/qcad-hydraulic/software/candidate/candidate.snapshot.json": {
+      "bytes": 125098,
+      "sha256": "2e62f86c1395f79d163d71e116b95047878311211d46b11d96b654f767f8ea8c"
+    },
+    "raw/cases/qcad-hydraulic/software/candidate/comparison.json": {
+      "bytes": 873,
+      "sha256": "864a61c4b1dae3c08c838b21da96ababb7d4a5d1fef81d01b507fc2ee537da13"
+    },
+    "raw/cases/qcad-hydraulic/software/candidate/plan.json": {
+      "bytes": 393,
+      "sha256": "b93f064d7ede5779d7a696a5bccfb0a8ac21e0af585783fadf8d9179086bf3fb"
+    },
+    "raw/cases/qcad-hydraulic/software/candidate/snapshot.json": {
+      "bytes": 125100,
+      "sha256": "5aa5b7e4567b99920ce8283a872d3ae76d336602f2f5298d6f329959a300f1bb"
+    },
+    "raw/cases/qcad-hydraulic/software/candidate/source.dxf": {
+      "bytes": 30360,
+      "sha256": "4d768e3a5ca0ba8d5e4762851a349f1679381b51d5fdf2a9b2fc89e86aa430db"
+    },
+    "raw/cases/qcad-hydraulic/software/library-save.comparison.json": {
+      "bytes": 872,
+      "sha256": "18440303fcfbd310db892a33bc7f4ef967ed91cb4102a7fe9873cd1383afa23b"
+    },
+    "raw/cases/qcad-hydraulic/software/library.dxf": {
+      "bytes": 30367,
+      "sha256": "8501b6ac8280a24aa27ef8255e83366a50b230aecadef3d1d3931506a04a7423"
+    },
+    "raw/cases/qcad-hydraulic/software/result.json": {
+      "bytes": 940,
+      "sha256": "74b1885fd565648a58735d9eaff808b74431576463e3592f763940e18c427c0d"
+    },
+    "raw/cases/qcad-hydraulic/software/value-spans.comparison.json": {
+      "bytes": 873,
+      "sha256": "864a61c4b1dae3c08c838b21da96ababb7d4a5d1fef81d01b507fc2ee537da13"
+    },
+    "raw/cases/qcad-hydraulic/source.dxf": {
+      "bytes": 30360,
+      "sha256": "4d768e3a5ca0ba8d5e4762851a349f1679381b51d5fdf2a9b2fc89e86aa430db"
+    },
+    "raw/cohort/COHORT.json": {
+      "bytes": 4476,
+      "sha256": "131aaccd9ccc9b0c36223af3f06e04053de0e40970e4ddef572334f255947aad"
+    },
+    "raw/cohort/methods/METHOD.md": {
+      "bytes": 5339,
+      "sha256": "e1bbc04db242370dc00cf6ef237c1f5022599ec200206717cd7df08dc095e04b"
+    },
+    "raw/cohort/methods/PLAN.md": {
+      "bytes": 5204,
+      "sha256": "1d3f3a4985cb9aa21bc81d39bb1bc6b3963ef1a675af10b734f65fa81a46dd4b"
+    },
+    "raw/cohort/methods/analyze.py": {
+      "bytes": 6634,
+      "sha256": "f17bf22e06abef88ec989958e88d32557753308a92031a6854845fabd7d8c981"
+    },
+    "raw/cohort/methods/batch.py": {
+      "bytes": 4655,
+      "sha256": "1bb25fb445635117ae56579a89cde012728a5e1d8538a644daf4f4f8dc15446c"
+    },
+    "raw/cohort/methods/inspect_ui.py": {
+      "bytes": 1439,
+      "sha256": "c41e118f8108e02dcef6ba9d90cf280d68851ba4b7cb6a870b96a4c9deb5c03e"
+    },
+    "raw/cohort/methods/launch_case.py": {
+      "bytes": 2906,
+      "sha256": "beee5842b37f0bea6cade0afb33e8706754e80db29acd22e6f78dd44d74fdc03"
+    },
+    "raw/cohort/methods/native_controls.py": {
+      "bytes": 800,
+      "sha256": "767246eef54db970e4a1a590b2e5797a41305046dfebc98dfdc7bc759105e832"
+    },
+    "raw/cohort/methods/observe_case.js": {
+      "bytes": 2810,
+      "sha256": "24e09cf1c30a5f818014ca3662d847030066185f1468b31b563bd8163e4c6070"
+    },
+    "raw/cohort/methods/preflight.py": {
+      "bytes": 2588,
+      "sha256": "791142e53f8996a49a3191f29cf37aa9d9fde82e7c497ccf97f0d02478812031"
+    },
+    "raw/cohort/methods/prepare.py": {
+      "bytes": 4665,
+      "sha256": "a4515b8ba619803d5b6a431114e69f459c7aedb2b0c2437eb2fc0252ede9240a"
+    },
+    "raw/cohort/methods/recover_edit.py": {
+      "bytes": 1554,
+      "sha256": "3e75e59cb23ceae7cd89539420e7f6c940faf439e3a51d8d880fa38e1a5e205d"
+    },
+    "raw/cohort/methods/ui_control.py": {
+      "bytes": 4554,
+      "sha256": "e508c2a70b26ff1998fdd4cbc6484a2c7ea7b423e8e76868db8529c44a594881"
+    },
+    "raw/cohort/methods/view_observer.js": {
+      "bytes": 1931,
+      "sha256": "558ec33c63ac1eec07effb8c2ff9739f6c96cce49ba6e8f5dcfa7ace73117677"
+    },
+    "raw/cohort/methods/workflow.py": {
+      "bytes": 11926,
+      "sha256": "8e600a8ff2504df0e3eeb5c04a0053618130889354b94c56e3fcc215b22c7c23"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/CONTAINER-LOG.json": {
+      "bytes": 737,
+      "sha256": "75c03242487bb2b71d69355e35a975bb58f04ca9a427288db724cf7fba8fda05"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ENVIRONMENT.json": {
+      "bytes": 1085,
+      "sha256": "56de11bdcc9b17415e3c952fa22bcdf1410ae7abbb15ede15ab505e255114168"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/JOB-FREEZE.json": {
+      "bytes": 1168,
+      "sha256": "2f8d09fd85b8c4147867d7355925e847e8514716dd04f149b09f1bd3f186e88b"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/METHOD.md": {
+      "bytes": 5339,
+      "sha256": "e1bbc04db242370dc00cf6ef237c1f5022599ec200206717cd7df08dc095e04b"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/PLAN.md": {
+      "bytes": 5204,
+      "sha256": "1d3f3a4985cb9aa21bc81d39bb1bc6b3963ef1a675af10b734f65fa81a46dd4b"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/dbus-address.txt": {
+      "bytes": 68,
+      "sha256": "13ba31c476c5b7909598d079fa647db91e64f9e439f542821210198f0002988f"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/inspect_ui.py": {
+      "bytes": 1439,
+      "sha256": "c41e118f8108e02dcef6ba9d90cf280d68851ba4b7cb6a870b96a4c9deb5c03e"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/job.json": {
+      "bytes": 712,
+      "sha256": "5c78f52dac60c8aa5bfd58ce82a1aa90c76a1786a908e2d804669f916151de86"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/launch_case.py": {
+      "bytes": 2906,
+      "sha256": "beee5842b37f0bea6cade0afb33e8706754e80db29acd22e6f78dd44d74fdc03"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/native/PROCESS.json": {
+      "bytes": 1347,
+      "sha256": "f6bba9b647b6c59c4a777cd365ffa950f8a3fef03df86a50b388b56fb03934cf"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/native/controller.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/native/controller.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/native/openbox.log": {
+      "bytes": 85,
+      "sha256": "6f748c3cd02a858c087697c3afac639205c62b7b206558bd40d1bcbd98165a5c"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/native/stderr.txt": {
+      "bytes": 6706,
+      "sha256": "96065ae4fc69336fdbea9b288e391c63d313d8efc097b30ee8df3dcde50eef24"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/native/stdout.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/native/xvfb.log": {
+      "bytes": 2429,
+      "sha256": "6d73d78138c41bea466314919237a4fe998e5b670a356ab2012f328fff769a7b"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/native_controls.py": {
+      "bytes": 800,
+      "sha256": "767246eef54db970e4a1a590b2e5797a41305046dfebc98dfdc7bc759105e832"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/observe_case.js": {
+      "bytes": 2810,
+      "sha256": "24e09cf1c30a5f818014ca3662d847030066185f1468b31b563bd8163e4c6070"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/prepare.py": {
+      "bytes": 4665,
+      "sha256": "a4515b8ba619803d5b6a431114e69f459c7aedb2b0c2437eb2fc0252ede9240a"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/1.json": {
+      "bytes": 232,
+      "sha256": "c4733a44515b0d814ac0a1c121fd790225d99b8cf1e6ee9b5351fabfe0b37273"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/10.json": {
+      "bytes": 1246,
+      "sha256": "5309d4f976771da5543fb746558d4764b102cb73b5f1b0b4a803f935c56b04fd"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/11.json": {
+      "bytes": 1126,
+      "sha256": "56801a04082fcb2ca7f82c94a63402895b2c57478756008530fbd5265c7d08bb"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/12.json": {
+      "bytes": 1246,
+      "sha256": "ebd47e40f2535677c25e986f667109149bca5561798c1c63b63b787b08a43085"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/13.json": {
+      "bytes": 1126,
+      "sha256": "b7269ebf40563b53e63d2dce16d65fbc050f4f9658adf6714c6484f6a7cd58dc"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/14.json": {
+      "bytes": 1126,
+      "sha256": "c0de6343b0794449b213b6bb25a152e9855cc835415cc99e4af1334571367469"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/15.json": {
+      "bytes": 1128,
+      "sha256": "6ba332c4799b629c31156397b752a1374e2fbbc105a72b11bd8927fad13e63f7"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/16.json": {
+      "bytes": 1128,
+      "sha256": "359a8d6002fab5ce59c4592a273d2a984fb3406349e2d2683018d5984385f86f"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/17.json": {
+      "bytes": 1128,
+      "sha256": "4f1070d008d0f119d7c576f6548f8ff629695fb3e4130498fbbfcbc96b96b6d1"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/18.json": {
+      "bytes": 233,
+      "sha256": "4fbb4f4a73f93ad60b34b9d020053eaa4785db707f9fead439bc841f6d0c4561"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/19.json": {
+      "bytes": 233,
+      "sha256": "281af2c4eaa4ea509d5a991e026d99a70caca33fea6ae2438483271ef54ca6d7"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/2.json": {
+      "bytes": 232,
+      "sha256": "fd199d0cbcc27c4dcb89ba932b0a275459581c19828633dc8b4300b21d8eac3b"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/20.json": {
+      "bytes": 1121,
+      "sha256": "58d44240f25044bb59dd359bd01c50b26ffe25fdd46bdb478a2daca257c1a101"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/21.json": {
+      "bytes": 1121,
+      "sha256": "bc787d3f8918bd91368d7cd9018f1da4302318997be37a8f23a4d38315b52033"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/22.json": {
+      "bytes": 1121,
+      "sha256": "3c792f3e56af4f888d0c79005ec1e97044458830cdd1c0a2860fba33d6b1a8ef"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/23.json": {
+      "bytes": 1136,
+      "sha256": "203b33045caad0d6fef164a243c78dd06578d338a2ef33d466e40b6613502f5e"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/24.json": {
+      "bytes": 1121,
+      "sha256": "0ade9b244afbf84dd4ba12ac15e40adbb3fa62166a8dd1be008dc7cb91d9899a"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/25.json": {
+      "bytes": 1252,
+      "sha256": "f3391787b77d326310b4550b09d75808eb1ed8fba03809a909785bd0db5d1098"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/26.json": {
+      "bytes": 1131,
+      "sha256": "b0a89bb919e8f343ab4b73fa6e447491caf21166f43fea99e892ce56155b303d"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/27.json": {
+      "bytes": 1249,
+      "sha256": "87b31d619433a79606e510866aee453f399226828f5e4c5ce6afcd0aef7f4a89"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/28.json": {
+      "bytes": 1128,
+      "sha256": "a30fd0fd5130b37cd95b5fb0ae5761ee47a5dd7a9935bd62fb52d6356c22ac84"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/29.json": {
+      "bytes": 1250,
+      "sha256": "6cfb500639ecc5d6a2174d40fa4162196bbbbd114cb5555d8040ab36c3384d9e"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/3.json": {
+      "bytes": 1118,
+      "sha256": "40bfcccfe18e6e1230cb705a6d2d17445b286e73ac39220dfb3f4820d96cf2f1"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/30.json": {
+      "bytes": 1128,
+      "sha256": "97035cdcbceb1a8bf9212d9df3dfa5de9b23dc081b73fe2a4928f97ec154b51c"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/31.json": {
+      "bytes": 1128,
+      "sha256": "b2dcb36338d756b96c4f7db44197a3ee01a93fee768210b5ef0453bc64eb441d"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/32.json": {
+      "bytes": 1128,
+      "sha256": "0fb9df37c8c80e910c8f6b8a74a87dcd65cbe86ae9de87229fec7836fbbfa4c8"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/33.json": {
+      "bytes": 233,
+      "sha256": "0ec3d978b8ffc7fb1f9a7f1bac9dd222727fa92dda32489f41a9cbefffb2e431"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/34.json": {
+      "bytes": 233,
+      "sha256": "70c2d5d54c47a50c8d624b4656214bd15bff84d159be0a261e002ea7a6312f0b"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/4.json": {
+      "bytes": 1118,
+      "sha256": "93e48e171b614686ecd0dd6276e9f2c41db4f87047660324d90e4c9fb55249b5"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/5.json": {
+      "bytes": 1118,
+      "sha256": "cf54dd73eff00ac69ebb12f37500bffb391fd2400a5b05117931bf6c2b9ad5dc"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/6.json": {
+      "bytes": 1133,
+      "sha256": "d3ee6d3eeeca727333f3f45b1a0ea14e1c599593770841195a6e74283a83730a"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/7.json": {
+      "bytes": 1118,
+      "sha256": "4a6205c32ee112327889a9f45af21b72c5dea63a688cf37a4fa6611a59c863f2"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/8.json": {
+      "bytes": 1247,
+      "sha256": "d7e350a04bc0bf818ea67a23e6932a4d902d9719fac4af3d667d3be416c10310"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/replies/9.json": {
+      "bytes": 1126,
+      "sha256": "170d23a796017df2e6a857079ca1aef3a97345faa192a2ca974f83c1798b4c0c"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/request.json": {
+      "bytes": 29,
+      "sha256": "1dd67b4ecde34d1c12dc8af16b8a2ed7e726c4bd73fa2a20a2c207064576b63f"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/returned.dxf": {
+      "bytes": 115738,
+      "sha256": "b0f0b6f7eba424eab3639ac182f1e2c2a122846326fb9c6b00a670a92385b1c8"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/source.dxf": {
+      "bytes": 30360,
+      "sha256": "4d768e3a5ca0ba8d5e4762851a349f1679381b51d5fdf2a9b2fc89e86aa430db"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/001-trial.json": {
+      "bytes": 404654,
+      "sha256": "e847680246b0c55f5d24ed38827e039a2dad11df6f5409c9207fc6dee221dc16"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/002-ready.json": {
+      "bytes": 439739,
+      "sha256": "90cfa3ce5d883d5fa17c68c3e60007d6bbec7532cc2f334ba562b11ed171684a"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/003-open-dialog.json": {
+      "bytes": 448085,
+      "sha256": "fd77d23b192e162b376d8cf8201c1db3407cf7179413ab8d54d9fc804167d778"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/004-opened.json": {
+      "bytes": 454245,
+      "sha256": "a147d2f47d11da602c7e605d880240f3a5744dec3100e907d2351a9934097a9f"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/005-handle-dialog.json": {
+      "bytes": 454240,
+      "sha256": "47a9245fddd442392ac4746fb75990ec498e0b6a05f4637515c82d1c1e4e0343"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/006-selected.json": {
+      "bytes": 466171,
+      "sha256": "d1907e703124a4a8ce6bb87bbb14a477961b6bee05f4995685b391c8871a0cf2"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/007-save-dialog.json": {
+      "bytes": 471683,
+      "sha256": "8aff646b4c4e793798f3bcb85dd3631683d7d15aa1f63488c15be519d27b6021"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/008-saved.json": {
+      "bytes": 454393,
+      "sha256": "19ea6e55781aa446241f001b4d9cb87c819d7dc30fdc3080dd1eb53f7c62db28"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/009-closed.json": {
+      "bytes": 440054,
+      "sha256": "1b9f8a3010721a74ce7f2aee181ce8a119b95215a47672e99a84b724a638a4b1"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/010-open-dialog.json": {
+      "bytes": 448417,
+      "sha256": "480981de6a7f874d2f9033837663b34f6bfec1e39df4c4d2f660fd16bce3e40a"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/011-opened.json": {
+      "bytes": 454568,
+      "sha256": "44d1a7ea2e1dfb45581697b71e899a43f6a1112b2887a8d6a41cce7136defdac"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/012-handle-dialog.json": {
+      "bytes": 454563,
+      "sha256": "d02a5e94f2577ebb9f09f55ec3392d5bf963859d397bf334c48c667be8ae7234"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/013-selected.json": {
+      "bytes": 466494,
+      "sha256": "d3096a51c571747cc30ab696a5af5e7262c90e3a2e7a39ef867c049f64eb7310"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/014-closed.json": {
+      "bytes": 440271,
+      "sha256": "1056ca3d813d4b33effa1e15050325470d289af44253b8fb9f2793e6cacd7cce"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/RESULT.json": {
+      "bytes": 103,
+      "sha256": "38297b539f124f9dafc0e012589bd1deaae416cbe7280d91225ebfc2fed6f05c"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/actions.json": {
+      "bytes": 79304,
+      "sha256": "4716096c20794de4209361389a937299cf3451a49700802ce8edbfbf2d15e71d"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/returned-asset-0.canvas.png": {
+      "bytes": 24238,
+      "sha256": "52e4a8f032f85af79a7f7c661bd0c77502cd662fd75cab2cb44c8dd5063aede8"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/returned-asset-0.png": {
+      "bytes": 226334,
+      "sha256": "23b6227849aefe0e6e8d799706df29bf286e5fe03c8bcfa38da74b69d94eb737"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/returned-asset-1.canvas.png": {
+      "bytes": 24238,
+      "sha256": "52e4a8f032f85af79a7f7c661bd0c77502cd662fd75cab2cb44c8dd5063aede8"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/returned-asset-1.png": {
+      "bytes": 226334,
+      "sha256": "23b6227849aefe0e6e8d799706df29bf286e5fe03c8bcfa38da74b69d94eb737"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/returned-labels-0.canvas.png": {
+      "bytes": 25375,
+      "sha256": "ee87dfc5889d4dff44f4264e0ae26058ff327342a10bbde0c52b6c4fac9e2093"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/returned-labels-0.png": {
+      "bytes": 225464,
+      "sha256": "a54d0a4c0f4ce06c1c8974710a7ec96dd64495948edb0b89554a88fc12fa4c77"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/returned-labels-1.canvas.png": {
+      "bytes": 25375,
+      "sha256": "ee87dfc5889d4dff44f4264e0ae26058ff327342a10bbde0c52b6c4fac9e2093"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/returned-labels-1.png": {
+      "bytes": 225464,
+      "sha256": "a54d0a4c0f4ce06c1c8974710a7ec96dd64495948edb0b89554a88fc12fa4c77"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/returned-overview-0.canvas.png": {
+      "bytes": 13718,
+      "sha256": "f903b81f09eec549f75e6e91ec3916b111b35274b055820a1cc9626fcbd0a4bd"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/returned-overview-0.png": {
+      "bytes": 207029,
+      "sha256": "b49bddc1a2d6060204affc0de0107d4e056ae44b040392bccf12245b39523efe"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/returned-overview-1.canvas.png": {
+      "bytes": 13718,
+      "sha256": "f903b81f09eec549f75e6e91ec3916b111b35274b055820a1cc9626fcbd0a4bd"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/returned-overview-1.png": {
+      "bytes": 207029,
+      "sha256": "b49bddc1a2d6060204affc0de0107d4e056ae44b040392bccf12245b39523efe"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/source-asset-0.canvas.png": {
+      "bytes": 24238,
+      "sha256": "52e4a8f032f85af79a7f7c661bd0c77502cd662fd75cab2cb44c8dd5063aede8"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/source-asset-0.png": {
+      "bytes": 226129,
+      "sha256": "070badaf9efa5beb1fb2c297cd9a6c7a7c363e1877960729aa913b0166c91665"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/source-asset-1.canvas.png": {
+      "bytes": 24238,
+      "sha256": "52e4a8f032f85af79a7f7c661bd0c77502cd662fd75cab2cb44c8dd5063aede8"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/source-asset-1.png": {
+      "bytes": 226129,
+      "sha256": "070badaf9efa5beb1fb2c297cd9a6c7a7c363e1877960729aa913b0166c91665"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/source-labels-0.canvas.png": {
+      "bytes": 25375,
+      "sha256": "ee87dfc5889d4dff44f4264e0ae26058ff327342a10bbde0c52b6c4fac9e2093"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/source-labels-0.png": {
+      "bytes": 225282,
+      "sha256": "f897552df5514db96b462da655d42ea5959cb3a8a6626ecd0f29256fba0403a1"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/source-labels-1.canvas.png": {
+      "bytes": 25375,
+      "sha256": "ee87dfc5889d4dff44f4264e0ae26058ff327342a10bbde0c52b6c4fac9e2093"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/source-labels-1.png": {
+      "bytes": 225282,
+      "sha256": "f897552df5514db96b462da655d42ea5959cb3a8a6626ecd0f29256fba0403a1"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/source-overview-0.canvas.png": {
+      "bytes": 13718,
+      "sha256": "f903b81f09eec549f75e6e91ec3916b111b35274b055820a1cc9626fcbd0a4bd"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/source-overview-0.png": {
+      "bytes": 206869,
+      "sha256": "d445022265dbf5e377607fb473a4de524600e1c30b86184837ac0135a1f0445e"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/source-overview-1.canvas.png": {
+      "bytes": 13718,
+      "sha256": "f903b81f09eec549f75e6e91ec3916b111b35274b055820a1cc9626fcbd0a4bd"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui/source-overview-1.png": {
+      "bytes": 206869,
+      "sha256": "d445022265dbf5e377607fb473a4de524600e1c30b86184837ac0135a1f0445e"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/ui_control.py": {
+      "bytes": 4554,
+      "sha256": "e508c2a70b26ff1998fdd4cbc6484a2c7ea7b423e8e76868db8529c44a594881"
+    },
+    "raw/jobs/qcad-hydraulic-baseline/workflow.py": {
+      "bytes": 11926,
+      "sha256": "8e600a8ff2504df0e3eeb5c04a0053618130889354b94c56e3fcc215b22c7c23"
+    },
+    "raw/jobs/qcad-hydraulic-edited/CONTAINER-LOG.json": {
+      "bytes": 737,
+      "sha256": "75c03242487bb2b71d69355e35a975bb58f04ca9a427288db724cf7fba8fda05"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ENVIRONMENT.json": {
+      "bytes": 1082,
+      "sha256": "3197d623b414ca5e4c6b1b737a1fb2374e10765e319d1c1339f2e3c00b1bb2bb"
+    },
+    "raw/jobs/qcad-hydraulic-edited/JOB-FREEZE.json": {
+      "bytes": 1168,
+      "sha256": "dfeaf45a39872239f2b085145a8e59dd96aa739ce92d5ab9e656cabac949fe6b"
+    },
+    "raw/jobs/qcad-hydraulic-edited/METHOD.md": {
+      "bytes": 5339,
+      "sha256": "e1bbc04db242370dc00cf6ef237c1f5022599ec200206717cd7df08dc095e04b"
+    },
+    "raw/jobs/qcad-hydraulic-edited/PLAN.md": {
+      "bytes": 5204,
+      "sha256": "1d3f3a4985cb9aa21bc81d39bb1bc6b3963ef1a675af10b734f65fa81a46dd4b"
+    },
+    "raw/jobs/qcad-hydraulic-edited/dbus-address.txt": {
+      "bytes": 68,
+      "sha256": "515543b927974ebaddc5bbbecfe2d12a2481acf824d5e197f305ba919b9c7611"
+    },
+    "raw/jobs/qcad-hydraulic-edited/inspect_ui.py": {
+      "bytes": 1439,
+      "sha256": "c41e118f8108e02dcef6ba9d90cf280d68851ba4b7cb6a870b96a4c9deb5c03e"
+    },
+    "raw/jobs/qcad-hydraulic-edited/job.json": {
+      "bytes": 710,
+      "sha256": "b34b8f65d05aa87d502cd0af4b56ca4ab31bab375c66b3279204cae9f467783f"
+    },
+    "raw/jobs/qcad-hydraulic-edited/launch_case.py": {
+      "bytes": 2906,
+      "sha256": "beee5842b37f0bea6cade0afb33e8706754e80db29acd22e6f78dd44d74fdc03"
+    },
+    "raw/jobs/qcad-hydraulic-edited/native/PROCESS.json": {
+      "bytes": 1345,
+      "sha256": "edf651fec7487489f8e5dc42038471781629a2b1c90f300761ff6bb6f097480d"
+    },
+    "raw/jobs/qcad-hydraulic-edited/native/controller.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/qcad-hydraulic-edited/native/controller.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/qcad-hydraulic-edited/native/openbox.log": {
+      "bytes": 85,
+      "sha256": "6f748c3cd02a858c087697c3afac639205c62b7b206558bd40d1bcbd98165a5c"
+    },
+    "raw/jobs/qcad-hydraulic-edited/native/stderr.txt": {
+      "bytes": 6706,
+      "sha256": "da35bfa91f44b0f6711a48481a589cb8c9d0df7f11701abc98ca76a739f48feb"
+    },
+    "raw/jobs/qcad-hydraulic-edited/native/stdout.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/qcad-hydraulic-edited/native/xvfb.log": {
+      "bytes": 2429,
+      "sha256": "6d73d78138c41bea466314919237a4fe998e5b670a356ab2012f328fff769a7b"
+    },
+    "raw/jobs/qcad-hydraulic-edited/native_controls.py": {
+      "bytes": 800,
+      "sha256": "767246eef54db970e4a1a590b2e5797a41305046dfebc98dfdc7bc759105e832"
+    },
+    "raw/jobs/qcad-hydraulic-edited/observe_case.js": {
+      "bytes": 2810,
+      "sha256": "24e09cf1c30a5f818014ca3662d847030066185f1468b31b563bd8163e4c6070"
+    },
+    "raw/jobs/qcad-hydraulic-edited/prepare.py": {
+      "bytes": 4665,
+      "sha256": "a4515b8ba619803d5b6a431114e69f459c7aedb2b0c2437eb2fc0252ede9240a"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/1.json": {
+      "bytes": 232,
+      "sha256": "c4733a44515b0d814ac0a1c121fd790225d99b8cf1e6ee9b5351fabfe0b37273"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/10.json": {
+      "bytes": 1246,
+      "sha256": "5309d4f976771da5543fb746558d4764b102cb73b5f1b0b4a803f935c56b04fd"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/11.json": {
+      "bytes": 1126,
+      "sha256": "56801a04082fcb2ca7f82c94a63402895b2c57478756008530fbd5265c7d08bb"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/12.json": {
+      "bytes": 1246,
+      "sha256": "ebd47e40f2535677c25e986f667109149bca5561798c1c63b63b787b08a43085"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/13.json": {
+      "bytes": 1126,
+      "sha256": "b7269ebf40563b53e63d2dce16d65fbc050f4f9658adf6714c6484f6a7cd58dc"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/14.json": {
+      "bytes": 1126,
+      "sha256": "c0de6343b0794449b213b6bb25a152e9855cc835415cc99e4af1334571367469"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/15.json": {
+      "bytes": 1126,
+      "sha256": "a334951d5c4e9cb9c54c48f33503ad5ba1078baea8653676cf7fe728542a1076"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/16.json": {
+      "bytes": 1140,
+      "sha256": "9221853cbf439206e1a1d574af64283c310dd26ae7d9a5f66e9ab0b6dc3b7f9d"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/17.json": {
+      "bytes": 1140,
+      "sha256": "b63b3010c179bba5535c9c9474d54800365b787edb6926a3c029d29b4de66cf3"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/18.json": {
+      "bytes": 1143,
+      "sha256": "b4a56ba2b80b4e36162baf0d56d758c24313425771ba43f325742591bb62fac0"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/19.json": {
+      "bytes": 1143,
+      "sha256": "d58eca48003dbbc06723d0b8b949cfa38fd045b8b3c5000546d743b94d90e675"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/2.json": {
+      "bytes": 232,
+      "sha256": "fd199d0cbcc27c4dcb89ba932b0a275459581c19828633dc8b4300b21d8eac3b"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/20.json": {
+      "bytes": 1143,
+      "sha256": "3b50928350ebe06f912d7799c36c98b34f91aef75022717c683449dcfa22f89c"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/21.json": {
+      "bytes": 233,
+      "sha256": "37d92762f18062a5f8ec52bac442c3d6c6d40b3197c301fb2c8c147b54f27c75"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/22.json": {
+      "bytes": 233,
+      "sha256": "6de25529adb8cca96d5f662aae12af4330efaf63fabbc05ab65bf7ff635631e0"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/23.json": {
+      "bytes": 1119,
+      "sha256": "d85407fefbc21beb945beffacd8ec439b9c246ca6769dc932ce9e4b5239b19d3"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/24.json": {
+      "bytes": 1119,
+      "sha256": "80a45e5aeea0a3e94b4c3b34ffca408cb425d12596c13865126b95af3d848e68"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/25.json": {
+      "bytes": 1119,
+      "sha256": "2aebedc45e21b0e61a70e4eafd451c7cc1e3125b0fca79581a2448fce5705b92"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/26.json": {
+      "bytes": 1139,
+      "sha256": "108aeb1f88092a5519fd7f30091745eb06ebda90390fd875d26fc285709c2a15"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/27.json": {
+      "bytes": 1124,
+      "sha256": "b6c0c4ac79eedbe0de19a9a76bee51e2226684f87613ce77440c54d13d1c4487"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/28.json": {
+      "bytes": 1251,
+      "sha256": "afcecd261a7a36feb6c335fccfbab6e23d7344d069c99fb0fba03561fc83d74e"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/29.json": {
+      "bytes": 1128,
+      "sha256": "08c6fd096c298c5faa65ff5d5438f71983426a16bc0eac0fa0fa6f2dd519498b"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/3.json": {
+      "bytes": 1118,
+      "sha256": "40bfcccfe18e6e1230cb705a6d2d17445b286e73ac39220dfb3f4820d96cf2f1"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/30.json": {
+      "bytes": 1248,
+      "sha256": "eddce5f15a47a90b69577e035ef74272c7720ed01813d17b834e4e41b7a8e431"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/31.json": {
+      "bytes": 1126,
+      "sha256": "f74f74ec442b021bbbde821e8898123e30305fe45a289351c9d77acd7ba1fdc3"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/32.json": {
+      "bytes": 1249,
+      "sha256": "67703e40a4f736dd6f74511b79e9bbc911b9d0bf8f1ea81d81b9fb719e41f92f"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/33.json": {
+      "bytes": 1127,
+      "sha256": "36bd035fd6049bfec03cb3a76ba50c907e28c4e4d9392a3a6d84df3f625cc0aa"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/34.json": {
+      "bytes": 1127,
+      "sha256": "3bd4dc68051592d27d0e47cfbea8a1e6e707723ebaf459719729cc5a204e5f47"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/35.json": {
+      "bytes": 1127,
+      "sha256": "6ab868b42fa43c5575e228e1685edc2b572700713b141d14ed3d13278a4e44f8"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/36.json": {
+      "bytes": 233,
+      "sha256": "3d3abdcfb54cb6ff363eb5563182b6fb5ff453b6bf84338aa0b51ddcb39c8dfc"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/37.json": {
+      "bytes": 233,
+      "sha256": "bb1b9e3c95f213222c550afc3b2681718305afaadd4312276e6901cc22112f90"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/4.json": {
+      "bytes": 1118,
+      "sha256": "93e48e171b614686ecd0dd6276e9f2c41db4f87047660324d90e4c9fb55249b5"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/5.json": {
+      "bytes": 1118,
+      "sha256": "cf54dd73eff00ac69ebb12f37500bffb391fd2400a5b05117931bf6c2b9ad5dc"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/6.json": {
+      "bytes": 1133,
+      "sha256": "b6f3cf001f6c8abb664cd3fa022909876a8991339861b2b30246a91b3c9e6c71"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/7.json": {
+      "bytes": 1118,
+      "sha256": "4a6205c32ee112327889a9f45af21b72c5dea63a688cf37a4fa6611a59c863f2"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/8.json": {
+      "bytes": 1247,
+      "sha256": "d7e350a04bc0bf818ea67a23e6932a4d902d9719fac4af3d667d3be416c10310"
+    },
+    "raw/jobs/qcad-hydraulic-edited/replies/9.json": {
+      "bytes": 1126,
+      "sha256": "170d23a796017df2e6a857079ca1aef3a97345faa192a2ca974f83c1798b4c0c"
+    },
+    "raw/jobs/qcad-hydraulic-edited/request.json": {
+      "bytes": 29,
+      "sha256": "e38ffd5bc146db90b49a1a7ad74e20c5f65d4978ec6b329d10e593c6f877a036"
+    },
+    "raw/jobs/qcad-hydraulic-edited/returned.dxf": {
+      "bytes": 115737,
+      "sha256": "bb6ec9ed30f65471651281f69d105e55a519b8e5868e56c7626aec5c0491b404"
+    },
+    "raw/jobs/qcad-hydraulic-edited/source.dxf": {
+      "bytes": 30360,
+      "sha256": "4d768e3a5ca0ba8d5e4762851a349f1679381b51d5fdf2a9b2fc89e86aa430db"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/001-trial.json": {
+      "bytes": 404654,
+      "sha256": "e847680246b0c55f5d24ed38827e039a2dad11df6f5409c9207fc6dee221dc16"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/002-ready.json": {
+      "bytes": 439739,
+      "sha256": "90cfa3ce5d883d5fa17c68c3e60007d6bbec7532cc2f334ba562b11ed171684a"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/003-open-dialog.json": {
+      "bytes": 448085,
+      "sha256": "fd77d23b192e162b376d8cf8201c1db3407cf7179413ab8d54d9fc804167d778"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/004-opened.json": {
+      "bytes": 454245,
+      "sha256": "a147d2f47d11da602c7e605d880240f3a5744dec3100e907d2351a9934097a9f"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/005-handle-dialog.json": {
+      "bytes": 454240,
+      "sha256": "47a9245fddd442392ac4746fb75990ec498e0b6a05f4637515c82d1c1e4e0343"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/006-selected.json": {
+      "bytes": 466171,
+      "sha256": "d1907e703124a4a8ce6bb87bbb14a477961b6bee05f4995685b391c8871a0cf2"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/007-handle-dialog.json": {
+      "bytes": 454282,
+      "sha256": "ad06dc23b97b6388cbbc137267ad8bf811e8b31c7cd2b9bdd823bea6e492effb"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/008-selected.json": {
+      "bytes": 466213,
+      "sha256": "6d59d2fcb46a3059bf703f1f330c42b1fd2ece7b78cd174ba034e46dcbd96158"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/009-edited.json": {
+      "bytes": 466150,
+      "sha256": "aae4aa150ae582b06d6b7c39232e03431f0bed0cfa3a583a149279908dc45713"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/010-save-dialog.json": {
+      "bytes": 483544,
+      "sha256": "51e7bc6cb4fda6ccf4aad8350cbb34773a2dc47e9de75b221899ccb67cc3acb8"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/011-saved.json": {
+      "bytes": 466252,
+      "sha256": "159d84b1bf00f06bf6a019dd9dd644900dc821d33191f5f38f677ef3b230e5a2"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/012-closed.json": {
+      "bytes": 440076,
+      "sha256": "823b175d5c210e3765719313395116dd9f5efa130e7d41c33eb01ec3244a79ed"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/013-open-dialog.json": {
+      "bytes": 448439,
+      "sha256": "3914afe355544fe4c9feade2fc8fdb77157543b93b4aa48f3df23dae77471b1c"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/014-opened.json": {
+      "bytes": 454590,
+      "sha256": "0357b96726c5ab9a8de89acd94fe037cf1bc3c1d9716d0a88ac4f37d0d0c39e8"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/015-handle-dialog.json": {
+      "bytes": 454585,
+      "sha256": "3486f46c324136b988f486da5066f1b2f2031460b9986c43fee8e7edfe3432e4"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/016-selected.json": {
+      "bytes": 466515,
+      "sha256": "11fa2d5cafbc4f2333792a6cca92ec3d354a8979e576a30312869e507198bf6a"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/017-closed.json": {
+      "bytes": 440293,
+      "sha256": "bd0c10783f356c41276384a759343d5a39c03aadd137b9e7763526e2e959ba31"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/RESULT.json": {
+      "bytes": 101,
+      "sha256": "1c766d3ed2eae64448616c0afd457ce9581cf67fb72027cc65bce69252d529c9"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/actions.json": {
+      "bytes": 90288,
+      "sha256": "12492e59fb2bee567c575c442b5806b59685ed63be13a9f4393dd1fddd8d8fe2"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/returned-asset-0.canvas.png": {
+      "bytes": 24027,
+      "sha256": "e8bb87e2ddf12db70443d04372d7c55a7ddad1427bf2e448a1c72dcc6319419f"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/returned-asset-0.png": {
+      "bytes": 226423,
+      "sha256": "1eeeb15320f8de2aa4cba4368ff9aabd2d8e94056b039028d6f49531ac6d753c"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/returned-asset-1.canvas.png": {
+      "bytes": 24027,
+      "sha256": "e8bb87e2ddf12db70443d04372d7c55a7ddad1427bf2e448a1c72dcc6319419f"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/returned-asset-1.png": {
+      "bytes": 226423,
+      "sha256": "1eeeb15320f8de2aa4cba4368ff9aabd2d8e94056b039028d6f49531ac6d753c"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/returned-labels-0.canvas.png": {
+      "bytes": 24932,
+      "sha256": "795a58142e8014fa9f20aeba5974d8a40d7465a314da3e0a11f378dcfe7257e6"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/returned-labels-0.png": {
+      "bytes": 224873,
+      "sha256": "9fcb4a64948b5d512ef7b8e327aee4e8d195e1a8bd05bc75afe10da1f761327b"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/returned-labels-1.canvas.png": {
+      "bytes": 24932,
+      "sha256": "795a58142e8014fa9f20aeba5974d8a40d7465a314da3e0a11f378dcfe7257e6"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/returned-labels-1.png": {
+      "bytes": 224873,
+      "sha256": "9fcb4a64948b5d512ef7b8e327aee4e8d195e1a8bd05bc75afe10da1f761327b"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/returned-overview-0.canvas.png": {
+      "bytes": 13489,
+      "sha256": "d28698a72d59dd8b47650345ae7dc509319463dd7b5b14af35260352b51c63f4"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/returned-overview-0.png": {
+      "bytes": 206833,
+      "sha256": "d2e5b91ac8981d87dd50486b2d68c8f97f45bcd07469b7c1632a457a817e30d1"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/returned-overview-1.canvas.png": {
+      "bytes": 13489,
+      "sha256": "d28698a72d59dd8b47650345ae7dc509319463dd7b5b14af35260352b51c63f4"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/returned-overview-1.png": {
+      "bytes": 206833,
+      "sha256": "d2e5b91ac8981d87dd50486b2d68c8f97f45bcd07469b7c1632a457a817e30d1"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/source-asset-0.canvas.png": {
+      "bytes": 24238,
+      "sha256": "52e4a8f032f85af79a7f7c661bd0c77502cd662fd75cab2cb44c8dd5063aede8"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/source-asset-0.png": {
+      "bytes": 226129,
+      "sha256": "070badaf9efa5beb1fb2c297cd9a6c7a7c363e1877960729aa913b0166c91665"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/source-asset-1.canvas.png": {
+      "bytes": 24238,
+      "sha256": "52e4a8f032f85af79a7f7c661bd0c77502cd662fd75cab2cb44c8dd5063aede8"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/source-asset-1.png": {
+      "bytes": 226129,
+      "sha256": "070badaf9efa5beb1fb2c297cd9a6c7a7c363e1877960729aa913b0166c91665"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/source-labels-0.canvas.png": {
+      "bytes": 25375,
+      "sha256": "ee87dfc5889d4dff44f4264e0ae26058ff327342a10bbde0c52b6c4fac9e2093"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/source-labels-0.png": {
+      "bytes": 225282,
+      "sha256": "f897552df5514db96b462da655d42ea5959cb3a8a6626ecd0f29256fba0403a1"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/source-labels-1.canvas.png": {
+      "bytes": 25375,
+      "sha256": "ee87dfc5889d4dff44f4264e0ae26058ff327342a10bbde0c52b6c4fac9e2093"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/source-labels-1.png": {
+      "bytes": 225282,
+      "sha256": "f897552df5514db96b462da655d42ea5959cb3a8a6626ecd0f29256fba0403a1"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/source-overview-0.canvas.png": {
+      "bytes": 13718,
+      "sha256": "f903b81f09eec549f75e6e91ec3916b111b35274b055820a1cc9626fcbd0a4bd"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/source-overview-0.png": {
+      "bytes": 206869,
+      "sha256": "d445022265dbf5e377607fb473a4de524600e1c30b86184837ac0135a1f0445e"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/source-overview-1.canvas.png": {
+      "bytes": 13718,
+      "sha256": "f903b81f09eec549f75e6e91ec3916b111b35274b055820a1cc9626fcbd0a4bd"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui/source-overview-1.png": {
+      "bytes": 206869,
+      "sha256": "d445022265dbf5e377607fb473a4de524600e1c30b86184837ac0135a1f0445e"
+    },
+    "raw/jobs/qcad-hydraulic-edited/ui_control.py": {
+      "bytes": 4554,
+      "sha256": "e508c2a70b26ff1998fdd4cbc6484a2c7ea7b423e8e76868db8529c44a594881"
+    },
+    "raw/jobs/qcad-hydraulic-edited/workflow.py": {
+      "bytes": 11926,
+      "sha256": "8e600a8ff2504df0e3eeb5c04a0053618130889354b94c56e3fcc215b22c7c23"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/CONTAINER-LOG.json": {
+      "bytes": 737,
+      "sha256": "f06af5e4f41d88a17c7446a0895a86125856742bf8073fca250264dccebb0b80"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ENVIRONMENT.json": {
+      "bytes": 1088,
+      "sha256": "8aa7ac37de140d5d48d2946d82abab9ef2aa47e9e26173e231adb81c5820e800"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/JOB-FREEZE.json": {
+      "bytes": 1434,
+      "sha256": "0fffc6a88a23915c27827a0b34c5b63c7c06f7ecaa87b449441f918edecc063d"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/METHOD.md": {
+      "bytes": 5339,
+      "sha256": "e1bbc04db242370dc00cf6ef237c1f5022599ec200206717cd7df08dc095e04b"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/PLAN.md": {
+      "bytes": 5204,
+      "sha256": "1d3f3a4985cb9aa21bc81d39bb1bc6b3963ef1a675af10b734f65fa81a46dd4b"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/baseline.dxf": {
+      "bytes": 115738,
+      "sha256": "b0f0b6f7eba424eab3639ac182f1e2c2a122846326fb9c6b00a670a92385b1c8"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/candidate.dxf": {
+      "bytes": 30359,
+      "sha256": "7fa5a8c9d2e46f9c4550f2076aade1e9881db57e4b7b8723601c60a60b065e41"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/dbus-address.txt": {
+      "bytes": 68,
+      "sha256": "f5c8a08a6774b3fd621a7352e2010ec92de831340e3bfdf299481cceb6a4e0c8"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/edited.dxf": {
+      "bytes": 115737,
+      "sha256": "bb6ec9ed30f65471651281f69d105e55a519b8e5868e56c7626aec5c0491b404"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/inspect_ui.py": {
+      "bytes": 1439,
+      "sha256": "c41e118f8108e02dcef6ba9d90cf280d68851ba4b7cb6a870b96a4c9deb5c03e"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/job.json": {
+      "bytes": 713,
+      "sha256": "fd92af2c41c0111158098975608894ede325a2a4f8ad647223707ace9d67a188"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/launch_case.py": {
+      "bytes": 2906,
+      "sha256": "beee5842b37f0bea6cade0afb33e8706754e80db29acd22e6f78dd44d74fdc03"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/native/PROCESS.json": {
+      "bytes": 1348,
+      "sha256": "d94e56c32ff6b07d5969d6fbb4b4cc4eb2ca3409561008ed29db70a920c8f700"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/native/controller.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/native/controller.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/native/openbox.log": {
+      "bytes": 85,
+      "sha256": "6f748c3cd02a858c087697c3afac639205c62b7b206558bd40d1bcbd98165a5c"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/native/stderr.txt": {
+      "bytes": 10332,
+      "sha256": "6115a51ae09996599639622541b7c010b39a9497832ebc9b8dc4b12079100a4f"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/native/stdout.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/native/xvfb.log": {
+      "bytes": 2429,
+      "sha256": "6d73d78138c41bea466314919237a4fe998e5b670a356ab2012f328fff769a7b"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/native_controls.py": {
+      "bytes": 800,
+      "sha256": "767246eef54db970e4a1a590b2e5797a41305046dfebc98dfdc7bc759105e832"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/observe_case.js": {
+      "bytes": 2810,
+      "sha256": "24e09cf1c30a5f818014ca3662d847030066185f1468b31b563bd8163e4c6070"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/prepare.py": {
+      "bytes": 4665,
+      "sha256": "a4515b8ba619803d5b6a431114e69f459c7aedb2b0c2437eb2fc0252ede9240a"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/1.json": {
+      "bytes": 232,
+      "sha256": "c4733a44515b0d814ac0a1c121fd790225d99b8cf1e6ee9b5351fabfe0b37273"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/10.json": {
+      "bytes": 1246,
+      "sha256": "a6546e268e0345dfe43fef3f55d39fb172a7442465d93cbe83dcea1bfec2e193"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/11.json": {
+      "bytes": 1126,
+      "sha256": "8bdba5a5544d4d1a0c5465a9c09e1479d845aa2dfbb290fa8ed8082097d74027"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/12.json": {
+      "bytes": 1246,
+      "sha256": "5f48a047a805dc5e8b4b90dbcfa5d1e2463476c1bf5982b97a84a3ae140f424b"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/13.json": {
+      "bytes": 1126,
+      "sha256": "359e1ba348bf4ef02e82e4adbba84fe59179a64290d2f27a07bbc675c7119e8a"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/14.json": {
+      "bytes": 1126,
+      "sha256": "5c6d6f8d00c077e4ca48464b831b3d7d5e9623806a9e73aab83f557a893305d0"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/15.json": {
+      "bytes": 1126,
+      "sha256": "0c95bee30479522b6d254699d3df94c68f672ff12aef34ca2aae7f7a72c86470"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/16.json": {
+      "bytes": 233,
+      "sha256": "a6b9051017015017cdd63918911ae3cc79c5b88c537d00f537e4eaef2b8f9189"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/17.json": {
+      "bytes": 233,
+      "sha256": "9db2bdc6bd65b0042c56b903b702d5d589bca3c7f005dc3c2b971cfa614c4abf"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/18.json": {
+      "bytes": 1125,
+      "sha256": "4369246caa6fe9426340817019da7c3b09dbc34e9f4bd6819b756847fd5963d9"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/19.json": {
+      "bytes": 1125,
+      "sha256": "57a741b561fcfe788707e26f14f3ccb78139bf6ff6298686ef2a51b60c5ab9c6"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/2.json": {
+      "bytes": 232,
+      "sha256": "fd199d0cbcc27c4dcb89ba932b0a275459581c19828633dc8b4300b21d8eac3b"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/20.json": {
+      "bytes": 1125,
+      "sha256": "c104124fbbbca2013f904969b5cbab281ee6deba85b1903a17b2432e8e1ee944"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/21.json": {
+      "bytes": 1140,
+      "sha256": "b587e05986aac4ce20eaff1b5088a041ce6e9df868f7e4d32c81a28e7050c9e1"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/22.json": {
+      "bytes": 1125,
+      "sha256": "6038403d21111cfea69f0dc0ca2f7a8f8408d35de49e9fe4486f65f39f53df94"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/23.json": {
+      "bytes": 1252,
+      "sha256": "e222620d5f8dbd1552d1759c9aa30dc257ef2de0dee85fa7e4802bc9b38032c4"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/24.json": {
+      "bytes": 1131,
+      "sha256": "40ea81830866cb18b80bdfc80db808042232c8c364b32a9f2f03d9927182abd1"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/25.json": {
+      "bytes": 1249,
+      "sha256": "b5e7e6828c31a395772a26d3656a132770ffd2ba07b140a03a95d54010c606cc"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/26.json": {
+      "bytes": 1128,
+      "sha256": "7ec557b9991e2d93fd61a4957d73c3f9f8094d575ec2efb55b03f06b04f298e8"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/27.json": {
+      "bytes": 1250,
+      "sha256": "f2f2089553f9f617a4d201ad6b7896ca2521af5a531a9e4c16600a6e01a34687"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/28.json": {
+      "bytes": 1128,
+      "sha256": "01b510a3c412795a32ebb9e5640277f581942759ed689c8d372f0e386992c4fb"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/29.json": {
+      "bytes": 1128,
+      "sha256": "ed50ddac5715349c12706c736fbe816ca710ade29c7b24f5ad08d3da558a6473"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/3.json": {
+      "bytes": 1118,
+      "sha256": "121895ebd7d28a1356460c67eb9e7d5b25492bbc2001b4f333104e2ed829c530"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/30.json": {
+      "bytes": 1128,
+      "sha256": "c0e70569759148e3ece971f36b5938d3a9307c22214d03157838fe8afdb4167e"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/31.json": {
+      "bytes": 233,
+      "sha256": "9398449bb3cebc8604b90d982a22bc67c78a76a0a03dedcaf83fc876be45a7f1"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/32.json": {
+      "bytes": 233,
+      "sha256": "36db35dcdda4582d76d0eb72a0d470487142162e2b611159969c147a6e02a52e"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/33.json": {
+      "bytes": 1125,
+      "sha256": "5785769525d55771edac41e8964488f6d050644704414f36e59a04104cd90d54"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/34.json": {
+      "bytes": 1125,
+      "sha256": "150915457ee565ec9d870b9ab3ee0dd8587ea9d91f96672239d5cb733c771c6c"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/35.json": {
+      "bytes": 1125,
+      "sha256": "83a7a61f8abb2d69881e34d151179ac74732c371de9962ebfac5e6b7cad7502c"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/36.json": {
+      "bytes": 1140,
+      "sha256": "f66f0db6eea40bd93558d515725b60c57c15fd86b9de29156aae9a4057633710"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/37.json": {
+      "bytes": 1125,
+      "sha256": "57e760a29932c67cb02a182624a7bd6d650f43fcc9b931d0a04363954d5f7db2"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/38.json": {
+      "bytes": 1247,
+      "sha256": "6c27592c377619590928cc80d2885a13dbb85a856327a47cf55a243f50e138bb"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/39.json": {
+      "bytes": 1126,
+      "sha256": "04e6635f5fec4046ff7c20f5a009fdab3c73385cf47d1121b23dc70167a708ce"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/4.json": {
+      "bytes": 1118,
+      "sha256": "947db6b3968876df066dba6e0d8ae24270aa839ce0b36267c7a0cb90cb9506fc"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/40.json": {
+      "bytes": 1244,
+      "sha256": "85a024d7bed68155f39bed25237f36ad036940da92deada573ffb9164c40ba8d"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/41.json": {
+      "bytes": 1124,
+      "sha256": "83e32248e56665382d3ff44210d74d7f279ba50c106f74b1fc64aba5e1f2eff6"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/42.json": {
+      "bytes": 1245,
+      "sha256": "f2b342abfd61773f3ee102684ec462e2a0882b850518483de87f7a9a834f77c5"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/43.json": {
+      "bytes": 1125,
+      "sha256": "42bac026cd41658a4d0af35083cec8ff61c64c946bf4b81cbc411a550c04c0b4"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/44.json": {
+      "bytes": 1125,
+      "sha256": "b71d68ec0d5ac1387532245ab6b627735769b5fa2fbd42383ebb00b67464dfd8"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/45.json": {
+      "bytes": 1125,
+      "sha256": "a0fd9a8953f46b8784489603d46a352cbba94609ffc5ba8aa360353a8d9c83bb"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/46.json": {
+      "bytes": 233,
+      "sha256": "5a9abfa1e13a35b599c7b081586210fd52117091bf1d7e829dcb6817ae85f4a2"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/47.json": {
+      "bytes": 233,
+      "sha256": "7a9d74182e8e41e42801f4461d4c9e8412c5c08eff30fef85b12fba491f69736"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/48.json": {
+      "bytes": 1128,
+      "sha256": "b13fbd8d3e8b1bc827bb9048a40f1afbcabdc42ca3371ab6a19f60bba3619c19"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/49.json": {
+      "bytes": 1128,
+      "sha256": "b3942e30cf565bb74a2d7660baee4e963b37e9013025cd7c3a4907fbedbbd886"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/5.json": {
+      "bytes": 1118,
+      "sha256": "921451a15e2621ce60178cd5fe788bf41966c59c13840d836ebba86b2065c16e"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/50.json": {
+      "bytes": 1128,
+      "sha256": "b7e0cc691808956277afcf904a34aee4238e0708f30a9cd80f4f0dccb27ed30c"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/51.json": {
+      "bytes": 1143,
+      "sha256": "5dec60f23c3f578878e1f37e2cb43cc17a07c49aa8dd2538883a23a4d58fe00c"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/52.json": {
+      "bytes": 1128,
+      "sha256": "b72628c9c42789336206d2c24e1e416c4da329810b2e7129d5103f81b4ce5358"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/53.json": {
+      "bytes": 1253,
+      "sha256": "e424335e537c813292aaf431dc0ffff3011915ea06df8e380fc3c5c15d05a712"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/54.json": {
+      "bytes": 1131,
+      "sha256": "508142187da2a513727824896c1ee9a9cdf059196313990322a1631fe27e5f65"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/55.json": {
+      "bytes": 1252,
+      "sha256": "eca025835d607560533b2eda452b05f8bdbfcc639b744bc31532690cf3a87ca6"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/56.json": {
+      "bytes": 1127,
+      "sha256": "4d19fe11152135462861469349b953bbb99c62fbaf80a65a265edff3283c6bc2"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/57.json": {
+      "bytes": 1251,
+      "sha256": "e712b6035810951cae2c6cd35d6b28576203e7dd945576bcfe980666ceae7625"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/58.json": {
+      "bytes": 1128,
+      "sha256": "464c78a06223ee058e3823c6290933ec6de3af87bdb41cfba7aa533f6f903eba"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/59.json": {
+      "bytes": 1128,
+      "sha256": "2d7c2cf5d2ab399fe46c8ff046c43754691039c28f42e321df45e313b74c3d48"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/6.json": {
+      "bytes": 1133,
+      "sha256": "63e1e20b084459614b5be0f20118a9a83f16613240ab6af9a6e24798da5a003a"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/60.json": {
+      "bytes": 1128,
+      "sha256": "fe9ed5c92995e8dd4449ccf3ed78eee15ea886cf2386622ed33e02f5d5b5e355"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/61.json": {
+      "bytes": 233,
+      "sha256": "a51ea6ab75d74d8b489af927882c00174a2f4c718130058faa316b40717f12b7"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/62.json": {
+      "bytes": 233,
+      "sha256": "30fc0840e348e9b075967cdea6ea4505a30231f0e645881947e78ffe6a237697"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/7.json": {
+      "bytes": 1118,
+      "sha256": "b15140e194f98fe5cb14fa83cfb4e4eee0097472a970dd34371a00ec8efe49e8"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/8.json": {
+      "bytes": 1247,
+      "sha256": "a8ad35e07899f20d27a053103d4db4ac1ca83134c402355c5b231c5b6d6e2ab0"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/replies/9.json": {
+      "bytes": 1126,
+      "sha256": "3f23b9d8d2d6694b7a1455e01491ca3c50c1da1ebb496c732d095c22ec267f72"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/request.json": {
+      "bytes": 29,
+      "sha256": "63834f6c2af658699ffe4d785059ac0f4954f3045383caa35b4c59788eb44157"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/source.dxf": {
+      "bytes": 30360,
+      "sha256": "4d768e3a5ca0ba8d5e4762851a349f1679381b51d5fdf2a9b2fc89e86aa430db"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/001-trial.json": {
+      "bytes": 404654,
+      "sha256": "e847680246b0c55f5d24ed38827e039a2dad11df6f5409c9207fc6dee221dc16"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/002-ready.json": {
+      "bytes": 439739,
+      "sha256": "90cfa3ce5d883d5fa17c68c3e60007d6bbec7532cc2f334ba562b11ed171684a"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/003-open-dialog.json": {
+      "bytes": 448085,
+      "sha256": "fd77d23b192e162b376d8cf8201c1db3407cf7179413ab8d54d9fc804167d778"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/004-opened.json": {
+      "bytes": 454245,
+      "sha256": "a147d2f47d11da602c7e605d880240f3a5744dec3100e907d2351a9934097a9f"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/005-handle-dialog.json": {
+      "bytes": 454240,
+      "sha256": "47a9245fddd442392ac4746fb75990ec498e0b6a05f4637515c82d1c1e4e0343"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/006-selected.json": {
+      "bytes": 466171,
+      "sha256": "d1907e703124a4a8ce6bb87bbb14a477961b6bee05f4995685b391c8871a0cf2"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/007-closed.json": {
+      "bytes": 439952,
+      "sha256": "8f1c00e33762ac9678cda2b58cdc99a8de4db992688ea01ced4505fbabaff2d8"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/008-open-dialog.json": {
+      "bytes": 448298,
+      "sha256": "ce08dc8e648ef38392d520c2fcb2fcf13e33cc21f2bfd5bceed745181f714354"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/009-opened.json": {
+      "bytes": 454466,
+      "sha256": "5de4133ecfe2c664085dc9d971a24678cdced73b7168892917f2ccdfdc19655c"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/010-handle-dialog.json": {
+      "bytes": 454461,
+      "sha256": "4d47d4434271cdc69b1a0ad70460400a7acd05c5c780493cd3c82dc79847111d"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/011-selected.json": {
+      "bytes": 466392,
+      "sha256": "0242c9e9a082e0af9cef609b9e0aef5f5b2321789c631a96cf8881e5ba3d46b7"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/012-closed.json": {
+      "bytes": 440169,
+      "sha256": "4972b943e7c48a62d8b5fc5efb5e96df6261bc5a99955e890e46ed8755c6b2db"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/013-open-dialog.json": {
+      "bytes": 448515,
+      "sha256": "990de10c3843ace2972d883376def9e777d7b18e7548fa679002704daae1df64"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/014-opened.json": {
+      "bytes": 454675,
+      "sha256": "3a51b042bbcbb0c00a221274f663fc1da121888a108eef70c55335883ad90a87"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/015-handle-dialog.json": {
+      "bytes": 454670,
+      "sha256": "2a055250c8450c438c9d339efce1cf3b1a92b541db4b4b2d945f9c5efe919907"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/016-selected.json": {
+      "bytes": 466600,
+      "sha256": "541c9ce0949052846c62f961829dd6e612673d5ff0b180d108dabba5bad20e7f"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/017-closed.json": {
+      "bytes": 440382,
+      "sha256": "3c28d38084fd26d87062f9d8744e84249dca4d5352bd26f3b639115a6ddb3853"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/018-open-dialog.json": {
+      "bytes": 448728,
+      "sha256": "c677f67e7172b6a07f78c4de9c375067d838409c07b9e4a3108de8164317d195"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/019-opened.json": {
+      "bytes": 454900,
+      "sha256": "27d601c827193a79de9c3e01cbe2d567b2690ae440f7ec3a8a08ffc24d3bccbd"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/020-handle-dialog.json": {
+      "bytes": 454895,
+      "sha256": "162696d1cbf6aec56866e8ab9b1d248aa7ea39e147c81987ce5d65baa08e5c55"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/021-selected.json": {
+      "bytes": 466825,
+      "sha256": "405b4878e1cbdea85a0dee97a5bf9d156ec18e3bae854039d4b24b191a9454ec"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/022-closed.json": {
+      "bytes": 440601,
+      "sha256": "6692f535d7926474431110e5cd6750a9bbc392c3afd91c0b29bf5f863a1250de"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/RESULT.json": {
+      "bytes": 104,
+      "sha256": "7374e898177e230a06f9c359187efef51d1f4ec1a2706e3bd9bba2684489ad40"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/actions.json": {
+      "bytes": 142821,
+      "sha256": "d5a571369f92b16c7a522a5b706f3c9e4a899c93714c4f34c48ce3a2da55c06e"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/baseline-asset-0.canvas.png": {
+      "bytes": 24238,
+      "sha256": "52e4a8f032f85af79a7f7c661bd0c77502cd662fd75cab2cb44c8dd5063aede8"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/baseline-asset-0.png": {
+      "bytes": 226379,
+      "sha256": "272e6ee5321c697acb024632307d6270c767483570db81b321054579b405fea5"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/baseline-asset-1.canvas.png": {
+      "bytes": 24238,
+      "sha256": "52e4a8f032f85af79a7f7c661bd0c77502cd662fd75cab2cb44c8dd5063aede8"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/baseline-asset-1.png": {
+      "bytes": 226379,
+      "sha256": "272e6ee5321c697acb024632307d6270c767483570db81b321054579b405fea5"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/baseline-labels-0.canvas.png": {
+      "bytes": 25375,
+      "sha256": "ee87dfc5889d4dff44f4264e0ae26058ff327342a10bbde0c52b6c4fac9e2093"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/baseline-labels-0.png": {
+      "bytes": 225516,
+      "sha256": "a71dc72e1e49644970a59c2c9251ad6ac8347d72da0e5aec36b81359922037ca"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/baseline-labels-1.canvas.png": {
+      "bytes": 25375,
+      "sha256": "ee87dfc5889d4dff44f4264e0ae26058ff327342a10bbde0c52b6c4fac9e2093"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/baseline-labels-1.png": {
+      "bytes": 225516,
+      "sha256": "a71dc72e1e49644970a59c2c9251ad6ac8347d72da0e5aec36b81359922037ca"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/baseline-overview-0.canvas.png": {
+      "bytes": 13718,
+      "sha256": "f903b81f09eec549f75e6e91ec3916b111b35274b055820a1cc9626fcbd0a4bd"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/baseline-overview-0.png": {
+      "bytes": 207075,
+      "sha256": "231a434229ad351c2b6fea4d896619ecd332e097e599131fdf682db154a25dab"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/baseline-overview-1.canvas.png": {
+      "bytes": 13718,
+      "sha256": "f903b81f09eec549f75e6e91ec3916b111b35274b055820a1cc9626fcbd0a4bd"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/baseline-overview-1.png": {
+      "bytes": 207075,
+      "sha256": "231a434229ad351c2b6fea4d896619ecd332e097e599131fdf682db154a25dab"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/candidate-asset-0.canvas.png": {
+      "bytes": 24027,
+      "sha256": "e8bb87e2ddf12db70443d04372d7c55a7ddad1427bf2e448a1c72dcc6319419f"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/candidate-asset-0.png": {
+      "bytes": 226855,
+      "sha256": "447098d6b7edb340b43af23adaddf2f07afbc48dc33e5fd68b5011169212e540"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/candidate-asset-1.canvas.png": {
+      "bytes": 24027,
+      "sha256": "e8bb87e2ddf12db70443d04372d7c55a7ddad1427bf2e448a1c72dcc6319419f"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/candidate-asset-1.png": {
+      "bytes": 226855,
+      "sha256": "447098d6b7edb340b43af23adaddf2f07afbc48dc33e5fd68b5011169212e540"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/candidate-labels-0.canvas.png": {
+      "bytes": 24932,
+      "sha256": "795a58142e8014fa9f20aeba5974d8a40d7465a314da3e0a11f378dcfe7257e6"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/candidate-labels-0.png": {
+      "bytes": 225329,
+      "sha256": "98d91ae4f5ef0eeb15f840fcd8446dbc5717cd94b1c89c13adefa2a59183f513"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/candidate-labels-1.canvas.png": {
+      "bytes": 24932,
+      "sha256": "795a58142e8014fa9f20aeba5974d8a40d7465a314da3e0a11f378dcfe7257e6"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/candidate-labels-1.png": {
+      "bytes": 225329,
+      "sha256": "98d91ae4f5ef0eeb15f840fcd8446dbc5717cd94b1c89c13adefa2a59183f513"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/candidate-overview-0.canvas.png": {
+      "bytes": 13489,
+      "sha256": "d28698a72d59dd8b47650345ae7dc509319463dd7b5b14af35260352b51c63f4"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/candidate-overview-0.png": {
+      "bytes": 207252,
+      "sha256": "85dae3edeab44a62ef6d0250ae2c3e949bc85b5f4dc2082b3dbdcd1623790753"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/candidate-overview-1.canvas.png": {
+      "bytes": 13489,
+      "sha256": "d28698a72d59dd8b47650345ae7dc509319463dd7b5b14af35260352b51c63f4"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/candidate-overview-1.png": {
+      "bytes": 207252,
+      "sha256": "85dae3edeab44a62ef6d0250ae2c3e949bc85b5f4dc2082b3dbdcd1623790753"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/edited-asset-0.canvas.png": {
+      "bytes": 24027,
+      "sha256": "e8bb87e2ddf12db70443d04372d7c55a7ddad1427bf2e448a1c72dcc6319419f"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/edited-asset-0.png": {
+      "bytes": 225737,
+      "sha256": "3bf2f606c1d04c57d647c8a6253ae9993007c20b6962ccc61784eef08b22ce4b"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/edited-asset-1.canvas.png": {
+      "bytes": 24027,
+      "sha256": "e8bb87e2ddf12db70443d04372d7c55a7ddad1427bf2e448a1c72dcc6319419f"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/edited-asset-1.png": {
+      "bytes": 225737,
+      "sha256": "3bf2f606c1d04c57d647c8a6253ae9993007c20b6962ccc61784eef08b22ce4b"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/edited-labels-0.canvas.png": {
+      "bytes": 24932,
+      "sha256": "795a58142e8014fa9f20aeba5974d8a40d7465a314da3e0a11f378dcfe7257e6"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/edited-labels-0.png": {
+      "bytes": 224171,
+      "sha256": "b63dc25179cdb1fea07007ab1f338b30e3582024c9f4ed2881907186d7272583"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/edited-labels-1.canvas.png": {
+      "bytes": 24932,
+      "sha256": "795a58142e8014fa9f20aeba5974d8a40d7465a314da3e0a11f378dcfe7257e6"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/edited-labels-1.png": {
+      "bytes": 224171,
+      "sha256": "b63dc25179cdb1fea07007ab1f338b30e3582024c9f4ed2881907186d7272583"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/edited-overview-0.canvas.png": {
+      "bytes": 13489,
+      "sha256": "d28698a72d59dd8b47650345ae7dc509319463dd7b5b14af35260352b51c63f4"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/edited-overview-0.png": {
+      "bytes": 206183,
+      "sha256": "da07f369ccac020a96ab3fcdd24e23d81060255baebef96af5f159ee0de07c47"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/edited-overview-1.canvas.png": {
+      "bytes": 13489,
+      "sha256": "d28698a72d59dd8b47650345ae7dc509319463dd7b5b14af35260352b51c63f4"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/edited-overview-1.png": {
+      "bytes": 206183,
+      "sha256": "da07f369ccac020a96ab3fcdd24e23d81060255baebef96af5f159ee0de07c47"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/source-asset-0.canvas.png": {
+      "bytes": 24238,
+      "sha256": "52e4a8f032f85af79a7f7c661bd0c77502cd662fd75cab2cb44c8dd5063aede8"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/source-asset-0.png": {
+      "bytes": 226129,
+      "sha256": "070badaf9efa5beb1fb2c297cd9a6c7a7c363e1877960729aa913b0166c91665"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/source-asset-1.canvas.png": {
+      "bytes": 24238,
+      "sha256": "52e4a8f032f85af79a7f7c661bd0c77502cd662fd75cab2cb44c8dd5063aede8"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/source-asset-1.png": {
+      "bytes": 226129,
+      "sha256": "070badaf9efa5beb1fb2c297cd9a6c7a7c363e1877960729aa913b0166c91665"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/source-labels-0.canvas.png": {
+      "bytes": 25375,
+      "sha256": "ee87dfc5889d4dff44f4264e0ae26058ff327342a10bbde0c52b6c4fac9e2093"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/source-labels-0.png": {
+      "bytes": 225282,
+      "sha256": "f897552df5514db96b462da655d42ea5959cb3a8a6626ecd0f29256fba0403a1"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/source-labels-1.canvas.png": {
+      "bytes": 25375,
+      "sha256": "ee87dfc5889d4dff44f4264e0ae26058ff327342a10bbde0c52b6c4fac9e2093"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/source-labels-1.png": {
+      "bytes": 225282,
+      "sha256": "f897552df5514db96b462da655d42ea5959cb3a8a6626ecd0f29256fba0403a1"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/source-overview-0.canvas.png": {
+      "bytes": 13718,
+      "sha256": "f903b81f09eec549f75e6e91ec3916b111b35274b055820a1cc9626fcbd0a4bd"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/source-overview-0.png": {
+      "bytes": 206869,
+      "sha256": "d445022265dbf5e377607fb473a4de524600e1c30b86184837ac0135a1f0445e"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/source-overview-1.canvas.png": {
+      "bytes": 13718,
+      "sha256": "f903b81f09eec549f75e6e91ec3916b111b35274b055820a1cc9626fcbd0a4bd"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui/source-overview-1.png": {
+      "bytes": 206869,
+      "sha256": "d445022265dbf5e377607fb473a4de524600e1c30b86184837ac0135a1f0445e"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/ui_control.py": {
+      "bytes": 4554,
+      "sha256": "e508c2a70b26ff1998fdd4cbc6484a2c7ea7b423e8e76868db8529c44a594881"
+    },
+    "raw/jobs/qcad-hydraulic-receiving/workflow.py": {
+      "bytes": 11926,
+      "sha256": "8e600a8ff2504df0e3eeb5c04a0053618130889354b94c56e3fcc215b22c7c23"
+    }
+  },
+  "packager_sha256": "144456f2e1295818ebfcca837565f6dfbc56d92d422f00e0cd0a5160eeb0e16d",
+  "exclusions": [
+    "Selected original/working settings contents; hashes retained",
+    "Publisher binaries and compiled libraries",
+    "Python bytecode"
+  ]
+}

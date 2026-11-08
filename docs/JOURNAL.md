@@ -9062,3 +9062,35 @@ not adopted into that run. At this checkpoint, portable raw-evidence receiving, 
 loss controls and CI are unfinished; observations remain local and provisional. All six software candidates
 pass unchanged strict/raw checks; the six library saves fail exact byte reconstruction. New reserved evaluation,
 complete native readability/editability and revision/foreign-attribute gates, and company acceptance remain open.
+
+### 206 follow-up: receive the completed exposed cohort
+
+All 18 original fresh-cohort controllers, native applications and containers subsequently exited zero.
+Seven bounded lossless packets now retain both original failures and the complete cohort; the
+[offline receiver](../examples/cad-handoff/qualification/native-ui-pairs-19/README.md) checks source/method
+pins, execution/terminal state, UI controls, independent native observations, stored values, full crops
+and comparisons. It checks 798 native observations, 60 field panels and 144 views (576 PNG files).
+All 12 native full saves still fail: source-to-return counts are 298–377, matched-pair counts 50–53.
+The six exact-span candidates retain strict/raw passes; library controls still fail raw reconstruction.
+
+The receiver found two further failures rather than promoting controller exit zero to acceptance.
+A shared mutable expected-value dictionary rewrote earlier producer metadata in every edited run:
+12 recording failures remain alongside correct independently retained UI/native/DXF before/after values.
+The original receiver refusal and source are retained. The original pixel analyzer also refuses exact
+camera equality on motion/power last-decimal offsets; its failure/source remain. A diagnostic retains
+all original camera values and all 54 fixed-region pixel comparisons. Zero outside-region changes is
+observed, with nine comparisons explicitly diagnostic only. No tolerance or image registration was added.
+
+Controls challenge omitted observations/trees/actions, disabled fields, changed source and incorrect
+returned values, unsafe/incomplete archives, and an unrelated pixel despite updated capture hashes.
+An actual-old-method regression reproduces mutable metadata rewriting beside the successor's preserved
+snapshots. Replay Python bindings explicitly normalize CRLF; all native raw evidence stays byte-bound.
+The first raw Python binding check exposed the existing cad_handoff.py checkout's CRLF/Git-LF difference;
+its original manifest remains locally, and no native measurement or CAD check changed to address it.
+
+A separately committed plan/source review precedes the new absolute-camera control. Pinned public
+QCAD source suggests previous-offset floating-point cancellation as a lead, not installed-build proof.
+A fresh camera-only process now tests old and direct factor/offset view setters on exposed inputs,
+without entity edits or saves. Its actual result, complete repository/CI gates and later six-case
+follow-up remain separate. Original full-save failures, reserved/generalization, foreign/other-text,
+revision/conflict and engineering/company acceptance gates remain open.

@@ -787,6 +787,30 @@ class NativeUIPairs19Evidence(unittest.TestCase):
                 self.assertEqual(row['recorded']['MANUFACTURER'],'QUAL-AFTER')
                 self.assertEqual(row['source_phase_expected']['MANUFACTURER'],'QUAL-BEFORE')
 
+    def test_ui19_exposes_unplanned_pixels_even_when_capture_hashes_are_updated(self):
+        import hashlib
+        from PIL import Image
+        receiver=self.receiver()
+        with tempfile.TemporaryDirectory()as temporary:
+            root=receiver.unpack(receiver.BASE/'evidence/libre-air-water',Path(temporary)/'input')
+            job=root/'jobs/libre-air-water-receiving';actions=receiver.read(job/'ui/actions.json')
+            capture=next(r for r in actions if r['kind']=='capture'and r['label']=='edited'and r['frame']=='overview')
+            # A changed corner is unrelated to the manufacturer label. Keep complete root/crop evidence
+            # consistent, so the comparison must detect actual content rather than a stale hash.
+            for row in capture['images']:
+                fullpath=job/'ui'/row['path'];croppath=fullpath.with_suffix('.canvas.png')
+                with Image.open(croppath)as image:
+                    changed=image.copy();pixel=list(changed.getpixel((0,0)));pixel[0]^=255
+                    changed.putpixel((0,0),tuple(pixel));changed.save(croppath)
+                    row['pixel_sha256']=hashlib.sha256(changed.tobytes()).hexdigest()
+                    with Image.open(fullpath)as full:
+                        x,y,_,_=capture['canvas']['rectangle'];updated=full.copy();updated.paste(changed,(x,y));updated.save(fullpath)
+            (job/'ui/actions.json').write_text(json.dumps(actions),encoding='utf-8')
+            rows=receiver.diagnose_ui19.pixels(receiver.analysis,job,Path(temporary)/'comparison')
+            comparison=next(r for r in rows if r['frame']=='overview'and r['left']=='baseline'and r['right']=='edited')
+            self.assertFalse(comparison['diagnostic_only'])
+            self.assertEqual(comparison['outside_region'],1)
+
     def test_ui19_archive_refuses_traversal_duplicate_link_and_omission(self):
         import hashlib,io,tarfile
         receiver=self.receiver()

@@ -1,0 +1,1616 @@
+{
+  "kind": {
+    "route": "clean-exposed-case",
+    "case": "libre-power"
+  },
+  "archive": {
+    "path": "evidence.tar.xz",
+    "bytes": 3939704,
+    "sha256": "1d476d756ca81f27b88bd128684e1a12decaa77a130fb4f4232be8a597d5fe30"
+  },
+  "raw_bytes": 36069992,
+  "files": {
+    "raw/cases/libre-power/basis.json": {
+      "bytes": 680,
+      "sha256": "80e4a3b8d2986ccb5a9d852db48b8c8446fd3d8d8d08d70aebc2392b472bc8bc"
+    },
+    "raw/cases/libre-power/plan.json": {
+      "bytes": 403,
+      "sha256": "599d30b5329a472df07da2623a3d2fcffe62257ea59b113c39016d1527806aa3"
+    },
+    "raw/cases/libre-power/software/candidate/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/cases/libre-power/software/candidate/asset_candidates.csv": {
+      "bytes": 117,
+      "sha256": "2a0208168d4158dc36648abc9283dea5762dca821ce75d5026900c223ee54199"
+    },
+    "raw/cases/libre-power/software/candidate/byte-edits.json": {
+      "bytes": 745,
+      "sha256": "68fcef427af36f2377b5a56c21820cba6904d45a60b012483ba16b03f1c20a27"
+    },
+    "raw/cases/libre-power/software/candidate/cad_context.json": {
+      "bytes": 613,
+      "sha256": "371cbcf401607c761596ca5a2846490e86deadc3108a54cbc04e736a2f58d67e"
+    },
+    "raw/cases/libre-power/software/candidate/candidate-context/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/cases/libre-power/software/candidate/candidate-context/asset_candidates.csv": {
+      "bytes": 116,
+      "sha256": "6981c2c5b04a06bd75c04c4a4847256f3b4aad2b13f8a599684583bf074b743e"
+    },
+    "raw/cases/libre-power/software/candidate/candidate-context/cad_context.json": {
+      "bytes": 612,
+      "sha256": "707c8a195d5fa27c475c6f445a327c143e09ad251a70c0ee3a087c70751b6d1c"
+    },
+    "raw/cases/libre-power/software/candidate/candidate-context/snapshot.json": {
+      "bytes": 81308,
+      "sha256": "1650b4981e5bd82adda097297ffbd8c28b058b797a23f928e33fe11a5a102807"
+    },
+    "raw/cases/libre-power/software/candidate/candidate-context/source.dxf": {
+      "bytes": 20915,
+      "sha256": "e81029818228769f74d15ef9f8d8ef1d918df2a6eaab74737ff0cd936d72ba1c"
+    },
+    "raw/cases/libre-power/software/candidate/candidate.dxf": {
+      "bytes": 20915,
+      "sha256": "e81029818228769f74d15ef9f8d8ef1d918df2a6eaab74737ff0cd936d72ba1c"
+    },
+    "raw/cases/libre-power/software/candidate/candidate.snapshot.json": {
+      "bytes": 81308,
+      "sha256": "1650b4981e5bd82adda097297ffbd8c28b058b797a23f928e33fe11a5a102807"
+    },
+    "raw/cases/libre-power/software/candidate/comparison.json": {
+      "bytes": 869,
+      "sha256": "251cfef8a6d91e1bba72a2ea878592aac6de302627060d28213f5607e5b640ba"
+    },
+    "raw/cases/libre-power/software/candidate/plan.json": {
+      "bytes": 390,
+      "sha256": "0b49fb68beb41a15111abcfad2af4664a8523a426e2d90b99a93af97dec1fac4"
+    },
+    "raw/cases/libre-power/software/candidate/snapshot.json": {
+      "bytes": 81310,
+      "sha256": "3ac8b600be5b8fcd63b07d0d564e37e9c7bfdec68a6fdd0542dd66006ffb5551"
+    },
+    "raw/cases/libre-power/software/candidate/source.dxf": {
+      "bytes": 20916,
+      "sha256": "8876b0c66ec7794914a2218072386f5d169a6813a675a579747fa6242cfac2bd"
+    },
+    "raw/cases/libre-power/software/library-save.comparison.json": {
+      "bytes": 869,
+      "sha256": "25db1cd56dd4a02188fafe84dd2ea9b46b56fb97a69d11b88db3e10fefd47f84"
+    },
+    "raw/cases/libre-power/software/library.dxf": {
+      "bytes": 20923,
+      "sha256": "36bc69a5acfe23a78b082b563d380d202ccdabbea0b0b6e6d385589c127424ca"
+    },
+    "raw/cases/libre-power/software/result.json": {
+      "bytes": 937,
+      "sha256": "6b40f1018a7443ca00bf75b4d769a12caaab980304d158d77312b2390dc59f9a"
+    },
+    "raw/cases/libre-power/software/value-spans.comparison.json": {
+      "bytes": 869,
+      "sha256": "251cfef8a6d91e1bba72a2ea878592aac6de302627060d28213f5607e5b640ba"
+    },
+    "raw/cases/libre-power/source.dxf": {
+      "bytes": 20916,
+      "sha256": "8876b0c66ec7794914a2218072386f5d169a6813a675a579747fa6242cfac2bd"
+    },
+    "raw/cohort/COHORT.json": {
+      "bytes": 4476,
+      "sha256": "131aaccd9ccc9b0c36223af3f06e04053de0e40970e4ddef572334f255947aad"
+    },
+    "raw/cohort/methods/METHOD.md": {
+      "bytes": 5339,
+      "sha256": "e1bbc04db242370dc00cf6ef237c1f5022599ec200206717cd7df08dc095e04b"
+    },
+    "raw/cohort/methods/PLAN.md": {
+      "bytes": 5204,
+      "sha256": "1d3f3a4985cb9aa21bc81d39bb1bc6b3963ef1a675af10b734f65fa81a46dd4b"
+    },
+    "raw/cohort/methods/analyze.py": {
+      "bytes": 6634,
+      "sha256": "f17bf22e06abef88ec989958e88d32557753308a92031a6854845fabd7d8c981"
+    },
+    "raw/cohort/methods/batch.py": {
+      "bytes": 4655,
+      "sha256": "1bb25fb445635117ae56579a89cde012728a5e1d8538a644daf4f4f8dc15446c"
+    },
+    "raw/cohort/methods/inspect_ui.py": {
+      "bytes": 1439,
+      "sha256": "c41e118f8108e02dcef6ba9d90cf280d68851ba4b7cb6a870b96a4c9deb5c03e"
+    },
+    "raw/cohort/methods/launch_case.py": {
+      "bytes": 2906,
+      "sha256": "beee5842b37f0bea6cade0afb33e8706754e80db29acd22e6f78dd44d74fdc03"
+    },
+    "raw/cohort/methods/native_controls.py": {
+      "bytes": 800,
+      "sha256": "767246eef54db970e4a1a590b2e5797a41305046dfebc98dfdc7bc759105e832"
+    },
+    "raw/cohort/methods/observe_case.js": {
+      "bytes": 2810,
+      "sha256": "24e09cf1c30a5f818014ca3662d847030066185f1468b31b563bd8163e4c6070"
+    },
+    "raw/cohort/methods/preflight.py": {
+      "bytes": 2588,
+      "sha256": "791142e53f8996a49a3191f29cf37aa9d9fde82e7c497ccf97f0d02478812031"
+    },
+    "raw/cohort/methods/prepare.py": {
+      "bytes": 4665,
+      "sha256": "a4515b8ba619803d5b6a431114e69f459c7aedb2b0c2437eb2fc0252ede9240a"
+    },
+    "raw/cohort/methods/recover_edit.py": {
+      "bytes": 1554,
+      "sha256": "3e75e59cb23ceae7cd89539420e7f6c940faf439e3a51d8d880fa38e1a5e205d"
+    },
+    "raw/cohort/methods/ui_control.py": {
+      "bytes": 4554,
+      "sha256": "e508c2a70b26ff1998fdd4cbc6484a2c7ea7b423e8e76868db8529c44a594881"
+    },
+    "raw/cohort/methods/view_observer.js": {
+      "bytes": 1931,
+      "sha256": "558ec33c63ac1eec07effb8c2ff9739f6c96cce49ba6e8f5dcfa7ace73117677"
+    },
+    "raw/cohort/methods/workflow.py": {
+      "bytes": 11926,
+      "sha256": "8e600a8ff2504df0e3eeb5c04a0053618130889354b94c56e3fcc215b22c7c23"
+    },
+    "raw/jobs/libre-power-baseline/CONTAINER-LOG.json": {
+      "bytes": 737,
+      "sha256": "75c03242487bb2b71d69355e35a975bb58f04ca9a427288db724cf7fba8fda05"
+    },
+    "raw/jobs/libre-power-baseline/ENVIRONMENT.json": {
+      "bytes": 1080,
+      "sha256": "5929e8e694ef2992576ae70b758977a60026f9861f5d355837d109526f4f39f8"
+    },
+    "raw/jobs/libre-power-baseline/JOB-FREEZE.json": {
+      "bytes": 1168,
+      "sha256": "a1cb0787150825ca60cfd1848a8349c7d56684ff72f4097a5105cd182439ed8b"
+    },
+    "raw/jobs/libre-power-baseline/METHOD.md": {
+      "bytes": 5339,
+      "sha256": "e1bbc04db242370dc00cf6ef237c1f5022599ec200206717cd7df08dc095e04b"
+    },
+    "raw/jobs/libre-power-baseline/PLAN.md": {
+      "bytes": 5204,
+      "sha256": "1d3f3a4985cb9aa21bc81d39bb1bc6b3963ef1a675af10b734f65fa81a46dd4b"
+    },
+    "raw/jobs/libre-power-baseline/dbus-address.txt": {
+      "bytes": 68,
+      "sha256": "83c659a86c05fd78c56ebd83db0e294eb1d6e710fb8a0bf04fe6110444b03539"
+    },
+    "raw/jobs/libre-power-baseline/inspect_ui.py": {
+      "bytes": 1439,
+      "sha256": "c41e118f8108e02dcef6ba9d90cf280d68851ba4b7cb6a870b96a4c9deb5c03e"
+    },
+    "raw/jobs/libre-power-baseline/job.json": {
+      "bytes": 703,
+      "sha256": "3322d50563ba3736dbe0246183b6456dce5cdc55f13a0b8391ddfb0c252d3c6f"
+    },
+    "raw/jobs/libre-power-baseline/launch_case.py": {
+      "bytes": 2906,
+      "sha256": "beee5842b37f0bea6cade0afb33e8706754e80db29acd22e6f78dd44d74fdc03"
+    },
+    "raw/jobs/libre-power-baseline/native/PROCESS.json": {
+      "bytes": 1338,
+      "sha256": "3c0ded6b2b468aedcfcf74e49862863112c7a63c510b3c3a6246483475ecba52"
+    },
+    "raw/jobs/libre-power-baseline/native/controller.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/libre-power-baseline/native/controller.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/libre-power-baseline/native/openbox.log": {
+      "bytes": 85,
+      "sha256": "6f748c3cd02a858c087697c3afac639205c62b7b206558bd40d1bcbd98165a5c"
+    },
+    "raw/jobs/libre-power-baseline/native/stderr.txt": {
+      "bytes": 5801,
+      "sha256": "a8bf2ee8f56b5fb3c57c7b47fe286f836204da51cbf541e5041fd71db8a2e78c"
+    },
+    "raw/jobs/libre-power-baseline/native/stdout.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/libre-power-baseline/native/xvfb.log": {
+      "bytes": 2429,
+      "sha256": "6d73d78138c41bea466314919237a4fe998e5b670a356ab2012f328fff769a7b"
+    },
+    "raw/jobs/libre-power-baseline/native_controls.py": {
+      "bytes": 800,
+      "sha256": "767246eef54db970e4a1a590b2e5797a41305046dfebc98dfdc7bc759105e832"
+    },
+    "raw/jobs/libre-power-baseline/observe_case.js": {
+      "bytes": 2810,
+      "sha256": "24e09cf1c30a5f818014ca3662d847030066185f1468b31b563bd8163e4c6070"
+    },
+    "raw/jobs/libre-power-baseline/prepare.py": {
+      "bytes": 4665,
+      "sha256": "a4515b8ba619803d5b6a431114e69f459c7aedb2b0c2437eb2fc0252ede9240a"
+    },
+    "raw/jobs/libre-power-baseline/replies/1.json": {
+      "bytes": 232,
+      "sha256": "c4733a44515b0d814ac0a1c121fd790225d99b8cf1e6ee9b5351fabfe0b37273"
+    },
+    "raw/jobs/libre-power-baseline/replies/10.json": {
+      "bytes": 1239,
+      "sha256": "c34bfe7500a3f4721122a3373c50172732267252341cb9bd81d933160efb178b"
+    },
+    "raw/jobs/libre-power-baseline/replies/11.json": {
+      "bytes": 1120,
+      "sha256": "a9838c7130d4f7abff88c355f579b3aaa639c35117bbbb48828587f56603b0e8"
+    },
+    "raw/jobs/libre-power-baseline/replies/12.json": {
+      "bytes": 1238,
+      "sha256": "95cadb9a648966f7b8d1952edf0c2f68ca8c1301b3a5de412ec312a70a49d0fd"
+    },
+    "raw/jobs/libre-power-baseline/replies/13.json": {
+      "bytes": 1119,
+      "sha256": "afa01cb4e39019e67aa1ced281fa970a38302895756bc045bab7736f232594bf"
+    },
+    "raw/jobs/libre-power-baseline/replies/14.json": {
+      "bytes": 1119,
+      "sha256": "d73c349c4fd04d0b147ddfc00f8e145c55ba9ff7275a37958a7956fe4b8f9b11"
+    },
+    "raw/jobs/libre-power-baseline/replies/15.json": {
+      "bytes": 1119,
+      "sha256": "30b60bbf235d6ef1a4b8c40d96084b74f9bf55f8edc99e1c0b4eeb0300b462e2"
+    },
+    "raw/jobs/libre-power-baseline/replies/16.json": {
+      "bytes": 1119,
+      "sha256": "af45ec27899093d11aa8c84a1004f132436b0c88fd4286bf62ff00aa2c274c27"
+    },
+    "raw/jobs/libre-power-baseline/replies/17.json": {
+      "bytes": 1119,
+      "sha256": "3f8c97b50890b5351f943046fcb47c2ecf82944df70de60687af9b51af2ecd45"
+    },
+    "raw/jobs/libre-power-baseline/replies/18.json": {
+      "bytes": 233,
+      "sha256": "4fbb4f4a73f93ad60b34b9d020053eaa4785db707f9fead439bc841f6d0c4561"
+    },
+    "raw/jobs/libre-power-baseline/replies/19.json": {
+      "bytes": 233,
+      "sha256": "281af2c4eaa4ea509d5a991e026d99a70caca33fea6ae2438483271ef54ca6d7"
+    },
+    "raw/jobs/libre-power-baseline/replies/2.json": {
+      "bytes": 232,
+      "sha256": "fd199d0cbcc27c4dcb89ba932b0a275459581c19828633dc8b4300b21d8eac3b"
+    },
+    "raw/jobs/libre-power-baseline/replies/20.json": {
+      "bytes": 1120,
+      "sha256": "415f8d278c280385c674af6a121593e50da283feea6a3a22703918b983dc2518"
+    },
+    "raw/jobs/libre-power-baseline/replies/21.json": {
+      "bytes": 1120,
+      "sha256": "11be4ad8effd7c8ec7e58f6cbd8d29f1b8ef9cb3be3595e71eebcc7576752a7b"
+    },
+    "raw/jobs/libre-power-baseline/replies/22.json": {
+      "bytes": 1120,
+      "sha256": "6f31f79619a7712ca91eb9b85eab3a530b94e46cc78865cbeb9f08970676e596"
+    },
+    "raw/jobs/libre-power-baseline/replies/23.json": {
+      "bytes": 1131,
+      "sha256": "13b1e82ce9837f7ad8d3428e4ab53f1be8351ae5b3ba0f7d605f8936288e50b8"
+    },
+    "raw/jobs/libre-power-baseline/replies/24.json": {
+      "bytes": 1120,
+      "sha256": "e86f52fc940b50a4f6ef3eedfa254f45ead4cb213bacf5a45ee0e3afd84c2de5"
+    },
+    "raw/jobs/libre-power-baseline/replies/25.json": {
+      "bytes": 1246,
+      "sha256": "015ac311c0f42a3b31b55422aaa115b2396608ddb6e83db35098dfacc26ef744"
+    },
+    "raw/jobs/libre-power-baseline/replies/26.json": {
+      "bytes": 1126,
+      "sha256": "0275862f405af08bc4d20224b7c2c2d10fb4b44abd3602d9c3d7543c454975b4"
+    },
+    "raw/jobs/libre-power-baseline/replies/27.json": {
+      "bytes": 1244,
+      "sha256": "497f7bfb9aaa86d1aa1846eb6308c72e6070fc5300a451f700cf4fb0d0604f11"
+    },
+    "raw/jobs/libre-power-baseline/replies/28.json": {
+      "bytes": 1122,
+      "sha256": "e143b78c859ed3449a5334e4a568f9ac8f3be6f401deca16606f3c2e2fcf16c0"
+    },
+    "raw/jobs/libre-power-baseline/replies/29.json": {
+      "bytes": 1242,
+      "sha256": "04a6c25b819e030920d58e9ecafde32ee047db249c710ff0357265c76c4c25a0"
+    },
+    "raw/jobs/libre-power-baseline/replies/3.json": {
+      "bytes": 1117,
+      "sha256": "b31b20772e471bda2f428dbe7088e83fedf4fc14f1509867ed724e065d86c2e8"
+    },
+    "raw/jobs/libre-power-baseline/replies/30.json": {
+      "bytes": 1121,
+      "sha256": "2a8c5ffbe1e293238e1c502e51104c4153edd375af0abda6679c2283df8062f5"
+    },
+    "raw/jobs/libre-power-baseline/replies/31.json": {
+      "bytes": 1121,
+      "sha256": "7e95a232e7d775074bb246d27e62fe5aa4419a9951db2882a5e093626a7c926e"
+    },
+    "raw/jobs/libre-power-baseline/replies/32.json": {
+      "bytes": 1121,
+      "sha256": "1e175200953f6625214706e28b519069e32c0ee22cc23a5bb48f450b0649004f"
+    },
+    "raw/jobs/libre-power-baseline/replies/33.json": {
+      "bytes": 233,
+      "sha256": "0ec3d978b8ffc7fb1f9a7f1bac9dd222727fa92dda32489f41a9cbefffb2e431"
+    },
+    "raw/jobs/libre-power-baseline/replies/34.json": {
+      "bytes": 233,
+      "sha256": "70c2d5d54c47a50c8d624b4656214bd15bff84d159be0a261e002ea7a6312f0b"
+    },
+    "raw/jobs/libre-power-baseline/replies/4.json": {
+      "bytes": 1117,
+      "sha256": "fae76839f2c39020b4b1e377f19a9e7d609b7accc4c9f3a7e1c7e701995a674d"
+    },
+    "raw/jobs/libre-power-baseline/replies/5.json": {
+      "bytes": 1117,
+      "sha256": "f4abc1cd9da03046404bf4d98e3f63385c48c92b5098081dade4ce7a7b434f9e"
+    },
+    "raw/jobs/libre-power-baseline/replies/6.json": {
+      "bytes": 1128,
+      "sha256": "1dba74ab7529ce87ba26126cd224c54190a316d1ed869b7ac593f7c29001f906"
+    },
+    "raw/jobs/libre-power-baseline/replies/7.json": {
+      "bytes": 1117,
+      "sha256": "9e9ba02673be930d4c1b53e056ae13013a58551c17f62a808634db1f7c741cff"
+    },
+    "raw/jobs/libre-power-baseline/replies/8.json": {
+      "bytes": 1241,
+      "sha256": "3076f0a88f8c317ab6b7f3d4ed08b2c406a7dee4707cd5ebbd445d920c39858b"
+    },
+    "raw/jobs/libre-power-baseline/replies/9.json": {
+      "bytes": 1121,
+      "sha256": "c207c23cde67189311832f51127eecb8617a9f5710cefcb919700194ae639d8c"
+    },
+    "raw/jobs/libre-power-baseline/request.json": {
+      "bytes": 29,
+      "sha256": "1dd67b4ecde34d1c12dc8af16b8a2ed7e726c4bd73fa2a20a2c207064576b63f"
+    },
+    "raw/jobs/libre-power-baseline/returned.dxf": {
+      "bytes": 105192,
+      "sha256": "891f076e24cb262ddd7c455a77d3a19587be3d6312eb89f0ac6e8da21e6234cb"
+    },
+    "raw/jobs/libre-power-baseline/source.dxf": {
+      "bytes": 20916,
+      "sha256": "8876b0c66ec7794914a2218072386f5d169a6813a675a579747fa6242cfac2bd"
+    },
+    "raw/jobs/libre-power-baseline/ui/001-trial.json": {
+      "bytes": 404654,
+      "sha256": "e847680246b0c55f5d24ed38827e039a2dad11df6f5409c9207fc6dee221dc16"
+    },
+    "raw/jobs/libre-power-baseline/ui/002-ready.json": {
+      "bytes": 439739,
+      "sha256": "90cfa3ce5d883d5fa17c68c3e60007d6bbec7532cc2f334ba562b11ed171684a"
+    },
+    "raw/jobs/libre-power-baseline/ui/003-open-dialog.json": {
+      "bytes": 448085,
+      "sha256": "fd77d23b192e162b376d8cf8201c1db3407cf7179413ab8d54d9fc804167d778"
+    },
+    "raw/jobs/libre-power-baseline/ui/004-opened.json": {
+      "bytes": 445453,
+      "sha256": "42bac5f3fbcf7a851406b1f792d1d1eab650e0b77ac545ae4ccaf421b0f9aa8c"
+    },
+    "raw/jobs/libre-power-baseline/ui/005-handle-dialog.json": {
+      "bytes": 445448,
+      "sha256": "7f01090481a6b97b967b773986ab347c17a4a70a9d231b2ad243642c4e2352a5"
+    },
+    "raw/jobs/libre-power-baseline/ui/006-selected.json": {
+      "bytes": 456026,
+      "sha256": "6798d9acfb9209d28f376156798980fb0701a1c6e5b900e2b6a62c28aa484576"
+    },
+    "raw/jobs/libre-power-baseline/ui/007-save-dialog.json": {
+      "bytes": 462890,
+      "sha256": "c7cc6418e60edc5d575fafc64ea0eebcc57311d4f17c7ecdda99e833f43c6990"
+    },
+    "raw/jobs/libre-power-baseline/ui/008-saved.json": {
+      "bytes": 445600,
+      "sha256": "3632b8f16b3be190c5e45706df62f11fc4cb3760e6d2de39cb3b0058b441a2aa"
+    },
+    "raw/jobs/libre-power-baseline/ui/009-closed.json": {
+      "bytes": 440053,
+      "sha256": "7108823f28d6311d59d86406ed2ad3dc4ecaf10ca814f340895a65f7e87c061c"
+    },
+    "raw/jobs/libre-power-baseline/ui/010-open-dialog.json": {
+      "bytes": 448416,
+      "sha256": "c2e0b3b8232d236e5d5c62dc86b8a0cc84ae1e15fad02511392a66efb8e14ba6"
+    },
+    "raw/jobs/libre-power-baseline/ui/011-opened.json": {
+      "bytes": 445775,
+      "sha256": "4c6041ff044a78946143a26db0ff58f735b543f7605cb19ece3c475a47abb51c"
+    },
+    "raw/jobs/libre-power-baseline/ui/012-handle-dialog.json": {
+      "bytes": 445770,
+      "sha256": "edbcd7fea59f0aba77bd50d1a792e7f3bad2998cc7c942de6ac1c9d62ef6fe84"
+    },
+    "raw/jobs/libre-power-baseline/ui/013-selected.json": {
+      "bytes": 456348,
+      "sha256": "678d82b19189faa5a73d33a28c42f1d371de75a76abeef1dc34264899cd965a7"
+    },
+    "raw/jobs/libre-power-baseline/ui/014-closed.json": {
+      "bytes": 440269,
+      "sha256": "ddd99c07c63391d35687c16065b2ab10df048282b12c5ee9126d662d45fa6dfa"
+    },
+    "raw/jobs/libre-power-baseline/ui/RESULT.json": {
+      "bytes": 100,
+      "sha256": "d1b54684ab8323970ee55e8f72959ed28fe1d4f3cd8ea19885375fda40433bb4"
+    },
+    "raw/jobs/libre-power-baseline/ui/actions.json": {
+      "bytes": 79103,
+      "sha256": "fd836cc9d2fc183a5d99331950136ed2d1e111146b89d163000e3ebbd940bb14"
+    },
+    "raw/jobs/libre-power-baseline/ui/returned-asset-0.canvas.png": {
+      "bytes": 24900,
+      "sha256": "85c292d4a0a09f02909ee45e2189f3d8219a1ef3c1090a9394c58a11ccc46b1d"
+    },
+    "raw/jobs/libre-power-baseline/ui/returned-asset-0.png": {
+      "bytes": 213052,
+      "sha256": "4781ece4fb65f18149e042c457252e10bb76ad1cd46ff6e1eeb914c1092117a5"
+    },
+    "raw/jobs/libre-power-baseline/ui/returned-asset-1.canvas.png": {
+      "bytes": 24900,
+      "sha256": "85c292d4a0a09f02909ee45e2189f3d8219a1ef3c1090a9394c58a11ccc46b1d"
+    },
+    "raw/jobs/libre-power-baseline/ui/returned-asset-1.png": {
+      "bytes": 213052,
+      "sha256": "4781ece4fb65f18149e042c457252e10bb76ad1cd46ff6e1eeb914c1092117a5"
+    },
+    "raw/jobs/libre-power-baseline/ui/returned-labels-0.canvas.png": {
+      "bytes": 27032,
+      "sha256": "59b99c8122d35b156078e719c9875c58c7a769b879551ae045e62be23d1c7a6c"
+    },
+    "raw/jobs/libre-power-baseline/ui/returned-labels-0.png": {
+      "bytes": 212809,
+      "sha256": "c37c7e38c79cb600476e8b4eb652d0a3f24ce5994bd48193cfb9dc5a07db1143"
+    },
+    "raw/jobs/libre-power-baseline/ui/returned-labels-1.canvas.png": {
+      "bytes": 27032,
+      "sha256": "59b99c8122d35b156078e719c9875c58c7a769b879551ae045e62be23d1c7a6c"
+    },
+    "raw/jobs/libre-power-baseline/ui/returned-labels-1.png": {
+      "bytes": 212809,
+      "sha256": "c37c7e38c79cb600476e8b4eb652d0a3f24ce5994bd48193cfb9dc5a07db1143"
+    },
+    "raw/jobs/libre-power-baseline/ui/returned-overview-0.canvas.png": {
+      "bytes": 13795,
+      "sha256": "37938a1cdab00bff355dec2b61b828e43541a1ebbec960468ee90eae47484ea7"
+    },
+    "raw/jobs/libre-power-baseline/ui/returned-overview-0.png": {
+      "bytes": 192674,
+      "sha256": "4a90c1139cab5b7afb0f9449ffc7f9494859d9cba71e26bab0596ea64f2996f8"
+    },
+    "raw/jobs/libre-power-baseline/ui/returned-overview-1.canvas.png": {
+      "bytes": 13795,
+      "sha256": "37938a1cdab00bff355dec2b61b828e43541a1ebbec960468ee90eae47484ea7"
+    },
+    "raw/jobs/libre-power-baseline/ui/returned-overview-1.png": {
+      "bytes": 192674,
+      "sha256": "4a90c1139cab5b7afb0f9449ffc7f9494859d9cba71e26bab0596ea64f2996f8"
+    },
+    "raw/jobs/libre-power-baseline/ui/source-asset-0.canvas.png": {
+      "bytes": 24900,
+      "sha256": "85c292d4a0a09f02909ee45e2189f3d8219a1ef3c1090a9394c58a11ccc46b1d"
+    },
+    "raw/jobs/libre-power-baseline/ui/source-asset-0.png": {
+      "bytes": 212866,
+      "sha256": "77328f57434cc63ee93a31fc86a44b254c19d48af95334000fd25ce7f004f5b3"
+    },
+    "raw/jobs/libre-power-baseline/ui/source-asset-1.canvas.png": {
+      "bytes": 24900,
+      "sha256": "85c292d4a0a09f02909ee45e2189f3d8219a1ef3c1090a9394c58a11ccc46b1d"
+    },
+    "raw/jobs/libre-power-baseline/ui/source-asset-1.png": {
+      "bytes": 212866,
+      "sha256": "77328f57434cc63ee93a31fc86a44b254c19d48af95334000fd25ce7f004f5b3"
+    },
+    "raw/jobs/libre-power-baseline/ui/source-labels-0.canvas.png": {
+      "bytes": 27032,
+      "sha256": "59b99c8122d35b156078e719c9875c58c7a769b879551ae045e62be23d1c7a6c"
+    },
+    "raw/jobs/libre-power-baseline/ui/source-labels-0.png": {
+      "bytes": 212616,
+      "sha256": "6f94e48fdd0c09c1875a258e62137288c2aad6aff1780b47c90f2a07f91bb629"
+    },
+    "raw/jobs/libre-power-baseline/ui/source-labels-1.canvas.png": {
+      "bytes": 27032,
+      "sha256": "59b99c8122d35b156078e719c9875c58c7a769b879551ae045e62be23d1c7a6c"
+    },
+    "raw/jobs/libre-power-baseline/ui/source-labels-1.png": {
+      "bytes": 212616,
+      "sha256": "6f94e48fdd0c09c1875a258e62137288c2aad6aff1780b47c90f2a07f91bb629"
+    },
+    "raw/jobs/libre-power-baseline/ui/source-overview-0.canvas.png": {
+      "bytes": 13795,
+      "sha256": "37938a1cdab00bff355dec2b61b828e43541a1ebbec960468ee90eae47484ea7"
+    },
+    "raw/jobs/libre-power-baseline/ui/source-overview-0.png": {
+      "bytes": 192519,
+      "sha256": "c59c28b46928a439a9dda8c1183795e01e82f4071fa0f6bff02063ae0d9198c6"
+    },
+    "raw/jobs/libre-power-baseline/ui/source-overview-1.canvas.png": {
+      "bytes": 13795,
+      "sha256": "37938a1cdab00bff355dec2b61b828e43541a1ebbec960468ee90eae47484ea7"
+    },
+    "raw/jobs/libre-power-baseline/ui/source-overview-1.png": {
+      "bytes": 192519,
+      "sha256": "c59c28b46928a439a9dda8c1183795e01e82f4071fa0f6bff02063ae0d9198c6"
+    },
+    "raw/jobs/libre-power-baseline/ui_control.py": {
+      "bytes": 4554,
+      "sha256": "e508c2a70b26ff1998fdd4cbc6484a2c7ea7b423e8e76868db8529c44a594881"
+    },
+    "raw/jobs/libre-power-baseline/workflow.py": {
+      "bytes": 11926,
+      "sha256": "8e600a8ff2504df0e3eeb5c04a0053618130889354b94c56e3fcc215b22c7c23"
+    },
+    "raw/jobs/libre-power-edited/CONTAINER-LOG.json": {
+      "bytes": 737,
+      "sha256": "75c03242487bb2b71d69355e35a975bb58f04ca9a427288db724cf7fba8fda05"
+    },
+    "raw/jobs/libre-power-edited/ENVIRONMENT.json": {
+      "bytes": 1076,
+      "sha256": "e1289666fc4aac818f7a979d96a4e21bdd48522e25b463c095ca84b9cc79746b"
+    },
+    "raw/jobs/libre-power-edited/JOB-FREEZE.json": {
+      "bytes": 1168,
+      "sha256": "23097f36ee6071aedc94178d14be60d8e4ec9ad9f681c7f62ed4b3b52b214f41"
+    },
+    "raw/jobs/libre-power-edited/METHOD.md": {
+      "bytes": 5339,
+      "sha256": "e1bbc04db242370dc00cf6ef237c1f5022599ec200206717cd7df08dc095e04b"
+    },
+    "raw/jobs/libre-power-edited/PLAN.md": {
+      "bytes": 5204,
+      "sha256": "1d3f3a4985cb9aa21bc81d39bb1bc6b3963ef1a675af10b734f65fa81a46dd4b"
+    },
+    "raw/jobs/libre-power-edited/dbus-address.txt": {
+      "bytes": 68,
+      "sha256": "8b43804b517de72f6d1b43380d51e7d9e8690dd72c4d7eefe1362e57e9a3b7a4"
+    },
+    "raw/jobs/libre-power-edited/inspect_ui.py": {
+      "bytes": 1439,
+      "sha256": "c41e118f8108e02dcef6ba9d90cf280d68851ba4b7cb6a870b96a4c9deb5c03e"
+    },
+    "raw/jobs/libre-power-edited/job.json": {
+      "bytes": 701,
+      "sha256": "454f18108df368ea5c17888972fd0606deae27fc3df48744b2207de5c560c339"
+    },
+    "raw/jobs/libre-power-edited/launch_case.py": {
+      "bytes": 2906,
+      "sha256": "beee5842b37f0bea6cade0afb33e8706754e80db29acd22e6f78dd44d74fdc03"
+    },
+    "raw/jobs/libre-power-edited/native/PROCESS.json": {
+      "bytes": 1336,
+      "sha256": "c047fede04bfab533356a219ba15f10d2f9580d93202879bb63a9d047417113a"
+    },
+    "raw/jobs/libre-power-edited/native/controller.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/libre-power-edited/native/controller.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/libre-power-edited/native/openbox.log": {
+      "bytes": 85,
+      "sha256": "6f748c3cd02a858c087697c3afac639205c62b7b206558bd40d1bcbd98165a5c"
+    },
+    "raw/jobs/libre-power-edited/native/stderr.txt": {
+      "bytes": 5801,
+      "sha256": "e67d69a0a944e1484b17568693ee3115227a355601eed26288d22a42e098dfe3"
+    },
+    "raw/jobs/libre-power-edited/native/stdout.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/libre-power-edited/native/xvfb.log": {
+      "bytes": 2429,
+      "sha256": "6d73d78138c41bea466314919237a4fe998e5b670a356ab2012f328fff769a7b"
+    },
+    "raw/jobs/libre-power-edited/native_controls.py": {
+      "bytes": 800,
+      "sha256": "767246eef54db970e4a1a590b2e5797a41305046dfebc98dfdc7bc759105e832"
+    },
+    "raw/jobs/libre-power-edited/observe_case.js": {
+      "bytes": 2810,
+      "sha256": "24e09cf1c30a5f818014ca3662d847030066185f1468b31b563bd8163e4c6070"
+    },
+    "raw/jobs/libre-power-edited/prepare.py": {
+      "bytes": 4665,
+      "sha256": "a4515b8ba619803d5b6a431114e69f459c7aedb2b0c2437eb2fc0252ede9240a"
+    },
+    "raw/jobs/libre-power-edited/replies/1.json": {
+      "bytes": 232,
+      "sha256": "c4733a44515b0d814ac0a1c121fd790225d99b8cf1e6ee9b5351fabfe0b37273"
+    },
+    "raw/jobs/libre-power-edited/replies/10.json": {
+      "bytes": 1239,
+      "sha256": "8356a03be630e964298b81cdc50e16bd7f47810ce5e48d679afc2a1ac3e1927a"
+    },
+    "raw/jobs/libre-power-edited/replies/11.json": {
+      "bytes": 1120,
+      "sha256": "630f951cb2a5dead7e18435d278367531225a2713f5bbd1e2fa18004bf882734"
+    },
+    "raw/jobs/libre-power-edited/replies/12.json": {
+      "bytes": 1238,
+      "sha256": "d2266c73a199e853a07b3c498007a8c250d02e3f51d5821dfce657f43c19d02d"
+    },
+    "raw/jobs/libre-power-edited/replies/13.json": {
+      "bytes": 1119,
+      "sha256": "f30c003b7e5ecb09b84d872f25b07f508be8027e7e7f9be0539e74ec0d3edc89"
+    },
+    "raw/jobs/libre-power-edited/replies/14.json": {
+      "bytes": 1119,
+      "sha256": "079d1ccc5a4dbc6741f1fcbf953bfb260cf3d73da25f466035f400e59f888b1e"
+    },
+    "raw/jobs/libre-power-edited/replies/15.json": {
+      "bytes": 1119,
+      "sha256": "99600ceb9cf749f5eed4d6fc9db5957b8284b4b1ac074294264b10deacdc606d"
+    },
+    "raw/jobs/libre-power-edited/replies/16.json": {
+      "bytes": 1129,
+      "sha256": "9f0683bb32d08cea6637df808cc8af6ef00d7c1630ab6457c7ca725f5cb12736"
+    },
+    "raw/jobs/libre-power-edited/replies/17.json": {
+      "bytes": 1129,
+      "sha256": "cb4f6d4f92e0d67ac0ceffd798ca73f58decf4cd85ede1dde4f153940fef0b0d"
+    },
+    "raw/jobs/libre-power-edited/replies/18.json": {
+      "bytes": 1132,
+      "sha256": "4f19e2d2b0ee4d1cf28080b7babe82a83a855afa806468fac468f64d47d31807"
+    },
+    "raw/jobs/libre-power-edited/replies/19.json": {
+      "bytes": 1132,
+      "sha256": "88ba69e9e3684fb8d716f89b474ce235349926f2c76177f6d510a47423194a60"
+    },
+    "raw/jobs/libre-power-edited/replies/2.json": {
+      "bytes": 232,
+      "sha256": "fd199d0cbcc27c4dcb89ba932b0a275459581c19828633dc8b4300b21d8eac3b"
+    },
+    "raw/jobs/libre-power-edited/replies/20.json": {
+      "bytes": 1132,
+      "sha256": "cd5c28e5b9f1a5ef01c6f4ff83b52b292cae5f6fb83b34b6445babf369cddaae"
+    },
+    "raw/jobs/libre-power-edited/replies/21.json": {
+      "bytes": 233,
+      "sha256": "37d92762f18062a5f8ec52bac442c3d6c6d40b3197c301fb2c8c147b54f27c75"
+    },
+    "raw/jobs/libre-power-edited/replies/22.json": {
+      "bytes": 233,
+      "sha256": "6de25529adb8cca96d5f662aae12af4330efaf63fabbc05ab65bf7ff635631e0"
+    },
+    "raw/jobs/libre-power-edited/replies/23.json": {
+      "bytes": 1119,
+      "sha256": "e73e43e1cce18754b589e55af4dfb4e3ace1ba517b2e26d266d8166990b08184"
+    },
+    "raw/jobs/libre-power-edited/replies/24.json": {
+      "bytes": 1119,
+      "sha256": "cf41261fbd7e49663cdd8aab3876e1fad432743d4ab949f492f5497f758f3333"
+    },
+    "raw/jobs/libre-power-edited/replies/25.json": {
+      "bytes": 1119,
+      "sha256": "6dd44ccfdca287370923e8eeae561e5137898eca31f9ee8df2ba8aa1cfc3f974"
+    },
+    "raw/jobs/libre-power-edited/replies/26.json": {
+      "bytes": 1134,
+      "sha256": "2bcfa6adac972e6f6bcca6f93c8f8e6e986c3b8b62aa963c10c30fed2580bea0"
+    },
+    "raw/jobs/libre-power-edited/replies/27.json": {
+      "bytes": 1123,
+      "sha256": "a63fa8d491386a5ab7a768918903171666239f5e8f7703a8ea4c316cb19c0f54"
+    },
+    "raw/jobs/libre-power-edited/replies/28.json": {
+      "bytes": 1247,
+      "sha256": "d336ff237f6d77cb0349143783ea8156388b8f5e7c640958f1b1c03657d331c9"
+    },
+    "raw/jobs/libre-power-edited/replies/29.json": {
+      "bytes": 1123,
+      "sha256": "418450dc51715278c315b101d6acc83d83fa1c0b47719ee59a9da3b78271fce9"
+    },
+    "raw/jobs/libre-power-edited/replies/3.json": {
+      "bytes": 1117,
+      "sha256": "706f9c02ce63e417830a3d6c7f42514a827efd16f08d7e6be228c5bcb05886b0"
+    },
+    "raw/jobs/libre-power-edited/replies/30.json": {
+      "bytes": 1242,
+      "sha256": "67077ffda4a087422a04e6f6ab4ca26e191b7e8498e0daf63d9ce6c4325cc1b3"
+    },
+    "raw/jobs/libre-power-edited/replies/31.json": {
+      "bytes": 1121,
+      "sha256": "f1505c9ac2282f365d2a0807f1a6b7fcce439953f1c381ba6741065735e23bb0"
+    },
+    "raw/jobs/libre-power-edited/replies/32.json": {
+      "bytes": 1240,
+      "sha256": "e544f92ee18b5a7680af17b7ef63602d1d97bde72322da04d4b367154ac99fb5"
+    },
+    "raw/jobs/libre-power-edited/replies/33.json": {
+      "bytes": 1119,
+      "sha256": "55d829ba897e3f0dc6f2acee28731794aad88b340bff9e2fa9f505867f602f7a"
+    },
+    "raw/jobs/libre-power-edited/replies/34.json": {
+      "bytes": 1119,
+      "sha256": "6cf3c0241cdca1ca6b43a76d08eaef907a9b85a74dc04c6573a89e2563461afd"
+    },
+    "raw/jobs/libre-power-edited/replies/35.json": {
+      "bytes": 1119,
+      "sha256": "e0abec3ff9083ae8aed43722873f872128023428a836b7a80efa064d7dc96345"
+    },
+    "raw/jobs/libre-power-edited/replies/36.json": {
+      "bytes": 233,
+      "sha256": "3d3abdcfb54cb6ff363eb5563182b6fb5ff453b6bf84338aa0b51ddcb39c8dfc"
+    },
+    "raw/jobs/libre-power-edited/replies/37.json": {
+      "bytes": 233,
+      "sha256": "bb1b9e3c95f213222c550afc3b2681718305afaadd4312276e6901cc22112f90"
+    },
+    "raw/jobs/libre-power-edited/replies/4.json": {
+      "bytes": 1117,
+      "sha256": "ceacf6ca72cdf97aaae63f2d32d63d20436d7aa35f08822b66a72d0459defcd0"
+    },
+    "raw/jobs/libre-power-edited/replies/5.json": {
+      "bytes": 1117,
+      "sha256": "3954a1e77f6c28da518072557c6c025fd814fa1b863343577f8b04bdd46ecdab"
+    },
+    "raw/jobs/libre-power-edited/replies/6.json": {
+      "bytes": 1128,
+      "sha256": "51bc18549bb077da1826ed148501ddb466d4ffd746e6c0b37d3ecee24c0e8db2"
+    },
+    "raw/jobs/libre-power-edited/replies/7.json": {
+      "bytes": 1117,
+      "sha256": "04e01fd1bfa32aa2cd3b4d321d28ca7e30f972f51b85ef064b186547d9465bc6"
+    },
+    "raw/jobs/libre-power-edited/replies/8.json": {
+      "bytes": 1241,
+      "sha256": "47046c5da8675c57b316c3e483f6066537b00dbaa7462d38d1da9d6867eafa00"
+    },
+    "raw/jobs/libre-power-edited/replies/9.json": {
+      "bytes": 1121,
+      "sha256": "a4a26eb14dc968c726473b122c83b30ed4a9ba17529b8b41780c950e1a7de497"
+    },
+    "raw/jobs/libre-power-edited/request.json": {
+      "bytes": 29,
+      "sha256": "e38ffd5bc146db90b49a1a7ad74e20c5f65d4978ec6b329d10e593c6f877a036"
+    },
+    "raw/jobs/libre-power-edited/returned.dxf": {
+      "bytes": 105191,
+      "sha256": "697455a5a6936acd7e50c2672fee6d9c130e9953f4cea61bb2e8eee1ac8c482d"
+    },
+    "raw/jobs/libre-power-edited/source.dxf": {
+      "bytes": 20916,
+      "sha256": "8876b0c66ec7794914a2218072386f5d169a6813a675a579747fa6242cfac2bd"
+    },
+    "raw/jobs/libre-power-edited/ui/001-trial.json": {
+      "bytes": 404654,
+      "sha256": "e847680246b0c55f5d24ed38827e039a2dad11df6f5409c9207fc6dee221dc16"
+    },
+    "raw/jobs/libre-power-edited/ui/002-ready.json": {
+      "bytes": 439739,
+      "sha256": "90cfa3ce5d883d5fa17c68c3e60007d6bbec7532cc2f334ba562b11ed171684a"
+    },
+    "raw/jobs/libre-power-edited/ui/003-open-dialog.json": {
+      "bytes": 448085,
+      "sha256": "fd77d23b192e162b376d8cf8201c1db3407cf7179413ab8d54d9fc804167d778"
+    },
+    "raw/jobs/libre-power-edited/ui/004-opened.json": {
+      "bytes": 445453,
+      "sha256": "42bac5f3fbcf7a851406b1f792d1d1eab650e0b77ac545ae4ccaf421b0f9aa8c"
+    },
+    "raw/jobs/libre-power-edited/ui/005-handle-dialog.json": {
+      "bytes": 445448,
+      "sha256": "7f01090481a6b97b967b773986ab347c17a4a70a9d231b2ad243642c4e2352a5"
+    },
+    "raw/jobs/libre-power-edited/ui/006-selected.json": {
+      "bytes": 456026,
+      "sha256": "6798d9acfb9209d28f376156798980fb0701a1c6e5b900e2b6a62c28aa484576"
+    },
+    "raw/jobs/libre-power-edited/ui/007-handle-dialog.json": {
+      "bytes": 445489,
+      "sha256": "5281902d2d10ac4210bf49f85258f28bcdaa0cd18a5ba7a72091790cad51d1f9"
+    },
+    "raw/jobs/libre-power-edited/ui/008-selected.json": {
+      "bytes": 456067,
+      "sha256": "b113dec3eab02906d898b3a4ae935532e3e5b07964de676e2b9298f8efd2f83b"
+    },
+    "raw/jobs/libre-power-edited/ui/009-edited.json": {
+      "bytes": 456004,
+      "sha256": "35fde330398eb5d662621b321de7216981e1987648e4a69ebfe86ecd26622345"
+    },
+    "raw/jobs/libre-power-edited/ui/010-save-dialog.json": {
+      "bytes": 473398,
+      "sha256": "da4aa7183803e36870351dc813a11377d1deb5ae5a83823ceeef7ab7920ee851"
+    },
+    "raw/jobs/libre-power-edited/ui/011-saved.json": {
+      "bytes": 456106,
+      "sha256": "0d5b74fde3666de5d04db85aba74a9eb916cdc07ae2fc0e2650f5c59be9459bb"
+    },
+    "raw/jobs/libre-power-edited/ui/012-closed.json": {
+      "bytes": 440074,
+      "sha256": "574a17a980841a39c9e7af09d0c7c7ed657b14793081dd30bf3668acb10de3f3"
+    },
+    "raw/jobs/libre-power-edited/ui/013-open-dialog.json": {
+      "bytes": 448437,
+      "sha256": "7d003430adf45f7633dfeabf3ba13f2716208ee42102d8624a9d638e5704d3b7"
+    },
+    "raw/jobs/libre-power-edited/ui/014-opened.json": {
+      "bytes": 445796,
+      "sha256": "03f2dfe774d053f85d241e42a699557736454d1ce8f906b877ac7c441121740c"
+    },
+    "raw/jobs/libre-power-edited/ui/015-handle-dialog.json": {
+      "bytes": 445791,
+      "sha256": "3ff1cc6518f7640e2bee357eed3a51fd4b7c892142eb5d0bad0c7d50e1722ae6"
+    },
+    "raw/jobs/libre-power-edited/ui/016-selected.json": {
+      "bytes": 456368,
+      "sha256": "5473fca7392095ef034854699b414413e50a5a465720df072f168577477798d2"
+    },
+    "raw/jobs/libre-power-edited/ui/017-closed.json": {
+      "bytes": 440290,
+      "sha256": "684a07c0ef48a9eb86838f88288d6c39a66bc3e5d5021742334c41dfd6a9445e"
+    },
+    "raw/jobs/libre-power-edited/ui/RESULT.json": {
+      "bytes": 98,
+      "sha256": "3b254e8b61830528a04b7bb08bdc23db5498f694e3d6784a8775e4ba2672e395"
+    },
+    "raw/jobs/libre-power-edited/ui/actions.json": {
+      "bytes": 90036,
+      "sha256": "1e341278f4a13e22fbd23a70d410e9d30d810a8f15c1153c8f9c62a15ef517f9"
+    },
+    "raw/jobs/libre-power-edited/ui/returned-asset-0.canvas.png": {
+      "bytes": 24414,
+      "sha256": "a0c77a104de3efe92321d43b357f5d8fe67ecf273ff575d137ac9d6e320ec6af"
+    },
+    "raw/jobs/libre-power-edited/ui/returned-asset-0.png": {
+      "bytes": 212605,
+      "sha256": "85e160a59212eb85f72bc23441c188e31007b30abc4396e4a070647dcafe6e1b"
+    },
+    "raw/jobs/libre-power-edited/ui/returned-asset-1.canvas.png": {
+      "bytes": 24414,
+      "sha256": "a0c77a104de3efe92321d43b357f5d8fe67ecf273ff575d137ac9d6e320ec6af"
+    },
+    "raw/jobs/libre-power-edited/ui/returned-asset-1.png": {
+      "bytes": 212605,
+      "sha256": "85e160a59212eb85f72bc23441c188e31007b30abc4396e4a070647dcafe6e1b"
+    },
+    "raw/jobs/libre-power-edited/ui/returned-labels-0.canvas.png": {
+      "bytes": 26091,
+      "sha256": "bfb24ad19395cfe9136927bd75bf00142115efd829a880d8bbd9aef0cd713a91"
+    },
+    "raw/jobs/libre-power-edited/ui/returned-labels-0.png": {
+      "bytes": 211737,
+      "sha256": "af98fdf617ac15365a9016b5309aa98498f059224b51b4fc3b3077b7bbbb5bfa"
+    },
+    "raw/jobs/libre-power-edited/ui/returned-labels-1.canvas.png": {
+      "bytes": 26091,
+      "sha256": "bfb24ad19395cfe9136927bd75bf00142115efd829a880d8bbd9aef0cd713a91"
+    },
+    "raw/jobs/libre-power-edited/ui/returned-labels-1.png": {
+      "bytes": 211737,
+      "sha256": "af98fdf617ac15365a9016b5309aa98498f059224b51b4fc3b3077b7bbbb5bfa"
+    },
+    "raw/jobs/libre-power-edited/ui/returned-overview-0.canvas.png": {
+      "bytes": 13518,
+      "sha256": "d7c32450cebf4012129ebd792c7aa7b78f3fb2834ada6e8873caea45afcc31dc"
+    },
+    "raw/jobs/libre-power-edited/ui/returned-overview-0.png": {
+      "bytes": 192455,
+      "sha256": "95d2cdfe7e244d377983deb9fea9bb53a6890b4c8aabacd8475a2067170917c0"
+    },
+    "raw/jobs/libre-power-edited/ui/returned-overview-1.canvas.png": {
+      "bytes": 13518,
+      "sha256": "d7c32450cebf4012129ebd792c7aa7b78f3fb2834ada6e8873caea45afcc31dc"
+    },
+    "raw/jobs/libre-power-edited/ui/returned-overview-1.png": {
+      "bytes": 192455,
+      "sha256": "95d2cdfe7e244d377983deb9fea9bb53a6890b4c8aabacd8475a2067170917c0"
+    },
+    "raw/jobs/libre-power-edited/ui/source-asset-0.canvas.png": {
+      "bytes": 24900,
+      "sha256": "85c292d4a0a09f02909ee45e2189f3d8219a1ef3c1090a9394c58a11ccc46b1d"
+    },
+    "raw/jobs/libre-power-edited/ui/source-asset-0.png": {
+      "bytes": 212866,
+      "sha256": "77328f57434cc63ee93a31fc86a44b254c19d48af95334000fd25ce7f004f5b3"
+    },
+    "raw/jobs/libre-power-edited/ui/source-asset-1.canvas.png": {
+      "bytes": 24900,
+      "sha256": "85c292d4a0a09f02909ee45e2189f3d8219a1ef3c1090a9394c58a11ccc46b1d"
+    },
+    "raw/jobs/libre-power-edited/ui/source-asset-1.png": {
+      "bytes": 212866,
+      "sha256": "77328f57434cc63ee93a31fc86a44b254c19d48af95334000fd25ce7f004f5b3"
+    },
+    "raw/jobs/libre-power-edited/ui/source-labels-0.canvas.png": {
+      "bytes": 27032,
+      "sha256": "59b99c8122d35b156078e719c9875c58c7a769b879551ae045e62be23d1c7a6c"
+    },
+    "raw/jobs/libre-power-edited/ui/source-labels-0.png": {
+      "bytes": 212616,
+      "sha256": "6f94e48fdd0c09c1875a258e62137288c2aad6aff1780b47c90f2a07f91bb629"
+    },
+    "raw/jobs/libre-power-edited/ui/source-labels-1.canvas.png": {
+      "bytes": 27032,
+      "sha256": "59b99c8122d35b156078e719c9875c58c7a769b879551ae045e62be23d1c7a6c"
+    },
+    "raw/jobs/libre-power-edited/ui/source-labels-1.png": {
+      "bytes": 212616,
+      "sha256": "6f94e48fdd0c09c1875a258e62137288c2aad6aff1780b47c90f2a07f91bb629"
+    },
+    "raw/jobs/libre-power-edited/ui/source-overview-0.canvas.png": {
+      "bytes": 13795,
+      "sha256": "37938a1cdab00bff355dec2b61b828e43541a1ebbec960468ee90eae47484ea7"
+    },
+    "raw/jobs/libre-power-edited/ui/source-overview-0.png": {
+      "bytes": 192519,
+      "sha256": "c59c28b46928a439a9dda8c1183795e01e82f4071fa0f6bff02063ae0d9198c6"
+    },
+    "raw/jobs/libre-power-edited/ui/source-overview-1.canvas.png": {
+      "bytes": 13795,
+      "sha256": "37938a1cdab00bff355dec2b61b828e43541a1ebbec960468ee90eae47484ea7"
+    },
+    "raw/jobs/libre-power-edited/ui/source-overview-1.png": {
+      "bytes": 192519,
+      "sha256": "c59c28b46928a439a9dda8c1183795e01e82f4071fa0f6bff02063ae0d9198c6"
+    },
+    "raw/jobs/libre-power-edited/ui_control.py": {
+      "bytes": 4554,
+      "sha256": "e508c2a70b26ff1998fdd4cbc6484a2c7ea7b423e8e76868db8529c44a594881"
+    },
+    "raw/jobs/libre-power-edited/workflow.py": {
+      "bytes": 11926,
+      "sha256": "8e600a8ff2504df0e3eeb5c04a0053618130889354b94c56e3fcc215b22c7c23"
+    },
+    "raw/jobs/libre-power-receiving/CONTAINER-LOG.json": {
+      "bytes": 737,
+      "sha256": "75c03242487bb2b71d69355e35a975bb58f04ca9a427288db724cf7fba8fda05"
+    },
+    "raw/jobs/libre-power-receiving/ENVIRONMENT.json": {
+      "bytes": 1082,
+      "sha256": "cdb2c8000f89473b77f6a945e0118fbd90fac409e7518490062ab5d96613011e"
+    },
+    "raw/jobs/libre-power-receiving/JOB-FREEZE.json": {
+      "bytes": 1434,
+      "sha256": "7a08d24703875b5450cb50ec9c2a7b71d6c6e6e98913705bbaba87f79928a124"
+    },
+    "raw/jobs/libre-power-receiving/METHOD.md": {
+      "bytes": 5339,
+      "sha256": "e1bbc04db242370dc00cf6ef237c1f5022599ec200206717cd7df08dc095e04b"
+    },
+    "raw/jobs/libre-power-receiving/PLAN.md": {
+      "bytes": 5204,
+      "sha256": "1d3f3a4985cb9aa21bc81d39bb1bc6b3963ef1a675af10b734f65fa81a46dd4b"
+    },
+    "raw/jobs/libre-power-receiving/baseline.dxf": {
+      "bytes": 105192,
+      "sha256": "891f076e24cb262ddd7c455a77d3a19587be3d6312eb89f0ac6e8da21e6234cb"
+    },
+    "raw/jobs/libre-power-receiving/candidate.dxf": {
+      "bytes": 20915,
+      "sha256": "e81029818228769f74d15ef9f8d8ef1d918df2a6eaab74737ff0cd936d72ba1c"
+    },
+    "raw/jobs/libre-power-receiving/dbus-address.txt": {
+      "bytes": 68,
+      "sha256": "df508016cc9d805782139dc7542769072128d7f16c8ee2bdc9086fed900a27fd"
+    },
+    "raw/jobs/libre-power-receiving/edited.dxf": {
+      "bytes": 105191,
+      "sha256": "697455a5a6936acd7e50c2672fee6d9c130e9953f4cea61bb2e8eee1ac8c482d"
+    },
+    "raw/jobs/libre-power-receiving/inspect_ui.py": {
+      "bytes": 1439,
+      "sha256": "c41e118f8108e02dcef6ba9d90cf280d68851ba4b7cb6a870b96a4c9deb5c03e"
+    },
+    "raw/jobs/libre-power-receiving/job.json": {
+      "bytes": 704,
+      "sha256": "000bad01316826e6046a2a98d217fba3906feaf540119ddccaa01823a55930f1"
+    },
+    "raw/jobs/libre-power-receiving/launch_case.py": {
+      "bytes": 2906,
+      "sha256": "beee5842b37f0bea6cade0afb33e8706754e80db29acd22e6f78dd44d74fdc03"
+    },
+    "raw/jobs/libre-power-receiving/native/PROCESS.json": {
+      "bytes": 1339,
+      "sha256": "0c4a75573b18d28f73d4cd32cf667e044e55b903367fe4e383a28fdf81b490e1"
+    },
+    "raw/jobs/libre-power-receiving/native/controller.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/libre-power-receiving/native/controller.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/libre-power-receiving/native/openbox.log": {
+      "bytes": 85,
+      "sha256": "6f748c3cd02a858c087697c3afac639205c62b7b206558bd40d1bcbd98165a5c"
+    },
+    "raw/jobs/libre-power-receiving/native/stderr.txt": {
+      "bytes": 8503,
+      "sha256": "d24a06c902d53e747c0be80663c04463d1463ba72de63d41ae9685ef32e9102a"
+    },
+    "raw/jobs/libre-power-receiving/native/stdout.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/libre-power-receiving/native/xvfb.log": {
+      "bytes": 2429,
+      "sha256": "6d73d78138c41bea466314919237a4fe998e5b670a356ab2012f328fff769a7b"
+    },
+    "raw/jobs/libre-power-receiving/native_controls.py": {
+      "bytes": 800,
+      "sha256": "767246eef54db970e4a1a590b2e5797a41305046dfebc98dfdc7bc759105e832"
+    },
+    "raw/jobs/libre-power-receiving/observe_case.js": {
+      "bytes": 2810,
+      "sha256": "24e09cf1c30a5f818014ca3662d847030066185f1468b31b563bd8163e4c6070"
+    },
+    "raw/jobs/libre-power-receiving/prepare.py": {
+      "bytes": 4665,
+      "sha256": "a4515b8ba619803d5b6a431114e69f459c7aedb2b0c2437eb2fc0252ede9240a"
+    },
+    "raw/jobs/libre-power-receiving/replies/1.json": {
+      "bytes": 232,
+      "sha256": "c4733a44515b0d814ac0a1c121fd790225d99b8cf1e6ee9b5351fabfe0b37273"
+    },
+    "raw/jobs/libre-power-receiving/replies/10.json": {
+      "bytes": 1239,
+      "sha256": "c34bfe7500a3f4721122a3373c50172732267252341cb9bd81d933160efb178b"
+    },
+    "raw/jobs/libre-power-receiving/replies/11.json": {
+      "bytes": 1120,
+      "sha256": "a9838c7130d4f7abff88c355f579b3aaa639c35117bbbb48828587f56603b0e8"
+    },
+    "raw/jobs/libre-power-receiving/replies/12.json": {
+      "bytes": 1238,
+      "sha256": "95cadb9a648966f7b8d1952edf0c2f68ca8c1301b3a5de412ec312a70a49d0fd"
+    },
+    "raw/jobs/libre-power-receiving/replies/13.json": {
+      "bytes": 1119,
+      "sha256": "afa01cb4e39019e67aa1ced281fa970a38302895756bc045bab7736f232594bf"
+    },
+    "raw/jobs/libre-power-receiving/replies/14.json": {
+      "bytes": 1119,
+      "sha256": "d73c349c4fd04d0b147ddfc00f8e145c55ba9ff7275a37958a7956fe4b8f9b11"
+    },
+    "raw/jobs/libre-power-receiving/replies/15.json": {
+      "bytes": 1119,
+      "sha256": "b9b367c4914286d97a41dfba8e44eaf6a95697a39ed69471adcb3cd0df3ac9f5"
+    },
+    "raw/jobs/libre-power-receiving/replies/16.json": {
+      "bytes": 233,
+      "sha256": "a6b9051017015017cdd63918911ae3cc79c5b88c537d00f537e4eaef2b8f9189"
+    },
+    "raw/jobs/libre-power-receiving/replies/17.json": {
+      "bytes": 233,
+      "sha256": "9db2bdc6bd65b0042c56b903b702d5d589bca3c7f005dc3c2b971cfa614c4abf"
+    },
+    "raw/jobs/libre-power-receiving/replies/18.json": {
+      "bytes": 1120,
+      "sha256": "b0169a44e61f7578ee9e3a88a16d10f3801dff4574357c642e4a3cec2aea29a6"
+    },
+    "raw/jobs/libre-power-receiving/replies/19.json": {
+      "bytes": 1120,
+      "sha256": "97c7eef7b3234de1f634f345d04f46b7d53ab2f73e5e461f6b67a7af93f47752"
+    },
+    "raw/jobs/libre-power-receiving/replies/2.json": {
+      "bytes": 232,
+      "sha256": "fd199d0cbcc27c4dcb89ba932b0a275459581c19828633dc8b4300b21d8eac3b"
+    },
+    "raw/jobs/libre-power-receiving/replies/20.json": {
+      "bytes": 1120,
+      "sha256": "81279bf81961cae946ca6c50ed9fa874b5b22bd649f859c5071c2150e4908d0c"
+    },
+    "raw/jobs/libre-power-receiving/replies/21.json": {
+      "bytes": 1131,
+      "sha256": "2d68c6ff1c251adab47f4b7af2f846c15daaa4050de46892010b08e4344cddfe"
+    },
+    "raw/jobs/libre-power-receiving/replies/22.json": {
+      "bytes": 1120,
+      "sha256": "10376e739fa806348f5fa041464cc383a1a5fff3fa9ce7e3509e8f69cc1f3f66"
+    },
+    "raw/jobs/libre-power-receiving/replies/23.json": {
+      "bytes": 1244,
+      "sha256": "56cc36b1363b690aa7d0034601a2a914788fb5d6a587549e6aff20372a113736"
+    },
+    "raw/jobs/libre-power-receiving/replies/24.json": {
+      "bytes": 1124,
+      "sha256": "53ee892c7372ce25fc7c2888d8a3d2074032f4cb72ad33c783915a3824e9833b"
+    },
+    "raw/jobs/libre-power-receiving/replies/25.json": {
+      "bytes": 1244,
+      "sha256": "bfe1b6f54dbc3416e6fa86a1ed774117d589e71f1e40bddb61bc215b8540d128"
+    },
+    "raw/jobs/libre-power-receiving/replies/26.json": {
+      "bytes": 1122,
+      "sha256": "06351e3b86d85e6de2d58b3de38a34b66bee0662c9da0ce643c185597d05ec53"
+    },
+    "raw/jobs/libre-power-receiving/replies/27.json": {
+      "bytes": 1242,
+      "sha256": "67e7fc1c440d87cc909a13e6c8c9a319b8922e81aaec148fa1335b1e38309fb7"
+    },
+    "raw/jobs/libre-power-receiving/replies/28.json": {
+      "bytes": 1121,
+      "sha256": "6d2dd195f45be9266db1c0e6684df2a9cd394e634841238f3fa5379adf6ef575"
+    },
+    "raw/jobs/libre-power-receiving/replies/29.json": {
+      "bytes": 1121,
+      "sha256": "9a894fe0b6376fba3c964e44b00d1186e20f0d0efd4df32dbf24b28ac27cb10d"
+    },
+    "raw/jobs/libre-power-receiving/replies/3.json": {
+      "bytes": 1117,
+      "sha256": "b31b20772e471bda2f428dbe7088e83fedf4fc14f1509867ed724e065d86c2e8"
+    },
+    "raw/jobs/libre-power-receiving/replies/30.json": {
+      "bytes": 1121,
+      "sha256": "ab3ce291cb656bccff1d2c862c87ded7e78cab4969d2247d001963e99aa92687"
+    },
+    "raw/jobs/libre-power-receiving/replies/31.json": {
+      "bytes": 233,
+      "sha256": "9398449bb3cebc8604b90d982a22bc67c78a76a0a03dedcaf83fc876be45a7f1"
+    },
+    "raw/jobs/libre-power-receiving/replies/32.json": {
+      "bytes": 233,
+      "sha256": "36db35dcdda4582d76d0eb72a0d470487142162e2b611159969c147a6e02a52e"
+    },
+    "raw/jobs/libre-power-receiving/replies/33.json": {
+      "bytes": 1119,
+      "sha256": "9d3aa7462f69392e4307a184e1a49aaf81e738eccd506fecc0620fddc916b3ae"
+    },
+    "raw/jobs/libre-power-receiving/replies/34.json": {
+      "bytes": 1119,
+      "sha256": "95b2226468fccdda2b66a6c6ed64a0cae65ee6c2cce93f1d13bfcd1019ff4e98"
+    },
+    "raw/jobs/libre-power-receiving/replies/35.json": {
+      "bytes": 1119,
+      "sha256": "7c622475908afa632a6330c6de3d9dd0ff8b1e4d5873584bab27ac049e83b9e1"
+    },
+    "raw/jobs/libre-power-receiving/replies/36.json": {
+      "bytes": 1130,
+      "sha256": "beee8a99b02ce30baf5a1c6719b954ab7ce48add3e083989359853a66b306773"
+    },
+    "raw/jobs/libre-power-receiving/replies/37.json": {
+      "bytes": 1119,
+      "sha256": "f46001b6d1b07731e81c4b77fdd1a9616ce5e77655a5d670a1cc821ec61d43e2"
+    },
+    "raw/jobs/libre-power-receiving/replies/38.json": {
+      "bytes": 1241,
+      "sha256": "8cf7e9e7643f7bbc65f508cf439aef59eb888ab454fabc64ff4608bc945f9b50"
+    },
+    "raw/jobs/libre-power-receiving/replies/39.json": {
+      "bytes": 1119,
+      "sha256": "04abd47febfed8cc2f4fb0b3be58f323f15efbe91b0d609b61d7b74a440dbe1a"
+    },
+    "raw/jobs/libre-power-receiving/replies/4.json": {
+      "bytes": 1117,
+      "sha256": "fae76839f2c39020b4b1e377f19a9e7d609b7accc4c9f3a7e1c7e701995a674d"
+    },
+    "raw/jobs/libre-power-receiving/replies/40.json": {
+      "bytes": 1238,
+      "sha256": "2820919d7f957623d26a66155bc58814d077066b9b52fb00bd33015305b5d3a1"
+    },
+    "raw/jobs/libre-power-receiving/replies/41.json": {
+      "bytes": 1119,
+      "sha256": "f4bc0ecc59080615d9d068ae3448f89b5866a238e63049ce50f1029181d5ce79"
+    },
+    "raw/jobs/libre-power-receiving/replies/42.json": {
+      "bytes": 1236,
+      "sha256": "aabf703d81a1a8b5de90de9e2418a4dd7457417613e1ea138e1238331bd57ceb"
+    },
+    "raw/jobs/libre-power-receiving/replies/43.json": {
+      "bytes": 1117,
+      "sha256": "604984f999f2fc8785872b4fbdcedad381182730690f8d91c0af4bd31aceb531"
+    },
+    "raw/jobs/libre-power-receiving/replies/44.json": {
+      "bytes": 1117,
+      "sha256": "d731d53ae856ae42f726f1f7f3cb1a754ad365fabe104454556ce32e43d89257"
+    },
+    "raw/jobs/libre-power-receiving/replies/45.json": {
+      "bytes": 1117,
+      "sha256": "26db1d8feb525e029110350582079de4eacc5243c3acd0a920f472e4fc9c4b53"
+    },
+    "raw/jobs/libre-power-receiving/replies/46.json": {
+      "bytes": 233,
+      "sha256": "5a9abfa1e13a35b599c7b081586210fd52117091bf1d7e829dcb6817ae85f4a2"
+    },
+    "raw/jobs/libre-power-receiving/replies/47.json": {
+      "bytes": 233,
+      "sha256": "7a9d74182e8e41e42801f4461d4c9e8412c5c08eff30fef85b12fba491f69736"
+    },
+    "raw/jobs/libre-power-receiving/replies/48.json": {
+      "bytes": 1122,
+      "sha256": "95b1a5a81375d22a4f0136dd4c34ef32e27ad03f4789ccfbe0cafc9764029a47"
+    },
+    "raw/jobs/libre-power-receiving/replies/49.json": {
+      "bytes": 1122,
+      "sha256": "57d19cde688695065a1b4d55841538c759a0d3ea056deaed7f3f3288092e9337"
+    },
+    "raw/jobs/libre-power-receiving/replies/5.json": {
+      "bytes": 1117,
+      "sha256": "f4abc1cd9da03046404bf4d98e3f63385c48c92b5098081dade4ce7a7b434f9e"
+    },
+    "raw/jobs/libre-power-receiving/replies/50.json": {
+      "bytes": 1122,
+      "sha256": "ad9d76f1b8ab838b14fde48fe6b1d73470dcda59f0c7d44a18a1209250f246b9"
+    },
+    "raw/jobs/libre-power-receiving/replies/51.json": {
+      "bytes": 1133,
+      "sha256": "c6d6526339c0be9fff4b753026e86cb4da9cbd69fa607e5ab37146d211c89edf"
+    },
+    "raw/jobs/libre-power-receiving/replies/52.json": {
+      "bytes": 1122,
+      "sha256": "3c40b2276dff0faf04fa15951310aecccf2c36f2f065e982966f58914bc10332"
+    },
+    "raw/jobs/libre-power-receiving/replies/53.json": {
+      "bytes": 1247,
+      "sha256": "9d5f46f9f8f924bd5a14ba60797f4c109d9c6bba439ba27c6fdcdea2c22c600a"
+    },
+    "raw/jobs/libre-power-receiving/replies/54.json": {
+      "bytes": 1126,
+      "sha256": "9d02aaa726f3956a7aa6c04a940e1821ca6ad6476afbfdfa754bc0702c253bab"
+    },
+    "raw/jobs/libre-power-receiving/replies/55.json": {
+      "bytes": 1247,
+      "sha256": "dc8c733d0716f79c28f5c8473b6b33f9f194b86123ae12eee2ee1302d1fe9c7b"
+    },
+    "raw/jobs/libre-power-receiving/replies/56.json": {
+      "bytes": 1122,
+      "sha256": "1182cf197b44cf659c5aa0593ffaa730b383c788513cd4a83c611e034577bda5"
+    },
+    "raw/jobs/libre-power-receiving/replies/57.json": {
+      "bytes": 1242,
+      "sha256": "1d14e7910adeb5df793cd28d403685ff9ee345fa2f2d7cd7531cbd48321a6508"
+    },
+    "raw/jobs/libre-power-receiving/replies/58.json": {
+      "bytes": 1120,
+      "sha256": "202f6c14165284334385c341e0da17feff8b2ad2375adb284e8935f12811b5fb"
+    },
+    "raw/jobs/libre-power-receiving/replies/59.json": {
+      "bytes": 1120,
+      "sha256": "e8a5abb26903e1bddfb144d764b63a54a59b5abdc8bfadacb69a76152009cfc7"
+    },
+    "raw/jobs/libre-power-receiving/replies/6.json": {
+      "bytes": 1128,
+      "sha256": "8b6f0673a9477e8880179a90c6944e8fedb9a8a1c490126a35f36d4d0f773955"
+    },
+    "raw/jobs/libre-power-receiving/replies/60.json": {
+      "bytes": 1120,
+      "sha256": "76a17111c542fa6c725e50d73181af372758ab7962f1f63aa2687ce8b2ad513b"
+    },
+    "raw/jobs/libre-power-receiving/replies/61.json": {
+      "bytes": 233,
+      "sha256": "a51ea6ab75d74d8b489af927882c00174a2f4c718130058faa316b40717f12b7"
+    },
+    "raw/jobs/libre-power-receiving/replies/62.json": {
+      "bytes": 233,
+      "sha256": "30fc0840e348e9b075967cdea6ea4505a30231f0e645881947e78ffe6a237697"
+    },
+    "raw/jobs/libre-power-receiving/replies/7.json": {
+      "bytes": 1117,
+      "sha256": "9e9ba02673be930d4c1b53e056ae13013a58551c17f62a808634db1f7c741cff"
+    },
+    "raw/jobs/libre-power-receiving/replies/8.json": {
+      "bytes": 1241,
+      "sha256": "3076f0a88f8c317ab6b7f3d4ed08b2c406a7dee4707cd5ebbd445d920c39858b"
+    },
+    "raw/jobs/libre-power-receiving/replies/9.json": {
+      "bytes": 1121,
+      "sha256": "c207c23cde67189311832f51127eecb8617a9f5710cefcb919700194ae639d8c"
+    },
+    "raw/jobs/libre-power-receiving/request.json": {
+      "bytes": 29,
+      "sha256": "63834f6c2af658699ffe4d785059ac0f4954f3045383caa35b4c59788eb44157"
+    },
+    "raw/jobs/libre-power-receiving/source.dxf": {
+      "bytes": 20916,
+      "sha256": "8876b0c66ec7794914a2218072386f5d169a6813a675a579747fa6242cfac2bd"
+    },
+    "raw/jobs/libre-power-receiving/ui/001-trial.json": {
+      "bytes": 404654,
+      "sha256": "e847680246b0c55f5d24ed38827e039a2dad11df6f5409c9207fc6dee221dc16"
+    },
+    "raw/jobs/libre-power-receiving/ui/002-ready.json": {
+      "bytes": 439739,
+      "sha256": "90cfa3ce5d883d5fa17c68c3e60007d6bbec7532cc2f334ba562b11ed171684a"
+    },
+    "raw/jobs/libre-power-receiving/ui/003-open-dialog.json": {
+      "bytes": 448085,
+      "sha256": "fd77d23b192e162b376d8cf8201c1db3407cf7179413ab8d54d9fc804167d778"
+    },
+    "raw/jobs/libre-power-receiving/ui/004-opened.json": {
+      "bytes": 445453,
+      "sha256": "42bac5f3fbcf7a851406b1f792d1d1eab650e0b77ac545ae4ccaf421b0f9aa8c"
+    },
+    "raw/jobs/libre-power-receiving/ui/005-handle-dialog.json": {
+      "bytes": 445448,
+      "sha256": "7f01090481a6b97b967b773986ab347c17a4a70a9d231b2ad243642c4e2352a5"
+    },
+    "raw/jobs/libre-power-receiving/ui/006-selected.json": {
+      "bytes": 456026,
+      "sha256": "6798d9acfb9209d28f376156798980fb0701a1c6e5b900e2b6a62c28aa484576"
+    },
+    "raw/jobs/libre-power-receiving/ui/007-closed.json": {
+      "bytes": 439951,
+      "sha256": "2a66b237288c4c510fc96bedea212b66570232be74d198c7362e4f7a99356691"
+    },
+    "raw/jobs/libre-power-receiving/ui/008-open-dialog.json": {
+      "bytes": 448297,
+      "sha256": "4ecaaedfb79a398df1a5c3a834bafdd045c30bfa5457572b41abffb2aeefdd43"
+    },
+    "raw/jobs/libre-power-receiving/ui/009-opened.json": {
+      "bytes": 445673,
+      "sha256": "8228228831c5564702547ef8e9f5abdb2ec7146c87a32b45fd1a8e3ed2ee7fb1"
+    },
+    "raw/jobs/libre-power-receiving/ui/010-handle-dialog.json": {
+      "bytes": 445668,
+      "sha256": "d7ea3b66203283e110caacee2c0c258f2a8ed5b81c320a8d189692754f22dd43"
+    },
+    "raw/jobs/libre-power-receiving/ui/011-selected.json": {
+      "bytes": 456246,
+      "sha256": "c23783dd655d7767dca432d77e819f919a543ca1319607692a643e5ad4c9067a"
+    },
+    "raw/jobs/libre-power-receiving/ui/012-closed.json": {
+      "bytes": 440167,
+      "sha256": "9faf5419aae0d5f4a520de6e6c4ef0eedba55a6711734d4b5346b55678f13602"
+    },
+    "raw/jobs/libre-power-receiving/ui/013-open-dialog.json": {
+      "bytes": 448513,
+      "sha256": "6d4a0ee91b53735cdeb48d28829406dd7a098fb4f0b84db4ffa8a8e1a7ddbdfc"
+    },
+    "raw/jobs/libre-power-receiving/ui/014-opened.json": {
+      "bytes": 445881,
+      "sha256": "529daeeeb90f62dc7fb43449f67a87b24fd136dbd4065e60037591062415c82e"
+    },
+    "raw/jobs/libre-power-receiving/ui/015-handle-dialog.json": {
+      "bytes": 445876,
+      "sha256": "55c1e9a35e463ebde022cc8c8c707b04994356f0ccc819250608b8add7f241d6"
+    },
+    "raw/jobs/libre-power-receiving/ui/016-selected.json": {
+      "bytes": 456453,
+      "sha256": "7dd03a43984ba8ac30426dc01632656de9bac5005eedf9823841bb7c2c78057d"
+    },
+    "raw/jobs/libre-power-receiving/ui/017-closed.json": {
+      "bytes": 440379,
+      "sha256": "f42521196841f024879a429f0a6783e8964dd6887059c57873be7d08fc65cd1e"
+    },
+    "raw/jobs/libre-power-receiving/ui/018-open-dialog.json": {
+      "bytes": 448725,
+      "sha256": "9f8ea86a512104c027ac4a4dd6a7c095c2c3a318154b1a0375f29337d36a710c"
+    },
+    "raw/jobs/libre-power-receiving/ui/019-opened.json": {
+      "bytes": 446105,
+      "sha256": "863ff54a537248533e8adb2ebdd0fdd688eed244ede1f1907711c90aaacee7c4"
+    },
+    "raw/jobs/libre-power-receiving/ui/020-handle-dialog.json": {
+      "bytes": 446100,
+      "sha256": "c62c0f97c154a474726c21dc8d387fdef0292647e57559e7e46b12d5d7953495"
+    },
+    "raw/jobs/libre-power-receiving/ui/021-selected.json": {
+      "bytes": 456677,
+      "sha256": "c29bf062f36c1094c7978de8f8476e1d3314e8f7644f218720a35671544039eb"
+    },
+    "raw/jobs/libre-power-receiving/ui/022-closed.json": {
+      "bytes": 440597,
+      "sha256": "f50959c1575dadf21570d0457846a7727b44b64dd850f83a3295a5cedfb7e15a"
+    },
+    "raw/jobs/libre-power-receiving/ui/RESULT.json": {
+      "bytes": 101,
+      "sha256": "d5dd9ba5a2ca1a0af2e9d1bf9aa8ff14eaefc0a12aaaca762ccb59023a70fc78"
+    },
+    "raw/jobs/libre-power-receiving/ui/actions.json": {
+      "bytes": 142365,
+      "sha256": "33f08aa537774cc73c44399e1743982c18d9d6113495f86eab77161bb1bfe2d3"
+    },
+    "raw/jobs/libre-power-receiving/ui/baseline-asset-0.canvas.png": {
+      "bytes": 24900,
+      "sha256": "85c292d4a0a09f02909ee45e2189f3d8219a1ef3c1090a9394c58a11ccc46b1d"
+    },
+    "raw/jobs/libre-power-receiving/ui/baseline-asset-0.png": {
+      "bytes": 213097,
+      "sha256": "4651d4b817257b3c2603fc7f8fd639090679e7f5c234b203e577bf4991d2f704"
+    },
+    "raw/jobs/libre-power-receiving/ui/baseline-asset-1.canvas.png": {
+      "bytes": 24900,
+      "sha256": "85c292d4a0a09f02909ee45e2189f3d8219a1ef3c1090a9394c58a11ccc46b1d"
+    },
+    "raw/jobs/libre-power-receiving/ui/baseline-asset-1.png": {
+      "bytes": 213097,
+      "sha256": "4651d4b817257b3c2603fc7f8fd639090679e7f5c234b203e577bf4991d2f704"
+    },
+    "raw/jobs/libre-power-receiving/ui/baseline-labels-0.canvas.png": {
+      "bytes": 27032,
+      "sha256": "59b99c8122d35b156078e719c9875c58c7a769b879551ae045e62be23d1c7a6c"
+    },
+    "raw/jobs/libre-power-receiving/ui/baseline-labels-0.png": {
+      "bytes": 212855,
+      "sha256": "d32b15a54e63aace6e1c0c7ed24910460d502a5d375ebcb00cae420906a8382a"
+    },
+    "raw/jobs/libre-power-receiving/ui/baseline-labels-1.canvas.png": {
+      "bytes": 27032,
+      "sha256": "59b99c8122d35b156078e719c9875c58c7a769b879551ae045e62be23d1c7a6c"
+    },
+    "raw/jobs/libre-power-receiving/ui/baseline-labels-1.png": {
+      "bytes": 212855,
+      "sha256": "d32b15a54e63aace6e1c0c7ed24910460d502a5d375ebcb00cae420906a8382a"
+    },
+    "raw/jobs/libre-power-receiving/ui/baseline-overview-0.canvas.png": {
+      "bytes": 13795,
+      "sha256": "37938a1cdab00bff355dec2b61b828e43541a1ebbec960468ee90eae47484ea7"
+    },
+    "raw/jobs/libre-power-receiving/ui/baseline-overview-0.png": {
+      "bytes": 192714,
+      "sha256": "526c86130aa16c04304ef79e6754642fb98dca86c6bc71a8a99d6f5f8f025ff2"
+    },
+    "raw/jobs/libre-power-receiving/ui/baseline-overview-1.canvas.png": {
+      "bytes": 13795,
+      "sha256": "37938a1cdab00bff355dec2b61b828e43541a1ebbec960468ee90eae47484ea7"
+    },
+    "raw/jobs/libre-power-receiving/ui/baseline-overview-1.png": {
+      "bytes": 192714,
+      "sha256": "526c86130aa16c04304ef79e6754642fb98dca86c6bc71a8a99d6f5f8f025ff2"
+    },
+    "raw/jobs/libre-power-receiving/ui/candidate-asset-0.canvas.png": {
+      "bytes": 24414,
+      "sha256": "a0c77a104de3efe92321d43b357f5d8fe67ecf273ff575d137ac9d6e320ec6af"
+    },
+    "raw/jobs/libre-power-receiving/ui/candidate-asset-0.png": {
+      "bytes": 213046,
+      "sha256": "244da4ad9831e439de6b994bf52b3a05b85aa7e777318ef7223435f39e720882"
+    },
+    "raw/jobs/libre-power-receiving/ui/candidate-asset-1.canvas.png": {
+      "bytes": 24414,
+      "sha256": "a0c77a104de3efe92321d43b357f5d8fe67ecf273ff575d137ac9d6e320ec6af"
+    },
+    "raw/jobs/libre-power-receiving/ui/candidate-asset-1.png": {
+      "bytes": 213046,
+      "sha256": "244da4ad9831e439de6b994bf52b3a05b85aa7e777318ef7223435f39e720882"
+    },
+    "raw/jobs/libre-power-receiving/ui/candidate-labels-0.canvas.png": {
+      "bytes": 26091,
+      "sha256": "bfb24ad19395cfe9136927bd75bf00142115efd829a880d8bbd9aef0cd713a91"
+    },
+    "raw/jobs/libre-power-receiving/ui/candidate-labels-0.png": {
+      "bytes": 212180,
+      "sha256": "5fc0d4f58b95b76af9214d227454f8312377920c885af7282aae19c0dc9ace27"
+    },
+    "raw/jobs/libre-power-receiving/ui/candidate-labels-1.canvas.png": {
+      "bytes": 26091,
+      "sha256": "bfb24ad19395cfe9136927bd75bf00142115efd829a880d8bbd9aef0cd713a91"
+    },
+    "raw/jobs/libre-power-receiving/ui/candidate-labels-1.png": {
+      "bytes": 212180,
+      "sha256": "5fc0d4f58b95b76af9214d227454f8312377920c885af7282aae19c0dc9ace27"
+    },
+    "raw/jobs/libre-power-receiving/ui/candidate-overview-0.canvas.png": {
+      "bytes": 13518,
+      "sha256": "d7c32450cebf4012129ebd792c7aa7b78f3fb2834ada6e8873caea45afcc31dc"
+    },
+    "raw/jobs/libre-power-receiving/ui/candidate-overview-0.png": {
+      "bytes": 192824,
+      "sha256": "be89a1c261f4a4bc0f51967276654ff34c481750d7cb032232c9478b85435193"
+    },
+    "raw/jobs/libre-power-receiving/ui/candidate-overview-1.canvas.png": {
+      "bytes": 13518,
+      "sha256": "d7c32450cebf4012129ebd792c7aa7b78f3fb2834ada6e8873caea45afcc31dc"
+    },
+    "raw/jobs/libre-power-receiving/ui/candidate-overview-1.png": {
+      "bytes": 192824,
+      "sha256": "be89a1c261f4a4bc0f51967276654ff34c481750d7cb032232c9478b85435193"
+    },
+    "raw/jobs/libre-power-receiving/ui/edited-asset-0.canvas.png": {
+      "bytes": 24414,
+      "sha256": "a0c77a104de3efe92321d43b357f5d8fe67ecf273ff575d137ac9d6e320ec6af"
+    },
+    "raw/jobs/libre-power-receiving/ui/edited-asset-0.png": {
+      "bytes": 211931,
+      "sha256": "ebb0aad48a7401447468ee3bd7a50bba7550d5324e8fcc84ef5c9d254b00a82d"
+    },
+    "raw/jobs/libre-power-receiving/ui/edited-asset-1.canvas.png": {
+      "bytes": 24414,
+      "sha256": "a0c77a104de3efe92321d43b357f5d8fe67ecf273ff575d137ac9d6e320ec6af"
+    },
+    "raw/jobs/libre-power-receiving/ui/edited-asset-1.png": {
+      "bytes": 211931,
+      "sha256": "ebb0aad48a7401447468ee3bd7a50bba7550d5324e8fcc84ef5c9d254b00a82d"
+    },
+    "raw/jobs/libre-power-receiving/ui/edited-labels-0.canvas.png": {
+      "bytes": 26091,
+      "sha256": "bfb24ad19395cfe9136927bd75bf00142115efd829a880d8bbd9aef0cd713a91"
+    },
+    "raw/jobs/libre-power-receiving/ui/edited-labels-0.png": {
+      "bytes": 211046,
+      "sha256": "1026ec0da59ba3b695bcb396fbd1bf315298b18a3a306f84a6283871cb1da6ff"
+    },
+    "raw/jobs/libre-power-receiving/ui/edited-labels-1.canvas.png": {
+      "bytes": 26091,
+      "sha256": "bfb24ad19395cfe9136927bd75bf00142115efd829a880d8bbd9aef0cd713a91"
+    },
+    "raw/jobs/libre-power-receiving/ui/edited-labels-1.png": {
+      "bytes": 211046,
+      "sha256": "1026ec0da59ba3b695bcb396fbd1bf315298b18a3a306f84a6283871cb1da6ff"
+    },
+    "raw/jobs/libre-power-receiving/ui/edited-overview-0.canvas.png": {
+      "bytes": 13518,
+      "sha256": "d7c32450cebf4012129ebd792c7aa7b78f3fb2834ada6e8873caea45afcc31dc"
+    },
+    "raw/jobs/libre-power-receiving/ui/edited-overview-0.png": {
+      "bytes": 191825,
+      "sha256": "ef0b12e3cc9d40c37f21c361e94b10b43feea54aceee1fab5154bc1fe1140585"
+    },
+    "raw/jobs/libre-power-receiving/ui/edited-overview-1.canvas.png": {
+      "bytes": 13518,
+      "sha256": "d7c32450cebf4012129ebd792c7aa7b78f3fb2834ada6e8873caea45afcc31dc"
+    },
+    "raw/jobs/libre-power-receiving/ui/edited-overview-1.png": {
+      "bytes": 191825,
+      "sha256": "ef0b12e3cc9d40c37f21c361e94b10b43feea54aceee1fab5154bc1fe1140585"
+    },
+    "raw/jobs/libre-power-receiving/ui/source-asset-0.canvas.png": {
+      "bytes": 24900,
+      "sha256": "85c292d4a0a09f02909ee45e2189f3d8219a1ef3c1090a9394c58a11ccc46b1d"
+    },
+    "raw/jobs/libre-power-receiving/ui/source-asset-0.png": {
+      "bytes": 212866,
+      "sha256": "77328f57434cc63ee93a31fc86a44b254c19d48af95334000fd25ce7f004f5b3"
+    },
+    "raw/jobs/libre-power-receiving/ui/source-asset-1.canvas.png": {
+      "bytes": 24900,
+      "sha256": "85c292d4a0a09f02909ee45e2189f3d8219a1ef3c1090a9394c58a11ccc46b1d"
+    },
+    "raw/jobs/libre-power-receiving/ui/source-asset-1.png": {
+      "bytes": 212866,
+      "sha256": "77328f57434cc63ee93a31fc86a44b254c19d48af95334000fd25ce7f004f5b3"
+    },
+    "raw/jobs/libre-power-receiving/ui/source-labels-0.canvas.png": {
+      "bytes": 27032,
+      "sha256": "59b99c8122d35b156078e719c9875c58c7a769b879551ae045e62be23d1c7a6c"
+    },
+    "raw/jobs/libre-power-receiving/ui/source-labels-0.png": {
+      "bytes": 212616,
+      "sha256": "6f94e48fdd0c09c1875a258e62137288c2aad6aff1780b47c90f2a07f91bb629"
+    },
+    "raw/jobs/libre-power-receiving/ui/source-labels-1.canvas.png": {
+      "bytes": 27032,
+      "sha256": "59b99c8122d35b156078e719c9875c58c7a769b879551ae045e62be23d1c7a6c"
+    },
+    "raw/jobs/libre-power-receiving/ui/source-labels-1.png": {
+      "bytes": 212616,
+      "sha256": "6f94e48fdd0c09c1875a258e62137288c2aad6aff1780b47c90f2a07f91bb629"
+    },
+    "raw/jobs/libre-power-receiving/ui/source-overview-0.canvas.png": {
+      "bytes": 13795,
+      "sha256": "37938a1cdab00bff355dec2b61b828e43541a1ebbec960468ee90eae47484ea7"
+    },
+    "raw/jobs/libre-power-receiving/ui/source-overview-0.png": {
+      "bytes": 192519,
+      "sha256": "c59c28b46928a439a9dda8c1183795e01e82f4071fa0f6bff02063ae0d9198c6"
+    },
+    "raw/jobs/libre-power-receiving/ui/source-overview-1.canvas.png": {
+      "bytes": 13795,
+      "sha256": "37938a1cdab00bff355dec2b61b828e43541a1ebbec960468ee90eae47484ea7"
+    },
+    "raw/jobs/libre-power-receiving/ui/source-overview-1.png": {
+      "bytes": 192519,
+      "sha256": "c59c28b46928a439a9dda8c1183795e01e82f4071fa0f6bff02063ae0d9198c6"
+    },
+    "raw/jobs/libre-power-receiving/ui_control.py": {
+      "bytes": 4554,
+      "sha256": "e508c2a70b26ff1998fdd4cbc6484a2c7ea7b423e8e76868db8529c44a594881"
+    },
+    "raw/jobs/libre-power-receiving/workflow.py": {
+      "bytes": 11926,
+      "sha256": "8e600a8ff2504df0e3eeb5c04a0053618130889354b94c56e3fcc215b22c7c23"
+    }
+  },
+  "packager_sha256": "144456f2e1295818ebfcca837565f6dfbc56d92d422f00e0cd0a5160eeb0e16d",
+  "exclusions": [
+    "Selected original/working settings contents; hashes retained",
+    "Publisher binaries and compiled libraries",
+    "Python bytecode"
+  ]
+}

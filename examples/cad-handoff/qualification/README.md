@@ -17,10 +17,12 @@ MDI opening and print-getter calls as a repair for the diagnosed plot-storage ga
 jobs, complete public-inventory comparisons and actual cleanup failures. It does not close any native-save,
 reserved edit/save/reopen or engineering acceptance gate.
 
-The [matched native UI procedure](native-ui-pairs-19/PROGRESS.md) is now in exposed development. A completed
-no-edit process and a separately labelled edit recovery retain their strict failures; the fresh six-case
-cohort, portable evidence receiving and new qualification remain unfinished. No recovery is counted as a
-clean full-procedure pass.
+The [matched native UI cohort](native-ui-pairs-19/README.md) now retains 18 completed exposed-development
+processes in seven portable packets with offline replay. All twelve native full saves still fail strict
+preservation (298–377 differences); matched pairs retain 50–53. The receiver preserves twelve recording
+metadata failures and exact-camera failures on two cases. Nine of 54 pixel comparisons are diagnostic only;
+zero outside-region changes does not waive the camera gate. Original failures/recovery remain separate.
+New reserved validation and whole qualification remain unfinished.
 
 ## Reproduce the evidence offline
 

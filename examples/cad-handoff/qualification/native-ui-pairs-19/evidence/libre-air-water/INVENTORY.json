@@ -1,0 +1,1616 @@
+{
+  "kind": {
+    "route": "clean-exposed-case",
+    "case": "libre-air-water"
+  },
+  "archive": {
+    "path": "evidence.tar.xz",
+    "bytes": 3921492,
+    "sha256": "fbc4af36898d1e730e39a32b5df24127abb78eb536730fa1e4bc61b61fdc58dc"
+  },
+  "raw_bytes": 36048440,
+  "files": {
+    "raw/cases/libre-air-water/basis.json": {
+      "bytes": 688,
+      "sha256": "9355eec9631c0e92d3720fec57de9d9df4dfe1367de2efd1bcbb0724b2ff7d03"
+    },
+    "raw/cases/libre-air-water/plan.json": {
+      "bytes": 407,
+      "sha256": "9120fce152867c3fa2ed001bfd3a3a223d6e791f2b65dd106eaea792d8101354"
+    },
+    "raw/cases/libre-air-water/software/candidate/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/cases/libre-air-water/software/candidate/asset_candidates.csv": {
+      "bytes": 121,
+      "sha256": "8bda418c81c47df9de164874c575d12bf168565f074c873621f186bdfa0bf4f0"
+    },
+    "raw/cases/libre-air-water/software/candidate/byte-edits.json": {
+      "bytes": 749,
+      "sha256": "e906b293005b1a5a71b826d0e9468114b74e18b2db6412fdc2a4665ac7421cce"
+    },
+    "raw/cases/libre-air-water/software/candidate/cad_context.json": {
+      "bytes": 621,
+      "sha256": "ad3633657b7eb02b0ed1746729361314501b0d2b83d10c5bc245389c484f8c3d"
+    },
+    "raw/cases/libre-air-water/software/candidate/candidate-context/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/cases/libre-air-water/software/candidate/candidate-context/asset_candidates.csv": {
+      "bytes": 120,
+      "sha256": "47860789632a5d43d67f34771c01964580b73d583330f38e00bb23b9489dbe15"
+    },
+    "raw/cases/libre-air-water/software/candidate/candidate-context/cad_context.json": {
+      "bytes": 620,
+      "sha256": "858d652810e58f8b07210d2545469d06de0fcc0652a3f048b0a94bab83f4e7ef"
+    },
+    "raw/cases/libre-air-water/software/candidate/candidate-context/snapshot.json": {
+      "bytes": 82910,
+      "sha256": "a0420c99e072ad7d750d90605856421dd7777758b5cb1dbc9139ea706afc911b"
+    },
+    "raw/cases/libre-air-water/software/candidate/candidate-context/source.dxf": {
+      "bytes": 21101,
+      "sha256": "257efa01da7a490316489aa312ed88548b819c1af9179fb70fafb351188f3795"
+    },
+    "raw/cases/libre-air-water/software/candidate/candidate.dxf": {
+      "bytes": 21101,
+      "sha256": "257efa01da7a490316489aa312ed88548b819c1af9179fb70fafb351188f3795"
+    },
+    "raw/cases/libre-air-water/software/candidate/candidate.snapshot.json": {
+      "bytes": 82910,
+      "sha256": "a0420c99e072ad7d750d90605856421dd7777758b5cb1dbc9139ea706afc911b"
+    },
+    "raw/cases/libre-air-water/software/candidate/comparison.json": {
+      "bytes": 874,
+      "sha256": "f91b4b961dbf6b6f0024551af6a705247b3bf773b3034f7166110574ae449014"
+    },
+    "raw/cases/libre-air-water/software/candidate/plan.json": {
+      "bytes": 394,
+      "sha256": "d759cee363c3e483ebfe471236f60ea099dbaa4c52df4b9328390b7485e01720"
+    },
+    "raw/cases/libre-air-water/software/candidate/snapshot.json": {
+      "bytes": 82912,
+      "sha256": "b7361614420650e75c816c6212cd76ad1fa23d7d521d91ffbd6fe36c411143b0"
+    },
+    "raw/cases/libre-air-water/software/candidate/source.dxf": {
+      "bytes": 21102,
+      "sha256": "245a50eefeabc483f16269375a3bf9bd892b9cebd125e76f5ae744f5466f4db8"
+    },
+    "raw/cases/libre-air-water/software/library-save.comparison.json": {
+      "bytes": 873,
+      "sha256": "e773f3f52dadbb985c72adb50b8393961ed97fc53c39d7ccec6ed0e794f7bdc1"
+    },
+    "raw/cases/libre-air-water/software/library.dxf": {
+      "bytes": 21109,
+      "sha256": "20659205782d8cf0f34e28e8159879b373cf94149517b0cfeb33869155c6ed8a"
+    },
+    "raw/cases/libre-air-water/software/result.json": {
+      "bytes": 941,
+      "sha256": "bb90b0d26ae5958d96b0a2f72dd38ee18559c6d4b46ef000146b0b0c4c6c5dd3"
+    },
+    "raw/cases/libre-air-water/software/value-spans.comparison.json": {
+      "bytes": 874,
+      "sha256": "f91b4b961dbf6b6f0024551af6a705247b3bf773b3034f7166110574ae449014"
+    },
+    "raw/cases/libre-air-water/source.dxf": {
+      "bytes": 21102,
+      "sha256": "245a50eefeabc483f16269375a3bf9bd892b9cebd125e76f5ae744f5466f4db8"
+    },
+    "raw/cohort/COHORT.json": {
+      "bytes": 4476,
+      "sha256": "131aaccd9ccc9b0c36223af3f06e04053de0e40970e4ddef572334f255947aad"
+    },
+    "raw/cohort/methods/METHOD.md": {
+      "bytes": 5339,
+      "sha256": "e1bbc04db242370dc00cf6ef237c1f5022599ec200206717cd7df08dc095e04b"
+    },
+    "raw/cohort/methods/PLAN.md": {
+      "bytes": 5204,
+      "sha256": "1d3f3a4985cb9aa21bc81d39bb1bc6b3963ef1a675af10b734f65fa81a46dd4b"
+    },
+    "raw/cohort/methods/analyze.py": {
+      "bytes": 6634,
+      "sha256": "f17bf22e06abef88ec989958e88d32557753308a92031a6854845fabd7d8c981"
+    },
+    "raw/cohort/methods/batch.py": {
+      "bytes": 4655,
+      "sha256": "1bb25fb445635117ae56579a89cde012728a5e1d8538a644daf4f4f8dc15446c"
+    },
+    "raw/cohort/methods/inspect_ui.py": {
+      "bytes": 1439,
+      "sha256": "c41e118f8108e02dcef6ba9d90cf280d68851ba4b7cb6a870b96a4c9deb5c03e"
+    },
+    "raw/cohort/methods/launch_case.py": {
+      "bytes": 2906,
+      "sha256": "beee5842b37f0bea6cade0afb33e8706754e80db29acd22e6f78dd44d74fdc03"
+    },
+    "raw/cohort/methods/native_controls.py": {
+      "bytes": 800,
+      "sha256": "767246eef54db970e4a1a590b2e5797a41305046dfebc98dfdc7bc759105e832"
+    },
+    "raw/cohort/methods/observe_case.js": {
+      "bytes": 2810,
+      "sha256": "24e09cf1c30a5f818014ca3662d847030066185f1468b31b563bd8163e4c6070"
+    },
+    "raw/cohort/methods/preflight.py": {
+      "bytes": 2588,
+      "sha256": "791142e53f8996a49a3191f29cf37aa9d9fde82e7c497ccf97f0d02478812031"
+    },
+    "raw/cohort/methods/prepare.py": {
+      "bytes": 4665,
+      "sha256": "a4515b8ba619803d5b6a431114e69f459c7aedb2b0c2437eb2fc0252ede9240a"
+    },
+    "raw/cohort/methods/recover_edit.py": {
+      "bytes": 1554,
+      "sha256": "3e75e59cb23ceae7cd89539420e7f6c940faf439e3a51d8d880fa38e1a5e205d"
+    },
+    "raw/cohort/methods/ui_control.py": {
+      "bytes": 4554,
+      "sha256": "e508c2a70b26ff1998fdd4cbc6484a2c7ea7b423e8e76868db8529c44a594881"
+    },
+    "raw/cohort/methods/view_observer.js": {
+      "bytes": 1931,
+      "sha256": "558ec33c63ac1eec07effb8c2ff9739f6c96cce49ba6e8f5dcfa7ace73117677"
+    },
+    "raw/cohort/methods/workflow.py": {
+      "bytes": 11926,
+      "sha256": "8e600a8ff2504df0e3eeb5c04a0053618130889354b94c56e3fcc215b22c7c23"
+    },
+    "raw/jobs/libre-air-water-baseline/CONTAINER-LOG.json": {
+      "bytes": 737,
+      "sha256": "fd8a303bb0d70ea1f7600face21a96a42c6276d7a71c0b09e42af5561ca84b8b"
+    },
+    "raw/jobs/libre-air-water-baseline/ENVIRONMENT.json": {
+      "bytes": 1087,
+      "sha256": "e1a14cd8083de9ac2dc7341fdef40e0543abdaf7d69b9ceaca35ad632850774a"
+    },
+    "raw/jobs/libre-air-water-baseline/JOB-FREEZE.json": {
+      "bytes": 1168,
+      "sha256": "d699d086a3068f079dac1454f134940b0a861a769190583d5753930e44944c3e"
+    },
+    "raw/jobs/libre-air-water-baseline/METHOD.md": {
+      "bytes": 5339,
+      "sha256": "e1bbc04db242370dc00cf6ef237c1f5022599ec200206717cd7df08dc095e04b"
+    },
+    "raw/jobs/libre-air-water-baseline/PLAN.md": {
+      "bytes": 5204,
+      "sha256": "1d3f3a4985cb9aa21bc81d39bb1bc6b3963ef1a675af10b734f65fa81a46dd4b"
+    },
+    "raw/jobs/libre-air-water-baseline/dbus-address.txt": {
+      "bytes": 68,
+      "sha256": "6c190286959b15407ff639df2c79d2f8ff1aab5e1d6c17117f712561f7f569ac"
+    },
+    "raw/jobs/libre-air-water-baseline/inspect_ui.py": {
+      "bytes": 1439,
+      "sha256": "c41e118f8108e02dcef6ba9d90cf280d68851ba4b7cb6a870b96a4c9deb5c03e"
+    },
+    "raw/jobs/libre-air-water-baseline/job.json": {
+      "bytes": 711,
+      "sha256": "af8aa1bb0877765d3a1bafd7f84597d963c89966f451146250c2f9235e6e268f"
+    },
+    "raw/jobs/libre-air-water-baseline/launch_case.py": {
+      "bytes": 2906,
+      "sha256": "beee5842b37f0bea6cade0afb33e8706754e80db29acd22e6f78dd44d74fdc03"
+    },
+    "raw/jobs/libre-air-water-baseline/native/PROCESS.json": {
+      "bytes": 1346,
+      "sha256": "9cd8c7b7c27917b21e59016920b176afee93aae5cfd1d187095ea1cef28019d8"
+    },
+    "raw/jobs/libre-air-water-baseline/native/controller.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/libre-air-water-baseline/native/controller.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/libre-air-water-baseline/native/openbox.log": {
+      "bytes": 85,
+      "sha256": "6f748c3cd02a858c087697c3afac639205c62b7b206558bd40d1bcbd98165a5c"
+    },
+    "raw/jobs/libre-air-water-baseline/native/stderr.txt": {
+      "bytes": 5801,
+      "sha256": "1d217c5d97d21030d239a4996cf677bab0d6d967c2606e214a1f59307c257421"
+    },
+    "raw/jobs/libre-air-water-baseline/native/stdout.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/libre-air-water-baseline/native/xvfb.log": {
+      "bytes": 2429,
+      "sha256": "6d73d78138c41bea466314919237a4fe998e5b670a356ab2012f328fff769a7b"
+    },
+    "raw/jobs/libre-air-water-baseline/native_controls.py": {
+      "bytes": 800,
+      "sha256": "767246eef54db970e4a1a590b2e5797a41305046dfebc98dfdc7bc759105e832"
+    },
+    "raw/jobs/libre-air-water-baseline/observe_case.js": {
+      "bytes": 2810,
+      "sha256": "24e09cf1c30a5f818014ca3662d847030066185f1468b31b563bd8163e4c6070"
+    },
+    "raw/jobs/libre-air-water-baseline/prepare.py": {
+      "bytes": 4665,
+      "sha256": "a4515b8ba619803d5b6a431114e69f459c7aedb2b0c2437eb2fc0252ede9240a"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/1.json": {
+      "bytes": 232,
+      "sha256": "c4733a44515b0d814ac0a1c121fd790225d99b8cf1e6ee9b5351fabfe0b37273"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/10.json": {
+      "bytes": 1239,
+      "sha256": "25b4db3a8535dee881f3aae77a2d73db17bd61a8e092ef8ff4ab3fd2bed88400"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/11.json": {
+      "bytes": 1120,
+      "sha256": "87e1098c2e1bf615df9cb850fa496a774a21feef19cb6fc5668a6bd6e97dc994"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/12.json": {
+      "bytes": 1245,
+      "sha256": "4b2b3a0bdab0547521b743e1fd91e953e9134343a879ed024f88f65d54b23a4a"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/13.json": {
+      "bytes": 1126,
+      "sha256": "428ee97a40c59af587c724c239ff09bfb81a89aeefc555bab814db81281568de"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/14.json": {
+      "bytes": 1126,
+      "sha256": "c5657b0445a23ba1e3799644e4df30d7810eb4e830356e3c524bc0968d6a4b02"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/15.json": {
+      "bytes": 1129,
+      "sha256": "28c8902d03ea147c05690d390c2558877076a37dcd5ddf990bc5e436bc4bed9d"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/16.json": {
+      "bytes": 1129,
+      "sha256": "9c81ed55112fe8fe6f4e0ed627eaf26500d93d06ee42f2366ef85f236a0b8bf4"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/17.json": {
+      "bytes": 1129,
+      "sha256": "993afd84f8e0c22b7516086b866bd3707aa086d26c23be49c5449de77b5d6003"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/18.json": {
+      "bytes": 233,
+      "sha256": "4fbb4f4a73f93ad60b34b9d020053eaa4785db707f9fead439bc841f6d0c4561"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/19.json": {
+      "bytes": 233,
+      "sha256": "281af2c4eaa4ea509d5a991e026d99a70caca33fea6ae2438483271ef54ca6d7"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/2.json": {
+      "bytes": 232,
+      "sha256": "fd199d0cbcc27c4dcb89ba932b0a275459581c19828633dc8b4300b21d8eac3b"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/20.json": {
+      "bytes": 1125,
+      "sha256": "54a995aa77f65b8115ce5d3032bde59dde2cf311d848a76bcd7c5faa30320ce8"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/21.json": {
+      "bytes": 1125,
+      "sha256": "d2435bd37a1970630c90e3017e6bb847b6d24cd8c5dd8f54db639c0e09aa2604"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/22.json": {
+      "bytes": 1125,
+      "sha256": "169b2b979d5c588486d9d2f639939080096bbbe756c48f207e123b371cd5b5eb"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/23.json": {
+      "bytes": 1135,
+      "sha256": "e39fbe637836d0df38fe56fb02d3f4780bdc807c52909f3f259f5ac75bbb59ac"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/24.json": {
+      "bytes": 1124,
+      "sha256": "117fd112faa4bf722e9cec821da5b71411a8527fa2a10119f31adf6669f39269"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/25.json": {
+      "bytes": 1248,
+      "sha256": "6ceafebe4b7057ec201fd69793ffd33d98c63fe64d8aafed2942456d58eeba43"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/26.json": {
+      "bytes": 1128,
+      "sha256": "dd4353be460e9a95ccb4b392187c5015733211f23034770d4a2c1a76ad04656d"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/27.json": {
+      "bytes": 1245,
+      "sha256": "1ad28aaca1a5743a472b5019c8ebdb98ac55cd660301a0f44ab3cbd2163f80d8"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/28.json": {
+      "bytes": 1122,
+      "sha256": "95529c43e5fd5d3dc3989579e7c61ecf319680440535bb0ab0bd9fe254b8614e"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/29.json": {
+      "bytes": 1249,
+      "sha256": "b4e83dcc76d00b031420497813e22195dd760f4aa2aae721a39e4f1b33d06bfa"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/3.json": {
+      "bytes": 1122,
+      "sha256": "17ccef5ca23981b10f69fd95137296c73f1b34d56d5ba183ae635f6a60d2322d"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/30.json": {
+      "bytes": 1128,
+      "sha256": "1a7f540beeb7902f0e81a7c3acaab2484f3a4ad67d7b1f085111563c9d4d6e4b"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/31.json": {
+      "bytes": 1128,
+      "sha256": "7092365030e067ffa82af5e0c0a4ff7a4125f26e781eed230e379bee88d295b0"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/32.json": {
+      "bytes": 1128,
+      "sha256": "26027b91d3674c9ae4ee14203f270c0e827e36fb7eef9dbba17a4c41270954cb"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/33.json": {
+      "bytes": 233,
+      "sha256": "0ec3d978b8ffc7fb1f9a7f1bac9dd222727fa92dda32489f41a9cbefffb2e431"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/34.json": {
+      "bytes": 233,
+      "sha256": "70c2d5d54c47a50c8d624b4656214bd15bff84d159be0a261e002ea7a6312f0b"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/4.json": {
+      "bytes": 1122,
+      "sha256": "de66d60b972ad9546ee195c41c1be402893b1fb659feb6714589499c8af8a57f"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/5.json": {
+      "bytes": 1122,
+      "sha256": "21d00de2a4af696eec752cb36b1584e2f983e540a54ddbdd098209bd140a5b9d"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/6.json": {
+      "bytes": 1132,
+      "sha256": "c284da7be519555c46398210d97c598ff83182d0700dbb7c27540741f359d723"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/7.json": {
+      "bytes": 1121,
+      "sha256": "d332fed235288c40d733e891ce54f4ff50ca2e83339fab7fd1384bc3d2af38c6"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/8.json": {
+      "bytes": 1243,
+      "sha256": "0459144f09ecaae0977f6826823de45f3378269166e7035b7168dd435a379a13"
+    },
+    "raw/jobs/libre-air-water-baseline/replies/9.json": {
+      "bytes": 1124,
+      "sha256": "899d1e041f950cad21bcda04d4eb422965416e51db43c09aa9d695a8ee838a53"
+    },
+    "raw/jobs/libre-air-water-baseline/request.json": {
+      "bytes": 29,
+      "sha256": "1dd67b4ecde34d1c12dc8af16b8a2ed7e726c4bd73fa2a20a2c207064576b63f"
+    },
+    "raw/jobs/libre-air-water-baseline/returned.dxf": {
+      "bytes": 105384,
+      "sha256": "b338635b2bbc975715b75c31427049aceb668e26261ba6e3309f753e2305b30f"
+    },
+    "raw/jobs/libre-air-water-baseline/source.dxf": {
+      "bytes": 21102,
+      "sha256": "245a50eefeabc483f16269375a3bf9bd892b9cebd125e76f5ae744f5466f4db8"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/001-trial.json": {
+      "bytes": 404654,
+      "sha256": "e847680246b0c55f5d24ed38827e039a2dad11df6f5409c9207fc6dee221dc16"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/002-ready.json": {
+      "bytes": 439739,
+      "sha256": "90cfa3ce5d883d5fa17c68c3e60007d6bbec7532cc2f334ba562b11ed171684a"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/003-open-dialog.json": {
+      "bytes": 448085,
+      "sha256": "fd77d23b192e162b376d8cf8201c1db3407cf7179413ab8d54d9fc804167d778"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/004-opened.json": {
+      "bytes": 445453,
+      "sha256": "42bac5f3fbcf7a851406b1f792d1d1eab650e0b77ac545ae4ccaf421b0f9aa8c"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/005-handle-dialog.json": {
+      "bytes": 445448,
+      "sha256": "7f01090481a6b97b967b773986ab347c17a4a70a9d231b2ad243642c4e2352a5"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/006-selected.json": {
+      "bytes": 456031,
+      "sha256": "101eb9ac2495306c3ba36d717e6b241291eb7ce00ee6aaff1519c6b7eb8145b5"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/007-save-dialog.json": {
+      "bytes": 462890,
+      "sha256": "ee1092e61ebab5272f8e6fe3dc9e17e5399526625e80e723f3af8a27e78c12d1"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/008-saved.json": {
+      "bytes": 445600,
+      "sha256": "15bddddd8094866608f3bf18c69983cf840b727c389b2e4a0b2f642ce3b32f5e"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/009-closed.json": {
+      "bytes": 440053,
+      "sha256": "6904a84c5757cfd54dcc7e848ca3f7eb4ead4c21beae5929afca6270bab4983f"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/010-open-dialog.json": {
+      "bytes": 448416,
+      "sha256": "94a8cd1e713ba8160b0564ce98c02e118ea861cdc05dc242378084d6d69d4c7e"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/011-opened.json": {
+      "bytes": 445775,
+      "sha256": "2396091722a06f1281675f3a15d55c012291b6f458ac4ab819030fff95105d85"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/012-handle-dialog.json": {
+      "bytes": 445770,
+      "sha256": "dc9f8e695f4b6ae40e416ecfc62fb8fd6e1f024369545116405407cc5f21c46e"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/013-selected.json": {
+      "bytes": 456353,
+      "sha256": "842644a41dc4170bef652d85d13bfe067c469c9646adc77aca2428324e4493ba"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/014-closed.json": {
+      "bytes": 440269,
+      "sha256": "964a73f1f046ce48df5507ff8a5f72b8fd52bd525e2779de4721fe4dc5ed268e"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/RESULT.json": {
+      "bytes": 104,
+      "sha256": "88afa54282deb74aab985ef1bf62a56eff8debaab757f7e20c5891d71439ba7c"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/actions.json": {
+      "bytes": 79282,
+      "sha256": "8dc8451a67402350d682e19f7f6f1640d506f305c79327669f4a9296d68fbb94"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/returned-asset-0.canvas.png": {
+      "bytes": 23608,
+      "sha256": "4e5a4ec928db3d1d3849231ab3626798ccf3b4d577736ea64eac62619f2373bf"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/returned-asset-0.png": {
+      "bytes": 211554,
+      "sha256": "ef1b222b77a38de507f95c1ae58be951dfaed3029f9f7cad5e201af41cf11169"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/returned-asset-1.canvas.png": {
+      "bytes": 23608,
+      "sha256": "4e5a4ec928db3d1d3849231ab3626798ccf3b4d577736ea64eac62619f2373bf"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/returned-asset-1.png": {
+      "bytes": 211554,
+      "sha256": "ef1b222b77a38de507f95c1ae58be951dfaed3029f9f7cad5e201af41cf11169"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/returned-labels-0.canvas.png": {
+      "bytes": 26890,
+      "sha256": "4b76ea328e5de88fd79c552f018c9cc2c69dcf2fa3c69fc3cb6ec2508039bf2b"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/returned-labels-0.png": {
+      "bytes": 213633,
+      "sha256": "1a495f0ef57acf1e2a717fab2bdbeae6278c387bf7a712637796e85690fd69c0"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/returned-labels-1.canvas.png": {
+      "bytes": 26890,
+      "sha256": "4b76ea328e5de88fd79c552f018c9cc2c69dcf2fa3c69fc3cb6ec2508039bf2b"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/returned-labels-1.png": {
+      "bytes": 213633,
+      "sha256": "1a495f0ef57acf1e2a717fab2bdbeae6278c387bf7a712637796e85690fd69c0"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/returned-overview-0.canvas.png": {
+      "bytes": 13634,
+      "sha256": "066da66d654556b13675c1f01a4e444383558c7d0a145e735a68ace53faab8cf"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/returned-overview-0.png": {
+      "bytes": 192839,
+      "sha256": "ee72d7a8d771e0c2a1664dda0565a2888a8203e39b6b79d1efbaf3fa8d9f2bbc"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/returned-overview-1.canvas.png": {
+      "bytes": 13634,
+      "sha256": "066da66d654556b13675c1f01a4e444383558c7d0a145e735a68ace53faab8cf"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/returned-overview-1.png": {
+      "bytes": 192839,
+      "sha256": "ee72d7a8d771e0c2a1664dda0565a2888a8203e39b6b79d1efbaf3fa8d9f2bbc"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/source-asset-0.canvas.png": {
+      "bytes": 23608,
+      "sha256": "4e5a4ec928db3d1d3849231ab3626798ccf3b4d577736ea64eac62619f2373bf"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/source-asset-0.png": {
+      "bytes": 211364,
+      "sha256": "d03eb85391dd09ac8273dd8726f8d81b24b90c73e3ec6e1ce5ddef774ba54f4c"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/source-asset-1.canvas.png": {
+      "bytes": 23608,
+      "sha256": "4e5a4ec928db3d1d3849231ab3626798ccf3b4d577736ea64eac62619f2373bf"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/source-asset-1.png": {
+      "bytes": 211364,
+      "sha256": "d03eb85391dd09ac8273dd8726f8d81b24b90c73e3ec6e1ce5ddef774ba54f4c"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/source-labels-0.canvas.png": {
+      "bytes": 26890,
+      "sha256": "4b76ea328e5de88fd79c552f018c9cc2c69dcf2fa3c69fc3cb6ec2508039bf2b"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/source-labels-0.png": {
+      "bytes": 213444,
+      "sha256": "ad6b627eaa7de06d0dddd6c4e637777b50fe776513796d19ed68319dbe294f8b"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/source-labels-1.canvas.png": {
+      "bytes": 26890,
+      "sha256": "4b76ea328e5de88fd79c552f018c9cc2c69dcf2fa3c69fc3cb6ec2508039bf2b"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/source-labels-1.png": {
+      "bytes": 213444,
+      "sha256": "ad6b627eaa7de06d0dddd6c4e637777b50fe776513796d19ed68319dbe294f8b"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/source-overview-0.canvas.png": {
+      "bytes": 13634,
+      "sha256": "066da66d654556b13675c1f01a4e444383558c7d0a145e735a68ace53faab8cf"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/source-overview-0.png": {
+      "bytes": 192676,
+      "sha256": "927af16588710561f8e0c969bf3280e4044f473a8e3fdf74084bf86830b5af6e"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/source-overview-1.canvas.png": {
+      "bytes": 13634,
+      "sha256": "066da66d654556b13675c1f01a4e444383558c7d0a145e735a68ace53faab8cf"
+    },
+    "raw/jobs/libre-air-water-baseline/ui/source-overview-1.png": {
+      "bytes": 192676,
+      "sha256": "927af16588710561f8e0c969bf3280e4044f473a8e3fdf74084bf86830b5af6e"
+    },
+    "raw/jobs/libre-air-water-baseline/ui_control.py": {
+      "bytes": 4554,
+      "sha256": "e508c2a70b26ff1998fdd4cbc6484a2c7ea7b423e8e76868db8529c44a594881"
+    },
+    "raw/jobs/libre-air-water-baseline/workflow.py": {
+      "bytes": 11926,
+      "sha256": "8e600a8ff2504df0e3eeb5c04a0053618130889354b94c56e3fcc215b22c7c23"
+    },
+    "raw/jobs/libre-air-water-edited/CONTAINER-LOG.json": {
+      "bytes": 737,
+      "sha256": "f06af5e4f41d88a17c7446a0895a86125856742bf8073fca250264dccebb0b80"
+    },
+    "raw/jobs/libre-air-water-edited/ENVIRONMENT.json": {
+      "bytes": 1084,
+      "sha256": "5b76d91085459b0bb865e80b81786592eefa8e3fe9e10493fe028a77aaf86a31"
+    },
+    "raw/jobs/libre-air-water-edited/JOB-FREEZE.json": {
+      "bytes": 1168,
+      "sha256": "00ef0e109505ad5a2f5db86796716b3282a3665f5339b787e1bee0908a2a6203"
+    },
+    "raw/jobs/libre-air-water-edited/METHOD.md": {
+      "bytes": 5339,
+      "sha256": "e1bbc04db242370dc00cf6ef237c1f5022599ec200206717cd7df08dc095e04b"
+    },
+    "raw/jobs/libre-air-water-edited/PLAN.md": {
+      "bytes": 5204,
+      "sha256": "1d3f3a4985cb9aa21bc81d39bb1bc6b3963ef1a675af10b734f65fa81a46dd4b"
+    },
+    "raw/jobs/libre-air-water-edited/dbus-address.txt": {
+      "bytes": 68,
+      "sha256": "297cd72933d9f2f29aff3ad74a923145f757576ea4a1b10accccacc622483c41"
+    },
+    "raw/jobs/libre-air-water-edited/inspect_ui.py": {
+      "bytes": 1439,
+      "sha256": "c41e118f8108e02dcef6ba9d90cf280d68851ba4b7cb6a870b96a4c9deb5c03e"
+    },
+    "raw/jobs/libre-air-water-edited/job.json": {
+      "bytes": 709,
+      "sha256": "d15d48cba4f3d4803118003d017e92d8c0e24e41b4fd91a6402264f87927d811"
+    },
+    "raw/jobs/libre-air-water-edited/launch_case.py": {
+      "bytes": 2906,
+      "sha256": "beee5842b37f0bea6cade0afb33e8706754e80db29acd22e6f78dd44d74fdc03"
+    },
+    "raw/jobs/libre-air-water-edited/native/PROCESS.json": {
+      "bytes": 1344,
+      "sha256": "9d6d510cf91e9f864d3a6f85459017f0a8bd33426d88ac3b6c2a720087f7de80"
+    },
+    "raw/jobs/libre-air-water-edited/native/controller.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/libre-air-water-edited/native/controller.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/libre-air-water-edited/native/openbox.log": {
+      "bytes": 85,
+      "sha256": "6f748c3cd02a858c087697c3afac639205c62b7b206558bd40d1bcbd98165a5c"
+    },
+    "raw/jobs/libre-air-water-edited/native/stderr.txt": {
+      "bytes": 5801,
+      "sha256": "e8399414de79cf6f845933f1963bafeb20c14e2c86dbb4b2b37c0586a280bb59"
+    },
+    "raw/jobs/libre-air-water-edited/native/stdout.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/libre-air-water-edited/native/xvfb.log": {
+      "bytes": 2429,
+      "sha256": "6d73d78138c41bea466314919237a4fe998e5b670a356ab2012f328fff769a7b"
+    },
+    "raw/jobs/libre-air-water-edited/native_controls.py": {
+      "bytes": 800,
+      "sha256": "767246eef54db970e4a1a590b2e5797a41305046dfebc98dfdc7bc759105e832"
+    },
+    "raw/jobs/libre-air-water-edited/observe_case.js": {
+      "bytes": 2810,
+      "sha256": "24e09cf1c30a5f818014ca3662d847030066185f1468b31b563bd8163e4c6070"
+    },
+    "raw/jobs/libre-air-water-edited/prepare.py": {
+      "bytes": 4665,
+      "sha256": "a4515b8ba619803d5b6a431114e69f459c7aedb2b0c2437eb2fc0252ede9240a"
+    },
+    "raw/jobs/libre-air-water-edited/replies/1.json": {
+      "bytes": 232,
+      "sha256": "c4733a44515b0d814ac0a1c121fd790225d99b8cf1e6ee9b5351fabfe0b37273"
+    },
+    "raw/jobs/libre-air-water-edited/replies/10.json": {
+      "bytes": 1239,
+      "sha256": "25b4db3a8535dee881f3aae77a2d73db17bd61a8e092ef8ff4ab3fd2bed88400"
+    },
+    "raw/jobs/libre-air-water-edited/replies/11.json": {
+      "bytes": 1120,
+      "sha256": "87e1098c2e1bf615df9cb850fa496a774a21feef19cb6fc5668a6bd6e97dc994"
+    },
+    "raw/jobs/libre-air-water-edited/replies/12.json": {
+      "bytes": 1245,
+      "sha256": "4b2b3a0bdab0547521b743e1fd91e953e9134343a879ed024f88f65d54b23a4a"
+    },
+    "raw/jobs/libre-air-water-edited/replies/13.json": {
+      "bytes": 1126,
+      "sha256": "428ee97a40c59af587c724c239ff09bfb81a89aeefc555bab814db81281568de"
+    },
+    "raw/jobs/libre-air-water-edited/replies/14.json": {
+      "bytes": 1126,
+      "sha256": "c5657b0445a23ba1e3799644e4df30d7810eb4e830356e3c524bc0968d6a4b02"
+    },
+    "raw/jobs/libre-air-water-edited/replies/15.json": {
+      "bytes": 1126,
+      "sha256": "ae98886efe690cd11379a08ff88fae111abf83b2f375f409514acd9eb9840129"
+    },
+    "raw/jobs/libre-air-water-edited/replies/16.json": {
+      "bytes": 1138,
+      "sha256": "3e87cd930bddda8764a505cce7388d078841ab6bc19cfbfc3e4dacc41b6e1a05"
+    },
+    "raw/jobs/libre-air-water-edited/replies/17.json": {
+      "bytes": 1138,
+      "sha256": "7559f8f759ad68a7808106fa1eb2bcd3668a837bc52f6a436eabd84d751a0b1e"
+    },
+    "raw/jobs/libre-air-water-edited/replies/18.json": {
+      "bytes": 1141,
+      "sha256": "f83881b77d9dd81636a1809cda9db794f2ca509462f14914704d4e15185f3246"
+    },
+    "raw/jobs/libre-air-water-edited/replies/19.json": {
+      "bytes": 1141,
+      "sha256": "dbe6a6655b3a38ac4c7dfe12082c83a2acc41e832ae94f745bcbb8fcea3621c9"
+    },
+    "raw/jobs/libre-air-water-edited/replies/2.json": {
+      "bytes": 232,
+      "sha256": "fd199d0cbcc27c4dcb89ba932b0a275459581c19828633dc8b4300b21d8eac3b"
+    },
+    "raw/jobs/libre-air-water-edited/replies/20.json": {
+      "bytes": 1141,
+      "sha256": "668ae437a546a1e1ac52ccc71c3f5f3f4aaca1947075d9a900852b0fa51561a3"
+    },
+    "raw/jobs/libre-air-water-edited/replies/21.json": {
+      "bytes": 233,
+      "sha256": "37d92762f18062a5f8ec52bac442c3d6c6d40b3197c301fb2c8c147b54f27c75"
+    },
+    "raw/jobs/libre-air-water-edited/replies/22.json": {
+      "bytes": 233,
+      "sha256": "6de25529adb8cca96d5f662aae12af4330efaf63fabbc05ab65bf7ff635631e0"
+    },
+    "raw/jobs/libre-air-water-edited/replies/23.json": {
+      "bytes": 1124,
+      "sha256": "d213290ee2e4e09a2932abbc73cdf34a7740eaebea3f32585a8f51a32ee648bc"
+    },
+    "raw/jobs/libre-air-water-edited/replies/24.json": {
+      "bytes": 1124,
+      "sha256": "da384c17582f0071067b06991b74f0c10ccd23afeaab819bf72d96812ca5ea32"
+    },
+    "raw/jobs/libre-air-water-edited/replies/25.json": {
+      "bytes": 1124,
+      "sha256": "0e45d4491e1cb87ccbd72f225fd839e383da53a472d8f6e0e8cb50ec4d9ae36b"
+    },
+    "raw/jobs/libre-air-water-edited/replies/26.json": {
+      "bytes": 1137,
+      "sha256": "fc71ea9e2b2d3206047803aa28e0b7dc71822d226aa20b9c0e8804b6fba2e87a"
+    },
+    "raw/jobs/libre-air-water-edited/replies/27.json": {
+      "bytes": 1126,
+      "sha256": "0818b2dadcff07ea39bd1d2bb22176dcdc54055de74db3b303a43fa61d20dbf8"
+    },
+    "raw/jobs/libre-air-water-edited/replies/28.json": {
+      "bytes": 1249,
+      "sha256": "c251bae3bbe21ec06fa0b1e125c2d8e0edfa4319a5d1ba17e2eb927cc81c044b"
+    },
+    "raw/jobs/libre-air-water-edited/replies/29.json": {
+      "bytes": 1126,
+      "sha256": "de59e54297a9151d3957cc6d75f09ecee35879cc5378fd1c4e67b208aa47e5bf"
+    },
+    "raw/jobs/libre-air-water-edited/replies/3.json": {
+      "bytes": 1122,
+      "sha256": "17ccef5ca23981b10f69fd95137296c73f1b34d56d5ba183ae635f6a60d2322d"
+    },
+    "raw/jobs/libre-air-water-edited/replies/30.json": {
+      "bytes": 1242,
+      "sha256": "66d7fd759b2586fe1759fcd09e8de9b1413b8d7e5956da441ba69fefec69a1e1"
+    },
+    "raw/jobs/libre-air-water-edited/replies/31.json": {
+      "bytes": 1121,
+      "sha256": "9dcbfda85c93941705c93caa4132c7b7f5bfafeafb385f4d1d404d6bb52aa752"
+    },
+    "raw/jobs/libre-air-water-edited/replies/32.json": {
+      "bytes": 1247,
+      "sha256": "b7020ddc095f7961640b4e65e4aaf4e3db679aa3aa59e7ddb3f6218ee11af9a7"
+    },
+    "raw/jobs/libre-air-water-edited/replies/33.json": {
+      "bytes": 1126,
+      "sha256": "91ed5ff5d0ab9c1e675232968c7247468c51cff977e57666927d753270447bb4"
+    },
+    "raw/jobs/libre-air-water-edited/replies/34.json": {
+      "bytes": 1126,
+      "sha256": "3e85f2c435379d036de9900c5dda6772b4d7eda76bc979c370abe7569b251176"
+    },
+    "raw/jobs/libre-air-water-edited/replies/35.json": {
+      "bytes": 1126,
+      "sha256": "0466fcc15e6085ff15f85f72c4f71e6bdb00da8e48f0cf056ea9b0f6fe8366d9"
+    },
+    "raw/jobs/libre-air-water-edited/replies/36.json": {
+      "bytes": 233,
+      "sha256": "3d3abdcfb54cb6ff363eb5563182b6fb5ff453b6bf84338aa0b51ddcb39c8dfc"
+    },
+    "raw/jobs/libre-air-water-edited/replies/37.json": {
+      "bytes": 233,
+      "sha256": "bb1b9e3c95f213222c550afc3b2681718305afaadd4312276e6901cc22112f90"
+    },
+    "raw/jobs/libre-air-water-edited/replies/4.json": {
+      "bytes": 1122,
+      "sha256": "de66d60b972ad9546ee195c41c1be402893b1fb659feb6714589499c8af8a57f"
+    },
+    "raw/jobs/libre-air-water-edited/replies/5.json": {
+      "bytes": 1122,
+      "sha256": "21d00de2a4af696eec752cb36b1584e2f983e540a54ddbdd098209bd140a5b9d"
+    },
+    "raw/jobs/libre-air-water-edited/replies/6.json": {
+      "bytes": 1132,
+      "sha256": "c284da7be519555c46398210d97c598ff83182d0700dbb7c27540741f359d723"
+    },
+    "raw/jobs/libre-air-water-edited/replies/7.json": {
+      "bytes": 1121,
+      "sha256": "d332fed235288c40d733e891ce54f4ff50ca2e83339fab7fd1384bc3d2af38c6"
+    },
+    "raw/jobs/libre-air-water-edited/replies/8.json": {
+      "bytes": 1243,
+      "sha256": "0459144f09ecaae0977f6826823de45f3378269166e7035b7168dd435a379a13"
+    },
+    "raw/jobs/libre-air-water-edited/replies/9.json": {
+      "bytes": 1124,
+      "sha256": "899d1e041f950cad21bcda04d4eb422965416e51db43c09aa9d695a8ee838a53"
+    },
+    "raw/jobs/libre-air-water-edited/request.json": {
+      "bytes": 29,
+      "sha256": "e38ffd5bc146db90b49a1a7ad74e20c5f65d4978ec6b329d10e593c6f877a036"
+    },
+    "raw/jobs/libre-air-water-edited/returned.dxf": {
+      "bytes": 105385,
+      "sha256": "982424258a613600e53829f7ac38db241f00e7a42ad2390f73cd9bfb31e65e7b"
+    },
+    "raw/jobs/libre-air-water-edited/source.dxf": {
+      "bytes": 21102,
+      "sha256": "245a50eefeabc483f16269375a3bf9bd892b9cebd125e76f5ae744f5466f4db8"
+    },
+    "raw/jobs/libre-air-water-edited/ui/001-trial.json": {
+      "bytes": 404654,
+      "sha256": "e847680246b0c55f5d24ed38827e039a2dad11df6f5409c9207fc6dee221dc16"
+    },
+    "raw/jobs/libre-air-water-edited/ui/002-ready.json": {
+      "bytes": 439739,
+      "sha256": "90cfa3ce5d883d5fa17c68c3e60007d6bbec7532cc2f334ba562b11ed171684a"
+    },
+    "raw/jobs/libre-air-water-edited/ui/003-open-dialog.json": {
+      "bytes": 448085,
+      "sha256": "fd77d23b192e162b376d8cf8201c1db3407cf7179413ab8d54d9fc804167d778"
+    },
+    "raw/jobs/libre-air-water-edited/ui/004-opened.json": {
+      "bytes": 445453,
+      "sha256": "42bac5f3fbcf7a851406b1f792d1d1eab650e0b77ac545ae4ccaf421b0f9aa8c"
+    },
+    "raw/jobs/libre-air-water-edited/ui/005-handle-dialog.json": {
+      "bytes": 445448,
+      "sha256": "7f01090481a6b97b967b773986ab347c17a4a70a9d231b2ad243642c4e2352a5"
+    },
+    "raw/jobs/libre-air-water-edited/ui/006-selected.json": {
+      "bytes": 456031,
+      "sha256": "101eb9ac2495306c3ba36d717e6b241291eb7ce00ee6aaff1519c6b7eb8145b5"
+    },
+    "raw/jobs/libre-air-water-edited/ui/007-handle-dialog.json": {
+      "bytes": 445489,
+      "sha256": "128bf8b0da945d34bf567df6628fbc1228b3a0eca7664f05bf4bf1344a87f119"
+    },
+    "raw/jobs/libre-air-water-edited/ui/008-selected.json": {
+      "bytes": 456072,
+      "sha256": "8f8b66579f343974ae2085045634a4bb08d0edfdc75f7dc1e01583975d0e119e"
+    },
+    "raw/jobs/libre-air-water-edited/ui/009-edited.json": {
+      "bytes": 456009,
+      "sha256": "e4093d09aec8430a76623531fd50c9717a7d71459e6a835473942d8a1a478905"
+    },
+    "raw/jobs/libre-air-water-edited/ui/010-save-dialog.json": {
+      "bytes": 473403,
+      "sha256": "9264166648aa42ff97f57304c02836fec83fa94ce710b52a278e045dab92ab85"
+    },
+    "raw/jobs/libre-air-water-edited/ui/011-saved.json": {
+      "bytes": 456111,
+      "sha256": "dc64cd7833f6c559fa83d1d12c671cb07fa217e64eba58e64d620c268643dd47"
+    },
+    "raw/jobs/libre-air-water-edited/ui/012-closed.json": {
+      "bytes": 440074,
+      "sha256": "e9e005d43e9f922a559d61013308d35c8edd2fa91b9f614cfa83d92447096ebe"
+    },
+    "raw/jobs/libre-air-water-edited/ui/013-open-dialog.json": {
+      "bytes": 448437,
+      "sha256": "552d77c7f888f0edb5f8f73f71a05562a625b7d5173756ef82dff0ec2fb8b446"
+    },
+    "raw/jobs/libre-air-water-edited/ui/014-opened.json": {
+      "bytes": 445796,
+      "sha256": "333b1b4de984abf48ae067fcd8d06c291339fa36563485a9abcab623cbcbefed"
+    },
+    "raw/jobs/libre-air-water-edited/ui/015-handle-dialog.json": {
+      "bytes": 445791,
+      "sha256": "8d500aec8c83fc94bb8e86c1dd5989b5aa58fa7a450a3a19e807ed1bfc5b6957"
+    },
+    "raw/jobs/libre-air-water-edited/ui/016-selected.json": {
+      "bytes": 456373,
+      "sha256": "b33259135364ef940675d338d274d6f6c543cef69bd64d2e1561df6f481f2be2"
+    },
+    "raw/jobs/libre-air-water-edited/ui/017-closed.json": {
+      "bytes": 440290,
+      "sha256": "efeab1ba585c6d39500ee96f0ee36dfac4e9d3eb56a5ce66b787161a839dbe8d"
+    },
+    "raw/jobs/libre-air-water-edited/ui/RESULT.json": {
+      "bytes": 102,
+      "sha256": "f48dd51d95dae3861478fceb643961e170925f5b4e6a8a3c4cfb85f4772fafc1"
+    },
+    "raw/jobs/libre-air-water-edited/ui/actions.json": {
+      "bytes": 90251,
+      "sha256": "da6048ac41660f6081ab31ca52dd0c02fce3e6e3c6f446e0a9c1eb0fc99cf68f"
+    },
+    "raw/jobs/libre-air-water-edited/ui/returned-asset-0.canvas.png": {
+      "bytes": 23156,
+      "sha256": "7c9be39e3d619c47d4b2ef215ef23ac4f22d2bdceec23d1b04ac791a637e800d"
+    },
+    "raw/jobs/libre-air-water-edited/ui/returned-asset-0.png": {
+      "bytes": 210912,
+      "sha256": "695b58e368fdf439213dbf4680692d085b59c788dfe58a16f946492e73b843e9"
+    },
+    "raw/jobs/libre-air-water-edited/ui/returned-asset-1.canvas.png": {
+      "bytes": 23156,
+      "sha256": "7c9be39e3d619c47d4b2ef215ef23ac4f22d2bdceec23d1b04ac791a637e800d"
+    },
+    "raw/jobs/libre-air-water-edited/ui/returned-asset-1.png": {
+      "bytes": 210912,
+      "sha256": "695b58e368fdf439213dbf4680692d085b59c788dfe58a16f946492e73b843e9"
+    },
+    "raw/jobs/libre-air-water-edited/ui/returned-labels-0.canvas.png": {
+      "bytes": 26314,
+      "sha256": "c1192615c04898bfcacc69f93d0aa5507cdcbdcd4f145aec667c8ba4718ed500"
+    },
+    "raw/jobs/libre-air-water-edited/ui/returned-labels-0.png": {
+      "bytes": 212834,
+      "sha256": "c96b6a7d17124420d5106a3b619e09a49d31f34326669cb8d12f50ddea3514b3"
+    },
+    "raw/jobs/libre-air-water-edited/ui/returned-labels-1.canvas.png": {
+      "bytes": 26314,
+      "sha256": "c1192615c04898bfcacc69f93d0aa5507cdcbdcd4f145aec667c8ba4718ed500"
+    },
+    "raw/jobs/libre-air-water-edited/ui/returned-labels-1.png": {
+      "bytes": 212834,
+      "sha256": "c96b6a7d17124420d5106a3b619e09a49d31f34326669cb8d12f50ddea3514b3"
+    },
+    "raw/jobs/libre-air-water-edited/ui/returned-overview-0.canvas.png": {
+      "bytes": 13421,
+      "sha256": "dec8f57ba2a595b1a70c7ac646f0e91cdf80b997dfc5aebe63024e56f8ddf069"
+    },
+    "raw/jobs/libre-air-water-edited/ui/returned-overview-0.png": {
+      "bytes": 192616,
+      "sha256": "f2d46db7fc77d93f0dbf1e623520d718372c074aad881260e5682d11b6a42465"
+    },
+    "raw/jobs/libre-air-water-edited/ui/returned-overview-1.canvas.png": {
+      "bytes": 13421,
+      "sha256": "dec8f57ba2a595b1a70c7ac646f0e91cdf80b997dfc5aebe63024e56f8ddf069"
+    },
+    "raw/jobs/libre-air-water-edited/ui/returned-overview-1.png": {
+      "bytes": 192616,
+      "sha256": "f2d46db7fc77d93f0dbf1e623520d718372c074aad881260e5682d11b6a42465"
+    },
+    "raw/jobs/libre-air-water-edited/ui/source-asset-0.canvas.png": {
+      "bytes": 23608,
+      "sha256": "4e5a4ec928db3d1d3849231ab3626798ccf3b4d577736ea64eac62619f2373bf"
+    },
+    "raw/jobs/libre-air-water-edited/ui/source-asset-0.png": {
+      "bytes": 211364,
+      "sha256": "d03eb85391dd09ac8273dd8726f8d81b24b90c73e3ec6e1ce5ddef774ba54f4c"
+    },
+    "raw/jobs/libre-air-water-edited/ui/source-asset-1.canvas.png": {
+      "bytes": 23608,
+      "sha256": "4e5a4ec928db3d1d3849231ab3626798ccf3b4d577736ea64eac62619f2373bf"
+    },
+    "raw/jobs/libre-air-water-edited/ui/source-asset-1.png": {
+      "bytes": 211364,
+      "sha256": "d03eb85391dd09ac8273dd8726f8d81b24b90c73e3ec6e1ce5ddef774ba54f4c"
+    },
+    "raw/jobs/libre-air-water-edited/ui/source-labels-0.canvas.png": {
+      "bytes": 26890,
+      "sha256": "4b76ea328e5de88fd79c552f018c9cc2c69dcf2fa3c69fc3cb6ec2508039bf2b"
+    },
+    "raw/jobs/libre-air-water-edited/ui/source-labels-0.png": {
+      "bytes": 213444,
+      "sha256": "ad6b627eaa7de06d0dddd6c4e637777b50fe776513796d19ed68319dbe294f8b"
+    },
+    "raw/jobs/libre-air-water-edited/ui/source-labels-1.canvas.png": {
+      "bytes": 26890,
+      "sha256": "4b76ea328e5de88fd79c552f018c9cc2c69dcf2fa3c69fc3cb6ec2508039bf2b"
+    },
+    "raw/jobs/libre-air-water-edited/ui/source-labels-1.png": {
+      "bytes": 213444,
+      "sha256": "ad6b627eaa7de06d0dddd6c4e637777b50fe776513796d19ed68319dbe294f8b"
+    },
+    "raw/jobs/libre-air-water-edited/ui/source-overview-0.canvas.png": {
+      "bytes": 13634,
+      "sha256": "066da66d654556b13675c1f01a4e444383558c7d0a145e735a68ace53faab8cf"
+    },
+    "raw/jobs/libre-air-water-edited/ui/source-overview-0.png": {
+      "bytes": 192676,
+      "sha256": "927af16588710561f8e0c969bf3280e4044f473a8e3fdf74084bf86830b5af6e"
+    },
+    "raw/jobs/libre-air-water-edited/ui/source-overview-1.canvas.png": {
+      "bytes": 13634,
+      "sha256": "066da66d654556b13675c1f01a4e444383558c7d0a145e735a68ace53faab8cf"
+    },
+    "raw/jobs/libre-air-water-edited/ui/source-overview-1.png": {
+      "bytes": 192676,
+      "sha256": "927af16588710561f8e0c969bf3280e4044f473a8e3fdf74084bf86830b5af6e"
+    },
+    "raw/jobs/libre-air-water-edited/ui_control.py": {
+      "bytes": 4554,
+      "sha256": "e508c2a70b26ff1998fdd4cbc6484a2c7ea7b423e8e76868db8529c44a594881"
+    },
+    "raw/jobs/libre-air-water-edited/workflow.py": {
+      "bytes": 11926,
+      "sha256": "8e600a8ff2504df0e3eeb5c04a0053618130889354b94c56e3fcc215b22c7c23"
+    },
+    "raw/jobs/libre-air-water-receiving/CONTAINER-LOG.json": {
+      "bytes": 737,
+      "sha256": "f06af5e4f41d88a17c7446a0895a86125856742bf8073fca250264dccebb0b80"
+    },
+    "raw/jobs/libre-air-water-receiving/ENVIRONMENT.json": {
+      "bytes": 1090,
+      "sha256": "cfe071387c7ad291fc33f9e94e65620b8ae7be1f417246255cca0dda07993780"
+    },
+    "raw/jobs/libre-air-water-receiving/JOB-FREEZE.json": {
+      "bytes": 1434,
+      "sha256": "06b788ae48fb6cc8ca1e4abf0fc6afed2d44cb080fe1da5d284d6e1331600fa3"
+    },
+    "raw/jobs/libre-air-water-receiving/METHOD.md": {
+      "bytes": 5339,
+      "sha256": "e1bbc04db242370dc00cf6ef237c1f5022599ec200206717cd7df08dc095e04b"
+    },
+    "raw/jobs/libre-air-water-receiving/PLAN.md": {
+      "bytes": 5204,
+      "sha256": "1d3f3a4985cb9aa21bc81d39bb1bc6b3963ef1a675af10b734f65fa81a46dd4b"
+    },
+    "raw/jobs/libre-air-water-receiving/baseline.dxf": {
+      "bytes": 105384,
+      "sha256": "b338635b2bbc975715b75c31427049aceb668e26261ba6e3309f753e2305b30f"
+    },
+    "raw/jobs/libre-air-water-receiving/candidate.dxf": {
+      "bytes": 21101,
+      "sha256": "257efa01da7a490316489aa312ed88548b819c1af9179fb70fafb351188f3795"
+    },
+    "raw/jobs/libre-air-water-receiving/dbus-address.txt": {
+      "bytes": 68,
+      "sha256": "2e3957f7f5dc41091bdae5b1e21ecf2c0e1b5ea224e718a5f7e58baead8e4c5c"
+    },
+    "raw/jobs/libre-air-water-receiving/edited.dxf": {
+      "bytes": 105385,
+      "sha256": "982424258a613600e53829f7ac38db241f00e7a42ad2390f73cd9bfb31e65e7b"
+    },
+    "raw/jobs/libre-air-water-receiving/inspect_ui.py": {
+      "bytes": 1439,
+      "sha256": "c41e118f8108e02dcef6ba9d90cf280d68851ba4b7cb6a870b96a4c9deb5c03e"
+    },
+    "raw/jobs/libre-air-water-receiving/job.json": {
+      "bytes": 712,
+      "sha256": "41f5bdda90fdc1a5bc99c0804d96164fa0c72ef9355fd7e931d653f2e58d3e64"
+    },
+    "raw/jobs/libre-air-water-receiving/launch_case.py": {
+      "bytes": 2906,
+      "sha256": "beee5842b37f0bea6cade0afb33e8706754e80db29acd22e6f78dd44d74fdc03"
+    },
+    "raw/jobs/libre-air-water-receiving/native/PROCESS.json": {
+      "bytes": 1347,
+      "sha256": "59dd84493511e165e856fcea19488188967528fd85d0edcfe0772d329743ade4"
+    },
+    "raw/jobs/libre-air-water-receiving/native/controller.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/libre-air-water-receiving/native/controller.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/libre-air-water-receiving/native/openbox.log": {
+      "bytes": 85,
+      "sha256": "6f748c3cd02a858c087697c3afac639205c62b7b206558bd40d1bcbd98165a5c"
+    },
+    "raw/jobs/libre-air-water-receiving/native/stderr.txt": {
+      "bytes": 8522,
+      "sha256": "5f74c87b32fc1740fc053da0bd886eacea5a40ac8bb4d215c841bf20c24dedd9"
+    },
+    "raw/jobs/libre-air-water-receiving/native/stdout.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/libre-air-water-receiving/native/xvfb.log": {
+      "bytes": 2429,
+      "sha256": "6d73d78138c41bea466314919237a4fe998e5b670a356ab2012f328fff769a7b"
+    },
+    "raw/jobs/libre-air-water-receiving/native_controls.py": {
+      "bytes": 800,
+      "sha256": "767246eef54db970e4a1a590b2e5797a41305046dfebc98dfdc7bc759105e832"
+    },
+    "raw/jobs/libre-air-water-receiving/observe_case.js": {
+      "bytes": 2810,
+      "sha256": "24e09cf1c30a5f818014ca3662d847030066185f1468b31b563bd8163e4c6070"
+    },
+    "raw/jobs/libre-air-water-receiving/prepare.py": {
+      "bytes": 4665,
+      "sha256": "a4515b8ba619803d5b6a431114e69f459c7aedb2b0c2437eb2fc0252ede9240a"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/1.json": {
+      "bytes": 232,
+      "sha256": "c4733a44515b0d814ac0a1c121fd790225d99b8cf1e6ee9b5351fabfe0b37273"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/10.json": {
+      "bytes": 1239,
+      "sha256": "bfae3f284f87a61e86a5b25d95cd1707b4ae24fe48fe75e4fd2e4f6b2054c688"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/11.json": {
+      "bytes": 1120,
+      "sha256": "83998d2d9b16b5056d68fa8cef41a91748e3505d51483f6e1f0e799505e6276d"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/12.json": {
+      "bytes": 1245,
+      "sha256": "5c6fbba9cbd56307d3dd00a65ff51d00b699fdb3cc0b496622ab532295daf974"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/13.json": {
+      "bytes": 1126,
+      "sha256": "5c435ae574fc526b4f8e9c72ffbdae406174b1dfbed397b8af0ac6a4d7227b13"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/14.json": {
+      "bytes": 1126,
+      "sha256": "19ea2a344c153583cf1f7f4b2af2ad6fbc661a9ed9d3fab6554affaf33430fbb"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/15.json": {
+      "bytes": 1126,
+      "sha256": "a7d0300a910df13d15c6203ed1530183b28036065e45b68eb50909ee420287f8"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/16.json": {
+      "bytes": 233,
+      "sha256": "a6b9051017015017cdd63918911ae3cc79c5b88c537d00f537e4eaef2b8f9189"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/17.json": {
+      "bytes": 233,
+      "sha256": "9db2bdc6bd65b0042c56b903b702d5d589bca3c7f005dc3c2b971cfa614c4abf"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/18.json": {
+      "bytes": 1125,
+      "sha256": "2f18fdc95bb58d4c6ac5e43e855b44270242e9270b77f418eb7342994e263b1c"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/19.json": {
+      "bytes": 1125,
+      "sha256": "abf7d097b09d6988253a6fc4466c3bbcbb56c7e92b89486be22c32cfd7c1bc54"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/2.json": {
+      "bytes": 232,
+      "sha256": "fd199d0cbcc27c4dcb89ba932b0a275459581c19828633dc8b4300b21d8eac3b"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/20.json": {
+      "bytes": 1125,
+      "sha256": "3bc6f5a3873c31f606e095b08519fa4314e95d6c78d20f2d130ec531eb03a615"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/21.json": {
+      "bytes": 1136,
+      "sha256": "dbc93aeb8ddfee186511eb53ab34f045443250d75dc6e85d79d13b1c0e2cbc1d"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/22.json": {
+      "bytes": 1125,
+      "sha256": "006cc2c61d195db37a5bcb966e24ec650631b94b733e58bdb9b38cb7f0962cb8"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/23.json": {
+      "bytes": 1248,
+      "sha256": "4cf3884a411ad65a02b66489cdf86ecaa642bb04be5bf80bfc61f8e98bffabcd"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/24.json": {
+      "bytes": 1128,
+      "sha256": "7a19376f6da9496a5416a3da199cfa35cbd3b8862bc0f4c333927218db0aeb2f"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/25.json": {
+      "bytes": 1245,
+      "sha256": "78ab539a7b075b36f85ed50af3527ab49fd8fca89d19b07bf1d4c086eda37e0e"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/26.json": {
+      "bytes": 1122,
+      "sha256": "214fa56cf471cc9143daa7a5e9904a02d2a4c31d13b66fb7557020bdfe7ec374"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/27.json": {
+      "bytes": 1249,
+      "sha256": "4289979790de8ca4bfba14d1626c250bd44626e70180e13195b9b2d2c4399699"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/28.json": {
+      "bytes": 1128,
+      "sha256": "484efc2dbf497c8850ac6f2ea2ef33efb495a156ed4607145624086eae21394a"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/29.json": {
+      "bytes": 1128,
+      "sha256": "a8693e0b9e2d65a5f9c9083a8d0e710657a5431feca6ec43667a36eeb7b8f4ea"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/3.json": {
+      "bytes": 1122,
+      "sha256": "6f186b3a2d88607ddbe41cf47ccbff7fed67c09a3df5c76a8d16d36196f4fd50"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/30.json": {
+      "bytes": 1128,
+      "sha256": "3e09389e5767ff3f4850a991e237685c9aa8ddd40a548b207d54bf5fac9cc0ae"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/31.json": {
+      "bytes": 233,
+      "sha256": "9398449bb3cebc8604b90d982a22bc67c78a76a0a03dedcaf83fc876be45a7f1"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/32.json": {
+      "bytes": 233,
+      "sha256": "36db35dcdda4582d76d0eb72a0d470487142162e2b611159969c147a6e02a52e"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/33.json": {
+      "bytes": 1126,
+      "sha256": "16fb79bd32cbb3a9e9fda5793de5f9406f68a7df4cb960a841c4e28a1cde643a"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/34.json": {
+      "bytes": 1126,
+      "sha256": "52c3f47512143ab221dd84674900b6547c0e587378418b7f2d7ad0466d1b0802"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/35.json": {
+      "bytes": 1126,
+      "sha256": "062dd9490fea89fe5f2badf472dcd41fd1d482d1fbe74798949f7ae4f7a956a8"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/36.json": {
+      "bytes": 1137,
+      "sha256": "8722024c9a302ae03e3023ee64f9f18678c3e221f5ad27e0c593222ed6636ebd"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/37.json": {
+      "bytes": 1126,
+      "sha256": "900548e2c8d2cb1a0846991d8fbb04b416d2ee3e89fe55ab252cebce49bb32b0"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/38.json": {
+      "bytes": 1245,
+      "sha256": "3064b952a15fb157f549b6aa3e53fe70ea1432480c368b486cb63fce206ba147"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/39.json": {
+      "bytes": 1124,
+      "sha256": "5afba3c6f1e512b0beee788aa815cd4c1337b7290fcefd2ae9b909cd67681406"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/4.json": {
+      "bytes": 1122,
+      "sha256": "dcb0a9c4197b717a0ec17c76699f7d2896353afb18f24d77ace53a747accbb66"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/40.json": {
+      "bytes": 1238,
+      "sha256": "94476cb327924b96fd8c51f41c4734e6bf5bb209b8ce0a91eac9b41f8ce086d7"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/41.json": {
+      "bytes": 1119,
+      "sha256": "067b736d4304ce37215cf256b2d86d65d3e13847bc6a12ee1397599e3ed19453"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/42.json": {
+      "bytes": 1243,
+      "sha256": "0b1b5cfca930aafe80edada0924195b21ef27fadcd6aef0567981e7149deb6ab"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/43.json": {
+      "bytes": 1124,
+      "sha256": "ac1e1c8a725166f270b4b577994696a6fbc6c2db1747c089104e34eac4c4d7a1"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/44.json": {
+      "bytes": 1124,
+      "sha256": "2ba916ea54a1253aee69034ed4ad4d408d5e9a8ff919c9cf78a7f924ef7f884a"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/45.json": {
+      "bytes": 1124,
+      "sha256": "5e54593d45e1a84f09e98170ffd54f18b6415d7b2363cda41e5f81993323877b"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/46.json": {
+      "bytes": 233,
+      "sha256": "5a9abfa1e13a35b599c7b081586210fd52117091bf1d7e829dcb6817ae85f4a2"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/47.json": {
+      "bytes": 233,
+      "sha256": "7a9d74182e8e41e42801f4461d4c9e8412c5c08eff30fef85b12fba491f69736"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/48.json": {
+      "bytes": 1129,
+      "sha256": "5232357cb0969fe65a3f66625c5a5f3f87cdde00eeef48451d82f6a3135e0ca4"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/49.json": {
+      "bytes": 1129,
+      "sha256": "67b101af41373c8d21f71d1fa049864eaac7c5fe9598f92dfa4925f67f175f12"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/5.json": {
+      "bytes": 1122,
+      "sha256": "65d568cbb485f5c11a513879b19d9838ebb280a8cd412ac73ce1eab6d887e8ee"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/50.json": {
+      "bytes": 1129,
+      "sha256": "64caac6c54bb9c8a67c07751757f7d1e51bce1831788c26ea43e3632b966b89b"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/51.json": {
+      "bytes": 1140,
+      "sha256": "eeba62b3370bde2fcb92a0e777ecbd9caf8b56dfd6460dbe8fce844547261b88"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/52.json": {
+      "bytes": 1129,
+      "sha256": "9f8a4a13dbac6148964326d35a7ff0c84cf2b69fdcbb8daee520393890f2e30f"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/53.json": {
+      "bytes": 1251,
+      "sha256": "9f3628e5beb5ff9cfa46f0e36100a7f4f975c07a94127183e01a4874f070ce7c"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/54.json": {
+      "bytes": 1130,
+      "sha256": "8b1d586a418b0234f98f55399ab402f96092630daa723d7a614aa49bec06ba3d"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/55.json": {
+      "bytes": 1248,
+      "sha256": "3759ce8e7d1c5611625abf64262930403455ae6adf755a46e1a9bd1014004287"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/56.json": {
+      "bytes": 1122,
+      "sha256": "dd8e0d8332a9d029ba75c71ad48eb2848683b75986f7f3b75fcb58244092d942"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/57.json": {
+      "bytes": 1249,
+      "sha256": "189e7bc5c41d7c2a5b80dc6de14baa9024099258e8f29e72a4bb037280deceb7"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/58.json": {
+      "bytes": 1127,
+      "sha256": "0de6b3723d60fa06e8bde56996a8abc2e3151a776465ded62080b6266f073c12"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/59.json": {
+      "bytes": 1127,
+      "sha256": "ab8d2b4f71004989b9fb431ca82ef6a2ec336cd62d35753d5949f41f35541e71"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/6.json": {
+      "bytes": 1132,
+      "sha256": "26c48cb41fcb3a916aa93b5b1ec3a5dddf4b75134edf7423138078532f34f5f1"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/60.json": {
+      "bytes": 1127,
+      "sha256": "177caac4a0f854397c5cf8c0924ea4e33f285896bdd14ce73c354175484f29d1"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/61.json": {
+      "bytes": 233,
+      "sha256": "a51ea6ab75d74d8b489af927882c00174a2f4c718130058faa316b40717f12b7"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/62.json": {
+      "bytes": 233,
+      "sha256": "30fc0840e348e9b075967cdea6ea4505a30231f0e645881947e78ffe6a237697"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/7.json": {
+      "bytes": 1121,
+      "sha256": "52066d4cad7f9f88b5de4a1ede0403504d4b18ddf8d36ff8a58bbd12f4e6ba2f"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/8.json": {
+      "bytes": 1243,
+      "sha256": "1ec3c324f71ece154030b3372daea37b298334e55bb7b98ae76fb61358a5705a"
+    },
+    "raw/jobs/libre-air-water-receiving/replies/9.json": {
+      "bytes": 1124,
+      "sha256": "3b7f07559624b9115bb6888b160947da7ad257ab6e2d1a0d7bb8551a549e197a"
+    },
+    "raw/jobs/libre-air-water-receiving/request.json": {
+      "bytes": 29,
+      "sha256": "63834f6c2af658699ffe4d785059ac0f4954f3045383caa35b4c59788eb44157"
+    },
+    "raw/jobs/libre-air-water-receiving/source.dxf": {
+      "bytes": 21102,
+      "sha256": "245a50eefeabc483f16269375a3bf9bd892b9cebd125e76f5ae744f5466f4db8"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/001-trial.json": {
+      "bytes": 404654,
+      "sha256": "e847680246b0c55f5d24ed38827e039a2dad11df6f5409c9207fc6dee221dc16"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/002-ready.json": {
+      "bytes": 439739,
+      "sha256": "90cfa3ce5d883d5fa17c68c3e60007d6bbec7532cc2f334ba562b11ed171684a"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/003-open-dialog.json": {
+      "bytes": 448085,
+      "sha256": "fd77d23b192e162b376d8cf8201c1db3407cf7179413ab8d54d9fc804167d778"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/004-opened.json": {
+      "bytes": 445453,
+      "sha256": "42bac5f3fbcf7a851406b1f792d1d1eab650e0b77ac545ae4ccaf421b0f9aa8c"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/005-handle-dialog.json": {
+      "bytes": 445448,
+      "sha256": "7f01090481a6b97b967b773986ab347c17a4a70a9d231b2ad243642c4e2352a5"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/006-selected.json": {
+      "bytes": 456031,
+      "sha256": "101eb9ac2495306c3ba36d717e6b241291eb7ce00ee6aaff1519c6b7eb8145b5"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/007-closed.json": {
+      "bytes": 439951,
+      "sha256": "179a1418b22100308e27d848307c9c30792478ecbb2aa401bc7bc70d818be0ea"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/008-open-dialog.json": {
+      "bytes": 448297,
+      "sha256": "043c5677034cf0f3a729f1e1cec5644f454170b6c7f0f3657a2f5371efc76ea5"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/009-opened.json": {
+      "bytes": 445673,
+      "sha256": "fcfd3746e1fc347072769d3f6bc54a876c01bad1ab825655fbc5ec9bea0f4da8"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/010-handle-dialog.json": {
+      "bytes": 445668,
+      "sha256": "ff9228bc0457c6eb25c6002a99cb7f183d939e48eec2f1c9467560dddde22572"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/011-selected.json": {
+      "bytes": 456251,
+      "sha256": "19a0f47e51f48852c5553f3a5d8722315e09edc2761388d2ea6a3385ebaedadd"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/012-closed.json": {
+      "bytes": 440167,
+      "sha256": "da66bc4dfc25db6995bc3ce2438a623636e3dbb1621fd9c4bd846016b3095b93"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/013-open-dialog.json": {
+      "bytes": 448513,
+      "sha256": "f80a27e31b1a7e41399a3f35cdfd955db80a1ff1a1b2f12f914fd31a0e1a74c3"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/014-opened.json": {
+      "bytes": 445881,
+      "sha256": "57bbe1642a77c8a34641cceaf652a1040961f2c55e8aaa8b87f49bca7e7d1a25"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/015-handle-dialog.json": {
+      "bytes": 445876,
+      "sha256": "26e11b4d8a52a1f18d51b65d4b7b4aef570b6a3284f3f9ebd2474613a3bbdfb7"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/016-selected.json": {
+      "bytes": 456458,
+      "sha256": "81e6dac6b4131fecd8493e2b2dcafb8a5a8b5672bff13be5ad159dd1a2d31298"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/017-closed.json": {
+      "bytes": 440379,
+      "sha256": "06cca81600c5ca1d4b36bd107a0d599502a1acda506a31d3d5931357f52e603a"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/018-open-dialog.json": {
+      "bytes": 448725,
+      "sha256": "a6e22c64aed64b01277ccfa44cb8d1ace39abe2010c17826ae6825796eb15ed0"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/019-opened.json": {
+      "bytes": 446105,
+      "sha256": "20faf958bd45f8f5776e258e35417925b369af8c75ae48e0fe2ee434a389d7e8"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/020-handle-dialog.json": {
+      "bytes": 446100,
+      "sha256": "0a4367fab1e6f248b5b02fa61aff43ba78d41742c93d6d597cb6af9b2acbde54"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/021-selected.json": {
+      "bytes": 456682,
+      "sha256": "5de19a96a7414609355a1dd176517774dba4e862fa4e3c08a0f58a3f1d3eb301"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/022-closed.json": {
+      "bytes": 440597,
+      "sha256": "a136019fef9066e6d811fdf806940c00319e22f3976c59510f550ecf7c40f638"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/RESULT.json": {
+      "bytes": 105,
+      "sha256": "3034bc035a1125ce0bbfaaeee5c9a9df376ddd2087126ea15dafac39dde44137"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/actions.json": {
+      "bytes": 142725,
+      "sha256": "3e1c4dfc6e854cf8214fe24bf43b6a2ce96cf93b92b68ed4e10aece7a95811d9"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/baseline-asset-0.canvas.png": {
+      "bytes": 23608,
+      "sha256": "4e5a4ec928db3d1d3849231ab3626798ccf3b4d577736ea64eac62619f2373bf"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/baseline-asset-0.png": {
+      "bytes": 211599,
+      "sha256": "e2d74a9e3d1cf77bd58028f365ec42c75f48e9f304ec701e60ebeab1f69da0e0"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/baseline-asset-1.canvas.png": {
+      "bytes": 23608,
+      "sha256": "4e5a4ec928db3d1d3849231ab3626798ccf3b4d577736ea64eac62619f2373bf"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/baseline-asset-1.png": {
+      "bytes": 211599,
+      "sha256": "e2d74a9e3d1cf77bd58028f365ec42c75f48e9f304ec701e60ebeab1f69da0e0"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/baseline-labels-0.canvas.png": {
+      "bytes": 26890,
+      "sha256": "4b76ea328e5de88fd79c552f018c9cc2c69dcf2fa3c69fc3cb6ec2508039bf2b"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/baseline-labels-0.png": {
+      "bytes": 213689,
+      "sha256": "0cf6fe8b05f35a540abb966cd0f13635ba672a8a6e91f359ed5deca8833133d4"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/baseline-labels-1.canvas.png": {
+      "bytes": 26890,
+      "sha256": "4b76ea328e5de88fd79c552f018c9cc2c69dcf2fa3c69fc3cb6ec2508039bf2b"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/baseline-labels-1.png": {
+      "bytes": 213689,
+      "sha256": "0cf6fe8b05f35a540abb966cd0f13635ba672a8a6e91f359ed5deca8833133d4"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/baseline-overview-0.canvas.png": {
+      "bytes": 13634,
+      "sha256": "066da66d654556b13675c1f01a4e444383558c7d0a145e735a68ace53faab8cf"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/baseline-overview-0.png": {
+      "bytes": 192878,
+      "sha256": "6d84a7b6b704c4c7040ebd5051e3810728ba5e63c777ef670cf5f0437fd01066"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/baseline-overview-1.canvas.png": {
+      "bytes": 13634,
+      "sha256": "066da66d654556b13675c1f01a4e444383558c7d0a145e735a68ace53faab8cf"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/baseline-overview-1.png": {
+      "bytes": 192878,
+      "sha256": "6d84a7b6b704c4c7040ebd5051e3810728ba5e63c777ef670cf5f0437fd01066"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/candidate-asset-0.canvas.png": {
+      "bytes": 23156,
+      "sha256": "7c9be39e3d619c47d4b2ef215ef23ac4f22d2bdceec23d1b04ac791a637e800d"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/candidate-asset-0.png": {
+      "bytes": 211375,
+      "sha256": "11d47c949929763f93ef3a0dc75522071d2e8b4c04986eb6206cf7ea32aa3916"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/candidate-asset-1.canvas.png": {
+      "bytes": 23156,
+      "sha256": "7c9be39e3d619c47d4b2ef215ef23ac4f22d2bdceec23d1b04ac791a637e800d"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/candidate-asset-1.png": {
+      "bytes": 211375,
+      "sha256": "11d47c949929763f93ef3a0dc75522071d2e8b4c04986eb6206cf7ea32aa3916"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/candidate-labels-0.canvas.png": {
+      "bytes": 26314,
+      "sha256": "c1192615c04898bfcacc69f93d0aa5507cdcbdcd4f145aec667c8ba4718ed500"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/candidate-labels-0.png": {
+      "bytes": 213301,
+      "sha256": "62639f6413859a80287f90d8e6b257b8f36cbcba0aaba929b8c7cf4c3e12923c"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/candidate-labels-1.canvas.png": {
+      "bytes": 26314,
+      "sha256": "c1192615c04898bfcacc69f93d0aa5507cdcbdcd4f145aec667c8ba4718ed500"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/candidate-labels-1.png": {
+      "bytes": 213301,
+      "sha256": "62639f6413859a80287f90d8e6b257b8f36cbcba0aaba929b8c7cf4c3e12923c"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/candidate-overview-0.canvas.png": {
+      "bytes": 13421,
+      "sha256": "dec8f57ba2a595b1a70c7ac646f0e91cdf80b997dfc5aebe63024e56f8ddf069"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/candidate-overview-0.png": {
+      "bytes": 192987,
+      "sha256": "45f0f662e3b6a8118be6ff59066f73191fac2cae10cc09d513aaa67105b7971c"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/candidate-overview-1.canvas.png": {
+      "bytes": 13421,
+      "sha256": "dec8f57ba2a595b1a70c7ac646f0e91cdf80b997dfc5aebe63024e56f8ddf069"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/candidate-overview-1.png": {
+      "bytes": 192987,
+      "sha256": "45f0f662e3b6a8118be6ff59066f73191fac2cae10cc09d513aaa67105b7971c"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/edited-asset-0.canvas.png": {
+      "bytes": 23156,
+      "sha256": "7c9be39e3d619c47d4b2ef215ef23ac4f22d2bdceec23d1b04ac791a637e800d"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/edited-asset-0.png": {
+      "bytes": 210225,
+      "sha256": "c42a090f6bb1b59f356ce7bdcda685deb4430564191920dba43c736106eddafb"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/edited-asset-1.canvas.png": {
+      "bytes": 23156,
+      "sha256": "7c9be39e3d619c47d4b2ef215ef23ac4f22d2bdceec23d1b04ac791a637e800d"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/edited-asset-1.png": {
+      "bytes": 210225,
+      "sha256": "c42a090f6bb1b59f356ce7bdcda685deb4430564191920dba43c736106eddafb"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/edited-labels-0.canvas.png": {
+      "bytes": 26314,
+      "sha256": "c1192615c04898bfcacc69f93d0aa5507cdcbdcd4f145aec667c8ba4718ed500"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/edited-labels-0.png": {
+      "bytes": 212172,
+      "sha256": "c4f0282676440cca384de6a77ca3ce06f67d049a021acef7d880b2449230ac7c"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/edited-labels-1.canvas.png": {
+      "bytes": 26314,
+      "sha256": "c1192615c04898bfcacc69f93d0aa5507cdcbdcd4f145aec667c8ba4718ed500"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/edited-labels-1.png": {
+      "bytes": 212172,
+      "sha256": "c4f0282676440cca384de6a77ca3ce06f67d049a021acef7d880b2449230ac7c"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/edited-overview-0.canvas.png": {
+      "bytes": 13421,
+      "sha256": "dec8f57ba2a595b1a70c7ac646f0e91cdf80b997dfc5aebe63024e56f8ddf069"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/edited-overview-0.png": {
+      "bytes": 191991,
+      "sha256": "fb3ac036dd01ec5715e764ede6c5a55249577276c1aa8c4260dabb9fc6e4219e"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/edited-overview-1.canvas.png": {
+      "bytes": 13421,
+      "sha256": "dec8f57ba2a595b1a70c7ac646f0e91cdf80b997dfc5aebe63024e56f8ddf069"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/edited-overview-1.png": {
+      "bytes": 191991,
+      "sha256": "fb3ac036dd01ec5715e764ede6c5a55249577276c1aa8c4260dabb9fc6e4219e"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/source-asset-0.canvas.png": {
+      "bytes": 23608,
+      "sha256": "4e5a4ec928db3d1d3849231ab3626798ccf3b4d577736ea64eac62619f2373bf"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/source-asset-0.png": {
+      "bytes": 211364,
+      "sha256": "d03eb85391dd09ac8273dd8726f8d81b24b90c73e3ec6e1ce5ddef774ba54f4c"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/source-asset-1.canvas.png": {
+      "bytes": 23608,
+      "sha256": "4e5a4ec928db3d1d3849231ab3626798ccf3b4d577736ea64eac62619f2373bf"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/source-asset-1.png": {
+      "bytes": 211364,
+      "sha256": "d03eb85391dd09ac8273dd8726f8d81b24b90c73e3ec6e1ce5ddef774ba54f4c"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/source-labels-0.canvas.png": {
+      "bytes": 26890,
+      "sha256": "4b76ea328e5de88fd79c552f018c9cc2c69dcf2fa3c69fc3cb6ec2508039bf2b"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/source-labels-0.png": {
+      "bytes": 213444,
+      "sha256": "ad6b627eaa7de06d0dddd6c4e637777b50fe776513796d19ed68319dbe294f8b"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/source-labels-1.canvas.png": {
+      "bytes": 26890,
+      "sha256": "4b76ea328e5de88fd79c552f018c9cc2c69dcf2fa3c69fc3cb6ec2508039bf2b"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/source-labels-1.png": {
+      "bytes": 213444,
+      "sha256": "ad6b627eaa7de06d0dddd6c4e637777b50fe776513796d19ed68319dbe294f8b"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/source-overview-0.canvas.png": {
+      "bytes": 13634,
+      "sha256": "066da66d654556b13675c1f01a4e444383558c7d0a145e735a68ace53faab8cf"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/source-overview-0.png": {
+      "bytes": 192676,
+      "sha256": "927af16588710561f8e0c969bf3280e4044f473a8e3fdf74084bf86830b5af6e"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/source-overview-1.canvas.png": {
+      "bytes": 13634,
+      "sha256": "066da66d654556b13675c1f01a4e444383558c7d0a145e735a68ace53faab8cf"
+    },
+    "raw/jobs/libre-air-water-receiving/ui/source-overview-1.png": {
+      "bytes": 192676,
+      "sha256": "927af16588710561f8e0c969bf3280e4044f473a8e3fdf74084bf86830b5af6e"
+    },
+    "raw/jobs/libre-air-water-receiving/ui_control.py": {
+      "bytes": 4554,
+      "sha256": "e508c2a70b26ff1998fdd4cbc6484a2c7ea7b423e8e76868db8529c44a594881"
+    },
+    "raw/jobs/libre-air-water-receiving/workflow.py": {
+      "bytes": 11926,
+      "sha256": "8e600a8ff2504df0e3eeb5c04a0053618130889354b94c56e3fcc215b22c7c23"
+    }
+  },
+  "packager_sha256": "bcd5f404b0c2c7a88cc1c97e1cca7fdbbf461b70882525a4e2707366125823e7",
+  "exclusions": [
+    "Selected original/working settings contents; hashes retained",
+    "Publisher binaries and compiled libraries",
+    "Python bytecode"
+  ]
+}

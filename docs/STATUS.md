@@ -183,6 +183,12 @@ the presets; all six dxflib imports retain them. Across 168 complete recorded pu
 comparisons, only targeted plot getters differ. This is exposed diagnosis with no CAD save or new
 strict-comparison run. Full CAD and the remaining gates stay unqualified.
 
+The [matched native UI cohort](../examples/cad-handoff/qualification/native-ui-pairs-19/README.md) now
+completes 18 exposed-development processes with portable offline receiving. All twelve native full saves
+fail strict preservation; twelve recording-metadata failures and two cases' exact-camera failures remain.
+Nine of 54 fixed-region pixel comparisons are diagnostic only despite zero outside-region changes.
+Original failed/recovered processes stay separate; fresh reserved and whole CAD qualification remain open.
+
 The [cross-sheet path consumer](PID_GRAPH_QUESTIONS.md) now carries source/review qualifications and
 applicable endpoint/edge conflicts into selected routes and query-relative association registers.
 The exposed three-sheet schedule exercise matches ten policy outcomes beside an unrestricted baseline,

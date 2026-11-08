@@ -1,5 +1,6 @@
 """Receive retained exposed native UI evidence offline; no native launch or qualification promotion."""
 import importlib.util
+import hashlib
 import json
 from pathlib import Path
 import sys
@@ -244,7 +245,9 @@ def check():
     methods=read(BASE/'REPLAY-METHODS.json')
     expected=['examples/cad-handoff/qualification/'+name for name in ('check_ui19.py','diagnose_ui19.py','ui19_archive.py','package_ui19.py','verify_bytes.py')]+['scripts/cad_handoff.py']
     require(set(methods)==set(expected),'UI evidence replay method scope differs')
-    for name,pin in methods.items():require(sha(ROOT/name)==pin,'UI evidence replay method differs: '+name)
+    # Repository Python text can be checked out as CRLF; native evidence retains exact byte hashes.
+    for name,pin in methods.items():
+        require(hashlib.sha256((ROOT/name).read_bytes().replace(b'\r\n',b'\n')).hexdigest()==pin,'UI evidence replay method differs: '+name)
     summaries=[]
     with tempfile.TemporaryDirectory(prefix='ict-ui19-')as temporary:
         temp=Path(temporary)

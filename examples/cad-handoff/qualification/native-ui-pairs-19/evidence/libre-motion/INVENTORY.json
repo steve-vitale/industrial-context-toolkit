@@ -1,0 +1,1616 @@
+{
+  "kind": {
+    "route": "clean-exposed-case",
+    "case": "libre-motion"
+  },
+  "archive": {
+    "path": "evidence.tar.xz",
+    "bytes": 3936992,
+    "sha256": "5b7e12f552ac510a2514b6841aca9fbad86a9d2cc06f9150c4a3bcb18902ec5c"
+  },
+  "raw_bytes": 36030009,
+  "files": {
+    "raw/cases/libre-motion/basis.json": {
+      "bytes": 685,
+      "sha256": "29418c1aa6d905326e4ef39580590ae175a2c9cc7c0fed79e38d4cf55f8942b4"
+    },
+    "raw/cases/libre-motion/plan.json": {
+      "bytes": 404,
+      "sha256": "65c8473e98aad72ba37ff8a1bdd814faf1b709c088a670fdf7b2968edc95a54c"
+    },
+    "raw/cases/libre-motion/software/candidate/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/cases/libre-motion/software/candidate/asset_candidates.csv": {
+      "bytes": 118,
+      "sha256": "a0173b7430421955a0ee42c6dc586fd66697a947b05c58acd05cda915975dc2d"
+    },
+    "raw/cases/libre-motion/software/candidate/byte-edits.json": {
+      "bytes": 746,
+      "sha256": "7029d68b4271526dcfd1c56efd756546f734b228e61def07c33b0541bf9c2b68"
+    },
+    "raw/cases/libre-motion/software/candidate/cad_context.json": {
+      "bytes": 615,
+      "sha256": "ce0e15d3b487a958d486a9dd58779147b3a030aaf66f5b1c3f7d352bc24c8672"
+    },
+    "raw/cases/libre-motion/software/candidate/candidate-context/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/cases/libre-motion/software/candidate/candidate-context/asset_candidates.csv": {
+      "bytes": 117,
+      "sha256": "d6fc78f06a96d05b518cad349267ce7fabe2d1c1f5c6c711a02b31edd6877f4a"
+    },
+    "raw/cases/libre-motion/software/candidate/candidate-context/cad_context.json": {
+      "bytes": 614,
+      "sha256": "7153dd1a2b6e27abeb6cc073b2a182fdfbd282183b88d129d6902e24de26affa"
+    },
+    "raw/cases/libre-motion/software/candidate/candidate-context/snapshot.json": {
+      "bytes": 84271,
+      "sha256": "f6dbb0fc76b1823f19c5584a6eb415fdb5b732e365adea2b3c59f2d57c18608b"
+    },
+    "raw/cases/libre-motion/software/candidate/candidate-context/source.dxf": {
+      "bytes": 21300,
+      "sha256": "c95e3478d9ca1cd4f80599a9408ca35dc843e922900fad1ea937d7dc47781e13"
+    },
+    "raw/cases/libre-motion/software/candidate/candidate.dxf": {
+      "bytes": 21300,
+      "sha256": "c95e3478d9ca1cd4f80599a9408ca35dc843e922900fad1ea937d7dc47781e13"
+    },
+    "raw/cases/libre-motion/software/candidate/candidate.snapshot.json": {
+      "bytes": 84271,
+      "sha256": "f6dbb0fc76b1823f19c5584a6eb415fdb5b732e365adea2b3c59f2d57c18608b"
+    },
+    "raw/cases/libre-motion/software/candidate/comparison.json": {
+      "bytes": 871,
+      "sha256": "86d12ffe22220ced2829cbf1d033209e92af063cb6fcfcce16b81bce24cb487f"
+    },
+    "raw/cases/libre-motion/software/candidate/plan.json": {
+      "bytes": 391,
+      "sha256": "faaca852b597574ff74a744766c4137959ef1d853814dcad72c8116e68962692"
+    },
+    "raw/cases/libre-motion/software/candidate/snapshot.json": {
+      "bytes": 84273,
+      "sha256": "6fea1f3e04be2af2f0643f2ea14795478e870c08f88c8f06aafbd2cca68d827f"
+    },
+    "raw/cases/libre-motion/software/candidate/source.dxf": {
+      "bytes": 21301,
+      "sha256": "724b0557adc753c59e23e864dc08f6de1c1ca50767b4da012be0fadf54d77b04"
+    },
+    "raw/cases/libre-motion/software/library-save.comparison.json": {
+      "bytes": 870,
+      "sha256": "ca4a45123cfeb99d39414b47e8fc5453f41bdfe6278d8af0047b6fa6f6825ef7"
+    },
+    "raw/cases/libre-motion/software/library.dxf": {
+      "bytes": 21308,
+      "sha256": "6c45435fe260e715f1804cdb37dd42902b5d8b59988a551e19eb4e46775ab970"
+    },
+    "raw/cases/libre-motion/software/result.json": {
+      "bytes": 938,
+      "sha256": "08aacfd77ebf9feae68140a102d383291622d5e366c4650f0b09c3b05c2a6ee2"
+    },
+    "raw/cases/libre-motion/software/value-spans.comparison.json": {
+      "bytes": 871,
+      "sha256": "86d12ffe22220ced2829cbf1d033209e92af063cb6fcfcce16b81bce24cb487f"
+    },
+    "raw/cases/libre-motion/source.dxf": {
+      "bytes": 21301,
+      "sha256": "724b0557adc753c59e23e864dc08f6de1c1ca50767b4da012be0fadf54d77b04"
+    },
+    "raw/cohort/COHORT.json": {
+      "bytes": 4476,
+      "sha256": "131aaccd9ccc9b0c36223af3f06e04053de0e40970e4ddef572334f255947aad"
+    },
+    "raw/cohort/methods/METHOD.md": {
+      "bytes": 5339,
+      "sha256": "e1bbc04db242370dc00cf6ef237c1f5022599ec200206717cd7df08dc095e04b"
+    },
+    "raw/cohort/methods/PLAN.md": {
+      "bytes": 5204,
+      "sha256": "1d3f3a4985cb9aa21bc81d39bb1bc6b3963ef1a675af10b734f65fa81a46dd4b"
+    },
+    "raw/cohort/methods/analyze.py": {
+      "bytes": 6634,
+      "sha256": "f17bf22e06abef88ec989958e88d32557753308a92031a6854845fabd7d8c981"
+    },
+    "raw/cohort/methods/batch.py": {
+      "bytes": 4655,
+      "sha256": "1bb25fb445635117ae56579a89cde012728a5e1d8538a644daf4f4f8dc15446c"
+    },
+    "raw/cohort/methods/inspect_ui.py": {
+      "bytes": 1439,
+      "sha256": "c41e118f8108e02dcef6ba9d90cf280d68851ba4b7cb6a870b96a4c9deb5c03e"
+    },
+    "raw/cohort/methods/launch_case.py": {
+      "bytes": 2906,
+      "sha256": "beee5842b37f0bea6cade0afb33e8706754e80db29acd22e6f78dd44d74fdc03"
+    },
+    "raw/cohort/methods/native_controls.py": {
+      "bytes": 800,
+      "sha256": "767246eef54db970e4a1a590b2e5797a41305046dfebc98dfdc7bc759105e832"
+    },
+    "raw/cohort/methods/observe_case.js": {
+      "bytes": 2810,
+      "sha256": "24e09cf1c30a5f818014ca3662d847030066185f1468b31b563bd8163e4c6070"
+    },
+    "raw/cohort/methods/preflight.py": {
+      "bytes": 2588,
+      "sha256": "791142e53f8996a49a3191f29cf37aa9d9fde82e7c497ccf97f0d02478812031"
+    },
+    "raw/cohort/methods/prepare.py": {
+      "bytes": 4665,
+      "sha256": "a4515b8ba619803d5b6a431114e69f459c7aedb2b0c2437eb2fc0252ede9240a"
+    },
+    "raw/cohort/methods/recover_edit.py": {
+      "bytes": 1554,
+      "sha256": "3e75e59cb23ceae7cd89539420e7f6c940faf439e3a51d8d880fa38e1a5e205d"
+    },
+    "raw/cohort/methods/ui_control.py": {
+      "bytes": 4554,
+      "sha256": "e508c2a70b26ff1998fdd4cbc6484a2c7ea7b423e8e76868db8529c44a594881"
+    },
+    "raw/cohort/methods/view_observer.js": {
+      "bytes": 1931,
+      "sha256": "558ec33c63ac1eec07effb8c2ff9739f6c96cce49ba6e8f5dcfa7ace73117677"
+    },
+    "raw/cohort/methods/workflow.py": {
+      "bytes": 11926,
+      "sha256": "8e600a8ff2504df0e3eeb5c04a0053618130889354b94c56e3fcc215b22c7c23"
+    },
+    "raw/jobs/libre-motion-baseline/CONTAINER-LOG.json": {
+      "bytes": 737,
+      "sha256": "f06af5e4f41d88a17c7446a0895a86125856742bf8073fca250264dccebb0b80"
+    },
+    "raw/jobs/libre-motion-baseline/ENVIRONMENT.json": {
+      "bytes": 1082,
+      "sha256": "f6b4c6770d28bc455b2ad55c6cd090f670b9903c1a499e6ca4e74b314d0d050b"
+    },
+    "raw/jobs/libre-motion-baseline/JOB-FREEZE.json": {
+      "bytes": 1168,
+      "sha256": "1576b9e4db19b8a9a1663b7d0177e12600e5f2dc38b5fa64d83406344364be4a"
+    },
+    "raw/jobs/libre-motion-baseline/METHOD.md": {
+      "bytes": 5339,
+      "sha256": "e1bbc04db242370dc00cf6ef237c1f5022599ec200206717cd7df08dc095e04b"
+    },
+    "raw/jobs/libre-motion-baseline/PLAN.md": {
+      "bytes": 5204,
+      "sha256": "1d3f3a4985cb9aa21bc81d39bb1bc6b3963ef1a675af10b734f65fa81a46dd4b"
+    },
+    "raw/jobs/libre-motion-baseline/dbus-address.txt": {
+      "bytes": 68,
+      "sha256": "ffd91635804fb69fa4e421fd95ace8180fdbdbd30909a5fef651b98aa3a0dca3"
+    },
+    "raw/jobs/libre-motion-baseline/inspect_ui.py": {
+      "bytes": 1439,
+      "sha256": "c41e118f8108e02dcef6ba9d90cf280d68851ba4b7cb6a870b96a4c9deb5c03e"
+    },
+    "raw/jobs/libre-motion-baseline/job.json": {
+      "bytes": 708,
+      "sha256": "b54bf09b8391b60729dd6cb159a7fec67cdbc69f812837f73a08636af849ed74"
+    },
+    "raw/jobs/libre-motion-baseline/launch_case.py": {
+      "bytes": 2906,
+      "sha256": "beee5842b37f0bea6cade0afb33e8706754e80db29acd22e6f78dd44d74fdc03"
+    },
+    "raw/jobs/libre-motion-baseline/native/PROCESS.json": {
+      "bytes": 1343,
+      "sha256": "5f2bceb89478a43a3e016e1999ee3508371ac0fce2cf1d7329646fa66573908e"
+    },
+    "raw/jobs/libre-motion-baseline/native/controller.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/libre-motion-baseline/native/controller.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/libre-motion-baseline/native/openbox.log": {
+      "bytes": 85,
+      "sha256": "6f748c3cd02a858c087697c3afac639205c62b7b206558bd40d1bcbd98165a5c"
+    },
+    "raw/jobs/libre-motion-baseline/native/stderr.txt": {
+      "bytes": 5801,
+      "sha256": "c2b7636ce18b134a5db6b1deec2e1c9696c81c41617b3a44777dd778bf0a499e"
+    },
+    "raw/jobs/libre-motion-baseline/native/stdout.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/libre-motion-baseline/native/xvfb.log": {
+      "bytes": 2429,
+      "sha256": "6d73d78138c41bea466314919237a4fe998e5b670a356ab2012f328fff769a7b"
+    },
+    "raw/jobs/libre-motion-baseline/native_controls.py": {
+      "bytes": 800,
+      "sha256": "767246eef54db970e4a1a590b2e5797a41305046dfebc98dfdc7bc759105e832"
+    },
+    "raw/jobs/libre-motion-baseline/observe_case.js": {
+      "bytes": 2810,
+      "sha256": "24e09cf1c30a5f818014ca3662d847030066185f1468b31b563bd8163e4c6070"
+    },
+    "raw/jobs/libre-motion-baseline/prepare.py": {
+      "bytes": 4665,
+      "sha256": "a4515b8ba619803d5b6a431114e69f459c7aedb2b0c2437eb2fc0252ede9240a"
+    },
+    "raw/jobs/libre-motion-baseline/replies/1.json": {
+      "bytes": 232,
+      "sha256": "c4733a44515b0d814ac0a1c121fd790225d99b8cf1e6ee9b5351fabfe0b37273"
+    },
+    "raw/jobs/libre-motion-baseline/replies/10.json": {
+      "bytes": 1241,
+      "sha256": "f6ec4012cdaa0e25ec3169e95629fd2a33a9f58cf8e2793907ba76e43dfcf6e2"
+    },
+    "raw/jobs/libre-motion-baseline/replies/11.json": {
+      "bytes": 1121,
+      "sha256": "644df131e4e3373e36ecd53e5d2a186e9ca84b38abb3c0f9ea78a7961fc611b9"
+    },
+    "raw/jobs/libre-motion-baseline/replies/12.json": {
+      "bytes": 1244,
+      "sha256": "3802486db66c9a943c01af1c8e769a655899c7abc1820a57c1d747f683e41932"
+    },
+    "raw/jobs/libre-motion-baseline/replies/13.json": {
+      "bytes": 1123,
+      "sha256": "1db3698b746017a5a439605ff2c11aa98e15a8b5470486c1f1b6cedfbd283e4c"
+    },
+    "raw/jobs/libre-motion-baseline/replies/14.json": {
+      "bytes": 1123,
+      "sha256": "c3f21b7f5f0238a2b4af108d5da44f3c6904cf2cacd1b786370be0d99ae3a6b0"
+    },
+    "raw/jobs/libre-motion-baseline/replies/15.json": {
+      "bytes": 1125,
+      "sha256": "87492459fc7c7e5dce0ab66de3ea74b009c32f6d227d11ce3f1185608ac5a2a7"
+    },
+    "raw/jobs/libre-motion-baseline/replies/16.json": {
+      "bytes": 1125,
+      "sha256": "e7d2428c5e1c5c5a2e044ab86755fba04cf7110f6996d7e3312285b82bb58df6"
+    },
+    "raw/jobs/libre-motion-baseline/replies/17.json": {
+      "bytes": 1125,
+      "sha256": "0fd9f38ee501bb9f1567572b58620b35a88b6d5192f9c1dc771e654276c03620"
+    },
+    "raw/jobs/libre-motion-baseline/replies/18.json": {
+      "bytes": 233,
+      "sha256": "4fbb4f4a73f93ad60b34b9d020053eaa4785db707f9fead439bc841f6d0c4561"
+    },
+    "raw/jobs/libre-motion-baseline/replies/19.json": {
+      "bytes": 233,
+      "sha256": "281af2c4eaa4ea509d5a991e026d99a70caca33fea6ae2438483271ef54ca6d7"
+    },
+    "raw/jobs/libre-motion-baseline/replies/2.json": {
+      "bytes": 232,
+      "sha256": "fd199d0cbcc27c4dcb89ba932b0a275459581c19828633dc8b4300b21d8eac3b"
+    },
+    "raw/jobs/libre-motion-baseline/replies/20.json": {
+      "bytes": 1119,
+      "sha256": "1016e0c91062c18515315ff55e6803f2796c7d342f8a75ec3cf46e99fef9d592"
+    },
+    "raw/jobs/libre-motion-baseline/replies/21.json": {
+      "bytes": 1119,
+      "sha256": "fabb28774a7cc054ec8085c5a375150ca4dbf2da6c92db3a781677c402bed4a8"
+    },
+    "raw/jobs/libre-motion-baseline/replies/22.json": {
+      "bytes": 1119,
+      "sha256": "5db09dc6f40cddfe477dae574abb6d3d76a563b92687735c1f6e884a01aa91ff"
+    },
+    "raw/jobs/libre-motion-baseline/replies/23.json": {
+      "bytes": 1130,
+      "sha256": "7640845484e7cb447276c5f487fa26dba694e01900e68869da2f7db34c7fcd73"
+    },
+    "raw/jobs/libre-motion-baseline/replies/24.json": {
+      "bytes": 1119,
+      "sha256": "be2deb75477bd0e66d5cfe3803fa539972d83ce75fc5569b6de5c8ed5bdd195a"
+    },
+    "raw/jobs/libre-motion-baseline/replies/25.json": {
+      "bytes": 1243,
+      "sha256": "9d15582a0f1109f9835d7f6a97f72633a287db645b1642a656704440545f070b"
+    },
+    "raw/jobs/libre-motion-baseline/replies/26.json": {
+      "bytes": 1123,
+      "sha256": "f1836e418d5e6ccbdd6a1ac842e4dfd3bd63de3bfbca98b18d1542f4ef88eb9e"
+    },
+    "raw/jobs/libre-motion-baseline/replies/27.json": {
+      "bytes": 1246,
+      "sha256": "68ad4e8780f4ffa3951b966a88142d198a8d51ac82f089a841072cbafaf39575"
+    },
+    "raw/jobs/libre-motion-baseline/replies/28.json": {
+      "bytes": 1122,
+      "sha256": "a3abd170e2e362cca5061e4377f0248ea5cb4da422e98f08a4a34e15bacc3553"
+    },
+    "raw/jobs/libre-motion-baseline/replies/29.json": {
+      "bytes": 1248,
+      "sha256": "bada886ddcbd2f7fa27db530de4e30b7207b1e5881c4157c6527486a1a4a0d00"
+    },
+    "raw/jobs/libre-motion-baseline/replies/3.json": {
+      "bytes": 1113,
+      "sha256": "70a41689ccc763b9a8d82e08ee1666c8aef709e5edfab1574fd70853f546e231"
+    },
+    "raw/jobs/libre-motion-baseline/replies/30.json": {
+      "bytes": 1125,
+      "sha256": "0ad7677ce82f4d70d29048b4fb1657a9943554c15b6426e08be5e54b735d1ae8"
+    },
+    "raw/jobs/libre-motion-baseline/replies/31.json": {
+      "bytes": 1125,
+      "sha256": "b55152fbfa7305d6cc478efb46b09e0ee999947426a0449403175b3796865c23"
+    },
+    "raw/jobs/libre-motion-baseline/replies/32.json": {
+      "bytes": 1125,
+      "sha256": "282ccf28c29a2a9ba0fbfdd71a28bb67d3c42a0cd83a52dd46fb034604264912"
+    },
+    "raw/jobs/libre-motion-baseline/replies/33.json": {
+      "bytes": 233,
+      "sha256": "0ec3d978b8ffc7fb1f9a7f1bac9dd222727fa92dda32489f41a9cbefffb2e431"
+    },
+    "raw/jobs/libre-motion-baseline/replies/34.json": {
+      "bytes": 233,
+      "sha256": "70c2d5d54c47a50c8d624b4656214bd15bff84d159be0a261e002ea7a6312f0b"
+    },
+    "raw/jobs/libre-motion-baseline/replies/4.json": {
+      "bytes": 1113,
+      "sha256": "10ae098a43a23a5ed950131ecefc8f488e3d982dbaf5188d7de2ffdc7ded67fd"
+    },
+    "raw/jobs/libre-motion-baseline/replies/5.json": {
+      "bytes": 1113,
+      "sha256": "3afe839b9398683a938b77419dc52487fb4ddcf466a2e2eba5c3c6850617c8a2"
+    },
+    "raw/jobs/libre-motion-baseline/replies/6.json": {
+      "bytes": 1129,
+      "sha256": "3944c4444eea9304d7f2367a20090c31671f463eca18f15c09bbb7f5f0a09b81"
+    },
+    "raw/jobs/libre-motion-baseline/replies/7.json": {
+      "bytes": 1118,
+      "sha256": "6159a017efa850847cb26d05a20f2cfb5e12c18732c78c2da021419edc374b34"
+    },
+    "raw/jobs/libre-motion-baseline/replies/8.json": {
+      "bytes": 1239,
+      "sha256": "824903a4a730834738cd0306d7c7fa7c97c3da1ef0e2574110e0140e4c982365"
+    },
+    "raw/jobs/libre-motion-baseline/replies/9.json": {
+      "bytes": 1118,
+      "sha256": "0be7f14d3b205455ed4bc1f8fc9933795b5147e243c7be19ee24aeeb5dced804"
+    },
+    "raw/jobs/libre-motion-baseline/request.json": {
+      "bytes": 29,
+      "sha256": "1dd67b4ecde34d1c12dc8af16b8a2ed7e726c4bd73fa2a20a2c207064576b63f"
+    },
+    "raw/jobs/libre-motion-baseline/returned.dxf": {
+      "bytes": 105607,
+      "sha256": "566a709103084390b276711c1557f460a263c800f2d32c9a6c76db80e09ce754"
+    },
+    "raw/jobs/libre-motion-baseline/source.dxf": {
+      "bytes": 21301,
+      "sha256": "724b0557adc753c59e23e864dc08f6de1c1ca50767b4da012be0fadf54d77b04"
+    },
+    "raw/jobs/libre-motion-baseline/ui/001-trial.json": {
+      "bytes": 404654,
+      "sha256": "e847680246b0c55f5d24ed38827e039a2dad11df6f5409c9207fc6dee221dc16"
+    },
+    "raw/jobs/libre-motion-baseline/ui/002-ready.json": {
+      "bytes": 439739,
+      "sha256": "90cfa3ce5d883d5fa17c68c3e60007d6bbec7532cc2f334ba562b11ed171684a"
+    },
+    "raw/jobs/libre-motion-baseline/ui/003-open-dialog.json": {
+      "bytes": 448085,
+      "sha256": "fd77d23b192e162b376d8cf8201c1db3407cf7179413ab8d54d9fc804167d778"
+    },
+    "raw/jobs/libre-motion-baseline/ui/004-opened.json": {
+      "bytes": 445453,
+      "sha256": "42bac5f3fbcf7a851406b1f792d1d1eab650e0b77ac545ae4ccaf421b0f9aa8c"
+    },
+    "raw/jobs/libre-motion-baseline/ui/005-handle-dialog.json": {
+      "bytes": 445448,
+      "sha256": "7f01090481a6b97b967b773986ab347c17a4a70a9d231b2ad243642c4e2352a5"
+    },
+    "raw/jobs/libre-motion-baseline/ui/006-selected.json": {
+      "bytes": 456028,
+      "sha256": "b5e10af1864582cecbd12ccebbcba2957349e0e0a0c951d272c03726d88a7202"
+    },
+    "raw/jobs/libre-motion-baseline/ui/007-save-dialog.json": {
+      "bytes": 462890,
+      "sha256": "341e4f66113fa1384fb90b28970f0a96d3326c8ca164bcc9c04e41802fffe7d1"
+    },
+    "raw/jobs/libre-motion-baseline/ui/008-saved.json": {
+      "bytes": 445600,
+      "sha256": "bad53833efaba7214f3beab6732eaf501aec3891ec9564b9dba442ace3f51cd6"
+    },
+    "raw/jobs/libre-motion-baseline/ui/009-closed.json": {
+      "bytes": 440053,
+      "sha256": "df3ef172ca1a2fdfe7387712a003a8ce02058f9a2f0bb44d6e21a64769b11fea"
+    },
+    "raw/jobs/libre-motion-baseline/ui/010-open-dialog.json": {
+      "bytes": 448416,
+      "sha256": "5061fd13d7645b1d489f9f3cf3dcf1c2cd50c765b1d29fed89c9e8b2d9f6d2fa"
+    },
+    "raw/jobs/libre-motion-baseline/ui/011-opened.json": {
+      "bytes": 445775,
+      "sha256": "6092870b2cdeb1523119d6362398e20febdfd773847e71ecb40f1edfcd771f18"
+    },
+    "raw/jobs/libre-motion-baseline/ui/012-handle-dialog.json": {
+      "bytes": 445770,
+      "sha256": "b7cf9d2937ca0cb98e8facc4de623e554b8ae3873b24a3446ce18045d9e0cfc8"
+    },
+    "raw/jobs/libre-motion-baseline/ui/013-selected.json": {
+      "bytes": 456350,
+      "sha256": "13ffd59d576b8b84f4461343694ee26afb059bbdb8c9fe200664704ba284543f"
+    },
+    "raw/jobs/libre-motion-baseline/ui/014-closed.json": {
+      "bytes": 440269,
+      "sha256": "06eca37aac1496aba6566ac94035ac744759f303caa06768362d64a192cc5acc"
+    },
+    "raw/jobs/libre-motion-baseline/ui/RESULT.json": {
+      "bytes": 101,
+      "sha256": "832307e32be9daf84a2ec343a73efff1f9bd7afb9aba0d4d9e43e1df17927636"
+    },
+    "raw/jobs/libre-motion-baseline/ui/actions.json": {
+      "bytes": 79147,
+      "sha256": "2e6018adf98b33967e5e7ab515d6bb69d9180871e530da6e6511be10c6ebaf9b"
+    },
+    "raw/jobs/libre-motion-baseline/ui/returned-asset-0.canvas.png": {
+      "bytes": 23908,
+      "sha256": "ffd204ee54ad34c0e3c0873c30f5883095d90dbe5e5ffcf72d5579843ab5049a"
+    },
+    "raw/jobs/libre-motion-baseline/ui/returned-asset-0.png": {
+      "bytes": 211113,
+      "sha256": "79c96c773a50f17cef9ce2a3fe871fbcc145f07f61bfd16a3ed219ccc4573e22"
+    },
+    "raw/jobs/libre-motion-baseline/ui/returned-asset-1.canvas.png": {
+      "bytes": 23908,
+      "sha256": "ffd204ee54ad34c0e3c0873c30f5883095d90dbe5e5ffcf72d5579843ab5049a"
+    },
+    "raw/jobs/libre-motion-baseline/ui/returned-asset-1.png": {
+      "bytes": 211113,
+      "sha256": "79c96c773a50f17cef9ce2a3fe871fbcc145f07f61bfd16a3ed219ccc4573e22"
+    },
+    "raw/jobs/libre-motion-baseline/ui/returned-labels-0.canvas.png": {
+      "bytes": 26547,
+      "sha256": "7fe3480ddb2a57d7d5e8d560471c8ffe1f30a5064295ea8c357816c42a15390d"
+    },
+    "raw/jobs/libre-motion-baseline/ui/returned-labels-0.png": {
+      "bytes": 212298,
+      "sha256": "12226a8d4db74a1403144f9ea8160ea81350689690753f31e68b12354e06e524"
+    },
+    "raw/jobs/libre-motion-baseline/ui/returned-labels-1.canvas.png": {
+      "bytes": 26547,
+      "sha256": "7fe3480ddb2a57d7d5e8d560471c8ffe1f30a5064295ea8c357816c42a15390d"
+    },
+    "raw/jobs/libre-motion-baseline/ui/returned-labels-1.png": {
+      "bytes": 212298,
+      "sha256": "12226a8d4db74a1403144f9ea8160ea81350689690753f31e68b12354e06e524"
+    },
+    "raw/jobs/libre-motion-baseline/ui/returned-overview-0.canvas.png": {
+      "bytes": 13612,
+      "sha256": "1aee476c73097263d3f9cfb9d29f2158eb4a7222ec3bc0d80b3abe8eb64db0e9"
+    },
+    "raw/jobs/libre-motion-baseline/ui/returned-overview-0.png": {
+      "bytes": 192515,
+      "sha256": "b234d8575cf7ea7c8b276e3a96b5abb2a93504a88ac9072b915c097577f676fe"
+    },
+    "raw/jobs/libre-motion-baseline/ui/returned-overview-1.canvas.png": {
+      "bytes": 13612,
+      "sha256": "1aee476c73097263d3f9cfb9d29f2158eb4a7222ec3bc0d80b3abe8eb64db0e9"
+    },
+    "raw/jobs/libre-motion-baseline/ui/returned-overview-1.png": {
+      "bytes": 192515,
+      "sha256": "b234d8575cf7ea7c8b276e3a96b5abb2a93504a88ac9072b915c097577f676fe"
+    },
+    "raw/jobs/libre-motion-baseline/ui/source-asset-0.canvas.png": {
+      "bytes": 23908,
+      "sha256": "ffd204ee54ad34c0e3c0873c30f5883095d90dbe5e5ffcf72d5579843ab5049a"
+    },
+    "raw/jobs/libre-motion-baseline/ui/source-asset-0.png": {
+      "bytes": 210918,
+      "sha256": "c1ddaea214b846c593e4e6593308473f1421b44c5500b30e32835d1780bd176c"
+    },
+    "raw/jobs/libre-motion-baseline/ui/source-asset-1.canvas.png": {
+      "bytes": 23908,
+      "sha256": "ffd204ee54ad34c0e3c0873c30f5883095d90dbe5e5ffcf72d5579843ab5049a"
+    },
+    "raw/jobs/libre-motion-baseline/ui/source-asset-1.png": {
+      "bytes": 210918,
+      "sha256": "c1ddaea214b846c593e4e6593308473f1421b44c5500b30e32835d1780bd176c"
+    },
+    "raw/jobs/libre-motion-baseline/ui/source-labels-0.canvas.png": {
+      "bytes": 26547,
+      "sha256": "7fe3480ddb2a57d7d5e8d560471c8ffe1f30a5064295ea8c357816c42a15390d"
+    },
+    "raw/jobs/libre-motion-baseline/ui/source-labels-0.png": {
+      "bytes": 212117,
+      "sha256": "1d2f88b42fa79cc0d0b8c4bbae79480e20786217176e31ffd400c19a355f2814"
+    },
+    "raw/jobs/libre-motion-baseline/ui/source-labels-1.canvas.png": {
+      "bytes": 26547,
+      "sha256": "7fe3480ddb2a57d7d5e8d560471c8ffe1f30a5064295ea8c357816c42a15390d"
+    },
+    "raw/jobs/libre-motion-baseline/ui/source-labels-1.png": {
+      "bytes": 212117,
+      "sha256": "1d2f88b42fa79cc0d0b8c4bbae79480e20786217176e31ffd400c19a355f2814"
+    },
+    "raw/jobs/libre-motion-baseline/ui/source-overview-0.canvas.png": {
+      "bytes": 13612,
+      "sha256": "1aee476c73097263d3f9cfb9d29f2158eb4a7222ec3bc0d80b3abe8eb64db0e9"
+    },
+    "raw/jobs/libre-motion-baseline/ui/source-overview-0.png": {
+      "bytes": 192330,
+      "sha256": "0f7cbe561bfc6b59ebd489d9751cdab5268c3d1675d2b01faf3e9b4811af1f8c"
+    },
+    "raw/jobs/libre-motion-baseline/ui/source-overview-1.canvas.png": {
+      "bytes": 13612,
+      "sha256": "1aee476c73097263d3f9cfb9d29f2158eb4a7222ec3bc0d80b3abe8eb64db0e9"
+    },
+    "raw/jobs/libre-motion-baseline/ui/source-overview-1.png": {
+      "bytes": 192330,
+      "sha256": "0f7cbe561bfc6b59ebd489d9751cdab5268c3d1675d2b01faf3e9b4811af1f8c"
+    },
+    "raw/jobs/libre-motion-baseline/ui_control.py": {
+      "bytes": 4554,
+      "sha256": "e508c2a70b26ff1998fdd4cbc6484a2c7ea7b423e8e76868db8529c44a594881"
+    },
+    "raw/jobs/libre-motion-baseline/workflow.py": {
+      "bytes": 11926,
+      "sha256": "8e600a8ff2504df0e3eeb5c04a0053618130889354b94c56e3fcc215b22c7c23"
+    },
+    "raw/jobs/libre-motion-edited/CONTAINER-LOG.json": {
+      "bytes": 737,
+      "sha256": "75c03242487bb2b71d69355e35a975bb58f04ca9a427288db724cf7fba8fda05"
+    },
+    "raw/jobs/libre-motion-edited/ENVIRONMENT.json": {
+      "bytes": 1078,
+      "sha256": "4a66ccc95d971d5e89aa541305d4bd487e69ce9cb0b237f9885c6b459c2a7b39"
+    },
+    "raw/jobs/libre-motion-edited/JOB-FREEZE.json": {
+      "bytes": 1168,
+      "sha256": "ae039b2ba3d08c842eb1db080f004aff7d0088a8300fcdef7befce0d55070711"
+    },
+    "raw/jobs/libre-motion-edited/METHOD.md": {
+      "bytes": 5339,
+      "sha256": "e1bbc04db242370dc00cf6ef237c1f5022599ec200206717cd7df08dc095e04b"
+    },
+    "raw/jobs/libre-motion-edited/PLAN.md": {
+      "bytes": 5204,
+      "sha256": "1d3f3a4985cb9aa21bc81d39bb1bc6b3963ef1a675af10b734f65fa81a46dd4b"
+    },
+    "raw/jobs/libre-motion-edited/dbus-address.txt": {
+      "bytes": 68,
+      "sha256": "2b18174f2f76ff1319edefc0bae1243fd5b24e4a6bb9462b8e7142e423096023"
+    },
+    "raw/jobs/libre-motion-edited/inspect_ui.py": {
+      "bytes": 1439,
+      "sha256": "c41e118f8108e02dcef6ba9d90cf280d68851ba4b7cb6a870b96a4c9deb5c03e"
+    },
+    "raw/jobs/libre-motion-edited/job.json": {
+      "bytes": 706,
+      "sha256": "a15df4df580970ba871aee9020eeacf3e0cffa688efcacaf4067f26038fdcdaa"
+    },
+    "raw/jobs/libre-motion-edited/launch_case.py": {
+      "bytes": 2906,
+      "sha256": "beee5842b37f0bea6cade0afb33e8706754e80db29acd22e6f78dd44d74fdc03"
+    },
+    "raw/jobs/libre-motion-edited/native/PROCESS.json": {
+      "bytes": 1341,
+      "sha256": "e0e6f30dfcc01dde26856ecca739c6e24b32ec2aac7d6fcc3e32b91c6606a8bc"
+    },
+    "raw/jobs/libre-motion-edited/native/controller.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/libre-motion-edited/native/controller.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/libre-motion-edited/native/openbox.log": {
+      "bytes": 85,
+      "sha256": "6f748c3cd02a858c087697c3afac639205c62b7b206558bd40d1bcbd98165a5c"
+    },
+    "raw/jobs/libre-motion-edited/native/stderr.txt": {
+      "bytes": 5782,
+      "sha256": "f58c38ce8cd3d0ef6ee549852048d957e5ddee6a27d3686534aa12f3124225c4"
+    },
+    "raw/jobs/libre-motion-edited/native/stdout.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/libre-motion-edited/native/xvfb.log": {
+      "bytes": 2429,
+      "sha256": "6d73d78138c41bea466314919237a4fe998e5b670a356ab2012f328fff769a7b"
+    },
+    "raw/jobs/libre-motion-edited/native_controls.py": {
+      "bytes": 800,
+      "sha256": "767246eef54db970e4a1a590b2e5797a41305046dfebc98dfdc7bc759105e832"
+    },
+    "raw/jobs/libre-motion-edited/observe_case.js": {
+      "bytes": 2810,
+      "sha256": "24e09cf1c30a5f818014ca3662d847030066185f1468b31b563bd8163e4c6070"
+    },
+    "raw/jobs/libre-motion-edited/prepare.py": {
+      "bytes": 4665,
+      "sha256": "a4515b8ba619803d5b6a431114e69f459c7aedb2b0c2437eb2fc0252ede9240a"
+    },
+    "raw/jobs/libre-motion-edited/replies/1.json": {
+      "bytes": 232,
+      "sha256": "c4733a44515b0d814ac0a1c121fd790225d99b8cf1e6ee9b5351fabfe0b37273"
+    },
+    "raw/jobs/libre-motion-edited/replies/10.json": {
+      "bytes": 1241,
+      "sha256": "d189fd9d42bd00725431e09d072d9cef0fe998aecc56292ee804d05f97736d03"
+    },
+    "raw/jobs/libre-motion-edited/replies/11.json": {
+      "bytes": 1121,
+      "sha256": "53142759e8e32a981dd0c6a5e9c7d0f4c3b2b2f9845728dd6e841d682dda74d0"
+    },
+    "raw/jobs/libre-motion-edited/replies/12.json": {
+      "bytes": 1244,
+      "sha256": "a354eb69706764cb8c111ec7d55a3f7ea4b0f06880ab39f649c260e67348677e"
+    },
+    "raw/jobs/libre-motion-edited/replies/13.json": {
+      "bytes": 1123,
+      "sha256": "6a58dd5bf53f95eca8066bc5684dd3a618ab617f6eba846864c4fb67f59d0814"
+    },
+    "raw/jobs/libre-motion-edited/replies/14.json": {
+      "bytes": 1123,
+      "sha256": "8ddd190a50e21fae66dd9f540c90126dcfcdf9d9f268e7f37da397a5ea0d2537"
+    },
+    "raw/jobs/libre-motion-edited/replies/15.json": {
+      "bytes": 1123,
+      "sha256": "273617a6416612a0452e7fce742a64d8b18523076b3d4e98dc318563fd3d4784"
+    },
+    "raw/jobs/libre-motion-edited/replies/16.json": {
+      "bytes": 1135,
+      "sha256": "e60fbbe7617fe2e2fe3ec26623ed5941fa09090b3f40d444c3d86e4defd647ab"
+    },
+    "raw/jobs/libre-motion-edited/replies/17.json": {
+      "bytes": 1135,
+      "sha256": "246b162141dd6be355cc30dd0e8c7d83409bbdbc743fa6a5fc256edf0278ccbb"
+    },
+    "raw/jobs/libre-motion-edited/replies/18.json": {
+      "bytes": 1138,
+      "sha256": "470dbf9c6289290d4ecac84da10cfd921c27512183c615ac15ad8a57594dbf6c"
+    },
+    "raw/jobs/libre-motion-edited/replies/19.json": {
+      "bytes": 1138,
+      "sha256": "e23dadd25ff24c7c418338c194f72f228793fe5349c3545198489623ff5a0c03"
+    },
+    "raw/jobs/libre-motion-edited/replies/2.json": {
+      "bytes": 232,
+      "sha256": "fd199d0cbcc27c4dcb89ba932b0a275459581c19828633dc8b4300b21d8eac3b"
+    },
+    "raw/jobs/libre-motion-edited/replies/20.json": {
+      "bytes": 1138,
+      "sha256": "b6470612fb69a70e93cb19a515f4687b1488e5cca53ffa2bbf8f92420a572543"
+    },
+    "raw/jobs/libre-motion-edited/replies/21.json": {
+      "bytes": 233,
+      "sha256": "37d92762f18062a5f8ec52bac442c3d6c6d40b3197c301fb2c8c147b54f27c75"
+    },
+    "raw/jobs/libre-motion-edited/replies/22.json": {
+      "bytes": 233,
+      "sha256": "6de25529adb8cca96d5f662aae12af4330efaf63fabbc05ab65bf7ff635631e0"
+    },
+    "raw/jobs/libre-motion-edited/replies/23.json": {
+      "bytes": 1115,
+      "sha256": "122e55589d50ec025ddb64f05c83a5b0b0463294bcef8babba43ed13fc4aee4d"
+    },
+    "raw/jobs/libre-motion-edited/replies/24.json": {
+      "bytes": 1115,
+      "sha256": "8716c6da94fee4024f2ce1c521db95d97dc0969d37d49c9c3e54ad517ce2acff"
+    },
+    "raw/jobs/libre-motion-edited/replies/25.json": {
+      "bytes": 1115,
+      "sha256": "b34964f188924fa0c7847c42f8f05e9f845a0cb23e9c60ea84beda9b95d74f7a"
+    },
+    "raw/jobs/libre-motion-edited/replies/26.json": {
+      "bytes": 1133,
+      "sha256": "7541485c53e41942f3430befb8f4559ca8b511d9e6f9fae8eb75e602e7aabe8c"
+    },
+    "raw/jobs/libre-motion-edited/replies/27.json": {
+      "bytes": 1122,
+      "sha256": "c9040e6afe168342990c7b7cec91e9a297e7b36de95a493d0f1a12fbcd994113"
+    },
+    "raw/jobs/libre-motion-edited/replies/28.json": {
+      "bytes": 1245,
+      "sha256": "54e6162789ffe296ae9f67fe1632f2acbf35c15b0e4fe230a9e201042afb2f4a"
+    },
+    "raw/jobs/libre-motion-edited/replies/29.json": {
+      "bytes": 1120,
+      "sha256": "85fb8aeeef80854548528d3801ba018149d3f7b2c6dca508a59c9ac22567d21d"
+    },
+    "raw/jobs/libre-motion-edited/replies/3.json": {
+      "bytes": 1113,
+      "sha256": "f1632236707cccd1536b0cdcd7832298e69f03746c0ee8db307e9e649badff6e"
+    },
+    "raw/jobs/libre-motion-edited/replies/30.json": {
+      "bytes": 1243,
+      "sha256": "1c39c960a6d102841b8c6178c9a5282ef6986ec0eabfaa8baddf7d82e26ab5dc"
+    },
+    "raw/jobs/libre-motion-edited/replies/31.json": {
+      "bytes": 1121,
+      "sha256": "d21dd71414773d20db1397378dadecdc591b052c038b55c801ec981646310521"
+    },
+    "raw/jobs/libre-motion-edited/replies/32.json": {
+      "bytes": 1247,
+      "sha256": "ed62ac102245dd562b6f30df0c60efa6cfcb999bc3ccc6769f1ab05bdffcb261"
+    },
+    "raw/jobs/libre-motion-edited/replies/33.json": {
+      "bytes": 1124,
+      "sha256": "e0dd7b26aa483e93bd098957883d78f2b4cf88bad19bd3142476299fdd0fa7b5"
+    },
+    "raw/jobs/libre-motion-edited/replies/34.json": {
+      "bytes": 1124,
+      "sha256": "6ff6c0c700c40f41b130ceabaa9219c8799566461bff00016f11af157274fb76"
+    },
+    "raw/jobs/libre-motion-edited/replies/35.json": {
+      "bytes": 1124,
+      "sha256": "d6e3a7a224b0e40f94565afb93ba2d6d81aeda227de9727b42eb62e7bd6457a9"
+    },
+    "raw/jobs/libre-motion-edited/replies/36.json": {
+      "bytes": 233,
+      "sha256": "3d3abdcfb54cb6ff363eb5563182b6fb5ff453b6bf84338aa0b51ddcb39c8dfc"
+    },
+    "raw/jobs/libre-motion-edited/replies/37.json": {
+      "bytes": 233,
+      "sha256": "bb1b9e3c95f213222c550afc3b2681718305afaadd4312276e6901cc22112f90"
+    },
+    "raw/jobs/libre-motion-edited/replies/4.json": {
+      "bytes": 1113,
+      "sha256": "f341e6b3d33dead918235fcf09add7791fe1b00a1281ec88a397d62d56ae8f90"
+    },
+    "raw/jobs/libre-motion-edited/replies/5.json": {
+      "bytes": 1113,
+      "sha256": "62091671aadaff3872dec921ac58640558f76d18c8c4e82c4a672389c2c4f652"
+    },
+    "raw/jobs/libre-motion-edited/replies/6.json": {
+      "bytes": 1129,
+      "sha256": "743558440ef17d356766a66406c9ce6a7380e1115e5cf81fd5e07bedde9ec005"
+    },
+    "raw/jobs/libre-motion-edited/replies/7.json": {
+      "bytes": 1118,
+      "sha256": "ce0c902a7107d0a415ab5cfff91335e8ce65f43b7b29a5334608fded2406ae8d"
+    },
+    "raw/jobs/libre-motion-edited/replies/8.json": {
+      "bytes": 1239,
+      "sha256": "92a00e477631a78c0fb3c145a3bbeacc271f81f5ab1746a808725e80532a4878"
+    },
+    "raw/jobs/libre-motion-edited/replies/9.json": {
+      "bytes": 1118,
+      "sha256": "7419125ed1b4a65bd79cf8b1ef6d1c327cd08b3bf7ecbc3da493759758524519"
+    },
+    "raw/jobs/libre-motion-edited/request.json": {
+      "bytes": 29,
+      "sha256": "e38ffd5bc146db90b49a1a7ad74e20c5f65d4978ec6b329d10e593c6f877a036"
+    },
+    "raw/jobs/libre-motion-edited/returned.dxf": {
+      "bytes": 105606,
+      "sha256": "7a2978c3a22d2465030f1ff03befae3f693704717267851ddd3dfb1e6973ec08"
+    },
+    "raw/jobs/libre-motion-edited/source.dxf": {
+      "bytes": 21301,
+      "sha256": "724b0557adc753c59e23e864dc08f6de1c1ca50767b4da012be0fadf54d77b04"
+    },
+    "raw/jobs/libre-motion-edited/ui/001-trial.json": {
+      "bytes": 404654,
+      "sha256": "e847680246b0c55f5d24ed38827e039a2dad11df6f5409c9207fc6dee221dc16"
+    },
+    "raw/jobs/libre-motion-edited/ui/002-ready.json": {
+      "bytes": 439739,
+      "sha256": "90cfa3ce5d883d5fa17c68c3e60007d6bbec7532cc2f334ba562b11ed171684a"
+    },
+    "raw/jobs/libre-motion-edited/ui/003-open-dialog.json": {
+      "bytes": 448085,
+      "sha256": "fd77d23b192e162b376d8cf8201c1db3407cf7179413ab8d54d9fc804167d778"
+    },
+    "raw/jobs/libre-motion-edited/ui/004-opened.json": {
+      "bytes": 445453,
+      "sha256": "42bac5f3fbcf7a851406b1f792d1d1eab650e0b77ac545ae4ccaf421b0f9aa8c"
+    },
+    "raw/jobs/libre-motion-edited/ui/005-handle-dialog.json": {
+      "bytes": 445448,
+      "sha256": "7f01090481a6b97b967b773986ab347c17a4a70a9d231b2ad243642c4e2352a5"
+    },
+    "raw/jobs/libre-motion-edited/ui/006-selected.json": {
+      "bytes": 456028,
+      "sha256": "b5e10af1864582cecbd12ccebbcba2957349e0e0a0c951d272c03726d88a7202"
+    },
+    "raw/jobs/libre-motion-edited/ui/007-handle-dialog.json": {
+      "bytes": 445489,
+      "sha256": "c6e8981e87cd88668f41cdd4f57137dd24e10f837f3d214553e61302801941ff"
+    },
+    "raw/jobs/libre-motion-edited/ui/008-selected.json": {
+      "bytes": 456069,
+      "sha256": "a7732ec205c58fcdc97e2d9cc575233e362f5707b72cccf0d0488e8fa0b3a595"
+    },
+    "raw/jobs/libre-motion-edited/ui/009-edited.json": {
+      "bytes": 456006,
+      "sha256": "e14b41bc245a8e3ca0752b40a543435098434a2ff35dec4d0483addf3a1d3b3c"
+    },
+    "raw/jobs/libre-motion-edited/ui/010-save-dialog.json": {
+      "bytes": 473400,
+      "sha256": "d3d81b9e7a60c8d777360072dff5a1f1db4855f62bb09002977a5ee01a3465d3"
+    },
+    "raw/jobs/libre-motion-edited/ui/011-saved.json": {
+      "bytes": 456108,
+      "sha256": "b45c33fafdb64a05bed2c3c757516fee3a8e856d9d67ec63a61a03b3d5c672cb"
+    },
+    "raw/jobs/libre-motion-edited/ui/012-closed.json": {
+      "bytes": 440074,
+      "sha256": "799de01ac5958bb8d88f275029012b706cd3641577cc64f07dda5bb8822a43fd"
+    },
+    "raw/jobs/libre-motion-edited/ui/013-open-dialog.json": {
+      "bytes": 448437,
+      "sha256": "c4e2db6cd70d81fe84bc444a204f7d6ebf7beabf2afbf723215fa83708ce0917"
+    },
+    "raw/jobs/libre-motion-edited/ui/014-opened.json": {
+      "bytes": 445796,
+      "sha256": "a441a3c122c110965a9a13a8c95128eb6b384b2dd316e1189d2412ac44ca240a"
+    },
+    "raw/jobs/libre-motion-edited/ui/015-handle-dialog.json": {
+      "bytes": 445791,
+      "sha256": "ed2b6e81d0978f0e2b2bd1372af504c28e7b4579152553ade00108438264cbc0"
+    },
+    "raw/jobs/libre-motion-edited/ui/016-selected.json": {
+      "bytes": 456370,
+      "sha256": "03438bb333db790f8059c5452d9b4025c9d4c4edbb5737f5907bd5dddf5f5b3a"
+    },
+    "raw/jobs/libre-motion-edited/ui/017-closed.json": {
+      "bytes": 440290,
+      "sha256": "128b2b5facfabef27d80ca7904faaa818c583c82a724aa0b1a32cb27c3ea5ad7"
+    },
+    "raw/jobs/libre-motion-edited/ui/RESULT.json": {
+      "bytes": 99,
+      "sha256": "526c7633e25b9a8680b7c1aeb50a6ce2070667f8d0465acbbd570a130ece47cb"
+    },
+    "raw/jobs/libre-motion-edited/ui/actions.json": {
+      "bytes": 90093,
+      "sha256": "ed56845e337e1b956b2106fd1d73974374d148ff1711c388436b371d1d5201b9"
+    },
+    "raw/jobs/libre-motion-edited/ui/returned-asset-0.canvas.png": {
+      "bytes": 23701,
+      "sha256": "95f72fda59b54e09b243ef9892cc191fefb7684cd9aededb094a7be8292f47d2"
+    },
+    "raw/jobs/libre-motion-edited/ui/returned-asset-0.png": {
+      "bytes": 210945,
+      "sha256": "74aa6d1b0ed8acd8078f288db5fe5496ed12bc7f2156234cfc809fcb88df037a"
+    },
+    "raw/jobs/libre-motion-edited/ui/returned-asset-1.canvas.png": {
+      "bytes": 23701,
+      "sha256": "95f72fda59b54e09b243ef9892cc191fefb7684cd9aededb094a7be8292f47d2"
+    },
+    "raw/jobs/libre-motion-edited/ui/returned-asset-1.png": {
+      "bytes": 210945,
+      "sha256": "74aa6d1b0ed8acd8078f288db5fe5496ed12bc7f2156234cfc809fcb88df037a"
+    },
+    "raw/jobs/libre-motion-edited/ui/returned-labels-0.canvas.png": {
+      "bytes": 26345,
+      "sha256": "0cfff4b5915fd186bcfa017523aacf416008feeb291d8e6b06134c943b1f5f27"
+    },
+    "raw/jobs/libre-motion-edited/ui/returned-labels-0.png": {
+      "bytes": 212050,
+      "sha256": "5b694ac0c29069814fb4c0b49a69a879b0df923e6683983cd0f492ad5221e277"
+    },
+    "raw/jobs/libre-motion-edited/ui/returned-labels-1.canvas.png": {
+      "bytes": 26345,
+      "sha256": "0cfff4b5915fd186bcfa017523aacf416008feeb291d8e6b06134c943b1f5f27"
+    },
+    "raw/jobs/libre-motion-edited/ui/returned-labels-1.png": {
+      "bytes": 212050,
+      "sha256": "5b694ac0c29069814fb4c0b49a69a879b0df923e6683983cd0f492ad5221e277"
+    },
+    "raw/jobs/libre-motion-edited/ui/returned-overview-0.canvas.png": {
+      "bytes": 13491,
+      "sha256": "eba456a034da49419dd52d0ffc665e2577511eed8486b65ff39bc8c08e7d999c"
+    },
+    "raw/jobs/libre-motion-edited/ui/returned-overview-0.png": {
+      "bytes": 192379,
+      "sha256": "10be02dc9df869eb56b05100500854226731157c9dbd39a7821959c165075a91"
+    },
+    "raw/jobs/libre-motion-edited/ui/returned-overview-1.canvas.png": {
+      "bytes": 13491,
+      "sha256": "eba456a034da49419dd52d0ffc665e2577511eed8486b65ff39bc8c08e7d999c"
+    },
+    "raw/jobs/libre-motion-edited/ui/returned-overview-1.png": {
+      "bytes": 192379,
+      "sha256": "10be02dc9df869eb56b05100500854226731157c9dbd39a7821959c165075a91"
+    },
+    "raw/jobs/libre-motion-edited/ui/source-asset-0.canvas.png": {
+      "bytes": 23908,
+      "sha256": "ffd204ee54ad34c0e3c0873c30f5883095d90dbe5e5ffcf72d5579843ab5049a"
+    },
+    "raw/jobs/libre-motion-edited/ui/source-asset-0.png": {
+      "bytes": 210918,
+      "sha256": "c1ddaea214b846c593e4e6593308473f1421b44c5500b30e32835d1780bd176c"
+    },
+    "raw/jobs/libre-motion-edited/ui/source-asset-1.canvas.png": {
+      "bytes": 23908,
+      "sha256": "ffd204ee54ad34c0e3c0873c30f5883095d90dbe5e5ffcf72d5579843ab5049a"
+    },
+    "raw/jobs/libre-motion-edited/ui/source-asset-1.png": {
+      "bytes": 210918,
+      "sha256": "c1ddaea214b846c593e4e6593308473f1421b44c5500b30e32835d1780bd176c"
+    },
+    "raw/jobs/libre-motion-edited/ui/source-labels-0.canvas.png": {
+      "bytes": 26547,
+      "sha256": "7fe3480ddb2a57d7d5e8d560471c8ffe1f30a5064295ea8c357816c42a15390d"
+    },
+    "raw/jobs/libre-motion-edited/ui/source-labels-0.png": {
+      "bytes": 212117,
+      "sha256": "1d2f88b42fa79cc0d0b8c4bbae79480e20786217176e31ffd400c19a355f2814"
+    },
+    "raw/jobs/libre-motion-edited/ui/source-labels-1.canvas.png": {
+      "bytes": 26547,
+      "sha256": "7fe3480ddb2a57d7d5e8d560471c8ffe1f30a5064295ea8c357816c42a15390d"
+    },
+    "raw/jobs/libre-motion-edited/ui/source-labels-1.png": {
+      "bytes": 212117,
+      "sha256": "1d2f88b42fa79cc0d0b8c4bbae79480e20786217176e31ffd400c19a355f2814"
+    },
+    "raw/jobs/libre-motion-edited/ui/source-overview-0.canvas.png": {
+      "bytes": 13612,
+      "sha256": "1aee476c73097263d3f9cfb9d29f2158eb4a7222ec3bc0d80b3abe8eb64db0e9"
+    },
+    "raw/jobs/libre-motion-edited/ui/source-overview-0.png": {
+      "bytes": 192330,
+      "sha256": "0f7cbe561bfc6b59ebd489d9751cdab5268c3d1675d2b01faf3e9b4811af1f8c"
+    },
+    "raw/jobs/libre-motion-edited/ui/source-overview-1.canvas.png": {
+      "bytes": 13612,
+      "sha256": "1aee476c73097263d3f9cfb9d29f2158eb4a7222ec3bc0d80b3abe8eb64db0e9"
+    },
+    "raw/jobs/libre-motion-edited/ui/source-overview-1.png": {
+      "bytes": 192330,
+      "sha256": "0f7cbe561bfc6b59ebd489d9751cdab5268c3d1675d2b01faf3e9b4811af1f8c"
+    },
+    "raw/jobs/libre-motion-edited/ui_control.py": {
+      "bytes": 4554,
+      "sha256": "e508c2a70b26ff1998fdd4cbc6484a2c7ea7b423e8e76868db8529c44a594881"
+    },
+    "raw/jobs/libre-motion-edited/workflow.py": {
+      "bytes": 11926,
+      "sha256": "8e600a8ff2504df0e3eeb5c04a0053618130889354b94c56e3fcc215b22c7c23"
+    },
+    "raw/jobs/libre-motion-receiving/CONTAINER-LOG.json": {
+      "bytes": 737,
+      "sha256": "f06af5e4f41d88a17c7446a0895a86125856742bf8073fca250264dccebb0b80"
+    },
+    "raw/jobs/libre-motion-receiving/ENVIRONMENT.json": {
+      "bytes": 1083,
+      "sha256": "c51b29b84c106444a243dd59df98467164d97327204a5e6a3032f0b9117e8bd0"
+    },
+    "raw/jobs/libre-motion-receiving/JOB-FREEZE.json": {
+      "bytes": 1434,
+      "sha256": "09cb110cfcc4d96d25bc5d245faa2f3e5e68ac2f922d018d7dc1e893d2dab41a"
+    },
+    "raw/jobs/libre-motion-receiving/METHOD.md": {
+      "bytes": 5339,
+      "sha256": "e1bbc04db242370dc00cf6ef237c1f5022599ec200206717cd7df08dc095e04b"
+    },
+    "raw/jobs/libre-motion-receiving/PLAN.md": {
+      "bytes": 5204,
+      "sha256": "1d3f3a4985cb9aa21bc81d39bb1bc6b3963ef1a675af10b734f65fa81a46dd4b"
+    },
+    "raw/jobs/libre-motion-receiving/baseline.dxf": {
+      "bytes": 105607,
+      "sha256": "566a709103084390b276711c1557f460a263c800f2d32c9a6c76db80e09ce754"
+    },
+    "raw/jobs/libre-motion-receiving/candidate.dxf": {
+      "bytes": 21300,
+      "sha256": "c95e3478d9ca1cd4f80599a9408ca35dc843e922900fad1ea937d7dc47781e13"
+    },
+    "raw/jobs/libre-motion-receiving/dbus-address.txt": {
+      "bytes": 68,
+      "sha256": "b381aabdf1847d2eaab6880660026533c6e5d48d77965138fdea4f9aa45a5086"
+    },
+    "raw/jobs/libre-motion-receiving/edited.dxf": {
+      "bytes": 105606,
+      "sha256": "7a2978c3a22d2465030f1ff03befae3f693704717267851ddd3dfb1e6973ec08"
+    },
+    "raw/jobs/libre-motion-receiving/inspect_ui.py": {
+      "bytes": 1439,
+      "sha256": "c41e118f8108e02dcef6ba9d90cf280d68851ba4b7cb6a870b96a4c9deb5c03e"
+    },
+    "raw/jobs/libre-motion-receiving/job.json": {
+      "bytes": 709,
+      "sha256": "72e7138a7bb3e82e641c2436b3dad33862ac230afd9e26a6f914e11102de0fb6"
+    },
+    "raw/jobs/libre-motion-receiving/launch_case.py": {
+      "bytes": 2906,
+      "sha256": "beee5842b37f0bea6cade0afb33e8706754e80db29acd22e6f78dd44d74fdc03"
+    },
+    "raw/jobs/libre-motion-receiving/native/PROCESS.json": {
+      "bytes": 1344,
+      "sha256": "0bcb6f9f3b7f7d2b31fe725e9bb1e0e398a70d478d4eddf4b35b04974e799650"
+    },
+    "raw/jobs/libre-motion-receiving/native/controller.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/libre-motion-receiving/native/controller.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/libre-motion-receiving/native/openbox.log": {
+      "bytes": 85,
+      "sha256": "6f748c3cd02a858c087697c3afac639205c62b7b206558bd40d1bcbd98165a5c"
+    },
+    "raw/jobs/libre-motion-receiving/native/stderr.txt": {
+      "bytes": 8522,
+      "sha256": "81af59e717cf5d0e8d2c2864e5db11b739b4ca6984011537bde9535d4fd21f0e"
+    },
+    "raw/jobs/libre-motion-receiving/native/stdout.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/jobs/libre-motion-receiving/native/xvfb.log": {
+      "bytes": 2429,
+      "sha256": "6d73d78138c41bea466314919237a4fe998e5b670a356ab2012f328fff769a7b"
+    },
+    "raw/jobs/libre-motion-receiving/native_controls.py": {
+      "bytes": 800,
+      "sha256": "767246eef54db970e4a1a590b2e5797a41305046dfebc98dfdc7bc759105e832"
+    },
+    "raw/jobs/libre-motion-receiving/observe_case.js": {
+      "bytes": 2810,
+      "sha256": "24e09cf1c30a5f818014ca3662d847030066185f1468b31b563bd8163e4c6070"
+    },
+    "raw/jobs/libre-motion-receiving/prepare.py": {
+      "bytes": 4665,
+      "sha256": "a4515b8ba619803d5b6a431114e69f459c7aedb2b0c2437eb2fc0252ede9240a"
+    },
+    "raw/jobs/libre-motion-receiving/replies/1.json": {
+      "bytes": 232,
+      "sha256": "c4733a44515b0d814ac0a1c121fd790225d99b8cf1e6ee9b5351fabfe0b37273"
+    },
+    "raw/jobs/libre-motion-receiving/replies/10.json": {
+      "bytes": 1241,
+      "sha256": "d860aec1a6fb1f2024cd9efa7f88b1e12c3f368addd013225907771e1810df9d"
+    },
+    "raw/jobs/libre-motion-receiving/replies/11.json": {
+      "bytes": 1121,
+      "sha256": "438e0b501ad90ecb446b31ed70357b3e9d10ca015ca22e1483b01e34bc967b02"
+    },
+    "raw/jobs/libre-motion-receiving/replies/12.json": {
+      "bytes": 1244,
+      "sha256": "3fe011bb4470013895ec2887125d85a66069aa3d691b77a2bb9b3100f3feea5a"
+    },
+    "raw/jobs/libre-motion-receiving/replies/13.json": {
+      "bytes": 1123,
+      "sha256": "85456dd0d3fe3dd748a9da9a2e94a01e8309a8e90d632571c6cdbdb939f30901"
+    },
+    "raw/jobs/libre-motion-receiving/replies/14.json": {
+      "bytes": 1123,
+      "sha256": "5bcc2d41a308a0afdf23738d7b6870e50b3407c926f074882e873694ff8504e4"
+    },
+    "raw/jobs/libre-motion-receiving/replies/15.json": {
+      "bytes": 1123,
+      "sha256": "3a38e8448e6b2e7130ef06b8859e235963723eab464c0ce21c16e12f3f2eadfc"
+    },
+    "raw/jobs/libre-motion-receiving/replies/16.json": {
+      "bytes": 233,
+      "sha256": "a6b9051017015017cdd63918911ae3cc79c5b88c537d00f537e4eaef2b8f9189"
+    },
+    "raw/jobs/libre-motion-receiving/replies/17.json": {
+      "bytes": 233,
+      "sha256": "9db2bdc6bd65b0042c56b903b702d5d589bca3c7f005dc3c2b971cfa614c4abf"
+    },
+    "raw/jobs/libre-motion-receiving/replies/18.json": {
+      "bytes": 1119,
+      "sha256": "eedf9815647f05f9647222f537932ab7fbeab33357d3ffade36968a12ead5593"
+    },
+    "raw/jobs/libre-motion-receiving/replies/19.json": {
+      "bytes": 1119,
+      "sha256": "b0e385eb21fce79abd579cf15ec6cc8263ba1c8bd030a978f27929ae1b3c44e8"
+    },
+    "raw/jobs/libre-motion-receiving/replies/2.json": {
+      "bytes": 232,
+      "sha256": "fd199d0cbcc27c4dcb89ba932b0a275459581c19828633dc8b4300b21d8eac3b"
+    },
+    "raw/jobs/libre-motion-receiving/replies/20.json": {
+      "bytes": 1119,
+      "sha256": "85f02538db9db9f85070a0f335c5dd408d649b60b9e7f080772332e8eae7e95d"
+    },
+    "raw/jobs/libre-motion-receiving/replies/21.json": {
+      "bytes": 1130,
+      "sha256": "566b71302d86baa5b7421367745969f679c249f89b265dcb3c1deae2c18f7200"
+    },
+    "raw/jobs/libre-motion-receiving/replies/22.json": {
+      "bytes": 1119,
+      "sha256": "383641095576008e39fff36b99217e79332a0736997e6f0bdeb720f18f17c96a"
+    },
+    "raw/jobs/libre-motion-receiving/replies/23.json": {
+      "bytes": 1243,
+      "sha256": "8fd8bdf95a13db6d88cf31203b62929b813e24f9f5fc0c0a4c623974bdf66690"
+    },
+    "raw/jobs/libre-motion-receiving/replies/24.json": {
+      "bytes": 1123,
+      "sha256": "e6c8d8afd37a1361c22bdb2096d616b30e07bf2e972f9f48a6c66fe16c52250e"
+    },
+    "raw/jobs/libre-motion-receiving/replies/25.json": {
+      "bytes": 1246,
+      "sha256": "56092d1086aa14b6f3ed7a888f67031321559aa69535ba549e9bfdc2c55aa650"
+    },
+    "raw/jobs/libre-motion-receiving/replies/26.json": {
+      "bytes": 1122,
+      "sha256": "a697a2d60e84f5f850efaeb0825fd17becd15bad69eedeb222eec6ad32ec91b0"
+    },
+    "raw/jobs/libre-motion-receiving/replies/27.json": {
+      "bytes": 1248,
+      "sha256": "5d24308df8debf39a548c76b8ae888e48283894463b30bcfef81653e9fa215f5"
+    },
+    "raw/jobs/libre-motion-receiving/replies/28.json": {
+      "bytes": 1125,
+      "sha256": "e9483e82cb62bd0387e51d7284e74614223648256d13bb363396d5d2ffb82f33"
+    },
+    "raw/jobs/libre-motion-receiving/replies/29.json": {
+      "bytes": 1125,
+      "sha256": "5a363ed8a41558e1741867b68d0d1e68c4ab0abbdee1633a58e6bf145b6583ca"
+    },
+    "raw/jobs/libre-motion-receiving/replies/3.json": {
+      "bytes": 1113,
+      "sha256": "7cc1b9ac6c8c2fb5bec7d2000b9df0e019f3a63f36bacdae021692375f4b4b8c"
+    },
+    "raw/jobs/libre-motion-receiving/replies/30.json": {
+      "bytes": 1125,
+      "sha256": "ac13df230ecdcbc838201c5663776e8893863ccf066aca8fa083fd953c140c8b"
+    },
+    "raw/jobs/libre-motion-receiving/replies/31.json": {
+      "bytes": 233,
+      "sha256": "9398449bb3cebc8604b90d982a22bc67c78a76a0a03dedcaf83fc876be45a7f1"
+    },
+    "raw/jobs/libre-motion-receiving/replies/32.json": {
+      "bytes": 233,
+      "sha256": "36db35dcdda4582d76d0eb72a0d470487142162e2b611159969c147a6e02a52e"
+    },
+    "raw/jobs/libre-motion-receiving/replies/33.json": {
+      "bytes": 1118,
+      "sha256": "928a366a2afcce23c8fba80251adf02b643f2d2894e3d31e56ec342c7ec090e2"
+    },
+    "raw/jobs/libre-motion-receiving/replies/34.json": {
+      "bytes": 1118,
+      "sha256": "db92f5e559ef49aa2c82757a922ae13ccc8ac3b2f26b3c9e7d8f4688dca74e92"
+    },
+    "raw/jobs/libre-motion-receiving/replies/35.json": {
+      "bytes": 1118,
+      "sha256": "2eade97e2e0af47badefbdd01a1c341eaaafa918f44a4ed5469c21c3fbe3460a"
+    },
+    "raw/jobs/libre-motion-receiving/replies/36.json": {
+      "bytes": 1129,
+      "sha256": "f7fb83107b49d96ac6bb1bbd93b8ae241905046f544046f870c982ba1ca13f4d"
+    },
+    "raw/jobs/libre-motion-receiving/replies/37.json": {
+      "bytes": 1118,
+      "sha256": "1839da9daf1cd9a7899ca1b4507eef1728661ade36f6936b424eb1bb02f4b5b2"
+    },
+    "raw/jobs/libre-motion-receiving/replies/38.json": {
+      "bytes": 1240,
+      "sha256": "88608e7b6a7290a3342f96897884a9ca4115a8617b80c66cd85f34f50baa5546"
+    },
+    "raw/jobs/libre-motion-receiving/replies/39.json": {
+      "bytes": 1117,
+      "sha256": "81a5c693ae3a3e957ae15bab5e04d08d0a99fbb04b0e1d87e8a4d22e3b134c83"
+    },
+    "raw/jobs/libre-motion-receiving/replies/4.json": {
+      "bytes": 1113,
+      "sha256": "464798137d7c58ede3e7a69b796886e470b57e091eac545b52b3143354db5c50"
+    },
+    "raw/jobs/libre-motion-receiving/replies/40.json": {
+      "bytes": 1238,
+      "sha256": "160a1b376ae6ca75f27f3b3fe1c16f8ad1be64eee5b2f9d8df922f0c160dfce8"
+    },
+    "raw/jobs/libre-motion-receiving/replies/41.json": {
+      "bytes": 1118,
+      "sha256": "72c19a241c76ec2a46ffc65e0e886a5b5b6851e4dfa3ed1b1d943ea7d5e49dd4"
+    },
+    "raw/jobs/libre-motion-receiving/replies/42.json": {
+      "bytes": 1243,
+      "sha256": "a6d2c04fd7ae15ea0c05fb389ba7ea6f2bd6483a07c243555673839e51c84b43"
+    },
+    "raw/jobs/libre-motion-receiving/replies/43.json": {
+      "bytes": 1122,
+      "sha256": "db3049d01c3ceb8c0860ceeac9f69109669d2acc17fb8ede7ef74477bec3c277"
+    },
+    "raw/jobs/libre-motion-receiving/replies/44.json": {
+      "bytes": 1122,
+      "sha256": "35b58274a121c6d161a6a7188d656e9767cd82489e7d99d35b643ac5ade0449c"
+    },
+    "raw/jobs/libre-motion-receiving/replies/45.json": {
+      "bytes": 1122,
+      "sha256": "ef057f6dac8043425df872dcefcbc5e79f350749a1371cc0334eda506655f5bb"
+    },
+    "raw/jobs/libre-motion-receiving/replies/46.json": {
+      "bytes": 233,
+      "sha256": "5a9abfa1e13a35b599c7b081586210fd52117091bf1d7e829dcb6817ae85f4a2"
+    },
+    "raw/jobs/libre-motion-receiving/replies/47.json": {
+      "bytes": 233,
+      "sha256": "7a9d74182e8e41e42801f4461d4c9e8412c5c08eff30fef85b12fba491f69736"
+    },
+    "raw/jobs/libre-motion-receiving/replies/48.json": {
+      "bytes": 1121,
+      "sha256": "8dfd85cdcb79c17ca98169c3fcf1be78389bef84c7c2ac9db0c19d2f81a6321d"
+    },
+    "raw/jobs/libre-motion-receiving/replies/49.json": {
+      "bytes": 1121,
+      "sha256": "f7850edb1e7e7061fff78e204760301755159bb31ca0635454b7ecf660971439"
+    },
+    "raw/jobs/libre-motion-receiving/replies/5.json": {
+      "bytes": 1113,
+      "sha256": "bc791d86f43bf08ed7b414ab874772e27cb4d447ee465b7322f90fc9421c096e"
+    },
+    "raw/jobs/libre-motion-receiving/replies/50.json": {
+      "bytes": 1121,
+      "sha256": "a83694b0f695f1128348d8dfc4e789ac926588c0a71dc063fd3e9cd41069aa0d"
+    },
+    "raw/jobs/libre-motion-receiving/replies/51.json": {
+      "bytes": 1132,
+      "sha256": "2665a1a78ae50166023cbfe9287b3a0a1c1a11527a23945755d58db1a9bbb7f1"
+    },
+    "raw/jobs/libre-motion-receiving/replies/52.json": {
+      "bytes": 1121,
+      "sha256": "c3605fa1d5877973200a790ba2d1c8da549dad981a28e9d758f642822c218a7b"
+    },
+    "raw/jobs/libre-motion-receiving/replies/53.json": {
+      "bytes": 1246,
+      "sha256": "a2df781c84854563dc2cd0a03ee37f2f50aaa485e56d77df1783a181611c46f9"
+    },
+    "raw/jobs/libre-motion-receiving/replies/54.json": {
+      "bytes": 1125,
+      "sha256": "12ee20dc5ea57de0d51e3ae2f71122986d1080606fb866058ab3b6a9a0bbee77"
+    },
+    "raw/jobs/libre-motion-receiving/replies/55.json": {
+      "bytes": 1250,
+      "sha256": "04b099cc2ffe271b34ff63cbcc489c418219f76759d8b561c6837f97e4231290"
+    },
+    "raw/jobs/libre-motion-receiving/replies/56.json": {
+      "bytes": 1121,
+      "sha256": "d16e2eb78469b888ea0a2dee240b5a9cc9669353030dfdaae255a8b56a02dd0c"
+    },
+    "raw/jobs/libre-motion-receiving/replies/57.json": {
+      "bytes": 1249,
+      "sha256": "990c28f43979d04a866ebde38c6d05786e7c8874b305f32321c3fa49316de2d8"
+    },
+    "raw/jobs/libre-motion-receiving/replies/58.json": {
+      "bytes": 1125,
+      "sha256": "4fc53adfd4d8387af0cec1f398124c18f1d1b0d67d410e79e8ec349b8c38cce6"
+    },
+    "raw/jobs/libre-motion-receiving/replies/59.json": {
+      "bytes": 1125,
+      "sha256": "72767e8a487662ead4075df727a6eb0cb1bc0ab7a679091e5559c5d1dcdf6441"
+    },
+    "raw/jobs/libre-motion-receiving/replies/6.json": {
+      "bytes": 1129,
+      "sha256": "05617b7c703a2205c859789f9c5d7fb98a6adfa69a3c11cfd203953658d99873"
+    },
+    "raw/jobs/libre-motion-receiving/replies/60.json": {
+      "bytes": 1125,
+      "sha256": "049bd3cc03b8f5b18229ad85daaab85cd80962568d583636d71577459af5d91b"
+    },
+    "raw/jobs/libre-motion-receiving/replies/61.json": {
+      "bytes": 233,
+      "sha256": "a51ea6ab75d74d8b489af927882c00174a2f4c718130058faa316b40717f12b7"
+    },
+    "raw/jobs/libre-motion-receiving/replies/62.json": {
+      "bytes": 233,
+      "sha256": "30fc0840e348e9b075967cdea6ea4505a30231f0e645881947e78ffe6a237697"
+    },
+    "raw/jobs/libre-motion-receiving/replies/7.json": {
+      "bytes": 1118,
+      "sha256": "2e6faf2a02098197a48f6c3a14f4d210e4251e5676482caea0e8bed52149a425"
+    },
+    "raw/jobs/libre-motion-receiving/replies/8.json": {
+      "bytes": 1239,
+      "sha256": "5995cfc6b5aeb8ac2863eea9ae89cc7defe30b53cf6f1e407dd38b5fc2fb54e2"
+    },
+    "raw/jobs/libre-motion-receiving/replies/9.json": {
+      "bytes": 1118,
+      "sha256": "47e043ef6e5f99e9eefc53f609ef21cbbb4312576c940fce2675f1a7ed7f5424"
+    },
+    "raw/jobs/libre-motion-receiving/request.json": {
+      "bytes": 29,
+      "sha256": "63834f6c2af658699ffe4d785059ac0f4954f3045383caa35b4c59788eb44157"
+    },
+    "raw/jobs/libre-motion-receiving/source.dxf": {
+      "bytes": 21301,
+      "sha256": "724b0557adc753c59e23e864dc08f6de1c1ca50767b4da012be0fadf54d77b04"
+    },
+    "raw/jobs/libre-motion-receiving/ui/001-trial.json": {
+      "bytes": 404654,
+      "sha256": "e847680246b0c55f5d24ed38827e039a2dad11df6f5409c9207fc6dee221dc16"
+    },
+    "raw/jobs/libre-motion-receiving/ui/002-ready.json": {
+      "bytes": 439739,
+      "sha256": "90cfa3ce5d883d5fa17c68c3e60007d6bbec7532cc2f334ba562b11ed171684a"
+    },
+    "raw/jobs/libre-motion-receiving/ui/003-open-dialog.json": {
+      "bytes": 448085,
+      "sha256": "fd77d23b192e162b376d8cf8201c1db3407cf7179413ab8d54d9fc804167d778"
+    },
+    "raw/jobs/libre-motion-receiving/ui/004-opened.json": {
+      "bytes": 445453,
+      "sha256": "42bac5f3fbcf7a851406b1f792d1d1eab650e0b77ac545ae4ccaf421b0f9aa8c"
+    },
+    "raw/jobs/libre-motion-receiving/ui/005-handle-dialog.json": {
+      "bytes": 445448,
+      "sha256": "7f01090481a6b97b967b773986ab347c17a4a70a9d231b2ad243642c4e2352a5"
+    },
+    "raw/jobs/libre-motion-receiving/ui/006-selected.json": {
+      "bytes": 456028,
+      "sha256": "b5e10af1864582cecbd12ccebbcba2957349e0e0a0c951d272c03726d88a7202"
+    },
+    "raw/jobs/libre-motion-receiving/ui/007-closed.json": {
+      "bytes": 439951,
+      "sha256": "1ebc605af35dad4343f1eb681e4ad23a5132cd9c018ebb91fd41bc97847134f5"
+    },
+    "raw/jobs/libre-motion-receiving/ui/008-open-dialog.json": {
+      "bytes": 448297,
+      "sha256": "44f89ae554e4690384a801e02e161e65ec0e6df548b7d69e097d52e357d54359"
+    },
+    "raw/jobs/libre-motion-receiving/ui/009-opened.json": {
+      "bytes": 445673,
+      "sha256": "657625a10ca84344906a3d6a30d7842bb6466a8cb5669865e4f4ecfe5f9b87b7"
+    },
+    "raw/jobs/libre-motion-receiving/ui/010-handle-dialog.json": {
+      "bytes": 445668,
+      "sha256": "307c71bfdec9e65c33f3437b7496941eb5b125f0d961ab19b3e973d99f96a1f1"
+    },
+    "raw/jobs/libre-motion-receiving/ui/011-selected.json": {
+      "bytes": 456248,
+      "sha256": "30bff59e85431d301644a62088bdea4e555b7d02fcacf95d3770f0e5e8202559"
+    },
+    "raw/jobs/libre-motion-receiving/ui/012-closed.json": {
+      "bytes": 440167,
+      "sha256": "53fb5fe2ccf5a7c55e92f53d13b00af0533c75c7c4ff93d15bf8cb81b473d5f6"
+    },
+    "raw/jobs/libre-motion-receiving/ui/013-open-dialog.json": {
+      "bytes": 448513,
+      "sha256": "cb01adc020a02b0852c6d35e3346edc89e13600af20eae79dd161a8f3b1cb766"
+    },
+    "raw/jobs/libre-motion-receiving/ui/014-opened.json": {
+      "bytes": 445881,
+      "sha256": "3f1fc2e9d3ab4f1f7423e427f76e60742a49dc7b7d01058c64d22c9d8de773a2"
+    },
+    "raw/jobs/libre-motion-receiving/ui/015-handle-dialog.json": {
+      "bytes": 445876,
+      "sha256": "961874f57e0f0cd53c37b50e38a423f090d8662dca10db65123b7d99dda4f3f5"
+    },
+    "raw/jobs/libre-motion-receiving/ui/016-selected.json": {
+      "bytes": 456455,
+      "sha256": "a44642d29072b0de63e7bc41831006b019a7e3fc749dbcd6f5f2506580930105"
+    },
+    "raw/jobs/libre-motion-receiving/ui/017-closed.json": {
+      "bytes": 440379,
+      "sha256": "ff6892fe60915a0fa0c728e3abe7628e7537bf13991c4d521147641a67f87d95"
+    },
+    "raw/jobs/libre-motion-receiving/ui/018-open-dialog.json": {
+      "bytes": 448725,
+      "sha256": "692eefb3ad5a82d467c070f15f84742f5eb4f6051b524ee25067aecfa0f0ee1e"
+    },
+    "raw/jobs/libre-motion-receiving/ui/019-opened.json": {
+      "bytes": 446105,
+      "sha256": "ade1f2c635a8f2e1b7e14d298dce4b062703a38567933a273812b24b122b83b0"
+    },
+    "raw/jobs/libre-motion-receiving/ui/020-handle-dialog.json": {
+      "bytes": 446100,
+      "sha256": "9c60191efc7b69595d729111a2d9bc8bbcae808a09a1b8294bbd0c107d0d604b"
+    },
+    "raw/jobs/libre-motion-receiving/ui/021-selected.json": {
+      "bytes": 456679,
+      "sha256": "bb78784b5a98355f982621ba6e1aad73e451cbc8880f82cc9d67eaa4f4f86e22"
+    },
+    "raw/jobs/libre-motion-receiving/ui/022-closed.json": {
+      "bytes": 440597,
+      "sha256": "cb70251887531feae136dc8ba6fc95000d70fd45b6ead611eacf9678bf4859aa"
+    },
+    "raw/jobs/libre-motion-receiving/ui/RESULT.json": {
+      "bytes": 102,
+      "sha256": "eb4be5725e647e6e386a07618309fe15b41e97a31fdbc042e5fa3f59899597eb"
+    },
+    "raw/jobs/libre-motion-receiving/ui/actions.json": {
+      "bytes": 142451,
+      "sha256": "7f621be0de3b6d050e0e53baeeac7783483f573bec59d68093a439aae4c18c3a"
+    },
+    "raw/jobs/libre-motion-receiving/ui/baseline-asset-0.canvas.png": {
+      "bytes": 23908,
+      "sha256": "ffd204ee54ad34c0e3c0873c30f5883095d90dbe5e5ffcf72d5579843ab5049a"
+    },
+    "raw/jobs/libre-motion-receiving/ui/baseline-asset-0.png": {
+      "bytes": 211156,
+      "sha256": "c014a2ffc2c403f63c2bf03c51c36cf6f2ada3c2dc7c3978f7761a4ff92a7718"
+    },
+    "raw/jobs/libre-motion-receiving/ui/baseline-asset-1.canvas.png": {
+      "bytes": 23908,
+      "sha256": "ffd204ee54ad34c0e3c0873c30f5883095d90dbe5e5ffcf72d5579843ab5049a"
+    },
+    "raw/jobs/libre-motion-receiving/ui/baseline-asset-1.png": {
+      "bytes": 211156,
+      "sha256": "c014a2ffc2c403f63c2bf03c51c36cf6f2ada3c2dc7c3978f7761a4ff92a7718"
+    },
+    "raw/jobs/libre-motion-receiving/ui/baseline-labels-0.canvas.png": {
+      "bytes": 26547,
+      "sha256": "7fe3480ddb2a57d7d5e8d560471c8ffe1f30a5064295ea8c357816c42a15390d"
+    },
+    "raw/jobs/libre-motion-receiving/ui/baseline-labels-0.png": {
+      "bytes": 212346,
+      "sha256": "55c93b8caba3151d67dfb4712f9a645e24de3d99f7a08bfdb07a23a791dd3407"
+    },
+    "raw/jobs/libre-motion-receiving/ui/baseline-labels-1.canvas.png": {
+      "bytes": 26547,
+      "sha256": "7fe3480ddb2a57d7d5e8d560471c8ffe1f30a5064295ea8c357816c42a15390d"
+    },
+    "raw/jobs/libre-motion-receiving/ui/baseline-labels-1.png": {
+      "bytes": 212346,
+      "sha256": "55c93b8caba3151d67dfb4712f9a645e24de3d99f7a08bfdb07a23a791dd3407"
+    },
+    "raw/jobs/libre-motion-receiving/ui/baseline-overview-0.canvas.png": {
+      "bytes": 13612,
+      "sha256": "1aee476c73097263d3f9cfb9d29f2158eb4a7222ec3bc0d80b3abe8eb64db0e9"
+    },
+    "raw/jobs/libre-motion-receiving/ui/baseline-overview-0.png": {
+      "bytes": 192558,
+      "sha256": "6c1eb4c662f86ff0d5e0e794eae375374c0dd90e199cd8199fe1d29cfef69e25"
+    },
+    "raw/jobs/libre-motion-receiving/ui/baseline-overview-1.canvas.png": {
+      "bytes": 13612,
+      "sha256": "1aee476c73097263d3f9cfb9d29f2158eb4a7222ec3bc0d80b3abe8eb64db0e9"
+    },
+    "raw/jobs/libre-motion-receiving/ui/baseline-overview-1.png": {
+      "bytes": 192558,
+      "sha256": "6c1eb4c662f86ff0d5e0e794eae375374c0dd90e199cd8199fe1d29cfef69e25"
+    },
+    "raw/jobs/libre-motion-receiving/ui/candidate-asset-0.canvas.png": {
+      "bytes": 23701,
+      "sha256": "95f72fda59b54e09b243ef9892cc191fefb7684cd9aededb094a7be8292f47d2"
+    },
+    "raw/jobs/libre-motion-receiving/ui/candidate-asset-0.png": {
+      "bytes": 211386,
+      "sha256": "439b0e36fe60afeceda222865ae4151c3cacf1d0658bcf61fd99ff2b1a9a48fb"
+    },
+    "raw/jobs/libre-motion-receiving/ui/candidate-asset-1.canvas.png": {
+      "bytes": 23701,
+      "sha256": "95f72fda59b54e09b243ef9892cc191fefb7684cd9aededb094a7be8292f47d2"
+    },
+    "raw/jobs/libre-motion-receiving/ui/candidate-asset-1.png": {
+      "bytes": 211386,
+      "sha256": "439b0e36fe60afeceda222865ae4151c3cacf1d0658bcf61fd99ff2b1a9a48fb"
+    },
+    "raw/jobs/libre-motion-receiving/ui/candidate-labels-0.canvas.png": {
+      "bytes": 26345,
+      "sha256": "0cfff4b5915fd186bcfa017523aacf416008feeb291d8e6b06134c943b1f5f27"
+    },
+    "raw/jobs/libre-motion-receiving/ui/candidate-labels-0.png": {
+      "bytes": 212508,
+      "sha256": "d48d0306b84a08bdcd369c4fe0525aaed88ce4b85f92bd0489bdde993d9f9d86"
+    },
+    "raw/jobs/libre-motion-receiving/ui/candidate-labels-1.canvas.png": {
+      "bytes": 26345,
+      "sha256": "0cfff4b5915fd186bcfa017523aacf416008feeb291d8e6b06134c943b1f5f27"
+    },
+    "raw/jobs/libre-motion-receiving/ui/candidate-labels-1.png": {
+      "bytes": 212508,
+      "sha256": "d48d0306b84a08bdcd369c4fe0525aaed88ce4b85f92bd0489bdde993d9f9d86"
+    },
+    "raw/jobs/libre-motion-receiving/ui/candidate-overview-0.canvas.png": {
+      "bytes": 13491,
+      "sha256": "eba456a034da49419dd52d0ffc665e2577511eed8486b65ff39bc8c08e7d999c"
+    },
+    "raw/jobs/libre-motion-receiving/ui/candidate-overview-0.png": {
+      "bytes": 192775,
+      "sha256": "0e79a7fa62257cd7650b09288142a945be6c627e141f164fe818026bb0029f07"
+    },
+    "raw/jobs/libre-motion-receiving/ui/candidate-overview-1.canvas.png": {
+      "bytes": 13491,
+      "sha256": "eba456a034da49419dd52d0ffc665e2577511eed8486b65ff39bc8c08e7d999c"
+    },
+    "raw/jobs/libre-motion-receiving/ui/candidate-overview-1.png": {
+      "bytes": 192775,
+      "sha256": "0e79a7fa62257cd7650b09288142a945be6c627e141f164fe818026bb0029f07"
+    },
+    "raw/jobs/libre-motion-receiving/ui/edited-asset-0.canvas.png": {
+      "bytes": 23701,
+      "sha256": "95f72fda59b54e09b243ef9892cc191fefb7684cd9aededb094a7be8292f47d2"
+    },
+    "raw/jobs/libre-motion-receiving/ui/edited-asset-0.png": {
+      "bytes": 210260,
+      "sha256": "462dd72edb5fdb6090aed305e6f310e5cd8d1a8405c9193df22eb98c4a7f592a"
+    },
+    "raw/jobs/libre-motion-receiving/ui/edited-asset-1.canvas.png": {
+      "bytes": 23701,
+      "sha256": "95f72fda59b54e09b243ef9892cc191fefb7684cd9aededb094a7be8292f47d2"
+    },
+    "raw/jobs/libre-motion-receiving/ui/edited-asset-1.png": {
+      "bytes": 210260,
+      "sha256": "462dd72edb5fdb6090aed305e6f310e5cd8d1a8405c9193df22eb98c4a7f592a"
+    },
+    "raw/jobs/libre-motion-receiving/ui/edited-labels-0.canvas.png": {
+      "bytes": 26345,
+      "sha256": "0cfff4b5915fd186bcfa017523aacf416008feeb291d8e6b06134c943b1f5f27"
+    },
+    "raw/jobs/libre-motion-receiving/ui/edited-labels-0.png": {
+      "bytes": 211367,
+      "sha256": "77795384a22020e8078dbed76ea44374102974a05e8db54c132cbbe88c7e4920"
+    },
+    "raw/jobs/libre-motion-receiving/ui/edited-labels-1.canvas.png": {
+      "bytes": 26345,
+      "sha256": "0cfff4b5915fd186bcfa017523aacf416008feeb291d8e6b06134c943b1f5f27"
+    },
+    "raw/jobs/libre-motion-receiving/ui/edited-labels-1.png": {
+      "bytes": 211367,
+      "sha256": "77795384a22020e8078dbed76ea44374102974a05e8db54c132cbbe88c7e4920"
+    },
+    "raw/jobs/libre-motion-receiving/ui/edited-overview-0.canvas.png": {
+      "bytes": 13491,
+      "sha256": "eba456a034da49419dd52d0ffc665e2577511eed8486b65ff39bc8c08e7d999c"
+    },
+    "raw/jobs/libre-motion-receiving/ui/edited-overview-0.png": {
+      "bytes": 191668,
+      "sha256": "0b98e33d6e7d3b6a6bd848430b28c632ee00ee0a7ed4594f83501fc782c4d060"
+    },
+    "raw/jobs/libre-motion-receiving/ui/edited-overview-1.canvas.png": {
+      "bytes": 13491,
+      "sha256": "eba456a034da49419dd52d0ffc665e2577511eed8486b65ff39bc8c08e7d999c"
+    },
+    "raw/jobs/libre-motion-receiving/ui/edited-overview-1.png": {
+      "bytes": 191668,
+      "sha256": "0b98e33d6e7d3b6a6bd848430b28c632ee00ee0a7ed4594f83501fc782c4d060"
+    },
+    "raw/jobs/libre-motion-receiving/ui/source-asset-0.canvas.png": {
+      "bytes": 23908,
+      "sha256": "ffd204ee54ad34c0e3c0873c30f5883095d90dbe5e5ffcf72d5579843ab5049a"
+    },
+    "raw/jobs/libre-motion-receiving/ui/source-asset-0.png": {
+      "bytes": 210918,
+      "sha256": "c1ddaea214b846c593e4e6593308473f1421b44c5500b30e32835d1780bd176c"
+    },
+    "raw/jobs/libre-motion-receiving/ui/source-asset-1.canvas.png": {
+      "bytes": 23908,
+      "sha256": "ffd204ee54ad34c0e3c0873c30f5883095d90dbe5e5ffcf72d5579843ab5049a"
+    },
+    "raw/jobs/libre-motion-receiving/ui/source-asset-1.png": {
+      "bytes": 210918,
+      "sha256": "c1ddaea214b846c593e4e6593308473f1421b44c5500b30e32835d1780bd176c"
+    },
+    "raw/jobs/libre-motion-receiving/ui/source-labels-0.canvas.png": {
+      "bytes": 26547,
+      "sha256": "7fe3480ddb2a57d7d5e8d560471c8ffe1f30a5064295ea8c357816c42a15390d"
+    },
+    "raw/jobs/libre-motion-receiving/ui/source-labels-0.png": {
+      "bytes": 212117,
+      "sha256": "1d2f88b42fa79cc0d0b8c4bbae79480e20786217176e31ffd400c19a355f2814"
+    },
+    "raw/jobs/libre-motion-receiving/ui/source-labels-1.canvas.png": {
+      "bytes": 26547,
+      "sha256": "7fe3480ddb2a57d7d5e8d560471c8ffe1f30a5064295ea8c357816c42a15390d"
+    },
+    "raw/jobs/libre-motion-receiving/ui/source-labels-1.png": {
+      "bytes": 212117,
+      "sha256": "1d2f88b42fa79cc0d0b8c4bbae79480e20786217176e31ffd400c19a355f2814"
+    },
+    "raw/jobs/libre-motion-receiving/ui/source-overview-0.canvas.png": {
+      "bytes": 13612,
+      "sha256": "1aee476c73097263d3f9cfb9d29f2158eb4a7222ec3bc0d80b3abe8eb64db0e9"
+    },
+    "raw/jobs/libre-motion-receiving/ui/source-overview-0.png": {
+      "bytes": 192330,
+      "sha256": "0f7cbe561bfc6b59ebd489d9751cdab5268c3d1675d2b01faf3e9b4811af1f8c"
+    },
+    "raw/jobs/libre-motion-receiving/ui/source-overview-1.canvas.png": {
+      "bytes": 13612,
+      "sha256": "1aee476c73097263d3f9cfb9d29f2158eb4a7222ec3bc0d80b3abe8eb64db0e9"
+    },
+    "raw/jobs/libre-motion-receiving/ui/source-overview-1.png": {
+      "bytes": 192330,
+      "sha256": "0f7cbe561bfc6b59ebd489d9751cdab5268c3d1675d2b01faf3e9b4811af1f8c"
+    },
+    "raw/jobs/libre-motion-receiving/ui_control.py": {
+      "bytes": 4554,
+      "sha256": "e508c2a70b26ff1998fdd4cbc6484a2c7ea7b423e8e76868db8529c44a594881"
+    },
+    "raw/jobs/libre-motion-receiving/workflow.py": {
+      "bytes": 11926,
+      "sha256": "8e600a8ff2504df0e3eeb5c04a0053618130889354b94c56e3fcc215b22c7c23"
+    }
+  },
+  "packager_sha256": "bcd5f404b0c2c7a88cc1c97e1cca7fdbbf461b70882525a4e2707366125823e7",
+  "exclusions": [
+    "Selected original/working settings contents; hashes retained",
+    "Publisher binaries and compiled libraries",
+    "Python bytecode"
+  ]
+}
