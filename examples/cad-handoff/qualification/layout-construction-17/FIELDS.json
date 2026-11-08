@@ -1,0 +1,239 @@
+[
+  {
+    "getter": "getPlotPaperMarginLeftMM",
+    "offset": 216,
+    "size": 8,
+    "type": "double",
+    "expected_before": {
+      "preset-a": "000000000000f23f",
+      "preset-b": "0000000000000240"
+    },
+    "expected_after_constructor": {
+      "preset-a": "000000000000f23f",
+      "preset-b": "0000000000000240"
+    },
+    "expected_detached": {
+      "preset-a": 1.125,
+      "preset-b": 2.25
+    }
+  },
+  {
+    "getter": "getPlotPaperMarginBottomMM",
+    "offset": 224,
+    "size": 8,
+    "type": "double",
+    "expected_before": {
+      "preset-a": "000000000000f23f",
+      "preset-b": "0000000000000240"
+    },
+    "expected_after_constructor": {
+      "preset-a": "000000000000f23f",
+      "preset-b": "0000000000000240"
+    },
+    "expected_detached": {
+      "preset-a": 1.125,
+      "preset-b": 2.25
+    }
+  },
+  {
+    "getter": "getPlotPaperMarginRightMM",
+    "offset": 232,
+    "size": 8,
+    "type": "double",
+    "expected_before": {
+      "preset-a": "000000000000f23f",
+      "preset-b": "0000000000000240"
+    },
+    "expected_after_constructor": {
+      "preset-a": "000000000000f23f",
+      "preset-b": "0000000000000240"
+    },
+    "expected_detached": {
+      "preset-a": 1.125,
+      "preset-b": 2.25
+    }
+  },
+  {
+    "getter": "getPlotPaperMarginTopMM",
+    "offset": 240,
+    "size": 8,
+    "type": "double",
+    "expected_before": {
+      "preset-a": "000000000000f23f",
+      "preset-b": "0000000000000240"
+    },
+    "expected_after_constructor": {
+      "preset-a": "000000000000f23f",
+      "preset-b": "0000000000000240"
+    },
+    "expected_detached": {
+      "preset-a": 1.125,
+      "preset-b": 2.25
+    }
+  },
+  {
+    "getter": "getNumeratorCustomScale",
+    "offset": 376,
+    "size": 8,
+    "type": "double",
+    "expected_before": {
+      "preset-a": "000000000000f23f",
+      "preset-b": "0000000000000240"
+    },
+    "expected_after_constructor": {
+      "preset-a": "000000000000f23f",
+      "preset-b": "0000000000000240"
+    },
+    "expected_detached": {
+      "preset-a": 1.125,
+      "preset-b": 2.25
+    }
+  },
+  {
+    "getter": "getDenominatorCustomScale",
+    "offset": 384,
+    "size": 8,
+    "type": "double",
+    "expected_before": {
+      "preset-a": "000000000000f23f",
+      "preset-b": "0000000000000240"
+    },
+    "expected_after_constructor": {
+      "preset-a": "000000000000f23f",
+      "preset-b": "0000000000000240"
+    },
+    "expected_detached": {
+      "preset-a": 1.125,
+      "preset-b": 2.25
+    }
+  },
+  {
+    "getter": "getPlotPaperUnits",
+    "offset": 392,
+    "size": 4,
+    "type": "enum",
+    "expected_before": {
+      "preset-a": "00000000",
+      "preset-b": "01000000"
+    },
+    "expected_after_constructor": {
+      "preset-a": "00000000",
+      "preset-b": "01000000"
+    },
+    "expected_detached": {
+      "preset-a": 0,
+      "preset-b": 1
+    }
+  },
+  {
+    "getter": "getPlotRotation",
+    "offset": 396,
+    "size": 4,
+    "type": "enum",
+    "expected_before": {
+      "preset-a": "00000000",
+      "preset-b": "01000000"
+    },
+    "expected_after_constructor": {
+      "preset-a": "00000000",
+      "preset-b": "01000000"
+    },
+    "expected_detached": {
+      "preset-a": 0,
+      "preset-b": 1
+    }
+  },
+  {
+    "getter": "getPlotType",
+    "offset": 400,
+    "size": 4,
+    "type": "enum",
+    "expected_before": {
+      "preset-a": "00000000",
+      "preset-b": "01000000"
+    },
+    "expected_after_constructor": {
+      "preset-a": "00000000",
+      "preset-b": "01000000"
+    },
+    "expected_detached": {
+      "preset-a": 0,
+      "preset-b": 1
+    }
+  },
+  {
+    "getter": "getUseStandardScale",
+    "offset": 404,
+    "size": 1,
+    "type": "bool",
+    "expected_before": {
+      "preset-a": "00",
+      "preset-b": "01"
+    },
+    "expected_after_constructor": {
+      "preset-a": "00",
+      "preset-b": "01"
+    },
+    "expected_detached": {
+      "preset-a": false,
+      "preset-b": true
+    }
+  },
+  {
+    "getter": "getStandardScale",
+    "offset": 408,
+    "size": 8,
+    "type": "double",
+    "expected_before": {
+      "preset-a": "000000000000f23f",
+      "preset-b": "0000000000000240"
+    },
+    "expected_after_constructor": {
+      "preset-a": "000000000000f23f",
+      "preset-b": "0000000000000240"
+    },
+    "expected_detached": {
+      "preset-a": 1.125,
+      "preset-b": 2.25
+    }
+  },
+  {
+    "getter": "getStandardScaleType",
+    "offset": 416,
+    "size": 4,
+    "type": "enum",
+    "expected_before": {
+      "preset-a": "00000000",
+      "preset-b": "01000000"
+    },
+    "expected_after_constructor": {
+      "preset-a": "00000000",
+      "preset-b": "01000000"
+    },
+    "expected_detached": {
+      "preset-a": 0,
+      "preset-b": 1
+    }
+  },
+  {
+    "getter": "getTabOrder",
+    "offset": 48,
+    "size": 4,
+    "type": "tab",
+    "expected_before": {
+      "tab-only": "d2040000"
+    },
+    "expected_after_constructor": {
+      "observe": "00000000",
+      "preset-a": "00000000",
+      "preset-b": "00000000",
+      "tab-only": "00000000"
+    },
+    "expected_detached": {
+      "observe": 0,
+      "preset-a": 0,
+      "preset-b": 0,
+      "tab-only": 0
+    }
+  }
+]

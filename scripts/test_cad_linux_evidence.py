@@ -10,6 +10,99 @@ import cad_handoff as ch
 
 
 class RetainedLinuxNativeEvidence(unittest.TestCase):
+    def layout_module(self):
+        path = Path(__file__).resolve().parents[1] / 'examples/cad-handoff/qualification/check_layout17.py'
+        spec = importlib.util.spec_from_file_location('cad_layout17_receiver', path)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        return module
+
+    def test_actual_constructor_presets_remain_a_diagnostic(self):
+        result = self.layout_module().check()
+        self.assertEqual(result['document_jobs'], 56)
+        self.assertEqual([r['calls'] for r in result['constructors'].values()], [68] * 4)
+        self.assertEqual(result['inventory_comparisons'], 168)
+        self.assertEqual(result['target_differences'], 2355)
+        self.assertEqual(result['non_target_differences'], 0)
+        self.assertEqual(result['follows_presets'], dict(initial=336, imported=192))
+        self.assertEqual(result['all_modes_equal'], dict(initial=0, imported=180))
+        self.assertTrue(result['constructor_causality_confirmed'])
+        self.assertTrue(result['detached_getters_confirmed'])
+        self.assertEqual(result['cad_files_saved'], 0)
+        self.assertFalse(result['whole_cad_qualified'])
+        self.assertFalse(result['strict_comparison_run'])
+
+    def test_constructor_receiving_refuses_lost_or_altered_observations(self):
+        receiver = self.layout_module()
+        a = receiver.a
+        with tempfile.TemporaryDirectory() as temporary:
+            root = receiver.old.unpack(receiver.BASE, Path(temporary)) / 'attempt-2'
+            fields = a.read(root / 'FIELDS.json')
+            rows = a.records(root / 'native/preset-a.stderr', 'ICT_LAYOUT17_CTOR ')
+            for kind in ('missing_call', 'missing_field', 'wrong_mode', 'wrong_abi', 'pre_write', 'post_write', 'tab_not_reset'):
+                changed = copy.deepcopy(rows)
+                if kind == 'missing_call':
+                    changed.pop(1)
+                elif kind == 'missing_field':
+                    changed[0]['fields'].pop()
+                elif kind == 'wrong_mode':
+                    changed[0]['mode'] = 'observe'
+                elif kind == 'wrong_abi':
+                    changed[0]['fields'][0]['offset'] += 1
+                elif kind == 'tab_not_reset':
+                    changed[0]['fields'][-1]['after_library'] = 'd2040000'
+                else:
+                    changed[0]['fields'][0]['before_library' if kind == 'pre_write' else 'after_library'] = '0000000000000000'
+                with self.subTest(kind=kind), self.assertRaises(ValueError):
+                    a.constructor_rows(changed, fields, 'preset-a')
+            detached = a.records(root / 'native/preset-a.stdout', 'ICT_LAYOUT17_DETACHED ')[0]
+            for kind in ('missing_getter', 'typed_boolean'):
+                changed = copy.deepcopy(detached)
+                if kind == 'missing_getter':
+                    changed['properties'].pop()
+                else:
+                    next(p for p in changed['properties'] if p['getter'] == 'getUseStandardScale')['value'] = dict(type='number', value=0)
+                with self.subTest(kind=kind), self.assertRaises(ValueError):
+                    a.detached(changed, fields, a.read(root / 'KEYS.json'), 'preset-a')
+
+    def test_layout_receiving_keeps_non_target_changes_and_failed_imports(self):
+        receiver = self.layout_module()
+        a = receiver.a
+        with tempfile.TemporaryDirectory() as temporary:
+            root = receiver.old.unpack(receiver.BASE, Path(temporary)) / 'attempt-2'
+            path = root / 'native/observe.stdout'
+            original = path.read_text(encoding='utf-8')
+            prefix = 'ICT_LAYOUT17_JOB '
+            for kind in ('other_change', 'failed_import', 'omitted_variable', 'omitted_job'):
+                lines = original.splitlines()
+                index = next(i for i, line in enumerate(lines) if line.startswith(prefix))
+                row = json.loads(lines[index][len(prefix):])
+                if kind == 'other_change':
+                    row['initial']['file_version'] = 'unrelated changed version'
+                elif kind == 'failed_import':
+                    row['import_code'] = 99
+                elif kind == 'omitted_variable':
+                    row['initial']['headers']['known_variables'].pop()
+                if kind == 'omitted_job':
+                    lines.pop(index)
+                else:
+                    lines[index] = prefix + json.dumps(row)
+                path.write_text('\n'.join(lines) + '\n', encoding='utf-8')
+                with self.subTest(kind=kind):
+                    if kind == 'other_change':
+                        summary, detail = a.analyze(root)
+                        self.assertEqual(summary['non_target_differences'], 3)
+                        self.assertEqual(sum(c['path'] == '/file_version' for r in detail['comparisons'] for c in r['differences']), 3)
+                    else:
+                        with self.assertRaises(ValueError):
+                            a.analyze(root)
+            path.write_text(original, encoding='utf-8')
+            completion = a.read(root / 'native/COMPLETE.json')
+            completion['whole_cad_qualified'] = True
+            ch.write_json(root / 'native/COMPLETE.json', completion)
+            with self.assertRaisesRegex(ValueError, 'completion claim'):
+                a.analyze(root)
+
     def headers_module(self):
         path = Path(__file__).resolve().parents[1] / 'examples/cad-handoff/qualification/check_headers16.py'
         spec = importlib.util.spec_from_file_location('cad_headers16_receiver', path)

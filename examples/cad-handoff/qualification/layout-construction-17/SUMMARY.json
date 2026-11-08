@@ -1,0 +1,60 @@
+{
+  "processes": 4,
+  "document_jobs": 56,
+  "constructors": {
+    "observe": {
+      "calls": 68,
+      "variants": {
+        "_ZN7RLayoutC1EP9RDocumentRK7QString": 67,
+        "_ZN7RLayoutC1Ev": 1
+      },
+      "field_observations": 884
+    },
+    "preset-a": {
+      "calls": 68,
+      "variants": {
+        "_ZN7RLayoutC1EP9RDocumentRK7QString": 67,
+        "_ZN7RLayoutC1Ev": 1
+      },
+      "field_observations": 884
+    },
+    "preset-b": {
+      "calls": 68,
+      "variants": {
+        "_ZN7RLayoutC1EP9RDocumentRK7QString": 67,
+        "_ZN7RLayoutC1Ev": 1
+      },
+      "field_observations": 884
+    },
+    "tab-only": {
+      "calls": 68,
+      "variants": {
+        "_ZN7RLayoutC1EP9RDocumentRK7QString": 67,
+        "_ZN7RLayoutC1Ev": 1
+      },
+      "field_observations": 884
+    }
+  },
+  "constructor_causality_confirmed": true,
+  "detached_getters_confirmed": true,
+  "observed_constructor_variants": [
+    "_ZN7RLayoutC1EP9RDocumentRK7QString",
+    "_ZN7RLayoutC1Ev"
+  ],
+  "inventory_comparisons": 168,
+  "target_differences": 2355,
+  "non_target_differences": 0,
+  "attribution_observations": 708,
+  "follows_presets": {
+    "initial": 336,
+    "imported": 192
+  },
+  "all_modes_equal": {
+    "initial": 0,
+    "imported": 180
+  },
+  "whole_cad_qualified": false,
+  "cad_files_saved": 0,
+  "strict_comparison_run": false,
+  "exposure": "Six exact header16 exposed sources; no reserved qualification"
+}

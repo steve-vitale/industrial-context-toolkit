@@ -1,0 +1,38 @@
+{
+  "inputs": {
+    "cases/libre-air-water/source.dxf": "245a50eefeabc483f16269375a3bf9bd892b9cebd125e76f5ae744f5466f4db8",
+    "cases/libre-motion/source.dxf": "724b0557adc753c59e23e864dc08f6de1c1ca50767b4da012be0fadf54d77b04",
+    "cases/libre-power/source.dxf": "8876b0c66ec7794914a2218072386f5d169a6813a675a579747fa6242cfac2bd",
+    "cases/qcad-hydraulic/source.dxf": "4d768e3a5ca0ba8d5e4762851a349f1679381b51d5fdf2a9b2fc89e86aa430db",
+    "cases/qcad-mechanical/source.dxf": "30c4a41b51dd5474889db30ca336a2cfe18df6d2dc2c6fea5affb5091327a26d",
+    "cases/qcad-template/source.dxf": "6e87cef8ca4178b20e9d4e2b892917636ba2fe02e030ea076379c8d57e6a1f88",
+    "COMPILE.json": "625b40b91729d7839fbd6c87339ac4eff7bdd5ed14acaba57c1b92bfce3136a7",
+    "compile.py": "29c69f48f2e55c58f1dd5d5655dfd24be760edddd0a7853df38abf8811b047df",
+    "compile.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "compile.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "FIELDS.json": "daeafe67a3422a25b73ca80b67e4cee9f8c50bae47ae514c895c7f6e25d6aa4c",
+    "jobs.json": "271fca2d27f7b3cb0503d81061f8b02a88e1ba6681a716487d13da1e4396666b",
+    "KEYS.json": "7c630d851443c4ba71043c69c579fac92f1263a4895fb8842eabd43fa7284304",
+    "layout_ctor.cpp": "e48d7804bfc868a4f6d775f35f1b4346286ed56d15a3e68cd988e6aa97cead14",
+    "native_layouts.js": "9b44ff99bf31d0a92b7e9144bbfa5f44f8a95899e31bf8db1e6dbfead988adc8",
+    "PLAN.md": "0475866175e7d931c9c1efcbc2d84724b4541649169a8cf4d388665f20135993",
+    "PREPARED.json": "90891b96bc3ac23b755e645f0eafc766bd72e72625b041b89cd3728c9c205270",
+    "run_native.py": "e23758225b88456f67fa3205fb3c8aeb7710454af3705dcebb5843b23bf3e6e2",
+    "SOURCE-IDENTITY.json": "9a1ad8f007769d100183afcd234088b09fc2ce608fc7a576ca2500833eb624d1"
+  },
+  "configuration_sha256": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c",
+  "image": "sha256:bb4390214744897de88b2198f0cbf812aec4be42923311298e7a5e3a5646bef8",
+  "compiler_image": "sha256:10eed1af091798666a93fbe6e2cf438bdd3a950cb87d12487eea83ab0859e85e",
+  "library_sha256": "cf911e2ae0fc8d4ab65ec9fccdc82f6ca2aaaa0c62973041df115b17b2f7d5ac",
+  "helper_sha256": "5c34d54a3e6e0660101b67492b5259e4eaa4b6d6a79c46d8e5d5f95b943a4757",
+  "modes": [
+    "observe",
+    "preset-a",
+    "preset-b",
+    "tab-only"
+  ],
+  "jobs_per_mode": 14,
+  "detached_per_mode": 1,
+  "exposure": "Six exact header16 exposed sources; no reserved qualification",
+  "whole_cad_qualified": false
+}

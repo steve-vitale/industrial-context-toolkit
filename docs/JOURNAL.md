@@ -8828,3 +8828,44 @@ fingerprints. No upstream code was copied, adapter claimed or design heuristic m
 The manager route provides a correction queue and receiving boundary; actual preparation/review effort,
 independent engineering judgment, full image interpretation and CAD qualification remain unmeasured/open.
 The registered repository checks and exact-head CI are reported separately from these bounded controls.
+
+## 200. Confirm the installed layout initialization boundary
+
+2026-11-08. The [pre-execution plan](../examples/cad-handoff/qualification/layout-construction-17/PLAN.md)
+and [frozen inputs](../examples/cad-handoff/qualification/layout-construction-17/FREEZE.json) precede
+four actual native processes. An authored LD_PRELOAD helper forwards the installed constructors;
+observation-only, two valid typed plot presets and unrelated tab-order controls use the same six
+exposed source bytes and both exact importers. No substitute constructor, source edit or CAD save occurs.
+
+All 272 recorded constructor calls leave the twelve declared plot locations unchanged and reset tab
+order. Detached native getters return both exact typed preset patterns. Only default and named C1
+variants execute; C2 variants are not observed. All 48 nonempty imports return success. OpenDesign
+replaces the presets in 180 imported layout/getter observations; dxflib retains them in 144. Both
+empty controls retain another 48. Initial documents retain all 336. Across all 168 matched complete
+public-inventory comparisons, 2,355 leaves differ inside targeted getters and zero recorded non-target
+leaves differ. IDs/handles/parents/values are preserved; only set traversal order is keyed/sorted.
+This inventory does not enumerate complete geometry or opaque payloads, and no hash-seed intervention
+is claimed. Invalid/nonfinite observation-only readings remain in the complete raw records.
+
+This is direct installed-library evidence for the bounded initialization gap and receiving boundary.
+It does not explain every native save loss or replace the old strict comparisons. The diagnostic
+presets are not a production repair. Normal full-application open/initialization/print setup is the
+next method candidate; reserved native edit/save/close/reopen, readable receiving and revision checks
+remain open. No plant, company or engineering acceptance follows.
+
+The [offline receiver](../examples/cad-handoff/qualification/check_layout17.py) reproduces the complete
+diagnosis from 66 exact records (5,544,247 raw bytes, 52,256-byte lossless archive), checking frozen
+inputs, compiler/helper identities, actual command/profile/terminal state, every constructor field,
+typed getter coverage and every inventory difference. The same assistant authored the experiment and
+receiver, so this is exposed software validation, not independent engineering review. Original host
+preparation failure metadata, unexecuted preflight snapshots and two reproducible offline receiver
+mistakes remain. Neither receiver correction caused a native rerun. Missing/altered calls, fields,
+ABI locations, typed getters, import coverage, unrelated differences and qualification claims have
+receiving controls. All earlier source/key/profile/comparator files and historical failures remain.
+
+The latest linked [public cross-sheet example](PID_GRAPH_QUESTIONS.md) is recorded separately as a
+design input. Current one-map retains reciprocal pairings and separate disagreements. A future
+path consumer needs explicit accepted/exploratory traversal rules, conflict-qualified register
+projection and source-revision invalidation. A three-sheet exercise is declared as proposed/unrun;
+the author's outcomes are not reproduced results. No graph authority, cause-and-effect engine,
+DEXPI exchange qualification or new CAD performance is inferred from the post.
