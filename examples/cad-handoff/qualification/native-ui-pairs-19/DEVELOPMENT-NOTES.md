@@ -36,3 +36,26 @@ Freeze a corrected input bridge before further input: click the observed editabl
 native focused state, retain the active X11 window, verify actual field text before Tab, then independently
 verify UI and stored native values. A separately labelled recovery may continue the same unmodified process
 after explicitly clearing selection. It retains both failures and never becomes a fresh procedure pass.
+
+The first offline receiver rejected a fresh edited run with `Field expectation changed`. The original
+receiver source, actual failed command/stdout/stderr and exit 1 are retained in receiver-1. Four native_fields
+events in the original actions file all declare QUAL-AFTER, while the first two observed field snapshots
+correctly show QUAL-BEFORE. The producer stored the same mutable expected dictionary in earlier events;
+the later field change retroactively changed their declared metadata when the action list was serialized.
+The independently captured UI trees, native observation replies and actual DXF values retain the real states.
+
+The receiver now derives before/after expectations from the frozen source and workflow phase. It still
+reports each producer expectation mismatch as a FAILED recording check, with both exact values, rather than
+calling the original metadata correct. All observed UI/native/DXF values must independently match. The
+producer remains frozen while the cohort runs; fix its snapshot semantics before new reserved evaluation.
+This diagnostic receiving repair does not remove original failures, change strict CAD checks or establish
+authenticated run records. The clean-controller cohort can still have a recording-quality failure.
+
+The original motion pixel analyzer then refused `Native camera/canvas changed`. Its frozen source,
+receiver source, actual command/stdout/stderr and exit 1 remain in receiver-2. Equal requested frames and
+canvas sizes/factors did not produce bit-identical offsets: source overview Y offset 47.862565912624135
+versus 47.86256591262412 after reopening; the asset offsets also differ in their last decimal places.
+This remains a failed exact-camera repeat, not an accepted tolerance. An additional diagnostic reports
+all exact camera values and every pixel comparison under the original two-pixel label-region recipe.
+Its results are explicitly diagnostic when camera equality fails. No image is aligned, resized, dropped,
+or masked differently. A future native camera correction needs its own frozen method and actual repeat.
