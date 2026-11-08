@@ -29,9 +29,9 @@ def unpack(packet):
     return files
 
 
-def package(attempt, execution, failures, receipt, out):
+def package(attempt, execution, failures, receipt, out, methods=HERE/'METHODS-1.json'):
     require(not out.exists(), 'New packet destination required')
-    actual = receive(attempt,HERE/'PREPARATION-1.json',HERE/'METHODS-1.json')
+    actual = receive(attempt,HERE/'PREPARATION-1.json',methods)
     require(equal(actual,read(receipt/'RESULT.json')) and read(execution/'EXIT.json')['exit'] == 0, 'Actual receiving result/host exit differs')
     files = {}
     folders = [('attempt',attempt),('execution',execution),('receiving',receipt)]
@@ -41,6 +41,7 @@ def package(attempt, execution, failures, receipt, out):
             if path.is_file(): files[prefix+'/'+path.relative_to(folder).as_posix()] = path.read_bytes()
     for name in ('METHODS-1.json','PREPARATION-1.json','receive.py','evidence.py'):
         files['methods/'+name] = (HERE/name).read_bytes()
+    if methods.resolve() != (HERE/'METHODS-1.json').resolve(): files['methods/SELECTED-METHODS.json'] = methods.read_bytes()
     require(len(files) <= MAX_FILES and sum(map(len,files.values())) <= MAX_RAW and max(map(len,files.values())) <= MAX_FILE, 'Packet exceeds frozen packaging bounds')
     out.mkdir(parents=True); archive = out/'evidence.tar.xz'
     with tarfile.open(archive,'w:xz',preset=6) as target:
@@ -55,4 +56,5 @@ def package(attempt, execution, failures, receipt, out):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     for name in ('attempt','execution','failures','receipt','out'): parser.add_argument(name,type=Path)
+    parser.add_argument('--methods',type=Path,default=HERE/'METHODS-1.json')
     print(json.dumps(package(**vars(parser.parse_args())),indent=2))

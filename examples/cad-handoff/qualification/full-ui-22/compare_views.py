@@ -33,9 +33,9 @@ def pixel_counts(left,right,regions,destination):
     return dict(changed_pixels=changed,outside_permitted_regions=outside,permitted_regions=regions,pixel_status='pass' if outside == 0 else 'failed',size=list(left.size))
 
 
-def compare(packet,returns,out):
+def compare(packet,returns,out,methods=HERE/'METHODS-1.json'):
     require(not out.exists(), 'New pixel comparison destination required')
-    receipt = receive(packet,HERE/'PREPARATION-1.json',HERE/'METHODS-1.json')
+    receipt = receive(packet,HERE/'PREPARATION-1.json',methods)
     require(receipt['role'] == 'receiving', 'Fresh receiving role required')
     job = packet/'job'; basis = read(job/'job.json'); case = basis['case']
     for role in ('baseline','edited'):
@@ -52,12 +52,12 @@ def compare(packet,returns,out):
             with Image.open(paths[0]) as a,Image.open(paths[1]) as b: result = pixel_counts(a,b,permitted,out/name)
             rows.append(dict(frame=frame,left=left,right=right,difference_image=name,**result))
     result = dict(case=case,method='Frozen METHOD.md exact cameras and separate source/candidate planned-label regions; no registration/tolerance',
-                  sources={name:sha(job/(name+'.dxf')) for name in ('source','baseline','edited','candidate')},comparisons=rows,
+                  sources={name:sha(job/(name+'.dxf')) for name in ('source','baseline','edited','candidate')},methods_sha256=sha(methods),comparisons=rows,
                   agent_visual_review='separate unfinished gate',paper_view='unfinished',whole_cad_qualified=False)
     (out/'RESULT.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8',newline='\n')
     return result
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description=__doc__); parser.add_argument('packet',type=Path); parser.add_argument('returns',type=Path); parser.add_argument('--out',type=Path,required=True);args = parser.parse_args()
-    result = compare(args.packet,args.returns,args.out); print(json.dumps(dict(case=result['case'],comparisons=len(result['comparisons']),outside_pixels=sum(r['outside_permitted_regions'] for r in result['comparisons']),whole_cad_qualified=False)))
+    parser = argparse.ArgumentParser(description=__doc__); parser.add_argument('packet',type=Path); parser.add_argument('returns',type=Path); parser.add_argument('--out',type=Path,required=True);parser.add_argument('--methods',type=Path,default=HERE/'METHODS-1.json');args = parser.parse_args()
+    result = compare(args.packet,args.returns,args.out,args.methods); print(json.dumps(dict(case=result['case'],comparisons=len(result['comparisons']),outside_pixels=sum(r['outside_permitted_regions'] for r in result['comparisons']),whole_cad_qualified=False)))
