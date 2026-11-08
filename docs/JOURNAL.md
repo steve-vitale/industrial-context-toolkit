@@ -9158,3 +9158,17 @@ retained in camera-repeat-20/validation/integration-1. All original replay and
 loss controls pass beside the five new methods. This is not the full95-program
 repository suite. Three original native receiving containers remain live; no
 camera-cohort success or reserved qualification is inferred from the tests.
+
+
+### 207 follow-up: reproduce the old drift beside exact absolute cameras
+
+Motion,power and hydraulic subsequently completed original controller/native/
+container exits0 and independent portable receiving. Across the four received
+cases:344 native observations,16field panels,96views/384images and72pixelpairs.
+Every pair has zero outside-region changes. Old zoomTo reproduces motion's two
+failed frames and power's one (nine diagnostic pairs); absolute requested/actual
+and four-file cameras match exactly on all four cases. This is evidence for the
+proposed exposed-development camera procedure, without tolerance or image
+alignment. It does not prove installed proprietary internals or new independent
+transfer. All original failures remain. Mechanical/template have now started
+automatically and are live; both remain required before a cohort conclusion.
