@@ -18,6 +18,7 @@ static thread_local int forwarding = 0;
 struct Forwarding { Forwarding(){++forwarding;} ~Forwarding(){--forwarding;} };
 static std::mutex outputMutex;
 static unsigned long serial = 0;
+static FILE *output = nullptr;
 // Keep JSON encoding out of Qt: this package lacks the development header's
 // QJsonArray initializer-list ABI. Strings here are fixed ASCII / numeric IDs;
 // the epoch is already serialized JSON and is independently validated on receipt.
@@ -47,6 +48,12 @@ static QJsonArray color(const QColor &c) { return {c.red(),c.green(),c.blue(),c.
 static QJsonObject brush(const QBrush &b) {
     return {{"style",int(b.style())},{"color",color(b.color())},{"transform",transform(b.transform())}};
 }
+static QJsonObject penState(const QPen &pen){
+    QJsonArray dashes;for(auto d:pen.dashPattern())dashes.append(d);
+    return {{"width",pen.widthF()},{"cosmetic",pen.isCosmetic()},
+        {"style",int(pen.style())},{"cap",int(pen.capStyle())},{"join",int(pen.joinStyle())},
+        {"miter",pen.miterLimit()},{"dash_offset",pen.dashOffset()},{"dashes",dashes},{"brush",brush(pen.brush())}};
+}
 static QJsonArray pathElements(const QPainterPath &p) {
     QJsonArray a;
     for(int i=0;i<p.elementCount();++i) { auto e=p.elementAt(i);a.append(QJsonArray{int(e.type),e.x,e.y}); }
@@ -59,16 +66,12 @@ static void record(QPainter *p, const char *kind, QJsonObject payload) {
     QFile epoch("/work/epoch.json");
     if(filename && epoch.open(QIODevice::ReadOnly) && p->device() &&
        p->device()->width()>=1000 && p->device()->height()>=500) {
-        auto pen=p->pen(); QJsonArray dashes;
-        for(auto d:pen.dashPattern()) dashes.append(d);
         payload.insert("epoch",J::json(epoch.readAll().toStdString()));
         payload.insert("kind",kind);
         payload.insert("painter",J::json("\""+std::to_string(quintptr(p))+"\""));
         payload.insert("device_address",J::json("\""+std::to_string(quintptr(p->device()))+"\""));
         payload.insert("device",QJsonArray{p->device()->width(),p->device()->height(),p->device()->devType(),p->device()->devicePixelRatioF()});
-        payload.insert("pen",QJsonObject{{"width",pen.widthF()},{"cosmetic",pen.isCosmetic()},
-            {"style",int(pen.style())},{"cap",int(pen.capStyle())},{"join",int(pen.joinStyle())},
-            {"miter",pen.miterLimit()},{"dash_offset",pen.dashOffset()},{"dashes",dashes},{"brush",brush(pen.brush())}});
+        payload.insert("pen",penState(p->pen()));
         payload.insert("brush",brush(p->brush()));
         payload.insert("world",transform(p->worldTransform()));
         payload.insert("device_transform",transform(p->deviceTransform()));
@@ -80,10 +83,11 @@ static void record(QPainter *p, const char *kind, QJsonObject payload) {
         payload.insert("background_mode",int(p->backgroundMode()));payload.insert("background",brush(p->background()));
         std::lock_guard<std::mutex> lock(outputMutex);
         payload.insert("serial",double(++serial));
-        FILE *f=std::fopen(filename,"ab");
-        if(!f) { std::perror("ICT_TRACE_OPEN_FATAL");std::_Exit(91); }
+        if(!output)output=std::fopen(filename,"ab");
+        if(!output) { std::perror("ICT_TRACE_OPEN_FATAL");std::_Exit(91); }
         auto &data=payload.raw;
-        if(std::fwrite(data.data(),1,data.size(),f)!=data.size() || std::fputc('\n',f)==EOF || std::fclose(f)) std::_Exit(92);
+        if(std::fwrite(data.data(),1,data.size(),output)!=data.size() || std::fputc('\n',output)==EOF ||
+           (std::string(kind)=="end" && std::fflush(output))) std::_Exit(92);
     }
     observing=false;
 }
@@ -106,6 +110,11 @@ void QPainter::fillPath(const QPainterPath &path,const QBrush &b) {
     static auto call=original<void(*)(QPainter*,const QPainterPath&,const QBrush&)>("_ZN8QPainter8fillPathERK12QPainterPathRK6QBrush");
     record(this,"fill",{{"elements",pathElements(path)},{"fill_rule",int(path.fillRule())},{"fill_brush",::brush(b)}});
     Forwarding scope;call(this,path,b);
+}
+void QPainter::strokePath(const QPainterPath &path,const QPen &pen) {
+    static auto call=original<void(*)(QPainter*,const QPainterPath&,const QPen&)>("_ZN8QPainter10strokePathERK12QPainterPathRK4QPen");
+    record(this,"stroke",{{"elements",pathElements(path)},{"fill_rule",int(path.fillRule())},{"stroke_pen",penState(pen)}});
+    Forwarding scope;call(this,path,pen);
 }
 bool QPainter::begin(QPaintDevice *d) {
     static auto call=original<bool(*)(QPainter*,QPaintDevice*)>("_ZN8QPainter5beginEP12QPaintDevice");

@@ -33,7 +33,13 @@ int main(int argc,char **argv){try{
         int n=integer();QVector<qreal>dashes;for(int j=0;j<n;++j)dashes.append(number());
         QPen pen;pen.setBrush(brush());pen.setWidthF(width);pen.setCosmetic(cosmetic);pen.setStyle(Qt::PenStyle(style));
         pen.setCapStyle(Qt::PenCapStyle(cap));pen.setJoinStyle(Qt::PenJoinStyle(join));pen.setMiterLimit(miter);
-        if(!dashes.isEmpty())pen.setDashPattern(dashes);pen.setDashOffset(offset);p.setPen(pen);p.setBrush(brush());
+        // Qt setDashOffset changes the style to CustomDashLine. Apply it only to
+        // an observed custom-dash pen; never silently turn a solid stroke dashed.
+        if(style==Qt::CustomDashLine){pen.setDashPattern(dashes);pen.setDashOffset(offset);}
+        if(int(pen.style())!=style || pen.widthF()!=width || pen.isCosmetic()!=cosmetic ||
+           int(pen.capStyle())!=cap || int(pen.joinStyle())!=join || pen.miterLimit()!=miter || pen.dashOffset()!=offset)
+            throw std::runtime_error("Applied pen differs from recorded state");
+        p.setPen(pen);p.setBrush(brush());
         p.setBackgroundMode(Qt::BGMode(integer()));p.setBackground(brush());bool clip=integer();auto clipping=path();
         if(clip)p.setClipPath(clipping);else p.setClipping(false);
         if(kind==0){int n=integer();QVector<QLineF>lines;for(int j=0;j<n;++j){double x1=number(),y1=number(),x2=number(),y2=number();lines.append(QLineF(x1,y1,x2,y2));}p.drawLines(lines);}

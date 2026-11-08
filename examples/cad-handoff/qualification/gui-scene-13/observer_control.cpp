@@ -13,6 +13,7 @@ int main(int argc,char **argv){
     p.drawLine(QLineF(10,-10,100,-20));
     QPainterPath path;path.moveTo(20,-30);path.lineTo(40,-10);path.lineTo(60,-30);p.drawPath(path);
     p.fillPath(path,QBrush(Qt::blue));
+    p.strokePath(path,pen);
     p.end();
     std::printf("Qt runtime %s\n",qVersion());
     return image.save(argv[1])?0:4;
