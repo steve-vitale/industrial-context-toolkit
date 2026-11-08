@@ -46,7 +46,7 @@ def prepare(destination,source_root):
     write(destination/'SOFTWARE.json',results)
     write(destination/'PREPARATION.json',dict(methods={n:sha(HERE/n)for n in METHODS},sources=CASES,scope='Six exposed adaptations; no new qualification evidence'))
 def job(destination,case,role,configuration,prior_jobs):
-    destination.mkdir();(destination/'.configuration').mkdir();shutil.copyfile(configuration,destination/'.configuration/QCAD3.conf')
+    destination.mkdir(parents=True);(destination/'.configuration').mkdir();shutil.copyfile(configuration,destination/'.configuration/QCAD3.conf')
     basis=json.loads((case/'basis.json').read_bytes());basis['role']=role;write(destination/'job.json',basis)
     shutil.copyfile(case/'source.dxf',destination/'source.dxf')
     if role=='receiving':
