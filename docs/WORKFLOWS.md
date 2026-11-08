@@ -185,5 +185,10 @@ The [font/frame controls](../examples/cad-handoff/qualification/font-views-9/REA
 font and post-mapping common bounds on three exposed pairs: inspected Cyrillic, mixed Unicode and long target
 labels fit the native asset views. The default font's missing glyphs, 62-pixel long-overview diagnostic and inherited
 linework overlaps stay visible. This changes the receiver display profile, not the drawing or original typography.
+The [minimal layout preparation experiment](../examples/cad-handoff/qualification/layout-preparation-10/README.md)
+proposes a separate source revision for missing main viewports while retaining every other original byte.
+Five exposed proposals display the original paper content; matched native images equal the library add-main
+baselines. Fourteen cohort inputs remain exact no-ops and two R12 inputs refuse preparation. This is an optional
+reviewed source change, not automatic acceptance or a replacement for the UI-free metadata route.
 Full readable layout/font acceptance, opaque-content fidelity, fresh native validation, receiving-company approval
 and subsequent accepted revision behavior remain to be qualified in the actual target and [acceptance plan](ACCEPTANCE.md).

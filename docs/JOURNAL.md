@@ -8407,3 +8407,58 @@ replay verifies saved observations, not new native execution or engineering acce
 Five original paper-layout failures, native full-save preservation, original typography,
 general preparation and separately frozen fresh native validation remain open. These exposed
 fixes do not make new holdouts, and the full goal remains active.
+
+## 191. Propose a minimal paper-layout source revision
+
+The precommitted [plan](../examples/cad-handoff/qualification/LAYOUT-PREPARATION-10-PLAN.md)
+tests a different design: retain every original CAD record byte and serialize only a newly
+proposed main viewport plus HEADER HANDSEED. The source is never library-saved. The rule uses
+layout structure and paper settings, not case names. A separate verifier discovers the new
+record and reconstructs the exact original without producer offsets/receipts. This is an
+explicit proposed source revision, requiring adoption before any new-source attribute plan;
+it does not reclassify the original failing file as a preservation pass.
+
+Across all 21 exposed cases, five need a main viewport, 14 remain exact no-ops and two R12
+inputs refuse this preparation. Existing R12 metadata exchange remains separate. Five
+matched routes per known failure retain original, library save, library add-main with old
+current reference restored, minimal preparation and planned attributes on preparation.
+The frozen patcher and independent original byte checker give strict0/raw0 on all five
+prepared-to-candidate pairs. Seventeen wrong-data/ownership/order/identity/input controls
+refuse; an already prepared source is an exact no-op. All strict original-to-route differences
+remain visible, including each deliberately added viewport and candidate attribute edits.
+
+The [retained native evidence](../examples/cad-handoff/qualification/layout-preparation-10/README.md)
+contains 25 verified-profile paper images and 330 exact native field observations. All five
+minimal-preparation paper images are pixel-identical to the library add-main baselines.
+Original/library-only layouts stay blank; add-main/prepared/candidate imports expose the
+original display viewport bounds and visible source geometry. Direct assistant inspection
+of all 25 views retains trial marks overlapping content and original foreign/Unicode labels
+clipped at the original top viewport edge. This restores display structure; it does not
+establish complete readable sheets, original typography or engineering acceptance.
+
+Two earlier wrapper failures remain in Git/evidence. The first native batch started after
+a failed configuration copy because PowerShell continued; it was allowed to finish and is
+excluded from the declared-profile conclusion. A separately committed fail-closed setup
+correction verifies the local and installed configuration hash before any CAD process. The
+second batch started after confirmed normal first-container exit; all 26 serial commands
+exit0 and every input hash remains unchanged. No new UI edit/save operation occurred.
+The lossless archive retains 911 exact files, 16,275,721 raw bytes in 152,492 compressed bytes;
+configuration, fonts and publisher binaries are excluded, with configuration digest receipts.
+
+The first offline replay fails on an informational save-metadata boolean in the exact-no-op
+public paper case. Repeated inspection of identical bytes reproduces a loaded TDCREATE clock
+tick; the existing recheck documents the same on-read behavior. The failing checker was
+committed before correction. The receiving replay now retains/prints saved and observed
+booleans while matching every other comparison field, every strict difference and exact raw
+reconstruction. No comparator exclusion, image tolerance, source or failed result changes.
+Two receiving controls reject omitted native routes and altered native field observations.
+
+This remains exposed development. The full goal stays active: complete readable receiving
+checks, separately frozen reserved public/independently authored validation and the original
+native full-save/editability/revision gates still need a complete audit. UI-free equipment
+metadata review remains available; this compatibility experiment adds no routine UI dependency.
+
+Local verification passes the five successor Linux evidence tests, all 28 unchanged frozen
+CAD tests and all three checkout byte-contract tests. Ledger (344 attempts), feature catalog
+(30 features, 22 reviewed) and script index (153 scripts) are current. These local checks
+remain distinct from full-suite/exact-head CI and independent engineering review.

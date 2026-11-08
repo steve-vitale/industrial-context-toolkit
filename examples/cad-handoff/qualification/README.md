@@ -110,6 +110,14 @@ its long overview still has 62 pixels outside the native label bounds. Existing 
 This is display development, not original typography fidelity or fresh qualification. Two failed/interrupted
 batches remain alongside the completed matched batches; no strict/raw-byte rule was relaxed.
 
-Next acceptance work is a general preparation method, complete readable layout/label/font review and fresh native
-validation with a separately frozen observation method. Retain every original full-save/layout/font failure before
-claiming a qualification gain.
+The [minimal layout proposal](layout-preparation-10/README.md) is a new structure-based development design:
+serialize only a missing main viewport and HANDSEED, preserving every other original byte. Across all 21 exposed
+cases it proposes five revisions, leaves 14 exact no-ops and refuses two R12 inputs. Twenty-five matched native
+paper views retain 330 exact field observations; each minimally prepared image matches its library add-main
+baseline exactly. Original/library-only layouts stay blank. This requires explicit adoption of a new source;
+it never turns the original failed file into a preservation pass. Trial marks and original top-edge label clipping
+remain. Seventeen input/semantic controls and two receiving controls reject the declared corruptions.
+
+Next acceptance work remains complete readable layout/label/font review and fresh native validation with a
+separately frozen observation method, alongside the original native full-save/editability/revision gates.
+Retain every original full-save/layout/font failure before claiming a qualification gain.

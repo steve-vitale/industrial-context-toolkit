@@ -66,6 +66,18 @@ has one added main viewport; its nonzero strict difference is retained. Prepared
 edits must have zero unexpected strict differences and zero unplanned bytes under the
 separate original source/plan reconstruction.
 
+The verified-profile batch completed all 26 serial commands normally: one native probe
+and 25 paper exports. All 330 model-field observations match the exact route files. Each
+of the five minimal-preparation paper images has **zero different pixels** against its
+library add-main baseline. Original/library-only paper blocks remain blank; all three
+add-main routes expose the original display viewport bounds. All five prepared-to-candidate
+pairs rebuild with strict zero and independent raw reconstruction zero. These observations
+are on known failures used for development, not a new independent accuracy result.
+
+Compare the unaltered [original paper](original-paper.png), [proposed revision](proposed-paper.png)
+and [attribute candidate](candidate-paper.png). The original top-edge clipping and retained
+trial mark are visible in the proposed outputs.
+
 Native observation uses the pinned Linux QCAD Professional trial 3.33.1 Qt5 image, with
 the explicit Standard-to-DejaVu Sans display profile from run 9. Read-only native import
 retains the paper entities/bounds and all model attributes. Serial native bitmap exports
@@ -101,6 +113,13 @@ fonts and publisher executables stay local. `HOST-NOTES.json` explicitly transcr
 tool observations; native stdout/stderr, exact route DXFs, images, per-command records and
 terminal container state are retained separately. A quiet process or observation timeout
 is never treated as terminal or a reason to restart.
+
+The [first offline replay](FIRST-REPLAY-FAILURE.md), committed at `adeed97`, failed on the
+informational save-metadata boolean in a byte-identical no-op. Loading its zero creation date
+across a clock tick changes ezdxf's in-memory TDCREATE, as the existing frozen recheck already
+documents. The receiving-only correction reports retained/current flags separately, matching
+every other comparison field and all strict differences. Exact raw reconstruction and the
+frozen comparator remain unchanged. No source or archived result was rewritten.
 
 ## Offline replay
 

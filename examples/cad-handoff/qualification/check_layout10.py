@@ -63,6 +63,16 @@ def coverage(rows,jobs):
     require([r['id'] for r in rows]==[j['id'] for j in jobs],'Native route omitted/reordered')
 
 
+def comparison(actual,retained,label,metadata_observations):
+    # The frozen comparator already excludes named save metadata from strict fields.
+    # Loading the same zero-date bytes across a clock tick can change this boolean.
+    # Keep both observations; never discard a strict field or a retained failure.
+    require({k:v for k,v in actual.items() if k!='save_metadata_changed'}==
+            {k:v for k,v in retained.items() if k!='save_metadata_changed'},label)
+    metadata_observations.append(dict(case=label,retained=retained['save_metadata_changed'],
+                                      observed=actual['save_metadata_changed']))
+
+
 def check():
     old.recheck.method_bindings()
     freeze,correction,inputs=(read(BASE/name) for name in ('FREEZE.json','NATIVE-SETUP-CORRECTION.json','INPUTS.json'))
@@ -72,7 +82,7 @@ def check():
     require(correction['original_driver_lf']==freeze['methods_lf']['layout-preparation-10/run_native.py'], 'Driver correction lost original binding')
     require(old.recheck.text_hash(HERE/'package_layout10.py')==read(BASE/'INVENTORY.json')['packager_sha256_lf'],'Packager changed')
     require([(j['case_id'],j['route']) for j in inputs['jobs']]==[(c,r) for c in IDS for r in ROUTES], 'Declared five-route cohort changed')
-    pixels=[];field_count=0;strict_counts=[]
+    pixels=[];field_count=0;strict_counts=[];metadata_observations=[]
     with tempfile.TemporaryDirectory(prefix='ict-layout10-replay-') as temp:
         root=Path(temp);raw=old.unpack(BASE,root/'evidence')
         cases=old.recheck.cohort()
@@ -90,8 +100,9 @@ def check():
                 require((retained/'original.dxf').read_bytes()==case['source'].read_bytes(),'Retained original changed')
                 require((retained/'prepared.dxf').read_bytes()==(output/'prepared.dxf').read_bytes(),'Prepared bytes do not rebuild')
                 require(read(retained/'revision.json')==receipt,'Producer receipt does not rebuild')
-                require(read(retained/'original-to-prepared-strict.json')==ch.compare(ch.snapshot(case['source']),ch.snapshot(output/'prepared.dxf')),
-                        'Deliberate source-revision strict differences changed')
+                comparison(ch.compare(ch.snapshot(case['source']),ch.snapshot(output/'prepared.dxf')),
+                           read(retained/'original-to-prepared-strict.json'),
+                           'Deliberate source-revision strict differences: '+case['id'],metadata_observations)
             expected_cohort.append(row)
         require(expected_cohort==inputs['cohort']==read(raw/'development-3/cohort-results.json'),'21-case structural results differ')
         require([sum(r['status']==status for r in expected_cohort) for status in ('proposed_source_revision','exact_noop','refused')]==[5,14,2],
@@ -132,11 +143,11 @@ def check():
                 expected={a['id']:a['attributes'] for a in ch.snapshot(path)['assets']}
                 native_values(row['observed']['attributes'],expected)
                 if batch=='native-2':field_count+=sum(len(a) for a in expected.values())
-                comparison=ch.compare(ch.snapshot(case['source']),ch.snapshot(path))
-                require(comparison==read(work/job['case_id']/(job['route']+'-from-original-strict.json')),
-                        'Original-to-route strict comparison differs')
-                require(len(comparison['unexpected'])==job['strict_from_original'],'Strict source-revision count differs')
-                if batch=='native-2':strict_counts.append(dict(id=job['id'],differences=len(comparison['unexpected'])))
+                result=ch.compare(ch.snapshot(case['source']),ch.snapshot(path))
+                comparison(result,read(work/job['case_id']/(job['route']+'-from-original-strict.json')),
+                           batch+':'+job['id'],metadata_observations)
+                require(len(result['unexpected'])==job['strict_from_original'],'Strict source-revision count differs')
+                if batch=='native-2':strict_counts.append(dict(id=job['id'],differences=len(result['unexpected'])))
             for case_id in IDS:
                 case=next(c for c in cases if c['id']==case_id)
                 prepared=work/case_id/'prepared.dxf';candidate=work/case_id/'candidate.dxf'
@@ -184,6 +195,7 @@ def check():
         else:raise ValueError('Changed native field accepted')
     print('PASS: 21-case structural replay, 5 minimal source revisions/candidates, 25 verified-profile paper views, 17 semantic/input controls')
     print('Original layout/full-save failures retained; compatibility proposals are exposed development, not fresh qualification or company authority')
+    print('Informational save-metadata flags (retained and current loaded observations): '+json.dumps(metadata_observations))
     return summary
 
 
