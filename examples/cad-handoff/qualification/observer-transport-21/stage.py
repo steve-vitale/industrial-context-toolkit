@@ -8,7 +8,7 @@ import shutil
 
 HERE = Path(__file__).resolve().parent
 BASE = HERE.parent / 'native-ui-pairs-19'
-PROFILES = ['binding-probe', 'normal', 'malformed', 'wrong-sequence', 'wrong-run', 'unsupported', 'read-open',
+PROFILES = ['binding-probe', 'async-probe', 'normal', 'malformed', 'wrong-sequence', 'wrong-run', 'unsupported', 'read-open',
             'reply-collision', 'reply-write', 'error-write', 'missing-reply', 'changed-request', 'native-exit']
 
 
@@ -35,6 +35,12 @@ def main():
         shutil.copyfile(HERE / name, args.out / name)
     shutil.copyfile(HERE / ('binding_probe.js' if args.profile == 'binding-probe' else 'observer.js'), args.out / 'observe_case.js')
     if args.profile == 'binding-probe': shutil.copyfile(HERE / 'probe_workflow.py', args.out / 'workflow.py')
+    if args.profile == 'async-probe':
+        if args.bridge: raise ValueError('Async capability probe is a separate method')
+        for source, target in [('async_probe.js','observe_case.js'),('async_workflow.py','workflow.py'),
+                               ('bridge_launch.py','launch_case.py')]:
+            shutil.copyfile(HERE / source, args.out / target)
+        for name in ('async_helper.py','ASYNC-PLAN.md'): shutil.copyfile(HERE / name, args.out / name)
     if args.bridge:
         if args.profile == 'binding-probe': raise ValueError('Binding probes retain their original separate method')
         for source, target in [('bridge_observer.js','observe_case.js'),('bridge_workflow.py','workflow.py'),
@@ -44,6 +50,9 @@ def main():
     shutil.copyfile(BASE / 'workflow.py', args.out / 'original_workflow.py')
     for name in ('ui_control.py', 'inspect_ui.py', 'native_controls.py'):
         shutil.copyfile(BASE / name, args.out / name)
+    if args.bridge or args.profile == 'async-probe':
+        shutil.copyfile(HERE / 'bridge_ui_control.py', args.out / 'ui_control.py')
+        shutil.copyfile(HERE / 'ui_settle.py', args.out / 'ui_settle.py')
     config = dict(protocol='ict-native-mailbox/1', run_id=secrets.token_hex(16), profile=args.profile)
     if args.bridge:config['io_protocol']='ict-native-io/1'
     (args.out / 'transport.json').write_text(json.dumps(config) + '\n', encoding='utf-8')
