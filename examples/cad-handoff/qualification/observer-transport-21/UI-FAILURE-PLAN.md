@@ -21,3 +21,12 @@ Tab/commit remains forbidden unless exact text is observed. Keep original UI19,
 camera20, strict comparison, byte checks and this failed method/evidence unchanged.
 Freeze that successor before any new native attempt. Existing ASCII input scope
 does not become foreign-text qualification merely because text waiting improves.
+
+The first separately recorded Cancel click also times out without dialog
+disappearance. Retain that command, its source and full failure. A new separate
+cleanup stops/acknowledges the transport before inspecting the dialog; only if
+the dialog remains does it dispatch one Cancel action with no helper running.
+This distinguishes queued input from continuing GUI interference. It closes only
+the same unmodified Untitled application. A subsequent native method must avoid
+blocking QProcess waits on the GUI thread; a text-read wait alone is not evidence
+that the GUI scheduling problem has been repaired.
