@@ -1,0 +1,35 @@
+{
+  "scope": "Already exposed actual native concurrent returns and previously selected one-value second plans; not reserved or accepted engineering changes",
+  "cases": [
+    {
+      "case": "validation-cp1251",
+      "native_packet": "examples/cad-handoff/qualification/full-ui-22/concurrent-development-1/cp1251-concurrent-edited-1",
+      "native_packet_pins": {
+        "inventory_sha256_lf": "4903345345715a92f94c84a96b747426319167d3715a80c96141e3fabf68dfae",
+        "result_sha256_lf": "f038d764f138927ba820b67e4c1d28321a170dfac2805267cfc5792075adb57c",
+        "archive_sha256": "efb038a64cef691c2d84991f789627860fb344a209a7aa9d384b3e761ab6dd7f"
+      },
+      "source": "examples/cad-handoff/qualification/full-ui-22/concurrent-review-1/validation-cp1251/native-return.dxf",
+      "source_sha256": "267770b66f3cc175fa822c04e738e5cfe7e927491cfb95ff47a2db6242b9e953",
+      "plan": "examples/cad-handoff/qualification/full-ui-22/concurrent-review-1/validation-cp1251/second-plan.json",
+      "plan_sha256": "a4c2a85dfa2d934fab064dcea4b679b986ee699ff0ff1f28654753917ebdc41e",
+      "candidate": "examples/cad-handoff/qualification/full-ui-22/concurrent-review-1/validation-cp1251/second/candidate.dxf",
+      "candidate_sha256": "631de0b895bb7aa331fb46ed2d30d875078f2ae8b68a24f096a28df559cc2299"
+    },
+    {
+      "case": "validation-braces",
+      "native_packet": "examples/cad-handoff/qualification/full-ui-22/concurrent-development-1/braces-concurrent-edited-1",
+      "native_packet_pins": {
+        "inventory_sha256_lf": "9f7489f31c8a88bc1c3e13e5ba8f20f2b5f3d734765af2182229feeee3ec6bcd",
+        "result_sha256_lf": "2e4966c8de99746a020eaebfa9fd4dea2f82a9c22ebbd2acda2ea090ceb37635",
+        "archive_sha256": "f136ada0689a09d8af2ac48fe2400e6ae1e5076f998498da86e1a024b4e10040"
+      },
+      "source": "examples/cad-handoff/qualification/full-ui-22/concurrent-review-1/validation-braces/native-return.dxf",
+      "source_sha256": "25aa6294826284917784d54ed8241a55738a4f4c3c74b4b93ff51d6add6622f2",
+      "plan": "examples/cad-handoff/qualification/full-ui-22/concurrent-review-1/validation-braces/second-plan.json",
+      "plan_sha256": "7eaf39bd5fd5e98658429c11dd8619adbd9186a55e862649e0283abe74a0d2f5",
+      "candidate": "examples/cad-handoff/qualification/full-ui-22/concurrent-review-1/validation-braces/second/candidate.dxf",
+      "candidate_sha256": "c53a8e42041cd789f30b8e67d180014abfc6cf2ae739b20d103e597065434047"
+    }
+  ]
+}
