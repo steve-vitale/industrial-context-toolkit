@@ -19,3 +19,8 @@ the active source.dxf child. Their rectangles differ; this is not missing drawin
 occurred. A successor binds the canvas to the unique document frame named by the observed active filename,
 then requires exactly one showing Drawing View inside that frame. It does not choose by coordinate/order.
 The original controller/tree/failure stay in jobs-2; this case remains exposed development.
+
+The jobs-3 successor's Untitled prefix rule also matched the top-level application title, so it refused
+before opening any drawing. The actual ready tree contains 'Untitled 1 - QCAD Professional Trial' and
+' Untitled 1'. The corrected pure selector requires a full Untitled-number name, not that prefix. Test it
+against both retained ready/opened trees and ambiguity controls before the next native execution.

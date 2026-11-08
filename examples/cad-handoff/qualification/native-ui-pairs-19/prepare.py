@@ -20,7 +20,7 @@ CASES={
  'qcad-hydraulic':'4d768e3a5ca0ba8d5e4762851a349f1679381b51d5fdf2a9b2fc89e86aa430db',
  'qcad-mechanical':'30c4a41b51dd5474889db30ca336a2cfe18df6d2dc2c6fea5affb5091327a26d',
  'qcad-template':'6e87cef8ca4178b20e9d4e2b892917636ba2fe02e030ea076379c8d57e6a1f88'}
-METHODS=['PLAN.md','METHOD.md','observe_case.js','workflow.py','launch_case.py','inspect_ui.py','ui_control.py','prepare.py']
+METHODS=['PLAN.md','METHOD.md','observe_case.js','workflow.py','launch_case.py','inspect_ui.py','ui_control.py','prepare.py','native_controls.py']
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def write(p,v):p.write_text(json.dumps(v,indent=2)+'\n',encoding='utf-8')
 def frame(entities):

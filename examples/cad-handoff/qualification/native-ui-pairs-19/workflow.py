@@ -13,6 +13,7 @@ import pyatspi
 from PIL import Image
 from inspect_ui import inspect
 from ui_control import at
+from native_controls import active_canvas
 
 def write(path,value):path.write_text(json.dumps(value,separators=(',',':'),ensure_ascii=False)+'\n',encoding='utf-8')
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -63,10 +64,7 @@ class Workflow:
     def canvas(self):
         # Qt exposes the covered Untitled MDI canvas as showing too. Bind to the active filename.
         active=self.observe()['filename'];t=tree()
-        frames=[n for n in walk(t) if n.get('role')=='frame' and n.get('showing') and
-                (n.get('name','').strip()==Path(active).name if active else n.get('name','').strip().startswith('Untitled '))]
-        require(len(frames)==1,'Ambiguous/missing active native document frame')
-        result=one(frames[0],'filler','Drawing View');self.record('canvas_binding',filename=active,frame=frames[0]['path'],canvas=result)
+        frame,result=active_canvas(t,active);self.record('canvas_binding',filename=active,frame=frame['path'],canvas=result)
         return result
     def focus_canvas(self):self.control('focus',self.canvas())
     def dialog(self,title):
