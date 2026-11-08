@@ -26,7 +26,8 @@ def foreign_revision(raw,path):
     ref=doc.entitydb[asset['handle']];attr=ref.get_attrib('ICT_ID')
     record=next(r for r in records if raw_records.own_handle(r)==attr.dxf.handle.upper())
     clone=raw[record['start']:record['end']]
-    handle=format(max(int(k,16) for k in doc.entitydb.keys())+1,'X').encode()
+    allocated=max(max(int(k,16) for k in doc.entitydb.keys())+1,int(doc.header['$HANDSEED'],16))
+    handle=format(allocated,'X').encode()
     changes={5:handle,2:b'QUAL_FOREIGN_CONTROL',1:b'KEEP-FOREIGN-1'}
     spans=[]
     for code,value in changes.items():
@@ -40,7 +41,11 @@ def foreign_revision(raw,path):
     records=raw_records.records(raw)
     geometry=next(r for r in records if r['kind'] in (b'LINE',b'CIRCLE',b'ARC') and not any(t[0]>=1000 for t in r['tags']))
     newline=geometry['newline'];addition=b'1001'+newline+b'ACAD'+newline+b'1000'+newline+b'KEEP-XDATA-1'+newline
-    return raw[:geometry['end']]+addition+raw[geometry['end']:]
+    raw=raw[:geometry['end']]+addition+raw[geometry['end']:]
+    header=next(r for r in raw_records.records(raw) if r['kind']==b'SECTION' and r['tags'][1][:2]==(2,b'HEADER'))
+    seeds=[header['tags'][i+1] for i,t in enumerate(header['tags'][:-1]) if t[:2]==(9,b'$HANDSEED')]
+    if len(seeds)!=1 or seeds[0][0]!=5:raise ValueError('Ambiguous revision HANDSEED')
+    seed=seeds[0];return raw[:seed[2]]+format(allocated+1,'X').encode()+raw[seed[3]:]
 
 
 def execute(root,out):
