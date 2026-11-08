@@ -9029,3 +9029,10 @@ comparison output. This closes the ordinary-open/getter repair hypothesis on dev
 changing the strict comparator, old failures or the full qualification criteria. No CAD file was saved
 and no reserved result consumed; native preservation, receiving/readability/editability, revision gates
 and actual engineering/company acceptance remain open.
+
+An explicit site-package-free check found that the first receiver indirectly imported ezdxf through
+an older archive checker. The original source, actual `python -S` stderr and exit are retained. The
+corrected bounded archive reader has no such import and passes under `-S`; traversal, duplicate-member
+and symlink controls exercise it directly. No native process was rerun and no native observation changed.
+Controller exit summaries record observed host-tool results rather than original captured terminal
+transcripts; the actual action receipts, startup images and native command/state history remain.

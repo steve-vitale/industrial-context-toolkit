@@ -3,6 +3,8 @@ import importlib.util
 import copy
 import json
 from pathlib import Path
+import subprocess
+import sys
 import tempfile
 import unittest
 
@@ -37,7 +39,7 @@ class RetainedLinuxNativeEvidence(unittest.TestCase):
     def test_open_receiving_refuses_missing_or_altered_native_evidence(self):
         receiver = self.open_module()
         with tempfile.TemporaryDirectory() as temporary:
-            root = receiver.old.unpack(receiver.BASE, Path(temporary))
+            root = receiver.unpack(receiver.BASE, Path(temporary))
             path = root / 'attempt-1/native/mdi-preset-a.stdout'
             original = path.read_bytes()
             for kind in ('missing_job', 'missing_getter', 'wrong_filter', 'no_view', 'lost_close', 'unrelated_change'):
@@ -66,7 +68,7 @@ class RetainedLinuxNativeEvidence(unittest.TestCase):
     def test_open_analysis_preserves_unrelated_changes_in_full_comparison(self):
         receiver = self.open_module()
         with tempfile.TemporaryDirectory() as temporary:
-            root = receiver.old.unpack(receiver.BASE, Path(temporary)) / 'attempt-1'
+            root = receiver.unpack(receiver.BASE, Path(temporary)) / 'attempt-1'
             path = root / 'native/mdi-preset-a.stdout'
             lines = path.read_text(encoding='utf-8').splitlines()
             index = next(i for i, line in enumerate(lines) if line.startswith('ICT_OPEN18_JOB '))
@@ -82,7 +84,7 @@ class RetainedLinuxNativeEvidence(unittest.TestCase):
     def test_open_receiving_keeps_controller_and_cleanup_failures(self):
         receiver = self.open_module()
         with tempfile.TemporaryDirectory() as temporary:
-            root = receiver.old.unpack(receiver.BASE, Path(temporary))
+            root = receiver.unpack(receiver.BASE, Path(temporary))
             for name, replacement in [('MDI-CLOSE-ACTIONS.json', []), ('STARTUP-ACTIONS.json', []),
                                       ('CONTROLLER-STATUS.json', {'native_process_restarts': 1})]:
                 path = root / 'attempt-1' / name
@@ -95,6 +97,42 @@ class RetainedLinuxNativeEvidence(unittest.TestCase):
             path.write_text(path.read_text(encoding='utf-8').replace("'QCoreApplication.quit' [undefined] is not a function", 'omitted'), encoding='utf-8')
             with self.assertRaises(ValueError):
                 receiver.receive(root)
+
+    def test_open_receiving_runs_without_site_packages(self):
+        receiver = self.open_module()
+        with tempfile.TemporaryDirectory() as temporary:
+            result = subprocess.run([sys.executable, '-S', str(receiver.HERE / 'check_open18.py')],
+                                    cwd=temporary, capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(json.loads(result.stdout)['document_jobs'], 84)
+
+    def test_open_archive_refuses_escaping_duplicate_and_link_members(self):
+        import hashlib
+        import io
+        import tarfile
+        receiver = self.open_module()
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            for kind in ('escape', 'duplicate', 'link'):
+                base = root / kind
+                base.mkdir()
+                name = 'raw/../escape' if kind == 'escape' else 'raw/record'
+                archive = base / 'evidence.tar.xz'
+                data = b'x'
+                with tarfile.open(archive, 'w:xz') as packed:
+                    for _ in range(2 if kind == 'duplicate' else 1):
+                        member = tarfile.TarInfo(name)
+                        member.size = len(data)
+                        if kind == 'link':
+                            member.type = tarfile.SYMTYPE
+                            member.linkname = '../outside'
+                        packed.addfile(member, io.BytesIO(data))
+                manifest = dict(archive=dict(path=archive.name, bytes=archive.stat().st_size,
+                                sha256=hashlib.sha256(archive.read_bytes()).hexdigest()), raw_bytes=1,
+                                files={name: dict(bytes=1, sha256=hashlib.sha256(data).hexdigest())})
+                (base / 'INVENTORY.json').write_text(json.dumps(manifest), encoding='utf-8')
+                with self.subTest(kind=kind), self.assertRaises(ValueError):
+                    receiver.unpack(base, base / 'out')
 
     def layout_module(self):
         path = Path(__file__).resolve().parents[1] / 'examples/cad-handoff/qualification/check_layout17.py'

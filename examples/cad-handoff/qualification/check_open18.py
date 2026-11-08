@@ -1,15 +1,38 @@
 """Receive full-application plot initialization evidence offline, without launching CAD."""
 import importlib.util
+import hashlib
 from pathlib import Path
-import sys
+from pathlib import PurePosixPath
+import tarfile
 import tempfile
 
 HERE=Path(__file__).resolve().parent;BASE=HERE/'open-initialization-18'
-sys.path.insert(0,str(HERE))
-import check_linux7 as old
 spec=importlib.util.spec_from_file_location('cad_open18_analysis',BASE/'analyze.py')
 analysis=importlib.util.module_from_spec(spec);spec.loader.exec_module(analysis)
 a=analysis.a
+
+def unpack(base,destination):
+    manifest=a.read(base/'INVENTORY.json');archive=base/'evidence.tar.xz'
+    a.require(manifest['archive']['path']=='evidence.tar.xz'and archive.stat().st_size==manifest['archive']['bytes']
+              and a.sha(archive)==manifest['archive']['sha256'],'Archive identity differs')
+    a.require(manifest['raw_bytes']==sum(v['bytes']for v in manifest['files'].values())<=256*1024**2,'Unbounded archive')
+    seen=set()
+    with tarfile.open(archive,'r:xz')as packed:
+        for entry in packed:
+            name=PurePosixPath(entry.name)
+            a.require(entry.isfile()and not name.is_absolute()and len(name.parts)>1 and name.parts[0]=='raw'
+                      and '..'not in name.parts and ':'not in entry.name and '\\'not in entry.name
+                      and name.as_posix()==entry.name and entry.name not in seen and entry.name in manifest['files'],
+                      'Unsafe, duplicate or unregistered archive entry')
+            pin=manifest['files'][entry.name]
+            a.require(entry.size==pin['bytes']and 0<=entry.size<=4*1024**2,'Changed or unbounded archive member')
+            with packed.extractfile(entry)as stream:data=stream.read(entry.size+1)
+            a.require(len(data)==entry.size and hashlib.sha256(data).hexdigest()==pin['sha256'],'Archive member differs')
+            target=destination.joinpath(*name.parts)
+            a.require(target.resolve().is_relative_to(destination.resolve()),'Archive member escapes destination')
+            target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(data);seen.add(entry.name)
+    a.require(seen==set(manifest['files']),'Archive member omitted')
+    return destination/'raw'
 
 def receive(root):
     for name,pin in a.read(root/'METHODS.json').items():
@@ -37,6 +60,10 @@ def receive(root):
     controller=a.read(work/'CONTROLLER-STATUS.json')
     a.require(controller==dict(original_controller_exit=1,original_controller_interrupted=True,original_controller_exception_traceback=False,
               corrected_controller_exit=0,native_process_restarts=0),'Controller correction history omitted')
+    failure=work/'receiver-dependency-1';result=a.read(failure/'RESULT.json')
+    a.require(result['exit']==1 and result['source_sha256']==a.sha(failure/'check_open18.py')
+              and "No module named 'ezdxf'"in(failure/'stderr.txt').read_text(encoding='utf-8'),
+              'Original standard-library receiving failure omitted')
     initial=a.read(work/'STARTUP-ACTIONS.json')
     a.require(len(initial)==4 and all(r['exit']==0 for r in initial),'Original controller actions omitted')
     for row in initial:
@@ -65,7 +92,7 @@ def receive(root):
 def check():
     a.require(a.sha(BASE/'package.py')==a.read(BASE/'INVENTORY.json')['packager_sha256'],'Open18 packager differs')
     with tempfile.TemporaryDirectory(prefix='ict-open18-')as temporary:
-        summary=receive(old.unpack(BASE,Path(temporary)))
+        summary=receive(unpack(BASE,Path(temporary)))
     a.require(a.equal(summary,a.read(BASE/'SUMMARY.json')),'Published open/init summary differs')
     return summary
 if __name__=='__main__':

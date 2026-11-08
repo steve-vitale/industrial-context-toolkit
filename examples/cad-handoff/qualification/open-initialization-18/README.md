@@ -50,6 +50,13 @@ binary and settings contents are excluded. The original helper compilation remai
 [layout17](../layout-construction-17/README.md). The same assistant wrote the method and receiver; no independent
 human engineering review, plant data or blind accuracy result is established.
 
+An explicit `python -S` check exposed an initial accidental dependency on `ezdxf` through an older receiver.
+Its original checker source, actual stderr and exit are retained. The corrected bounded archive reader uses
+only the standard library; `python -S examples/cad-handoff/qualification/check_open18.py` now works without
+site packages. Archive controls reject traversal, duplicate entries and links. This correction did not
+rerun native CAD or change its outputs. Controller exit statuses are host-observed summary metadata, not
+original captured controller terminal transcripts; their action receipts and native process records remain.
+
 The next qualification design must handle these source/import boundaries explicitly; simply using the normal
 application or reading print settings cannot justify accepting arbitrary plot storage. Preserve source values
 and distinguish missing source fields from reader-generated defaults before choosing any initialization method.
