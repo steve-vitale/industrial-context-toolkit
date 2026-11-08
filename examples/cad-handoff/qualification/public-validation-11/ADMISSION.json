@@ -1,0 +1,198 @@
+{
+  "cases": [
+    {
+      "id": "libre-air-water",
+      "repository": "LibreCAD/LibreCAD",
+      "commit": "c20884671c5f4566e7494890c5060569cc8d8330",
+      "path": "librecad/support/library/plan/air_water/aw10.dxf",
+      "git_blob_sha1": "61f740cdf37c87d5f3257a5ec063471409628d41",
+      "bytes": 10143,
+      "category_prefix": "librecad/support/library/plan/air_water/",
+      "pool_size": 80,
+      "transport": {
+        "command": [
+          "curl.exe",
+          "--fail",
+          "--location",
+          "--silent",
+          "--show-error",
+          "https://raw.githubusercontent.com/LibreCAD/LibreCAD/c20884671c5f4566e7494890c5060569cc8d8330/librecad/support/library/plan/air_water/aw10.dxf",
+          "--output",
+          "C:\\Users\\Steve\\.cp-scratch\\cad-public-validation-11\\inputs\\libre-air-water\\original.dxf"
+        ],
+        "exit": 0,
+        "stderr": ""
+      },
+      "original_sha256": "ec8087fccdcba6166f503dd48c13746aed0206b8c0b5b4d65aa993d8703cd228",
+      "original_admission": {
+        "status": "refused",
+        "error": "No profiled asset INSERTs found; a flattened picture is not an asset handoff"
+      },
+      "source_sha256": "245a50eefeabc483f16269375a3bf9bd892b9cebd125e76f5ae744f5466f4db8",
+      "plan_sha256": "bce43ca6cd52bcb57bf1779c15ebe4aaaa2eecdb1c7395f681132cc0064522fa",
+      "status": "adapted_not_tested"
+    },
+    {
+      "id": "libre-power",
+      "repository": "LibreCAD/LibreCAD",
+      "commit": "c20884671c5f4566e7494890c5060569cc8d8330",
+      "path": "librecad/support/library/plan/power_engineering/pe3.dxf",
+      "git_blob_sha1": "ed464c8bfd8c60dd8940198fbf6d0f9c40da8d82",
+      "bytes": 10088,
+      "category_prefix": "librecad/support/library/plan/power_engineering/",
+      "pool_size": 11,
+      "transport": {
+        "command": [
+          "curl.exe",
+          "--fail",
+          "--location",
+          "--silent",
+          "--show-error",
+          "https://raw.githubusercontent.com/LibreCAD/LibreCAD/c20884671c5f4566e7494890c5060569cc8d8330/librecad/support/library/plan/power_engineering/pe3.dxf",
+          "--output",
+          "C:\\Users\\Steve\\.cp-scratch\\cad-public-validation-11\\inputs\\libre-power\\original.dxf"
+        ],
+        "exit": 0,
+        "stderr": ""
+      },
+      "original_sha256": "a7dc6f0017c680e4f19245be1bb19afbac18e7f7c5e2a92f2a3325211f4eff08",
+      "original_admission": {
+        "status": "refused",
+        "error": "No profiled asset INSERTs found; a flattened picture is not an asset handoff"
+      },
+      "source_sha256": "8876b0c66ec7794914a2218072386f5d169a6813a675a579747fa6242cfac2bd",
+      "plan_sha256": "0bca0796d3c1b63b4d63d9f8c70782fa90177b96f8907d00b9ac10aa419c7566",
+      "status": "adapted_not_tested"
+    },
+    {
+      "id": "libre-motion",
+      "repository": "LibreCAD/LibreCAD",
+      "commit": "c20884671c5f4566e7494890c5060569cc8d8330",
+      "path": "librecad/support/library/kinetics/kin74.dxf",
+      "git_blob_sha1": "6c8058e145362db7f92443a9dbb04652766af0f3",
+      "bytes": 8446,
+      "category_prefix": "librecad/support/library/kinetics/",
+      "pool_size": 157,
+      "transport": {
+        "command": [
+          "curl.exe",
+          "--fail",
+          "--location",
+          "--silent",
+          "--show-error",
+          "https://raw.githubusercontent.com/LibreCAD/LibreCAD/c20884671c5f4566e7494890c5060569cc8d8330/librecad/support/library/kinetics/kin74.dxf",
+          "--output",
+          "C:\\Users\\Steve\\.cp-scratch\\cad-public-validation-11\\inputs\\libre-motion\\original.dxf"
+        ],
+        "exit": 0,
+        "stderr": ""
+      },
+      "original_sha256": "2e9f2859dc07d92b9cd5307c98c0a02a26b645eca37c36557d54ccd92e8385dd",
+      "original_admission": {
+        "status": "refused",
+        "error": "No profiled asset INSERTs found; a flattened picture is not an asset handoff"
+      },
+      "source_sha256": "724b0557adc753c59e23e864dc08f6de1c1ca50767b4da012be0fadf54d77b04",
+      "plan_sha256": "23c734be478b2de9a2dad6dec09377bdf27d263db8c4dd14b2c25be01ac717f1",
+      "status": "adapted_not_tested"
+    },
+    {
+      "id": "qcad-hydraulic",
+      "repository": "qcad/qcad",
+      "commit": "897079c2d11aaa0869f839a6cf5df8a937dbddbe",
+      "path": "libraries/default/Hydraulics/2-2valve.dxf",
+      "git_blob_sha1": "27447d15a1bce5d160e255fb6c702f3efc798406",
+      "bytes": 20748,
+      "category_prefix": "libraries/default/Hydraulics/",
+      "pool_size": 3,
+      "transport": {
+        "command": [
+          "curl.exe",
+          "--fail",
+          "--location",
+          "--silent",
+          "--show-error",
+          "https://raw.githubusercontent.com/qcad/qcad/897079c2d11aaa0869f839a6cf5df8a937dbddbe/libraries/default/Hydraulics/2-2valve.dxf",
+          "--output",
+          "C:\\Users\\Steve\\.cp-scratch\\cad-public-validation-11\\inputs\\qcad-hydraulic\\original.dxf"
+        ],
+        "exit": 0,
+        "stderr": ""
+      },
+      "original_sha256": "035875e4ff37e2a39508412459536ec94ea66af4d3f72e7c6438ac9d5b1a3a07",
+      "original_admission": {
+        "status": "refused",
+        "error": "No profiled asset INSERTs found; a flattened picture is not an asset handoff"
+      },
+      "source_sha256": "4d768e3a5ca0ba8d5e4762851a349f1679381b51d5fdf2a9b2fc89e86aa430db",
+      "plan_sha256": "e47d9c074c3aa81897fe41ee52cb01fc3a97e8313f0ae6975dcff484422f9379",
+      "status": "adapted_not_tested"
+    },
+    {
+      "id": "qcad-mechanical",
+      "repository": "qcad/qcad",
+      "commit": "897079c2d11aaa0869f839a6cf5df8a937dbddbe",
+      "path": "libraries/default/Mechanics/M4_DIN934_t.dxf",
+      "git_blob_sha1": "85da4401bd28a5dc92aaeabd976ad16f683d93bc",
+      "bytes": 35510,
+      "category_prefix": "libraries/default/Mechanics/",
+      "pool_size": 16,
+      "transport": {
+        "command": [
+          "curl.exe",
+          "--fail",
+          "--location",
+          "--silent",
+          "--show-error",
+          "https://raw.githubusercontent.com/qcad/qcad/897079c2d11aaa0869f839a6cf5df8a937dbddbe/libraries/default/Mechanics/M4_DIN934_t.dxf",
+          "--output",
+          "C:\\Users\\Steve\\.cp-scratch\\cad-public-validation-11\\inputs\\qcad-mechanical\\original.dxf"
+        ],
+        "exit": 0,
+        "stderr": ""
+      },
+      "original_sha256": "1b0f8246eb34f213424bb2d9f44110b5da60c6a786245ad49b2551232144bf8f",
+      "original_admission": {
+        "status": "refused",
+        "error": "No profiled asset INSERTs found; a flattened picture is not an asset handoff"
+      },
+      "source_sha256": "30c4a41b51dd5474889db30ca336a2cfe18df6d2dc2c6fea5affb5091327a26d",
+      "plan_sha256": "97ccbc68a37961f2d5a54c23365c79fcaace66108dd41444810d874bfea2292a",
+      "status": "adapted_not_tested"
+    },
+    {
+      "id": "qcad-template",
+      "repository": "qcad/qcad",
+      "commit": "897079c2d11aaa0869f839a6cf5df8a937dbddbe",
+      "path": "libraries/templates/metric/aec_layers.dxf",
+      "git_blob_sha1": "42b1ba2d72f648c3a94abf46ad3db998ab989b74",
+      "bytes": 36644,
+      "category_prefix": "libraries/templates/metric/",
+      "pool_size": 71,
+      "transport": {
+        "command": [
+          "curl.exe",
+          "--fail",
+          "--location",
+          "--silent",
+          "--show-error",
+          "https://raw.githubusercontent.com/qcad/qcad/897079c2d11aaa0869f839a6cf5df8a937dbddbe/libraries/templates/metric/aec_layers.dxf",
+          "--output",
+          "C:\\Users\\Steve\\.cp-scratch\\cad-public-validation-11\\inputs\\qcad-template\\original.dxf"
+        ],
+        "exit": 0,
+        "stderr": ""
+      },
+      "original_sha256": "3973e1456461b6971d8f4d1ee2a5bbe803fc478fe0e2eba581c7988c6d8aaa5d",
+      "original_admission": {
+        "status": "refused",
+        "error": "No profiled asset INSERTs found; a flattened picture is not an asset handoff"
+      },
+      "source_sha256": "6e87cef8ca4178b20e9d4e2b892917636ba2fe02e030ea076379c8d57e6a1f88",
+      "plan_sha256": "ad70bfaa02bc87d5efe675aa8c22e9c80957d98473b77391b8f88b8ca13e3ae2",
+      "status": "adapted_not_tested"
+    }
+  ],
+  "candidate_executed": false,
+  "whole_cad_qualified": false
+}
