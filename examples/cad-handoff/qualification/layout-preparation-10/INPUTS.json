@@ -1,0 +1,664 @@
+{
+  "role": "Five already exposed failures, all five matched routes; no fresh validation",
+  "cohort": [
+    {
+      "id": "dev-legacy",
+      "status": "exact_noop",
+      "layouts": 0,
+      "byte_check": {
+        "status": "pass",
+        "new_main_viewports": 0,
+        "source_sha256": "fc35544fae08b380c27dad78b8b858698b55effb5fa25f947524b94f574d222b",
+        "prepared_sha256": "fc35544fae08b380c27dad78b8b858698b55effb5fa25f947524b94f574d222b",
+        "unplanned_byte_changes": 0,
+        "original_reconstruction": "exact",
+        "check": "Source/output discovery, fields/order/allocation and raw reconstruction; no producer span receipt"
+      }
+    },
+    {
+      "id": "dev-unicode",
+      "status": "exact_noop",
+      "layouts": 0,
+      "byte_check": {
+        "status": "pass",
+        "new_main_viewports": 0,
+        "source_sha256": "2d78038053f64dd77c424bde7eea5b265a87fceaa002ee896d7de2b4107f5e53",
+        "prepared_sha256": "2d78038053f64dd77c424bde7eea5b265a87fceaa002ee896d7de2b4107f5e53",
+        "unplanned_byte_changes": 0,
+        "original_reconstruction": "exact",
+        "check": "Source/output discovery, fields/order/allocation and raw reconstruction; no producer span receipt"
+      }
+    },
+    {
+      "id": "reserve-r12",
+      "status": "refused",
+      "error": "Layout preparation supports text DXF R2000 or later"
+    },
+    {
+      "id": "reserve-mirror",
+      "status": "exact_noop",
+      "layouts": 0,
+      "byte_check": {
+        "status": "pass",
+        "new_main_viewports": 0,
+        "source_sha256": "4d2999c1ae48e4baceafab99c2d9a721e045f05d6e2ab4229a0796bd97cce86e",
+        "prepared_sha256": "4d2999c1ae48e4baceafab99c2d9a721e045f05d6e2ab4229a0796bd97cce86e",
+        "unplanned_byte_changes": 0,
+        "original_reconstruction": "exact",
+        "check": "Source/output discovery, fields/order/allocation and raw reconstruction; no producer span receipt"
+      }
+    },
+    {
+      "id": "reserve-cyrillic",
+      "status": "exact_noop",
+      "layouts": 0,
+      "byte_check": {
+        "status": "pass",
+        "new_main_viewports": 0,
+        "source_sha256": "f5ab62872545ab20ad4c7988c23707d53fc632cd8151c4ff1f7dcc38828a8c2c",
+        "prepared_sha256": "f5ab62872545ab20ad4c7988c23707d53fc632cd8151c4ff1f7dcc38828a8c2c",
+        "unplanned_byte_changes": 0,
+        "original_reconstruction": "exact",
+        "check": "Source/output discovery, fields/order/allocation and raw reconstruction; no producer span receipt"
+      }
+    },
+    {
+      "id": "reserve-multiple",
+      "status": "exact_noop",
+      "layouts": 0,
+      "byte_check": {
+        "status": "pass",
+        "new_main_viewports": 0,
+        "source_sha256": "c5975b671a480c54dd01baca83cba2fe24e6fa138f24ba5d2a68751bb8401cb0",
+        "prepared_sha256": "c5975b671a480c54dd01baca83cba2fe24e6fa138f24ba5d2a68751bb8401cb0",
+        "unplanned_byte_changes": 0,
+        "original_reconstruction": "exact",
+        "check": "Source/output discovery, fields/order/allocation and raw reconstruction; no producer span receipt"
+      }
+    },
+    {
+      "id": "reserve-foreign",
+      "status": "exact_noop",
+      "layouts": 0,
+      "byte_check": {
+        "status": "pass",
+        "new_main_viewports": 0,
+        "source_sha256": "4029079e1721fb908eb337f73534d11fb7df0e75a8527ec434fbc41b5bae257d",
+        "prepared_sha256": "4029079e1721fb908eb337f73534d11fb7df0e75a8527ec434fbc41b5bae257d",
+        "unplanned_byte_changes": 0,
+        "original_reconstruction": "exact",
+        "check": "Source/output discovery, fields/order/allocation and raw reconstruction; no producer span receipt"
+      }
+    },
+    {
+      "id": "reserve-mixed",
+      "status": "exact_noop",
+      "layouts": 0,
+      "byte_check": {
+        "status": "pass",
+        "new_main_viewports": 0,
+        "source_sha256": "72e0128a7500985168611a7b90e48b4cd2afa82f83707af009f3767a310053c9",
+        "prepared_sha256": "72e0128a7500985168611a7b90e48b4cd2afa82f83707af009f3767a310053c9",
+        "unplanned_byte_changes": 0,
+        "original_reconstruction": "exact",
+        "check": "Source/output discovery, fields/order/allocation and raw reconstruction; no producer span receipt"
+      }
+    },
+    {
+      "id": "validation-r12",
+      "status": "refused",
+      "error": "Layout preparation supports text DXF R2000 or later"
+    },
+    {
+      "id": "validation-cp1251",
+      "status": "proposed_source_revision",
+      "layouts": 1,
+      "byte_check": {
+        "status": "pass",
+        "new_main_viewports": 1,
+        "source_sha256": "2044da26edd9188d07300f6b8f2abf4053956f31a7827bba488ec02c1351e158",
+        "prepared_sha256": "70efa92208e0ee5832b8503288903d0a7cfa51a14d946121d7c00f94da521337",
+        "unplanned_byte_changes": 0,
+        "original_reconstruction": "exact",
+        "check": "Source/output discovery, fields/order/allocation and raw reconstruction; no producer span receipt"
+      }
+    },
+    {
+      "id": "validation-long",
+      "status": "proposed_source_revision",
+      "layouts": 1,
+      "byte_check": {
+        "status": "pass",
+        "new_main_viewports": 1,
+        "source_sha256": "320f335dfce8b55b4176e7bf130a4d2a35767c60bd25b39834cf6f42473991a0",
+        "prepared_sha256": "35a0fe7c24acfb09a4d74d64355d3972b8fba37a8da584de14dd07d312d7f8cd",
+        "unplanned_byte_changes": 0,
+        "original_reconstruction": "exact",
+        "check": "Source/output discovery, fields/order/allocation and raw reconstruction; no producer span receipt"
+      }
+    },
+    {
+      "id": "validation-unicode",
+      "status": "proposed_source_revision",
+      "layouts": 1,
+      "byte_check": {
+        "status": "pass",
+        "new_main_viewports": 1,
+        "source_sha256": "c7edb52b95b314e7519771e61c8d7ee00819e4f2a5ffb2638d5a268e27afd3f1",
+        "prepared_sha256": "dfd4ff946d4149e3e8a2d4a2361b26f55f9e06bd58f0dd84a8e62cb1dc2ca7af",
+        "unplanned_byte_changes": 0,
+        "original_reconstruction": "exact",
+        "check": "Source/output discovery, fields/order/allocation and raw reconstruction; no producer span receipt"
+      }
+    },
+    {
+      "id": "validation-braces",
+      "status": "proposed_source_revision",
+      "layouts": 1,
+      "byte_check": {
+        "status": "pass",
+        "new_main_viewports": 1,
+        "source_sha256": "614e83380bbe667c727363f02d32519b3340439028f0acd72807c82a45224abe",
+        "prepared_sha256": "8dd39146c3278b421d2a530e9552c442605f07a88e667402e3dc9f8d184767ae",
+        "unplanned_byte_changes": 0,
+        "original_reconstruction": "exact",
+        "check": "Source/output discovery, fields/order/allocation and raw reconstruction; no producer span receipt"
+      }
+    },
+    {
+      "id": "validation-foreign",
+      "status": "proposed_source_revision",
+      "layouts": 1,
+      "byte_check": {
+        "status": "pass",
+        "new_main_viewports": 1,
+        "source_sha256": "0c37544e989ce0880dfc75935daae28595155ce6a7e6f89b11080cb751119636",
+        "prepared_sha256": "d4ee3a834ca7cba22801ba2a661b5f8b31eed59a7a7ea72a545f69973d5964c1",
+        "unplanned_byte_changes": 0,
+        "original_reconstruction": "exact",
+        "check": "Source/output discovery, fields/order/allocation and raw reconstruction; no producer span receipt"
+      }
+    },
+    {
+      "id": "dimension_in_block",
+      "status": "exact_noop",
+      "layouts": 0,
+      "byte_check": {
+        "status": "pass",
+        "new_main_viewports": 0,
+        "source_sha256": "1fa32eb65b341b03875aabe8b0f5f14c1c8f81bbd0822ea16e00f40ad4e56460",
+        "prepared_sha256": "1fa32eb65b341b03875aabe8b0f5f14c1c8f81bbd0822ea16e00f40ad4e56460",
+        "unplanned_byte_changes": 0,
+        "original_reconstruction": "exact",
+        "check": "Source/output discovery, fields/order/allocation and raw reconstruction; no producer span receipt"
+      }
+    },
+    {
+      "id": "dimension_in_nested_blocks",
+      "status": "exact_noop",
+      "layouts": 0,
+      "byte_check": {
+        "status": "pass",
+        "new_main_viewports": 0,
+        "source_sha256": "ba055e532019651085795c3781fc0566e7bfeaaa80eafb3241334fd6ff5dbb74",
+        "prepared_sha256": "ba055e532019651085795c3781fc0566e7bfeaaa80eafb3241334fd6ff5dbb74",
+        "unplanned_byte_changes": 0,
+        "original_reconstruction": "exact",
+        "check": "Source/output discovery, fields/order/allocation and raw reconstruction; no producer span receipt"
+      }
+    },
+    {
+      "id": "multi_insert_with_attribs",
+      "status": "exact_noop",
+      "layouts": 0,
+      "byte_check": {
+        "status": "pass",
+        "new_main_viewports": 0,
+        "source_sha256": "5a189509680f740d7ef962feb2add38921a6321620fbef59ff328744d5df4349",
+        "prepared_sha256": "5a189509680f740d7ef962feb2add38921a6321620fbef59ff328744d5df4349",
+        "unplanned_byte_changes": 0,
+        "original_reconstruction": "exact",
+        "check": "Source/output discovery, fields/order/allocation and raw reconstruction; no producer span receipt"
+      }
+    },
+    {
+      "id": "text_in_viewports",
+      "status": "exact_noop",
+      "layouts": 0,
+      "byte_check": {
+        "status": "pass",
+        "new_main_viewports": 0,
+        "source_sha256": "4a3e3fc6736d7e76746afd0f6b6a5dfacd43bfee55596319701032c5d8fd0eb2",
+        "prepared_sha256": "4a3e3fc6736d7e76746afd0f6b6a5dfacd43bfee55596319701032c5d8fd0eb2",
+        "unplanned_byte_changes": 0,
+        "original_reconstruction": "exact",
+        "check": "Source/output discovery, fields/order/allocation and raw reconstruction; no producer span receipt"
+      }
+    },
+    {
+      "id": "columns_R2018",
+      "status": "exact_noop",
+      "layouts": 0,
+      "byte_check": {
+        "status": "pass",
+        "new_main_viewports": 0,
+        "source_sha256": "f9eb420142b4bd03e8387418721240933b2f0c83239d6b07b37451e0652bbc51",
+        "prepared_sha256": "f9eb420142b4bd03e8387418721240933b2f0c83239d6b07b37451e0652bbc51",
+        "unplanned_byte_changes": 0,
+        "original_reconstruction": "exact",
+        "check": "Source/output discovery, fields/order/allocation and raw reconstruction; no producer span receipt"
+      }
+    },
+    {
+      "id": "hatch_issues",
+      "status": "exact_noop",
+      "layouts": 0,
+      "byte_check": {
+        "status": "pass",
+        "new_main_viewports": 0,
+        "source_sha256": "d7219d93aa203f2b59de4d2bf0be9b69e41cdd4c035da2058a81c9475b765c46",
+        "prepared_sha256": "d7219d93aa203f2b59de4d2bf0be9b69e41cdd4c035da2058a81c9475b765c46",
+        "unplanned_byte_changes": 0,
+        "original_reconstruction": "exact",
+        "check": "Source/output discovery, fields/order/allocation and raw reconstruction; no producer span receipt"
+      }
+    },
+    {
+      "id": "original-valve",
+      "status": "exact_noop",
+      "layouts": 0,
+      "byte_check": {
+        "status": "pass",
+        "new_main_viewports": 0,
+        "source_sha256": "c64f5ac8f53f7f35ed0f119abdc28c1e11eb5c7cc28011ddaf079940cfee2b7d",
+        "prepared_sha256": "c64f5ac8f53f7f35ed0f119abdc28c1e11eb5c7cc28011ddaf079940cfee2b7d",
+        "unplanned_byte_changes": 0,
+        "original_reconstruction": "exact",
+        "check": "Source/output discovery, fields/order/allocation and raw reconstruction; no producer span receipt"
+      }
+    }
+  ],
+  "jobs": [
+    {
+      "id": "validation-braces-original",
+      "case_id": "validation-braces",
+      "route": "original",
+      "path": "validation-braces/original.dxf",
+      "sha256": "614e83380bbe667c727363f02d32519b3340439028f0acd72807c82a45224abe",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        140.0,
+        110.0
+      ],
+      "strict_from_original": 0
+    },
+    {
+      "id": "validation-braces-library",
+      "case_id": "validation-braces",
+      "route": "library",
+      "path": "validation-braces/library.dxf",
+      "sha256": "ee5e856eb3ea46055e5657f7644776900e40cc6fdcff3c8ab7f7a0fde773901b",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        140.0,
+        110.0
+      ],
+      "strict_from_original": 0
+    },
+    {
+      "id": "validation-braces-library-main",
+      "case_id": "validation-braces",
+      "route": "library-main",
+      "path": "validation-braces/library-main.dxf",
+      "sha256": "526b14a6e9ac3c9eb8b5ce52f0f355b5fc49e3b1add68b5871996ae8a41d58a2",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        140.0,
+        110.0
+      ],
+      "strict_from_original": 2
+    },
+    {
+      "id": "validation-braces-prepared",
+      "case_id": "validation-braces",
+      "route": "prepared",
+      "path": "validation-braces/prepared.dxf",
+      "sha256": "8dd39146c3278b421d2a530e9552c442605f07a88e667402e3dc9f8d184767ae",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        140.0,
+        110.0
+      ],
+      "strict_from_original": 1
+    },
+    {
+      "id": "validation-braces-candidate",
+      "case_id": "validation-braces",
+      "route": "candidate",
+      "path": "validation-braces/candidate.dxf",
+      "sha256": "dc00a8307ba61ea2fe6fbb1cce1b6f4c578072860c7585247a8061e06ef9819f",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        140.0,
+        110.0
+      ],
+      "strict_from_original": 3
+    },
+    {
+      "id": "validation-cp1251-original",
+      "case_id": "validation-cp1251",
+      "route": "original",
+      "path": "validation-cp1251/original.dxf",
+      "sha256": "2044da26edd9188d07300f6b8f2abf4053956f31a7827bba488ec02c1351e158",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        140.0,
+        110.0
+      ],
+      "strict_from_original": 0
+    },
+    {
+      "id": "validation-cp1251-library",
+      "case_id": "validation-cp1251",
+      "route": "library",
+      "path": "validation-cp1251/library.dxf",
+      "sha256": "5a148968a159d37e5014d80e16dccb7c626e62be6a9d246e89b1224fee0544e3",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        140.0,
+        110.0
+      ],
+      "strict_from_original": 0
+    },
+    {
+      "id": "validation-cp1251-library-main",
+      "case_id": "validation-cp1251",
+      "route": "library-main",
+      "path": "validation-cp1251/library-main.dxf",
+      "sha256": "785ac0a08f37d92ef471b05b2eed3af2086629a210042782bccf3311ac80e711",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        140.0,
+        110.0
+      ],
+      "strict_from_original": 2
+    },
+    {
+      "id": "validation-cp1251-prepared",
+      "case_id": "validation-cp1251",
+      "route": "prepared",
+      "path": "validation-cp1251/prepared.dxf",
+      "sha256": "70efa92208e0ee5832b8503288903d0a7cfa51a14d946121d7c00f94da521337",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        140.0,
+        110.0
+      ],
+      "strict_from_original": 1
+    },
+    {
+      "id": "validation-cp1251-candidate",
+      "case_id": "validation-cp1251",
+      "route": "candidate",
+      "path": "validation-cp1251/candidate.dxf",
+      "sha256": "aecc1ae7711c3d54f9ace26fdf3989f67397c19686a98a1a49f029c606628e86",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        140.0,
+        110.0
+      ],
+      "strict_from_original": 3
+    },
+    {
+      "id": "validation-foreign-original",
+      "case_id": "validation-foreign",
+      "route": "original",
+      "path": "validation-foreign/original.dxf",
+      "sha256": "0c37544e989ce0880dfc75935daae28595155ce6a7e6f89b11080cb751119636",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        140.0,
+        110.0
+      ],
+      "strict_from_original": 0
+    },
+    {
+      "id": "validation-foreign-library",
+      "case_id": "validation-foreign",
+      "route": "library",
+      "path": "validation-foreign/library.dxf",
+      "sha256": "99db526e24ea152fd74656140a550102a46fb464b0fed25d43c585dee0a566ce",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        140.0,
+        110.0
+      ],
+      "strict_from_original": 0
+    },
+    {
+      "id": "validation-foreign-library-main",
+      "case_id": "validation-foreign",
+      "route": "library-main",
+      "path": "validation-foreign/library-main.dxf",
+      "sha256": "d41e74fee56d216de81f3a8512cb9e531bbbb0daf2901391065617ec8b79a621",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        140.0,
+        110.0
+      ],
+      "strict_from_original": 2
+    },
+    {
+      "id": "validation-foreign-prepared",
+      "case_id": "validation-foreign",
+      "route": "prepared",
+      "path": "validation-foreign/prepared.dxf",
+      "sha256": "d4ee3a834ca7cba22801ba2a661b5f8b31eed59a7a7ea72a545f69973d5964c1",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        140.0,
+        110.0
+      ],
+      "strict_from_original": 1
+    },
+    {
+      "id": "validation-foreign-candidate",
+      "case_id": "validation-foreign",
+      "route": "candidate",
+      "path": "validation-foreign/candidate.dxf",
+      "sha256": "04f716d65e35ec3936ec9c558e19a3f379408557fca7f79591cc7bc717c1a9ee",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        140.0,
+        110.0
+      ],
+      "strict_from_original": 4
+    },
+    {
+      "id": "validation-long-original",
+      "case_id": "validation-long",
+      "route": "original",
+      "path": "validation-long/original.dxf",
+      "sha256": "320f335dfce8b55b4176e7bf130a4d2a35767c60bd25b39834cf6f42473991a0",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        140.0,
+        110.0
+      ],
+      "strict_from_original": 0
+    },
+    {
+      "id": "validation-long-library",
+      "case_id": "validation-long",
+      "route": "library",
+      "path": "validation-long/library.dxf",
+      "sha256": "2e5a76f588231b5a9d7391cfe97eb21591b95b6e40f450c107f7638fa8a7b204",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        140.0,
+        110.0
+      ],
+      "strict_from_original": 0
+    },
+    {
+      "id": "validation-long-library-main",
+      "case_id": "validation-long",
+      "route": "library-main",
+      "path": "validation-long/library-main.dxf",
+      "sha256": "f5c94a9c789a4bab58bbd39b48ac70e7814470cdb6d09ad75c712ba1b57537d6",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        140.0,
+        110.0
+      ],
+      "strict_from_original": 2
+    },
+    {
+      "id": "validation-long-prepared",
+      "case_id": "validation-long",
+      "route": "prepared",
+      "path": "validation-long/prepared.dxf",
+      "sha256": "35a0fe7c24acfb09a4d74d64355d3972b8fba37a8da584de14dd07d312d7f8cd",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        140.0,
+        110.0
+      ],
+      "strict_from_original": 1
+    },
+    {
+      "id": "validation-long-candidate",
+      "case_id": "validation-long",
+      "route": "candidate",
+      "path": "validation-long/candidate.dxf",
+      "sha256": "c59390fd7fa89bc0cae89129ec066b58bbdab3d7aed5b7d01fe2c6e8735c0de8",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        140.0,
+        110.0
+      ],
+      "strict_from_original": 2
+    },
+    {
+      "id": "validation-unicode-original",
+      "case_id": "validation-unicode",
+      "route": "original",
+      "path": "validation-unicode/original.dxf",
+      "sha256": "c7edb52b95b314e7519771e61c8d7ee00819e4f2a5ffb2638d5a268e27afd3f1",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        140.0,
+        110.0
+      ],
+      "strict_from_original": 0
+    },
+    {
+      "id": "validation-unicode-library",
+      "case_id": "validation-unicode",
+      "route": "library",
+      "path": "validation-unicode/library.dxf",
+      "sha256": "ac1a742768170c8a26f5850de8ffaaae22ea1e12c2dd3ab737c9144a0524f060",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        140.0,
+        110.0
+      ],
+      "strict_from_original": 0
+    },
+    {
+      "id": "validation-unicode-library-main",
+      "case_id": "validation-unicode",
+      "route": "library-main",
+      "path": "validation-unicode/library-main.dxf",
+      "sha256": "efc0cfc81fbc30499ea7e5422aeb1863d95c40f499de56aa63ae2377ded2386e",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        140.0,
+        110.0
+      ],
+      "strict_from_original": 2
+    },
+    {
+      "id": "validation-unicode-prepared",
+      "case_id": "validation-unicode",
+      "route": "prepared",
+      "path": "validation-unicode/prepared.dxf",
+      "sha256": "dfd4ff946d4149e3e8a2d4a2361b26f55f9e06bd58f0dd84a8e62cb1dc2ca7af",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        140.0,
+        110.0
+      ],
+      "strict_from_original": 1
+    },
+    {
+      "id": "validation-unicode-candidate",
+      "case_id": "validation-unicode",
+      "route": "candidate",
+      "path": "validation-unicode/candidate.dxf",
+      "sha256": "da3582a2f32e65e889acbe14c8168d2390161df60c64b5dd8f0c50678a81f5a0",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        140.0,
+        110.0
+      ],
+      "strict_from_original": 4
+    }
+  ],
+  "methods_lf": {
+    "prepare_layout10.py": "4d3b09c9c50c8eab8e0cd4a69c5673dabf82a4282f13ca67c24f2f63c5f1a805",
+    "verify_layout10.py": "466f02c02d004041a49d9caa08d8fc109f1259c0a76327f0994a0b48b9ed5df2",
+    "build_layout10.py": "8ab4307d7553921fa2747f8c32def3d3be27d75b0a4ebda0e2d5c2fbc4f4b715"
+  },
+  "ezdxf": "1.4.5"
+}

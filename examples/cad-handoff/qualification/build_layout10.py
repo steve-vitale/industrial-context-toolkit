@@ -60,13 +60,14 @@ def main():
         checked=recheck.verify(prepared,out/'candidate.dxf',rebound)
         prepare.ch.write_json(out/'candidate-byte-check.json',checked)
         # Identical window derived from source display viewport(s), never native outcome.
-        d=prepare.ch.load(source);boxes=[]
+        d=prepare.ch.load(source)
         for layout in d.layouts:
             if layout.name=='Model':continue
             viewports=[v for v in layout.query('VIEWPORT') if v.dxf.id!=1]
             if not viewports:continue
+            boxes=[]
             for v in viewports:
-                x,y=v.dxf.center[:2];w,h=v.dxf.width,v.dxf.height
+                x,y=v.dxf.center.x,v.dxf.center.y;w,h=v.dxf.width,v.dxf.height
                 boxes.append((x-w/2,y-h/2,x+w/2,y+h/2))
             x1,y1=min(b[0] for b in boxes),min(b[1] for b in boxes)
             x2,y2=max(b[2] for b in boxes),max(b[3] for b in boxes)
