@@ -12,6 +12,8 @@ spec=importlib.util.spec_from_file_location('ict_records15_analysis',BASE/'recor
 a=importlib.util.module_from_spec(spec);spec.loader.exec_module(a);b=a.b
 spec=importlib.util.spec_from_file_location('ict_records15_attribute_analysis',BASE/'attribute_analysis.py')
 attributes=importlib.util.module_from_spec(spec);spec.loader.exec_module(attributes)
+spec=importlib.util.spec_from_file_location('ict_records15_symbol_analysis',BASE/'symbol_analysis.py')
+symbols=importlib.util.module_from_spec(spec);spec.loader.exec_module(symbols)
 CONFIG='2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c'
 IMAGE='sha256:bb4390214744897de88b2198f0cbf812aec4be42923311298e7a5e3a5646bef8'
 FREEZES=['FREEZE.json','EXPLICIT-FREEZE.json','DIRECTORY-FREEZE.json','COMPLETE-FREEZE.json']
@@ -61,6 +63,34 @@ def receive(root):
     failed=[r['id']for r in result['comparisons']if r['strict_status']=='native_failed']
     equal(b.read(root/'attempt-4/native/COMPLETE.json'),dict(commands=2,attempted_jobs=48,failed_jobs=failed,
         fresh_success_jobs=46,cohort_status='differences',inputs_unchanged=True,whole_cad_qualified=False))
+    work=root/'symbol-5';frozen=b.read(work/'FREEZE.json');equal(frozen,b.read(BASE/'SYMBOL-FREEZE.json'))
+    for name,pin in frozen['inputs'].items():b.require(b.sha(work/name)==pin,'Frozen name-control input differs: '+name)
+    for namespace in('qcad','foreign'):
+        b.require(b.sha(work/'cases'/namespace/'source.dxf')==b.sha(root/'attempt-4/cases/qcad-hydraulic'/namespace/'source.dxf'),'Name control changed source bytes')
+    b.require(frozen['configuration_sha256']==CONFIG and frozen['image']==b.read(root/'attempt-4/FREEZE.json')['image'],'Name-control frozen environment differs')
+    env=b.read(work/'ENVIRONMENT.json');state=env['state']
+    b.require(env['image']==IMAGE and env['user']=='1001:1001'and env['network']=='none'and not env['qt_hash_seed']and
+        state['Status']=='exited'and not state['Running']and not state['OOMKilled']and state['ExitCode']==1,'Name-control terminal identity/state differs')
+    b.require(env['path']=='/usr/bin/python3'and env['args']==['/work/run_native.py']and len(env['mounts'])==1 and
+        env['mounts'][0]['Type']=='bind'and env['mounts'][0]['Destination']=='/work','Name-control native entrypoint differs')
+    commands=b.read(work/'native/commands.json');equal([c['id']for c in commands],['export','fresh'])
+    for command in commands:
+        phase=command['id'];manifest_path='/work/export.json'if phase=='export'else'/work/native/fresh-success.json'
+        equal(command['command'],['/opt/qcad/qcad','-platform','offscreen','-no-gui','-allow-multiple-instances',
+            '-config','/home/cad/.config/QCAD/QCAD3.conf','-font-substitution','Standard','DejaVu Sans',
+            '-autostart','/work/native_records.js','-m',manifest_path])
+        b.require(command['exit']==0 and command['configuration_sha256_before']==CONFIG and command['configuration_sha256_after']==CONFIG and
+            command['manifest_sha256']==b.sha(work/manifest_path.removeprefix('/work/')),'Name-control command/profile differs')
+        b.require(b'absConfigFile: "/home/cad/.config/QCAD/QCAD3.conf"'in(work/'native'/(phase+'.stderr')).read_bytes(),'Name-control actual settings absent')
+    b.require((work/'native/export.stderr').read_text(encoding='utf-8').splitlines().count('Warning:  Export Error:  "Invalid Symbol Table name"')==4,'Name-control engine failures differ')
+    diagnostic=root/'symbol-receiver-failure'
+    b.require(b.read(diagnostic/'RESULT.json')['exit']==1 and 'Name-control engine failures differ'in
+        (diagnostic/'stderr.txt').read_text(encoding='utf-8'),'Earlier name receiver failure omitted')
+    b.require(".count('Invalid Symbol Table name')==4"in(diagnostic/'check_records15.py').read_text(encoding='utf-8'),'Earlier failing receiver source omitted')
+    symbol=symbols.analyze(work);equal(symbol,b.read(work/'analysis/symbol-diagnosis.json'))
+    equal(b.read(work/'native/COMPLETE.json'),dict(commands=2,attempted_jobs=6,
+        failed_jobs=['qcad/unchanged','qcad/unrelated','foreign/unchanged','foreign/unrelated'],
+        fresh_success_jobs=2,cohort_status='differences',inputs_unchanged=True,whole_cad_qualified=False))
     matrix=[]
     for namespace in('qcad','foreign'):
         for importer in('OpenDesign','dxflib'):
@@ -78,7 +108,7 @@ def receive(root):
         dxflib_returns_without_attribute_sequence_markers=sum(not any(x['type']=='SEQEND'or
             (x['type']=='INSERT'and any(code==66 for code,value in x['tags']))for x in row['raw_entity_sequences'])
             for row in attr['observations']if row['id'].endswith('-dxflib')and'raw_entity_sequences'in row),
-        literal_tag_matrix=matrix,retained_ambiguity_and_directory_failures=True,whole_cad_qualified=False,
+        literal_tag_matrix=matrix,symbol_controls=symbol,retained_ambiguity_and_directory_failures=True,whole_cad_qualified=False,
         exposure='Twelve paired authored revisions of six exposed inputs; no fresh qualification')
 def check():
     old.recheck.method_bindings()

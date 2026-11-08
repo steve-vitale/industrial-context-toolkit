@@ -13,8 +13,10 @@ def main():
     files={}
     def add(name,path):
         data=path.read_bytes();assert len(data)<=4*1024*1024,name;assert 'raw/'+name not in files;files['raw/'+name]=data
-    for index in range(1,5):
-        work=ROOT/f'attempt-{index}';name='ict-cad-record15-'+str(index)
+    cohorts=[(f'attempt-{index}','ict-cad-record15-'+str(index))for index in range(1,5)]
+    cohorts.append(('symbol-5','ict-cad-record15-symbol5'))
+    for folder,name in cohorts:
+        work=ROOT/folder
         raw=json.loads(subprocess.check_output(['docker','inspect',name]))[0]
         env=dict(image=raw['Image'],state=raw['State'],user=raw['Config']['User'],network=raw['HostConfig']['NetworkMode'],
             path=raw['Path'],args=raw['Args'],mounts=raw['Mounts'],qt_hash_seed=[v for v in raw['Config']['Env']if v.startswith('QT_HASH_SEED=')])
@@ -24,6 +26,7 @@ def main():
         for path in sorted(work.rglob('*')):
             if path.is_file()and'.configuration'not in path.parts and'__pycache__'not in path.parts:add(path.relative_to(ROOT).as_posix(),path)
     for path in sorted(ROOT.glob('dangling-analysis-failure.*')):add(path.name,path)
+    for path in sorted((ROOT/'symbol-receiver-failure').iterdir()):add('symbol-receiver-failure/'+path.name,path)
     add('SOURCES.json',ROOT/'SOURCES.json')
     methods={p.name:sha(p.read_bytes())for p in sorted(HERE.iterdir())if p.suffix in('.py','.js','.md')and p.name!='README.md'}
     files['raw/METHODS.json']=enc(methods)

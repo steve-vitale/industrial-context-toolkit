@@ -185,6 +185,77 @@
       }
     }
   ],
+  "symbol_controls": {
+    "attempted_jobs": 6,
+    "successful_exports": 2,
+    "unchanged_failed": 2,
+    "unrelated_rename_failed": 2,
+    "target_rename_exported": 2,
+    "fresh_public_inventory_repeats": 2,
+    "observations": [
+      {
+        "id": "qcad/unchanged",
+        "intended_operation_exact": true,
+        "native_export": "failed",
+        "error": "Error: Export failed for R15 [2000/LT2000] DXF Drawing [OpenDesign] (*.dxf)",
+        "retained_partial_file": null
+      },
+      {
+        "id": "qcad/target",
+        "intended_operation_exact": true,
+        "native_export": "completed",
+        "fresh_public_inventory_equal": true,
+        "strict_report": {
+          "status": "refused",
+          "error": "INSERT 1000F needs ICT_ID and TAG; unprofiled blocks are not guessed",
+          "boundary": "Original strict asset-profile guard"
+        },
+        "raw_return": {
+          "bytes": 196814,
+          "sha256": "214842e4a29b957add02fb89cfc97b5d38bde38572b527b88b591a58af8f05bb"
+        }
+      },
+      {
+        "id": "qcad/unrelated",
+        "intended_operation_exact": true,
+        "native_export": "failed",
+        "error": "Error: Export failed for R15 [2000/LT2000] DXF Drawing [OpenDesign] (*.dxf)",
+        "retained_partial_file": null
+      },
+      {
+        "id": "foreign/unchanged",
+        "intended_operation_exact": true,
+        "native_export": "failed",
+        "error": "Error: Export failed for R15 [2000/LT2000] DXF Drawing [OpenDesign] (*.dxf)",
+        "retained_partial_file": null
+      },
+      {
+        "id": "foreign/target",
+        "intended_operation_exact": true,
+        "native_export": "completed",
+        "fresh_public_inventory_equal": true,
+        "strict_report": {
+          "status": "refused",
+          "error": "INSERT 1000F needs ICT_ID and TAG; unprofiled blocks are not guessed",
+          "boundary": "Original strict asset-profile guard"
+        },
+        "raw_return": {
+          "bytes": 195976,
+          "sha256": "7976abb5750fb5f2f23941a89a70008cca67ffe1b9218c0f817561c9bf16f35a"
+        }
+      },
+      {
+        "id": "foreign/unrelated",
+        "intended_operation_exact": true,
+        "native_export": "failed",
+        "error": "Error: Export failed for R15 [2000/LT2000] DXF Drawing [OpenDesign] (*.dxf)",
+        "retained_partial_file": null
+      }
+    ],
+    "cause": "Retained slash in block name 2/2-directional valve prevents this dxflib-to-OpenDesign export; target-only native rename permits it",
+    "whole_cad_qualified": false,
+    "exposure": "Two exposed hydraulic sources; predeclared matched native rename, no fresh qualification"
+  },
   "retained_ambiguity_and_directory_failures": true,
   "whole_cad_qualified": false,
   "exposure": "Twelve paired authored revisions of six exposed inputs; no fresh qualification"

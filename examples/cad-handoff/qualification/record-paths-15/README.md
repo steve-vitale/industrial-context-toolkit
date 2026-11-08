@@ -18,7 +18,7 @@ record paths, group codes and payloads. The matched controls locate distinct los
 | OpenDesign import, either writer | Native array values remain observable after export, but the returned record is empty with OpenDesign or a dangling dictionary link with dxflib. | The represented mixed payload is lost at the export-to-file boundary. All 12 OpenDesign-to-dxflib returns have the dangling link; no repair or waiver is applied. |
 | Record identity and wire format | Foreign records move into QCAD_OBJECTS; group1 strings become group1000. Tested integer/real/private-string payloads can survive these changes. | Scalar readback is not complete record/path preservation. The group1000 fixture is labelled native-private format, not generic standard-XRECORD support. |
 | Attached attributes | Every dxflib-imported test attribute points to the native model-space block (72 observations), matching the public constructor's current-block parent. dxflib-written raw sequences omit the INSERT's attribute-follow flag and sequence terminator; decoded INSERTs have no attached attributes. | The existing asset-profile guard refuses these returns even when a native reader still displays their text. No flattening or profile exclusion is added to obtain a comparison. |
-| Hydraulic cross-route export | dxflib import followed by OpenDesign export fails for both namespaces with Invalid Symbol Table name. | Both attempted routes stay failed. The exact offending symbol remains unresolved; neither source is removed or rewritten. |
+| Hydraulic cross-route export | dxflib retains the block name `2/2-directional valve`; OpenDesign import sanitizes it. In six separately frozen native controls, only renaming that block to `2_2-directional valve` permits both exports. Unchanged and unrelated-renamed controls still fail. | The retained slash causes this cross-route export refusal. Original sources and failures remain; successful renamed returns still fail the existing asset-profile guard. |
 
 The last batch observes all **48 declared jobs**: **46 exports**, **46 fresh-process
 public-inventory repeats**, **12 strict comparisons with differences**, **34 asset-profile
@@ -26,6 +26,12 @@ refusals** and **two native export failures**. The controller exits1 and records
 cohort_status=differences. It has complete diagnostic coverage, not a successful cohort.
 An earlier stopped batch retains another **26 exports** and their receiving reports;
 it never reached fresh import. A refused comparison is not a zero-difference report.
+The separate six-job [symbol intervention](SYMBOL-PLAN.md) retains four failures,
+two exports and two fresh-process inventory repeats. Every recorded public inventory
+is unchanged except its single predeclared block-name operation. That observation
+does not establish complete geometry preservation; the probe inventories IDs,
+handles, types, names, custom properties, attributes, variables and one known header
+value. Full geometry remains subject to the unchanged strict comparison.
 
 ## Matched sources and reproducibility
 
@@ -61,6 +67,10 @@ before any native run. The separately frozen final controller records per-job er
 and still exits1. The first offline analysis failed on a dangling link; its successor
 keeps the unresolved handle. A shadowed local variable miscounted exports as5; the
 first report remains and the count-corrected successor differs only at5->46.
+The first symbol receiver counted an error phrase twice per failed export (debug
+stack and warning); it refused eight occurrences against four failures. Its source
+and actual failure remain. The corrected receiver counts four exact Export Error
+warning lines, while manifest coverage independently retains all six outcomes.
 See [filter](FILTER-CORRECTION.md), [directory](DIRECTORY-CORRECTION.md),
 [complete-cohort](COMPLETE-COHORT.md) and [analysis](ANALYSIS-CORRECTIONS.md) records.
 
@@ -75,8 +85,8 @@ This source-visible method is distinct from the proprietary OpenDesign implement
 the actual native observations establish the latter's bounded public-model/file boundary.
 No closed-source code identity or complete internal loss stage is inferred.
 
-Other header/resource payload differences and the exact hydraulic symbol-table cause
-remain unresolved. Full readable receiving, newly reserved source/native UI/editability
+Other header/resource payload differences remain unresolved. Full readable receiving,
+newly reserved source/native UI/editability
 and revision qualification remain open. No company, plant or engineering acceptance
 is established. These failures support retaining the original drawing and explicit
 source-preserving proposals; they do not establish general native-save preservation.

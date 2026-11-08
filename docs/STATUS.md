@@ -155,8 +155,11 @@ group codes are reconstructed. All 48 final jobs are observed: 46 exports/fresh 
 differences, 34 asset-profile refusals and two hydraulic symbol-table export failures. Twelve returns
 have dangling links. The 72 dxflib-imported attributes target model space; all 24 dxflib-written returns
 lack attribute sequence markers, explaining why displayed text is insufficient for this attributed
-profile. Exact candidates still pass; old runs and failed preparations remain. The hydraulic symbol
-cause, other payloads and fresh UI/readability/revision qualification remain open.
+profile. Six separately frozen hydraulic controls identify the retained slash in block name
+2/2-directional valve: target-only native renaming permits both exports, while unchanged and
+unrelated-renamed controls fail. Both exported controls still refuse the asset profile. Exact
+candidates still pass; old runs and failed preparations remain. Other payloads and fresh
+UI/readability/revision qualification remain open.
 
 Use the [acceptance exercise](ACCEPTANCE.md) for concrete tests, records and failure cases. It is prepared;
 actual participant, recipient, native-system and tenant observations remain **not run**.

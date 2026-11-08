@@ -27,6 +27,12 @@ class RetainedLinuxNativeEvidence(unittest.TestCase):
         self.assertEqual(result['final_returns_with_dangling_links'], 12)
         self.assertEqual(result['dxflib_imported_attributes_parented_to_modelspace'], 72)
         self.assertEqual(result['dxflib_returns_without_attribute_sequence_markers'], 24)
+        self.assertEqual(result['symbol_controls']['attempted_jobs'], 6)
+        self.assertEqual(result['symbol_controls']['target_rename_exported'], 2)
+        self.assertEqual(result['symbol_controls']['unchanged_failed'], 2)
+        self.assertEqual(result['symbol_controls']['unrelated_rename_failed'], 2)
+        self.assertEqual([r['strict_report']['status'] for r in result['symbol_controls']['observations']
+                          if 'strict_report' in r], ['refused', 'refused'])
         self.assertFalse(result['whole_cad_qualified'])
 
     def test_record_paths_keep_full_order_and_dangling_reference(self):
@@ -64,6 +70,27 @@ class RetainedLinuxNativeEvidence(unittest.TestCase):
                 receiving.a.native_rows(path, [])
             with self.assertRaisesRegex(ValueError, 'coverage/error'):
                 receiving.a.native_rows(path, [job])
+
+    def test_symbol_control_refuses_undeclared_public_changes(self):
+        operation = self.records_module().symbols.operation
+        before = dict(objects=[dict(id='69', type=4, name='2/2-directional valve', custom=[], handle='45')],
+                      variables=[dict(name='retained', value=17)], known={}, file_version='R15')
+        rename = dict(before='2/2-directional valve', after='2_2-directional valve')
+        after = copy.deepcopy(before)
+        after['objects'][0]['name'] = rename['after']
+        operation(before, after, rename)
+        operation(before, before, None)
+        for changed in ('handle', 'variable', 'undeclared', 'duplicate'):
+            forged = copy.deepcopy(after)
+            if changed == 'handle':
+                forged['objects'][0]['handle'] = '46'
+            elif changed == 'variable':
+                forged['variables'][0]['value'] = 18
+            elif changed == 'duplicate':
+                forged['objects'].append(copy.deepcopy(forged['objects'][0]))
+            with self.subTest(changed=changed):
+                with self.assertRaises(ValueError):
+                    operation(before, forged, None if changed == 'undeclared' else rename)
 
     def boundaries_module(self):
         path = Path(__file__).resolve().parents[1] / 'examples/cad-handoff/qualification/check_boundaries14.py'

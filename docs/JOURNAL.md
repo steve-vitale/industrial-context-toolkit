@@ -8731,7 +8731,7 @@ guard refuses these files rather than inventing identity or returning a zero-dif
 
 The final controller observes all48 declared jobs:46 exports and46 exact fresh public-inventory repeats,
 12 strict comparisons with differences,34 profile refusals and two actual export failures. Both hydraulic
-dxflib->OpenDesign branches report Invalid Symbol Table name; the exact offending symbol is still unknown.
+dxflib->OpenDesign branches report Invalid Symbol Table name; both original failures remain.
 The controller records cohort_status=differences and exits1 despite completing diagnostic coverage. An
 earlier stopped batch retains26 successful exports and their7 strict reports/19 profile refusals, with
 no fresh phase. Raw files, phase selection and every receiving disposition remain, including partial files.
@@ -8752,3 +8752,16 @@ failed-job, lost-order, dangling-reference, attribute-parent and48/46/46 count c
 authored diagnostic results, not fresh qualification. Original strict/byte tools, historical failures,
 other unresolved payloads, complete readable receiving, fresh UI/editability/revision gates and actual
 company/engineering acceptance remain unchanged and open.
+
+The separately declared and frozen six-job native-name intervention identifies the hydraulic symbol
+failure. dxflib retains block name 2/2-directional valve, whereas OpenDesign import sanitizes the slash.
+For both exact earlier namespace-source bytes, renaming only that block to 2_2-directional valve permits
+OpenDesign export. Unchanged and unrelated-anchor-renamed controls still fail. Before/after-operation
+inventories match exactly except the intended name, including recorded IDs/handles, custom properties,
+attributes and variables. These inventories do not enumerate complete geometry. Both successful returns
+repeat their inventory in a fresh process but still refuse the original asset-profile guard; this is a
+bounded causal export diagnosis, not a repair or qualification. Original raw sources are unchanged.
+The first offline receiver refused because it counted both debug and warning occurrences of each error;
+its source/failure remain beside the correction counting the exact four Export Error warnings. A quoted
+one-line attempt to retain that diagnostic failed syntax checking before execution; the scripted successor
+retained the actual reproducible receiver failure without rerunning CAD.

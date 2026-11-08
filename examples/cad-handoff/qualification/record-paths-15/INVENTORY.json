@@ -1,14 +1,14 @@
 {
   "archive": {
     "path": "evidence.tar.xz",
-    "bytes": 284720,
-    "sha256": "4af1651969ca30cd4affff650382761cd7f9f66c9c07b8e14acad0a1651a55f9"
+    "bytes": 299096,
+    "sha256": "80e448fc268e0e42e6410d3bda80d837eb1504027552357be15d9fc9a744e54b"
   },
-  "raw_bytes": 62161923,
+  "raw_bytes": 63053564,
   "files": {
     "raw/METHODS.json": {
-      "bytes": 1870,
-      "sha256": "8c204e06917d9851abf68bd4504c42637c281557325c658de1c6b989b05c7b55"
+      "bytes": 2239,
+      "sha256": "f8160013e475a6e7d24934fd38b2ea7736da0d86c4d4406eb2af1786f3464c9f"
     },
     "raw/SOURCES.json": {
       "bytes": 1220,
@@ -4409,6 +4409,98 @@
     "raw/dangling-analysis-failure.stdout": {
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "raw/symbol-5/CONTAINER-LOG.json": {
+      "bytes": 98,
+      "sha256": "3813c43a346e855def341aae9c291d3ae890353ebe77c489d5fda815e92cf7b4"
+    },
+    "raw/symbol-5/ENVIRONMENT.json": {
+      "bytes": 757,
+      "sha256": "8ae5618ebc97a8e2239ebc25ca6eef990770af2ec214996523cf9f2ab6425448"
+    },
+    "raw/symbol-5/FREEZE.json": {
+      "bytes": 835,
+      "sha256": "c61d5c9a8c11e83b9b57b28772c6bc9e603e51ee0655fe7c927dbea6d07dd02b"
+    },
+    "raw/symbol-5/analysis/symbol-diagnosis.json": {
+      "bytes": 2500,
+      "sha256": "ca84a20a55dfbcd3ff912aca6858aca13454efd520dc98960366a560512bb53c"
+    },
+    "raw/symbol-5/cases/foreign/returns/target.dxf": {
+      "bytes": 195976,
+      "sha256": "7976abb5750fb5f2f23941a89a70008cca67ffe1b9218c0f817561c9bf16f35a"
+    },
+    "raw/symbol-5/cases/foreign/source.dxf": {
+      "bytes": 31123,
+      "sha256": "deea5073d9c5b1dec85b6170518355e900727c54bf4e482935fe49758a2352de"
+    },
+    "raw/symbol-5/cases/qcad/returns/target.dxf": {
+      "bytes": 196814,
+      "sha256": "214842e4a29b957add02fb89cfc97b5d38bde38572b527b88b591a58af8f05bb"
+    },
+    "raw/symbol-5/cases/qcad/source.dxf": {
+      "bytes": 31114,
+      "sha256": "088957dc103a0c59a765a18e66705bc49c7f4bb28c1e1273aa1895c0fae7f8bd"
+    },
+    "raw/symbol-5/export.json": {
+      "bytes": 1900,
+      "sha256": "7ab027e5cef7695ca107f2aeb6bc16d168640c2b9113a00768dce16c038df7b7"
+    },
+    "raw/symbol-5/fresh.json": {
+      "bytes": 1921,
+      "sha256": "668b28d50b0645bdc47e0dba7daf8e8a14ee0a45074c62f9f23748162b1b3fa8"
+    },
+    "raw/symbol-5/native/COMPLETE.json": {
+      "bytes": 281,
+      "sha256": "9d8c71656fcafd0ef8907591d76a88f41eb5476025b3215d2ef66153a2c42e7b"
+    },
+    "raw/symbol-5/native/commands.json": {
+      "bytes": 1641,
+      "sha256": "a95a9e377bce63c0e1119031a9fdffb797d9befd8eee8aeec119edc91a4d35d7"
+    },
+    "raw/symbol-5/native/export.stderr": {
+      "bytes": 1691,
+      "sha256": "70958b69bfbd145639a337696e2498c75486e6dc846735a11079abe36bf1aac3"
+    },
+    "raw/symbol-5/native/export.stdout": {
+      "bytes": 344292,
+      "sha256": "7987384403a119b3593c48f2f6761d6d48f610207e10be1aa85bdf87191fb6e5"
+    },
+    "raw/symbol-5/native/fresh-success.json": {
+      "bytes": 719,
+      "sha256": "427f9164b45c96ce7686bc804f17f37af8d1c5fb67159154016f227b8aeb60c3"
+    },
+    "raw/symbol-5/native/fresh.stderr": {
+      "bytes": 943,
+      "sha256": "228f3c249e7f77872c2a3e6d59da1bbda7e13bf3a1c4ce7edd92cd24bee2f1d0"
+    },
+    "raw/symbol-5/native/fresh.stdout": {
+      "bytes": 57068,
+      "sha256": "0430f9119cce4ac007de88f246d5a2d8e1501f960fa2910a76df46fed5bcc8a0"
+    },
+    "raw/symbol-5/native_records.js": {
+      "bytes": 4955,
+      "sha256": "df2599a4e444bc6d4ba2ab5038b1436c0b602a81e9eb6c72833ed5aed014f8ab"
+    },
+    "raw/symbol-5/run_native.py": {
+      "bytes": 4105,
+      "sha256": "7c5cc012bd3893c669fa47beb5a434fc4acb5deaaec7ecc5d3be14f832dffd3f"
+    },
+    "raw/symbol-receiver-failure/RESULT.json": {
+      "bytes": 388,
+      "sha256": "69a0bc6a8bcf72722f41bada5305808429c3693800651db5d2400eab9fb50761"
+    },
+    "raw/symbol-receiver-failure/check_records15.py": {
+      "bytes": 10749,
+      "sha256": "8b2cec46a33b9252db84c50ea86455626bdf7cfb2e3655834fcbf8a794af5fca"
+    },
+    "raw/symbol-receiver-failure/stderr.txt": {
+      "bytes": 1402,
+      "sha256": "27ee6ec086c6485fe72f9e12097151e39413e370d88025f424bebeac302ae56f"
+    },
+    "raw/symbol-receiver-failure/stdout.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     }
   },
   "exclusions": [
@@ -4417,5 +4509,5 @@
     "Python bytecode",
     "Public source contents (URLs/hashes retained)"
   ],
-  "packager_sha256": "8bdcd29e7120af52c3d8fee3d51d835bb031aa276b83d5d402b3c160da060e19"
+  "packager_sha256": "1754e598ea939bcb0337cf92201b7752099d788cb5979c9bff20a00c8507ed95"
 }
