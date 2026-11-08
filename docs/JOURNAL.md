@@ -9232,3 +9232,108 @@ LinkedIn; no outreach, LinkedIn content planning, simulator/MTP adapter or alert
 service was added. CI now runs the portable entry-point check. Current-head CI,
 full integration and the native transport repair remain distinct work; useful
 reproduction does not close the original CAD qualification or human/site gates.
+
+
+## 209. Observe installed native bindings before replacing failed observer transport
+
+2026-11-08. Prior goal turn made progress: PR44 merged3ad016f with both exact-head
+CI jobs passing and a matching clean main tree. N118 criteria were frozenca96ca0
+before implementation: private immutable numbered messages, exact run/wire binding,
+complete errors, fail-stop behavior and actual normal/fault receiving. Original
+UI19/camera20 and strict CAD/byte methods remain unchanged.
+
+Frozen a720dcf fails before a normal reply: inherited QFile size/error methods are
+absent and the error handler itself fails. All81actual files and controller1/
+native0/container1 outcomes remain; inspect and normally close the same live
+process with a separate cleanup receipt. Frozen e395618 fails on absent QFileDevice.
+Its full error/publication failure reach the native console and the client refuses
+immediately. Preserve the complete second packet and separate same-process cleanup.
+Neither opened or saved a drawing. No attempt was repaired or restarted in place.
+
+Upstream QCAD's5.14.2 project selects generated5.5 bindings; source did not prove
+installed availability. Probe a493c4f confirms missing inherited APIs/classes,
+working QIODevice parent size/errorString and actual NewOnly collision refusal.
+Python through QProcess completes, but codecForName's string overload refuses.
+Retain that capability failure. Separately frozen01258ba decodes actual stdout
+JSON containing UID1001 and µ valve, plus exact stderr, with QTextStream. Both
+probes complete controller/native/container0; probe1's codec check stays failed.
+Two hashed probe archives each retain66actual files. Native/client reports agree.
+
+The launcher now distinguishes the shell wrapper from the actual Qt child PID/
+start identity. Future pause faults must target that child and retain controlled
+UI unavailability; separately resume/close the same process, not restart it.
+Eleven mailbox tests and five semantic evidence tests pass without skips. They
+challenge changed sources/methods, lost errors, promoted exits and jointly altered
+reports beyond an outer inventory. Offline receiving rechecks all four distinct
+outcomes. Actual commands, methods, raw console, UI and process/export receipts
+remain under observer-transport-21. CI adds those offline checks; current branch
+integration is separate from verified PR44 CI.
+
+BRIDGE-PLAN.md is frozen before successor implementation: a pinned local Python
+helper owns physical mailbox I/O and reports actual OS errno/stage/path, with a
+complete immutable invocation history. QCAD still produces native observations
+through observed QProcess/stream APIs; UI controls own drawing work. Never invent
+an unavailable QFile code or promote either failed attempt. All original fault,
+strict, byte, source, revision and reserved gates remain. The historical camera20
+read-open cause, helper implementation and full receiving, corrected-method freeze,
+foreign/text/multiple-asset/reserved transfer, complete readability and engineering/
+company acceptance remain unfinished. No plant, human-benefit or qualification claim.
+
+## 210. Yield the native event loop and receive the entire transport campaign
+
+2026-11-08. Progress on the active CAD goal, not complete CAD qualification.
+The eef0788 Python I/O bridge returns two status observations, then the old UI
+routine refuses immediate filename readback. The exact mismatch was not logged.
+Later read-only inspection sees the exact filename without retyping. A separately
+frozen Cancel times out. The second separately frozen cleanup publishes a run-bound
+stop, observes acknowledgement and no live helper, then cancels the still-open
+dialog and closes the same unmodified unnamed process normally. Original
+controller/host/container exit 1 and native exit 0 remain. All 3407 actual files
+and 1645 helper invocations are retained. This supports scheduling interference;
+it does not prove Qt internals or turn the failed normal attempt into a pass.
+
+ASYNC-PLAN precedes implementation. Frozen 05628bb fails before helper start:
+the installed finished signal is overloaded. The native error supplies the full
+signature; separate cleanup verifies the original process/no helper/no dialog
+before normal close. Frozen 93cedc9 uses that signature. While its helper waits
+for release, the native UI opens a dialog, types the literal filename once,
+observes exact completion and cancels. Only then is the helper released. Native
+signals retain exact UTF-8 output, actual PID/parent/UID and 1107 timer ticks.
+All exits are zero; the drawing stays unnamed and unmodified. Preserve both
+probes. API/scheduling evidence is distinct from transport and CAD qualification.
+
+Frozen 4ba46e1 replaces blocking GUI waits with one event-driven helper at a time.
+The unchanged Python owner retains exact argument/result/event hashes and actual
+OS errors; QCAD supplies read-only observations. Both exposed normal cases pass
+complete receiving: 14 replies each, expected editable fields and three absolute
+frames, final seal and normal close. Every one of the eleven predeclared fault
+profiles retains a failed original attempt and appropriate error/history or
+controlled timeout/native-exit evidence. Separate cleanup never restarts a failed
+native process or promotes its controller. Thirteen lossless packets retain
+3715 files, 35,280,068 raw bytes, 1,330,860 archive bytes and 1123 helper calls.
+
+Offline controls go beyond archive hashes: lost replies/errors/history, wrong
+wire/sequence, replaced source/method pins, lost seal, unbound client/native
+observations, hidden signal failures, jointly false scheduling reports and
+promoted exits refuse after recomputed inventories. Seven complete-campaign and
+six predecessor-evidence regression methods pass locally without skips. The
+helper's twelve and bounded text observer's three methods also pass; the earlier
+two helper-test fixture failures remain in validation/bridge-development-1.
+Full local offline validation and exact-head integration/CI are recorded separately.
+
+N118's exposed transport work is complete; N119 tracks the original larger goal.
+Next freeze the complete corrected UI method before fresh reserved inputs. Keep
+matched no-edit/native-edit/library/value-span routes and original strict/byte
+criteria, with foreign/literal/encoding text, multiple assets, actual save/close/
+reopen/fresh readback, visual/editability and revision/conflict checks. Original
+native full-save losses and camera20's historical read-open cause remain. There
+is no human/site benefit or company/engineering acceptance claim.
+
+The experiment README now separates historical failures, probes and the active
+successor and links portable replay. The workflow reproduction guide explains
+that offline receiving requires no CAD installation, while new native execution
+needs a permitted package and a declared compatible lab; the original local
+image is not distributed. The public README and GitHub description already
+include the maintenance/engineering scopes from PR44. Live metadata readback
+confirms those scopes and Steve's LinkedIn; no new commercial feature or outreach
+is implied by this infrastructure repair.

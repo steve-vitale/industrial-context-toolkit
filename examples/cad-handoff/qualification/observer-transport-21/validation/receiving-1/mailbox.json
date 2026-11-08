@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python",
+    "-S",
+    "examples\\cad-handoff\\qualification\\observer-transport-21\\test_mailbox.py",
+    "-v"
+  ],
+  "script_sha256": "2dc798c30040d22fc132fceadaf0153f8d70f887491c68b560962bb41e757fb1",
+  "exit": 0,
+  "stdout": "",
+  "stderr": "test_binding_changes_are_not_repaired_by_valid_json (__main__.MailboxControls.test_binding_changes_are_not_repaired_by_valid_json) ... ok\ntest_changed_request_stops_even_when_reply_is_valid (__main__.MailboxControls.test_changed_request_stops_even_when_reply_is_valid) ... ok\ntest_client_dead_process_stops_before_publication (__main__.MailboxControls.test_client_dead_process_stops_before_publication) ... ok\ntest_console_only_fatal_prevents_clean_client (__main__.MailboxControls.test_console_only_fatal_prevents_clean_client) ... ok\ntest_errors_always_prevent_normal_receiving (__main__.MailboxControls.test_errors_always_prevent_normal_receiving) ... ok\ntest_missing_extra_and_staging_loss_refuse (__main__.MailboxControls.test_missing_extra_and_staging_loss_refuse) ... ok\ntest_missing_reply_times_out_and_stays_failed (__main__.MailboxControls.test_missing_reply_times_out_and_stays_failed) ... ok\ntest_normal_exact_wire_and_complete_history (__main__.MailboxControls.test_normal_exact_wire_and_complete_history) ... ok\ntest_publication_collision_retains_original (__main__.MailboxControls.test_publication_collision_retains_original) ... ok\ntest_staging_collision_retains_original (__main__.MailboxControls.test_staging_collision_retains_original) ... ok\ntest_wrong_intended_action_still_fails_with_consistent_wire (__main__.MailboxControls.test_wrong_intended_action_still_fails_with_consistent_wire) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 0.087s\n\nOK\n"
+}

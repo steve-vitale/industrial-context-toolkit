@@ -31,6 +31,14 @@ request-read error; its separate failed diagnostic remains explicit. All 108
 pixel comparisons have zero outside-region changes, with 27 diagnostic only.
 The repeat edits/saves no CAD file and changes no original qualification verdict.
 
+The [observer transport development](observer-transport-21/README.md) retains the
+failed direct-Qt and synchronous-helper methods beside installed-binding and
+asynchronous scheduling probes. The event-driven successor passes two normal
+cases and retains all11 intended fault refusals with complete offline receiving
+and loss controls. This completes the exposed transport work N118; it does not
+prove camera20's historical read-open cause or qualify CAD edit/save preservation.
+The corrected complete UI method, reserved transfer and original CAD gates remain.
+
 ## Reproduce the evidence offline
 
 **A different operation is available without a CAD UI:** the [equipment-data sidecar route](../data-review/README.md)

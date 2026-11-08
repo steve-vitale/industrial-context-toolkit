@@ -23,9 +23,10 @@ Company review, accepted identities and receiving-system checks determine what c
 
 ## Current verification
 
-The latest verified merged baseline is **`5a6397e`** (PR43). Its exact-head
-[pull-request CI](https://github.com/steve-vitale/industrial-context-toolkit/actions/runs/42506688565)
-and [push CI](https://github.com/steve-vitale/industrial-context-toolkit/actions/runs/42506684160)
+The latest verified merged baseline is **`3ad016f`** (PR44). Its tree matches the
+checked head `8ce9ac5`; that head's
+[pull-request CI](https://github.com/steve-vitale/industrial-context-toolkit/actions/runs/42511226917)
+and [push CI](https://github.com/steve-vitale/industrial-context-toolkit/actions/runs/42511206112)
 both succeeded: **95/95 scripts, zero failed, 37 individual unittest cases skipped**.
 The CAD evidence module had no skipped cases. This is not a complete zero-skip
 suite or native engineering acceptance; original failed runs remain retained.
@@ -37,6 +38,15 @@ Actual author-run checks reproduce the pre-existing markup key, maintenance/know
 revision conditions and complete batch result. These are software/exposed-case
 checks, not a new independent agent session or a manager trial. The
 [repository guide](REPOSITORY_GUIDE.md) identifies canonical references and generated catalogs.
+
+The [native observer development](../examples/cad-handoff/qualification/observer-transport-21/README.md)
+retains failed direct-Qt/synchronous-helper methods, actual installed-binding
+probes and a separately frozen event-driven successor. Both normal cases and all
+11 intended fault refusals pass complete receiving; offline controls reject lost
+history, replaced sources, hidden failures and unbound observations. N118's exposed
+transport work is complete. Complete CAD edit/save qualification, reserved transfer,
+foreign/multiple-asset coverage and engineering acceptance remain open. Inspect
+the version-specific CI before treating a branch addition as an integrated release.
 
 An earlier full-suite release baseline was **`a439f14`**:
 [main CI run 41590240463](https://github.com/steve-vitale/industrial-context-toolkit/actions/runs/41590240463).
