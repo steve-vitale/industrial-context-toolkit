@@ -33,8 +33,8 @@ int main(int argc,char **argv){try{
         int n=integer();QVector<qreal>dashes;for(int j=0;j<n;++j)dashes.append(number());
         QPen pen;pen.setBrush(brush());pen.setWidthF(width);pen.setCosmetic(cosmetic);pen.setStyle(Qt::PenStyle(style));
         pen.setCapStyle(Qt::PenCapStyle(cap));pen.setJoinStyle(Qt::PenJoinStyle(join));pen.setMiterLimit(miter);
-        // Qt setDashOffset changes the style to CustomDashLine. Apply it only to
-        // an observed custom-dash pen; never silently turn a solid stroke dashed.
+        // Apply dash-specific state only for an observed custom-dash pen.
+        // Verify the applied state instead of relying on setter assumptions.
         if(style==Qt::CustomDashLine){pen.setDashPattern(dashes);pen.setDashOffset(offset);}
         if(int(pen.style())!=style || pen.widthF()!=width || pen.isCosmetic()!=cosmetic ||
            int(pen.capStyle())!=cap || int(pen.joinStyle())!=join || pen.miterLimit()!=miter || pen.dashOffset()!=offset)

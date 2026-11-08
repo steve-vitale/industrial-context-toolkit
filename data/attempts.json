@@ -5599,6 +5599,27 @@
         "examples/cad-handoff/qualification/root-cause-12/SUMMARY.json",
         "examples/cad-handoff/qualification/check_root12.py"
       ]
+    },
+    {
+      "id": "A348",
+      "function": "intake_and_reuse",
+      "date": "2026-11-07",
+      "change": "Trace actual native GUI primitives and reproduce the previously unexplained 62 outside-bound pixels without masking or changing CAD comparisons.",
+      "hypothesis": "Observing and replaying the GUI call types and actual painter state can distinguish an incomplete isolated path renderer from changed drawing content.",
+      "evidence": "Ordinary canvases reproduce both historical canvases exactly. Two instrumented GUI pairs have zero canvas differences. Complete actual line/cubic replay preserves6102 yellow-stroke calls with zero re-observed state/primitive discrepancies and exactly reproduces all1978 delta pixels, including62 outside the old geometric bounds. Removing cubic calls removes all62; curve-only replay reproduces their exact colors. Original compiler/loader/ABI failures and incomplete857-mismatch replay remain.",
+      "runs": "Plans and method extensions precede each execution; one ordinary and two successful observed GUI pairs plus two failed launches, known-painter controls, complete/ablated standalone native Qt5.14.2 replays. All inputs are exposed authored development; no native drawing edit/save, new holdout or engineer trial.",
+      "verdict": "kept",
+      "why": "Explains the bounded GUI residual as native per-cubic glyph stroke ink outside geometric bounds, with exact full-delta reproduction and a removal control. Original failed visual acceptance remains. Native full-save differences, unreadable receiving and fresh UI/revision qualification remain open; no engineering/company acceptance.",
+      "source": [
+        "docs/JOURNAL.md#195-explain-the-gui-residual-with-actual-native-cubic-strokes",
+        "examples/cad-handoff/qualification/gui-scene-13/README.md",
+        "examples/cad-handoff/qualification/gui-scene-13/PLAN.md",
+        "examples/cad-handoff/qualification/gui-scene-13/CURVE-EXTENSION.md",
+        "examples/cad-handoff/qualification/gui-scene-13/ABLATION.md",
+        "examples/cad-handoff/qualification/gui-scene-13/INVENTORY.json",
+        "examples/cad-handoff/qualification/gui-scene-13/SUMMARY.json",
+        "examples/cad-handoff/qualification/check_scene13.py"
+      ]
     }
   ],
   "not_tried": [

@@ -8630,3 +8630,37 @@ receiver re-scores all branches, verifies exact candidates, native fields/settin
 pairs and every raster prediction. Planted controls refuse omitted jobs, unplanned layer/geometry changes and
 a forged zero-difference claim. Full native preservation, exact residual rendering, complete readable receiving,
 fresh UI/revision qualification and engineering/company acceptance remain unestablished.
+
+## 195. Explain the GUI residual with actual native cubic strokes
+
+The [GUI-scene plan](../examples/cad-handoff/qualification/gui-scene-13/PLAN.md) precedes new native execution
+on the already exposed font-9 long source/candidate. The ordinary native GUI canvases and camera reproduce
+both historical canvases literally, including 1,978 changed pixels and 62 above the MODEL geometric bounds.
+Two successful observed GUI runs preserve that literal canvas equality. No source/candidate byte is changed.
+
+Public QCAD core code supplies a concrete method lead: its ordinary renderer can split a text path into
+individual lines and cubic strokePath calls. The first working Qt observer captured lines but omitted the
+distinct strokePath entry point. Its exact-state replay still disagreed with the GUI delta at 857 pixels;
+a pen-setter counterfactual made no difference. All failures remain, including initial C++ lookup compilation,
+launcher library resolution and Qt JSON ABI errors. The original native image and software remain unchanged.
+
+An extended separately frozen observer captures the actual cubic calls and explicit pens. Replaying all
+1,193 source / 4,909 candidate yellow-stroke calls in the package's actual Qt 5.14.2 reproduces every original
+delta pixel and both colors at every original outside pixel. A second observation of the replayer finds
+zero state/primitive discrepancies. A declared removal control eliminates all 62 when curves are omitted;
+curve-only replay reproduces their exact colors. The cause is native cubic glyph-stroke ink outside a
+geometric bounding box, not an unexplained drawing change or evidence that a larger tolerance is acceptable.
+
+The original failed geometric-bound acceptance result is retained. No mask, original strict comparator,
+byte patcher, historical native harness or old test is changed. The historical settings file remains
+unrecoverable; new selected-profile hashes and actual RSettings reports are retained. Default-launch stderr
+does not emit the old explicit settings line, so that part of the initial plan is reported as a deviation;
+old/new literal canvas equality is a separate observed control. Native attribute collections compare by
+unique tag with every property intact; process-dependent collection order is not strict CAD normalization.
+
+The [offline receiver](../examples/cad-handoff/qualification/check_scene13.py) checks bounded/hash-bound
+archive and trace reconstruction, exact input/plan bytes, selected settings/terminal states, complete
+primitive streams and all saved image controls. It does not execute native Qt/CAD. Tests retain the original
+evidence suite and add full replay, wrong-pen/viewport and outside-pixel refusal controls. Native full-save
+differences/unresolved payloads, complete readable receiving, fresh UI/revision qualification and actual
+engineering/company acceptance remain open. This is one exposed diagnostic success, not generalization.

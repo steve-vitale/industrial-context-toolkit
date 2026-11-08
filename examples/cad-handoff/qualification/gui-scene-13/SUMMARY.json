@@ -1,0 +1,60 @@
+{
+  "exposure": "Existing long-label source/candidate: exposed development",
+  "original_gui_delta_pixels": 1978,
+  "original_outside_geometric_bounds_pixels": 62,
+  "original_geometric_rectangles": [
+    [
+      409,
+      538,
+      877,
+      544
+    ],
+    [
+      409,
+      538,
+      959,
+      544
+    ]
+  ],
+  "observer_canvas_differences": {
+    "observed-3": [
+      0,
+      0
+    ],
+    "observed-4": [
+      0,
+      0
+    ]
+  },
+  "complete_yellow_calls": {
+    "source": 1193,
+    "candidate": 4909
+  },
+  "replay_state_or_primitive_discrepancies": 0,
+  "whole_canvas_delta_mismatches": 0,
+  "outside_color_mismatches": 0,
+  "ablations": {
+    "lines": {
+      "changed_pixels": 1517,
+      "delta_mismatches": 857,
+      "outside_changed_pixels": 0,
+      "outside_color_mismatches": 62
+    },
+    "stroke": {
+      "changed_pixels": 1285,
+      "delta_mismatches": 1367,
+      "outside_changed_pixels": 62,
+      "outside_color_mismatches": 0
+    }
+  },
+  "incomplete_trace_delta_mismatches": 857,
+  "cause": "Separate native cubic strokePath calls paint the changed B glyph ink beyond its geometric bounds; joined-path and line-only replays are different/incomplete rendering methods.",
+  "original_failure_retained": true,
+  "strict_comparator_changed": false,
+  "whole_cad_qualified": false,
+  "remaining": [
+    "Native full-save strict differences and unresolved record payloads",
+    "Complete readable receiving; fresh native UI/editability and revision qualification",
+    "Engineering/company acceptance"
+  ]
+}

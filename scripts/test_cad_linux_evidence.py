@@ -10,6 +10,50 @@ import cad_handoff as ch
 
 
 class RetainedLinuxNativeEvidence(unittest.TestCase):
+    def scene_module(self):
+        path = Path(__file__).resolve().parents[1] / 'examples/cad-handoff/qualification/check_scene13.py'
+        spec = importlib.util.spec_from_file_location('cad_scene13_receiver', path)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        return module
+
+    def test_actual_gui_replay_explains_every_original_delta_pixel(self):
+        result = self.scene_module().check()
+        self.assertEqual(result['original_gui_delta_pixels'], 1978)
+        self.assertEqual(result['original_outside_geometric_bounds_pixels'], 62)
+        self.assertEqual(result['whole_canvas_delta_mismatches'], 0)
+        self.assertEqual(result['outside_color_mismatches'], 0)
+        self.assertEqual(result['ablations']['lines']['outside_changed_pixels'], 0)
+        self.assertEqual(result['ablations']['stroke']['outside_color_mismatches'], 0)
+        self.assertEqual(result['incomplete_trace_delta_mismatches'], 857)
+        self.assertFalse(result['whole_cad_qualified'])
+
+    def test_gui_replay_refuses_wrong_explicit_pen_and_viewport(self):
+        import tarfile
+        receiving = self.scene_module()
+        base = receiving.BASE
+        with tarfile.open(base/'evidence.tar.xz', 'r:xz') as packed:
+            block = packed.extractfile('raw/build/control4-chunks/000.part').read()
+        rows = [json.loads(line) for line in block.splitlines()]
+        stroke = next(r for r in rows if r['kind'] == 'stroke')
+        receiving.s.replay_input.tokens([stroke])
+        wrong = copy.deepcopy(stroke)
+        wrong['stroke_pen']['width'] = 2
+        with self.assertRaisesRegex(ValueError, 'explicit stroke pen'):
+            receiving.s.replay_input.tokens([wrong])
+        wrong = copy.deepcopy(stroke)
+        wrong['viewport'][0] = 1
+        with self.assertRaisesRegex(ValueError, 'viewport/window'):
+            receiving.s.replay_input.tokens([wrong])
+
+    def test_gui_delta_check_cannot_hide_a_pixel_outside_model_bounds(self):
+        from PIL import Image
+        receiving = self.scene_module().s
+        black = Image.new('RGB', (1533, 1032))
+        changed = black.copy()
+        changed.putpixel((0, 0), (255, 255, 0))
+        self.assertEqual(receiving.compare_pixels([black, changed], [black, black]), 1)
+
     def root_module(self):
         path = Path(__file__).resolve().parents[1] / "examples/cad-handoff/qualification/check_root12.py"
         spec = importlib.util.spec_from_file_location("cad_root12_receiver", path)
