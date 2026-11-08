@@ -23,6 +23,10 @@ def compare(left, right):
 
 
 def check(folder):
+    retained=read(HERE/'PAPER-RETAINED-1.json')
+    actual={p.relative_to(folder).as_posix():dict(bytes=p.stat().st_size,sha256=sha(p))
+            for p in folder.rglob('*') if p.is_file()}
+    require(actual==retained['files'], 'Paper packet differs from external retained inventory')
     launch=read(HERE/'PAPER-RENDER-LAUNCH-1.json')
     manifest=read(folder/'MANIFEST.json')
     require(sha(folder/'MANIFEST.json')==launch['manifest_sha256'], 'Paper manifest differs from pre-execution pin')
