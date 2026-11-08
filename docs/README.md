@@ -4,6 +4,10 @@ Use the toolkit on your records, learn the method with a tutorial, or inspect th
 The [project overview](../README.md) shows the engineering jobs; this map keeps instructions, transferable tools
 and research records distinct.
 
+[Repository directories and reference ownership](REPOSITORY_GUIDE.md) ·
+[Tested workflow reproduction](REPRODUCE_A_WORKFLOW.md). These are the orientation and execution paths;
+the generated feature/script references below retain their existing canonical registries.
+
 **Asking an agent what this repo can do for you?** Use the [agent task guide](AGENT_START_HERE.md) and
 [first-use walkthrough](../examples/agent-first-use/README.md) to get from a bounded question to a sourced finding.
 
