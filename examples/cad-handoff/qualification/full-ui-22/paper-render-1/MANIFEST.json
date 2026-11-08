@@ -1,0 +1,303 @@
+{
+  "scope": "Fourteen exposed paper observations; no fresh reserved result",
+  "image": "sha256:bb4390214744897de88b2198f0cbf812aec4be42923311298e7a5e3a5646bef8",
+  "configuration_sha256": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c",
+  "jobs": [
+    {
+      "id": "cp1251-original",
+      "path": "inputs/cp1251-original.dxf",
+      "sha256": "2044da26edd9188d07300f6b8f2abf4053956f31a7827bba488ec02c1351e158",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        135.0,
+        95.0
+      ],
+      "provenance": {
+        "repository_path": "examples/cad-handoff/qualification/validation-2/authored/validation-cp1251.dxf",
+        "record_audit": "paper-records-1/RESULT.json"
+      }
+    },
+    {
+      "id": "cp1251-original_value_candidate",
+      "path": "inputs/cp1251-original_value_candidate.dxf",
+      "sha256": "3d3dab97cf7aaa1a8dc68b6cf9ecf5cb913adea5d527242e89d8647d46ad402f",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        135.0,
+        95.0
+      ],
+      "provenance": {
+        "repository_path": "examples/cad-handoff/qualification/full-ui-22/revision-loss-1/validation-cp1251/concurrent/candidate.dxf",
+        "record_audit": "paper-records-1/RESULT.json"
+      }
+    },
+    {
+      "id": "cp1251-concurrent_native",
+      "path": "inputs/cp1251-concurrent_native.dxf",
+      "sha256": "267770b66f3cc175fa822c04e738e5cfe7e927491cfb95ff47a2db6242b9e953",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        135.0,
+        95.0
+      ],
+      "provenance": {
+        "repository_path": "examples/cad-handoff/qualification/full-ui-22/concurrent-review-1/validation-cp1251/native-return.dxf",
+        "record_audit": "paper-records-1/RESULT.json"
+      }
+    },
+    {
+      "id": "cp1251-selected_second_candidate",
+      "path": "inputs/cp1251-selected_second_candidate.dxf",
+      "sha256": "631de0b895bb7aa331fb46ed2d30d875078f2ae8b68a24f096a28df559cc2299",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        135.0,
+        95.0
+      ],
+      "provenance": {
+        "repository_path": "examples/cad-handoff/qualification/full-ui-22/concurrent-review-1/validation-cp1251/second/candidate.dxf",
+        "record_audit": "paper-records-1/RESULT.json"
+      }
+    },
+    {
+      "id": "cp1251-noedit_native",
+      "path": "inputs/cp1251-noedit_native.dxf",
+      "sha256": "f0290b590931870575190a17e321ee59f20c415ce4e98c5f81b5d4ea9d608358",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        135.0,
+        95.0
+      ],
+      "provenance": {
+        "packet": "examples/cad-handoff/qualification/full-ui-22/development-1/cp1251-baseline-1",
+        "member": "attempt/job/returned.dxf",
+        "archive_sha256": "9ca11b1cee2927d2168306ab04a90e69d906c4a7731255fd590458a2b4f39b88"
+      }
+    },
+    {
+      "id": "cp1251-second_native",
+      "path": "inputs/cp1251-second_native.dxf",
+      "sha256": "62454b6839032099706f6be2d8ddeba24ec9e28742e97be9d966b3c8f438b0eb",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        135.0,
+        95.0
+      ],
+      "provenance": {
+        "repository_path": "examples/drawing-handoff/native-second-revision/native-returns/validation-cp1251.dxf",
+        "binding": {
+          "scope": "Worked receiving on two exposed authored drawings and actual native returns; no reader calls, field observations or engineering dispositions",
+          "returns": [
+            {
+              "case": "validation-cp1251",
+              "file": "native-returns/validation-cp1251.dxf",
+              "sha256": "62454b6839032099706f6be2d8ddeba24ec9e28742e97be9d966b3c8f438b0eb",
+              "native_packet": "examples/cad-handoff/qualification/full-ui-22/second-development-1/cp1251-second-edited-1",
+              "member": "attempt/job/returned.dxf"
+            },
+            {
+              "case": "validation-braces",
+              "file": "native-returns/validation-braces.dxf",
+              "sha256": "8f67fea4ac5aa04a65a6fa13ecbd386d04ca48d935f475cdfa7b3a140ab8ded0",
+              "native_packet": "examples/cad-handoff/qualification/full-ui-22/second-development-1/braces-second-edited-1",
+              "member": "attempt/job/returned.dxf"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "braces-original",
+      "path": "inputs/braces-original.dxf",
+      "sha256": "614e83380bbe667c727363f02d32519b3340439028f0acd72807c82a45224abe",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        135.0,
+        95.0
+      ],
+      "provenance": {
+        "repository_path": "examples/cad-handoff/qualification/validation-2/authored/validation-braces.dxf",
+        "record_audit": "paper-records-1/RESULT.json"
+      }
+    },
+    {
+      "id": "braces-original_value_candidate",
+      "path": "inputs/braces-original_value_candidate.dxf",
+      "sha256": "214ef337a42e21c730bccdc93f49ab27e7e74abe6659212b019b730b684bf4c2",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        135.0,
+        95.0
+      ],
+      "provenance": {
+        "repository_path": "examples/cad-handoff/qualification/full-ui-22/revision-loss-1/validation-braces/concurrent/candidate.dxf",
+        "record_audit": "paper-records-1/RESULT.json"
+      }
+    },
+    {
+      "id": "braces-concurrent_native",
+      "path": "inputs/braces-concurrent_native.dxf",
+      "sha256": "25aa6294826284917784d54ed8241a55738a4f4c3c74b4b93ff51d6add6622f2",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        135.0,
+        95.0
+      ],
+      "provenance": {
+        "repository_path": "examples/cad-handoff/qualification/full-ui-22/concurrent-review-1/validation-braces/native-return.dxf",
+        "record_audit": "paper-records-1/RESULT.json"
+      }
+    },
+    {
+      "id": "braces-selected_second_candidate",
+      "path": "inputs/braces-selected_second_candidate.dxf",
+      "sha256": "c53a8e42041cd789f30b8e67d180014abfc6cf2ae739b20d103e597065434047",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        135.0,
+        95.0
+      ],
+      "provenance": {
+        "repository_path": "examples/cad-handoff/qualification/full-ui-22/concurrent-review-1/validation-braces/second/candidate.dxf",
+        "record_audit": "paper-records-1/RESULT.json"
+      }
+    },
+    {
+      "id": "braces-noedit_native",
+      "path": "inputs/braces-noedit_native.dxf",
+      "sha256": "de1bb04c4516b49abdfd82b0de87c04f9d8d405d5cccf41060fd9a089c64c3a6",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        135.0,
+        95.0
+      ],
+      "provenance": {
+        "packet": "examples/cad-handoff/qualification/full-ui-22/development-1/braces-baseline-1",
+        "member": "attempt/job/returned.dxf",
+        "archive_sha256": "c54d103fb771ddb736466110ca925d59a3ee75a4aa76dc116e4b462f1f6f84c9"
+      }
+    },
+    {
+      "id": "braces-second_native",
+      "path": "inputs/braces-second_native.dxf",
+      "sha256": "8f67fea4ac5aa04a65a6fa13ecbd386d04ca48d935f475cdfa7b3a140ab8ded0",
+      "layout": "Qualification sheet",
+      "window": [
+        -5.0,
+        -15.0,
+        135.0,
+        95.0
+      ],
+      "provenance": {
+        "repository_path": "examples/drawing-handoff/native-second-revision/native-returns/validation-braces.dxf",
+        "binding": {
+          "scope": "Worked receiving on two exposed authored drawings and actual native returns; no reader calls, field observations or engineering dispositions",
+          "returns": [
+            {
+              "case": "validation-cp1251",
+              "file": "native-returns/validation-cp1251.dxf",
+              "sha256": "62454b6839032099706f6be2d8ddeba24ec9e28742e97be9d966b3c8f438b0eb",
+              "native_packet": "examples/cad-handoff/qualification/full-ui-22/second-development-1/cp1251-second-edited-1",
+              "member": "attempt/job/returned.dxf"
+            },
+            {
+              "case": "validation-braces",
+              "file": "native-returns/validation-braces.dxf",
+              "sha256": "8f67fea4ac5aa04a65a6fa13ecbd386d04ca48d935f475cdfa7b3a140ab8ded0",
+              "native_packet": "examples/cad-handoff/qualification/full-ui-22/second-development-1/braces-second-edited-1",
+              "member": "attempt/job/returned.dxf"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "public-control-1",
+      "path": "inputs/public-control-1.dxf",
+      "sha256": "4a3e3fc6736d7e76746afd0f6b6a5dfacd43bfee55596319701032c5d8fd0eb2",
+      "layout": "Layout1",
+      "window": [
+        -55.4319609471528,
+        -46.31602439909331,
+        303.2004537098903,
+        222.08776284739528
+      ],
+      "provenance": {
+        "repository_path": "examples/cad-handoff/qualification/validation-2/public-adapted/text_in_viewports/adapted.dxf",
+        "public_manifest": "examples/cad-handoff/qualification/validation-2/public-adapted/MANIFEST.json",
+        "declared_provenance": {
+          "id": "text_in_viewports",
+          "split": "public-adapted",
+          "original_sha256": "51dc85fbbcc04c4c3c103d92b99524bde9ef7272a9f818ad321a683cd6877d10",
+          "original_admission": {
+            "status": "refused",
+            "error": "InputError: No profiled asset INSERTs found; a flattened picture is not an asset handoff"
+          },
+          "source": "text_in_viewports/adapted.dxf",
+          "source_sha256": "4a3e3fc6736d7e76746afd0f6b6a5dfacd43bfee55596319701032c5d8fd0eb2",
+          "plan": "text_in_viewports/edit-plan.json",
+          "plan_sha256": "b4c0987086ff8e4365604eefea6d19824faf50f40cd9a737fb7aaaa86a23eab3"
+        },
+        "role": "Previously exposed derived public positive/repeatability control"
+      }
+    },
+    {
+      "id": "public-control-2",
+      "path": "inputs/public-control-2.dxf",
+      "sha256": "4a3e3fc6736d7e76746afd0f6b6a5dfacd43bfee55596319701032c5d8fd0eb2",
+      "layout": "Layout1",
+      "window": [
+        -55.4319609471528,
+        -46.31602439909331,
+        303.2004537098903,
+        222.08776284739528
+      ],
+      "provenance": {
+        "repository_path": "examples/cad-handoff/qualification/validation-2/public-adapted/text_in_viewports/adapted.dxf",
+        "public_manifest": "examples/cad-handoff/qualification/validation-2/public-adapted/MANIFEST.json",
+        "declared_provenance": {
+          "id": "text_in_viewports",
+          "split": "public-adapted",
+          "original_sha256": "51dc85fbbcc04c4c3c103d92b99524bde9ef7272a9f818ad321a683cd6877d10",
+          "original_admission": {
+            "status": "refused",
+            "error": "InputError: No profiled asset INSERTs found; a flattened picture is not an asset handoff"
+          },
+          "source": "text_in_viewports/adapted.dxf",
+          "source_sha256": "4a3e3fc6736d7e76746afd0f6b6a5dfacd43bfee55596319701032c5d8fd0eb2",
+          "plan": "text_in_viewports/edit-plan.json",
+          "plan_sha256": "b4c0987086ff8e4365604eefea6d19824faf50f40cd9a737fb7aaaa86a23eab3"
+        },
+        "role": "Previously exposed derived public positive/repeatability control"
+      }
+    }
+  ],
+  "methods_sha256_lf": {
+    "examples/cad-handoff/qualification/full-ui-22/prepare_paper.py": "a988230b48c9ba13443c6de525e5e742578d42003d9eb8bfcf1bf6a8c5a2ec5f",
+    "examples/cad-handoff/qualification/full-ui-22/render_paper.py": "682b90075794538042645f25365dac19d18f5b0b350725b7ecab5e19c337f6bc",
+    "examples/cad-handoff/qualification/full-ui-22/PAPER-RENDER-PLAN.md": "203bfa040cc3920a8aecb2ae296d82015b1a3b83f371b45036d6f65fea4be976",
+    "examples/cad-handoff/qualification/public-validation-11/window.py": "3a540ae6f2c89f98ea0240e8957f842589fe335509cc32fbf1cb4ab55f027187"
+  }
+}
