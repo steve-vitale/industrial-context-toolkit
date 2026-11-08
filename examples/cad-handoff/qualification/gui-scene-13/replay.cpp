@@ -44,7 +44,8 @@ int main(int argc,char **argv){try{
         if(clip)p.setClipPath(clipping);else p.setClipping(false);
         if(kind==0){int n=integer();QVector<QLineF>lines;for(int j=0;j<n;++j){double x1=number(),y1=number(),x2=number(),y2=number();lines.append(QLineF(x1,y1,x2,y2));}p.drawLines(lines);}
         else if(kind==1){auto v=path();p.drawPath(v);}
-        else if(kind==2){auto v=path();p.fillPath(v,brush());}else throw std::runtime_error("Invalid primitive");
+        else if(kind==2){auto v=path();p.fillPath(v,brush());}
+        else if(kind==3){auto v=path();p.strokePath(v,p.pen());}else throw std::runtime_error("Invalid primitive");
         p.restore();
     }
     double trailing;if(input>>trailing)throw std::runtime_error("Extra replay tokens");p.end();
