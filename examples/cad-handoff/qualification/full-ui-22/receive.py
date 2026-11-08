@@ -243,13 +243,20 @@ def receive(root, preparation, methods):
     prepared = preparation['cases'].get(basis['case'])
     require(prepared is not None and equal(prepared['basis'],basis), 'External prepared basis differs')
     frozen = read(job/'JOB-FREEZE.json')
-    require(frozen['producer_sha256'] == preparation['preparation']['producer_sha256'] == methods['files']['examples/cad-handoff/qualification/full-ui-22/prepare.py'], 'Frozen staging producer differs')
+    profile = methods.get('staging_profile', 'original')
+    require(profile in ('original','waiting-helper-1'), 'Unknown frozen staging profile')
+    require(preparation['preparation']['producer_sha256'] == methods['files']['examples/cad-handoff/qualification/full-ui-22/prepare.py'], 'Original preparation producer differs')
+    producer = 'prepare_wait.py' if profile == 'waiting-helper-1' else 'prepare.py'
+    require(frozen['producer_sha256'] == methods['files']['examples/cad-handoff/qualification/full-ui-22/'+producer], 'Frozen staging producer differs')
     for name,pin in frozen['files'].items():
         require((job/name).resolve().is_relative_to(job.resolve()) and sha(job/name) == pin, 'Frozen job input changed: '+name)
     staged = {'original_workflow.py':'native-ui-pairs-19/workflow.py', 'inspect_ui.py':'native-ui-pairs-19/inspect_ui.py', 'native_controls.py':'native-ui-pairs-19/native_controls.py',
               'ui_control.py':'observer-transport-21/bridge_ui_control.py', 'ui_settle.py':'observer-transport-21/ui_settle.py', 'bridge_workflow.py':'observer-transport-21/bridge_workflow.py',
               'mailbox.py':'observer-transport-21/mailbox.py','native_io.py':'observer-transport-21/native_io.py','observe_case.js':'observer-transport-21/async_bridge_observer.js','launch_case.py':'observer-transport-21/bridge_launch.py','BRIDGE-PROTOCOL.md':'observer-transport-21/BRIDGE-PROTOCOL.md'}
     staged.update({n:'full-ui-22/'+n for n in ('workflow.py','contract.py','ui_text.py','payload.js','PLAN.md','METHOD.md')})
+    if profile == 'waiting-helper-1':
+        staged.update({'native_io.py':'full-ui-22/native_io_wait.py', 'base_native_io.py':'observer-transport-21/native_io.py',
+                       'observe_case.js':'full-ui-22/waiting_observer.js','WAITING-HELPER-PLAN.md':'full-ui-22/WAITING-HELPER-PLAN.md'})
     expected_files = set(staged)|{'job.json','source.dxf','plan.json','transport.json','.configuration/QCAD3.conf'}
     if role == 'receiving': expected_files |= {'baseline.dxf','edited.dxf','candidate.dxf'}
     require(set(frozen['files']) == expected_files, 'Frozen job input coverage differs')
