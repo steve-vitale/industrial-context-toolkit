@@ -20,9 +20,10 @@ probeTimer21.timeout.connect(function(){
   if(!probeProcess21.waitForStarted(5000))throw new Error('Probe helper not started');
   if(!probeProcess21.waitForFinished(5000))throw new Error('Probe helper not terminal; retain same process');
   var stdout=probeProcess21.readAllStandardOutput(),stderr=probeProcess21.readAllStandardError();
-  return {pid:Number(probeProcess21.processId()),exit:Number(probeProcess21.exitCode()),exit_status:Number(probeProcess21.exitStatus()),
-   codec_stdout:String(QTextCodec.codecForName('UTF-8').toUnicode(stdout)),
-   codec_stderr:String(QTextCodec.codecForName('UTF-8').toUnicode(stderr))};
+  var result={exit:Number(probeProcess21.exitCode()),exit_status:Number(probeProcess21.exitStatus())};
+  probe21('decode_stdout',function(){var s=new QTextStream(stdout,new QIODevice.OpenMode(1));s.setCodec('UTF-8');return s.readAll();},checks);
+  probe21('decode_stderr',function(){var s=new QTextStream(stderr,new QIODevice.OpenMode(1));s.setCodec('UTF-8');return s.readAll();},checks);
+  return result;
  },checks);
  var di=EAction.getDocumentInterface(),d=isNull(di)?undefined:di.getDocument();
  report.filename=isNull(d)?null:String(d.getFileName());report.modified=isNull(d)?null:d.isModified();

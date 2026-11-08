@@ -24,3 +24,10 @@ complete errors and all existing fault controls. Errors must report the actual
 owner and OS errno, rather than fabricate an unavailable QFile error code. Freeze
 that prospective protocol revision explicitly before execution; it cannot repair
 or qualify either failed attempt, or explain camera20's old read-open error.
+
+Probe successor: the first probe observed NewOnly collision refusal, parent
+errorString/size and QProcess availability. Its codecForName string overload
+refused the name. Keep that original result. A separately frozen second probe
+decodes the actual QByteArrays with the already used QTextStream UTF-8 API,
+recording each decode independently so an error does not erase process status.
+No original artifact or result is changed.
