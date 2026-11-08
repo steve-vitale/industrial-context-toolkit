@@ -28,7 +28,7 @@ def main():
             name='ict-cad-ui19-camera-air1'if case=='libre-air-water'else'ict-cad-ui20-camera-'+case
             r=subprocess.run(['docker','inspect',name],capture_output=True,text=True)
             if r.returncode:
-                if 'No such object:'in r.stderr and case!='libre-air-water':
+                if 'no such object:'in r.stderr.lower() and case!='libre-air-water':
                     observed[case]=dict(status='not-yet-created',stderr=r.stderr);continue
                 raise ValueError('Cannot inspect original handle '+name+': '+r.stderr)
             native=json.loads(r.stdout)[0];state=native['State'];observed[case]=dict(id=native['Id'],state=state)
