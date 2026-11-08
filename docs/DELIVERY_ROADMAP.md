@@ -47,6 +47,34 @@ code or data without checking their respective licenses. This delivery uses no c
 
 ## Depth gates
 
+### Measure the whole first result
+
+The [Flowstead browser launch](COMPETITIVE_WORKFLOWS.md#flowstead-distinguish-the-calculation-from-the-unfinished-plant-job)
+reinforces a useful delivery test: can someone reach, inspect and retain a result when the question arises?
+The toolkit already has account-free committed examples and offline reports. That does not establish that
+its Python preparation runs on a phone or that every report is usable at a phone width.
+
+For the next self-service trial, select one existing job and freeze the records, question, expected finding,
+scope and pass/fail checks before running. Keep these separate observations:
+
+| Observation | Evidence to retain |
+|---|---|
+| Reach the first useful finding | Start at the actual shared repository link in a fresh environment. Record navigation, prerequisites, failed steps and elapsed preparation/execution time. The answer must identify one source-supported finding and its remaining unknowns. |
+| Inspect the evidence | Follow the finding to both relevant source locations and the stated revision. Check readable content and usable controls at declared desktop and phone viewport sizes; retain failures. Desktop viewport emulation does not establish operation on a physical phone. |
+| Keep working after the session | Save the report, editable inputs and source/mapping basis outside the active session. In a fresh environment, reopen and reproduce the selected finding using the documented route. A screenshot or browser cache alone does not pass. |
+| Handle one returned revision | Use a predeclared changed source, retain the prior packet, rerun and identify what changed and what remains unresolved. An absent disagreement does not establish company acceptance. |
+| Compare the complete job | Retain preparation, interpretation, review, rework and receiving effort against the same records, question and coverage under the existing method. No measured baseline means no measured saving. |
+
+An author-run or agent-run exercise can test those software steps without employee testers. Label its actual
+operator and exposure; it cannot supply a manager's usefulness judgment, engineering release or purchasing
+decision. Record those separately when a real recipient is available. Keep a failed route in the results
+rather than switching to a prepared example and calling the own-record path successful.
+
+The [quote worksheet](../examples/consulting-start/QUOTE_WORKSHEET.md) and
+[receiving record](../examples/consulting-start/REVIEW_AND_NEXT_JOB.md) capture which parts the client can
+already do and which outside contribution it would pay for. This is the next delivery measurement, not a
+reason to add accounts, a new solver or a general browser application ahead of a recurring job.
+
 The existing backlog already contains the important unrun exercises: N052 (timed human drawing review), N062
 (actual recipient usefulness) and N063 (company handoff and subsequent revision). Software receipts do not close
 those items. Use [ACCEPTANCE.md](ACCEPTANCE.md) and retain failures as well as passes. Public sources remove the

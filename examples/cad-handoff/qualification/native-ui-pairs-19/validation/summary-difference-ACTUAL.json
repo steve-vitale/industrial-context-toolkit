@@ -1,0 +1,4205 @@
+{
+  "packets": [
+    {
+      "route": "historical-development",
+      "paired_strict_differences": 57,
+      "baseline_pixels": {
+        "overview": {
+          "changed_pixels": 0,
+          "outside_region": 0,
+          "permitted_region": null,
+          "size": [
+            693,
+            612
+          ]
+        },
+        "asset": {
+          "changed_pixels": 0,
+          "outside_region": 0,
+          "permitted_region": null,
+          "size": [
+            693,
+            612
+          ]
+        },
+        "labels": {
+          "changed_pixels": 0,
+          "outside_region": 0,
+          "permitted_region": null,
+          "size": [
+            693,
+            612
+          ]
+        }
+      },
+      "original_edited_controller_failed": true,
+      "recovery_is_clean_pass": false,
+      "whole_cad_qualified": false
+    },
+    {
+      "case": "libre-air-water",
+      "jobs": [
+        {
+          "role": "baseline",
+          "fields": 2,
+          "observations": 34,
+          "views": 6,
+          "images": 24,
+          "process_exit": 0,
+          "recording": {
+            "status": "pass",
+            "expected_metadata_mismatches": []
+          }
+        },
+        {
+          "role": "edited",
+          "fields": 4,
+          "observations": 37,
+          "views": 6,
+          "images": 24,
+          "process_exit": 0,
+          "recording": {
+            "status": "failed",
+            "expected_metadata_mismatches": [
+              {
+                "event": 26,
+                "recorded": {
+                  "MANUFACTURER": "QUAL-AFTER",
+                  "ICT_ID": "AUTHORED-QUAL/libre-air-water/1",
+                  "TAG": "QA-1"
+                },
+                "source_phase_expected": {
+                  "MANUFACTURER": "QUAL-BEFORE",
+                  "ICT_ID": "AUTHORED-QUAL/libre-air-water/1",
+                  "TAG": "QA-1"
+                }
+              },
+              {
+                "event": 65,
+                "recorded": {
+                  "MANUFACTURER": "QUAL-AFTER",
+                  "ICT_ID": "AUTHORED-QUAL/libre-air-water/1",
+                  "TAG": "QA-1"
+                },
+                "source_phase_expected": {
+                  "MANUFACTURER": "QUAL-BEFORE",
+                  "ICT_ID": "AUTHORED-QUAL/libre-air-water/1",
+                  "TAG": "QA-1"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "role": "receiving",
+          "fields": 4,
+          "observations": 62,
+          "views": 12,
+          "images": 48,
+          "process_exit": 0,
+          "recording": {
+            "status": "pass",
+            "expected_metadata_mismatches": []
+          }
+        }
+      ],
+      "analysis": {
+        "case": "libre-air-water",
+        "native": {
+          "baseline": {
+            "status": "complete",
+            "input_freeze": {
+              "files": {
+                "inspect_ui.py": "c41e118f8108e02dcef6ba9d90cf280d68851ba4b7cb6a870b96a4c9deb5c03e",
+                "job.json": "af8aa1bb0877765d3a1bafd7f84597d963c89966f451146250c2f9235e6e268f",
+                "launch_case.py": "beee5842b37f0bea6cade0afb33e8706754e80db29acd22e6f78dd44d74fdc03",
+                "METHOD.md": "e1bbc04db242370dc00cf6ef237c1f5022599ec200206717cd7df08dc095e04b",
+                "native_controls.py": "767246eef54db970e4a1a590b2e5797a41305046dfebc98dfdc7bc759105e832",
+                "observe_case.js": "24e09cf1c30a5f818014ca3662d847030066185f1468b31b563bd8163e4c6070",
+                "PLAN.md": "1d3f3a4985cb9aa21bc81d39bb1bc6b3963ef1a675af10b734f65fa81a46dd4b",
+                "prepare.py": "a4515b8ba619803d5b6a431114e69f459c7aedb2b0c2437eb2fc0252ede9240a",
+                "source.dxf": "245a50eefeabc483f16269375a3bf9bd892b9cebd125e76f5ae744f5466f4db8",
+                "ui_control.py": "e508c2a70b26ff1998fdd4cbc6484a2c7ea7b423e8e76868db8529c44a594881",
+                "workflow.py": "8e600a8ff2504df0e3eeb5c04a0053618130889354b94c56e3fcc215b22c7c23",
+                ".configuration/QCAD3.conf": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c"
+              },
+              "scope": "Frozen before native execution; exposed development"
+            },
+            "process": {
+              "command": [
+                "/opt/qcad/qcad",
+                "-allow-multiple-instances",
+                "-config",
+                "/home/cad/.config/QCAD/QCAD3.conf",
+                "-font-substitution",
+                "Standard",
+                "DejaVu Sans",
+                "-exec",
+                "/work/observe_case.js"
+              ],
+              "configuration_before": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c",
+              "started": "2026-11-08T16:34:20.384597+00:00",
+              "job": {
+                "case": "libre-air-water",
+                "source_sha256": "245a50eefeabc483f16269375a3bf9bd892b9cebd125e76f5ae744f5466f4db8",
+                "handle": "20018",
+                "attributes": {
+                  "MANUFACTURER": "QUAL-BEFORE",
+                  "ICT_ID": "AUTHORED-QUAL/libre-air-water/1",
+                  "TAG": "QA-1"
+                },
+                "frames": {
+                  "overview": [
+                    -16.65081855388813,
+                    -30.06725784447476,
+                    85.90491132332878,
+                    25.65081855388813
+                  ],
+                  "asset": [
+                    -9.660163710777626,
+                    -14.076603001364255,
+                    43.96098226466575,
+                    9.660163710777626
+                  ],
+                  "labels": [
+                    -3.660163710777626,
+                    -13.076603001364255,
+                    42.96098226466575,
+                    8.160163710777626
+                  ]
+                },
+                "role": "baseline"
+              },
+              "pid": 15,
+              "controller_pid": 19,
+              "controller_exit": 0,
+              "exit": 0,
+              "configuration_after": "12b3abbc98b9868e677145153ddd0bee46170ea865b389cbb50ee4081c1d8b82",
+              "finished": "2026-11-08T16:41:08.316110+00:00"
+            },
+            "controller_result": {
+              "status": "controller-complete",
+              "role": "baseline",
+              "case": "libre-air-water",
+              "whole_cad_qualified": false
+            },
+            "returned_sha256": "b338635b2bbc975715b75c31427049aceb668e26261ba6e3309f753e2305b30f",
+            "strict_differences": 300,
+            "strict_status": "differences",
+            "stored_assets": [
+              {
+                "id": "AUTHORED-QUAL/libre-air-water/1",
+                "handle": "20018",
+                "block": "ICT_QUAL_TEST_ANCHOR",
+                "attributes": {
+                  "MANUFACTURER": "QUAL-BEFORE",
+                  "ICT_ID": "AUTHORED-QUAL/libre-air-water/1",
+                  "TAG": "QA-1"
+                },
+                "attribute_handles": {
+                  "MANUFACTURER": "2001A",
+                  "ICT_ID": "2001B",
+                  "TAG": "2001C"
+                }
+              }
+            ]
+          },
+          "edited": {
+            "status": "complete",
+            "input_freeze": {
+              "files": {
+                "inspect_ui.py": "c41e118f8108e02dcef6ba9d90cf280d68851ba4b7cb6a870b96a4c9deb5c03e",
+                "job.json": "d15d48cba4f3d4803118003d017e92d8c0e24e41b4fd91a6402264f87927d811",
+                "launch_case.py": "beee5842b37f0bea6cade0afb33e8706754e80db29acd22e6f78dd44d74fdc03",
+                "METHOD.md": "e1bbc04db242370dc00cf6ef237c1f5022599ec200206717cd7df08dc095e04b",
+                "native_controls.py": "767246eef54db970e4a1a590b2e5797a41305046dfebc98dfdc7bc759105e832",
+                "observe_case.js": "24e09cf1c30a5f818014ca3662d847030066185f1468b31b563bd8163e4c6070",
+                "PLAN.md": "1d3f3a4985cb9aa21bc81d39bb1bc6b3963ef1a675af10b734f65fa81a46dd4b",
+                "prepare.py": "a4515b8ba619803d5b6a431114e69f459c7aedb2b0c2437eb2fc0252ede9240a",
+                "source.dxf": "245a50eefeabc483f16269375a3bf9bd892b9cebd125e76f5ae744f5466f4db8",
+                "ui_control.py": "e508c2a70b26ff1998fdd4cbc6484a2c7ea7b423e8e76868db8529c44a594881",
+                "workflow.py": "8e600a8ff2504df0e3eeb5c04a0053618130889354b94c56e3fcc215b22c7c23",
+                ".configuration/QCAD3.conf": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c"
+              },
+              "scope": "Frozen before native execution; exposed development"
+            },
+            "process": {
+              "command": [
+                "/opt/qcad/qcad",
+                "-allow-multiple-instances",
+                "-config",
+                "/home/cad/.config/QCAD/QCAD3.conf",
+                "-font-substitution",
+                "Standard",
+                "DejaVu Sans",
+                "-exec",
+                "/work/observe_case.js"
+              ],
+              "configuration_before": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c",
+              "started": "2026-11-08T16:34:21.828711+00:00",
+              "job": {
+                "case": "libre-air-water",
+                "source_sha256": "245a50eefeabc483f16269375a3bf9bd892b9cebd125e76f5ae744f5466f4db8",
+                "handle": "20018",
+                "attributes": {
+                  "MANUFACTURER": "QUAL-BEFORE",
+                  "ICT_ID": "AUTHORED-QUAL/libre-air-water/1",
+                  "TAG": "QA-1"
+                },
+                "frames": {
+                  "overview": [
+                    -16.65081855388813,
+                    -30.06725784447476,
+                    85.90491132332878,
+                    25.65081855388813
+                  ],
+                  "asset": [
+                    -9.660163710777626,
+                    -14.076603001364255,
+                    43.96098226466575,
+                    9.660163710777626
+                  ],
+                  "labels": [
+                    -3.660163710777626,
+                    -13.076603001364255,
+                    42.96098226466575,
+                    8.160163710777626
+                  ]
+                },
+                "role": "edited"
+              },
+              "pid": 15,
+              "controller_pid": 18,
+              "controller_exit": 0,
+              "exit": 0,
+              "configuration_after": "12b3abbc98b9868e677145153ddd0bee46170ea865b389cbb50ee4081c1d8b82",
+              "finished": "2026-11-08T16:41:58.417206+00:00"
+            },
+            "controller_result": {
+              "status": "controller-complete",
+              "role": "edited",
+              "case": "libre-air-water",
+              "whole_cad_qualified": false
+            },
+            "returned_sha256": "982424258a613600e53829f7ac38db241f00e7a42ad2390f73cd9bfb31e65e7b",
+            "strict_differences": 300,
+            "strict_status": "differences",
+            "stored_assets": [
+              {
+                "id": "AUTHORED-QUAL/libre-air-water/1",
+                "handle": "20018",
+                "block": "ICT_QUAL_TEST_ANCHOR",
+                "attributes": {
+                  "MANUFACTURER": "QUAL-AFTER",
+                  "ICT_ID": "AUTHORED-QUAL/libre-air-water/1",
+                  "TAG": "QA-1"
+                },
+                "attribute_handles": {
+                  "MANUFACTURER": "2001A",
+                  "ICT_ID": "2001B",
+                  "TAG": "2001C"
+                }
+              }
+            ]
+          },
+          "receiving": {
+            "status": "complete",
+            "input_freeze": {
+              "files": {
+                "baseline.dxf": "b338635b2bbc975715b75c31427049aceb668e26261ba6e3309f753e2305b30f",
+                "candidate.dxf": "257efa01da7a490316489aa312ed88548b819c1af9179fb70fafb351188f3795",
+                "edited.dxf": "982424258a613600e53829f7ac38db241f00e7a42ad2390f73cd9bfb31e65e7b",
+                "inspect_ui.py": "c41e118f8108e02dcef6ba9d90cf280d68851ba4b7cb6a870b96a4c9deb5c03e",
+                "job.json": "41f5bdda90fdc1a5bc99c0804d96164fa0c72ef9355fd7e931d653f2e58d3e64",
+                "launch_case.py": "beee5842b37f0bea6cade0afb33e8706754e80db29acd22e6f78dd44d74fdc03",
+                "METHOD.md": "e1bbc04db242370dc00cf6ef237c1f5022599ec200206717cd7df08dc095e04b",
+                "native_controls.py": "767246eef54db970e4a1a590b2e5797a41305046dfebc98dfdc7bc759105e832",
+                "observe_case.js": "24e09cf1c30a5f818014ca3662d847030066185f1468b31b563bd8163e4c6070",
+                "PLAN.md": "1d3f3a4985cb9aa21bc81d39bb1bc6b3963ef1a675af10b734f65fa81a46dd4b",
+                "prepare.py": "a4515b8ba619803d5b6a431114e69f459c7aedb2b0c2437eb2fc0252ede9240a",
+                "source.dxf": "245a50eefeabc483f16269375a3bf9bd892b9cebd125e76f5ae744f5466f4db8",
+                "ui_control.py": "e508c2a70b26ff1998fdd4cbc6484a2c7ea7b423e8e76868db8529c44a594881",
+                "workflow.py": "8e600a8ff2504df0e3eeb5c04a0053618130889354b94c56e3fcc215b22c7c23",
+                ".configuration/QCAD3.conf": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c"
+              },
+              "scope": "Frozen before native execution; exposed development"
+            },
+            "process": {
+              "command": [
+                "/opt/qcad/qcad",
+                "-allow-multiple-instances",
+                "-config",
+                "/home/cad/.config/QCAD/QCAD3.conf",
+                "-font-substitution",
+                "Standard",
+                "DejaVu Sans",
+                "-exec",
+                "/work/observe_case.js"
+              ],
+              "configuration_before": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c",
+              "started": "2026-11-08T16:42:02.945839+00:00",
+              "job": {
+                "case": "libre-air-water",
+                "source_sha256": "245a50eefeabc483f16269375a3bf9bd892b9cebd125e76f5ae744f5466f4db8",
+                "handle": "20018",
+                "attributes": {
+                  "MANUFACTURER": "QUAL-BEFORE",
+                  "ICT_ID": "AUTHORED-QUAL/libre-air-water/1",
+                  "TAG": "QA-1"
+                },
+                "frames": {
+                  "overview": [
+                    -16.65081855388813,
+                    -30.06725784447476,
+                    85.90491132332878,
+                    25.65081855388813
+                  ],
+                  "asset": [
+                    -9.660163710777626,
+                    -14.076603001364255,
+                    43.96098226466575,
+                    9.660163710777626
+                  ],
+                  "labels": [
+                    -3.660163710777626,
+                    -13.076603001364255,
+                    42.96098226466575,
+                    8.160163710777626
+                  ]
+                },
+                "role": "receiving"
+              },
+              "pid": 15,
+              "controller_pid": 18,
+              "controller_exit": 0,
+              "exit": 0,
+              "configuration_after": "750c0405f7d97a25b8dba39a5c15d092debab4996e1525c93faf8ed349876c9d",
+              "finished": "2026-11-08T16:52:22.009962+00:00"
+            },
+            "controller_result": {
+              "status": "controller-complete",
+              "role": "receiving",
+              "case": "libre-air-water",
+              "whole_cad_qualified": false
+            }
+          }
+        },
+        "whole_cad_qualified": false,
+        "candidate_byte_check": {
+          "status": "pass",
+          "values": 1,
+          "unplanned_byte_changes": 0,
+          "source_sha256": "245a50eefeabc483f16269375a3bf9bd892b9cebd125e76f5ae744f5466f4db8",
+          "candidate_sha256": "257efa01da7a490316489aa312ed88548b819c1af9179fb70fafb351188f3795",
+          "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+          "review": "same-author software check; not independent engineering review"
+        },
+        "candidate_strict": {
+          "schema": "cad-comparison-1",
+          "before_sha256": "245a50eefeabc483f16269375a3bf9bd892b9cebd125e76f5ae744f5466f4db8",
+          "after_sha256": "257efa01da7a490316489aa312ed88548b819c1af9179fb70fafb351188f3795",
+          "status": "pass",
+          "expected_edits": [
+            {
+              "id": "AUTHORED-QUAL/libre-air-water/1",
+              "attribute": "MANUFACTURER",
+              "before": "QUAL-BEFORE",
+              "after": "QUAL-AFTER",
+              "reason": "Declared exposed native UI procedure development; no accepted engineering change"
+            }
+          ],
+          "unexpected": [],
+          "save_metadata_changed": false,
+          "boundary": "All ezdxf-exported entity tags including block definitions, attributes, layers and objects; all headers except listed save metadata and the two named EZDXF_META writer values. Same handles required. This is not a byte-identical DXF or proprietary project database/visual/engineering acceptance."
+        },
+        "paired_strict_differences": 53,
+        "pixels": [
+          {
+            "frame": "overview",
+            "left": "source",
+            "right": "baseline",
+            "changed_pixels": 0,
+            "outside_region": 0,
+            "permitted_region": null,
+            "size": [
+              693,
+              612
+            ]
+          },
+          {
+            "frame": "overview",
+            "left": "source",
+            "right": "candidate",
+            "changed_pixels": 328,
+            "outside_region": 0,
+            "permitted_region": [
+              146,
+              280,
+              241,
+              296
+            ],
+            "size": [
+              693,
+              612
+            ]
+          },
+          {
+            "frame": "overview",
+            "left": "baseline",
+            "right": "edited",
+            "changed_pixels": 328,
+            "outside_region": 0,
+            "permitted_region": [
+              146,
+              280,
+              241,
+              296
+            ],
+            "size": [
+              693,
+              612
+            ]
+          },
+          {
+            "frame": "asset",
+            "left": "source",
+            "right": "baseline",
+            "changed_pixels": 0,
+            "outside_region": 0,
+            "permitted_region": null,
+            "size": [
+              693,
+              612
+            ]
+          },
+          {
+            "frame": "asset",
+            "left": "source",
+            "right": "candidate",
+            "changed_pixels": 937,
+            "outside_region": 0,
+            "permitted_region": [
+              175,
+              259,
+              352,
+              285
+            ],
+            "size": [
+              693,
+              612
+            ]
+          },
+          {
+            "frame": "asset",
+            "left": "baseline",
+            "right": "edited",
+            "changed_pixels": 937,
+            "outside_region": 0,
+            "permitted_region": [
+              175,
+              259,
+              352,
+              285
+            ],
+            "size": [
+              693,
+              612
+            ]
+          },
+          {
+            "frame": "labels",
+            "left": "source",
+            "right": "baseline",
+            "changed_pixels": 0,
+            "outside_region": 0,
+            "permitted_region": null,
+            "size": [
+              693,
+              612
+            ]
+          },
+          {
+            "frame": "labels",
+            "left": "source",
+            "right": "candidate",
+            "changed_pixels": 1143,
+            "outside_region": 0,
+            "permitted_region": [
+              115,
+              248,
+              318,
+              278
+            ],
+            "size": [
+              693,
+              612
+            ]
+          },
+          {
+            "frame": "labels",
+            "left": "baseline",
+            "right": "edited",
+            "changed_pixels": 1143,
+            "outside_region": 0,
+            "permitted_region": [
+              115,
+              248,
+              318,
+              278
+            ],
+            "size": [
+              693,
+              612
+            ]
+          }
+        ]
+      },
+      "original_analysis_failure": null,
+      "native_strict_differences": {
+        "baseline": 300,
+        "edited": 300
+      },
+      "paired_strict_differences": 53,
+      "pixels": [
+        {
+          "frame": "overview",
+          "left": "source",
+          "right": "baseline",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 0,
+          "outside_region": 0,
+          "permitted_region": null,
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "overview",
+          "left": "source",
+          "right": "candidate",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 328,
+          "outside_region": 0,
+          "permitted_region": [
+            146,
+            280,
+            241,
+            296
+          ],
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "overview",
+          "left": "baseline",
+          "right": "edited",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 328,
+          "outside_region": 0,
+          "permitted_region": [
+            146,
+            280,
+            241,
+            296
+          ],
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "asset",
+          "left": "source",
+          "right": "baseline",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 0,
+          "outside_region": 0,
+          "permitted_region": null,
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "asset",
+          "left": "source",
+          "right": "candidate",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 937,
+          "outside_region": 0,
+          "permitted_region": [
+            175,
+            259,
+            352,
+            285
+          ],
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "asset",
+          "left": "baseline",
+          "right": "edited",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 937,
+          "outside_region": 0,
+          "permitted_region": [
+            175,
+            259,
+            352,
+            285
+          ],
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "labels",
+          "left": "source",
+          "right": "baseline",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 0,
+          "outside_region": 0,
+          "permitted_region": null,
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "labels",
+          "left": "source",
+          "right": "candidate",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 1143,
+          "outside_region": 0,
+          "permitted_region": [
+            115,
+            248,
+            318,
+            278
+          ],
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "labels",
+          "left": "baseline",
+          "right": "edited",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 1143,
+          "outside_region": 0,
+          "permitted_region": [
+            115,
+            248,
+            318,
+            278
+          ],
+          "size": [
+            693,
+            612
+          ]
+        }
+      ],
+      "whole_cad_qualified": false
+    },
+    {
+      "case": "libre-motion",
+      "jobs": [
+        {
+          "role": "baseline",
+          "fields": 2,
+          "observations": 34,
+          "views": 6,
+          "images": 24,
+          "process_exit": 0,
+          "recording": {
+            "status": "pass",
+            "expected_metadata_mismatches": []
+          }
+        },
+        {
+          "role": "edited",
+          "fields": 4,
+          "observations": 37,
+          "views": 6,
+          "images": 24,
+          "process_exit": 0,
+          "recording": {
+            "status": "failed",
+            "expected_metadata_mismatches": [
+              {
+                "event": 26,
+                "recorded": {
+                  "MANUFACTURER": "QUAL-AFTER",
+                  "ICT_ID": "AUTHORED-QUAL/libre-motion/1",
+                  "TAG": "QA-1"
+                },
+                "source_phase_expected": {
+                  "MANUFACTURER": "QUAL-BEFORE",
+                  "ICT_ID": "AUTHORED-QUAL/libre-motion/1",
+                  "TAG": "QA-1"
+                }
+              },
+              {
+                "event": 65,
+                "recorded": {
+                  "MANUFACTURER": "QUAL-AFTER",
+                  "ICT_ID": "AUTHORED-QUAL/libre-motion/1",
+                  "TAG": "QA-1"
+                },
+                "source_phase_expected": {
+                  "MANUFACTURER": "QUAL-BEFORE",
+                  "ICT_ID": "AUTHORED-QUAL/libre-motion/1",
+                  "TAG": "QA-1"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "role": "receiving",
+          "fields": 4,
+          "observations": 62,
+          "views": 12,
+          "images": 48,
+          "process_exit": 0,
+          "recording": {
+            "status": "pass",
+            "expected_metadata_mismatches": []
+          }
+        }
+      ],
+      "analysis": null,
+      "original_analysis_failure": {
+        "error": "Native camera/canvas changed",
+        "scope": "Original exact-camera gate remains failed; subsequent pixel counts are diagnostic"
+      },
+      "native_strict_differences": {
+        "baseline": 302,
+        "edited": 302
+      },
+      "paired_strict_differences": 53,
+      "pixels": [
+        {
+          "frame": "overview",
+          "left": "source",
+          "right": "baseline",
+          "exact_camera_status": "failed",
+          "camera_differences": [
+            {
+              "role": "baseline",
+              "source_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  47.862565912624135
+                ]
+              },
+              "observed_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  47.86256591262412
+                ]
+              },
+              "source_canvas": [
+                114,
+                175,
+                693,
+                612
+              ],
+              "observed_canvas": [
+                114,
+                175,
+                693,
+                612
+              ]
+            },
+            {
+              "role": "edited",
+              "source_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  47.862565912624135
+                ]
+              },
+              "observed_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  47.86256591262412
+                ]
+              },
+              "source_canvas": [
+                114,
+                175,
+                693,
+                612
+              ],
+              "observed_canvas": [
+                114,
+                175,
+                693,
+                612
+              ]
+            },
+            {
+              "role": "candidate",
+              "source_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  47.862565912624135
+                ]
+              },
+              "observed_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  47.86256591262412
+                ]
+              },
+              "source_canvas": [
+                114,
+                175,
+                693,
+                612
+              ],
+              "observed_canvas": [
+                114,
+                175,
+                693,
+                612
+              ]
+            }
+          ],
+          "diagnostic_only": true,
+          "changed_pixels": 0,
+          "outside_region": 0,
+          "permitted_region": null,
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "overview",
+          "left": "source",
+          "right": "candidate",
+          "exact_camera_status": "failed",
+          "camera_differences": [
+            {
+              "role": "baseline",
+              "source_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  47.862565912624135
+                ]
+              },
+              "observed_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  47.86256591262412
+                ]
+              },
+              "source_canvas": [
+                114,
+                175,
+                693,
+                612
+              ],
+              "observed_canvas": [
+                114,
+                175,
+                693,
+                612
+              ]
+            },
+            {
+              "role": "edited",
+              "source_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  47.862565912624135
+                ]
+              },
+              "observed_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  47.86256591262412
+                ]
+              },
+              "source_canvas": [
+                114,
+                175,
+                693,
+                612
+              ],
+              "observed_canvas": [
+                114,
+                175,
+                693,
+                612
+              ]
+            },
+            {
+              "role": "candidate",
+              "source_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  47.862565912624135
+                ]
+              },
+              "observed_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  47.86256591262412
+                ]
+              },
+              "source_canvas": [
+                114,
+                175,
+                693,
+                612
+              ],
+              "observed_canvas": [
+                114,
+                175,
+                693,
+                612
+              ]
+            }
+          ],
+          "diagnostic_only": true,
+          "changed_pixels": 263,
+          "outside_region": 0,
+          "permitted_region": [
+            146,
+            299,
+            241,
+            315
+          ],
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "overview",
+          "left": "baseline",
+          "right": "edited",
+          "exact_camera_status": "failed",
+          "camera_differences": [
+            {
+              "role": "baseline",
+              "source_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  47.862565912624135
+                ]
+              },
+              "observed_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  47.86256591262412
+                ]
+              },
+              "source_canvas": [
+                114,
+                175,
+                693,
+                612
+              ],
+              "observed_canvas": [
+                114,
+                175,
+                693,
+                612
+              ]
+            },
+            {
+              "role": "edited",
+              "source_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  47.862565912624135
+                ]
+              },
+              "observed_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  47.86256591262412
+                ]
+              },
+              "source_canvas": [
+                114,
+                175,
+                693,
+                612
+              ],
+              "observed_canvas": [
+                114,
+                175,
+                693,
+                612
+              ]
+            },
+            {
+              "role": "candidate",
+              "source_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  47.862565912624135
+                ]
+              },
+              "observed_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  47.86256591262412
+                ]
+              },
+              "source_canvas": [
+                114,
+                175,
+                693,
+                612
+              ],
+              "observed_canvas": [
+                114,
+                175,
+                693,
+                612
+              ]
+            }
+          ],
+          "diagnostic_only": true,
+          "changed_pixels": 263,
+          "outside_region": 0,
+          "permitted_region": [
+            146,
+            299,
+            241,
+            315
+          ],
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "asset",
+          "left": "source",
+          "right": "baseline",
+          "exact_camera_status": "failed",
+          "camera_differences": [
+            {
+              "role": "baseline",
+              "source_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 12.643220165613252,
+                "offset": [
+                  11.186176909165905,
+                  26.410914527745174
+                ]
+              },
+              "observed_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 12.643220165613252,
+                "offset": [
+                  11.186176909165905,
+                  26.41091452774517
+                ]
+              },
+              "source_canvas": [
+                114,
+                175,
+                693,
+                612
+              ],
+              "observed_canvas": [
+                114,
+                175,
+                693,
+                612
+              ]
+            },
+            {
+              "role": "edited",
+              "source_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 12.643220165613252,
+                "offset": [
+                  11.186176909165905,
+                  26.410914527745174
+                ]
+              },
+              "observed_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 12.643220165613252,
+                "offset": [
+                  11.186176909165905,
+                  26.41091452774517
+                ]
+              },
+              "source_canvas": [
+                114,
+                175,
+                693,
+                612
+              ],
+              "observed_canvas": [
+                114,
+                175,
+                693,
+                612
+              ]
+            },
+            {
+              "role": "candidate",
+              "source_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 12.643220165613252,
+                "offset": [
+                  11.186176909165905,
+                  26.410914527745174
+                ]
+              },
+              "observed_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 12.643220165613252,
+                "offset": [
+                  11.186176909165905,
+                  26.41091452774517
+                ]
+              },
+              "source_canvas": [
+                114,
+                175,
+                693,
+                612
+              ],
+              "observed_canvas": [
+                114,
+                175,
+                693,
+                612
+              ]
+            }
+          ],
+          "diagnostic_only": true,
+          "changed_pixels": 0,
+          "outside_region": 0,
+          "permitted_region": null,
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "asset",
+          "left": "source",
+          "right": "candidate",
+          "exact_camera_status": "failed",
+          "camera_differences": [
+            {
+              "role": "baseline",
+              "source_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 12.643220165613252,
+                "offset": [
+                  11.186176909165905,
+                  26.410914527745174
+                ]
+              },
+              "observed_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 12.643220165613252,
+                "offset": [
+                  11.186176909165905,
+                  26.41091452774517
+                ]
+              },
+              "source_canvas": [
+                114,
+                175,
+                693,
+                612
+              ],
+              "observed_canvas": [
+                114,
+                175,
+                693,
+                612
+              ]
+            },
+            {
+              "role": "edited",
+              "source_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 12.643220165613252,
+                "offset": [
+                  11.186176909165905,
+                  26.410914527745174
+                ]
+              },
+              "observed_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 12.643220165613252,
+                "offset": [
+                  11.186176909165905,
+                  26.41091452774517
+                ]
+              },
+              "source_canvas": [
+                114,
+                175,
+                693,
+                612
+              ],
+              "observed_canvas": [
+                114,
+                175,
+                693,
+                612
+              ]
+            },
+            {
+              "role": "candidate",
+              "source_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 12.643220165613252,
+                "offset": [
+                  11.186176909165905,
+                  26.410914527745174
+                ]
+              },
+              "observed_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 12.643220165613252,
+                "offset": [
+                  11.186176909165905,
+                  26.41091452774517
+                ]
+              },
+              "source_canvas": [
+                114,
+                175,
+                693,
+                612
+              ],
+              "observed_canvas": [
+                114,
+                175,
+                693,
+                612
+              ]
+            }
+          ],
+          "diagnostic_only": true,
+          "changed_pixels": 756,
+          "outside_region": 0,
+          "permitted_region": [
+            178,
+            256,
+            364,
+            284
+          ],
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "asset",
+          "left": "baseline",
+          "right": "edited",
+          "exact_camera_status": "failed",
+          "camera_differences": [
+            {
+              "role": "baseline",
+              "source_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 12.643220165613252,
+                "offset": [
+                  11.186176909165905,
+                  26.410914527745174
+                ]
+              },
+              "observed_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 12.643220165613252,
+                "offset": [
+                  11.186176909165905,
+                  26.41091452774517
+                ]
+              },
+              "source_canvas": [
+                114,
+                175,
+                693,
+                612
+              ],
+              "observed_canvas": [
+                114,
+                175,
+                693,
+                612
+              ]
+            },
+            {
+              "role": "edited",
+              "source_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 12.643220165613252,
+                "offset": [
+                  11.186176909165905,
+                  26.410914527745174
+                ]
+              },
+              "observed_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 12.643220165613252,
+                "offset": [
+                  11.186176909165905,
+                  26.41091452774517
+                ]
+              },
+              "source_canvas": [
+                114,
+                175,
+                693,
+                612
+              ],
+              "observed_canvas": [
+                114,
+                175,
+                693,
+                612
+              ]
+            },
+            {
+              "role": "candidate",
+              "source_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 12.643220165613252,
+                "offset": [
+                  11.186176909165905,
+                  26.410914527745174
+                ]
+              },
+              "observed_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 12.643220165613252,
+                "offset": [
+                  11.186176909165905,
+                  26.41091452774517
+                ]
+              },
+              "source_canvas": [
+                114,
+                175,
+                693,
+                612
+              ],
+              "observed_canvas": [
+                114,
+                175,
+                693,
+                612
+              ]
+            }
+          ],
+          "diagnostic_only": true,
+          "changed_pixels": 756,
+          "outside_region": 0,
+          "permitted_region": [
+            178,
+            256,
+            364,
+            284
+          ],
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "labels",
+          "left": "source",
+          "right": "baseline",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 0,
+          "outside_region": 0,
+          "permitted_region": null,
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "labels",
+          "left": "source",
+          "right": "candidate",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 961,
+          "outside_region": 0,
+          "permitted_region": [
+            115,
+            245,
+            330,
+            276
+          ],
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "labels",
+          "left": "baseline",
+          "right": "edited",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 961,
+          "outside_region": 0,
+          "permitted_region": [
+            115,
+            245,
+            330,
+            276
+          ],
+          "size": [
+            693,
+            612
+          ]
+        }
+      ],
+      "whole_cad_qualified": false
+    },
+    {
+      "case": "libre-power",
+      "jobs": [
+        {
+          "role": "baseline",
+          "fields": 2,
+          "observations": 34,
+          "views": 6,
+          "images": 24,
+          "process_exit": 0,
+          "recording": {
+            "status": "pass",
+            "expected_metadata_mismatches": []
+          }
+        },
+        {
+          "role": "edited",
+          "fields": 4,
+          "observations": 37,
+          "views": 6,
+          "images": 24,
+          "process_exit": 0,
+          "recording": {
+            "status": "failed",
+            "expected_metadata_mismatches": [
+              {
+                "event": 26,
+                "recorded": {
+                  "MANUFACTURER": "QUAL-AFTER",
+                  "ICT_ID": "AUTHORED-QUAL/libre-power/1",
+                  "TAG": "QA-1"
+                },
+                "source_phase_expected": {
+                  "MANUFACTURER": "QUAL-BEFORE",
+                  "ICT_ID": "AUTHORED-QUAL/libre-power/1",
+                  "TAG": "QA-1"
+                }
+              },
+              {
+                "event": 65,
+                "recorded": {
+                  "MANUFACTURER": "QUAL-AFTER",
+                  "ICT_ID": "AUTHORED-QUAL/libre-power/1",
+                  "TAG": "QA-1"
+                },
+                "source_phase_expected": {
+                  "MANUFACTURER": "QUAL-BEFORE",
+                  "ICT_ID": "AUTHORED-QUAL/libre-power/1",
+                  "TAG": "QA-1"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "role": "receiving",
+          "fields": 4,
+          "observations": 62,
+          "views": 12,
+          "images": 48,
+          "process_exit": 0,
+          "recording": {
+            "status": "pass",
+            "expected_metadata_mismatches": []
+          }
+        }
+      ],
+      "analysis": null,
+      "original_analysis_failure": {
+        "error": "Native camera/canvas changed",
+        "scope": "Original exact-camera gate remains failed; subsequent pixel counts are diagnostic"
+      },
+      "native_strict_differences": {
+        "baseline": 298,
+        "edited": 298
+      },
+      "paired_strict_differences": 53,
+      "pixels": [
+        {
+          "frame": "overview",
+          "left": "source",
+          "right": "baseline",
+          "exact_camera_status": "failed",
+          "camera_differences": [
+            {
+              "role": "baseline",
+              "source_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  49.99860488192412
+                ]
+              },
+              "observed_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  49.998604881924116
+                ]
+              },
+              "source_canvas": [
+                114,
+                175,
+                693,
+                612
+              ],
+              "observed_canvas": [
+                114,
+                175,
+                693,
+                612
+              ]
+            },
+            {
+              "role": "edited",
+              "source_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  49.99860488192412
+                ]
+              },
+              "observed_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  49.998604881924116
+                ]
+              },
+              "source_canvas": [
+                114,
+                175,
+                693,
+                612
+              ],
+              "observed_canvas": [
+                114,
+                175,
+                693,
+                612
+              ]
+            },
+            {
+              "role": "candidate",
+              "source_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  49.99860488192412
+                ]
+              },
+              "observed_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  49.998604881924116
+                ]
+              },
+              "source_canvas": [
+                114,
+                175,
+                693,
+                612
+              ],
+              "observed_canvas": [
+                114,
+                175,
+                693,
+                612
+              ]
+            }
+          ],
+          "diagnostic_only": true,
+          "changed_pixels": 0,
+          "outside_region": 0,
+          "permitted_region": null,
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "overview",
+          "left": "source",
+          "right": "candidate",
+          "exact_camera_status": "failed",
+          "camera_differences": [
+            {
+              "role": "baseline",
+              "source_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  49.99860488192412
+                ]
+              },
+              "observed_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  49.998604881924116
+                ]
+              },
+              "source_canvas": [
+                114,
+                175,
+                693,
+                612
+              ],
+              "observed_canvas": [
+                114,
+                175,
+                693,
+                612
+              ]
+            },
+            {
+              "role": "edited",
+              "source_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  49.99860488192412
+                ]
+              },
+              "observed_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  49.998604881924116
+                ]
+              },
+              "source_canvas": [
+                114,
+                175,
+                693,
+                612
+              ],
+              "observed_canvas": [
+                114,
+                175,
+                693,
+                612
+              ]
+            },
+            {
+              "role": "candidate",
+              "source_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  49.99860488192412
+                ]
+              },
+              "observed_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  49.998604881924116
+                ]
+              },
+              "source_canvas": [
+                114,
+                175,
+                693,
+                612
+              ],
+              "observed_canvas": [
+                114,
+                175,
+                693,
+                612
+              ]
+            }
+          ],
+          "diagnostic_only": true,
+          "changed_pixels": 373,
+          "outside_region": 0,
+          "permitted_region": [
+            146,
+            285,
+            241,
+            302
+          ],
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "overview",
+          "left": "baseline",
+          "right": "edited",
+          "exact_camera_status": "failed",
+          "camera_differences": [
+            {
+              "role": "baseline",
+              "source_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  49.99860488192412
+                ]
+              },
+              "observed_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  49.998604881924116
+                ]
+              },
+              "source_canvas": [
+                114,
+                175,
+                693,
+                612
+              ],
+              "observed_canvas": [
+                114,
+                175,
+                693,
+                612
+              ]
+            },
+            {
+              "role": "edited",
+              "source_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  49.99860488192412
+                ]
+              },
+              "observed_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  49.998604881924116
+                ]
+              },
+              "source_canvas": [
+                114,
+                175,
+                693,
+                612
+              ],
+              "observed_canvas": [
+                114,
+                175,
+                693,
+                612
+              ]
+            },
+            {
+              "role": "candidate",
+              "source_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  49.99860488192412
+                ]
+              },
+              "observed_view": {
+                "width": 693,
+                "height": 612,
+                "factor": 6.289263415824891,
+                "offset": [
+                  20.46684571211015,
+                  49.998604881924116
+                ]
+              },
+              "source_canvas": [
+                114,
+                175,
+                693,
+                612
+              ],
+              "observed_canvas": [
+                114,
+                175,
+                693,
+                612
+              ]
+            }
+          ],
+          "diagnostic_only": true,
+          "changed_pixels": 373,
+          "outside_region": 0,
+          "permitted_region": [
+            146,
+            285,
+            241,
+            302
+          ],
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "asset",
+          "left": "source",
+          "right": "baseline",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 0,
+          "outside_region": 0,
+          "permitted_region": null,
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "asset",
+          "left": "source",
+          "right": "candidate",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 1150,
+          "outside_region": 0,
+          "permitted_region": [
+            179,
+            256,
+            368,
+            284
+          ],
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "asset",
+          "left": "baseline",
+          "right": "edited",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 1150,
+          "outside_region": 0,
+          "permitted_region": [
+            179,
+            256,
+            368,
+            284
+          ],
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "labels",
+          "left": "source",
+          "right": "baseline",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 0,
+          "outside_region": 0,
+          "permitted_region": null,
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "labels",
+          "left": "source",
+          "right": "candidate",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 1474,
+          "outside_region": 0,
+          "permitted_region": [
+            115,
+            244,
+            334,
+            276
+          ],
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "labels",
+          "left": "baseline",
+          "right": "edited",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 1474,
+          "outside_region": 0,
+          "permitted_region": [
+            115,
+            244,
+            334,
+            276
+          ],
+          "size": [
+            693,
+            612
+          ]
+        }
+      ],
+      "whole_cad_qualified": false
+    },
+    {
+      "case": "qcad-hydraulic",
+      "jobs": [
+        {
+          "role": "baseline",
+          "fields": 2,
+          "observations": 34,
+          "views": 6,
+          "images": 24,
+          "process_exit": 0,
+          "recording": {
+            "status": "pass",
+            "expected_metadata_mismatches": []
+          }
+        },
+        {
+          "role": "edited",
+          "fields": 4,
+          "observations": 37,
+          "views": 6,
+          "images": 24,
+          "process_exit": 0,
+          "recording": {
+            "status": "failed",
+            "expected_metadata_mismatches": [
+              {
+                "event": 26,
+                "recorded": {
+                  "MANUFACTURER": "QUAL-AFTER",
+                  "ICT_ID": "AUTHORED-QUAL/qcad-hydraulic/1",
+                  "TAG": "QA-1"
+                },
+                "source_phase_expected": {
+                  "MANUFACTURER": "QUAL-BEFORE",
+                  "ICT_ID": "AUTHORED-QUAL/qcad-hydraulic/1",
+                  "TAG": "QA-1"
+                }
+              },
+              {
+                "event": 65,
+                "recorded": {
+                  "MANUFACTURER": "QUAL-AFTER",
+                  "ICT_ID": "AUTHORED-QUAL/qcad-hydraulic/1",
+                  "TAG": "QA-1"
+                },
+                "source_phase_expected": {
+                  "MANUFACTURER": "QUAL-BEFORE",
+                  "ICT_ID": "AUTHORED-QUAL/qcad-hydraulic/1",
+                  "TAG": "QA-1"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "role": "receiving",
+          "fields": 4,
+          "observations": 62,
+          "views": 12,
+          "images": 48,
+          "process_exit": 0,
+          "recording": {
+            "status": "pass",
+            "expected_metadata_mismatches": []
+          }
+        }
+      ],
+      "analysis": {
+        "case": "qcad-hydraulic",
+        "native": {
+          "baseline": {
+            "status": "complete",
+            "input_freeze": {
+              "files": {
+                "inspect_ui.py": "c41e118f8108e02dcef6ba9d90cf280d68851ba4b7cb6a870b96a4c9deb5c03e",
+                "job.json": "5c78f52dac60c8aa5bfd58ce82a1aa90c76a1786a908e2d804669f916151de86",
+                "launch_case.py": "beee5842b37f0bea6cade0afb33e8706754e80db29acd22e6f78dd44d74fdc03",
+                "METHOD.md": "e1bbc04db242370dc00cf6ef237c1f5022599ec200206717cd7df08dc095e04b",
+                "native_controls.py": "767246eef54db970e4a1a590b2e5797a41305046dfebc98dfdc7bc759105e832",
+                "observe_case.js": "24e09cf1c30a5f818014ca3662d847030066185f1468b31b563bd8163e4c6070",
+                "PLAN.md": "1d3f3a4985cb9aa21bc81d39bb1bc6b3963ef1a675af10b734f65fa81a46dd4b",
+                "prepare.py": "a4515b8ba619803d5b6a431114e69f459c7aedb2b0c2437eb2fc0252ede9240a",
+                "source.dxf": "4d768e3a5ca0ba8d5e4762851a349f1679381b51d5fdf2a9b2fc89e86aa430db",
+                "ui_control.py": "e508c2a70b26ff1998fdd4cbc6484a2c7ea7b423e8e76868db8529c44a594881",
+                "workflow.py": "8e600a8ff2504df0e3eeb5c04a0053618130889354b94c56e3fcc215b22c7c23",
+                ".configuration/QCAD3.conf": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c"
+              },
+              "scope": "Frozen before native execution; exposed development"
+            },
+            "process": {
+              "command": [
+                "/opt/qcad/qcad",
+                "-allow-multiple-instances",
+                "-config",
+                "/home/cad/.config/QCAD/QCAD3.conf",
+                "-font-substitution",
+                "Standard",
+                "DejaVu Sans",
+                "-exec",
+                "/work/observe_case.js"
+              ],
+              "configuration_before": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c",
+              "started": "2026-11-08T16:47:08.080432+00:00",
+              "job": {
+                "case": "qcad-hydraulic",
+                "source_sha256": "4d768e3a5ca0ba8d5e4762851a349f1679381b51d5fdf2a9b2fc89e86aa430db",
+                "handle": "1000F",
+                "attributes": {
+                  "MANUFACTURER": "QUAL-BEFORE",
+                  "ICT_ID": "AUTHORED-QUAL/qcad-hydraulic/1",
+                  "TAG": "QA-1"
+                },
+                "frames": {
+                  "overview": [
+                    -20.01081855388813,
+                    -30.627257844474762,
+                    86.46491132332878,
+                    25.77081855388813
+                  ],
+                  "asset": [
+                    -9.824079126875853,
+                    -14.240518417462482,
+                    44.944474761255115,
+                    9.824079126875853
+                  ],
+                  "labels": [
+                    -3.824079126875853,
+                    -13.240518417462482,
+                    43.944474761255115,
+                    8.324079126875853
+                  ]
+                },
+                "role": "baseline"
+              },
+              "pid": 15,
+              "controller_pid": 17,
+              "controller_exit": 0,
+              "exit": 0,
+              "configuration_after": "12b3abbc98b9868e677145153ddd0bee46170ea865b389cbb50ee4081c1d8b82",
+              "finished": "2026-11-08T16:53:07.155080+00:00"
+            },
+            "controller_result": {
+              "status": "controller-complete",
+              "role": "baseline",
+              "case": "qcad-hydraulic",
+              "whole_cad_qualified": false
+            },
+            "returned_sha256": "b0f0b6f7eba424eab3639ac182f1e2c2a122846326fb9c6b00a670a92385b1c8",
+            "strict_differences": 374,
+            "strict_status": "differences",
+            "stored_assets": [
+              {
+                "id": "AUTHORED-QUAL/qcad-hydraulic/1",
+                "handle": "1000F",
+                "block": "ICT_QUAL_TEST_ANCHOR",
+                "attributes": {
+                  "MANUFACTURER": "QUAL-BEFORE",
+                  "ICT_ID": "AUTHORED-QUAL/qcad-hydraulic/1",
+                  "TAG": "QA-1"
+                },
+                "attribute_handles": {
+                  "MANUFACTURER": "10011",
+                  "ICT_ID": "10012",
+                  "TAG": "10013"
+                }
+              }
+            ]
+          },
+          "edited": {
+            "status": "complete",
+            "input_freeze": {
+              "files": {
+                "inspect_ui.py": "c41e118f8108e02dcef6ba9d90cf280d68851ba4b7cb6a870b96a4c9deb5c03e",
+                "job.json": "b34b8f65d05aa87d502cd0af4b56ca4ab31bab375c66b3279204cae9f467783f",
+                "launch_case.py": "beee5842b37f0bea6cade0afb33e8706754e80db29acd22e6f78dd44d74fdc03",
+                "METHOD.md": "e1bbc04db242370dc00cf6ef237c1f5022599ec200206717cd7df08dc095e04b",
+                "native_controls.py": "767246eef54db970e4a1a590b2e5797a41305046dfebc98dfdc7bc759105e832",
+                "observe_case.js": "24e09cf1c30a5f818014ca3662d847030066185f1468b31b563bd8163e4c6070",
+                "PLAN.md": "1d3f3a4985cb9aa21bc81d39bb1bc6b3963ef1a675af10b734f65fa81a46dd4b",
+                "prepare.py": "a4515b8ba619803d5b6a431114e69f459c7aedb2b0c2437eb2fc0252ede9240a",
+                "source.dxf": "4d768e3a5ca0ba8d5e4762851a349f1679381b51d5fdf2a9b2fc89e86aa430db",
+                "ui_control.py": "e508c2a70b26ff1998fdd4cbc6484a2c7ea7b423e8e76868db8529c44a594881",
+                "workflow.py": "8e600a8ff2504df0e3eeb5c04a0053618130889354b94c56e3fcc215b22c7c23",
+                ".configuration/QCAD3.conf": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c"
+              },
+              "scope": "Frozen before native execution; exposed development"
+            },
+            "process": {
+              "command": [
+                "/opt/qcad/qcad",
+                "-allow-multiple-instances",
+                "-config",
+                "/home/cad/.config/QCAD/QCAD3.conf",
+                "-font-substitution",
+                "Standard",
+                "DejaVu Sans",
+                "-exec",
+                "/work/observe_case.js"
+              ],
+              "configuration_before": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c",
+              "started": "2026-11-08T16:52:20.173060+00:00",
+              "job": {
+                "case": "qcad-hydraulic",
+                "source_sha256": "4d768e3a5ca0ba8d5e4762851a349f1679381b51d5fdf2a9b2fc89e86aa430db",
+                "handle": "1000F",
+                "attributes": {
+                  "MANUFACTURER": "QUAL-BEFORE",
+                  "ICT_ID": "AUTHORED-QUAL/qcad-hydraulic/1",
+                  "TAG": "QA-1"
+                },
+                "frames": {
+                  "overview": [
+                    -20.01081855388813,
+                    -30.627257844474762,
+                    86.46491132332878,
+                    25.77081855388813
+                  ],
+                  "asset": [
+                    -9.824079126875853,
+                    -14.240518417462482,
+                    44.944474761255115,
+                    9.824079126875853
+                  ],
+                  "labels": [
+                    -3.824079126875853,
+                    -13.240518417462482,
+                    43.944474761255115,
+                    8.324079126875853
+                  ]
+                },
+                "role": "edited"
+              },
+              "pid": 15,
+              "controller_pid": 17,
+              "controller_exit": 0,
+              "exit": 0,
+              "configuration_after": "12b3abbc98b9868e677145153ddd0bee46170ea865b389cbb50ee4081c1d8b82",
+              "finished": "2026-11-08T16:58:57.964335+00:00"
+            },
+            "controller_result": {
+              "status": "controller-complete",
+              "role": "edited",
+              "case": "qcad-hydraulic",
+              "whole_cad_qualified": false
+            },
+            "returned_sha256": "bb6ec9ed30f65471651281f69d105e55a519b8e5868e56c7626aec5c0491b404",
+            "strict_differences": 374,
+            "strict_status": "differences",
+            "stored_assets": [
+              {
+                "id": "AUTHORED-QUAL/qcad-hydraulic/1",
+                "handle": "1000F",
+                "block": "ICT_QUAL_TEST_ANCHOR",
+                "attributes": {
+                  "MANUFACTURER": "QUAL-AFTER",
+                  "ICT_ID": "AUTHORED-QUAL/qcad-hydraulic/1",
+                  "TAG": "QA-1"
+                },
+                "attribute_handles": {
+                  "MANUFACTURER": "10011",
+                  "ICT_ID": "10012",
+                  "TAG": "10013"
+                }
+              }
+            ]
+          },
+          "receiving": {
+            "status": "complete",
+            "input_freeze": {
+              "files": {
+                "baseline.dxf": "b0f0b6f7eba424eab3639ac182f1e2c2a122846326fb9c6b00a670a92385b1c8",
+                "candidate.dxf": "7fa5a8c9d2e46f9c4550f2076aade1e9881db57e4b7b8723601c60a60b065e41",
+                "edited.dxf": "bb6ec9ed30f65471651281f69d105e55a519b8e5868e56c7626aec5c0491b404",
+                "inspect_ui.py": "c41e118f8108e02dcef6ba9d90cf280d68851ba4b7cb6a870b96a4c9deb5c03e",
+                "job.json": "fd92af2c41c0111158098975608894ede325a2a4f8ad647223707ace9d67a188",
+                "launch_case.py": "beee5842b37f0bea6cade0afb33e8706754e80db29acd22e6f78dd44d74fdc03",
+                "METHOD.md": "e1bbc04db242370dc00cf6ef237c1f5022599ec200206717cd7df08dc095e04b",
+                "native_controls.py": "767246eef54db970e4a1a590b2e5797a41305046dfebc98dfdc7bc759105e832",
+                "observe_case.js": "24e09cf1c30a5f818014ca3662d847030066185f1468b31b563bd8163e4c6070",
+                "PLAN.md": "1d3f3a4985cb9aa21bc81d39bb1bc6b3963ef1a675af10b734f65fa81a46dd4b",
+                "prepare.py": "a4515b8ba619803d5b6a431114e69f459c7aedb2b0c2437eb2fc0252ede9240a",
+                "source.dxf": "4d768e3a5ca0ba8d5e4762851a349f1679381b51d5fdf2a9b2fc89e86aa430db",
+                "ui_control.py": "e508c2a70b26ff1998fdd4cbc6484a2c7ea7b423e8e76868db8529c44a594881",
+                "workflow.py": "8e600a8ff2504df0e3eeb5c04a0053618130889354b94c56e3fcc215b22c7c23",
+                ".configuration/QCAD3.conf": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c"
+              },
+              "scope": "Frozen before native execution; exposed development"
+            },
+            "process": {
+              "command": [
+                "/opt/qcad/qcad",
+                "-allow-multiple-instances",
+                "-config",
+                "/home/cad/.config/QCAD/QCAD3.conf",
+                "-font-substitution",
+                "Standard",
+                "DejaVu Sans",
+                "-exec",
+                "/work/observe_case.js"
+              ],
+              "configuration_before": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c",
+              "started": "2026-11-08T16:59:02.216325+00:00",
+              "job": {
+                "case": "qcad-hydraulic",
+                "source_sha256": "4d768e3a5ca0ba8d5e4762851a349f1679381b51d5fdf2a9b2fc89e86aa430db",
+                "handle": "1000F",
+                "attributes": {
+                  "MANUFACTURER": "QUAL-BEFORE",
+                  "ICT_ID": "AUTHORED-QUAL/qcad-hydraulic/1",
+                  "TAG": "QA-1"
+                },
+                "frames": {
+                  "overview": [
+                    -20.01081855388813,
+                    -30.627257844474762,
+                    86.46491132332878,
+                    25.77081855388813
+                  ],
+                  "asset": [
+                    -9.824079126875853,
+                    -14.240518417462482,
+                    44.944474761255115,
+                    9.824079126875853
+                  ],
+                  "labels": [
+                    -3.824079126875853,
+                    -13.240518417462482,
+                    43.944474761255115,
+                    8.324079126875853
+                  ]
+                },
+                "role": "receiving"
+              },
+              "pid": 15,
+              "controller_pid": 18,
+              "controller_exit": 0,
+              "exit": 0,
+              "configuration_after": "750c0405f7d97a25b8dba39a5c15d092debab4996e1525c93faf8ed349876c9d",
+              "finished": "2026-11-08T17:10:21.912029+00:00"
+            },
+            "controller_result": {
+              "status": "controller-complete",
+              "role": "receiving",
+              "case": "qcad-hydraulic",
+              "whole_cad_qualified": false
+            }
+          }
+        },
+        "whole_cad_qualified": false,
+        "candidate_byte_check": {
+          "status": "pass",
+          "values": 1,
+          "unplanned_byte_changes": 0,
+          "source_sha256": "4d768e3a5ca0ba8d5e4762851a349f1679381b51d5fdf2a9b2fc89e86aa430db",
+          "candidate_sha256": "7fa5a8c9d2e46f9c4550f2076aade1e9881db57e4b7b8723601c60a60b065e41",
+          "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+          "review": "same-author software check; not independent engineering review"
+        },
+        "candidate_strict": {
+          "schema": "cad-comparison-1",
+          "before_sha256": "4d768e3a5ca0ba8d5e4762851a349f1679381b51d5fdf2a9b2fc89e86aa430db",
+          "after_sha256": "7fa5a8c9d2e46f9c4550f2076aade1e9881db57e4b7b8723601c60a60b065e41",
+          "status": "pass",
+          "expected_edits": [
+            {
+              "id": "AUTHORED-QUAL/qcad-hydraulic/1",
+              "attribute": "MANUFACTURER",
+              "before": "QUAL-BEFORE",
+              "after": "QUAL-AFTER",
+              "reason": "Declared exposed native UI procedure development; no accepted engineering change"
+            }
+          ],
+          "unexpected": [],
+          "save_metadata_changed": true,
+          "boundary": "All ezdxf-exported entity tags including block definitions, attributes, layers and objects; all headers except listed save metadata and the two named EZDXF_META writer values. Same handles required. This is not a byte-identical DXF or proprietary project database/visual/engineering acceptance."
+        },
+        "paired_strict_differences": 50,
+        "pixels": [
+          {
+            "frame": "overview",
+            "left": "source",
+            "right": "baseline",
+            "changed_pixels": 0,
+            "outside_region": 0,
+            "permitted_region": null,
+            "size": [
+              693,
+              612
+            ]
+          },
+          {
+            "frame": "overview",
+            "left": "source",
+            "right": "candidate",
+            "changed_pixels": 315,
+            "outside_region": 0,
+            "permitted_region": [
+              162,
+              280,
+              253,
+              295
+            ],
+            "size": [
+              693,
+              612
+            ]
+          },
+          {
+            "frame": "overview",
+            "left": "baseline",
+            "right": "edited",
+            "changed_pixels": 315,
+            "outside_region": 0,
+            "permitted_region": [
+              162,
+              280,
+              253,
+              295
+            ],
+            "size": [
+              693,
+              612
+            ]
+          },
+          {
+            "frame": "asset",
+            "left": "source",
+            "right": "baseline",
+            "changed_pixels": 0,
+            "outside_region": 0,
+            "permitted_region": null,
+            "size": [
+              693,
+              612
+            ]
+          },
+          {
+            "frame": "asset",
+            "left": "source",
+            "right": "candidate",
+            "changed_pixels": 913,
+            "outside_region": 0,
+            "permitted_region": [
+              174,
+              260,
+              347,
+              286
+            ],
+            "size": [
+              693,
+              612
+            ]
+          },
+          {
+            "frame": "asset",
+            "left": "baseline",
+            "right": "edited",
+            "changed_pixels": 913,
+            "outside_region": 0,
+            "permitted_region": [
+              174,
+              260,
+              347,
+              286
+            ],
+            "size": [
+              693,
+              612
+            ]
+          },
+          {
+            "frame": "labels",
+            "left": "source",
+            "right": "baseline",
+            "changed_pixels": 0,
+            "outside_region": 0,
+            "permitted_region": null,
+            "size": [
+              693,
+              612
+            ]
+          },
+          {
+            "frame": "labels",
+            "left": "source",
+            "right": "candidate",
+            "changed_pixels": 1180,
+            "outside_region": 0,
+            "permitted_region": [
+              115,
+              250,
+              313,
+              279
+            ],
+            "size": [
+              693,
+              612
+            ]
+          },
+          {
+            "frame": "labels",
+            "left": "baseline",
+            "right": "edited",
+            "changed_pixels": 1180,
+            "outside_region": 0,
+            "permitted_region": [
+              115,
+              250,
+              313,
+              279
+            ],
+            "size": [
+              693,
+              612
+            ]
+          }
+        ]
+      },
+      "original_analysis_failure": null,
+      "native_strict_differences": {
+        "baseline": 374,
+        "edited": 374
+      },
+      "paired_strict_differences": 50,
+      "pixels": [
+        {
+          "frame": "overview",
+          "left": "source",
+          "right": "baseline",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 0,
+          "outside_region": 0,
+          "permitted_region": null,
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "overview",
+          "left": "source",
+          "right": "candidate",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 315,
+          "outside_region": 0,
+          "permitted_region": [
+            162,
+            280,
+            253,
+            295
+          ],
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "overview",
+          "left": "baseline",
+          "right": "edited",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 315,
+          "outside_region": 0,
+          "permitted_region": [
+            162,
+            280,
+            253,
+            295
+          ],
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "asset",
+          "left": "source",
+          "right": "baseline",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 0,
+          "outside_region": 0,
+          "permitted_region": null,
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "asset",
+          "left": "source",
+          "right": "candidate",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 913,
+          "outside_region": 0,
+          "permitted_region": [
+            174,
+            260,
+            347,
+            286
+          ],
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "asset",
+          "left": "baseline",
+          "right": "edited",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 913,
+          "outside_region": 0,
+          "permitted_region": [
+            174,
+            260,
+            347,
+            286
+          ],
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "labels",
+          "left": "source",
+          "right": "baseline",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 0,
+          "outside_region": 0,
+          "permitted_region": null,
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "labels",
+          "left": "source",
+          "right": "candidate",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 1180,
+          "outside_region": 0,
+          "permitted_region": [
+            115,
+            250,
+            313,
+            279
+          ],
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "labels",
+          "left": "baseline",
+          "right": "edited",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 1180,
+          "outside_region": 0,
+          "permitted_region": [
+            115,
+            250,
+            313,
+            279
+          ],
+          "size": [
+            693,
+            612
+          ]
+        }
+      ],
+      "whole_cad_qualified": false
+    },
+    {
+      "case": "qcad-mechanical",
+      "jobs": [
+        {
+          "role": "baseline",
+          "fields": 2,
+          "observations": 34,
+          "views": 6,
+          "images": 24,
+          "process_exit": 0,
+          "recording": {
+            "status": "pass",
+            "expected_metadata_mismatches": []
+          }
+        },
+        {
+          "role": "edited",
+          "fields": 4,
+          "observations": 37,
+          "views": 6,
+          "images": 24,
+          "process_exit": 0,
+          "recording": {
+            "status": "failed",
+            "expected_metadata_mismatches": [
+              {
+                "event": 26,
+                "recorded": {
+                  "MANUFACTURER": "QUAL-AFTER",
+                  "ICT_ID": "AUTHORED-QUAL/qcad-mechanical/1",
+                  "TAG": "QA-1"
+                },
+                "source_phase_expected": {
+                  "MANUFACTURER": "QUAL-BEFORE",
+                  "ICT_ID": "AUTHORED-QUAL/qcad-mechanical/1",
+                  "TAG": "QA-1"
+                }
+              },
+              {
+                "event": 65,
+                "recorded": {
+                  "MANUFACTURER": "QUAL-AFTER",
+                  "ICT_ID": "AUTHORED-QUAL/qcad-mechanical/1",
+                  "TAG": "QA-1"
+                },
+                "source_phase_expected": {
+                  "MANUFACTURER": "QUAL-BEFORE",
+                  "ICT_ID": "AUTHORED-QUAL/qcad-mechanical/1",
+                  "TAG": "QA-1"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "role": "receiving",
+          "fields": 4,
+          "observations": 62,
+          "views": 12,
+          "images": 48,
+          "process_exit": 0,
+          "recording": {
+            "status": "pass",
+            "expected_metadata_mismatches": []
+          }
+        }
+      ],
+      "analysis": {
+        "case": "qcad-mechanical",
+        "native": {
+          "baseline": {
+            "status": "complete",
+            "input_freeze": {
+              "files": {
+                "inspect_ui.py": "c41e118f8108e02dcef6ba9d90cf280d68851ba4b7cb6a870b96a4c9deb5c03e",
+                "job.json": "412353dfb8385329b8d0db235ef9f30d327cd4ce7fed1a028b8532f4e95318ee",
+                "launch_case.py": "beee5842b37f0bea6cade0afb33e8706754e80db29acd22e6f78dd44d74fdc03",
+                "METHOD.md": "e1bbc04db242370dc00cf6ef237c1f5022599ec200206717cd7df08dc095e04b",
+                "native_controls.py": "767246eef54db970e4a1a590b2e5797a41305046dfebc98dfdc7bc759105e832",
+                "observe_case.js": "24e09cf1c30a5f818014ca3662d847030066185f1468b31b563bd8163e4c6070",
+                "PLAN.md": "1d3f3a4985cb9aa21bc81d39bb1bc6b3963ef1a675af10b734f65fa81a46dd4b",
+                "prepare.py": "a4515b8ba619803d5b6a431114e69f459c7aedb2b0c2437eb2fc0252ede9240a",
+                "source.dxf": "30c4a41b51dd5474889db30ca336a2cfe18df6d2dc2c6fea5affb5091327a26d",
+                "ui_control.py": "e508c2a70b26ff1998fdd4cbc6484a2c7ea7b423e8e76868db8529c44a594881",
+                "workflow.py": "8e600a8ff2504df0e3eeb5c04a0053618130889354b94c56e3fcc215b22c7c23",
+                ".configuration/QCAD3.conf": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c"
+              },
+              "scope": "Frozen before native execution; exposed development"
+            },
+            "process": {
+              "command": [
+                "/opt/qcad/qcad",
+                "-allow-multiple-instances",
+                "-config",
+                "/home/cad/.config/QCAD/QCAD3.conf",
+                "-font-substitution",
+                "Standard",
+                "DejaVu Sans",
+                "-exec",
+                "/work/observe_case.js"
+              ],
+              "configuration_before": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c",
+              "started": "2026-11-08T16:52:26.402512+00:00",
+              "job": {
+                "case": "qcad-mechanical",
+                "source_sha256": "30c4a41b51dd5474889db30ca336a2cfe18df6d2dc2c6fea5affb5091327a26d",
+                "handle": "C0",
+                "attributes": {
+                  "MANUFACTURER": "QUAL-BEFORE",
+                  "ICT_ID": "AUTHORED-QUAL/qcad-mechanical/1",
+                  "TAG": "QA-1"
+                },
+                "frames": {
+                  "overview": [
+                    -19.10056095388813,
+                    -30.475548244474762,
+                    86.31320172332877,
+                    18.55910895388813
+                  ],
+                  "asset": [
+                    -10.266712141882675,
+                    -14.683151432469305,
+                    47.60027285129604,
+                    10.266712141882675
+                  ],
+                  "labels": [
+                    -4.266712141882675,
+                    -13.683151432469305,
+                    46.60027285129604,
+                    8.766712141882675
+                  ]
+                },
+                "role": "baseline"
+              },
+              "pid": 15,
+              "controller_pid": 17,
+              "controller_exit": 0,
+              "exit": 0,
+              "configuration_after": "12b3abbc98b9868e677145153ddd0bee46170ea865b389cbb50ee4081c1d8b82",
+              "finished": "2026-11-08T16:58:11.518517+00:00"
+            },
+            "controller_result": {
+              "status": "controller-complete",
+              "role": "baseline",
+              "case": "qcad-mechanical",
+              "whole_cad_qualified": false
+            },
+            "returned_sha256": "4d6d8ed70de4df299870177934885e2335783c94a339d8f6d096a2d9a35c0953",
+            "strict_differences": 356,
+            "strict_status": "differences",
+            "stored_assets": [
+              {
+                "id": "AUTHORED-QUAL/qcad-mechanical/1",
+                "handle": "C0",
+                "block": "ICT_QUAL_TEST_ANCHOR",
+                "attributes": {
+                  "MANUFACTURER": "QUAL-BEFORE",
+                  "ICT_ID": "AUTHORED-QUAL/qcad-mechanical/1",
+                  "TAG": "QA-1"
+                },
+                "attribute_handles": {
+                  "MANUFACTURER": "C2",
+                  "ICT_ID": "C3",
+                  "TAG": "C4"
+                }
+              }
+            ]
+          },
+          "edited": {
+            "status": "complete",
+            "input_freeze": {
+              "files": {
+                "inspect_ui.py": "c41e118f8108e02dcef6ba9d90cf280d68851ba4b7cb6a870b96a4c9deb5c03e",
+                "job.json": "6f4edfed9525575b5513314b570617508e2034685c8963f224a602540c67a20c",
+                "launch_case.py": "beee5842b37f0bea6cade0afb33e8706754e80db29acd22e6f78dd44d74fdc03",
+                "METHOD.md": "e1bbc04db242370dc00cf6ef237c1f5022599ec200206717cd7df08dc095e04b",
+                "native_controls.py": "767246eef54db970e4a1a590b2e5797a41305046dfebc98dfdc7bc759105e832",
+                "observe_case.js": "24e09cf1c30a5f818014ca3662d847030066185f1468b31b563bd8163e4c6070",
+                "PLAN.md": "1d3f3a4985cb9aa21bc81d39bb1bc6b3963ef1a675af10b734f65fa81a46dd4b",
+                "prepare.py": "a4515b8ba619803d5b6a431114e69f459c7aedb2b0c2437eb2fc0252ede9240a",
+                "source.dxf": "30c4a41b51dd5474889db30ca336a2cfe18df6d2dc2c6fea5affb5091327a26d",
+                "ui_control.py": "e508c2a70b26ff1998fdd4cbc6484a2c7ea7b423e8e76868db8529c44a594881",
+                "workflow.py": "8e600a8ff2504df0e3eeb5c04a0053618130889354b94c56e3fcc215b22c7c23",
+                ".configuration/QCAD3.conf": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c"
+              },
+              "scope": "Frozen before native execution; exposed development"
+            },
+            "process": {
+              "command": [
+                "/opt/qcad/qcad",
+                "-allow-multiple-instances",
+                "-config",
+                "/home/cad/.config/QCAD/QCAD3.conf",
+                "-font-substitution",
+                "Standard",
+                "DejaVu Sans",
+                "-exec",
+                "/work/observe_case.js"
+              ],
+              "configuration_before": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c",
+              "started": "2026-11-08T16:53:09.564686+00:00",
+              "job": {
+                "case": "qcad-mechanical",
+                "source_sha256": "30c4a41b51dd5474889db30ca336a2cfe18df6d2dc2c6fea5affb5091327a26d",
+                "handle": "C0",
+                "attributes": {
+                  "MANUFACTURER": "QUAL-BEFORE",
+                  "ICT_ID": "AUTHORED-QUAL/qcad-mechanical/1",
+                  "TAG": "QA-1"
+                },
+                "frames": {
+                  "overview": [
+                    -19.10056095388813,
+                    -30.475548244474762,
+                    86.31320172332877,
+                    18.55910895388813
+                  ],
+                  "asset": [
+                    -10.266712141882675,
+                    -14.683151432469305,
+                    47.60027285129604,
+                    10.266712141882675
+                  ],
+                  "labels": [
+                    -4.266712141882675,
+                    -13.683151432469305,
+                    46.60027285129604,
+                    8.766712141882675
+                  ]
+                },
+                "role": "edited"
+              },
+              "pid": 15,
+              "controller_pid": 17,
+              "controller_exit": 0,
+              "exit": 0,
+              "configuration_after": "12b3abbc98b9868e677145153ddd0bee46170ea865b389cbb50ee4081c1d8b82",
+              "finished": "2026-11-08T16:59:44.035614+00:00"
+            },
+            "controller_result": {
+              "status": "controller-complete",
+              "role": "edited",
+              "case": "qcad-mechanical",
+              "whole_cad_qualified": false
+            },
+            "returned_sha256": "583e7c8798c40f7647a658529df4e2198d16a4c3849dfd254a102920e2d79dd9",
+            "strict_differences": 356,
+            "strict_status": "differences",
+            "stored_assets": [
+              {
+                "id": "AUTHORED-QUAL/qcad-mechanical/1",
+                "handle": "C0",
+                "block": "ICT_QUAL_TEST_ANCHOR",
+                "attributes": {
+                  "MANUFACTURER": "QUAL-AFTER",
+                  "ICT_ID": "AUTHORED-QUAL/qcad-mechanical/1",
+                  "TAG": "QA-1"
+                },
+                "attribute_handles": {
+                  "MANUFACTURER": "C2",
+                  "ICT_ID": "C3",
+                  "TAG": "C4"
+                }
+              }
+            ]
+          },
+          "receiving": {
+            "status": "complete",
+            "input_freeze": {
+              "files": {
+                "baseline.dxf": "4d6d8ed70de4df299870177934885e2335783c94a339d8f6d096a2d9a35c0953",
+                "candidate.dxf": "2fe359c84d62f61d6f88b380fefd25cfdcad81b37523f5b6e435cc92f5ff789b",
+                "edited.dxf": "583e7c8798c40f7647a658529df4e2198d16a4c3849dfd254a102920e2d79dd9",
+                "inspect_ui.py": "c41e118f8108e02dcef6ba9d90cf280d68851ba4b7cb6a870b96a4c9deb5c03e",
+                "job.json": "1c38d4a59beb6916530633e1d2da3249c423fa475af4b5e8508aa9375a57764b",
+                "launch_case.py": "beee5842b37f0bea6cade0afb33e8706754e80db29acd22e6f78dd44d74fdc03",
+                "METHOD.md": "e1bbc04db242370dc00cf6ef237c1f5022599ec200206717cd7df08dc095e04b",
+                "native_controls.py": "767246eef54db970e4a1a590b2e5797a41305046dfebc98dfdc7bc759105e832",
+                "observe_case.js": "24e09cf1c30a5f818014ca3662d847030066185f1468b31b563bd8163e4c6070",
+                "PLAN.md": "1d3f3a4985cb9aa21bc81d39bb1bc6b3963ef1a675af10b734f65fa81a46dd4b",
+                "prepare.py": "a4515b8ba619803d5b6a431114e69f459c7aedb2b0c2437eb2fc0252ede9240a",
+                "source.dxf": "30c4a41b51dd5474889db30ca336a2cfe18df6d2dc2c6fea5affb5091327a26d",
+                "ui_control.py": "e508c2a70b26ff1998fdd4cbc6484a2c7ea7b423e8e76868db8529c44a594881",
+                "workflow.py": "8e600a8ff2504df0e3eeb5c04a0053618130889354b94c56e3fcc215b22c7c23",
+                ".configuration/QCAD3.conf": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c"
+              },
+              "scope": "Frozen before native execution; exposed development"
+            },
+            "process": {
+              "command": [
+                "/opt/qcad/qcad",
+                "-allow-multiple-instances",
+                "-config",
+                "/home/cad/.config/QCAD/QCAD3.conf",
+                "-font-substitution",
+                "Standard",
+                "DejaVu Sans",
+                "-exec",
+                "/work/observe_case.js"
+              ],
+              "configuration_before": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c",
+              "started": "2026-11-08T16:59:50.143901+00:00",
+              "job": {
+                "case": "qcad-mechanical",
+                "source_sha256": "30c4a41b51dd5474889db30ca336a2cfe18df6d2dc2c6fea5affb5091327a26d",
+                "handle": "C0",
+                "attributes": {
+                  "MANUFACTURER": "QUAL-BEFORE",
+                  "ICT_ID": "AUTHORED-QUAL/qcad-mechanical/1",
+                  "TAG": "QA-1"
+                },
+                "frames": {
+                  "overview": [
+                    -19.10056095388813,
+                    -30.475548244474762,
+                    86.31320172332877,
+                    18.55910895388813
+                  ],
+                  "asset": [
+                    -10.266712141882675,
+                    -14.683151432469305,
+                    47.60027285129604,
+                    10.266712141882675
+                  ],
+                  "labels": [
+                    -4.266712141882675,
+                    -13.683151432469305,
+                    46.60027285129604,
+                    8.766712141882675
+                  ]
+                },
+                "role": "receiving"
+              },
+              "pid": 15,
+              "controller_pid": 17,
+              "controller_exit": 0,
+              "exit": 0,
+              "configuration_after": "750c0405f7d97a25b8dba39a5c15d092debab4996e1525c93faf8ed349876c9d",
+              "finished": "2026-11-08T17:11:18.486815+00:00"
+            },
+            "controller_result": {
+              "status": "controller-complete",
+              "role": "receiving",
+              "case": "qcad-mechanical",
+              "whole_cad_qualified": false
+            }
+          }
+        },
+        "whole_cad_qualified": false,
+        "candidate_byte_check": {
+          "status": "pass",
+          "values": 1,
+          "unplanned_byte_changes": 0,
+          "source_sha256": "30c4a41b51dd5474889db30ca336a2cfe18df6d2dc2c6fea5affb5091327a26d",
+          "candidate_sha256": "2fe359c84d62f61d6f88b380fefd25cfdcad81b37523f5b6e435cc92f5ff789b",
+          "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+          "review": "same-author software check; not independent engineering review"
+        },
+        "candidate_strict": {
+          "schema": "cad-comparison-1",
+          "before_sha256": "30c4a41b51dd5474889db30ca336a2cfe18df6d2dc2c6fea5affb5091327a26d",
+          "after_sha256": "2fe359c84d62f61d6f88b380fefd25cfdcad81b37523f5b6e435cc92f5ff789b",
+          "status": "pass",
+          "expected_edits": [
+            {
+              "id": "AUTHORED-QUAL/qcad-mechanical/1",
+              "attribute": "MANUFACTURER",
+              "before": "QUAL-BEFORE",
+              "after": "QUAL-AFTER",
+              "reason": "Declared exposed native UI procedure development; no accepted engineering change"
+            }
+          ],
+          "unexpected": [],
+          "save_metadata_changed": false,
+          "boundary": "All ezdxf-exported entity tags including block definitions, attributes, layers and objects; all headers except listed save metadata and the two named EZDXF_META writer values. Same handles required. This is not a byte-identical DXF or proprietary project database/visual/engineering acceptance."
+        },
+        "paired_strict_differences": 52,
+        "pixels": [
+          {
+            "frame": "overview",
+            "left": "source",
+            "right": "baseline",
+            "changed_pixels": 0,
+            "outside_region": 0,
+            "permitted_region": null,
+            "size": [
+              693,
+              612
+            ]
+          },
+          {
+            "frame": "overview",
+            "left": "source",
+            "right": "candidate",
+            "changed_pixels": 354,
+            "outside_region": 0,
+            "permitted_region": [
+              157,
+              258,
+              250,
+              274
+            ],
+            "size": [
+              693,
+              612
+            ]
+          },
+          {
+            "frame": "overview",
+            "left": "baseline",
+            "right": "edited",
+            "changed_pixels": 354,
+            "outside_region": 0,
+            "permitted_region": [
+              157,
+              258,
+              250,
+              274
+            ],
+            "size": [
+              693,
+              612
+            ]
+          },
+          {
+            "frame": "asset",
+            "left": "source",
+            "right": "baseline",
+            "changed_pixels": 0,
+            "outside_region": 0,
+            "permitted_region": null,
+            "size": [
+              693,
+              612
+            ]
+          },
+          {
+            "frame": "asset",
+            "left": "source",
+            "right": "candidate",
+            "changed_pixels": 924,
+            "outside_region": 0,
+            "permitted_region": [
+              171,
+              262,
+              335,
+              287
+            ],
+            "size": [
+              693,
+              612
+            ]
+          },
+          {
+            "frame": "asset",
+            "left": "baseline",
+            "right": "edited",
+            "changed_pixels": 924,
+            "outside_region": 0,
+            "permitted_region": [
+              171,
+              262,
+              335,
+              287
+            ],
+            "size": [
+              693,
+              612
+            ]
+          },
+          {
+            "frame": "labels",
+            "left": "source",
+            "right": "baseline",
+            "changed_pixels": 0,
+            "outside_region": 0,
+            "permitted_region": null,
+            "size": [
+              693,
+              612
+            ]
+          },
+          {
+            "frame": "labels",
+            "left": "source",
+            "right": "candidate",
+            "changed_pixels": 1158,
+            "outside_region": 0,
+            "permitted_region": [
+              115,
+              253,
+              302,
+              281
+            ],
+            "size": [
+              693,
+              612
+            ]
+          },
+          {
+            "frame": "labels",
+            "left": "baseline",
+            "right": "edited",
+            "changed_pixels": 1158,
+            "outside_region": 0,
+            "permitted_region": [
+              115,
+              253,
+              302,
+              281
+            ],
+            "size": [
+              693,
+              612
+            ]
+          }
+        ]
+      },
+      "original_analysis_failure": null,
+      "native_strict_differences": {
+        "baseline": 356,
+        "edited": 356
+      },
+      "paired_strict_differences": 52,
+      "pixels": [
+        {
+          "frame": "overview",
+          "left": "source",
+          "right": "baseline",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 0,
+          "outside_region": 0,
+          "permitted_region": null,
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "overview",
+          "left": "source",
+          "right": "candidate",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 354,
+          "outside_region": 0,
+          "permitted_region": [
+            157,
+            258,
+            250,
+            274
+          ],
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "overview",
+          "left": "baseline",
+          "right": "edited",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 354,
+          "outside_region": 0,
+          "permitted_region": [
+            157,
+            258,
+            250,
+            274
+          ],
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "asset",
+          "left": "source",
+          "right": "baseline",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 0,
+          "outside_region": 0,
+          "permitted_region": null,
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "asset",
+          "left": "source",
+          "right": "candidate",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 924,
+          "outside_region": 0,
+          "permitted_region": [
+            171,
+            262,
+            335,
+            287
+          ],
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "asset",
+          "left": "baseline",
+          "right": "edited",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 924,
+          "outside_region": 0,
+          "permitted_region": [
+            171,
+            262,
+            335,
+            287
+          ],
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "labels",
+          "left": "source",
+          "right": "baseline",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 0,
+          "outside_region": 0,
+          "permitted_region": null,
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "labels",
+          "left": "source",
+          "right": "candidate",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 1158,
+          "outside_region": 0,
+          "permitted_region": [
+            115,
+            253,
+            302,
+            281
+          ],
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "labels",
+          "left": "baseline",
+          "right": "edited",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 1158,
+          "outside_region": 0,
+          "permitted_region": [
+            115,
+            253,
+            302,
+            281
+          ],
+          "size": [
+            693,
+            612
+          ]
+        }
+      ],
+      "whole_cad_qualified": false
+    },
+    {
+      "case": "qcad-template",
+      "jobs": [
+        {
+          "role": "baseline",
+          "fields": 2,
+          "observations": 34,
+          "views": 6,
+          "images": 24,
+          "process_exit": 0,
+          "recording": {
+            "status": "pass",
+            "expected_metadata_mismatches": []
+          }
+        },
+        {
+          "role": "edited",
+          "fields": 4,
+          "observations": 37,
+          "views": 6,
+          "images": 24,
+          "process_exit": 0,
+          "recording": {
+            "status": "failed",
+            "expected_metadata_mismatches": [
+              {
+                "event": 26,
+                "recorded": {
+                  "MANUFACTURER": "QUAL-AFTER",
+                  "ICT_ID": "AUTHORED-QUAL/qcad-template/1",
+                  "TAG": "QA-1"
+                },
+                "source_phase_expected": {
+                  "MANUFACTURER": "QUAL-BEFORE",
+                  "ICT_ID": "AUTHORED-QUAL/qcad-template/1",
+                  "TAG": "QA-1"
+                }
+              },
+              {
+                "event": 65,
+                "recorded": {
+                  "MANUFACTURER": "QUAL-AFTER",
+                  "ICT_ID": "AUTHORED-QUAL/qcad-template/1",
+                  "TAG": "QA-1"
+                },
+                "source_phase_expected": {
+                  "MANUFACTURER": "QUAL-BEFORE",
+                  "ICT_ID": "AUTHORED-QUAL/qcad-template/1",
+                  "TAG": "QA-1"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "role": "receiving",
+          "fields": 4,
+          "observations": 62,
+          "views": 12,
+          "images": 48,
+          "process_exit": 0,
+          "recording": {
+            "status": "pass",
+            "expected_metadata_mismatches": []
+          }
+        }
+      ],
+      "analysis": {
+        "case": "qcad-template",
+        "native": {
+          "baseline": {
+            "status": "complete",
+            "input_freeze": {
+              "files": {
+                "inspect_ui.py": "c41e118f8108e02dcef6ba9d90cf280d68851ba4b7cb6a870b96a4c9deb5c03e",
+                "job.json": "3603f77a9b05c798c24ccc126726f93c4565955bfff50af8cc425c1cea4af343",
+                "launch_case.py": "beee5842b37f0bea6cade0afb33e8706754e80db29acd22e6f78dd44d74fdc03",
+                "METHOD.md": "e1bbc04db242370dc00cf6ef237c1f5022599ec200206717cd7df08dc095e04b",
+                "native_controls.py": "767246eef54db970e4a1a590b2e5797a41305046dfebc98dfdc7bc759105e832",
+                "observe_case.js": "24e09cf1c30a5f818014ca3662d847030066185f1468b31b563bd8163e4c6070",
+                "PLAN.md": "1d3f3a4985cb9aa21bc81d39bb1bc6b3963ef1a675af10b734f65fa81a46dd4b",
+                "prepare.py": "a4515b8ba619803d5b6a431114e69f459c7aedb2b0c2437eb2fc0252ede9240a",
+                "source.dxf": "6e87cef8ca4178b20e9d4e2b892917636ba2fe02e030ea076379c8d57e6a1f88",
+                "ui_control.py": "e508c2a70b26ff1998fdd4cbc6484a2c7ea7b423e8e76868db8529c44a594881",
+                "workflow.py": "8e600a8ff2504df0e3eeb5c04a0053618130889354b94c56e3fcc215b22c7c23",
+                ".configuration/QCAD3.conf": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c"
+              },
+              "scope": "Frozen before native execution; exposed development"
+            },
+            "process": {
+              "command": [
+                "/opt/qcad/qcad",
+                "-allow-multiple-instances",
+                "-config",
+                "/home/cad/.config/QCAD/QCAD3.conf",
+                "-font-substitution",
+                "Standard",
+                "DejaVu Sans",
+                "-exec",
+                "/work/observe_case.js"
+              ],
+              "configuration_before": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c",
+              "started": "2026-11-08T16:58:07.918254+00:00",
+              "job": {
+                "case": "qcad-template",
+                "source_sha256": "6e87cef8ca4178b20e9d4e2b892917636ba2fe02e030ea076379c8d57e6a1f88",
+                "handle": "A4",
+                "attributes": {
+                  "MANUFACTURER": "QUAL-BEFORE",
+                  "ICT_ID": "AUTHORED-QUAL/qcad-template/1",
+                  "TAG": "QA-1"
+                },
+                "frames": {
+                  "overview": [
+                    -16.65081855388813,
+                    -30.06725784447476,
+                    85.90491132332878,
+                    16.65081855388813
+                  ],
+                  "asset": [
+                    -9.754297407912688,
+                    -14.170736698499319,
+                    44.52578444747613,
+                    9.754297407912688
+                  ],
+                  "labels": [
+                    -3.754297407912688,
+                    -13.170736698499319,
+                    43.52578444747613,
+                    8.254297407912688
+                  ]
+                },
+                "role": "baseline"
+              },
+              "pid": 15,
+              "controller_pid": 18,
+              "controller_exit": 0,
+              "exit": 0,
+              "configuration_after": "12b3abbc98b9868e677145153ddd0bee46170ea865b389cbb50ee4081c1d8b82",
+              "finished": "2026-11-08T17:04:34.458909+00:00"
+            },
+            "controller_result": {
+              "status": "controller-complete",
+              "role": "baseline",
+              "case": "qcad-template",
+              "whole_cad_qualified": false
+            },
+            "returned_sha256": "fd0a96485fffb61d6c036e1fdcf8d1df41c3db23183133a1c2cef457d5aaa185",
+            "strict_differences": 377,
+            "strict_status": "differences",
+            "stored_assets": [
+              {
+                "id": "AUTHORED-QUAL/qcad-template/1",
+                "handle": "A4",
+                "block": "ICT_QUAL_TEST_ANCHOR",
+                "attributes": {
+                  "MANUFACTURER": "QUAL-BEFORE",
+                  "ICT_ID": "AUTHORED-QUAL/qcad-template/1",
+                  "TAG": "QA-1"
+                },
+                "attribute_handles": {
+                  "MANUFACTURER": "A6",
+                  "ICT_ID": "A7",
+                  "TAG": "A8"
+                }
+              }
+            ]
+          },
+          "edited": {
+            "status": "complete",
+            "input_freeze": {
+              "files": {
+                "inspect_ui.py": "c41e118f8108e02dcef6ba9d90cf280d68851ba4b7cb6a870b96a4c9deb5c03e",
+                "job.json": "ad4579510379d9fa7c1abf8a50bc1b1dc9c3c780964a740f26a7dbde9f6a1067",
+                "launch_case.py": "beee5842b37f0bea6cade0afb33e8706754e80db29acd22e6f78dd44d74fdc03",
+                "METHOD.md": "e1bbc04db242370dc00cf6ef237c1f5022599ec200206717cd7df08dc095e04b",
+                "native_controls.py": "767246eef54db970e4a1a590b2e5797a41305046dfebc98dfdc7bc759105e832",
+                "observe_case.js": "24e09cf1c30a5f818014ca3662d847030066185f1468b31b563bd8163e4c6070",
+                "PLAN.md": "1d3f3a4985cb9aa21bc81d39bb1bc6b3963ef1a675af10b734f65fa81a46dd4b",
+                "prepare.py": "a4515b8ba619803d5b6a431114e69f459c7aedb2b0c2437eb2fc0252ede9240a",
+                "source.dxf": "6e87cef8ca4178b20e9d4e2b892917636ba2fe02e030ea076379c8d57e6a1f88",
+                "ui_control.py": "e508c2a70b26ff1998fdd4cbc6484a2c7ea7b423e8e76868db8529c44a594881",
+                "workflow.py": "8e600a8ff2504df0e3eeb5c04a0053618130889354b94c56e3fcc215b22c7c23",
+                ".configuration/QCAD3.conf": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c"
+              },
+              "scope": "Frozen before native execution; exposed development"
+            },
+            "process": {
+              "command": [
+                "/opt/qcad/qcad",
+                "-allow-multiple-instances",
+                "-config",
+                "/home/cad/.config/QCAD/QCAD3.conf",
+                "-font-substitution",
+                "Standard",
+                "DejaVu Sans",
+                "-exec",
+                "/work/observe_case.js"
+              ],
+              "configuration_before": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c",
+              "started": "2026-11-08T16:58:14.094864+00:00",
+              "job": {
+                "case": "qcad-template",
+                "source_sha256": "6e87cef8ca4178b20e9d4e2b892917636ba2fe02e030ea076379c8d57e6a1f88",
+                "handle": "A4",
+                "attributes": {
+                  "MANUFACTURER": "QUAL-BEFORE",
+                  "ICT_ID": "AUTHORED-QUAL/qcad-template/1",
+                  "TAG": "QA-1"
+                },
+                "frames": {
+                  "overview": [
+                    -16.65081855388813,
+                    -30.06725784447476,
+                    85.90491132332878,
+                    16.65081855388813
+                  ],
+                  "asset": [
+                    -9.754297407912688,
+                    -14.170736698499319,
+                    44.52578444747613,
+                    9.754297407912688
+                  ],
+                  "labels": [
+                    -3.754297407912688,
+                    -13.170736698499319,
+                    43.52578444747613,
+                    8.254297407912688
+                  ]
+                },
+                "role": "edited"
+              },
+              "pid": 15,
+              "controller_pid": 17,
+              "controller_exit": 0,
+              "exit": 0,
+              "configuration_after": "12b3abbc98b9868e677145153ddd0bee46170ea865b389cbb50ee4081c1d8b82",
+              "finished": "2026-11-08T17:05:49.315929+00:00"
+            },
+            "controller_result": {
+              "status": "controller-complete",
+              "role": "edited",
+              "case": "qcad-template",
+              "whole_cad_qualified": false
+            },
+            "returned_sha256": "8f13c822fa6359d975d4f8d538a5a5c43c0ec6deebf90d35230239f5eb9f7d05",
+            "strict_differences": 377,
+            "strict_status": "differences",
+            "stored_assets": [
+              {
+                "id": "AUTHORED-QUAL/qcad-template/1",
+                "handle": "A4",
+                "block": "ICT_QUAL_TEST_ANCHOR",
+                "attributes": {
+                  "MANUFACTURER": "QUAL-AFTER",
+                  "ICT_ID": "AUTHORED-QUAL/qcad-template/1",
+                  "TAG": "QA-1"
+                },
+                "attribute_handles": {
+                  "MANUFACTURER": "A6",
+                  "ICT_ID": "A7",
+                  "TAG": "A8"
+                }
+              }
+            ]
+          },
+          "receiving": {
+            "status": "complete",
+            "input_freeze": {
+              "files": {
+                "baseline.dxf": "fd0a96485fffb61d6c036e1fdcf8d1df41c3db23183133a1c2cef457d5aaa185",
+                "candidate.dxf": "b7d67a66dc6877a6d3fc3d6f05148fe2c68861d19ff4e0df8d7f40275ec349d0",
+                "edited.dxf": "8f13c822fa6359d975d4f8d538a5a5c43c0ec6deebf90d35230239f5eb9f7d05",
+                "inspect_ui.py": "c41e118f8108e02dcef6ba9d90cf280d68851ba4b7cb6a870b96a4c9deb5c03e",
+                "job.json": "be13d9426c24f3562063a3e7aab4e5ef9a8ea729d8414c3284aeb269a48c93f8",
+                "launch_case.py": "beee5842b37f0bea6cade0afb33e8706754e80db29acd22e6f78dd44d74fdc03",
+                "METHOD.md": "e1bbc04db242370dc00cf6ef237c1f5022599ec200206717cd7df08dc095e04b",
+                "native_controls.py": "767246eef54db970e4a1a590b2e5797a41305046dfebc98dfdc7bc759105e832",
+                "observe_case.js": "24e09cf1c30a5f818014ca3662d847030066185f1468b31b563bd8163e4c6070",
+                "PLAN.md": "1d3f3a4985cb9aa21bc81d39bb1bc6b3963ef1a675af10b734f65fa81a46dd4b",
+                "prepare.py": "a4515b8ba619803d5b6a431114e69f459c7aedb2b0c2437eb2fc0252ede9240a",
+                "source.dxf": "6e87cef8ca4178b20e9d4e2b892917636ba2fe02e030ea076379c8d57e6a1f88",
+                "ui_control.py": "e508c2a70b26ff1998fdd4cbc6484a2c7ea7b423e8e76868db8529c44a594881",
+                "workflow.py": "8e600a8ff2504df0e3eeb5c04a0053618130889354b94c56e3fcc215b22c7c23",
+                ".configuration/QCAD3.conf": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c"
+              },
+              "scope": "Frozen before native execution; exposed development"
+            },
+            "process": {
+              "command": [
+                "/opt/qcad/qcad",
+                "-allow-multiple-instances",
+                "-config",
+                "/home/cad/.config/QCAD/QCAD3.conf",
+                "-font-substitution",
+                "Standard",
+                "DejaVu Sans",
+                "-exec",
+                "/work/observe_case.js"
+              ],
+              "configuration_before": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c",
+              "started": "2026-11-08T17:05:56.857939+00:00",
+              "job": {
+                "case": "qcad-template",
+                "source_sha256": "6e87cef8ca4178b20e9d4e2b892917636ba2fe02e030ea076379c8d57e6a1f88",
+                "handle": "A4",
+                "attributes": {
+                  "MANUFACTURER": "QUAL-BEFORE",
+                  "ICT_ID": "AUTHORED-QUAL/qcad-template/1",
+                  "TAG": "QA-1"
+                },
+                "frames": {
+                  "overview": [
+                    -16.65081855388813,
+                    -30.06725784447476,
+                    85.90491132332878,
+                    16.65081855388813
+                  ],
+                  "asset": [
+                    -9.754297407912688,
+                    -14.170736698499319,
+                    44.52578444747613,
+                    9.754297407912688
+                  ],
+                  "labels": [
+                    -3.754297407912688,
+                    -13.170736698499319,
+                    43.52578444747613,
+                    8.254297407912688
+                  ]
+                },
+                "role": "receiving"
+              },
+              "pid": 15,
+              "controller_pid": 17,
+              "controller_exit": 0,
+              "exit": 0,
+              "configuration_after": "750c0405f7d97a25b8dba39a5c15d092debab4996e1525c93faf8ed349876c9d",
+              "finished": "2026-11-08T17:18:04.534397+00:00"
+            },
+            "controller_result": {
+              "status": "controller-complete",
+              "role": "receiving",
+              "case": "qcad-template",
+              "whole_cad_qualified": false
+            }
+          }
+        },
+        "whole_cad_qualified": false,
+        "candidate_byte_check": {
+          "status": "pass",
+          "values": 1,
+          "unplanned_byte_changes": 0,
+          "source_sha256": "6e87cef8ca4178b20e9d4e2b892917636ba2fe02e030ea076379c8d57e6a1f88",
+          "candidate_sha256": "b7d67a66dc6877a6d3fc3d6f05148fe2c68861d19ff4e0df8d7f40275ec349d0",
+          "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+          "review": "same-author software check; not independent engineering review"
+        },
+        "candidate_strict": {
+          "schema": "cad-comparison-1",
+          "before_sha256": "6e87cef8ca4178b20e9d4e2b892917636ba2fe02e030ea076379c8d57e6a1f88",
+          "after_sha256": "b7d67a66dc6877a6d3fc3d6f05148fe2c68861d19ff4e0df8d7f40275ec349d0",
+          "status": "pass",
+          "expected_edits": [
+            {
+              "id": "AUTHORED-QUAL/qcad-template/1",
+              "attribute": "MANUFACTURER",
+              "before": "QUAL-BEFORE",
+              "after": "QUAL-AFTER",
+              "reason": "Declared exposed native UI procedure development; no accepted engineering change"
+            }
+          ],
+          "unexpected": [],
+          "save_metadata_changed": true,
+          "boundary": "All ezdxf-exported entity tags including block definitions, attributes, layers and objects; all headers except listed save metadata and the two named EZDXF_META writer values. Same handles required. This is not a byte-identical DXF or proprietary project database/visual/engineering acceptance."
+        },
+        "paired_strict_differences": 53,
+        "pixels": [
+          {
+            "frame": "overview",
+            "left": "source",
+            "right": "baseline",
+            "changed_pixels": 0,
+            "outside_region": 0,
+            "permitted_region": null,
+            "size": [
+              693,
+              612
+            ]
+          },
+          {
+            "frame": "overview",
+            "left": "source",
+            "right": "candidate",
+            "changed_pixels": 373,
+            "outside_region": 0,
+            "permitted_region": [
+              146,
+              252,
+              241,
+              268
+            ],
+            "size": [
+              693,
+              612
+            ]
+          },
+          {
+            "frame": "overview",
+            "left": "baseline",
+            "right": "edited",
+            "changed_pixels": 373,
+            "outside_region": 0,
+            "permitted_region": [
+              146,
+              252,
+              241,
+              268
+            ],
+            "size": [
+              693,
+              612
+            ]
+          },
+          {
+            "frame": "asset",
+            "left": "source",
+            "right": "baseline",
+            "changed_pixels": 0,
+            "outside_region": 0,
+            "permitted_region": null,
+            "size": [
+              693,
+              612
+            ]
+          },
+          {
+            "frame": "asset",
+            "left": "source",
+            "right": "candidate",
+            "changed_pixels": 986,
+            "outside_region": 0,
+            "permitted_region": [
+              174,
+              259,
+              349,
+              285
+            ],
+            "size": [
+              693,
+              612
+            ]
+          },
+          {
+            "frame": "asset",
+            "left": "baseline",
+            "right": "edited",
+            "changed_pixels": 986,
+            "outside_region": 0,
+            "permitted_region": [
+              174,
+              259,
+              349,
+              285
+            ],
+            "size": [
+              693,
+              612
+            ]
+          },
+          {
+            "frame": "labels",
+            "left": "source",
+            "right": "baseline",
+            "changed_pixels": 0,
+            "outside_region": 0,
+            "permitted_region": null,
+            "size": [
+              693,
+              612
+            ]
+          },
+          {
+            "frame": "labels",
+            "left": "source",
+            "right": "candidate",
+            "changed_pixels": 1241,
+            "outside_region": 0,
+            "permitted_region": [
+              115,
+              249,
+              315,
+              279
+            ],
+            "size": [
+              693,
+              612
+            ]
+          },
+          {
+            "frame": "labels",
+            "left": "baseline",
+            "right": "edited",
+            "changed_pixels": 1241,
+            "outside_region": 0,
+            "permitted_region": [
+              115,
+              249,
+              315,
+              279
+            ],
+            "size": [
+              693,
+              612
+            ]
+          }
+        ]
+      },
+      "original_analysis_failure": null,
+      "native_strict_differences": {
+        "baseline": 377,
+        "edited": 377
+      },
+      "paired_strict_differences": 53,
+      "pixels": [
+        {
+          "frame": "overview",
+          "left": "source",
+          "right": "baseline",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 0,
+          "outside_region": 0,
+          "permitted_region": null,
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "overview",
+          "left": "source",
+          "right": "candidate",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 373,
+          "outside_region": 0,
+          "permitted_region": [
+            146,
+            252,
+            241,
+            268
+          ],
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "overview",
+          "left": "baseline",
+          "right": "edited",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 373,
+          "outside_region": 0,
+          "permitted_region": [
+            146,
+            252,
+            241,
+            268
+          ],
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "asset",
+          "left": "source",
+          "right": "baseline",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 0,
+          "outside_region": 0,
+          "permitted_region": null,
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "asset",
+          "left": "source",
+          "right": "candidate",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 986,
+          "outside_region": 0,
+          "permitted_region": [
+            174,
+            259,
+            349,
+            285
+          ],
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "asset",
+          "left": "baseline",
+          "right": "edited",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 986,
+          "outside_region": 0,
+          "permitted_region": [
+            174,
+            259,
+            349,
+            285
+          ],
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "labels",
+          "left": "source",
+          "right": "baseline",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 0,
+          "outside_region": 0,
+          "permitted_region": null,
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "labels",
+          "left": "source",
+          "right": "candidate",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 1241,
+          "outside_region": 0,
+          "permitted_region": [
+            115,
+            249,
+            315,
+            279
+          ],
+          "size": [
+            693,
+            612
+          ]
+        },
+        {
+          "frame": "labels",
+          "left": "baseline",
+          "right": "edited",
+          "exact_camera_status": "pass",
+          "camera_differences": [],
+          "diagnostic_only": false,
+          "changed_pixels": 1241,
+          "outside_region": 0,
+          "permitted_region": [
+            115,
+            249,
+            315,
+            279
+          ],
+          "size": [
+            693,
+            612
+          ]
+        }
+      ],
+      "whole_cad_qualified": false
+    }
+  ],
+  "whole_cad_qualified": false
+}

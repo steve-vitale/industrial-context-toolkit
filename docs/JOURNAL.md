@@ -9036,3 +9036,83 @@ corrected bounded archive reader has no such import and passes under `-S`; trave
 and symlink controls exercise it directly. No native process was rerun and no native observation changed.
 Controller exit summaries record observed host-tool results rather than original captured terminal
 transcripts; the actual action receipts, startup images and native command/state history remain.
+
+## 206. Develop matched native UI saves without hiding automation failures
+
+2026-11-08. [The declared six-case UI plan](../examples/cad-handoff/qualification/native-ui-pairs-19/PLAN.md)
+was committed at 7c1f031 before implementation. Startup/dialog-only preflight completed without a drawing
+open/save; its original action-count and modal accessibility timeout remain. Drawing procedure 681deeb and
+subsequent separately committed corrections retain a failed empty staging launch, covered-MDI ambiguity and
+an overbroad Untitled-title match. Pure control selection now passes both actual retained trees and refuses
+missing/duplicate document controls. No case or strict preservation rule was changed to fit the automation.
+
+One no-edit libre-air-water process completed actual native UI Save As, document close/reopen, editable fields
+and normal exit. Its three common-frame canvas comparisons have zero changed pixels; its full save still
+fails with 300 strict differences. A separate edited process's accessibility focus did not activate the
+floating Property Editor: Ctrl+A selected all drawing entities, and the native document remained unmodified
+with the original field value. It stopped before save. Corrected actual-field clicking, focus and text checks
+were frozen at 639d109 before a continuation in the same process. That recovery completed the planned field
+change, native save/close/reopen and normal native exit, while retaining the original failed controller/container.
+Both returned files retain 300 source differences and their paired comparison retains 57 entity differences.
+These diagnostic observations do not complete the planned clean matched method or qualify a native return.
+
+The [development checkpoint](../examples/cad-handoff/qualification/native-ui-pairs-19/PROGRESS.md) separates
+these observations from the fresh 18-process exposed cohort frozen at 5f27559. Historical/recovered jobs are
+not adopted into that run. At this checkpoint, portable raw-evidence receiving, complete cohort analysis,
+loss controls and CI are unfinished; observations remain local and provisional. All six software candidates
+pass unchanged strict/raw checks; the six library saves fail exact byte reconstruction. New reserved evaluation,
+complete native readability/editability and revision/foreign-attribute gates, and company acceptance remain open.
+
+### 206 follow-up: receive the completed exposed cohort
+
+All 18 original fresh-cohort controllers, native applications and containers subsequently exited zero.
+Seven bounded lossless packets now retain both original failures and the complete cohort; the
+[offline receiver](../examples/cad-handoff/qualification/native-ui-pairs-19/README.md) checks source/method
+pins, execution/terminal state, UI controls, independent native observations, stored values, full crops
+and comparisons. It checks 798 native observations, 60 field panels and 144 views (576 PNG files).
+All 12 native full saves still fail: source-to-return counts are 298–377, matched-pair counts 50–53.
+The six exact-span candidates retain strict/raw passes; library controls still fail raw reconstruction.
+
+The receiver found two further failures rather than promoting controller exit zero to acceptance.
+A shared mutable expected-value dictionary rewrote earlier producer metadata in every edited run:
+12 recording failures remain alongside correct independently retained UI/native/DXF before/after values.
+The original receiver refusal and source are retained. The original pixel analyzer also refuses exact
+camera equality on motion/power last-decimal offsets; its failure/source remain. A diagnostic retains
+all original camera values and all 54 fixed-region pixel comparisons. Zero outside-region changes is
+observed, with nine comparisons explicitly diagnostic only. No tolerance or image registration was added.
+
+Controls challenge omitted observations/trees/actions, disabled fields, changed source and incorrect
+returned values, unsafe/incomplete archives, and an unrelated pixel despite updated capture hashes.
+An actual-old-method regression reproduces mutable metadata rewriting beside the successor's preserved
+snapshots. Replay Python bindings explicitly normalize CRLF; all native raw evidence stays byte-bound.
+The first raw Python binding check exposed the existing cad_handoff.py checkout's CRLF/Git-LF difference;
+its original manifest remains locally, and no native measurement or CAD check changed to address it.
+
+A separately committed plan/source review precedes the new absolute-camera control. Pinned public
+QCAD source suggests previous-offset floating-point cancellation as a lead, not installed-build proof.
+A fresh camera-only process now tests old and direct factor/offset view setters on exposed inputs,
+without entity edits or saves. Its actual result, complete repository/CI gates and later six-case
+follow-up remain separate. Original full-save failures, reserved/generalization, foreign/other-text,
+revision/conflict and engineering/company acceptance gates remain open.
+
+
+The first full local suite finished 94/95 programs, with seven individual skips and three platform notices.
+Exact-head CI [42505046833](https://github.com/steve-vitale/industrial-context-toolkit/actions/runs/42505046833)
+failed the same packager check. Its current-only generator assumption was wrong: the first two case
+archives used the frozen source already retained under receiver-2. The only packager source change adds
+receiver-2 to historical collection; case packing is unchanged. Current repacking reproduces both archives
+byte-for-byte. Original inventories, failure logs/command/source and CI step output remain in validation.
+The receiver now resolves packager identities to retained frozen sources; unknown identities refuse.
+
+The next complete replay differed in two ancillary candidate save_metadata_changed flags. Installed and
+upstream ezdxf1.4.5 setup replaces loaded $TDCREATE with inspection time. A delayed inspection and a
+controlled two-clock regression reproduce the effect for identical raw headers. The reporting repair was
+committed before regenerating the stable presentation: original summary and actual differences remain,
+actual unchanged comparator reports are returned as live diagnostics, and complete raw HEADER bytes
+supply the candidate metadata evidence. A changed raw header refuses. No comparator, original source,
+byte requirement or native failure was changed. Successor integration/CI results remain separate.
+
+The first camera-only air process subsequently completed normal controller/native/container exit0 and
+24views with exact four-file cameras for both recipes. All frozen inputs remain unchanged. This case
+reproduces neither original camera failure; it establishes API/terminal behavior only. Full pixel receiving
+and the other five camera cases remain unfinished, as does the original qualification objective.
