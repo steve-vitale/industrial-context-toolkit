@@ -116,7 +116,7 @@ cases it proposes five revisions, leaves 14 exact no-ops and refuses two R12 inp
 paper views retain 330 exact field observations; each minimally prepared image matches its library add-main
 baseline exactly. Original/library-only layouts stay blank. This requires explicit adoption of a new source;
 it never turns the original failed file into a preservation pass. Trial marks and original top-edge label clipping
-remain. Seventeen input/semantic controls and two receiving controls reject the declared corruptions.
+remain. Seventeen input/semantic controls and three receiving controls reject the declared corruptions.
 
 Next acceptance work remains complete readable layout/label/font review and fresh native validation with a
 separately frozen observation method, alongside the original native full-save/editability/revision gates.

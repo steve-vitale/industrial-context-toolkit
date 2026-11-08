@@ -9,7 +9,7 @@
   "verified_profile_paper_images": 25,
   "native_field_values_verified": 330,
   "semantic_input_controls": 17,
-  "receiving_controls": 2,
+  "receiving_controls": 3,
   "prepared_to_candidate_strict_unexpected": 0,
   "prepared_to_candidate_unplanned_bytes": 0,
   "original_to_route_strict_counts": [
@@ -116,7 +116,7 @@
   ],
   "library_main_to_minimal_prepared_pixels": [
     {
-      "batch": "native-2",
+      "batch": "native-4",
       "case_id": "validation-braces",
       "before": "library-main",
       "after": "prepared",
@@ -124,7 +124,7 @@
       "bbox": null
     },
     {
-      "batch": "native-2",
+      "batch": "native-4",
       "case_id": "validation-cp1251",
       "before": "library-main",
       "after": "prepared",
@@ -132,7 +132,7 @@
       "bbox": null
     },
     {
-      "batch": "native-2",
+      "batch": "native-4",
       "case_id": "validation-foreign",
       "before": "library-main",
       "after": "prepared",
@@ -140,7 +140,7 @@
       "bbox": null
     },
     {
-      "batch": "native-2",
+      "batch": "native-4",
       "case_id": "validation-long",
       "before": "library-main",
       "after": "prepared",
@@ -148,7 +148,7 @@
       "bbox": null
     },
     {
-      "batch": "native-2",
+      "batch": "native-4",
       "case_id": "validation-unicode",
       "before": "library-main",
       "after": "prepared",
@@ -157,14 +157,21 @@
     }
   ],
   "published_images": {
-    "original-paper.png": "native-2/native/validation-unicode-original.png",
-    "proposed-paper.png": "native-2/native/validation-unicode-prepared.png",
-    "candidate-paper.png": "native-2/native/validation-unicode-candidate.png"
+    "original-paper.png": "native-4/native/validation-unicode-original.png",
+    "proposed-paper.png": "native-4/native/validation-unicode-prepared.png",
+    "candidate-paper.png": "native-4/native/validation-unicode-candidate.png"
   },
   "limits": [
     "Separate proposed source revision, never automatic adoption",
     "Original five layout and native full-save failures remain failures",
     "Trial marks overlap content; original foreign/unicode labels clip at original top viewport edge",
     "Original typography, complete readable review, fresh validation, native edit/save/reopen and revision acceptance remain separate gates"
-  ]
+  ],
+  "receiving_batch": "native-4",
+  "excluded_native_batches": [
+    "native-1",
+    "native-2",
+    "native-3"
+  ],
+  "actual_configuration_file": "/home/cad/.config/QCAD/QCAD3.conf"
 }

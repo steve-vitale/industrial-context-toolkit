@@ -8432,7 +8432,8 @@ contains 25 verified-profile paper images and 330 exact native field observation
 minimal-preparation paper images are pixel-identical to the library add-main baselines.
 Original/library-only layouts stay blank; add-main/prepared/candidate imports expose the
 original display viewport bounds and visible source geometry. Direct assistant inspection
-of all 25 views retains trial marks overlapping content and original foreign/Unicode labels
+of the 25 second-batch images, full decoded RGB identity of all 25 fourth-batch images and
+five directly reopened fourth-batch views retain trial marks overlapping content and original foreign/Unicode labels
 clipped at the original top viewport edge. This restores display structure; it does not
 establish complete readable sheets, original typography or engineering acceptance.
 
@@ -8440,10 +8441,20 @@ Two earlier wrapper failures remain in Git/evidence. The first native batch star
 a failed configuration copy because PowerShell continued; it was allowed to finish and is
 excluded from the declared-profile conclusion. A separately committed fail-closed setup
 correction verifies the local and installed configuration hash before any CAD process. The
-second batch started after confirmed normal first-container exit; all 26 serial commands
-exit0 and every input hash remains unchanged. No new UI edit/save operation occurred.
-The lossless archive retains 911 exact files, 16,275,721 raw bytes in 152,492 compressed bytes;
-configuration, fonts and publisher binaries are excluded, with configuration digest receipts.
+second batch started after confirmed normal first-container exit and all 26 serial commands
+exit0, but later stderr inspection found its command selected a different file from the one
+installed. It too is excluded from the intended-settings conclusion; initial claims and
+HOST-NOTES are retained and explicitly superseded. A separately committed correction uses
+the installed absolute path and a native settings-filename self-report before the frozen probe.
+The next creation omitted the image entrypoint override: the desktop launched instead of the
+evidence driver. The diagnosis was retained before intentionally stopping that unintended
+process (container137/controller1); no native driver/probe ran and all input bytes stayed exact.
+The fourth container is inspected for Python entrypoint/image/user/mount/no ports before start.
+The actual native selected path and every-command stderr/digests now bind the receiving profile;
+settings are never reset between commands. No new UI edit/save operation occurred.
+The unchanged first lossless archive retains 911 exact files, 16,275,721 raw bytes in 152,492
+compressed bytes. A supplementary archive retains the failed third and receiving fourth batches: 514 exact files, 8,992,287 raw bytes in 146,256 compressed bytes.
+Configuration, fonts and publisher binaries are excluded, with digest-only settings receipts.
 
 The first offline replay fails on an informational save-metadata boolean in the exact-no-op
 public paper case. Repeated inspection of identical bytes reproduces a loaded TDCREATE clock
@@ -8451,7 +8462,7 @@ tick; the existing recheck documents the same on-read behavior. The failing chec
 committed before correction. The receiving replay now retains/prints saved and observed
 booleans while matching every other comparison field, every strict difference and exact raw
 reconstruction. No comparator exclusion, image tolerance, source or failed result changes.
-Two receiving controls reject omitted native routes and altered native field observations.
+Three receiving controls reject omitted native routes, altered native field observations and an installed-but-unselected settings file.
 
 This remains exposed development. The full goal stays active: complete readable receiving
 checks, separately frozen reserved public/independently authored validation and the original

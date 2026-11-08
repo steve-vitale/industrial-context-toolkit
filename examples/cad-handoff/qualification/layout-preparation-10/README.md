@@ -66,7 +66,7 @@ has one added main viewport; its nonzero strict difference is retained. Prepared
 edits must have zero unexpected strict differences and zero unplanned bytes under the
 separate original source/plan reconstruction.
 
-The verified-profile batch completed all 26 serial commands normally: one native probe
+The fourth, selected-profile batch completed all 26 serial commands normally: one native probe
 and 25 paper exports. All 330 model-field observations match the exact route files. Each
 of the five minimal-preparation paper images has **zero different pixels** against its
 library add-main baseline. Original/library-only paper blocks remain blank; all three
@@ -106,7 +106,20 @@ being allowed to finish and retaining its results. The [setup correction](NATIVE
 commit `0202240`, makes the normal-user driver create the destination, verify the local
 configuration hash, copy it and verify the installed bytes **before any CAD process starts**.
 A failure stops the driver. The second batch uses a fresh container after confirmed normal
-exit of the first. The algorithm, source cohort and native input pins do not change.
+exit of the first. Later inspection found that its `-config` argument selected a different
+file from the one installed. That batch is also excluded from the intended-settings
+conclusion; its initial HOST-NOTES and claims remain retained and superseded by the
+[actual-profile correction](ACTUAL-PROFILE-CORRECTION.md).
+
+The [next attempt](ENTRYPOINT-CORRECTION.md) accidentally used the image desktop entrypoint;
+no evidence driver/probe ran. The host recorded that diagnosis before stopping the unintended
+desktop. Its container exits 137, not a normal acceptance exit; the attach controller exits 1.
+All frozen drawing bytes remain exact. A fourth container is inspected before start for the
+explicit Python entrypoint, image, normal user, sole work mount and no published ports.
+Its native observer self-reports the intended settings filename, and each native command
+retains matching `absConfigFile` stderr plus before/after settings digests. Settings are
+never reset between commands. The original algorithm, native probe, source cohort and 25
+input pins do not change. The corrected receiving code was committed before execution.
 
 Only digest receipts are published for native configuration. The settings themselves,
 fonts and publisher executables stay local. `HOST-NOTES.json` explicitly transcribes host
@@ -134,10 +147,11 @@ re-scores all strict source-revision comparisons, verifies native fields/viewpor
 and decodes/recompares every paper image. Seventeen controls reject wrong/missing main
 fields/owner/order, changed existing geometry/display/foreign/XDATA bytes, stale identity,
 unsupported inputs and collision. Additional receiving checks reject omitted native routes
-and altered native field observations. An already prepared source is an exact no-op.
+altered native field observations and installed-but-unselected native settings. An already prepared source is an exact no-op.
 
-The [inventory](INVENTORY.json) pins both unsuccessful development/native batches and the
-verified native batch. Offline replay verifies these saved observations; it does not rerun
+The [initial inventory](INVENTORY.json) pins the original development and two excluded native
+batches without repackaging. The [supplementary inventory](receiving-4/INVENTORY.json) retains
+the failed desktop launch and fourth receiving batch. Offline replay verifies these saved observations; it does not rerun
 the native engine or create independent human approval. The full original goal remains
 active: complete readable receiving checks, separately frozen fresh public/independently
 authored validation and the original native full-save/revision gates must still be audited.

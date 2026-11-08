@@ -1,231 +1,256 @@
 {
-  "review": "Direct inspection of all 25 native images by coding assistant; no independent human or plant review",
+  "review": "Coding assistant directly inspected all 25 native-2 images before settings-selection defect was found. All 25 native-4 full decoded RGB images match those exact inspected images; five native-4 braces views were also directly reopened. No independent human or plant review.",
   "settings": "2400x1600 native monochrome white paper; no mark/pixel alteration",
   "observations": [
     {
       "id": "validation-braces-original",
-      "image": "native-2/native/validation-braces-original.png",
+      "image": "native-4/native/validation-braces-original.png",
       "inspected": true,
       "paper_content_visible": false,
       "complete_readability": false,
       "source_top_edge_label_clipping": false,
-      "finding": "Paper block blank except retained trial mark"
+      "finding": "Paper block blank except retained trial mark",
+      "inspection_basis": "Direct reopened native-4 view"
     },
     {
       "id": "validation-braces-library",
-      "image": "native-2/native/validation-braces-library.png",
+      "image": "native-4/native/validation-braces-library.png",
       "inspected": true,
       "paper_content_visible": false,
       "complete_readability": false,
       "source_top_edge_label_clipping": false,
-      "finding": "Paper block blank except retained trial mark"
+      "finding": "Paper block blank except retained trial mark",
+      "inspection_basis": "Direct reopened native-4 view"
     },
     {
       "id": "validation-braces-library-main",
-      "image": "native-2/native/validation-braces-library-main.png",
+      "image": "native-4/native/validation-braces-library-main.png",
       "inspected": true,
       "paper_content_visible": true,
       "complete_readability": false,
       "source_top_edge_label_clipping": false,
-      "finding": "Original paper border, display viewport and geometry visible; retained trial mark overlaps content. No complete readability claim from this overview."
+      "finding": "Original paper border, display viewport and geometry visible; retained trial mark overlaps content. No complete readability claim from this overview.",
+      "inspection_basis": "Direct reopened native-4 view"
     },
     {
       "id": "validation-braces-prepared",
-      "image": "native-2/native/validation-braces-prepared.png",
+      "image": "native-4/native/validation-braces-prepared.png",
       "inspected": true,
       "paper_content_visible": true,
       "complete_readability": false,
       "source_top_edge_label_clipping": false,
-      "finding": "Original paper border, display viewport and geometry visible; retained trial mark overlaps content. No complete readability claim from this overview."
+      "finding": "Original paper border, display viewport and geometry visible; retained trial mark overlaps content. No complete readability claim from this overview.",
+      "inspection_basis": "Direct reopened native-4 view"
     },
     {
       "id": "validation-braces-candidate",
-      "image": "native-2/native/validation-braces-candidate.png",
+      "image": "native-4/native/validation-braces-candidate.png",
       "inspected": true,
       "paper_content_visible": true,
       "complete_readability": false,
       "source_top_edge_label_clipping": false,
-      "finding": "Original paper border, display viewport and geometry visible; retained trial mark overlaps content. No complete readability claim from this overview."
+      "finding": "Original paper border, display viewport and geometry visible; retained trial mark overlaps content. No complete readability claim from this overview.",
+      "inspection_basis": "Direct reopened native-4 view"
     },
     {
       "id": "validation-cp1251-original",
-      "image": "native-2/native/validation-cp1251-original.png",
+      "image": "native-4/native/validation-cp1251-original.png",
       "inspected": true,
       "paper_content_visible": false,
       "complete_readability": false,
       "source_top_edge_label_clipping": false,
-      "finding": "Paper block blank except retained trial mark"
+      "finding": "Paper block blank except retained trial mark",
+      "inspection_basis": "Full decoded RGB identity to directly inspected native-2 image; profile-repeat-comparisons.json"
     },
     {
       "id": "validation-cp1251-library",
-      "image": "native-2/native/validation-cp1251-library.png",
+      "image": "native-4/native/validation-cp1251-library.png",
       "inspected": true,
       "paper_content_visible": false,
       "complete_readability": false,
       "source_top_edge_label_clipping": false,
-      "finding": "Paper block blank except retained trial mark"
+      "finding": "Paper block blank except retained trial mark",
+      "inspection_basis": "Full decoded RGB identity to directly inspected native-2 image; profile-repeat-comparisons.json"
     },
     {
       "id": "validation-cp1251-library-main",
-      "image": "native-2/native/validation-cp1251-library-main.png",
+      "image": "native-4/native/validation-cp1251-library-main.png",
       "inspected": true,
       "paper_content_visible": true,
       "complete_readability": false,
       "source_top_edge_label_clipping": false,
-      "finding": "Original paper border, display viewport and geometry visible; retained trial mark overlaps content. No complete readability claim from this overview."
+      "finding": "Original paper border, display viewport and geometry visible; retained trial mark overlaps content. No complete readability claim from this overview.",
+      "inspection_basis": "Full decoded RGB identity to directly inspected native-2 image; profile-repeat-comparisons.json"
     },
     {
       "id": "validation-cp1251-prepared",
-      "image": "native-2/native/validation-cp1251-prepared.png",
+      "image": "native-4/native/validation-cp1251-prepared.png",
       "inspected": true,
       "paper_content_visible": true,
       "complete_readability": false,
       "source_top_edge_label_clipping": false,
-      "finding": "Original paper border, display viewport and geometry visible; retained trial mark overlaps content. No complete readability claim from this overview."
+      "finding": "Original paper border, display viewport and geometry visible; retained trial mark overlaps content. No complete readability claim from this overview.",
+      "inspection_basis": "Full decoded RGB identity to directly inspected native-2 image; profile-repeat-comparisons.json"
     },
     {
       "id": "validation-cp1251-candidate",
-      "image": "native-2/native/validation-cp1251-candidate.png",
+      "image": "native-4/native/validation-cp1251-candidate.png",
       "inspected": true,
       "paper_content_visible": true,
       "complete_readability": false,
       "source_top_edge_label_clipping": false,
-      "finding": "Original paper border, display viewport and geometry visible; retained trial mark overlaps content. No complete readability claim from this overview."
+      "finding": "Original paper border, display viewport and geometry visible; retained trial mark overlaps content. No complete readability claim from this overview.",
+      "inspection_basis": "Full decoded RGB identity to directly inspected native-2 image; profile-repeat-comparisons.json"
     },
     {
       "id": "validation-foreign-original",
-      "image": "native-2/native/validation-foreign-original.png",
+      "image": "native-4/native/validation-foreign-original.png",
       "inspected": true,
       "paper_content_visible": false,
       "complete_readability": false,
       "source_top_edge_label_clipping": false,
-      "finding": "Paper block blank except retained trial mark"
+      "finding": "Paper block blank except retained trial mark",
+      "inspection_basis": "Full decoded RGB identity to directly inspected native-2 image; profile-repeat-comparisons.json"
     },
     {
       "id": "validation-foreign-library",
-      "image": "native-2/native/validation-foreign-library.png",
+      "image": "native-4/native/validation-foreign-library.png",
       "inspected": true,
       "paper_content_visible": false,
       "complete_readability": false,
       "source_top_edge_label_clipping": false,
-      "finding": "Paper block blank except retained trial mark"
+      "finding": "Paper block blank except retained trial mark",
+      "inspection_basis": "Full decoded RGB identity to directly inspected native-2 image; profile-repeat-comparisons.json"
     },
     {
       "id": "validation-foreign-library-main",
-      "image": "native-2/native/validation-foreign-library-main.png",
+      "image": "native-4/native/validation-foreign-library-main.png",
       "inspected": true,
       "paper_content_visible": true,
       "complete_readability": false,
       "source_top_edge_label_clipping": true,
-      "finding": "Original paper border, display viewport and geometry visible; retained trial mark overlaps content. Third asset label crosses original top viewport edge."
+      "finding": "Original paper border, display viewport and geometry visible; retained trial mark overlaps content. Third asset label crosses original top viewport edge.",
+      "inspection_basis": "Full decoded RGB identity to directly inspected native-2 image; profile-repeat-comparisons.json"
     },
     {
       "id": "validation-foreign-prepared",
-      "image": "native-2/native/validation-foreign-prepared.png",
+      "image": "native-4/native/validation-foreign-prepared.png",
       "inspected": true,
       "paper_content_visible": true,
       "complete_readability": false,
       "source_top_edge_label_clipping": true,
-      "finding": "Original paper border, display viewport and geometry visible; retained trial mark overlaps content. Third asset label crosses original top viewport edge."
+      "finding": "Original paper border, display viewport and geometry visible; retained trial mark overlaps content. Third asset label crosses original top viewport edge.",
+      "inspection_basis": "Full decoded RGB identity to directly inspected native-2 image; profile-repeat-comparisons.json"
     },
     {
       "id": "validation-foreign-candidate",
-      "image": "native-2/native/validation-foreign-candidate.png",
+      "image": "native-4/native/validation-foreign-candidate.png",
       "inspected": true,
       "paper_content_visible": true,
       "complete_readability": false,
       "source_top_edge_label_clipping": true,
-      "finding": "Original paper border, display viewport and geometry visible; retained trial mark overlaps content. Third asset label crosses original top viewport edge."
+      "finding": "Original paper border, display viewport and geometry visible; retained trial mark overlaps content. Third asset label crosses original top viewport edge.",
+      "inspection_basis": "Full decoded RGB identity to directly inspected native-2 image; profile-repeat-comparisons.json"
     },
     {
       "id": "validation-long-original",
-      "image": "native-2/native/validation-long-original.png",
+      "image": "native-4/native/validation-long-original.png",
       "inspected": true,
       "paper_content_visible": false,
       "complete_readability": false,
       "source_top_edge_label_clipping": false,
-      "finding": "Paper block blank except retained trial mark"
+      "finding": "Paper block blank except retained trial mark",
+      "inspection_basis": "Full decoded RGB identity to directly inspected native-2 image; profile-repeat-comparisons.json"
     },
     {
       "id": "validation-long-library",
-      "image": "native-2/native/validation-long-library.png",
+      "image": "native-4/native/validation-long-library.png",
       "inspected": true,
       "paper_content_visible": false,
       "complete_readability": false,
       "source_top_edge_label_clipping": false,
-      "finding": "Paper block blank except retained trial mark"
+      "finding": "Paper block blank except retained trial mark",
+      "inspection_basis": "Full decoded RGB identity to directly inspected native-2 image; profile-repeat-comparisons.json"
     },
     {
       "id": "validation-long-library-main",
-      "image": "native-2/native/validation-long-library-main.png",
+      "image": "native-4/native/validation-long-library-main.png",
       "inspected": true,
       "paper_content_visible": true,
       "complete_readability": false,
       "source_top_edge_label_clipping": false,
-      "finding": "Original paper border, display viewport and geometry visible; retained trial mark overlaps content. No complete readability claim from this overview."
+      "finding": "Original paper border, display viewport and geometry visible; retained trial mark overlaps content. No complete readability claim from this overview.",
+      "inspection_basis": "Full decoded RGB identity to directly inspected native-2 image; profile-repeat-comparisons.json"
     },
     {
       "id": "validation-long-prepared",
-      "image": "native-2/native/validation-long-prepared.png",
+      "image": "native-4/native/validation-long-prepared.png",
       "inspected": true,
       "paper_content_visible": true,
       "complete_readability": false,
       "source_top_edge_label_clipping": false,
-      "finding": "Original paper border, display viewport and geometry visible; retained trial mark overlaps content. No complete readability claim from this overview."
+      "finding": "Original paper border, display viewport and geometry visible; retained trial mark overlaps content. No complete readability claim from this overview.",
+      "inspection_basis": "Full decoded RGB identity to directly inspected native-2 image; profile-repeat-comparisons.json"
     },
     {
       "id": "validation-long-candidate",
-      "image": "native-2/native/validation-long-candidate.png",
+      "image": "native-4/native/validation-long-candidate.png",
       "inspected": true,
       "paper_content_visible": true,
       "complete_readability": false,
       "source_top_edge_label_clipping": false,
-      "finding": "Original paper border, display viewport and geometry visible; retained trial mark overlaps content. No complete readability claim from this overview."
+      "finding": "Original paper border, display viewport and geometry visible; retained trial mark overlaps content. No complete readability claim from this overview.",
+      "inspection_basis": "Full decoded RGB identity to directly inspected native-2 image; profile-repeat-comparisons.json"
     },
     {
       "id": "validation-unicode-original",
-      "image": "native-2/native/validation-unicode-original.png",
+      "image": "native-4/native/validation-unicode-original.png",
       "inspected": true,
       "paper_content_visible": false,
       "complete_readability": false,
       "source_top_edge_label_clipping": false,
-      "finding": "Paper block blank except retained trial mark"
+      "finding": "Paper block blank except retained trial mark",
+      "inspection_basis": "Full decoded RGB identity to directly inspected native-2 image; profile-repeat-comparisons.json"
     },
     {
       "id": "validation-unicode-library",
-      "image": "native-2/native/validation-unicode-library.png",
+      "image": "native-4/native/validation-unicode-library.png",
       "inspected": true,
       "paper_content_visible": false,
       "complete_readability": false,
       "source_top_edge_label_clipping": false,
-      "finding": "Paper block blank except retained trial mark"
+      "finding": "Paper block blank except retained trial mark",
+      "inspection_basis": "Full decoded RGB identity to directly inspected native-2 image; profile-repeat-comparisons.json"
     },
     {
       "id": "validation-unicode-library-main",
-      "image": "native-2/native/validation-unicode-library-main.png",
+      "image": "native-4/native/validation-unicode-library-main.png",
       "inspected": true,
       "paper_content_visible": true,
       "complete_readability": false,
       "source_top_edge_label_clipping": true,
-      "finding": "Original paper border, display viewport and geometry visible; retained trial mark overlaps content. Third asset label crosses original top viewport edge."
+      "finding": "Original paper border, display viewport and geometry visible; retained trial mark overlaps content. Third asset label crosses original top viewport edge.",
+      "inspection_basis": "Full decoded RGB identity to directly inspected native-2 image; profile-repeat-comparisons.json"
     },
     {
       "id": "validation-unicode-prepared",
-      "image": "native-2/native/validation-unicode-prepared.png",
+      "image": "native-4/native/validation-unicode-prepared.png",
       "inspected": true,
       "paper_content_visible": true,
       "complete_readability": false,
       "source_top_edge_label_clipping": true,
-      "finding": "Original paper border, display viewport and geometry visible; retained trial mark overlaps content. Third asset label crosses original top viewport edge."
+      "finding": "Original paper border, display viewport and geometry visible; retained trial mark overlaps content. Third asset label crosses original top viewport edge.",
+      "inspection_basis": "Full decoded RGB identity to directly inspected native-2 image; profile-repeat-comparisons.json"
     },
     {
       "id": "validation-unicode-candidate",
-      "image": "native-2/native/validation-unicode-candidate.png",
+      "image": "native-4/native/validation-unicode-candidate.png",
       "inspected": true,
       "paper_content_visible": true,
       "complete_readability": false,
       "source_top_edge_label_clipping": true,
-      "finding": "Original paper border, display viewport and geometry visible; retained trial mark overlaps content. Third asset label crosses original top viewport edge."
+      "finding": "Original paper border, display viewport and geometry visible; retained trial mark overlaps content. Third asset label crosses original top viewport edge.",
+      "inspection_basis": "Full decoded RGB identity to directly inspected native-2 image; profile-repeat-comparisons.json"
     }
   ]
 }
