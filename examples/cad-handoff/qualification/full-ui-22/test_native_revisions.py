@@ -3,7 +3,8 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
-from native_revisions import HERE, receiving, check
+from native_revisions import HERE, receiving
+from recheck_native_revisions import restore, check_packet
 from evidence import unpack
 from test_evidence import put, reindex
 from receive import digest
@@ -20,15 +21,14 @@ class ConcurrentPacketControls(unittest.TestCase):
                 saved=original.copy();change(saved);reindex(saved)
                 with tempfile.TemporaryDirectory(prefix='ict-revision-control-') as temporary:
                     root=Path(temporary)
-                    for name,data in saved.items():
-                        path=root/name;path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(data)
+                    restore(saved,root)
                     with self.assertRaisesRegex(ValueError,pattern):
                         receiving(root/'attempt',root/'receiving/PREPARATION.json',root/'receiving/METHODS.json')
 
     def test_complete_three_edit_packets_replay(self):
         for case in self.packets:
             with self.subTest(case=case):
-                result=check(HERE/'concurrent-development-1'/(case+'-concurrent-edited-1'))
+                result=check_packet(HERE/'concurrent-development-1'/(case+'-concurrent-edited-1'))
                 self.assertEqual(result['committed_edits'],3)
                 self.assertFalse(result['whole_cad_qualified'])
 
