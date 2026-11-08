@@ -12,13 +12,16 @@ from bridge_receive import records
 from mailbox import wire
 from native_io import FOLDERS
 
-MAX_FILE, MAX_RAW, MAX_FILES = 32*1024**2, 192*1024**2, 16000
+MAX_FILE, MAX_RAW, MAX_FILES = 32*1024**2, 192*1024**2, 24000
 
 
 def audit(files, identity):
     for name, pin in identity['original_identity'].items():
         require(name in files and digest(files[name]) == pin, 'Original failed-attempt identity differs: '+name)
     def data(name): return json.loads(files[name])
+    require(data('failed-packaging/EXIT.json')['exit'] == 1 and
+            b'Failure package exceeds declared bounds' in files['failed-packaging/stderr.txt'] and
+            digest(files['failed-packaging/failed_receiving.py']) == data('failed-packaging/SOURCE-RETENTION.json')['source_sha256'], 'Original archive refusal/source missing')
     base = 'attempt/job/'
     freeze = data(base+'JOB-FREEZE.json')
     require(freeze == identity['freeze'], 'Original failed job freeze differs')
@@ -125,13 +128,13 @@ def unpack(packet):
     return files
 
 
-def package(attempt, execution, cleanup, out, identity):
+def package(attempt, execution, cleanup, out, identity, failed_packaging):
     require(not out.exists(), 'New failed packet destination required')
     files={}
-    for prefix,folder in [('attempt',attempt),('execution',execution),('cleanup',cleanup)]:
+    for prefix,folder in [('attempt',attempt),('execution',execution),('cleanup',cleanup),('failed-packaging',failed_packaging)]:
         for path in folder.rglob('*'):
             if path.is_file(): files[prefix+'/'+path.relative_to(folder).as_posix()]=path.read_bytes()
-    for name in ('FAILED-RECEIVING-PLAN.md','FAILURE-ARCHIVE-PLAN.md','failed_receiving.py'):
+    for name in ('FAILED-RECEIVING-PLAN.md','FAILURE-ARCHIVE-PLAN.md','FAILURE-ARCHIVE-PLAN-2.md','failed_receiving.py'):
         files['methods/'+name]=(HERE/name).read_bytes()
     require(0 < len(files)<=MAX_FILES and sum(map(len,files.values()))<=MAX_RAW and max(map(len,files.values()))<=MAX_FILE, 'Failure package exceeds declared bounds')
     result=audit(files,read(identity)); out.mkdir(parents=True)
@@ -148,7 +151,7 @@ def package(attempt, execution, cleanup, out, identity):
 if __name__ == '__main__':
     p=argparse.ArgumentParser(description=__doc__);sub=p.add_subparsers(dest='action',required=True)
     a=sub.add_parser('package')
-    for name in ('attempt','execution','cleanup','out','identity'): a.add_argument(name,type=Path)
+    for name in ('attempt','execution','cleanup','out','identity','failed_packaging'): a.add_argument(name,type=Path)
     a=sub.add_parser('check');a.add_argument('packet',type=Path);a.add_argument('identity',type=Path)
     args=vars(p.parse_args());action=args.pop('action')
     if action=='package': result=package(**args)
