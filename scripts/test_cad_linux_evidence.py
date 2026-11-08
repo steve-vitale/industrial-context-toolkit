@@ -701,6 +701,30 @@ class RetainedLinuxNativeEvidence(unittest.TestCase):
 
 
 class NativeUIPairs19Evidence(unittest.TestCase):
+    def test_camera_repeat_snapshots_events_without_rewriting_original_recorder(self):
+        import ast
+        import time
+        base=Path(__file__).resolve().parents[1]/'examples/cad-handoff/qualification/native-ui-pairs-19'
+        namespace=dict(copy=copy,time=time,write=lambda path,value:path.write_text(json.dumps(value),encoding='utf-8'))
+        # Execute the actual record methods without importing the native-only accessibility runtime.
+        for filename,classname in [('workflow.py','Workflow'),('camera_repeat.py','CameraRepeat')]:
+            tree=ast.parse((base/filename).read_text(encoding='utf-8'))
+            cls=next(node for node in tree.body if isinstance(node,ast.ClassDef)and node.name==classname)
+            cls.body=[node for node in cls.body if isinstance(node,ast.FunctionDef)and node.name=='record']
+            exec(compile(ast.Module(body=[cls],type_ignores=[]),str(base/filename),'exec'),namespace)
+        with tempfile.TemporaryDirectory()as temporary:
+            for classname,before in [('Workflow','QUAL-AFTER'),('CameraRepeat','QUAL-BEFORE')]:
+                instance=namespace[classname]();instance.event=0;instance.actions=[]
+                instance.out=Path(temporary)/classname;instance.out.mkdir()
+                expected=dict(MANUFACTURER='QUAL-BEFORE',ICT_ID='AUTHORED-QUAL/test/1',TAG='QA-1')
+                instance.record('native_fields',expected=expected)
+                expected['MANUFACTURER']='QUAL-AFTER'
+                instance.record('native_fields',expected=expected)
+                saved=json.loads((instance.out/'actions.json').read_bytes())
+                self.assertEqual(saved[0]['expected']['MANUFACTURER'],before)
+                self.assertEqual(saved[1]['expected']['MANUFACTURER'],'QUAL-AFTER')
+                self.assertEqual(saved[0]['expected']['ICT_ID'],'AUTHORED-QUAL/test/1')
+
     def receiver(self):
         path=Path(__file__).resolve().parents[1]/'examples/cad-handoff/qualification/check_ui19.py'
         spec=importlib.util.spec_from_file_location('cad_ui19_receiver_test',path)

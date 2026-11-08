@@ -59,3 +59,10 @@ This remains a failed exact-camera repeat, not an accepted tolerance. An additio
 all exact camera values and every pixel comparison under the original two-pixel label-region recipe.
 Its results are explicitly diagnostic when camera equality fails. No image is aligned, resized, dropped,
 or masked differently. A future native camera correction needs its own frozen method and actual repeat.
+
+The separately frozen camera follow-up also snapshots event arguments before recording them. A regression
+executes the actual old/new record methods without importing native accessibility dependencies: mutating
+the shared dictionary and recording another event changes the old method's first saved expectation to
+QUAL-AFTER; the successor retains QUAL-BEFORE followed by QUAL-AFTER. The original cohort method and
+its failed metadata remain unchanged. Six focused receiving/archive/recorder tests pass locally, with
+zero skips; complete seven-packet replay and actual new-camera execution remain separate checks.

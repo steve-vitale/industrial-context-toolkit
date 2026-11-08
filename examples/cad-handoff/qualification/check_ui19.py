@@ -241,11 +241,17 @@ def historical(root,out):
     return dict(route='historical-development',paired_strict_differences=len(pair['unexpected']),baseline_pixels=images,original_edited_controller_failed=True,recovery_is_clean_pass=False,whole_cad_qualified=False)
 
 def check():
+    methods=read(BASE/'REPLAY-METHODS.json')
+    expected=['examples/cad-handoff/qualification/'+name for name in ('check_ui19.py','diagnose_ui19.py','ui19_archive.py','package_ui19.py','verify_bytes.py')]+['scripts/cad_handoff.py']
+    require(set(methods)==set(expected),'UI evidence replay method scope differs')
+    for name,pin in methods.items():require(sha(ROOT/name)==pin,'UI evidence replay method differs: '+name)
     summaries=[]
     with tempfile.TemporaryDirectory(prefix='ict-ui19-')as temporary:
         temp=Path(temporary)
         for packet in ['development','libre-air-water','libre-motion','libre-power','qcad-hydraulic','qcad-mechanical','qcad-template']:
-            base=BASE/'evidence'/packet;root=unpack(base,temp/packet)
+            base=BASE/'evidence'/packet
+            require(read(base/'INVENTORY.json')['packager_sha256']==sha(HERE/'package_ui19.py'),'UI evidence packager differs')
+            root=unpack(base,temp/packet)
             summaries.append(historical(root,temp/(packet+'-out'))if packet=='development'else receive_case(root,temp/(packet+'-out')))
     result=dict(packets=summaries,whole_cad_qualified=False)
     require(equal(result,read(BASE/'SUMMARY.json')),'Published UI evidence summary differs')
