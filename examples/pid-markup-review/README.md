@@ -50,6 +50,10 @@ bad locators, duplicate sheets, typed mismatches, conflicting requests, path esc
 replay and output collision. The corrected return supports five markups but still leaves M05/M06 open.
 Prior packet/source bytes remain intact. There is no automatic drawing acceptance or map update.
 
+The later optional port-fact extension replays these same sources and keys. Only the tool source fingerprint
+and associated receipt changed; [CODE-UPDATE.json](CODE-UPDATE.json) records exact before/after hashes and
+the historical revision. Reports, queues, source bytes and factual outcomes remain identical.
+
 The browser inspection used installed Edge through local headless Playwright after the browser connector timed
 out. All source labels stayed inside the SVG frame; all seven report headings were present. Actual viewport and
 scroll width were equal at both desktop 1500 px and mobile 420 px. The first preview led to readable field names,

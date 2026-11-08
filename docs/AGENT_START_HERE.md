@@ -14,6 +14,7 @@ or engineering manager, useful starting jobs are:
 - Turn an available P&ID, supported DEXPI export or process description into a draft asset/drawing review package.
 - Compare retained revisions and identify affected records and unresolved closeout checks.
 - Check a consultant's returned P&ID against the exact markups sent out, retaining partial/missed changes and other observed changes.
+- Where the endpoint matters, use [exact port checks](PID_CONNECTIONS.md) to distinguish the right tag on the wrong input; retain uncertain meanings and coverage.
 
 Ask only what changes the next step. With no context, ask which recurring job is causing trouble and what
 records the user can make available in their approved environment. If their message or supplied files already

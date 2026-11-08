@@ -6,7 +6,7 @@
   "source": "All SVGs, markups and observations authored for this example; no plant/consultant/customer records",
   "reading_method": "Fixture observations authored from same design; no model read drawings/PDF/handwriting",
   "implementation": "scripts/check_pid_markups.py",
-  "tool_sha256_lf": "e47ab37770f9031a3338649724bef83cf3800227c3d65d96fc2121519b6a358e",
+  "tool_sha256_lf": "4f72c0d671627039bad6b502c2f02965d4fa5bca3c28cc1b538a7a39d84fe32a",
   "visual": "Direct author-session image inspection; Edge via local Playwright; mobile420/desktop1500 no horizontal overflow, seven markup headings, source text inside SVG frame; not independent engineering review",
   "browser_fallback": "Connected browser rejected file URLs and timed out on local HTTP. Initial Edge CLI preview was followed by exact-viewport local Playwright capture; ephemeral preview dependencies stay outside repository.",
   "ui_refinements": "Explicit flow arrows; readable field/status names; mobile stacked cells. Expected factual outcomes unchanged.",
@@ -26,5 +26,7 @@
   "screenshots": {
     "markup-preview.png": "1655b55de2d1829d4072ef7b7e39b5b73b17b86de045d609082f2b587843a5d4",
     "mobile-report.png": "0305ab78b89125deab61e5ef84951dc78e558df35769bd71c8ee6278c6facf38"
-  }
+  },
+  "historical_tool_sha256_lf": "e47ab37770f9031a3338649724bef83cf3800227c3d65d96fc2121519b6a358e",
+  "additive_port_fact_update": "CODE-UPDATE.json; only tool source identity and receipt changed; old source and packets retained at 37c7a4c195fad49c7c3e5871a9532c086751849a"
 }

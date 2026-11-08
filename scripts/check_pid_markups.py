@@ -59,7 +59,8 @@ def fact_key(key):
     fields = {'symbol': {'sheet', 'kind', 'subject'},
               'attribute': {'sheet', 'kind', 'subject', 'name'},
               'note': {'sheet', 'kind', 'subject'},
-              'connection': {'sheet', 'kind', 'subject', 'relation', 'to'}}
+              'connection': {'sheet', 'kind', 'subject', 'relation', 'to'},
+              'port_connection': {'sheet', 'kind', 'subject', 'port', 'relation', 'to', 'to_port', 'medium'}}
     require(kind in fields and set(key) == fields[kind], 'Unsupported/ambiguous fact key')
     for field, value in key.items():
         text(value, 'Fact ' + field)
@@ -68,7 +69,7 @@ def fact_key(key):
 
 def value_check(key, value):
     typed(value)  # retain exact JSON types, including numeric/string/Boolean distinctions
-    if key['kind'] in ('symbol', 'connection'):
+    if key['kind'] in ('symbol', 'connection', 'port_connection'):
         require(type(value) is bool, 'Symbol/connection presence needs an explicit Boolean')
 
 
@@ -191,7 +192,7 @@ def prepare(manifest_path):
         if observation['state'] == 'known':
             require('value' in observation, 'Known observation needs a value')
             value_check(observation['key'], observation['value'])
-            if observation['key']['kind'] in ('symbol', 'connection') and observation['value'] is False:
+            if observation['key']['kind'] in ('symbol', 'connection', 'port_connection') and observation['value'] is False:
                 text(observation.get('reason'), 'Explicit absence needs a reviewed-region/coverage reason')
         else:
             require('value' not in observation, 'Unknown observation cannot carry a guessed value')
@@ -269,7 +270,9 @@ def compare(requests, index, desired):
 
 def describe_key(key):
     subject = key['subject']
-    if key['kind'] == 'connection':
+    if key['kind'] == 'port_connection':
+        label = f'{subject}.{key["port"]} → {key["to"]}.{key["to_port"]}: {key["relation"]} / {key["medium"]}'
+    elif key['kind'] == 'connection':
         label = f'{subject} → {key["to"]}: {key["relation"]} connection'
     else:
         label = subject + ': ' + {'symbol': 'symbol presence', 'attribute': key.get('name', ''), 'note': 'note text'}[key['kind']]
@@ -285,7 +288,7 @@ LABELS = {'supported': 'Supported by readings', 'partly_supported': 'Partly supp
 def render(report, copies):
     esc = lambda value: html.escape(str(value), quote=True)
     def display(value, key):
-        return ('Present' if value else 'Absent') if key['kind'] in ('symbol', 'connection') else typed(value)
+        return ('Present' if value else 'Absent') if key['kind'] in ('symbol', 'connection', 'port_connection') else typed(value)
     def locators(evidence):
         return '<br>'.join(f'<a href="{esc(copies[e["document"]][0])}">{esc(e["document"])}, page {e["page"]}</a> '
                           f'box {esc(e["box_0_1000"])}: {esc(e["description"])}' for e in evidence)

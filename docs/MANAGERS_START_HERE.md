@@ -26,6 +26,9 @@ brief, source snapshots and blank forms. It is fictional; no plant has accepted 
 | Consultants return revised P&IDs, but requested markups may be missed | [Markup return review](PID_MARKUP_REVIEW.md): original, exact instructions sent out and returned revision | A check for each annotation, partial/missed changes, other observed changes and source locations | Review reading/inventory coverage, trace affected connections and disposition open issues before accepting the drawing. A found tag or a matching prepared value alone is insufficient. |
 | Project or change closeout says records were updated, but no one can show which | [Change/closeout checks](RUNNING_THE_MAP.md): retained before/after records and selected affected tags | Changed/unchanged records by owner, open gaps and review confirmations | Each owner verifies required changes or justifies no change; the responsible company process makes the closeout decision. |
 
+For a return containing the right tags but possibly the wrong input, use
+[port-aware revision checks](PID_CONNECTIONS.md) and assign the retained correction queue.
+
 For repeat-failure investigation, first assemble the work-order descriptions, identity/operating context and
 permitted observations behind a specific question. The [first-question brief](../examples/first-pilot/README.md)
 and [recorded-data routes](PROCESS_ANALYTICS.md) support investigation. This toolkit does not determine root cause,

@@ -1,0 +1,15 @@
+{
+  "schema": "pid-port-catalog-1",
+  "revision": "fictional-electric-1",
+  "authority": "Author-defined fictional endpoint meanings; CC0-1.0. No standards conformance asserted.",
+  "symbols": [
+    {"id": "transmitter", "glyph": "Illustrative instrument bubble; no glyph geometry supplied", "ports": [
+      {"id": "OUT", "direction": "out", "relation": "signal", "medium": "electric"}
+    ]},
+    {"id": "controller", "glyph": "Illustrative controller bubble; no glyph geometry supplied", "ports": [
+      {"id": "PV", "direction": "in", "relation": "signal", "medium": "electric"},
+      {"id": "SP", "direction": "in", "relation": "signal", "medium": "electric"},
+      {"id": "OUT", "direction": "out", "relation": "signal", "medium": "electric"}
+    ]}
+  ]
+}

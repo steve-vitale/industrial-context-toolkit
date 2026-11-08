@@ -1,0 +1,43 @@
+{
+  "base_commit": "37c7a4c195fad49c7c3e5871a9532c086751849a",
+  "prior_packet_tests": "attempt-1/OLD-PACKET-FAILURE.json in ../pid-port-review",
+  "scope": "Additive optional port facts; old factual outcomes, input sources, markup keys, reports and queues exact. Prior files retained in named Git revision. No matcher or safety weakening.",
+  "replays": [
+    {
+      "packet": "worked",
+      "old_tool_sha256_lf": "e47ab37770f9031a3338649724bef83cf3800227c3d65d96fc2121519b6a358e",
+      "new_tool_sha256_lf": "4f72c0d671627039bad6b502c2f02965d4fa5bca3c28cc1b538a7a39d84fe32a",
+      "result_value_changes": [
+        "/tool_sha256_lf"
+      ],
+      "updated_files": {
+        "receipt.json": {
+          "before": "9301950a97f6263583c7029e734e6f9aa0d15a63e3fc37036c9194613ad52286",
+          "after": "ffb2589b798156daba04b2a2026edfa10c510213b9c919de321259cdae188fce"
+        },
+        "result.json": {
+          "before": "4c26a0dd40a6814b93e503be66afaf814488147effd977e4290c7f546d322de2",
+          "after": "9e1c422b91d9db52f6fe1fdc03c9467f513f629eb779f67cb91562c392629fdb"
+        }
+      }
+    },
+    {
+      "packet": "corrected",
+      "old_tool_sha256_lf": "e47ab37770f9031a3338649724bef83cf3800227c3d65d96fc2121519b6a358e",
+      "new_tool_sha256_lf": "4f72c0d671627039bad6b502c2f02965d4fa5bca3c28cc1b538a7a39d84fe32a",
+      "result_value_changes": [
+        "/tool_sha256_lf"
+      ],
+      "updated_files": {
+        "receipt.json": {
+          "before": "be854d3f5a945a37778bf784f62eeb6cebcd1d4ebb07b94b72d7b4c5a5a34bb4",
+          "after": "243b7e305d0974a7ab15230c88a129e738372797a6482752e971528b8dedfafe"
+        },
+        "result.json": {
+          "before": "27c0146ff392f3ff6723374a6917600775d69f99e052c24635861b0893ac0d66",
+          "after": "e424804169dc863bb5730037eb2caa0ffe284168df973d6ffe82c9fb62aa3dcf"
+        }
+      }
+    }
+  ]
+}

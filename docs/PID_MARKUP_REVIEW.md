@@ -70,12 +70,18 @@ Check keys are intentionally small and exact:
 | Attribute | `kind: attribute`, `subject: FV-101`, `name: size` | Explicit typed value, e.g. `"DN80"` |
 | Note text | `kind: note`, `subject: drain-note` | Supplied note text anchored across revisions |
 | Directed connection | `kind: connection`, `subject: PT-101`, `relation: signal`, `to: PIC-101` | Boolean present/absent |
+| Exact port connection | `kind: port_connection`, `subject: PT-101`, `port: OUT`, `relation: signal`, `to: PIC-101`, `to_port: PV`, `medium: electric` | Boolean present/absent; all key fields are nonempty exact strings |
 
 Names, relation types, direction and values must match exactly. There is no fuzzy tag match, unit conversion,
 automatic symbol equivalence, path tracing or cross-sheet identity resolver. Represent multiple bypass segments
 as separate checks; valve presence alone does not establish a complete route. Stable anchors and exact fact
 meanings are supplied interpretation. Existing drawing readers/DEXPI tools may help prepare readings, but
 this command does not directly import their formats or upgrade uncertain topology into a known connection.
+
+Use the optional port fact when the destination input matters. It compares supplied exact identities and
+does not validate the port meanings. The [port-consistency route](PID_CONNECTIONS.md) separately checks
+prepared endpoint records against a versioned, explicitly scoped catalog, with a
+[fixed revision example](../examples/pid-port-review/README.md). Neither route establishes functional adequacy.
 
 ```sh
 python -S scripts/check_pid_markups.py --manifest PRIVATE_INPUT/manifest.json --out PRIVATE_NEW_PACKET

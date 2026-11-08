@@ -1,0 +1,71 @@
+{
+  "schema": "pid-port-visual-check-1",
+  "method": "Actual connected Playwright browser opened retained file URLs; assistant inspected mobile screenshot. Not independent human usability or engineering review.",
+  "pages": [
+    {
+      "packet": "initial",
+      "viewport": 420,
+      "scroll_width": 420,
+      "request_rows": 4,
+      "statuses": [
+        "supported",
+        "missing",
+        "missing",
+        "unknown"
+      ]
+    },
+    {
+      "packet": "initial",
+      "viewport": 1500,
+      "scroll_width": 1500,
+      "request_rows": 4,
+      "statuses": [
+        "supported",
+        "missing",
+        "missing",
+        "unknown"
+      ]
+    },
+    {
+      "packet": "corrected",
+      "viewport": 420,
+      "scroll_width": 420,
+      "request_rows": 4,
+      "statuses": [
+        "supported",
+        "supported",
+        "supported",
+        "unknown"
+      ]
+    },
+    {
+      "packet": "corrected",
+      "viewport": 1500,
+      "scroll_width": 1500,
+      "request_rows": 4,
+      "statuses": [
+        "supported",
+        "supported",
+        "supported",
+        "unknown"
+      ]
+    }
+  ],
+  "observations": [
+    "Exact source and destination ports remain visible at mobile width",
+    "C3 and C4 appear as other connections in the initial report",
+    "Source and queue links use local retained paths",
+    "Detailed source-bound findings are expandable",
+    "No horizontal overflow at the four measured page/viewport combinations"
+  ],
+  "screenshots": [
+    "mobile-report.png",
+    "desktop-report.png"
+  ],
+  "files": {
+    "mobile-report.png": "ebeef3589bb11ba0efe9ce89d23af01efb8bc7859ae260567b32cc8540f13c9d",
+    "desktop-report.png": "2eb1d295a0be69065e7d83c933d306c42cbb7b4b534f99f089fd31fef6ab98ad",
+    "worked/initial/REPORT.html": "795264ddf52e496bf7c11a7ad92a976cd10766d7fe33287f2ce1422f3cd56eb8",
+    "worked/corrected/REPORT.html": "40f403caaf641801d5bf4aeed0bda8d75d79a87258c9813a5ee44c9135916afc"
+  }
+}
