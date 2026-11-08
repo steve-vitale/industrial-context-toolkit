@@ -21,6 +21,7 @@ def main():
     parser.add_argument('configuration', type=Path)
     parser.add_argument('out', type=Path)
     parser.add_argument('--profile', choices=PROFILES, required=True)
+    parser.add_argument('--bridge', action='store_true')
     args = parser.parse_args()
     if args.out.exists(): raise ValueError('New job directory required')
     args.out.mkdir(parents=True)
@@ -34,10 +35,17 @@ def main():
         shutil.copyfile(HERE / name, args.out / name)
     shutil.copyfile(HERE / ('binding_probe.js' if args.profile == 'binding-probe' else 'observer.js'), args.out / 'observe_case.js')
     if args.profile == 'binding-probe': shutil.copyfile(HERE / 'probe_workflow.py', args.out / 'workflow.py')
+    if args.bridge:
+        if args.profile == 'binding-probe': raise ValueError('Binding probes retain their original separate method')
+        for source, target in [('bridge_observer.js','observe_case.js'),('bridge_workflow.py','workflow.py'),
+                               ('bridge_launch.py','launch_case.py'),('bridge_cleanup.py','cleanup.py')]:
+            shutil.copyfile(HERE / source, args.out / target)
+        for name in ('native_io.py','BRIDGE-PLAN.md','BRIDGE-PROTOCOL.md'):shutil.copyfile(HERE / name,args.out / name)
     shutil.copyfile(BASE / 'workflow.py', args.out / 'original_workflow.py')
     for name in ('ui_control.py', 'inspect_ui.py', 'native_controls.py'):
         shutil.copyfile(BASE / name, args.out / name)
     config = dict(protocol='ict-native-mailbox/1', run_id=secrets.token_hex(16), profile=args.profile)
+    if args.bridge:config['io_protocol']='ict-native-io/1'
     (args.out / 'transport.json').write_text(json.dumps(config) + '\n', encoding='utf-8')
     files = {p.relative_to(args.out).as_posix(): sha(p) for p in args.out.rglob('*') if p.is_file()}
     (args.out / 'JOB-FREEZE.json').write_text(json.dumps(dict(files=files, stage_sha256=sha(Path(__file__)),

@@ -18,6 +18,7 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('case', type=Path); p.add_argument('configuration', type=Path); p.add_argument('out', type=Path)
     p.add_argument('--profile', required=True); p.add_argument('--name', required=True)
+    p.add_argument('--bridge', action='store_true')
     a = p.parse_args()
     a.out.mkdir(parents=True)
     records = a.out / 'host'; records.mkdir()
@@ -30,7 +31,7 @@ def main():
         if check and r.returncode: raise ValueError('Host command failed; see retained command ' + str(counter))
         return r
     # Refuse a used output before launching anything; stage.py separately refuses the job.
-    command([sys.executable, str(HERE / 'stage.py'), str(a.case), str(a.configuration), str(a.out / 'job'), '--profile', a.profile])
+    command([sys.executable, str(HERE / 'stage.py'), str(a.case), str(a.configuration), str(a.out / 'job'), '--profile', a.profile] + (['--bridge'] if a.bridge else []))
     job = a.out / 'job'
     args = ['docker', 'run', '-d', '--name', a.name, '--network', 'none', '--user', '1001:1001',
             '--memory', '3g', '--cpus', '2', '--shm-size', '256m', '--pids-limit', '256', '--cap-drop', 'ALL',
@@ -43,7 +44,10 @@ def main():
         inspection = json.loads(command(['docker', 'inspect', a.name]).stdout)[0]
         state = inspection['State']
         if state['Status'] == 'exited': break
-        process = json.loads((job / 'native/PROCESS.json').read_bytes()) if (job / 'native/PROCESS.json').exists() else {}
+        try: process = json.loads((job / 'native/PROCESS.json').read_bytes())
+        except (FileNotFoundError, json.JSONDecodeError):
+            # A partial mutable progress observation is not native termination.
+            time.sleep(.2);continue
         if process.get('controller_exit') not in (None, 0) and not cleaned:
             actions = json.loads((job / 'ui/actions.json').read_bytes()) if (job / 'ui/actions.json').exists() else []
             injected = any(r['kind'] == 'fault_injection' for r in actions)
