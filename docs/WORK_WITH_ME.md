@@ -7,12 +7,13 @@ start with one equipment system and one decision someone needs to make.
 Describe the problem, the kinds of records you have and who needs the result. Keep company documents private;
 the first conversation does not require an upload or a GitHub issue.
 
-## Two starting jobs
+## Starting jobs
 
 | Job | Starting inputs | Proposed deliverable |
 |---|---|---|
 | [Reconcile maintenance information](MAINTENANCE_START.md) | Selected equipment export, work orders, datasheets, PM/spares records and permitted field observations | Source-linked asset information, disagreements and missing evidence, a correction list by record owner, and a reviewed handoff in the agreed receiving format. |
 | [Recover or update engineering drawings](DRAWING_RECOVERY.md) | Existing drawings where available, process knowledge, equipment records, field access/observations and the target CAD requirements | A scoped reconstruction plan, draft drawing and tag/line information, unresolved field questions, engineering review and an agreed CAD handoff. Native CAD compatibility is qualified for the selected tool/version before delivery is promised. |
+| [Review a consultant's P&ID return](PID_MARKUP_REVIEW.md) | Original drawings, exact markups/instructions sent out, returned revisions and the intended review scope | Annotation inventory, requested-change evidence, partial/missed changes, other observed changes and a correction/clarification handoff. Agree reading coverage and engineering review before claiming completion. |
 
 The open-source tools provide starting points for your own records. A scoped engagement adds investigation,
 record preparation, field verification, engineering review, integration and handover as agreed. You can use

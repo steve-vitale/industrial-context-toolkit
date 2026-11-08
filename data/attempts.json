@@ -5535,6 +5535,30 @@
         "examples/cad-handoff/qualification/layout-preparation-10/profile-repeat-comparisons.json",
         "examples/cad-handoff/qualification/layout-preparation-10/PROFILE-PROVENANCE-ERRATUM.md"
       ]
+    },
+    {
+      "id": "A345",
+      "function": "intake_and_reuse",
+      "date": "2026-11-07",
+      "change": "Add a reusable three-way requested P&ID markup review with exact source/reading bindings and a fictional consultant return.",
+      "hypothesis": "Explicit before/after obligations and typed directed connection checks can distinguish complete, partial, missed and unknown drawing updates while preserving other observed changes and review coverage.",
+      "evidence": "Seven fictional markups:1 supported,2 not_supported,1 partly_supported,2 not_verifiable,1 baseline_mismatch; one unrequested FC-to-FO change and one other coverage gap. Corrected return supports5, keeps illegible and wrong-baseline rows open. Nine source-only regression tests pass, covering stale/incorrect locators, missing absence evidence, reversed signals, conflicts, uncertain identity, typed values, request conflicts, paths, portable replay, receipts, HTML escaping, collisions and later returns. Actual local browser inspection at desktop1500/mobile420 reports no horizontal overflow; seven markup headings and unclipped source labels.",
+      "runs": "Plan2d90314 before implementation; initial tool and authored acceptance key89c2845 before first run. Real standard-library CLI writes imperfect/corrected packets; fixture observations are authored from the same fictional design. No model reads PDF/handwriting/images and no plant/tester data or timed human trial. Browser connector timed out; installed Edge via ephemeral local Playwright inspected actual source/report renders. Initial UI refinement changes labels, mobile layout and flow arrows, not expected outcomes.",
+      "verdict": "kept",
+      "why": "Gives managers and approved assistants a direct no-graph/no-MCP/no-CAD-UI job and retained correction queue. Only supplied facts and declared markup inventory are checked; absence is explicit, unclear identities/readings stay open, safety rows always require review. No automatic visual interpretation, semantic accuracy, full-sheet preservation, source authentication, engineering acceptance or context-map update follows.",
+      "source": [
+        "docs/JOURNAL.md#192-check-a-consultant-return-against-the-markups-sent-out",
+        "docs/PID_MARKUP_REVIEW.md",
+        "examples/PID-MARKUP-REVIEW-PLAN.md",
+        "examples/pid-markup-review/README.md",
+        "examples/pid-markup-review/ACCEPTANCE.json",
+        "examples/pid-markup-review/PROVENANCE.json",
+        "examples/pid-markup-review/worked/result.json",
+        "examples/pid-markup-review/corrected/result.json",
+        "examples/pid-markup-review/VISUAL-QA.json",
+        "scripts/check_pid_markups.py",
+        "scripts/test_pid_markups.py"
+      ]
     }
   ],
   "not_tried": [

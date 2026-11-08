@@ -75,6 +75,7 @@ does not establish accepted correction. No drawings, live connector or MCP servi
 
 | Tool or route | Current input | Output and integration boundary |
 |---|---|---|
+| `check_pid_markups.py` | `pid-markup-review-1` manifest binding original/markup/returned local documents, complete declared annotation inventory and explicit source-bound drawing readings | Offline per-change review, other observed changes/coverage gaps, exact sources and portable packet. No image/PDF interpretation, automatic markup discovery, CAD editing, company acceptance or map update. See [markup review](PID_MARKUP_REVIEW.md). |
 | `dexpi_reader.py` | Supported DEXPI XML | A Native process-model-shaped JSON plus an omissions/placement report by default. Explicit `--capture-source` adds the complete policy-filtered structured-source packet and coverage summary. Vendor dialects, mapped classes and downstream eligibility need review; not every source role is used by every generator. |
 | `source_handoff.py` | An explicitly selected process model already containing a captured `source_evidence` packet | Optional local Native/evidence/manifest trio and bounded inspection brief. No automatic capture, original-document fetching, company publication or source-aware graph/context/MCP consumer. See the [handoff guide](../examples/source-handoff/README.md). |
 | `dexpi_to_twin.py` | The pre-adapted DEXPI sheets/keys contract | An extracted twin/review bundle. This route is distinct from the direct XML reader and does not import arbitrary CAD formats. |

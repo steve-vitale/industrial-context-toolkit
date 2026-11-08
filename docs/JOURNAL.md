@@ -8480,3 +8480,45 @@ settings. The [erratum](../examples/cad-handoff/qualification/layout-preparation
 explicitly narrows that claim without changing any old code, freezes, numerical
 results, actual images or font/value observations. The current fourth-batch settings
 proof applies only to that batch and cannot retroactively qualify earlier runs.
+
+## 192. Check a consultant return against the markups sent out
+
+The [pre-implementation plan](../examples/PID-MARKUP-REVIEW-PLAN.md), commit `2d90314`,
+defines a three-way handoff: exact original, exact markups/instructions sent out and exact
+returned revision. A separate authored acceptance key was committed at `89c2845` before
+the first execution. Existing map revision reports and CAD receiving checks did not compare
+an annotation inventory against supplied before/after conditions. The new reusable
+[markup-review tool](PID_MARKUP_REVIEW.md) fills that local comparison step without requiring
+a full graph, MCP service or CAD UI. It does not read arbitrary drawings or discover markups.
+
+An engineer or approved assistant supplies all annotation interpretations and page/region-bound
+original/returned observations. Known Boolean symbol presence and typed directed connections
+are distinct from attribute/note values. Missing observations never imply absence; unknown
+and conflicting readings, uncertain sheet identity and wrong-baseline requests remain open.
+Exact document/reading/request hashes refuse stale evidence. Explicit negatives need a
+reviewed-region reason. Every markup, other observed change and other coverage gap reaches
+the CSV queue; safety-priority markups remain first even when supported. No row releases a drawing.
+
+The [fictional water-transfer case](../examples/pid-markup-review/README.md) contains seven
+markups. The first real CLI run matches the prior key: one supported, two not supported,
+one partial, two unverifiable and one original/baseline mismatch. The added bypass valve
+exists but its outlet stops short of the tank. Both instrument tags exist but their requested
+signal is absent. An unrequested FC-to-FO fail-action change and one missing material reading
+are retained separately. A corrected later return supports five requests while keeping the
+illegible and wrong-baseline rows open; the earlier packet stays intact. Observations were
+authored from the same fictional design, not independently read by a model or real engineer.
+This is software behavior, not measured drawing-reading accuracy or a consultant quality study.
+
+Nine source-only regression tests cover these outcomes plus missing absence evidence,
+reversed signal direction, conflicting readings, uncertain identity, stale sources/observations,
+wrong locators/roles, duplicate sheets, exact typed values, conflicting requests, path escape,
+output collision, escaped HTML, portable replay and receipt hashes. Actual Edge browser
+inspection followed connector timeouts. It found source labels inside the SVG frame and
+seven markup headings; desktop1500/mobile420 both have viewport-equal scroll width. Readable
+field/status names, stacked mobile cells and explicit source-flow arrows improve presentation
+without changing the key outcomes. Preview dependencies stay outside project requirements.
+
+The manager/agent selectors and consulting starting jobs now surface this specific recurring
+job. Company document access and accepted decisions remain with the organization. No source
+fetching, automatic PDF/handwriting interpretation, full-sheet preservation, CAD editing or
+context-map update is implemented. Original CAD qualification methods/results remain unchanged.

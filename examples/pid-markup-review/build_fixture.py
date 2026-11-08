@@ -17,11 +17,13 @@ def drawing(role, corrected=False):
     revision = ('C' if corrected else 'B') if returned else 'A'
     elements = ['<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 980">',
                 '<rect width="1600" height="980" fill="white"/>',
+                '<defs><marker id="flow" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto">'
+                '<path d="M0 0 L8 4 L0 8 Z" fill="#193548" stroke="none"/></marker></defs>',
                 '<style>text{font:22px sans-serif;fill:#193548}.small{font-size:18px}.red{fill:#b71d29;font-weight:bold}'
                 'path,line,circle,rect{stroke:#193548;stroke-width:3}.redline{stroke:#b71d29;fill:none;stroke-width:4}</style>',
                 '<text x="40" y="50" font-weight="bold">Fictional P&amp;ID fragment — water-transfer system</text>',
                 f'<text x="40" y="88">DEMO/U1/PID-101 · revision {revision} · {role.upper()} · NOT A PLANT RECORD</text>',
-                '<path d="M220 300 H960" fill="none"/><circle cx="180" cy="300" r="40" fill="white"/>',
+                '<path d="M220 300 H960" fill="none" marker-end="url(#flow)"/><circle cx="180" cy="300" r="40" fill="white"/>',
                 '<path d="M160 325 L208 300 L160 275 Z" fill="none"/><text x="135" y="370">P-101</text>',
                 '<text x="130" y="400" class="small">Transfer pump</text>',
                 '<path d="M430 280 L470 320 L470 280 L430 320 Z" fill="white"/>',
@@ -43,13 +45,13 @@ def drawing(role, corrected=False):
     if not returned:
         elements.append('<text x="365" y="454" class="small">Material: 316</text>')
     if returned:
-        elements += ['<path d="M270 300 V540 H520" fill="none"/>',
+        elements += ['<path d="M270 300 V540 H520" fill="none" marker-end="url(#flow)"/>',
                      '<path d="M520 520 L560 560 L560 520 L520 560 Z" fill="white"/>',
                      '<text x="500" y="600">XV-103</text>']
-        elements.append('<path d="M560 540 H1010 V395" fill="none"/>' if corrected else
-                        '<path d="M560 540 H810" fill="none"/><text x="800" y="580" class="small">open end</text>')
+        elements.append('<path d="M560 540 H1010 V395" fill="none" marker-end="url(#flow)"/>' if corrected else
+                        '<path d="M560 540 H810" fill="none" marker-end="url(#flow)"/><text x="800" y="580" class="small">open end</text>')
     if returned and corrected:
-        elements.append('<path d="M490 150 H675" fill="none" stroke-dasharray="10 8"/>')
+        elements.append('<path d="M490 150 H675" fill="none" stroke-dasharray="10 8" marker-end="url(#flow)"/>')
     if role == 'markup':
         labels = ['M01: FV-101 size DN50 → DN80', 'M02: Remove HV-102 (safety review)',
                   'M03: Add XV-103 bypass from P-101', '        discharge through to TK-101',
@@ -103,8 +105,11 @@ def build(root, corrected=False):
            (key('symbol','PT-101'),True,True),(key('symbol','PIC-101'),True,True)]
     for k,b,a in facts:
         for role,value in [('original',b),('returned',a)]:
+            label = (f'{k["subject"]} → {k["to"]} {k["relation"]} connection' if k['kind']=='connection' else
+                     k['subject'] + ' ' + k.get('name',k['kind']))
+            observed = ('present' if value else 'absent') if k['kind'] in ('symbol','connection') else str(value)
             row=dict(role=role,key=k,state='known' if value is not None else 'unknown',
-                     evidence=loc(role, ('Explicit reviewed absence: ' if value is False else 'Authored reading: ') + json.dumps(k,sort_keys=True)))
+                     evidence=loc(role,label + ': ' + (observed if value is not None else 'unreadable')))
             if value is None:row['reason']='Returned note deliberately represented as unreadable; no value guessed'
             else:
                 row['value']=value

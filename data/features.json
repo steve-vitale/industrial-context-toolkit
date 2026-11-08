@@ -1734,6 +1734,32 @@
       "time": "Human preparation/review/benefit unmeasured; exposed fictional software replay only",
       "you_get": "Exact originals, normalized records and row origins, one-map graph/queue, readable draft report, proposed actions, inventory and explicit prior-packet comparison",
       "why": "Ordinary exports need a repeatable self-service path that preserves scope and source history without confusing disappeared disagreements with accepted corrections."
+    },
+    {
+      "id": "pid-markup-review",
+      "category": "check",
+      "title": "Requested P&ID markup checks against a consultant return",
+      "tools": [
+        "scripts/check_pid_markups.py"
+      ],
+      "guide": "docs/PID_MARKUP_REVIEW.md",
+      "example_outputs": [
+        "examples/pid-markup-review/ACCEPTANCE.json",
+        "examples/pid-markup-review/PROVENANCE.json",
+        "examples/pid-markup-review/worked/result.json",
+        "examples/pid-markup-review/worked/REPORT.md",
+        "examples/pid-markup-review/worked/receipt.json",
+        "examples/pid-markup-review/corrected/result.json",
+        "examples/pid-markup-review/VISUAL-QA.json"
+      ],
+      "tests": [
+        "scripts/test_pid_markups.py"
+      ],
+      "job": "Check requested drawing changes and prepare a sourced correction/clarification handoff",
+      "you_need": "Original, exact markups/instructions sent out, returned revision, supplied annotation inventory and source-bound readings; Python3.10+ standard library for the local packet",
+      "time": "Actual interpretation/review effort and model-reading accuracy unmeasured",
+      "you_get": "Each request supported/partial/missed/unverifiable, before/returned locators, other observed changes/coverage gaps, exact retained sources and portable draft packet",
+      "why": "A new revision or present tag does not prove requested topology or notes were updated. Fictional software controls retain missing evidence and stale revisions without claiming automatic visual reading, full drawing equivalence or company acceptance."
     }
   ]
 }

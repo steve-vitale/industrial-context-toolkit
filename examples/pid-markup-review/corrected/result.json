@@ -1,0 +1,894 @@
+{
+  "schema": "pid-markup-result-1",
+  "release_accepted": false,
+  "automatic_drawing_reading": false,
+  "basis": "Comparison of supplied source-bound readings, not independent verification of their meaning",
+  "inventory_basis": "Seven authored numbered annotations; inventory is not independently reviewed or automatically discovered.",
+  "counts": {
+    "supported": 5,
+    "not_verifiable": 1,
+    "baseline_mismatch": 1
+  },
+  "markups": [
+    {
+      "id": "M01",
+      "sheet": "DEMO/U1/PID-101",
+      "text": "Change FV-101 size from DN50 to DN80",
+      "priority": "normal",
+      "interpretation": "prepared",
+      "evidence": [
+        {
+          "document": "markup",
+          "sha256": "a6ef9819027d3704337f8ed9cc41309e539e088e6d6e7dcb530930f933780493",
+          "page": 1,
+          "box_0_1000": [
+            690,
+            110,
+            990,
+            770
+          ],
+          "description": "Change FV-101 size from DN50 to DN80"
+        }
+      ],
+      "status": "supported",
+      "checks": [
+        {
+          "key": {
+            "sheet": "DEMO/U1/PID-101",
+            "kind": "attribute",
+            "subject": "FV-101",
+            "name": "size"
+          },
+          "before": "DN50",
+          "after": "DN80",
+          "status": "matches_request",
+          "original": {
+            "state": "known",
+            "value": "DN50",
+            "observations": [
+              {
+                "role": "original",
+                "key": {
+                  "sheet": "DEMO/U1/PID-101",
+                  "kind": "attribute",
+                  "subject": "FV-101",
+                  "name": "size"
+                },
+                "state": "known",
+                "evidence": [
+                  {
+                    "document": "original",
+                    "sha256": "05c2203d6b4b68b493dd3fd4cba8e477f10780492cdc4bd5a7386d8ea048ac71",
+                    "page": 1,
+                    "box_0_1000": [
+                      20,
+                      100,
+                      690,
+                      850
+                    ],
+                    "description": "FV-101 size: DN50"
+                  }
+                ],
+                "value": "DN50",
+                "identity_confirmed": true
+              }
+            ]
+          },
+          "returned": {
+            "state": "known",
+            "value": "DN80",
+            "observations": [
+              {
+                "role": "returned",
+                "key": {
+                  "sheet": "DEMO/U1/PID-101",
+                  "kind": "attribute",
+                  "subject": "FV-101",
+                  "name": "size"
+                },
+                "state": "known",
+                "evidence": [
+                  {
+                    "document": "returned",
+                    "sha256": "40f9745c190692069db8141cbf784c5431473b4a1d75eb13e5f45b7a99bd82d4",
+                    "page": 1,
+                    "box_0_1000": [
+                      20,
+                      100,
+                      690,
+                      850
+                    ],
+                    "description": "FV-101 size: DN80"
+                  }
+                ],
+                "value": "DN80",
+                "identity_confirmed": true
+              }
+            ]
+          }
+        }
+      ],
+      "review_required": true
+    },
+    {
+      "id": "M02",
+      "sheet": "DEMO/U1/PID-101",
+      "text": "Remove HV-102",
+      "priority": "safety",
+      "interpretation": "prepared",
+      "evidence": [
+        {
+          "document": "markup",
+          "sha256": "a6ef9819027d3704337f8ed9cc41309e539e088e6d6e7dcb530930f933780493",
+          "page": 1,
+          "box_0_1000": [
+            690,
+            110,
+            990,
+            770
+          ],
+          "description": "Remove HV-102"
+        }
+      ],
+      "status": "supported",
+      "checks": [
+        {
+          "key": {
+            "sheet": "DEMO/U1/PID-101",
+            "kind": "symbol",
+            "subject": "HV-102"
+          },
+          "before": true,
+          "after": false,
+          "status": "matches_request",
+          "original": {
+            "state": "known",
+            "value": true,
+            "observations": [
+              {
+                "role": "original",
+                "key": {
+                  "sheet": "DEMO/U1/PID-101",
+                  "kind": "symbol",
+                  "subject": "HV-102"
+                },
+                "state": "known",
+                "evidence": [
+                  {
+                    "document": "original",
+                    "sha256": "05c2203d6b4b68b493dd3fd4cba8e477f10780492cdc4bd5a7386d8ea048ac71",
+                    "page": 1,
+                    "box_0_1000": [
+                      20,
+                      100,
+                      690,
+                      850
+                    ],
+                    "description": "HV-102 symbol: present"
+                  }
+                ],
+                "value": true,
+                "identity_confirmed": true
+              }
+            ]
+          },
+          "returned": {
+            "state": "known",
+            "value": false,
+            "observations": [
+              {
+                "role": "returned",
+                "key": {
+                  "sheet": "DEMO/U1/PID-101",
+                  "kind": "symbol",
+                  "subject": "HV-102"
+                },
+                "state": "known",
+                "evidence": [
+                  {
+                    "document": "returned",
+                    "sha256": "40f9745c190692069db8141cbf784c5431473b4a1d75eb13e5f45b7a99bd82d4",
+                    "page": 1,
+                    "box_0_1000": [
+                      20,
+                      100,
+                      690,
+                      850
+                    ],
+                    "description": "HV-102 symbol: absent"
+                  }
+                ],
+                "value": false,
+                "reason": "Fixture author examined the entire relevant source region; this exact symbol/typed directed connection is absent",
+                "identity_confirmed": true
+              }
+            ]
+          }
+        }
+      ],
+      "review_required": true
+    },
+    {
+      "id": "M03",
+      "sheet": "DEMO/U1/PID-101",
+      "text": "Add XV-103 bypass from P-101 discharge through to TK-101",
+      "priority": "normal",
+      "interpretation": "prepared",
+      "evidence": [
+        {
+          "document": "markup",
+          "sha256": "a6ef9819027d3704337f8ed9cc41309e539e088e6d6e7dcb530930f933780493",
+          "page": 1,
+          "box_0_1000": [
+            690,
+            110,
+            990,
+            770
+          ],
+          "description": "Add XV-103 bypass from P-101 discharge through to TK-101"
+        }
+      ],
+      "status": "supported",
+      "checks": [
+        {
+          "key": {
+            "sheet": "DEMO/U1/PID-101",
+            "kind": "symbol",
+            "subject": "XV-103"
+          },
+          "before": false,
+          "after": true,
+          "status": "matches_request",
+          "original": {
+            "state": "known",
+            "value": false,
+            "observations": [
+              {
+                "role": "original",
+                "key": {
+                  "sheet": "DEMO/U1/PID-101",
+                  "kind": "symbol",
+                  "subject": "XV-103"
+                },
+                "state": "known",
+                "evidence": [
+                  {
+                    "document": "original",
+                    "sha256": "05c2203d6b4b68b493dd3fd4cba8e477f10780492cdc4bd5a7386d8ea048ac71",
+                    "page": 1,
+                    "box_0_1000": [
+                      20,
+                      100,
+                      690,
+                      850
+                    ],
+                    "description": "XV-103 symbol: absent"
+                  }
+                ],
+                "value": false,
+                "reason": "Fixture author examined the entire relevant source region; this exact symbol/typed directed connection is absent",
+                "identity_confirmed": true
+              }
+            ]
+          },
+          "returned": {
+            "state": "known",
+            "value": true,
+            "observations": [
+              {
+                "role": "returned",
+                "key": {
+                  "sheet": "DEMO/U1/PID-101",
+                  "kind": "symbol",
+                  "subject": "XV-103"
+                },
+                "state": "known",
+                "evidence": [
+                  {
+                    "document": "returned",
+                    "sha256": "40f9745c190692069db8141cbf784c5431473b4a1d75eb13e5f45b7a99bd82d4",
+                    "page": 1,
+                    "box_0_1000": [
+                      20,
+                      100,
+                      690,
+                      850
+                    ],
+                    "description": "XV-103 symbol: present"
+                  }
+                ],
+                "value": true,
+                "identity_confirmed": true
+              }
+            ]
+          }
+        },
+        {
+          "key": {
+            "sheet": "DEMO/U1/PID-101",
+            "kind": "connection",
+            "subject": "P-101",
+            "relation": "process",
+            "to": "XV-103"
+          },
+          "before": false,
+          "after": true,
+          "status": "matches_request",
+          "original": {
+            "state": "known",
+            "value": false,
+            "observations": [
+              {
+                "role": "original",
+                "key": {
+                  "sheet": "DEMO/U1/PID-101",
+                  "kind": "connection",
+                  "subject": "P-101",
+                  "relation": "process",
+                  "to": "XV-103"
+                },
+                "state": "known",
+                "evidence": [
+                  {
+                    "document": "original",
+                    "sha256": "05c2203d6b4b68b493dd3fd4cba8e477f10780492cdc4bd5a7386d8ea048ac71",
+                    "page": 1,
+                    "box_0_1000": [
+                      20,
+                      100,
+                      690,
+                      850
+                    ],
+                    "description": "P-101 → XV-103 process connection: absent"
+                  }
+                ],
+                "value": false,
+                "reason": "Fixture author examined the entire relevant source region; this exact symbol/typed directed connection is absent",
+                "identity_confirmed": true
+              }
+            ]
+          },
+          "returned": {
+            "state": "known",
+            "value": true,
+            "observations": [
+              {
+                "role": "returned",
+                "key": {
+                  "sheet": "DEMO/U1/PID-101",
+                  "kind": "connection",
+                  "subject": "P-101",
+                  "relation": "process",
+                  "to": "XV-103"
+                },
+                "state": "known",
+                "evidence": [
+                  {
+                    "document": "returned",
+                    "sha256": "40f9745c190692069db8141cbf784c5431473b4a1d75eb13e5f45b7a99bd82d4",
+                    "page": 1,
+                    "box_0_1000": [
+                      20,
+                      100,
+                      690,
+                      850
+                    ],
+                    "description": "P-101 → XV-103 process connection: present"
+                  }
+                ],
+                "value": true,
+                "identity_confirmed": true
+              }
+            ]
+          }
+        },
+        {
+          "key": {
+            "sheet": "DEMO/U1/PID-101",
+            "kind": "connection",
+            "subject": "XV-103",
+            "relation": "process",
+            "to": "TK-101"
+          },
+          "before": false,
+          "after": true,
+          "status": "matches_request",
+          "original": {
+            "state": "known",
+            "value": false,
+            "observations": [
+              {
+                "role": "original",
+                "key": {
+                  "sheet": "DEMO/U1/PID-101",
+                  "kind": "connection",
+                  "subject": "XV-103",
+                  "relation": "process",
+                  "to": "TK-101"
+                },
+                "state": "known",
+                "evidence": [
+                  {
+                    "document": "original",
+                    "sha256": "05c2203d6b4b68b493dd3fd4cba8e477f10780492cdc4bd5a7386d8ea048ac71",
+                    "page": 1,
+                    "box_0_1000": [
+                      20,
+                      100,
+                      690,
+                      850
+                    ],
+                    "description": "XV-103 → TK-101 process connection: absent"
+                  }
+                ],
+                "value": false,
+                "reason": "Fixture author examined the entire relevant source region; this exact symbol/typed directed connection is absent",
+                "identity_confirmed": true
+              }
+            ]
+          },
+          "returned": {
+            "state": "known",
+            "value": true,
+            "observations": [
+              {
+                "role": "returned",
+                "key": {
+                  "sheet": "DEMO/U1/PID-101",
+                  "kind": "connection",
+                  "subject": "XV-103",
+                  "relation": "process",
+                  "to": "TK-101"
+                },
+                "state": "known",
+                "evidence": [
+                  {
+                    "document": "returned",
+                    "sha256": "40f9745c190692069db8141cbf784c5431473b4a1d75eb13e5f45b7a99bd82d4",
+                    "page": 1,
+                    "box_0_1000": [
+                      20,
+                      100,
+                      690,
+                      850
+                    ],
+                    "description": "XV-103 → TK-101 process connection: present"
+                  }
+                ],
+                "value": true,
+                "identity_confirmed": true
+              }
+            ]
+          }
+        }
+      ],
+      "review_required": true
+    },
+    {
+      "id": "M04",
+      "sheet": "DEMO/U1/PID-101",
+      "text": "Add the PT-101 to PIC-101 signal connection",
+      "priority": "normal",
+      "interpretation": "prepared",
+      "evidence": [
+        {
+          "document": "markup",
+          "sha256": "a6ef9819027d3704337f8ed9cc41309e539e088e6d6e7dcb530930f933780493",
+          "page": 1,
+          "box_0_1000": [
+            690,
+            110,
+            990,
+            770
+          ],
+          "description": "Add the PT-101 to PIC-101 signal connection"
+        }
+      ],
+      "status": "supported",
+      "checks": [
+        {
+          "key": {
+            "sheet": "DEMO/U1/PID-101",
+            "kind": "connection",
+            "subject": "PT-101",
+            "relation": "signal",
+            "to": "PIC-101"
+          },
+          "before": false,
+          "after": true,
+          "status": "matches_request",
+          "original": {
+            "state": "known",
+            "value": false,
+            "observations": [
+              {
+                "role": "original",
+                "key": {
+                  "sheet": "DEMO/U1/PID-101",
+                  "kind": "connection",
+                  "subject": "PT-101",
+                  "relation": "signal",
+                  "to": "PIC-101"
+                },
+                "state": "known",
+                "evidence": [
+                  {
+                    "document": "original",
+                    "sha256": "05c2203d6b4b68b493dd3fd4cba8e477f10780492cdc4bd5a7386d8ea048ac71",
+                    "page": 1,
+                    "box_0_1000": [
+                      20,
+                      100,
+                      690,
+                      850
+                    ],
+                    "description": "PT-101 → PIC-101 signal connection: absent"
+                  }
+                ],
+                "value": false,
+                "reason": "Fixture author examined the entire relevant source region; this exact symbol/typed directed connection is absent",
+                "identity_confirmed": true
+              }
+            ]
+          },
+          "returned": {
+            "state": "known",
+            "value": true,
+            "observations": [
+              {
+                "role": "returned",
+                "key": {
+                  "sheet": "DEMO/U1/PID-101",
+                  "kind": "connection",
+                  "subject": "PT-101",
+                  "relation": "signal",
+                  "to": "PIC-101"
+                },
+                "state": "known",
+                "evidence": [
+                  {
+                    "document": "returned",
+                    "sha256": "40f9745c190692069db8141cbf784c5431473b4a1d75eb13e5f45b7a99bd82d4",
+                    "page": 1,
+                    "box_0_1000": [
+                      20,
+                      100,
+                      690,
+                      850
+                    ],
+                    "description": "PT-101 → PIC-101 signal connection: present"
+                  }
+                ],
+                "value": true,
+                "identity_confirmed": true
+              }
+            ]
+          }
+        }
+      ],
+      "review_required": true
+    },
+    {
+      "id": "M05",
+      "sheet": "DEMO/U1/PID-101",
+      "text": "Illegible annotation; request clarification",
+      "priority": "normal",
+      "interpretation": "unreadable",
+      "evidence": [
+        {
+          "document": "markup",
+          "sha256": "a6ef9819027d3704337f8ed9cc41309e539e088e6d6e7dcb530930f933780493",
+          "page": 1,
+          "box_0_1000": [
+            690,
+            110,
+            990,
+            770
+          ],
+          "description": "Illegible annotation; request clarification"
+        }
+      ],
+      "reason": "Fictional illegible annotation deliberately left uninterpreted",
+      "status": "not_verifiable",
+      "checks": [],
+      "review_required": true
+    },
+    {
+      "id": "M06",
+      "sheet": "DEMO/U1/PID-101",
+      "text": "Change P-102 service from duty to standby",
+      "priority": "normal",
+      "interpretation": "prepared",
+      "evidence": [
+        {
+          "document": "markup",
+          "sha256": "a6ef9819027d3704337f8ed9cc41309e539e088e6d6e7dcb530930f933780493",
+          "page": 1,
+          "box_0_1000": [
+            690,
+            110,
+            990,
+            770
+          ],
+          "description": "Change P-102 service from duty to standby"
+        }
+      ],
+      "status": "baseline_mismatch",
+      "checks": [
+        {
+          "key": {
+            "sheet": "DEMO/U1/PID-101",
+            "kind": "attribute",
+            "subject": "P-102",
+            "name": "service"
+          },
+          "before": "duty",
+          "after": "standby",
+          "status": "baseline_mismatch",
+          "original": {
+            "state": "known",
+            "value": "standby",
+            "observations": [
+              {
+                "role": "original",
+                "key": {
+                  "sheet": "DEMO/U1/PID-101",
+                  "kind": "attribute",
+                  "subject": "P-102",
+                  "name": "service"
+                },
+                "state": "known",
+                "evidence": [
+                  {
+                    "document": "original",
+                    "sha256": "05c2203d6b4b68b493dd3fd4cba8e477f10780492cdc4bd5a7386d8ea048ac71",
+                    "page": 1,
+                    "box_0_1000": [
+                      20,
+                      100,
+                      690,
+                      850
+                    ],
+                    "description": "P-102 service: standby"
+                  }
+                ],
+                "value": "standby",
+                "identity_confirmed": true
+              }
+            ]
+          },
+          "returned": {
+            "state": "known",
+            "value": "standby",
+            "observations": [
+              {
+                "role": "returned",
+                "key": {
+                  "sheet": "DEMO/U1/PID-101",
+                  "kind": "attribute",
+                  "subject": "P-102",
+                  "name": "service"
+                },
+                "state": "known",
+                "evidence": [
+                  {
+                    "document": "returned",
+                    "sha256": "40f9745c190692069db8141cbf784c5431473b4a1d75eb13e5f45b7a99bd82d4",
+                    "page": 1,
+                    "box_0_1000": [
+                      20,
+                      100,
+                      690,
+                      850
+                    ],
+                    "description": "P-102 service: standby"
+                  }
+                ],
+                "value": "standby",
+                "identity_confirmed": true
+              }
+            ]
+          }
+        }
+      ],
+      "review_required": true
+    },
+    {
+      "id": "M07",
+      "sheet": "DEMO/U1/PID-101",
+      "text": "Change drain note from open tundish to closed system",
+      "priority": "normal",
+      "interpretation": "prepared",
+      "evidence": [
+        {
+          "document": "markup",
+          "sha256": "a6ef9819027d3704337f8ed9cc41309e539e088e6d6e7dcb530930f933780493",
+          "page": 1,
+          "box_0_1000": [
+            690,
+            110,
+            990,
+            770
+          ],
+          "description": "Change drain note from open tundish to closed system"
+        }
+      ],
+      "status": "supported",
+      "checks": [
+        {
+          "key": {
+            "sheet": "DEMO/U1/PID-101",
+            "kind": "note",
+            "subject": "drain-note"
+          },
+          "before": "open tundish",
+          "after": "closed system",
+          "status": "matches_request",
+          "original": {
+            "state": "known",
+            "value": "open tundish",
+            "observations": [
+              {
+                "role": "original",
+                "key": {
+                  "sheet": "DEMO/U1/PID-101",
+                  "kind": "note",
+                  "subject": "drain-note"
+                },
+                "state": "known",
+                "evidence": [
+                  {
+                    "document": "original",
+                    "sha256": "05c2203d6b4b68b493dd3fd4cba8e477f10780492cdc4bd5a7386d8ea048ac71",
+                    "page": 1,
+                    "box_0_1000": [
+                      20,
+                      100,
+                      690,
+                      850
+                    ],
+                    "description": "drain-note note: open tundish"
+                  }
+                ],
+                "value": "open tundish",
+                "identity_confirmed": true
+              }
+            ]
+          },
+          "returned": {
+            "state": "known",
+            "value": "closed system",
+            "observations": [
+              {
+                "role": "returned",
+                "key": {
+                  "sheet": "DEMO/U1/PID-101",
+                  "kind": "note",
+                  "subject": "drain-note"
+                },
+                "state": "known",
+                "evidence": [
+                  {
+                    "document": "returned",
+                    "sha256": "40f9745c190692069db8141cbf784c5431473b4a1d75eb13e5f45b7a99bd82d4",
+                    "page": 1,
+                    "box_0_1000": [
+                      20,
+                      100,
+                      690,
+                      850
+                    ],
+                    "description": "drain-note note: closed system"
+                  }
+                ],
+                "value": "closed system",
+                "identity_confirmed": true
+              }
+            ]
+          }
+        }
+      ],
+      "review_required": true
+    }
+  ],
+  "other_observed_changes": [],
+  "other_fact_coverage_gaps": [
+    {
+      "key": {
+        "kind": "attribute",
+        "name": "material",
+        "sheet": "DEMO/U1/PID-101",
+        "subject": "FV-101"
+      },
+      "original": {
+        "state": "known",
+        "value": "316",
+        "observations": [
+          {
+            "role": "original",
+            "key": {
+              "sheet": "DEMO/U1/PID-101",
+              "kind": "attribute",
+              "subject": "FV-101",
+              "name": "material"
+            },
+            "state": "known",
+            "value": "316",
+            "evidence": [
+              {
+                "document": "original",
+                "sha256": "05c2203d6b4b68b493dd3fd4cba8e477f10780492cdc4bd5a7386d8ea048ac71",
+                "page": 1,
+                "box_0_1000": [
+                  20,
+                  100,
+                  690,
+                  850
+                ],
+                "description": "Material: 316"
+              }
+            ],
+            "identity_confirmed": true
+          }
+        ]
+      },
+      "returned": {
+        "state": "unknown",
+        "reason": "No observation; absence is not inferred",
+        "observations": []
+      }
+    }
+  ],
+  "observed_fact_keys": 12,
+  "boundary": "Only supplied facts are compared. Unlisted markups, geometry, drafting quality, off-page continuity, functional adequacy and installed state are not established. No drawing release or company acceptance.",
+  "documents": [
+    {
+      "id": "original",
+      "role": "original",
+      "path": "sources/001.svg",
+      "sha256": "05c2203d6b4b68b493dd3fd4cba8e477f10780492cdc4bd5a7386d8ea048ac71",
+      "pages": [
+        {
+          "page": 1,
+          "sheet": "DEMO/U1/PID-101",
+          "revision": "A",
+          "identity": "confirmed"
+        }
+      ]
+    },
+    {
+      "id": "markup",
+      "role": "markup",
+      "path": "sources/002.svg",
+      "sha256": "a6ef9819027d3704337f8ed9cc41309e539e088e6d6e7dcb530930f933780493",
+      "pages": [
+        {
+          "page": 1,
+          "sheet": "DEMO/U1/PID-101",
+          "revision": "A",
+          "identity": "confirmed"
+        }
+      ]
+    },
+    {
+      "id": "returned",
+      "role": "returned",
+      "path": "sources/003.svg",
+      "sha256": "40f9745c190692069db8141cbf784c5431473b4a1d75eb13e5f45b7a99bd82d4",
+      "pages": [
+        {
+          "page": 1,
+          "sheet": "DEMO/U1/PID-101",
+          "revision": "C",
+          "identity": "confirmed"
+        }
+      ]
+    }
+  ],
+  "reading_method": "Authored fictional readings from the fixture design, not model extraction, engineering approval or an independent visual interpretation test.",
+  "input_sha256": {
+    "requests": "3de278bd83d8410f9350b81c860babd5f679e39c473dba37aacc448fe06b6430",
+    "readings": "bbb8cde990cc1ca17930d3b30e8fc3209f134030ba15e6a61aa0d2a14b939c4c"
+  },
+  "tool_sha256_lf": "e47ab37770f9031a3338649724bef83cf3800227c3d65d96fc2121519b6a358e"
+}
