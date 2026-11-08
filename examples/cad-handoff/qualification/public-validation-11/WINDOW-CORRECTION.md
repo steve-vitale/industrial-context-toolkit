@@ -22,3 +22,9 @@ identical commands, but the claim that those arguments implemented the declared 
 frame is incorrect. Do not use those images as proof of complete layout framing/readability.
 No old driver, source, image, strict comparison, score or archive is changed. Native stored
 values, exact candidate byte checks and measured main-viewport bounds are separate evidence.
+
+A source audit of the other retained bitmap callers found explicit width/height construction
+in `render_review.py` and the translated frames in `render_diagnosis4.py`; they do not use
+this mistaken direct min/max serialization. No source-wide replacement or retroactive
+change to their commands is made. GUI `RBox` camera calls use min/max bounds and have a
+different contract; they must not receive this bitmap-only conversion.

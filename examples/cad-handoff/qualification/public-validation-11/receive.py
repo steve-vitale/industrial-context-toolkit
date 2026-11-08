@@ -107,13 +107,19 @@ def check(root,rendered=True):
     require(read(native/'native-environment.json')['State']['Status']=='exited' and read(native/'native-environment.json')['State']['ExitCode']==0,'Native controller not normally terminal')
     summary=dict(cases=len(first),exact_candidates=len(first),native_strict=counts,
                  native_fields=first_fields,fresh_process_fields=fresh_fields,whole_cad_qualified=False,
-                 remaining=['Complete rendered-image review','Actual fresh-cohort native UI edit/save/close/reopen',
+                 remaining=['Complete readable receiving acceptance; reviewed images retain overlaps/marks','Actual fresh-cohort native UI edit/save/close/reopen',
                             'Planted-loss and second-revision controls on this cohort','Explain native full-save differences',
                             'Fresh foreign-payload/text/layout coverage; current public adaptation adds only ordinary test fields',
                             'Engineering/company acceptance not inferred'])
     if rendered:
         from PIL import Image
         jobs=read(HERE/'RENDERS.json');require(read(native/'RENDERS.json')==jobs,'Fixed render jobs changed')
+        require(hashlib.sha256((native/'render_native.py').read_bytes().replace(b'\r\n',b'\n')).hexdigest()==jobs['render_driver_sha256_lf'],'Executed render driver differs')
+        correction=read(HERE/'WINDOW-FREEZE.json')
+        for name,pin in correction['methods_lf'].items():
+            require(hashlib.sha256((HERE/name).read_bytes().replace(b'\r\n',b'\n')).hexdigest()==pin
+                    and hashlib.sha256((native/name).read_bytes().replace(b'\r\n',b'\n')).hexdigest()==pin,'Corrected render recipe differs')
+        require(ch.digest(root/'observations/dwg2bmp-help.txt')==correction['help_sha256'],'Native window help identity differs')
         records=read(native/'renders/commands.json')
         require([r['id'] for r in records]==[j['id'] for j in jobs['jobs']],'Render coverage omitted/reordered')
         require(records[0]['configuration_sha256_before']==jobs['configuration_sha256'],'Initial render configuration differs')

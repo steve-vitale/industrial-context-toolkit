@@ -8522,3 +8522,53 @@ The manager/agent selectors and consulting starting jobs now surface this specif
 job. Company document access and accepted decisions remain with the organization. No source
 fetching, automatic PDF/handwriting interpretation, full-sheet preservation, CAD editing or
 context-map update is implemented. Original CAD qualification methods/results remain unchanged.
+
+## 193. Test public CAD transfer and find a receiving window contract error
+
+The [public transfer plan](../examples/cad-handoff/qualification/PUBLIC-VALIDATION-11-PLAN.md)
+and six selected Git paths were committed at `d1885d0` before inspecting their drawing
+contents. The existing adapter/writer/strict checker/native methods were frozen at
+`02c8fa2`; derived source/plan hashes at `c28959e` preceded candidate execution. The
+cohort covers three LibreCAD and three QCAD categories, selected by a fixed filename-hash
+rule. These projects share history; six files are not six independent plants. The QCAD
+template supplies layers but no original geometry. Every exact upstream Git blob matches.
+All untouched sources refuse the ICT_ID/TAG profile. The unchanged adapter authors test
+identities and one unused field; preservation starts at those reserialized derived files.
+
+All six exact candidates pass the unchanged strict comparison and separate source/plan
+raw reconstruction. All six matched library-save baselines pass decoded comparison but
+fail exact byte preservation. A network-disabled, normal-user container uses the pinned
+Qt5 trial image and explicit selected settings file. It imports, edits, exports default
+and R15 returns, destroys/reopens documents and reads them again in a separate process.
+Seventy-two stored-field observations match in the first process and 72 in the second.
+All twelve full saves still fail strict preservation: 346–436 differences. No row is
+waived or subtracted, and API readback is not described as actual native UI acceptance.
+
+The first native asset view exposed a receiving-harness bug. Canonical min/max bounds
+were passed directly to a bitmap option expecting X/Y/width/height. The installed native
+command's own `-help` output and publisher documentation agree. The original 24 images
+remain. The [correction](../examples/cad-handoff/qualification/public-validation-11/WINDOW-CORRECTION.md),
+frozen at `26b5372`, converts the command argument without changing canonical frames,
+drawings, fonts or marks, and writes a separate 24-view batch. This is exposed observation
+development, not a blinded validation of the receiving method. The earlier layout-10
+frame claim is narrowed; its exact saved images and matched-pixel numbers remain records
+of the actual commands. Image-edge clipping cannot be attributed to the source viewport
+from the affected images alone. Inherited geometry crosses some authored labels and
+trial marks obstruct content, so correct framing does not establish complete readability.
+
+Six exposed second-revision controls add deliberately unfamiliar attributes and XDATA,
+reject old-source and wrong-before plans, preserve the new payloads in a separately bound
+proposal, and detect changed geometry/foreign/XDATA values with both strict and raw checks.
+The first control attempt misused the complete-file parser on a fragment and failed. The
+second exited zero but emitted duplicate-handle warnings because it omitted HANDSEED
+advancement; its reported booleans are not accepted as a clean pass. Both remain retained.
+The corrected third run advances the deliberate revision seed and has no such warnings.
+These added payloads are authored controls, not upstream unknown-field preservation evidence.
+
+The [offline receiver](../examples/cad-handoff/qualification/check_public11.py) reconstructs
+exact candidates, re-scores full saved comparisons, checks every stored field, settings
+chain, input/image identity and frame command, and regenerates the revision/loss controls.
+New regression controls reject missing cases, wrong selected settings, changed unfamiliar
+values and incorrect bitmap coordinate semantics. Original strict methods and their tests
+remain unchanged. Full CAD qualification, readable receiving UI/editability and explained
+native full-save differences remain open; no engineering/company acceptance is inferred.

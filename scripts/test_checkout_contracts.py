@@ -70,6 +70,7 @@ RAW_FAMILIES += ('examples/opportunity-screen/alarm-basis/models',
                  'examples/internal-mcp/history/before-screening-wording')
 RAW_FAMILIES += ('examples/batch-analysis/public-distillation/source',)
 RAW_FAMILIES += ('examples/batch-analysis/investigation/worked/checks',)
+RAW_FAMILIES += ('examples/cad-handoff/qualification/public-validation-11',)
 TARGETS += [path.relative_to(ROOT).as_posix()
             for path in sorted((ROOT / 'examples/engineering-change').rglob('*'))
             if path.is_file() and path.suffix != '.png' and '__pycache__' not in path.parts]

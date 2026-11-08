@@ -1,0 +1,9 @@
+{
+  "detected": "Before evidence artifact commit",
+  "cause": "Earlier broad cad-handoff text rule overrides a new raw-family attribute when placed before it",
+  "working_sha256": "a7c8f1006c2b6fad7f100c62aba41a98ab18fb8645eabf3d05e10ddfffcdc6b4",
+  "initial_staged_sha256": "9c50ba2d4ea7cf7231ef02ca8b49779b7cae9da29ef4071410d4fae0d83fb3d8",
+  "working_bytes": 2033700,
+  "initial_staged_bytes": 2033670,
+  "correction": "Move raw-family rule after broad CAD text policy, use git add --renormalize on this family to refresh cached index bytes, verify index and original SHA256 match, then exercise actual Git checkout contracts; original archive unchanged"
+}

@@ -1,0 +1,2428 @@
+{
+  "files": {
+    "raw/inputs/ADMISSION.json": {
+      "bytes": 8142,
+      "sha256": "106ee5bd475f23fcc1f7be9ba8036d3397ec5515a4d5ca53f0524ee2ead49cc1"
+    },
+    "raw/inputs/libre-air-water/adaptation.json": {
+      "bytes": 377,
+      "sha256": "716c1ac4663b8544b98a964b194319eaabbafb7af4e8206402dbb1e296278da0"
+    },
+    "raw/inputs/libre-air-water/original.dxf": {
+      "bytes": 10143,
+      "sha256": "ec8087fccdcba6166f503dd48c13746aed0206b8c0b5b4d65aa993d8703cd228"
+    },
+    "raw/inputs/libre-air-water/plan.json": {
+      "bytes": 388,
+      "sha256": "bce43ca6cd52bcb57bf1779c15ebe4aaaa2eecdb1c7395f681132cc0064522fa"
+    },
+    "raw/inputs/libre-air-water/source.dxf": {
+      "bytes": 21102,
+      "sha256": "245a50eefeabc483f16269375a3bf9bd892b9cebd125e76f5ae744f5466f4db8"
+    },
+    "raw/inputs/libre-motion/adaptation.json": {
+      "bytes": 374,
+      "sha256": "9a372b2a2dd4cd62ce9581213c276a722cb67a534b170ac884a34832702de76a"
+    },
+    "raw/inputs/libre-motion/original.dxf": {
+      "bytes": 8446,
+      "sha256": "2e9f2859dc07d92b9cd5307c98c0a02a26b645eca37c36557d54ccd92e8385dd"
+    },
+    "raw/inputs/libre-motion/plan.json": {
+      "bytes": 385,
+      "sha256": "23c734be478b2de9a2dad6dec09377bdf27d263db8c4dd14b2c25be01ac717f1"
+    },
+    "raw/inputs/libre-motion/source.dxf": {
+      "bytes": 21301,
+      "sha256": "724b0557adc753c59e23e864dc08f6de1c1ca50767b4da012be0fadf54d77b04"
+    },
+    "raw/inputs/libre-power/adaptation.json": {
+      "bytes": 373,
+      "sha256": "bedacd4f2f46f195df838e6e61f91f35760955578e070fd214f8c133ebff66ca"
+    },
+    "raw/inputs/libre-power/original.dxf": {
+      "bytes": 10088,
+      "sha256": "a7dc6f0017c680e4f19245be1bb19afbac18e7f7c5e2a92f2a3325211f4eff08"
+    },
+    "raw/inputs/libre-power/plan.json": {
+      "bytes": 384,
+      "sha256": "0bca0796d3c1b63b4d63d9f8c70782fa90177b96f8907d00b9ac10aa419c7566"
+    },
+    "raw/inputs/libre-power/source.dxf": {
+      "bytes": 20916,
+      "sha256": "8876b0c66ec7794914a2218072386f5d169a6813a675a579747fa6242cfac2bd"
+    },
+    "raw/inputs/qcad-hydraulic/adaptation.json": {
+      "bytes": 376,
+      "sha256": "336c97d38bdfa24efd526ad7d68daee5a840a192e74e28e29bed769bcfbbc68e"
+    },
+    "raw/inputs/qcad-hydraulic/original.dxf": {
+      "bytes": 20748,
+      "sha256": "035875e4ff37e2a39508412459536ec94ea66af4d3f72e7c6438ac9d5b1a3a07"
+    },
+    "raw/inputs/qcad-hydraulic/plan.json": {
+      "bytes": 387,
+      "sha256": "e47d9c074c3aa81897fe41ee52cb01fc3a97e8313f0ae6975dcff484422f9379"
+    },
+    "raw/inputs/qcad-hydraulic/source.dxf": {
+      "bytes": 30360,
+      "sha256": "4d768e3a5ca0ba8d5e4762851a349f1679381b51d5fdf2a9b2fc89e86aa430db"
+    },
+    "raw/inputs/qcad-mechanical/adaptation.json": {
+      "bytes": 374,
+      "sha256": "305d098f5986a49ef0a3c02e4d952b736a5b3101b0c2d052fbbcaeb2658769aa"
+    },
+    "raw/inputs/qcad-mechanical/original.dxf": {
+      "bytes": 35510,
+      "sha256": "1b0f8246eb34f213424bb2d9f44110b5da60c6a786245ad49b2551232144bf8f"
+    },
+    "raw/inputs/qcad-mechanical/plan.json": {
+      "bytes": 388,
+      "sha256": "97ccbc68a37961f2d5a54c23365c79fcaace66108dd41444810d874bfea2292a"
+    },
+    "raw/inputs/qcad-mechanical/source.dxf": {
+      "bytes": 41571,
+      "sha256": "30c4a41b51dd5474889db30ca336a2cfe18df6d2dc2c6fea5affb5091327a26d"
+    },
+    "raw/inputs/qcad-template/adaptation.json": {
+      "bytes": 372,
+      "sha256": "7e68be21b2d8437d13aa94a78a4c05e4946e02846d9b3cc1e0b1abd5554e52c4"
+    },
+    "raw/inputs/qcad-template/original.dxf": {
+      "bytes": 36644,
+      "sha256": "3973e1456461b6971d8f4d1ee2a5bbe803fc478fe0e2eba581c7988c6d8aaa5d"
+    },
+    "raw/inputs/qcad-template/plan.json": {
+      "bytes": 386,
+      "sha256": "ad70bfaa02bc87d5efe675aa8c22e9c80957d98473b77391b8f88b8ca13e3ae2"
+    },
+    "raw/inputs/qcad-template/source.dxf": {
+      "bytes": 42619,
+      "sha256": "6e87cef8ca4178b20e9d4e2b892917636ba2fe02e030ea076379c8d57e6a1f88"
+    },
+    "raw/candidates/libre-air-water/candidate/byte-edits.json": {
+      "bytes": 749,
+      "sha256": "e906b293005b1a5a71b826d0e9468114b74e18b2db6412fdc2a4665ac7421cce"
+    },
+    "raw/candidates/libre-air-water/candidate/cad_context.json": {
+      "bytes": 621,
+      "sha256": "ad3633657b7eb02b0ed1746729361314501b0d2b83d10c5bc245389c484f8c3d"
+    },
+    "raw/candidates/libre-air-water/candidate/candidate-context/cad_context.json": {
+      "bytes": 620,
+      "sha256": "858d652810e58f8b07210d2545469d06de0fcc0652a3f048b0a94bab83f4e7ef"
+    },
+    "raw/candidates/libre-air-water/candidate/candidate-context/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/candidates/libre-air-water/candidate/candidate-context/snapshot.json": {
+      "bytes": 82909,
+      "sha256": "3dd69a8295dd76a42b2f0d26111f20b3f9c91df95ec8c5e56a88a5863a6c31e4"
+    },
+    "raw/candidates/libre-air-water/candidate/candidate-context/source.dxf": {
+      "bytes": 21101,
+      "sha256": "257efa01da7a490316489aa312ed88548b819c1af9179fb70fafb351188f3795"
+    },
+    "raw/candidates/libre-air-water/candidate/candidate.dxf": {
+      "bytes": 21101,
+      "sha256": "257efa01da7a490316489aa312ed88548b819c1af9179fb70fafb351188f3795"
+    },
+    "raw/candidates/libre-air-water/candidate/candidate.snapshot.json": {
+      "bytes": 82909,
+      "sha256": "3dd69a8295dd76a42b2f0d26111f20b3f9c91df95ec8c5e56a88a5863a6c31e4"
+    },
+    "raw/candidates/libre-air-water/candidate/comparison.json": {
+      "bytes": 868,
+      "sha256": "575594330ffbfced5f422d06157400f0351c411799a9dfb0531a5262d9c8a0f3"
+    },
+    "raw/candidates/libre-air-water/candidate/plan.json": {
+      "bytes": 388,
+      "sha256": "bce43ca6cd52bcb57bf1779c15ebe4aaaa2eecdb1c7395f681132cc0064522fa"
+    },
+    "raw/candidates/libre-air-water/candidate/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/candidates/libre-air-water/candidate/snapshot.json": {
+      "bytes": 82911,
+      "sha256": "2ad4849c63a8480c278bdafa529f138569140b78e755dc8004b8527c4ff295f3"
+    },
+    "raw/candidates/libre-air-water/candidate/source.dxf": {
+      "bytes": 21102,
+      "sha256": "245a50eefeabc483f16269375a3bf9bd892b9cebd125e76f5ae744f5466f4db8"
+    },
+    "raw/candidates/libre-air-water/library-save.comparison.json": {
+      "bytes": 867,
+      "sha256": "9f70898ade04fb04a04e7d1556b8442874d0106be8950dc84ff1b4d9434cfd09"
+    },
+    "raw/candidates/libre-air-water/library.dxf": {
+      "bytes": 21107,
+      "sha256": "85c3f25eb18a55fc94b63960104acd145be93633272db556a87903f2676113e4"
+    },
+    "raw/candidates/libre-air-water/result.json": {
+      "bytes": 941,
+      "sha256": "bb90b0d26ae5958d96b0a2f72dd38ee18559c6d4b46ef000146b0b0c4c6c5dd3"
+    },
+    "raw/candidates/libre-air-water/value-spans.comparison.json": {
+      "bytes": 868,
+      "sha256": "575594330ffbfced5f422d06157400f0351c411799a9dfb0531a5262d9c8a0f3"
+    },
+    "raw/candidates/libre-motion/candidate/byte-edits.json": {
+      "bytes": 746,
+      "sha256": "7029d68b4271526dcfd1c56efd756546f734b228e61def07c33b0541bf9c2b68"
+    },
+    "raw/candidates/libre-motion/candidate/cad_context.json": {
+      "bytes": 615,
+      "sha256": "ce0e15d3b487a958d486a9dd58779147b3a030aaf66f5b1c3f7d352bc24c8672"
+    },
+    "raw/candidates/libre-motion/candidate/candidate-context/cad_context.json": {
+      "bytes": 614,
+      "sha256": "7153dd1a2b6e27abeb6cc073b2a182fdfbd282183b88d129d6902e24de26affa"
+    },
+    "raw/candidates/libre-motion/candidate/candidate-context/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/candidates/libre-motion/candidate/candidate-context/snapshot.json": {
+      "bytes": 84270,
+      "sha256": "4259e8799d1262771f4ee050e4157540735f453710bee59899267b3f11ca52b1"
+    },
+    "raw/candidates/libre-motion/candidate/candidate-context/source.dxf": {
+      "bytes": 21300,
+      "sha256": "c95e3478d9ca1cd4f80599a9408ca35dc843e922900fad1ea937d7dc47781e13"
+    },
+    "raw/candidates/libre-motion/candidate/candidate.dxf": {
+      "bytes": 21300,
+      "sha256": "c95e3478d9ca1cd4f80599a9408ca35dc843e922900fad1ea937d7dc47781e13"
+    },
+    "raw/candidates/libre-motion/candidate/candidate.snapshot.json": {
+      "bytes": 84270,
+      "sha256": "4259e8799d1262771f4ee050e4157540735f453710bee59899267b3f11ca52b1"
+    },
+    "raw/candidates/libre-motion/candidate/comparison.json": {
+      "bytes": 865,
+      "sha256": "5b2cc535c0dc566d322695d6954ee4791bb9483aa7019ccc747facdd3bcfb6c5"
+    },
+    "raw/candidates/libre-motion/candidate/plan.json": {
+      "bytes": 385,
+      "sha256": "23c734be478b2de9a2dad6dec09377bdf27d263db8c4dd14b2c25be01ac717f1"
+    },
+    "raw/candidates/libre-motion/candidate/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/candidates/libre-motion/candidate/snapshot.json": {
+      "bytes": 84272,
+      "sha256": "949e52d60a3fc7baf291f8485a498e9f7a5a34aaccd87b4385ae9d1606cf0678"
+    },
+    "raw/candidates/libre-motion/candidate/source.dxf": {
+      "bytes": 21301,
+      "sha256": "724b0557adc753c59e23e864dc08f6de1c1ca50767b4da012be0fadf54d77b04"
+    },
+    "raw/candidates/libre-motion/library-save.comparison.json": {
+      "bytes": 864,
+      "sha256": "1f3a5fe4a430066e7970d6c793982791442da86d5db8eb4352b5b65926f64b68"
+    },
+    "raw/candidates/libre-motion/library.dxf": {
+      "bytes": 21306,
+      "sha256": "f87a83b1962cf70e7cac48fc83ab46d6ced5565c333f2a2d9c94c5686f3c2c97"
+    },
+    "raw/candidates/libre-motion/result.json": {
+      "bytes": 938,
+      "sha256": "08aacfd77ebf9feae68140a102d383291622d5e366c4650f0b09c3b05c2a6ee2"
+    },
+    "raw/candidates/libre-motion/value-spans.comparison.json": {
+      "bytes": 865,
+      "sha256": "5b2cc535c0dc566d322695d6954ee4791bb9483aa7019ccc747facdd3bcfb6c5"
+    },
+    "raw/candidates/libre-power/candidate/byte-edits.json": {
+      "bytes": 745,
+      "sha256": "68fcef427af36f2377b5a56c21820cba6904d45a60b012483ba16b03f1c20a27"
+    },
+    "raw/candidates/libre-power/candidate/cad_context.json": {
+      "bytes": 613,
+      "sha256": "371cbcf401607c761596ca5a2846490e86deadc3108a54cbc04e736a2f58d67e"
+    },
+    "raw/candidates/libre-power/candidate/candidate-context/cad_context.json": {
+      "bytes": 612,
+      "sha256": "707c8a195d5fa27c475c6f445a327c143e09ad251a70c0ee3a087c70751b6d1c"
+    },
+    "raw/candidates/libre-power/candidate/candidate-context/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/candidates/libre-power/candidate/candidate-context/snapshot.json": {
+      "bytes": 81307,
+      "sha256": "539a438a4bac16f6b8661fcd58bc56dcec7215088c4d59203e187aaf2c4887ca"
+    },
+    "raw/candidates/libre-power/candidate/candidate-context/source.dxf": {
+      "bytes": 20915,
+      "sha256": "e81029818228769f74d15ef9f8d8ef1d918df2a6eaab74737ff0cd936d72ba1c"
+    },
+    "raw/candidates/libre-power/candidate/candidate.dxf": {
+      "bytes": 20915,
+      "sha256": "e81029818228769f74d15ef9f8d8ef1d918df2a6eaab74737ff0cd936d72ba1c"
+    },
+    "raw/candidates/libre-power/candidate/candidate.snapshot.json": {
+      "bytes": 81307,
+      "sha256": "539a438a4bac16f6b8661fcd58bc56dcec7215088c4d59203e187aaf2c4887ca"
+    },
+    "raw/candidates/libre-power/candidate/comparison.json": {
+      "bytes": 864,
+      "sha256": "6c64190f7ab5ce0b51c0c54277d8636791ec95adf6b185192ebf25c3bb90351d"
+    },
+    "raw/candidates/libre-power/candidate/plan.json": {
+      "bytes": 384,
+      "sha256": "0bca0796d3c1b63b4d63d9f8c70782fa90177b96f8907d00b9ac10aa419c7566"
+    },
+    "raw/candidates/libre-power/candidate/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/candidates/libre-power/candidate/snapshot.json": {
+      "bytes": 81309,
+      "sha256": "5df503b5a2b17eb7a387aaefd7d983460c66d1de480c48fcb952ec0d31e1d58b"
+    },
+    "raw/candidates/libre-power/candidate/source.dxf": {
+      "bytes": 20916,
+      "sha256": "8876b0c66ec7794914a2218072386f5d169a6813a675a579747fa6242cfac2bd"
+    },
+    "raw/candidates/libre-power/library-save.comparison.json": {
+      "bytes": 863,
+      "sha256": "667b0007db6b63620fa0ed683482beec36cc2421851081f6d816066f98e2f2bd"
+    },
+    "raw/candidates/libre-power/library.dxf": {
+      "bytes": 20921,
+      "sha256": "7301131d0c81139eb1be6b96720f5f73a998b43261c9192e115c29741f23cd73"
+    },
+    "raw/candidates/libre-power/result.json": {
+      "bytes": 937,
+      "sha256": "6b40f1018a7443ca00bf75b4d769a12caaab980304d158d77312b2390dc59f9a"
+    },
+    "raw/candidates/libre-power/value-spans.comparison.json": {
+      "bytes": 864,
+      "sha256": "6c64190f7ab5ce0b51c0c54277d8636791ec95adf6b185192ebf25c3bb90351d"
+    },
+    "raw/candidates/qcad-hydraulic/candidate/byte-edits.json": {
+      "bytes": 748,
+      "sha256": "3e3ec599af73a4243563f1106453010e3450b9f3223eaeacca4bbc55f3646050"
+    },
+    "raw/candidates/qcad-hydraulic/candidate/cad_context.json": {
+      "bytes": 619,
+      "sha256": "a8705e9bdc081e5808da0e69ac62c0d9b584adaf6440136661ac3943d6c8d072"
+    },
+    "raw/candidates/qcad-hydraulic/candidate/candidate-context/cad_context.json": {
+      "bytes": 618,
+      "sha256": "74330059f6a955b15df27b95f743b69c33cb71bcc5dee8af63dd6b4e7b74c88d"
+    },
+    "raw/candidates/qcad-hydraulic/candidate/candidate-context/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/candidates/qcad-hydraulic/candidate/candidate-context/snapshot.json": {
+      "bytes": 125094,
+      "sha256": "00516385ba3e3584da542ec8815e7ed664467fb46892c0d6c82e72cf090b06b0"
+    },
+    "raw/candidates/qcad-hydraulic/candidate/candidate-context/source.dxf": {
+      "bytes": 30359,
+      "sha256": "7fa5a8c9d2e46f9c4550f2076aade1e9881db57e4b7b8723601c60a60b065e41"
+    },
+    "raw/candidates/qcad-hydraulic/candidate/candidate.dxf": {
+      "bytes": 30359,
+      "sha256": "7fa5a8c9d2e46f9c4550f2076aade1e9881db57e4b7b8723601c60a60b065e41"
+    },
+    "raw/candidates/qcad-hydraulic/candidate/candidate.snapshot.json": {
+      "bytes": 125094,
+      "sha256": "00516385ba3e3584da542ec8815e7ed664467fb46892c0d6c82e72cf090b06b0"
+    },
+    "raw/candidates/qcad-hydraulic/candidate/comparison.json": {
+      "bytes": 866,
+      "sha256": "1dd79436345eaf5f06a159e5f2d2f6ed23b85f3deb3cfd97cdb341c8a4354907"
+    },
+    "raw/candidates/qcad-hydraulic/candidate/plan.json": {
+      "bytes": 387,
+      "sha256": "e47d9c074c3aa81897fe41ee52cb01fc3a97e8313f0ae6975dcff484422f9379"
+    },
+    "raw/candidates/qcad-hydraulic/candidate/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/candidates/qcad-hydraulic/candidate/snapshot.json": {
+      "bytes": 125099,
+      "sha256": "91480ed0fcc42106bb57cc2c7f035a297ab9eec94ab6c110dcbd46349464637d"
+    },
+    "raw/candidates/qcad-hydraulic/candidate/source.dxf": {
+      "bytes": 30360,
+      "sha256": "4d768e3a5ca0ba8d5e4762851a349f1679381b51d5fdf2a9b2fc89e86aa430db"
+    },
+    "raw/candidates/qcad-hydraulic/library-save.comparison.json": {
+      "bytes": 866,
+      "sha256": "dcadc62be70b359fc3847f8165f98da39b1bd1f9e1acd5658309bdf1bc91a0d8"
+    },
+    "raw/candidates/qcad-hydraulic/library.dxf": {
+      "bytes": 30365,
+      "sha256": "5b58564fca66b8a48dae00f5e8175f39dd145961375354b00d314609783e8e46"
+    },
+    "raw/candidates/qcad-hydraulic/result.json": {
+      "bytes": 940,
+      "sha256": "74b1885fd565648a58735d9eaff808b74431576463e3592f763940e18c427c0d"
+    },
+    "raw/candidates/qcad-hydraulic/value-spans.comparison.json": {
+      "bytes": 866,
+      "sha256": "1dd79436345eaf5f06a159e5f2d2f6ed23b85f3deb3cfd97cdb341c8a4354907"
+    },
+    "raw/candidates/qcad-mechanical/candidate/byte-edits.json": {
+      "bytes": 746,
+      "sha256": "9276d85689d22eaac866b77c55a4b4d0135505f9f8638a32a7739e5a3ddd4c09"
+    },
+    "raw/candidates/qcad-mechanical/candidate/cad_context.json": {
+      "bytes": 618,
+      "sha256": "7209f962dfbbcd7e11ba8d821ca6d811c2583761afacaa69f8ab9b24dae128e9"
+    },
+    "raw/candidates/qcad-mechanical/candidate/candidate-context/cad_context.json": {
+      "bytes": 617,
+      "sha256": "344450996c09cadeafaff0f402b5b47e0de3c860966f09ba556704bd784d4d8b"
+    },
+    "raw/candidates/qcad-mechanical/candidate/candidate-context/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/candidates/qcad-mechanical/candidate/candidate-context/snapshot.json": {
+      "bytes": 168786,
+      "sha256": "34639f246941274f0d52d7164a10fe62f9ea61eefae763ac437e9722154a437a"
+    },
+    "raw/candidates/qcad-mechanical/candidate/candidate-context/source.dxf": {
+      "bytes": 41570,
+      "sha256": "2fe359c84d62f61d6f88b380fefd25cfdcad81b37523f5b6e435cc92f5ff789b"
+    },
+    "raw/candidates/qcad-mechanical/candidate/candidate.dxf": {
+      "bytes": 41570,
+      "sha256": "2fe359c84d62f61d6f88b380fefd25cfdcad81b37523f5b6e435cc92f5ff789b"
+    },
+    "raw/candidates/qcad-mechanical/candidate/candidate.snapshot.json": {
+      "bytes": 168786,
+      "sha256": "34639f246941274f0d52d7164a10fe62f9ea61eefae763ac437e9722154a437a"
+    },
+    "raw/candidates/qcad-mechanical/candidate/comparison.json": {
+      "bytes": 868,
+      "sha256": "55cac606aafb1fd9164f85c8ad2880d1775a99fe5d035d40cb340b7b8c7b0a1b"
+    },
+    "raw/candidates/qcad-mechanical/candidate/plan.json": {
+      "bytes": 388,
+      "sha256": "97ccbc68a37961f2d5a54c23365c79fcaace66108dd41444810d874bfea2292a"
+    },
+    "raw/candidates/qcad-mechanical/candidate/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/candidates/qcad-mechanical/candidate/snapshot.json": {
+      "bytes": 168788,
+      "sha256": "ab383db64610aec13986004fabf6e7c8a9c1d551405afa840940060175fef638"
+    },
+    "raw/candidates/qcad-mechanical/candidate/source.dxf": {
+      "bytes": 41571,
+      "sha256": "30c4a41b51dd5474889db30ca336a2cfe18df6d2dc2c6fea5affb5091327a26d"
+    },
+    "raw/candidates/qcad-mechanical/library-save.comparison.json": {
+      "bytes": 867,
+      "sha256": "dd1e846d0469605573351cdd6651830072eaa4aa504d0bb87db31944356f1942"
+    },
+    "raw/candidates/qcad-mechanical/library.dxf": {
+      "bytes": 41564,
+      "sha256": "a37d01d638833cefca351a2196ae760f5aa20cff10fb1ed432d947ac12825db9"
+    },
+    "raw/candidates/qcad-mechanical/result.json": {
+      "bytes": 941,
+      "sha256": "318f9a63173109449e0bb4e9e5c20fee454bb14fa181a2e2c48741aac76a4908"
+    },
+    "raw/candidates/qcad-mechanical/value-spans.comparison.json": {
+      "bytes": 868,
+      "sha256": "55cac606aafb1fd9164f85c8ad2880d1775a99fe5d035d40cb340b7b8c7b0a1b"
+    },
+    "raw/candidates/qcad-template/candidate/byte-edits.json": {
+      "bytes": 744,
+      "sha256": "d48fd3acd0da025c9140cb423b5ed399159de7315f76f9ec270554841a81a9b0"
+    },
+    "raw/candidates/qcad-template/candidate/cad_context.json": {
+      "bytes": 614,
+      "sha256": "78892b8c908d662265f538d0260179e976b1c90602ebaf36959e12e78c73e07f"
+    },
+    "raw/candidates/qcad-template/candidate/candidate-context/cad_context.json": {
+      "bytes": 613,
+      "sha256": "d1ff5763aa2982ddf3325dfb016631125682d2bd6d7d27f4cf4d5a61053a8505"
+    },
+    "raw/candidates/qcad-template/candidate/candidate-context/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/candidates/qcad-template/candidate/candidate-context/snapshot.json": {
+      "bytes": 173056,
+      "sha256": "57f9f81fa94e95ea84c37a76385a676016a85b686304e888707f404319a97d14"
+    },
+    "raw/candidates/qcad-template/candidate/candidate-context/source.dxf": {
+      "bytes": 42618,
+      "sha256": "b7d67a66dc6877a6d3fc3d6f05148fe2c68861d19ff4e0df8d7f40275ec349d0"
+    },
+    "raw/candidates/qcad-template/candidate/candidate.dxf": {
+      "bytes": 42618,
+      "sha256": "b7d67a66dc6877a6d3fc3d6f05148fe2c68861d19ff4e0df8d7f40275ec349d0"
+    },
+    "raw/candidates/qcad-template/candidate/candidate.snapshot.json": {
+      "bytes": 173056,
+      "sha256": "57f9f81fa94e95ea84c37a76385a676016a85b686304e888707f404319a97d14"
+    },
+    "raw/candidates/qcad-template/candidate/comparison.json": {
+      "bytes": 866,
+      "sha256": "3d8731d566360ec48089b36fa0afa1e1bfaec1c27696d5399c8cd0d948b11983"
+    },
+    "raw/candidates/qcad-template/candidate/plan.json": {
+      "bytes": 386,
+      "sha256": "ad70bfaa02bc87d5efe675aa8c22e9c80957d98473b77391b8f88b8ca13e3ae2"
+    },
+    "raw/candidates/qcad-template/candidate/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/candidates/qcad-template/candidate/snapshot.json": {
+      "bytes": 173058,
+      "sha256": "aa5cbadcfc57298a04575894953b90dae445b6b4abc62827963ecfa7c9f04061"
+    },
+    "raw/candidates/qcad-template/candidate/source.dxf": {
+      "bytes": 42619,
+      "sha256": "6e87cef8ca4178b20e9d4e2b892917636ba2fe02e030ea076379c8d57e6a1f88"
+    },
+    "raw/candidates/qcad-template/library-save.comparison.json": {
+      "bytes": 865,
+      "sha256": "f94ea836875c35733604c8bf8990a326545f7041900ad0d59462c1d1b2958d41"
+    },
+    "raw/candidates/qcad-template/library.dxf": {
+      "bytes": 42610,
+      "sha256": "0f22decb1ec3db330cb87f2b3f9bc27690b45c42d75c06da57d803d6fef67f6a"
+    },
+    "raw/candidates/qcad-template/result.json": {
+      "bytes": 939,
+      "sha256": "b4b1b680112cf11dbec1a9c34369371dc57b09f9925e659249fda92d1766f895"
+    },
+    "raw/candidates/qcad-template/value-spans.comparison.json": {
+      "bytes": 866,
+      "sha256": "3d8731d566360ec48089b36fa0afa1e1bfaec1c27696d5399c8cd0d948b11983"
+    },
+    "raw/candidates/RESULTS.json": {
+      "bytes": 6518,
+      "sha256": "6ca8733aa89fd3a5fa15e55bb2c24a06726534d1c17e92f4dc76b5196799eedd"
+    },
+    "raw/native-1/BATCH.json": {
+      "bytes": 2132,
+      "sha256": "7c003aa5cb59861b14276cceb294d6af4578e65a19b058a83c6b9fe81100924c"
+    },
+    "raw/native-1/cases/libre-air-water/candidate.dxf": {
+      "bytes": 21101,
+      "sha256": "257efa01da7a490316489aa312ed88548b819c1af9179fb70fafb351188f3795"
+    },
+    "raw/native-1/cases/libre-air-water/plan.json": {
+      "bytes": 388,
+      "sha256": "bce43ca6cd52bcb57bf1779c15ebe4aaaa2eecdb1c7395f681132cc0064522fa"
+    },
+    "raw/native-1/cases/libre-air-water/returns/default.comparison.json": {
+      "bytes": 713562,
+      "sha256": "f4968b81f48368e5d295530f4bf8a5511d0c7073b26caf79113a6ed960eeafd4"
+    },
+    "raw/native-1/cases/libre-air-water/returns/default.dxf": {
+      "bytes": 152115,
+      "sha256": "c08dc0016edd41384633c24527f04066847112b320ae303d2cc6e5521df895a6"
+    },
+    "raw/native-1/cases/libre-air-water/returns/r15.comparison.json": {
+      "bytes": 848096,
+      "sha256": "ae152d9915659236361612d387e2f0a08786c7686822866492466e33831e3082"
+    },
+    "raw/native-1/cases/libre-air-water/returns/r15.dxf": {
+      "bytes": 189731,
+      "sha256": "f25e3555a84b9cfdd0edaa39010bfb0d0d457908d4f3950620112896c70592f6"
+    },
+    "raw/native-1/cases/libre-air-water/source.dxf": {
+      "bytes": 21102,
+      "sha256": "245a50eefeabc483f16269375a3bf9bd892b9cebd125e76f5ae744f5466f4db8"
+    },
+    "raw/native-1/cases/libre-motion/candidate.dxf": {
+      "bytes": 21300,
+      "sha256": "c95e3478d9ca1cd4f80599a9408ca35dc843e922900fad1ea937d7dc47781e13"
+    },
+    "raw/native-1/cases/libre-motion/plan.json": {
+      "bytes": 385,
+      "sha256": "23c734be478b2de9a2dad6dec09377bdf27d263db8c4dd14b2c25be01ac717f1"
+    },
+    "raw/native-1/cases/libre-motion/returns/default.comparison.json": {
+      "bytes": 716883,
+      "sha256": "2072c17fb2a1ab46f0168e515d77e022d1f8bbe8e6d2b46560356efda1827ca2"
+    },
+    "raw/native-1/cases/libre-motion/returns/default.dxf": {
+      "bytes": 152336,
+      "sha256": "f71d9fd145b26501bf104b92c34c51ffffd261a76d87ef551f956b842a89d1e5"
+    },
+    "raw/native-1/cases/libre-motion/returns/r15.comparison.json": {
+      "bytes": 851417,
+      "sha256": "cf4d87928d9fd9e325364d6da41980fe291b4e4684be4a8f0299c508ca0ab870"
+    },
+    "raw/native-1/cases/libre-motion/returns/r15.dxf": {
+      "bytes": 189952,
+      "sha256": "2caf5044b225ef9e5f304d39689b8d0d948046a3b708d8e3f9c2fddd5070cf26"
+    },
+    "raw/native-1/cases/libre-motion/source.dxf": {
+      "bytes": 21301,
+      "sha256": "724b0557adc753c59e23e864dc08f6de1c1ca50767b4da012be0fadf54d77b04"
+    },
+    "raw/native-1/cases/libre-power/candidate.dxf": {
+      "bytes": 20915,
+      "sha256": "e81029818228769f74d15ef9f8d8ef1d918df2a6eaab74737ff0cd936d72ba1c"
+    },
+    "raw/native-1/cases/libre-power/plan.json": {
+      "bytes": 384,
+      "sha256": "0bca0796d3c1b63b4d63d9f8c70782fa90177b96f8907d00b9ac10aa419c7566"
+    },
+    "raw/native-1/cases/libre-power/returns/default.comparison.json": {
+      "bytes": 709691,
+      "sha256": "6d4d747433dfd138004376aa2057e527a378906ec069e703482e4aadab128c12"
+    },
+    "raw/native-1/cases/libre-power/returns/default.dxf": {
+      "bytes": 151923,
+      "sha256": "670904c8f69c9af15833fd117f7a5e81b2d1198df828d87b8c7e6af8ee31dd5a"
+    },
+    "raw/native-1/cases/libre-power/returns/r15.comparison.json": {
+      "bytes": 844225,
+      "sha256": "51ccac3ea97cca244260db3d0771c43cdcf8f03cecac084510a7ebedb6abfd3c"
+    },
+    "raw/native-1/cases/libre-power/returns/r15.dxf": {
+      "bytes": 189539,
+      "sha256": "b993993d6bd1a085e8e14d6dd6558d434f48aa5cd7ac2fa6ecaedb0d2d11bb02"
+    },
+    "raw/native-1/cases/libre-power/source.dxf": {
+      "bytes": 20916,
+      "sha256": "8876b0c66ec7794914a2218072386f5d169a6813a675a579747fa6242cfac2bd"
+    },
+    "raw/native-1/cases/qcad-hydraulic/candidate.dxf": {
+      "bytes": 30359,
+      "sha256": "7fa5a8c9d2e46f9c4550f2076aade1e9881db57e4b7b8723601c60a60b065e41"
+    },
+    "raw/native-1/cases/qcad-hydraulic/plan.json": {
+      "bytes": 387,
+      "sha256": "e47d9c074c3aa81897fe41ee52cb01fc3a97e8313f0ae6975dcff484422f9379"
+    },
+    "raw/native-1/cases/qcad-hydraulic/returns/default.comparison.json": {
+      "bytes": 818608,
+      "sha256": "62f5bde06f672265aaed2f5dc608daf74e148ab7861dc83166addaae384d0f07"
+    },
+    "raw/native-1/cases/qcad-hydraulic/returns/default.dxf": {
+      "bytes": 162436,
+      "sha256": "c139424cb7229d22418ac8dc6657cb81b354e6deafa8d03398cf6baf03bec79a"
+    },
+    "raw/native-1/cases/qcad-hydraulic/returns/r15.comparison.json": {
+      "bytes": 953141,
+      "sha256": "e89830c03925244617c6b5c6011624bedb462f84c9398d8736d2113afdeb040d"
+    },
+    "raw/native-1/cases/qcad-hydraulic/returns/r15.dxf": {
+      "bytes": 200039,
+      "sha256": "441249c5444189a43aefb8d573a5736b1476d156b253111087fde6c0dbf5cb94"
+    },
+    "raw/native-1/cases/qcad-hydraulic/source.dxf": {
+      "bytes": 30360,
+      "sha256": "4d768e3a5ca0ba8d5e4762851a349f1679381b51d5fdf2a9b2fc89e86aa430db"
+    },
+    "raw/native-1/cases/qcad-mechanical/candidate.dxf": {
+      "bytes": 41570,
+      "sha256": "2fe359c84d62f61d6f88b380fefd25cfdcad81b37523f5b6e435cc92f5ff789b"
+    },
+    "raw/native-1/cases/qcad-mechanical/plan.json": {
+      "bytes": 388,
+      "sha256": "97ccbc68a37961f2d5a54c23365c79fcaace66108dd41444810d874bfea2292a"
+    },
+    "raw/native-1/cases/qcad-mechanical/returns/default.comparison.json": {
+      "bytes": 828623,
+      "sha256": "53d031e02881804d42bb5d53a9b484dfc6122f4ab29e9df6b3d2d0c13986ab4c"
+    },
+    "raw/native-1/cases/qcad-mechanical/returns/default.dxf": {
+      "bytes": 151842,
+      "sha256": "a746d6cbaf5418628233430a85a1362e244c3b0eec62832b85333c673aed6cda"
+    },
+    "raw/native-1/cases/qcad-mechanical/returns/r15.comparison.json": {
+      "bytes": 963622,
+      "sha256": "6419caaf9296c14482656deeb4f013927accd305535a2380352debe0afb62c57"
+    },
+    "raw/native-1/cases/qcad-mechanical/returns/r15.dxf": {
+      "bytes": 189496,
+      "sha256": "b1340a20f189687da5ab2c69ec80d9d7e9fbc7cd7cf878fc00f631706aabf607"
+    },
+    "raw/native-1/cases/qcad-mechanical/source.dxf": {
+      "bytes": 41571,
+      "sha256": "30c4a41b51dd5474889db30ca336a2cfe18df6d2dc2c6fea5affb5091327a26d"
+    },
+    "raw/native-1/cases/qcad-template/candidate.dxf": {
+      "bytes": 42618,
+      "sha256": "b7d67a66dc6877a6d3fc3d6f05148fe2c68861d19ff4e0df8d7f40275ec349d0"
+    },
+    "raw/native-1/cases/qcad-template/plan.json": {
+      "bytes": 386,
+      "sha256": "ad70bfaa02bc87d5efe675aa8c22e9c80957d98473b77391b8f88b8ca13e3ae2"
+    },
+    "raw/native-1/cases/qcad-template/returns/default.comparison.json": {
+      "bytes": 839747,
+      "sha256": "f4920859dce8852ac051f2e1b06ee8df9c8a77ba9825d560b6d84dbd50a60b2c"
+    },
+    "raw/native-1/cases/qcad-template/returns/default.dxf": {
+      "bytes": 152873,
+      "sha256": "9c0584c8b1144a3c31d4dc6c7b0d841134c0f90f489e77a2358494dd48ae9c15"
+    },
+    "raw/native-1/cases/qcad-template/returns/r15.comparison.json": {
+      "bytes": 974207,
+      "sha256": "bb3a24e7b82d610e0e5de7ab68b025bb47bff196f235b8a45335b455d08edcb2"
+    },
+    "raw/native-1/cases/qcad-template/returns/r15.dxf": {
+      "bytes": 190439,
+      "sha256": "5d9b4f073ac9ff03de994e74c419468d8dd996b0dfc6cbb8e822bbeb7b2270cd"
+    },
+    "raw/native-1/cases/qcad-template/source.dxf": {
+      "bytes": 42619,
+      "sha256": "6e87cef8ca4178b20e9d4e2b892917636ba2fe02e030ea076379c8d57e6a1f88"
+    },
+    "raw/native-1/corrected-environment.json": {
+      "bytes": 912,
+      "sha256": "08cdecef4007ce15678168447f9f66a7c2de46c925a8db366b3a7e8618736998"
+    },
+    "raw/native-1/FRESH.json": {
+      "bytes": 2841,
+      "sha256": "9e18e8cc67c318811e4f338d02048358ad572267de36e52096880358f687ca89"
+    },
+    "raw/native-1/native/bounds.stderr": {
+      "bytes": 11505,
+      "sha256": "84339f770af745dd68b3f19376ebc2557bc27656d872f37f2df53feda6d8b827"
+    },
+    "raw/native-1/native/bounds.stdout": {
+      "bytes": 21050,
+      "sha256": "b5b3bb9a766dda42f06143e5ea49298a7c656831c58ea55a33f94d42e6770c58"
+    },
+    "raw/native-1/native/commands.json": {
+      "bytes": 2267,
+      "sha256": "3f99f0ad431b14d9eebb80b14107513609fa1b904ff33b4084df387aeb75189b"
+    },
+    "raw/native-1/native/COMPLETE.json": {
+      "bytes": 191,
+      "sha256": "cbeb4d181e7718016b2eac763992a3b2cc7ab3095c4634fb4a84c801f371a82b"
+    },
+    "raw/native-1/native/edit-save.stderr": {
+      "bytes": 22539,
+      "sha256": "7c1ada7d4facfd0944dc55cd720e68fdaf48cec91e19002351ad9302f785492d"
+    },
+    "raw/native-1/native/edit-save.stdout": {
+      "bytes": 6054,
+      "sha256": "d9932347ffd9175b83f490ae1104db6f11cbaaf50f0682f3dc7cd67b6c54f138"
+    },
+    "raw/native-1/native/fresh-readback.stderr": {
+      "bytes": 11505,
+      "sha256": "c8e5b315166351a980f5d67cb06ec98ae78d0f9fd0474a24a76681d4dd160749"
+    },
+    "raw/native-1/native/fresh-readback.stdout": {
+      "bytes": 6410,
+      "sha256": "d2e1d2ee25319075daf7af80da362d7a0637739ed572c59b6ecac1ad8509e113"
+    },
+    "raw/native-1/native-batch.js": {
+      "bytes": 3103,
+      "sha256": "18310a03591b0a0dd0ad2c4df21cd156724bd05561a067b223b6780d4c21eaa2"
+    },
+    "raw/native-1/native-environment.json": {
+      "bytes": 904,
+      "sha256": "d9ab19a624a87d37c360211f4b02eb6a9f52efef314dd2e0e50b92c401cec3e5"
+    },
+    "raw/native-1/native-view-bounds.js": {
+      "bytes": 1754,
+      "sha256": "e221c590fba717acb077c9cc7a3edd4890e3b13f714243c05f3b4271399c7672"
+    },
+    "raw/native-1/NATIVE.json": {
+      "bytes": 2760,
+      "sha256": "fa101be427da195f31fcba4fc032b4c4200452cb85f6ea328679843819f46673"
+    },
+    "raw/native-1/native_profile.js": {
+      "bytes": 645,
+      "sha256": "547a74a4992d1167419f473edd82f0356249b38e3c4459a660dc6f1b6a06f52c"
+    },
+    "raw/native-1/render-environment.json": {
+      "bytes": 911,
+      "sha256": "36f92626590361d23339b490d242df2131ebfe74c744301a2dbc2448ca7d048e"
+    },
+    "raw/native-1/render_corrected.py": {
+      "bytes": 2820,
+      "sha256": "802dd35ab44b6a2e5842449ba4ac627e66289ecfeb3e6af504c56601ad6f1fab"
+    },
+    "raw/native-1/render_native.py": {
+      "bytes": 2779,
+      "sha256": "4d5ea34733e9ac5f418027b9abe9d74afe9fd6b264e29d9e73495aff95ab9a8f"
+    },
+    "raw/native-1/renders/commands.json": {
+      "bytes": 26578,
+      "sha256": "505d362d2953958eb2e3a49f3aab3c598e5c531fdd2542536916dc5f92e3274a"
+    },
+    "raw/native-1/renders/COMPLETE.json": {
+      "bytes": 148,
+      "sha256": "ec665da66ff986a1bba1fe1637da21471f8ff3fb772d6dd50d77214071795a2a"
+    },
+    "raw/native-1/renders/libre-air-water-asset-1-candidate.png": {
+      "bytes": 20207,
+      "sha256": "6b9bce7bdb4fb8848b294002cc9edf4f9a53c87449ee0572faf603787d6cf9ff"
+    },
+    "raw/native-1/renders/libre-air-water-asset-1-candidate.stderr": {
+      "bytes": 1624,
+      "sha256": "5cd73c1bdf6fe7f278de4e5e8fe901fa91178b09a20582e2bdc287befd31ec88"
+    },
+    "raw/native-1/renders/libre-air-water-asset-1-candidate.stdout": {
+      "bytes": 430,
+      "sha256": "829f3f5622ae313e519059e2aa82bc661e0480fa72ed920b3c92b8e5af626f5c"
+    },
+    "raw/native-1/renders/libre-air-water-asset-1-source.png": {
+      "bytes": 20446,
+      "sha256": "c64476fbada90eb7bb07b51a5e13055a9b2e8c94e99978c3f4f009609a4b27d8"
+    },
+    "raw/native-1/renders/libre-air-water-asset-1-source.stderr": {
+      "bytes": 1624,
+      "sha256": "01ae48b0b1b0c8af534f142cfd0fd18ee88be55be6d3fce82837b38453508e0c"
+    },
+    "raw/native-1/renders/libre-air-water-asset-1-source.stdout": {
+      "bytes": 424,
+      "sha256": "07166a5b7c14f9c6bc3f203c195e25152f53e77ebb3b2bd785f36cb840c67d44"
+    },
+    "raw/native-1/renders/libre-air-water-model-candidate.png": {
+      "bytes": 14888,
+      "sha256": "f731bc6a9b3a909a52078e5189a7f2a51f4fc27a9137c46852cb039bb4e7ba34"
+    },
+    "raw/native-1/renders/libre-air-water-model-candidate.stderr": {
+      "bytes": 1624,
+      "sha256": "1b2d3873474fbc668bdcf4217a8d88b0c1a287cb5ffd2b804e2048cd98132bf6"
+    },
+    "raw/native-1/renders/libre-air-water-model-candidate.stdout": {
+      "bytes": 428,
+      "sha256": "8ff01db83f6fce1f77605b6b3b41802b2eb819161376a87a4dfe270f1991c8db"
+    },
+    "raw/native-1/renders/libre-air-water-model-source.png": {
+      "bytes": 14989,
+      "sha256": "74a57c5469343cf58d9e895fd0aed38c17d4c2361e82549f4ed43d0028b52b82"
+    },
+    "raw/native-1/renders/libre-air-water-model-source.stderr": {
+      "bytes": 1624,
+      "sha256": "5b1f5bb923df9587996a156660c116f1e1dd333b559ef13573e7cc8df7b12703"
+    },
+    "raw/native-1/renders/libre-air-water-model-source.stdout": {
+      "bytes": 422,
+      "sha256": "eeaca38d157023b90b6751f4cdd145f90b75856707653ad0afbd4ac7e852a241"
+    },
+    "raw/native-1/renders/libre-motion-asset-1-candidate.png": {
+      "bytes": 19709,
+      "sha256": "7ed2a94245560313dddc0bb4e5d27b2bf8cf93539106d797d365e0815c24d915"
+    },
+    "raw/native-1/renders/libre-motion-asset-1-candidate.stderr": {
+      "bytes": 1624,
+      "sha256": "75f63d41552a027432e2cb000445f9d31ddc8f332eeba73620678ddab12453be"
+    },
+    "raw/native-1/renders/libre-motion-asset-1-candidate.stdout": {
+      "bytes": 424,
+      "sha256": "404a30cd86ea8924e7c4b4f9be36e4e062b7c1d94b97f3e0e67506c92fe959ce"
+    },
+    "raw/native-1/renders/libre-motion-asset-1-source.png": {
+      "bytes": 19995,
+      "sha256": "0ae9ef1664b0f46377878deed7fed18bed238105c59cc25ecbac7d43f249feae"
+    },
+    "raw/native-1/renders/libre-motion-asset-1-source.stderr": {
+      "bytes": 1624,
+      "sha256": "2831287a29fa9a56dea3814a4b925b91cd550cb8d72439b71150d868bee9d66a"
+    },
+    "raw/native-1/renders/libre-motion-asset-1-source.stdout": {
+      "bytes": 418,
+      "sha256": "26e05a27c7a116165dd9c2615361dd6b7e67cc9ba359b2315bc7c2bd837968cc"
+    },
+    "raw/native-1/renders/libre-motion-model-candidate.png": {
+      "bytes": 15593,
+      "sha256": "29aeba5b76c49ba14d133219f7f613aa7894d334d5603680b93bd888ab3588a8"
+    },
+    "raw/native-1/renders/libre-motion-model-candidate.stderr": {
+      "bytes": 1624,
+      "sha256": "e77dadd0ec2f54a4dc15718800691045378623fd981f7bf92fd230b0cb065fdd"
+    },
+    "raw/native-1/renders/libre-motion-model-candidate.stdout": {
+      "bytes": 422,
+      "sha256": "e3177ea0f0677a8f47cf858bb7b7ace12145370bc1f056360d38791a4fbb3a49"
+    },
+    "raw/native-1/renders/libre-motion-model-source.png": {
+      "bytes": 15655,
+      "sha256": "2b6350bfea4f299c6b3c39a33b24e2b015c87d24145c2b35280e8454c048e2f4"
+    },
+    "raw/native-1/renders/libre-motion-model-source.stderr": {
+      "bytes": 1624,
+      "sha256": "3e9b2766cd5fc0622c92e5ef2725dc9208480ff3df4831d3b51734ac049f85a3"
+    },
+    "raw/native-1/renders/libre-motion-model-source.stdout": {
+      "bytes": 416,
+      "sha256": "a8bfdd5cfc1610b56597a31cd56c0a4ea7ada9c96a7a639157a0c9b45432c405"
+    },
+    "raw/native-1/renders/libre-power-asset-1-candidate.png": {
+      "bytes": 19136,
+      "sha256": "ed1b87d8eeebff41e58b0ad4b663e738b7ef5932e9a5ce6b5a7bc1c36d322c4e"
+    },
+    "raw/native-1/renders/libre-power-asset-1-candidate.stderr": {
+      "bytes": 1624,
+      "sha256": "21fd7dd2c37a36bc3cd288b7f18b35f712441f826792569bd28858a6962843e3"
+    },
+    "raw/native-1/renders/libre-power-asset-1-candidate.stdout": {
+      "bytes": 422,
+      "sha256": "fa90c4782712b70e35a3fbbf7ff587f7124c4e70f96787927de6687933c9e346"
+    },
+    "raw/native-1/renders/libre-power-asset-1-source.png": {
+      "bytes": 19517,
+      "sha256": "0f01a1640f6132167fe01f68cb1cafd49498bad4b61f1381f0c68e99163f3b30"
+    },
+    "raw/native-1/renders/libre-power-asset-1-source.stderr": {
+      "bytes": 1624,
+      "sha256": "e388965a4e6a92196833c61281ddf4fa9dde15f37485410d85d26c1abb590e3c"
+    },
+    "raw/native-1/renders/libre-power-asset-1-source.stdout": {
+      "bytes": 416,
+      "sha256": "bfa594e0ebeaa0f1575840eb077f43eed9bfc2b6572e87ae1f823c874a0c9ecc"
+    },
+    "raw/native-1/renders/libre-power-model-candidate.png": {
+      "bytes": 15156,
+      "sha256": "7e308c09ff7042f46969913d83294b01684fe7050376cde1f46fbae631fe669e"
+    },
+    "raw/native-1/renders/libre-power-model-candidate.stderr": {
+      "bytes": 1624,
+      "sha256": "4b570b9cc12fc1d5807d4d0d842ad9faa5de5ebb58fcf2e8251e47466fe524ee"
+    },
+    "raw/native-1/renders/libre-power-model-candidate.stdout": {
+      "bytes": 420,
+      "sha256": "9c5d5b99246f9f5c458801a1cefe26751d598401bd526ae19b6bbcec224f37af"
+    },
+    "raw/native-1/renders/libre-power-model-source.png": {
+      "bytes": 15255,
+      "sha256": "2418f5e0045d92c091da4d8346ceaddec48a41670ff9a4dedfc065bb3feb915e"
+    },
+    "raw/native-1/renders/libre-power-model-source.stderr": {
+      "bytes": 1624,
+      "sha256": "532c42d86c292586911cb35f74c57fcbf47fb87c7a81a84e0c7c70951ddbe855"
+    },
+    "raw/native-1/renders/libre-power-model-source.stdout": {
+      "bytes": 414,
+      "sha256": "9e88cf1fff50198160c496b41266a416fc1b589726bd4f1d063403c6365e2fb6"
+    },
+    "raw/native-1/renders/qcad-hydraulic-asset-1-candidate.png": {
+      "bytes": 19544,
+      "sha256": "e953074561a91eda1e8a426306e03d394555e2e2d9b15f5da05abb64c646e054"
+    },
+    "raw/native-1/renders/qcad-hydraulic-asset-1-candidate.stderr": {
+      "bytes": 2529,
+      "sha256": "cdcd5b422af84d0be57cfeab14807841edab636ff75ec77d678f8a39ed715fca"
+    },
+    "raw/native-1/renders/qcad-hydraulic-asset-1-candidate.stdout": {
+      "bytes": 428,
+      "sha256": "b4419a39a3cfaa9551185c3253e9d63d26bdf85b03d9d7829e546544ea186d83"
+    },
+    "raw/native-1/renders/qcad-hydraulic-asset-1-source.png": {
+      "bytes": 19761,
+      "sha256": "ee60c587693e54465c0568a7663e3021fd2cd173fe72650278f031ba16c8c861"
+    },
+    "raw/native-1/renders/qcad-hydraulic-asset-1-source.stderr": {
+      "bytes": 2529,
+      "sha256": "46224eb9e0c153dad5ab05551c46d8356164081e7908961c4487815cf7e8060a"
+    },
+    "raw/native-1/renders/qcad-hydraulic-asset-1-source.stdout": {
+      "bytes": 422,
+      "sha256": "dffadb8bef1a877ed4fc930a94f6d6eb5987e9fa65460b07f396e9943281caf2"
+    },
+    "raw/native-1/renders/qcad-hydraulic-model-candidate.png": {
+      "bytes": 14482,
+      "sha256": "7981e8c44f3a6085d2e259aaa8cd02b65652339aac5b5093ab8cea86dc9ccc37"
+    },
+    "raw/native-1/renders/qcad-hydraulic-model-candidate.stderr": {
+      "bytes": 2529,
+      "sha256": "947b07eb4ced02734d7d0aaa61c545ae580d4ecb418790d1c5dfaa55c57c3b27"
+    },
+    "raw/native-1/renders/qcad-hydraulic-model-candidate.stdout": {
+      "bytes": 426,
+      "sha256": "7162ae0d807e1969017d0636da843ea0bf246d73bfbc3fb6d7ddc9e47bb59617"
+    },
+    "raw/native-1/renders/qcad-hydraulic-model-source.png": {
+      "bytes": 14608,
+      "sha256": "9c2742e988c5bd3ecd86ccab7be25f3a4cb29caa77d9fb4e4e72ad4dcb39d9f2"
+    },
+    "raw/native-1/renders/qcad-hydraulic-model-source.stderr": {
+      "bytes": 2529,
+      "sha256": "39aa39a49523ef02c4f6293a28aa99ad1891c95c464cef1750d388d6eb4b3315"
+    },
+    "raw/native-1/renders/qcad-hydraulic-model-source.stdout": {
+      "bytes": 420,
+      "sha256": "8f1d3b4cd5c7b8586ee9a72c0da4ed13371ed4812b82973558c5c48f447a1c13"
+    },
+    "raw/native-1/renders/qcad-mechanical-asset-1-candidate.png": {
+      "bytes": 20591,
+      "sha256": "670bc893fdf188534ff45c44ea346c9d7400b6da862c6ef942e8de20c0340c88"
+    },
+    "raw/native-1/renders/qcad-mechanical-asset-1-candidate.stderr": {
+      "bytes": 471,
+      "sha256": "f33e7ce865f566fa6d6ddc313a4f39bda2d893ffc0028ed68d075ba0aa0403d1"
+    },
+    "raw/native-1/renders/qcad-mechanical-asset-1-candidate.stdout": {
+      "bytes": 430,
+      "sha256": "37a36eabe60bf9abc7836552e824d07178ad27e488e17bcb39ed882b885e497c"
+    },
+    "raw/native-1/renders/qcad-mechanical-asset-1-source.png": {
+      "bytes": 20771,
+      "sha256": "53b3e2d96d19c9f65d21935950ffef34e03122958698615d4c5fe9dfa22f064e"
+    },
+    "raw/native-1/renders/qcad-mechanical-asset-1-source.stderr": {
+      "bytes": 471,
+      "sha256": "3a78ceefc2582056891f984133a67ce4880414013525c4bceda5a18a8bb4569d"
+    },
+    "raw/native-1/renders/qcad-mechanical-asset-1-source.stdout": {
+      "bytes": 424,
+      "sha256": "7319c180b861faf61a2f68e1dd0292c48cae952667a110f50a088845ee09e3ab"
+    },
+    "raw/native-1/renders/qcad-mechanical-model-candidate.png": {
+      "bytes": 14826,
+      "sha256": "60ae0f1199187d2a73e91869271a8fd209a62e915be4ff6c4290b17bb13fd3a2"
+    },
+    "raw/native-1/renders/qcad-mechanical-model-candidate.stderr": {
+      "bytes": 471,
+      "sha256": "f3548a4f768fbb13e4a7fa011c3ee5daf6de0b4e679b095cda86da191d4c9c1f"
+    },
+    "raw/native-1/renders/qcad-mechanical-model-candidate.stdout": {
+      "bytes": 428,
+      "sha256": "c5c09badffa5fa73d3180e0b8c6c76fa1b050ed92c78fc6f460e8c2f296b5409"
+    },
+    "raw/native-1/renders/qcad-mechanical-model-source.png": {
+      "bytes": 14962,
+      "sha256": "cb143371efc2850e0700e7ec5befbe1f596a17aada27c626e082aa01001e6a92"
+    },
+    "raw/native-1/renders/qcad-mechanical-model-source.stderr": {
+      "bytes": 471,
+      "sha256": "b3e83de2e10bcc7d26d27a31e839479210a4f9f4bcfc388b32a46b0f972e49c3"
+    },
+    "raw/native-1/renders/qcad-mechanical-model-source.stdout": {
+      "bytes": 422,
+      "sha256": "c18a35ad7928bf7ab4cb085eb8ac09c0332b796608280867f2ecdb259fbd18d2"
+    },
+    "raw/native-1/renders/qcad-template-asset-1-candidate.png": {
+      "bytes": 18018,
+      "sha256": "0429ec4138abdba60cf77d9a537787299fc3f284758b273633299f78a6eefc88"
+    },
+    "raw/native-1/renders/qcad-template-asset-1-candidate.stderr": {
+      "bytes": 471,
+      "sha256": "85b6a941461b76bc330869564df567ee2462497c05e306f56bef95940eda45af"
+    },
+    "raw/native-1/renders/qcad-template-asset-1-candidate.stdout": {
+      "bytes": 426,
+      "sha256": "22446585cb75dcfacaa65187f0f1374003503e27d2abd7fd1f94542da3079356"
+    },
+    "raw/native-1/renders/qcad-template-asset-1-source.png": {
+      "bytes": 18221,
+      "sha256": "04781068962c98e5a3b8f9eabe2b95eecf991e1e4c973a2655e701abe3f6671c"
+    },
+    "raw/native-1/renders/qcad-template-asset-1-source.stderr": {
+      "bytes": 471,
+      "sha256": "26cd5a939cc70311ae403b7dd3654c2d5a03076d1ce577e15f229c959454e92e"
+    },
+    "raw/native-1/renders/qcad-template-asset-1-source.stdout": {
+      "bytes": 420,
+      "sha256": "681e7f778163a8bc83037b3b1cc6f4c5f885e3fe53139067d82d619abe8bdae5"
+    },
+    "raw/native-1/renders/qcad-template-model-candidate.png": {
+      "bytes": 13670,
+      "sha256": "94c44530026b9b83368b78a2141272749578a66932845f8fb5ec25b08eb66ad7"
+    },
+    "raw/native-1/renders/qcad-template-model-candidate.stderr": {
+      "bytes": 471,
+      "sha256": "0d6e6f6b677bc020ad6817192d94f9606343e0be1815fc553810888e958504e3"
+    },
+    "raw/native-1/renders/qcad-template-model-candidate.stdout": {
+      "bytes": 424,
+      "sha256": "2aff969ace17f969f26d71216dc679a71ba4fe7941a2950d596085bf3785ca43"
+    },
+    "raw/native-1/renders/qcad-template-model-source.png": {
+      "bytes": 13737,
+      "sha256": "75c386ab41a6f0fe2bd8f074c22042dbd4c24d6f87dc8b59659a1088d81ee86e"
+    },
+    "raw/native-1/renders/qcad-template-model-source.stderr": {
+      "bytes": 471,
+      "sha256": "581e1448cc035982d19077af841adc1bca28168746bd8777e30138578fbc4ca1"
+    },
+    "raw/native-1/renders/qcad-template-model-source.stdout": {
+      "bytes": 418,
+      "sha256": "a2f6c84c55481480256d5c84d21f611108fc477b2a1969c99d185eb0cfe583f6"
+    },
+    "raw/native-1/renders-corrected/commands.json": {
+      "bytes": 26810,
+      "sha256": "2dee3751fb1bfd148c8a8ca21925a9cac310ebdda70d4844db6becf9d575815e"
+    },
+    "raw/native-1/renders-corrected/COMPLETE.json": {
+      "bytes": 148,
+      "sha256": "ec665da66ff986a1bba1fe1637da21471f8ff3fb772d6dd50d77214071795a2a"
+    },
+    "raw/native-1/renders-corrected/libre-air-water-asset-1-candidate.png": {
+      "bytes": 20464,
+      "sha256": "3d08940c1a7df33fb9be85c10c029ee469e319d056e26b60efe37627fb5306a0"
+    },
+    "raw/native-1/renders-corrected/libre-air-water-asset-1-candidate.stderr": {
+      "bytes": 1624,
+      "sha256": "4f8a4f4d4f64d0c55649e88e3f0170ebb6dd7841ffd7cf03762502799cb6375e"
+    },
+    "raw/native-1/renders-corrected/libre-air-water-asset-1-candidate.stdout": {
+      "bytes": 440,
+      "sha256": "7a1d92cf23e077ccc984a7906e37e33ff70994a38a068696762afcb328dd76fb"
+    },
+    "raw/native-1/renders-corrected/libre-air-water-asset-1-source.png": {
+      "bytes": 20705,
+      "sha256": "0e55e59e41dc8575b420dc7182a1d211b5a725c169a085e023bb7d879fb34ceb"
+    },
+    "raw/native-1/renders-corrected/libre-air-water-asset-1-source.stderr": {
+      "bytes": 1624,
+      "sha256": "9e92abbca7ec73c118ee808dc7e3d7c270164f252b06cb67abb6a1ea4b364d73"
+    },
+    "raw/native-1/renders-corrected/libre-air-water-asset-1-source.stdout": {
+      "bytes": 434,
+      "sha256": "cb9b06f374e5eaf0cd285e0b34a28be18bf2f8626cd3f93ab07f75557a74e50c"
+    },
+    "raw/native-1/renders-corrected/libre-air-water-model-candidate.png": {
+      "bytes": 12688,
+      "sha256": "aa054613f77ad88803018a48b4648029d56ea273671ba1ac1a5a01e03fdc58cb"
+    },
+    "raw/native-1/renders-corrected/libre-air-water-model-candidate.stderr": {
+      "bytes": 1624,
+      "sha256": "4291c9a28744d750f4cacdf1ad144fc915e4b2cf50182d8ecdce1518fd0cb515"
+    },
+    "raw/native-1/renders-corrected/libre-air-water-model-candidate.stdout": {
+      "bytes": 438,
+      "sha256": "85745d1253555e08d36465d806fb507cb6177ec5cf5a383a04bda1123edc0526"
+    },
+    "raw/native-1/renders-corrected/libre-air-water-model-source.png": {
+      "bytes": 12820,
+      "sha256": "11bee0c9eb0aa932786954046f5c06dd2e7aaccc3e214d949947395bd7ae1cc0"
+    },
+    "raw/native-1/renders-corrected/libre-air-water-model-source.stderr": {
+      "bytes": 1624,
+      "sha256": "8b5f5979b05db509eb3fe49e983d895afaaa7f94a0e55d8380c822aaba4f9de8"
+    },
+    "raw/native-1/renders-corrected/libre-air-water-model-source.stdout": {
+      "bytes": 432,
+      "sha256": "2d8955db5c5575b5874ea3cd7153e1bd83d3c5d3df3a7f935fb57ccd5347f7ee"
+    },
+    "raw/native-1/renders-corrected/libre-motion-asset-1-candidate.png": {
+      "bytes": 22449,
+      "sha256": "543cea0ba6a3a1f7190ff173bc2ac7cfec95ebe52c483c5afbb296e0cb037fc0"
+    },
+    "raw/native-1/renders-corrected/libre-motion-asset-1-candidate.stderr": {
+      "bytes": 1624,
+      "sha256": "f24653b2815de0236aad6682435b6a1ac80b50dc5b10eb6e8fea2154b10b502f"
+    },
+    "raw/native-1/renders-corrected/libre-motion-asset-1-candidate.stdout": {
+      "bytes": 434,
+      "sha256": "239afd5df75fe476c4a02de15affe62f81c2e09bea5555950817b3ad157f18cf"
+    },
+    "raw/native-1/renders-corrected/libre-motion-asset-1-source.png": {
+      "bytes": 22668,
+      "sha256": "1fe41889ec9f3ab30282765924661a3d9fec8f7aa89dac18a7b39586ff98b448"
+    },
+    "raw/native-1/renders-corrected/libre-motion-asset-1-source.stderr": {
+      "bytes": 1624,
+      "sha256": "e2dc04d031245aa14005595e4b0fbb81f2d595c25be902a33961173ce4067002"
+    },
+    "raw/native-1/renders-corrected/libre-motion-asset-1-source.stdout": {
+      "bytes": 428,
+      "sha256": "e1fb157f111d8ccf6048a50b7cce4b4a1362b4c0c401c802086a34471a92d87f"
+    },
+    "raw/native-1/renders-corrected/libre-motion-model-candidate.png": {
+      "bytes": 13321,
+      "sha256": "1e7320d41f05268c8d056967961fb991dc2282cfa6e646e4085784edc8f9af08"
+    },
+    "raw/native-1/renders-corrected/libre-motion-model-candidate.stderr": {
+      "bytes": 1624,
+      "sha256": "5db33c468e9ef967195357fd33ce6a457c3cd13d2c81c37743a36c1ffe7cde7a"
+    },
+    "raw/native-1/renders-corrected/libre-motion-model-candidate.stdout": {
+      "bytes": 432,
+      "sha256": "5db8d3914e03f04e9ede04784a027ec68a46c5f7800f55274616628f39c8356c"
+    },
+    "raw/native-1/renders-corrected/libre-motion-model-source.png": {
+      "bytes": 13405,
+      "sha256": "e2522a814aec220341a163fb84f2bd8cf0250bf6289ee74d5895141b5e026aac"
+    },
+    "raw/native-1/renders-corrected/libre-motion-model-source.stderr": {
+      "bytes": 1624,
+      "sha256": "bd1c1f766413b6e0c17d6cf0eb2882513ec898041ae6bfc6891832b2af01a5e9"
+    },
+    "raw/native-1/renders-corrected/libre-motion-model-source.stdout": {
+      "bytes": 426,
+      "sha256": "0de97d0c2e31a3463671f9a49f90589a027036578cc556d8dd5d5959c36b7937"
+    },
+    "raw/native-1/renders-corrected/libre-power-asset-1-candidate.png": {
+      "bytes": 21569,
+      "sha256": "0cc94cd8eeaf83231e45590a0e94f2303dbfe2406e1e8f4ab2a0bc7ffd8b9970"
+    },
+    "raw/native-1/renders-corrected/libre-power-asset-1-candidate.stderr": {
+      "bytes": 1624,
+      "sha256": "963e3191ae8a5ec6bd27f075ffd95af4899f2dc352dfaa51b9d8eed9486a371b"
+    },
+    "raw/native-1/renders-corrected/libre-power-asset-1-candidate.stdout": {
+      "bytes": 432,
+      "sha256": "0a2eeca08367e8a4bc901e8eac9c1757f67d488ea2df6598d3332e23a48b9399"
+    },
+    "raw/native-1/renders-corrected/libre-power-asset-1-source.png": {
+      "bytes": 21843,
+      "sha256": "515752c4bd801ffc6a5711b2538d6ae3af7ddffb3adf6ceca43dab3d5b0a9431"
+    },
+    "raw/native-1/renders-corrected/libre-power-asset-1-source.stderr": {
+      "bytes": 1624,
+      "sha256": "38aa7a1eef368a47ca6bf8705e3ff2e5183cca23b8a2bf56e363efe1b4cf61c8"
+    },
+    "raw/native-1/renders-corrected/libre-power-asset-1-source.stdout": {
+      "bytes": 426,
+      "sha256": "21b9d07b4c76b5eba291cf11072b7c0c9657a2a481e8b1ebe1816c527a81bf34"
+    },
+    "raw/native-1/renders-corrected/libre-power-model-candidate.png": {
+      "bytes": 12902,
+      "sha256": "168bd385386ec0acc2eaeec7bf2dfe319649fb82b38694170e0aa3fb8208816c"
+    },
+    "raw/native-1/renders-corrected/libre-power-model-candidate.stderr": {
+      "bytes": 1624,
+      "sha256": "0eff7a24b501f07e66117873a808145dd40d7147d700b06949c23bfdff32409b"
+    },
+    "raw/native-1/renders-corrected/libre-power-model-candidate.stdout": {
+      "bytes": 430,
+      "sha256": "7eda71542ac6e077ad486a1b431c0a8f74df85667f1daf8119c2117570bb5cdf"
+    },
+    "raw/native-1/renders-corrected/libre-power-model-source.png": {
+      "bytes": 13009,
+      "sha256": "68529eea7dc7c9fc70fc3f77aeba81db5200269e6ad1a1113de089c1cec0b3a1"
+    },
+    "raw/native-1/renders-corrected/libre-power-model-source.stderr": {
+      "bytes": 1624,
+      "sha256": "afc9cce5e3b0060932d9d3b349ad42460f7ca84f7769d778980d661347da8489"
+    },
+    "raw/native-1/renders-corrected/libre-power-model-source.stdout": {
+      "bytes": 424,
+      "sha256": "89cdd46cd5caed0f084d4f29601cbf7173a1728eb17ad56cbb29bfcb5283fc55"
+    },
+    "raw/native-1/renders-corrected/qcad-hydraulic-asset-1-candidate.png": {
+      "bytes": 20179,
+      "sha256": "f65dc7c960615374fe59a378db2bfcbef0441edb0d6b7cd06ca42b490f6723c5"
+    },
+    "raw/native-1/renders-corrected/qcad-hydraulic-asset-1-candidate.stderr": {
+      "bytes": 2529,
+      "sha256": "6d04dae44b24ed970dbcfdb155598fb70615e34a134e1ce4ea30472932847279"
+    },
+    "raw/native-1/renders-corrected/qcad-hydraulic-asset-1-candidate.stdout": {
+      "bytes": 438,
+      "sha256": "67710e27b2aef79038aac4f22d6d1cee7bc8221d2b3016ca2a61add98a257ed5"
+    },
+    "raw/native-1/renders-corrected/qcad-hydraulic-asset-1-source.png": {
+      "bytes": 20352,
+      "sha256": "c52d6e380e759cf3c553b5f9d35a1f48648a8e6bf2147835a9daca5a43e004b7"
+    },
+    "raw/native-1/renders-corrected/qcad-hydraulic-asset-1-source.stderr": {
+      "bytes": 2529,
+      "sha256": "e98c2b78794ff2567c19bd09b9087ab888437c56f1d58e8f0033174300e7a0ea"
+    },
+    "raw/native-1/renders-corrected/qcad-hydraulic-asset-1-source.stdout": {
+      "bytes": 432,
+      "sha256": "8513a03675be575c3692bcf23ae2bcb2ebe22b70ce2b0757b36a28d922e0adad"
+    },
+    "raw/native-1/renders-corrected/qcad-hydraulic-model-candidate.png": {
+      "bytes": 11778,
+      "sha256": "609f046096d23b463400e37ac979068eb4b543b0506218ddfb95c1c5779f5550"
+    },
+    "raw/native-1/renders-corrected/qcad-hydraulic-model-candidate.stderr": {
+      "bytes": 2529,
+      "sha256": "47b01d988f2902926302936c04c995fb57c0b38b3c1c48bd0cc25540328c2ad1"
+    },
+    "raw/native-1/renders-corrected/qcad-hydraulic-model-candidate.stdout": {
+      "bytes": 436,
+      "sha256": "6702edd5563ef4a4d8a8eed7e54c6967affb1ef66ee914113e7b3e2f36d70f5c"
+    },
+    "raw/native-1/renders-corrected/qcad-hydraulic-model-source.png": {
+      "bytes": 11895,
+      "sha256": "264ef3c4a1b2dcca4a4fad8405ccf269a7d5357ec2519c2194e761d66a7084a6"
+    },
+    "raw/native-1/renders-corrected/qcad-hydraulic-model-source.stderr": {
+      "bytes": 2529,
+      "sha256": "1c8c4c9af2a8ed9d472260ca785e90acf9852eff8c27c1fa08ed3b45eae0c29a"
+    },
+    "raw/native-1/renders-corrected/qcad-hydraulic-model-source.stdout": {
+      "bytes": 430,
+      "sha256": "f89542911b8e21d207e7cc6ee90e6375f62cb77f274c1469e4715535af1b4a11"
+    },
+    "raw/native-1/renders-corrected/qcad-mechanical-asset-1-candidate.png": {
+      "bytes": 20501,
+      "sha256": "ed4505e4cd4ebe9ce5ce10c2070be04dcbceb6f3314719a926fd4973e60121e5"
+    },
+    "raw/native-1/renders-corrected/qcad-mechanical-asset-1-candidate.stderr": {
+      "bytes": 471,
+      "sha256": "a67e3011507573502e99874979ab836950bb585850932b6650cc6b93a7c9b063"
+    },
+    "raw/native-1/renders-corrected/qcad-mechanical-asset-1-candidate.stdout": {
+      "bytes": 440,
+      "sha256": "2a5729d74c61df8110c14e9d985344a06648127245d14e53b967c6c585ef2a6f"
+    },
+    "raw/native-1/renders-corrected/qcad-mechanical-asset-1-source.png": {
+      "bytes": 20680,
+      "sha256": "ea6b61d6e9e5c924b7dc2b446daa3151d7a997048b79fc52f96e6dc53b8780f8"
+    },
+    "raw/native-1/renders-corrected/qcad-mechanical-asset-1-source.stderr": {
+      "bytes": 471,
+      "sha256": "64072dc70ee8d7f9cbdd69592dd7b3d47fee14878ea85766dc5cb38c9fc28998"
+    },
+    "raw/native-1/renders-corrected/qcad-mechanical-asset-1-source.stdout": {
+      "bytes": 434,
+      "sha256": "b736a11cb660b945c46717c5377ba7bca592b6a7cbc325ab099976f72935c0ff"
+    },
+    "raw/native-1/renders-corrected/qcad-mechanical-model-candidate.png": {
+      "bytes": 12362,
+      "sha256": "289289d3d94778cf68388a00917b28a3a602fd1f926b0154c18eaf280817ee49"
+    },
+    "raw/native-1/renders-corrected/qcad-mechanical-model-candidate.stderr": {
+      "bytes": 471,
+      "sha256": "fda57fe4b1160bcc04905f7a36e66a6fe44ddcc015ba7ed75d9f25ea568fec2f"
+    },
+    "raw/native-1/renders-corrected/qcad-mechanical-model-candidate.stdout": {
+      "bytes": 438,
+      "sha256": "cbed221d6b022edf2a923e1b5409b1e486441038ca5496598c783bf469941d92"
+    },
+    "raw/native-1/renders-corrected/qcad-mechanical-model-source.png": {
+      "bytes": 12430,
+      "sha256": "982bd4cf1be6ac899a48b183860af65befbf5ff7f3cc5488d6290aff2030d194"
+    },
+    "raw/native-1/renders-corrected/qcad-mechanical-model-source.stderr": {
+      "bytes": 471,
+      "sha256": "7d7be4c05c0aac7d6628a44b75e00e07575691f78afcd3e9686b942b4c78998c"
+    },
+    "raw/native-1/renders-corrected/qcad-mechanical-model-source.stdout": {
+      "bytes": 432,
+      "sha256": "afab4b5b1f9526d6d0f711390f5865c8b64723274b96e5044a6a6dd1664030af"
+    },
+    "raw/native-1/renders-corrected/qcad-template-asset-1-candidate.png": {
+      "bytes": 19071,
+      "sha256": "180de45d43e789a112148ecf55656c9d2570c46c6166a35de87eeeb6c1a3fba2"
+    },
+    "raw/native-1/renders-corrected/qcad-template-asset-1-candidate.stderr": {
+      "bytes": 471,
+      "sha256": "c58b07fbe9bd7adcdfb866f9bf0413f44fa2cfb7669153eeb0b8b06106d79dd9"
+    },
+    "raw/native-1/renders-corrected/qcad-template-asset-1-candidate.stdout": {
+      "bytes": 436,
+      "sha256": "f1652243e26969da0ccccfdacc6e478daa3f66f68bb81f7868ffeff03dbdfba8"
+    },
+    "raw/native-1/renders-corrected/qcad-template-asset-1-source.png": {
+      "bytes": 19341,
+      "sha256": "76ad1c51a3f44ac47d4a0c2df9229c40622c5ef47df594de086bb1b80dd1a6f3"
+    },
+    "raw/native-1/renders-corrected/qcad-template-asset-1-source.stderr": {
+      "bytes": 471,
+      "sha256": "2533a076d96b91608e0fe8f8ed677bf6df4438f8f8525f0850a45fb6f24faa53"
+    },
+    "raw/native-1/renders-corrected/qcad-template-asset-1-source.stdout": {
+      "bytes": 430,
+      "sha256": "7d4b6834a2018a4690b1d5a6abf51e49d852a62c6989f65f6509e7d5e2d17f85"
+    },
+    "raw/native-1/renders-corrected/qcad-template-model-candidate.png": {
+      "bytes": 11637,
+      "sha256": "4efba963a5e7ba6918989bba5bee38d428f4c97dc60864b2da47ce21ed5b0c3c"
+    },
+    "raw/native-1/renders-corrected/qcad-template-model-candidate.stderr": {
+      "bytes": 471,
+      "sha256": "22b677cbd84193a5726673fb83afed671fb175c7b04c676a76b7304c81c5488e"
+    },
+    "raw/native-1/renders-corrected/qcad-template-model-candidate.stdout": {
+      "bytes": 434,
+      "sha256": "710cacbd4aa7608e6f2ee6a3a99f383e8745da3f279cf3025121b239a76102e1"
+    },
+    "raw/native-1/renders-corrected/qcad-template-model-source.png": {
+      "bytes": 11727,
+      "sha256": "f3cce9bc648a2990f4c78df899eb454f1a09ba48873965e1e647beb0c0db2aa8"
+    },
+    "raw/native-1/renders-corrected/qcad-template-model-source.stderr": {
+      "bytes": 471,
+      "sha256": "c073fd09ca21fbd5083c92b8cd332686c04cbffd36fa30fffd27c818d3045704"
+    },
+    "raw/native-1/renders-corrected/qcad-template-model-source.stdout": {
+      "bytes": 428,
+      "sha256": "44c80935d38b88a50fb179bfc76f930432b31a6e0d8090fbdac82305b81286b4"
+    },
+    "raw/native-1/RENDERS.json": {
+      "bytes": 10200,
+      "sha256": "89fb86e890a87c492b4a0012ee0d2d9bd14129040f0736f52bd94211444946a8"
+    },
+    "raw/native-1/run_native.py": {
+      "bytes": 3608,
+      "sha256": "1bb58f4c05c4e05c5c1db17f9e759f33c108b14063f2b130a883416d7e558964"
+    },
+    "raw/native-1/window.py": {
+      "bytes": 419,
+      "sha256": "3a540ae6f2c89f98ea0240e8957f842589fe335509cc32fbf1cb4ab55f027187"
+    },
+    "raw/controls-1/libre-air-water/unplanned-geometry.dxf": {
+      "bytes": 21103,
+      "sha256": "034908495bc55116d13b1f7103c041a9cba6e461fcaeac763bedf7fb20944f99"
+    },
+    "raw/controls-2/libre-air-water/changed-foreign.dxf": {
+      "bytes": 21340,
+      "sha256": "47febcc158deff64f47377f723f4762d9eb2ba1fc25246b44a0be1a4942c8993"
+    },
+    "raw/controls-2/libre-air-water/changed-xdata.dxf": {
+      "bytes": 21340,
+      "sha256": "a31ae3f18ad62eb4dbe676d22c84ce72d048783ab8dd9bade0edfaa2a0dbe040"
+    },
+    "raw/controls-2/libre-air-water/revision-2-candidate/byte-edits.json": {
+      "bytes": 745,
+      "sha256": "70436df97006b88aa187e8d2a7e916728b73e7826d563fb45895c6939c7b5034"
+    },
+    "raw/controls-2/libre-air-water/revision-2-candidate/cad_context.json": {
+      "bytes": 670,
+      "sha256": "11069faad2c757b1e3d185ffe82f469642a39f0885a57172a28e86a5fed54f22"
+    },
+    "raw/controls-2/libre-air-water/revision-2-candidate/candidate-context/cad_context.json": {
+      "bytes": 669,
+      "sha256": "20b3e3b29c37bb36d421cfa8a4ef7fbba5ded00e78d1a7b9e5755b05f79d25f2"
+    },
+    "raw/controls-2/libre-air-water/revision-2-candidate/candidate-context/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/controls-2/libre-air-water/revision-2-candidate/candidate-context/snapshot.json": {
+      "bytes": 83958,
+      "sha256": "4fb38eb90803c93e00c2fdd8fc72a1320a7655a127e449866dc07754bba70b1f"
+    },
+    "raw/controls-2/libre-air-water/revision-2-candidate/candidate-context/source.dxf": {
+      "bytes": 21340,
+      "sha256": "86d200a111597f2717cdefedb70db6e2987829379941b2a89b089b5409faba72"
+    },
+    "raw/controls-2/libre-air-water/revision-2-candidate/candidate.dxf": {
+      "bytes": 21340,
+      "sha256": "86d200a111597f2717cdefedb70db6e2987829379941b2a89b089b5409faba72"
+    },
+    "raw/controls-2/libre-air-water/revision-2-candidate/candidate.snapshot.json": {
+      "bytes": 83958,
+      "sha256": "4fb38eb90803c93e00c2fdd8fc72a1320a7655a127e449866dc07754bba70b1f"
+    },
+    "raw/controls-2/libre-air-water/revision-2-candidate/comparison.json": {
+      "bytes": 862,
+      "sha256": "a67aa57722589b4b641b0b4ccbfac99d81f471c97729ea86c8091b3e39779ee7"
+    },
+    "raw/controls-2/libre-air-water/revision-2-candidate/plan.json": {
+      "bytes": 382,
+      "sha256": "88085ff1dbc75988564df8fe97612430df8347af294d95bd0920752395eadaa5"
+    },
+    "raw/controls-2/libre-air-water/revision-2-candidate/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/controls-2/libre-air-water/revision-2-candidate/snapshot.json": {
+      "bytes": 83960,
+      "sha256": "c08896f07be671c8aa22b57d443ff55a911921bb97b26e55f83689ac5a04062d"
+    },
+    "raw/controls-2/libre-air-water/revision-2-candidate/source.dxf": {
+      "bytes": 21341,
+      "sha256": "11201c183113520f0a4dd159dac26d3f5a211bfb8cdb47957216fe75f4e6adb4"
+    },
+    "raw/controls-2/libre-air-water/revision-2-plan.json": {
+      "bytes": 382,
+      "sha256": "88085ff1dbc75988564df8fe97612430df8347af294d95bd0920752395eadaa5"
+    },
+    "raw/controls-2/libre-air-water/revision-2.dxf": {
+      "bytes": 21341,
+      "sha256": "11201c183113520f0a4dd159dac26d3f5a211bfb8cdb47957216fe75f4e6adb4"
+    },
+    "raw/controls-2/libre-air-water/stale-before.json": {
+      "bytes": 92,
+      "sha256": "c0c417c4a8085f3729d7190423ac45cab065b8ac0d5492fb411cc6d97c74d4aa"
+    },
+    "raw/controls-2/libre-air-water/stale-source.json": {
+      "bytes": 104,
+      "sha256": "5768a0a696fcbe1629d53c18b7add9f016d1d8038d0e45190691b171f3601cca"
+    },
+    "raw/controls-2/libre-air-water/unplanned-geometry.dxf": {
+      "bytes": 21103,
+      "sha256": "034908495bc55116d13b1f7103c041a9cba6e461fcaeac763bedf7fb20944f99"
+    },
+    "raw/controls-2/libre-motion/changed-foreign.dxf": {
+      "bytes": 21539,
+      "sha256": "7b942da3543e8bf419764da26a719197adcca218b947550a98f1e3691e7ef0bf"
+    },
+    "raw/controls-2/libre-motion/changed-xdata.dxf": {
+      "bytes": 21539,
+      "sha256": "934b614535deef3f5f67571f1e2eb50dfe7c9cd039e8dfbfae62ccd05e0d8fcc"
+    },
+    "raw/controls-2/libre-motion/revision-2-candidate/byte-edits.json": {
+      "bytes": 742,
+      "sha256": "8b0860542fd52758a1e4a97e3711c8a0ea3b10315bf99bd0ee57b33e25c1feb0"
+    },
+    "raw/controls-2/libre-motion/revision-2-candidate/cad_context.json": {
+      "bytes": 664,
+      "sha256": "5f1dabbcfc41d4408f25f5c80314602b151fb61367a08f4323e233e53a5d9d87"
+    },
+    "raw/controls-2/libre-motion/revision-2-candidate/candidate-context/cad_context.json": {
+      "bytes": 663,
+      "sha256": "6ca98254c3e5b8134961454c49c49f7969e1f36ad02ff8159167b7b4f7cddc79"
+    },
+    "raw/controls-2/libre-motion/revision-2-candidate/candidate-context/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/controls-2/libre-motion/revision-2-candidate/candidate-context/snapshot.json": {
+      "bytes": 85319,
+      "sha256": "62eb40efa566d6ff1b50ea9add8d53de1a16c81cc0ed5d58ca8db8d83e9344ce"
+    },
+    "raw/controls-2/libre-motion/revision-2-candidate/candidate-context/source.dxf": {
+      "bytes": 21539,
+      "sha256": "6cd24bf610908d01c500cc3a8d8fc98874343d280b098f755d07fb2b9986807b"
+    },
+    "raw/controls-2/libre-motion/revision-2-candidate/candidate.dxf": {
+      "bytes": 21539,
+      "sha256": "6cd24bf610908d01c500cc3a8d8fc98874343d280b098f755d07fb2b9986807b"
+    },
+    "raw/controls-2/libre-motion/revision-2-candidate/candidate.snapshot.json": {
+      "bytes": 85319,
+      "sha256": "62eb40efa566d6ff1b50ea9add8d53de1a16c81cc0ed5d58ca8db8d83e9344ce"
+    },
+    "raw/controls-2/libre-motion/revision-2-candidate/comparison.json": {
+      "bytes": 859,
+      "sha256": "317590301a9ffb3d6f25806c192c4931f7c0d868b0cb6cb7fbb9aadf66372941"
+    },
+    "raw/controls-2/libre-motion/revision-2-candidate/plan.json": {
+      "bytes": 379,
+      "sha256": "01fae38e766dafa453a2f0f30e6d234c6d55453a5c0a83e9e0dbbf6c28609e4a"
+    },
+    "raw/controls-2/libre-motion/revision-2-candidate/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/controls-2/libre-motion/revision-2-candidate/snapshot.json": {
+      "bytes": 85321,
+      "sha256": "5746d556ee9680e1519d1fbdefb4f25c970fad045375c147d9f832eb2bed9bd1"
+    },
+    "raw/controls-2/libre-motion/revision-2-candidate/source.dxf": {
+      "bytes": 21540,
+      "sha256": "ed6d5ee30f2331cb72d4ebb4a59f7a5d048b4d2e6e3d7be4ad599546fde80521"
+    },
+    "raw/controls-2/libre-motion/revision-2-plan.json": {
+      "bytes": 379,
+      "sha256": "01fae38e766dafa453a2f0f30e6d234c6d55453a5c0a83e9e0dbbf6c28609e4a"
+    },
+    "raw/controls-2/libre-motion/revision-2.dxf": {
+      "bytes": 21540,
+      "sha256": "ed6d5ee30f2331cb72d4ebb4a59f7a5d048b4d2e6e3d7be4ad599546fde80521"
+    },
+    "raw/controls-2/libre-motion/stale-before.json": {
+      "bytes": 92,
+      "sha256": "c0c417c4a8085f3729d7190423ac45cab065b8ac0d5492fb411cc6d97c74d4aa"
+    },
+    "raw/controls-2/libre-motion/stale-source.json": {
+      "bytes": 104,
+      "sha256": "5768a0a696fcbe1629d53c18b7add9f016d1d8038d0e45190691b171f3601cca"
+    },
+    "raw/controls-2/libre-motion/unplanned-geometry.dxf": {
+      "bytes": 21302,
+      "sha256": "18c2f5e20607b12e7c5b7711d7a7468265159e3b0e51163722f647e4494f8bea"
+    },
+    "raw/controls-2/libre-power/changed-foreign.dxf": {
+      "bytes": 21154,
+      "sha256": "8115620bda790e8b0c95feeaa37aeebd0f2a1c3ba45be046a4c739d9f993548a"
+    },
+    "raw/controls-2/libre-power/changed-xdata.dxf": {
+      "bytes": 21154,
+      "sha256": "5f27f14d75ebf2814e0f989132ba03edeb8ac463403fad1749adfee324cac0b7"
+    },
+    "raw/controls-2/libre-power/revision-2-candidate/byte-edits.json": {
+      "bytes": 741,
+      "sha256": "e9c4fe14a13fdde2e168785c250e13c8b9f7dacc6486922a3bd77ab006e9635b"
+    },
+    "raw/controls-2/libre-power/revision-2-candidate/cad_context.json": {
+      "bytes": 662,
+      "sha256": "2e8ea26d15999d3dde7283df9b11e86dcbb32a19302968cb84c9158fd0f347b9"
+    },
+    "raw/controls-2/libre-power/revision-2-candidate/candidate-context/cad_context.json": {
+      "bytes": 661,
+      "sha256": "cb9641db7950899b0f54e3014c8314dd0878de0c0f1a603aabd5c29ce4e07fb0"
+    },
+    "raw/controls-2/libre-power/revision-2-candidate/candidate-context/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/controls-2/libre-power/revision-2-candidate/candidate-context/snapshot.json": {
+      "bytes": 82356,
+      "sha256": "25d3d15587a9bb750367e16a25a02588616369531e7b73d7039119bd591ba936"
+    },
+    "raw/controls-2/libre-power/revision-2-candidate/candidate-context/source.dxf": {
+      "bytes": 21154,
+      "sha256": "d4f841130b3982b026a94d1a9e098bb2d0b395402273f590a54187d5facb1cde"
+    },
+    "raw/controls-2/libre-power/revision-2-candidate/candidate.dxf": {
+      "bytes": 21154,
+      "sha256": "d4f841130b3982b026a94d1a9e098bb2d0b395402273f590a54187d5facb1cde"
+    },
+    "raw/controls-2/libre-power/revision-2-candidate/candidate.snapshot.json": {
+      "bytes": 82356,
+      "sha256": "25d3d15587a9bb750367e16a25a02588616369531e7b73d7039119bd591ba936"
+    },
+    "raw/controls-2/libre-power/revision-2-candidate/comparison.json": {
+      "bytes": 858,
+      "sha256": "d2971e83c2747bafa8c36cd49d52fd06d04462251726a7e65617874656397733"
+    },
+    "raw/controls-2/libre-power/revision-2-candidate/plan.json": {
+      "bytes": 378,
+      "sha256": "a4111c4b569e0ef35a4441d936cdaf67d7e824cd4832b93ee10e866bef844a00"
+    },
+    "raw/controls-2/libre-power/revision-2-candidate/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/controls-2/libre-power/revision-2-candidate/snapshot.json": {
+      "bytes": 82358,
+      "sha256": "a6b5c44e67df620626e94a5e17fd2e0787555b2a4bc54b6fb439016ba2315958"
+    },
+    "raw/controls-2/libre-power/revision-2-candidate/source.dxf": {
+      "bytes": 21155,
+      "sha256": "105f9fe70e41cea95862ad4f7400d294fca8c1b06b402956f9573d9cd8142d7d"
+    },
+    "raw/controls-2/libre-power/revision-2-plan.json": {
+      "bytes": 378,
+      "sha256": "a4111c4b569e0ef35a4441d936cdaf67d7e824cd4832b93ee10e866bef844a00"
+    },
+    "raw/controls-2/libre-power/revision-2.dxf": {
+      "bytes": 21155,
+      "sha256": "105f9fe70e41cea95862ad4f7400d294fca8c1b06b402956f9573d9cd8142d7d"
+    },
+    "raw/controls-2/libre-power/stale-before.json": {
+      "bytes": 92,
+      "sha256": "c0c417c4a8085f3729d7190423ac45cab065b8ac0d5492fb411cc6d97c74d4aa"
+    },
+    "raw/controls-2/libre-power/stale-source.json": {
+      "bytes": 104,
+      "sha256": "5768a0a696fcbe1629d53c18b7add9f016d1d8038d0e45190691b171f3601cca"
+    },
+    "raw/controls-2/libre-power/unplanned-geometry.dxf": {
+      "bytes": 20917,
+      "sha256": "ac7d9a5c5ff6595c4dc4fc4c249a73fe0320719fe64dde4f42220b91c7058518"
+    },
+    "raw/controls-2/qcad-hydraulic/changed-foreign.dxf": {
+      "bytes": 30598,
+      "sha256": "44848ff64e068e3280dbd9c512e9ddc7d0b78b2a3bf6cf34ba8317a302ec770f"
+    },
+    "raw/controls-2/qcad-hydraulic/changed-xdata.dxf": {
+      "bytes": 30598,
+      "sha256": "6889d5537f27b69dc5f28a047d0e11499fbca66a8a23dc113cae518a90ef7682"
+    },
+    "raw/controls-2/qcad-hydraulic/revision-2-candidate/byte-edits.json": {
+      "bytes": 744,
+      "sha256": "c885645a74698d60608100c5f4cac2128d3b403c71651fc371d1f1ea2a4eb1d2"
+    },
+    "raw/controls-2/qcad-hydraulic/revision-2-candidate/cad_context.json": {
+      "bytes": 668,
+      "sha256": "8ae30f6ab32febbd898df80635ffaf659585d75bdc77ee3008a076f0ccfce351"
+    },
+    "raw/controls-2/qcad-hydraulic/revision-2-candidate/candidate-context/cad_context.json": {
+      "bytes": 667,
+      "sha256": "3dd6949d265b74c2cce6eac6c956302dda2a5c014a87c76cbec554d0724f5452"
+    },
+    "raw/controls-2/qcad-hydraulic/revision-2-candidate/candidate-context/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/controls-2/qcad-hydraulic/revision-2-candidate/candidate-context/snapshot.json": {
+      "bytes": 126146,
+      "sha256": "c4c4e5286d8394216de751513c2dfd91268a3c823154ce25c8e72ba55be78ff0"
+    },
+    "raw/controls-2/qcad-hydraulic/revision-2-candidate/candidate-context/source.dxf": {
+      "bytes": 30598,
+      "sha256": "22b74eda3d3d8e21353d195ed0de8f713c86f3ca81eea06b285bc6c5f43c522c"
+    },
+    "raw/controls-2/qcad-hydraulic/revision-2-candidate/candidate.dxf": {
+      "bytes": 30598,
+      "sha256": "22b74eda3d3d8e21353d195ed0de8f713c86f3ca81eea06b285bc6c5f43c522c"
+    },
+    "raw/controls-2/qcad-hydraulic/revision-2-candidate/candidate.snapshot.json": {
+      "bytes": 126146,
+      "sha256": "c4c4e5286d8394216de751513c2dfd91268a3c823154ce25c8e72ba55be78ff0"
+    },
+    "raw/controls-2/qcad-hydraulic/revision-2-candidate/comparison.json": {
+      "bytes": 861,
+      "sha256": "5d5d3656770bb839f9ff6a4a8afb748e2f8561cb0414150678395bbc091086ce"
+    },
+    "raw/controls-2/qcad-hydraulic/revision-2-candidate/plan.json": {
+      "bytes": 381,
+      "sha256": "8a886f6359d3358e9b8035399cc01cfd517f0cda022e8941d1722c6c5cbf9ac2"
+    },
+    "raw/controls-2/qcad-hydraulic/revision-2-candidate/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/controls-2/qcad-hydraulic/revision-2-candidate/snapshot.json": {
+      "bytes": 126148,
+      "sha256": "ee1f365fbf76d43494fc62d59a29ecfce3bc1dd3ab286575ef1204025872b9f2"
+    },
+    "raw/controls-2/qcad-hydraulic/revision-2-candidate/source.dxf": {
+      "bytes": 30599,
+      "sha256": "ac40f112ea4dac382a8f433301f87aa6122b1d454fcb157aa82ab249a01322f7"
+    },
+    "raw/controls-2/qcad-hydraulic/revision-2-plan.json": {
+      "bytes": 381,
+      "sha256": "8a886f6359d3358e9b8035399cc01cfd517f0cda022e8941d1722c6c5cbf9ac2"
+    },
+    "raw/controls-2/qcad-hydraulic/revision-2.dxf": {
+      "bytes": 30599,
+      "sha256": "ac40f112ea4dac382a8f433301f87aa6122b1d454fcb157aa82ab249a01322f7"
+    },
+    "raw/controls-2/qcad-hydraulic/stale-before.json": {
+      "bytes": 92,
+      "sha256": "c0c417c4a8085f3729d7190423ac45cab065b8ac0d5492fb411cc6d97c74d4aa"
+    },
+    "raw/controls-2/qcad-hydraulic/stale-source.json": {
+      "bytes": 104,
+      "sha256": "5768a0a696fcbe1629d53c18b7add9f016d1d8038d0e45190691b171f3601cca"
+    },
+    "raw/controls-2/qcad-hydraulic/unplanned-geometry.dxf": {
+      "bytes": 30359,
+      "sha256": "756cded0ebdd67ddf0eb1d35734c8f7a0056bd8b058877962de2328fc45fa0d3"
+    },
+    "raw/controls-2/qcad-mechanical/changed-foreign.dxf": {
+      "bytes": 41806,
+      "sha256": "7f9a65a3dceb7bcb95f19109dd1e414b9f18f72c20e5289ea9cc8e396e677d08"
+    },
+    "raw/controls-2/qcad-mechanical/changed-xdata.dxf": {
+      "bytes": 41806,
+      "sha256": "4a6feb23210fb2727615d53bcb4a1a5f7ff11ef0c8dcca410e46cae17cb057c0"
+    },
+    "raw/controls-2/qcad-mechanical/revision-2-candidate/byte-edits.json": {
+      "bytes": 742,
+      "sha256": "89d07c979c5f6c37e751ab9b0d4b812b1e3906e6fa286bd7e21771104c17aa05"
+    },
+    "raw/controls-2/qcad-mechanical/revision-2-candidate/cad_context.json": {
+      "bytes": 667,
+      "sha256": "dac9ff98a93240cab2402f8ce24472defbf329fdfd8a8cfc03aee640b468a408"
+    },
+    "raw/controls-2/qcad-mechanical/revision-2-candidate/candidate-context/cad_context.json": {
+      "bytes": 666,
+      "sha256": "f345a6e9385560a8845f4871d70c4220dc2599273df9fe077584c696e24066c3"
+    },
+    "raw/controls-2/qcad-mechanical/revision-2-candidate/candidate-context/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/controls-2/qcad-mechanical/revision-2-candidate/candidate-context/snapshot.json": {
+      "bytes": 169826,
+      "sha256": "c45e63b400cb58ad78e531e4a2496b890a845cc736bc7076f73a73e11d53df10"
+    },
+    "raw/controls-2/qcad-mechanical/revision-2-candidate/candidate-context/source.dxf": {
+      "bytes": 41806,
+      "sha256": "10e16ce27517795c7994a29bbb0a3c5072583622085d57bb3e3d6a83c69b6a5e"
+    },
+    "raw/controls-2/qcad-mechanical/revision-2-candidate/candidate.dxf": {
+      "bytes": 41806,
+      "sha256": "10e16ce27517795c7994a29bbb0a3c5072583622085d57bb3e3d6a83c69b6a5e"
+    },
+    "raw/controls-2/qcad-mechanical/revision-2-candidate/candidate.snapshot.json": {
+      "bytes": 169826,
+      "sha256": "c45e63b400cb58ad78e531e4a2496b890a845cc736bc7076f73a73e11d53df10"
+    },
+    "raw/controls-2/qcad-mechanical/revision-2-candidate/comparison.json": {
+      "bytes": 862,
+      "sha256": "a85ffd494ab9aa2072b4d8ee02e12e0f85a134715bd4c5b67756a11de5d26989"
+    },
+    "raw/controls-2/qcad-mechanical/revision-2-candidate/plan.json": {
+      "bytes": 382,
+      "sha256": "a6fa8e128c199b449713e6f4b919e91a764c9e1906bf6f168d3eabdbd2797450"
+    },
+    "raw/controls-2/qcad-mechanical/revision-2-candidate/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/controls-2/qcad-mechanical/revision-2-candidate/snapshot.json": {
+      "bytes": 169828,
+      "sha256": "0764a2cde9ae3e931b2bf7f06cef7883ad541f6722fac83304ca892f9008fde3"
+    },
+    "raw/controls-2/qcad-mechanical/revision-2-candidate/source.dxf": {
+      "bytes": 41807,
+      "sha256": "ea4822e7fa7899843e14b755aa128491b1e77a0661c68bda6ceced4eae542240"
+    },
+    "raw/controls-2/qcad-mechanical/revision-2-plan.json": {
+      "bytes": 382,
+      "sha256": "a6fa8e128c199b449713e6f4b919e91a764c9e1906bf6f168d3eabdbd2797450"
+    },
+    "raw/controls-2/qcad-mechanical/revision-2.dxf": {
+      "bytes": 41807,
+      "sha256": "ea4822e7fa7899843e14b755aa128491b1e77a0661c68bda6ceced4eae542240"
+    },
+    "raw/controls-2/qcad-mechanical/stale-before.json": {
+      "bytes": 92,
+      "sha256": "c0c417c4a8085f3729d7190423ac45cab065b8ac0d5492fb411cc6d97c74d4aa"
+    },
+    "raw/controls-2/qcad-mechanical/stale-source.json": {
+      "bytes": 104,
+      "sha256": "5768a0a696fcbe1629d53c18b7add9f016d1d8038d0e45190691b171f3601cca"
+    },
+    "raw/controls-2/qcad-mechanical/unplanned-geometry.dxf": {
+      "bytes": 41572,
+      "sha256": "a8c02c5cc91bdb87f55711ccd51b5def40f22b8c67b7747ae20aad857b85e3c3"
+    },
+    "raw/controls-2/qcad-template/changed-foreign.dxf": {
+      "bytes": 42854,
+      "sha256": "6adddfea51bd8f9119f50c7ef4df2473f13edb2475aa9afecb88677b49763987"
+    },
+    "raw/controls-2/qcad-template/changed-xdata.dxf": {
+      "bytes": 42854,
+      "sha256": "a2e89a03a83a116f7a9a0ebb4399acac4a64effc0ae9ff05e2428df15090c238"
+    },
+    "raw/controls-2/qcad-template/revision-2-candidate/byte-edits.json": {
+      "bytes": 740,
+      "sha256": "ca6b6a235197e86137bd742c397debef424abd4fc21720ea55edcf69ab296872"
+    },
+    "raw/controls-2/qcad-template/revision-2-candidate/cad_context.json": {
+      "bytes": 663,
+      "sha256": "010a777fb415c546f66c186e4d858734b1f65fe6f23f94891e39412b7b8502f6"
+    },
+    "raw/controls-2/qcad-template/revision-2-candidate/candidate-context/cad_context.json": {
+      "bytes": 662,
+      "sha256": "54a1fd9228130908f34d0c8fdffe2401038a068f9c5e11f1c8dccd9f74e37bef"
+    },
+    "raw/controls-2/qcad-template/revision-2-candidate/candidate-context/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/controls-2/qcad-template/revision-2-candidate/candidate-context/snapshot.json": {
+      "bytes": 174096,
+      "sha256": "cc27d24a23e59dbfd632e4674307ce41eeb4e8be30f238436a168e1311edc03a"
+    },
+    "raw/controls-2/qcad-template/revision-2-candidate/candidate-context/source.dxf": {
+      "bytes": 42854,
+      "sha256": "b143f8bc9df9bc58b984c7f3b49de973878f97ae76b44b8e6675eb717a5ef7f1"
+    },
+    "raw/controls-2/qcad-template/revision-2-candidate/candidate.dxf": {
+      "bytes": 42854,
+      "sha256": "b143f8bc9df9bc58b984c7f3b49de973878f97ae76b44b8e6675eb717a5ef7f1"
+    },
+    "raw/controls-2/qcad-template/revision-2-candidate/candidate.snapshot.json": {
+      "bytes": 174096,
+      "sha256": "cc27d24a23e59dbfd632e4674307ce41eeb4e8be30f238436a168e1311edc03a"
+    },
+    "raw/controls-2/qcad-template/revision-2-candidate/comparison.json": {
+      "bytes": 860,
+      "sha256": "034c8c4c9def197db649bb0b2b2c4d944f195f756b77bfec31bb2815d533d9a2"
+    },
+    "raw/controls-2/qcad-template/revision-2-candidate/plan.json": {
+      "bytes": 380,
+      "sha256": "5a401c782c20569451da22137fb99c0f32108f4e3d2341056cbacb815c84af53"
+    },
+    "raw/controls-2/qcad-template/revision-2-candidate/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/controls-2/qcad-template/revision-2-candidate/snapshot.json": {
+      "bytes": 174098,
+      "sha256": "ca0a6258df376ccc30b962994382ca041cfc83d5becdd7485b323384c56b6799"
+    },
+    "raw/controls-2/qcad-template/revision-2-candidate/source.dxf": {
+      "bytes": 42855,
+      "sha256": "dbd6769086805bd8433a1ebc43d75c290f44c85fab08e925d8aefed817c670cd"
+    },
+    "raw/controls-2/qcad-template/revision-2-plan.json": {
+      "bytes": 380,
+      "sha256": "5a401c782c20569451da22137fb99c0f32108f4e3d2341056cbacb815c84af53"
+    },
+    "raw/controls-2/qcad-template/revision-2.dxf": {
+      "bytes": 42855,
+      "sha256": "dbd6769086805bd8433a1ebc43d75c290f44c85fab08e925d8aefed817c670cd"
+    },
+    "raw/controls-2/qcad-template/stale-before.json": {
+      "bytes": 92,
+      "sha256": "c0c417c4a8085f3729d7190423ac45cab065b8ac0d5492fb411cc6d97c74d4aa"
+    },
+    "raw/controls-2/qcad-template/stale-source.json": {
+      "bytes": 104,
+      "sha256": "5768a0a696fcbe1629d53c18b7add9f016d1d8038d0e45190691b171f3601cca"
+    },
+    "raw/controls-2/qcad-template/unplanned-geometry.dxf": {
+      "bytes": 42620,
+      "sha256": "f08f946e9a91db2bbeade684918e15c89e5273162f34ec1fb6880e9c01d43ac1"
+    },
+    "raw/controls-2/RESULTS.json": {
+      "bytes": 2130,
+      "sha256": "085bee2bf2533871780290400bea7f89181d52336594a7aaff5370bb902947d6"
+    },
+    "raw/controls-3/libre-air-water/changed-foreign.dxf": {
+      "bytes": 21340,
+      "sha256": "c57d65d078847c45eedf62976583a320da8a3219045a2e2358255c1c8aa33d65"
+    },
+    "raw/controls-3/libre-air-water/changed-xdata.dxf": {
+      "bytes": 21340,
+      "sha256": "970c479fe1e6bf673248eb03b596d788a9bdee8cb9cc8293f454bfe3497069e6"
+    },
+    "raw/controls-3/libre-air-water/revision-2-candidate/byte-edits.json": {
+      "bytes": 745,
+      "sha256": "b34f9851c7d627eefc4a4d91c50f7d6f0e314f3129ecf9c378ab201fa44fe318"
+    },
+    "raw/controls-3/libre-air-water/revision-2-candidate/cad_context.json": {
+      "bytes": 670,
+      "sha256": "83c459a04d4a7125cfe0cd86ec66d64d39289b9299acb818a0f968abea1efc64"
+    },
+    "raw/controls-3/libre-air-water/revision-2-candidate/candidate-context/cad_context.json": {
+      "bytes": 669,
+      "sha256": "dd8802c567207e1f4df11e7dc88e2c9c0e4baeee42aa749c7519c8d0efa787b3"
+    },
+    "raw/controls-3/libre-air-water/revision-2-candidate/candidate-context/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/controls-3/libre-air-water/revision-2-candidate/candidate-context/snapshot.json": {
+      "bytes": 83958,
+      "sha256": "38c805f0876760a2a3be3ccdb64bbc191880e9dbcf668e5061441d745ac88f88"
+    },
+    "raw/controls-3/libre-air-water/revision-2-candidate/candidate-context/source.dxf": {
+      "bytes": 21340,
+      "sha256": "ef904291735d7f21bac0ce6f64c3432af3ea34350f8c77c7ef94f735b7b1b91b"
+    },
+    "raw/controls-3/libre-air-water/revision-2-candidate/candidate.dxf": {
+      "bytes": 21340,
+      "sha256": "ef904291735d7f21bac0ce6f64c3432af3ea34350f8c77c7ef94f735b7b1b91b"
+    },
+    "raw/controls-3/libre-air-water/revision-2-candidate/candidate.snapshot.json": {
+      "bytes": 83958,
+      "sha256": "38c805f0876760a2a3be3ccdb64bbc191880e9dbcf668e5061441d745ac88f88"
+    },
+    "raw/controls-3/libre-air-water/revision-2-candidate/comparison.json": {
+      "bytes": 862,
+      "sha256": "cd0711ed4603f0f5cb9b0cc2b8f0c0022846e49234852aec82cc41f84afcdc41"
+    },
+    "raw/controls-3/libre-air-water/revision-2-candidate/plan.json": {
+      "bytes": 382,
+      "sha256": "52f1b42e0e7a3205f7460a04b35bcde4a14ef2e67f683ca29dadd267d7d199c6"
+    },
+    "raw/controls-3/libre-air-water/revision-2-candidate/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/controls-3/libre-air-water/revision-2-candidate/snapshot.json": {
+      "bytes": 83960,
+      "sha256": "c05966ca61333daa30749cc26b6a33c4d4901fda369e5ee90c08e1ade03cf951"
+    },
+    "raw/controls-3/libre-air-water/revision-2-candidate/source.dxf": {
+      "bytes": 21341,
+      "sha256": "639a0161c63052e6f5c61a1bb1e8ee809db26f86bf40ca8d70b3624cc418baa2"
+    },
+    "raw/controls-3/libre-air-water/revision-2-plan.json": {
+      "bytes": 382,
+      "sha256": "52f1b42e0e7a3205f7460a04b35bcde4a14ef2e67f683ca29dadd267d7d199c6"
+    },
+    "raw/controls-3/libre-air-water/revision-2.dxf": {
+      "bytes": 21341,
+      "sha256": "639a0161c63052e6f5c61a1bb1e8ee809db26f86bf40ca8d70b3624cc418baa2"
+    },
+    "raw/controls-3/libre-air-water/stale-before.json": {
+      "bytes": 92,
+      "sha256": "c0c417c4a8085f3729d7190423ac45cab065b8ac0d5492fb411cc6d97c74d4aa"
+    },
+    "raw/controls-3/libre-air-water/stale-source.json": {
+      "bytes": 104,
+      "sha256": "5768a0a696fcbe1629d53c18b7add9f016d1d8038d0e45190691b171f3601cca"
+    },
+    "raw/controls-3/libre-air-water/unplanned-geometry.dxf": {
+      "bytes": 21103,
+      "sha256": "034908495bc55116d13b1f7103c041a9cba6e461fcaeac763bedf7fb20944f99"
+    },
+    "raw/controls-3/libre-motion/changed-foreign.dxf": {
+      "bytes": 21539,
+      "sha256": "d8d1583c2ef4c2d675d8223ef65cbf09bb93604bf251aaf0ebe01e22ebe411ae"
+    },
+    "raw/controls-3/libre-motion/changed-xdata.dxf": {
+      "bytes": 21539,
+      "sha256": "8b46ec8371c04fae65cd5bc916b1b1b130d8ee4b81b4a0b8589b15823bc1a46f"
+    },
+    "raw/controls-3/libre-motion/revision-2-candidate/byte-edits.json": {
+      "bytes": 742,
+      "sha256": "eafa67e92516b60c5a3092b27a3d2f1b7de13c80df90bb959fd2e86ae7ee0054"
+    },
+    "raw/controls-3/libre-motion/revision-2-candidate/cad_context.json": {
+      "bytes": 664,
+      "sha256": "bdbdad177a19ba6ab511ed3c4e5ee8c23cd38a8af2dbbefa7f0bb923d2b0e35d"
+    },
+    "raw/controls-3/libre-motion/revision-2-candidate/candidate-context/cad_context.json": {
+      "bytes": 663,
+      "sha256": "9cc96c6effa600aefeacbe926436588b9a840f629cc5051a4c17ada73d1ae60c"
+    },
+    "raw/controls-3/libre-motion/revision-2-candidate/candidate-context/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/controls-3/libre-motion/revision-2-candidate/candidate-context/snapshot.json": {
+      "bytes": 85319,
+      "sha256": "002984f9936c955be3fd3ac734a49619b2d3f5139a2ccdae6a2d96c1e15f04ec"
+    },
+    "raw/controls-3/libre-motion/revision-2-candidate/candidate-context/source.dxf": {
+      "bytes": 21539,
+      "sha256": "3c299b9c64385a59ee3e63a682bf60e9432fa7a47d5e6d119f2aeab431abeee5"
+    },
+    "raw/controls-3/libre-motion/revision-2-candidate/candidate.dxf": {
+      "bytes": 21539,
+      "sha256": "3c299b9c64385a59ee3e63a682bf60e9432fa7a47d5e6d119f2aeab431abeee5"
+    },
+    "raw/controls-3/libre-motion/revision-2-candidate/candidate.snapshot.json": {
+      "bytes": 85319,
+      "sha256": "002984f9936c955be3fd3ac734a49619b2d3f5139a2ccdae6a2d96c1e15f04ec"
+    },
+    "raw/controls-3/libre-motion/revision-2-candidate/comparison.json": {
+      "bytes": 859,
+      "sha256": "4e0efe3d8e4d6f50d64059f7997528cbd870ccd00956c2135598b97bf9727e98"
+    },
+    "raw/controls-3/libre-motion/revision-2-candidate/plan.json": {
+      "bytes": 379,
+      "sha256": "04f329ef54435c22508a3f21f19168b770b7d15c139b19c1f7ff4f0d4fed9398"
+    },
+    "raw/controls-3/libre-motion/revision-2-candidate/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/controls-3/libre-motion/revision-2-candidate/snapshot.json": {
+      "bytes": 85321,
+      "sha256": "cc02a219568727aafa1409513e8614170aec696df26a55ff064083ff899adad6"
+    },
+    "raw/controls-3/libre-motion/revision-2-candidate/source.dxf": {
+      "bytes": 21540,
+      "sha256": "c2bc31842b0ef5c6a448bc2a8ca38cda030526b90b4a2a465eac46be1aecc2b9"
+    },
+    "raw/controls-3/libre-motion/revision-2-plan.json": {
+      "bytes": 379,
+      "sha256": "04f329ef54435c22508a3f21f19168b770b7d15c139b19c1f7ff4f0d4fed9398"
+    },
+    "raw/controls-3/libre-motion/revision-2.dxf": {
+      "bytes": 21540,
+      "sha256": "c2bc31842b0ef5c6a448bc2a8ca38cda030526b90b4a2a465eac46be1aecc2b9"
+    },
+    "raw/controls-3/libre-motion/stale-before.json": {
+      "bytes": 92,
+      "sha256": "c0c417c4a8085f3729d7190423ac45cab065b8ac0d5492fb411cc6d97c74d4aa"
+    },
+    "raw/controls-3/libre-motion/stale-source.json": {
+      "bytes": 104,
+      "sha256": "5768a0a696fcbe1629d53c18b7add9f016d1d8038d0e45190691b171f3601cca"
+    },
+    "raw/controls-3/libre-motion/unplanned-geometry.dxf": {
+      "bytes": 21302,
+      "sha256": "18c2f5e20607b12e7c5b7711d7a7468265159e3b0e51163722f647e4494f8bea"
+    },
+    "raw/controls-3/libre-power/changed-foreign.dxf": {
+      "bytes": 21154,
+      "sha256": "550b2beba8622a15defe34f3a46434f8df988cb92dc5bbf83529370fedb2f589"
+    },
+    "raw/controls-3/libre-power/changed-xdata.dxf": {
+      "bytes": 21154,
+      "sha256": "9da3fc177dddd3fd2780e65bf2bc7cd35c7bb1960229fc7c0857fdf038fa54c1"
+    },
+    "raw/controls-3/libre-power/revision-2-candidate/byte-edits.json": {
+      "bytes": 741,
+      "sha256": "07de8180e81b2e8f8649b534c04f8c8ece4c2ec4175f52ef83da815c3b34cab2"
+    },
+    "raw/controls-3/libre-power/revision-2-candidate/cad_context.json": {
+      "bytes": 662,
+      "sha256": "784a6ffe49f154e42db553e2e9152b0800f51a8cef8d14d213517f565932f47b"
+    },
+    "raw/controls-3/libre-power/revision-2-candidate/candidate-context/cad_context.json": {
+      "bytes": 661,
+      "sha256": "bee0591d93cf52b6342eba20b8a759acfe278b5b00e2e47f36a58cbc68ff69cd"
+    },
+    "raw/controls-3/libre-power/revision-2-candidate/candidate-context/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/controls-3/libre-power/revision-2-candidate/candidate-context/snapshot.json": {
+      "bytes": 82356,
+      "sha256": "b4df34f8ec2bb29086e17597110374e0a68b362e02f1b6e403992041998656f0"
+    },
+    "raw/controls-3/libre-power/revision-2-candidate/candidate-context/source.dxf": {
+      "bytes": 21154,
+      "sha256": "d444a62e97458e70096cae8f562295a7579fb7b2088d85a46dcf9ff60ec99834"
+    },
+    "raw/controls-3/libre-power/revision-2-candidate/candidate.dxf": {
+      "bytes": 21154,
+      "sha256": "d444a62e97458e70096cae8f562295a7579fb7b2088d85a46dcf9ff60ec99834"
+    },
+    "raw/controls-3/libre-power/revision-2-candidate/candidate.snapshot.json": {
+      "bytes": 82356,
+      "sha256": "b4df34f8ec2bb29086e17597110374e0a68b362e02f1b6e403992041998656f0"
+    },
+    "raw/controls-3/libre-power/revision-2-candidate/comparison.json": {
+      "bytes": 858,
+      "sha256": "8761581388f3523141a0382bb7b809f3e177ff8a984ad2d526c5813a14cb1dbc"
+    },
+    "raw/controls-3/libre-power/revision-2-candidate/plan.json": {
+      "bytes": 378,
+      "sha256": "2cde64c51af77ece4a4b5cc24ff053f606d4d92ab35b826b847d7fb1544845cd"
+    },
+    "raw/controls-3/libre-power/revision-2-candidate/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/controls-3/libre-power/revision-2-candidate/snapshot.json": {
+      "bytes": 82358,
+      "sha256": "ccb55e43f274a0d6fd3bf6a567298f4291cf02fd762f37ae1ce1296287ef9287"
+    },
+    "raw/controls-3/libre-power/revision-2-candidate/source.dxf": {
+      "bytes": 21155,
+      "sha256": "2162b59246efd9ea0a4d7844028e905da65dd74d11db5ad2409e04eb557ddc98"
+    },
+    "raw/controls-3/libre-power/revision-2-plan.json": {
+      "bytes": 378,
+      "sha256": "2cde64c51af77ece4a4b5cc24ff053f606d4d92ab35b826b847d7fb1544845cd"
+    },
+    "raw/controls-3/libre-power/revision-2.dxf": {
+      "bytes": 21155,
+      "sha256": "2162b59246efd9ea0a4d7844028e905da65dd74d11db5ad2409e04eb557ddc98"
+    },
+    "raw/controls-3/libre-power/stale-before.json": {
+      "bytes": 92,
+      "sha256": "c0c417c4a8085f3729d7190423ac45cab065b8ac0d5492fb411cc6d97c74d4aa"
+    },
+    "raw/controls-3/libre-power/stale-source.json": {
+      "bytes": 104,
+      "sha256": "5768a0a696fcbe1629d53c18b7add9f016d1d8038d0e45190691b171f3601cca"
+    },
+    "raw/controls-3/libre-power/unplanned-geometry.dxf": {
+      "bytes": 20917,
+      "sha256": "ac7d9a5c5ff6595c4dc4fc4c249a73fe0320719fe64dde4f42220b91c7058518"
+    },
+    "raw/controls-3/qcad-hydraulic/changed-foreign.dxf": {
+      "bytes": 30598,
+      "sha256": "1b51f4e3f6fe5a1bcec559713181b8af1440edf2d95962d3e5401246b2f64d92"
+    },
+    "raw/controls-3/qcad-hydraulic/changed-xdata.dxf": {
+      "bytes": 30598,
+      "sha256": "6a007a6dbb530350e8ac137d3ab39fc2885c03ba6e822cf02f08a97b294979b4"
+    },
+    "raw/controls-3/qcad-hydraulic/revision-2-candidate/byte-edits.json": {
+      "bytes": 744,
+      "sha256": "38fcec62481a1c2e74de8cf1c250cce38e1244364bb6f6a9730b0ff92b05f238"
+    },
+    "raw/controls-3/qcad-hydraulic/revision-2-candidate/cad_context.json": {
+      "bytes": 668,
+      "sha256": "8e7bd7764c92b17200c36156584a6ab082d527f84967b98ae88a5b5f946f66fc"
+    },
+    "raw/controls-3/qcad-hydraulic/revision-2-candidate/candidate-context/cad_context.json": {
+      "bytes": 667,
+      "sha256": "db28f6d365cef146643c9ed675362073b267cb2937e057e9ba92038e1aca85fc"
+    },
+    "raw/controls-3/qcad-hydraulic/revision-2-candidate/candidate-context/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/controls-3/qcad-hydraulic/revision-2-candidate/candidate-context/snapshot.json": {
+      "bytes": 126146,
+      "sha256": "b15a6259c490508d8d1865ef057561599a16837eede0d708227ee56ba8fb1882"
+    },
+    "raw/controls-3/qcad-hydraulic/revision-2-candidate/candidate-context/source.dxf": {
+      "bytes": 30598,
+      "sha256": "013ae8a5a7d3cc0358b192aa0d06b5116775f05d85a5aba783272f1f9b116130"
+    },
+    "raw/controls-3/qcad-hydraulic/revision-2-candidate/candidate.dxf": {
+      "bytes": 30598,
+      "sha256": "013ae8a5a7d3cc0358b192aa0d06b5116775f05d85a5aba783272f1f9b116130"
+    },
+    "raw/controls-3/qcad-hydraulic/revision-2-candidate/candidate.snapshot.json": {
+      "bytes": 126146,
+      "sha256": "b15a6259c490508d8d1865ef057561599a16837eede0d708227ee56ba8fb1882"
+    },
+    "raw/controls-3/qcad-hydraulic/revision-2-candidate/comparison.json": {
+      "bytes": 861,
+      "sha256": "681cee2a3aa058d1246cd6362fa13e75959619b84a448d6ba2f5b5eb04fdbde3"
+    },
+    "raw/controls-3/qcad-hydraulic/revision-2-candidate/plan.json": {
+      "bytes": 381,
+      "sha256": "d16ec646d0836e944033f954e277c1d21bac01bbe84db520019b34575ccbcad2"
+    },
+    "raw/controls-3/qcad-hydraulic/revision-2-candidate/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/controls-3/qcad-hydraulic/revision-2-candidate/snapshot.json": {
+      "bytes": 126148,
+      "sha256": "3f1c725bef5c9a0c25c1aa4d1c0051892d888996d4f18cc035f8e8b1693bd649"
+    },
+    "raw/controls-3/qcad-hydraulic/revision-2-candidate/source.dxf": {
+      "bytes": 30599,
+      "sha256": "b16b5e3e64bc6a43e65219f392d4e7b7c581f1f4e74d45de82ea37a274853dbe"
+    },
+    "raw/controls-3/qcad-hydraulic/revision-2-plan.json": {
+      "bytes": 381,
+      "sha256": "d16ec646d0836e944033f954e277c1d21bac01bbe84db520019b34575ccbcad2"
+    },
+    "raw/controls-3/qcad-hydraulic/revision-2.dxf": {
+      "bytes": 30599,
+      "sha256": "b16b5e3e64bc6a43e65219f392d4e7b7c581f1f4e74d45de82ea37a274853dbe"
+    },
+    "raw/controls-3/qcad-hydraulic/stale-before.json": {
+      "bytes": 92,
+      "sha256": "c0c417c4a8085f3729d7190423ac45cab065b8ac0d5492fb411cc6d97c74d4aa"
+    },
+    "raw/controls-3/qcad-hydraulic/stale-source.json": {
+      "bytes": 104,
+      "sha256": "5768a0a696fcbe1629d53c18b7add9f016d1d8038d0e45190691b171f3601cca"
+    },
+    "raw/controls-3/qcad-hydraulic/unplanned-geometry.dxf": {
+      "bytes": 30359,
+      "sha256": "756cded0ebdd67ddf0eb1d35734c8f7a0056bd8b058877962de2328fc45fa0d3"
+    },
+    "raw/controls-3/qcad-mechanical/changed-foreign.dxf": {
+      "bytes": 41806,
+      "sha256": "c654dfbdc9fa296846c1c7336dad8620ad1538354e9f0b3de1dab0d423c9ec95"
+    },
+    "raw/controls-3/qcad-mechanical/changed-xdata.dxf": {
+      "bytes": 41806,
+      "sha256": "88250516044b66ce80e2cbbfc79c9ff867375b1a2c0fbf9f5c4f80312c3cc08b"
+    },
+    "raw/controls-3/qcad-mechanical/revision-2-candidate/byte-edits.json": {
+      "bytes": 742,
+      "sha256": "3d2b2e9c555575468105c8948aad3afbb6146024c8e7489ee67fbdbe7da27424"
+    },
+    "raw/controls-3/qcad-mechanical/revision-2-candidate/cad_context.json": {
+      "bytes": 667,
+      "sha256": "46d6f6b60d4213797b96911e9fe254a4c13e0f840c933fe631144f3386732a2f"
+    },
+    "raw/controls-3/qcad-mechanical/revision-2-candidate/candidate-context/cad_context.json": {
+      "bytes": 666,
+      "sha256": "5ddd923fc8607128947246b29b38ef1bcf622e790b740c43935cd27951bd2e3b"
+    },
+    "raw/controls-3/qcad-mechanical/revision-2-candidate/candidate-context/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/controls-3/qcad-mechanical/revision-2-candidate/candidate-context/snapshot.json": {
+      "bytes": 169826,
+      "sha256": "a8ac3e17ef2f42c1695f272539c4c183283d20fb82ceb090d04948e4e8793b12"
+    },
+    "raw/controls-3/qcad-mechanical/revision-2-candidate/candidate-context/source.dxf": {
+      "bytes": 41806,
+      "sha256": "9399465e529556e8ea20cf36270be4ce6e1282517a5135a7f5ac84886a457464"
+    },
+    "raw/controls-3/qcad-mechanical/revision-2-candidate/candidate.dxf": {
+      "bytes": 41806,
+      "sha256": "9399465e529556e8ea20cf36270be4ce6e1282517a5135a7f5ac84886a457464"
+    },
+    "raw/controls-3/qcad-mechanical/revision-2-candidate/candidate.snapshot.json": {
+      "bytes": 169826,
+      "sha256": "a8ac3e17ef2f42c1695f272539c4c183283d20fb82ceb090d04948e4e8793b12"
+    },
+    "raw/controls-3/qcad-mechanical/revision-2-candidate/comparison.json": {
+      "bytes": 862,
+      "sha256": "af9d997e073c83745edb26bd93a2514b461e3318ba3969f389682e3db22b2669"
+    },
+    "raw/controls-3/qcad-mechanical/revision-2-candidate/plan.json": {
+      "bytes": 382,
+      "sha256": "9295eee075e962ed3ea1d7998fa246c15ceda65e3a87c13f12e8454a5fa9810f"
+    },
+    "raw/controls-3/qcad-mechanical/revision-2-candidate/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/controls-3/qcad-mechanical/revision-2-candidate/snapshot.json": {
+      "bytes": 169828,
+      "sha256": "27e8c4646b8ac403304ef6a30c35d23b4103f66b9465254eabe4492915b001dc"
+    },
+    "raw/controls-3/qcad-mechanical/revision-2-candidate/source.dxf": {
+      "bytes": 41807,
+      "sha256": "922da0e73409164f5a2eb8319743183cbfbfa689e6dee426632a3da2bd8aa82d"
+    },
+    "raw/controls-3/qcad-mechanical/revision-2-plan.json": {
+      "bytes": 382,
+      "sha256": "9295eee075e962ed3ea1d7998fa246c15ceda65e3a87c13f12e8454a5fa9810f"
+    },
+    "raw/controls-3/qcad-mechanical/revision-2.dxf": {
+      "bytes": 41807,
+      "sha256": "922da0e73409164f5a2eb8319743183cbfbfa689e6dee426632a3da2bd8aa82d"
+    },
+    "raw/controls-3/qcad-mechanical/stale-before.json": {
+      "bytes": 92,
+      "sha256": "c0c417c4a8085f3729d7190423ac45cab065b8ac0d5492fb411cc6d97c74d4aa"
+    },
+    "raw/controls-3/qcad-mechanical/stale-source.json": {
+      "bytes": 104,
+      "sha256": "5768a0a696fcbe1629d53c18b7add9f016d1d8038d0e45190691b171f3601cca"
+    },
+    "raw/controls-3/qcad-mechanical/unplanned-geometry.dxf": {
+      "bytes": 41572,
+      "sha256": "a8c02c5cc91bdb87f55711ccd51b5def40f22b8c67b7747ae20aad857b85e3c3"
+    },
+    "raw/controls-3/qcad-template/changed-foreign.dxf": {
+      "bytes": 42854,
+      "sha256": "377cd1b05253fa38b722ce728f979d1d8d248e7d49dd229543f3ae3070d6d597"
+    },
+    "raw/controls-3/qcad-template/changed-xdata.dxf": {
+      "bytes": 42854,
+      "sha256": "2893bd94fe91b590bf4679e53f91a11c50a08fe671ed20ec0434222000615b8d"
+    },
+    "raw/controls-3/qcad-template/revision-2-candidate/byte-edits.json": {
+      "bytes": 740,
+      "sha256": "72bcd4fca226498760186994e11eda04666c158e7b3fa94205e1e4e95c5176e3"
+    },
+    "raw/controls-3/qcad-template/revision-2-candidate/cad_context.json": {
+      "bytes": 663,
+      "sha256": "12814826c3c36459fb7c73b2fc35c96773770506d9592c404415319d484b08a4"
+    },
+    "raw/controls-3/qcad-template/revision-2-candidate/candidate-context/cad_context.json": {
+      "bytes": 662,
+      "sha256": "c481734b8af596fc7db53056ef7c34529bd02eff9a7e970e132114d1c4da8da6"
+    },
+    "raw/controls-3/qcad-template/revision-2-candidate/candidate-context/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/controls-3/qcad-template/revision-2-candidate/candidate-context/snapshot.json": {
+      "bytes": 174096,
+      "sha256": "1d92927a00d65c41d60498e2c85e8e721be10e666b6d243b9041b850f4c41191"
+    },
+    "raw/controls-3/qcad-template/revision-2-candidate/candidate-context/source.dxf": {
+      "bytes": 42854,
+      "sha256": "07c1b3fdbfbbdd05e26e9c8231f3dddd45d213a7741c97b32521e38280818953"
+    },
+    "raw/controls-3/qcad-template/revision-2-candidate/candidate.dxf": {
+      "bytes": 42854,
+      "sha256": "07c1b3fdbfbbdd05e26e9c8231f3dddd45d213a7741c97b32521e38280818953"
+    },
+    "raw/controls-3/qcad-template/revision-2-candidate/candidate.snapshot.json": {
+      "bytes": 174096,
+      "sha256": "1d92927a00d65c41d60498e2c85e8e721be10e666b6d243b9041b850f4c41191"
+    },
+    "raw/controls-3/qcad-template/revision-2-candidate/comparison.json": {
+      "bytes": 859,
+      "sha256": "e63b29a98de5822844d4ca408933f1f3cc2805f531e49a135ad35ee1da3ae111"
+    },
+    "raw/controls-3/qcad-template/revision-2-candidate/plan.json": {
+      "bytes": 380,
+      "sha256": "26ee277b0f15efcf9f7bf4eb38650b03691de2c70f58b0fa630710d18aed0ae3"
+    },
+    "raw/controls-3/qcad-template/revision-2-candidate/README.txt": {
+      "bytes": 146,
+      "sha256": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0"
+    },
+    "raw/controls-3/qcad-template/revision-2-candidate/snapshot.json": {
+      "bytes": 174098,
+      "sha256": "6f1d04ae0e5131c23fe48b17a7c492f82acccb057cfca745ee9cd1b2b6d8a586"
+    },
+    "raw/controls-3/qcad-template/revision-2-candidate/source.dxf": {
+      "bytes": 42855,
+      "sha256": "c4c5910a59857aff5780b298b66c23513adf31107c952a0c9f76411aee64177c"
+    },
+    "raw/controls-3/qcad-template/revision-2-plan.json": {
+      "bytes": 380,
+      "sha256": "26ee277b0f15efcf9f7bf4eb38650b03691de2c70f58b0fa630710d18aed0ae3"
+    },
+    "raw/controls-3/qcad-template/revision-2.dxf": {
+      "bytes": 42855,
+      "sha256": "c4c5910a59857aff5780b298b66c23513adf31107c952a0c9f76411aee64177c"
+    },
+    "raw/controls-3/qcad-template/stale-before.json": {
+      "bytes": 92,
+      "sha256": "c0c417c4a8085f3729d7190423ac45cab065b8ac0d5492fb411cc6d97c74d4aa"
+    },
+    "raw/controls-3/qcad-template/stale-source.json": {
+      "bytes": 104,
+      "sha256": "5768a0a696fcbe1629d53c18b7add9f016d1d8038d0e45190691b171f3601cca"
+    },
+    "raw/controls-3/qcad-template/unplanned-geometry.dxf": {
+      "bytes": 42620,
+      "sha256": "f08f946e9a91db2bbeade684918e15c89e5273162f34ec1fb6880e9c01d43ac1"
+    },
+    "raw/controls-3/RESULTS.json": {
+      "bytes": 2130,
+      "sha256": "085bee2bf2533871780290400bea7f89181d52336594a7aaff5370bb902947d6"
+    },
+    "raw/source-notices/LibreCAD-GPL2.txt": {
+      "bytes": 18092,
+      "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643"
+    },
+    "raw/source-notices/LibreCAD-LICENSE.txt": {
+      "bytes": 4035,
+      "sha256": "211000d6635a62c76ae212baf868d6f0bce38bee11ac68100325f3dfae826197"
+    },
+    "raw/source-notices/QCAD-GPL3.txt": {
+      "bytes": 35147,
+      "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+    },
+    "raw/source-notices/QCAD-LICENSE.txt": {
+      "bytes": 1736,
+      "sha256": "89bf0f4be87cf5f909b1621521afa06d97371cac869c49a18a85d758cac903ff"
+    },
+    "raw/source-notices/URLS.json": {
+      "bytes": 514,
+      "sha256": "7589f4f28c46f4412ad5c2c6804e93de613fa53c8afa0542f4d587ac33161cef"
+    },
+    "raw/observations/controls-3.log": {
+      "bytes": 1879,
+      "sha256": "8926c1c145e4349325f0c9372c391ecdabce580100af0931580cb5d5ad25a915"
+    },
+    "raw/observations/dwg2bmp-help.txt": {
+      "bytes": 3525,
+      "sha256": "4875deac2f30e5ffda4eec9ef482f4f254ff12010d0e6135884a1fdc437a34c9"
+    },
+    "raw/observations/help-environment.json": {
+      "bytes": 837,
+      "sha256": "d01edceec959a55685f08d2685d298f88aec9f313f9f4266790d6e2bf037df47"
+    },
+    "raw/observations/receiving.json": {
+      "bytes": 1848,
+      "sha256": "cf2428c5ba0b89d555322390e4b18b5d079dbfea4734d3ee7415cf5b7e1f1ac0"
+    },
+    "raw/observations/renders-corrected-libre-air-water-montage.png": {
+      "bytes": 119450,
+      "sha256": "7ee2cd1290b57852559742a31b6bf9df4146ffd95b2c1cb8d16ec027788a017d"
+    },
+    "raw/observations/renders-corrected-libre-motion-montage.png": {
+      "bytes": 124391,
+      "sha256": "7f19a334300317839dd19b8b3128753576d5fc1a661b1485903c92f2f64bb0a8"
+    },
+    "raw/observations/renders-corrected-libre-power-montage.png": {
+      "bytes": 117233,
+      "sha256": "5615d486cd6d71c267523bfd89ea0fe67d2b18f513eb99c6319dde8935cb3476"
+    },
+    "raw/observations/renders-corrected-qcad-hydraulic-montage.png": {
+      "bytes": 117221,
+      "sha256": "6e647c1e052650df80de87a780ef198bab63f4d457bb39c995adaa6e6f3f7af1"
+    },
+    "raw/observations/renders-corrected-qcad-mechanical-montage.png": {
+      "bytes": 118226,
+      "sha256": "bb0a3da68506706011c2aa82fd1eea00ee2af1d5594818a24cf007018a2ae98c"
+    },
+    "raw/observations/renders-corrected-qcad-template-montage.png": {
+      "bytes": 113154,
+      "sha256": "9338b8530935dca1ae1372d2351561562871b3544abbb547060e1bb9c108dc52"
+    },
+    "raw/observations/renders-libre-air-water-montage.png": {
+      "bytes": 126265,
+      "sha256": "d094e731bfdf1b6a1f3884492f4c489e0fd93c6c8b6983681633e1d888708129"
+    },
+    "raw/observations/renders-libre-motion-montage.png": {
+      "bytes": 122886,
+      "sha256": "8bcbd09519e6ef9e891e6dac4ff84060e3f87da427cbf7d5656353d8458330fa"
+    },
+    "raw/observations/renders-libre-power-montage.png": {
+      "bytes": 120739,
+      "sha256": "ec860d717dcf73db87b793052c6344bdb97f2980e810129f4ba173ed3182858c"
+    },
+    "raw/observations/renders-qcad-hydraulic-montage.png": {
+      "bytes": 124061,
+      "sha256": "1296770ffdee6606c6f1c1b01ee11d941fc3795bd45a397eff4df6ed322a63cf"
+    },
+    "raw/observations/renders-qcad-mechanical-montage.png": {
+      "bytes": 127220,
+      "sha256": "e14ea6a5f657ed5baede7c7ba13e82eff561187261bbdb34e6253cf4105af772"
+    },
+    "raw/observations/renders-qcad-template-montage.png": {
+      "bytes": 117414,
+      "sha256": "07bdf3e678ec56cabc2e4bbe78c09331dd9e446491ac4bfdd55c0a44d631c5cd"
+    }
+  },
+  "raw_bytes": 25206883,
+  "archive": {
+    "path": "evidence.tar.xz",
+    "bytes": 2033700,
+    "sha256": "a7c8f1006c2b6fad7f100c62aba41a98ab18fb8645eabf3d05e10ddfffcdc6b4"
+  },
+  "packager_sha256_lf": "a116f40690bfd63e2d440a8fedea261bb221d5943ef2e105003114cff6527647",
+  "scope": "Public source/adapted DXFs and actual native observations; retain upstream notices. No CAD executables, font binaries or native configuration contents."
+}
