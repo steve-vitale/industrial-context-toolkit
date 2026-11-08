@@ -22,11 +22,16 @@ def main():
         raise ValueError('Native control is not showing and enabled')
     row=dict(operation=args.operation,path=args.path,name=node.name,role=node.getRoleName(),commands=[])
     if args.operation=='press':
-        action=node.queryAction()
-        presses=[i for i in range(action.nActions)if action.getName(i).lower()=='press']
-        if len(presses)!=1:raise ValueError('Expected one observed native Press action')
-        row['action']=action.getName(presses[0]);row['result']=action.doAction(presses[0])
-        if row['result']is not True:raise ValueError('Native action refused')
+        if row['role']not in ('push button','combo box','list item','menu item'):
+            raise ValueError('Expected an observed clickable native control')
+        r=node.queryComponent().getExtents(pyatspi.DESKTOP_COORDS)
+        if r.width<=0 or r.height<=0 or r.x<0 or r.y<0:raise ValueError('No usable native control bounds')
+        row['rectangle']=[r.x,r.y,r.width,r.height]
+        command=['xdotool','mousemove','--sync',str(r.x+r.width//2),str(r.y+r.height//2),'click','1']
+        result=subprocess.run(command,capture_output=True,text=True)
+        row['commands'].append(dict(command=command,exit=result.returncode,stdout=result.stdout,stderr=result.stderr))
+        if result.returncode:raise ValueError('Native click dispatch failed')
+        row['event_dispatched']=True
     else:
         row['focus_result']=node.queryComponent().grabFocus()
         if row['focus_result']is not True:raise ValueError('Native control focus refused')
