@@ -1,0 +1,364 @@
+{
+  "scope": "Derived exposed native concurrent cases; preparation field is retained original-parent lineage, not this adapter producer",
+  "configuration_sha256": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c",
+  "preparation": {
+    "producer_sha256": "f21a2ef8229c4ac2acd530b96841b19109fc19bcb044409a4c180ee7133b5826",
+    "declared_inputs": {
+      "scope": "Existing exposed multi-asset, foreign-field, CP1251/UTF8 and literal-brace sources selected before full UI implementation; no candidate or native run by this preparation",
+      "cases": [
+        {
+          "case": "validation-cp1251",
+          "source": "examples/cad-handoff/qualification/validation-2/authored/validation-cp1251.dxf",
+          "source_sha256": "2044da26edd9188d07300f6b8f2abf4053956f31a7827bba488ec02c1351e158",
+          "plan": "examples/cad-handoff/qualification/validation-2/authored/validation-cp1251.plan.json",
+          "plan_sha256": "a75fb0abe99c35371caa3c2ce25ec498efdcd92e16bbf541c662c154e5acf6c8",
+          "assets": 2,
+          "changes": [
+            {
+              "id": "validation-cp1251/asset-1",
+              "attribute": "MODEL",
+              "before": "\u0414\u0432\u0438\u0433\u0430\u0442\u0435\u043b\u044c",
+              "after": "\u041c\u043e\u0442\u043e\u0440",
+              "reason": "Authored qualification edit, not an installed equipment claim"
+            },
+            {
+              "id": "validation-cp1251/asset-2",
+              "attribute": "MODEL",
+              "before": "\u0414\u0432\u0438\u0433\u0430\u0442\u0435\u043b\u044c",
+              "after": "\u041c\u043e\u0442\u043e\u0440",
+              "reason": "Authored qualification edit, not an installed equipment claim"
+            }
+          ],
+          "role": "already exposed authored development; not fresh reserved or plant evidence"
+        },
+        {
+          "case": "validation-braces",
+          "source": "examples/cad-handoff/qualification/validation-2/authored/validation-braces.dxf",
+          "source_sha256": "614e83380bbe667c727363f02d32519b3340439028f0acd72807c82a45224abe",
+          "plan": "examples/cad-handoff/qualification/validation-2/authored/validation-braces.plan.json",
+          "plan_sha256": "5126be71101f71b51332b50fd52980c3f0146a19fded4e7f8b8571c6b45d8508",
+          "assets": 2,
+          "changes": [
+            {
+              "id": "validation-braces/asset-1",
+              "attribute": "MODEL",
+              "before": "Assembly {C}",
+              "after": "Assembly {D}",
+              "reason": "Authored qualification edit, not an installed equipment claim"
+            },
+            {
+              "id": "validation-braces/asset-2",
+              "attribute": "MODEL",
+              "before": "Assembly {C}",
+              "after": "Assembly {D}",
+              "reason": "Authored qualification edit, not an installed equipment claim"
+            }
+          ],
+          "role": "already exposed authored development; not fresh reserved or plant evidence"
+        }
+      ]
+    },
+    "comparison_source_sha256_lf": {
+      "scripts/cad_handoff.py": "70ad396dbcadf89741da6e1d017944e42f6fb2804e272b3cc5ee7f5eabbf6d30",
+      "scripts/cad_value_patch.py": "174d66f36befc2ee3b12cef769badecf9927b1705419f9ecf9238e4e9c610a04",
+      "examples/cad-handoff/qualification/verify_bytes.py": "606cf310be4637bec2663b39c1001ca3d7668af7316aaa2fc7cbd571e0b0cd52",
+      "examples/cad-handoff/qualification/run_cases.py": "465972bbaf74c31172f46ab8969920ddeef2f48a11c5d9220d7660e1b3a0f19a"
+    }
+  },
+  "derivation": {
+    "producer_sha256_lf": "412a3b6681f3417a498ee3911f9de94ebf2f6b3273d4e4dd78bb985e1a36b538",
+    "parent_preparation_sha256_lf": "e45630682015094a5d1b2416386f4e9641488cdbe862b614f24518168da26c34",
+    "freeze_sha256_lf": "08f967422a6a6491032a215b9a8d21c8adf7f6eb1e7f3ebe0759aeed0362e8a7",
+    "phase": "concurrent",
+    "inputs": [
+      {
+        "case": "validation-cp1251",
+        "source": "examples/cad-handoff/qualification/validation-2/authored/validation-cp1251.dxf",
+        "source_sha256": "2044da26edd9188d07300f6b8f2abf4053956f31a7827bba488ec02c1351e158",
+        "plan": "examples/cad-handoff/qualification/full-ui-22/revision-loss-1/validation-cp1251/concurrent-plan.json",
+        "plan_sha256": "f8baeb3750b28c51f0773169fdbd595551a98601d02f46679c0d655d68a1dfc5",
+        "candidate": "examples/cad-handoff/qualification/full-ui-22/revision-loss-1/validation-cp1251/concurrent/candidate.dxf",
+        "candidate_sha256": "3d3dab97cf7aaa1a8dc68b6cf9ecf5cb913adea5d527242e89d8647d46ad402f",
+        "baseline_inventory": "examples/cad-handoff/qualification/full-ui-22/development-1/cp1251-baseline-1/INVENTORY.json",
+        "baseline_inventory_sha256_lf": "69ceea4c7ec5acacaed3b7025874841117cf49194b48f66717a8be3e680fd04f"
+      },
+      {
+        "case": "validation-braces",
+        "source": "examples/cad-handoff/qualification/validation-2/authored/validation-braces.dxf",
+        "source_sha256": "614e83380bbe667c727363f02d32519b3340439028f0acd72807c82a45224abe",
+        "plan": "examples/cad-handoff/qualification/full-ui-22/revision-loss-1/validation-braces/concurrent-plan.json",
+        "plan_sha256": "b3b0f4cb604f10080b4ce1c0ab90cb903dd81557735efa0712b06ff47a9f1ed9",
+        "candidate": "examples/cad-handoff/qualification/full-ui-22/revision-loss-1/validation-braces/concurrent/candidate.dxf",
+        "candidate_sha256": "214ef337a42e21c730bccdc93f49ab27e7e74abe6659212b019b730b684bf4c2",
+        "baseline_inventory": "examples/cad-handoff/qualification/full-ui-22/development-1/braces-baseline-1/INVENTORY.json",
+        "baseline_inventory_sha256_lf": "d051342b19cf6a6d8b567a36c564cac1b86fd6e89164df5dd348ea1afecd21e0"
+      }
+    ]
+  },
+  "cases": {
+    "validation-cp1251": {
+      "basis": {
+        "case": "validation-cp1251",
+        "source_sha256": "2044da26edd9188d07300f6b8f2abf4053956f31a7827bba488ec02c1351e158",
+        "plan_sha256": "f8baeb3750b28c51f0773169fdbd595551a98601d02f46679c0d655d68a1dfc5",
+        "assets": [
+          {
+            "id": "validation-cp1251/asset-1",
+            "handle": "3D",
+            "block": "ASSET",
+            "attributes": {
+              "ICT_ID": "validation-cp1251/asset-1",
+              "TAG": "FV-101",
+              "MODEL": "\u0414\u0432\u0438\u0433\u0430\u0442\u0435\u043b\u044c",
+              "SERIAL": "UNCHANGED-0",
+              "SIZE": "DN50",
+              "VENDOR_PRIVATE": "retain {vendor} \\P 0"
+            },
+            "attribute_handles": {
+              "ICT_ID": "3F",
+              "TAG": "40",
+              "MODEL": "41",
+              "SERIAL": "42",
+              "SIZE": "43",
+              "VENDOR_PRIVATE": "44"
+            }
+          },
+          {
+            "id": "validation-cp1251/asset-2",
+            "handle": "47",
+            "block": "ASSET",
+            "attributes": {
+              "ICT_ID": "validation-cp1251/asset-2",
+              "TAG": "FV-102",
+              "MODEL": "\u0414\u0432\u0438\u0433\u0430\u0442\u0435\u043b\u044c",
+              "SERIAL": "UNCHANGED-1",
+              "SIZE": "DN50",
+              "VENDOR_PRIVATE": "retain {vendor} \\P 1"
+            },
+            "attribute_handles": {
+              "ICT_ID": "49",
+              "TAG": "4A",
+              "MODEL": "4B",
+              "SERIAL": "4C",
+              "SIZE": "4D",
+              "VENDOR_PRIVATE": "4E"
+            }
+          }
+        ],
+        "changes": [
+          {
+            "id": "validation-cp1251/asset-1",
+            "attribute": "MODEL",
+            "before": "\u0414\u0432\u0438\u0433\u0430\u0442\u0435\u043b\u044c",
+            "after": "OTHER-CHOICE",
+            "reason": "Authored qualification edit, not an installed equipment claim"
+          },
+          {
+            "id": "validation-cp1251/asset-2",
+            "attribute": "MODEL",
+            "before": "\u0414\u0432\u0438\u0433\u0430\u0442\u0435\u043b\u044c",
+            "after": "\u041c\u043e\u0442\u043e\u0440",
+            "reason": "Authored qualification edit, not an installed equipment claim"
+          },
+          {
+            "id": "validation-cp1251/asset-2",
+            "attribute": "SERIAL",
+            "before": "UNCHANGED-1",
+            "after": "FIELD-OBSERVED",
+            "reason": "Fictional concurrent branch; not an observed installed serial"
+          }
+        ],
+        "frames": {
+          "overview": [
+            -22.0,
+            -22.0,
+            132.0,
+            63.774097565683135
+          ],
+          "asset-1": [
+            0.8049577041267963,
+            10.405474374419413,
+            20.39692929589107,
+            25.773238905372743
+          ],
+          "labels-1": [
+            1.6038107886645498,
+            11.204327458957167,
+            14.701923788646685,
+            24.97438582083499
+          ],
+          "asset-2": [
+            31.486602996134494,
+            15.345468874411766,
+            57.1270180516383,
+            35.03217942150253
+          ],
+          "labels-2": [
+            32.6773438978171,
+            16.536209776094374,
+            49.36807391968018,
+            33.841438519819924
+          ]
+        },
+        "scope": "Exposed native concurrent UI rehearsal; FIELD-OBSERVED is fictional; no engineering acceptance"
+      },
+      "files": {
+        "basis.json": "1592ff7454d3bad4d31d50381e2a248fbc71690d6206391e6c4345edc975b57d",
+        "plan.json": "f8baeb3750b28c51f0773169fdbd595551a98601d02f46679c0d655d68a1dfc5",
+        "software/candidate/asset_candidates.csv": "91db40fb60f1969a76dd2ff0040874dd3012a2653757ee13658a545944857e08",
+        "software/candidate/byte-edits.json": "8c24f61e43568aa701dff57165ac805a5635e8c81550b6dd1d78b224ecafd49e",
+        "software/candidate/cad_context.json": "a6f507314e1f1ac3bea463aebaff8aced7e653246507dc0115bc572cd11cf601",
+        "software/candidate/candidate-context/asset_candidates.csv": "1c866de9b696eb44b4d16b5d3272faea959b87e10ce40ffdb0aee8869bfe250f",
+        "software/candidate/candidate-context/cad_context.json": "edf09d61ed0a3d65e12770ba89f4208acaacdb3a443288ef41e729b239e3e225",
+        "software/candidate/candidate-context/README.txt": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0",
+        "software/candidate/candidate-context/snapshot.json": "00936fddbd9385a11d991a93037d0890d8c42a1c20d1c2db5a54fef33917cf30",
+        "software/candidate/candidate-context/source.dxf": "3d3dab97cf7aaa1a8dc68b6cf9ecf5cb913adea5d527242e89d8647d46ad402f",
+        "software/candidate/candidate.dxf": "3d3dab97cf7aaa1a8dc68b6cf9ecf5cb913adea5d527242e89d8647d46ad402f",
+        "software/candidate/candidate.snapshot.json": "00936fddbd9385a11d991a93037d0890d8c42a1c20d1c2db5a54fef33917cf30",
+        "software/candidate/comparison.json": "6e569d7167ce7e69055b7e667ad7f439f8a9fdde1924b3b05b3e8854eaea9d92",
+        "software/candidate/plan.json": "48f296955cba6495cfb0623b8dbd7d409390f14d56db3dde7952ad18ae64fdfd",
+        "software/candidate/README.txt": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0",
+        "software/candidate/snapshot.json": "0b81caebb500ce77f1a42dd4cae4f7fe5f9a98ad4e22dc2635cb73cd2a8f38fa",
+        "software/candidate/source.dxf": "2044da26edd9188d07300f6b8f2abf4053956f31a7827bba488ec02c1351e158",
+        "software/library-save.comparison.json": "0687f9154debbd39f4d39716eeb5f98124ea8da7bb9ec2654fad5a2d148ac9b4",
+        "software/library.dxf": "c3d3f08893ef818100fa905935f4acb5c11acb5104e186e8a058ae2159770b48",
+        "software/result.json": "fee1b89ac15621fdcea164fbcbbd36511be43b2c4154fbbb7cf4ec90df00950f",
+        "software/value-spans.comparison.json": "6e569d7167ce7e69055b7e667ad7f439f8a9fdde1924b3b05b3e8854eaea9d92",
+        "SOFTWARE.json": "fee1b89ac15621fdcea164fbcbbd36511be43b2c4154fbbb7cf4ec90df00950f",
+        "source.dxf": "2044da26edd9188d07300f6b8f2abf4053956f31a7827bba488ec02c1351e158"
+      }
+    },
+    "validation-braces": {
+      "basis": {
+        "case": "validation-braces",
+        "source_sha256": "614e83380bbe667c727363f02d32519b3340439028f0acd72807c82a45224abe",
+        "plan_sha256": "b3b0f4cb604f10080b4ce1c0ab90cb903dd81557735efa0712b06ff47a9f1ed9",
+        "assets": [
+          {
+            "id": "validation-braces/asset-1",
+            "handle": "3D",
+            "block": "ASSET",
+            "attributes": {
+              "ICT_ID": "validation-braces/asset-1",
+              "TAG": "FV-101",
+              "MODEL": "Assembly {C}",
+              "SERIAL": "UNCHANGED-0",
+              "SIZE": "DN50",
+              "VENDOR_PRIVATE": "retain {vendor} \\P 0"
+            },
+            "attribute_handles": {
+              "ICT_ID": "3F",
+              "TAG": "40",
+              "MODEL": "41",
+              "SERIAL": "42",
+              "SIZE": "43",
+              "VENDOR_PRIVATE": "44"
+            }
+          },
+          {
+            "id": "validation-braces/asset-2",
+            "handle": "47",
+            "block": "ASSET",
+            "attributes": {
+              "ICT_ID": "validation-braces/asset-2",
+              "TAG": "FV-102",
+              "MODEL": "Assembly {C}",
+              "SERIAL": "UNCHANGED-1",
+              "SIZE": "DN50",
+              "VENDOR_PRIVATE": "retain {vendor} \\P 1"
+            },
+            "attribute_handles": {
+              "ICT_ID": "49",
+              "TAG": "4A",
+              "MODEL": "4B",
+              "SERIAL": "4C",
+              "SIZE": "4D",
+              "VENDOR_PRIVATE": "4E"
+            }
+          }
+        ],
+        "changes": [
+          {
+            "id": "validation-braces/asset-1",
+            "attribute": "MODEL",
+            "before": "Assembly {C}",
+            "after": "OTHER-CHOICE",
+            "reason": "Authored qualification edit, not an installed equipment claim"
+          },
+          {
+            "id": "validation-braces/asset-2",
+            "attribute": "MODEL",
+            "before": "Assembly {C}",
+            "after": "Assembly {D}",
+            "reason": "Authored qualification edit, not an installed equipment claim"
+          },
+          {
+            "id": "validation-braces/asset-2",
+            "attribute": "SERIAL",
+            "before": "UNCHANGED-1",
+            "after": "FIELD-OBSERVED",
+            "reason": "Fictional concurrent branch; not an observed installed serial"
+          }
+        ],
+        "frames": {
+          "overview": [
+            -22.0,
+            -22.0,
+            132.0,
+            63.774097565683135
+          ],
+          "asset-1": [
+            9.087482618202229,
+            9.523402882109524,
+            30.098894038990704,
+            25.001630202969782
+          ],
+          "labels-1": [
+            14.573722498152565,
+            10.43777619543458,
+            29.18452072566565,
+            21.94366863861132
+          ],
+          "asset-2": [
+            42.1205142412659,
+            14.703488771401473,
+            70.10863421667669,
+            34.41533261344186
+          ],
+          "labels-2": [
+            49.635485994431264,
+            15.9559840635957,
+            68.85613892448247,
+            30.47673290195593
+          ]
+        },
+        "scope": "Exposed native concurrent UI rehearsal; FIELD-OBSERVED is fictional; no engineering acceptance"
+      },
+      "files": {
+        "basis.json": "a340c0dcd1c37bbe7145ab9b8c85915f1dc46b75bbe51f3cc94557dfe56f8606",
+        "plan.json": "b3b0f4cb604f10080b4ce1c0ab90cb903dd81557735efa0712b06ff47a9f1ed9",
+        "software/candidate/asset_candidates.csv": "4bc3dad77dc1fa4754875f9745235ddfe3b341590b12acb02e3fa84b9feb7225",
+        "software/candidate/byte-edits.json": "07796be7776cb2cce885228507bc339905ae1f99e971902b027df2ff4433978d",
+        "software/candidate/cad_context.json": "69ab3f264ae860e836d792aebf3f24a7f6833f35de36aba1db82b55b1bda7c32",
+        "software/candidate/candidate-context/asset_candidates.csv": "b269e232901caeb9b6e49b094a4fdcbc58b1c98b4af2576e63ae33668f74ecb1",
+        "software/candidate/candidate-context/cad_context.json": "4998ee2d93d59e5e3f7e7c29565d585b16a62ee78f552eefa2bcfc9dd919116f",
+        "software/candidate/candidate-context/README.txt": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0",
+        "software/candidate/candidate-context/snapshot.json": "21daba6bd5fc84b2bf09e77f147559802c8618276c085eccfdaa3cd0889b5f60",
+        "software/candidate/candidate-context/source.dxf": "214ef337a42e21c730bccdc93f49ab27e7e74abe6659212b019b730b684bf4c2",
+        "software/candidate/candidate.dxf": "214ef337a42e21c730bccdc93f49ab27e7e74abe6659212b019b730b684bf4c2",
+        "software/candidate/candidate.snapshot.json": "21daba6bd5fc84b2bf09e77f147559802c8618276c085eccfdaa3cd0889b5f60",
+        "software/candidate/comparison.json": "f6d0d539ddef5e2db973d2dde6b727b424832a1ab7f19c4f434231bde76451f0",
+        "software/candidate/plan.json": "b3b0f4cb604f10080b4ce1c0ab90cb903dd81557735efa0712b06ff47a9f1ed9",
+        "software/candidate/README.txt": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0",
+        "software/candidate/snapshot.json": "d6d03fe258f80e14a787590bd97e739b3f75a8eeb5e98f18f196c6ad418c8b42",
+        "software/candidate/source.dxf": "614e83380bbe667c727363f02d32519b3340439028f0acd72807c82a45224abe",
+        "software/library-save.comparison.json": "0472db3fdfbfb2101a59f4d9805e3e4f27dcf3a29bd46bdfbe2b073aec5069b2",
+        "software/library.dxf": "535cc9f8a5b1777e9c4fabcde1ede3325a6db13eb21a74927017041356c7111c",
+        "software/result.json": "56a1d59f3951e9fff1610191d040186fcdb3b2f3f54b1f3759582b45b80c70c5",
+        "software/value-spans.comparison.json": "f6d0d539ddef5e2db973d2dde6b727b424832a1ab7f19c4f434231bde76451f0",
+        "SOFTWARE.json": "56a1d59f3951e9fff1610191d040186fcdb3b2f3f54b1f3759582b45b80c70c5",
+        "source.dxf": "614e83380bbe667c727363f02d32519b3340439028f0acd72807c82a45224abe"
+      }
+    }
+  }
+}

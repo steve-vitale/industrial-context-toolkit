@@ -1,0 +1,19 @@
+{
+  "scope": "Frozen derived inputs before initial native concurrent runs; actual original host scripts/commands also retained per attempt",
+  "preparation_sha256_lf": "630a71523af7b3d86f0f2483abe413298886ff895eeb868e38af40eaec6bbfe2",
+  "host_script_sha256": "d04974c15be69b129f5b7cbd297cc344bdd9822b86bf8f9853aa74e66a0fa58d",
+  "runs": [
+    {
+      "case": "validation-cp1251",
+      "role": "edited",
+      "label": "cp1251-concurrent-edited-1",
+      "edits": 3
+    },
+    {
+      "case": "validation-braces",
+      "role": "edited",
+      "label": "braces-concurrent-edited-1",
+      "edits": 3
+    }
+  ]
+}
