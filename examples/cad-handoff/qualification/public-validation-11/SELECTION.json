@@ -1,0 +1,67 @@
+{
+  "schema": "cad-public-selection-11",
+  "selection": "Minimum SHA256 of UTF-8 ICT-CAD-TRANSFER-11: plus path within each declared prefix; filenames/tree metadata only, no selected drawing content read",
+  "exposure": "New selected contents uninspected before method freeze; upstream projects historically related, not independent plants",
+  "cases": [
+    {
+      "id": "libre-air-water",
+      "repository": "LibreCAD/LibreCAD",
+      "commit": "c20884671c5f4566e7494890c5060569cc8d8330",
+      "path": "librecad/support/library/plan/air_water/aw10.dxf",
+      "git_blob_sha1": "61f740cdf37c87d5f3257a5ec063471409628d41",
+      "bytes": 10143,
+      "category_prefix": "librecad/support/library/plan/air_water/",
+      "pool_size": 80
+    },
+    {
+      "id": "libre-power",
+      "repository": "LibreCAD/LibreCAD",
+      "commit": "c20884671c5f4566e7494890c5060569cc8d8330",
+      "path": "librecad/support/library/plan/power_engineering/pe3.dxf",
+      "git_blob_sha1": "ed464c8bfd8c60dd8940198fbf6d0f9c40da8d82",
+      "bytes": 10088,
+      "category_prefix": "librecad/support/library/plan/power_engineering/",
+      "pool_size": 11
+    },
+    {
+      "id": "libre-motion",
+      "repository": "LibreCAD/LibreCAD",
+      "commit": "c20884671c5f4566e7494890c5060569cc8d8330",
+      "path": "librecad/support/library/kinetics/kin74.dxf",
+      "git_blob_sha1": "6c8058e145362db7f92443a9dbb04652766af0f3",
+      "bytes": 8446,
+      "category_prefix": "librecad/support/library/kinetics/",
+      "pool_size": 157
+    },
+    {
+      "id": "qcad-hydraulic",
+      "repository": "qcad/qcad",
+      "commit": "897079c2d11aaa0869f839a6cf5df8a937dbddbe",
+      "path": "libraries/default/Hydraulics/2-2valve.dxf",
+      "git_blob_sha1": "27447d15a1bce5d160e255fb6c702f3efc798406",
+      "bytes": 20748,
+      "category_prefix": "libraries/default/Hydraulics/",
+      "pool_size": 3
+    },
+    {
+      "id": "qcad-mechanical",
+      "repository": "qcad/qcad",
+      "commit": "897079c2d11aaa0869f839a6cf5df8a937dbddbe",
+      "path": "libraries/default/Mechanics/M4_DIN934_t.dxf",
+      "git_blob_sha1": "85da4401bd28a5dc92aaeabd976ad16f683d93bc",
+      "bytes": 35510,
+      "category_prefix": "libraries/default/Mechanics/",
+      "pool_size": 16
+    },
+    {
+      "id": "qcad-template",
+      "repository": "qcad/qcad",
+      "commit": "897079c2d11aaa0869f839a6cf5df8a937dbddbe",
+      "path": "libraries/templates/metric/aec_layers.dxf",
+      "git_blob_sha1": "42b1ba2d72f648c3a94abf46ad3db998ab989b74",
+      "bytes": 36644,
+      "category_prefix": "libraries/templates/metric/",
+      "pool_size": 71
+    }
+  ]
+}
