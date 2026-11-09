@@ -17,6 +17,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE_TESTS = (
+    "scripts/test_maintenance_history.py",
     "scripts/test_pid_path_review.py",
     "scripts/test_pid_connections.py",
     "scripts/test_pid_markups.py",

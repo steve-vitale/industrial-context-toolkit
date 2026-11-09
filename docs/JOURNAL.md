@@ -9974,3 +9974,53 @@ conclusion while preserving its valid execution/replay evidence.
 The bounded fresh model views succeed. Native full-save preservation and broader
 paper/typographic readability failures remain independently evidenced. Final CI
 must reproduce the corrected reporting version before completion.
+
+
+## 233. Investigate selected maintenance histories with source meanings intact
+
+The overnight goal deepens linked maintenance intake rather than reopening CAD.
+PLAN and ACCEPTANCE plus the raw-ID baseline were committed before implementation.
+Inspect exact public AMPS originals and publisher workbook cells first: booked
+hours are an additive signed ledger, corrections must not be dropped, labor rates
+are not actual payroll, and parts quantities cannot establish consumption. The
+work-order projection lacks current status; missing completion is not open work.
+Code meanings without exact definitions stay unknown.
+
+The own-input history CLI accepts configured CSV/JSON assets/orders and optional
+transactions/details/labor, preserving scoped identities, original bytes/record
+locators, exact recurring groups, source-linked actions and revision evidence.
+The first missing-hours test failed because the subtotal was unavailable but no
+action was created. Fix it and retain the case. Seventeen methods now pass,
+including wrong entities, contradictory detail targets, duplicate keys, signed
+corrections, unknown meanings, missing versus zero, changed mappings, tampered
+history and corrected/omitted exports. Both CSV layouts and JSON reproduce the
+authored facts; portable replay preserves prior packets. No independent human or
+agent review, root cause or manager saving is established.
+
+Six separately written original-column development checks pass on 933 assets,
+1,612 orders, 208 transactions, 263 details and 5,268 labor entries. There are 177 exact
+recurring-work groups and 82 issues, including 65 missing completions. The raw-ID
+baseline also has 933 groups in this one-scope source; the fictional cross-scope
+case demonstrates the actual distinction without inventing a public accuracy gain.
+Actual desktop/mobile pages were visually inspected and search/table/source
+navigation exercised. Retain screenshot hashes and failed selector/path attempts.
+
+## 234. Retain the frozen public acquisition failure
+
+Commit d7c5804 and examples/maintenance-history/FREEZE.json freeze code/contracts,
+source adapter and original-column audit before reserved content acquisition.
+The already selected 2024-01-15 <= evt_date < 2024-01-22 interval stops at HTTP 500
+on the fourth asset batch. Five metadata files, work orders and three asset
+batches survive locally; no downstream transaction/detail/labor acquisition and
+no semantic packet/audit follow. The HTTP error body was not saved. Publish only
+sanitized attempts/pins, not source rows/free text or identifier-bearing query
+URLs. No alternate cohort or post-outcome tuning. Reserved transfer remains
+unverified. The declared stopping rule allows this negative outcome to finish
+the bounded evaluation, without pretending it passed or inventing plant evidence.
+
+Discovery routes, canonical workflow/script/feature registries and existing
+consulting forms now explain the useful own-input job and supplied meanings.
+Independent review, real manager effort and source-owner acceptance remain open.
+Full local-suite prerequisites are absent in the isolated worktree; its preflight
+is not a suite pass. Source-only results and final exact-head CI are separate
+integration checks.

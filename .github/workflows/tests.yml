@@ -30,6 +30,10 @@ jobs:
         run: python -S examples/agent-first-use/workflow-check/reproduce.py --out "$RUNNER_TEMP/workflow-check"
       - name: Exercise reusable maintenance intake across three revisions
         run: python -S examples/maintenance-intake/reproduce.py --out "$RUNNER_TEMP/maintenance-intake"
+      - name: Investigate fictional maintenance history across layouts and revisions
+        run: |
+          python -S examples/maintenance-history/reproduce.py --out "$RUNNER_TEMP/maintenance-history"
+          python -S scripts/maintenance_history.py --check-packet examples/maintenance-history/worked/initial
       - name: Exercise disappeared findings with changed comparison basis
         run: python -S examples/maintenance-intake/reproduce.py --basis-controls --out "$RUNNER_TEMP/maintenance-basis"
       - name: Explain two native CAD returns without waiving strict differences

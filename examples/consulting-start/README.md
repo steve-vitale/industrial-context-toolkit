@@ -15,6 +15,11 @@ Demonstrate a result with the existing [markup return](../pid-markup-review/READ
 Use the example appropriate to the buyer's problem, then inspect a permitted sample of their own records.
 Examples remain public teaching evidence; do not imply that fictional work came from a client.
 
+For a history investigation, demonstrate the [offline asset-history packet](../maintenance-history/README.md).
+Propose one bounded asset/system scope, an agreed request/event-date selection, named source owner,
+explicit labor/material meanings and one returned export. Acceptance is traceable selected records,
+unknowns and follow-up actions. Agree any failure analysis, walkdown or source-system correction separately.
+
 If a project also needs process-to-automation agreement, use the optional
 [unit requirements and handoff worksheet](AUTOMATION_HANDOFF.md). It separates owner requirements,
 supplier responses and receiving observations. It adds a manual scoped review, not an MTP generator.

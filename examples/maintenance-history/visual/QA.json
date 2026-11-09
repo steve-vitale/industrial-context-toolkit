@@ -1,0 +1,30 @@
+{
+  "schema": "maintenance-history-visual-1",
+  "mode": "Author-agent visual inspection of actual rendered fictional pages; not independent human review",
+  "renderer_sha256_lf": "d605ae25162ca25e54826eeb3bba32cf431eadc1126bedce3a4ad6d66e1e060b",
+  "desktop": {
+    "width": 1366,
+    "height": 900
+  },
+  "mobile": {
+    "width": 390,
+    "height": 844
+  },
+  "checks": {
+    "asset_search": "3 rows to 1 for Cooling, restored",
+    "source_link": "assets source CSV record 2, P-101 scope U1, exact anchor #r2",
+    "mobile_page": "no document-level horizontal overflow; wide associated-row tables scroll within container",
+    "completion": "actual completion date and time basis visible; missing remains missing"
+  },
+  "diagnostics": [
+    "Initial screenshot write outside Playwright allowed roots refused; saved in allowed root and moved to this folder.",
+    "An attempted Labor:4 locator timed out; actual W1 count is 3. Corrected selector and inspected the table/source navigation.",
+    "HTTP server favicon 404; page/links work."
+  ],
+  "screenshots": {
+    "maintenance-history-asset-desktop.png": "b1bb7771c22bd321b9cc5fcb045ccf027874ee88a0fec81f26f3e99b7746d481",
+    "maintenance-history-asset-mobile.png": "dc7ad44b3afc1d5d5a269e357ac6a174f860c35a1d90a3a68489b774bbd5d05f",
+    "maintenance-history-desktop.png": "c735804b578a89dad7851f67ea93f80d3353895f67ee26cfc46e56d81c1a378b",
+    "maintenance-history-mobile.png": "afbad8b3332e585a2ab61f4457d0ec7e9695ae08a6e009a0ec3cc2f2005f1cfb"
+  }
+}

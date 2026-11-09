@@ -3,7 +3,8 @@
 [![tests](https://github.com/steve-vitale/industrial-context-toolkit/actions/workflows/tests.yml/badge.svg)](https://github.com/steve-vitale/industrial-context-toolkit/actions/workflows/tests.yml)
 
 **Open source tools and repeatable methods for maintenance and engineering teams.** Reconcile equipment and
-work-order records, prepare drawing recovery, check a consultant's P&ID markups, review editable CAD returns,
+work-order records, investigate asset work histories with related parts/labor evidence, prepare drawing recovery,
+check a consultant's P&ID markups, review editable CAD returns,
 and retain shared engineering context. Prepare sourced draft models from supplied P&ID readings, descriptions
 and supported DEXPI exports, with authored layouts for detailed draft drawings. Check supplied ports and
 cross-sheet paths; prepare document/photo field candidates; analyze
@@ -49,6 +50,11 @@ exports into a sourced offline packet, with no P&ID required. It retains earlier
 later replacements. The [fresh-agent rehearsals](examples/agent-rehearsal/README.md) retain actual sessions and
 their limitations. Self-service use needs no contact with the author.
 
+For recurring-work questions, the [maintenance-history workflow](docs/MAINTENANCE_HISTORY.md)
+turns explicitly mapped exports into an offline manager brief and sourced asset histories,
+with booked-hours ledgers, unknowns and actions. [Try it offline](examples/maintenance-history/README.md)
+before substituting your records. Recurrence is a review candidate; it does not establish failure or root cause.
+
 **Already using Copilot with SharePoint?** Use that access for document questions and comparisons. Toolkit
 reports and tables can stay there too. [MCP is optional](docs/INTERNAL_CONNECTIVITY.md#if-copilot-already-reads-sharepoint-why-add-mcp):
 it exposes named queries into prepared records or separately implemented services. This repo's starter serves
@@ -80,6 +86,7 @@ See [working together](docs/WORK_WITH_ME.md) for inputs, deliverables and how a 
 | Your engineering job | Starting material and guide | Work product |
 |---|---|---|
 | Reconcile maintenance records | [Equipment and replacement work-order exports](docs/MAINTENANCE_INTAKE.md) | Original-row disagreements, identity/coverage questions, proposed owner actions and a retained next-revision comparison. |
+| Investigate recurring work on assets | [Asset/work-order exports, optional material and labor records](docs/MAINTENANCE_HISTORY.md) | Offline brief, scoped asset chronology, recurring-work candidates, signed booked hours where justified, original-row evidence and retained revisions. |
 | Build your plant's first draft asset model | [P&ID image](examples/own-drawing/README.md) or [DEXPI XML](examples/from-dexpi-xml/README.md) | Sourced assets and represented connections, review material, graph and platform-staging routes. |
 | Build from process knowledge | [Written description](examples/from-description/README.md) | An authored, source-linked model and layout, checked locally and rendered as draft P&ID sheets and exports. |
 | Check whether a consultant incorporated P&ID markups | [Original, markups sent out and returned revision](docs/PID_MARKUP_REVIEW.md) | A check for each requested change, other observed changes, source locations and a correction/clarification queue. Readings are supplied by an engineer or approved assistant. |

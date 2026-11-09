@@ -1861,6 +1861,29 @@
       "time": "Preparation, independent engineering review and human time savings unmeasured",
       "you_get": "Reviewed-only or qualified exploratory route, missing continuations, separate own facts and association status, portable register/report and verified prior-answer comparison",
       "why": "An unrestricted graph walk can cross disputed or reversed connections. Exposed fictional software controls and a separately frozen preparation correction preserve these distinctions; no blind drawing accuracy, complete plant registers, operating consequences or CAD qualification is established."
+    },
+    {
+      "id": "maintenance-history",
+      "category": "check",
+      "title": "Selected maintenance histories to an offline asset investigation packet",
+      "tools": [
+        "scripts/maintenance_history.py"
+      ],
+      "guide": "docs/MAINTENANCE_HISTORY.md",
+      "example_outputs": [
+        "examples/maintenance-history/worked/initial/REPORT.md",
+        "examples/maintenance-history/worked/initial/result.json",
+        "examples/maintenance-history/worked/REPLAY.json",
+        "examples/maintenance-history/public/development-audit.json"
+      ],
+      "tests": [
+        "scripts/test_maintenance_history.py"
+      ],
+      "job": "Investigate recurring work and source gaps on scoped assets using selected work-order, material and labor exports",
+      "you_need": "Permitted CSV/JSON exports, explicit keys/scope/date/code/coverage mappings and signed-hours policy when justified; Python 3.10+ standard library",
+      "time": "Human preparation, review effort and benefit unmeasured",
+      "you_get": "Sourced chronology, recurring-work candidates, conditional booked hours, individual material records, unknowns/actions and retained corrected/omitted-source history",
+      "why": "Managers need one inspectable history and actionable missing evidence before a failure investigation; selected records cannot establish failure, consumption or savings."
     }
   ]
 }
