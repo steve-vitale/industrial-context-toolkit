@@ -1,0 +1,337 @@
+{
+  "scope": "Actual source/candidate model image inspections, separate from frozen pixel comparisons, complete native field reads and engineering acceptance",
+  "cases": {
+    "public-air-water": {
+      "views": [
+        {
+          "label": "source",
+          "frame": "overview",
+          "archive_member": "attempt/job/ui/source-overview-1.canvas.png",
+          "sha256": "b43911bf42e542b3035546e05454b350d1897f71e3a3c018ccc28d677c8e025a",
+          "pixel_sha256": "328a72c2b713a79b6546f08bd66df0f3784ded8c56c2051b66e1990b2cb55b6f",
+          "mode": "RGB",
+          "size": [
+            693,
+            612
+          ],
+          "actually_viewed": true,
+          "observation": "Whole public symbol and authored annotation/disclaimer are visible. QUAL-BEFORE/QUAL-AFTER is the changed value; overview text is small. No installed identity or sheet/engineering acceptance.",
+          "declared_attribute_labels_visible": true,
+          "full_sheet_acceptance": false
+        },
+        {
+          "label": "source",
+          "frame": "asset-1",
+          "archive_member": "attempt/job/ui/source-asset-1-1.canvas.png",
+          "sha256": "b1d6b4b0a9236f213d1eed37c72614b4b01c5a702ec25e349cba3742cc502306",
+          "pixel_sha256": "ddfc3908667dc7d5396c61d8845c6ae28dba45eea79443f47ef5db5f7301e4af",
+          "mode": "RGB",
+          "size": [
+            693,
+            612
+          ],
+          "actually_viewed": true,
+          "observation": "Complete MODEL, authored ICT_ID and TAG labels are visible; planned value changes from QUAL-BEFORE to QUAL-AFTER. The separate long disclaimer is clipped in this asset detail, and is visible in overview.",
+          "declared_attribute_labels_visible": true,
+          "full_sheet_acceptance": false
+        },
+        {
+          "label": "source",
+          "frame": "labels-1",
+          "archive_member": "attempt/job/ui/source-labels-1-1.canvas.png",
+          "sha256": "57a1cc4725191298722c478ffb0b05ac853dff9b1979baccf781dc3a5798c087",
+          "pixel_sha256": "72d403bacc0310bdefd64bf0140caf61bca8daa6500e3b2bc552810aa805374c",
+          "mode": "RGB",
+          "size": [
+            693,
+            612
+          ],
+          "actually_viewed": true,
+          "observation": "Complete MODEL, authored ICT_ID and TAG labels are readable. The public symbol extends beyond this label-detail frame and the separate disclaimer is clipped; overview supplies the whole model view.",
+          "declared_attribute_labels_visible": true,
+          "full_sheet_acceptance": false
+        },
+        {
+          "label": "candidate",
+          "frame": "overview",
+          "archive_member": "attempt/job/ui/candidate-overview-1.canvas.png",
+          "sha256": "bfff82250b37c71c6f4fae97144fee3de8bd216c564dd73fd2554140748c1c88",
+          "pixel_sha256": "12bba8a5951c567dbf9bdf6ab2e85837f4479e20bfed933a05809d0dd6424635",
+          "mode": "RGB",
+          "size": [
+            693,
+            612
+          ],
+          "actually_viewed": true,
+          "observation": "Whole public symbol and authored annotation/disclaimer are visible. QUAL-BEFORE/QUAL-AFTER is the changed value; overview text is small. No installed identity or sheet/engineering acceptance.",
+          "declared_attribute_labels_visible": true,
+          "full_sheet_acceptance": false
+        },
+        {
+          "label": "candidate",
+          "frame": "asset-1",
+          "archive_member": "attempt/job/ui/candidate-asset-1-1.canvas.png",
+          "sha256": "c06ae68a81e9d38472babc4edd55388c4c4c6fa72f9bcb14b671a0d7e8297a5f",
+          "pixel_sha256": "be964152e253f2cb7e2b5c64c616211bed9a4a6796b27d3fc293d8f30126ba29",
+          "mode": "RGB",
+          "size": [
+            693,
+            612
+          ],
+          "actually_viewed": true,
+          "observation": "Complete MODEL, authored ICT_ID and TAG labels are visible; planned value changes from QUAL-BEFORE to QUAL-AFTER. The separate long disclaimer is clipped in this asset detail, and is visible in overview.",
+          "declared_attribute_labels_visible": true,
+          "full_sheet_acceptance": false
+        },
+        {
+          "label": "candidate",
+          "frame": "labels-1",
+          "archive_member": "attempt/job/ui/candidate-labels-1-1.canvas.png",
+          "sha256": "999781e4c1a9e1d0a2dc71af68fbe4220cc73f988a0ff01da1492107b2be587d",
+          "pixel_sha256": "e7bf178e1f5945c40c2c234bfa4adec52cd462d62f3998aeb7ba077f21e05a21",
+          "mode": "RGB",
+          "size": [
+            693,
+            612
+          ],
+          "actually_viewed": true,
+          "observation": "Complete MODEL, authored ICT_ID and TAG labels are readable. The public symbol extends beyond this label-detail frame and the separate disclaimer is clipped; overview supplies the whole model view.",
+          "declared_attribute_labels_visible": true,
+          "full_sheet_acceptance": false
+        }
+      ],
+      "model_inspection": "Declared attribute change visible; public symbol/labels checked across the predefined overview/detail frames. Font substitution retained. Not paper or engineering acceptance.",
+      "whole_cad_qualified": false
+    },
+    "final-foreign": {
+      "views": [
+        {
+          "label": "source",
+          "frame": "overview",
+          "archive_member": "attempt/job/ui/source-overview-1.canvas.png",
+          "sha256": "80c1b10560adca3661871799b8df4947b59ba0960699ece1fb0bf1350ca6f6c9",
+          "pixel_sha256": "c31bba3f26a44a7d0204961152382317b79d2384561b216d021c1831e6091a59",
+          "mode": "RGB",
+          "size": [
+            693,
+            612
+          ],
+          "actually_viewed": true,
+          "observation": "Three rotated asset groups and contextual geometry are visible; overview labels are too small for complete reading. This is not complete readable delivery.",
+          "declared_attribute_labels_visible": false,
+          "full_sheet_acceptance": false
+        },
+        {
+          "label": "source",
+          "frame": "asset-1",
+          "archive_member": "attempt/job/ui/source-asset-1-1.canvas.png",
+          "sha256": "e8f4c0670d44af00b788bee6f640d024d4a1720eeb942e20eeabde475366450e",
+          "pixel_sha256": "16b22d469319a040b5f3b4a5ee80d5bead742118e1f872a9e5fa87090aeefc02",
+          "mode": "RGB",
+          "size": [
+            693,
+            612
+          ],
+          "actually_viewed": true,
+          "observation": "Complete rotated identity, TAG, MODEL, unchanged serial, DN50 and literal foreign labels are visible. MODEL reads Unit-17. Nearby geometry crosses the label area in some views; overview supplies context. Original-resolution reinspection corrects the initial unsupported occlusion assessment; image bytes and decoded pixels are unchanged.",
+          "declared_attribute_labels_visible": true,
+          "full_sheet_acceptance": false
+        },
+        {
+          "label": "source",
+          "frame": "labels-1",
+          "archive_member": "attempt/job/ui/source-labels-1-1.canvas.png",
+          "sha256": "5fff57e2eb1abbf6f012121e0c75f45e419ac191c939fefe603fe9cb738be518",
+          "pixel_sha256": "517e81829068d89f82869883d531224628d238d1183635dfb67de3574706fd27",
+          "mode": "RGB",
+          "size": [
+            693,
+            612
+          ],
+          "actually_viewed": true,
+          "observation": "Complete rotated identity, TAG, MODEL, unchanged serial, DN50 and literal foreign labels are visible. MODEL reads Unit-17. Nearby geometry crosses the label area in some views; overview supplies context. Original-resolution reinspection corrects the initial unsupported occlusion assessment; image bytes and decoded pixels are unchanged.",
+          "declared_attribute_labels_visible": true,
+          "full_sheet_acceptance": false
+        },
+        {
+          "label": "source",
+          "frame": "asset-2",
+          "archive_member": "attempt/job/ui/source-asset-2-1.canvas.png",
+          "sha256": "1230179882c6a5e2bc666493e934cab407366485252b6aeda26163e62549240c",
+          "pixel_sha256": "df2ef0ccb77f7ee8d31ab354ff15352ff1d8bc73420d7d5f4c9d49d50e65a45d",
+          "mode": "RGB",
+          "size": [
+            693,
+            612
+          ],
+          "actually_viewed": true,
+          "observation": "Complete rotated identity, TAG, MODEL, unchanged serial, DN50 and literal foreign labels are visible. MODEL reads Unit-17. Nearby geometry crosses the label area in some views; overview supplies context. Original-resolution reinspection corrects the initial unsupported occlusion assessment; image bytes and decoded pixels are unchanged.",
+          "declared_attribute_labels_visible": true,
+          "full_sheet_acceptance": false
+        },
+        {
+          "label": "source",
+          "frame": "labels-2",
+          "archive_member": "attempt/job/ui/source-labels-2-1.canvas.png",
+          "sha256": "0ace4c92eebbf686efe85227dfcc0b5b64f1fc3b02b6afc30c781807efa57acb",
+          "pixel_sha256": "3a603718d403a2e5a6abbe34e50fcc380c946f0172e9a6e179e1ae06d4924fba",
+          "mode": "RGB",
+          "size": [
+            693,
+            612
+          ],
+          "actually_viewed": true,
+          "observation": "Complete rotated identity, TAG, MODEL, unchanged serial, DN50 and literal foreign labels are visible. MODEL reads Unit-17. Nearby geometry crosses the label area in some views; overview supplies context. Original-resolution reinspection corrects the initial unsupported occlusion assessment; image bytes and decoded pixels are unchanged.",
+          "declared_attribute_labels_visible": true,
+          "full_sheet_acceptance": false
+        },
+        {
+          "label": "source",
+          "frame": "asset-3",
+          "archive_member": "attempt/job/ui/source-asset-3-1.canvas.png",
+          "sha256": "aa54dff094e093ff762d1bde4badcf4c0929f0fcf45cdd57dc6bfd2dbf3960ba",
+          "pixel_sha256": "8e6ab44d864a6b15f81f3029182824403d790f2cd26dbe57c7906f2374acc1b8",
+          "mode": "RGB",
+          "size": [
+            693,
+            612
+          ],
+          "actually_viewed": true,
+          "observation": "Complete rotated identity, TAG, MODEL, unchanged serial, DN50 and literal foreign labels are visible. MODEL reads Unit-17. Nearby geometry crosses the label area in some views; overview supplies context. Original-resolution reinspection corrects the initial unsupported occlusion assessment; image bytes and decoded pixels are unchanged.",
+          "declared_attribute_labels_visible": true,
+          "full_sheet_acceptance": false
+        },
+        {
+          "label": "source",
+          "frame": "labels-3",
+          "archive_member": "attempt/job/ui/source-labels-3-1.canvas.png",
+          "sha256": "395f8dc28a0ebfc48f7e097b7335e9c7ee97ce0232c539e583c8f09abe8905a2",
+          "pixel_sha256": "69983ed31d5bb39475fd64a6f831b87830f568a6329872cebcf1f4016c63e788",
+          "mode": "RGB",
+          "size": [
+            693,
+            612
+          ],
+          "actually_viewed": true,
+          "observation": "Complete rotated identity, TAG, MODEL, unchanged serial, DN50 and literal foreign labels are visible. MODEL reads Unit-17. Nearby geometry crosses the label area in some views; overview supplies context. Original-resolution reinspection corrects the initial unsupported occlusion assessment; image bytes and decoded pixels are unchanged.",
+          "declared_attribute_labels_visible": true,
+          "full_sheet_acceptance": false
+        },
+        {
+          "label": "candidate",
+          "frame": "overview",
+          "archive_member": "attempt/job/ui/candidate-overview-1.canvas.png",
+          "sha256": "d617038c16094bb7b18d349e57ba11584605bda37fba1d1f7bf8339774522379",
+          "pixel_sha256": "ac7afabcf3f579474448b92c7d5171664819745649e2ad420e6b29fbba49b713",
+          "mode": "RGB",
+          "size": [
+            693,
+            612
+          ],
+          "actually_viewed": true,
+          "observation": "Three rotated asset groups and contextual geometry are visible; overview labels are too small for complete reading. This is not complete readable delivery.",
+          "declared_attribute_labels_visible": false,
+          "full_sheet_acceptance": false
+        },
+        {
+          "label": "candidate",
+          "frame": "asset-1",
+          "archive_member": "attempt/job/ui/candidate-asset-1-1.canvas.png",
+          "sha256": "2400a4af293404542458315d299170bfcf4154146f8f99ed0f096ca33da50f6c",
+          "pixel_sha256": "6227a86773e97a8ae06fbe24625fa321358142703a1c3fca79d10c35590bc63e",
+          "mode": "RGB",
+          "size": [
+            693,
+            612
+          ],
+          "actually_viewed": true,
+          "observation": "Complete rotated identity, TAG, MODEL, unchanged serial, DN50 and literal foreign labels are visible. MODEL reads Unit-18. Nearby geometry crosses the label area in some views; overview supplies context. Original-resolution reinspection corrects the initial unsupported occlusion assessment; image bytes and decoded pixels are unchanged.",
+          "declared_attribute_labels_visible": true,
+          "full_sheet_acceptance": false
+        },
+        {
+          "label": "candidate",
+          "frame": "labels-1",
+          "archive_member": "attempt/job/ui/candidate-labels-1-1.canvas.png",
+          "sha256": "be4e8f80e9ce686d61a941c108b7588f3a0afb7a65f53fdc894e5c000345de4a",
+          "pixel_sha256": "204dba8d96147b6948df688d917f948f904f64c8cdf2cb9ea8da9247f172a213",
+          "mode": "RGB",
+          "size": [
+            693,
+            612
+          ],
+          "actually_viewed": true,
+          "observation": "Complete rotated identity, TAG, MODEL, unchanged serial, DN50 and literal foreign labels are visible. MODEL reads Unit-18. Nearby geometry crosses the label area in some views; overview supplies context. Original-resolution reinspection corrects the initial unsupported occlusion assessment; image bytes and decoded pixels are unchanged.",
+          "declared_attribute_labels_visible": true,
+          "full_sheet_acceptance": false
+        },
+        {
+          "label": "candidate",
+          "frame": "asset-2",
+          "archive_member": "attempt/job/ui/candidate-asset-2-1.canvas.png",
+          "sha256": "780283a03c4f312a02a943505365f4f32711e1561698e46344700dfc1951ff5d",
+          "pixel_sha256": "3643c55a12f0ff66b988b0c92ce82bbc208f81ae8676a30d75932868b9840603",
+          "mode": "RGB",
+          "size": [
+            693,
+            612
+          ],
+          "actually_viewed": true,
+          "observation": "Complete rotated identity, TAG, MODEL, unchanged serial, DN50 and literal foreign labels are visible. MODEL reads Unit-18. Nearby geometry crosses the label area in some views; overview supplies context. Original-resolution reinspection corrects the initial unsupported occlusion assessment; image bytes and decoded pixels are unchanged.",
+          "declared_attribute_labels_visible": true,
+          "full_sheet_acceptance": false
+        },
+        {
+          "label": "candidate",
+          "frame": "labels-2",
+          "archive_member": "attempt/job/ui/candidate-labels-2-1.canvas.png",
+          "sha256": "a962d22c02c50931571df9af776b77b60775c208e6de2b1269866cc9c7ef6f06",
+          "pixel_sha256": "18f2e55fad124c4f6db5fa437cf56037d5bbe1f241bb4c0331cde6feaf077614",
+          "mode": "RGB",
+          "size": [
+            693,
+            612
+          ],
+          "actually_viewed": true,
+          "observation": "Complete rotated identity, TAG, MODEL, unchanged serial, DN50 and literal foreign labels are visible. MODEL reads Unit-18. Nearby geometry crosses the label area in some views; overview supplies context. Original-resolution reinspection corrects the initial unsupported occlusion assessment; image bytes and decoded pixels are unchanged.",
+          "declared_attribute_labels_visible": true,
+          "full_sheet_acceptance": false
+        },
+        {
+          "label": "candidate",
+          "frame": "asset-3",
+          "archive_member": "attempt/job/ui/candidate-asset-3-1.canvas.png",
+          "sha256": "2297fc8e3604c8bc1d86095e4b1d44c5eb9badbd1faa12c1b23b5352c324719d",
+          "pixel_sha256": "57ea402541ea05e89fa1413c3c60a719e8ca7bcf52a6a5150c0e12eee543ae12",
+          "mode": "RGB",
+          "size": [
+            693,
+            612
+          ],
+          "actually_viewed": true,
+          "observation": "Complete rotated identity, TAG, MODEL, unchanged serial, DN50 and literal foreign labels are visible. MODEL reads Unit-18. Nearby geometry crosses the label area in some views; overview supplies context. Original-resolution reinspection corrects the initial unsupported occlusion assessment; image bytes and decoded pixels are unchanged.",
+          "declared_attribute_labels_visible": true,
+          "full_sheet_acceptance": false
+        },
+        {
+          "label": "candidate",
+          "frame": "labels-3",
+          "archive_member": "attempt/job/ui/candidate-labels-3-1.canvas.png",
+          "sha256": "e041c40f8f73483a48dee2cb9de1d1be52e98ed2e423c3021961deca63c56abb",
+          "pixel_sha256": "824dcc59be82aa68b1628f64e00e380459dd1a3982c8135a37919c9f373046c4",
+          "mode": "RGB",
+          "size": [
+            693,
+            612
+          ],
+          "actually_viewed": true,
+          "observation": "Complete rotated identity, TAG, MODEL, unchanged serial, DN50 and literal foreign labels are visible. MODEL reads Unit-18. Nearby geometry crosses the label area in some views; overview supplies context. Original-resolution reinspection corrects the initial unsupported occlusion assessment; image bytes and decoded pixels are unchanged.",
+          "declared_attribute_labels_visible": true,
+          "full_sheet_acceptance": false
+        }
+      ],
+      "model_inspection": "All three planned MODEL changes are visible and complete supplied attribute labels are readable in detail frames. Rotation/crossing geometry and small overview text remain explicit. Initial occlusion assessment is invalid and retained in UI-VISUAL-DIAGNOSTIC.json. Not paper, whole-CAD or engineering acceptance.",
+      "whole_cad_qualified": false
+    }
+  }
+}

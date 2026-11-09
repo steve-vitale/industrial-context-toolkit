@@ -24,6 +24,17 @@ awaiting one; those reviews are not engineering sign-offs.
 **Maintenance or engineering manager?** [Start with the decision you need to make](docs/MANAGERS_START_HERE.md).
 The [manager review packet](examples/manager-review/README.md) gives you a no-install brief, owner actions and
 copyable scope/review/effort forms. Use the tools below when you or your team are ready to prepare your own records.
+For consultant drawing returns, follow the [engineer-to-manager receiving workflow](docs/DRAWING_HANDOFF.md):
+requested changes, source evidence, correction actions and the organization's receiving decision.
+The [CAD qualification summary](docs/CAD_QUALIFICATION.md) separates supported attribute proposals
+and receiving checks from the tested native full-save and paper-delivery failures.
+The [frozen ten-case CAD validation](examples/cad-handoff/qualification/final-validation-23/README.md)
+reports attribute preservation, deliberately wrong controls and actual native results separately.
+Its declared native executions are complete: full-save preservation and complete readable
+output fail. Passing field or masked pixel checks does not close those failures.
+The [worked resubmission](examples/drawing-handoff/resubmission-worked/BRIEF.md) uses
+the reusable command to show which findings change after correction and what stays unresolved.
+Changed request scope and missing evidence remain explicit; engineering disposition stays pending.
 
 **Using an agent?** Point it at this repository and ask:
 
@@ -72,6 +83,7 @@ See [working together](docs/WORK_WITH_ME.md) for inputs, deliverables and how a 
 | Build your plant's first draft asset model | [P&ID image](examples/own-drawing/README.md) or [DEXPI XML](examples/from-dexpi-xml/README.md) | Sourced assets and represented connections, review material, graph and platform-staging routes. |
 | Build from process knowledge | [Written description](examples/from-description/README.md) | An authored, source-linked model and layout, checked locally and rendered as draft P&ID sheets and exports. |
 | Check whether a consultant incorporated P&ID markups | [Original, markups sent out and returned revision](docs/PID_MARKUP_REVIEW.md) | A check for each requested change, other observed changes, source locations and a correction/clarification queue. Readings are supplied by an engineer or approved assistant. |
+| Prepare a receiving brief across supplied drawing returns | [One receiving job](docs/DRAWING_HANDOFF.md#run-one-receiving-job) | One command runs the existing markup and/or supported DXF checks, retaining all findings, source-linked actions and a portable job. Owners and the receiving decision remain pending. |
 | Review a returned editable CAD drawing | [Profiled DXF pair and optional edit plan](examples/cad-handoff/receiving-review/README.md) | Readable attribute/field/layout comparison, exact drawings and a complete unresolved strict queue. Qualify the receiving editor separately. |
 | Propose equipment-data edits without resaving geometry | [DXF equipment-data exchange](examples/cad-handoff/data-review/README.md) | A local form or agent proposal and a source-preserving value-span candidate. The original drawing stays intact; native full-save qualification remains separate. |
 | Check exact endpoints and cross-sheet routes | [Port checks](docs/PID_CONNECTIONS.md) · [graph-path review](docs/PID_GRAPH_QUESTIONS.md) | Wrong-input/missing connection checks, source-qualified paths, unresolved continuations and affected-answer revisions from supplied readings/graphs. |

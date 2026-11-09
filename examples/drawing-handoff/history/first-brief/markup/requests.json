@@ -1,0 +1,247 @@
+{
+  "schema": "pid-markup-requests-1",
+  "inventory_basis": "Seven authored numbered annotations; inventory is not independently reviewed or automatically discovered.",
+  "markups": [
+    {
+      "id": "M01",
+      "sheet": "DEMO/U1/PID-101",
+      "text": "Change FV-101 size from DN50 to DN80",
+      "priority": "normal",
+      "interpretation": "prepared",
+      "evidence": [
+        {
+          "document": "markup",
+          "sha256": "a6ef9819027d3704337f8ed9cc41309e539e088e6d6e7dcb530930f933780493",
+          "page": 1,
+          "box_0_1000": [
+            690,
+            110,
+            990,
+            770
+          ],
+          "description": "Change FV-101 size from DN50 to DN80"
+        }
+      ],
+      "checks": [
+        {
+          "key": {
+            "sheet": "DEMO/U1/PID-101",
+            "kind": "attribute",
+            "subject": "FV-101",
+            "name": "size"
+          },
+          "before": "DN50",
+          "after": "DN80"
+        }
+      ]
+    },
+    {
+      "id": "M02",
+      "sheet": "DEMO/U1/PID-101",
+      "text": "Remove HV-102",
+      "priority": "safety",
+      "interpretation": "prepared",
+      "evidence": [
+        {
+          "document": "markup",
+          "sha256": "a6ef9819027d3704337f8ed9cc41309e539e088e6d6e7dcb530930f933780493",
+          "page": 1,
+          "box_0_1000": [
+            690,
+            110,
+            990,
+            770
+          ],
+          "description": "Remove HV-102"
+        }
+      ],
+      "checks": [
+        {
+          "key": {
+            "sheet": "DEMO/U1/PID-101",
+            "kind": "symbol",
+            "subject": "HV-102"
+          },
+          "before": true,
+          "after": false
+        }
+      ]
+    },
+    {
+      "id": "M03",
+      "sheet": "DEMO/U1/PID-101",
+      "text": "Add XV-103 bypass from P-101 discharge through to TK-101",
+      "priority": "normal",
+      "interpretation": "prepared",
+      "evidence": [
+        {
+          "document": "markup",
+          "sha256": "a6ef9819027d3704337f8ed9cc41309e539e088e6d6e7dcb530930f933780493",
+          "page": 1,
+          "box_0_1000": [
+            690,
+            110,
+            990,
+            770
+          ],
+          "description": "Add XV-103 bypass from P-101 discharge through to TK-101"
+        }
+      ],
+      "checks": [
+        {
+          "key": {
+            "sheet": "DEMO/U1/PID-101",
+            "kind": "symbol",
+            "subject": "XV-103"
+          },
+          "before": false,
+          "after": true
+        },
+        {
+          "key": {
+            "sheet": "DEMO/U1/PID-101",
+            "kind": "connection",
+            "subject": "P-101",
+            "relation": "process",
+            "to": "XV-103"
+          },
+          "before": false,
+          "after": true
+        },
+        {
+          "key": {
+            "sheet": "DEMO/U1/PID-101",
+            "kind": "connection",
+            "subject": "XV-103",
+            "relation": "process",
+            "to": "TK-101"
+          },
+          "before": false,
+          "after": true
+        }
+      ]
+    },
+    {
+      "id": "M04",
+      "sheet": "DEMO/U1/PID-101",
+      "text": "Add the PT-101 to PIC-101 signal connection",
+      "priority": "normal",
+      "interpretation": "prepared",
+      "evidence": [
+        {
+          "document": "markup",
+          "sha256": "a6ef9819027d3704337f8ed9cc41309e539e088e6d6e7dcb530930f933780493",
+          "page": 1,
+          "box_0_1000": [
+            690,
+            110,
+            990,
+            770
+          ],
+          "description": "Add the PT-101 to PIC-101 signal connection"
+        }
+      ],
+      "checks": [
+        {
+          "key": {
+            "sheet": "DEMO/U1/PID-101",
+            "kind": "connection",
+            "subject": "PT-101",
+            "relation": "signal",
+            "to": "PIC-101"
+          },
+          "before": false,
+          "after": true
+        }
+      ]
+    },
+    {
+      "id": "M05",
+      "sheet": "DEMO/U1/PID-101",
+      "text": "Illegible annotation; request clarification",
+      "priority": "normal",
+      "interpretation": "unreadable",
+      "evidence": [
+        {
+          "document": "markup",
+          "sha256": "a6ef9819027d3704337f8ed9cc41309e539e088e6d6e7dcb530930f933780493",
+          "page": 1,
+          "box_0_1000": [
+            690,
+            110,
+            990,
+            770
+          ],
+          "description": "Illegible annotation; request clarification"
+        }
+      ],
+      "checks": [],
+      "reason": "Fictional illegible annotation deliberately left uninterpreted"
+    },
+    {
+      "id": "M06",
+      "sheet": "DEMO/U1/PID-101",
+      "text": "Change P-102 service from duty to standby",
+      "priority": "normal",
+      "interpretation": "prepared",
+      "evidence": [
+        {
+          "document": "markup",
+          "sha256": "a6ef9819027d3704337f8ed9cc41309e539e088e6d6e7dcb530930f933780493",
+          "page": 1,
+          "box_0_1000": [
+            690,
+            110,
+            990,
+            770
+          ],
+          "description": "Change P-102 service from duty to standby"
+        }
+      ],
+      "checks": [
+        {
+          "key": {
+            "sheet": "DEMO/U1/PID-101",
+            "kind": "attribute",
+            "subject": "P-102",
+            "name": "service"
+          },
+          "before": "duty",
+          "after": "standby"
+        }
+      ]
+    },
+    {
+      "id": "M07",
+      "sheet": "DEMO/U1/PID-101",
+      "text": "Change drain note from open tundish to closed system",
+      "priority": "normal",
+      "interpretation": "prepared",
+      "evidence": [
+        {
+          "document": "markup",
+          "sha256": "a6ef9819027d3704337f8ed9cc41309e539e088e6d6e7dcb530930f933780493",
+          "page": 1,
+          "box_0_1000": [
+            690,
+            110,
+            990,
+            770
+          ],
+          "description": "Change drain note from open tundish to closed system"
+        }
+      ],
+      "checks": [
+        {
+          "key": {
+            "sheet": "DEMO/U1/PID-101",
+            "kind": "note",
+            "subject": "drain-note"
+          },
+          "before": "open tundish",
+          "after": "closed system"
+        }
+      ]
+    }
+  ]
+}

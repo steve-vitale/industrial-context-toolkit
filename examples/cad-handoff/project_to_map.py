@@ -9,6 +9,10 @@ import hashlib
 import io
 import json
 from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'scripts'))
+import cad_handoff as ch
 
 
 def read(path):
@@ -28,6 +32,18 @@ def project(packet, mapping, out):
         raise ValueError("Only the declared attribute-context profile is supported")
     original = (packet / "source.dxf").read_bytes()
     sha = hashlib.sha256(original).hexdigest()
+    snapshot = ch.snapshot(packet / 'source.dxf')
+    if snapshot['sha256'] != sha:
+        raise ValueError('Retained drawing changed during context inspection')
+    expected = {a['id']: dict(id=a['id'],tag=a['attributes']['TAG'],attributes=a['attributes'],
+                 source=dict(sha256=sha,insert_handle=a['handle']),status='unverified')
+                for a in snapshot['assets']}
+    nodes = context.get('nodes')
+    if not isinstance(nodes,list) or not all(isinstance(n,dict) and isinstance(n.get('id'),str) for n in nodes):
+        raise ValueError('CAD context needs explicit asset nodes')
+    observed = {n['id']:n for n in nodes}
+    if len(observed) != len(nodes) or observed != expected:
+        raise ValueError('CAD context differs from the complete retained source DXF; regenerate it before projecting')
     rows = mapping["assets"]
     index = {r["id"]: r for r in rows}
     if len(index) != len(rows) or set(index) != {n["id"] for n in context["nodes"]}:

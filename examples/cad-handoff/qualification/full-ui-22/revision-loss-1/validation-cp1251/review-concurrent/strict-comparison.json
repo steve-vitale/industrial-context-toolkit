@@ -1,0 +1,358 @@
+{
+  "schema": "cad-comparison-1",
+  "before_sha256": "2044da26edd9188d07300f6b8f2abf4053956f31a7827bba488ec02c1351e158",
+  "after_sha256": "3d3dab97cf7aaa1a8dc68b6cf9ecf5cb913adea5d527242e89d8647d46ad402f",
+  "status": "differences",
+  "expected_edits": [
+    {
+      "id": "validation-cp1251/asset-1",
+      "attribute": "MODEL",
+      "before": "Двигатель",
+      "after": "Мотор",
+      "reason": "Authored qualification edit, not an installed equipment claim"
+    },
+    {
+      "id": "validation-cp1251/asset-2",
+      "attribute": "MODEL",
+      "before": "Двигатель",
+      "after": "Мотор",
+      "reason": "Authored qualification edit, not an installed equipment claim"
+    }
+  ],
+  "unexpected": [
+    {
+      "kind": "entity",
+      "handle": "41",
+      "before": {
+        "type": "ATTRIB",
+        "tags": [
+          [
+            0,
+            "ATTRIB"
+          ],
+          [
+            5,
+            "41"
+          ],
+          [
+            330,
+            "3D"
+          ],
+          [
+            100,
+            "AcDbEntity"
+          ],
+          [
+            8,
+            "LABEL"
+          ],
+          [
+            100,
+            "AcDbText"
+          ],
+          [
+            10,
+            11.401923788646684
+          ],
+          [
+            20,
+            20.232050807568875
+          ],
+          [
+            30,
+            0.0
+          ],
+          [
+            40,
+            0.6
+          ],
+          [
+            1,
+            "Мотор"
+          ],
+          [
+            50,
+            -150.0
+          ],
+          [
+            11,
+            11.401923788646684
+          ],
+          [
+            21,
+            20.232050807568875
+          ],
+          [
+            31,
+            0.0
+          ],
+          [
+            100,
+            "AcDbAttribute"
+          ],
+          [
+            2,
+            "MODEL"
+          ],
+          [
+            70,
+            0
+          ]
+        ]
+      },
+      "after": {
+        "type": "ATTRIB",
+        "tags": [
+          [
+            0,
+            "ATTRIB"
+          ],
+          [
+            5,
+            "41"
+          ],
+          [
+            330,
+            "3D"
+          ],
+          [
+            100,
+            "AcDbEntity"
+          ],
+          [
+            8,
+            "LABEL"
+          ],
+          [
+            100,
+            "AcDbText"
+          ],
+          [
+            10,
+            11.401923788646684
+          ],
+          [
+            20,
+            20.232050807568875
+          ],
+          [
+            30,
+            0.0
+          ],
+          [
+            40,
+            0.6
+          ],
+          [
+            1,
+            "OTHER-CHOICE"
+          ],
+          [
+            50,
+            -150.0
+          ],
+          [
+            11,
+            11.401923788646684
+          ],
+          [
+            21,
+            20.232050807568875
+          ],
+          [
+            31,
+            0.0
+          ],
+          [
+            100,
+            "AcDbAttribute"
+          ],
+          [
+            2,
+            "MODEL"
+          ],
+          [
+            70,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "kind": "entity",
+      "handle": "4C",
+      "before": {
+        "type": "ATTRIB",
+        "tags": [
+          [
+            0,
+            "ATTRIB"
+          ],
+          [
+            5,
+            "4C"
+          ],
+          [
+            330,
+            "47"
+          ],
+          [
+            100,
+            "AcDbEntity"
+          ],
+          [
+            8,
+            "LABEL"
+          ],
+          [
+            100,
+            "AcDbText"
+          ],
+          [
+            10,
+            44.735898384862246
+          ],
+          [
+            20,
+            29.11769145362398
+          ],
+          [
+            30,
+            0.0
+          ],
+          [
+            40,
+            0.72
+          ],
+          [
+            1,
+            "UNCHANGED-1"
+          ],
+          [
+            50,
+            -150.0
+          ],
+          [
+            51,
+            -7.105427357601002e-15
+          ],
+          [
+            41,
+            1.1111111111111112
+          ],
+          [
+            11,
+            44.735898384862246
+          ],
+          [
+            21,
+            29.11769145362398
+          ],
+          [
+            31,
+            0.0
+          ],
+          [
+            100,
+            "AcDbAttribute"
+          ],
+          [
+            2,
+            "SERIAL"
+          ],
+          [
+            70,
+            0
+          ]
+        ]
+      },
+      "after": {
+        "type": "ATTRIB",
+        "tags": [
+          [
+            0,
+            "ATTRIB"
+          ],
+          [
+            5,
+            "4C"
+          ],
+          [
+            330,
+            "47"
+          ],
+          [
+            100,
+            "AcDbEntity"
+          ],
+          [
+            8,
+            "LABEL"
+          ],
+          [
+            100,
+            "AcDbText"
+          ],
+          [
+            10,
+            44.735898384862246
+          ],
+          [
+            20,
+            29.11769145362398
+          ],
+          [
+            30,
+            0.0
+          ],
+          [
+            40,
+            0.72
+          ],
+          [
+            1,
+            "FIELD-OBSERVED"
+          ],
+          [
+            50,
+            -150.0
+          ],
+          [
+            51,
+            -7.105427357601002e-15
+          ],
+          [
+            41,
+            1.1111111111111112
+          ],
+          [
+            11,
+            44.735898384862246
+          ],
+          [
+            21,
+            29.11769145362398
+          ],
+          [
+            31,
+            0.0
+          ],
+          [
+            100,
+            "AcDbAttribute"
+          ],
+          [
+            2,
+            "SERIAL"
+          ],
+          [
+            70,
+            0
+          ]
+        ]
+      }
+    }
+  ],
+  "save_metadata_changed": true,
+  "boundary": "All ezdxf-exported entity tags including block definitions, attributes, layers and objects; all headers except listed save metadata and the two named EZDXF_META writer values. Same handles required. This is not a byte-identical DXF or proprietary project database/visual/engineering acceptance."
+}

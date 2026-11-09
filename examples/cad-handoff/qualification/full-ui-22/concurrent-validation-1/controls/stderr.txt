@@ -1,0 +1,109 @@
+test_complete_three_edit_packets_replay (__main__.ConcurrentPacketControls.test_complete_three_edit_packets_replay) ... 
+  test_complete_three_edit_packets_replay (__main__.ConcurrentPacketControls.test_complete_three_edit_packets_replay) (case='cp1251') ... ERROR
+  test_complete_three_edit_packets_replay (__main__.ConcurrentPacketControls.test_complete_three_edit_packets_replay) (case='braces') ... ERROR
+test_derived_preparation_cannot_change_asset_identity (__main__.ConcurrentPacketControls.test_derived_preparation_cannot_change_asset_identity) ... ok
+test_failed_controller_cannot_be_hidden_by_reindexing (__main__.ConcurrentPacketControls.test_failed_controller_cannot_be_hidden_by_reindexing) ... ok
+test_foreign_field_cannot_lose_editability (__main__.ConcurrentPacketControls.test_foreign_field_cannot_lose_editability) ... 
+  test_foreign_field_cannot_lose_editability (__main__.ConcurrentPacketControls.test_foreign_field_cannot_lose_editability) (case='cp1251') ... FAIL
+  test_foreign_field_cannot_lose_editability (__main__.ConcurrentPacketControls.test_foreign_field_cannot_lose_editability) (case='braces') ... FAIL
+test_missing_serial_commit_refuses_after_event_renumbering (__main__.ConcurrentPacketControls.test_missing_serial_commit_refuses_after_event_renumbering) ... 
+  test_missing_serial_commit_refuses_after_event_renumbering (__main__.ConcurrentPacketControls.test_missing_serial_commit_refuses_after_event_renumbering) (case='cp1251') ... FAIL
+  test_missing_serial_commit_refuses_after_event_renumbering (__main__.ConcurrentPacketControls.test_missing_serial_commit_refuses_after_event_renumbering) (case='braces') ... FAIL
+test_source_and_plan_cannot_repin_local_job (__main__.ConcurrentPacketControls.test_source_and_plan_cannot_repin_local_job) ... ok
+
+======================================================================
+ERROR: test_complete_three_edit_packets_replay (__main__.ConcurrentPacketControls.test_complete_three_edit_packets_replay) (case='cp1251')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Steve\.cp-scratch\cad-full-ui-22\worktree\examples\cad-handoff\qualification\full-ui-22\test_native_revisions.py", line 31, in test_complete_three_edit_packets_replay
+    result=check(HERE/'concurrent-development-1'/(case+'-concurrent-edited-1'))
+  File "C:\Users\Steve\.cp-scratch\cad-full-ui-22\worktree\examples\cad-handoff\qualification\full-ui-22\native_revisions.py", line 134, in check
+    result=receiving(root/'attempt',root/'receiving/PREPARATION.json',root/'receiving/METHODS.json')
+  File "C:\Users\Steve\.cp-scratch\cad-full-ui-22\worktree\examples\cad-handoff\qualification\full-ui-22\native_revisions.py", line 102, in receiving
+    return receive(attempt,prepared,methods)
+  File "C:\Users\Steve\.cp-scratch\cad-full-ui-22\worktree\examples\cad-handoff\qualification\full-ui-22\receive.py", line 291, in receive
+    history = audit_history(root/'mailbox',stdout,config,process['engine_pid'])
+  File "C:\Users\Steve\.cp-scratch\cad-full-ui-22\worktree\examples\cad-handoff\qualification\observer-transport-21\bridge_receive.py", line 27, in audit_history
+    require(set(p.name for p in root.iterdir()) == set(FOLDERS) | {'staging'}, 'Private mailbox directory inventory differs')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steve\.cp-scratch\cad-full-ui-22\worktree\examples\cad-handoff\qualification\observer-transport-21\bridge_receive.py", line 14, in require
+    if not ok: raise ValueError(message)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Private mailbox directory inventory differs
+
+======================================================================
+ERROR: test_complete_three_edit_packets_replay (__main__.ConcurrentPacketControls.test_complete_three_edit_packets_replay) (case='braces')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Steve\.cp-scratch\cad-full-ui-22\worktree\examples\cad-handoff\qualification\full-ui-22\test_native_revisions.py", line 31, in test_complete_three_edit_packets_replay
+    result=check(HERE/'concurrent-development-1'/(case+'-concurrent-edited-1'))
+  File "C:\Users\Steve\.cp-scratch\cad-full-ui-22\worktree\examples\cad-handoff\qualification\full-ui-22\native_revisions.py", line 134, in check
+    result=receiving(root/'attempt',root/'receiving/PREPARATION.json',root/'receiving/METHODS.json')
+  File "C:\Users\Steve\.cp-scratch\cad-full-ui-22\worktree\examples\cad-handoff\qualification\full-ui-22\native_revisions.py", line 102, in receiving
+    return receive(attempt,prepared,methods)
+  File "C:\Users\Steve\.cp-scratch\cad-full-ui-22\worktree\examples\cad-handoff\qualification\full-ui-22\receive.py", line 291, in receive
+    history = audit_history(root/'mailbox',stdout,config,process['engine_pid'])
+  File "C:\Users\Steve\.cp-scratch\cad-full-ui-22\worktree\examples\cad-handoff\qualification\observer-transport-21\bridge_receive.py", line 27, in audit_history
+    require(set(p.name for p in root.iterdir()) == set(FOLDERS) | {'staging'}, 'Private mailbox directory inventory differs')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steve\.cp-scratch\cad-full-ui-22\worktree\examples\cad-handoff\qualification\observer-transport-21\bridge_receive.py", line 14, in require
+    if not ok: raise ValueError(message)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Private mailbox directory inventory differs
+
+======================================================================
+FAIL: test_foreign_field_cannot_lose_editability (__main__.ConcurrentPacketControls.test_foreign_field_cannot_lose_editability) (case='cp1251')
+----------------------------------------------------------------------
+ValueError: Private mailbox directory inventory differs
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Steve\.cp-scratch\cad-full-ui-22\worktree\examples\cad-handoff\qualification\full-ui-22\test_native_revisions.py", line 25, in refuse
+    with self.assertRaisesRegex(ValueError,pattern):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: "editability differs" does not match "Private mailbox directory inventory differs"
+
+======================================================================
+FAIL: test_foreign_field_cannot_lose_editability (__main__.ConcurrentPacketControls.test_foreign_field_cannot_lose_editability) (case='braces')
+----------------------------------------------------------------------
+ValueError: Private mailbox directory inventory differs
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Steve\.cp-scratch\cad-full-ui-22\worktree\examples\cad-handoff\qualification\full-ui-22\test_native_revisions.py", line 25, in refuse
+    with self.assertRaisesRegex(ValueError,pattern):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: "editability differs" does not match "Private mailbox directory inventory differs"
+
+======================================================================
+FAIL: test_missing_serial_commit_refuses_after_event_renumbering (__main__.ConcurrentPacketControls.test_missing_serial_commit_refuses_after_event_renumbering) (case='cp1251')
+----------------------------------------------------------------------
+ValueError: Private mailbox directory inventory differs
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Steve\.cp-scratch\cad-full-ui-22\worktree\examples\cad-handoff\qualification\full-ui-22\test_native_revisions.py", line 25, in refuse
+    with self.assertRaisesRegex(ValueError,pattern):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: "edit source/state|Incomplete native edit" does not match "Private mailbox directory inventory differs"
+
+======================================================================
+FAIL: test_missing_serial_commit_refuses_after_event_renumbering (__main__.ConcurrentPacketControls.test_missing_serial_commit_refuses_after_event_renumbering) (case='braces')
+----------------------------------------------------------------------
+ValueError: Private mailbox directory inventory differs
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Steve\.cp-scratch\cad-full-ui-22\worktree\examples\cad-handoff\qualification\full-ui-22\test_native_revisions.py", line 25, in refuse
+    with self.assertRaisesRegex(ValueError,pattern):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: "edit source/state|Incomplete native edit" does not match "Private mailbox directory inventory differs"
+
+----------------------------------------------------------------------
+Ran 6 tests in 72.279s
+
+FAILED (failures=4, errors=2)

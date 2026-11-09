@@ -1,0 +1,27 @@
+{
+  "schema": "cad-edit-plan-1",
+  "source_sha256": "2044da26edd9188d07300f6b8f2abf4053956f31a7827bba488ec02c1351e158",
+  "changes": [
+    {
+      "id": "validation-cp1251/asset-1",
+      "attribute": "MODEL",
+      "before": "\u0414\u0432\u0438\u0433\u0430\u0442\u0435\u043b\u044c",
+      "after": "OTHER-CHOICE",
+      "reason": "Authored qualification edit, not an installed equipment claim"
+    },
+    {
+      "id": "validation-cp1251/asset-2",
+      "attribute": "MODEL",
+      "before": "\u0414\u0432\u0438\u0433\u0430\u0442\u0435\u043b\u044c",
+      "after": "\u041c\u043e\u0442\u043e\u0440",
+      "reason": "Authored qualification edit, not an installed equipment claim"
+    },
+    {
+      "id": "validation-cp1251/asset-2",
+      "attribute": "SERIAL",
+      "before": "UNCHANGED-1",
+      "after": "FIELD-OBSERVED",
+      "reason": "Fictional concurrent branch; not an observed installed serial"
+    }
+  ]
+}

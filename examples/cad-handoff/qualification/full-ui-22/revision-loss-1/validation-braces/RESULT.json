@@ -1,0 +1,118 @@
+{
+  "case": "validation-braces",
+  "source_sha256": "614e83380bbe667c727363f02d32519b3340439028f0acd72807c82a45224abe",
+  "baseline_strict": 0,
+  "concurrent_strict": 2,
+  "findings": [
+    {
+      "id": "validation-braces/asset-1",
+      "attribute": "MODEL",
+      "before_present": true,
+      "before": "Assembly {C}",
+      "after_present": true,
+      "after": "OTHER-CHOICE",
+      "planned_after": "Assembly {D}",
+      "status": "planned edit missing or different"
+    },
+    {
+      "id": "validation-braces/asset-2",
+      "attribute": "SERIAL",
+      "before_present": true,
+      "before": "UNCHANGED-1",
+      "after_present": true,
+      "after": "FIELD-OBSERVED",
+      "planned_after": null,
+      "status": "unexpected"
+    }
+  ],
+  "stale_refusals": 2,
+  "admission_refusals": 5,
+  "selected_strict": 0,
+  "selected_original_strict": 1,
+  "selected_sha256": "227cc9b0e2cf5e6fe1df31a0e3d597ebdd17b5866e388671718ecdd2681addb5",
+  "retained_serial": "FIELD-OBSERVED",
+  "assets": 2,
+  "context_commands": 5,
+  "planted_losses": [
+    {
+      "control": "geometry",
+      "strict_count": 1,
+      "byte_refused": true,
+      "mutation": {
+        "type": "LINE",
+        "handle": "51",
+        "group": 10,
+        "before_hex": "302e30",
+        "after_hex": "312e3235",
+        "operation": "replace value"
+      }
+    },
+    {
+      "control": "layer",
+      "strict_count": 1,
+      "byte_refused": true,
+      "mutation": {
+        "type": "LINE",
+        "handle": "51",
+        "group": 8,
+        "before_hex": "50495045",
+        "after_hex": "30",
+        "operation": "replace value"
+      }
+    },
+    {
+      "control": "style",
+      "strict_count": 1,
+      "byte_refused": true,
+      "mutation": {
+        "type": "STYLE",
+        "handle": "29",
+        "group": 40,
+        "before_hex": "302e30",
+        "after_hex": "312e3235",
+        "operation": "replace value"
+      }
+    },
+    {
+      "control": "foreign",
+      "strict_count": 1,
+      "byte_refused": true,
+      "mutation": {
+        "type": "ATTRIB",
+        "handle": "44",
+        "group": 1,
+        "before_hex": "72657461696e207b76656e646f727d205c502030",
+        "after_hex": "4c4f5354",
+        "operation": "replace value"
+      }
+    },
+    {
+      "control": "xdata",
+      "strict_count": 1,
+      "byte_refused": true,
+      "mutation": {
+        "type": "INSERT",
+        "handle": "3D",
+        "group": 1000,
+        "before_hex": "666f726569676e206964656e746974792030",
+        "after_hex": "4c4f53542d5844415441",
+        "operation": "replace value"
+      }
+    },
+    {
+      "control": "block",
+      "strict_count": 1,
+      "byte_refused": true,
+      "mutation": {
+        "type": "CIRCLE",
+        "handle": "35",
+        "group": 10,
+        "before_hex": "302e30",
+        "after_hex": "312e3235",
+        "operation": "replace value"
+      }
+    }
+  ],
+  "cli_commands": 16,
+  "scope": "Exposed authored software branches, not native manual edits, field observations or acceptance"
+}

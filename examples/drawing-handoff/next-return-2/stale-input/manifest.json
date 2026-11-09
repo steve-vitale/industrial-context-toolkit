@@ -1,0 +1,55 @@
+{
+  "schema": "pid-markup-review-1",
+  "documents": [
+    {
+      "id": "original",
+      "role": "original",
+      "path": "sources/001.svg",
+      "sha256": "05c2203d6b4b68b493dd3fd4cba8e477f10780492cdc4bd5a7386d8ea048ac71",
+      "pages": [
+        {
+          "page": 1,
+          "sheet": "DEMO/U1/PID-101",
+          "revision": "A",
+          "identity": "confirmed"
+        }
+      ]
+    },
+    {
+      "id": "markup",
+      "role": "markup",
+      "path": "sources/002.svg",
+      "sha256": "a6ef9819027d3704337f8ed9cc41309e539e088e6d6e7dcb530930f933780493",
+      "pages": [
+        {
+          "page": 1,
+          "sheet": "DEMO/U1/PID-101",
+          "revision": "A",
+          "identity": "confirmed"
+        }
+      ]
+    },
+    {
+      "id": "returned",
+      "role": "returned",
+      "path": "sources/003.svg",
+      "sha256": "40f9745c190692069db8141cbf784c5431473b4a1d75eb13e5f45b7a99bd82d4",
+      "pages": [
+        {
+          "page": 1,
+          "sheet": "DEMO/U1/PID-101",
+          "revision": "C",
+          "identity": "confirmed"
+        }
+      ]
+    }
+  ],
+  "requests": {
+    "path": "requests.json",
+    "sha256": "3de278bd83d8410f9350b81c860babd5f679e39c473dba37aacc448fe06b6430"
+  },
+  "readings": {
+    "path": "readings.json",
+    "sha256": "a13a2ff9bc039529bc54c1d2b7b60ad9cd41a2ab6bce8b1ed592e64495a99ecd"
+  }
+}

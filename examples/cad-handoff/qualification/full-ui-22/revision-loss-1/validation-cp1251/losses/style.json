@@ -1,0 +1,163 @@
+{
+  "mutation": {
+    "type": "STYLE",
+    "handle": "29",
+    "group": 40,
+    "before_hex": "302e30",
+    "after_hex": "312e3235",
+    "operation": "replace value"
+  },
+  "comparison": {
+    "schema": "cad-comparison-1",
+    "before_sha256": "2044da26edd9188d07300f6b8f2abf4053956f31a7827bba488ec02c1351e158",
+    "after_sha256": "a27b4846df3800335260d870804b455ef8309aa0c9647389f79e66471fa84cbf",
+    "status": "differences",
+    "expected_edits": [
+      {
+        "id": "validation-cp1251/asset-1",
+        "attribute": "MODEL",
+        "before": "\u0414\u0432\u0438\u0433\u0430\u0442\u0435\u043b\u044c",
+        "after": "\u041c\u043e\u0442\u043e\u0440",
+        "reason": "Authored qualification edit, not an installed equipment claim"
+      },
+      {
+        "id": "validation-cp1251/asset-2",
+        "attribute": "MODEL",
+        "before": "\u0414\u0432\u0438\u0433\u0430\u0442\u0435\u043b\u044c",
+        "after": "\u041c\u043e\u0442\u043e\u0440",
+        "reason": "Authored qualification edit, not an installed equipment claim"
+      }
+    ],
+    "unexpected": [
+      {
+        "kind": "entity",
+        "handle": "29",
+        "before": {
+          "type": "STYLE",
+          "tags": [
+            [
+              0,
+              "STYLE"
+            ],
+            [
+              5,
+              "29"
+            ],
+            [
+              330,
+              "5"
+            ],
+            [
+              100,
+              "AcDbSymbolTableRecord"
+            ],
+            [
+              100,
+              "AcDbTextStyleTableRecord"
+            ],
+            [
+              2,
+              "Standard"
+            ],
+            [
+              70,
+              0
+            ],
+            [
+              40,
+              0.0
+            ],
+            [
+              41,
+              1.0
+            ],
+            [
+              50,
+              0.0
+            ],
+            [
+              71,
+              0
+            ],
+            [
+              42,
+              2.5
+            ],
+            [
+              3,
+              "txt"
+            ],
+            [
+              4,
+              ""
+            ]
+          ]
+        },
+        "after": {
+          "type": "STYLE",
+          "tags": [
+            [
+              0,
+              "STYLE"
+            ],
+            [
+              5,
+              "29"
+            ],
+            [
+              330,
+              "5"
+            ],
+            [
+              100,
+              "AcDbSymbolTableRecord"
+            ],
+            [
+              100,
+              "AcDbTextStyleTableRecord"
+            ],
+            [
+              2,
+              "Standard"
+            ],
+            [
+              70,
+              0
+            ],
+            [
+              40,
+              1.25
+            ],
+            [
+              41,
+              1.0
+            ],
+            [
+              50,
+              0.0
+            ],
+            [
+              71,
+              0
+            ],
+            [
+              42,
+              2.5
+            ],
+            [
+              3,
+              "txt"
+            ],
+            [
+              4,
+              ""
+            ]
+          ]
+        }
+      }
+    ],
+    "save_metadata_changed": true,
+    "boundary": "All ezdxf-exported entity tags including block definitions, attributes, layers and objects; all headers except listed save metadata and the two named EZDXF_META writer values. Same handles required. This is not a byte-identical DXF or proprietary project database/visual/engineering acceptance."
+  },
+  "byte_refusal": "Candidate differs from independent source-plus-plan reconstruction"
+}

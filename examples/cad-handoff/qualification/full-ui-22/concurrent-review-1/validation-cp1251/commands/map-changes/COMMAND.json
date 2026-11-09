@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "python",
+    "$ROOT\\scripts\\one_map.py",
+    "changes",
+    "$OUT\\map-original\\map\\graph.json",
+    "$OUT\\map-selected\\map\\graph.json",
+    "--out",
+    "$OUT\\map-changes"
+  ],
+  "expected_exit": 0
+}

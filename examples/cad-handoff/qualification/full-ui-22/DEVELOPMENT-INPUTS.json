@@ -1,0 +1,55 @@
+{
+  "scope": "Existing exposed multi-asset, foreign-field, CP1251/UTF8 and literal-brace sources selected before full UI implementation; no candidate or native run by this preparation",
+  "cases": [
+    {
+      "case": "validation-cp1251",
+      "source": "examples/cad-handoff/qualification/validation-2/authored/validation-cp1251.dxf",
+      "source_sha256": "2044da26edd9188d07300f6b8f2abf4053956f31a7827bba488ec02c1351e158",
+      "plan": "examples/cad-handoff/qualification/validation-2/authored/validation-cp1251.plan.json",
+      "plan_sha256": "a75fb0abe99c35371caa3c2ce25ec498efdcd92e16bbf541c662c154e5acf6c8",
+      "assets": 2,
+      "changes": [
+        {
+          "id": "validation-cp1251/asset-1",
+          "attribute": "MODEL",
+          "before": "\u0414\u0432\u0438\u0433\u0430\u0442\u0435\u043b\u044c",
+          "after": "\u041c\u043e\u0442\u043e\u0440",
+          "reason": "Authored qualification edit, not an installed equipment claim"
+        },
+        {
+          "id": "validation-cp1251/asset-2",
+          "attribute": "MODEL",
+          "before": "\u0414\u0432\u0438\u0433\u0430\u0442\u0435\u043b\u044c",
+          "after": "\u041c\u043e\u0442\u043e\u0440",
+          "reason": "Authored qualification edit, not an installed equipment claim"
+        }
+      ],
+      "role": "already exposed authored development; not fresh reserved or plant evidence"
+    },
+    {
+      "case": "validation-braces",
+      "source": "examples/cad-handoff/qualification/validation-2/authored/validation-braces.dxf",
+      "source_sha256": "614e83380bbe667c727363f02d32519b3340439028f0acd72807c82a45224abe",
+      "plan": "examples/cad-handoff/qualification/validation-2/authored/validation-braces.plan.json",
+      "plan_sha256": "5126be71101f71b51332b50fd52980c3f0146a19fded4e7f8b8571c6b45d8508",
+      "assets": 2,
+      "changes": [
+        {
+          "id": "validation-braces/asset-1",
+          "attribute": "MODEL",
+          "before": "Assembly {C}",
+          "after": "Assembly {D}",
+          "reason": "Authored qualification edit, not an installed equipment claim"
+        },
+        {
+          "id": "validation-braces/asset-2",
+          "attribute": "MODEL",
+          "before": "Assembly {C}",
+          "after": "Assembly {D}",
+          "reason": "Authored qualification edit, not an installed equipment claim"
+        }
+      ],
+      "role": "already exposed authored development; not fresh reserved or plant evidence"
+    }
+  ]
+}

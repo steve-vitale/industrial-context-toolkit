@@ -1,0 +1,41 @@
+{
+  "schema": "cad-context-1",
+  "nodes": [
+    {
+      "id": "validation-cp1251/asset-1",
+      "tag": "FV-101",
+      "attributes": {
+        "ICT_ID": "validation-cp1251/asset-1",
+        "TAG": "FV-101",
+        "MODEL": "Двигатель",
+        "SERIAL": "UNCHANGED-0",
+        "SIZE": "DN50",
+        "VENDOR_PRIVATE": "retain {vendor} \\P 0"
+      },
+      "source": {
+        "sha256": "2044da26edd9188d07300f6b8f2abf4053956f31a7827bba488ec02c1351e158",
+        "insert_handle": "3D"
+      },
+      "status": "unverified"
+    },
+    {
+      "id": "validation-cp1251/asset-2",
+      "tag": "FV-102",
+      "attributes": {
+        "ICT_ID": "validation-cp1251/asset-2",
+        "TAG": "FV-102",
+        "MODEL": "Двигатель",
+        "SERIAL": "UNCHANGED-1",
+        "SIZE": "DN50",
+        "VENDOR_PRIVATE": "retain {vendor} \\P 1"
+      },
+      "source": {
+        "sha256": "2044da26edd9188d07300f6b8f2abf4053956f31a7827bba488ec02c1351e158",
+        "insert_handle": "47"
+      },
+      "status": "unverified"
+    }
+  ],
+  "relationships": [],
+  "note": "Attribute context snapshot only; pipe connectivity is not inferred. Map reviewed IDs to one-map site/plant/unit identities explicitly."
+}

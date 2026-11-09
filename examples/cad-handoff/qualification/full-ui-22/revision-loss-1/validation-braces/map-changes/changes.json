@@ -1,0 +1,150 @@
+{
+ "schema": "one-map-changes-1",
+ "site": "S",
+ "title": "Fictional CAD handoff reference",
+ "old": "C:\\Users\\Steve\\.cp-scratch\\cad-full-ui-22\\worktree\\examples\\cad-handoff\\qualification\\full-ui-22\\revision-loss-1\\validation-braces\\map-original\\map\\graph.json",
+ "new": "C:\\Users\\Steve\\.cp-scratch\\cad-full-ui-22\\worktree\\examples\\cad-handoff\\qualification\\full-ui-22\\revision-loss-1\\validation-braces\\map-selected\\map\\graph.json",
+ "filter": null,
+ "items": {
+  "added": [],
+  "removed": [],
+  "changed": [
+   {
+    "id": "S/P/U/FV-101",
+    "tag": "FV-101",
+    "kind": "final_element",
+    "owner": "Engineering",
+    "flags": [],
+    "changes": [
+     {
+      "what": "attribute cad_model",
+      "old": "Assembly {C} (S/DOC/PID-P-CAD-FDV)",
+      "new": "Assembly {D} (S/DOC/PID-P-CAD-FDV)"
+     },
+     {
+      "what": "attribute cad_source_sha256",
+      "old": "614e83380bbe667c727363f02d32519b3340439028f0acd72807c82a45224abe (S/DOC/PID-P-CAD-FDV)",
+      "new": "227cc9b0e2cf5e6fe1df31a0e3d597ebdd17b5866e388671718ecdd2681addb5 (S/DOC/PID-P-CAD-FDV)"
+     },
+     {
+      "what": "on P&ID",
+      "old": [
+       "CAD-FDV (cad_ict_id validation-braces/asset-1 printed) (cad_insert_handle 3D printed) (cad_model Assembly {C} printed) (cad_serial UNCHANGED-0 printed) (cad_size DN50 printed) (cad_source_sha256 614e83380bbe667c727363f02d32519b3340439028f0acd72807c82a45224abe printed) (cad_tag FV-101 printed) (cad_vendor_private retain {vendor} \\P 0 printed)"
+      ],
+      "new": [
+       "CAD-FDV (cad_ict_id validation-braces/asset-1 printed) (cad_insert_handle 3D printed) (cad_model Assembly {D} printed) (cad_serial UNCHANGED-0 printed) (cad_size DN50 printed) (cad_source_sha256 227cc9b0e2cf5e6fe1df31a0e3d597ebdd17b5866e388671718ecdd2681addb5 printed) (cad_tag FV-101 printed) (cad_vendor_private retain {vendor} \\P 0 printed)"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "S/P/U/FV-102",
+    "tag": "FV-102",
+    "kind": "final_element",
+    "owner": "Engineering",
+    "flags": [],
+    "changes": [
+     {
+      "what": "attribute cad_model",
+      "old": "Assembly {C} (S/DOC/PID-P-CAD-FDV)",
+      "new": "Assembly {D} (S/DOC/PID-P-CAD-FDV)"
+     },
+     {
+      "what": "attribute cad_serial",
+      "old": "UNCHANGED-1 (S/DOC/PID-P-CAD-FDV)",
+      "new": "FIELD-OBSERVED (S/DOC/PID-P-CAD-FDV)"
+     },
+     {
+      "what": "attribute cad_source_sha256",
+      "old": "614e83380bbe667c727363f02d32519b3340439028f0acd72807c82a45224abe (S/DOC/PID-P-CAD-FDV)",
+      "new": "227cc9b0e2cf5e6fe1df31a0e3d597ebdd17b5866e388671718ecdd2681addb5 (S/DOC/PID-P-CAD-FDV)"
+     },
+     {
+      "what": "on P&ID",
+      "old": [
+       "CAD-FDV (cad_ict_id validation-braces/asset-2 printed) (cad_insert_handle 47 printed) (cad_model Assembly {C} printed) (cad_serial UNCHANGED-1 printed) (cad_size DN50 printed) (cad_source_sha256 614e83380bbe667c727363f02d32519b3340439028f0acd72807c82a45224abe printed) (cad_tag FV-102 printed) (cad_vendor_private retain {vendor} \\P 1 printed)"
+      ],
+      "new": [
+       "CAD-FDV (cad_ict_id validation-braces/asset-2 printed) (cad_insert_handle 47 printed) (cad_model Assembly {D} printed) (cad_serial FIELD-OBSERVED printed) (cad_size DN50 printed) (cad_source_sha256 227cc9b0e2cf5e6fe1df31a0e3d597ebdd17b5866e388671718ecdd2681addb5 printed) (cad_tag FV-102 printed) (cad_vendor_private retain {vendor} \\P 1 printed)"
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "links": {
+  "added": [],
+  "removed": []
+ },
+ "records": {
+  "added": [],
+  "removed": [],
+  "changed": []
+ },
+ "documents": {
+  "added": [],
+  "removed": [],
+  "changed": [
+   {
+    "id": "S/DOC/PID-P-CAD-FDV",
+    "title": "P&ID CAD-FDV",
+    "kind": "pid",
+    "owner": "Engineering",
+    "changes": [
+     {
+      "what": "content",
+      "old": "0c3df583d0a9a7b7f0b65c3720667840575e69708086f15f5fbc4916f937ae1e",
+      "new": "28df88f4a8ec4400a271dcadc2eea74e3c26c50f76783f013fac2ab8718df3e4"
+     },
+     {
+      "what": "revision",
+      "old": "614e83380bbe",
+      "new": "227cc9b0e2cf"
+     }
+    ]
+   }
+  ]
+ },
+ "conflicts": {
+  "added": [],
+  "removed": [],
+  "changed": []
+ },
+ "expectations": {
+  "added": [],
+  "removed": [],
+  "changed": []
+ },
+ "flags": [],
+ "counts": {
+  "items": {
+   "added": 0,
+   "removed": 0,
+   "changed": 2
+  },
+  "links": {
+   "added": 0,
+   "removed": 0
+  },
+  "records": {
+   "added": 0,
+   "removed": 0,
+   "changed": 0
+  },
+  "documents": {
+   "added": 0,
+   "removed": 0,
+   "changed": 1
+  },
+  "conflicts": {
+   "added": 0,
+   "removed": 0,
+   "changed": 0
+  },
+  "expectations": {
+   "added": 0,
+   "removed": 0,
+   "changed": 0
+  }
+ }
+}

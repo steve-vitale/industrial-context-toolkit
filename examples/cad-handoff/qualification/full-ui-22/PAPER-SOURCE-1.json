@@ -1,0 +1,41 @@
+{
+  "scope": "Source-informed design evidence only; not an installed Print Preview run or paper qualification",
+  "upstream_source": {
+    "url": "https://raw.githubusercontent.com/qcad/qcad/897079c2d11aaa0869f839a6cf5df8a937dbddbe/scripts/File/PrintPreview/PrintPreview.js",
+    "bytes": 38691,
+    "sha256": "53d9ade733640286e47e1daa8a569a7069a1b143b944f4c3d71f3a84e5af1dfc",
+    "license": "Upstream QCAD GPL-3.0-or-later; no source copied into this metadata file"
+  },
+  "observations": [
+    {
+      "lines": [
+        86,
+        122
+      ],
+      "finding": "Custom-paper prompt may write paper dimensions/margins after Yes, or a paper-size acceptance variable otherwise."
+    },
+    {
+      "lines": [
+        125,
+        148
+      ],
+      "finding": "Model-space paper-position prompt may set auto zoom after Yes, or a position-acceptance document variable otherwise."
+    }
+  ],
+  "native_ui_evidence": {
+    "inventory": "waiting-development-1/cp1251-receiving-wait-1/INVENTORY.json",
+    "member": "attempt/job/ui/004-opened.json",
+    "sha256": "b1ad65ac32cf3dced00fb4a5972f372d44b9201bab4b2890ef4765b8fab6d921",
+    "observed_controls": [
+      "Print Preview",
+      "Edit Block",
+      "Layout1 (*Paper_Space)",
+      "Qualification sheet (*Paper_Space1)"
+    ]
+  },
+  "limits": [
+    "Pinned public source is not proof of installed implementation identity.",
+    "Existing UI evidence proves the controls were exposed, not that paper navigation or preview succeeded.",
+    "No current native process or drawing was touched for this source inspection."
+  ]
+}

@@ -1,0 +1,12 @@
+2026-11-09T00:03:15.5731928Z OK
+2026-11-09T00:03:27.7655914Z Traceback (most recent call last):
+2026-11-09T00:03:27.7667820Z   File "/home/runner/work/industrial-context-toolkit/industrial-context-toolkit/examples/cad-handoff/qualification/full-ui-22/recheck_second_receiving.py", line 46, in <module>
+2026-11-09T00:03:27.7669207Z     main()
+2026-11-09T00:03:27.7670694Z   File "/home/runner/work/industrial-context-toolkit/industrial-context-toolkit/examples/cad-handoff/qualification/full-ui-22/recheck_second_receiving.py", line 34, in main
+2026-11-09T00:03:27.7672403Z     require({p.name:p.read_bytes() for p in (root/'pixels').iterdir()}=={p.name:p.read_bytes() for p in expected.iterdir()},
+2026-11-09T00:03:27.7674095Z   File "/home/runner/work/industrial-context-toolkit/industrial-context-toolkit/examples/cad-handoff/qualification/full-ui-22/native_revisions.py", line 27, in require
+2026-11-09T00:03:27.7675746Z     if not value: raise ValueError(message)
+2026-11-09T00:03:27.7676229Z                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-09T00:03:27.7676732Z ValueError: Second pixel/difference image files differ
+2026-11-09T00:03:27.8296921Z ##[error]Process completed with exit code 1.
+2026-11-09T00:03:27.8458869Z 

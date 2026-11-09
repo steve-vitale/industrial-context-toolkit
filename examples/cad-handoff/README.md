@@ -1,5 +1,10 @@
 # Preserve a bounded CAD handoff
 
+For an engineer or engineering manager, [current qualification scope and results](../../docs/CAD_QUALIFICATION.md)
+separates receiving a consultant return, proposing attribute changes and the
+tested native full-save preservation failures. Use the
+[receiving workflow](../../docs/DRAWING_HANDOFF.md) to prepare one useful decision brief.
+
 **Reusable DXF tools with source-retaining draft edits.** The value-span route changes only the declared
 single-line attribute bytes and retains every other source byte. It works on the supplied explicit identity
 profile without flattening the drawing. The separate library/native full-save baselines remain visible.
@@ -56,6 +61,11 @@ released drawing or site graph automatically. Relationships are empty rather tha
 The tutorial adapter uses an [authored position mapping](source/site-mapping.json), retains the DXF and publishes
 its attributes as **draft drawing-reference values**, all prefixed `cad_`. They do not overwrite installed-state
 authority. Every stable ID must be mapped; changed tags or source hashes require explicit reconciliation.
+With the pinned CAD dependencies installed, the adapter re-reads the retained DXF
+and checks the complete node set, fields, handles and unverified status before
+projecting. A cached JSON field cannot borrow an unchanged source hash. The
+[source-binding controls](projection-source-check/README.md) retain the original
+failure and passing multi-asset encoding cases.
 
 ```sh
 python examples/cad-handoff/project_to_map.py examples/cad-handoff/worked examples/cad-handoff/source/site-mapping.json --out out/cad-map-before

@@ -44,8 +44,25 @@ retains failed direct-Qt/synchronous-helper methods, actual installed-binding
 probes and a separately frozen event-driven successor. Both normal cases and all
 11 intended fault refusals pass complete receiving; offline controls reject lost
 history, replaced sources, hidden failures and unbound observations. N118's exposed
-transport work is complete. Complete CAD edit/save qualification, reserved transfer,
-foreign/multiple-asset coverage and engineering acceptance remain open. Inspect
+transport work is complete. The [current CAD qualification scope](CAD_QUALIFICATION.md)
+now includes actual multi-asset/foreign-field edits, second revisions and complete
+model receiving. Native full-save preservation and readable paper delivery fail
+on the declared exposed cases. The [frozen ten-case validation](../examples/cad-handoff/qualification/final-validation-23/README.md)
+now passes software/loss/refusal/revision checks; all forty native API saves
+still fail preservation, and thirty native renders retain readability limits.
+All four predetermined UI baseline/edit executions complete normally, retaining
+298/334 strict differences per public/foreign case. Public fresh receiving,
+nine frozen model comparisons and six actual source/candidate image inspections
+complete. Three-asset fresh receiving also finishes: 151 observations, 12 editability
+checks, 28 views; 21 comparisons report zero outside-region pixels and 14 identities
+match. Original-resolution inspection of all 14 source/candidate images confirms
+planned values and complete attribute labels in detail views. An initial
+occlusion assessment is [corrected with retained evidence](../examples/cad-handoff/qualification/final-validation-23/UI-VISUAL-DIAGNOSTIC.json).
+Full-save preservation and paper/typographic delivery still fail. All six
+complete UI packets, 30 comparisons and 20 inspected image bindings reproduce offline.
+The previous branch CI failure was [PNG encoding equality](../examples/cad-handoff/qualification/full-ui-22/CI-PNG-ENCODING.md),
+reproduced with CI's Pillow version and corrected to exact decoded-pixel checks;
+new exact-head CI remains required. Engineering acceptance is not inferred. Inspect
 the version-specific CI before treating a branch addition as an integrated release.
 
 An earlier full-suite release baseline was **`a439f14`**:

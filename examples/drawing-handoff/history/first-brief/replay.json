@@ -1,0 +1,20 @@
+{
+  "commands": 4,
+  "checks": 14,
+  "all_checks_pass": true,
+  "markup_counts": {
+    "supported": 1,
+    "not_supported": 2,
+    "partly_supported": 1,
+    "not_verifiable": 2,
+    "baseline_mismatch": 1
+  },
+  "cad_strict_differences": 335,
+  "actual_input_cases": [
+    "examples/pid-markup-review/inputs/manifest.json",
+    "examples/cad-handoff/source/valve.dxf"
+  ],
+  "runner_sha256_lf": "77217c10d21e698791a436a833074eb590289e0c384e2f9785584ab577eea666",
+  "whole_cad_qualified": false,
+  "engineering_acceptance": false
+}

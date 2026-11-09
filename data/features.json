@@ -1684,19 +1684,42 @@
         "examples/cad-handoff/qualification/camera-repeat-20/SUMMARY.json",
         "examples/cad-handoff/qualification/camera-repeat-20/results/qcad-mechanical.json",
         "examples/cad-handoff/qualification/camera-repeat-20/results/qcad-template-diagnostic.json",
-        "examples/cad-handoff/qualification/camera-repeat-20/development-3/qcad-template-receive.json"
+        "examples/cad-handoff/qualification/camera-repeat-20/development-3/qcad-template-receive.json",
+        "examples/cad-handoff/projection-source-check/UNCHANGED-PROJECTIONS.json",
+        "examples/cad-handoff/qualification/full-ui-22/waiting-development-1/cp1251-receiving-wait-1/RESULT.json",
+        "examples/cad-handoff/qualification/full-ui-22/waiting-development-1/braces-receiving-wait-1/RESULT.json",
+        "examples/cad-handoff/qualification/full-ui-22/analysis/waiting-pixels-1/cp1251/RESULT.json",
+        "examples/cad-handoff/qualification/full-ui-22/analysis/waiting-pixels-1/braces/RESULT.json",
+        "examples/cad-handoff/qualification/full-ui-22/analysis/waiting-visual-1/OBSERVATIONS.json",
+        "examples/cad-handoff/qualification/full-ui-22/revision-loss-1/RESULT.json",
+        "examples/cad-handoff/qualification/full-ui-22/REVISION-LOSS-BRIEF.md",
+        "examples/cad-handoff/qualification/full-ui-22/NATIVE-REVISION-BRIEF.md",
+        "examples/cad-handoff/qualification/full-ui-22/concurrent-development-1/cp1251-concurrent-edited-1/RESULT.json",
+        "examples/cad-handoff/qualification/full-ui-22/concurrent-development-1/braces-concurrent-edited-1/RESULT.json",
+        "examples/cad-handoff/qualification/full-ui-22/PAPER-RECORD-BRIEF.md",
+        "examples/cad-handoff/qualification/full-ui-22/paper-records-1/RESULT.json",
+        "examples/cad-handoff/qualification/full-ui-22/concurrent-visual-1/OBSERVATIONS.json",
+        "examples/cad-handoff/qualification/full-ui-22/SECOND-RETAINED-1.json",
+        "examples/drawing-handoff/native-second-revision/resubmission/BRIEF.md",
+        "examples/drawing-handoff/native-second-revision/selected-scope/BRIEF.md",
+        "examples/cad-handoff/qualification/full-ui-22/SECOND-RETAINED-2.json",
+        "examples/cad-handoff/qualification/full-ui-22/SECOND-VISUAL-1.json",
+        "examples/cad-handoff/qualification/full-ui-22/PAPER-COMPARISON-1.json",
+        "examples/cad-handoff/qualification/full-ui-22/PAPER-VISUAL-1.json",
+        "examples/cad-handoff/qualification/full-ui-22/PAPER-RENDER-BRIEF.md"
       ],
       "tests": [
         "scripts/test_cad_handoff.py",
         "scripts/test_delivery_examples.py",
         "scripts/test_cad_exchange.py",
-        "scripts/test_cad_linux_evidence.py"
+        "scripts/test_cad_linux_evidence.py",
+        "scripts/test_cad_projection.py"
       ],
       "job": "Retain a drawing and inspect proposed equipment-attribute edits before a controlled handoff",
       "you_need": "A DXF in the declared block-attribute profile, stable ICT_ID/TAG values, ezdxf and an explicit hash-bound edit plan",
       "time": "No human-effort measurement; authored and public-adapted software cases, native API and display checks are not a timed plant trial",
       "you_get": "Exact original and proposed value-span DXFs, optional source-bound local form/agent JSON exchange, frozen decoded comparison plus independent raw reconstruction, retained native full-save differences and mapped draft CAD-reference revisions; no inferred pipe relationships",
-      "why": "Editable drawings need stable identities and unfamiliar data retained. Source-preserving metadata exchange is separate from native full-save failures. The six-case exposed UI cohort retains actual native edit/save/close/reopen plus fresh receiving; the separate old/absolute-camera repeat retains every original failure. Complete native preservation, broader field/asset and reserved transfer, readability, revision/conflict and company acceptance remain open."
+      "why": "Editable drawings need stable identities and unfamiliar data retained. Source-preserving metadata exchange is separate from failed native full saves. Actual multi-asset edits, concurrent changes, second revisions and complete receiving retain field/pixel evidence with rotation/clipping limits. Paper records change even on no-edit native returns; actual case paper images are blank while the repeated public control shows paper content. Native preservation and readable paper delivery fail on these exposed cases. Final-method reserved transfer and company acceptance remain unfinished. See docs/CAD_QUALIFICATION.md for operation-specific scope."
     },
     {
       "id": "photo-to-record",
@@ -1755,7 +1778,8 @@
       "category": "check",
       "title": "Requested P&ID markup checks against a consultant return",
       "tools": [
-        "scripts/check_pid_markups.py"
+        "scripts/check_pid_markups.py",
+        "scripts/receive_drawings.py"
       ],
       "guide": "docs/PID_MARKUP_REVIEW.md",
       "example_outputs": [
@@ -1765,15 +1789,23 @@
         "examples/pid-markup-review/worked/REPORT.md",
         "examples/pid-markup-review/worked/receipt.json",
         "examples/pid-markup-review/corrected/result.json",
-        "examples/pid-markup-review/VISUAL-QA.json"
+        "examples/pid-markup-review/VISUAL-QA.json",
+        "examples/drawing-handoff/job-worked/BRIEF.md",
+        "examples/drawing-handoff/job-worked/brief.json",
+        "examples/drawing-handoff/job-worked/job.json",
+        "examples/drawing-handoff/resubmission-worked/BRIEF.md",
+        "examples/drawing-handoff/resubmission-worked/revision.json",
+        "examples/drawing-handoff/RESUBMISSION-CONTROLS.json"
       ],
       "tests": [
-        "scripts/test_pid_markups.py"
+        "scripts/test_pid_markups.py",
+        "scripts/test_receive_drawings.py",
+        "scripts/test_drawing_resubmission.py"
       ],
       "job": "Check requested drawing changes and prepare a sourced correction/clarification handoff",
       "you_need": "Original, exact markups/instructions sent out, returned revision, supplied annotation inventory and source-bound readings; Python3.10+ standard library for the local packet",
       "time": "Actual interpretation/review effort and model-reading accuracy unmeasured",
-      "you_get": "Each request supported/partial/missed/unverifiable, before/returned locators, other observed changes/coverage gaps, exact retained sources and portable draft packet",
+      "you_get": "Each request supported/partial/missed/unverifiable, before/returned locators, other observed changes/coverage gaps, exact retained sources and portable draft packet; optional previous/current receiving findings with explicit changed scope and unreassessed items",
       "why": "A new revision or present tag does not prove requested topology or notes were updated. Fictional software controls retain missing evidence and stale revisions without claiming automatic visual reading, full drawing equivalence or company acceptance."
     },
     {

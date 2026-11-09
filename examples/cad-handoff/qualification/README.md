@@ -1,4 +1,21 @@
-# DXF preservation evidence and unfinished qualification
+# DXF preservation evidence and qualification results
+
+The [current complete-procedure development](full-ui-22/README.md) combines
+multi-asset native UI edits, save/close/reopen, exact-frame captures and complete
+observation transport. Complete exposed model receiving and exact frame checks
+now reproduce offline, including an actual native second revision. Matched
+full-save failures remain; [paper delivery fails](full-ui-22/PAPER-RENDER-BRIEF.md)
+on the two known problem sources. The [final frozen ten-case validation](final-validation-23/README.md)
+now passes its software/loss/refusal/revision controls; all forty native API saves
+still fail strict preservation. Thirty actual model/paper exports retain their
+readability limits. All four predetermined UI saves and both fresh receivers
+finish normally. All six packets, thirty frozen comparisons and twenty inspected
+images replay offline. Actual foreign detail views show all planned values and
+complete attribute labels; an initial contrary image assessment is
+[corrected](final-validation-23/UI-VISUAL-DIAGNOSTIC.json). Full native-save
+preservation and complete readable paper/typographic delivery still fail. For the engineer/manager task, start with
+[drawing receiving](../../../docs/DRAWING_HANDOFF.md) and
+[current qualification scope/results](../../../docs/CAD_QUALIFICATION.md).
 
 For a supplied, explicitly identified DXF asset, `scripts/cad_value_patch.py` proposes single-line attribute
 changes while preserving all other source bytes. In the frozen software cohort, **all 21 candidates have zero

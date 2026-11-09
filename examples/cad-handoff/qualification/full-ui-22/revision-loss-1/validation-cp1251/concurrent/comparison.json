@@ -1,0 +1,32 @@
+{
+  "schema": "cad-comparison-1",
+  "before_sha256": "2044da26edd9188d07300f6b8f2abf4053956f31a7827bba488ec02c1351e158",
+  "after_sha256": "3d3dab97cf7aaa1a8dc68b6cf9ecf5cb913adea5d527242e89d8647d46ad402f",
+  "status": "pass",
+  "expected_edits": [
+    {
+      "id": "validation-cp1251/asset-1",
+      "attribute": "MODEL",
+      "before": "Двигатель",
+      "after": "OTHER-CHOICE",
+      "reason": "Authored qualification edit, not an installed equipment claim"
+    },
+    {
+      "id": "validation-cp1251/asset-2",
+      "attribute": "MODEL",
+      "before": "Двигатель",
+      "after": "Мотор",
+      "reason": "Authored qualification edit, not an installed equipment claim"
+    },
+    {
+      "id": "validation-cp1251/asset-2",
+      "attribute": "SERIAL",
+      "before": "UNCHANGED-1",
+      "after": "FIELD-OBSERVED",
+      "reason": "Fictional concurrent branch; not an observed installed serial"
+    }
+  ],
+  "unexpected": [],
+  "save_metadata_changed": true,
+  "boundary": "All ezdxf-exported entity tags including block definitions, attributes, layers and objects; all headers except listed save metadata and the two named EZDXF_META writer values. Same handles required. This is not a byte-identical DXF or proprietary project database/visual/engineering acceptance."
+}

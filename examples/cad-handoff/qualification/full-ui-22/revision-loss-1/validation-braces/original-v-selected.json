@@ -1,0 +1,192 @@
+{
+  "schema": "cad-comparison-1",
+  "before_sha256": "614e83380bbe667c727363f02d32519b3340439028f0acd72807c82a45224abe",
+  "after_sha256": "227cc9b0e2cf5e6fe1df31a0e3d597ebdd17b5866e388671718ecdd2681addb5",
+  "status": "differences",
+  "expected_edits": [
+    {
+      "id": "validation-braces/asset-1",
+      "attribute": "MODEL",
+      "before": "Assembly {C}",
+      "after": "Assembly {D}",
+      "reason": "Authored qualification edit, not an installed equipment claim"
+    },
+    {
+      "id": "validation-braces/asset-2",
+      "attribute": "MODEL",
+      "before": "Assembly {C}",
+      "after": "Assembly {D}",
+      "reason": "Authored qualification edit, not an installed equipment claim"
+    }
+  ],
+  "unexpected": [
+    {
+      "kind": "entity",
+      "handle": "4C",
+      "before": {
+        "type": "ATTRIB",
+        "tags": [
+          [
+            0,
+            "ATTRIB"
+          ],
+          [
+            5,
+            "4C"
+          ],
+          [
+            330,
+            "47"
+          ],
+          [
+            100,
+            "AcDbEntity"
+          ],
+          [
+            8,
+            "LABEL"
+          ],
+          [
+            100,
+            "AcDbText"
+          ],
+          [
+            10,
+            53.010264080945184
+          ],
+          [
+            20,
+            23.53924780300774
+          ],
+          [
+            30,
+            0.0
+          ],
+          [
+            40,
+            0.7200000000000001
+          ],
+          [
+            1,
+            "UNCHANGED-1"
+          ],
+          [
+            50,
+            -14.00000000000001
+          ],
+          [
+            41,
+            1.111111111111111
+          ],
+          [
+            11,
+            53.010264080945184
+          ],
+          [
+            21,
+            23.53924780300774
+          ],
+          [
+            31,
+            0.0
+          ],
+          [
+            100,
+            "AcDbAttribute"
+          ],
+          [
+            2,
+            "SERIAL"
+          ],
+          [
+            70,
+            0
+          ]
+        ]
+      },
+      "after": {
+        "type": "ATTRIB",
+        "tags": [
+          [
+            0,
+            "ATTRIB"
+          ],
+          [
+            5,
+            "4C"
+          ],
+          [
+            330,
+            "47"
+          ],
+          [
+            100,
+            "AcDbEntity"
+          ],
+          [
+            8,
+            "LABEL"
+          ],
+          [
+            100,
+            "AcDbText"
+          ],
+          [
+            10,
+            53.010264080945184
+          ],
+          [
+            20,
+            23.53924780300774
+          ],
+          [
+            30,
+            0.0
+          ],
+          [
+            40,
+            0.7200000000000001
+          ],
+          [
+            1,
+            "FIELD-OBSERVED"
+          ],
+          [
+            50,
+            -14.00000000000001
+          ],
+          [
+            41,
+            1.111111111111111
+          ],
+          [
+            11,
+            53.010264080945184
+          ],
+          [
+            21,
+            23.53924780300774
+          ],
+          [
+            31,
+            0.0
+          ],
+          [
+            100,
+            "AcDbAttribute"
+          ],
+          [
+            2,
+            "SERIAL"
+          ],
+          [
+            70,
+            0
+          ]
+        ]
+      }
+    }
+  ],
+  "save_metadata_changed": true,
+  "boundary": "All ezdxf-exported entity tags including block definitions, attributes, layers and objects; all headers except listed save metadata and the two named EZDXF_META writer values. Same handles required. This is not a byte-identical DXF or proprietary project database/visual/engineering acceptance."
+}

@@ -1,0 +1,138 @@
+{
+  "cases": [
+    {
+      "id": "public-air-water",
+      "repository": "LibreCAD/LibreCAD",
+      "commit": "c20884671c5f4566e7494890c5060569cc8d8330",
+      "path": "librecad/support/library/plan/air_water/aw22.dxf",
+      "git_blob_sha1": "bd790d0c19a3dffd2ec68f342218039859aaac6a",
+      "bytes": 9917,
+      "pool_size": 80,
+      "unseen_pool_size": 79,
+      "selection_score": "060c94fde31193abb0351a92e0957eeba7008a54759aa7fba1c5807947797694",
+      "transport": {
+        "command": [
+          "curl.exe",
+          "--fail",
+          "--location",
+          "--silent",
+          "--show-error",
+          "https://raw.githubusercontent.com/LibreCAD/LibreCAD/c20884671c5f4566e7494890c5060569cc8d8330/librecad/support/library/plan/air_water/aw22.dxf",
+          "--output",
+          "examples\\cad-handoff\\qualification\\final-validation-23\\public\\public-air-water\\original.dxf"
+        ],
+        "exit": 0,
+        "stderr": ""
+      },
+      "original_sha256": "93931e7439ea9efb89a111700e63f55def6ec80848920b293353b248c65849a8",
+      "original_admission": {
+        "status": "refused",
+        "error": "InputError: No profiled asset INSERTs found; a flattened picture is not an asset handoff"
+      },
+      "source_sha256": "e326270bb69efc00198b6090ae04744c179cea013b8ef6bb0bc166907158ac9e",
+      "plan_sha256": "7cbfe555f2818017b501760cf50860b1c88ebdf83c1c5ca45b7fe500862adcf6",
+      "status": "adapted_not_evaluated"
+    },
+    {
+      "id": "public-mechanical",
+      "repository": "LibreCAD/LibreCAD",
+      "commit": "c20884671c5f4566e7494890c5060569cc8d8330",
+      "path": "librecad/support/library/kinetics/kin130.dxf",
+      "git_blob_sha1": "f86a7a77b6b2341d5a7939cd5e7c746f558aa142",
+      "bytes": 8699,
+      "pool_size": 157,
+      "unseen_pool_size": 157,
+      "selection_score": "00686435a1a61d66abf11a75f36af3fa58f3b00df40745d81dacaf7b127777cb",
+      "transport": {
+        "command": [
+          "curl.exe",
+          "--fail",
+          "--location",
+          "--silent",
+          "--show-error",
+          "https://raw.githubusercontent.com/LibreCAD/LibreCAD/c20884671c5f4566e7494890c5060569cc8d8330/librecad/support/library/kinetics/kin130.dxf",
+          "--output",
+          "examples\\cad-handoff\\qualification\\final-validation-23\\public\\public-mechanical\\original.dxf"
+        ],
+        "exit": 0,
+        "stderr": ""
+      },
+      "original_sha256": "ec149d721e1dade83a413d3bbe125e6e2cc85622e17d059b9bacda38c9d7b8f6",
+      "original_admission": {
+        "status": "refused",
+        "error": "InputError: No profiled asset INSERTs found; a flattened picture is not an asset handoff"
+      },
+      "source_sha256": "2dfcdbae4ba94491b34ccf0ff9bb5d9fddb382ebd400cfad77645c47c31fd513",
+      "plan_sha256": "fb8f36106fa68b9fea8451b988d902ec384ac1b4dea5dc25fd611c7eaaa5095e",
+      "status": "adapted_not_evaluated"
+    },
+    {
+      "id": "public-power",
+      "repository": "LibreCAD/LibreCAD",
+      "commit": "c20884671c5f4566e7494890c5060569cc8d8330",
+      "path": "librecad/support/library/plan/power_engineering/pe10.dxf",
+      "git_blob_sha1": "8a26befa2d4ba9a7c6404b1c3deec4cb7e549025",
+      "bytes": 9982,
+      "pool_size": 11,
+      "unseen_pool_size": 10,
+      "selection_score": "1af1d827c809925b07be2738872b45dd87abf2fe72572c5f39a4b9045e2598ee",
+      "transport": {
+        "command": [
+          "curl.exe",
+          "--fail",
+          "--location",
+          "--silent",
+          "--show-error",
+          "https://raw.githubusercontent.com/LibreCAD/LibreCAD/c20884671c5f4566e7494890c5060569cc8d8330/librecad/support/library/plan/power_engineering/pe10.dxf",
+          "--output",
+          "examples\\cad-handoff\\qualification\\final-validation-23\\public\\public-power\\original.dxf"
+        ],
+        "exit": 0,
+        "stderr": ""
+      },
+      "original_sha256": "0ceaee4ebfa2b757b38d3981a5f4de12205f18109a46c65fde4f656a73ed17c4",
+      "original_admission": {
+        "status": "refused",
+        "error": "InputError: No profiled asset INSERTs found; a flattened picture is not an asset handoff"
+      },
+      "source_sha256": "2ddbbf484c5602c93bb47640e1164e71b047f77463369cb05c383f1bce894b6f",
+      "plan_sha256": "eea0a49f11f5028ee93abf511c45d34147b6288c8818e6084fb4eeefc6c1c51f",
+      "status": "adapted_not_evaluated"
+    },
+    {
+      "id": "public-hatch",
+      "repository": "mozman/ezdxf",
+      "commit": "c498560bb491c357deda538360ed0c8fdb11f5a7",
+      "path": "examples_dxf/transform_hatch_pattern.dxf",
+      "git_blob_sha1": "a324e6436f9fc34f8ca4840be1441de749e1982b",
+      "bytes": 78804,
+      "pool_size": 8,
+      "unseen_pool_size": 6,
+      "selection_score": "557617a4edf617dc113b528f65e13a94d7a9ec7a094158020fd68a61839dd10e",
+      "transport": {
+        "command": [
+          "curl.exe",
+          "--fail",
+          "--location",
+          "--silent",
+          "--show-error",
+          "https://raw.githubusercontent.com/mozman/ezdxf/c498560bb491c357deda538360ed0c8fdb11f5a7/examples_dxf/transform_hatch_pattern.dxf",
+          "--output",
+          "examples\\cad-handoff\\qualification\\final-validation-23\\public\\public-hatch\\original.dxf"
+        ],
+        "exit": 0,
+        "stderr": ""
+      },
+      "original_sha256": "e302137e76a4178a9c81276c5c902222207940f0fbece31d9efcb9b331d16e35",
+      "original_admission": {
+        "status": "refused",
+        "error": "InputError: INSERT 1C9 needs ICT_ID and TAG; unprofiled blocks are not guessed"
+      },
+      "source_sha256": "ac645ecb3e34aae96becbbb6c14a2a021981097b2dcd16cb5161d5c0a3f04d66",
+      "plan_sha256": "71ee57ff8499dfd62da1359746dcb2ef2a5aef500e75daa2d7a86eb302fcaf39",
+      "status": "adapted_not_evaluated"
+    }
+  ],
+  "candidate_executed": false,
+  "whole_cad_qualified": false
+}

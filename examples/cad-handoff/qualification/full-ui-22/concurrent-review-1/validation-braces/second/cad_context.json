@@ -1,0 +1,41 @@
+{
+  "schema": "cad-context-1",
+  "nodes": [
+    {
+      "id": "validation-braces/asset-1",
+      "tag": "FV-101",
+      "attributes": {
+        "ICT_ID": "validation-braces/asset-1",
+        "TAG": "FV-101",
+        "MODEL": "OTHER-CHOICE",
+        "SERIAL": "UNCHANGED-0",
+        "SIZE": "DN50",
+        "VENDOR_PRIVATE": "retain {vendor} \\P 0"
+      },
+      "source": {
+        "sha256": "25aa6294826284917784d54ed8241a55738a4f4c3c74b4b93ff51d6add6622f2",
+        "insert_handle": "3D"
+      },
+      "status": "unverified"
+    },
+    {
+      "id": "validation-braces/asset-2",
+      "tag": "FV-102",
+      "attributes": {
+        "ICT_ID": "validation-braces/asset-2",
+        "TAG": "FV-102",
+        "MODEL": "Assembly {D}",
+        "SERIAL": "FIELD-OBSERVED",
+        "SIZE": "DN50",
+        "VENDOR_PRIVATE": "retain {vendor} \\P 1"
+      },
+      "source": {
+        "sha256": "25aa6294826284917784d54ed8241a55738a4f4c3c74b4b93ff51d6add6622f2",
+        "insert_handle": "47"
+      },
+      "status": "unverified"
+    }
+  ],
+  "relationships": [],
+  "note": "Attribute context snapshot only; pipe connectivity is not inferred. Map reviewed IDs to one-map site/plant/unit identities explicitly."
+}

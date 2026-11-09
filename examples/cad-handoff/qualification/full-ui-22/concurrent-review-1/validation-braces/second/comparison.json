@@ -1,0 +1,18 @@
+{
+  "schema": "cad-comparison-1",
+  "before_sha256": "25aa6294826284917784d54ed8241a55738a4f4c3c74b4b93ff51d6add6622f2",
+  "after_sha256": "c53a8e42041cd789f30b8e67d180014abfc6cf2ae739b20d103e597065434047",
+  "status": "pass",
+  "expected_edits": [
+    {
+      "id": "validation-braces/asset-1",
+      "attribute": "MODEL",
+      "before": "OTHER-CHOICE",
+      "after": "Assembly {D}",
+      "reason": "Explicit fictional technical selection; preserve concurrent SERIAL; original preservation/scope review and authorized acceptance remain pending"
+    }
+  ],
+  "unexpected": [],
+  "save_metadata_changed": false,
+  "boundary": "All ezdxf-exported entity tags including block definitions, attributes, layers and objects; all headers except listed save metadata and the two named EZDXF_META writer values. Same handles required. This is not a byte-identical DXF or proprietary project database/visual/engineering acceptance."
+}

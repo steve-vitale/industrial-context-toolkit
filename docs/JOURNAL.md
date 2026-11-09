@@ -9337,3 +9337,640 @@ image is not distributed. The public README and GitHub description already
 include the maintenance/engineering scopes from PR44. Live metadata readback
 confirms those scopes and Steve's LinkedIn; no new commercial feature or outreach
 is implied by this infrastructure repair.
+
+
+## 211. Exercise multiple native assets and prepare an engineering receiving decision
+
+The full-ui-22 plan (31e55e7), two already-exposed authored cases (0aad7b2),
+method (113e6e1) and prepared frames/configuration (74b347a) precede native
+execution. No fresh reserved cases were admitted. The CP1251 edited run commits
+both Cyrillic MODEL changes through observed native Property Editor controls,
+saves, closes/reopens, verifies all twelve attribute values and exits normally.
+Its complete packet has 2,470 helper calls, 73 observations, eight editable-field
+checks and ten model views/40 images. The return still fails strict preservation
+with 322 unexpected differences. A matched no-edit process also completes and
+has 322; the UTF8/literal-brace edited case completes with 321. All original
+native/controller/container/host outcomes remain intact in lossless packets.
+
+The first receiving implementation mistakenly made semantic object key order
+significant; its failure/source are retained. The corrected comparison leaves
+exact wire bytes and arrays unchanged. A first test invocation hits a local
+module-name collision; the next passes twelve actual-packet loss-control methods.
+Six inventory/selection and four text/semantic methods pass separately. The
+no-edit receiver initially supplies an empty edit plan, which the original
+comparator correctly refuses. Retain that failure and use its existing no-plan
+contract in the successor; the comparator is unchanged.
+
+The matched native returns differ in 53 entity rows beyond the intended edits.
+All 53 have independently checked closed exact decoded correspondences under the
+existing reference-aware diagnostic: 50 linetype and three style rows have
+changed handle allocation. This explains those paired rows at the declared
+decoded level, without waiving strict comparison. Only 14 original-to-return
+records have closed correspondences; 79 original/239 returned records remain
+unpaired, plus version/header differences. The full native save remains failed;
+counts and visible similarity cannot establish preservation or raw-byte equality.
+Fresh-process receiving, complete visual/paper checks, revisions/conflicts,
+planted CAD losses and final-method reserved validation remain unfinished.
+
+The user refocused the active goal on engineers' and engineering managers' use.
+The drawing receiving guide now starts from one transmittal and connects markup
+intent, editable-CAD preservation, source coverage, correction actions, review
+roles and an authorized receiving decision. A separately frozen rehearsal plan
+(a8409ab) and runner (2813444) execute four real CLI calls and 14 checks. Seven
+markup outcomes, the unrequested fail-action change, material coverage gap and
+separate valve CAD's 335 strict differences remain visible in the worked brief.
+The portable markup replay reproduces its full result; an output collision
+refuses without changing the first packet. Suggested roles are not assignments.
+This is agent-authored simulation, not independent image/engineering review or
+measured benefit. The nine-method markup and 28-method CAD modules pass locally.
+Broader integration and exact-head CI remain separate.
+
+
+The first manager brief is retained in drawing-handoff/history/first-brief. Its
+successor spells out the actual requests in plain language and places supported
+non-safety rows after unresolved items; another real four-command/14-check replay
+retains identical comparison facts. The three full-ui-22 packets also reproduce
+their complete offline receipts with all original strict failures retained. Local
+claim, feature, script, ledger and new-link checks pass; exact-head CI is pending.
+
+## 212. Follow a corrected return and retain an idle-call failure
+
+The engineer/manager rehearsal now follows the same seven requests through the
+already exposed corrected consultant return. Plan 3807311 precedes runner
+8a1f3a4 and actual execution: three CLI calls / eleven checks pass. Five requests
+are supported by current supplied readings; the illegible instruction and
+baseline mismatch remain open. A supported safety item still needs review. The
+new brief retains both complete packets and evidence, leaves owners/authorized
+decisions pending and does not close the separate CAD preservation finding.
+Pairing the new drawing bytes with old source-bound readings refuses before a
+result is written; the original packet stays byte-exact. This is a fictional,
+agent-authored tutorial, not an independent image review or a timed user trial.
+
+The fourth original native packet, the literal-brace no-edit baseline, completes
+and rechecks with 2,418 helper calls, 61 observations and ten views/40 images.
+It retains 321 strict differences. All four original edited/baseline packets
+reproduce offline. The previous published head ed70f9f passes the complete Linux
+CI run 42522574770; later changes require their own CI.
+
+Both independently launched full fresh receivers hit the frozen 4,096 invocation
+ceiling on call 4,097. CP1251 spends 3,883 calls idle and captures 18/20 views;
+literal braces spends 3,871 idle and captures 20/20 but fails before completion.
+Exact final call/error records expose admission before result IDs/predecessor
+binding, so null IDs and an absent predecessor are preserved, not repaired.
+Separate same-process acknowledged cleanup closes each native application with
+exit zero; original host/controller/container failure remains one. The separate
+failure auditor checks the original successful prefix and final rejection. Eight
+altered-evidence controls refuse. The first packager's overlooked duplicate-file
+count also refuses; its source and failure are retained beside a separately
+declared capacity for both complete mailbox snapshots. No normal receiving or
+pixel verdict is issued from either incomplete attempt.
+
+Plan dd7a2d8 declares a waiting helper rather than a larger quota. The original
+admission, request revalidation, immutable publication, event/error journal and
+wire/invocation limits remain. Six actual subprocess controls pass; the first
+test's event-count arithmetic failure is retained as a tool-output observation.
+The first native probe completes typing/cancel and a real request but fails while
+recording a helper event under an already used field name. Retain its original
+failure and same-process cleanup. A separately frozen corrected recorder then
+completes: one child stays live through 43.986 seconds of idle/UI activity,
+serves the request, and the next child acknowledges cleanup stop. Both probe
+histories recheck with six calls, two requests and zero idle events. Full
+receiving on both exposed cases is a subsequent separately frozen attempt under
+WAITING-METHODS-3; it is not inferred from the probe. N119 remains open for the
+original complete CAD, paper/visual, revision/conflict and reserved-case scope.
+
+## 213. Put the actual open evidence questions in front of the manager
+
+The first corrected-return brief counts a coverage gap without naming it and
+labels M06 a baseline mismatch without showing the values. Freeze a presentation
+plan at 4e00fe5, then runner d395982 before another actual three-command replay.
+The successor passes thirteen checks, retaining the original eleven and adding
+the exact two evidence questions. M06 requests duty-to-standby, while both the
+original and return read standby. FV-101 material is 316 in the original and
+unknown in the return because no observation was supplied. Neither item closes
+by inference. Each request's current complete checks and source locations are now
+also present directly in revision.json. The short brief names the clarification
+and missing-reading actions. The prior eleven-check packet remains unchanged;
+the complete corrected comparison result is byte-identical between presentations.
+No tool comparison, engineering decision, reader accuracy or human-benefit claim
+changes. The README and manager/workflow entry points link the more useful brief.
+
+## 214. Complete exposed model receiving and bind projected fields to the DXF
+
+Reuse the frozen correspondence diagnostic on the literal-brace native pair,
+pinning inputs at 6c5e27f and runner 6839dc6 before execution. The existing
+independent checker closes every paired strict row: 49 linetypes and three styles
+have changed handle allocation. Original-to-return still has 321 strict
+differences, with only 18 record pairs closed and 75 original/235 returned records
+unpaired. The portable checker reconstructs all three reports from committed
+sources/archives; no strict row is waived.
+
+Source inspection also finds that project_to_map.py trusts context attributes and
+INSERT handles carrying a matching source hash. Freeze a plan at 741cc1f; four
+actual controls then pass through the old adapter when they should refuse:
+changed MODEL, changed handle, hidden node/mapping and invented reviewed status.
+The repair re-reads the retained DXF with the existing parser and requires its
+complete exact unverified node set before mapping. Both exposed two-asset encoding
+cases retain every field and source byte. A combined 33-method run passes, but
+the historical replay correctly refuses the changed frozen original test-module
+hash. Restore that module exactly and place the five new methods separately;
+those five, 19 runner controls and the complete 21-case native/context revision
+replay pass. The first valid-fixture comparison finds CSV checkout line endings;
+actual old/current producers emit six byte-identical files for both projections,
+and committed CSV records match. All refusals and scope distinctions are retained.
+
+Both waiting native receivers finish with all four files, 115 observations,
+eight editable-field checks, 20 views/80 images and zero native/controller/host/
+container exits. Each uses 231 helper invocations. The first offline CP1251
+receipt refuses because its `0*.json` glob omits command records after 0999;
+the original host has 1003 records and a later actual terminal inspection.
+Retain the refused receiver/source, freeze the correction at f8e2d43, and receive
+canonical contiguous numeric histories beyond 999 and 9999. Six receiver controls
+pass and both original native attempts receive without restarting either.
+
+The original exact pixel recipe yields 30 comparisons and zero pixels outside
+the predeclared regions. Twenty additional exact pixel identities bind source
+to no-edit and candidate to edited views. Actual agent inspection covers all
+twenty source/candidate model views: Cyrillic and literal braces remain readable
+at detail scale, while overview values are too small and existing linework/axis
+intersections remain. The records state the display substitution and agent-only
+scope. Complete portable replay rechecks receiving, original matched returns,
+pixel results/difference images and inspected-view hashes. Paper/layout, complete
+revision/conflict and planted-loss work, final-method freezing and fresh reserved
+transfer remain open. Native strict preservation remains failed. CI on 3e61e9f
+passes; the later projection/receiving additions require their own exact-head CI.
+
+## 215. Keep the original request visible through a selected CAD revision
+
+The complete adc6af8 commit passes both PR and push Linux CI, including the full
+cached-data suite and snapshot MCP jobs. The next bounded development exercise
+freezes its plan at 55bfe9b and implementation/method bindings at 04a93e9 before
+execution. It reuses both exposed full-ui-22 sources; no reserved input is admitted.
+
+Thirty-two actual CLI calls complete, then reproduce in a second new folder.
+Each fictional concurrent return supports one requested MODEL, disagrees with
+the other and changes a SERIAL outside the original plan. Both stale hash and
+stale before-value proposals refuse without output. A separately bound second
+plan explicitly selects the requested MODEL and retains the concurrent SERIAL.
+Strict and independent byte checks pass against that selected plan, but one
+unexpected SERIAL remains against the original request. Two-asset draft map
+projections and their change records retain all fields and both exact sources.
+This is supplied fictional branch selection, not an automatic merge, actual
+field observation, native human edit or company acceptance.
+
+All twelve individual raw losses are detected: geometry, layer, style, foreign
+attribute, foreign XDATA and block geometry on each source. Each yields exactly
+one strict difference and an independent byte-reconstruction refusal beside the
+passing unchanged candidate. Identity, duplicate-target, newline, ambiguous
+serialization and output-collision controls also refuse; existing outputs remain
+exact. The manager-facing brief keeps technical selection and the original scope
+question separate. Complete source packets, mutations and command outcomes are
+retained in `full-ui-22/revision-loss-1`; CI reproduces its stable result.
+
+This completes an exposed software revision/loss rehearsal. Native concurrent
+manual-edit receiving, paper/layout, final-method freezing and fresh reserved
+transfer remain open. Native full saves still fail the strict preservation gate.
+
+## 216. Check what paper preview changes before using it as an observer
+
+The exact retained CP1251 native UI tree exposes both paper-layout names,
+Edit Block and Print Preview; its bytes match the complete receiving archive.
+That proves the controls were exposed, not that paper navigation succeeded.
+Pinned public QCAD PrintPreview source contains branches that change dimensions,
+margins or document acceptance variables. Declining its prompts is therefore not
+an adequate source-based argument for unchanged document state. This public
+source version is not proof of the installed implementation's identity.
+
+`full-ui-22/PAPER-SOURCE-1.json` retains the primary URL/hash and bound UI member;
+the design note requires direct active-layout verification, before/after state
+for any print-preview experiment and paper-coordinate regions derived from actual
+viewport transforms. Model label regions cannot silently be reused on paper.
+Blank equivalent images do not establish readable delivery. No current native
+process was touched for this inspection, no paper result is promoted, and the
+old missing-main-viewport and plot-storage failures remain open.
+
+## 217. Retain native concurrent changes against the original request
+
+The native revision plan is committed at 7746b1a, adapters/input identities at
+aa78808 and derived cases/launch identities at 1fe5a28 before execution. Both
+exposed sources complete three actual Property Editor edits, Save As, close/
+reopen and normal native/controller/container/host exits. Each retains 159 helper
+calls, 79 observations, ten editable-field checks and ten views/40 images.
+There is no new reserved source, human operator or plant record.
+
+The actual returns retain the FV-101 MODEL disagreement and FV-102 unrequested
+SERIAL. Twenty existing CLI calls produce original-scope reviews, stale-hash/
+before refusals, separately bound one-value second proposals and exact-source
+draft map changes. Strict/independent bytes pass against each actual native
+return; against the original request, 322/321 strict differences remain. These
+are not asset counts, and changing the source does not resolve preservation or
+authorize the SERIAL. All twenty commands and their stable results reproduce
+from the native archives. The manager brief links the distinct decisions.
+
+The first offline replay fails because the file-only archive's restorer omitted
+empty protocol directories. Complete failed control logs and the replay tool
+observation remain. A separately frozen restorer reuses the original recheck's
+declared-directory rule. Native attempts, their archives/identities, original
+adapter and strict/byte methods are unchanged. Both original packets replay;
+six control methods pass on both, with twelve altered-evidence refusals after
+reindexing. The original adapter's experimental check branch remains failed;
+`recheck_native_revisions.py` is the corrected public entry point.
+
+Fresh four-file receivers launch separately from exact committed return hashes.
+Their completion, model pixel comparisons and visual review are not yet claimed.
+Second-revision native receiving, paper/layout, final freezing and fresh reserved
+transfer remain open; no engineering or company acceptance follows.
+
+## 218. Put the user's receiving job ahead of native harness development
+
+Steve asks why progress is difficult and whether the approach needs changing.
+The markup and CAD checkers already accept user records, but the combined brief
+was generated by a fixed rehearsal with hard-coded collateral findings. Repeated
+native recorder repairs were consuming the critical path without closing that
+own-input workflow gap. Preserve all CAD requirements and evidence, finish the
+two current native receivers, and prioritize reusable receiving orchestration.
+
+`scripts/receive_drawings.py` accepts a user's job manifest and invokes the two
+existing checkers unchanged. It generates request, collateral-change, missing/
+conflicting-evidence, attribute, identity and preservation rows from their actual
+results. It retains source checks, real before/returned values, full strict queues,
+unassigned roles and pending release decisions. Separate drawings stay separate;
+a supplied CAD/readable-sheet association remains explicitly unverified. The
+output includes the submitted job and a portable job over the retained sources.
+
+The existing two teaching drawings produce thirteen review items. Seven tests
+pass: exact original checker results/findings, portable brief replay, occupied
+output preservation, stale later-drawing refusal before publication, duplicate ID
+refusal, markup-only execution under `python -S`, and an unverified paired-format
+association. These are software checks on exposed fictional records, not new
+reader accuracy, timed engineer benefit or engineering acceptance. No native CAD
+session is needed. README, agent and receiving guides now point to the own-input
+command; the old case runner remains a regression example. Full CAD qualification
+remains open and is not redefined around this orchestration improvement.
+
+## 219. Retain the last concurrent receivers and stop expanding the native critical path
+
+The two already-running concurrent four-file receivers completed with native,
+controller, container and host exits zero. Each complete packet retains 231
+helper calls, 115 observations, eight editable-field checks, 20 views/80 images
+and no receiving-process edit. Both replay through the existing corrected
+`recheck_native_revisions.check_packet` without launching CAD. External identities
+are retained in `NATIVE-CONCURRENT-RETAINED-2.json`.
+
+The unchanged model-view recipe produces 30 comparisons with zero outside-region
+pixels and 20 exact source/baseline or candidate/edited frame identities. These
+new frames have not had a separate visual inspection. Original 322/321 strict
+save-preservation findings remain. Actual second-revision native receiving,
+paper/layout, final-method freezing and fresh reserved transfer remain open.
+No new native session is started. Prioritize the own-input receiving workflow
+and its source-linked engineer/manager results, retaining the research failures.
+
+## 220. Receive a resubmission without losing earlier scope or safety priority
+
+Freeze `RESUBMISSION-PLAN.md` before implementation. The existing receiving
+command gains optional `--previous`: verify the earlier inventory, reproduce its
+brief from retained inputs, then match findings by drawing ID under the exact
+original/instruction scope. Original source/reading changes, request changes and
+CAD plan changes remain explicit basis changes. Omitted checks remain unresolved;
+a disappeared collateral finding needs a current source-bound observation or
+unchanged CAD field evidence. Both packets and a portable previous-packet path
+are retained. No named owner or engineering disposition is invented.
+
+The first nested-output control fails: writing a new return inside the previous
+packet adds files after the captured-byte check. Refuse overlapping packet roots
+before replay/publication. A separate omitted-safety-scope control fails because
+its follow-up defaults to normal priority. Retain the earlier safety priority
+through missing/changed scope and historical follow-ups. Both observed failures,
+baseline commits, commands and corrections are recorded in
+`examples/drawing-handoff/RESUBMISSION-CONTROLS.json`.
+
+Fifteen resubmission methods pass, with no skips. They compare the corrected
+markup outcomes to the prior authored acceptance key and challenge portable
+replay, drawing order, omissions, changed request/original-reading/CAD-plan scope,
+missing observations, stale inventory, repinned false findings, nested output,
+safety priority and actual markup-only `python -S` execution. Restored CAD fields
+use explicit current unchanged-field evidence, and an earlier safety follow-up
+survives a later return. The seven earlier
+own-input methods, nine markup methods and nineteen runner methods also pass.
+
+The actual resubmission command produces two checks and twelve current review
+items, with thirteen previous/current findings. Five requests are supported;
+illegibility, baseline mismatch, unknown material and safety review remain. A
+current FC observation establishes restoration of the earlier collateral fail-
+action change; its engineering disposition remains pending. The separate CAD
+preservation queue still has 335 differences. A second actual CLI invocation
+from the portable job reproduces the complete brief.
+The worked packet was produced at `9b9feb1`; the safety-priority correction at
+`93bbe8d` reproduces that complete brief on portable replay. Its original receipt
+and method hash remain intact. These are exposed fictional
+readings and software revision checks, not new visual-reading accuracy or timed
+engineer benefit. Native second revision, paper/layout and fresh reserved CAD
+qualification remain open; the underlying strict/byte tools are unchanged.
+
+## 221. Identify the same paper loss in no-edit and concurrent native returns
+
+Inspect the earliest retained original DXF records and complete native returns,
+then freeze a post-observation diagnostic before its reproducible audit. This is
+exposed-case diagnosis, not a preregistered blind test. The new audit retains all
+decoded layouts and raw LAYOUT/VIEWPORT tags, cross-checking raw IDs and owners.
+It covers two originals, matched no-edit native returns, actual concurrent native
+returns, original-source value candidates and selected second candidates.
+
+Both no-edit and concurrent routes change A3/420x297 settings to A4/210x297 with
+changed rotation and omit the original ID3 display viewport. The returned sheet
+has only a generated ID1 main viewport. Within each case, no-edit/concurrent
+recorded paper inventories are identical. Four missing-display observations are
+two drawings on two routes. Layout1 originally has no display viewport and is not
+counted as losing one. Both originals also lack an ID1 main viewport, the earlier
+layout-preparation dependency; these are known problematic source layouts.
+
+Original-source attribute candidates preserve the original paper records.
+Selected second candidates preserve the native source's already changed paper.
+Neither outcome repairs a source or accepts the original native round trip.
+The full audit reproduces offline; CI adds its complete JSON comparison. Exact
+import-versus-save responsibility, current rendered paper acceptance and the rest
+of the 322/321 strict queue remain unestablished. No source/comparator is changed.
+
+## 222. Inspect every concurrent source and candidate model view
+
+Actually view all twenty retained concurrent model images: source and candidate
+overview, asset1, labels1, asset2 and labels2 for each encoding case. Bind every
+view to its original archive-member SHA-256 and decoded pixel hash. The declared
+MODEL and SERIAL changes are visible in detail views. The overview text is too
+small for field verification; existing CP1251 rotations, line intersections and
+the test-profile DejaVu substitution remain explicit limitations. Exact foreign
+field values/editability rest on the separate native checks, not screenshots.
+No new non-label displacement was observed; the existing frozen pixel results
+remain the measured evidence. This is same-agent visual inspection, not an
+independent engineering, operator or paper review.
+
+## 223. Run the second revision through unchanged native save and reopen
+
+Freeze exact actual native concurrent returns, selected one-value second plans,
+retained candidate bytes and preparation before native execution. The preparation
+replays the original complete packets and independently binds each new source to
+the original saved native return. Preserve original preparation lineage, all
+original UI/observer/resource/configuration methods and strict/byte criteria.
+
+All four matched second-revision runs terminate normally: native, controller,
+container and original host zero. No-edit receipts retain 61 observations and
+four editable-field checks; one-edit receipts retain 67 observations, six field
+checks and one actual committed MODEL correction. Each has ten views/40 images.
+Both assets, foreign fields and the fictional concurrent SERIAL remain exact.
+Every native save still has 453 unexpected strict differences. Re-saving a native
+source is therefore not evidence that strict preservation has stabilized.
+
+The selected source-preserving candidates still match their previously selected
+bytes with zero unexpected strict differences and independent source/plan byte
+reconstruction. No native differences are imported into those candidates.
+Five offline control methods pass: four complete externally pinned packet replays
+and ten negative source/plan reindexing, missing MODEL commit, foreign-field
+editability and hidden-controller controls. All run without skips in 193.460 s.
+No native restart or comparison waiver is used.
+
+Pin both baseline/edit returns before launching the separately declared fresh
+four-file receivers. Those two receivers are live; no completion, new pixel or
+new visual result is inferred. Paper display, final freezing and fresh reserved
+transfer remain open. Original 322/321 and new 453 preservation failures remain.
+
+## 224. Receive actual native corrections under the original request
+
+Use the unchanged own-input receiving command for an initial actual concurrent
+return, its actual native second return under the same original drawing/plan,
+and a separately identified selected-native-source comparison. Bind supplied
+second-return DXFs to their original complete archive members. Four actual CLI
+invocations include complete portable replay; no bespoke finding generator runs.
+
+The original-scope resubmission has eight current items: both requested MODELs
+are supported in each case, SERIAL remains unrequested in each, and 321/320
+original-source strict differences remain. Its basis-change list is empty because
+the original source and instructions are unchanged. The selected-source packet
+shows the one correct MODEL and 453 strict differences per case. These baselines
+answer different questions; their drawing-record counts are not added or used
+as counts of assets. Both complete briefs/source histories remain linked.
+Authorized receiving and every engineering disposition stay pending. The whole
+portable original-scope brief reproduces, retaining both SERIAL findings and
+preservation queues. No visual-reading, installed-state or human benefit result
+is inferred from this actual software receiving exercise.
+
+## 225. Finish second-revision receiving without changing the method
+
+Both original fresh four-file receiver handles terminate normally with native,
+controller, container and host exits zero. Each retains 231 helper calls, 115
+observations, eight editable-field checks, twenty views/eighty images and zero
+edits. Complete archives and external identities retain the actual executions.
+The original second adapter replays both packets. Its unchanged pixel recipe
+gives thirty comparisons with zero outside-region pixels and twenty exact frame
+identities. The combined offline replayer reproduces both full receipts, all
+pixel results/difference images and twenty actually inspected source/candidate
+model images. No native process was restarted after an observation wait.
+
+The selected MODEL correction is visible and concurrent SERIAL retained. Existing
+CP1251 labels are upside down, geometry crosses text, overview text is too small
+for complete field checking and some long literal-brace identity text extends
+beyond the fixed detail canvas. Exact complete field identities/editability use
+the separate native observations. Do not enlarge cameras or masks to turn these
+limits into a readability pass. Every native second save still has453unexpected
+strict differences; the completed receiver is not a preservation pass.
+
+## 226. Finish paper observation and retain failed readable delivery
+
+Declare the bounded paper check before execution and pin all fourteen exact
+inputs, original-derived frames, driver, configuration identity and native image
+at a7c386b. Reuse the existing offscreen native bitmap exporter and corrected
+X/Y/width/height conversion; do not build another UI recorder. All fourteen
+processes and the original host/container exit normally. Source bytes remain
+unchanged. Retain original commands, output/error streams, images and terminal
+inspection, excluding configuration contents.
+
+Actually inspect all fourteen images. Twelve case sheets are blank except the
+native trial mark: originals, value candidates, no-edit/concurrent returns,
+selected second candidates and second native returns. The repeated exposed
+public-adapted viewport/text control displays six examples and matches exactly;
+it differs from a blank case image at122616pixels. All ten case comparisons have
+zero changed pixels, which is equal-blank failure, not readable delivery. The
+earlier raw record audit independently retains the original missing-main
+dependency and the native loss of the display viewport/settings. No source
+repair, typography acceptance or broad vendor failure is inferred.
+
+The full source/provenance/command/pixel replay passes. Two control test methods
+pass without skips in10.632seconds: complete original-result reproduction and
+four reindexed wrong-camera, omitted-command, failed-container and replaced-source
+subcontrols. The engineer/manager scope page separates useful original-request
+receiving, source-preserving attribute proposals, failed native full saves and
+failed paper delivery. Final-method freeze and newly reserved transfer remain
+unfinished; engineering/company acceptance is never inferred.
+
+## 227. Compare exact generated pixels across PNG encodings
+
+The actual427a14b CI job reproduces complete second-receiver reports but fails
+regenerated PNG byte equality. Recompute all thirty difference images on Linux,
+first with installed Pillow10.2 and then CI's exact pinned Pillow12.2 wheel.
+Both original containers terminate0: all thirty PNG encodings differ and all
+thirty decoded pixel arrays, modes and sizes match exactly. Retain complete
+per-image results and the actual failed-job excerpt. The corrected replayer
+compares generated PNG pixels exactly, with original archive/image byte pins
+unchanged. Two focused test methods allow alternate compression and reject a
+single changed pixel or omitted image. The complete corrected replay passes
+locally. New exact-head CI remains required; no native or comparator gate waived.
+
+## 228. Freeze the method and report every reserved case
+
+Commit the final bounded plan/development at e9e5464,55method/contracts freeze
+at f5f53ef, all ten admitted input identities at f9f2c4d, and native preparation/
+launch pins at392b8b8 before the corresponding executions. Six same-author new
+procedural fixtures cover encoding/version/mirror/rotation/foreign/literal cases.
+Four public files are selected from pinned metadata before content download,
+excluding retained repository DXF blobs. Exact originals/licenses and authored
+identity adaptations remain explicit; this is not independent plant truth.
+
+All ten value candidates pass unchanged strict and independent reconstruction.
+The matched library baseline has82strict differences onR12 and zero on the
+other nine, but all ten fail byte reconstruction. All42applicable planted
+losses are detected by both checks; all90refusals preserve existing outputs.
+Conflicting returns and selected corrections retain one collateral difference
+under every original request, pending decisions and portable brief equality.
+The complete second software run and offline reproduction match all results.
+
+Actual native API edit/save/document reopen plus fresh-process reads match the
+complete supplied fields on all ten. All40native saves across default/R15 and
+no-edit/edit roles fail strict preservation. Thirty actual native model/paper
+exports terminate normally with unchanged sources. All images are actually
+inspected. The five newly authored paper cases display content, unlike the
+older known-problem sheets; no older source is repaired or result replaced.
+Small/rotated/overlapping labels, native trial marks and missing Chinese glyphs
+prevent complete readable delivery. A pre-publication analysis mistake compared
+palette indices before decoding, falsely yielding zero differences; retain that
+diagnostic, decode each input first, and cover one-pixel/reindex controls.
+No frozen native method, camera, mask, font, strict or byte checker changes.
+
+Complete software/API/render archives and external pins replay offline without
+models, network or native calls. Two predetermined actual UI cases are still
+running; fresh four-file receiving and final audit remain unfinished. The frozen
+UI packager's missing json import is documented; a separate bounded retention
+helper packages the unchanged receiver outputs. No whole CAD qualification,
+human review-time benefit, plant correctness or company release is claimed.
+
+Final evidence-retention follow-up: complete API comparisons compress losslessly
+from55.5MB to138436bytes, with exact original raw SHA/size plus a readable summary.
+The new UI archive helper initially omits original runtime cache bytes, so a
+standalone replay correctly refuses full-inventory mismatch. Retain those exact
+cache bytes in a supplemental bounded archive; restore the exact configuration
+only from its already-public pre-final externally pinned parent packet. Every
+original inventory file/size/hash is still required by the frozen receiver.
+All three completed packets replay: public baseline/edit each298strictdifferences,
+authored foreign baseline334. Original native execution and55method hashes are
+unchanged; the fourth edited execution is still running. No cache/config omission
+is waived and no incomplete packet is silently relabeled complete.
+
+## 229. Complete the reserved UI saves before fresh receiving
+
+The original three-asset edited execution terminates normally without a restart.
+All three requested MODEL edits commit, with195helper calls,97observations,
+12editable-field checks,14views and56images. It retains334strict differences,
+matching its no-edit baseline's count. The public baseline/edit each retain298.
+All four original actual UI executions now finish; successful field operation
+remains separate from failed full-save preservation.
+
+Retain the fourth original packet plus exact runtime caches beside it. The
+unchanged receiver reproduces its complete inventory and result. All55frozen
+method identities still match. Pin the four exact returned DXFs, completed parent
+archives, prepared source/config identities and fresh-host driver before native
+launch at commit e3c7899. Both original fresh four-file receivers then start in
+new containers, using the unchanged method. No new source, camera, font or mask
+variant is introduced. Their receiving/pixel/actual-visual gates and final CI
+remain unfinished. No independent plant or organizational acceptance is inferred.
+
+## 230. Complete fresh public receiving and inspect every model frame
+
+The original reserved public four-file receiver exits normally, with159helper
+calls,79observations, four editability checks, twelve views/48images and zero
+edits. Complete inventory/source/parent/field/host replay succeeds, retaining
+all actual runtime bytes and using the exact already-public configuration.
+The frozen pixel method gives nine comparisons with zero outside-region pixels
+and six exact identities. Every source/candidate overview/asset/label frame is
+actually viewed. The declared QUAL-BEFORE to QUAL-AFTER change and complete
+asset labels are visible. The separate long disclaimer is clipped in detail
+frames and visible in overview; the label-detail frame also clips the symbol,
+which is shown in overview. Font substitution and paper/engineering limits
+remain explicit. Original native saves still have298strict differences each.
+
+Bind all six actual images by archive member, original byte hash, decoded pixel
+hash, mode and dimensions. Retain the exact original generated difference images;
+offline replay reproduces the entire frozen pixel result and exact decoded
+pixels/mode/size, with original artifact byte pins unchanged. The completed-case
+inventory requires every source/candidate frame, not a favorable subset.
+The public full packet and complete pixel/image-binding replay both pass.
+
+Both757a586 CIs now succeed, as does154da39 push CI. Its actual log reports98/98
+programs passed, zero failed and37individual unittest cases skipped; the native
+handoff/receiving/resubmission programs pass. This is not a zero-skip or engineering
+acceptance result. Newer exact-head CI and the still-live three-asset fresh
+receiver/pixels/actual-visual checks remain unfinished. No native restart or
+qualification promotion is made.
+
+## 231. Finish the declared campaign and retain the visual failure
+
+**Correction in section 232:** the occlusion assessment below is invalid. It is
+retained as the original interpretation, not a current CAD defect claim. Complete
+execution counts and replay results remain valid.
+
+The original three-asset fresh receiver finishes normally without restart:
+303helper calls,151observations,12editable-field checks,28views/112images and
+zero edits. Retain its complete packet and original runtime bytes; all source,
+return, launch and inventory checks reproduce. All six declared UI executions
+are now terminal normal. This is successful execution, not CAD acceptance.
+
+The frozen pixel method reports21comparisons with zero outside-region changes
+and14exact counterpart identities. Actual inspection of every one of its14
+source/candidate views finds black rectangular occlusions interrupting unchanged
+labels/identity and nearby geometry in candidate details. These lie inside the
+permitted regions, so zero outside pixels does not reject them. Their rendering
+cause is not isolated. Matching counterpart images and stored fields do not
+close readable delivery. Retain both the automated result and failed visual
+finding; no camera, mask, native source or frozen method is changed.
+
+Combined offline replay completes normally:ten software cases,40actual API
+saves,30native renders,six complete UI inventories,30fresh pixel comparisons,
+20exact identities and20actually inspected source/candidate image bindings.
+All55method identities still match. Add one independent image-attribution test:
+copying another real image's valid member/hash/pixels into either the wrong frame
+or wrong source/candidate label must refuse. Both negative controls pass. Its
+initial import selected the older replay module and failed; explicit loading of
+the final module corrects this test harness error without changing frozen code.
+
+The objective audit maps every original protocol criterion and final plan step
+to evidence and failed/passed boundaries. N119's declared evaluation is complete
+as a negative native qualification. Full-save preservation and complete readable
+delivery fail. Useful source-preserving attribute proposals and original-scope
+consultant-return verification remain separate supported workflows. No new CAD
+recording, source repair or reader redesign is required to publish this outcome.
+Exact final-head CI remains the integration gate. Human benefit, engineering
+review and company release remain unmeasured.
+
+A separate pipeline status check reports50/52fresh stages;TE live/replay stages
+are stale against changed replay-server code. No unrelated TE runtime is started
+and no whole-repository freshness claim is made.
+
+## 232. Correct an unsupported image assessment using original pixels
+
+The initial image interpretation in A391 incorrectly reported black occlusions
+in foreign candidate views. Reinspect all six actual candidate details at original
+resolution and compare exact decoded source/candidate pixels. Complete identity,
+TAG, MODEL, serial, DN50 and literal foreign labels are visible; all three MODEL
+changes read Unit-18. Source values read Unit-17. Detail differences total218-347
+pixels, with bounds around the changed final digit; the overview has36changed
+pixels across three assets. This does not support the earlier occlusion claim.
+Do not invent a CAD or viewer root cause for an interpretation error.
+
+Retain the invalid visual record, original committed file hash, source commit and
+per-frame decoded difference counts/bounds in UI-VISUAL-DIAGNOSTIC.json. Correct
+current observations and every front-door claim. Original captured PNG hashes,
+decoded pixel hashes, native files, comparison results, masks, cameras and all55
+frozen methods stay unchanged. The reporter was wrong; this is not a repaired
+native candidate or tuning on reserved results. A392 supersedes A391's visual
+conclusion while preserving its valid execution/replay evidence.
+
+The bounded fresh model views succeed. Native full-save preservation and broader
+paper/typographic readability failures remain independently evidenced. Final CI
+must reproduce the corrected reporting version before completion.

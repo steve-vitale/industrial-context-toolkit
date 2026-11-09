@@ -1,0 +1,17 @@
+{
+  "scope": "Two separately declared fresh four-file receivers; same methods and pixel rules",
+  "preparation_sha256_lf": "407c27359629e4fe0482e9654d4750d82450776b832f60bee8ff1fa450fe0b0f",
+  "host_wrapper_sha256": "adc64e4b55e2477ebdfedd07700c65f6943f70468866b47c1439c6bd171919bf",
+  "runs": [
+    {
+      "case": "validation-cp1251",
+      "role": "receiving",
+      "label": "cp1251-second-receiving-1"
+    },
+    {
+      "case": "validation-braces",
+      "role": "receiving",
+      "label": "braces-second-receiving-1"
+    }
+  ]
+}

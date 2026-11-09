@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "python",
+    "$ROOT\\scripts\\cad_value_patch.py",
+    "$OUT\\ambiguous.dxf",
+    "$OUT\\ambiguous-plan.json",
+    "--out",
+    "$OUT\\refused-ambiguous"
+  ],
+  "expected_exit": 2
+}

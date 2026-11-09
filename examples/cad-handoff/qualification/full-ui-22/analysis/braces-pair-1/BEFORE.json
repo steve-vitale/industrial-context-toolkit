@@ -1,0 +1,29 @@
+{
+  "scope": "Read-only existing frozen decoded correspondence method on exposed literal-brace matched returns; all strict differences retained",
+  "methods": {
+    "scope": "Read-only existing diagnostic on exposed returns; preserves every strict difference",
+    "methods_sha256_lf": {
+      "scripts/cad_handoff.py": "70ad396dbcadf89741da6e1d017944e42f6fb2804e272b3cc5ee7f5eabbf6d30",
+      "examples/cad-handoff/qualification/correspondence5.py": "046d41d42770f685041125e662f4682839386b580e020103b17713f5c377ad46",
+      "examples/cad-handoff/qualification/check_correspondence5.py": "e1a86900ba9d316ed6e536338a452cdf988c083f76021c2cac8b6dd6109a74e8"
+    }
+  },
+  "inputs": {
+    "source": {
+      "path": "C:\\Users\\Steve\\.cp-scratch\\cad-full-ui-22\\preparation-1\\cases\\validation-braces\\source.dxf",
+      "sha256": "614e83380bbe667c727363f02d32519b3340439028f0acd72807c82a45224abe"
+    },
+    "plan": {
+      "path": "C:\\Users\\Steve\\.cp-scratch\\cad-full-ui-22\\preparation-1\\cases\\validation-braces\\plan.json",
+      "sha256": "5126be71101f71b51332b50fd52980c3f0146a19fded4e7f8b8571c6b45d8508"
+    },
+    "baseline": {
+      "path": "C:\\Users\\Steve\\.cp-scratch\\cad-full-ui-22\\matched-returns-1\\validation-braces-baseline\\job\\returned.dxf",
+      "sha256": "de1bb04c4516b49abdfd82b0de87c04f9d8d405d5cccf41060fd9a089c64c3a6"
+    },
+    "edited": {
+      "path": "C:\\Users\\Steve\\.cp-scratch\\cad-full-ui-22\\matched-returns-1\\validation-braces-edited\\job\\returned.dxf",
+      "sha256": "81d5268800bf0f197ae9132bf25fdfcd7c68419c40e3d2bd7c4588a5b7921d29"
+    }
+  }
+}

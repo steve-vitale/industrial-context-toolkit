@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "python",
+    "$ROOT\\scripts\\cad_value_patch.py",
+    "$ROOT\\examples\\cad-handoff\\qualification\\validation-2\\authored\\validation-braces.dxf",
+    "$OUT\\concurrent-plan.json",
+    "--out",
+    "$OUT\\concurrent"
+  ],
+  "expected_exit": 0
+}

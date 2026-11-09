@@ -1,0 +1,45 @@
+{
+  "scope": "Author-transcribed actual tool observations plus exact machine-produced full comparison; not a fabricated raw process log",
+  "ci_run": 42537786428,
+  "ci_job": 128905842551,
+  "ci_head": "427a14bbbecc3cdce3c355a9514c71297574c6d8",
+  "ci_failure_excerpt": "../CI-427-FAILURE-EXCERPT.txt",
+  "linux_image": "sha256:bb4390214744897de88b2198f0cbf812aec4be42923311298e7a5e3a5646bef8",
+  "docker_terminal": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-11-09T00:16:04.265764872Z",
+    "FinishedAt": "2026-11-09T00:16:08.402076402Z"
+  },
+  "pairs": 30,
+  "different_encoded_files": 30,
+  "different_decoded_images": 0,
+  "conclusion": "All30original native canvas-pair differences re-created on Linux encode differently from committed Windows PNGs, while all decoded modes, sizes and complete pixel arrays match exactly. The receiver incorrectly required generated PNG encoding identity. No mask, tolerance, source archive, strict/byte comparator or qualification failure changes.",
+  "pinned_ci_Pillow_reproduction": {
+    "version": "12.2.0",
+    "wheel_sha256": "62f5409336adb0663b7caa0da5c7d9e7bdbaae9ce761d34669420c2a801b2780",
+    "pairs": 30,
+    "encoded_differences": 30,
+    "decoded_differences": 0,
+    "docker_terminal": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-11-09T00:18:15.020014268Z",
+      "FinishedAt": "2026-11-09T00:18:19.244765184Z"
+    }
+  }
+}

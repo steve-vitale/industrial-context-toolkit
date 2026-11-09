@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "python",
+    "$ROOT\\scripts\\cad_value_patch.py",
+    "$OUT\\native-return.dxf",
+    "$OUT\\second-plan.json",
+    "--out",
+    "$OUT\\second"
+  ],
+  "expected_exit": 0
+}

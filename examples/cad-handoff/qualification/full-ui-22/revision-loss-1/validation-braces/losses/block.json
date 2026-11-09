@@ -1,0 +1,131 @@
+{
+  "mutation": {
+    "type": "CIRCLE",
+    "handle": "35",
+    "group": 10,
+    "before_hex": "302e30",
+    "after_hex": "312e3235",
+    "operation": "replace value"
+  },
+  "comparison": {
+    "schema": "cad-comparison-1",
+    "before_sha256": "614e83380bbe667c727363f02d32519b3340439028f0acd72807c82a45224abe",
+    "after_sha256": "d8ca662637eca44d3a04a9a8ab51a91fb941862d71d510ab490ee88996786e91",
+    "status": "differences",
+    "expected_edits": [
+      {
+        "id": "validation-braces/asset-1",
+        "attribute": "MODEL",
+        "before": "Assembly {C}",
+        "after": "Assembly {D}",
+        "reason": "Authored qualification edit, not an installed equipment claim"
+      },
+      {
+        "id": "validation-braces/asset-2",
+        "attribute": "MODEL",
+        "before": "Assembly {C}",
+        "after": "Assembly {D}",
+        "reason": "Authored qualification edit, not an installed equipment claim"
+      }
+    ],
+    "unexpected": [
+      {
+        "kind": "entity",
+        "handle": "35",
+        "before": {
+          "type": "CIRCLE",
+          "tags": [
+            [
+              0,
+              "CIRCLE"
+            ],
+            [
+              5,
+              "35"
+            ],
+            [
+              330,
+              "32"
+            ],
+            [
+              100,
+              "AcDbEntity"
+            ],
+            [
+              8,
+              "0"
+            ],
+            [
+              100,
+              "AcDbCircle"
+            ],
+            [
+              10,
+              0.0
+            ],
+            [
+              20,
+              0.0
+            ],
+            [
+              30,
+              0.0
+            ],
+            [
+              40,
+              2.0
+            ]
+          ]
+        },
+        "after": {
+          "type": "CIRCLE",
+          "tags": [
+            [
+              0,
+              "CIRCLE"
+            ],
+            [
+              5,
+              "35"
+            ],
+            [
+              330,
+              "32"
+            ],
+            [
+              100,
+              "AcDbEntity"
+            ],
+            [
+              8,
+              "0"
+            ],
+            [
+              100,
+              "AcDbCircle"
+            ],
+            [
+              10,
+              1.25
+            ],
+            [
+              20,
+              0.0
+            ],
+            [
+              30,
+              0.0
+            ],
+            [
+              40,
+              2.0
+            ]
+          ]
+        }
+      }
+    ],
+    "save_metadata_changed": true,
+    "boundary": "All ezdxf-exported entity tags including block definitions, attributes, layers and objects; all headers except listed save metadata and the two named EZDXF_META writer values. Same handles required. This is not a byte-identical DXF or proprietary project database/visual/engineering acceptance."
+  },
+  "byte_refusal": "Candidate differs from independent source-plus-plan reconstruction"
+}

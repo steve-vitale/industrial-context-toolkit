@@ -1,0 +1,58 @@
+test_projection_refuses_context_attribute_with_unchanged_source_hash (__main__.ProjectionSourceBinding.test_projection_refuses_context_attribute_with_unchanged_source_hash) ... FAIL
+test_projection_refuses_context_handle_with_unchanged_source_hash (__main__.ProjectionSourceBinding.test_projection_refuses_context_handle_with_unchanged_source_hash) ... FAIL
+test_projection_refuses_invented_review_status (__main__.ProjectionSourceBinding.test_projection_refuses_invented_review_status) ... FAIL
+test_projection_refuses_omitted_asset_and_matching_omitted_mapping (__main__.ProjectionSourceBinding.test_projection_refuses_omitted_asset_and_matching_omitted_mapping) ... FAIL
+test_projection_retains_both_multiasset_encoding_cases (__main__.ProjectionSourceBinding.test_projection_retains_both_multiasset_encoding_cases) ... ok
+
+======================================================================
+FAIL: test_projection_refuses_context_attribute_with_unchanged_source_hash (__main__.ProjectionSourceBinding.test_projection_refuses_context_attribute_with_unchanged_source_hash)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Steve\.cp-scratch\cad-full-ui-22\worktree\scripts\test_cad_handoff.py", line 140, in test_projection_refuses_context_attribute_with_unchanged_source_hash
+    self.refuse_changed_context(lambda v,m:v['nodes'][0]['attributes'].update(MODEL='BORROWED HASH'))
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steve\.cp-scratch\cad-full-ui-22\worktree\scripts\test_cad_handoff.py", line 136, in refuse_changed_context
+    with self.assertRaises(ValueError):self.projection().project(packet,mapping,self.root/'projected')
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_projection_refuses_context_handle_with_unchanged_source_hash (__main__.ProjectionSourceBinding.test_projection_refuses_context_handle_with_unchanged_source_hash)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Steve\.cp-scratch\cad-full-ui-22\worktree\scripts\test_cad_handoff.py", line 143, in test_projection_refuses_context_handle_with_unchanged_source_hash
+    self.refuse_changed_context(lambda v,m:v['nodes'][0]['source'].update(insert_handle='DEADBEEF'))
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steve\.cp-scratch\cad-full-ui-22\worktree\scripts\test_cad_handoff.py", line 136, in refuse_changed_context
+    with self.assertRaises(ValueError):self.projection().project(packet,mapping,self.root/'projected')
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_projection_refuses_invented_review_status (__main__.ProjectionSourceBinding.test_projection_refuses_invented_review_status)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Steve\.cp-scratch\cad-full-ui-22\worktree\scripts\test_cad_handoff.py", line 150, in test_projection_refuses_invented_review_status
+    self.refuse_changed_context(lambda v,m:v['nodes'][0].update(status='verified'))
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Steve\.cp-scratch\cad-full-ui-22\worktree\scripts\test_cad_handoff.py", line 136, in refuse_changed_context
+    with self.assertRaises(ValueError):self.projection().project(packet,mapping,self.root/'projected')
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_projection_refuses_omitted_asset_and_matching_omitted_mapping (__main__.ProjectionSourceBinding.test_projection_refuses_omitted_asset_and_matching_omitted_mapping)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Steve\.cp-scratch\cad-full-ui-22\worktree\scripts\test_cad_handoff.py", line 147, in test_projection_refuses_omitted_asset_and_matching_omitted_mapping
+    self.refuse_changed_context(omit)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Steve\.cp-scratch\cad-full-ui-22\worktree\scripts\test_cad_handoff.py", line 136, in refuse_changed_context
+    with self.assertRaises(ValueError):self.projection().project(packet,mapping,self.root/'projected')
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 5 tests in 4.870s
+
+FAILED (failures=4)

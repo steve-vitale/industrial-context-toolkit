@@ -1,0 +1,46 @@
+[
+  {
+    "name": "pixels",
+    "command": [
+      "C:\\Python314\\python.exe",
+      "examples/cad-handoff/qualification/full-ui-22/test_pixels.py",
+      "-v"
+    ],
+    "exit": 0
+  },
+  {
+    "name": "claims",
+    "command": [
+      "C:\\Python314\\python.exe",
+      "scripts/check_claims.py"
+    ],
+    "exit": 0
+  },
+  {
+    "name": "feature-catalog",
+    "command": [
+      "C:\\Python314\\python.exe",
+      "scripts/feature_catalog.py",
+      "--check"
+    ],
+    "exit": 0
+  },
+  {
+    "name": "script-index",
+    "command": [
+      "C:\\Python314\\python.exe",
+      "scripts/script_index.py",
+      "--check"
+    ],
+    "exit": 0
+  },
+  {
+    "name": "ledger",
+    "command": [
+      "C:\\Python314\\python.exe",
+      "scripts/attempts_ledger.py",
+      "--check"
+    ],
+    "exit": 0
+  }
+]

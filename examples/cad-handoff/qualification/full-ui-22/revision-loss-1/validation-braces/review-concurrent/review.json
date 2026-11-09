@@ -1,0 +1,167 @@
+{
+  "schema": "cad-receiving-review-1",
+  "before_sha256": "614e83380bbe667c727363f02d32519b3340439028f0acd72807c82a45224abe",
+  "after_sha256": "214ef337a42e21c730bccdc93f49ab27e7e74abe6659212b019b730b684bf4c2",
+  "strict_status": "differences",
+  "strict_difference_count": 2,
+  "save_metadata_changed": true,
+  "version": {
+    "before": "AC1027",
+    "after": "AC1027"
+  },
+  "header_changes": {},
+  "asset_changes": [],
+  "asset_attributes": [
+    {
+      "id": "validation-braces/asset-1",
+      "attribute": "ICT_ID",
+      "before_present": true,
+      "before": "validation-braces/asset-1",
+      "after_present": true,
+      "after": "validation-braces/asset-1",
+      "planned_after": null,
+      "status": "unchanged"
+    },
+    {
+      "id": "validation-braces/asset-1",
+      "attribute": "MODEL",
+      "before_present": true,
+      "before": "Assembly {C}",
+      "after_present": true,
+      "after": "OTHER-CHOICE",
+      "planned_after": "Assembly {D}",
+      "status": "planned edit missing or different"
+    },
+    {
+      "id": "validation-braces/asset-1",
+      "attribute": "SERIAL",
+      "before_present": true,
+      "before": "UNCHANGED-0",
+      "after_present": true,
+      "after": "UNCHANGED-0",
+      "planned_after": null,
+      "status": "unchanged"
+    },
+    {
+      "id": "validation-braces/asset-1",
+      "attribute": "SIZE",
+      "before_present": true,
+      "before": "DN50",
+      "after_present": true,
+      "after": "DN50",
+      "planned_after": null,
+      "status": "unchanged"
+    },
+    {
+      "id": "validation-braces/asset-1",
+      "attribute": "TAG",
+      "before_present": true,
+      "before": "FV-101",
+      "after_present": true,
+      "after": "FV-101",
+      "planned_after": null,
+      "status": "unchanged"
+    },
+    {
+      "id": "validation-braces/asset-1",
+      "attribute": "VENDOR_PRIVATE",
+      "before_present": true,
+      "before": "retain {vendor} \\P 0",
+      "after_present": true,
+      "after": "retain {vendor} \\P 0",
+      "planned_after": null,
+      "status": "unchanged"
+    },
+    {
+      "id": "validation-braces/asset-2",
+      "attribute": "ICT_ID",
+      "before_present": true,
+      "before": "validation-braces/asset-2",
+      "after_present": true,
+      "after": "validation-braces/asset-2",
+      "planned_after": null,
+      "status": "unchanged"
+    },
+    {
+      "id": "validation-braces/asset-2",
+      "attribute": "MODEL",
+      "before_present": true,
+      "before": "Assembly {C}",
+      "after_present": true,
+      "after": "Assembly {D}",
+      "planned_after": "Assembly {D}",
+      "status": "planned edit observed"
+    },
+    {
+      "id": "validation-braces/asset-2",
+      "attribute": "SERIAL",
+      "before_present": true,
+      "before": "UNCHANGED-1",
+      "after_present": true,
+      "after": "FIELD-OBSERVED",
+      "planned_after": null,
+      "status": "unexpected"
+    },
+    {
+      "id": "validation-braces/asset-2",
+      "attribute": "SIZE",
+      "before_present": true,
+      "before": "DN50",
+      "after_present": true,
+      "after": "DN50",
+      "planned_after": null,
+      "status": "unchanged"
+    },
+    {
+      "id": "validation-braces/asset-2",
+      "attribute": "TAG",
+      "before_present": true,
+      "before": "FV-102",
+      "after_present": true,
+      "after": "FV-102",
+      "planned_after": null,
+      "status": "unchanged"
+    },
+    {
+      "id": "validation-braces/asset-2",
+      "attribute": "VENDOR_PRIVATE",
+      "before_present": true,
+      "before": "retain {vendor} \\P 1",
+      "after_present": true,
+      "after": "retain {vendor} \\P 1",
+      "planned_after": null,
+      "status": "unchanged"
+    }
+  ],
+  "entity_partitions": {
+    "same type changed": 2
+  },
+  "entity_changes": [
+    {
+      "handle": "41",
+      "category": "same type changed",
+      "before_type": "ATTRIB",
+      "after_type": "ATTRIB",
+      "changed_groups": [
+        "1"
+      ],
+      "strict_difference_index": 0
+    },
+    {
+      "handle": "4C",
+      "category": "same type changed",
+      "before_type": "ATTRIB",
+      "after_type": "ATTRIB",
+      "changed_groups": [
+        "1"
+      ],
+      "strict_difference_index": 1
+    }
+  ],
+  "drawing_changes": [],
+  "named_table_changes": {},
+  "block_changes": {},
+  "layout_changes": {},
+  "acceptance": "not performed",
+  "boundary": "Diagnostic only; the original strict comparison and its exit status remain authoritative for this software gate. Handles are not matched by geometry. Added/removed handles may be remapping, not added/removed physical objects. Drawing fields are explicit ezdxf attributes of direct block/layout records, not geometry or visual equivalence. Child ATTRIB/complex payloads, XDATA and other objects remain in the strict queue. Named table fields do not cover complete linetype patterns or style behavior. No difference is automatically waived, accepted or called harmless."
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "one-map-site-1",
+  "note": "Draft CAD-reference projection. No connectivity or installed-state claim; original DXF retained.",
+  "site": {
+    "id": "S",
+    "name": "Fictional CAD handoff reference"
+  },
+  "plants": [
+    {
+      "id": "P",
+      "name": "Fictional plant",
+      "owner": "Engineering",
+      "units": [
+        {
+          "id": "U",
+          "name": "Fictional unit"
+        }
+      ]
+    }
+  ],
+  "record_owners": {
+    "pid": "Engineering",
+    "maintenance_export": "Maintenance",
+    "instrument_index": "I&C"
+  },
+  "drawing_register": "drawing_register.csv"
+}

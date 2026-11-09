@@ -1,0 +1,374 @@
+{
+  "scope": "Prepared exposed development cases and fixed configuration before first native run; no reserved cases",
+  "configuration_sha256": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c",
+  "preparation": {
+    "producer_sha256": "f21a2ef8229c4ac2acd530b96841b19109fc19bcb044409a4c180ee7133b5826",
+    "declared_inputs": {
+      "scope": "Existing exposed multi-asset, foreign-field, CP1251/UTF8 and literal-brace sources selected before full UI implementation; no candidate or native run by this preparation",
+      "cases": [
+        {
+          "case": "validation-cp1251",
+          "source": "examples/cad-handoff/qualification/validation-2/authored/validation-cp1251.dxf",
+          "source_sha256": "2044da26edd9188d07300f6b8f2abf4053956f31a7827bba488ec02c1351e158",
+          "plan": "examples/cad-handoff/qualification/validation-2/authored/validation-cp1251.plan.json",
+          "plan_sha256": "a75fb0abe99c35371caa3c2ce25ec498efdcd92e16bbf541c662c154e5acf6c8",
+          "assets": 2,
+          "changes": [
+            {
+              "id": "validation-cp1251/asset-1",
+              "attribute": "MODEL",
+              "before": "\u0414\u0432\u0438\u0433\u0430\u0442\u0435\u043b\u044c",
+              "after": "\u041c\u043e\u0442\u043e\u0440",
+              "reason": "Authored qualification edit, not an installed equipment claim"
+            },
+            {
+              "id": "validation-cp1251/asset-2",
+              "attribute": "MODEL",
+              "before": "\u0414\u0432\u0438\u0433\u0430\u0442\u0435\u043b\u044c",
+              "after": "\u041c\u043e\u0442\u043e\u0440",
+              "reason": "Authored qualification edit, not an installed equipment claim"
+            }
+          ],
+          "role": "already exposed authored development; not fresh reserved or plant evidence"
+        },
+        {
+          "case": "validation-braces",
+          "source": "examples/cad-handoff/qualification/validation-2/authored/validation-braces.dxf",
+          "source_sha256": "614e83380bbe667c727363f02d32519b3340439028f0acd72807c82a45224abe",
+          "plan": "examples/cad-handoff/qualification/validation-2/authored/validation-braces.plan.json",
+          "plan_sha256": "5126be71101f71b51332b50fd52980c3f0146a19fded4e7f8b8571c6b45d8508",
+          "assets": 2,
+          "changes": [
+            {
+              "id": "validation-braces/asset-1",
+              "attribute": "MODEL",
+              "before": "Assembly {C}",
+              "after": "Assembly {D}",
+              "reason": "Authored qualification edit, not an installed equipment claim"
+            },
+            {
+              "id": "validation-braces/asset-2",
+              "attribute": "MODEL",
+              "before": "Assembly {C}",
+              "after": "Assembly {D}",
+              "reason": "Authored qualification edit, not an installed equipment claim"
+            }
+          ],
+          "role": "already exposed authored development; not fresh reserved or plant evidence"
+        }
+      ]
+    },
+    "comparison_source_sha256_lf": {
+      "scripts/cad_handoff.py": "70ad396dbcadf89741da6e1d017944e42f6fb2804e272b3cc5ee7f5eabbf6d30",
+      "scripts/cad_value_patch.py": "174d66f36befc2ee3b12cef769badecf9927b1705419f9ecf9238e4e9c610a04",
+      "examples/cad-handoff/qualification/verify_bytes.py": "606cf310be4637bec2663b39c1001ca3d7668af7316aaa2fc7cbd571e0b0cd52",
+      "examples/cad-handoff/qualification/run_cases.py": "465972bbaf74c31172f46ab8969920ddeef2f48a11c5d9220d7660e1b3a0f19a"
+    }
+  },
+  "software": [
+    {
+      "case": "validation-cp1251",
+      "source_sha256": "2044da26edd9188d07300f6b8f2abf4053956f31a7827bba488ec02c1351e158",
+      "routes": {
+        "library-save": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "fail",
+            "error": "Candidate differs from independent source-plus-plan reconstruction"
+          }
+        },
+        "value-spans": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "pass",
+            "values": 2,
+            "unplanned_byte_changes": 0,
+            "source_sha256": "2044da26edd9188d07300f6b8f2abf4053956f31a7827bba488ec02c1351e158",
+            "candidate_sha256": "1f78177f035dda54c25a26c55d727e5bde3f3e51f219a33dc1f35c5c90b49566",
+            "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+            "review": "same-author software check; not independent engineering review"
+          }
+        }
+      }
+    },
+    {
+      "case": "validation-braces",
+      "source_sha256": "614e83380bbe667c727363f02d32519b3340439028f0acd72807c82a45224abe",
+      "routes": {
+        "library-save": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "fail",
+            "error": "Candidate differs from independent source-plus-plan reconstruction"
+          }
+        },
+        "value-spans": {
+          "strict_status": "pass",
+          "strict_differences": 0,
+          "byte_check": {
+            "status": "pass",
+            "values": 2,
+            "unplanned_byte_changes": 0,
+            "source_sha256": "614e83380bbe667c727363f02d32519b3340439028f0acd72807c82a45224abe",
+            "candidate_sha256": "37f87eecd7121e771cbeaf2f846739c671cfb6618ee4fde2e86d968defbe9acf",
+            "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+            "review": "same-author software check; not independent engineering review"
+          }
+        }
+      }
+    }
+  ],
+  "cases": {
+    "validation-cp1251": {
+      "basis": {
+        "case": "validation-cp1251",
+        "source_sha256": "2044da26edd9188d07300f6b8f2abf4053956f31a7827bba488ec02c1351e158",
+        "plan_sha256": "a75fb0abe99c35371caa3c2ce25ec498efdcd92e16bbf541c662c154e5acf6c8",
+        "assets": [
+          {
+            "id": "validation-cp1251/asset-1",
+            "handle": "3D",
+            "block": "ASSET",
+            "attributes": {
+              "ICT_ID": "validation-cp1251/asset-1",
+              "TAG": "FV-101",
+              "MODEL": "\u0414\u0432\u0438\u0433\u0430\u0442\u0435\u043b\u044c",
+              "SERIAL": "UNCHANGED-0",
+              "SIZE": "DN50",
+              "VENDOR_PRIVATE": "retain {vendor} \\P 0"
+            },
+            "attribute_handles": {
+              "ICT_ID": "3F",
+              "TAG": "40",
+              "MODEL": "41",
+              "SERIAL": "42",
+              "SIZE": "43",
+              "VENDOR_PRIVATE": "44"
+            }
+          },
+          {
+            "id": "validation-cp1251/asset-2",
+            "handle": "47",
+            "block": "ASSET",
+            "attributes": {
+              "ICT_ID": "validation-cp1251/asset-2",
+              "TAG": "FV-102",
+              "MODEL": "\u0414\u0432\u0438\u0433\u0430\u0442\u0435\u043b\u044c",
+              "SERIAL": "UNCHANGED-1",
+              "SIZE": "DN50",
+              "VENDOR_PRIVATE": "retain {vendor} \\P 1"
+            },
+            "attribute_handles": {
+              "ICT_ID": "49",
+              "TAG": "4A",
+              "MODEL": "4B",
+              "SERIAL": "4C",
+              "SIZE": "4D",
+              "VENDOR_PRIVATE": "4E"
+            }
+          }
+        ],
+        "changes": [
+          {
+            "id": "validation-cp1251/asset-1",
+            "attribute": "MODEL",
+            "before": "\u0414\u0432\u0438\u0433\u0430\u0442\u0435\u043b\u044c",
+            "after": "\u041c\u043e\u0442\u043e\u0440",
+            "reason": "Authored qualification edit, not an installed equipment claim"
+          },
+          {
+            "id": "validation-cp1251/asset-2",
+            "attribute": "MODEL",
+            "before": "\u0414\u0432\u0438\u0433\u0430\u0442\u0435\u043b\u044c",
+            "after": "\u041c\u043e\u0442\u043e\u0440",
+            "reason": "Authored qualification edit, not an installed equipment claim"
+          }
+        ],
+        "frames": {
+          "overview": [
+            -22.0,
+            -22.0,
+            132.0,
+            63.774097565683135
+          ],
+          "asset-1": [
+            0.8049577041267963,
+            10.405474374419413,
+            20.39692929589107,
+            25.773238905372743
+          ],
+          "labels-1": [
+            1.6038107886645498,
+            11.204327458957167,
+            14.701923788646685,
+            24.97438582083499
+          ],
+          "asset-2": [
+            31.486602996134494,
+            15.345468874411766,
+            57.1270180516383,
+            35.03217942150253
+          ],
+          "labels-2": [
+            32.6773438978171,
+            16.536209776094374,
+            49.36807391968018,
+            33.841438519819924
+          ]
+        },
+        "scope": "Already exposed authored multi-asset development; not reserved, plant or engineering acceptance"
+      },
+      "files": {
+        "basis.json": "bbdcc4841e08e7b010e777402210b73dea71c1ba69a9a2758251104ea11864b1",
+        "plan.json": "a75fb0abe99c35371caa3c2ce25ec498efdcd92e16bbf541c662c154e5acf6c8",
+        "source.dxf": "2044da26edd9188d07300f6b8f2abf4053956f31a7827bba488ec02c1351e158",
+        "software/library-save.comparison.json": "e3fb3108279e349c81baaafd327a0d751e1db1c02aa0a27274e08535966410fe",
+        "software/library.dxf": "6838be3d6cfbabde4e2472600b11a73aafeaf23b4b67e4d949af86df98907c01",
+        "software/result.json": "ebbb01c0068889a552b41222e208c2d1f8c1f623fba817927054d77d4424925b",
+        "software/value-spans.comparison.json": "acacd912972961de5c697e4c3c691471b7c1ff71ec8eb1f82ffb23bffbed2ee9",
+        "software/candidate/asset_candidates.csv": "91db40fb60f1969a76dd2ff0040874dd3012a2653757ee13658a545944857e08",
+        "software/candidate/byte-edits.json": "d0fe0971acca3a3da7b23ea4605fce6b0dc285b5bf7f0070f4a3d61ea6290943",
+        "software/candidate/cad_context.json": "a6f507314e1f1ac3bea463aebaff8aced7e653246507dc0115bc572cd11cf601",
+        "software/candidate/candidate.dxf": "1f78177f035dda54c25a26c55d727e5bde3f3e51f219a33dc1f35c5c90b49566",
+        "software/candidate/candidate.snapshot.json": "3c34799a83718cec32d1fa312ef81ca1b80beca3087dab640cd9d7d701d9c19b",
+        "software/candidate/comparison.json": "acacd912972961de5c697e4c3c691471b7c1ff71ec8eb1f82ffb23bffbed2ee9",
+        "software/candidate/plan.json": "f48aefb6570d2c7d8c0f8234ddc46ba9b3eab6b55f25d5616e21db1c0fe41563",
+        "software/candidate/README.txt": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0",
+        "software/candidate/snapshot.json": "7440e397780ee0bbebb851706decfe7296300858e7c10d5b73607063668c97d7",
+        "software/candidate/source.dxf": "2044da26edd9188d07300f6b8f2abf4053956f31a7827bba488ec02c1351e158",
+        "software/candidate/candidate-context/asset_candidates.csv": "989997fd0d12c3f9e12491ea134db642ef44839366ea50b87826d99c0980de3b",
+        "software/candidate/candidate-context/cad_context.json": "026a9d157ce1ac26f3043d65019a666ce404c665920c8c380a448455edfb4bac",
+        "software/candidate/candidate-context/README.txt": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0",
+        "software/candidate/candidate-context/snapshot.json": "3c34799a83718cec32d1fa312ef81ca1b80beca3087dab640cd9d7d701d9c19b",
+        "software/candidate/candidate-context/source.dxf": "1f78177f035dda54c25a26c55d727e5bde3f3e51f219a33dc1f35c5c90b49566"
+      }
+    },
+    "validation-braces": {
+      "basis": {
+        "case": "validation-braces",
+        "source_sha256": "614e83380bbe667c727363f02d32519b3340439028f0acd72807c82a45224abe",
+        "plan_sha256": "5126be71101f71b51332b50fd52980c3f0146a19fded4e7f8b8571c6b45d8508",
+        "assets": [
+          {
+            "id": "validation-braces/asset-1",
+            "handle": "3D",
+            "block": "ASSET",
+            "attributes": {
+              "ICT_ID": "validation-braces/asset-1",
+              "TAG": "FV-101",
+              "MODEL": "Assembly {C}",
+              "SERIAL": "UNCHANGED-0",
+              "SIZE": "DN50",
+              "VENDOR_PRIVATE": "retain {vendor} \\P 0"
+            },
+            "attribute_handles": {
+              "ICT_ID": "3F",
+              "TAG": "40",
+              "MODEL": "41",
+              "SERIAL": "42",
+              "SIZE": "43",
+              "VENDOR_PRIVATE": "44"
+            }
+          },
+          {
+            "id": "validation-braces/asset-2",
+            "handle": "47",
+            "block": "ASSET",
+            "attributes": {
+              "ICT_ID": "validation-braces/asset-2",
+              "TAG": "FV-102",
+              "MODEL": "Assembly {C}",
+              "SERIAL": "UNCHANGED-1",
+              "SIZE": "DN50",
+              "VENDOR_PRIVATE": "retain {vendor} \\P 1"
+            },
+            "attribute_handles": {
+              "ICT_ID": "49",
+              "TAG": "4A",
+              "MODEL": "4B",
+              "SERIAL": "4C",
+              "SIZE": "4D",
+              "VENDOR_PRIVATE": "4E"
+            }
+          }
+        ],
+        "changes": [
+          {
+            "id": "validation-braces/asset-1",
+            "attribute": "MODEL",
+            "before": "Assembly {C}",
+            "after": "Assembly {D}",
+            "reason": "Authored qualification edit, not an installed equipment claim"
+          },
+          {
+            "id": "validation-braces/asset-2",
+            "attribute": "MODEL",
+            "before": "Assembly {C}",
+            "after": "Assembly {D}",
+            "reason": "Authored qualification edit, not an installed equipment claim"
+          }
+        ],
+        "frames": {
+          "overview": [
+            -22.0,
+            -22.0,
+            132.0,
+            63.774097565683135
+          ],
+          "asset-1": [
+            9.087482618202229,
+            9.523402882109524,
+            30.098894038990704,
+            25.001630202969782
+          ],
+          "labels-1": [
+            14.573722498152565,
+            10.43777619543458,
+            29.18452072566565,
+            21.94366863861132
+          ],
+          "asset-2": [
+            42.1205142412659,
+            14.703488771401473,
+            70.10863421667669,
+            34.41533261344186
+          ],
+          "labels-2": [
+            49.635485994431264,
+            15.9559840635957,
+            68.85613892448247,
+            30.47673290195593
+          ]
+        },
+        "scope": "Already exposed authored multi-asset development; not reserved, plant or engineering acceptance"
+      },
+      "files": {
+        "basis.json": "b9b299efe64dd579317e72c3478c10f9f366bf769aedaa4cf5a33b36c2166174",
+        "plan.json": "5126be71101f71b51332b50fd52980c3f0146a19fded4e7f8b8571c6b45d8508",
+        "source.dxf": "614e83380bbe667c727363f02d32519b3340439028f0acd72807c82a45224abe",
+        "software/library-save.comparison.json": "9f947519550ec41c39a85e87a8f40ab94a9170fd818d31b7fa918ee266c2ada5",
+        "software/library.dxf": "e1f4f742cbad31a7e7fd6c87c489b62c2666f245cddaff095e5820eb7b356a69",
+        "software/result.json": "013cf31b63b3b056ab8c17702742f9a8cc53631c3bad2daa93ed84d03c966c7b",
+        "software/value-spans.comparison.json": "671621f5c4ac72118355c06edcec9cd8d5884afcefd2f746e40d9b0c4ed4bb26",
+        "software/candidate/asset_candidates.csv": "4bc3dad77dc1fa4754875f9745235ddfe3b341590b12acb02e3fa84b9feb7225",
+        "software/candidate/byte-edits.json": "bf6ff06fa5aba76d0b7c522b3712b9dca75c7b25e3a1f2239a5895c97b280b3e",
+        "software/candidate/cad_context.json": "69ab3f264ae860e836d792aebf3f24a7f6833f35de36aba1db82b55b1bda7c32",
+        "software/candidate/candidate.dxf": "37f87eecd7121e771cbeaf2f846739c671cfb6618ee4fde2e86d968defbe9acf",
+        "software/candidate/candidate.snapshot.json": "f04a300bb1f58eafc4a5b2c1fb1238fd4fe8fd3e7ab8bf206f6232c8a706b0a1",
+        "software/candidate/comparison.json": "671621f5c4ac72118355c06edcec9cd8d5884afcefd2f746e40d9b0c4ed4bb26",
+        "software/candidate/plan.json": "5126be71101f71b51332b50fd52980c3f0146a19fded4e7f8b8571c6b45d8508",
+        "software/candidate/README.txt": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0",
+        "software/candidate/snapshot.json": "932585fb6275ac6b1b7cdf9ed6b7d59f1822778112bf6b8a7cdeecba7881947b",
+        "software/candidate/source.dxf": "614e83380bbe667c727363f02d32519b3340439028f0acd72807c82a45224abe",
+        "software/candidate/candidate-context/asset_candidates.csv": "c9225c42a0b27a827bb99cadb5c087867591a01a34c9efd7e1515076b8e92122",
+        "software/candidate/candidate-context/cad_context.json": "5fa5d1f0a1d20a4cc6556efde0d071fff7c6e13a3a69a898248530fd52cc8d5a",
+        "software/candidate/candidate-context/README.txt": "2ff49ddd75dc8a7884c6ec1d250a8467408967b827b0980c5952030d90ec8ad0",
+        "software/candidate/candidate-context/snapshot.json": "f04a300bb1f58eafc4a5b2c1fb1238fd4fe8fd3e7ab8bf206f6232c8a706b0a1",
+        "software/candidate/candidate-context/source.dxf": "37f87eecd7121e771cbeaf2f846739c671cfb6618ee4fde2e86d968defbe9acf"
+      }
+    }
+  }
+}

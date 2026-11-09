@@ -1,0 +1,18 @@
+{
+  "schema": "cad-comparison-1",
+  "before_sha256": "3d3dab97cf7aaa1a8dc68b6cf9ecf5cb913adea5d527242e89d8647d46ad402f",
+  "after_sha256": "55019514602d860ec5cb170d83064bd5e77785f950e12bdb091aae91b81fcbb9",
+  "status": "pass",
+  "expected_edits": [
+    {
+      "id": "validation-cp1251/asset-1",
+      "attribute": "MODEL",
+      "before": "OTHER-CHOICE",
+      "after": "Мотор",
+      "reason": "Explicit fictional selection; keep concurrent SERIAL; authorized review pending"
+    }
+  ],
+  "unexpected": [],
+  "save_metadata_changed": true,
+  "boundary": "All ezdxf-exported entity tags including block definitions, attributes, layers and objects; all headers except listed save metadata and the two named EZDXF_META writer values. Same handles required. This is not a byte-identical DXF or proprietary project database/visual/engineering acceptance."
+}

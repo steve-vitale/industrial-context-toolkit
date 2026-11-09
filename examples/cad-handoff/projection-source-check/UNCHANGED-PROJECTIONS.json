@@ -1,0 +1,44 @@
+[
+  {
+    "role": "before",
+    "actual_old_current_byte_identical": {
+      "cad-source.dxf": true,
+      "identity-mapping.json": true,
+      "sheet.json": true,
+      "site.json": true,
+      "projection.json": true,
+      "drawing_register.csv": true
+    },
+    "committed_fixture_byte_identical": {
+      "cad-source.dxf": true,
+      "identity-mapping.json": true,
+      "sheet.json": true,
+      "site.json": true,
+      "projection.json": true,
+      "drawing_register.csv": false
+    },
+    "committed_csv_records_identical": true,
+    "scope": "Same-environment old/current outputs exact; committed CSV line endings differ, records identical"
+  },
+  {
+    "role": "after",
+    "actual_old_current_byte_identical": {
+      "cad-source.dxf": true,
+      "identity-mapping.json": true,
+      "sheet.json": true,
+      "site.json": true,
+      "projection.json": true,
+      "drawing_register.csv": true
+    },
+    "committed_fixture_byte_identical": {
+      "cad-source.dxf": true,
+      "identity-mapping.json": true,
+      "sheet.json": true,
+      "site.json": true,
+      "projection.json": true,
+      "drawing_register.csv": false
+    },
+    "committed_csv_records_identical": true,
+    "scope": "Same-environment old/current outputs exact; committed CSV line endings differ, records identical"
+  }
+]

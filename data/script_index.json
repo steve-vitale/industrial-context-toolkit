@@ -563,6 +563,11 @@
       "kind": "tool",
       "guide": "docs/PID_GRAPH_QUESTIONS.md",
       "purpose": "Trace supplied graph paths under explicit physical/logical and process/signal review policies; retain conflict-qualified associations and source-revision comparisons without engineering or CAD acceptance."
+    },
+    "scripts/receive_drawings.py": {
+      "kind": "tool",
+      "guide": "docs/DRAWING_HANDOFF.md",
+      "purpose": "Run supplied drawing receiving/resubmission jobs through existing source-bound markup and supported DXF checkers; retain portable engineer/manager briefs, scope changes, earlier findings and pending decisions."
     }
   }
 }

@@ -4,6 +4,11 @@ Use the reusable `cad_handoff.py review` command on your retained original and r
 one fictional drawing and an actual native-engine return. The report explains the failed exchange without waiving
 it. All files are local; Python 3.10+ and the pinned ezdxf dependency are sufficient. No CAD account/network is needed.
 
+Use [the engineering receiving workflow](../../../docs/DRAWING_HANDOFF.md) to turn
+the findings into correction actions and a manager's decision brief. For P&ID
+markup intent, also use the source-bound markup route; this DXF comparison checks
+declared equipment attributes and drawing preservation.
+
 ```sh
 python scripts/cad_handoff.py review examples/cad-handoff/source/valve.dxf examples/cad-handoff/native/qcad/returned.dxf --plan examples/cad-handoff/source/edit-plan.json --out out/cad-receiving-review
 ```
