@@ -22,10 +22,10 @@ and all 55 frozen method identities remain unchanged.
 | 2. Independent source-plus-plan reconstruction | Complete [software packet](SOFTWARE-RETAINED.json), unchanged byte checker | All ten candidates reconstruct exactly; all ten library-save baselines fail raw reconstruction, including nine with strict zero. |
 | 3. Strict zero and fresh native stored values | Forty [API saves](API-RETAINED.json), complete compressed receipt, six [UI packets](UI-RETAINED.json) | Complete supplied fields match on all ten API cases. All forty native saves fail strict preservation. Public UI baseline/edit each retain298strict differences; foreign baseline/edit each retain334. Full native qualification fails. |
 | 4. Same native frames/profile and actual inspection | [Thirty render observations](RENDER-VISUAL.json), [fresh pixels](UI-PIXELS.json), [twenty inspected views](UI-VISUAL.json) | Thirty fresh comparisons report zero outside-region pixels; twenty counterpart identities match. Foreign candidate views nevertheless occlude unchanged labels/geometry inside permitted regions. Complete readable delivery fails; cause not isolated. No mask/camera changes. |
-| 5. Actual UI edit/save/close/reopen, fields and returns | Four save packets, [pre-fresh return pins](UI-RETURNS.json), both fresh receivers | All six executions finish normally. All three planned foreign MODEL edits commit. Public fresh:79observations/4editable-field checks/12views. Foreign fresh:151/12/28. Complete inventory replay retains original runtime/config bytes. Field operation does not close preservation/readability failures. |
+| 5. Actual UI edit/save/close/reopen, fields and returns | Four save packets, [pre-fresh return pins](UI-RETURNS.json), both fresh receivers | All six executions finish normally. All three planned foreign MODEL edits commit. Public fresh: 79 observations / 4 editable-field checks / 12 views. Foreign fresh: 151 / 12 / 28. Complete inventory replay retains original runtime/config bytes. Field operation does not close preservation/readability failures. |
 | 6. Revised source and concurrent changes | All ten conflict/correction/original-scope resubmissions; [actual second-return receiving](../../../drawing-handoff/native-second-revision/README.md) | Stale proposals refuse; source/basis changes remain explicit; collateral findings and pending authority survive correction and portable replay. No installed record overwritten. |
-| 7. Refusals and planted losses |90refusals and42applicable deliberately wrong outputs in the software packet; exposed native revision/loss controls | Declared controls detect supplied faults. Foreign/XDATA losses are explicitly unavailable where public fixtures lack those records. Not every possible corruption. |
-| 8. Offline CI and regression suite | [Workflow](../../../../../.github/workflows/tests.yml), recheck.py, render-pixel and wrong-image-attribution controls | Offline replay covers complete results, six UI inventories, thirty comparisons and twenty inspected-image bindings. Both1ac11c4CIs succeeded; exact final-head CI is the final integration gate on [PR46](https://github.com/steve-vitale/industrial-context-toolkit/pull/46). CI reproduces negative qualification results; it cannot promote them to acceptance. |
+| 7. Refusals and planted losses | 90 refusals and 42 applicable deliberately wrong outputs in the software packet; exposed native revision/loss controls | Declared controls detect supplied faults. Foreign/XDATA losses are explicitly unavailable where public fixtures lack those records. Not every possible corruption. |
+| 8. Offline CI and regression suite | [Workflow](../../../../.github/workflows/tests.yml), recheck.py, render-pixel and wrong-image-attribution controls | Offline replay covers complete results, six UI inventories, thirty comparisons and twenty inspected-image bindings. Both 1ac11c4 CIs succeeded; exact final-head CI is the final integration gate on [PR46](https://github.com/steve-vitale/industrial-context-toolkit/pull/46). CI reproduces negative qualification results; it cannot promote them to acceptance. |
 
 ## Exposure and final-plan accounting
 
@@ -38,10 +38,10 @@ hatch source. Public identity annotations are authored, not extracted installed
 identities. Exact originals, selection metadata, exclusions, recipes and licenses
 are retained. No case was replaced after failure.
 
-Final plan steps1-3 are the ten-case matched software/strict/raw/loss/refusal and
-conflict/resubmission packets; step4 is forty API saves and complete fresh field
-reads; step5 is four UI saves and both fresh four-file receivers; step6 is thirty
-model/paper renders plus twenty actual fresh source/candidate inspections; step7
+Final plan steps 1–3 are the ten-case matched software/strict/raw/loss/refusal and
+conflict/resubmission packets; step 4 is forty API saves and complete fresh field
+reads; step 5 is four UI saves and both fresh four-file receivers; step 6 is thirty
+model/paper renders plus twenty actual fresh source/candidate inspections; step 7
 is retained inventories, offline replay and version-specific CI above. Every
 declared execution is terminal. Failed preservation and visual gates are retained
 outcomes rather than reasons to start another native campaign.
@@ -61,7 +61,7 @@ established. Native full-save preservation and complete readable delivery are
 Another native experiment is optional future work, not a prerequisite for trying
 the supported receiving tools.
 
-A separate repository freshness check reports50/52stages fresh: te.pid_live and
+A separate repository freshness check reports 50/52 stages fresh: te.pid_live and
 te.replay are stale against changed TE replay-server code. Those case-study
 artifacts were not refreshed here. This CAD audit and regression CI do not
 establish whole-repository artifact freshness.
