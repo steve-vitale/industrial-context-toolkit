@@ -1,0 +1,18 @@
+{
+  "schema": "foundation-procedural-key-1",
+  "interpretation": "Preselected author-known fictional generator; second namespace/layout, not an unseen drawing or independent validation",
+  "first": {
+    "history": [
+      {"key": ["R7", "P-101"], "orders": 3, "hours": "2.5"},
+      {"key": ["R8", "P-101"], "orders": 1, "hours": "3"}
+    ],
+    "request": {"id": "M02", "status": "not_supported"}
+  },
+  "second": {
+    "history": [{"key": ["R7", "P-101"], "orders": 2, "hours": "4.5"}],
+    "request": {"id": "M02", "status": "supported"},
+    "stale_questions": ["HISTORY", "DRAWING", "SYNTHESIS", "MISSING"],
+    "current_question": "INDEPENDENT",
+    "unavailable_source": "OPTIONAL"
+  }
+}
