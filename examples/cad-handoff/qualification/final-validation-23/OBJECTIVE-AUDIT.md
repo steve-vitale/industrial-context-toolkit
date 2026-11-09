@@ -1,26 +1,67 @@
 # Audit against the original drawing-handoff objective
 
-This is a progress audit, not a completion or qualification certificate. The
-[original protocol](../PROTOCOL.md), [final plan](PLAN.md) and all strict/byte
-criteria remain unchanged.
+The declared native executions are complete. This audits completed checks and
+their positive or negative outcomes, **not CAD qualification or engineering
+acceptance**. The [original protocol](../PROTOCOL.md), [final plan](PLAN.md)
+and all 55 frozen method identities remain unchanged.
 
-| Required outcome | Evidence now available | Remaining or failed gate |
+## Engineer and manager outcomes
+
+| Required outcome | Evidence | Outcome and boundary |
 |---|---|---|
-| Engineers start from their original drawing, instructions and consultant return | [Reusable receiving workflow](../../../../docs/DRAWING_HANDOFF.md), own-input contracts and portable job packet | Source-bound markup readings still need a reader and review. |
-| Managers receive requested changes, collateral changes and unresolved actions | [Actual native second-return brief](../../../drawing-handoff/native-second-revision/README.md), pending decisions and original-request resubmission | No manager/user benefit or company acceptance measured. |
-| Proposals bind exact sources and before values | All ten [software cases](SOFTWARE-RESULT.json),90refusals and retained original bytes | Supported single-line attributes/identity profile only. |
-| Preserve unplanned bytes and pass unchanged strict checking | All ten candidates reproduce independently from source plus plan, strict zero | Library/native full saves do not satisfy the same raw/preservation claim. |
-| Measure transfer without tuning to reserved outcomes |55method/contracts frozen before six new procedural/four pinned public-adapted cases | Procedural and authored-annotation limits remain explicit; no independent plant truth. |
-| Detect deliberate losses and stale/concurrent changes |42applicable planted losses detected by both checks; all ten conflict/resubmission/portable briefs reproduce | Unrequested collateral fields remain open even after selected corrections. |
-| Observe planned fields after actual native save/reopen and fresh processes | Ten complete supplied attribute sets match through API readbacks;40actual saved files retained | All40native saves fail strict preservation. These are failures, not unexplained zeros. |
-| Perform actual native UI edits and receive returned files | All four original executions finish normally and complete packets replay: public baseline/edit each 298 strict differences; three-asset foreign baseline/edit each 334, with all three planned edits committed. Public fresh receiving completes with 79 observations, four editability checks, twelve views and zero edits | Three-asset fresh receiver remains running. |
-| Compare fresh native frames and inspect actual model images | Public fresh packet reproduces: nine comparisons with zero outside-region pixels, six exact identities and six actually inspected source/candidate images | Three-asset receiver's pixel and actual-visual checks remain; public detail disclaimer clipping and all broader readability/engineering limits stay explicit. |
-| Inspect native rendering and editability separately |30actual model/paper images inspected; five new paper cases show content; supplied fields observed separately | Full readable delivery fails: small/rotated/overlapping text, trial marks and missing glyphs. Earlier blank-paper failures retained. |
-| Reproduce evidence offline and pass regression CI | Complete software/API/render and five UI inventories replay locally with exact support bytes. Public fresh pixel/image bindings reproduce. Both757a586 CIs and154da39 push CI succeed;154da39 log has98/98 test programs passed,37individual unittest skips, zero failures | Newer exact-head CI and remaining three-asset receiver evidence still required. No zero-skip or engineering acceptance claim. |
+| Start from original drawing, instructions and consultant return | [Reusable receiving workflow](../../../../docs/DRAWING_HANDOFF.md), own-input contracts and portable job packet | Implemented for supplied source-bound readings and supported DXF records. The command does not interpret images. |
+| Show requested changes, collateral changes and unresolved actions | [Actual native second-return brief](../../../drawing-handoff/native-second-revision/README.md), original-request resubmission and pending disposition | A selected MODEL correction does not close an unrequested SERIAL change or preservation findings. No human benefit or company acceptance measured. |
+| Reproduce another engineer's approach | Portable retained sources, job manifest, complete evidence and offline commands | Reproduces supplied inputs and findings; does not authenticate reviewers or prove installed truth. |
+| Keep unsupported operations explicit | [Operation selector](../../../../docs/CAD_QUALIFICATION.md) | Single-line attribute proposals are separate from geometry/connectivity editing, DWG and proprietary intelligent-P&ID exchange. |
 
-The positive result is a bounded source-preserving equipment-attribute proposal
-plus useful drawing-return verification. Full native-save preservation and
-complete readable delivery remain failed qualifications. A failed gate is a
-valid outcome to publish, rather than a reason to keep changing the method.
-Geometry/connectivity editing, DWG, proprietary intelligent-P&ID data, plant
-truth and authenticated organizational release need separate evidence.
+## Original protocol: every criterion
+
+| Criterion | Retained evidence | Result |
+|---|---|---|
+| 1. Exact source/before values; retain unplanned content | [Software results](SOFTWARE-RESULT.json), all ten sources/plans, refusal controls | All ten value-span candidates pass declared strict and independent raw checks. Native full saves remain separate failures. |
+| 2. Independent source-plus-plan reconstruction | Complete [software packet](SOFTWARE-RETAINED.json), unchanged byte checker | All ten candidates reconstruct exactly; all ten library-save baselines fail raw reconstruction, including nine with strict zero. |
+| 3. Strict zero and fresh native stored values | Forty [API saves](API-RETAINED.json), complete compressed receipt, six [UI packets](UI-RETAINED.json) | Complete supplied fields match on all ten API cases. All forty native saves fail strict preservation. Public UI baseline/edit each retain298strict differences; foreign baseline/edit each retain334. Full native qualification fails. |
+| 4. Same native frames/profile and actual inspection | [Thirty render observations](RENDER-VISUAL.json), [fresh pixels](UI-PIXELS.json), [twenty inspected views](UI-VISUAL.json) | Thirty fresh comparisons report zero outside-region pixels; twenty counterpart identities match. Foreign candidate views nevertheless occlude unchanged labels/geometry inside permitted regions. Complete readable delivery fails; cause not isolated. No mask/camera changes. |
+| 5. Actual UI edit/save/close/reopen, fields and returns | Four save packets, [pre-fresh return pins](UI-RETURNS.json), both fresh receivers | All six executions finish normally. All three planned foreign MODEL edits commit. Public fresh:79observations/4editable-field checks/12views. Foreign fresh:151/12/28. Complete inventory replay retains original runtime/config bytes. Field operation does not close preservation/readability failures. |
+| 6. Revised source and concurrent changes | All ten conflict/correction/original-scope resubmissions; [actual second-return receiving](../../../drawing-handoff/native-second-revision/README.md) | Stale proposals refuse; source/basis changes remain explicit; collateral findings and pending authority survive correction and portable replay. No installed record overwritten. |
+| 7. Refusals and planted losses |90refusals and42applicable deliberately wrong outputs in the software packet; exposed native revision/loss controls | Declared controls detect supplied faults. Foreign/XDATA losses are explicitly unavailable where public fixtures lack those records. Not every possible corruption. |
+| 8. Offline CI and regression suite | [Workflow](../../../../../.github/workflows/tests.yml), recheck.py, render-pixel and wrong-image-attribution controls | Offline replay covers complete results, six UI inventories, thirty comparisons and twenty inspected-image bindings. Both1ac11c4CIs succeeded; exact final-head CI is the final integration gate on [PR46](https://github.com/steve-vitale/industrial-context-toolkit/pull/46). CI reproduces negative qualification results; it cannot promote them to acceptance. |
+
+## Exposure and final-plan accounting
+
+Method freeze f5f53ef precedes selected public content download and reserved
+candidate evaluation. Input admission f9f2c4d precedes evaluation. All four exact
+original UI returns and parent packet identities are committed at e3c7899 before
+either fresh receiver launches. Six new procedural cases are same-author fixtures;
+four pinned public files cover three LibreCAD geometry categories and an ezdxf
+hatch source. Public identity annotations are authored, not extracted installed
+identities. Exact originals, selection metadata, exclusions, recipes and licenses
+are retained. No case was replaced after failure.
+
+Final plan steps1-3 are the ten-case matched software/strict/raw/loss/refusal and
+conflict/resubmission packets; step4 is forty API saves and complete fresh field
+reads; step5 is four UI saves and both fresh four-file receivers; step6 is thirty
+model/paper renders plus twenty actual fresh source/candidate inspections; step7
+is retained inventories, offline replay and version-specific CI above. Every
+declared execution is terminal. Failed preservation and visual gates are retained
+outcomes rather than reasons to start another native campaign.
+
+Runtime-packaging omissions, the palette-analysis error and cross-version PNG
+encoding comparison failure are recorded with evidence and corrected replay
+controls. Separate packaging/replay does not alter frozen native methods, strict
+comparison, raw reconstruction, masks or camera. Unknown rendering causes and
+unresolved native differences remain failures.
+
+## What remains outside this experiment
+
+No plant test, independent engineering sign-off, timed human review, company
+release, general geometry/connectivity editing or universal interoperability is
+established. Native full-save preservation and complete readable delivery are
+**failed qualifications**, even where stored fields and bounded byte edits pass.
+Another native experiment is optional future work, not a prerequisite for trying
+the supported receiving tools.
+
+A separate repository freshness check reports50/52stages fresh: te.pid_live and
+te.replay are stale against changed TE replay-server code. Those case-study
+artifacts were not refreshed here. This CAD audit and regression CI do not
+establish whole-repository artifact freshness.

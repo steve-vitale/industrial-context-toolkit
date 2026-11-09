@@ -1,4 +1,4 @@
-# DXF preservation evidence and unfinished qualification
+# DXF preservation evidence and qualification results
 
 The [current complete-procedure development](full-ui-22/README.md) combines
 multi-asset native UI edits, save/close/reopen, exact-frame captures and complete
@@ -8,8 +8,11 @@ full-save failures remain; [paper delivery fails](full-ui-22/PAPER-RENDER-BRIEF.
 on the two known problem sources. The [final frozen ten-case validation](final-validation-23/README.md)
 now passes its software/loss/refusal/revision controls; all forty native API saves
 still fail strict preservation. Thirty actual model/paper exports retain their
-readability limits. The two predetermined UI transfers and fresh receiving remain
-in progress. For the engineer/manager task, start with
+readability limits. All four predetermined UI saves and both fresh receivers
+finish normally. All six packets, thirty frozen comparisons and twenty inspected
+images replay offline. The foreign candidate views have occluded unchanged
+labels/geometry even though outside-region differences are zero; full native
+preservation and complete readable delivery fail. For the engineer/manager task, start with
 [drawing receiving](../../../docs/DRAWING_HANDOFF.md) and
 [current qualification scope/results](../../../docs/CAD_QUALIFICATION.md).
 

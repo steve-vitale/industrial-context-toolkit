@@ -33,7 +33,7 @@ initial render-analysis palette conversion error is retained in
 each image before comparing colors. One-pixel and palette-reindex controls cover
 that error. No native drawing, source, pixel mask or frozen method was changed.
 
-## Still running
+## Completed native UI campaign
 
 The two predetermined native UI cases are `public-air-water` and `final-foreign`.
 All four original matched baseline/edit/save/reopen executions finish normally.
@@ -50,10 +50,18 @@ source/candidate images are actually inspected: the declared value change and
 complete asset labels are visible, while the separate disclaimer is clipped in
 detail frames and visible in overview. These are model observations, not paper or
 engineering acceptance. [Pixel artifacts](UI-PIXELS.json) and [image observations](UI-VISUAL.json)
-remain separate. The three-asset fresh receiver is still running; its complete
-receiving and exact-frame visual checks remain unfinished.
-Those checks, exact-head CI and the final objective audit prevent a
-whole-workflow completion claim. Full native preservation already fails.
+remain separate. The three-asset fresh receiver also finishes normally with
+151 observations, twelve editability checks, 28 views/112 images and zero edits.
+Its complete packet replays; 21 comparisons report zero outside-region pixels
+and all fourteen counterpart identities match. All fourteen source/candidate
+images are actually inspected. Candidate detail images contain black occlusions
+interrupting unchanged labels/identity and nearby geometry. Those defects lie
+inside the permitted comparison regions: **zero outside-region pixels does not
+mean readable delivery passes**. Their rendering cause is not isolated; exact
+counterpart agreement does not explain them away. No mask, camera or source is
+changed. Across both fresh receivers: 30 comparisons, twenty exact identities
+and twenty actual source/candidate inspections. Full native preservation and
+complete readable delivery remain failed qualifications.
 The [objective audit](OBJECTIVE-AUDIT.md) maps the work to the original requirements
 and keeps failed and unfinished gates distinct.
 
@@ -66,7 +74,7 @@ bytes are retained separately in `ui-support/`. `receive_ui.py` restores them an
 the exact configuration from its already-public, externally bound pre-final
 parent packet. This avoids publishing configuration contents in new packets and
 still requires **every original file, size and hash** under the unchanged full
-inventory check. All five currently completed UI packets replay through it;
+inventory check. All six completed UI packets replay through it;
 the initial incomplete packaging is retained rather than rewritten.
 The fourth packet carries its exact runtime cache in `runtime-support/` beside
 the main archive. Subsequent completed receivers use that same retention route.
@@ -79,11 +87,14 @@ With the repository's pinned requirements, from the root:
 ```sh
 python examples/cad-handoff/qualification/final-validation-23/recheck.py
 python examples/cad-handoff/qualification/final-validation-23/test_render_pixels.py -v
+python examples/cad-handoff/qualification/final-validation-23/test_visual_bindings.py -v
 ```
 
 The first command rebuilds all ten software candidates, losses, refusals,
 conflicts and portable receiving briefs, and re-scores the complete retained API
-and render evidence. It calls no model, native editor or network service. It
+and render evidence, all six complete UI inventories, both fresh pixel results
+and every inspected image binding. A negative control rejects attributing another
+real image to the claimed source/frame. It calls no model, native editor or network service. It
 does not repeat the native executions or constitute independent engineering
 review. Source interpretation, site applicability and company acceptance remain
 with the responsible engineering team.

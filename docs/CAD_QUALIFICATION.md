@@ -63,7 +63,14 @@ cases: both public returns have 298 strict differences and both three-asset
 foreign returns have 334. All planned edits commit. Public fresh receiving and
 its frozen model comparisons complete: nine comparisons have zero outside-region
 pixels and six exact identities match, with six source/candidate images actually
-inspected. The three-asset fresh receiver remains running. This is not whole native CAD qualification or independent
+inspected. Three-asset fresh receiving also completes: 151 observations, twelve
+editability checks and 28 views. Its 21 comparisons report zero outside-region
+pixels and fourteen exact identities match. Actual inspection of all fourteen
+source/candidate images nevertheless finds occluded unchanged labels/geometry
+inside permitted regions; complete readable delivery fails. Pixel masks and
+matching counterpart images cannot replace inspection. All six complete UI
+packets, thirty comparisons and twenty inspected images replay offline.
+This is not whole native CAD qualification or independent
 plant validation. No plant review time, customer acceptance or engineering release
 has been measured.
 

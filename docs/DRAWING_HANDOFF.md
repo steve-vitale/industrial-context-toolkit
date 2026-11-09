@@ -98,6 +98,11 @@ fields cannot establish paper preservation: the [exposed native record audit](..
 finds changed paper settings and a lost display viewport even after a no-edit
 round trip. Keep the exact original, confirm required layout/page settings and
 route any paper discrepancy as an unresolved receiving finding.
+Also inspect the actual images rather than accepting a masked pixel score: the
+[reserved multi-asset check](../examples/cad-handoff/qualification/final-validation-23/UI-VISUAL.json)
+reports zero differences outside permitted text regions while candidate images
+have occluded unchanged labels and geometry within those regions. Keep such a
+return open and request usable evidence; matching stored values cannot close it.
 
 ## Before sending work out
 

@@ -53,7 +53,11 @@ still fail preservation, and thirty native renders retain readability limits.
 All four predetermined UI baseline/edit executions complete normally, retaining
 298/334 strict differences per public/foreign case. Public fresh receiving,
 nine frozen model comparisons and six actual source/candidate image inspections
-complete; the three-asset receiver remains in progress.
+complete. Three-asset fresh receiving also finishes:151observations,12editability
+checks,28views;21comparisons report zero outside-region pixels and14identities
+match. Actual inspection of all14source/candidate images finds occluded unchanged
+labels/geometry inside permitted regions. Readable delivery still fails. All six
+complete UI packets,30comparisons and20inspected image bindings reproduce offline.
 The previous branch CI failure was [PNG encoding equality](../examples/cad-handoff/qualification/full-ui-22/CI-PNG-ENCODING.md),
 reproduced with CI's Pillow version and corrected to exact decoded-pixel checks;
 new exact-head CI remains required. Engineering acceptance is not inferred. Inspect

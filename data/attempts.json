@@ -6472,6 +6472,27 @@
         "examples/cad-handoff/qualification/final-validation-23/recheck.py",
         "docs/JOURNAL.md#230-complete-fresh-public-receiving-and-inspect-every-model-frame"
       ]
+    },
+    {
+      "id": "A391",
+      "function": "intake_and_reuse",
+      "date": "2026-11-08",
+      "change": "Complete the original foreign four-file receiver, retain every byte, replay all six UI packets, inspect every source/candidate frame and audit all declared protocol/plan steps.",
+      "hypothesis": "Fresh receiving and exact masked pixels must be reported separately from actual readable delivery and full-save preservation.",
+      "evidence": "Foreign original host/native/controller/container exit0;303helper calls151observations12editability checks28views112images0edits. Complete packet replay passes. Frozen21comparisons have0outside pixels and14exact counterpart identities match, but actual14source/candidate inspections find candidate black occlusions in unchanged labels/geometry inside permitted regions. Cause not isolated; readable delivery fails. Combined final replay passes ten software cases,40API saves,30renders,six complete UI packets,30pixel comparisons,20identities and20actual image bindings. One regression method rejects wrong-frame and wrong-label attribution using another real image; all55frozen identities match.",
+      "runs": "One actual foreign fresh receiver; complete six-packet replay;21new frozen comparisons/14identities;14actual inspections;combined final offline replay;1test method with2negative attribution controls",
+      "verdict": "kept",
+      "why": "Completes declared native execution and publishes a negative native-preservation/readability qualification. Zero outside-region pixels cannot establish readable delivery. No source repair, new recorder, mask/camera change or acceptance waiver. Exact final-head CI remains an integration gate; no company or engineering acceptance.",
+      "source": [
+        "examples/cad-handoff/qualification/final-validation-23/UI-RETAINED.json",
+        "examples/cad-handoff/qualification/final-validation-23/ui-evidence/final-foreign-receiving/RESULT.json",
+        "examples/cad-handoff/qualification/final-validation-23/UI-PIXELS.json",
+        "examples/cad-handoff/qualification/final-validation-23/UI-VISUAL.json",
+        "examples/cad-handoff/qualification/final-validation-23/ui-pixels/final-foreign/RESULT.json",
+        "examples/cad-handoff/qualification/final-validation-23/test_visual_bindings.py",
+        "examples/cad-handoff/qualification/final-validation-23/OBJECTIVE-AUDIT.md",
+        "docs/JOURNAL.md#231-finish-the-declared-campaign-and-retain-the-visual-failure"
+      ]
     }
   ],
   "not_tried": [
@@ -7887,9 +7908,9 @@
     {
       "id": "N119",
       "function": "intake_and_reuse",
-      "status": "not-done",
+      "status": "done",
       "idea": "Freeze and qualify the corrected complete native CAD workflow on fresh reserved cases with foreign/literal/encoding fields, multiple assets and revision/conflict checks.",
-      "why_not_yet": "Final ten-case frozen software/API/render checks and all4actual UI saves complete; strict failures retained298public/334foreign. Public fresh receiving now completes with79observations,4editability checks,12views,9pixel comparisons/0outside pixels,6exact identities and6actual source/candidate image inspections; complete packet and pixel/visual bindings replay. Three-asset fresh receiver remains live; its receiving/pixels/actual views plus final exact-head CI/objective audit remain. No whole native CAD or engineering acceptance inferred.",
+      "why_not_yet": "Declared frozen-method evaluation completes as a negative qualification in A391:ten software cases,40native API saves,30native renders,four actual UI saves and two fresh receivers retained and replayed. Native full-save preservation and complete readable delivery fail. All30fresh masked comparisons/20counterpart identities reproduce, while20actual image inspections retain foreign candidate occlusions inside permitted regions. No method/source/mask repair or engineering-acceptance promotion; future native redesign is separate work. Exact final-head CI is the integration gate on PR46.",
       "source": [
         "examples/cad-handoff/qualification/PROTOCOL.md",
         "examples/cad-handoff/qualification/observer-transport-21/README.md",
@@ -7903,7 +7924,9 @@
         "docs/CAD_QUALIFICATION.md",
         "examples/cad-handoff/qualification/final-validation-23/README.md",
         "examples/cad-handoff/qualification/final-validation-23/RECEIVING-LAUNCH.json",
-        "examples/cad-handoff/qualification/final-validation-23/UI-VISUAL.json"
+        "examples/cad-handoff/qualification/final-validation-23/UI-VISUAL.json",
+        "examples/cad-handoff/qualification/final-validation-23/OBJECTIVE-AUDIT.md",
+        "docs/JOURNAL.md#231-finish-the-declared-campaign-and-retain-the-visual-failure"
       ]
     }
   ]

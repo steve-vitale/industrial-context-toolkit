@@ -9908,3 +9908,42 @@ handoff/receiving/resubmission programs pass. This is not a zero-skip or enginee
 acceptance result. Newer exact-head CI and the still-live three-asset fresh
 receiver/pixels/actual-visual checks remain unfinished. No native restart or
 qualification promotion is made.
+
+## 231. Finish the declared campaign and retain the visual failure
+
+The original three-asset fresh receiver finishes normally without restart:
+303helper calls,151observations,12editable-field checks,28views/112images and
+zero edits. Retain its complete packet and original runtime bytes; all source,
+return, launch and inventory checks reproduce. All six declared UI executions
+are now terminal normal. This is successful execution, not CAD acceptance.
+
+The frozen pixel method reports21comparisons with zero outside-region changes
+and14exact counterpart identities. Actual inspection of every one of its14
+source/candidate views finds black rectangular occlusions interrupting unchanged
+labels/identity and nearby geometry in candidate details. These lie inside the
+permitted regions, so zero outside pixels does not reject them. Their rendering
+cause is not isolated. Matching counterpart images and stored fields do not
+close readable delivery. Retain both the automated result and failed visual
+finding; no camera, mask, native source or frozen method is changed.
+
+Combined offline replay completes normally:ten software cases,40actual API
+saves,30native renders,six complete UI inventories,30fresh pixel comparisons,
+20exact identities and20actually inspected source/candidate image bindings.
+All55method identities still match. Add one independent image-attribution test:
+copying another real image's valid member/hash/pixels into either the wrong frame
+or wrong source/candidate label must refuse. Both negative controls pass. Its
+initial import selected the older replay module and failed; explicit loading of
+the final module corrects this test harness error without changing frozen code.
+
+The objective audit maps every original protocol criterion and final plan step
+to evidence and failed/passed boundaries. N119's declared evaluation is complete
+as a negative native qualification. Full-save preservation and complete readable
+delivery fail. Useful source-preserving attribute proposals and original-scope
+consultant-return verification remain separate supported workflows. No new CAD
+recording, source repair or reader redesign is required to publish this outcome.
+Exact final-head CI remains the integration gate. Human benefit, engineering
+review and company release remain unmeasured.
+
+A separate pipeline status check reports50/52fresh stages;TE live/replay stages
+are stale against changed replay-server code. No unrelated TE runtime is started
+and no whole-repository freshness claim is made.

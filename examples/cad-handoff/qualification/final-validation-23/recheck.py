@@ -16,6 +16,13 @@ from receive_render import receive as receive_render
 from verify_bytes import verify
 
 
+def checked_view_member(row,captures):
+    capture=captures[(row['label'],row['frame'])]
+    member='attempt/job/ui/'+Path(capture['images'][-1]['path']).with_suffix('.canvas.png').name
+    require(row['archive_member']==member,'Inspected image does not match its declared label/frame')
+    return member
+
+
 def check_ui_views():
     retained=read(HERE/'UI-RETAINED.json')['attempts']
     completed={name.removesuffix('-receiving') for name in retained if name.endswith('-receiving')}
@@ -35,9 +42,7 @@ def check_ui_views():
             rows=visual[case]['views']
             require(len(rows)==2*len(frames) and {(r['label'],r['frame']) for r in rows}=={(label,frame) for label in ('source','candidate') for frame in frames},'Actual inspected view omitted/duplicated')
             for row in rows:
-                capture=captures[(row['label'],row['frame'])]
-                member='attempt/job/ui/'+Path(capture['images'][-1]['path']).with_suffix('.canvas.png').name
-                require(row['archive_member']==member,'Inspected image does not match its declared label/frame')
+                checked_view_member(row,captures)
                 raw=saved[row['archive_member']]
                 require(row['actually_viewed'] is True and hashlib.sha256(raw).hexdigest()==row['sha256'],'Actual inspected image byte binding differs')
                 with Image.open(io.BytesIO(raw)) as im:
