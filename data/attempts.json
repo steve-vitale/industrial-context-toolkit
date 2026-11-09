@@ -6620,6 +6620,23 @@
         "examples/map-explorer/worked/transfer/SUMMARY.json",
         "examples/map-explorer/FIRST-FAILURE.md"
       ]
+    },
+    {
+      "id": "A399",
+      "function": "intake_and_reuse",
+      "date": "2026-11-09",
+      "change": "Incorporate the public Claude-to-CAD account into shared-map component-generation requirements, with official FeatureScript/API clarification and the linked artifact-testing method.",
+      "hypothesis": "A reusable engineering map should yield drafts an engineer can take over, with scoped corrections and actual-output receiving checks; a plausible preview or fast generator is insufficient.",
+      "evidence": "Resolved shared link to Moshe Baum public post and read visible discussion. Official Onshape sources distinguish FeatureScript representation from editability/parametric structure. Linked Aaddrick Williams article includes checker failures and incomplete final checks. Foundation/agent requirements now cover editable source, manual-edit/regeneration preservation, applicable correction records, output/spec binding and complete task effort.",
+      "runs": "Primary public-source inspection and documentation changes only. No source CAD/model experiment repeated, model call, copied implementation, Onshape/Blender integration, human timing or new native session.",
+      "verdict": "kept",
+      "why": "Applies the lessons to the missing map-to-generator projection without widening into general mechanical-CAD research. Author opinions are not universal AI limits. Existing native preservation and paper failures remain unchanged; planned criteria are not implemented capability.",
+      "source": [
+        "docs/JOURNAL.md#241-keep-map-generated-components-editable-and-test-the-engineers-whole-task",
+        "docs/COMPETITIVE_WORKFLOWS.md#moshe-baum-keep-generated-components-useful-for-the-engineer-who-edits-them",
+        "docs/ENGINEERING_FOUNDATION.md#human-editable-components-and-retained-corrections",
+        "docs/DELIVERY_ROADMAP.md"
+      ]
     }
   ],
   "not_tried": [

@@ -184,6 +184,17 @@ These checks produce review needs, not operating authorization or an accepted sa
 
 ## What connects today: the hub and spokes
 
+The intended hub is **shared engineering context that agents can query and use
+to draft its component pieces**. Overlapping records can scaffold the next list,
+datasheet, narrative or drawing from facts already present. Each output needs
+its own minimum context; gaps remain visible in a rough draft or outline.
+Generated documents retain their original evidence lineage, so copying a fact
+around the wheel cannot create independent confirmation. The
+[foundation design](docs/ENGINEERING_FOUNDATION.md#one-engineering-model-many-draft-components)
+defines this direction and the current implementation gap. Today's graph is
+primarily an export/query surface; a general map-to-generator-model path is not
+implemented. The working routes today are:
+
 1. **Build the draft.** An image route uses a supplied or approved-assistant extraction; a description route
    uses an engineer/assistant-authored model and layout; supported DEXPI XML is read directly. Each produces
    a documented model form. The [workflow map](docs/WORKFLOWS.md) shows which outputs that form supports.

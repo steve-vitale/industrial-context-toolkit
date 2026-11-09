@@ -51,6 +51,15 @@ It is a consumer, not a new graph producer, original-document reader or live syn
 
 ## Files with different jobs
 
+The [shared-model direction](ENGINEERING_FOUNDATION.md#one-engineering-model-many-draft-components)
+is to generate component drafts from selected map context, checking each target's
+minimum inputs and retaining field-level sources, gaps and derivation lineage.
+The table below describes **today's implemented file roles**. Its one-way export
+limits still apply: the explorer does not turn a graph into a generator model or
+supply missing layout/behavior. A future projection should reuse these contracts
+with explicit field mappings and omissions rather than silently treating them as
+equivalent editable models.
+
 The [calculation review](../examples/consulting-start/CALCULATION_REVIEW.md),
 [automation requirements/handoff](../examples/consulting-start/AUTOMATION_HANDOFF.md)
 and [scope/quote/receiving forms](../examples/consulting-start/README.md) are manual

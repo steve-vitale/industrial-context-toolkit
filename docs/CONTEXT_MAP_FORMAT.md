@@ -579,6 +579,14 @@ CFIHOS RDL falls under POSC Caesar's CC BY-ND default.
 
 ## How today's toolkit formats fit in
 
+This is the **design target**, not an implemented migration. It supports the
+[shared engineering model and component-view direction](ENGINEERING_FOUNDATION.md#one-engineering-model-many-draft-components):
+an agent queries the common context and drafts a component when its required
+context exists, or returns a partial scaffold with explicit gaps. Derived
+components retain original evidence lineage; reimporting a generated document
+must not create independent corroboration. Existing graph readers/generators
+continue to use their documented contracts until actual adapters are validated.
+
 | Today | What it is | In `context-map-1` | Fate |
 |---|---|---|---|
 | Prediction format (`symbols`, `connections` per sheet) | a reader's output for one P&ID image | evidence behind PLANT appearances and relations, via the sheet read | **stays** as the reader slot contract; not stored in the map |

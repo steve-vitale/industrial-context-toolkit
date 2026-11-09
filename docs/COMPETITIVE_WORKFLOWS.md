@@ -45,6 +45,46 @@ a platform, and leave the recipient an editable, source-bound package. The
 [first-result trial](DELIVERY_ROADMAP.md#measure-the-whole-first-result) defines the remaining access,
 portability and effort checks; no new browser intake or simulator integration is implied.
 
+## Moshe Baum: keep generated components useful for the engineer who edits them
+
+Inspected **2026-11-09 UTC**: [Moshe Baum's Claude-to-CAD account](https://www.linkedin.com/posts/moshebaum_ive-been-experimenting-with-claude-to-cad-share-7525400010524590081-dP56/),
+shared as [gtXsdiEP](https://lnkd.in/p/gtXsdiEP). He reports repeated correction,
+slow browser interaction and difficulty taking over generated CAD. These are
+one practitioner's observations, not measured toolkit/vendor comparisons or
+proof of universal limits on AI reasoning or creativity. No model or CAD session
+from the post was reproduced here.
+
+There is an important technical distinction. [Onshape's FeatureScript introduction](https://cad.onshape.com/FsDoc/intro.html)
+explains that native feature operations also have FeatureScript representations.
+Thus script use alone does not distinguish an opaque result from an editable
+parametric model. Qualify the actual feature/parameter structure and receiving
+behavior. The [official API documentation](https://onshape-public.github.io/docs/)
+provides a structured integration route; its existence does not demonstrate
+speed, correctness or an implemented toolkit connector.
+
+The discussion links to [Aaddrick Williams's scene-testing account](https://aaddrick.com/blog/testing-blender-scenes-built-by-llm-agents).
+Its useful methodological lesson is to check the evaluated artifact, challenge
+the check with planted defects, and bind results to the delivered file/spec.
+Its own reported checker errors and unfinished final-file checks matter too.
+No Blender thresholds, physics results or code are adopted for plant engineering.
+
+Apply these lessons to the [shared map and component-view design](ENGINEERING_FOUNDATION.md#human-editable-components-and-retained-corrections):
+
+| Design requirement for this toolkit | Observable acceptance for a future component adapter |
+|---|---|
+| Deliver an editable basis at the granularity the engineer needs | Change one declared field, relationship or parameter using the chosen receiving route; retain unrelated content and reproduce the changed draft. Qualify parametric behavior separately when claimed. |
+| Prefer bounded, inspectable operations | Map one selected engineering change into the existing generator or a qualified structured tool route; retain commands, versions and failures. Use UI checks where they test behavior not established by the structured route. |
+| Carry applicable corrections between sessions | A fresh process receives the same scoped correction/rule record and reproduces the retained failing case. The record includes provenance, applicability and the counterexample; it is supplied context, not a model-training claim. |
+| Check delivered results independently of their descriptions | Read actual output fields/relationships and, where relevant, evaluated geometry or native edits. Wrong units, endpoints, stale files and lost records must fail fixed checks. A render and a successful script exit are insufficient. |
+| Establish benefit on the whole task | Compare preparation, retries, review, manual correction and receiving against the same job done through the existing route. Software wall time alone cannot establish engineer time saved. |
+
+Start with a bounded draft from known context and requirements. Do not replace
+the missing map-to-generator projection with another general mechanical-CAD
+research campaign. Existing [CAD qualification failures](CAD_QUALIFICATION.md)
+remain failures; no Onshape/FeatureScript adapter or new native-editability
+qualification is established by this source review. Human benefit remains an
+open measurement in the [delivery roadmap](DELIVERY_ROADMAP.md).
+
 ## Ideas worth applying now
 
 1. **Show one unit accumulating useful information.** Follow stable asset IDs from an original record to
@@ -125,6 +165,10 @@ source navigation, not another capability catalog:
 - The PaC source above is now explicitly retained under A397. The portable
   foundation implementation/evidence is A396. The earlier attribution gap does
   not establish that all lessons were already incorporated.
+- [Moshe Baum's generation/editing account](#moshe-baum-keep-generated-components-useful-for-the-engineer-who-edits-them),
+  `gtXsdiEP`: A399 adds component-design acceptance requirements and primary
+  FeatureScript/API clarification. It implements no new generator, memory system
+  or CAD connector and does not close the existing native qualification failures.
 
 N052 (human review timing), N062 (real organizational usefulness) and N063
 (authorized company receiving and next change) stay open in `docs/TRIED.md`.
