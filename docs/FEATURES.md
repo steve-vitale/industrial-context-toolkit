@@ -444,7 +444,7 @@ Example review: not yet: needs review
 <details>
 <summary>Example files, tests and independent review</summary>
 
-- **Registered example files:** [`HANDOFF.md`](../examples/foundation-cycle/worked/received/HANDOFF.md), [`receipt.json`](../examples/foundation-cycle/worked/received/receipt.json), [`score.json`](../examples/foundation-cycle/worked/procedural/score.json), [`DEVELOPMENT.json`](../examples/foundation-cycle/DEVELOPMENT.json)
+- **Registered example files:** [`HANDOFF.md`](../examples/foundation-cycle/worked/received/HANDOFF.md), [`receipt.json`](../examples/foundation-cycle/worked/received/receipt.json), [`score.json`](../examples/foundation-cycle/worked/procedural/score.json), [`DEVELOPMENT.json`](../examples/foundation-cycle/DEVELOPMENT.json), [`VALIDATION.json`](../examples/foundation-cycle/VALIDATION.json)
 - **Tests:** `test_foundation_handoff.py`
 - **Independent review:** none yet
 

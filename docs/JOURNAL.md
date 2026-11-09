@@ -10092,3 +10092,26 @@ LinkedIn publication or outreach is added. PaC and additional standard/simulator
 adapters remain deferred pending actual versioned receiving needs and permitted
 examples. Alerts remain a managed-service/integration decision. Local software
 receiving does not close the open human/company trials.
+
+
+## 239. Verify the portable foundation without hidden working-folder inputs
+
+The working-tree source-only dispatch passes 75/75 programs, zero failures,
+35 individual skipped cases and three explanatory platform notices; no additional
+skip notices. Executable method pins remain unchanged while documentation and
+registration commits are made; this is not a hermetic exact-head full-suite run.
+A selected fresh Git archive at b671f1b reopens the complete committed receiving
+packet without network or site packages. All 37 frozen files match. The actual
+existing receiver checks 125 content files plus the receipt, complete represented
+records and retained originals/history. This is software portability, not a
+company receiver or independent engineering review.
+
+The normal full-suite preflight finds installed dependencies but lacks the public
+TE caches; no local full-suite pass is claimed. The earlier -S diagnostic omitted
+site packages and is retained rather than interpreted as missing installation.
+Publication/registry checks pass with their stated limits. Rescore reports
+17 MATCH, seven MATCH-OLD, five GAP and six SKIP; absent optional keys remain
+unverified. The matrix has 51 cells with absent optional source caches. Pipeline
+freshness remains 50/52; manual te.pid_live and te.replay receipts are stale.
+The new feature remains independently unreviewed. Exact-final-head full CI is a
+separate release gate recorded in PR48; pending checks are never counted as passes.

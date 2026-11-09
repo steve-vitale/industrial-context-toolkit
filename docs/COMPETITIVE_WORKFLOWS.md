@@ -81,9 +81,7 @@ Use the standards publisher and the target implementation to settle versions, ra
 marketing page into an exchange contract. We inspected public descriptions, not the normative specification.
 No MTP/rMTP generator, validator, PLC deployment or qualified standards adapter is supplied here.
 
-## A consulting offer to test against the alternatives
-
-### Plant as Code: preserve common identities without inventing a common format
+## Plant as Code: preserve common identities without inventing a common format
 
 On 2026-11-09 UTC, the earlier short link
 [gQ4Gb26t](https://lnkd.in/p/gQ4Gb26t) was resolved to
@@ -104,7 +102,7 @@ is implemented. A future adapter needs a released version, permitted source
 examples and a real receiving contract before adoption. Reusing a file-format
 name or producing a large package is insufficient.
 
-### Trace the lessons through existing evidence
+## Trace the lessons through existing evidence
 
 The existing attempt ledger and feature registry remain authoritative. This is
 source navigation, not another capability catalog:
@@ -134,6 +132,8 @@ Managed notifications remain a product/integration decision in the
 [delivery roadmap](DELIVERY_ROADMAP.md), with no new alert service here. Do not
 treat documented advice, an exposed software example, independent review and a
 company-accepted result as interchangeable.
+
+## A consulting offer to test against the alternatives
 
 Lead with the client's stalled job: **reconcile the selected records or check a consultant's return,
 then hand back an actionable correction package in the client's existing workflow.** The

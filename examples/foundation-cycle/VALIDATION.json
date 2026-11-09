@@ -1,0 +1,82 @@
+{
+  "schema": "foundation-integration-evidence-1",
+  "date_utc": "2026-11-09",
+  "frozen_method": "2f9ce89",
+  "source_only": {
+    "programs_passed": 75,
+    "programs_failed": 0,
+    "unittest_cases_skipped": 35,
+    "platform_notices": 3,
+    "additional_skip_notices": 0,
+    "boundary": "Actual working-tree dispatch; method pins unchanged throughout, docs/registration commits made during execution. Exact-final-head CI is separate."
+  },
+  "freeze_files_verified": 37,
+  "actual_packet_receiving": {
+    "content_files": 125,
+    "receipt_additional": true,
+    "company_acceptance": false
+  },
+  "fresh_git_archive": {
+    "head": "b671f1b6f10900be46ba6d83fefc76a7d75ec565",
+    "selected_git_archive": true,
+    "network": false,
+    "optional_packages": false,
+    "exit": 0,
+    "stdout": "{\"schema\": \"foundation-delivery-receipt-1\", \"files\": 125, \"company_acceptance\": false}\n",
+    "stderr": "",
+    "boundary": "Committed files in a new directory; not a complete clone or real company recipient"
+  },
+  "full_local": {
+    "tests_run": false,
+    "reason": "Missing optional public TE caches. Normal Python finds installed dependencies; first -S preflight deliberately omitted site packages and is retained as a diagnostic, not a package-installation finding."
+  },
+  "publication_claims": {
+    "numeric_match": 41,
+    "prose_only": 1,
+    "failures": 0,
+    "meaning": "Claim/result agreement only; not model reproduction"
+  },
+  "rescore": {
+    "match": 17,
+    "match_old": 7,
+    "gap": 5,
+    "skip": 6,
+    "reason": "Five historical tables lack predictions; six selected outputs lack optional cached keys"
+  },
+  "corpus_matrix": {
+    "configured_cells": 95,
+    "recorded_pass": 64,
+    "recorded_fail": 23,
+    "not_applicable": 8,
+    "cells_with_absent_optional_source_caches": 51,
+    "meaning": "Registry/output consistency; absent raw caches not verified here"
+  },
+  "pipeline": {
+    "fresh": 50,
+    "total": 52,
+    "stale": [
+      "te.pid_live",
+      "te.replay"
+    ]
+  },
+  "catalog": {
+    "features": 35,
+    "independently_reviewed_examples": 21,
+    "foundation_independent_review": false
+  },
+  "logs_sha256": {
+    "source-only.log": "08ac529e04c2e18198343cb02848800e2e8198e764a009d056ff6e65e020f4a2",
+    "full-preflight.log": "320f14fbe698a58f11a1360dc0c819fdb47cc42cceb3a2a66fa4719b56b2c53c",
+    "initial-minus-site-preflight.log": "78d4e01b12967af843b53a882bd139b08d8c00d6a687495339ba01afba1b62ce",
+    "rescore.log": "e22541c8b101906baf089bb166c2ad4fd8a093c246b04c835a29f89da30a24d3",
+    "claims.log": "747826df9a7286b1e37b4531177de96434a7d5f1e8538c2d610ab97c0ffd8bab",
+    "saved-benchmarks.log": "5e2f7a2aa8c16d67d0f67d1a93f3e96ed229ab745f85998693e8bf066ebad9d3"
+  },
+  "ci": "See PR48 metadata for exact-final-head CI; no pending CI is counted as a pass",
+  "unestablished": [
+    "Human benefit/time or demand",
+    "Authenticated company acceptance and plant truth",
+    "ChangePilot or another product importer",
+    "Live source maintenance and access controls"
+  ]
+}
