@@ -9862,3 +9862,21 @@ All three completed packets replay: public baseline/edit each298strictdifference
 authored foreign baseline334. Original native execution and55method hashes are
 unchanged; the fourth edited execution is still running. No cache/config omission
 is waived and no incomplete packet is silently relabeled complete.
+
+## 229. Complete the reserved UI saves before fresh receiving
+
+The original three-asset edited execution terminates normally without a restart.
+All three requested MODEL edits commit, with195helper calls,97observations,
+12editable-field checks,14views and56images. It retains334strict differences,
+matching its no-edit baseline's count. The public baseline/edit each retain298.
+All four original actual UI executions now finish; successful field operation
+remains separate from failed full-save preservation.
+
+Retain the fourth original packet plus exact runtime caches beside it. The
+unchanged receiver reproduces its complete inventory and result. All55frozen
+method identities still match. Pin the four exact returned DXFs, completed parent
+archives, prepared source/config identities and fresh-host driver before native
+launch at commit e3c7899. Both original fresh four-file receivers then start in
+new containers, using the unchanged method. No new source, camera, font or mask
+variant is introduced. Their receiving/pixel/actual-visual gates and final CI
+remain unfinished. No independent plant or organizational acceptance is inferred.

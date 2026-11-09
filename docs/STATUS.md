@@ -50,7 +50,9 @@ model receiving. Native full-save preservation and readable paper delivery fail
 on the declared exposed cases. The [frozen ten-case validation](../examples/cad-handoff/qualification/final-validation-23/README.md)
 now passes software/loss/refusal/revision checks; all forty native API saves
 still fail preservation, and thirty native renders retain readability limits.
-The two predetermined UI transfers and fresh receiving remain in progress.
+All four predetermined UI baseline/edit executions complete normally, retaining
+298/334 strict differences per public/foreign case. Their two fresh receiving
+processes remain in progress.
 The previous branch CI failure was [PNG encoding equality](../examples/cad-handoff/qualification/full-ui-22/CI-PNG-ENCODING.md),
 reproduced with CI's Pillow version and corrected to exact decoded-pixel checks;
 new exact-head CI remains required. Engineering acceptance is not inferred. Inspect

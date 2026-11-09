@@ -36,10 +36,15 @@ that error. No native drawing, source, pixel mask or frozen method was changed.
 ## Still running
 
 The two predetermined native UI cases are `public-air-water` and `final-foreign`.
-Their original matched baseline/edit/save/reopen executions are in progress;
-fresh four-file receiving and exact-frame visual checks follow the pinned
-returns. The public baseline has finished and retains 298 strict differences.
-These unfinished checks, exact-head CI and the final objective audit prevent a
+All four original matched baseline/edit/save/reopen executions finish normally.
+The public baseline/edit each retain 298 strict differences; the three-asset
+foreign baseline/edit each retain 334. All three planned foreign-case MODEL edits
+commit; the complete fields and editability checks remain bound to each source.
+All four complete packet inventories replay, including original runtime bytes.
+The exact four returns and parent packets are committed at `e3c7899` before either
+fresh receiver starts. Both original fresh four-file processes are now running;
+their complete receiving and exact-frame visual checks remain unfinished.
+Those checks, exact-head CI and the final objective audit prevent a
 whole-workflow completion claim. Full native preservation already fails.
 The [objective audit](OBJECTIVE-AUDIT.md) maps the work to the original requirements
 and keeps failed and unfinished gates distinct.
@@ -53,8 +58,10 @@ bytes are retained separately in `ui-support/`. `receive_ui.py` restores them an
 the exact configuration from its already-public, externally bound pre-final
 parent packet. This avoids publishing configuration contents in new packets and
 still requires **every original file, size and hash** under the unchanged full
-inventory check. All three currently completed UI packets replay through it;
+inventory check. All four currently completed UI packets replay through it;
 the initial incomplete packaging is retained rather than rewritten.
+The fourth packet carries its exact runtime cache in `runtime-support/` beside
+the main archive. No native configuration contents are newly published.
 
 ## Reproduce completed checks offline
 

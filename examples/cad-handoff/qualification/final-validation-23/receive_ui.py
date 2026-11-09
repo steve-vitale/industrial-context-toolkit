@@ -10,6 +10,20 @@ from native_ui import receiving
 from receive import equal
 
 
+def check_return_parents():
+    launch=read(HERE/'RECEIVING-LAUNCH.json')
+    require(sha(HERE/'UI-RETURNS.json')==launch['returns_sha256'] and
+            sha(HERE/'UI-SAVED-RETAINED.json')==launch['retained_sha256'] and
+            sha(HERE/'UI-PREPARATION.json')==launch['ui_preparation_sha256'],'Pre-launch fresh receiver parent identities differ')
+    parents=read(HERE/'UI-SAVED-RETAINED.json')['attempts'];returns=read(HERE/'UI-RETURNS.json')['cases']
+    require(set(returns)==set(launch['cases'])=={'public-air-water','final-foreign'} and
+            set(parents)=={c+'-'+r for c in returns for r in ('baseline','edited')},'Pre-launch native save cohort differs')
+    for case,pins in returns.items():
+        for role in ('baseline','edited'):
+            name=case+'-'+role;raw=check_pin(HERE/'ui-evidence'/name,parents[name])['attempt/job/returned.dxf']
+            require(hashlib.sha256(raw).hexdigest()==pins[role+'_sha256'],'Fresh receiver return differs from completed original save')
+
+
 def restore_packet(name,root):
     pin=read(HERE/'UI-RETAINED.json')['attempts'][name];packet=HERE/'ui-evidence'/name
     saved=check_pin(packet,pin)
@@ -49,4 +63,5 @@ def check(name):
         else:
             from campaign import lf
             require(lf(root/'execution/SCRIPT.py')==read(HERE/'RECEIVING-LAUNCH.json')['driver_sha256_lf'],'Pre-execution fresh receiver wrapper differs')
+            check_return_parents()
         return result

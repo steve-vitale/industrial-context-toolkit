@@ -6431,6 +6431,27 @@
         "examples/cad-handoff/qualification/final-validation-23/recheck.py",
         "docs/JOURNAL.md#228-freeze-the-method-and-report-every-reserved-case"
       ]
+    },
+    {
+      "id": "A389",
+      "function": "intake_and_reuse",
+      "date": "2026-11-08",
+      "hypothesis": "The unchanged actual UI edit/save/reopen method transfers to both predetermined reserved cases while preserving all unrelated-save failures.",
+      "change": "Complete the original three-asset edited run, retain its full packet/runtime support, replay all four original inventories, and pin all returned files before launching the two fresh receivers.",
+      "evidence": "All four original hosts/native/controller/containers terminate normally. Public baseline/edit each298strict differences; three-asset foreign baseline/edit each334. Foreign edit commits all3MODEL changes with195helper calls97observations12field checks14views56images. Full fourth packet replays including every original inventory byte; earlier3complete replays remain. All4parent archives/returns pinned at e3c7899 before2actual fresh receiver launches, now running.",
+      "runs": "Four completed original native UI executions; complete fourth-packet replay;4parent/return provenance check;2fresh original receivers launched",
+      "verdict": "kept",
+      "why": "Completes actual UI transfer as an observed failed-preservation outcome. Does not change55frozen methods, discard collateral data, waive inventory/cache/config bytes or infer engineering acceptance. Fresh receiving/pixels/visual inspection and final CI remain unfinished.",
+      "source": [
+        "examples/cad-handoff/qualification/final-validation-23/UI-RETAINED.json",
+        "examples/cad-handoff/qualification/final-validation-23/UI-SAVED-RETAINED.json",
+        "examples/cad-handoff/qualification/final-validation-23/UI-RETURNS.json",
+        "examples/cad-handoff/qualification/final-validation-23/RECEIVING-LAUNCH.json",
+        "examples/cad-handoff/qualification/final-validation-23/ui-evidence/final-foreign-edited/RESULT.json",
+        "examples/cad-handoff/qualification/final-validation-23/receive_ui.py",
+        "examples/cad-handoff/qualification/final-validation-23/OBJECTIVE-AUDIT.md",
+        "docs/JOURNAL.md#229-complete-the-reserved-ui-saves-before-fresh-receiving"
+      ]
     }
   ],
   "not_tried": [
@@ -7848,7 +7869,7 @@
       "function": "intake_and_reuse",
       "status": "not-done",
       "idea": "Freeze and qualify the corrected complete native CAD workflow on fresh reserved cases with foreign/literal/encoding fields, multiple assets and revision/conflict checks.",
-      "why_not_yet": "Final55-file method freeze and newly reserved6procedural/4public cohort completed for software, actual native API and30native renders. All10value candidates strict0/rawpass,42losses/90refusals pass; complete fields match but40native saves allstrictfail. Original preservation/paper failures retained. Two predetermined actual UI transfers, fresh receiving, final CI and whole-objective audit remain; no full native preservation or engineering acceptance inferred.",
+      "why_not_yet": "Final frozen ten-case software/API/render validation and all4actual UI baseline/edit/save/reopen runs complete; UI strict failures remain298public/334three-asset foreign. All3foreign MODEL edits commit and full4packet inventories replay. Exact4returned files/parent packets pinned at e3c7899 before2fresh four-file receiver launches, now running. Fresh receiving/pixels/actual model views, final CI and objective audit remain; no whole native preservation or engineering acceptance inferred.",
       "source": [
         "examples/cad-handoff/qualification/PROTOCOL.md",
         "examples/cad-handoff/qualification/observer-transport-21/README.md",
@@ -7860,7 +7881,8 @@
         "examples/cad-handoff/qualification/full-ui-22/PAPER-RENDER-BRIEF.md",
         "examples/cad-handoff/qualification/full-ui-22/SECOND-RETAINED-2.json",
         "docs/CAD_QUALIFICATION.md",
-        "examples/cad-handoff/qualification/final-validation-23/README.md"
+        "examples/cad-handoff/qualification/final-validation-23/README.md",
+        "examples/cad-handoff/qualification/final-validation-23/RECEIVING-LAUNCH.json"
       ]
     }
   ]

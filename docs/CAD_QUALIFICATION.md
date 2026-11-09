@@ -58,8 +58,10 @@ applicable planted losses and 90 refusal controls behave as declared. Actual
 native API fields match on all ten, but every one of forty native saves fails
 strict preservation. Thirty native model/paper images are retained and inspected;
 the five newly authored paper cases display content, with readability/font limits.
-Matched native UI transfer and fresh receiving on the two predetermined cases
-remain in progress. This is not whole native CAD qualification or independent
+Matched native UI baseline/edit/save/reopen completes on the two predetermined
+cases: both public returns have 298 strict differences and both three-asset
+foreign returns have 334. All planned edits commit. Their two fresh receiving
+processes are running. This is not whole native CAD qualification or independent
 plant validation. No plant review time, customer acceptance or engineering release
 has been measured.
 
