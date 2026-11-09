@@ -10036,3 +10036,59 @@ and execute it exactly once in full CI. No source-only success is claimed from
 the original failed run. Nineteen runner-control methods pass. Repeat the
 corrected source-only dispatch and require new exact-head CI. This is test-runner
 classification, not another CAD qualification or an assertion waiver.
+
+
+## 236. Consolidate the checked public release
+
+2026-11-09 UTC. Inspected actual PR heads, CI, reviews/threads and branch authority.
+PR46 merges as 071c2cb, then PR47 is retargeted and merges as 55ec333. The resulting
+tree equals checked b200b2f. Merged-main run 42563485293 passes tests and snapshot-MCP.
+The checked release suite is 99/99 programs with 37 individual cases skipped, not a
+zero-skip or engineering acceptance result. Root main is fast-forwarded; new work
+continues on codex/engineering-foundation-cycle. CAD full-save/paper failures and
+the AMPS reserved acquisition HTTP500 remain retained negative outcomes.
+
+## 237. Receive one unit and retain the next change
+
+Plan/key/inventory baseline committed 28b9864 before implementation; method and
+exposure frozen 2f9ce89 before second-namespace execution. Existing history and
+markup packets feed a narrow authored-graph projection, existing context register
+and actual Snapshot reader. All selected dossier/request JSON leaves retain
+types/status/source pointers; empty objects are explicitly archive-only. Complete
+original packets remain portable. No new Native generator step is necessary.
+
+Development and procedural runs each pass 12 checks through 23 real CLI processes;
+the separately frozen procedural key passes 8/8. Eight regression methods pass
+without skips. The first command-flag mistake, incorrect state rubric and internal
+staging/alias refusal are retained in DEVELOPMENT.json, not replaced by success.
+The author knew generator/key: this is software procedural variation, not an
+independent review, blind drawing read or real-site result. Final integration
+checks/CI remain separate. No fresh agent is spawned under the session's rules.
+
+One complete received packet is retained rather than every intermediate copy.
+Readback compares complete nodes/relations/questions/sources, ownership and decision
+history through the actual receiver; counts alone do not pass. Document-only
+same-label byte changes reopen dependent answers/synthesis and leave unrelated
+answers current. Changed history/drawings and an omitted note retain stale answers,
+conflicts and prior originals. Duplicate/retry/wrong-base, identity/revision,
+typed-loss, history reset, missing source, partial receiving and authority inflation
+controls refuse. Whole-asset freshness is explicit; this is not field-level impact
+analysis. Delivery history is immutable and bounded to eight retained versions.
+Company receiving, authentication, continuous refresh, product imports and human
+benefit remain unestablished; N052/N062/N063 are unchanged.
+
+## 238. Trace shared lessons without promoting unrun work
+
+2026-11-09 UTC. Web short-link opens failed for ggsbnBw7/gQ4Gb26t; ordinary HTTP
+redirects resolved their canonical public posts. Reopened Johannes Van Opstal's
+structured-P&ID experiment (existing A352 research/checks) and Davy Demeyer's PaC
+post. The latter attribution was missing; it now links to guidance in the existing
+competitive-workflows reference. Author-reported autonomous scale and paid POCs
+are not independently reproduced or evidence of our own demand/capability.
+
+A397 links all five shared references through existing A352/A354/A356/A357 and the
+new bounded foundation A396. No competing capability registry, social draft repo,
+LinkedIn publication or outreach is added. PaC and additional standard/simulator
+adapters remain deferred pending actual versioned receiving needs and permitted
+examples. Alerts remain a managed-service/integration decision. Local software
+receiving does not close the open human/company trials.

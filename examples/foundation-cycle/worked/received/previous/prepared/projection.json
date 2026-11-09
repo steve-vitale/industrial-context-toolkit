@@ -1,0 +1,220 @@
+{
+  "boundary": [
+    "Only selected history dossiers and exact single-subject requests are projected as unverified graph attributes.",
+    "Graph scalar values retain original JSON types; decimal text remains text, not a measured number.",
+    "Full structured records, unselected findings, originals and receipts remain source archives.",
+    "Review names and source authority are declarations, not authenticated company decisions.",
+    "No extraction, operating acceptance, automatic synchronization or ChangePilot import."
+  ],
+  "identity_declarations": [
+    {
+      "key": [
+        "R7",
+        "P-101"
+      ],
+      "node": "R7/P-101",
+      "reviewed_on": "2026-11-09",
+      "reviewer": "Fictional preparer declaration",
+      "source": "history"
+    },
+    {
+      "key": [
+        "R8",
+        "P-101"
+      ],
+      "node": "R8/P-101",
+      "reviewed_on": "2026-11-09",
+      "reviewer": "Fictional preparer declaration",
+      "source": "history"
+    },
+    {
+      "drawing": "Teaching P&ID",
+      "key": [
+        "R7",
+        "HV-102"
+      ],
+      "node": "R7/HV-102",
+      "request_id": "M02",
+      "returned_revision": "B",
+      "reviewed_on": "2026-11-09",
+      "reviewer": "Fictional preparer declaration",
+      "sheet": "DEMO/U1/PID-101",
+      "source": "drawing"
+    }
+  ],
+  "mappings": [
+    {
+      "locator": "/assets/0",
+      "node": "R7/P-101",
+      "prefix": "foundation.history.",
+      "revision": "1",
+      "sha256": "bd6ab635dd095fe46c613a755ae31de40d7fb54b1c3dd49ee8c4b175cd3d369c",
+      "source": "HISTORY"
+    },
+    {
+      "locator": "/assets/2",
+      "node": "R8/P-101",
+      "prefix": "foundation.history.",
+      "revision": "1",
+      "sha256": "bd6ab635dd095fe46c613a755ae31de40d7fb54b1c3dd49ee8c4b175cd3d369c",
+      "source": "HISTORY"
+    },
+    {
+      "locator": "/items/0",
+      "node": "R7/HV-102",
+      "prefix": "foundation.drawing.",
+      "revision": "1",
+      "sha256": "665a224dbcd1b5c5317d5a0b6c37208e124b23405d8338b31d3a61b27537028e",
+      "source": "DRAWING"
+    }
+  ],
+  "not_native": [
+    {
+      "locator": "/assets/0/asset/_dates",
+      "node": "R7/P-101",
+      "reason": "Empty object retained in original; no plain graph attribute"
+    },
+    {
+      "locator": "/assets/0/asset/_numbers",
+      "node": "R7/P-101",
+      "reason": "Empty object retained in original; no plain graph attribute"
+    },
+    {
+      "locator": "/assets/0/asset/_flags",
+      "node": "R7/P-101",
+      "reason": "Empty object retained in original; no plain graph attribute"
+    },
+    {
+      "locator": "/assets/0/asset/_labels",
+      "node": "R7/P-101",
+      "reason": "Empty object retained in original; no plain graph attribute"
+    },
+    {
+      "locator": "/assets/0/work_orders/0/record/_numbers",
+      "node": "R7/P-101",
+      "reason": "Empty object retained in original; no plain graph attribute"
+    },
+    {
+      "locator": "/assets/0/work_orders/0/transactions/0/_numbers",
+      "node": "R7/P-101",
+      "reason": "Empty object retained in original; no plain graph attribute"
+    },
+    {
+      "locator": "/assets/0/work_orders/0/transactions/0/_flags",
+      "node": "R7/P-101",
+      "reason": "Empty object retained in original; no plain graph attribute"
+    },
+    {
+      "locator": "/assets/0/work_orders/0/transactions/1/_numbers",
+      "node": "R7/P-101",
+      "reason": "Empty object retained in original; no plain graph attribute"
+    },
+    {
+      "locator": "/assets/0/work_orders/0/transactions/1/_flags",
+      "node": "R7/P-101",
+      "reason": "Empty object retained in original; no plain graph attribute"
+    },
+    {
+      "locator": "/assets/0/work_orders/0/details/0/_flags",
+      "node": "R7/P-101",
+      "reason": "Empty object retained in original; no plain graph attribute"
+    },
+    {
+      "locator": "/assets/0/work_orders/0/details/0/_labels",
+      "node": "R7/P-101",
+      "reason": "Empty object retained in original; no plain graph attribute"
+    },
+    {
+      "locator": "/assets/0/work_orders/0/details/1/_flags",
+      "node": "R7/P-101",
+      "reason": "Empty object retained in original; no plain graph attribute"
+    },
+    {
+      "locator": "/assets/0/work_orders/0/details/1/_labels",
+      "node": "R7/P-101",
+      "reason": "Empty object retained in original; no plain graph attribute"
+    },
+    {
+      "locator": "/assets/0/work_orders/0/labor/0/_labels",
+      "node": "R7/P-101",
+      "reason": "Empty object retained in original; no plain graph attribute"
+    },
+    {
+      "locator": "/assets/0/work_orders/0/labor/1/_labels",
+      "node": "R7/P-101",
+      "reason": "Empty object retained in original; no plain graph attribute"
+    },
+    {
+      "locator": "/assets/0/work_orders/0/labor/2/_labels",
+      "node": "R7/P-101",
+      "reason": "Empty object retained in original; no plain graph attribute"
+    },
+    {
+      "locator": "/assets/0/work_orders/1/record/_numbers",
+      "node": "R7/P-101",
+      "reason": "Empty object retained in original; no plain graph attribute"
+    },
+    {
+      "locator": "/assets/0/work_orders/1/labor/0/_labels",
+      "node": "R7/P-101",
+      "reason": "Empty object retained in original; no plain graph attribute"
+    },
+    {
+      "locator": "/assets/0/work_orders/2/record/_numbers",
+      "node": "R7/P-101",
+      "reason": "Empty object retained in original; no plain graph attribute"
+    },
+    {
+      "locator": "/assets/2/asset/_dates",
+      "node": "R8/P-101",
+      "reason": "Empty object retained in original; no plain graph attribute"
+    },
+    {
+      "locator": "/assets/2/asset/_numbers",
+      "node": "R8/P-101",
+      "reason": "Empty object retained in original; no plain graph attribute"
+    },
+    {
+      "locator": "/assets/2/asset/_flags",
+      "node": "R8/P-101",
+      "reason": "Empty object retained in original; no plain graph attribute"
+    },
+    {
+      "locator": "/assets/2/asset/_labels",
+      "node": "R8/P-101",
+      "reason": "Empty object retained in original; no plain graph attribute"
+    },
+    {
+      "locator": "/assets/2/work_orders/0/record/_numbers",
+      "node": "R8/P-101",
+      "reason": "Empty object retained in original; no plain graph attribute"
+    },
+    {
+      "locator": "/assets/2/work_orders/0/transactions/0/_numbers",
+      "node": "R8/P-101",
+      "reason": "Empty object retained in original; no plain graph attribute"
+    },
+    {
+      "locator": "/assets/2/work_orders/0/transactions/0/_flags",
+      "node": "R8/P-101",
+      "reason": "Empty object retained in original; no plain graph attribute"
+    },
+    {
+      "locator": "/assets/2/work_orders/0/details/0/_flags",
+      "node": "R8/P-101",
+      "reason": "Empty object retained in original; no plain graph attribute"
+    },
+    {
+      "locator": "/assets/2/work_orders/0/details/0/_labels",
+      "node": "R8/P-101",
+      "reason": "Empty object retained in original; no plain graph attribute"
+    },
+    {
+      "locator": "/assets/2/work_orders/0/labor/0/_labels",
+      "node": "R8/P-101",
+      "reason": "Empty object retained in original; no plain graph attribute"
+    }
+  ],
+  "schema": "foundation-projection-1",
+  "unavailable": []
+}

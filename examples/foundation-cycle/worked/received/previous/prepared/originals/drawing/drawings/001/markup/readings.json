@@ -1,0 +1,583 @@
+{
+  "schema": "pid-drawing-readings-1",
+  "method": "Authored fictional readings from the fixture design, not model extraction, engineering approval or an independent visual interpretation test.",
+  "observations": [
+    {
+      "role": "original",
+      "key": {
+        "sheet": "DEMO/U1/PID-101",
+        "kind": "attribute",
+        "subject": "FV-101",
+        "name": "size"
+      },
+      "state": "known",
+      "evidence": [
+        {
+          "document": "original",
+          "sha256": "05c2203d6b4b68b493dd3fd4cba8e477f10780492cdc4bd5a7386d8ea048ac71",
+          "page": 1,
+          "box_0_1000": [
+            20,
+            100,
+            690,
+            850
+          ],
+          "description": "FV-101 size: DN50"
+        }
+      ],
+      "value": "DN50"
+    },
+    {
+      "role": "returned",
+      "key": {
+        "sheet": "DEMO/U1/PID-101",
+        "kind": "attribute",
+        "subject": "FV-101",
+        "name": "size"
+      },
+      "state": "known",
+      "evidence": [
+        {
+          "document": "returned",
+          "sha256": "d65b96b1649fd0b62b5a8d378e443dc3768deb1d6d301e044e803582cdd93e7c",
+          "page": 1,
+          "box_0_1000": [
+            20,
+            100,
+            690,
+            850
+          ],
+          "description": "FV-101 size: DN80"
+        }
+      ],
+      "value": "DN80"
+    },
+    {
+      "role": "original",
+      "key": {
+        "sheet": "DEMO/U1/PID-101",
+        "kind": "symbol",
+        "subject": "HV-102"
+      },
+      "state": "known",
+      "evidence": [
+        {
+          "document": "original",
+          "sha256": "05c2203d6b4b68b493dd3fd4cba8e477f10780492cdc4bd5a7386d8ea048ac71",
+          "page": 1,
+          "box_0_1000": [
+            20,
+            100,
+            690,
+            850
+          ],
+          "description": "HV-102 symbol: present"
+        }
+      ],
+      "value": true
+    },
+    {
+      "role": "returned",
+      "key": {
+        "sheet": "DEMO/U1/PID-101",
+        "kind": "symbol",
+        "subject": "HV-102"
+      },
+      "state": "known",
+      "evidence": [
+        {
+          "document": "returned",
+          "sha256": "d65b96b1649fd0b62b5a8d378e443dc3768deb1d6d301e044e803582cdd93e7c",
+          "page": 1,
+          "box_0_1000": [
+            20,
+            100,
+            690,
+            850
+          ],
+          "description": "HV-102 symbol: present"
+        }
+      ],
+      "value": true
+    },
+    {
+      "role": "original",
+      "key": {
+        "sheet": "DEMO/U1/PID-101",
+        "kind": "symbol",
+        "subject": "XV-103"
+      },
+      "state": "known",
+      "evidence": [
+        {
+          "document": "original",
+          "sha256": "05c2203d6b4b68b493dd3fd4cba8e477f10780492cdc4bd5a7386d8ea048ac71",
+          "page": 1,
+          "box_0_1000": [
+            20,
+            100,
+            690,
+            850
+          ],
+          "description": "XV-103 symbol: absent"
+        }
+      ],
+      "value": false,
+      "reason": "Fixture author examined the entire relevant source region; this exact symbol/typed directed connection is absent"
+    },
+    {
+      "role": "returned",
+      "key": {
+        "sheet": "DEMO/U1/PID-101",
+        "kind": "symbol",
+        "subject": "XV-103"
+      },
+      "state": "known",
+      "evidence": [
+        {
+          "document": "returned",
+          "sha256": "d65b96b1649fd0b62b5a8d378e443dc3768deb1d6d301e044e803582cdd93e7c",
+          "page": 1,
+          "box_0_1000": [
+            20,
+            100,
+            690,
+            850
+          ],
+          "description": "XV-103 symbol: present"
+        }
+      ],
+      "value": true
+    },
+    {
+      "role": "original",
+      "key": {
+        "sheet": "DEMO/U1/PID-101",
+        "kind": "connection",
+        "subject": "P-101",
+        "relation": "process",
+        "to": "XV-103"
+      },
+      "state": "known",
+      "evidence": [
+        {
+          "document": "original",
+          "sha256": "05c2203d6b4b68b493dd3fd4cba8e477f10780492cdc4bd5a7386d8ea048ac71",
+          "page": 1,
+          "box_0_1000": [
+            20,
+            100,
+            690,
+            850
+          ],
+          "description": "P-101 → XV-103 process connection: absent"
+        }
+      ],
+      "value": false,
+      "reason": "Fixture author examined the entire relevant source region; this exact symbol/typed directed connection is absent"
+    },
+    {
+      "role": "returned",
+      "key": {
+        "sheet": "DEMO/U1/PID-101",
+        "kind": "connection",
+        "subject": "P-101",
+        "relation": "process",
+        "to": "XV-103"
+      },
+      "state": "known",
+      "evidence": [
+        {
+          "document": "returned",
+          "sha256": "d65b96b1649fd0b62b5a8d378e443dc3768deb1d6d301e044e803582cdd93e7c",
+          "page": 1,
+          "box_0_1000": [
+            20,
+            100,
+            690,
+            850
+          ],
+          "description": "P-101 → XV-103 process connection: present"
+        }
+      ],
+      "value": true
+    },
+    {
+      "role": "original",
+      "key": {
+        "sheet": "DEMO/U1/PID-101",
+        "kind": "connection",
+        "subject": "XV-103",
+        "relation": "process",
+        "to": "TK-101"
+      },
+      "state": "known",
+      "evidence": [
+        {
+          "document": "original",
+          "sha256": "05c2203d6b4b68b493dd3fd4cba8e477f10780492cdc4bd5a7386d8ea048ac71",
+          "page": 1,
+          "box_0_1000": [
+            20,
+            100,
+            690,
+            850
+          ],
+          "description": "XV-103 → TK-101 process connection: absent"
+        }
+      ],
+      "value": false,
+      "reason": "Fixture author examined the entire relevant source region; this exact symbol/typed directed connection is absent"
+    },
+    {
+      "role": "returned",
+      "key": {
+        "sheet": "DEMO/U1/PID-101",
+        "kind": "connection",
+        "subject": "XV-103",
+        "relation": "process",
+        "to": "TK-101"
+      },
+      "state": "known",
+      "evidence": [
+        {
+          "document": "returned",
+          "sha256": "d65b96b1649fd0b62b5a8d378e443dc3768deb1d6d301e044e803582cdd93e7c",
+          "page": 1,
+          "box_0_1000": [
+            20,
+            100,
+            690,
+            850
+          ],
+          "description": "XV-103 → TK-101 process connection: absent"
+        }
+      ],
+      "value": false,
+      "reason": "Fixture author examined the entire relevant source region; this exact symbol/typed directed connection is absent"
+    },
+    {
+      "role": "original",
+      "key": {
+        "sheet": "DEMO/U1/PID-101",
+        "kind": "connection",
+        "subject": "PT-101",
+        "relation": "signal",
+        "to": "PIC-101"
+      },
+      "state": "known",
+      "evidence": [
+        {
+          "document": "original",
+          "sha256": "05c2203d6b4b68b493dd3fd4cba8e477f10780492cdc4bd5a7386d8ea048ac71",
+          "page": 1,
+          "box_0_1000": [
+            20,
+            100,
+            690,
+            850
+          ],
+          "description": "PT-101 → PIC-101 signal connection: absent"
+        }
+      ],
+      "value": false,
+      "reason": "Fixture author examined the entire relevant source region; this exact symbol/typed directed connection is absent"
+    },
+    {
+      "role": "returned",
+      "key": {
+        "sheet": "DEMO/U1/PID-101",
+        "kind": "connection",
+        "subject": "PT-101",
+        "relation": "signal",
+        "to": "PIC-101"
+      },
+      "state": "known",
+      "evidence": [
+        {
+          "document": "returned",
+          "sha256": "d65b96b1649fd0b62b5a8d378e443dc3768deb1d6d301e044e803582cdd93e7c",
+          "page": 1,
+          "box_0_1000": [
+            20,
+            100,
+            690,
+            850
+          ],
+          "description": "PT-101 → PIC-101 signal connection: absent"
+        }
+      ],
+      "value": false,
+      "reason": "Fixture author examined the entire relevant source region; this exact symbol/typed directed connection is absent"
+    },
+    {
+      "role": "original",
+      "key": {
+        "sheet": "DEMO/U1/PID-101",
+        "kind": "attribute",
+        "subject": "P-102",
+        "name": "service"
+      },
+      "state": "known",
+      "evidence": [
+        {
+          "document": "original",
+          "sha256": "05c2203d6b4b68b493dd3fd4cba8e477f10780492cdc4bd5a7386d8ea048ac71",
+          "page": 1,
+          "box_0_1000": [
+            20,
+            100,
+            690,
+            850
+          ],
+          "description": "P-102 service: standby"
+        }
+      ],
+      "value": "standby"
+    },
+    {
+      "role": "returned",
+      "key": {
+        "sheet": "DEMO/U1/PID-101",
+        "kind": "attribute",
+        "subject": "P-102",
+        "name": "service"
+      },
+      "state": "known",
+      "evidence": [
+        {
+          "document": "returned",
+          "sha256": "d65b96b1649fd0b62b5a8d378e443dc3768deb1d6d301e044e803582cdd93e7c",
+          "page": 1,
+          "box_0_1000": [
+            20,
+            100,
+            690,
+            850
+          ],
+          "description": "P-102 service: standby"
+        }
+      ],
+      "value": "standby"
+    },
+    {
+      "role": "original",
+      "key": {
+        "sheet": "DEMO/U1/PID-101",
+        "kind": "note",
+        "subject": "drain-note"
+      },
+      "state": "known",
+      "evidence": [
+        {
+          "document": "original",
+          "sha256": "05c2203d6b4b68b493dd3fd4cba8e477f10780492cdc4bd5a7386d8ea048ac71",
+          "page": 1,
+          "box_0_1000": [
+            20,
+            100,
+            690,
+            850
+          ],
+          "description": "drain-note note: open tundish"
+        }
+      ],
+      "value": "open tundish"
+    },
+    {
+      "role": "returned",
+      "key": {
+        "sheet": "DEMO/U1/PID-101",
+        "kind": "note",
+        "subject": "drain-note"
+      },
+      "state": "unknown",
+      "evidence": [
+        {
+          "document": "returned",
+          "sha256": "d65b96b1649fd0b62b5a8d378e443dc3768deb1d6d301e044e803582cdd93e7c",
+          "page": 1,
+          "box_0_1000": [
+            20,
+            100,
+            690,
+            850
+          ],
+          "description": "drain-note note: unreadable"
+        }
+      ],
+      "reason": "Returned note deliberately represented as unreadable; no value guessed"
+    },
+    {
+      "role": "original",
+      "key": {
+        "sheet": "DEMO/U1/PID-101",
+        "kind": "attribute",
+        "subject": "FV-101",
+        "name": "fail_action"
+      },
+      "state": "known",
+      "evidence": [
+        {
+          "document": "original",
+          "sha256": "05c2203d6b4b68b493dd3fd4cba8e477f10780492cdc4bd5a7386d8ea048ac71",
+          "page": 1,
+          "box_0_1000": [
+            20,
+            100,
+            690,
+            850
+          ],
+          "description": "FV-101 fail_action: FC"
+        }
+      ],
+      "value": "FC"
+    },
+    {
+      "role": "returned",
+      "key": {
+        "sheet": "DEMO/U1/PID-101",
+        "kind": "attribute",
+        "subject": "FV-101",
+        "name": "fail_action"
+      },
+      "state": "known",
+      "evidence": [
+        {
+          "document": "returned",
+          "sha256": "d65b96b1649fd0b62b5a8d378e443dc3768deb1d6d301e044e803582cdd93e7c",
+          "page": 1,
+          "box_0_1000": [
+            20,
+            100,
+            690,
+            850
+          ],
+          "description": "FV-101 fail_action: FO"
+        }
+      ],
+      "value": "FO"
+    },
+    {
+      "role": "original",
+      "key": {
+        "sheet": "DEMO/U1/PID-101",
+        "kind": "symbol",
+        "subject": "PT-101"
+      },
+      "state": "known",
+      "evidence": [
+        {
+          "document": "original",
+          "sha256": "05c2203d6b4b68b493dd3fd4cba8e477f10780492cdc4bd5a7386d8ea048ac71",
+          "page": 1,
+          "box_0_1000": [
+            20,
+            100,
+            690,
+            850
+          ],
+          "description": "PT-101 symbol: present"
+        }
+      ],
+      "value": true
+    },
+    {
+      "role": "returned",
+      "key": {
+        "sheet": "DEMO/U1/PID-101",
+        "kind": "symbol",
+        "subject": "PT-101"
+      },
+      "state": "known",
+      "evidence": [
+        {
+          "document": "returned",
+          "sha256": "d65b96b1649fd0b62b5a8d378e443dc3768deb1d6d301e044e803582cdd93e7c",
+          "page": 1,
+          "box_0_1000": [
+            20,
+            100,
+            690,
+            850
+          ],
+          "description": "PT-101 symbol: present"
+        }
+      ],
+      "value": true
+    },
+    {
+      "role": "original",
+      "key": {
+        "sheet": "DEMO/U1/PID-101",
+        "kind": "symbol",
+        "subject": "PIC-101"
+      },
+      "state": "known",
+      "evidence": [
+        {
+          "document": "original",
+          "sha256": "05c2203d6b4b68b493dd3fd4cba8e477f10780492cdc4bd5a7386d8ea048ac71",
+          "page": 1,
+          "box_0_1000": [
+            20,
+            100,
+            690,
+            850
+          ],
+          "description": "PIC-101 symbol: present"
+        }
+      ],
+      "value": true
+    },
+    {
+      "role": "returned",
+      "key": {
+        "sheet": "DEMO/U1/PID-101",
+        "kind": "symbol",
+        "subject": "PIC-101"
+      },
+      "state": "known",
+      "evidence": [
+        {
+          "document": "returned",
+          "sha256": "d65b96b1649fd0b62b5a8d378e443dc3768deb1d6d301e044e803582cdd93e7c",
+          "page": 1,
+          "box_0_1000": [
+            20,
+            100,
+            690,
+            850
+          ],
+          "description": "PIC-101 symbol: present"
+        }
+      ],
+      "value": true
+    },
+    {
+      "role": "original",
+      "key": {
+        "sheet": "DEMO/U1/PID-101",
+        "kind": "attribute",
+        "subject": "FV-101",
+        "name": "material"
+      },
+      "state": "known",
+      "value": "316",
+      "evidence": [
+        {
+          "document": "original",
+          "sha256": "05c2203d6b4b68b493dd3fd4cba8e477f10780492cdc4bd5a7386d8ea048ac71",
+          "page": 1,
+          "box_0_1000": [
+            20,
+            100,
+            690,
+            850
+          ],
+          "description": "Material: 316"
+        }
+      ]
+    }
+  ]
+}

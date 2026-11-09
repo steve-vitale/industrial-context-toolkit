@@ -138,6 +138,15 @@ result is supplied by this toolkit. Introducing the concept does not change that
 
 ## What is available here, and what remains company integration
 
+The [selected-unit foundation cycle](FOUNDATION_HANDOFF.md) now connects supplied
+maintenance dossiers and exact single-subject drawing requests to scoped graph
+assets, retains the full originals and uses the existing context register and
+snapshot reader for actual local receiving. Its separate-process example covers
+complete typed readback, source-only changes, conflicting proposals, unavailable
+evidence and full export/reopen. Native projections and archive-only information
+are reported separately. It is a portable software foundation, not a managed
+source-of-truth service or a qualified ChangePilot import.
+
 The toolkit provides local source/model intake, graph exports, question screens, review/history mechanisms and
 generation/analysis tools through their [documented contracts](WORKFLOWS.md). The local context register requires
 explicit refresh. The [MCP starter](../examples/internal-mcp/README.md) reads selected startup snapshots; its

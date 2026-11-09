@@ -1,0 +1,380 @@
+[
+  {
+    "argv": [
+      "scripts/maintenance_history.py",
+      "--profile",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\history-input\\profile.json",
+      "--out",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\history"
+    ],
+    "exit": 0,
+    "expected_exit": 0,
+    "stderr": "",
+    "stdout": "Draft history packet: C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\history\\REPORT.html; 3 scoped assets; 11 review issues; authorized decision pending.\n"
+  },
+  {
+    "argv": [
+      "scripts/receive_drawings.py",
+      "--manifest",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\job.json",
+      "--out",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\drawing"
+    ],
+    "exit": 0,
+    "expected_exit": 0,
+    "stderr": "",
+    "stdout": "Receiving packet written: 1 checks; 9 review items; authorized decision pending.\n"
+  },
+  {
+    "argv": [
+      "examples/foundation-cycle/baseline.py",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first"
+    ],
+    "exit": 0,
+    "expected_exit": 0,
+    "stderr": "",
+    "stdout": "{\n  \"method\": \"file-inventory-only\",\n  \"files\": {\n    \"drawing/brief.json\": {\n      \"bytes\": 34654,\n      \"sha256\": \"665a224dbcd1b5c5317d5a0b6c37208e124b23405d8338b31d3a61b27537028e\"\n    },\n    \"drawing/BRIEF.md\": {\n      \"bytes\": 2917,\n      \"sha256\": \"778bc92706a52ebc980f47a02b1064814dbb273b6357395bec4031e5c1310e99\"\n    },\n    \"drawing/drawings/001/markup/input-manifest.json\": {\n      \"bytes\": 1341,\n      \"sha256\": \"42d1b17e7e0ef7d403f3caaf63b2d2c0ed215b164760156c5477400323c5350f\"\n    },\n    \"drawing/drawings/001/markup/manifest.json\": {\n      \"bytes\": 1352,\n      \"sha256\": \"e372c9fc531f9104227fc0afb8c5fa4f7841a4301a1b729c666f4f65722a402a\"\n    },\n    \"drawing/drawings/001/markup/readings.json\": {\n      \"bytes\": 14322,\n      \"sha256\": \"a13a2ff9bc039529bc54c1d2b7b60ad9cd41a2ab6bce8b1ed592e64495a99ecd\"\n    },\n    \"drawing/drawings/001/markup/receipt.json\": {\n      \"bytes\": 1225,\n      \"sha256\": \"ffb2589b798156daba04b2a2026edfa10c510213b9c919de321259cdae188fce\"\n    },\n    \"drawing/drawings/001/markup/REPORT.html\": {\n      \"bytes\": 8825,\n      \"sha256\": \"851699014aed0b50af47bbfd961be32f6d4f94a239607c9bff76404886cf1cad\"\n    },\n    \"drawing/drawings/001/markup/REPORT.md\": {\n      \"bytes\": 1208,\n      \"sha256\": \"1ea19aaa1706e0facd7501a95fa61cfe389a3a2c62f3082e908e4087db23c2d9\"\n    },\n    \"drawing/drawings/001/markup/requests.json\": {\n      \"bytes\": 6257,\n      \"sha256\": \"3de278bd83d8410f9350b81c860babd5f679e39c473dba37aacc448fe06b6430\"\n    },\n    \"drawing/drawings/001/markup/result.json\": {\n      \"bytes\": 29483,\n      \"sha256\": \"9e1c422b91d9db52f6fe1fdc03c9467f513f629eb779f67cb91562c392629fdb\"\n    },\n    \"drawing/drawings/001/markup/review_queue.csv\": {\n      \"bytes\": 860,\n      \"sha256\": \"d829a8142d88fed0607582df3eec3d10781368634cd84d0ed07949e42dd94132\"\n    },\n    \"drawing/drawings/001/markup/sources/001.svg\": {\n      \"bytes\": 1939,\n      \"sha256\": \"05c2203d6b4b68b493dd3fd4cba8e477f10780492cdc4bd5a7386d8ea048ac71\"\n    },\n    \"drawing/drawings/001/markup/sources/002.svg\": {\n      \"bytes\": 2799,\n      \"sha256\": \"a6ef9819027d3704337f8ed9cc41309e539e088e6d6e7dcb530930f933780493\"\n    },\n    \"drawing/drawings/001/markup/sources/003.svg\": {\n      \"bytes\": 2161,\n      \"sha256\": \"d65b96b1649fd0b62b5a8d378e443dc3768deb1d6d301e044e803582cdd93e7c\"\n    },\n    \"drawing/input-job.json\": {\n      \"bytes\": 194,\n      \"sha256\": \"432a4841c9b83cdfd092400e19cdca83b8dd84884ddeb3bba0251cf6bd89417e\"\n    },\n    \"drawing/job.json\": {\n      \"bytes\": 207,\n      \"sha256\": \"64dd735450d994d555acac4460d8c908a9bba1507983b634679e5be29e9a4888\"\n    },\n    \"drawing/receipt.json\": {\n      \"bytes\": 1899,\n      \"sha256\": \"cd3604f1bf3e4427a88d09353a86d6bb0d0889f04930d0f34f300140a20ee6d0\"\n    },\n    \"graph.json\": {\n      \"bytes\": 8649,\n      \"sha256\": \"2975fb9fc7403e59f671f6026af04b5846c16f7b965671e76f4ff95e9fefb622\"\n    },\n    \"history/actions.csv\": {\n      \"bytes\": 2572,\n      \"sha256\": \"fe19480eaa1b9b145412c010adfa49b19ab4c2a9871c829a673f8d6a12bf030f\"\n    },\n    \"history/assets/986de414048530edec2c0908.html\": {\n      \"bytes\": 4470,\n      \"sha256\": \"d7a2cffb5d0055de1ee8d33641cfec59ae72a42a8391640b14bab4b0ac29941d\"\n    },\n    \"history/assets/c4d6bb1a60d95f7bb90941c9.html\": {\n      \"bytes\": 7730,\n      \"sha256\": \"cee9a860b161edc209596791448108f0960891b4a21c22c547799fea11217a8a\"\n    },\n    \"history/assets/de5a0008835db478c37f6fcd.html\": {\n      \"bytes\": 4160,\n      \"sha256\": \"caa50d8c7c98d22832b6598999f4aacce2913b708154167aa54f0dccaf5041d7\"\n    },\n    \"history/evidence/assets-001.html\": {\n      \"bytes\": 2414,\n      \"sha256\": \"cdfe876bf7519ec0d919879976a97f7d1a4da9e0b5dd473ca0030e02a13507fa\"\n    },\n    \"history/evidence/details-001.html\": {\n      \"bytes\": 3919,\n      \"sha256\": \"667d128de38e3d5590eb9bea01ca9d4ef25aa9dda2d8e9eda62364769ef0a9c3\"\n    },\n    \"history/evidence/labor-001.html\": {\n      \"bytes\": 3804,\n      \"sha256\": \"e531e31ea2530d332f9f3e8cd61ccd4eb713a2cd593676a13404e95456e8fef7\"\n    },\n    \"history/evidence/transactions-001.html\": {\n      \"bytes\": 3017,\n      \"sha256\": \"e8ede1e2bb8c6712fc482926156b021ec1ff10ad6d28e83a1a686d3678148ff0\"\n    },\n    \"history/evidence/work_orders-001.html\": {\n      \"bytes\": 5361,\n      \"sha256\": \"c1fe699d749e6cccb5ea812bdaeaf769ae89cc78ae450025af083441da883b13\"\n    },\n    \"history/input-profile.json\": {\n      \"bytes\": 4674,\n      \"sha256\": \"4519c462e10e8b07e672a9ce879e06fa27baee192b5178f5f9369aa6a378b462\"\n    },\n    \"history/job.json\": {\n      \"bytes\": 5184,\n      \"sha256\": \"51d3521ee8da1d48f90f197cfe5d5720d019db46abcfe0b3ef4e85bc87e64a7d\"\n    },\n    \"history/originals/assets/001.csv\": {\n      \"bytes\": 130,\n      \"sha256\": \"cc59d653e72197b2bfd2ec7ccdd7b44815c0aef0116fab1146caf59511128bf7\"\n    },\n    \"history/originals/details/001.csv\": {\n      \"bytes\": 359,\n      \"sha256\": \"4dba646c65f7b6a4f2c4da4b1fc429e871f2ed899f5be7b32427a25393365470\"\n    },\n    \"history/originals/labor/001.csv\": {\n      \"bytes\": 271,\n      \"sha256\": \"eb0c9e125de74a7022b387a85052db459e61e6c1dc65564b47f0592b1d4d4296\"\n    },\n    \"history/originals/transactions/001.csv\": {\n      \"bytes\": 167,\n      \"sha256\": \"f84d4fa3301e7e85a13999e4638cb350a3e5d9e8fb2736418ab2a9b0d941b24f\"\n    },\n    \"history/originals/work_orders/001.csv\": {\n      \"bytes\": 603,\n      \"sha256\": \"d2adb70823dfc13564aa796e951b148d51a6ba54d61a428d1435c2d0a54a38eb\"\n    },\n    \"history/receipt.json\": {\n      \"bytes\": 2438,\n      \"sha256\": \"e944b3b887208e90246ab4e61ed71228e24c7cbc9564df17924f0e1b7163168e\"\n    },\n    \"history/REPORT.html\": {\n      \"bytes\": 10289,\n      \"sha256\": \"3dd706bcfc626240d45a8d33cd5cf0712e19299dce05537bcb1c37d28861d89c\"\n    },\n    \"history/REPORT.md\": {\n      \"bytes\": 4532,\n      \"sha256\": \"20395f0bc865eb7b923772d8516956aaff27592ac8b3ffe5b7edaf8c5e987dbd\"\n    },\n    \"history/result.json\": {\n      \"bytes\": 72721,\n      \"sha256\": \"4ee4573a2a24051b98701b32460a9293463d482ec763d2fd31e5539a167e8ec0\"\n    },\n    \"history-input/assets.csv\": {\n      \"bytes\": 130,\n      \"sha256\": \"cc59d653e72197b2bfd2ec7ccdd7b44815c0aef0116fab1146caf59511128bf7\"\n    },\n    \"history-input/details.csv\": {\n      \"bytes\": 359,\n      \"sha256\": \"4dba646c65f7b6a4f2c4da4b1fc429e871f2ed899f5be7b32427a25393365470\"\n    },\n    \"history-input/labor.csv\": {\n      \"bytes\": 271,\n      \"sha256\": \"eb0c9e125de74a7022b387a85052db459e61e6c1dc65564b47f0592b1d4d4296\"\n    },\n    \"history-input/profile.json\": {\n      \"bytes\": 4674,\n      \"sha256\": \"4519c462e10e8b07e672a9ce879e06fa27baee192b5178f5f9369aa6a378b462\"\n    },\n    \"history-input/transactions.csv\": {\n      \"bytes\": 167,\n      \"sha256\": \"f84d4fa3301e7e85a13999e4638cb350a3e5d9e8fb2736418ab2a9b0d941b24f\"\n    },\n    \"history-input/work_orders.csv\": {\n      \"bytes\": 603,\n      \"sha256\": \"d2adb70823dfc13564aa796e951b148d51a6ba54d61a428d1435c2d0a54a38eb\"\n    },\n    \"independent.txt\": {\n      \"bytes\": 49,\n      \"sha256\": \"94ad21da042bf925f4f38c77b2193f30c4d4f4728799967c99bf5fafb518d63f\"\n    },\n    \"job.json\": {\n      \"bytes\": 194,\n      \"sha256\": \"432a4841c9b83cdfd092400e19cdca83b8dd84884ddeb3bba0251cf6bd89417e\"\n    },\n    \"later-unavailable.txt\": {\n      \"bytes\": 53,\n      \"sha256\": \"74fbf7aed3a55722c9f10a23f5d45c6dde0c702665356b9998f127fb309a593a\"\n    },\n    \"markup/manifest.json\": {\n      \"bytes\": 1341,\n      \"sha256\": \"42d1b17e7e0ef7d403f3caaf63b2d2c0ed215b164760156c5477400323c5350f\"\n    },\n    \"markup/markup.svg\": {\n      \"bytes\": 2799,\n      \"sha256\": \"a6ef9819027d3704337f8ed9cc41309e539e088e6d6e7dcb530930f933780493\"\n    },\n    \"markup/original.svg\": {\n      \"bytes\": 1939,\n      \"sha256\": \"05c2203d6b4b68b493dd3fd4cba8e477f10780492cdc4bd5a7386d8ea048ac71\"\n    },\n    \"markup/readings.json\": {\n      \"bytes\": 14322,\n      \"sha256\": \"a13a2ff9bc039529bc54c1d2b7b60ad9cd41a2ab6bce8b1ed592e64495a99ecd\"\n    },\n    \"markup/requests.json\": {\n      \"bytes\": 6257,\n      \"sha256\": \"3de278bd83d8410f9350b81c860babd5f679e39c473dba37aacc448fe06b6430\"\n    },\n    \"markup/returned.svg\": {\n      \"bytes\": 2161,\n      \"sha256\": \"d65b96b1649fd0b62b5a8d378e443dc3768deb1d6d301e044e803582cdd93e7c\"\n    },\n    \"note.txt\": {\n      \"bytes\": 65,\n      \"sha256\": \"141dff83a7d4ac6b26d3b02b7e6e4344805ec7dc32930003fc3bee347c16ff74\"\n    },\n    \"profile.json\": {\n      \"bytes\": 2058,\n      \"sha256\": \"bf71593fce462198cc2bf5cfce011bbe76c5815d8a6ceed41b62c80cadb0ea18\"\n    },\n    \"questions.json\": {\n      \"bytes\": 1168,\n      \"sha256\": \"1a8b582a3bb10d5677ff3f2142852917f1d9316d2d22c45e509daaf1db6e3cd8\"\n    }\n  },\n  \"boundary\": \"No scoped crosswalk, receiving schema, source meaning, dependency/review state or revision reconciliation.\"\n}\n"
+  },
+  {
+    "argv": [
+      "scripts/foundation_handoff.py",
+      "prepare",
+      "--profile",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\profile.json",
+      "--out",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\prepared"
+    ],
+    "exit": 0,
+    "expected_exit": 0,
+    "stderr": "",
+    "stdout": "{\"schema\": \"foundation-preparation-receipt-1\", \"files\": 46, \"company_acceptance\": false}\n"
+  },
+  {
+    "argv": [
+      "scripts/context_register.py",
+      "prepare",
+      "--model",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\prepared\\graph.json",
+      "--questions",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\prepared\\questions.json",
+      "--sources",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\prepared\\sources.json",
+      "--out",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\context-prepared"
+    ],
+    "exit": 0,
+    "expected_exit": 0,
+    "stderr": "",
+    "stdout": "Context register: 5 unanswered; 0 historical decisions. Draft for review.\n"
+  },
+  {
+    "argv": [
+      "scripts/context_register.py",
+      "apply",
+      "--model",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\prepared\\graph.json",
+      "--questions",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\prepared\\questions.json",
+      "--sources",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\prepared\\sources.json",
+      "--answers",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\applied.csv",
+      "--out",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\applied"
+    ],
+    "exit": 0,
+    "expected_exit": 0,
+    "stderr": "",
+    "stdout": "Context register: 5 partial; 5 historical decisions. Draft for review.\n"
+  },
+  {
+    "argv": [
+      "scripts/foundation_handoff.py",
+      "deliver",
+      "--prepared",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\prepared",
+      "--context",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\applied",
+      "--out",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\delivery-1"
+    ],
+    "exit": 0,
+    "expected_exit": 0,
+    "stderr": "",
+    "stdout": "{\"schema\": \"foundation-delivery-receipt-1\", \"files\": 52, \"company_acceptance\": false}\n"
+  },
+  {
+    "argv": [
+      "scripts/foundation_handoff.py",
+      "receive",
+      "--packet",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\delivery-1",
+      "--out",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\received-1"
+    ],
+    "exit": 0,
+    "expected_exit": 0,
+    "stderr": "",
+    "stdout": "{\"schema\": \"foundation-delivery-receipt-1\", \"files\": 52, \"company_acceptance\": false}\n"
+  },
+  {
+    "argv": [
+      "scripts/context_register.py",
+      "apply",
+      "--model",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\prepared\\graph.json",
+      "--questions",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\prepared\\questions.json",
+      "--sources",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\prepared\\sources.json",
+      "--answers",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\conflict-forward.csv",
+      "--out",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\conflict-forward",
+      "--register",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\applied\\context.json"
+    ],
+    "exit": 0,
+    "expected_exit": 0,
+    "stderr": "",
+    "stdout": "Context register: 1 disputed, 4 partial; 6 historical decisions. Draft for review.\n"
+  },
+  {
+    "argv": [
+      "scripts/context_register.py",
+      "apply",
+      "--model",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\prepared\\graph.json",
+      "--questions",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\prepared\\questions.json",
+      "--sources",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\prepared\\sources.json",
+      "--answers",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\conflict-reverse.csv",
+      "--out",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\conflict-reverse",
+      "--register",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\applied\\context.json"
+    ],
+    "exit": 0,
+    "expected_exit": 0,
+    "stderr": "",
+    "stdout": "Context register: 1 disputed, 4 partial; 6 historical decisions. Draft for review.\n"
+  },
+  {
+    "argv": [
+      "scripts/context_register.py",
+      "apply",
+      "--model",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\prepared\\graph.json",
+      "--questions",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\prepared\\questions.json",
+      "--sources",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\prepared\\sources.json",
+      "--answers",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\retry.csv",
+      "--out",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\retry",
+      "--register",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\conflict-forward\\context.json"
+    ],
+    "exit": 0,
+    "expected_exit": 0,
+    "stderr": "",
+    "stdout": "Context register: 1 disputed, 4 partial; 6 historical decisions. Draft for review.\n"
+  },
+  {
+    "argv": [
+      "scripts/foundation_handoff.py",
+      "prepare",
+      "--profile",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\note-only\\profile.json",
+      "--out",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\note-only\\prepared"
+    ],
+    "exit": 0,
+    "expected_exit": 0,
+    "stderr": "",
+    "stdout": "{\"schema\": \"foundation-preparation-receipt-1\", \"files\": 46, \"company_acceptance\": false}\n"
+  },
+  {
+    "argv": [
+      "scripts/context_register.py",
+      "prepare",
+      "--model",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\note-only\\prepared\\graph.json",
+      "--questions",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\note-only\\prepared\\questions.json",
+      "--sources",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\note-only\\prepared\\sources.json",
+      "--out",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\note-only\\context-prepared",
+      "--register",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\applied\\context.json"
+    ],
+    "exit": 0,
+    "expected_exit": 0,
+    "stderr": "",
+    "stdout": "Context register: 3 partial, 2 unanswered; 5 historical decisions. Draft for review.\n"
+  },
+  {
+    "argv": [
+      "scripts/maintenance_history.py",
+      "--profile",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\second\\history-input\\profile.json",
+      "--out",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\second\\history",
+      "--previous",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\history"
+    ],
+    "exit": 0,
+    "expected_exit": 0,
+    "stderr": "",
+    "stdout": "Draft history packet: C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\second\\history\\REPORT.html; 3 scoped assets; 11 review issues; authorized decision pending.\n"
+  },
+  {
+    "argv": [
+      "scripts/receive_drawings.py",
+      "--manifest",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\second\\job.json",
+      "--out",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\second\\drawing"
+    ],
+    "exit": 0,
+    "expected_exit": 0,
+    "stderr": "",
+    "stdout": "Receiving packet written: 1 checks; 8 review items; authorized decision pending.\n"
+  },
+  {
+    "argv": [
+      "scripts/foundation_handoff.py",
+      "prepare",
+      "--profile",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\second\\profile.json",
+      "--out",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\second\\prepared"
+    ],
+    "exit": 0,
+    "expected_exit": 0,
+    "stderr": "",
+    "stdout": "{\"schema\": \"foundation-preparation-receipt-1\", \"files\": 66, \"company_acceptance\": false}\n"
+  },
+  {
+    "argv": [
+      "scripts/context_register.py",
+      "prepare",
+      "--model",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\second\\prepared\\graph.json",
+      "--questions",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\second\\prepared\\questions.json",
+      "--sources",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\second\\prepared\\sources.json",
+      "--out",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\second\\context-prepared",
+      "--register",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\first\\conflict-forward\\context.json"
+    ],
+    "exit": 0,
+    "expected_exit": 0,
+    "stderr": "",
+    "stdout": "Context register: 1 partial, 4 unanswered; 6 historical decisions. Draft for review.\n"
+  },
+  {
+    "argv": [
+      "scripts/foundation_handoff.py",
+      "deliver",
+      "--prepared",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\second\\prepared",
+      "--context",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\second\\context-prepared",
+      "--previous",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\delivery-1",
+      "--out",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\delivery-2"
+    ],
+    "exit": 0,
+    "expected_exit": 0,
+    "stderr": "",
+    "stdout": "{\"schema\": \"foundation-delivery-receipt-1\", \"files\": 125, \"company_acceptance\": false}\n"
+  },
+  {
+    "argv": [
+      "scripts/foundation_handoff.py",
+      "receive",
+      "--packet",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\delivery-2",
+      "--expected-base",
+      "bd297f0dda5406f25eb4b5640482033f317ef496580f69d28fb39b55e3951810",
+      "--out",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\relocated"
+    ],
+    "exit": 0,
+    "expected_exit": 0,
+    "stderr": "",
+    "stdout": "{\"schema\": \"foundation-delivery-receipt-1\", \"files\": 125, \"company_acceptance\": false}\n"
+  },
+  {
+    "argv": [
+      "scripts/foundation_handoff.py",
+      "receive",
+      "--packet",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\relocated",
+      "--expected-base",
+      "bd297f0dda5406f25eb4b5640482033f317ef496580f69d28fb39b55e3951810",
+      "--out",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\reopened"
+    ],
+    "exit": 0,
+    "expected_exit": 0,
+    "stderr": "",
+    "stdout": "{\"schema\": \"foundation-delivery-receipt-1\", \"files\": 125, \"company_acceptance\": false}\n"
+  },
+  {
+    "argv": [
+      "scripts/foundation_handoff.py",
+      "receive",
+      "--packet",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\delivery-2",
+      "--out",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\wrong-base"
+    ],
+    "exit": 2,
+    "expected_exit": 2,
+    "stderr": "REFUSED: Receiver expected base disagrees; reconcile current receiving history explicitly\n",
+    "stdout": ""
+  },
+  {
+    "argv": [
+      "scripts/foundation_handoff.py",
+      "receive",
+      "--packet",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\delivery-2",
+      "--expected-base",
+      "bd297f0dda5406f25eb4b5640482033f317ef496580f69d28fb39b55e3951810",
+      "--out",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\reopened"
+    ],
+    "exit": 2,
+    "expected_exit": 2,
+    "stderr": "REFUSED: Receiving output already exists; retries must not append/replace history\n",
+    "stdout": ""
+  },
+  {
+    "argv": [
+      "scripts/foundation_handoff.py",
+      "deliver",
+      "--prepared",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\second\\prepared",
+      "--context",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\second\\context-prepared",
+      "--previous",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\delivery-2",
+      "--out",
+      "C:\\Users\\Steve\\.cp-scratch\\foundation-development-5\\duplicate"
+    ],
+    "exit": 2,
+    "expected_exit": 2,
+    "stderr": "REFUSED: Duplicate delivery has no new evidence/history\n",
+    "stdout": ""
+  }
+]

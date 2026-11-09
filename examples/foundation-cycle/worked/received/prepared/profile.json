@@ -1,0 +1,97 @@
+{
+  "documents": [
+    {
+      "id": "NOTE",
+      "locators": [
+        {
+          "id": "L1",
+          "locator": "Complete authored note, line 1",
+          "questions": [
+            "HISTORY",
+            "SYNTHESIS"
+          ]
+        }
+      ],
+      "path": "originals/documents/0.txt",
+      "revision": "B"
+    },
+    {
+      "id": "INDEPENDENT",
+      "locators": [
+        {
+          "id": "L1",
+          "locator": "Complete authored note, line 1",
+          "questions": [
+            "INDEPENDENT"
+          ]
+        }
+      ],
+      "path": "originals/documents/1.txt",
+      "revision": "A"
+    }
+  ],
+  "drawing": {
+    "mappings": [
+      {
+        "drawing": "Teaching P&ID",
+        "key": [
+          "R7",
+          "HV-102"
+        ],
+        "node": "R7/HV-102",
+        "request_id": "M02",
+        "returned_revision": "C",
+        "reviewed_on": "2026-11-09",
+        "reviewer": "Fictional preparer declaration",
+        "sheet": "DEMO/U1/PID-101"
+      }
+    ],
+    "packet": "originals/drawing",
+    "questions": [
+      "DRAWING",
+      "SYNTHESIS"
+    ],
+    "revision": "2"
+  },
+  "graph": "originals/graph.json",
+  "history": {
+    "mappings": [
+      {
+        "key": [
+          "R7",
+          "P-101"
+        ],
+        "node": "R7/P-101",
+        "reviewed_on": "2026-11-09",
+        "reviewer": "Fictional preparer declaration"
+      },
+      {
+        "key": [
+          "R8",
+          "P-101"
+        ],
+        "node": "R8/P-101",
+        "reviewed_on": "2026-11-09",
+        "reviewer": "Fictional preparer declaration"
+      }
+    ],
+    "packet": "originals/history",
+    "questions": [
+      "HISTORY",
+      "SYNTHESIS"
+    ],
+    "revision": "2"
+  },
+  "id": "fictional-selected-unit",
+  "questions": "questions.json",
+  "schema": "foundation-input-1",
+  "unavailable": [
+    {
+      "id": "OPTIONAL",
+      "questions": [
+        "MISSING"
+      ],
+      "reason": "Not supplied in next export; omission is not closure"
+    }
+  ]
+}

@@ -1,0 +1,2172 @@
+{
+  "schema": "maintenance-history-result-1",
+  "namespace": "FICTIONAL",
+  "question": "Which selected work records need investigation or reconciliation?",
+  "as_of": "2024-01-31",
+  "sources": {
+    "assets": {
+      "id": "FIX-assets",
+      "revision": "2",
+      "owner": "Maintenance records owner",
+      "coverage": "Authored selected-record excerpt; no absence or installed-state guarantee"
+    },
+    "work_orders": {
+      "id": "FIX-work_orders",
+      "revision": "2",
+      "owner": "Maintenance records owner",
+      "coverage": "Authored selected-record excerpt; no absence or installed-state guarantee"
+    },
+    "transactions": {
+      "id": "FIX-transactions",
+      "revision": "2",
+      "owner": "Maintenance records owner",
+      "coverage": "Authored selected-record excerpt; no absence or installed-state guarantee"
+    },
+    "details": {
+      "id": "FIX-details",
+      "revision": "2",
+      "owner": "Maintenance records owner",
+      "coverage": "Authored selected-record excerpt; no absence or installed-state guarantee"
+    },
+    "labor": {
+      "id": "FIX-labor",
+      "revision": "2",
+      "owner": "Maintenance records owner",
+      "coverage": "Authored selected-record excerpt; no absence or installed-state guarantee"
+    }
+  },
+  "counts": {
+    "assets": 3,
+    "work_orders": 6,
+    "transactions": 4,
+    "details": 5,
+    "labor": 6
+  },
+  "assets": [
+    {
+      "key": [
+        "R7",
+        "P-101"
+      ],
+      "page": "assets/ae96f7ec7cdb68055dbec9ba.html",
+      "asset": {
+        "id": "P-101",
+        "scope": "R7",
+        "description": "Feed pump",
+        "kind": "equipment",
+        "origin": {
+          "table": "assets",
+          "document": "FIX-assets",
+          "revision": "2",
+          "member": "originals/assets/001.csv",
+          "record": 2,
+          "end_line": 2,
+          "sha256": "d3f9a57c20a20a3d988cc961507b5b9cd09fbd67a73b7c7df32fd08418ce92d4",
+          "locator": "CSV record 2, ends at physical line 2"
+        },
+        "_dates": {},
+        "_numbers": {},
+        "_flags": {},
+        "_labels": {}
+      },
+      "work_orders": [
+        {
+          "record": {
+            "id": "W1",
+            "scope": "R7",
+            "asset_id": "P-101",
+            "description": "Inspect seal\nRetain source line; effectiveness unknown",
+            "work_class": "seal",
+            "order_type": "CM",
+            "job_type": "REPAIR",
+            "created": "2024-01-02",
+            "completed": "2024-01-03",
+            "reopened": "N",
+            "parent_id": "",
+            "origin": {
+              "table": "work_orders",
+              "document": "FIX-work_orders",
+              "revision": "2",
+              "member": "originals/work_orders/001.csv",
+              "record": 2,
+              "end_line": 3,
+              "sha256": "097f500bb37f6593b4cb323c2149f1726c81b15f169bbc328b2928ff21bcbcd0",
+              "locator": "CSV record 2, ends at physical line 3"
+            },
+            "_dates": {
+              "created": {
+                "state": "known",
+                "raw": "2024-01-02",
+                "value": "2024-01-02",
+                "format": "iso_date",
+                "time_basis": "Authored calendar dates only; within-day event order unspecified"
+              },
+              "completed": {
+                "state": "known",
+                "raw": "2024-01-03",
+                "value": "2024-01-03",
+                "format": "iso_date",
+                "time_basis": "Authored calendar dates only; within-day event order unspecified"
+              }
+            },
+            "_numbers": {},
+            "_flags": {
+              "reopened": "false"
+            },
+            "_labels": {
+              "order_type": "Corrective work order"
+            }
+          },
+          "transactions": [
+            {
+              "id": "T1",
+              "scope": "R7",
+              "work_order_id": "W1",
+              "entity": "WORK",
+              "status": "A",
+              "type": "I",
+              "date": "2024-01-03",
+              "origin": {
+                "table": "transactions",
+                "document": "FIX-transactions",
+                "revision": "2",
+                "member": "originals/transactions/001.csv",
+                "record": 2,
+                "end_line": 2,
+                "sha256": "b59c654662656cd40b64636e114a24cd14d417848e23278c8fcdf8991ec0b1f7",
+                "locator": "CSV record 2, ends at physical line 2"
+              },
+              "_dates": {
+                "date": {
+                  "state": "known",
+                  "raw": "2024-01-03",
+                  "value": "2024-01-03",
+                  "format": "iso_date",
+                  "time_basis": "Authored calendar dates only; within-day event order unspecified"
+                }
+              },
+              "_numbers": {},
+              "_flags": {},
+              "_labels": {
+                "status": "Approved",
+                "type": "Issue"
+              }
+            },
+            {
+              "id": "T2",
+              "scope": "R7",
+              "work_order_id": "W1",
+              "entity": "WORK",
+              "status": "A",
+              "type": "I",
+              "date": "2024-01-03",
+              "origin": {
+                "table": "transactions",
+                "document": "FIX-transactions",
+                "revision": "2",
+                "member": "originals/transactions/001.csv",
+                "record": 3,
+                "end_line": 3,
+                "sha256": "b59c654662656cd40b64636e114a24cd14d417848e23278c8fcdf8991ec0b1f7",
+                "locator": "CSV record 3, ends at physical line 3"
+              },
+              "_dates": {
+                "date": {
+                  "state": "known",
+                  "raw": "2024-01-03",
+                  "value": "2024-01-03",
+                  "format": "iso_date",
+                  "time_basis": "Authored calendar dates only; within-day event order unspecified"
+                }
+              },
+              "_numbers": {},
+              "_flags": {},
+              "_labels": {
+                "status": "Approved",
+                "type": "Issue"
+              }
+            }
+          ],
+          "details": [
+            {
+              "id": "D1",
+              "scope": "R7",
+              "transaction_id": "T1",
+              "work_order_id": "W1",
+              "part_id": "SEAL-01",
+              "description": "Fictional seal",
+              "quantity": "2",
+              "unit": "EA",
+              "price": "10",
+              "date": "2024-01-03",
+              "origin": {
+                "table": "details",
+                "document": "FIX-details",
+                "revision": "2",
+                "member": "originals/details/001.csv",
+                "record": 2,
+                "end_line": 2,
+                "sha256": "da1a8e6d1af0a9f82225563986c489dcec0f7fc605d8ad10fde53bd506e7f752",
+                "locator": "CSV record 2, ends at physical line 2"
+              },
+              "_dates": {
+                "date": {
+                  "state": "known",
+                  "raw": "2024-01-03",
+                  "value": "2024-01-03",
+                  "format": "iso_date",
+                  "time_basis": "Authored calendar dates only; within-day event order unspecified"
+                }
+              },
+              "_numbers": {
+                "quantity": "2",
+                "price": "10"
+              },
+              "_flags": {},
+              "_labels": {}
+            },
+            {
+              "id": "D2",
+              "scope": "R7",
+              "transaction_id": "T2",
+              "work_order_id": "W1",
+              "part_id": "SEAL-01",
+              "description": "Fictional seal",
+              "quantity": "-1",
+              "unit": "EA",
+              "price": "10",
+              "date": "2024-01-03",
+              "origin": {
+                "table": "details",
+                "document": "FIX-details",
+                "revision": "2",
+                "member": "originals/details/001.csv",
+                "record": 3,
+                "end_line": 3,
+                "sha256": "da1a8e6d1af0a9f82225563986c489dcec0f7fc605d8ad10fde53bd506e7f752",
+                "locator": "CSV record 3, ends at physical line 3"
+              },
+              "_dates": {
+                "date": {
+                  "state": "known",
+                  "raw": "2024-01-03",
+                  "value": "2024-01-03",
+                  "format": "iso_date",
+                  "time_basis": "Authored calendar dates only; within-day event order unspecified"
+                }
+              },
+              "_numbers": {
+                "quantity": "-1",
+                "price": "10"
+              },
+              "_flags": {},
+              "_labels": {}
+            }
+          ],
+          "labor": [
+            {
+              "id": "L1",
+              "scope": "R7",
+              "work_order_id": "W1",
+              "date": "2024-01-03",
+              "hours": "4",
+              "correction": "N",
+              "trade": "Mechanical",
+              "origin": {
+                "table": "labor",
+                "document": "FIX-labor",
+                "revision": "2",
+                "member": "originals/labor/001.csv",
+                "record": 2,
+                "end_line": 2,
+                "sha256": "5e7059a1336c65f2c7abf8b880dda3f95fb0f216556575eaa77ce67701c58c9d",
+                "locator": "CSV record 2, ends at physical line 2"
+              },
+              "_dates": {
+                "date": {
+                  "state": "known",
+                  "raw": "2024-01-03",
+                  "value": "2024-01-03",
+                  "format": "iso_date",
+                  "time_basis": "Authored calendar dates only; within-day event order unspecified"
+                }
+              },
+              "_numbers": {
+                "hours": "4"
+              },
+              "_flags": {
+                "correction": "false"
+              },
+              "_labels": {}
+            },
+            {
+              "id": "L2",
+              "scope": "R7",
+              "work_order_id": "W1",
+              "date": "2024-01-03",
+              "hours": "-0.5",
+              "correction": "Y",
+              "trade": "Mechanical",
+              "origin": {
+                "table": "labor",
+                "document": "FIX-labor",
+                "revision": "2",
+                "member": "originals/labor/001.csv",
+                "record": 3,
+                "end_line": 3,
+                "sha256": "5e7059a1336c65f2c7abf8b880dda3f95fb0f216556575eaa77ce67701c58c9d",
+                "locator": "CSV record 3, ends at physical line 3"
+              },
+              "_dates": {
+                "date": {
+                  "state": "known",
+                  "raw": "2024-01-03",
+                  "value": "2024-01-03",
+                  "format": "iso_date",
+                  "time_basis": "Authored calendar dates only; within-day event order unspecified"
+                }
+              },
+              "_numbers": {
+                "hours": "-0.5"
+              },
+              "_flags": {
+                "correction": "true"
+              },
+              "_labels": {}
+            },
+            {
+              "id": "L3",
+              "scope": "R7",
+              "work_order_id": "W1",
+              "date": "2024-01-03",
+              "hours": "0",
+              "correction": "N",
+              "trade": "Mechanical",
+              "origin": {
+                "table": "labor",
+                "document": "FIX-labor",
+                "revision": "2",
+                "member": "originals/labor/001.csv",
+                "record": 4,
+                "end_line": 4,
+                "sha256": "5e7059a1336c65f2c7abf8b880dda3f95fb0f216556575eaa77ce67701c58c9d",
+                "locator": "CSV record 4, ends at physical line 4"
+              },
+              "_dates": {
+                "date": {
+                  "state": "known",
+                  "raw": "2024-01-03",
+                  "value": "2024-01-03",
+                  "format": "iso_date",
+                  "time_basis": "Authored calendar dates only; within-day event order unspecified"
+                }
+              },
+              "_numbers": {
+                "hours": "0"
+              },
+              "_flags": {
+                "correction": "false"
+              },
+              "_labels": {}
+            }
+          ],
+          "booked_hours": {
+            "state": "known",
+            "value": "3.5",
+            "unit": "h",
+            "rows": 3,
+            "basis": "Authored fixture: hours are an additive signed ledger, including correction and zero entries."
+          }
+        },
+        {
+          "record": {
+            "id": "W2",
+            "scope": "R7",
+            "asset_id": "P-101",
+            "description": "Inspect seal",
+            "work_class": "seal",
+            "order_type": "CM",
+            "job_type": "REPAIR",
+            "created": "2024-01-05",
+            "completed": "",
+            "reopened": "?",
+            "parent_id": "W1",
+            "origin": {
+              "table": "work_orders",
+              "document": "FIX-work_orders",
+              "revision": "2",
+              "member": "originals/work_orders/001.csv",
+              "record": 3,
+              "end_line": 4,
+              "sha256": "097f500bb37f6593b4cb323c2149f1726c81b15f169bbc328b2928ff21bcbcd0",
+              "locator": "CSV record 3, ends at physical line 4"
+            },
+            "_dates": {
+              "created": {
+                "state": "known",
+                "raw": "2024-01-05",
+                "value": "2024-01-05",
+                "format": "iso_date",
+                "time_basis": "Authored calendar dates only; within-day event order unspecified"
+              },
+              "completed": {
+                "state": "missing",
+                "raw": "",
+                "value": null,
+                "format": "iso_date",
+                "time_basis": "Authored calendar dates only; within-day event order unspecified"
+              }
+            },
+            "_numbers": {},
+            "_flags": {
+              "reopened": "unknown"
+            },
+            "_labels": {
+              "order_type": "Corrective work order"
+            }
+          },
+          "transactions": [],
+          "details": [],
+          "labor": [
+            {
+              "id": "L4",
+              "scope": "R7",
+              "work_order_id": "W2",
+              "date": "2024-01-03",
+              "hours": "1",
+              "correction": "?",
+              "trade": "Mechanical",
+              "origin": {
+                "table": "labor",
+                "document": "FIX-labor",
+                "revision": "2",
+                "member": "originals/labor/001.csv",
+                "record": 5,
+                "end_line": 5,
+                "sha256": "5e7059a1336c65f2c7abf8b880dda3f95fb0f216556575eaa77ce67701c58c9d",
+                "locator": "CSV record 5, ends at physical line 5"
+              },
+              "_dates": {
+                "date": {
+                  "state": "known",
+                  "raw": "2024-01-03",
+                  "value": "2024-01-03",
+                  "format": "iso_date",
+                  "time_basis": "Authored calendar dates only; within-day event order unspecified"
+                }
+              },
+              "_numbers": {
+                "hours": "1"
+              },
+              "_flags": {
+                "correction": "unknown"
+              },
+              "_labels": {}
+            }
+          ],
+          "booked_hours": {
+            "state": "known",
+            "value": "1",
+            "unit": "h",
+            "rows": 1,
+            "basis": "Authored fixture: hours are an additive signed ledger, including correction and zero entries."
+          }
+        }
+      ],
+      "recurring_work": [
+        {
+          "fields": {
+            "work_class": "seal",
+            "order_type": "CM",
+            "job_type": "REPAIR"
+          },
+          "selected_order_count": 2,
+          "orders": [
+            "W1",
+            "W2"
+          ],
+          "evidence": [
+            {
+              "table": "work_orders",
+              "document": "FIX-work_orders",
+              "revision": "2",
+              "member": "originals/work_orders/001.csv",
+              "record": 2,
+              "end_line": 3,
+              "sha256": "097f500bb37f6593b4cb323c2149f1726c81b15f169bbc328b2928ff21bcbcd0",
+              "locator": "CSV record 2, ends at physical line 3"
+            },
+            {
+              "table": "work_orders",
+              "document": "FIX-work_orders",
+              "revision": "2",
+              "member": "originals/work_orders/001.csv",
+              "record": 3,
+              "end_line": 4,
+              "sha256": "097f500bb37f6593b4cb323c2149f1726c81b15f169bbc328b2928ff21bcbcd0",
+              "locator": "CSV record 3, ends at physical line 4"
+            }
+          ],
+          "action": "Review these distinct selected work orders and their descriptions/parent links; recurrence is not proof of repeat failure or independent repair."
+        }
+      ],
+      "booked_hours": {
+        "state": "known",
+        "value": "4.5",
+        "unit": "h",
+        "rows": 4,
+        "basis": "Authored fixture: hours are an additive signed ledger, including correction and zero entries."
+      },
+      "unclassified_orders": []
+    },
+    {
+      "key": [
+        "R7",
+        "PARK"
+      ],
+      "page": "assets/c582404000ee9fc8e08e4c5c.html",
+      "asset": {
+        "id": "PARK",
+        "scope": "R7",
+        "description": "Fictional grounds system",
+        "kind": "system",
+        "origin": {
+          "table": "assets",
+          "document": "FIX-assets",
+          "revision": "2",
+          "member": "originals/assets/001.csv",
+          "record": 4,
+          "end_line": 4,
+          "sha256": "d3f9a57c20a20a3d988cc961507b5b9cd09fbd67a73b7c7df32fd08418ce92d4",
+          "locator": "CSV record 4, ends at physical line 4"
+        },
+        "_dates": {},
+        "_numbers": {},
+        "_flags": {},
+        "_labels": {}
+      },
+      "work_orders": [
+        {
+          "record": {
+            "id": "W6",
+            "scope": "R7",
+            "asset_id": "PARK",
+            "description": "Inspect grounds",
+            "work_class": "grounds",
+            "order_type": "PPM",
+            "job_type": "SCHD",
+            "created": "2024-01-02",
+            "completed": "2024-01-03",
+            "reopened": "N",
+            "parent_id": "",
+            "origin": {
+              "table": "work_orders",
+              "document": "FIX-work_orders",
+              "revision": "2",
+              "member": "originals/work_orders/001.csv",
+              "record": 6,
+              "end_line": 7,
+              "sha256": "097f500bb37f6593b4cb323c2149f1726c81b15f169bbc328b2928ff21bcbcd0",
+              "locator": "CSV record 6, ends at physical line 7"
+            },
+            "_dates": {
+              "created": {
+                "state": "known",
+                "raw": "2024-01-02",
+                "value": "2024-01-02",
+                "format": "iso_date",
+                "time_basis": "Authored calendar dates only; within-day event order unspecified"
+              },
+              "completed": {
+                "state": "known",
+                "raw": "2024-01-03",
+                "value": "2024-01-03",
+                "format": "iso_date",
+                "time_basis": "Authored calendar dates only; within-day event order unspecified"
+              }
+            },
+            "_numbers": {},
+            "_flags": {
+              "reopened": "false"
+            },
+            "_labels": {
+              "order_type": "Planned preventative maintenance"
+            }
+          },
+          "transactions": [],
+          "details": [],
+          "labor": [],
+          "booked_hours": {
+            "state": "no_rows_supplied",
+            "value": null,
+            "unit": "h",
+            "rows": 0,
+            "basis": "Authored fixture: hours are an additive signed ledger, including correction and zero entries."
+          }
+        },
+        {
+          "record": {
+            "id": "W7",
+            "scope": "R7",
+            "asset_id": "PARK",
+            "description": "Inspect grounds",
+            "work_class": "grounds",
+            "order_type": "PPM",
+            "job_type": "SCHD",
+            "created": "2024-01-06",
+            "completed": "2024-01-07",
+            "reopened": "N",
+            "parent_id": "",
+            "origin": {
+              "table": "work_orders",
+              "document": "FIX-work_orders",
+              "revision": "2",
+              "member": "originals/work_orders/001.csv",
+              "record": 7,
+              "end_line": 8,
+              "sha256": "097f500bb37f6593b4cb323c2149f1726c81b15f169bbc328b2928ff21bcbcd0",
+              "locator": "CSV record 7, ends at physical line 8"
+            },
+            "_dates": {
+              "created": {
+                "state": "known",
+                "raw": "2024-01-06",
+                "value": "2024-01-06",
+                "format": "iso_date",
+                "time_basis": "Authored calendar dates only; within-day event order unspecified"
+              },
+              "completed": {
+                "state": "known",
+                "raw": "2024-01-07",
+                "value": "2024-01-07",
+                "format": "iso_date",
+                "time_basis": "Authored calendar dates only; within-day event order unspecified"
+              }
+            },
+            "_numbers": {},
+            "_flags": {
+              "reopened": "false"
+            },
+            "_labels": {
+              "order_type": "Planned preventative maintenance"
+            }
+          },
+          "transactions": [],
+          "details": [],
+          "labor": [],
+          "booked_hours": {
+            "state": "no_rows_supplied",
+            "value": null,
+            "unit": "h",
+            "rows": 0,
+            "basis": "Authored fixture: hours are an additive signed ledger, including correction and zero entries."
+          }
+        }
+      ],
+      "recurring_work": [
+        {
+          "fields": {
+            "work_class": "grounds",
+            "order_type": "PPM",
+            "job_type": "SCHD"
+          },
+          "selected_order_count": 2,
+          "orders": [
+            "W6",
+            "W7"
+          ],
+          "evidence": [
+            {
+              "table": "work_orders",
+              "document": "FIX-work_orders",
+              "revision": "2",
+              "member": "originals/work_orders/001.csv",
+              "record": 6,
+              "end_line": 7,
+              "sha256": "097f500bb37f6593b4cb323c2149f1726c81b15f169bbc328b2928ff21bcbcd0",
+              "locator": "CSV record 6, ends at physical line 7"
+            },
+            {
+              "table": "work_orders",
+              "document": "FIX-work_orders",
+              "revision": "2",
+              "member": "originals/work_orders/001.csv",
+              "record": 7,
+              "end_line": 8,
+              "sha256": "097f500bb37f6593b4cb323c2149f1726c81b15f169bbc328b2928ff21bcbcd0",
+              "locator": "CSV record 7, ends at physical line 8"
+            }
+          ],
+          "action": "Review these distinct selected work orders and their descriptions/parent links; recurrence is not proof of repeat failure or independent repair."
+        }
+      ],
+      "booked_hours": {
+        "state": "no_rows_supplied",
+        "value": null,
+        "unit": "h",
+        "rows": 0,
+        "basis": "Authored fixture: hours are an additive signed ledger, including correction and zero entries."
+      },
+      "unclassified_orders": []
+    },
+    {
+      "key": [
+        "R8",
+        "P-101"
+      ],
+      "page": "assets/e389fc4ab74650b3b8bcd69d.html",
+      "asset": {
+        "id": "P-101",
+        "scope": "R8",
+        "description": "Cooling pump",
+        "kind": "equipment",
+        "origin": {
+          "table": "assets",
+          "document": "FIX-assets",
+          "revision": "2",
+          "member": "originals/assets/001.csv",
+          "record": 3,
+          "end_line": 3,
+          "sha256": "d3f9a57c20a20a3d988cc961507b5b9cd09fbd67a73b7c7df32fd08418ce92d4",
+          "locator": "CSV record 3, ends at physical line 3"
+        },
+        "_dates": {},
+        "_numbers": {},
+        "_flags": {},
+        "_labels": {}
+      },
+      "work_orders": [
+        {
+          "record": {
+            "id": "W4",
+            "scope": "R8",
+            "asset_id": "P-101",
+            "description": "Inspect seal",
+            "work_class": "seal",
+            "order_type": "CM",
+            "job_type": "REPAIR",
+            "created": "2024-01-02",
+            "completed": "2024-01-03",
+            "reopened": "N",
+            "parent_id": "",
+            "origin": {
+              "table": "work_orders",
+              "document": "FIX-work_orders",
+              "revision": "2",
+              "member": "originals/work_orders/001.csv",
+              "record": 4,
+              "end_line": 5,
+              "sha256": "097f500bb37f6593b4cb323c2149f1726c81b15f169bbc328b2928ff21bcbcd0",
+              "locator": "CSV record 4, ends at physical line 5"
+            },
+            "_dates": {
+              "created": {
+                "state": "known",
+                "raw": "2024-01-02",
+                "value": "2024-01-02",
+                "format": "iso_date",
+                "time_basis": "Authored calendar dates only; within-day event order unspecified"
+              },
+              "completed": {
+                "state": "known",
+                "raw": "2024-01-03",
+                "value": "2024-01-03",
+                "format": "iso_date",
+                "time_basis": "Authored calendar dates only; within-day event order unspecified"
+              }
+            },
+            "_numbers": {},
+            "_flags": {
+              "reopened": "false"
+            },
+            "_labels": {
+              "order_type": "Corrective work order"
+            }
+          },
+          "transactions": [
+            {
+              "id": "T4",
+              "scope": "R8",
+              "work_order_id": "W4",
+              "entity": "WORK",
+              "status": "C",
+              "type": "I",
+              "date": "2024-01-03",
+              "origin": {
+                "table": "transactions",
+                "document": "FIX-transactions",
+                "revision": "2",
+                "member": "originals/transactions/001.csv",
+                "record": 5,
+                "end_line": 5,
+                "sha256": "b59c654662656cd40b64636e114a24cd14d417848e23278c8fcdf8991ec0b1f7",
+                "locator": "CSV record 5, ends at physical line 5"
+              },
+              "_dates": {
+                "date": {
+                  "state": "known",
+                  "raw": "2024-01-03",
+                  "value": "2024-01-03",
+                  "format": "iso_date",
+                  "time_basis": "Authored calendar dates only; within-day event order unspecified"
+                }
+              },
+              "_numbers": {},
+              "_flags": {},
+              "_labels": {
+                "status": "Cancelled",
+                "type": "Issue"
+              }
+            }
+          ],
+          "details": [
+            {
+              "id": "D4",
+              "scope": "R8",
+              "transaction_id": "T4",
+              "work_order_id": "W4",
+              "part_id": "SEAL-01",
+              "description": "Fictional seal",
+              "quantity": "3",
+              "unit": "EA",
+              "price": "10",
+              "date": "2024-01-03",
+              "origin": {
+                "table": "details",
+                "document": "FIX-details",
+                "revision": "2",
+                "member": "originals/details/001.csv",
+                "record": 5,
+                "end_line": 5,
+                "sha256": "da1a8e6d1af0a9f82225563986c489dcec0f7fc605d8ad10fde53bd506e7f752",
+                "locator": "CSV record 5, ends at physical line 5"
+              },
+              "_dates": {
+                "date": {
+                  "state": "known",
+                  "raw": "2024-01-03",
+                  "value": "2024-01-03",
+                  "format": "iso_date",
+                  "time_basis": "Authored calendar dates only; within-day event order unspecified"
+                }
+              },
+              "_numbers": {
+                "quantity": "3",
+                "price": "10"
+              },
+              "_flags": {},
+              "_labels": {}
+            }
+          ],
+          "labor": [
+            {
+              "id": "L5",
+              "scope": "R8",
+              "work_order_id": "W4",
+              "date": "2024-01-03",
+              "hours": "3",
+              "correction": "N",
+              "trade": "Mechanical",
+              "origin": {
+                "table": "labor",
+                "document": "FIX-labor",
+                "revision": "2",
+                "member": "originals/labor/001.csv",
+                "record": 6,
+                "end_line": 6,
+                "sha256": "5e7059a1336c65f2c7abf8b880dda3f95fb0f216556575eaa77ce67701c58c9d",
+                "locator": "CSV record 6, ends at physical line 6"
+              },
+              "_dates": {
+                "date": {
+                  "state": "known",
+                  "raw": "2024-01-03",
+                  "value": "2024-01-03",
+                  "format": "iso_date",
+                  "time_basis": "Authored calendar dates only; within-day event order unspecified"
+                }
+              },
+              "_numbers": {
+                "hours": "3"
+              },
+              "_flags": {
+                "correction": "false"
+              },
+              "_labels": {}
+            }
+          ],
+          "booked_hours": {
+            "state": "known",
+            "value": "3",
+            "unit": "h",
+            "rows": 1,
+            "basis": "Authored fixture: hours are an additive signed ledger, including correction and zero entries."
+          }
+        }
+      ],
+      "recurring_work": [],
+      "booked_hours": {
+        "state": "known",
+        "value": "3",
+        "unit": "h",
+        "rows": 1,
+        "basis": "Authored fixture: hours are an additive signed ledger, including correction and zero entries."
+      },
+      "unclassified_orders": []
+    }
+  ],
+  "relationship_coverage": {
+    "work_orders": {
+      "supplied": 6,
+      "linked": 5,
+      "unlinked": 1
+    },
+    "transactions": {
+      "supplied": 4,
+      "linked": 3,
+      "unlinked": 1
+    },
+    "details": {
+      "supplied": 5,
+      "linked": 3,
+      "unlinked": 2
+    },
+    "labor": {
+      "supplied": 6,
+      "linked": 5,
+      "unlinked": 1
+    }
+  },
+  "unlinked": {
+    "work_orders": [
+      {
+        "record": [
+          "R7",
+          "W5"
+        ],
+        "reason": "Asset reference is missing or not uniquely present in supplied assets.",
+        "evidence": {
+          "table": "work_orders",
+          "document": "FIX-work_orders",
+          "revision": "2",
+          "member": "originals/work_orders/001.csv",
+          "record": 5,
+          "end_line": 6,
+          "sha256": "097f500bb37f6593b4cb323c2149f1726c81b15f169bbc328b2928ff21bcbcd0",
+          "locator": "CSV record 5, ends at physical line 6"
+        }
+      }
+    ],
+    "transactions": [
+      {
+        "record": [
+          "R7",
+          "T3"
+        ],
+        "reason": "Transaction target entity is outside the declared work-order namespace.",
+        "evidence": {
+          "table": "transactions",
+          "document": "FIX-transactions",
+          "revision": "2",
+          "member": "originals/transactions/001.csv",
+          "record": 4,
+          "end_line": 4,
+          "sha256": "b59c654662656cd40b64636e114a24cd14d417848e23278c8fcdf8991ec0b1f7",
+          "locator": "CSV record 4, ends at physical line 4"
+        }
+      }
+    ],
+    "details": [
+      {
+        "record": [
+          "R7",
+          "D3"
+        ],
+        "reason": "Transaction is missing or has no qualified work-order association.",
+        "evidence": {
+          "table": "details",
+          "document": "FIX-details",
+          "revision": "2",
+          "member": "originals/details/001.csv",
+          "record": 4,
+          "end_line": 4,
+          "sha256": "da1a8e6d1af0a9f82225563986c489dcec0f7fc605d8ad10fde53bd506e7f752",
+          "locator": "CSV record 4, ends at physical line 4"
+        }
+      },
+      {
+        "record": [
+          "R7",
+          "D5"
+        ],
+        "reason": "Detail work-order reference disagrees with its transaction target; row quarantined.",
+        "evidence": {
+          "table": "details",
+          "document": "FIX-details",
+          "revision": "2",
+          "member": "originals/details/001.csv",
+          "record": 6,
+          "end_line": 6,
+          "sha256": "da1a8e6d1af0a9f82225563986c489dcec0f7fc605d8ad10fde53bd506e7f752",
+          "locator": "CSV record 6, ends at physical line 6"
+        }
+      }
+    ],
+    "labor": [
+      {
+        "record": [
+          "R7",
+          "L6"
+        ],
+        "reason": "Labor work-order reference is unavailable.",
+        "evidence": {
+          "table": "labor",
+          "document": "FIX-labor",
+          "revision": "2",
+          "member": "originals/labor/001.csv",
+          "record": 7,
+          "end_line": 7,
+          "sha256": "5e7059a1336c65f2c7abf8b880dda3f95fb0f216556575eaa77ce67701c58c9d",
+          "locator": "CSV record 7, ends at physical line 7"
+        }
+      }
+    ]
+  },
+  "issues": [
+    {
+      "id": "1969b4a3956380cb5696509a",
+      "code": "missing_completion_value",
+      "table": "work_orders",
+      "field": "completed",
+      "raw_value": null,
+      "action": "Check the current work-order record and disposition; missing completion does not prove open or overdue work.",
+      "suggested_role": "Maintenance records owner",
+      "assigned_person": "needs owner",
+      "disposition": "pending",
+      "evidence": [
+        {
+          "table": "work_orders",
+          "document": "FIX-work_orders",
+          "revision": "2",
+          "member": "originals/work_orders/001.csv",
+          "record": 5,
+          "end_line": 6,
+          "sha256": "097f500bb37f6593b4cb323c2149f1726c81b15f169bbc328b2928ff21bcbcd0",
+          "locator": "CSV record 5, ends at physical line 6"
+        }
+      ]
+    },
+    {
+      "id": "c26727a2317fb10db567ac43",
+      "code": "missing_completion_value",
+      "table": "work_orders",
+      "field": "completed",
+      "raw_value": null,
+      "action": "Check the current work-order record and disposition; missing completion does not prove open or overdue work.",
+      "suggested_role": "Maintenance records owner",
+      "assigned_person": "needs owner",
+      "disposition": "pending",
+      "evidence": [
+        {
+          "table": "work_orders",
+          "document": "FIX-work_orders",
+          "revision": "2",
+          "member": "originals/work_orders/001.csv",
+          "record": 3,
+          "end_line": 4,
+          "sha256": "097f500bb37f6593b4cb323c2149f1726c81b15f169bbc328b2928ff21bcbcd0",
+          "locator": "CSV record 3, ends at physical line 4"
+        }
+      ]
+    },
+    {
+      "id": "8d3deaf6261176e562b56160",
+      "code": "negative_material_quantity",
+      "table": "details",
+      "field": "quantity",
+      "raw_value": "-1",
+      "action": "Review the signed movement and any return/correction; do not infer installed quantity or consumption.",
+      "suggested_role": "Maintenance records owner",
+      "assigned_person": "needs owner",
+      "disposition": "pending",
+      "evidence": [
+        {
+          "table": "details",
+          "document": "FIX-details",
+          "revision": "2",
+          "member": "originals/details/001.csv",
+          "record": 3,
+          "end_line": 3,
+          "sha256": "da1a8e6d1af0a9f82225563986c489dcec0f7fc605d8ad10fde53bd506e7f752",
+          "locator": "CSV record 3, ends at physical line 3"
+        }
+      ]
+    },
+    {
+      "id": "47a9287892fdcb0e47ced9fb",
+      "code": "unknown_flag",
+      "table": "work_orders",
+      "field": "reopened",
+      "raw_value": "?",
+      "action": "Obtain the exact source code definition; retain this flag as unknown.",
+      "suggested_role": "Maintenance records owner",
+      "assigned_person": "needs owner",
+      "disposition": "pending",
+      "evidence": [
+        {
+          "table": "work_orders",
+          "document": "FIX-work_orders",
+          "revision": "2",
+          "member": "originals/work_orders/001.csv",
+          "record": 3,
+          "end_line": 4,
+          "sha256": "097f500bb37f6593b4cb323c2149f1726c81b15f169bbc328b2928ff21bcbcd0",
+          "locator": "CSV record 3, ends at physical line 4"
+        }
+      ]
+    },
+    {
+      "id": "c2191a33ff9690106cc7fd8b",
+      "code": "unknown_flag",
+      "table": "labor",
+      "field": "correction",
+      "raw_value": "?",
+      "action": "Obtain the exact source code definition; retain this flag as unknown.",
+      "suggested_role": "Maintenance records owner",
+      "assigned_person": "needs owner",
+      "disposition": "pending",
+      "evidence": [
+        {
+          "table": "labor",
+          "document": "FIX-labor",
+          "revision": "2",
+          "member": "originals/labor/001.csv",
+          "record": 5,
+          "end_line": 5,
+          "sha256": "5e7059a1336c65f2c7abf8b880dda3f95fb0f216556575eaa77ce67701c58c9d",
+          "locator": "CSV record 5, ends at physical line 5"
+        }
+      ]
+    },
+    {
+      "id": "c5c84fb0e7755a11e52e01d6",
+      "code": "unlinked_details",
+      "table": "details",
+      "field": "relationship",
+      "raw_value": null,
+      "action": "Transaction is missing or has no qualified work-order association. Confirm the exact scoped parent/source relationship.",
+      "suggested_role": "Maintenance records owner",
+      "assigned_person": "needs owner",
+      "disposition": "pending",
+      "evidence": [
+        {
+          "table": "details",
+          "document": "FIX-details",
+          "revision": "2",
+          "member": "originals/details/001.csv",
+          "record": 4,
+          "end_line": 4,
+          "sha256": "da1a8e6d1af0a9f82225563986c489dcec0f7fc605d8ad10fde53bd506e7f752",
+          "locator": "CSV record 4, ends at physical line 4"
+        }
+      ]
+    },
+    {
+      "id": "fb463d61d6f302163c57ac47",
+      "code": "unlinked_details",
+      "table": "details",
+      "field": "relationship",
+      "raw_value": null,
+      "action": "Detail work-order reference disagrees with its transaction target; row quarantined. Confirm the exact scoped parent/source relationship.",
+      "suggested_role": "Maintenance records owner",
+      "assigned_person": "needs owner",
+      "disposition": "pending",
+      "evidence": [
+        {
+          "table": "details",
+          "document": "FIX-details",
+          "revision": "2",
+          "member": "originals/details/001.csv",
+          "record": 6,
+          "end_line": 6,
+          "sha256": "da1a8e6d1af0a9f82225563986c489dcec0f7fc605d8ad10fde53bd506e7f752",
+          "locator": "CSV record 6, ends at physical line 6"
+        }
+      ]
+    },
+    {
+      "id": "fa2f996bc11012999a7d9e85",
+      "code": "unlinked_labor",
+      "table": "labor",
+      "field": "relationship",
+      "raw_value": null,
+      "action": "Labor work-order reference is unavailable. Confirm the exact scoped parent/source relationship.",
+      "suggested_role": "Maintenance records owner",
+      "assigned_person": "needs owner",
+      "disposition": "pending",
+      "evidence": [
+        {
+          "table": "labor",
+          "document": "FIX-labor",
+          "revision": "2",
+          "member": "originals/labor/001.csv",
+          "record": 7,
+          "end_line": 7,
+          "sha256": "5e7059a1336c65f2c7abf8b880dda3f95fb0f216556575eaa77ce67701c58c9d",
+          "locator": "CSV record 7, ends at physical line 7"
+        }
+      ]
+    },
+    {
+      "id": "463b4acceac399836aae882e",
+      "code": "unlinked_transactions",
+      "table": "transactions",
+      "field": "relationship",
+      "raw_value": null,
+      "action": "Transaction target entity is outside the declared work-order namespace. Confirm the exact scoped parent/source relationship.",
+      "suggested_role": "Maintenance records owner",
+      "assigned_person": "needs owner",
+      "disposition": "pending",
+      "evidence": [
+        {
+          "table": "transactions",
+          "document": "FIX-transactions",
+          "revision": "2",
+          "member": "originals/transactions/001.csv",
+          "record": 4,
+          "end_line": 4,
+          "sha256": "b59c654662656cd40b64636e114a24cd14d417848e23278c8fcdf8991ec0b1f7",
+          "locator": "CSV record 4, ends at physical line 4"
+        }
+      ]
+    },
+    {
+      "id": "1ba744a135d812de64e4f3ee",
+      "code": "unlinked_work_orders",
+      "table": "work_orders",
+      "field": "relationship",
+      "raw_value": null,
+      "action": "Asset reference is missing or not uniquely present in supplied assets. Confirm the exact scoped parent/source relationship.",
+      "suggested_role": "Maintenance records owner",
+      "assigned_person": "needs owner",
+      "disposition": "pending",
+      "evidence": [
+        {
+          "table": "work_orders",
+          "document": "FIX-work_orders",
+          "revision": "2",
+          "member": "originals/work_orders/001.csv",
+          "record": 5,
+          "end_line": 6,
+          "sha256": "097f500bb37f6593b4cb323c2149f1726c81b15f169bbc328b2928ff21bcbcd0",
+          "locator": "CSV record 5, ends at physical line 6"
+        }
+      ]
+    },
+    {
+      "id": "77a6d56b3eaee8242f9bfb3e",
+      "code": "unparsed_date",
+      "table": "work_orders",
+      "field": "created",
+      "raw_value": "03/04/2024",
+      "action": "Confirm the source date and declared format; no locale or chronology is guessed.",
+      "suggested_role": "Maintenance records owner",
+      "assigned_person": "needs owner",
+      "disposition": "pending",
+      "evidence": [
+        {
+          "table": "work_orders",
+          "document": "FIX-work_orders",
+          "revision": "2",
+          "member": "originals/work_orders/001.csv",
+          "record": 5,
+          "end_line": 6,
+          "sha256": "097f500bb37f6593b4cb323c2149f1726c81b15f169bbc328b2928ff21bcbcd0",
+          "locator": "CSV record 5, ends at physical line 6"
+        }
+      ]
+    }
+  ],
+  "all_records": {
+    "assets": [
+      {
+        "id": "P-101",
+        "scope": "R7",
+        "description": "Feed pump",
+        "kind": "equipment",
+        "origin": {
+          "table": "assets",
+          "document": "FIX-assets",
+          "revision": "2",
+          "member": "originals/assets/001.csv",
+          "record": 2,
+          "end_line": 2,
+          "sha256": "d3f9a57c20a20a3d988cc961507b5b9cd09fbd67a73b7c7df32fd08418ce92d4",
+          "locator": "CSV record 2, ends at physical line 2"
+        },
+        "_dates": {},
+        "_numbers": {},
+        "_flags": {},
+        "_labels": {}
+      },
+      {
+        "id": "P-101",
+        "scope": "R8",
+        "description": "Cooling pump",
+        "kind": "equipment",
+        "origin": {
+          "table": "assets",
+          "document": "FIX-assets",
+          "revision": "2",
+          "member": "originals/assets/001.csv",
+          "record": 3,
+          "end_line": 3,
+          "sha256": "d3f9a57c20a20a3d988cc961507b5b9cd09fbd67a73b7c7df32fd08418ce92d4",
+          "locator": "CSV record 3, ends at physical line 3"
+        },
+        "_dates": {},
+        "_numbers": {},
+        "_flags": {},
+        "_labels": {}
+      },
+      {
+        "id": "PARK",
+        "scope": "R7",
+        "description": "Fictional grounds system",
+        "kind": "system",
+        "origin": {
+          "table": "assets",
+          "document": "FIX-assets",
+          "revision": "2",
+          "member": "originals/assets/001.csv",
+          "record": 4,
+          "end_line": 4,
+          "sha256": "d3f9a57c20a20a3d988cc961507b5b9cd09fbd67a73b7c7df32fd08418ce92d4",
+          "locator": "CSV record 4, ends at physical line 4"
+        },
+        "_dates": {},
+        "_numbers": {},
+        "_flags": {},
+        "_labels": {}
+      }
+    ],
+    "work_orders": [
+      {
+        "id": "W1",
+        "scope": "R7",
+        "asset_id": "P-101",
+        "description": "Inspect seal\nRetain source line; effectiveness unknown",
+        "work_class": "seal",
+        "order_type": "CM",
+        "job_type": "REPAIR",
+        "created": "2024-01-02",
+        "completed": "2024-01-03",
+        "reopened": "N",
+        "parent_id": "",
+        "origin": {
+          "table": "work_orders",
+          "document": "FIX-work_orders",
+          "revision": "2",
+          "member": "originals/work_orders/001.csv",
+          "record": 2,
+          "end_line": 3,
+          "sha256": "097f500bb37f6593b4cb323c2149f1726c81b15f169bbc328b2928ff21bcbcd0",
+          "locator": "CSV record 2, ends at physical line 3"
+        },
+        "_dates": {
+          "created": {
+            "state": "known",
+            "raw": "2024-01-02",
+            "value": "2024-01-02",
+            "format": "iso_date",
+            "time_basis": "Authored calendar dates only; within-day event order unspecified"
+          },
+          "completed": {
+            "state": "known",
+            "raw": "2024-01-03",
+            "value": "2024-01-03",
+            "format": "iso_date",
+            "time_basis": "Authored calendar dates only; within-day event order unspecified"
+          }
+        },
+        "_numbers": {},
+        "_flags": {
+          "reopened": "false"
+        },
+        "_labels": {
+          "order_type": "Corrective work order"
+        }
+      },
+      {
+        "id": "W2",
+        "scope": "R7",
+        "asset_id": "P-101",
+        "description": "Inspect seal",
+        "work_class": "seal",
+        "order_type": "CM",
+        "job_type": "REPAIR",
+        "created": "2024-01-05",
+        "completed": "",
+        "reopened": "?",
+        "parent_id": "W1",
+        "origin": {
+          "table": "work_orders",
+          "document": "FIX-work_orders",
+          "revision": "2",
+          "member": "originals/work_orders/001.csv",
+          "record": 3,
+          "end_line": 4,
+          "sha256": "097f500bb37f6593b4cb323c2149f1726c81b15f169bbc328b2928ff21bcbcd0",
+          "locator": "CSV record 3, ends at physical line 4"
+        },
+        "_dates": {
+          "created": {
+            "state": "known",
+            "raw": "2024-01-05",
+            "value": "2024-01-05",
+            "format": "iso_date",
+            "time_basis": "Authored calendar dates only; within-day event order unspecified"
+          },
+          "completed": {
+            "state": "missing",
+            "raw": "",
+            "value": null,
+            "format": "iso_date",
+            "time_basis": "Authored calendar dates only; within-day event order unspecified"
+          }
+        },
+        "_numbers": {},
+        "_flags": {
+          "reopened": "unknown"
+        },
+        "_labels": {
+          "order_type": "Corrective work order"
+        }
+      },
+      {
+        "id": "W4",
+        "scope": "R8",
+        "asset_id": "P-101",
+        "description": "Inspect seal",
+        "work_class": "seal",
+        "order_type": "CM",
+        "job_type": "REPAIR",
+        "created": "2024-01-02",
+        "completed": "2024-01-03",
+        "reopened": "N",
+        "parent_id": "",
+        "origin": {
+          "table": "work_orders",
+          "document": "FIX-work_orders",
+          "revision": "2",
+          "member": "originals/work_orders/001.csv",
+          "record": 4,
+          "end_line": 5,
+          "sha256": "097f500bb37f6593b4cb323c2149f1726c81b15f169bbc328b2928ff21bcbcd0",
+          "locator": "CSV record 4, ends at physical line 5"
+        },
+        "_dates": {
+          "created": {
+            "state": "known",
+            "raw": "2024-01-02",
+            "value": "2024-01-02",
+            "format": "iso_date",
+            "time_basis": "Authored calendar dates only; within-day event order unspecified"
+          },
+          "completed": {
+            "state": "known",
+            "raw": "2024-01-03",
+            "value": "2024-01-03",
+            "format": "iso_date",
+            "time_basis": "Authored calendar dates only; within-day event order unspecified"
+          }
+        },
+        "_numbers": {},
+        "_flags": {
+          "reopened": "false"
+        },
+        "_labels": {
+          "order_type": "Corrective work order"
+        }
+      },
+      {
+        "id": "W5",
+        "scope": "R7",
+        "asset_id": "MISSING",
+        "description": "Inspect seal",
+        "work_class": "seal",
+        "order_type": "CM",
+        "job_type": "REPAIR",
+        "created": "03/04/2024",
+        "completed": "",
+        "reopened": "N",
+        "parent_id": "",
+        "origin": {
+          "table": "work_orders",
+          "document": "FIX-work_orders",
+          "revision": "2",
+          "member": "originals/work_orders/001.csv",
+          "record": 5,
+          "end_line": 6,
+          "sha256": "097f500bb37f6593b4cb323c2149f1726c81b15f169bbc328b2928ff21bcbcd0",
+          "locator": "CSV record 5, ends at physical line 6"
+        },
+        "_dates": {
+          "created": {
+            "state": "unparsed",
+            "raw": "03/04/2024",
+            "value": null,
+            "format": "iso_date",
+            "time_basis": "Authored calendar dates only; within-day event order unspecified"
+          },
+          "completed": {
+            "state": "missing",
+            "raw": "",
+            "value": null,
+            "format": "iso_date",
+            "time_basis": "Authored calendar dates only; within-day event order unspecified"
+          }
+        },
+        "_numbers": {},
+        "_flags": {
+          "reopened": "false"
+        },
+        "_labels": {
+          "order_type": "Corrective work order"
+        }
+      },
+      {
+        "id": "W6",
+        "scope": "R7",
+        "asset_id": "PARK",
+        "description": "Inspect grounds",
+        "work_class": "grounds",
+        "order_type": "PPM",
+        "job_type": "SCHD",
+        "created": "2024-01-02",
+        "completed": "2024-01-03",
+        "reopened": "N",
+        "parent_id": "",
+        "origin": {
+          "table": "work_orders",
+          "document": "FIX-work_orders",
+          "revision": "2",
+          "member": "originals/work_orders/001.csv",
+          "record": 6,
+          "end_line": 7,
+          "sha256": "097f500bb37f6593b4cb323c2149f1726c81b15f169bbc328b2928ff21bcbcd0",
+          "locator": "CSV record 6, ends at physical line 7"
+        },
+        "_dates": {
+          "created": {
+            "state": "known",
+            "raw": "2024-01-02",
+            "value": "2024-01-02",
+            "format": "iso_date",
+            "time_basis": "Authored calendar dates only; within-day event order unspecified"
+          },
+          "completed": {
+            "state": "known",
+            "raw": "2024-01-03",
+            "value": "2024-01-03",
+            "format": "iso_date",
+            "time_basis": "Authored calendar dates only; within-day event order unspecified"
+          }
+        },
+        "_numbers": {},
+        "_flags": {
+          "reopened": "false"
+        },
+        "_labels": {
+          "order_type": "Planned preventative maintenance"
+        }
+      },
+      {
+        "id": "W7",
+        "scope": "R7",
+        "asset_id": "PARK",
+        "description": "Inspect grounds",
+        "work_class": "grounds",
+        "order_type": "PPM",
+        "job_type": "SCHD",
+        "created": "2024-01-06",
+        "completed": "2024-01-07",
+        "reopened": "N",
+        "parent_id": "",
+        "origin": {
+          "table": "work_orders",
+          "document": "FIX-work_orders",
+          "revision": "2",
+          "member": "originals/work_orders/001.csv",
+          "record": 7,
+          "end_line": 8,
+          "sha256": "097f500bb37f6593b4cb323c2149f1726c81b15f169bbc328b2928ff21bcbcd0",
+          "locator": "CSV record 7, ends at physical line 8"
+        },
+        "_dates": {
+          "created": {
+            "state": "known",
+            "raw": "2024-01-06",
+            "value": "2024-01-06",
+            "format": "iso_date",
+            "time_basis": "Authored calendar dates only; within-day event order unspecified"
+          },
+          "completed": {
+            "state": "known",
+            "raw": "2024-01-07",
+            "value": "2024-01-07",
+            "format": "iso_date",
+            "time_basis": "Authored calendar dates only; within-day event order unspecified"
+          }
+        },
+        "_numbers": {},
+        "_flags": {
+          "reopened": "false"
+        },
+        "_labels": {
+          "order_type": "Planned preventative maintenance"
+        }
+      }
+    ],
+    "transactions": [
+      {
+        "id": "T1",
+        "scope": "R7",
+        "work_order_id": "W1",
+        "entity": "WORK",
+        "status": "A",
+        "type": "I",
+        "date": "2024-01-03",
+        "origin": {
+          "table": "transactions",
+          "document": "FIX-transactions",
+          "revision": "2",
+          "member": "originals/transactions/001.csv",
+          "record": 2,
+          "end_line": 2,
+          "sha256": "b59c654662656cd40b64636e114a24cd14d417848e23278c8fcdf8991ec0b1f7",
+          "locator": "CSV record 2, ends at physical line 2"
+        },
+        "_dates": {
+          "date": {
+            "state": "known",
+            "raw": "2024-01-03",
+            "value": "2024-01-03",
+            "format": "iso_date",
+            "time_basis": "Authored calendar dates only; within-day event order unspecified"
+          }
+        },
+        "_numbers": {},
+        "_flags": {},
+        "_labels": {
+          "status": "Approved",
+          "type": "Issue"
+        }
+      },
+      {
+        "id": "T2",
+        "scope": "R7",
+        "work_order_id": "W1",
+        "entity": "WORK",
+        "status": "A",
+        "type": "I",
+        "date": "2024-01-03",
+        "origin": {
+          "table": "transactions",
+          "document": "FIX-transactions",
+          "revision": "2",
+          "member": "originals/transactions/001.csv",
+          "record": 3,
+          "end_line": 3,
+          "sha256": "b59c654662656cd40b64636e114a24cd14d417848e23278c8fcdf8991ec0b1f7",
+          "locator": "CSV record 3, ends at physical line 3"
+        },
+        "_dates": {
+          "date": {
+            "state": "known",
+            "raw": "2024-01-03",
+            "value": "2024-01-03",
+            "format": "iso_date",
+            "time_basis": "Authored calendar dates only; within-day event order unspecified"
+          }
+        },
+        "_numbers": {},
+        "_flags": {},
+        "_labels": {
+          "status": "Approved",
+          "type": "Issue"
+        }
+      },
+      {
+        "id": "T3",
+        "scope": "R7",
+        "work_order_id": "W2",
+        "entity": "ASSET",
+        "status": "A",
+        "type": "I",
+        "date": "2024-01-03",
+        "origin": {
+          "table": "transactions",
+          "document": "FIX-transactions",
+          "revision": "2",
+          "member": "originals/transactions/001.csv",
+          "record": 4,
+          "end_line": 4,
+          "sha256": "b59c654662656cd40b64636e114a24cd14d417848e23278c8fcdf8991ec0b1f7",
+          "locator": "CSV record 4, ends at physical line 4"
+        },
+        "_dates": {
+          "date": {
+            "state": "known",
+            "raw": "2024-01-03",
+            "value": "2024-01-03",
+            "format": "iso_date",
+            "time_basis": "Authored calendar dates only; within-day event order unspecified"
+          }
+        },
+        "_numbers": {},
+        "_flags": {},
+        "_labels": {
+          "status": "Approved",
+          "type": "Issue"
+        }
+      },
+      {
+        "id": "T4",
+        "scope": "R8",
+        "work_order_id": "W4",
+        "entity": "WORK",
+        "status": "C",
+        "type": "I",
+        "date": "2024-01-03",
+        "origin": {
+          "table": "transactions",
+          "document": "FIX-transactions",
+          "revision": "2",
+          "member": "originals/transactions/001.csv",
+          "record": 5,
+          "end_line": 5,
+          "sha256": "b59c654662656cd40b64636e114a24cd14d417848e23278c8fcdf8991ec0b1f7",
+          "locator": "CSV record 5, ends at physical line 5"
+        },
+        "_dates": {
+          "date": {
+            "state": "known",
+            "raw": "2024-01-03",
+            "value": "2024-01-03",
+            "format": "iso_date",
+            "time_basis": "Authored calendar dates only; within-day event order unspecified"
+          }
+        },
+        "_numbers": {},
+        "_flags": {},
+        "_labels": {
+          "status": "Cancelled",
+          "type": "Issue"
+        }
+      }
+    ],
+    "details": [
+      {
+        "id": "D1",
+        "scope": "R7",
+        "transaction_id": "T1",
+        "work_order_id": "W1",
+        "part_id": "SEAL-01",
+        "description": "Fictional seal",
+        "quantity": "2",
+        "unit": "EA",
+        "price": "10",
+        "date": "2024-01-03",
+        "origin": {
+          "table": "details",
+          "document": "FIX-details",
+          "revision": "2",
+          "member": "originals/details/001.csv",
+          "record": 2,
+          "end_line": 2,
+          "sha256": "da1a8e6d1af0a9f82225563986c489dcec0f7fc605d8ad10fde53bd506e7f752",
+          "locator": "CSV record 2, ends at physical line 2"
+        },
+        "_dates": {
+          "date": {
+            "state": "known",
+            "raw": "2024-01-03",
+            "value": "2024-01-03",
+            "format": "iso_date",
+            "time_basis": "Authored calendar dates only; within-day event order unspecified"
+          }
+        },
+        "_numbers": {
+          "quantity": "2",
+          "price": "10"
+        },
+        "_flags": {},
+        "_labels": {}
+      },
+      {
+        "id": "D2",
+        "scope": "R7",
+        "transaction_id": "T2",
+        "work_order_id": "W1",
+        "part_id": "SEAL-01",
+        "description": "Fictional seal",
+        "quantity": "-1",
+        "unit": "EA",
+        "price": "10",
+        "date": "2024-01-03",
+        "origin": {
+          "table": "details",
+          "document": "FIX-details",
+          "revision": "2",
+          "member": "originals/details/001.csv",
+          "record": 3,
+          "end_line": 3,
+          "sha256": "da1a8e6d1af0a9f82225563986c489dcec0f7fc605d8ad10fde53bd506e7f752",
+          "locator": "CSV record 3, ends at physical line 3"
+        },
+        "_dates": {
+          "date": {
+            "state": "known",
+            "raw": "2024-01-03",
+            "value": "2024-01-03",
+            "format": "iso_date",
+            "time_basis": "Authored calendar dates only; within-day event order unspecified"
+          }
+        },
+        "_numbers": {
+          "quantity": "-1",
+          "price": "10"
+        },
+        "_flags": {},
+        "_labels": {}
+      },
+      {
+        "id": "D3",
+        "scope": "R7",
+        "transaction_id": "T3",
+        "work_order_id": "W2",
+        "part_id": "SEAL-01",
+        "description": "Fictional seal",
+        "quantity": "100",
+        "unit": "EA",
+        "price": "10",
+        "date": "2024-01-03",
+        "origin": {
+          "table": "details",
+          "document": "FIX-details",
+          "revision": "2",
+          "member": "originals/details/001.csv",
+          "record": 4,
+          "end_line": 4,
+          "sha256": "da1a8e6d1af0a9f82225563986c489dcec0f7fc605d8ad10fde53bd506e7f752",
+          "locator": "CSV record 4, ends at physical line 4"
+        },
+        "_dates": {
+          "date": {
+            "state": "known",
+            "raw": "2024-01-03",
+            "value": "2024-01-03",
+            "format": "iso_date",
+            "time_basis": "Authored calendar dates only; within-day event order unspecified"
+          }
+        },
+        "_numbers": {
+          "quantity": "100",
+          "price": "10"
+        },
+        "_flags": {},
+        "_labels": {}
+      },
+      {
+        "id": "D4",
+        "scope": "R8",
+        "transaction_id": "T4",
+        "work_order_id": "W4",
+        "part_id": "SEAL-01",
+        "description": "Fictional seal",
+        "quantity": "3",
+        "unit": "EA",
+        "price": "10",
+        "date": "2024-01-03",
+        "origin": {
+          "table": "details",
+          "document": "FIX-details",
+          "revision": "2",
+          "member": "originals/details/001.csv",
+          "record": 5,
+          "end_line": 5,
+          "sha256": "da1a8e6d1af0a9f82225563986c489dcec0f7fc605d8ad10fde53bd506e7f752",
+          "locator": "CSV record 5, ends at physical line 5"
+        },
+        "_dates": {
+          "date": {
+            "state": "known",
+            "raw": "2024-01-03",
+            "value": "2024-01-03",
+            "format": "iso_date",
+            "time_basis": "Authored calendar dates only; within-day event order unspecified"
+          }
+        },
+        "_numbers": {
+          "quantity": "3",
+          "price": "10"
+        },
+        "_flags": {},
+        "_labels": {}
+      },
+      {
+        "id": "D5",
+        "scope": "R7",
+        "transaction_id": "T1",
+        "work_order_id": "W2",
+        "part_id": "SEAL-01",
+        "description": "Fictional seal",
+        "quantity": "5",
+        "unit": "EA",
+        "price": "10",
+        "date": "2024-01-03",
+        "origin": {
+          "table": "details",
+          "document": "FIX-details",
+          "revision": "2",
+          "member": "originals/details/001.csv",
+          "record": 6,
+          "end_line": 6,
+          "sha256": "da1a8e6d1af0a9f82225563986c489dcec0f7fc605d8ad10fde53bd506e7f752",
+          "locator": "CSV record 6, ends at physical line 6"
+        },
+        "_dates": {
+          "date": {
+            "state": "known",
+            "raw": "2024-01-03",
+            "value": "2024-01-03",
+            "format": "iso_date",
+            "time_basis": "Authored calendar dates only; within-day event order unspecified"
+          }
+        },
+        "_numbers": {
+          "quantity": "5",
+          "price": "10"
+        },
+        "_flags": {},
+        "_labels": {}
+      }
+    ],
+    "labor": [
+      {
+        "id": "L1",
+        "scope": "R7",
+        "work_order_id": "W1",
+        "date": "2024-01-03",
+        "hours": "4",
+        "correction": "N",
+        "trade": "Mechanical",
+        "origin": {
+          "table": "labor",
+          "document": "FIX-labor",
+          "revision": "2",
+          "member": "originals/labor/001.csv",
+          "record": 2,
+          "end_line": 2,
+          "sha256": "5e7059a1336c65f2c7abf8b880dda3f95fb0f216556575eaa77ce67701c58c9d",
+          "locator": "CSV record 2, ends at physical line 2"
+        },
+        "_dates": {
+          "date": {
+            "state": "known",
+            "raw": "2024-01-03",
+            "value": "2024-01-03",
+            "format": "iso_date",
+            "time_basis": "Authored calendar dates only; within-day event order unspecified"
+          }
+        },
+        "_numbers": {
+          "hours": "4"
+        },
+        "_flags": {
+          "correction": "false"
+        },
+        "_labels": {}
+      },
+      {
+        "id": "L2",
+        "scope": "R7",
+        "work_order_id": "W1",
+        "date": "2024-01-03",
+        "hours": "-0.5",
+        "correction": "Y",
+        "trade": "Mechanical",
+        "origin": {
+          "table": "labor",
+          "document": "FIX-labor",
+          "revision": "2",
+          "member": "originals/labor/001.csv",
+          "record": 3,
+          "end_line": 3,
+          "sha256": "5e7059a1336c65f2c7abf8b880dda3f95fb0f216556575eaa77ce67701c58c9d",
+          "locator": "CSV record 3, ends at physical line 3"
+        },
+        "_dates": {
+          "date": {
+            "state": "known",
+            "raw": "2024-01-03",
+            "value": "2024-01-03",
+            "format": "iso_date",
+            "time_basis": "Authored calendar dates only; within-day event order unspecified"
+          }
+        },
+        "_numbers": {
+          "hours": "-0.5"
+        },
+        "_flags": {
+          "correction": "true"
+        },
+        "_labels": {}
+      },
+      {
+        "id": "L3",
+        "scope": "R7",
+        "work_order_id": "W1",
+        "date": "2024-01-03",
+        "hours": "0",
+        "correction": "N",
+        "trade": "Mechanical",
+        "origin": {
+          "table": "labor",
+          "document": "FIX-labor",
+          "revision": "2",
+          "member": "originals/labor/001.csv",
+          "record": 4,
+          "end_line": 4,
+          "sha256": "5e7059a1336c65f2c7abf8b880dda3f95fb0f216556575eaa77ce67701c58c9d",
+          "locator": "CSV record 4, ends at physical line 4"
+        },
+        "_dates": {
+          "date": {
+            "state": "known",
+            "raw": "2024-01-03",
+            "value": "2024-01-03",
+            "format": "iso_date",
+            "time_basis": "Authored calendar dates only; within-day event order unspecified"
+          }
+        },
+        "_numbers": {
+          "hours": "0"
+        },
+        "_flags": {
+          "correction": "false"
+        },
+        "_labels": {}
+      },
+      {
+        "id": "L4",
+        "scope": "R7",
+        "work_order_id": "W2",
+        "date": "2024-01-03",
+        "hours": "1",
+        "correction": "?",
+        "trade": "Mechanical",
+        "origin": {
+          "table": "labor",
+          "document": "FIX-labor",
+          "revision": "2",
+          "member": "originals/labor/001.csv",
+          "record": 5,
+          "end_line": 5,
+          "sha256": "5e7059a1336c65f2c7abf8b880dda3f95fb0f216556575eaa77ce67701c58c9d",
+          "locator": "CSV record 5, ends at physical line 5"
+        },
+        "_dates": {
+          "date": {
+            "state": "known",
+            "raw": "2024-01-03",
+            "value": "2024-01-03",
+            "format": "iso_date",
+            "time_basis": "Authored calendar dates only; within-day event order unspecified"
+          }
+        },
+        "_numbers": {
+          "hours": "1"
+        },
+        "_flags": {
+          "correction": "unknown"
+        },
+        "_labels": {}
+      },
+      {
+        "id": "L5",
+        "scope": "R8",
+        "work_order_id": "W4",
+        "date": "2024-01-03",
+        "hours": "3",
+        "correction": "N",
+        "trade": "Mechanical",
+        "origin": {
+          "table": "labor",
+          "document": "FIX-labor",
+          "revision": "2",
+          "member": "originals/labor/001.csv",
+          "record": 6,
+          "end_line": 6,
+          "sha256": "5e7059a1336c65f2c7abf8b880dda3f95fb0f216556575eaa77ce67701c58c9d",
+          "locator": "CSV record 6, ends at physical line 6"
+        },
+        "_dates": {
+          "date": {
+            "state": "known",
+            "raw": "2024-01-03",
+            "value": "2024-01-03",
+            "format": "iso_date",
+            "time_basis": "Authored calendar dates only; within-day event order unspecified"
+          }
+        },
+        "_numbers": {
+          "hours": "3"
+        },
+        "_flags": {
+          "correction": "false"
+        },
+        "_labels": {}
+      },
+      {
+        "id": "L6",
+        "scope": "R7",
+        "work_order_id": "ABSENT",
+        "date": "2024-01-03",
+        "hours": "4",
+        "correction": "N",
+        "trade": "Mechanical",
+        "origin": {
+          "table": "labor",
+          "document": "FIX-labor",
+          "revision": "2",
+          "member": "originals/labor/001.csv",
+          "record": 7,
+          "end_line": 7,
+          "sha256": "5e7059a1336c65f2c7abf8b880dda3f95fb0f216556575eaa77ce67701c58c9d",
+          "locator": "CSV record 7, ends at physical line 7"
+        },
+        "_dates": {
+          "date": {
+            "state": "known",
+            "raw": "2024-01-03",
+            "value": "2024-01-03",
+            "format": "iso_date",
+            "time_basis": "Authored calendar dates only; within-day event order unspecified"
+          }
+        },
+        "_numbers": {
+          "hours": "4"
+        },
+        "_flags": {
+          "correction": "false"
+        },
+        "_labels": {}
+      }
+    ]
+  },
+  "authorized_decision": "pending",
+  "company_acceptance": false,
+  "boundary": "Selected administrative records and supplied meanings. Recurring work is not proven failure. No associated rows proves only none were found in supplied exports. No installed parts, net consumption, root cause, MTBF or savings established."
+}
