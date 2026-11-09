@@ -10024,3 +10024,15 @@ Independent review, real manager effort and source-owner acceptance remain open.
 Full local-suite prerequisites are absent in the isolated worktree; its preflight
 is not a suite pass. Source-only results and final exact-head CI are separate
 integration checks.
+
+
+## 235. Correct dependency classification without removing assertions
+
+Local source-only execution passed 74 of 75 programs, with 35 skipped unittest cases
+and 3 platform notices. The failure was test_delivery_examples.py: two existing
+CAD evidence methods import cad_handoff and ezdxf, contradicting its source-only
+classification. Move that whole program to FULL_ONLY_TESTS; retain all assertions
+and execute it exactly once in full CI. No source-only success is claimed from
+the original failed run. Nineteen runner-control methods pass. Repeat the
+corrected source-only dispatch and require new exact-head CI. This is test-runner
+classification, not another CAD qualification or an assertion waiver.
