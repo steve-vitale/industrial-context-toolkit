@@ -1,0 +1,280 @@
+{
+  "scope": "New reserved UI bases; historical preparation metadata is parent lineage only",
+  "preparation": {
+    "producer_sha256": "f21a2ef8229c4ac2acd530b96841b19109fc19bcb044409a4c180ee7133b5826",
+    "declared_inputs": {
+      "scope": "Existing exposed multi-asset, foreign-field, CP1251/UTF8 and literal-brace sources selected before full UI implementation; no candidate or native run by this preparation",
+      "cases": [
+        {
+          "case": "validation-cp1251",
+          "source": "examples/cad-handoff/qualification/validation-2/authored/validation-cp1251.dxf",
+          "source_sha256": "2044da26edd9188d07300f6b8f2abf4053956f31a7827bba488ec02c1351e158",
+          "plan": "examples/cad-handoff/qualification/validation-2/authored/validation-cp1251.plan.json",
+          "plan_sha256": "a75fb0abe99c35371caa3c2ce25ec498efdcd92e16bbf541c662c154e5acf6c8",
+          "assets": 2,
+          "changes": [
+            {
+              "id": "validation-cp1251/asset-1",
+              "attribute": "MODEL",
+              "before": "\u0414\u0432\u0438\u0433\u0430\u0442\u0435\u043b\u044c",
+              "after": "\u041c\u043e\u0442\u043e\u0440",
+              "reason": "Authored qualification edit, not an installed equipment claim"
+            },
+            {
+              "id": "validation-cp1251/asset-2",
+              "attribute": "MODEL",
+              "before": "\u0414\u0432\u0438\u0433\u0430\u0442\u0435\u043b\u044c",
+              "after": "\u041c\u043e\u0442\u043e\u0440",
+              "reason": "Authored qualification edit, not an installed equipment claim"
+            }
+          ],
+          "role": "already exposed authored development; not fresh reserved or plant evidence"
+        },
+        {
+          "case": "validation-braces",
+          "source": "examples/cad-handoff/qualification/validation-2/authored/validation-braces.dxf",
+          "source_sha256": "614e83380bbe667c727363f02d32519b3340439028f0acd72807c82a45224abe",
+          "plan": "examples/cad-handoff/qualification/validation-2/authored/validation-braces.plan.json",
+          "plan_sha256": "5126be71101f71b51332b50fd52980c3f0146a19fded4e7f8b8571c6b45d8508",
+          "assets": 2,
+          "changes": [
+            {
+              "id": "validation-braces/asset-1",
+              "attribute": "MODEL",
+              "before": "Assembly {C}",
+              "after": "Assembly {D}",
+              "reason": "Authored qualification edit, not an installed equipment claim"
+            },
+            {
+              "id": "validation-braces/asset-2",
+              "attribute": "MODEL",
+              "before": "Assembly {C}",
+              "after": "Assembly {D}",
+              "reason": "Authored qualification edit, not an installed equipment claim"
+            }
+          ],
+          "role": "already exposed authored development; not fresh reserved or plant evidence"
+        }
+      ]
+    },
+    "comparison_source_sha256_lf": {
+      "scripts/cad_handoff.py": "70ad396dbcadf89741da6e1d017944e42f6fb2804e272b3cc5ee7f5eabbf6d30",
+      "scripts/cad_value_patch.py": "174d66f36befc2ee3b12cef769badecf9927b1705419f9ecf9238e4e9c610a04",
+      "examples/cad-handoff/qualification/verify_bytes.py": "606cf310be4637bec2663b39c1001ca3d7668af7316aaa2fc7cbd571e0b0cd52",
+      "examples/cad-handoff/qualification/run_cases.py": "465972bbaf74c31172f46ab8969920ddeef2f48a11c5d9220d7660e1b3a0f19a"
+    }
+  },
+  "configuration_sha256": "2c23f1511046e1ce876753efa354185a733d88e1264713ee13cc72d735f73a6c",
+  "derivation": {
+    "producer_sha256_lf": "4adf3f01e2eb36c2da28a07f1f5e5334ba2e87c9ff34c80444f1167f92667833",
+    "final_freeze_sha256_lf": "5fc0a12296b8a79ddf47fa8eed621ecbb428754fe03b924726eb969bb0d3792a"
+  },
+  "cases": {
+    "final-foreign": {
+      "basis": {
+        "case": "final-foreign",
+        "source_sha256": "1106d71d1fc86456efd28607d4f23c5ba11ffebfac8f0a7b38d3c511bb34dfe8",
+        "plan_sha256": "1a3d8a827822d20978c0464d5b25e3c35ebeca079eb38923e3fd5302a68dcbfa",
+        "assets": [
+          {
+            "id": "final-foreign/asset-1",
+            "handle": "3D",
+            "block": "ASSET",
+            "attributes": {
+              "VENDOR_PRIVATE": "retain {vendor} \\P 0",
+              "SIZE": "DN50",
+              "SERIAL": "UNCHANGED-0",
+              "MODEL": "Unit-17",
+              "TAG": "FV-101",
+              "ICT_ID": "final-foreign/asset-1"
+            },
+            "attribute_handles": {
+              "VENDOR_PRIVATE": "44",
+              "SIZE": "43",
+              "SERIAL": "42",
+              "MODEL": "41",
+              "TAG": "40",
+              "ICT_ID": "3F"
+            }
+          },
+          {
+            "id": "final-foreign/asset-2",
+            "handle": "47",
+            "block": "ASSET",
+            "attributes": {
+              "VENDOR_PRIVATE": "retain {vendor} \\P 1",
+              "SIZE": "DN50",
+              "SERIAL": "UNCHANGED-1",
+              "MODEL": "Unit-17",
+              "TAG": "FV-102",
+              "ICT_ID": "final-foreign/asset-2"
+            },
+            "attribute_handles": {
+              "VENDOR_PRIVATE": "4E",
+              "SIZE": "4D",
+              "SERIAL": "4C",
+              "MODEL": "4B",
+              "TAG": "4A",
+              "ICT_ID": "49"
+            }
+          },
+          {
+            "id": "final-foreign/asset-3",
+            "handle": "51",
+            "block": "ASSET",
+            "attributes": {
+              "VENDOR_PRIVATE": "retain {vendor} \\P 2",
+              "SIZE": "DN50",
+              "SERIAL": "UNCHANGED-2",
+              "MODEL": "Unit-17",
+              "TAG": "FV-103",
+              "ICT_ID": "final-foreign/asset-3"
+            },
+            "attribute_handles": {
+              "VENDOR_PRIVATE": "58",
+              "SIZE": "57",
+              "SERIAL": "56",
+              "MODEL": "55",
+              "TAG": "54",
+              "ICT_ID": "53"
+            }
+          }
+        ],
+        "changes": [
+          {
+            "id": "final-foreign/asset-1",
+            "attribute": "MODEL",
+            "before": "Unit-17",
+            "after": "Unit-18",
+            "reason": "Authored qualification edit, not an installed equipment claim"
+          },
+          {
+            "id": "final-foreign/asset-2",
+            "attribute": "MODEL",
+            "before": "Unit-17",
+            "after": "Unit-18",
+            "reason": "Authored qualification edit, not an installed equipment claim"
+          },
+          {
+            "id": "final-foreign/asset-3",
+            "attribute": "MODEL",
+            "before": "Unit-17",
+            "after": "Unit-18",
+            "reason": "Authored qualification edit, not an installed equipment claim"
+          }
+        ],
+        "frames": {
+          "overview": [
+            -22.0,
+            -22.0,
+            132.0,
+            62.28583650351056
+          ],
+          "asset-1": [
+            2.9778471161658895,
+            8.457277310081581,
+            19.352370765337458,
+            24.923872667443796
+          ],
+          "labels-1": [
+            3.3302178815033487,
+            8.809648075419041,
+            15.969186155691103,
+            22.089481308660197
+          ],
+          "asset-2": [
+            34.56918606549414,
+            12.659146735300133,
+            55.602055374187245,
+            34.55692294739317
+          ],
+          "labels-2": [
+            35.30201777603355,
+            13.391978445839547,
+            50.95243019091061,
+            30.159932684156693
+          ],
+          "asset-3": [
+            66.16052501482237,
+            16.861016160518705,
+            91.85524693747153,
+            44.189973227342534
+          ],
+          "labels-3": [
+            67.12978431721197,
+            17.8302754629083,
+            86.07970757948188,
+            38.37441741300496
+          ]
+        },
+        "scope": "Predetermined reserved public-adapted/procedural UI transfer; not plant or engineering acceptance"
+      },
+      "files": {
+        "basis.json": "d5570c182198738cff8bdb5b120527dec069cd324f5326ed3fe1bff46cd0db8c",
+        "plan.json": "1a3d8a827822d20978c0464d5b25e3c35ebeca079eb38923e3fd5302a68dcbfa",
+        "source.dxf": "1106d71d1fc86456efd28607d4f23c5ba11ffebfac8f0a7b38d3c511bb34dfe8",
+        "software/candidate/candidate.dxf": "4680736944dadfb256ead3710ec1fae83d9467b88438be13f1ba259e5c414d12"
+      }
+    },
+    "public-air-water": {
+      "basis": {
+        "case": "public-air-water",
+        "source_sha256": "e326270bb69efc00198b6090ae04744c179cea013b8ef6bb0bc166907158ac9e",
+        "plan_sha256": "7cbfe555f2818017b501760cf50860b1c88ebdf83c1c5ca45b7fe500862adcf6",
+        "assets": [
+          {
+            "id": "AUTHORED-QUAL/public-air-water/1",
+            "handle": "20018",
+            "block": "ICT_QUAL_TEST_ANCHOR",
+            "attributes": {
+              "MANUFACTURER": "QUAL-BEFORE",
+              "ICT_ID": "AUTHORED-QUAL/public-air-water/1",
+              "TAG": "QA-1"
+            },
+            "attribute_handles": {
+              "MANUFACTURER": "2001A",
+              "ICT_ID": "2001B",
+              "TAG": "2001C"
+            }
+          }
+        ],
+        "changes": [
+          {
+            "id": "AUTHORED-QUAL/public-air-water/1",
+            "attribute": "MANUFACTURER",
+            "before": "QUAL-BEFORE",
+            "after": "QUAL-AFTER",
+            "reason": "Authored preservation-test value only; not installed equipment information"
+          }
+        ],
+        "frames": {
+          "overview": [
+            -21.45081855388813,
+            -30.86725784447476,
+            86.70491132332877,
+            37.450818553888126
+          ],
+          "asset-1": [
+            -9.963233287858117,
+            -14.379672578444747,
+            45.7793997271487,
+            9.963233287858117
+          ],
+          "labels-1": [
+            -3.9632332878581167,
+            -13.379672578444747,
+            44.7793997271487,
+            8.463233287858117
+          ]
+        },
+        "scope": "Predetermined reserved public-adapted/procedural UI transfer; not plant or engineering acceptance"
+      },
+      "files": {
+        "basis.json": "eeb712166d9cce2b15ba8bc48534e155234c3bc9ea623690721cac5bd0f91da4",
+        "plan.json": "7cbfe555f2818017b501760cf50860b1c88ebdf83c1c5ca45b7fe500862adcf6",
+        "source.dxf": "e326270bb69efc00198b6090ae04744c179cea013b8ef6bb0bc166907158ac9e",
+        "software/candidate/candidate.dxf": "a63a55dc35cead1d2c0540505ae57ce2dd116f8665103cce7e5291eb7fe1461b"
+      }
+    }
+  }
+}
