@@ -10202,3 +10202,55 @@ context-map format checks passed 28 methods with one skipped optional check
 while recording the preceding shared-model design. Local link targets and
 whitespace checks pass. These checks validate documentation/registry consistency,
 not the planned component adapters or the external demonstrations.
+
+## 242. Fix the customer-to-context baseline before building the projection
+
+2026-11-09. The new goal is recorded before implementation in
+`examples/map-component-cycle/PLAN.md` and `ACCEPTANCE.json`: ordinary records,
+first useful finding, common engineering context, three component drafts, three
+revisions and actual authorized ChangePilot receiving. All 31 new required cases
+remain unrun. A local Snapshot or mock receiver cannot close the product cases.
+
+The earlier-route baseline actually runs the existing maintenance intake on three
+revisions, drawing receiving rehearsal, one-map build and item queries in separate
+processes. It checks literal original CSV/text/request facts, not just exits. The
+corrected baseline passes 16 conditions and retains complete selected records,
+commands, outputs and source/method pins. The document brief is root-agent-authored
+from an exposed fictional source; it is not an automated reader or fresh-agent trial.
+The mapping/profile and drawing readings were already supplied. Human preparation,
+customer interaction counts and savings are unmeasured; do not inflate baseline
+friction because a runner writes new profile versions while reusing old mappings.
+
+The first checker incorrectly expected ambiguous one_map.ask selection to exit 2.
+Actual behavior is exit 0 with no selected item or facts and both qualified scopes
+in a structured cannot-answer response. Preserve the original failing checker and
+its actual command/check records under history/. The corrected check requires that
+specific abstention; no production tool or engineering acceptance was relaxed.
+
+Twenty-two new fictional input/key files are pinned before candidate production
+code. Three related revisions contain a same-tag other-unit pump, serial disagreement,
+independent signal facts, a changed datasheet value and later withdrawal/replacement.
+The literal key is authored from original records, not generated from candidate
+outputs. The initial direct CSV/text checker passed 43 conditions. Adding an explicit
+original JSON source for the typed-value controls expands this to 45; the earlier
+21-file freeze and control record remain in history/. Five oracle controls pass:
+intact records, raw tampering, rehashed altered fact, false/zero key confusion and
+an unexpectedly changed independent record. Each wrong input fails for its intended
+reason. Input/byte checks are not proof of a candidate or company receiver.
+
+A second header/delimiter dialect and existing public DEXPI conversion are selected
+for later procedural transfer. Inputs are author-known, not blind. Tool/checker method
+freeze and transfer execution have not occurred. New fictional revisions are one
+source family. Original XML interpretation requires its own permitted-source check.
+Checking public conversion/report/README fingerprints against committed blobs found
+Windows checkout CRLF differences. Their declared text pins now use the existing
+LF-normalized text policy, with observed raw hashes and the earlier freeze retained
+separately. New original inputs keep strict raw-byte pins; no XML or engineering
+comparison is changed. Current source checks therefore cover both platform text
+representations without claiming their raw bytes are identical.
+
+Read-only product discovery found existing import/assertion/graph/conflict/recovery
+infrastructure to inspect and reuse. The detailed source-level report stays private;
+actual authorization, runtime, receiving and export remain unverified. No product
+change, live customer record, production promotion, new generator, native CAD
+qualification or human/company acceptance is established by this baseline phase.

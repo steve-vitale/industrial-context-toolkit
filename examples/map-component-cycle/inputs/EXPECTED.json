@@ -1,0 +1,102 @@
+{
+  "schema": "map-component-fixture-key-1",
+  "authorship": "Explicit agent-authored fictional records and literal key before candidate code. Related revisions are one source family, not independent plant samples.",
+  "site": "CF",
+  "plant": "P1",
+  "subjects": [
+    "CF/P1/U1/P-101",
+    "CF/P1/U2/P-101",
+    "CF/P1/U1/TK-101",
+    "CF/P1/U1/FT-101",
+    "CF/P1/U1/FIC-101",
+    "CF/P1/U1/FV-101"
+  ],
+  "shared_facts": {
+    "pump_class": "pump",
+    "loop_measurement": "FT-101",
+    "loop_controller": "FIC-101",
+    "loop_final_element": "FV-101",
+    "measurement": "flow",
+    "unit": "m3/h",
+    "fail_position": null,
+    "trip_setting": null
+  },
+  "revisions": [
+    {
+      "revision": 1,
+      "export_serial": "OLD-101",
+      "closed_order_serials": [
+        "NEW-101"
+      ],
+      "open_proposal_serial": "FUTURE-101",
+      "datasheet_flow": "45",
+      "datasheet_status": "supplied",
+      "flow_alternatives": [
+        "40",
+        "45"
+      ]
+    },
+    {
+      "revision": 2,
+      "export_serial": "OLD-101",
+      "closed_order_serials": [
+        "NEW-101"
+      ],
+      "open_proposal_serial": "FUTURE-101",
+      "datasheet_flow": "50",
+      "datasheet_status": "supplied",
+      "flow_alternatives": [
+        "40",
+        "50"
+      ]
+    },
+    {
+      "revision": 3,
+      "export_serial": "NEW-101",
+      "closed_order_serials": [
+        "NEW-101",
+        "NEXT-101"
+      ],
+      "open_proposal_serial": "FUTURE-101",
+      "datasheet_flow": "50",
+      "datasheet_status": "withdrawn",
+      "flow_alternatives_current": [
+        "40"
+      ],
+      "withdrawn_alternative": "50"
+    }
+  ],
+  "rev2_only_semantic_change": "DS rated flow 45 -> 50; metadata revision 1 -> 2; signal/serial/instrument facts unchanged",
+  "manual_edit_control": {
+    "subject": "CF/P1/U1/P-101",
+    "field": "draft_review_note",
+    "value": "Confirm manufacturer from permitted nameplate evidence.",
+    "scope": "A retained editorial request, not new independent plant evidence."
+  },
+  "transfer_dialect_b": {
+    "site": "TF",
+    "plant": "P1",
+    "subject": "TF/P1/SKID-A/PU-9",
+    "other_subject": "TF/P1/SKID-B/PU-9",
+    "export_serial": "ALPHA-9",
+    "closed_order_serial": "GAMMA-9",
+    "delimiter": ";",
+    "status": "preselected author-known transfer; do not run candidate until method freeze"
+  },
+  "typed_controls": [
+    false,
+    0,
+    true,
+    1,
+    null,
+    "",
+    [],
+    {},
+    "01",
+    "1.0"
+  ],
+  "not_source_evidence": [
+    "Generated components copied from NOTE/DS/EQ do not become independent sources."
+  ],
+  "human_review": "not performed"
+}

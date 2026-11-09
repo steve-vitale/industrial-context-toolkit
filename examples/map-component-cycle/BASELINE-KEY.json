@@ -1,0 +1,72 @@
+{
+  "schema": "map-component-baseline-key-1",
+  "authorship": "Agent-authored literal expectations inspected against original fictional text/CSV and authored drawing requests before candidate implementation. Exposed development controls, not human review or blind accuracy.",
+  "document": {
+    "source": "examples/from-description/assisted/source.txt",
+    "facts": [
+      {
+        "subject": "FT-101",
+        "predicate": "measures",
+        "value": "flow on S3 downstream of P-1",
+        "line": 5
+      },
+      {
+        "subject": "FIC-101",
+        "predicate": "reads",
+        "value": "FT-101",
+        "line": 7
+      },
+      {
+        "subject": "FIC-101",
+        "predicate": "adjusts",
+        "value": "FV-101",
+        "line": 7
+      }
+    ],
+    "unknowns": [
+      "engineering units",
+      "valve failure positions",
+      "pipe sizes",
+      "operating limits",
+      "trip settings"
+    ],
+    "unknowns_line": 8
+  },
+  "maintenance": {
+    "equipment": "examples/maintenance-intake/inputs/equipment-export.csv",
+    "orders": "examples/maintenance-intake/inputs/work-order-export.csv",
+    "subject": "SIM/P1/U1/P-101",
+    "other_subject": "SIM/P1/U2/P-101",
+    "export_serial": "OLD-101",
+    "closed_order": "WO-801",
+    "installed_serial": "NEW-101",
+    "open_order": "WO-802",
+    "proposed_serial": "FUTURE-101",
+    "replacement_serial": "NEXT-101",
+    "expected_conflict_counts": [
+      1,
+      0,
+      1
+    ],
+    "acceptance": "not performed"
+  },
+  "drawing": {
+    "manifest": "examples/pid-markup-review/inputs/manifest.json",
+    "requests": "examples/pid-markup-review/inputs/requests.json",
+    "first_request": {
+      "id": "M01",
+      "subject": "FV-101",
+      "property": "size",
+      "before": "DN50",
+      "after": "DN80"
+    },
+    "release_accepted": false,
+    "source_role": "Authored fictional original/markup/returned SVG and supplied readings, not independent image interpretation."
+  },
+  "missing_goal_capabilities": [
+    "No common-basis three-component projection is exposed by these baseline commands.",
+    "Existing intake requires supplied mapping/profile JSON.",
+    "Local toolkit receiving is not actual ChangePilot receiving.",
+    "No measured human effort or customer acceptance."
+  ]
+}

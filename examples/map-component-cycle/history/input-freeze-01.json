@@ -1,0 +1,36 @@
+{
+  "schema": "map-component-input-freeze-1",
+  "stage": "inputs_and_literal_keys_before_candidate_code",
+  "baseline_commit": "a26a0e0a4e8588081e16a1a63b2f26d045a75cb4",
+  "input_raw_sha256": {
+    "inputs/development/rev1/datasheet.csv": "979a8504dd17502a8d7af76a188ab7c355e1e04f52b753e97c16648c14a27df1",
+    "inputs/development/rev1/engineering-note.txt": "1ce7dc9291ca23ca26f67e294d89751ccaef45b98f3964a68271d91cb1e322e7",
+    "inputs/development/rev1/equipment.csv": "6c032ac1e71dab402c4bf862a2aecb9c20a2e7abebba2f891d86aeb27648fd84",
+    "inputs/development/rev1/instruments.csv": "bc6fa51b24699416aea079068ec942fab9f3fb99d41f0d123b0a0c6603d50485",
+    "inputs/development/rev1/source-register.csv": "86ec10ebd054a65499feb842f257e1277fcf8b3e9f602381fbb7b62b650e09e9",
+    "inputs/development/rev1/work-orders.csv": "9737fda375bd0ce5f7c59d648eec4b27e52d753326f78f7ff187d5087dd47c40",
+    "inputs/development/rev2/datasheet.csv": "3cb7c301d0e8ec626effa3e434f363c2c7dfecf0b88708675a1b35a997a26a97",
+    "inputs/development/rev2/engineering-note.txt": "1ce7dc9291ca23ca26f67e294d89751ccaef45b98f3964a68271d91cb1e322e7",
+    "inputs/development/rev2/equipment.csv": "6c032ac1e71dab402c4bf862a2aecb9c20a2e7abebba2f891d86aeb27648fd84",
+    "inputs/development/rev2/instruments.csv": "bc6fa51b24699416aea079068ec942fab9f3fb99d41f0d123b0a0c6603d50485",
+    "inputs/development/rev2/source-register.csv": "8cd45e7504b52d7ccd0cab882c106c320cf3085613b2f2303f383d8eb0f8e105",
+    "inputs/development/rev2/work-orders.csv": "9737fda375bd0ce5f7c59d648eec4b27e52d753326f78f7ff187d5087dd47c40",
+    "inputs/development/rev3/datasheet.csv": "3cb7c301d0e8ec626effa3e434f363c2c7dfecf0b88708675a1b35a997a26a97",
+    "inputs/development/rev3/engineering-note.txt": "1ce7dc9291ca23ca26f67e294d89751ccaef45b98f3964a68271d91cb1e322e7",
+    "inputs/development/rev3/equipment.csv": "c4416e1873d5bc33531a416785875365e969627973c5ec8d91a297924eaa4d6c",
+    "inputs/development/rev3/instruments.csv": "bc6fa51b24699416aea079068ec942fab9f3fb99d41f0d123b0a0c6603d50485",
+    "inputs/development/rev3/source-register.csv": "333bf3244439aed633fb0c9cace15647df6363fc46cc8bdb24f9efb7459b60f5",
+    "inputs/development/rev3/work-orders.csv": "8d3734c886bc6eccb456d7f352aa3a1999b0a00a3c464a3cfe3c3ecc913ea365",
+    "inputs/EXPECTED.json": "fa647b8705ad71bf4087a70791e83e88db64b6db1bfa798dcf7f24fc0128a6c3",
+    "inputs/transfer/dialect-b/equipment.csv": "6b51469e950d49f0d3d95818285f77b548a2a51acbcecdb0457adfe6641b4cb9",
+    "inputs/transfer/dialect-b/work-orders.csv": "1c2fcce3957cf53928536c72d98b6f046318362f4c8278dfbfa775baa3912d09"
+  },
+  "preselected_public_procedural_transfer": {
+    "examples/from-dexpi-xml/dexpi-c01.model.json": "bb38b4624bb511f1b83fb7c02e9dc8e398017b4b363ea63153655c9832de6be3",
+    "examples/from-dexpi-xml/dexpi-c01.report.json": "db966c7200b2e086665495b9dfb547b4830d4e437fd64fa809e315341d951a9a",
+    "examples/from-dexpi-xml/README.md": "102d74c4875a78330a749cdff51375b65c32c84435ac03db4ce66f50be672d0a"
+  },
+  "public_role": "Existing DEXPI conversion and source attribution; source XML interpretation accuracy is not established by downstream transfer. Reopen the permitted original via the documented pinned fetch before making original-source claims.",
+  "exposure": "All fixtures authored/known to root; no blind or unfamiliar-plant claim. No candidate implementation or transfer run yet.",
+  "method_freeze": "not yet created"
+}

@@ -6637,6 +6637,25 @@
         "docs/ENGINEERING_FOUNDATION.md#human-editable-components-and-retained-corrections",
         "docs/DELIVERY_ROADMAP.md"
       ]
+    },
+    {
+      "id": "A400",
+      "function": "intake_and_reuse",
+      "date": "2026-11-09",
+      "change": "Retain an actual earlier-route customer/context baseline and pin source-authored three-revision inputs before common projection implementation.",
+      "hypothesis": "Literal original-source keys, retained old-route results and challenged input oracles should expose test assumptions and prevent a future projection from defining its own truth or inventing a friction advantage.",
+      "evidence": "Corrected earlier-route baseline passes16conditions from original CSV/text/request facts and actual maintenance/drawing/map CLIs. First checker wrongly expected ambiguous query exit2; actual structured abstention at exit0 is retained as a checker failure with original code/output.22input/key files pinned; initial43direct consistency checks expand to45after adding the original typed JSON source;5specific oracle controls pass.",
+      "runs": "Exposed fictional earlier-route run and corrected rerun. The same5oracle control conditions were rerun as result retention, original typed-source binding and cross-platform public text pins were improved; repetitions are not additional independent cases. No candidate production code or transfer runs, model reading, human timing, product write or native CAD session.",
+      "verdict": "kept",
+      "why": "Establishes source/procedure baseline only. All31new acceptance cases remain unrun. Supplied mappings/readings and author-known inputs do not demonstrate low-friction own-record use, blind accuracy, engineering benefit or actual ChangePilot receiving. Existing CAD failures remain.",
+      "source": [
+        "docs/JOURNAL.md#242-fix-the-customer-to-context-baseline-before-building-the-projection",
+        "examples/map-component-cycle/BASELINE.md",
+        "examples/map-component-cycle/BASELINE-KEY.json",
+        "examples/map-component-cycle/INPUT-FREEZE.json",
+        "examples/map-component-cycle/baseline/basis.json",
+        "examples/map-component-cycle/history/baseline-failure-01.json"
+      ]
     }
   ],
   "not_tried": [
