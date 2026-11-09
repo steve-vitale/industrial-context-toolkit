@@ -1,0 +1,238 @@
+{
+  "schema": "map-component-goal-acceptance-1",
+  "date": "2026-11-09",
+  "status": "planned_not_run",
+  "baseline": "a26a0e0a4e8588081e16a1a63b2f26d045a75cb4",
+  "completion_rule": "Every required case needs retained actual passing evidence. Missing, mock-only, unrelated-error, skipped or not-run required acceptance is incomplete, not a pass.",
+  "required_components": [
+    "equipment_instrument_list",
+    "item_datasheet_scaffold",
+    "loop_control_narrative_outline"
+  ],
+  "revisions": 3,
+  "load_sizes": [
+    100,
+    1000,
+    10000
+  ],
+  "cases": [
+    {
+      "id": "ENTRY-DOC",
+      "required": true,
+      "criterion": "One source-supported document finding before signup; insufficient evidence stays explicit.",
+      "status": "not_run",
+      "evidence": []
+    },
+    {
+      "id": "ENTRY-MAINT",
+      "required": true,
+      "criterion": "Ordinary maintenance exports produce the fixed finding; guided mappings persist across revisions.",
+      "status": "not_run",
+      "evidence": []
+    },
+    {
+      "id": "ENTRY-DRAW",
+      "required": true,
+      "criterion": "Supplied markup/return preparation reaches the fixed receiving finding; no unrun reading claim.",
+      "status": "not_run",
+      "evidence": []
+    },
+    {
+      "id": "IDENTITY-SCOPE",
+      "required": true,
+      "criterion": "Equal bare tags across units never merge; ambiguous bare selection refuses specifically.",
+      "status": "not_run",
+      "evidence": []
+    },
+    {
+      "id": "IDENTITY-CHANGE",
+      "required": true,
+      "criterion": "Explicit alias/tag crosswalk and physical replacement preserve distinct identities/history.",
+      "status": "not_run",
+      "evidence": []
+    },
+    {
+      "id": "CLAIM-TYPES",
+      "required": true,
+      "criterion": "Boolean/number/null/lexical values and units survive; incompatible/unknown units do not silently merge.",
+      "status": "not_run",
+      "evidence": []
+    },
+    {
+      "id": "CLAIM-CONFLICT",
+      "required": true,
+      "criterion": "Both conflicting sourced values and applicability survive order reversal and receiving.",
+      "status": "not_run",
+      "evidence": []
+    },
+    {
+      "id": "SOURCE-STATE",
+      "required": true,
+      "criterion": "Missing, withdrawn, superseded, unavailable and hash-mismatched sources remain distinct.",
+      "status": "not_run",
+      "evidence": []
+    },
+    {
+      "id": "QUERY-CONTRACT",
+      "required": true,
+      "criterion": "Fresh-process discovery, lookup, typed traversal and evidence retrieval produce fixed sourced answers/gaps.",
+      "status": "not_run",
+      "evidence": []
+    },
+    {
+      "id": "DRAFT-THREE",
+      "required": true,
+      "criterion": "List, datasheet and loop/narrative outline reuse the same facts with per-field basis and per-target gaps.",
+      "status": "not_run",
+      "evidence": []
+    },
+    {
+      "id": "GENERATOR-BRIDGE",
+      "required": true,
+      "criterion": "A bounded common-basis projection is actually consumed by an existing generator contract without invented engineering facts.",
+      "status": "not_run",
+      "evidence": []
+    },
+    {
+      "id": "RELATION-MEANING",
+      "required": true,
+      "criterion": "Network membership is not adjacency; signal/association is not physical flow or control strategy.",
+      "status": "not_run",
+      "evidence": []
+    },
+    {
+      "id": "IMPACT-THREE-REVISIONS",
+      "required": true,
+      "criterion": "Three revisions retain history and identify fixed dependent fields while proven independent content remains unaffected.",
+      "status": "not_run",
+      "evidence": []
+    },
+    {
+      "id": "REVIEW-REVISION",
+      "required": true,
+      "criterion": "Revision-only/source withdrawal changes do not silently inherit current review; declare actual refresh policy.",
+      "status": "not_run",
+      "evidence": []
+    },
+    {
+      "id": "EDIT-REGENERATE",
+      "required": true,
+      "criterion": "A manual edit survives or is explicitly reported after reopen and regeneration; unrelated fields remain exact.",
+      "status": "not_run",
+      "evidence": []
+    },
+    {
+      "id": "LINEAGE-REIMPORT",
+      "required": true,
+      "criterion": "Generated/copied document reimport cannot increase independent support for its source claims.",
+      "status": "not_run",
+      "evidence": []
+    },
+    {
+      "id": "SCOPED-PACKAGE",
+      "required": true,
+      "criterion": "Selected scope and explicit boundary references survive complete typed readback; navigation is not filtering.",
+      "status": "not_run",
+      "evidence": []
+    },
+    {
+      "id": "PORTABLE-REOPEN",
+      "required": true,
+      "criterion": "Relocated fresh-process readback/export works without original workspace; required originals and archive-only fields remain accounted for.",
+      "status": "not_run",
+      "evidence": []
+    },
+    {
+      "id": "RECEIVER-CAPABILITY",
+      "required": true,
+      "criterion": "Inspect actual ChangePilot version/contracts; implement and test missing bounded receiver through canonical surfaces.",
+      "status": "not_run",
+      "evidence": []
+    },
+    {
+      "id": "RECEIVER-AUTH",
+      "required": true,
+      "criterion": "Normal app authorization enforces owner/tenant scope and access withdrawal; no service-role-only proof or implicit share.",
+      "status": "not_run",
+      "evidence": []
+    },
+    {
+      "id": "RECEIVER-READBACK",
+      "required": true,
+      "criterion": "Real persisted UI/agent readback reproduces fixed facts, citations, unknowns, conflicts and history.",
+      "status": "not_run",
+      "evidence": []
+    },
+    {
+      "id": "RECEIVER-RETRY",
+      "required": true,
+      "criterion": "Repeated delivery does not duplicate or overwrite unrelated existing records.",
+      "status": "not_run",
+      "evidence": []
+    },
+    {
+      "id": "RECEIVER-INTERRUPT",
+      "required": true,
+      "criterion": "Interrupted delivery has explicit recoverable/atomic outcome; no silent half-current scope.",
+      "status": "not_run",
+      "evidence": []
+    },
+    {
+      "id": "RECEIVER-BASE",
+      "required": true,
+      "criterion": "Stale/divergent base is specifically refused or explicitly reconciled without losing either history.",
+      "status": "not_run",
+      "evidence": []
+    },
+    {
+      "id": "RECEIVER-REVISION",
+      "required": true,
+      "criterion": "Subsequent product source/conflict/withdrawal revision retains history and correct dependency status.",
+      "status": "not_run",
+      "evidence": []
+    },
+    {
+      "id": "RECEIVER-EXIT",
+      "required": true,
+      "criterion": "Complete declared scope exports from ChangePilot and reopens with types, lineage, conflicts/history and omissions accounted for.",
+      "status": "not_run",
+      "evidence": []
+    },
+    {
+      "id": "FRICTION-VALUE",
+      "required": true,
+      "criterion": "Recorded matched customer journey: fixed useful result; zero JSON editing, repeated fact entry or repeated admitted-dialect mapping; count genuine clarification/setup/retry work.",
+      "status": "not_run",
+      "evidence": []
+    },
+    {
+      "id": "BROWSER-PATH",
+      "required": true,
+      "criterion": "Desktop and 390px actual interactions show sources, conflicts, drafts/revisions and product receiving without dead ends or hidden omissions.",
+      "status": "not_run",
+      "evidence": []
+    },
+    {
+      "id": "LOAD-BOUNDS",
+      "required": true,
+      "criterion": "Measure time/memory/size at 100/1000/10000 synthetic assets, plus explicit over-limit refusal; report admitted limits and failures.",
+      "status": "not_run",
+      "evidence": []
+    },
+    {
+      "id": "FROZEN-TRANSFER",
+      "required": true,
+      "criterion": "Predeclared public/second-dialect transfer runs on frozen tools/checker; provenance/exposure and failures remain visible.",
+      "status": "not_run",
+      "evidence": []
+    },
+    {
+      "id": "RELEASE-REPLAY",
+      "required": true,
+      "criterion": "Clean-clone offline replay, independent checking/product Judge, affected regressions/registries/full CI/governed landing and accurate docs pass with skips declared.",
+      "status": "not_run",
+      "evidence": []
+    }
+  ],
+  "human_company_trials": "Separately unrun; software simulation cannot establish engineer benefit, plant truth or customer acceptance."
+}

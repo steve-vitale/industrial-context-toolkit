@@ -155,6 +155,13 @@ unrelated context remains unchanged. Include a generated-document reimport
 control that cannot inflate independent support. This is the missing generative
 path behind the explorer; it is not yet supplied by the explorer itself.
 
+The [active implementation goal](../examples/map-component-cycle/PLAN.md) defines
+the customer path from ordinary records to a useful finding, shared context,
+component drafts and actual ChangePilot receiving. Its
+[required acceptance cases](../examples/map-component-cycle/ACCEPTANCE.json)
+are planned and unrun; they are not additional implemented capabilities or
+evidence of product compatibility.
+
 ## The broader foundation and its owners
 
 The goal is an organization that can explain its decisions, coordinate work and learn from results. Engineers
