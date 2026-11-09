@@ -1,0 +1,188 @@
+{
+  "schema": "maintenance-history-1",
+  "namespace": "FICTIONAL",
+  "question": "Which selected work records need investigation or reconciliation?",
+  "as_of": "2024-01-31",
+  "recurring_fields": [
+    "work_class",
+    "order_type",
+    "job_type"
+  ],
+  "labor_ledger": {
+    "mode": "signed_all_entries",
+    "unit": "h",
+    "basis": "Authored fixture: hours are an additive signed ledger, including correction and zero entries."
+  },
+  "sources": {
+    "assets": {
+      "id": "FIX-assets",
+      "revision": "1",
+      "owner": "Maintenance records owner",
+      "coverage": "Authored selected-record excerpt; no absence or installed-state guarantee",
+      "format": "csv",
+      "files": [
+        {
+          "path": "originals/assets/001.csv",
+          "sha256": "cc59d653e72197b2bfd2ec7ccdd7b44815c0aef0116fab1146caf59511128bf7"
+        }
+      ],
+      "columns": {
+        "id": "id",
+        "scope": "scope",
+        "description": "description",
+        "kind": "kind"
+      },
+      "date_formats": {}
+    },
+    "work_orders": {
+      "id": "FIX-work_orders",
+      "revision": "1",
+      "owner": "Maintenance records owner",
+      "coverage": "Authored selected-record excerpt; no absence or installed-state guarantee",
+      "format": "csv",
+      "files": [
+        {
+          "path": "originals/work_orders/001.csv",
+          "sha256": "d2adb70823dfc13564aa796e951b148d51a6ba54d61a428d1435c2d0a54a38eb"
+        }
+      ],
+      "columns": {
+        "id": "id",
+        "scope": "scope",
+        "asset_id": "asset_id",
+        "description": "description",
+        "work_class": "work_class",
+        "order_type": "order_type",
+        "job_type": "job_type",
+        "created": "created",
+        "completed": "completed",
+        "reopened": "reopened",
+        "parent_id": "parent_id"
+      },
+      "date_formats": {
+        "created": "iso_date",
+        "completed": "iso_date"
+      },
+      "time_basis": "Authored calendar dates only; within-day event order unspecified",
+      "flags": {
+        "reopened": {
+          "true": [
+            "Y"
+          ],
+          "false": [
+            "N"
+          ]
+        }
+      },
+      "labels": {
+        "order_type": {
+          "CM": "Corrective work order",
+          "PPM": "Planned preventative maintenance"
+        }
+      }
+    },
+    "transactions": {
+      "id": "FIX-transactions",
+      "revision": "1",
+      "owner": "Maintenance records owner",
+      "coverage": "Authored selected-record excerpt; no absence or installed-state guarantee",
+      "format": "csv",
+      "files": [
+        {
+          "path": "originals/transactions/001.csv",
+          "sha256": "f84d4fa3301e7e85a13999e4638cb350a3e5d9e8fb2736418ab2a9b0d941b24f"
+        }
+      ],
+      "columns": {
+        "id": "id",
+        "scope": "scope",
+        "work_order_id": "work_order_id",
+        "entity": "entity",
+        "status": "status",
+        "type": "type",
+        "date": "date"
+      },
+      "date_formats": {
+        "date": "iso_date"
+      },
+      "time_basis": "Authored calendar dates only; within-day event order unspecified",
+      "work_order_entities": [
+        "WORK"
+      ],
+      "labels": {
+        "status": {
+          "A": "Approved",
+          "C": "Cancelled"
+        },
+        "type": {
+          "I": "Issue"
+        }
+      }
+    },
+    "details": {
+      "id": "FIX-details",
+      "revision": "1",
+      "owner": "Maintenance records owner",
+      "coverage": "Authored selected-record excerpt; no absence or installed-state guarantee",
+      "format": "csv",
+      "files": [
+        {
+          "path": "originals/details/001.csv",
+          "sha256": "4dba646c65f7b6a4f2c4da4b1fc429e871f2ed899f5be7b32427a25393365470"
+        }
+      ],
+      "columns": {
+        "id": "id",
+        "scope": "scope",
+        "transaction_id": "transaction_id",
+        "work_order_id": "work_order_id",
+        "part_id": "part_id",
+        "description": "description",
+        "quantity": "quantity",
+        "unit": "unit",
+        "price": "price",
+        "date": "date"
+      },
+      "date_formats": {
+        "date": "iso_date"
+      },
+      "time_basis": "Authored calendar dates only; within-day event order unspecified"
+    },
+    "labor": {
+      "id": "FIX-labor",
+      "revision": "1",
+      "owner": "Maintenance records owner",
+      "coverage": "Authored selected-record excerpt; no absence or installed-state guarantee",
+      "format": "csv",
+      "files": [
+        {
+          "path": "originals/labor/001.csv",
+          "sha256": "eb0c9e125de74a7022b387a85052db459e61e6c1dc65564b47f0592b1d4d4296"
+        }
+      ],
+      "columns": {
+        "id": "id",
+        "scope": "scope",
+        "work_order_id": "work_order_id",
+        "date": "date",
+        "hours": "hours",
+        "correction": "correction",
+        "trade": "trade"
+      },
+      "date_formats": {
+        "date": "iso_date"
+      },
+      "time_basis": "Authored calendar dates only; within-day event order unspecified",
+      "flags": {
+        "correction": {
+          "true": [
+            "Y"
+          ],
+          "false": [
+            "N"
+          ]
+        }
+      }
+    }
+  }
+}

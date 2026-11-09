@@ -1,0 +1,24 @@
+{
+  "schema": "maintenance-history-freeze-1",
+  "frozen_at": "2026-11-09T03:05:05Z",
+  "reserved_selection": "2024-01-15 <= evt_date < 2024-01-22; all outcomes",
+  "reserved_content_inspected": false,
+  "files_sha256_lf": {
+    "scripts/maintenance_history.py": "56825891adb88ccd7d4de23a2a4c9cf6c5627897ec49c71c8498fe01f4f29f84",
+    "scripts/maintenance_history_report.py": "d605ae25162ca25e54826eeb3bba32cf431eadc1126bedce3a4ad6d66e1e060b",
+    "scripts/maintenance_intake.py": "a8d158dfe3ca9282b5ab94aebb7d9c0d844168eeecda05f0fbd6827e1cd64832",
+    "scripts/test_maintenance_history.py": "f2b63993e91a137411ee84bb5c5b35a692d9d23c642f8f4c2e5dda1d08c8f06d",
+    "docs/MAINTENANCE_HISTORY.md": "35012b8efee9ef80eaefdc9bb0a99af29b31dac3cccfef8587221f277a5504eb",
+    "examples/maintenance-history/PLAN.md": "46dd0aefd75065360b0aaebc440507aa12d18af31e3bb0719cbbfdbdaa18ea8f",
+    "examples/maintenance-history/ACCEPTANCE.md": "753e98be76fb7ddd7aaa8e7c3caa2de572a39e7a00ad109c97c56d7bb9f50fe2",
+    "examples/maintenance-history/PRIMARY_SOURCES.md": "033fb9b752452c94c7358a3c19db83524fbbcc8673e79b3e20617bd3042456d4",
+    "examples/maintenance-history/baseline.py": "f4838f2ee077849b941d099031acef4a1abf24e2027e42756010f185d8b03181",
+    "examples/maintenance-history/fixtures.py": "2960f693dc03790ca828a4b27da520dfb41c74a131405aa05cb08f42d5a46d8b",
+    "examples/maintenance-history/amps.py": "48983d26024b787a332ada11bf3d48f7c029d9e99d507203ac356f83713fad75",
+    "examples/maintenance-history/acquire_reserved.py": "5411b80f2ab94ad1c53dc949566f2b010e7e0f173903a16f30c4486a932efc63",
+    "examples/maintenance-history/reproduce.py": "fd012ec86a8cd6599ed03b57cf55014702309d26a07a508aab219964be59e2fc"
+  },
+  "development_outcome": "933 assets, 1612 work orders, 177 recurring groups, 82 issues; six independent original-column checks pass",
+  "checks": "17 unittest methods pass; both CSV layouts, JSON, corrected/omitted revisions and portable replay pass",
+  "stopping_rule": "Evaluate reserved once with frozen method; retain failures without substituting cohort or tuning to it. Independent procedural checks are not independent engineering or human validation."
+}

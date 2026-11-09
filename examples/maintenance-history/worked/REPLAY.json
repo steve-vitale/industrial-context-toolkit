@@ -1,0 +1,66 @@
+{
+  "schema": "maintenance-history-replay-1",
+  "passed": true,
+  "checks": [
+    "authored scoped counts and signed hours",
+    "two CSV layouts plus JSON",
+    "raw-ID baseline merges scopes",
+    "corrected then omitted source",
+    "prior evidence retained",
+    "portable substantive replay and recursive verification"
+  ],
+  "baseline": {
+    "method": "raw-asset-id-row-count",
+    "counts": {
+      "MISSING": 1,
+      "P-101": 4,
+      "PARK": 2
+    },
+    "boundary": "Counts supplied rows by raw asset ID. No scoped identity, join, status, repair or ledger qualification."
+  },
+  "authored_asset_facts": [
+    [
+      [
+        "U1",
+        "P-101"
+      ],
+      3,
+      "2.5",
+      [
+        [
+          "W1",
+          "W2"
+        ]
+      ]
+    ],
+    [
+      [
+        "U1",
+        "PARK"
+      ],
+      2,
+      null,
+      [
+        [
+          "W6",
+          "W7"
+        ]
+      ]
+    ],
+    [
+      [
+        "U2",
+        "P-101"
+      ],
+      1,
+      "3",
+      []
+    ]
+  ],
+  "methods_sha256_lf": {
+    "maintenance_history.py": "56825891adb88ccd7d4de23a2a4c9cf6c5627897ec49c71c8498fe01f4f29f84",
+    "maintenance_intake.py": "a8d158dfe3ca9282b5ab94aebb7d9c0d844168eeecda05f0fbd6827e1cd64832",
+    "maintenance_history_report.py": "d605ae25162ca25e54826eeb3bba32cf431eadc1126bedce3a4ad6d66e1e060b"
+  },
+  "boundary": "Author-run fictional software controls; no independent agent/human review or measured manager benefit."
+}
