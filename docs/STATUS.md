@@ -47,8 +47,13 @@ history, replaced sources, hidden failures and unbound observations. N118's expo
 transport work is complete. The [current CAD qualification scope](CAD_QUALIFICATION.md)
 now includes actual multi-asset/foreign-field edits, second revisions and complete
 model receiving. Native full-save preservation and readable paper delivery fail
-on the declared exposed cases; final frozen-method reserved validation remains
-open. Engineering acceptance is not inferred. Inspect
+on the declared exposed cases. The [frozen ten-case validation](../examples/cad-handoff/qualification/final-validation-23/README.md)
+now passes software/loss/refusal/revision checks; all forty native API saves
+still fail preservation, and thirty native renders retain readability limits.
+The two predetermined UI transfers and fresh receiving remain in progress.
+The previous branch CI failure was [PNG encoding equality](../examples/cad-handoff/qualification/full-ui-22/CI-PNG-ENCODING.md),
+reproduced with CI's Pillow version and corrected to exact decoded-pixel checks;
+new exact-head CI remains required. Engineering acceptance is not inferred. Inspect
 the version-specific CI before treating a branch addition as an integrated release.
 
 An earlier full-suite release baseline was **`a439f14`**:

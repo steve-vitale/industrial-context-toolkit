@@ -11,6 +11,18 @@ from recheck_native_revisions import restore
 from second_revisions import check, pixels
 
 
+def exact_generated_files(actual,expected):
+    """Compare generated image pixels exactly; retained original bytes stay hash-bound."""
+    left={p.name:p for p in actual.iterdir()};right={p.name:p for p in expected.iterdir()}
+    if set(left)!=set(right):return False
+    for name,path in left.items():
+        if path.suffix.lower()=='.png':
+            with Image.open(path) as a,Image.open(right[name]) as b:
+                if a.mode!=b.mode or a.size!=b.size or a.tobytes()!=b.tobytes():return False
+        elif path.read_bytes()!=right[name].read_bytes():return False
+    return True
+
+
 def main():
     retained=read(HERE/'SECOND-RETAINED-2.json')['attempts']
     visual=read(HERE/'SECOND-VISUAL-1.json')
@@ -31,7 +43,7 @@ def main():
             current=pixels(root/'attempt',root/'pixels')
             expected=HERE/'second-pixels-1'/case
             require(current==read(expected/'RESULT.json'), 'Complete second model pixel result differs')
-            require({p.name:p.read_bytes() for p in (root/'pixels').iterdir()}=={p.name:p.read_bytes() for p in expected.iterdir()},
+            require(exact_generated_files(root/'pixels',expected),
                     'Second pixel/difference image files differ')
         comparisons+=len(current['comparisons']);identities+=len(current['exact_identities'])
         for row in (r for r in visual['views'] if r['case']==case):

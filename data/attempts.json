@@ -6391,6 +6391,46 @@
         "docs/CAD_QUALIFICATION.md",
         "docs/JOURNAL.md#226-finish-paper-observation-and-retain-failed-readable-delivery"
       ]
+    },
+    {
+      "id": "A387",
+      "function": "intake_and_reuse",
+      "date": "2026-11-08",
+      "hypothesis": "The second-receiver CI failure is PNG encoding variability rather than a decoded pixel difference.",
+      "change": "Reproduce all30 difference images on Linux including exact CI Pillow12.2, retain both diagnoses, and require exact decoded pixels for regenerated PNGs while preserving original byte pins.",
+      "evidence": "Actual427a14b CI fails generated PNG file equality. Both Linux checks produce30 different PNG encodings and0decoded pixel differences. Corrected complete replayer and2negative/positive control test methods pass locally; new exact-head CI remains separate.",
+      "runs": "Two completed Python-only Linux diagnoses, complete second-receiver offline replay,2focused test methods",
+      "verdict": "kept",
+      "why": "Fixes a cross-platform evidence comparison error without changing strict CAD, independent byte, masks, cameras or native images.",
+      "source": [
+        "examples/cad-handoff/qualification/full-ui-22/CI-PNG-ENCODING.md",
+        "examples/cad-handoff/qualification/full-ui-22/png-encoding-diagnosis-1/OBSERVED.json",
+        "examples/cad-handoff/qualification/full-ui-22/png-encoding-diagnosis-1/PILLOW-12.2-RESULT.json",
+        "examples/cad-handoff/qualification/full-ui-22/test_pixel_artifact_encoding.py",
+        "docs/JOURNAL.md#227-compare-exact-generated-pixels-across-png-encodings"
+      ]
+    },
+    {
+      "id": "A388",
+      "function": "intake_and_reuse",
+      "date": "2026-11-08",
+      "hypothesis": "The frozen source-preserving method transfers to a predeclared new ten-case procedural/public cohort while native preservation failures stay visible.",
+      "change": "Freeze55 method/contracts before reserved candidate evaluation/public content download; admit all6new procedural and4metadata-selected public-adapted inputs, run matched software/loss/refusal/revision controls and actual native API/render checks.",
+      "evidence": "All10value candidates strict0 and independent reconstruction pass; library baseline R12strict82,other9strict0 but all10rawfail. All42applicable losses detected bystrict/raw and90refusals preserve outputs. All10conflict/collateral original-scope portable briefs reproduce. Native complete fields match10/10;40native saves allstrictfail. All30native renders normal0/unchanged inputs and actually inspected;5new paper pairs show content with readability/font limits. Frozen software and complete saved API/render receipts reproduce offline. Two predetermined actual UI transfers/fresh receiving remain unfinished.",
+      "runs": "Ten reserved software cases twice; complete offline replay;3native API processes/40saved files;30native render processes/images; actual UI still running",
+      "verdict": "kept",
+      "why": "Bounded transfer supports attribute proposals and useful receiving checks, not full CAD or company acceptance. No frozen candidate/strict/byte method changed; a separate palette-analysis implementation error is retained with one-pixel/reindex controls.",
+      "source": [
+        "examples/cad-handoff/qualification/final-validation-23/README.md",
+        "examples/cad-handoff/qualification/final-validation-23/PLAN.md",
+        "examples/cad-handoff/qualification/final-validation-23/FREEZE.json",
+        "examples/cad-handoff/qualification/final-validation-23/INPUTS.json",
+        "examples/cad-handoff/qualification/final-validation-23/SOFTWARE-RESULT.json",
+        "examples/cad-handoff/qualification/final-validation-23/API-RESULT.json",
+        "examples/cad-handoff/qualification/final-validation-23/RENDER-VISUAL.json",
+        "examples/cad-handoff/qualification/final-validation-23/recheck.py",
+        "docs/JOURNAL.md#228-freeze-the-method-and-report-every-reserved-case"
+      ]
     }
   ],
   "not_tried": [
@@ -7808,7 +7848,7 @@
       "function": "intake_and_reuse",
       "status": "not-done",
       "idea": "Freeze and qualify the corrected complete native CAD workflow on fresh reserved cases with foreign/literal/encoding fields, multiple assets and revision/conflict checks.",
-      "why_not_yet": "Exposed actual native second-revision saves and fresh four-file receivers now complete and reproduce, including unchanged model pixels and actual visual inspection. Native full saves still fail453strict differences per second case; original322/321failures remain. Actual paper rendering completes with12blank case views and2nonblank repeatable public controls: readable delivery fails, not unrun. Some long identity text is clipped in fixed model detail views. Final complete-method freeze and newly reserved public/procedural transfer remain required; no native preservation or engineering acceptance inferred.",
+      "why_not_yet": "Final55-file method freeze and newly reserved6procedural/4public cohort completed for software, actual native API and30native renders. All10value candidates strict0/rawpass,42losses/90refusals pass; complete fields match but40native saves allstrictfail. Original preservation/paper failures retained. Two predetermined actual UI transfers, fresh receiving, final CI and whole-objective audit remain; no full native preservation or engineering acceptance inferred.",
       "source": [
         "examples/cad-handoff/qualification/PROTOCOL.md",
         "examples/cad-handoff/qualification/observer-transport-21/README.md",
@@ -7819,7 +7859,8 @@
         "examples/cad-handoff/qualification/full-ui-22/NATIVE-REVISION-BRIEF.md",
         "examples/cad-handoff/qualification/full-ui-22/PAPER-RENDER-BRIEF.md",
         "examples/cad-handoff/qualification/full-ui-22/SECOND-RETAINED-2.json",
-        "docs/CAD_QUALIFICATION.md"
+        "docs/CAD_QUALIFICATION.md",
+        "examples/cad-handoff/qualification/final-validation-23/README.md"
       ]
     }
   ]

@@ -50,11 +50,18 @@ reconstruction, native stored fields, visual/editability checks, revision/confli
 handling, planted-loss controls and offline reproduction. It does not qualify
 DWG, proprietary project databases, every editor or installed plant truth.
 
-The current complete-procedure work uses exposed public/fictional development
-inputs. Final-method freezing and newly reserved validation remain unfinished.
-Earlier procedural/public results retain their original scopes; they do not
-become new held-out evidence for a later method. No plant review time, customer
-acceptance or engineering release has been measured.
+The [final method was frozen before ten newly reserved cases](../examples/cad-handoff/qualification/final-validation-23/README.md):
+six same-author boundary fixtures and four public files selected from pinned
+metadata, with authored identity annotations explicitly identified. All ten
+source-preserving candidates pass strict and independent byte checks; all 42
+applicable planted losses and 90 refusal controls behave as declared. Actual
+native API fields match on all ten, but every one of forty native saves fails
+strict preservation. Thirty native model/paper images are retained and inspected;
+the five newly authored paper cases display content, with readability/font limits.
+Matched native UI transfer and fresh receiving on the two predetermined cases
+remain in progress. This is not whole native CAD qualification or independent
+plant validation. No plant review time, customer acceptance or engineering release
+has been measured.
 
 Detailed retained runs and failures belong in the [qualification evidence](../examples/cad-handoff/qualification/README.md).
 They should support the engineer's receiving decision without becoming a

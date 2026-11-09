@@ -1,0 +1,440 @@
+{
+  "scope": "Actual saved/reopened/fresh-process native API field observations on ten frozen procedural/public-adapted cases; not UI equivalence or engineering acceptance",
+  "cases": [
+    {
+      "id": "final-r12",
+      "all_native_fields_match": true,
+      "field_checks": 14,
+      "native_saves": [
+        {
+          "role": "baseline",
+          "format": "default",
+          "path": "returned/final-r12-baseline-default.dxf",
+          "sha256": "5a501498759049f4049b8f73a78948cb7f5bd8bbf2b8dffdc6cbb7b7d182b9b8",
+          "dxfversion": "AC1024",
+          "strict_unexpected": 335,
+          "strict_status": "differences"
+        },
+        {
+          "role": "baseline",
+          "format": "r15",
+          "path": "returned/final-r12-baseline-r15.dxf",
+          "sha256": "39141d2d5d9612d69a9955672a932beb883c17924341cafac53eb0ab7cb3e657",
+          "dxfversion": "AC1015",
+          "strict_unexpected": 345,
+          "strict_status": "differences"
+        },
+        {
+          "role": "edited",
+          "format": "default",
+          "path": "returned/final-r12-edited-default.dxf",
+          "sha256": "c389a9ff497954a09a6b806478eafd324a13836968e2b1ebce6d681c9db9c402",
+          "dxfversion": "AC1024",
+          "strict_unexpected": 335,
+          "strict_status": "differences"
+        },
+        {
+          "role": "edited",
+          "format": "r15",
+          "path": "returned/final-r12-edited-r15.dxf",
+          "sha256": "dab91541015a420272b2fdaa48dc45794327ba5083488204ff63fc81f7855164",
+          "dxfversion": "AC1015",
+          "strict_unexpected": 345,
+          "strict_status": "differences"
+        }
+      ]
+    },
+    {
+      "id": "final-mirror",
+      "all_native_fields_match": true,
+      "field_checks": 14,
+      "native_saves": [
+        {
+          "role": "baseline",
+          "format": "default",
+          "path": "returned/final-mirror-baseline-default.dxf",
+          "sha256": "d8888f1c0fd6eb0ea0f410853e494d6dc72f022f92ad98880c180b4ffe5b1f99",
+          "dxfversion": "AC1024",
+          "strict_unexpected": 370,
+          "strict_status": "differences"
+        },
+        {
+          "role": "baseline",
+          "format": "r15",
+          "path": "returned/final-mirror-baseline-r15.dxf",
+          "sha256": "0df79ee2d32acea389f399e3fc0a178d39fcc23bb739cc2241f8fb45a8157769",
+          "dxfversion": "AC1015",
+          "strict_unexpected": 382,
+          "strict_status": "differences"
+        },
+        {
+          "role": "edited",
+          "format": "default",
+          "path": "returned/final-mirror-edited-default.dxf",
+          "sha256": "d10b2c405fcad1f8137c9fcaa132c31c92ec072f87d24e8cbda613244f931869",
+          "dxfversion": "AC1024",
+          "strict_unexpected": 370,
+          "strict_status": "differences"
+        },
+        {
+          "role": "edited",
+          "format": "r15",
+          "path": "returned/final-mirror-edited-r15.dxf",
+          "sha256": "8dc9ceceb987a2d149e1dec9679accda9012a6409ef8e9c21efbc9d8cedadee3",
+          "dxfversion": "AC1015",
+          "strict_unexpected": 382,
+          "strict_status": "differences"
+        }
+      ]
+    },
+    {
+      "id": "final-cyrillic",
+      "all_native_fields_match": true,
+      "field_checks": 14,
+      "native_saves": [
+        {
+          "role": "baseline",
+          "format": "default",
+          "path": "returned/final-cyrillic-baseline-default.dxf",
+          "sha256": "4d6c68a35497f0e42dce5e38883a358cf6753f64093382a48058a07190ca1d6c",
+          "dxfversion": "AC1024",
+          "strict_unexpected": 382,
+          "strict_status": "differences"
+        },
+        {
+          "role": "baseline",
+          "format": "r15",
+          "path": "returned/final-cyrillic-baseline-r15.dxf",
+          "sha256": "1dca7593b14eb7a7375cdd3dc5665ddeeacc30f7fb77da06427feb3d4a762bec",
+          "dxfversion": "AC1015",
+          "strict_unexpected": 395,
+          "strict_status": "differences"
+        },
+        {
+          "role": "edited",
+          "format": "default",
+          "path": "returned/final-cyrillic-edited-default.dxf",
+          "sha256": "252ebea82d560da16bb181e59aa8957695e86928aa08e5d1e43cd1b4e73bd40c",
+          "dxfversion": "AC1024",
+          "strict_unexpected": 382,
+          "strict_status": "differences"
+        },
+        {
+          "role": "edited",
+          "format": "r15",
+          "path": "returned/final-cyrillic-edited-r15.dxf",
+          "sha256": "feb4a278d08d407ebf0053ca614d03e93c0fa7e0b6b9683710f8fe74d439cf78",
+          "dxfversion": "AC1015",
+          "strict_unexpected": 395,
+          "strict_status": "differences"
+        }
+      ]
+    },
+    {
+      "id": "final-unicode",
+      "all_native_fields_match": true,
+      "field_checks": 14,
+      "native_saves": [
+        {
+          "role": "baseline",
+          "format": "default",
+          "path": "returned/final-unicode-baseline-default.dxf",
+          "sha256": "1b0c76d1c3a9a2019e6928a3b62db99d9cd6d419e89282dd27f5888a150474b9",
+          "dxfversion": "AC1024",
+          "strict_unexpected": 370,
+          "strict_status": "differences"
+        },
+        {
+          "role": "baseline",
+          "format": "r15",
+          "path": "returned/final-unicode-baseline-r15.dxf",
+          "sha256": "f38a012f6d21599173d32a1f8521e9f99878f33fc5cd8d5340b7a67de3b5a240",
+          "dxfversion": "AC1015",
+          "strict_unexpected": 383,
+          "strict_status": "differences"
+        },
+        {
+          "role": "edited",
+          "format": "default",
+          "path": "returned/final-unicode-edited-default.dxf",
+          "sha256": "7636c604ab8a41a30f42ac6b65e2e9126763d51fb6f2f29fa290dd1ad50ee3c9",
+          "dxfversion": "AC1024",
+          "strict_unexpected": 370,
+          "strict_status": "differences"
+        },
+        {
+          "role": "edited",
+          "format": "r15",
+          "path": "returned/final-unicode-edited-r15.dxf",
+          "sha256": "0851b0eeeedc7928f131d4dc4dd361d77614ac947da3205f29d4a6502d676e1b",
+          "dxfversion": "AC1015",
+          "strict_unexpected": 383,
+          "strict_status": "differences"
+        }
+      ]
+    },
+    {
+      "id": "final-literal",
+      "all_native_fields_match": true,
+      "field_checks": 14,
+      "native_saves": [
+        {
+          "role": "baseline",
+          "format": "default",
+          "path": "returned/final-literal-baseline-default.dxf",
+          "sha256": "40ca658a648a33a54919103b3163b9956e532220aa6161d100d36096ab95f615",
+          "dxfversion": "AC1024",
+          "strict_unexpected": 358,
+          "strict_status": "differences"
+        },
+        {
+          "role": "baseline",
+          "format": "r15",
+          "path": "returned/final-literal-baseline-r15.dxf",
+          "sha256": "2e0411769a20072d3e9de60347a752d0bf68d53ef484b32c969c0b0dca9d2657",
+          "dxfversion": "AC1015",
+          "strict_unexpected": 371,
+          "strict_status": "differences"
+        },
+        {
+          "role": "edited",
+          "format": "default",
+          "path": "returned/final-literal-edited-default.dxf",
+          "sha256": "4aacac2630ab1eee9b1219021b2076ad7f5ca84144a4985532545c18d27a3548",
+          "dxfversion": "AC1024",
+          "strict_unexpected": 358,
+          "strict_status": "differences"
+        },
+        {
+          "role": "edited",
+          "format": "r15",
+          "path": "returned/final-literal-edited-r15.dxf",
+          "sha256": "30c4ac9b200136ebfd6ce3345ac75b4c3ae7bcb20affd28fb5f9791f4fc4b0eb",
+          "dxfversion": "AC1015",
+          "strict_unexpected": 371,
+          "strict_status": "differences"
+        }
+      ]
+    },
+    {
+      "id": "final-foreign",
+      "all_native_fields_match": true,
+      "field_checks": 14,
+      "native_saves": [
+        {
+          "role": "baseline",
+          "format": "default",
+          "path": "returned/final-foreign-baseline-default.dxf",
+          "sha256": "9b45ab40fc8f350e6e99e73c0ee0d2e291955fbf906b8002f60d5d2308d33006",
+          "dxfversion": "AC1024",
+          "strict_unexpected": 382,
+          "strict_status": "differences"
+        },
+        {
+          "role": "baseline",
+          "format": "r15",
+          "path": "returned/final-foreign-baseline-r15.dxf",
+          "sha256": "8a527c98951359946e3281bde1ea3da0ed56f97917e6dd360ae4f44b531ab79f",
+          "dxfversion": "AC1015",
+          "strict_unexpected": 395,
+          "strict_status": "differences"
+        },
+        {
+          "role": "edited",
+          "format": "default",
+          "path": "returned/final-foreign-edited-default.dxf",
+          "sha256": "69dbdabfccc4fc213e1bcb646ec2e63c2fa4bd615f945cb945eb5de5d58a649e",
+          "dxfversion": "AC1024",
+          "strict_unexpected": 382,
+          "strict_status": "differences"
+        },
+        {
+          "role": "edited",
+          "format": "r15",
+          "path": "returned/final-foreign-edited-r15.dxf",
+          "sha256": "30e3b9ca07f394d1aa9a072a57b6d9799db53434f2f1b9a2e89803c1ef2f6aea",
+          "dxfversion": "AC1015",
+          "strict_unexpected": 395,
+          "strict_status": "differences"
+        }
+      ]
+    },
+    {
+      "id": "public-air-water",
+      "all_native_fields_match": true,
+      "field_checks": 14,
+      "native_saves": [
+        {
+          "role": "baseline",
+          "format": "default",
+          "path": "returned/public-air-water-baseline-default.dxf",
+          "sha256": "0f13fb5f29cea190692a76bb9319c6c0370b07f5d6899467763d941e257e031b",
+          "dxfversion": "AC1024",
+          "strict_unexpected": 346,
+          "strict_status": "differences"
+        },
+        {
+          "role": "baseline",
+          "format": "r15",
+          "path": "returned/public-air-water-baseline-r15.dxf",
+          "sha256": "d6a2ca4a3b04c12402b1d9503482338a92b885a9ea7ddf202221d3e62559d4af",
+          "dxfversion": "AC1015",
+          "strict_unexpected": 356,
+          "strict_status": "differences"
+        },
+        {
+          "role": "edited",
+          "format": "default",
+          "path": "returned/public-air-water-edited-default.dxf",
+          "sha256": "540b17faf755251c8e5ac669b70c2d54761e684ab997e48a8ac8bf56ba92bfd9",
+          "dxfversion": "AC1024",
+          "strict_unexpected": 346,
+          "strict_status": "differences"
+        },
+        {
+          "role": "edited",
+          "format": "r15",
+          "path": "returned/public-air-water-edited-r15.dxf",
+          "sha256": "6f307b67f12db1dcd0c3dfa7b152f27107a10f48ccfc20cea37a7f1f7045592e",
+          "dxfversion": "AC1015",
+          "strict_unexpected": 356,
+          "strict_status": "differences"
+        }
+      ]
+    },
+    {
+      "id": "public-mechanical",
+      "all_native_fields_match": true,
+      "field_checks": 14,
+      "native_saves": [
+        {
+          "role": "baseline",
+          "format": "default",
+          "path": "returned/public-mechanical-baseline-default.dxf",
+          "sha256": "a351c964250c26ca31d47abcd57ce9f685fbea5cef35104666833c967a61e466",
+          "dxfversion": "AC1024",
+          "strict_unexpected": 351,
+          "strict_status": "differences"
+        },
+        {
+          "role": "baseline",
+          "format": "r15",
+          "path": "returned/public-mechanical-baseline-r15.dxf",
+          "sha256": "082e12f7a12b746cd97ac05a28deaea4953571a3229021c65afa56cd14352f97",
+          "dxfversion": "AC1015",
+          "strict_unexpected": 361,
+          "strict_status": "differences"
+        },
+        {
+          "role": "edited",
+          "format": "default",
+          "path": "returned/public-mechanical-edited-default.dxf",
+          "sha256": "2826ae2ebfb08669101744b5adb434535b560337593b10ebde040dd92482da9e",
+          "dxfversion": "AC1024",
+          "strict_unexpected": 351,
+          "strict_status": "differences"
+        },
+        {
+          "role": "edited",
+          "format": "r15",
+          "path": "returned/public-mechanical-edited-r15.dxf",
+          "sha256": "f2846c76981de51b6229b2490091ef8dc7409eecffdfae53e276ebbc821af7fd",
+          "dxfversion": "AC1015",
+          "strict_unexpected": 361,
+          "strict_status": "differences"
+        }
+      ]
+    },
+    {
+      "id": "public-power",
+      "all_native_fields_match": true,
+      "field_checks": 14,
+      "native_saves": [
+        {
+          "role": "baseline",
+          "format": "default",
+          "path": "returned/public-power-baseline-default.dxf",
+          "sha256": "d2c9804e56174181744de70ef9aabdec70ae1ed957862a3ea1b802bdab06d2f5",
+          "dxfversion": "AC1024",
+          "strict_unexpected": 345,
+          "strict_status": "differences"
+        },
+        {
+          "role": "baseline",
+          "format": "r15",
+          "path": "returned/public-power-baseline-r15.dxf",
+          "sha256": "126640897eb4a8040e57e95d2861e90392746d27e8c2aed9e3fe1d883dcb5a8e",
+          "dxfversion": "AC1015",
+          "strict_unexpected": 355,
+          "strict_status": "differences"
+        },
+        {
+          "role": "edited",
+          "format": "default",
+          "path": "returned/public-power-edited-default.dxf",
+          "sha256": "535034a7209f3b0503a1e2b661d3b22a9d126f18b003f7fafa675d245986eba2",
+          "dxfversion": "AC1024",
+          "strict_unexpected": 345,
+          "strict_status": "differences"
+        },
+        {
+          "role": "edited",
+          "format": "r15",
+          "path": "returned/public-power-edited-r15.dxf",
+          "sha256": "f67bf1384ba64abdd8d8ad365014217bc48435e8940574b1af89fc6a998b93df",
+          "dxfversion": "AC1015",
+          "strict_unexpected": 355,
+          "strict_status": "differences"
+        }
+      ]
+    },
+    {
+      "id": "public-hatch",
+      "all_native_fields_match": true,
+      "field_checks": 14,
+      "native_saves": [
+        {
+          "role": "baseline",
+          "format": "default",
+          "path": "returned/public-hatch-baseline-default.dxf",
+          "sha256": "649391752313929aa6a8164becc7d304177fe0482f6fbac5ef79e4e7ca7c6628",
+          "dxfversion": "AC1024",
+          "strict_unexpected": 426,
+          "strict_status": "differences"
+        },
+        {
+          "role": "baseline",
+          "format": "r15",
+          "path": "returned/public-hatch-baseline-r15.dxf",
+          "sha256": "5ced73695cb00ca1488f5dd528567ef12a39e2035f1c6626025ac206d46e8912",
+          "dxfversion": "AC1015",
+          "strict_unexpected": 436,
+          "strict_status": "differences"
+        },
+        {
+          "role": "edited",
+          "format": "default",
+          "path": "returned/public-hatch-edited-default.dxf",
+          "sha256": "5ed55d2d3c07bb591779f8dadb414314bc0235605a2d429e90be6911e914efa6",
+          "dxfversion": "AC1024",
+          "strict_unexpected": 426,
+          "strict_status": "differences"
+        },
+        {
+          "role": "edited",
+          "format": "r15",
+          "path": "returned/public-hatch-edited-r15.dxf",
+          "sha256": "2bf13df54491c255760b65adb310d9d9a3f05fd2c54b0dce5573c10a8212ccb8",
+          "dxfversion": "AC1015",
+          "strict_unexpected": 436,
+          "strict_status": "differences"
+        }
+      ]
+    }
+  ],
+  "fields_match": 10,
+  "native_save_files": 40,
+  "whole_cad_qualified": false,
+  "boundaries": "Native default/R15 format observations are distinct from the separately declared UI R27 route. Every strict difference remains unresolved unless separately explained.",
+  "full_comparisons": "API-RESULT.json.xz (lossless complete JSON; use api_result.full_result)"
+}

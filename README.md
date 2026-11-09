@@ -28,6 +28,8 @@ For consultant drawing returns, follow the [engineer-to-manager receiving workfl
 requested changes, source evidence, correction actions and the organization's receiving decision.
 The [CAD qualification summary](docs/CAD_QUALIFICATION.md) separates supported attribute proposals
 and receiving checks from the tested native full-save and paper-delivery failures.
+The [frozen ten-case CAD validation](examples/cad-handoff/qualification/final-validation-23/README.md)
+reports attribute preservation, deliberately wrong controls and actual native results separately.
 The [worked resubmission](examples/drawing-handoff/resubmission-worked/BRIEF.md) uses
 the reusable command to show which findings change after correction and what stays unresolved.
 Changed request scope and missing evidence remain explicit; engineering disposition stays pending.

@@ -9800,3 +9800,53 @@ subcontrols. The engineer/manager scope page separates useful original-request
 receiving, source-preserving attribute proposals, failed native full saves and
 failed paper delivery. Final-method freeze and newly reserved transfer remain
 unfinished; engineering/company acceptance is never inferred.
+
+## 227. Compare exact generated pixels across PNG encodings
+
+The actual427a14b CI job reproduces complete second-receiver reports but fails
+regenerated PNG byte equality. Recompute all thirty difference images on Linux,
+first with installed Pillow10.2 and then CI's exact pinned Pillow12.2 wheel.
+Both original containers terminate0: all thirty PNG encodings differ and all
+thirty decoded pixel arrays, modes and sizes match exactly. Retain complete
+per-image results and the actual failed-job excerpt. The corrected replayer
+compares generated PNG pixels exactly, with original archive/image byte pins
+unchanged. Two focused test methods allow alternate compression and reject a
+single changed pixel or omitted image. The complete corrected replay passes
+locally. New exact-head CI remains required; no native or comparator gate waived.
+
+## 228. Freeze the method and report every reserved case
+
+Commit the final bounded plan/development at e9e5464,55method/contracts freeze
+at f5f53ef, all ten admitted input identities at f9f2c4d, and native preparation/
+launch pins at392b8b8 before the corresponding executions. Six same-author new
+procedural fixtures cover encoding/version/mirror/rotation/foreign/literal cases.
+Four public files are selected from pinned metadata before content download,
+excluding retained repository DXF blobs. Exact originals/licenses and authored
+identity adaptations remain explicit; this is not independent plant truth.
+
+All ten value candidates pass unchanged strict and independent reconstruction.
+The matched library baseline has82strict differences onR12 and zero on the
+other nine, but all ten fail byte reconstruction. All42applicable planted
+losses are detected by both checks; all90refusals preserve existing outputs.
+Conflicting returns and selected corrections retain one collateral difference
+under every original request, pending decisions and portable brief equality.
+The complete second software run and offline reproduction match all results.
+
+Actual native API edit/save/document reopen plus fresh-process reads match the
+complete supplied fields on all ten. All40native saves across default/R15 and
+no-edit/edit roles fail strict preservation. Thirty actual native model/paper
+exports terminate normally with unchanged sources. All images are actually
+inspected. The five newly authored paper cases display content, unlike the
+older known-problem sheets; no older source is repaired or result replaced.
+Small/rotated/overlapping labels, native trial marks and missing Chinese glyphs
+prevent complete readable delivery. A pre-publication analysis mistake compared
+palette indices before decoding, falsely yielding zero differences; retain that
+diagnostic, decode each input first, and cover one-pixel/reindex controls.
+No frozen native method, camera, mask, font, strict or byte checker changes.
+
+Complete software/API/render archives and external pins replay offline without
+models, network or native calls. Two predetermined actual UI cases are still
+running; fresh four-file receiving and final audit remain unfinished. The frozen
+UI packager's missing json import is documented; a separate bounded retention
+helper packages the unchanged receiver outputs. No whole CAD qualification,
+human review-time benefit, plant correctness or company release is claimed.

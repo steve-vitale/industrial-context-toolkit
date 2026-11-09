@@ -5,8 +5,11 @@ multi-asset native UI edits, save/close/reopen, exact-frame captures and complet
 observation transport. Complete exposed model receiving and exact frame checks
 now reproduce offline, including an actual native second revision. Matched
 full-save failures remain; [paper delivery fails](full-ui-22/PAPER-RENDER-BRIEF.md)
-on the two known problem sources. Final freezing and fresh reserved validation
-remain open. For the engineer/manager task, start with
+on the two known problem sources. The [final frozen ten-case validation](final-validation-23/README.md)
+now passes its software/loss/refusal/revision controls; all forty native API saves
+still fail strict preservation. Thirty actual model/paper exports retain their
+readability limits. The two predetermined UI transfers and fresh receiving remain
+in progress. For the engineer/manager task, start with
 [drawing receiving](../../../docs/DRAWING_HANDOFF.md) and
 [current qualification scope/results](../../../docs/CAD_QUALIFICATION.md).
 
