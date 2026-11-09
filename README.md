@@ -14,6 +14,9 @@ unresolved disagreements stay visible as the work moves between tools and people
 **Build and use your engineering context map.** Connect equipment, drawings,
 documents and observations; trace answers to their sources; inspect disagreements;
 and see what needs rechecking when a source changes. This is the toolkit's focus.
+The [offline map explorer](examples/map-explorer/README.md) puts item navigation,
+sourced questions, relationships, disagreements and revision comparison together;
+an agent can use the same exported records directly.
 Company systems or a managed product own work assignment, job readiness, approvals
 and ongoing service operations.
 

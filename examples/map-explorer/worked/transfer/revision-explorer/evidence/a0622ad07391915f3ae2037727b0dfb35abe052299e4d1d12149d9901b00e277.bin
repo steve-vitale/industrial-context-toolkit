@@ -1,0 +1,31 @@
+{
+ "schema": "one-map-sheet-1",
+ "note": "Hand-authored stand-in for fictional P&ID CIP1-01 rev A.",
+ "equipment": [
+  {
+   "tag": "TK-301",
+   "name": "CIP caustic tank",
+   "zone": "C2"
+  },
+  {
+   "tag": "P-301",
+   "name": "CIP supply pump",
+   "zone": "C4"
+  }
+ ],
+ "instruments": [
+  {
+   "tag": "PSV-3101",
+   "zone": "D2",
+   "on": "TK-301"
+  }
+ ],
+ "signal_lines": [],
+ "lines": [
+  {
+   "id": "L1",
+   "from": "TK-301",
+   "to": "P-301"
+  }
+ ]
+}

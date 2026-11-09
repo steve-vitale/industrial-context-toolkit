@@ -1,0 +1,6366 @@
+{
+ "schema": "twin-graph-2",
+ "model_kind": "one_map",
+ "title": "Public OPEN100 sheet 0 read by the drawing reader (development sheet)",
+ "site": "O100",
+ "source_model": "site.json",
+ "nodes": [
+  {
+   "id": "O100",
+   "kind": "site",
+   "tag": "O100",
+   "name": "Public OPEN100 sheet 0 read by the drawing reader (development sheet)",
+   "aliases": [],
+   "status": "confirmed",
+   "attributes": [],
+   "source": {
+    "kind": "document",
+    "document": "site.json",
+    "note": "site file"
+   }
+  },
+  {
+   "id": "O100/DOC/PID-NPP-140",
+   "kind": "document",
+   "tag": "PID-NPP-140",
+   "name": "P&ID 140",
+   "aliases": [],
+   "status": "confirmed",
+   "attributes": [],
+   "source": {
+    "kind": "document",
+    "document": "O100/DOC/PID-NPP-140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "class": "pid",
+   "document": {
+    "id": "PID-NPP-140",
+    "revision": "A",
+    "status": "released",
+    "owner": "Doc control",
+    "department": "Doc control",
+    "doc_type": "pid",
+    "sha256": "c5830aa20943cb311d2fd43bc8fdea1891612390e3b695b0d9bcfbad162e4901",
+    "path": "sheets/open100-0.json"
+   }
+  },
+  {
+   "id": "O100/NPP",
+   "kind": "plant",
+   "tag": "NPP",
+   "name": "OPEN100 reference plant",
+   "aliases": [],
+   "status": "confirmed",
+   "attributes": [],
+   "source": {
+    "kind": "document",
+    "document": "site.json",
+    "note": "site file"
+   }
+  },
+  {
+   "id": "O100/NPP/MSS",
+   "kind": "unit",
+   "tag": "MSS",
+   "name": "Main steam system",
+   "aliases": [],
+   "status": "confirmed",
+   "attributes": [],
+   "source": {
+    "kind": "document",
+    "document": "site.json",
+    "note": "site file"
+   }
+  },
+  {
+   "id": "O100/NPP/MSS/@140/s100",
+   "kind": "offpage_connector",
+   "tag": "s100",
+   "name": "HIGH PRESSURE STEAM DRAINS HPD PID 190-1",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [
+    {
+     "name": "drawing_reference",
+     "value": "HPD PID 190-1",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/s56",
+   "kind": "offpage_connector",
+   "tag": "s56",
+   "name": "EXTRACTION STEAM ES PID 180-1",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [
+    {
+     "name": "drawing_reference",
+     "value": "ES PID 180-1",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/s65",
+   "kind": "offpage_connector",
+   "tag": "s65",
+   "name": "TBS PID 240-1 TURBINE SYSTEM",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [
+    {
+     "name": "drawing_reference",
+     "value": "TBS PID 240-1",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/s66",
+   "kind": "offpage_connector",
+   "tag": "s66",
+   "name": "TBS PID 240-1 TURBINE SYSTEM",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [
+    {
+     "name": "drawing_reference",
+     "value": "TBS PID 240-1",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/s77",
+   "kind": "offpage_connector",
+   "tag": "s77",
+   "name": "HIGH PRESSURE STEAM DRAINS HPD PID 190-1",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [
+    {
+     "name": "drawing_reference",
+     "value": "HPD PID 190-1",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/s82",
+   "kind": "offpage_connector",
+   "tag": "s82",
+   "name": "MAIN STEAM BY-PASS",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/s89",
+   "kind": "offpage_connector",
+   "tag": "s89",
+   "name": "FWS TO STM BYPASS FWS PID 170-1",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [
+    {
+     "name": "drawing_reference",
+     "value": "FWS PID 170-1",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/s98",
+   "kind": "offpage_connector",
+   "tag": "s98",
+   "name": "HIGH PRESSURE STEAM DRAINS HPD PID 190-1",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [
+    {
+     "name": "drawing_reference",
+     "value": "HPD PID 190-1",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/s99",
+   "kind": "offpage_connector",
+   "tag": "s99",
+   "name": "HIGH PRESSURE STEAM DRAINS HPD PID 190-1",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [
+    {
+     "name": "drawing_reference",
+     "value": "HPD PID 190-1",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control"
+  },
+  {
+   "id": "O100/NPP/MSS/AORV-XXX",
+   "kind": "instrument",
+   "tag": "AORV-XXX",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-7",
+    "box_0_1000": [
+     410.9,
+     162.8,
+     426.6,
+     186.5
+    ],
+    "reader_symbol": "s29",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.98,
+    "printed_tag": "AORV XXX"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "G-7",
+     "box_0_1000": [
+      410.9,
+      162.8,
+      426.6,
+      186.5
+     ],
+     "reader_symbol": "s29",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.98,
+     "printed_tag": "AORV XXX"
+    }
+   ],
+   "tag_status": "placeholder"
+  },
+  {
+   "id": "O100/NPP/MSS/FT-1401",
+   "kind": "instrument",
+   "tag": "FT-1401",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "F-8",
+    "box_0_1000": [
+     287.1,
+     354.2,
+     302.8,
+     377.4
+    ],
+    "reader_symbol": "s7",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "FT 1401"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "F-8",
+     "box_0_1000": [
+      287.1,
+      354.2,
+      302.8,
+      377.4
+     ],
+     "reader_symbol": "s7",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.99,
+     "printed_tag": "FT 1401"
+    }
+   ],
+   "class": "transmitter",
+   "class_how": "tag letters FT (classes.json letter rule)"
+  },
+  {
+   "id": "O100/NPP/MSS/MS-4010",
+   "kind": "instrument",
+   "tag": "MS-4010",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-5",
+    "box_0_1000": [
+     520.9,
+     186.5,
+     536.6,
+     209.8
+    ],
+    "reader_symbol": "s39",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.98,
+    "printed_tag": "MS 4010"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "G-5",
+     "box_0_1000": [
+      520.9,
+      186.5,
+      536.6,
+      209.8
+     ],
+     "reader_symbol": "s39",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.98,
+     "printed_tag": "MS 4010"
+    }
+   ],
+   "class": "switch",
+   "class_how": "tag letters MS (classes.json letter rule)"
+  },
+  {
+   "id": "O100/NPP/MSS/MSBV-1407",
+   "kind": "instrument",
+   "tag": "MSBV-1407",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "D-3",
+    "box_0_1000": [
+     639.3,
+     497.5,
+     655.6,
+     521.2
+    ],
+    "reader_symbol": "s80",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "MSBV 1407"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "D-3",
+     "box_0_1000": [
+      639.3,
+      497.5,
+      655.6,
+      521.2
+     ],
+     "reader_symbol": "s80",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.99,
+     "printed_tag": "MSBV 1407"
+    }
+   ]
+  },
+  {
+   "id": "O100/NPP/MSS/MSCV-XXX",
+   "kind": "instrument",
+   "tag": "MSCV-XXX",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "F-5",
+    "box_0_1000": [
+     538.2,
+     269.3,
+     549.1,
+     281.2
+    ],
+    "reader_symbol": "s54",
+    "reader_class": "valve",
+    "reader_confidence": 0.97,
+    "printed_tag": "MSCV-XXX"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "F-5",
+     "box_0_1000": [
+      538.2,
+      269.3,
+      549.1,
+      281.2
+     ],
+     "reader_symbol": "s54",
+     "reader_class": "valve",
+     "reader_confidence": 0.97,
+     "printed_tag": "MSCV-XXX"
+    }
+   ],
+   "tag_status": "placeholder"
+  },
+  {
+   "id": "O100/NPP/MSS/MSIV-1402",
+   "kind": "instrument",
+   "tag": "MSIV-1402",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-6",
+    "box_0_1000": [
+     475.3,
+     239.5,
+     491.5,
+     262.8
+    ],
+    "reader_symbol": "s41",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "MSIV 1402"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "G-6",
+     "box_0_1000": [
+      475.3,
+      239.5,
+      491.5,
+      262.8
+     ],
+     "reader_symbol": "s41",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.99,
+     "printed_tag": "MSIV 1402"
+    }
+   ]
+  },
+  {
+   "id": "O100/NPP/MSS/MSS-XSS-140",
+   "kind": "equipment",
+   "tag": "MSS-XSS-140",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "D-9",
+    "box_0_1000": [
+     226.6,
+     433.1,
+     259.0,
+     569.1
+    ],
+    "reader_symbol": "s1",
+    "reader_class": "tank",
+    "reader_confidence": 0.99,
+    "printed_tag": "MSS-XSS-140"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "D-9",
+     "box_0_1000": [
+      226.6,
+      433.1,
+      259.0,
+      569.1
+     ],
+     "reader_symbol": "s1",
+     "reader_class": "tank",
+     "reader_confidence": 0.99,
+     "printed_tag": "MSS-XSS-140"
+    }
+   ]
+  },
+  {
+   "id": "O100/NPP/MSS/MSV-1404",
+   "kind": "relief_device",
+   "tag": "MSV-1404",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-3",
+    "box_0_1000": [
+     646.9,
+     242.2,
+     662.6,
+     265.5
+    ],
+    "reader_symbol": "s59",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "MSV 1404"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "G-3",
+     "box_0_1000": [
+      646.9,
+      242.2,
+      662.6,
+      265.5
+     ],
+     "reader_symbol": "s59",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.99,
+     "printed_tag": "MSV 1404"
+    }
+   ],
+   "safety": "relief device",
+   "class": "relief_device",
+   "class_how": "tag letters MSV (classes.json letter rule)"
+  },
+  {
+   "id": "O100/NPP/MSS/MSV-1405",
+   "kind": "relief_device",
+   "tag": "MSV-1405",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-3",
+    "box_0_1000": [
+     677.2,
+     242.2,
+     693.4,
+     265.5
+    ],
+    "reader_symbol": "s62",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "MSV 1405"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "G-3",
+     "box_0_1000": [
+      677.2,
+      242.2,
+      693.4,
+      265.5
+     ],
+     "reader_symbol": "s62",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.99,
+     "printed_tag": "MSV 1405"
+    }
+   ],
+   "safety": "relief device",
+   "class": "relief_device",
+   "class_how": "tag letters MSV (classes.json letter rule)"
+  },
+  {
+   "id": "O100/NPP/MSS/PSV-1404",
+   "kind": "relief_device",
+   "tag": "PSV-1404",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-6",
+    "box_0_1000": [
+     441.8,
+     142.2,
+     457.4,
+     166.0
+    ],
+    "reader_symbol": "s31",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "PSV 1404"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "G-6",
+     "box_0_1000": [
+      441.8,
+      142.2,
+      457.4,
+      166.0
+     ],
+     "reader_symbol": "s31",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.99,
+     "printed_tag": "PSV 1404"
+    }
+   ],
+   "safety": "relief device",
+   "class": "relief_device",
+   "class_how": "tag letters PSV (classes.json letter rule)"
+  },
+  {
+   "id": "O100/NPP/MSS/PSV-1405",
+   "kind": "relief_device",
+   "tag": "PSV-1405",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-6",
+    "box_0_1000": [
+     462.8,
+     142.2,
+     479.1,
+     166.0
+    ],
+    "reader_symbol": "s33",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "PSV 1405"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "G-6",
+     "box_0_1000": [
+      462.8,
+      142.2,
+      479.1,
+      166.0
+     ],
+     "reader_symbol": "s33",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.99,
+     "printed_tag": "PSV 1405"
+    }
+   ],
+   "safety": "relief device",
+   "class": "relief_device",
+   "class_how": "tag letters PSV (classes.json letter rule)"
+  },
+  {
+   "id": "O100/NPP/MSS/PSV-1406",
+   "kind": "relief_device",
+   "tag": "PSV-1406",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-6",
+    "box_0_1000": [
+     484.5,
+     142.2,
+     500.7,
+     166.0
+    ],
+    "reader_symbol": "s35",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "PSV 1406"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "G-6",
+     "box_0_1000": [
+      484.5,
+      142.2,
+      500.7,
+      166.0
+     ],
+     "reader_symbol": "s35",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.99,
+     "printed_tag": "PSV 1406"
+    }
+   ],
+   "safety": "relief device",
+   "class": "relief_device",
+   "class_how": "tag letters PSV (classes.json letter rule)"
+  },
+  {
+   "id": "O100/NPP/MSS/PSV-1407",
+   "kind": "relief_device",
+   "tag": "PSV-1407",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-5",
+    "box_0_1000": [
+     505.6,
+     142.2,
+     522.3,
+     166.0
+    ],
+    "reader_symbol": "s37",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "PSV 1407"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "G-5",
+     "box_0_1000": [
+      505.6,
+      142.2,
+      522.3,
+      166.0
+     ],
+     "reader_symbol": "s37",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.99,
+     "printed_tag": "PSV 1407"
+    }
+   ],
+   "safety": "relief device",
+   "class": "relief_device",
+   "class_how": "tag letters PSV (classes.json letter rule)"
+  },
+  {
+   "id": "O100/NPP/MSS/PT-14085",
+   "kind": "instrument",
+   "tag": "PT-14085",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-8",
+    "box_0_1000": [
+     337.4,
+     222.8,
+     353.1,
+     247.1
+    ],
+    "reader_symbol": "s13",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "PT 14085"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "G-8",
+     "box_0_1000": [
+      337.4,
+      222.8,
+      353.1,
+      247.1
+     ],
+     "reader_symbol": "s13",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.99,
+     "printed_tag": "PT 14085"
+    }
+   ],
+   "class": "transmitter",
+   "class_how": "tag letters PT (classes.json letter rule)"
+  },
+  {
+   "id": "O100/NPP/MSS/PT-14086",
+   "kind": "instrument",
+   "tag": "PT-14086",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-7",
+    "box_0_1000": [
+     358.5,
+     222.8,
+     374.2,
+     247.1
+    ],
+    "reader_symbol": "s14",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "PT 14086"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "G-7",
+     "box_0_1000": [
+      358.5,
+      222.8,
+      374.2,
+      247.1
+     ],
+     "reader_symbol": "s14",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.99,
+     "printed_tag": "PT 14086"
+    }
+   ],
+   "class": "transmitter",
+   "class_how": "tag letters PT (classes.json letter rule)"
+  },
+  {
+   "id": "O100/NPP/MSS/PT-14087",
+   "kind": "instrument",
+   "tag": "PT-14087",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-7",
+    "box_0_1000": [
+     379.0,
+     222.8,
+     395.3,
+     247.1
+    ],
+    "reader_symbol": "s15",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "PT 14087"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "G-7",
+     "box_0_1000": [
+      379.0,
+      222.8,
+      395.3,
+      247.1
+     ],
+     "reader_symbol": "s15",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.99,
+     "printed_tag": "PT 14087"
+    }
+   ],
+   "class": "transmitter",
+   "class_how": "tag letters PT (classes.json letter rule)"
+  },
+  {
+   "id": "O100/NPP/MSS/PT-14088",
+   "kind": "instrument",
+   "tag": "PT-14088",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-7",
+    "box_0_1000": [
+     400.7,
+     222.8,
+     416.3,
+     247.1
+    ],
+    "reader_symbol": "s16",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "PT 14088"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "G-7",
+     "box_0_1000": [
+      400.7,
+      222.8,
+      416.3,
+      247.1
+     ],
+     "reader_symbol": "s16",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.99,
+     "printed_tag": "PT 14088"
+    }
+   ],
+   "class": "transmitter",
+   "class_how": "tag letters PT (classes.json letter rule)"
+  },
+  {
+   "id": "O100/NPP/MSS/RCS-SG-100",
+   "kind": "equipment",
+   "tag": "RCS-SG-100",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "C-11",
+    "box_0_1000": [
+     85.4,
+     565.3,
+     120.0,
+     761.0
+    ],
+    "reader_symbol": "s83",
+    "reader_class": "tank",
+    "reader_confidence": 0.99,
+    "printed_tag": "RCS-SG-100"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "C-11",
+     "box_0_1000": [
+      85.4,
+      565.3,
+      120.0,
+      761.0
+     ],
+     "reader_symbol": "s83",
+     "reader_class": "tank",
+     "reader_confidence": 0.99,
+     "printed_tag": "RCS-SG-100"
+    }
+   ]
+  },
+  {
+   "id": "O100/NPP/MSS/RE-1402",
+   "kind": "instrument",
+   "tag": "RE-1402",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-8",
+    "box_0_1000": [
+     302.3,
+     222.8,
+     317.9,
+     247.1
+    ],
+    "reader_symbol": "s11",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "RE 1402"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "G-8",
+     "box_0_1000": [
+      302.3,
+      222.8,
+      317.9,
+      247.1
+     ],
+     "reader_symbol": "s11",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.99,
+     "printed_tag": "RE 1402"
+    }
+   ],
+   "class": "primary_element",
+   "class_how": "tag letters RE (classes.json letter rule)"
+  },
+  {
+   "id": "O100/NPP/MSS/RE-1403",
+   "kind": "instrument",
+   "tag": "RE-1403",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-5",
+    "box_0_1000": [
+     515.5,
+     223.3,
+     530.7,
+     246.0
+    ],
+    "reader_symbol": "s42",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "RE 1403"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "G-5",
+     "box_0_1000": [
+      515.5,
+      223.3,
+      530.7,
+      246.0
+     ],
+     "reader_symbol": "s42",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.99,
+     "printed_tag": "RE 1403"
+    }
+   ],
+   "class": "primary_element",
+   "class_how": "tag letters RE (classes.json letter rule)"
+  },
+  {
+   "id": "O100/NPP/MSS/TCV-1401",
+   "kind": "final_element",
+   "tag": "TCV-1401",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "E-10",
+    "box_0_1000": [
+     187.1,
+     385.0,
+     202.8,
+     409.3
+    ],
+    "reader_symbol": "s3",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TCV 1401"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "E-10",
+     "box_0_1000": [
+      187.1,
+      385.0,
+      202.8,
+      409.3
+     ],
+     "reader_symbol": "s3",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.99,
+     "printed_tag": "TCV 1401"
+    }
+   ],
+   "class": "control_valve",
+   "class_how": "tag letters TCV (classes.json letter rule)"
+  },
+  {
+   "id": "O100/NPP/MSS/TCV-1402",
+   "kind": "final_element",
+   "tag": "TCV-1402",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "F-7",
+    "box_0_1000": [
+     362.8,
+     326.0,
+     378.5,
+     349.8
+    ],
+    "reader_symbol": "s20",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TCV 1402"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "F-7",
+     "box_0_1000": [
+      362.8,
+      326.0,
+      378.5,
+      349.8
+     ],
+     "reader_symbol": "s20",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.99,
+     "printed_tag": "TCV 1402"
+    }
+   ],
+   "class": "control_valve",
+   "class_how": "tag letters TCV (classes.json letter rule)"
+  },
+  {
+   "id": "O100/NPP/MSS/TCV-1403",
+   "kind": "final_element",
+   "tag": "TCV-1403",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "F-6",
+    "box_0_1000": [
+     462.3,
+     328.2,
+     478.0,
+     352.0
+    ],
+    "reader_symbol": "s47",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TCV 1403"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "F-6",
+     "box_0_1000": [
+      462.3,
+      328.2,
+      478.0,
+      352.0
+     ],
+     "reader_symbol": "s47",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.99,
+     "printed_tag": "TCV 1403"
+    }
+   ],
+   "class": "control_valve",
+   "class_how": "tag letters TCV (classes.json letter rule)"
+  },
+  {
+   "id": "O100/NPP/MSS/TCV-1406",
+   "kind": "final_element",
+   "tag": "TCV-1406",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "F-4",
+    "box_0_1000": [
+     603.1,
+     331.5,
+     618.8,
+     354.7
+    ],
+    "reader_symbol": "s69",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TCV 1406"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "F-4",
+     "box_0_1000": [
+      603.1,
+      331.5,
+      618.8,
+      354.7
+     ],
+     "reader_symbol": "s69",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.99,
+     "printed_tag": "TCV 1406"
+    }
+   ],
+   "class": "control_valve",
+   "class_how": "tag letters TCV (classes.json letter rule)"
+  },
+  {
+   "id": "O100/NPP/MSS/TCV-1408",
+   "kind": "final_element",
+   "tag": "TCV-1408",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "D-4",
+    "box_0_1000": [
+     618.3,
+     540.9,
+     633.4,
+     563.6
+    ],
+    "reader_symbol": "s87",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TCV 1408"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "D-4",
+     "box_0_1000": [
+      618.3,
+      540.9,
+      633.4,
+      563.6
+     ],
+     "reader_symbol": "s87",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.99,
+     "printed_tag": "TCV 1408"
+    }
+   ],
+   "class": "control_valve",
+   "class_how": "tag letters TCV (classes.json letter rule)"
+  },
+  {
+   "id": "O100/NPP/MSS/TCV-1409",
+   "kind": "final_element",
+   "tag": "TCV-1409",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "D-4",
+    "box_0_1000": [
+     583.1,
+     597.2,
+     598.8,
+     620.4
+    ],
+    "reader_symbol": "s90",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TCV 1409"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "D-4",
+     "box_0_1000": [
+      583.1,
+      597.2,
+      598.8,
+      620.4
+     ],
+     "reader_symbol": "s90",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.99,
+     "printed_tag": "TCV 1409"
+    }
+   ],
+   "class": "control_valve",
+   "class_how": "tag letters TCV (classes.json letter rule)"
+  },
+  {
+   "id": "O100/NPP/MSS/TE-14084A",
+   "kind": "instrument",
+   "tag": "TE-14084A",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "F-9",
+    "box_0_1000": [
+     246.6,
+     306.0,
+     261.7,
+     329.8
+    ],
+    "reader_symbol": "s9",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TE 14084A"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "F-9",
+     "box_0_1000": [
+      246.6,
+      306.0,
+      261.7,
+      329.8
+     ],
+     "reader_symbol": "s9",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.99,
+     "printed_tag": "TE 14084A"
+    }
+   ],
+   "class": "primary_element",
+   "class_how": "tag letters TE (classes.json letter rule)"
+  },
+  {
+   "id": "O100/NPP/MSS/TE-14084B",
+   "kind": "instrument",
+   "tag": "TE-14084B",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "F-9",
+    "box_0_1000": [
+     246.6,
+     327.1,
+     261.7,
+     350.4
+    ],
+    "reader_symbol": "s10",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TE 14084B"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "F-9",
+     "box_0_1000": [
+      246.6,
+      327.1,
+      261.7,
+      350.4
+     ],
+     "reader_symbol": "s10",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.99,
+     "printed_tag": "TE 14084B"
+    }
+   ],
+   "class": "primary_element",
+   "class_how": "tag letters TE (classes.json letter rule)"
+  },
+  {
+   "id": "O100/NPP/MSS/TE-14089A",
+   "kind": "instrument",
+   "tag": "TE-14089A",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "F-8",
+    "box_0_1000": [
+     354.2,
+     295.8,
+     369.8,
+     320.1
+    ],
+    "reader_symbol": "s17",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TE 14089A"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "F-8",
+     "box_0_1000": [
+      354.2,
+      295.8,
+      369.8,
+      320.1
+     ],
+     "reader_symbol": "s17",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.99,
+     "printed_tag": "TE 14089A"
+    }
+   ],
+   "class": "primary_element",
+   "class_how": "tag letters TE (classes.json letter rule)"
+  },
+  {
+   "id": "O100/NPP/MSS/TE-14089B",
+   "kind": "instrument",
+   "tag": "TE-14089B",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "F-7",
+    "box_0_1000": [
+     370.4,
+     295.8,
+     386.1,
+     320.1
+    ],
+    "reader_symbol": "s18",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TE 14089B"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "F-7",
+     "box_0_1000": [
+      370.4,
+      295.8,
+      386.1,
+      320.1
+     ],
+     "reader_symbol": "s18",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.99,
+     "printed_tag": "TE 14089B"
+    }
+   ],
+   "class": "primary_element",
+   "class_how": "tag letters TE (classes.json letter rule)"
+  },
+  {
+   "id": "O100/NPP/MSS/TE-14090A",
+   "kind": "instrument",
+   "tag": "TE-14090A",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "F-6",
+    "box_0_1000": [
+     458.5,
+     295.8,
+     474.2,
+     320.1
+    ],
+    "reader_symbol": "s44",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TE 14090A"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "F-6",
+     "box_0_1000": [
+      458.5,
+      295.8,
+      474.2,
+      320.1
+     ],
+     "reader_symbol": "s44",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.99,
+     "printed_tag": "TE 14090A"
+    }
+   ],
+   "class": "primary_element",
+   "class_how": "tag letters TE (classes.json letter rule)"
+  },
+  {
+   "id": "O100/NPP/MSS/TE-14090B",
+   "kind": "instrument",
+   "tag": "TE-14090B",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "F-6",
+    "box_0_1000": [
+     474.7,
+     295.8,
+     490.4,
+     320.1
+    ],
+    "reader_symbol": "s45",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TE 14090B"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "F-6",
+     "box_0_1000": [
+      474.7,
+      295.8,
+      490.4,
+      320.1
+     ],
+     "reader_symbol": "s45",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.99,
+     "printed_tag": "TE 14090B"
+    }
+   ],
+   "class": "primary_element",
+   "class_how": "tag letters TE (classes.json letter rule)"
+  },
+  {
+   "id": "O100/NPP/MSS/TE-14091A",
+   "kind": "instrument",
+   "tag": "TE-14091A",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-4",
+    "box_0_1000": [
+     605.8,
+     233.0,
+     621.5,
+     256.3
+    ],
+    "reader_symbol": "s57",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TE 14091A"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "G-4",
+     "box_0_1000": [
+      605.8,
+      233.0,
+      621.5,
+      256.3
+     ],
+     "reader_symbol": "s57",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.99,
+     "printed_tag": "TE 14091A"
+    }
+   ],
+   "class": "primary_element",
+   "class_how": "tag letters TE (classes.json letter rule)"
+  },
+  {
+   "id": "O100/NPP/MSS/TE-14091B",
+   "kind": "instrument",
+   "tag": "TE-14091B",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-4",
+    "box_0_1000": [
+     622.0,
+     233.0,
+     637.2,
+     256.3
+    ],
+    "reader_symbol": "s58",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TE 14091B"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "G-4",
+     "box_0_1000": [
+      622.0,
+      233.0,
+      637.2,
+      256.3
+     ],
+     "reader_symbol": "s58",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.99,
+     "printed_tag": "TE 14091B"
+    }
+   ],
+   "class": "primary_element",
+   "class_how": "tag letters TE (classes.json letter rule)"
+  },
+  {
+   "id": "O100/NPP/MSS/TE-14092A",
+   "kind": "instrument",
+   "tag": "TE-14092A",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "F-4",
+    "box_0_1000": [
+     598.8,
+     306.6,
+     614.5,
+     329.8
+    ],
+    "reader_symbol": "s67",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TE 14092A"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "F-4",
+     "box_0_1000": [
+      598.8,
+      306.6,
+      614.5,
+      329.8
+     ],
+     "reader_symbol": "s67",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.99,
+     "printed_tag": "TE 14092A"
+    }
+   ],
+   "class": "primary_element",
+   "class_how": "tag letters TE (classes.json letter rule)"
+  },
+  {
+   "id": "O100/NPP/MSS/TE-14092B",
+   "kind": "instrument",
+   "tag": "TE-14092B",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "F-4",
+    "box_0_1000": [
+     615.6,
+     306.6,
+     631.2,
+     329.8
+    ],
+    "reader_symbol": "s68",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TE 14092B"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "F-4",
+     "box_0_1000": [
+      615.6,
+      306.6,
+      631.2,
+      329.8
+     ],
+     "reader_symbol": "s68",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.99,
+     "printed_tag": "TE 14092B"
+    }
+   ],
+   "class": "primary_element",
+   "class_how": "tag letters TE (classes.json letter rule)"
+  },
+  {
+   "id": "O100/NPP/MSS/TE-14093A",
+   "kind": "instrument",
+   "tag": "TE-14093A",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "D-4",
+    "box_0_1000": [
+     603.1,
+     494.2,
+     618.8,
+     517.5
+    ],
+    "reader_symbol": "s79",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TE 14093A"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "D-4",
+     "box_0_1000": [
+      603.1,
+      494.2,
+      618.8,
+      517.5
+     ],
+     "reader_symbol": "s79",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.99,
+     "printed_tag": "TE 14093A"
+    }
+   ],
+   "class": "primary_element",
+   "class_how": "tag letters TE (classes.json letter rule)"
+  },
+  {
+   "id": "O100/NPP/MSS/TE-14093B",
+   "kind": "instrument",
+   "tag": "TE-14093B",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "D-4",
+    "box_0_1000": [
+     586.9,
+     494.2,
+     602.6,
+     517.5
+    ],
+    "reader_symbol": "s78",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TE 14093B"
+   },
+   "scope": "O100/NPP/MSS",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "O100/DOC/PID-NPP-140",
+     "sheet": "140",
+     "revision": "A",
+     "path": "sheets/open100-0.json",
+     "zone": "D-4",
+     "box_0_1000": [
+      586.9,
+      494.2,
+      602.6,
+      517.5
+     ],
+     "reader_symbol": "s78",
+     "reader_class": "instrumentation",
+     "reader_confidence": 0.99,
+     "printed_tag": "TE 14093B"
+    }
+   ],
+   "class": "primary_element",
+   "class_how": "tag letters TE (classes.json letter rule)"
+  }
+ ],
+ "edges": [
+  {
+   "id": "O100/NPP/MSS/@140/L-s1-s100",
+   "type": "connects",
+   "from": "O100/NPP/MSS/MSS-XSS-140",
+   "to": "O100/NPP/MSS/@140/s100",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "5 run ends meet through 29 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c0 c120 c121 c23 c9 c1",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "2 valves and 3 other in-line symbols",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s5 s2 s6 s12 s19",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s1-s54",
+   "type": "connects",
+   "from": "O100/NPP/MSS/MSS-XSS-140",
+   "to": "O100/NPP/MSS/MSCV-XXX",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "5 run ends meet through 29 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c0 c120 c121 c23 c17 c201",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "2 valves and 3 other in-line symbols",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s5 s2 s6 s12 s38",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s1-s83",
+   "type": "connects",
+   "from": "O100/NPP/MSS/MSS-XSS-140",
+   "to": "O100/NPP/MSS/RCS-SG-100",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "5 run ends meet through 29 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c0 c221 c333",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "2 other in-line symbols",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s5 s84",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s1-s99",
+   "type": "connects",
+   "from": "O100/NPP/MSS/MSS-XSS-140",
+   "to": "O100/NPP/MSS/@140/s99",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "5 run ends meet through 29 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c0 c120 c121 c23 c20 c217",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "2 valves and 3 other in-line symbols",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s5 s2 s6 s12 s46",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s100-s54",
+   "type": "connects",
+   "from": "O100/NPP/MSS/@140/s100",
+   "to": "O100/NPP/MSS/MSCV-XXX",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "5 run ends meet through 29 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c1 c113 c201",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "2 valves",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s19 s38",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s100-s83",
+   "type": "connects",
+   "from": "O100/NPP/MSS/@140/s100",
+   "to": "O100/NPP/MSS/RCS-SG-100",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "5 run ends meet through 29 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c1 c9 c23 c121 c122 c333",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "2 valves and 3 other in-line symbols",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s19 s12 s6 s2 s84",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s100-s99",
+   "type": "connects",
+   "from": "O100/NPP/MSS/@140/s100",
+   "to": "O100/NPP/MSS/@140/s99",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "5 run ends meet through 29 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c1 c116 c217",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "2 valves",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s19 s46",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s54-s56",
+   "type": "connects",
+   "from": "O100/NPP/MSS/MSCV-XXX",
+   "to": "O100/NPP/MSS/@140/s56",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "8 run ends meet through 21 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c225 c238",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "1 valve",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s55",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s54-s65",
+   "type": "connects",
+   "from": "O100/NPP/MSS/MSCV-XXX",
+   "to": "O100/NPP/MSS/@140/s65",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "8 run ends meet through 21 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c227 c267 c281",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "2 valves",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s60 s63",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s54-s66",
+   "type": "connects",
+   "from": "O100/NPP/MSS/MSCV-XXX",
+   "to": "O100/NPP/MSS/@140/s66",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "how_found",
+     "value": "reader connections",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c228",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "direct",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s54-s77",
+   "type": "connects",
+   "from": "O100/NPP/MSS/MSCV-XXX",
+   "to": "O100/NPP/MSS/@140/s77",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "8 run ends meet through 21 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c230 c302",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "1 valve",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s70",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s54-s82",
+   "type": "connects",
+   "from": "O100/NPP/MSS/MSCV-XXX",
+   "to": "O100/NPP/MSS/@140/s82",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "8 run ends meet through 21 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c234 c328",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "1 valve",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s81",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s54-s83",
+   "type": "connects",
+   "from": "O100/NPP/MSS/MSCV-XXX",
+   "to": "O100/NPP/MSS/RCS-SG-100",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "5 run ends meet through 29 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c201 c17 c23 c121 c122 c333",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "2 valves and 3 other in-line symbols",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s38 s12 s6 s2 s84",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s54-s89",
+   "type": "connects",
+   "from": "O100/NPP/MSS/MSCV-XXX",
+   "to": "O100/NPP/MSS/@140/s89",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "8 run ends meet through 21 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c234 c329 c334",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "2 valves",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s81 s88",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s54-s98",
+   "type": "connects",
+   "from": "O100/NPP/MSS/MSCV-XXX",
+   "to": "O100/NPP/MSS/@140/s98",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "8 run ends meet through 21 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c235 c338",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "1 valve",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s91",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s54-s99",
+   "type": "connects",
+   "from": "O100/NPP/MSS/MSCV-XXX",
+   "to": "O100/NPP/MSS/@140/s99",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "5 run ends meet through 29 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c201 c198 c217",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "2 valves",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s38 s46",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s56-s65",
+   "type": "connects",
+   "from": "O100/NPP/MSS/@140/s56",
+   "to": "O100/NPP/MSS/@140/s65",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "8 run ends meet through 21 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c238 c240 c267 c281",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "3 valves",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s55 s60 s63",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s56-s66",
+   "type": "connects",
+   "from": "O100/NPP/MSS/@140/s56",
+   "to": "O100/NPP/MSS/@140/s66",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "8 run ends meet through 21 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c238 c241",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "1 valve",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s55",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s56-s77",
+   "type": "connects",
+   "from": "O100/NPP/MSS/@140/s56",
+   "to": "O100/NPP/MSS/@140/s77",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "8 run ends meet through 21 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c238 c243 c302",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "2 valves",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s55 s70",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s56-s82",
+   "type": "connects",
+   "from": "O100/NPP/MSS/@140/s56",
+   "to": "O100/NPP/MSS/@140/s82",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "8 run ends meet through 21 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c238 c247 c328",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "2 valves",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s55 s81",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s56-s89",
+   "type": "connects",
+   "from": "O100/NPP/MSS/@140/s56",
+   "to": "O100/NPP/MSS/@140/s89",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "8 run ends meet through 21 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c238 c247 c329 c334",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "3 valves",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s55 s81 s88",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s56-s98",
+   "type": "connects",
+   "from": "O100/NPP/MSS/@140/s56",
+   "to": "O100/NPP/MSS/@140/s98",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "8 run ends meet through 21 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c238 c248 c338",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "2 valves",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s55 s91",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s65-s66",
+   "type": "connects",
+   "from": "O100/NPP/MSS/@140/s65",
+   "to": "O100/NPP/MSS/@140/s66",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "8 run ends meet through 21 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c281 c267 c268",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "2 valves",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s63 s60",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s65-s77",
+   "type": "connects",
+   "from": "O100/NPP/MSS/@140/s65",
+   "to": "O100/NPP/MSS/@140/s77",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "8 run ends meet through 21 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c281 c267 c270 c302",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "3 valves",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s63 s60 s70",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s65-s82",
+   "type": "connects",
+   "from": "O100/NPP/MSS/@140/s65",
+   "to": "O100/NPP/MSS/@140/s82",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "8 run ends meet through 21 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c281 c267 c274 c328",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "3 valves",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s63 s60 s81",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s65-s89",
+   "type": "connects",
+   "from": "O100/NPP/MSS/@140/s65",
+   "to": "O100/NPP/MSS/@140/s89",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "8 run ends meet through 21 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c281 c267 c274 c329 c334",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "4 valves",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s63 s60 s81 s88",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s65-s98",
+   "type": "connects",
+   "from": "O100/NPP/MSS/@140/s65",
+   "to": "O100/NPP/MSS/@140/s98",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "8 run ends meet through 21 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c281 c267 c275 c338",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "3 valves",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s63 s60 s91",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s66-s77",
+   "type": "connects",
+   "from": "O100/NPP/MSS/@140/s66",
+   "to": "O100/NPP/MSS/@140/s77",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "8 run ends meet through 21 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c283 c302",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "1 valve",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s70",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s66-s82",
+   "type": "connects",
+   "from": "O100/NPP/MSS/@140/s66",
+   "to": "O100/NPP/MSS/@140/s82",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "8 run ends meet through 21 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c287 c328",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "1 valve",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s81",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s66-s89",
+   "type": "connects",
+   "from": "O100/NPP/MSS/@140/s66",
+   "to": "O100/NPP/MSS/@140/s89",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "8 run ends meet through 21 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c287 c329 c334",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "2 valves",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s81 s88",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s66-s98",
+   "type": "connects",
+   "from": "O100/NPP/MSS/@140/s66",
+   "to": "O100/NPP/MSS/@140/s98",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "8 run ends meet through 21 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c288 c338",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "1 valve",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s91",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s77-s82",
+   "type": "connects",
+   "from": "O100/NPP/MSS/@140/s77",
+   "to": "O100/NPP/MSS/@140/s82",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "8 run ends meet through 21 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c302 c304 c328",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "2 valves",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s70 s81",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s77-s89",
+   "type": "connects",
+   "from": "O100/NPP/MSS/@140/s77",
+   "to": "O100/NPP/MSS/@140/s89",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "8 run ends meet through 21 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c302 c304 c329 c334",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "3 valves",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s70 s81 s88",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s77-s98",
+   "type": "connects",
+   "from": "O100/NPP/MSS/@140/s77",
+   "to": "O100/NPP/MSS/@140/s98",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "8 run ends meet through 21 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c302 c305 c338",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "2 valves",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s70 s91",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s82-s89",
+   "type": "connects",
+   "from": "O100/NPP/MSS/@140/s82",
+   "to": "O100/NPP/MSS/@140/s89",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "8 run ends meet through 21 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c328 c329 c334",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "2 valves",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s81 s88",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s82-s98",
+   "type": "connects",
+   "from": "O100/NPP/MSS/@140/s82",
+   "to": "O100/NPP/MSS/@140/s98",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "8 run ends meet through 21 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c328 c330 c338",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "2 valves",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s81 s91",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s83-s99",
+   "type": "connects",
+   "from": "O100/NPP/MSS/RCS-SG-100",
+   "to": "O100/NPP/MSS/@140/s99",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "5 run ends meet through 29 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c333 c122 c121 c23 c20 c217",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "2 valves and 3 other in-line symbols",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s84 s2 s6 s12 s46",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "O100/NPP/MSS/@140/L-s89-s98",
+   "type": "connects",
+   "from": "O100/NPP/MSS/@140/s89",
+   "to": "O100/NPP/MSS/@140/s98",
+   "status": "unverified",
+   "direction": "unknown",
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json"
+   },
+   "attributes": [
+    {
+     "name": "branched_network",
+     "value": "8 run ends meet through 21 untagged in-line symbols; other paths may exist",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "how_found",
+     "value": "reader connections collapsed through untagged in-line symbols along one shortest path",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "prediction_connections",
+     "value": "c334 c329 c330 c338",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "through",
+     "value": "3 valves",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    },
+    {
+     "name": "via_symbols",
+     "value": "s88 s81 s91",
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "O100/DOC/PID-NPP-140",
+      "sheet": "140",
+      "revision": "A",
+      "path": "sheets/open100-0.json"
+     }
+    }
+   ],
+   "layer": "stream"
+  },
+  {
+   "id": "contains:O100->O100/NPP",
+   "type": "contains",
+   "from": "O100",
+   "to": "O100/NPP",
+   "status": "confirmed",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "site.json",
+    "note": "site file"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP->O100/NPP/MSS",
+   "type": "contains",
+   "from": "O100/NPP",
+   "to": "O100/NPP/MSS",
+   "status": "confirmed",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "site.json",
+    "note": "site file"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/AORV-XXX",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/AORV-XXX",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-7",
+    "box_0_1000": [
+     410.9,
+     162.8,
+     426.6,
+     186.5
+    ],
+    "reader_symbol": "s29",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.98,
+    "printed_tag": "AORV XXX"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/FT-1401",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/FT-1401",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "F-8",
+    "box_0_1000": [
+     287.1,
+     354.2,
+     302.8,
+     377.4
+    ],
+    "reader_symbol": "s7",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "FT 1401"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/MS-4010",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/MS-4010",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-5",
+    "box_0_1000": [
+     520.9,
+     186.5,
+     536.6,
+     209.8
+    ],
+    "reader_symbol": "s39",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.98,
+    "printed_tag": "MS 4010"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/MSBV-1407",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/MSBV-1407",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "D-3",
+    "box_0_1000": [
+     639.3,
+     497.5,
+     655.6,
+     521.2
+    ],
+    "reader_symbol": "s80",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "MSBV 1407"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/MSCV-XXX",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/MSCV-XXX",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "F-5",
+    "box_0_1000": [
+     538.2,
+     269.3,
+     549.1,
+     281.2
+    ],
+    "reader_symbol": "s54",
+    "reader_class": "valve",
+    "reader_confidence": 0.97,
+    "printed_tag": "MSCV-XXX"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/MSIV-1402",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/MSIV-1402",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-6",
+    "box_0_1000": [
+     475.3,
+     239.5,
+     491.5,
+     262.8
+    ],
+    "reader_symbol": "s41",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "MSIV 1402"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/MSS-XSS-140",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/MSS-XSS-140",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "D-9",
+    "box_0_1000": [
+     226.6,
+     433.1,
+     259.0,
+     569.1
+    ],
+    "reader_symbol": "s1",
+    "reader_class": "tank",
+    "reader_confidence": 0.99,
+    "printed_tag": "MSS-XSS-140"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/MSV-1404",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/MSV-1404",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-3",
+    "box_0_1000": [
+     646.9,
+     242.2,
+     662.6,
+     265.5
+    ],
+    "reader_symbol": "s59",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "MSV 1404"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/MSV-1405",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/MSV-1405",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-3",
+    "box_0_1000": [
+     677.2,
+     242.2,
+     693.4,
+     265.5
+    ],
+    "reader_symbol": "s62",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "MSV 1405"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/PSV-1404",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/PSV-1404",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-6",
+    "box_0_1000": [
+     441.8,
+     142.2,
+     457.4,
+     166.0
+    ],
+    "reader_symbol": "s31",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "PSV 1404"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/PSV-1405",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/PSV-1405",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-6",
+    "box_0_1000": [
+     462.8,
+     142.2,
+     479.1,
+     166.0
+    ],
+    "reader_symbol": "s33",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "PSV 1405"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/PSV-1406",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/PSV-1406",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-6",
+    "box_0_1000": [
+     484.5,
+     142.2,
+     500.7,
+     166.0
+    ],
+    "reader_symbol": "s35",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "PSV 1406"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/PSV-1407",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/PSV-1407",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-5",
+    "box_0_1000": [
+     505.6,
+     142.2,
+     522.3,
+     166.0
+    ],
+    "reader_symbol": "s37",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "PSV 1407"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/PT-14085",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/PT-14085",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-8",
+    "box_0_1000": [
+     337.4,
+     222.8,
+     353.1,
+     247.1
+    ],
+    "reader_symbol": "s13",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "PT 14085"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/PT-14086",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/PT-14086",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-7",
+    "box_0_1000": [
+     358.5,
+     222.8,
+     374.2,
+     247.1
+    ],
+    "reader_symbol": "s14",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "PT 14086"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/PT-14087",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/PT-14087",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-7",
+    "box_0_1000": [
+     379.0,
+     222.8,
+     395.3,
+     247.1
+    ],
+    "reader_symbol": "s15",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "PT 14087"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/PT-14088",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/PT-14088",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-7",
+    "box_0_1000": [
+     400.7,
+     222.8,
+     416.3,
+     247.1
+    ],
+    "reader_symbol": "s16",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "PT 14088"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/RCS-SG-100",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/RCS-SG-100",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "C-11",
+    "box_0_1000": [
+     85.4,
+     565.3,
+     120.0,
+     761.0
+    ],
+    "reader_symbol": "s83",
+    "reader_class": "tank",
+    "reader_confidence": 0.99,
+    "printed_tag": "RCS-SG-100"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/RE-1402",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/RE-1402",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-8",
+    "box_0_1000": [
+     302.3,
+     222.8,
+     317.9,
+     247.1
+    ],
+    "reader_symbol": "s11",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "RE 1402"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/RE-1403",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/RE-1403",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-5",
+    "box_0_1000": [
+     515.5,
+     223.3,
+     530.7,
+     246.0
+    ],
+    "reader_symbol": "s42",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "RE 1403"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/TCV-1401",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/TCV-1401",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "E-10",
+    "box_0_1000": [
+     187.1,
+     385.0,
+     202.8,
+     409.3
+    ],
+    "reader_symbol": "s3",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TCV 1401"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/TCV-1402",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/TCV-1402",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "F-7",
+    "box_0_1000": [
+     362.8,
+     326.0,
+     378.5,
+     349.8
+    ],
+    "reader_symbol": "s20",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TCV 1402"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/TCV-1403",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/TCV-1403",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "F-6",
+    "box_0_1000": [
+     462.3,
+     328.2,
+     478.0,
+     352.0
+    ],
+    "reader_symbol": "s47",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TCV 1403"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/TCV-1406",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/TCV-1406",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "F-4",
+    "box_0_1000": [
+     603.1,
+     331.5,
+     618.8,
+     354.7
+    ],
+    "reader_symbol": "s69",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TCV 1406"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/TCV-1408",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/TCV-1408",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "D-4",
+    "box_0_1000": [
+     618.3,
+     540.9,
+     633.4,
+     563.6
+    ],
+    "reader_symbol": "s87",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TCV 1408"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/TCV-1409",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/TCV-1409",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "D-4",
+    "box_0_1000": [
+     583.1,
+     597.2,
+     598.8,
+     620.4
+    ],
+    "reader_symbol": "s90",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TCV 1409"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/TE-14084A",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/TE-14084A",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "F-9",
+    "box_0_1000": [
+     246.6,
+     306.0,
+     261.7,
+     329.8
+    ],
+    "reader_symbol": "s9",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TE 14084A"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/TE-14084B",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/TE-14084B",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "F-9",
+    "box_0_1000": [
+     246.6,
+     327.1,
+     261.7,
+     350.4
+    ],
+    "reader_symbol": "s10",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TE 14084B"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/TE-14089A",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/TE-14089A",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "F-8",
+    "box_0_1000": [
+     354.2,
+     295.8,
+     369.8,
+     320.1
+    ],
+    "reader_symbol": "s17",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TE 14089A"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/TE-14089B",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/TE-14089B",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "F-7",
+    "box_0_1000": [
+     370.4,
+     295.8,
+     386.1,
+     320.1
+    ],
+    "reader_symbol": "s18",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TE 14089B"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/TE-14090A",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/TE-14090A",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "F-6",
+    "box_0_1000": [
+     458.5,
+     295.8,
+     474.2,
+     320.1
+    ],
+    "reader_symbol": "s44",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TE 14090A"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/TE-14090B",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/TE-14090B",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "F-6",
+    "box_0_1000": [
+     474.7,
+     295.8,
+     490.4,
+     320.1
+    ],
+    "reader_symbol": "s45",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TE 14090B"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/TE-14091A",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/TE-14091A",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-4",
+    "box_0_1000": [
+     605.8,
+     233.0,
+     621.5,
+     256.3
+    ],
+    "reader_symbol": "s57",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TE 14091A"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/TE-14091B",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/TE-14091B",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "G-4",
+    "box_0_1000": [
+     622.0,
+     233.0,
+     637.2,
+     256.3
+    ],
+    "reader_symbol": "s58",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TE 14091B"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/TE-14092A",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/TE-14092A",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "F-4",
+    "box_0_1000": [
+     598.8,
+     306.6,
+     614.5,
+     329.8
+    ],
+    "reader_symbol": "s67",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TE 14092A"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/TE-14092B",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/TE-14092B",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "F-4",
+    "box_0_1000": [
+     615.6,
+     306.6,
+     631.2,
+     329.8
+    ],
+    "reader_symbol": "s68",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TE 14092B"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/TE-14093A",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/TE-14093A",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "D-4",
+    "box_0_1000": [
+     603.1,
+     494.2,
+     618.8,
+     517.5
+    ],
+    "reader_symbol": "s79",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TE 14093A"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:O100/NPP/MSS->O100/NPP/MSS/TE-14093B",
+   "type": "contains",
+   "from": "O100/NPP/MSS",
+   "to": "O100/NPP/MSS/TE-14093B",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "O100/DOC/PID-NPP-140",
+    "sheet": "140",
+    "revision": "A",
+    "path": "sheets/open100-0.json",
+    "zone": "D-4",
+    "box_0_1000": [
+     586.9,
+     494.2,
+     602.6,
+     517.5
+    ],
+    "reader_symbol": "s78",
+    "reader_class": "instrumentation",
+    "reader_confidence": 0.99,
+    "printed_tag": "TE 14093B"
+   },
+   "attributes": []
+  },
+  {
+   "id": "covers:O100/DOC/PID-NPP-140->O100/NPP/MSS",
+   "type": "covers",
+   "from": "O100/DOC/PID-NPP-140",
+   "to": "O100/NPP/MSS",
+   "status": "confirmed",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "O100/DOC/PID-NPP-140"
+   },
+   "attributes": []
+  }
+ ],
+ "questions": [],
+ "events": [],
+ "not_exported": [],
+ "loops": [],
+ "coverage": {
+  "sources": [
+   {
+    "id": "PID-NPP-140",
+    "register": "pid",
+    "scopes": [
+     "O100/NPP/MSS"
+    ],
+    "owner": "Doc control"
+   }
+  ],
+  "relations_checked": {
+   "links": 79,
+   "checked": 57,
+   "unchecked_no_class": 22,
+   "do_not_fit": 0
+  }
+ },
+ "counts": {
+  "nodes": 51,
+  "edges": 79,
+  "claims": 197,
+  "conflicts": 0,
+  "questions": 0,
+  "events": 0
+ }
+}

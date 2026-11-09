@@ -1,0 +1,4060 @@
+{
+ "schema": "twin-graph-2",
+ "model_kind": "one_map",
+ "title": "Lakeside dairy (fictional)",
+ "site": "S1",
+ "source_model": "site-revD.json",
+ "nodes": [
+  {
+   "id": "S1",
+   "kind": "site",
+   "tag": "S1",
+   "name": "Lakeside dairy (fictional)",
+   "aliases": [],
+   "status": "confirmed",
+   "attributes": [],
+   "source": {
+    "kind": "document",
+    "document": "site-revD.json",
+    "note": "site file"
+   }
+  },
+  {
+   "id": "S1/CONFLICT/C-b7da94ed85",
+   "kind": "conflict",
+   "tag": "C-b7da94ed85",
+   "name": "TT-2208 is drawn on sheet PAST1-01 but not in the instrument index for S1/P1/PAST1",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "S1/DOC/PID-P1-PAST1-01",
+    "sheet": "PAST1-01",
+    "revision": "D",
+    "path": "sheets/PAST1-01-revD.json",
+    "zone": "D4"
+   },
+   "conflict": {
+    "id": "C-b7da94ed85",
+    "type": "asset_presence",
+    "what": "TT-2208 is drawn on sheet PAST1-01 but not in the instrument index for S1/P1/PAST1",
+    "subject": "S1/P1/PAST1/TT-2208",
+    "attribute": "listed",
+    "source_a": {
+     "source": {
+      "kind": "drawing",
+      "document": "S1/DOC/PID-P1-PAST1-01",
+      "sheet": "PAST1-01",
+      "revision": "D",
+      "path": "sheets/PAST1-01-revD.json",
+      "zone": "D4"
+     },
+     "says": "drawn on PAST1-01 rev D"
+    },
+    "source_b": {
+     "source": {
+      "kind": "document",
+      "document": "INSTRUMENT-INDEX",
+      "revision": "4",
+      "sha256": "1bd4099c8d60c8bca9473e61fc6ee4620f1439cb461cb13d15f14c65a58fdcfc",
+      "path": "lists/instrument_index.csv"
+     },
+     "says": "no row for this tag in this unit"
+    },
+    "record_owner": "I&C",
+    "parties": [
+     "Doc control",
+     "I&C"
+    ],
+    "status": "open",
+    "detected": true,
+    "history": []
+   }
+  },
+  {
+   "id": "S1/CONFLICT/C-da6f1c44ba",
+   "kind": "conflict",
+   "tag": "C-da6f1c44ba",
+   "name": "HACCP-PLAN-P1 rev 7 is based on PID-P1-PAST1-01 rev C; the current revision is D",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "document",
+    "document": "S1/DOC/HACCP-PLAN-P1",
+    "revision": "7",
+    "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+    "path": "docs/haccp-plan-rev7.txt"
+   },
+   "conflict": {
+    "id": "C-da6f1c44ba",
+    "type": "superseded_basis",
+    "what": "HACCP-PLAN-P1 rev 7 is based on PID-P1-PAST1-01 rev C; the current revision is D",
+    "subject": "S1/DOC/HACCP-PLAN-P1",
+    "attribute": "based_on PID-P1-PAST1-01",
+    "source_a": {
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/HACCP-PLAN-P1",
+      "revision": "7",
+      "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+      "path": "docs/haccp-plan-rev7.txt"
+     },
+     "says": "rev C"
+    },
+    "source_b": {
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/PID-P1-PAST1-01",
+      "revision": "D",
+      "path": "sheets/PAST1-01-revD.json"
+     },
+     "says": "current rev D"
+    },
+    "record_owner": "Quality",
+    "parties": [
+     "Doc control",
+     "Quality"
+    ],
+    "status": "open",
+    "detected": true,
+    "history": []
+   }
+  },
+  {
+   "id": "S1/DOC/HACCP-PLAN-P1",
+   "kind": "document",
+   "tag": "HACCP-PLAN-P1",
+   "name": "Plant 1 HACCP plan",
+   "aliases": [],
+   "status": "confirmed",
+   "attributes": [],
+   "source": {
+    "kind": "document",
+    "document": "S1/DOC/HACCP-PLAN-P1",
+    "revision": "7",
+    "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+    "path": "docs/haccp-plan-rev7.txt"
+   },
+   "class": "haccp_plan",
+   "document": {
+    "id": "HACCP-PLAN-P1",
+    "revision": "7",
+    "status": "released",
+    "owner": "Quality",
+    "department": "Quality",
+    "doc_type": "HACCP plan",
+    "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+    "path": "docs/haccp-plan-rev7.txt",
+    "text": {
+     "status": "ok",
+     "format": "text",
+     "segments": 4,
+     "extractor": "extract_text 1"
+    }
+   }
+  },
+  {
+   "id": "S1/DOC/PID-P1-CIP1-01",
+   "kind": "document",
+   "tag": "PID-P1-CIP1-01",
+   "name": "P&ID CIP1-01",
+   "aliases": [],
+   "status": "confirmed",
+   "attributes": [],
+   "source": {
+    "kind": "document",
+    "document": "S1/DOC/PID-P1-CIP1-01",
+    "revision": "A",
+    "path": "sheets/CIP1-01.json"
+   },
+   "class": "pid",
+   "document": {
+    "id": "PID-P1-CIP1-01",
+    "revision": "A",
+    "status": "released",
+    "owner": "Doc control",
+    "department": "Doc control",
+    "doc_type": "pid",
+    "sha256": "a0622ad07391915f3ae2037727b0dfb35abe052299e4d1d12149d9901b00e277",
+    "path": "sheets/CIP1-01.json"
+   }
+  },
+  {
+   "id": "S1/DOC/PID-P1-PAST1-01",
+   "kind": "document",
+   "tag": "PID-P1-PAST1-01",
+   "name": "P&ID PAST1-01",
+   "aliases": [],
+   "status": "confirmed",
+   "attributes": [],
+   "source": {
+    "kind": "document",
+    "document": "S1/DOC/PID-P1-PAST1-01",
+    "revision": "D",
+    "path": "sheets/PAST1-01-revD.json"
+   },
+   "class": "pid",
+   "document": {
+    "id": "PID-P1-PAST1-01",
+    "revision": "D",
+    "status": "released",
+    "owner": "Doc control",
+    "department": "Doc control",
+    "doc_type": "pid",
+    "sha256": "3c2061c890d2efb8c02e445e7d68514c4e8cd35c36d4fa6c1d6e4f4ee5d2c655",
+    "path": "sheets/PAST1-01-revD.json"
+   }
+  },
+  {
+   "id": "S1/DOC/SOP-PAST1-02",
+   "kind": "document",
+   "tag": "SOP-PAST1-02",
+   "name": "Pasteurizer start-up",
+   "aliases": [],
+   "status": "confirmed",
+   "attributes": [],
+   "source": {
+    "kind": "document",
+    "document": "S1/DOC/SOP-PAST1-02",
+    "revision": "B",
+    "sha256": "6afc09571ccf2801fdc0d2f7f3397f0fe33076bc17609950bc5c69c953a3991a",
+    "path": "docs/sop-past1-02-revB.txt"
+   },
+   "class": "procedure",
+   "document": {
+    "id": "SOP-PAST1-02",
+    "revision": "B",
+    "status": "released",
+    "owner": "Production",
+    "department": "Production",
+    "doc_type": "SOP",
+    "sha256": "6afc09571ccf2801fdc0d2f7f3397f0fe33076bc17609950bc5c69c953a3991a",
+    "path": "docs/sop-past1-02-revB.txt",
+    "text": {
+     "status": "ok",
+     "format": "text",
+     "segments": 4,
+     "extractor": "extract_text 1"
+    }
+   }
+  },
+  {
+   "id": "S1/DOC/VER-CCP1",
+   "kind": "document",
+   "tag": "VER-CCP1",
+   "name": "CCP-1 verification procedure",
+   "aliases": [],
+   "status": "confirmed",
+   "attributes": [],
+   "source": {
+    "kind": "document",
+    "document": "S1/DOC/VER-CCP1",
+    "revision": "2",
+    "sha256": "99d192bd5c2f9d8bea4a70be7f138fdc00b4cba8fff488bf1d3a700d28bc2524",
+    "path": "docs/ccp1-verification-rev2.txt"
+   },
+   "class": "verification_record",
+   "document": {
+    "id": "VER-CCP1",
+    "revision": "2",
+    "status": "released",
+    "owner": "Quality",
+    "department": "Quality",
+    "doc_type": "verification procedure",
+    "sha256": "99d192bd5c2f9d8bea4a70be7f138fdc00b4cba8fff488bf1d3a700d28bc2524",
+    "path": "docs/ccp1-verification-rev2.txt",
+    "text": {
+     "status": "ok",
+     "format": "text",
+     "segments": 2,
+     "extractor": "extract_text 1"
+    }
+   }
+  },
+  {
+   "id": "S1/P1",
+   "kind": "plant",
+   "tag": "P1",
+   "name": "Fluid milk plant",
+   "aliases": [],
+   "status": "confirmed",
+   "attributes": [],
+   "source": {
+    "kind": "document",
+    "document": "site-revD.json",
+    "note": "site file"
+   }
+  },
+  {
+   "id": "S1/P1/CIP1",
+   "kind": "unit",
+   "tag": "CIP1",
+   "name": "CIP skid 1",
+   "aliases": [],
+   "status": "confirmed",
+   "attributes": [],
+   "source": {
+    "kind": "document",
+    "document": "site-revD.json",
+    "note": "site file"
+   }
+  },
+  {
+   "id": "S1/P1/CIP1/P-301",
+   "kind": "equipment",
+   "tag": "P-301",
+   "name": "CIP supply pump",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "document",
+    "document": "CMMS-2026-10",
+    "revision": "2026-10-01",
+    "sha256": "b38c2e7fd5885103b11998963d18bad3bb5fc892de222023baa1f3a42f542de2",
+    "path": "lists/maintenance_equipment.csv",
+    "locator": "row 12"
+   },
+   "scope": "S1/P1/CIP1",
+   "owner": "Maintenance",
+   "listed_in": [
+    "CMMS-2026-10"
+   ],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "S1/DOC/PID-P1-CIP1-01",
+     "sheet": "CIP1-01",
+     "revision": "A",
+     "path": "sheets/CIP1-01.json",
+     "zone": "C4"
+    }
+   ],
+   "class": "pump",
+   "class_how": "equipment prefix P (site convention)"
+  },
+  {
+   "id": "S1/P1/CIP1/PSV-3101",
+   "kind": "relief_device",
+   "tag": "PSV-3101",
+   "name": "Caustic tank relief",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "document",
+    "document": "CMMS-2026-10",
+    "revision": "2026-10-01",
+    "sha256": "b38c2e7fd5885103b11998963d18bad3bb5fc892de222023baa1f3a42f542de2",
+    "path": "lists/maintenance_equipment.csv",
+    "locator": "row 13"
+   },
+   "scope": "S1/P1/CIP1",
+   "owner": "Maintenance",
+   "listed_in": [
+    "CMMS-2026-10"
+   ],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "S1/DOC/PID-P1-CIP1-01",
+     "sheet": "CIP1-01",
+     "revision": "A",
+     "path": "sheets/CIP1-01.json",
+     "zone": "D2"
+    }
+   ],
+   "safety": "relief device",
+   "class": "relief_device",
+   "class_how": "tag letters PSV (classes.json letter rule)"
+  },
+  {
+   "id": "S1/P1/CIP1/TK-301",
+   "kind": "equipment",
+   "tag": "TK-301",
+   "name": "CIP caustic tank",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "document",
+    "document": "CMMS-2026-10",
+    "revision": "2026-10-01",
+    "sha256": "b38c2e7fd5885103b11998963d18bad3bb5fc892de222023baa1f3a42f542de2",
+    "path": "lists/maintenance_equipment.csv",
+    "locator": "row 11"
+   },
+   "scope": "S1/P1/CIP1",
+   "owner": "Maintenance",
+   "listed_in": [
+    "CMMS-2026-10"
+   ],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "S1/DOC/PID-P1-CIP1-01",
+     "sheet": "CIP1-01",
+     "revision": "A",
+     "path": "sheets/CIP1-01.json",
+     "zone": "C2"
+    }
+   ],
+   "class": "tank",
+   "class_how": "equipment prefix TK (site convention)"
+  },
+  {
+   "id": "S1/P1/FILL1",
+   "kind": "unit",
+   "tag": "FILL1",
+   "name": "Filler 1 (no P&ID registered yet)",
+   "aliases": [],
+   "status": "confirmed",
+   "attributes": [],
+   "source": {
+    "kind": "document",
+    "document": "site-revD.json",
+    "note": "site file"
+   }
+  },
+  {
+   "id": "S1/P1/FILL1/FL-401",
+   "kind": "equipment",
+   "tag": "FL-401",
+   "name": "Carton filler",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "document",
+    "document": "CMMS-2026-10",
+    "revision": "2026-10-01",
+    "sha256": "b38c2e7fd5885103b11998963d18bad3bb5fc892de222023baa1f3a42f542de2",
+    "path": "lists/maintenance_equipment.csv",
+    "locator": "row 14"
+   },
+   "scope": "S1/P1/FILL1",
+   "owner": "Maintenance",
+   "listed_in": [
+    "CMMS-2026-10"
+   ],
+   "appearances": []
+  },
+  {
+   "id": "S1/P1/PAST1",
+   "kind": "unit",
+   "tag": "PAST1",
+   "name": "HTST pasteurizer 1",
+   "aliases": [],
+   "status": "confirmed",
+   "attributes": [],
+   "source": {
+    "kind": "document",
+    "document": "site-revD.json",
+    "note": "site file"
+   }
+  },
+  {
+   "id": "S1/P1/PAST1/E-2215",
+   "kind": "equipment",
+   "tag": "E-2215",
+   "name": "Hot water set heater",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "document",
+    "document": "CMMS-2026-10",
+    "revision": "2026-10-01",
+    "sha256": "b38c2e7fd5885103b11998963d18bad3bb5fc892de222023baa1f3a42f542de2",
+    "path": "lists/maintenance_equipment.csv",
+    "locator": "row 6"
+   },
+   "scope": "S1/P1/PAST1",
+   "owner": "Maintenance",
+   "listed_in": [
+    "CMMS-2026-10"
+   ],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "S1/DOC/PID-P1-PAST1-01",
+     "sheet": "PAST1-01",
+     "revision": "D",
+     "path": "sheets/PAST1-01-revD.json",
+     "zone": "E5"
+    }
+   ],
+   "class": "shell_tube_heat_exchanger",
+   "class_how": "record column class"
+  },
+  {
+   "id": "S1/P1/PAST1/FDV-2210",
+   "kind": "equipment",
+   "tag": "FDV-2210",
+   "name": "Flow diversion valve",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [
+    {
+     "name": "manufacturer",
+     "value": "Alfa Valve",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "CMMS-2026-10",
+      "revision": "2026-10-01",
+      "sha256": "b38c2e7fd5885103b11998963d18bad3bb5fc892de222023baa1f3a42f542de2",
+      "path": "lists/maintenance_equipment.csv",
+      "locator": "row 7"
+     }
+    },
+    {
+     "name": "model",
+     "value": "SRC-2",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "CMMS-2026-10",
+      "revision": "2026-10-01",
+      "sha256": "b38c2e7fd5885103b11998963d18bad3bb5fc892de222023baa1f3a42f542de2",
+      "path": "lists/maintenance_equipment.csv",
+      "locator": "row 7"
+     }
+    },
+    {
+     "name": "serial_number",
+     "value": "AV-51007",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "CMMS-2026-10",
+      "revision": "2026-10-01",
+      "sha256": "b38c2e7fd5885103b11998963d18bad3bb5fc892de222023baa1f3a42f542de2",
+      "path": "lists/maintenance_equipment.csv",
+      "locator": "row 7"
+     }
+    },
+    {
+     "name": "body_material",
+     "value": "316L",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "VALVE-DATASHEETS",
+      "revision": "2",
+      "sha256": "18418615e4a8c286b7651a3b8538b15481721f19c8039240b28d75116dfed937",
+      "path": "lists/valve_datasheets.csv",
+      "locator": "row 2"
+     }
+    },
+    {
+     "name": "size",
+     "value": "DN50",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "VALVE-DATASHEETS",
+      "revision": "2",
+      "sha256": "18418615e4a8c286b7651a3b8538b15481721f19c8039240b28d75116dfed937",
+      "path": "lists/valve_datasheets.csv",
+      "locator": "row 2"
+     }
+    }
+   ],
+   "source": {
+    "kind": "document",
+    "document": "CMMS-2026-10",
+    "revision": "2026-10-01",
+    "sha256": "b38c2e7fd5885103b11998963d18bad3bb5fc892de222023baa1f3a42f542de2",
+    "path": "lists/maintenance_equipment.csv",
+    "locator": "row 7"
+   },
+   "scope": "S1/P1/PAST1",
+   "owner": "Maintenance",
+   "listed_in": [
+    "CMMS-2026-10"
+   ],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "S1/DOC/PID-P1-PAST1-01",
+     "sheet": "PAST1-01",
+     "revision": "D",
+     "path": "sheets/PAST1-01-revD.json",
+     "zone": "D3",
+     "printed": {
+      "size": "DN65"
+     }
+    }
+   ],
+   "class": "divert_valve",
+   "class_how": "tag letters FDV (classes.json letter rule)"
+  },
+  {
+   "id": "S1/P1/PAST1/FIC-2203",
+   "kind": "controller",
+   "tag": "FIC-2203",
+   "name": "Product flow controller",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "document",
+    "document": "INSTRUMENT-INDEX",
+    "revision": "4",
+    "sha256": "1bd4099c8d60c8bca9473e61fc6ee4620f1439cb461cb13d15f14c65a58fdcfc",
+    "path": "lists/instrument_index.csv",
+    "locator": "row 5"
+   },
+   "scope": "S1/P1/PAST1",
+   "owner": "I&C",
+   "listed_in": [
+    "INSTRUMENT-INDEX"
+   ],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "S1/DOC/PID-P1-PAST1-01",
+     "sheet": "PAST1-01",
+     "revision": "D",
+     "path": "sheets/PAST1-01-revD.json",
+     "zone": "B5"
+    }
+   ],
+   "class": "controller",
+   "class_how": "tag letters FIC (classes.json letter rule)"
+  },
+  {
+   "id": "S1/P1/PAST1/FT-2203",
+   "kind": "instrument",
+   "tag": "FT-2203",
+   "name": "Product flow (sets hold time)",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "document",
+    "document": "INSTRUMENT-INDEX",
+    "revision": "4",
+    "sha256": "1bd4099c8d60c8bca9473e61fc6ee4620f1439cb461cb13d15f14c65a58fdcfc",
+    "path": "lists/instrument_index.csv",
+    "locator": "row 4"
+   },
+   "scope": "S1/P1/PAST1",
+   "owner": "I&C",
+   "listed_in": [
+    "INSTRUMENT-INDEX"
+   ],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "S1/DOC/PID-P1-PAST1-01",
+     "sheet": "PAST1-01",
+     "revision": "D",
+     "path": "sheets/PAST1-01-revD.json",
+     "zone": "B3"
+    }
+   ],
+   "class": "transmitter",
+   "class_how": "tag letters FT (classes.json letter rule)",
+   "safety": "CCP monitoring instrument (CCP-2)"
+  },
+  {
+   "id": "S1/P1/PAST1/HT-100",
+   "kind": "equipment",
+   "tag": "HT-100",
+   "name": "Hold tube",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "document",
+    "document": "CMMS-2026-10",
+    "revision": "2026-10-01",
+    "sha256": "b38c2e7fd5885103b11998963d18bad3bb5fc892de222023baa1f3a42f542de2",
+    "path": "lists/maintenance_equipment.csv",
+    "locator": "row 4"
+   },
+   "scope": "S1/P1/PAST1",
+   "owner": "Maintenance",
+   "listed_in": [
+    "CMMS-2026-10"
+   ],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "S1/DOC/PID-P1-PAST1-01",
+     "sheet": "PAST1-01",
+     "revision": "D",
+     "path": "sheets/PAST1-01-revD.json",
+     "zone": "C3"
+    }
+   ],
+   "class": "hold_tube",
+   "class_how": "equipment prefix HT (site convention)"
+  },
+  {
+   "id": "S1/P1/PAST1/P-101",
+   "kind": "equipment",
+   "tag": "P-101",
+   "name": "Timing pump",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [
+    {
+     "name": "manufacturer",
+     "value": "Lobeco",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "CMMS-2026-10",
+      "revision": "2026-10-01",
+      "sha256": "b38c2e7fd5885103b11998963d18bad3bb5fc892de222023baa1f3a42f542de2",
+      "path": "lists/maintenance_equipment.csv",
+      "locator": "row 2"
+     }
+    },
+    {
+     "name": "model",
+     "value": "LX-300",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "CMMS-2026-10",
+      "revision": "2026-10-01",
+      "sha256": "b38c2e7fd5885103b11998963d18bad3bb5fc892de222023baa1f3a42f542de2",
+      "path": "lists/maintenance_equipment.csv",
+      "locator": "row 2"
+     }
+    },
+    {
+     "name": "serial_number",
+     "value": "LB-20391",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "CMMS-2026-10",
+      "revision": "2026-10-01",
+      "sha256": "b38c2e7fd5885103b11998963d18bad3bb5fc892de222023baa1f3a42f542de2",
+      "path": "lists/maintenance_equipment.csv",
+      "locator": "row 2"
+     }
+    },
+    {
+     "name": "pump_type",
+     "value": "rotary lobe",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "PUMP-DATASHEETS",
+      "revision": "1",
+      "sha256": "a9765d683ba4006c26d5b0ca7e371e1902bc5742cf0dcc3d677a8d90501f2efa",
+      "path": "lists/pump_datasheets.csv",
+      "locator": "row 2"
+     }
+    },
+    {
+     "name": "rated_flow",
+     "value": "12000 L/h",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "PUMP-DATASHEETS",
+      "revision": "1",
+      "sha256": "a9765d683ba4006c26d5b0ca7e371e1902bc5742cf0dcc3d677a8d90501f2efa",
+      "path": "lists/pump_datasheets.csv",
+      "locator": "row 2"
+     }
+    }
+   ],
+   "source": {
+    "kind": "document",
+    "document": "CMMS-2026-10",
+    "revision": "2026-10-01",
+    "sha256": "b38c2e7fd5885103b11998963d18bad3bb5fc892de222023baa1f3a42f542de2",
+    "path": "lists/maintenance_equipment.csv",
+    "locator": "row 2"
+   },
+   "scope": "S1/P1/PAST1",
+   "owner": "Maintenance",
+   "listed_in": [
+    "CMMS-2026-10"
+   ],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "S1/DOC/PID-P1-PAST1-01",
+     "sheet": "PAST1-01",
+     "revision": "D",
+     "path": "sheets/PAST1-01-revD.json",
+     "zone": "B2"
+    }
+   ],
+   "class": "positive_displacement_pump",
+   "class_how": "equipment prefix P (site convention); pump_type 'rotary lobe'"
+  },
+  {
+   "id": "S1/P1/PAST1/P-102",
+   "kind": "equipment",
+   "tag": "P-102",
+   "name": "Booster pump",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [
+    {
+     "name": "pump_type",
+     "value": "centrifugal",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "PUMP-DATASHEETS",
+      "revision": "1",
+      "sha256": "a9765d683ba4006c26d5b0ca7e371e1902bc5742cf0dcc3d677a8d90501f2efa",
+      "path": "lists/pump_datasheets.csv",
+      "locator": "row 3"
+     }
+    },
+    {
+     "name": "rated_flow",
+     "value": "15000 L/h",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "PUMP-DATASHEETS",
+      "revision": "1",
+      "sha256": "a9765d683ba4006c26d5b0ca7e371e1902bc5742cf0dcc3d677a8d90501f2efa",
+      "path": "lists/pump_datasheets.csv",
+      "locator": "row 3"
+     }
+    }
+   ],
+   "source": {
+    "kind": "document",
+    "document": "CMMS-2026-10",
+    "revision": "2026-10-01",
+    "sha256": "b38c2e7fd5885103b11998963d18bad3bb5fc892de222023baa1f3a42f542de2",
+    "path": "lists/maintenance_equipment.csv",
+    "locator": "row 3"
+   },
+   "scope": "S1/P1/PAST1",
+   "owner": "Maintenance",
+   "listed_in": [
+    "CMMS-2026-10"
+   ],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "S1/DOC/PID-P1-PAST1-01",
+     "sheet": "PAST1-01",
+     "revision": "D",
+     "path": "sheets/PAST1-01-revD.json",
+     "zone": "B4"
+    }
+   ],
+   "class": "centrifugal_pump",
+   "class_how": "equipment prefix P (site convention); pump_type 'centrifugal'"
+  },
+  {
+   "id": "S1/P1/PAST1/PCV-2240",
+   "kind": "final_element",
+   "tag": "PCV-2240",
+   "name": "Hot water pressure valve",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "document",
+    "document": "CMMS-2026-10",
+    "revision": "2026-10-01",
+    "sha256": "b38c2e7fd5885103b11998963d18bad3bb5fc892de222023baa1f3a42f542de2",
+    "path": "lists/maintenance_equipment.csv",
+    "locator": "row 8"
+   },
+   "scope": "S1/P1/PAST1",
+   "owner": "Maintenance",
+   "listed_in": [
+    "CMMS-2026-10"
+   ],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "S1/DOC/PID-P1-PAST1-01",
+     "sheet": "PAST1-01",
+     "revision": "D",
+     "path": "sheets/PAST1-01-revD.json",
+     "zone": "E4"
+    }
+   ],
+   "class": "control_valve",
+   "class_how": "tag letters PCV (classes.json letter rule)"
+  },
+  {
+   "id": "S1/P1/PAST1/PHE-2201",
+   "kind": "equipment",
+   "tag": "PHE-2201",
+   "name": "Pasteurizer plate heat exchanger",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "document",
+    "document": "CMMS-2026-10",
+    "revision": "2026-10-01",
+    "sha256": "b38c2e7fd5885103b11998963d18bad3bb5fc892de222023baa1f3a42f542de2",
+    "path": "lists/maintenance_equipment.csv",
+    "locator": "row 5"
+   },
+   "scope": "S1/P1/PAST1",
+   "owner": "Maintenance",
+   "listed_in": [
+    "CMMS-2026-10"
+   ],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "S1/DOC/PID-P1-PAST1-01",
+     "sheet": "PAST1-01",
+     "revision": "D",
+     "path": "sheets/PAST1-01-revD.json",
+     "zone": "C5"
+    }
+   ],
+   "class": "plate_heat_exchanger",
+   "class_how": "equipment prefix PHE (site convention)"
+  },
+  {
+   "id": "S1/P1/PAST1/PI-2240",
+   "kind": "instrument",
+   "tag": "PI-2240",
+   "name": "Hot water pressure gauge",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "document",
+    "document": "INSTRUMENT-INDEX",
+    "revision": "4",
+    "sha256": "1bd4099c8d60c8bca9473e61fc6ee4620f1439cb461cb13d15f14c65a58fdcfc",
+    "path": "lists/instrument_index.csv",
+    "locator": "row 6"
+   },
+   "scope": "S1/P1/PAST1",
+   "owner": "I&C",
+   "listed_in": [
+    "INSTRUMENT-INDEX"
+   ],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "S1/DOC/PID-P1-PAST1-01",
+     "sheet": "PAST1-01",
+     "revision": "D",
+     "path": "sheets/PAST1-01-revD.json",
+     "zone": "E3"
+    }
+   ],
+   "class": "indicator",
+   "class_how": "tag letters PI (classes.json letter rule)"
+  },
+  {
+   "id": "S1/P1/PAST1/PIC-2240",
+   "kind": "controller",
+   "tag": "PIC-2240",
+   "name": "Hot water pressure controller",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "document",
+    "document": "INSTRUMENT-INDEX",
+    "revision": "4",
+    "sha256": "1bd4099c8d60c8bca9473e61fc6ee4620f1439cb461cb13d15f14c65a58fdcfc",
+    "path": "lists/instrument_index.csv",
+    "locator": "row 7"
+   },
+   "scope": "S1/P1/PAST1",
+   "owner": "I&C",
+   "listed_in": [
+    "INSTRUMENT-INDEX"
+   ],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "S1/DOC/PID-P1-PAST1-01",
+     "sheet": "PAST1-01",
+     "revision": "D",
+     "path": "sheets/PAST1-01-revD.json",
+     "zone": "E4"
+    }
+   ],
+   "class": "controller",
+   "class_how": "tag letters PIC (classes.json letter rule)"
+  },
+  {
+   "id": "S1/P1/PAST1/PSV-2215",
+   "kind": "relief_device",
+   "tag": "PSV-2215",
+   "name": "Hot water set safety valve",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "document",
+    "document": "CMMS-2026-10",
+    "revision": "2026-10-01",
+    "sha256": "b38c2e7fd5885103b11998963d18bad3bb5fc892de222023baa1f3a42f542de2",
+    "path": "lists/maintenance_equipment.csv",
+    "locator": "row 9"
+   },
+   "scope": "S1/P1/PAST1",
+   "owner": "Maintenance",
+   "listed_in": [
+    "CMMS-2026-10"
+   ],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "S1/DOC/PID-P1-PAST1-01",
+     "sheet": "PAST1-01",
+     "revision": "D",
+     "path": "sheets/PAST1-01-revD.json",
+     "zone": "E6"
+    }
+   ],
+   "safety": "relief device",
+   "class": "relief_device",
+   "class_how": "tag letters PSV (classes.json letter rule)"
+  },
+  {
+   "id": "S1/P1/PAST1/PSV-2216",
+   "kind": "relief_device",
+   "tag": "PSV-2216",
+   "name": "Hot water set safety valve 2",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "document",
+    "document": "CMMS-2026-10",
+    "revision": "2026-10-01",
+    "sha256": "b38c2e7fd5885103b11998963d18bad3bb5fc892de222023baa1f3a42f542de2",
+    "path": "lists/maintenance_equipment.csv",
+    "locator": "row 10"
+   },
+   "scope": "S1/P1/PAST1",
+   "owner": "Maintenance",
+   "listed_in": [
+    "CMMS-2026-10"
+   ],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "S1/DOC/PID-P1-PAST1-01",
+     "sheet": "PAST1-01",
+     "revision": "D",
+     "path": "sheets/PAST1-01-revD.json",
+     "zone": "F6"
+    }
+   ],
+   "safety": "relief device",
+   "class": "relief_device",
+   "class_how": "tag letters PSV (classes.json letter rule)"
+  },
+  {
+   "id": "S1/P1/PAST1/TIC-2207",
+   "kind": "controller",
+   "tag": "TIC-2207",
+   "name": "Hold tube temperature controller",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "document",
+    "document": "INSTRUMENT-INDEX",
+    "revision": "4",
+    "sha256": "1bd4099c8d60c8bca9473e61fc6ee4620f1439cb461cb13d15f14c65a58fdcfc",
+    "path": "lists/instrument_index.csv",
+    "locator": "row 3"
+   },
+   "scope": "S1/P1/PAST1",
+   "owner": "I&C",
+   "listed_in": [
+    "INSTRUMENT-INDEX"
+   ],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "S1/DOC/PID-P1-PAST1-01",
+     "sheet": "PAST1-01",
+     "revision": "D",
+     "path": "sheets/PAST1-01-revD.json",
+     "zone": "D5"
+    }
+   ],
+   "class": "controller",
+   "class_how": "tag letters TIC (classes.json letter rule)"
+  },
+  {
+   "id": "S1/P1/PAST1/TT-2207",
+   "kind": "instrument",
+   "tag": "TT-2207",
+   "name": "Hold tube outlet temperature",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "document",
+    "document": "INSTRUMENT-INDEX",
+    "revision": "4",
+    "sha256": "1bd4099c8d60c8bca9473e61fc6ee4620f1439cb461cb13d15f14c65a58fdcfc",
+    "path": "lists/instrument_index.csv",
+    "locator": "row 2"
+   },
+   "scope": "S1/P1/PAST1",
+   "owner": "I&C",
+   "listed_in": [
+    "INSTRUMENT-INDEX"
+   ],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "S1/DOC/PID-P1-PAST1-01",
+     "sheet": "PAST1-01",
+     "revision": "D",
+     "path": "sheets/PAST1-01-revD.json",
+     "zone": "D4"
+    }
+   ],
+   "class": "transmitter",
+   "class_how": "tag letters TT (classes.json letter rule)",
+   "safety": "CCP monitoring instrument (CCP-1)"
+  },
+  {
+   "id": "S1/P1/PAST1/TT-2208",
+   "kind": "instrument",
+   "tag": "TT-2208",
+   "name": null,
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [],
+   "source": {
+    "kind": "drawing",
+    "document": "S1/DOC/PID-P1-PAST1-01",
+    "sheet": "PAST1-01",
+    "revision": "D",
+    "path": "sheets/PAST1-01-revD.json",
+    "zone": "D4"
+   },
+   "scope": "S1/P1/PAST1",
+   "owner": "Doc control",
+   "listed_in": [],
+   "appearances": [
+    {
+     "kind": "drawing",
+     "document": "S1/DOC/PID-P1-PAST1-01",
+     "sheet": "PAST1-01",
+     "revision": "D",
+     "path": "sheets/PAST1-01-revD.json",
+     "zone": "D4"
+    }
+   ],
+   "class": "transmitter",
+   "class_how": "tag letters TT (classes.json letter rule)"
+  }
+ ],
+ "edges": [
+  {
+   "id": "S1/P1/CIP1/@CIP1-01/L1",
+   "type": "connects",
+   "from": "S1/P1/CIP1/TK-301",
+   "to": "S1/P1/CIP1/P-301",
+   "status": "unverified",
+   "direction": "known",
+   "source": {
+    "kind": "drawing",
+    "document": "S1/DOC/PID-P1-CIP1-01",
+    "sheet": "CIP1-01",
+    "revision": "A",
+    "path": "sheets/CIP1-01.json"
+   },
+   "attributes": [],
+   "layer": "stream"
+  },
+  {
+   "id": "S1/P1/PAST1/@PAST1-01/L1",
+   "type": "connects",
+   "from": "S1/P1/PAST1/P-102",
+   "to": "S1/P1/PAST1/PHE-2201",
+   "status": "unverified",
+   "direction": "known",
+   "source": {
+    "kind": "drawing",
+    "document": "S1/DOC/PID-P1-PAST1-01",
+    "sheet": "PAST1-01",
+    "revision": "D",
+    "path": "sheets/PAST1-01-revD.json"
+   },
+   "attributes": [],
+   "layer": "stream"
+  },
+  {
+   "id": "S1/P1/PAST1/@PAST1-01/L2",
+   "type": "connects",
+   "from": "S1/P1/PAST1/PHE-2201",
+   "to": "S1/P1/PAST1/P-101",
+   "status": "unverified",
+   "direction": "known",
+   "source": {
+    "kind": "drawing",
+    "document": "S1/DOC/PID-P1-PAST1-01",
+    "sheet": "PAST1-01",
+    "revision": "D",
+    "path": "sheets/PAST1-01-revD.json"
+   },
+   "attributes": [],
+   "layer": "stream"
+  },
+  {
+   "id": "S1/P1/PAST1/@PAST1-01/L3",
+   "type": "connects",
+   "from": "S1/P1/PAST1/P-101",
+   "to": "S1/P1/PAST1/HT-100",
+   "status": "unverified",
+   "direction": "known",
+   "source": {
+    "kind": "drawing",
+    "document": "S1/DOC/PID-P1-PAST1-01",
+    "sheet": "PAST1-01",
+    "revision": "D",
+    "path": "sheets/PAST1-01-revD.json"
+   },
+   "attributes": [],
+   "layer": "stream"
+  },
+  {
+   "id": "S1/P1/PAST1/@PAST1-01/L4",
+   "type": "connects",
+   "from": "S1/P1/PAST1/HT-100",
+   "to": "S1/P1/PAST1/FDV-2210",
+   "status": "unverified",
+   "direction": "known",
+   "source": {
+    "kind": "drawing",
+    "document": "S1/DOC/PID-P1-PAST1-01",
+    "sheet": "PAST1-01",
+    "revision": "D",
+    "path": "sheets/PAST1-01-revD.json"
+   },
+   "attributes": [],
+   "layer": "stream"
+  },
+  {
+   "id": "S1/P1/PAST1/@PAST1-01/L5",
+   "type": "connects",
+   "from": "S1/P1/PAST1/FDV-2210",
+   "to": "S1/P1/PAST1/PHE-2201",
+   "status": "unverified",
+   "direction": "known",
+   "source": {
+    "kind": "drawing",
+    "document": "S1/DOC/PID-P1-PAST1-01",
+    "sheet": "PAST1-01",
+    "revision": "D",
+    "path": "sheets/PAST1-01-revD.json"
+   },
+   "attributes": [],
+   "layer": "stream"
+  },
+  {
+   "id": "acts_on:S1/P1/PAST1/PCV-2240->S1/P1/PAST1/E-2215",
+   "type": "acts_on",
+   "from": "S1/P1/PAST1/PCV-2240",
+   "to": "S1/P1/PAST1/E-2215",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "S1/DOC/PID-P1-PAST1-01",
+    "sheet": "PAST1-01",
+    "revision": "D",
+    "path": "sheets/PAST1-01-revD.json"
+   },
+   "attributes": []
+  },
+  {
+   "id": "based_on:S1/DOC/HACCP-PLAN-P1->S1/DOC/PID-P1-PAST1-01",
+   "type": "based_on",
+   "from": "S1/DOC/HACCP-PLAN-P1",
+   "to": "S1/DOC/PID-P1-PAST1-01",
+   "status": "confirmed",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "S1/DOC/HACCP-PLAN-P1",
+    "revision": "7",
+    "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+    "path": "docs/haccp-plan-rev7.txt"
+   },
+   "attributes": [
+    {
+     "name": "revision",
+     "value": "C",
+     "status": "confirmed",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/HACCP-PLAN-P1",
+      "revision": "7",
+      "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+      "path": "docs/haccp-plan-rev7.txt"
+     }
+    }
+   ]
+  },
+  {
+   "id": "concerns:S1/CONFLICT/C-b7da94ed85->S1/P1/PAST1/TT-2208",
+   "type": "concerns",
+   "from": "S1/CONFLICT/C-b7da94ed85",
+   "to": "S1/P1/PAST1/TT-2208",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "S1/DOC/PID-P1-PAST1-01",
+    "sheet": "PAST1-01",
+    "revision": "D",
+    "path": "sheets/PAST1-01-revD.json",
+    "zone": "D4"
+   },
+   "attributes": []
+  },
+  {
+   "id": "concerns:S1/CONFLICT/C-da6f1c44ba->S1/DOC/HACCP-PLAN-P1",
+   "type": "concerns",
+   "from": "S1/CONFLICT/C-da6f1c44ba",
+   "to": "S1/DOC/HACCP-PLAN-P1",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "S1/DOC/HACCP-PLAN-P1",
+    "revision": "7",
+    "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+    "path": "docs/haccp-plan-rev7.txt"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:S1->S1/P1",
+   "type": "contains",
+   "from": "S1",
+   "to": "S1/P1",
+   "status": "confirmed",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "site-revD.json",
+    "note": "site file"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:S1/P1->S1/P1/CIP1",
+   "type": "contains",
+   "from": "S1/P1",
+   "to": "S1/P1/CIP1",
+   "status": "confirmed",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "site-revD.json",
+    "note": "site file"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:S1/P1->S1/P1/FILL1",
+   "type": "contains",
+   "from": "S1/P1",
+   "to": "S1/P1/FILL1",
+   "status": "confirmed",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "site-revD.json",
+    "note": "site file"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:S1/P1->S1/P1/PAST1",
+   "type": "contains",
+   "from": "S1/P1",
+   "to": "S1/P1/PAST1",
+   "status": "confirmed",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "site-revD.json",
+    "note": "site file"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:S1/P1/CIP1->S1/P1/CIP1/P-301",
+   "type": "contains",
+   "from": "S1/P1/CIP1",
+   "to": "S1/P1/CIP1/P-301",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "CMMS-2026-10",
+    "revision": "2026-10-01",
+    "sha256": "b38c2e7fd5885103b11998963d18bad3bb5fc892de222023baa1f3a42f542de2",
+    "path": "lists/maintenance_equipment.csv",
+    "locator": "row 12"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:S1/P1/CIP1->S1/P1/CIP1/PSV-3101",
+   "type": "contains",
+   "from": "S1/P1/CIP1",
+   "to": "S1/P1/CIP1/PSV-3101",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "CMMS-2026-10",
+    "revision": "2026-10-01",
+    "sha256": "b38c2e7fd5885103b11998963d18bad3bb5fc892de222023baa1f3a42f542de2",
+    "path": "lists/maintenance_equipment.csv",
+    "locator": "row 13"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:S1/P1/CIP1->S1/P1/CIP1/TK-301",
+   "type": "contains",
+   "from": "S1/P1/CIP1",
+   "to": "S1/P1/CIP1/TK-301",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "CMMS-2026-10",
+    "revision": "2026-10-01",
+    "sha256": "b38c2e7fd5885103b11998963d18bad3bb5fc892de222023baa1f3a42f542de2",
+    "path": "lists/maintenance_equipment.csv",
+    "locator": "row 11"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:S1/P1/FILL1->S1/P1/FILL1/FL-401",
+   "type": "contains",
+   "from": "S1/P1/FILL1",
+   "to": "S1/P1/FILL1/FL-401",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "CMMS-2026-10",
+    "revision": "2026-10-01",
+    "sha256": "b38c2e7fd5885103b11998963d18bad3bb5fc892de222023baa1f3a42f542de2",
+    "path": "lists/maintenance_equipment.csv",
+    "locator": "row 14"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:S1/P1/PAST1->S1/P1/PAST1/E-2215",
+   "type": "contains",
+   "from": "S1/P1/PAST1",
+   "to": "S1/P1/PAST1/E-2215",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "CMMS-2026-10",
+    "revision": "2026-10-01",
+    "sha256": "b38c2e7fd5885103b11998963d18bad3bb5fc892de222023baa1f3a42f542de2",
+    "path": "lists/maintenance_equipment.csv",
+    "locator": "row 6"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:S1/P1/PAST1->S1/P1/PAST1/FDV-2210",
+   "type": "contains",
+   "from": "S1/P1/PAST1",
+   "to": "S1/P1/PAST1/FDV-2210",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "CMMS-2026-10",
+    "revision": "2026-10-01",
+    "sha256": "b38c2e7fd5885103b11998963d18bad3bb5fc892de222023baa1f3a42f542de2",
+    "path": "lists/maintenance_equipment.csv",
+    "locator": "row 7"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:S1/P1/PAST1->S1/P1/PAST1/FIC-2203",
+   "type": "contains",
+   "from": "S1/P1/PAST1",
+   "to": "S1/P1/PAST1/FIC-2203",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "INSTRUMENT-INDEX",
+    "revision": "4",
+    "sha256": "1bd4099c8d60c8bca9473e61fc6ee4620f1439cb461cb13d15f14c65a58fdcfc",
+    "path": "lists/instrument_index.csv",
+    "locator": "row 5"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:S1/P1/PAST1->S1/P1/PAST1/FT-2203",
+   "type": "contains",
+   "from": "S1/P1/PAST1",
+   "to": "S1/P1/PAST1/FT-2203",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "INSTRUMENT-INDEX",
+    "revision": "4",
+    "sha256": "1bd4099c8d60c8bca9473e61fc6ee4620f1439cb461cb13d15f14c65a58fdcfc",
+    "path": "lists/instrument_index.csv",
+    "locator": "row 4"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:S1/P1/PAST1->S1/P1/PAST1/HT-100",
+   "type": "contains",
+   "from": "S1/P1/PAST1",
+   "to": "S1/P1/PAST1/HT-100",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "CMMS-2026-10",
+    "revision": "2026-10-01",
+    "sha256": "b38c2e7fd5885103b11998963d18bad3bb5fc892de222023baa1f3a42f542de2",
+    "path": "lists/maintenance_equipment.csv",
+    "locator": "row 4"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:S1/P1/PAST1->S1/P1/PAST1/P-101",
+   "type": "contains",
+   "from": "S1/P1/PAST1",
+   "to": "S1/P1/PAST1/P-101",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "CMMS-2026-10",
+    "revision": "2026-10-01",
+    "sha256": "b38c2e7fd5885103b11998963d18bad3bb5fc892de222023baa1f3a42f542de2",
+    "path": "lists/maintenance_equipment.csv",
+    "locator": "row 2"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:S1/P1/PAST1->S1/P1/PAST1/P-102",
+   "type": "contains",
+   "from": "S1/P1/PAST1",
+   "to": "S1/P1/PAST1/P-102",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "CMMS-2026-10",
+    "revision": "2026-10-01",
+    "sha256": "b38c2e7fd5885103b11998963d18bad3bb5fc892de222023baa1f3a42f542de2",
+    "path": "lists/maintenance_equipment.csv",
+    "locator": "row 3"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:S1/P1/PAST1->S1/P1/PAST1/PCV-2240",
+   "type": "contains",
+   "from": "S1/P1/PAST1",
+   "to": "S1/P1/PAST1/PCV-2240",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "CMMS-2026-10",
+    "revision": "2026-10-01",
+    "sha256": "b38c2e7fd5885103b11998963d18bad3bb5fc892de222023baa1f3a42f542de2",
+    "path": "lists/maintenance_equipment.csv",
+    "locator": "row 8"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:S1/P1/PAST1->S1/P1/PAST1/PHE-2201",
+   "type": "contains",
+   "from": "S1/P1/PAST1",
+   "to": "S1/P1/PAST1/PHE-2201",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "CMMS-2026-10",
+    "revision": "2026-10-01",
+    "sha256": "b38c2e7fd5885103b11998963d18bad3bb5fc892de222023baa1f3a42f542de2",
+    "path": "lists/maintenance_equipment.csv",
+    "locator": "row 5"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:S1/P1/PAST1->S1/P1/PAST1/PI-2240",
+   "type": "contains",
+   "from": "S1/P1/PAST1",
+   "to": "S1/P1/PAST1/PI-2240",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "INSTRUMENT-INDEX",
+    "revision": "4",
+    "sha256": "1bd4099c8d60c8bca9473e61fc6ee4620f1439cb461cb13d15f14c65a58fdcfc",
+    "path": "lists/instrument_index.csv",
+    "locator": "row 6"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:S1/P1/PAST1->S1/P1/PAST1/PIC-2240",
+   "type": "contains",
+   "from": "S1/P1/PAST1",
+   "to": "S1/P1/PAST1/PIC-2240",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "INSTRUMENT-INDEX",
+    "revision": "4",
+    "sha256": "1bd4099c8d60c8bca9473e61fc6ee4620f1439cb461cb13d15f14c65a58fdcfc",
+    "path": "lists/instrument_index.csv",
+    "locator": "row 7"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:S1/P1/PAST1->S1/P1/PAST1/PSV-2215",
+   "type": "contains",
+   "from": "S1/P1/PAST1",
+   "to": "S1/P1/PAST1/PSV-2215",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "CMMS-2026-10",
+    "revision": "2026-10-01",
+    "sha256": "b38c2e7fd5885103b11998963d18bad3bb5fc892de222023baa1f3a42f542de2",
+    "path": "lists/maintenance_equipment.csv",
+    "locator": "row 9"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:S1/P1/PAST1->S1/P1/PAST1/PSV-2216",
+   "type": "contains",
+   "from": "S1/P1/PAST1",
+   "to": "S1/P1/PAST1/PSV-2216",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "CMMS-2026-10",
+    "revision": "2026-10-01",
+    "sha256": "b38c2e7fd5885103b11998963d18bad3bb5fc892de222023baa1f3a42f542de2",
+    "path": "lists/maintenance_equipment.csv",
+    "locator": "row 10"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:S1/P1/PAST1->S1/P1/PAST1/TIC-2207",
+   "type": "contains",
+   "from": "S1/P1/PAST1",
+   "to": "S1/P1/PAST1/TIC-2207",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "INSTRUMENT-INDEX",
+    "revision": "4",
+    "sha256": "1bd4099c8d60c8bca9473e61fc6ee4620f1439cb461cb13d15f14c65a58fdcfc",
+    "path": "lists/instrument_index.csv",
+    "locator": "row 3"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:S1/P1/PAST1->S1/P1/PAST1/TT-2207",
+   "type": "contains",
+   "from": "S1/P1/PAST1",
+   "to": "S1/P1/PAST1/TT-2207",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "INSTRUMENT-INDEX",
+    "revision": "4",
+    "sha256": "1bd4099c8d60c8bca9473e61fc6ee4620f1439cb461cb13d15f14c65a58fdcfc",
+    "path": "lists/instrument_index.csv",
+    "locator": "row 2"
+   },
+   "attributes": []
+  },
+  {
+   "id": "contains:S1/P1/PAST1->S1/P1/PAST1/TT-2208",
+   "type": "contains",
+   "from": "S1/P1/PAST1",
+   "to": "S1/P1/PAST1/TT-2208",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "S1/DOC/PID-P1-PAST1-01",
+    "sheet": "PAST1-01",
+    "revision": "D",
+    "path": "sheets/PAST1-01-revD.json",
+    "zone": "D4"
+   },
+   "attributes": []
+  },
+  {
+   "id": "controls:S1/P1/PAST1/FIC-2203->S1/P1/PAST1/P-101",
+   "type": "controls",
+   "from": "S1/P1/PAST1/FIC-2203",
+   "to": "S1/P1/PAST1/P-101",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "LOOPS-PAST1",
+    "revision": "2026-10-15",
+    "sha256": "703118f94fa7839cd794ad71f0026c7786bc4a33764be435d42a89a3c68dcc38",
+    "locator": "lists/loops_past1.csv line 4"
+   },
+   "attributes": [
+    {
+     "name": "loop_list",
+     "value": "LOOPS-PAST1",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "LOOPS-PAST1",
+      "revision": "2026-10-15",
+      "sha256": "703118f94fa7839cd794ad71f0026c7786bc4a33764be435d42a89a3c68dcc38",
+      "locator": "lists/loops_past1.csv line 4"
+     }
+    },
+    {
+     "name": "signal_drawn",
+     "value": true,
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "S1/DOC/PID-P1-PAST1-01",
+      "sheet": "PAST1-01",
+      "revision": "D",
+      "path": "sheets/PAST1-01-revD.json",
+      "zone": "B5"
+     }
+    }
+   ],
+   "how_found": [
+    "loop_list",
+    "drawing:signal_line"
+   ]
+  },
+  {
+   "id": "controls:S1/P1/PAST1/FT-2203->S1/P1/PAST1/FIC-2203",
+   "type": "controls",
+   "from": "S1/P1/PAST1/FT-2203",
+   "to": "S1/P1/PAST1/FIC-2203",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "LOOPS-PAST1",
+    "revision": "2026-10-15",
+    "sha256": "703118f94fa7839cd794ad71f0026c7786bc4a33764be435d42a89a3c68dcc38",
+    "locator": "lists/loops_past1.csv line 4"
+   },
+   "attributes": [
+    {
+     "name": "loop_list",
+     "value": "LOOPS-PAST1",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "LOOPS-PAST1",
+      "revision": "2026-10-15",
+      "sha256": "703118f94fa7839cd794ad71f0026c7786bc4a33764be435d42a89a3c68dcc38",
+      "locator": "lists/loops_past1.csv line 4"
+     }
+    },
+    {
+     "name": "signal_drawn",
+     "value": true,
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "S1/DOC/PID-P1-PAST1-01",
+      "sheet": "PAST1-01",
+      "revision": "D",
+      "path": "sheets/PAST1-01-revD.json",
+      "zone": "B3"
+     }
+    }
+   ],
+   "how_found": [
+    "loop_list",
+    "drawing:signal_line"
+   ]
+  },
+  {
+   "id": "controls:S1/P1/PAST1/PI-2240->S1/P1/PAST1/PIC-2240",
+   "type": "controls",
+   "from": "S1/P1/PAST1/PI-2240",
+   "to": "S1/P1/PAST1/PIC-2240",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "LOOPS-PAST1",
+    "revision": "2026-10-15",
+    "sha256": "703118f94fa7839cd794ad71f0026c7786bc4a33764be435d42a89a3c68dcc38",
+    "locator": "lists/loops_past1.csv line 5"
+   },
+   "attributes": [
+    {
+     "name": "loop_list",
+     "value": "LOOPS-PAST1",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "LOOPS-PAST1",
+      "revision": "2026-10-15",
+      "sha256": "703118f94fa7839cd794ad71f0026c7786bc4a33764be435d42a89a3c68dcc38",
+      "locator": "lists/loops_past1.csv line 5"
+     }
+    },
+    {
+     "name": "signal_drawn",
+     "value": true,
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "S1/DOC/PID-P1-PAST1-01",
+      "sheet": "PAST1-01",
+      "revision": "D",
+      "path": "sheets/PAST1-01-revD.json",
+      "zone": "E3"
+     }
+    }
+   ],
+   "how_found": [
+    "loop_list",
+    "drawing:signal_line"
+   ]
+  },
+  {
+   "id": "controls:S1/P1/PAST1/PIC-2240->S1/P1/PAST1/PCV-2240",
+   "type": "controls",
+   "from": "S1/P1/PAST1/PIC-2240",
+   "to": "S1/P1/PAST1/PCV-2240",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "LOOPS-PAST1",
+    "revision": "2026-10-15",
+    "sha256": "703118f94fa7839cd794ad71f0026c7786bc4a33764be435d42a89a3c68dcc38",
+    "locator": "lists/loops_past1.csv line 5"
+   },
+   "attributes": [
+    {
+     "name": "loop_list",
+     "value": "LOOPS-PAST1",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "LOOPS-PAST1",
+      "revision": "2026-10-15",
+      "sha256": "703118f94fa7839cd794ad71f0026c7786bc4a33764be435d42a89a3c68dcc38",
+      "locator": "lists/loops_past1.csv line 5"
+     }
+    },
+    {
+     "name": "signal_drawn",
+     "value": true,
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "S1/DOC/PID-P1-PAST1-01",
+      "sheet": "PAST1-01",
+      "revision": "D",
+      "path": "sheets/PAST1-01-revD.json",
+      "zone": "E4"
+     }
+    }
+   ],
+   "how_found": [
+    "loop_list",
+    "drawing:signal_line"
+   ]
+  },
+  {
+   "id": "controls:S1/P1/PAST1/TIC-2207->S1/P1/PAST1/FDV-2210",
+   "type": "controls",
+   "from": "S1/P1/PAST1/TIC-2207",
+   "to": "S1/P1/PAST1/FDV-2210",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "LOOPS-PAST1",
+    "revision": "2026-10-15",
+    "sha256": "703118f94fa7839cd794ad71f0026c7786bc4a33764be435d42a89a3c68dcc38",
+    "locator": "lists/loops_past1.csv line 3"
+   },
+   "attributes": [
+    {
+     "name": "loop_list",
+     "value": "LOOPS-PAST1",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "LOOPS-PAST1",
+      "revision": "2026-10-15",
+      "sha256": "703118f94fa7839cd794ad71f0026c7786bc4a33764be435d42a89a3c68dcc38",
+      "locator": "lists/loops_past1.csv line 3"
+     }
+    },
+    {
+     "name": "signal_drawn",
+     "value": true,
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "S1/DOC/PID-P1-PAST1-01",
+      "sheet": "PAST1-01",
+      "revision": "D",
+      "path": "sheets/PAST1-01-revD.json",
+      "zone": "D5"
+     }
+    }
+   ],
+   "how_found": [
+    "loop_list",
+    "drawing:signal_line"
+   ]
+  },
+  {
+   "id": "controls:S1/P1/PAST1/TT-2207->S1/P1/PAST1/TIC-2207",
+   "type": "controls",
+   "from": "S1/P1/PAST1/TT-2207",
+   "to": "S1/P1/PAST1/TIC-2207",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "LOOPS-PAST1",
+    "revision": "2026-10-15",
+    "sha256": "703118f94fa7839cd794ad71f0026c7786bc4a33764be435d42a89a3c68dcc38",
+    "locator": "lists/loops_past1.csv line 3"
+   },
+   "attributes": [
+    {
+     "name": "loop_list",
+     "value": "LOOPS-PAST1",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "LOOPS-PAST1",
+      "revision": "2026-10-15",
+      "sha256": "703118f94fa7839cd794ad71f0026c7786bc4a33764be435d42a89a3c68dcc38",
+      "locator": "lists/loops_past1.csv line 3"
+     }
+    },
+    {
+     "name": "signal_drawn",
+     "value": true,
+     "status": "unverified",
+     "source": {
+      "kind": "drawing",
+      "document": "S1/DOC/PID-P1-PAST1-01",
+      "sheet": "PAST1-01",
+      "revision": "D",
+      "path": "sheets/PAST1-01-revD.json",
+      "zone": "D4"
+     }
+    }
+   ],
+   "how_found": [
+    "loop_list",
+    "drawing:signal_line"
+   ]
+  },
+  {
+   "id": "covers:S1/DOC/HACCP-PLAN-P1->S1/P1/PAST1",
+   "type": "covers",
+   "from": "S1/DOC/HACCP-PLAN-P1",
+   "to": "S1/P1/PAST1",
+   "status": "confirmed",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "S1/DOC/HACCP-PLAN-P1",
+    "revision": "7",
+    "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+    "path": "docs/haccp-plan-rev7.txt"
+   },
+   "attributes": []
+  },
+  {
+   "id": "covers:S1/DOC/PID-P1-CIP1-01->S1/P1/CIP1",
+   "type": "covers",
+   "from": "S1/DOC/PID-P1-CIP1-01",
+   "to": "S1/P1/CIP1",
+   "status": "confirmed",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "S1/DOC/PID-P1-CIP1-01"
+   },
+   "attributes": []
+  },
+  {
+   "id": "covers:S1/DOC/PID-P1-PAST1-01->S1/P1/PAST1",
+   "type": "covers",
+   "from": "S1/DOC/PID-P1-PAST1-01",
+   "to": "S1/P1/PAST1",
+   "status": "confirmed",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "S1/DOC/PID-P1-PAST1-01"
+   },
+   "attributes": []
+  },
+  {
+   "id": "covers:S1/DOC/SOP-PAST1-02->S1/P1/PAST1",
+   "type": "covers",
+   "from": "S1/DOC/SOP-PAST1-02",
+   "to": "S1/P1/PAST1",
+   "status": "confirmed",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "S1/DOC/SOP-PAST1-02",
+    "revision": "B",
+    "sha256": "6afc09571ccf2801fdc0d2f7f3397f0fe33076bc17609950bc5c69c953a3991a",
+    "path": "docs/sop-past1-02-revB.txt"
+   },
+   "attributes": []
+  },
+  {
+   "id": "covers:S1/DOC/VER-CCP1->S1/P1/PAST1/TT-2207",
+   "type": "covers",
+   "from": "S1/DOC/VER-CCP1",
+   "to": "S1/P1/PAST1/TT-2207",
+   "status": "confirmed",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "S1/DOC/VER-CCP1",
+    "revision": "2",
+    "sha256": "99d192bd5c2f9d8bea4a70be7f138fdc00b4cba8fff488bf1d3a700d28bc2524",
+    "path": "docs/ccp1-verification-rev2.txt"
+   },
+   "attributes": []
+  },
+  {
+   "id": "measures:S1/P1/PAST1/FT-2203->S1/P1/PAST1/P-101",
+   "type": "measures",
+   "from": "S1/P1/PAST1/FT-2203",
+   "to": "S1/P1/PAST1/P-101",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "S1/DOC/PID-P1-PAST1-01",
+    "sheet": "PAST1-01",
+    "revision": "D",
+    "path": "sheets/PAST1-01-revD.json"
+   },
+   "attributes": []
+  },
+  {
+   "id": "measures:S1/P1/PAST1/PI-2240->S1/P1/PAST1/TIC-2207",
+   "type": "measures",
+   "from": "S1/P1/PAST1/PI-2240",
+   "to": "S1/P1/PAST1/TIC-2207",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "S1/DOC/PID-P1-PAST1-01",
+    "sheet": "PAST1-01",
+    "revision": "D",
+    "path": "sheets/PAST1-01-revD.json"
+   },
+   "attributes": []
+  },
+  {
+   "id": "measures:S1/P1/PAST1/TT-2207->S1/P1/PAST1/HT-100",
+   "type": "measures",
+   "from": "S1/P1/PAST1/TT-2207",
+   "to": "S1/P1/PAST1/HT-100",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "S1/DOC/PID-P1-PAST1-01",
+    "sheet": "PAST1-01",
+    "revision": "D",
+    "path": "sheets/PAST1-01-revD.json"
+   },
+   "attributes": []
+  },
+  {
+   "id": "measures:S1/P1/PAST1/TT-2208->S1/P1/PAST1/HT-100",
+   "type": "measures",
+   "from": "S1/P1/PAST1/TT-2208",
+   "to": "S1/P1/PAST1/HT-100",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "S1/DOC/PID-P1-PAST1-01",
+    "sheet": "PAST1-01",
+    "revision": "D",
+    "path": "sheets/PAST1-01-revD.json"
+   },
+   "attributes": []
+  },
+  {
+   "id": "mentions:S1/DOC/HACCP-PLAN-P1->S1/P1/PAST1",
+   "type": "mentions",
+   "from": "S1/DOC/HACCP-PLAN-P1",
+   "to": "S1/P1/PAST1",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "S1/DOC/HACCP-PLAN-P1",
+    "revision": "7",
+    "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+    "path": "docs/haccp-plan-rev7.txt",
+    "locator": "line 2, column 23"
+   },
+   "attributes": [
+    {
+     "name": "file",
+     "value": "docs/haccp-plan-rev7.txt",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/HACCP-PLAN-P1",
+      "revision": "7",
+      "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+      "path": "docs/haccp-plan-rev7.txt",
+      "locator": "line 2, column 23"
+     }
+    },
+    {
+     "name": "locator",
+     "value": "line 2, column 23",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/HACCP-PLAN-P1",
+      "revision": "7",
+      "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+      "path": "docs/haccp-plan-rev7.txt",
+      "locator": "line 2, column 23"
+     }
+    },
+    {
+     "name": "matched_text",
+     "value": "HTST",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/HACCP-PLAN-P1",
+      "revision": "7",
+      "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+      "path": "docs/haccp-plan-rev7.txt",
+      "locator": "line 2, column 23"
+     }
+    },
+    {
+     "name": "confidence",
+     "value": "glossary term 'HTST' (certified by Quality lead on 2026-10-20), one item in the covered scope",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/HACCP-PLAN-P1",
+      "revision": "7",
+      "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+      "path": "docs/haccp-plan-rev7.txt",
+      "locator": "line 2, column 23"
+     }
+    },
+    {
+     "name": "matched",
+     "value": "glossary",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/HACCP-PLAN-P1",
+      "revision": "7",
+      "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+      "path": "docs/haccp-plan-rev7.txt",
+      "locator": "line 2, column 23"
+     }
+    },
+    {
+     "name": "glossary_term",
+     "value": "HTST",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/HACCP-PLAN-P1",
+      "revision": "7",
+      "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+      "path": "docs/haccp-plan-rev7.txt",
+      "locator": "line 2, column 23"
+     }
+    }
+   ]
+  },
+  {
+   "id": "mentions:S1/DOC/HACCP-PLAN-P1->S1/P1/PAST1/FDV-2210",
+   "type": "mentions",
+   "from": "S1/DOC/HACCP-PLAN-P1",
+   "to": "S1/P1/PAST1/FDV-2210",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "S1/DOC/HACCP-PLAN-P1",
+    "revision": "7",
+    "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+    "path": "docs/haccp-plan-rev7.txt",
+    "locator": "line 3, column 21"
+   },
+   "attributes": [
+    {
+     "name": "file",
+     "value": "docs/haccp-plan-rev7.txt",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/HACCP-PLAN-P1",
+      "revision": "7",
+      "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+      "path": "docs/haccp-plan-rev7.txt",
+      "locator": "line 3, column 21"
+     }
+    },
+    {
+     "name": "locator",
+     "value": "line 3, column 21",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/HACCP-PLAN-P1",
+      "revision": "7",
+      "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+      "path": "docs/haccp-plan-rev7.txt",
+      "locator": "line 3, column 21"
+     }
+    },
+    {
+     "name": "matched_text",
+     "value": "divert valve",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/HACCP-PLAN-P1",
+      "revision": "7",
+      "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+      "path": "docs/haccp-plan-rev7.txt",
+      "locator": "line 3, column 21"
+     }
+    },
+    {
+     "name": "confidence",
+     "value": "glossary term 'divert valve' (certified by Quality lead on 2026-10-20), one item in the covered scope",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/HACCP-PLAN-P1",
+      "revision": "7",
+      "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+      "path": "docs/haccp-plan-rev7.txt",
+      "locator": "line 3, column 21"
+     }
+    },
+    {
+     "name": "matched",
+     "value": "glossary",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/HACCP-PLAN-P1",
+      "revision": "7",
+      "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+      "path": "docs/haccp-plan-rev7.txt",
+      "locator": "line 3, column 21"
+     }
+    },
+    {
+     "name": "glossary_term",
+     "value": "divert valve",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/HACCP-PLAN-P1",
+      "revision": "7",
+      "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+      "path": "docs/haccp-plan-rev7.txt",
+      "locator": "line 3, column 21"
+     }
+    }
+   ]
+  },
+  {
+   "id": "mentions:S1/DOC/HACCP-PLAN-P1->S1/P1/PAST1/FT-2203",
+   "type": "mentions",
+   "from": "S1/DOC/HACCP-PLAN-P1",
+   "to": "S1/P1/PAST1/FT-2203",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "S1/DOC/HACCP-PLAN-P1",
+    "revision": "7",
+    "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+    "path": "docs/haccp-plan-rev7.txt",
+    "locator": "line 4, column 39"
+   },
+   "attributes": [
+    {
+     "name": "file",
+     "value": "docs/haccp-plan-rev7.txt",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/HACCP-PLAN-P1",
+      "revision": "7",
+      "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+      "path": "docs/haccp-plan-rev7.txt",
+      "locator": "line 4, column 39"
+     }
+    },
+    {
+     "name": "locator",
+     "value": "line 4, column 39",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/HACCP-PLAN-P1",
+      "revision": "7",
+      "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+      "path": "docs/haccp-plan-rev7.txt",
+      "locator": "line 4, column 39"
+     }
+    },
+    {
+     "name": "matched_text",
+     "value": "FT-2203",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/HACCP-PLAN-P1",
+      "revision": "7",
+      "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+      "path": "docs/haccp-plan-rev7.txt",
+      "locator": "line 4, column 39"
+     }
+    },
+    {
+     "name": "confidence",
+     "value": "exact, unique on the map",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/HACCP-PLAN-P1",
+      "revision": "7",
+      "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+      "path": "docs/haccp-plan-rev7.txt",
+      "locator": "line 4, column 39"
+     }
+    }
+   ]
+  },
+  {
+   "id": "mentions:S1/DOC/HACCP-PLAN-P1->S1/P1/PAST1/HT-100",
+   "type": "mentions",
+   "from": "S1/DOC/HACCP-PLAN-P1",
+   "to": "S1/P1/PAST1/HT-100",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "S1/DOC/HACCP-PLAN-P1",
+    "revision": "7",
+    "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+    "path": "docs/haccp-plan-rev7.txt",
+    "locator": "line 2, column 28"
+   },
+   "attributes": [
+    {
+     "name": "file",
+     "value": "docs/haccp-plan-rev7.txt",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/HACCP-PLAN-P1",
+      "revision": "7",
+      "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+      "path": "docs/haccp-plan-rev7.txt",
+      "locator": "line 2, column 28"
+     }
+    },
+    {
+     "name": "locator",
+     "value": "line 2, column 28",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/HACCP-PLAN-P1",
+      "revision": "7",
+      "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+      "path": "docs/haccp-plan-rev7.txt",
+      "locator": "line 2, column 28"
+     }
+    },
+    {
+     "name": "matched_text",
+     "value": "hold tube",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/HACCP-PLAN-P1",
+      "revision": "7",
+      "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+      "path": "docs/haccp-plan-rev7.txt",
+      "locator": "line 2, column 28"
+     }
+    },
+    {
+     "name": "confidence",
+     "value": "glossary term 'hold tube' (certified by Quality lead on 2026-10-20), one item in the covered scope",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/HACCP-PLAN-P1",
+      "revision": "7",
+      "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+      "path": "docs/haccp-plan-rev7.txt",
+      "locator": "line 2, column 28"
+     }
+    },
+    {
+     "name": "matched",
+     "value": "glossary",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/HACCP-PLAN-P1",
+      "revision": "7",
+      "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+      "path": "docs/haccp-plan-rev7.txt",
+      "locator": "line 2, column 28"
+     }
+    },
+    {
+     "name": "glossary_term",
+     "value": "hold tube",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/HACCP-PLAN-P1",
+      "revision": "7",
+      "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+      "path": "docs/haccp-plan-rev7.txt",
+      "locator": "line 2, column 28"
+     }
+    }
+   ],
+   "more_locators": [
+    "line 4, column 59"
+   ]
+  },
+  {
+   "id": "mentions:S1/DOC/HACCP-PLAN-P1->S1/P1/PAST1/TT-2207",
+   "type": "mentions",
+   "from": "S1/DOC/HACCP-PLAN-P1",
+   "to": "S1/P1/PAST1/TT-2207",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "S1/DOC/HACCP-PLAN-P1",
+    "revision": "7",
+    "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+    "path": "docs/haccp-plan-rev7.txt",
+    "locator": "line 2, column 58"
+   },
+   "attributes": [
+    {
+     "name": "file",
+     "value": "docs/haccp-plan-rev7.txt",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/HACCP-PLAN-P1",
+      "revision": "7",
+      "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+      "path": "docs/haccp-plan-rev7.txt",
+      "locator": "line 2, column 58"
+     }
+    },
+    {
+     "name": "locator",
+     "value": "line 2, column 58",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/HACCP-PLAN-P1",
+      "revision": "7",
+      "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+      "path": "docs/haccp-plan-rev7.txt",
+      "locator": "line 2, column 58"
+     }
+    },
+    {
+     "name": "matched_text",
+     "value": "TT-2207",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/HACCP-PLAN-P1",
+      "revision": "7",
+      "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+      "path": "docs/haccp-plan-rev7.txt",
+      "locator": "line 2, column 58"
+     }
+    },
+    {
+     "name": "confidence",
+     "value": "exact, unique on the map",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/HACCP-PLAN-P1",
+      "revision": "7",
+      "sha256": "90a78f75c2ef043efd5764242a8cc4595419157c730588234be7af227e86e07a",
+      "path": "docs/haccp-plan-rev7.txt",
+      "locator": "line 2, column 58"
+     }
+    }
+   ]
+  },
+  {
+   "id": "mentions:S1/DOC/SOP-PAST1-02->S1/P1/PAST1/FDV-2210",
+   "type": "mentions",
+   "from": "S1/DOC/SOP-PAST1-02",
+   "to": "S1/P1/PAST1/FDV-2210",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "S1/DOC/SOP-PAST1-02",
+    "revision": "B",
+    "sha256": "6afc09571ccf2801fdc0d2f7f3397f0fe33076bc17609950bc5c69c953a3991a",
+    "path": "docs/sop-past1-02-revB.txt",
+    "locator": "line 3, column 14"
+   },
+   "attributes": [
+    {
+     "name": "file",
+     "value": "docs/sop-past1-02-revB.txt",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/SOP-PAST1-02",
+      "revision": "B",
+      "sha256": "6afc09571ccf2801fdc0d2f7f3397f0fe33076bc17609950bc5c69c953a3991a",
+      "path": "docs/sop-past1-02-revB.txt",
+      "locator": "line 3, column 14"
+     }
+    },
+    {
+     "name": "locator",
+     "value": "line 3, column 14",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/SOP-PAST1-02",
+      "revision": "B",
+      "sha256": "6afc09571ccf2801fdc0d2f7f3397f0fe33076bc17609950bc5c69c953a3991a",
+      "path": "docs/sop-past1-02-revB.txt",
+      "locator": "line 3, column 14"
+     }
+    },
+    {
+     "name": "matched_text",
+     "value": "FDV",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/SOP-PAST1-02",
+      "revision": "B",
+      "sha256": "6afc09571ccf2801fdc0d2f7f3397f0fe33076bc17609950bc5c69c953a3991a",
+      "path": "docs/sop-past1-02-revB.txt",
+      "locator": "line 3, column 14"
+     }
+    },
+    {
+     "name": "confidence",
+     "value": "glossary term 'divert valve' (certified by Quality lead on 2026-10-20), one item in the covered scope",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/SOP-PAST1-02",
+      "revision": "B",
+      "sha256": "6afc09571ccf2801fdc0d2f7f3397f0fe33076bc17609950bc5c69c953a3991a",
+      "path": "docs/sop-past1-02-revB.txt",
+      "locator": "line 3, column 14"
+     }
+    },
+    {
+     "name": "matched",
+     "value": "glossary",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/SOP-PAST1-02",
+      "revision": "B",
+      "sha256": "6afc09571ccf2801fdc0d2f7f3397f0fe33076bc17609950bc5c69c953a3991a",
+      "path": "docs/sop-past1-02-revB.txt",
+      "locator": "line 3, column 14"
+     }
+    },
+    {
+     "name": "glossary_term",
+     "value": "divert valve",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/SOP-PAST1-02",
+      "revision": "B",
+      "sha256": "6afc09571ccf2801fdc0d2f7f3397f0fe33076bc17609950bc5c69c953a3991a",
+      "path": "docs/sop-past1-02-revB.txt",
+      "locator": "line 3, column 14"
+     }
+    }
+   ]
+  },
+  {
+   "id": "mentions:S1/DOC/SOP-PAST1-02->S1/P1/PAST1/HT-100",
+   "type": "mentions",
+   "from": "S1/DOC/SOP-PAST1-02",
+   "to": "S1/P1/PAST1/HT-100",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "S1/DOC/SOP-PAST1-02",
+    "revision": "B",
+    "sha256": "6afc09571ccf2801fdc0d2f7f3397f0fe33076bc17609950bc5c69c953a3991a",
+    "path": "docs/sop-past1-02-revB.txt",
+    "locator": "line 4, column 16"
+   },
+   "attributes": [
+    {
+     "name": "file",
+     "value": "docs/sop-past1-02-revB.txt",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/SOP-PAST1-02",
+      "revision": "B",
+      "sha256": "6afc09571ccf2801fdc0d2f7f3397f0fe33076bc17609950bc5c69c953a3991a",
+      "path": "docs/sop-past1-02-revB.txt",
+      "locator": "line 4, column 16"
+     }
+    },
+    {
+     "name": "locator",
+     "value": "line 4, column 16",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/SOP-PAST1-02",
+      "revision": "B",
+      "sha256": "6afc09571ccf2801fdc0d2f7f3397f0fe33076bc17609950bc5c69c953a3991a",
+      "path": "docs/sop-past1-02-revB.txt",
+      "locator": "line 4, column 16"
+     }
+    },
+    {
+     "name": "matched_text",
+     "value": "hold tube",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/SOP-PAST1-02",
+      "revision": "B",
+      "sha256": "6afc09571ccf2801fdc0d2f7f3397f0fe33076bc17609950bc5c69c953a3991a",
+      "path": "docs/sop-past1-02-revB.txt",
+      "locator": "line 4, column 16"
+     }
+    },
+    {
+     "name": "confidence",
+     "value": "glossary term 'hold tube' (certified by Quality lead on 2026-10-20), one item in the covered scope",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/SOP-PAST1-02",
+      "revision": "B",
+      "sha256": "6afc09571ccf2801fdc0d2f7f3397f0fe33076bc17609950bc5c69c953a3991a",
+      "path": "docs/sop-past1-02-revB.txt",
+      "locator": "line 4, column 16"
+     }
+    },
+    {
+     "name": "matched",
+     "value": "glossary",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/SOP-PAST1-02",
+      "revision": "B",
+      "sha256": "6afc09571ccf2801fdc0d2f7f3397f0fe33076bc17609950bc5c69c953a3991a",
+      "path": "docs/sop-past1-02-revB.txt",
+      "locator": "line 4, column 16"
+     }
+    },
+    {
+     "name": "glossary_term",
+     "value": "hold tube",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/SOP-PAST1-02",
+      "revision": "B",
+      "sha256": "6afc09571ccf2801fdc0d2f7f3397f0fe33076bc17609950bc5c69c953a3991a",
+      "path": "docs/sop-past1-02-revB.txt",
+      "locator": "line 4, column 16"
+     }
+    }
+   ]
+  },
+  {
+   "id": "mentions:S1/DOC/SOP-PAST1-02->S1/P1/PAST1/TIC-2207",
+   "type": "mentions",
+   "from": "S1/DOC/SOP-PAST1-02",
+   "to": "S1/P1/PAST1/TIC-2207",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "S1/DOC/SOP-PAST1-02",
+    "revision": "B",
+    "sha256": "6afc09571ccf2801fdc0d2f7f3397f0fe33076bc17609950bc5c69c953a3991a",
+    "path": "docs/sop-past1-02-revB.txt",
+    "locator": "line 4, column 41"
+   },
+   "attributes": [
+    {
+     "name": "file",
+     "value": "docs/sop-past1-02-revB.txt",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/SOP-PAST1-02",
+      "revision": "B",
+      "sha256": "6afc09571ccf2801fdc0d2f7f3397f0fe33076bc17609950bc5c69c953a3991a",
+      "path": "docs/sop-past1-02-revB.txt",
+      "locator": "line 4, column 41"
+     }
+    },
+    {
+     "name": "locator",
+     "value": "line 4, column 41",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/SOP-PAST1-02",
+      "revision": "B",
+      "sha256": "6afc09571ccf2801fdc0d2f7f3397f0fe33076bc17609950bc5c69c953a3991a",
+      "path": "docs/sop-past1-02-revB.txt",
+      "locator": "line 4, column 41"
+     }
+    },
+    {
+     "name": "matched_text",
+     "value": "TIC-2207",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/SOP-PAST1-02",
+      "revision": "B",
+      "sha256": "6afc09571ccf2801fdc0d2f7f3397f0fe33076bc17609950bc5c69c953a3991a",
+      "path": "docs/sop-past1-02-revB.txt",
+      "locator": "line 4, column 41"
+     }
+    },
+    {
+     "name": "confidence",
+     "value": "exact, unique on the map",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/SOP-PAST1-02",
+      "revision": "B",
+      "sha256": "6afc09571ccf2801fdc0d2f7f3397f0fe33076bc17609950bc5c69c953a3991a",
+      "path": "docs/sop-past1-02-revB.txt",
+      "locator": "line 4, column 41"
+     }
+    }
+   ]
+  },
+  {
+   "id": "mentions:S1/DOC/VER-CCP1->S1/P1/PAST1/TT-2207",
+   "type": "mentions",
+   "from": "S1/DOC/VER-CCP1",
+   "to": "S1/P1/PAST1/TT-2207",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "S1/DOC/VER-CCP1",
+    "revision": "2",
+    "sha256": "99d192bd5c2f9d8bea4a70be7f138fdc00b4cba8fff488bf1d3a700d28bc2524",
+    "path": "docs/ccp1-verification-rev2.txt",
+    "locator": "line 2, column 44"
+   },
+   "attributes": [
+    {
+     "name": "file",
+     "value": "docs/ccp1-verification-rev2.txt",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/VER-CCP1",
+      "revision": "2",
+      "sha256": "99d192bd5c2f9d8bea4a70be7f138fdc00b4cba8fff488bf1d3a700d28bc2524",
+      "path": "docs/ccp1-verification-rev2.txt",
+      "locator": "line 2, column 44"
+     }
+    },
+    {
+     "name": "locator",
+     "value": "line 2, column 44",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/VER-CCP1",
+      "revision": "2",
+      "sha256": "99d192bd5c2f9d8bea4a70be7f138fdc00b4cba8fff488bf1d3a700d28bc2524",
+      "path": "docs/ccp1-verification-rev2.txt",
+      "locator": "line 2, column 44"
+     }
+    },
+    {
+     "name": "matched_text",
+     "value": "TT-2207",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/VER-CCP1",
+      "revision": "2",
+      "sha256": "99d192bd5c2f9d8bea4a70be7f138fdc00b4cba8fff488bf1d3a700d28bc2524",
+      "path": "docs/ccp1-verification-rev2.txt",
+      "locator": "line 2, column 44"
+     }
+    },
+    {
+     "name": "confidence",
+     "value": "exact, unique on the map",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "S1/DOC/VER-CCP1",
+      "revision": "2",
+      "sha256": "99d192bd5c2f9d8bea4a70be7f138fdc00b4cba8fff488bf1d3a700d28bc2524",
+      "path": "docs/ccp1-verification-rev2.txt",
+      "locator": "line 2, column 44"
+     }
+    }
+   ]
+  },
+  {
+   "id": "protects:S1/P1/CIP1/PSV-3101->S1/P1/CIP1/TK-301",
+   "type": "protects",
+   "from": "S1/P1/CIP1/PSV-3101",
+   "to": "S1/P1/CIP1/TK-301",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "S1/DOC/PID-P1-CIP1-01",
+    "sheet": "CIP1-01",
+    "revision": "A",
+    "path": "sheets/CIP1-01.json"
+   },
+   "attributes": []
+  },
+  {
+   "id": "protects:S1/P1/PAST1/PSV-2215->S1/P1/PAST1/E-2215",
+   "type": "protects",
+   "from": "S1/P1/PAST1/PSV-2215",
+   "to": "S1/P1/PAST1/E-2215",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "S1/DOC/PID-P1-PAST1-01",
+    "sheet": "PAST1-01",
+    "revision": "D",
+    "path": "sheets/PAST1-01-revD.json"
+   },
+   "attributes": []
+  },
+  {
+   "id": "signal_line:S1/P1/PAST1/FIC-2203->S1/P1/PAST1/P-101",
+   "type": "signal_line",
+   "from": "S1/P1/PAST1/FIC-2203",
+   "to": "S1/P1/PAST1/P-101",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "S1/DOC/PID-P1-PAST1-01",
+    "sheet": "PAST1-01",
+    "revision": "D",
+    "path": "sheets/PAST1-01-revD.json"
+   },
+   "attributes": [],
+   "how_found": "drawn signal line"
+  },
+  {
+   "id": "signal_line:S1/P1/PAST1/FT-2203->S1/P1/PAST1/FIC-2203",
+   "type": "signal_line",
+   "from": "S1/P1/PAST1/FT-2203",
+   "to": "S1/P1/PAST1/FIC-2203",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "S1/DOC/PID-P1-PAST1-01",
+    "sheet": "PAST1-01",
+    "revision": "D",
+    "path": "sheets/PAST1-01-revD.json"
+   },
+   "attributes": [],
+   "how_found": "drawn signal line"
+  },
+  {
+   "id": "signal_line:S1/P1/PAST1/PI-2240->S1/P1/PAST1/PIC-2240",
+   "type": "signal_line",
+   "from": "S1/P1/PAST1/PI-2240",
+   "to": "S1/P1/PAST1/PIC-2240",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "S1/DOC/PID-P1-PAST1-01",
+    "sheet": "PAST1-01",
+    "revision": "D",
+    "path": "sheets/PAST1-01-revD.json"
+   },
+   "attributes": [],
+   "how_found": "drawn signal line"
+  },
+  {
+   "id": "signal_line:S1/P1/PAST1/PIC-2240->S1/P1/PAST1/PCV-2240",
+   "type": "signal_line",
+   "from": "S1/P1/PAST1/PIC-2240",
+   "to": "S1/P1/PAST1/PCV-2240",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "S1/DOC/PID-P1-PAST1-01",
+    "sheet": "PAST1-01",
+    "revision": "D",
+    "path": "sheets/PAST1-01-revD.json"
+   },
+   "attributes": [],
+   "how_found": "drawn signal line"
+  },
+  {
+   "id": "signal_line:S1/P1/PAST1/TIC-2207->S1/P1/PAST1/FDV-2210",
+   "type": "signal_line",
+   "from": "S1/P1/PAST1/TIC-2207",
+   "to": "S1/P1/PAST1/FDV-2210",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "S1/DOC/PID-P1-PAST1-01",
+    "sheet": "PAST1-01",
+    "revision": "D",
+    "path": "sheets/PAST1-01-revD.json"
+   },
+   "attributes": [],
+   "how_found": "drawn signal line"
+  },
+  {
+   "id": "signal_line:S1/P1/PAST1/TT-2207->S1/P1/PAST1/TIC-2207",
+   "type": "signal_line",
+   "from": "S1/P1/PAST1/TT-2207",
+   "to": "S1/P1/PAST1/TIC-2207",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "drawing",
+    "document": "S1/DOC/PID-P1-PAST1-01",
+    "sheet": "PAST1-01",
+    "revision": "D",
+    "path": "sheets/PAST1-01-revD.json"
+   },
+   "attributes": [],
+   "how_found": "drawn signal line"
+  }
+ ],
+ "questions": [],
+ "events": [],
+ "not_exported": [],
+ "loops": [
+  {
+   "scope": "S1/P1/PAST1",
+   "loop_list": "LOOPS-PAST1",
+   "line": 3,
+   "controller": "TIC-2207",
+   "measurement": "TT-2207",
+   "output": "FDV-2210",
+   "outcome": "located and consistent",
+   "sheets": [
+    "PAST1-01"
+   ],
+   "zones": [
+    "PAST1-01:D3",
+    "PAST1-01:D4",
+    "PAST1-01:D5"
+   ],
+   "missing": [],
+   "route": "Doc control",
+   "item": "S1/P1/PAST1/TIC-2207"
+  },
+  {
+   "scope": "S1/P1/PAST1",
+   "loop_list": "LOOPS-PAST1",
+   "line": 4,
+   "controller": "FIC-2203",
+   "measurement": "FT-2203",
+   "output": "P-101",
+   "outcome": "located and consistent",
+   "sheets": [
+    "PAST1-01"
+   ],
+   "zones": [
+    "PAST1-01:B2",
+    "PAST1-01:B3",
+    "PAST1-01:B5"
+   ],
+   "missing": [],
+   "route": "Doc control",
+   "item": "S1/P1/PAST1/FIC-2203"
+  },
+  {
+   "scope": "S1/P1/PAST1",
+   "loop_list": "LOOPS-PAST1",
+   "line": 5,
+   "controller": "PIC-2240",
+   "measurement": "PI-2240",
+   "output": "PCV-2240",
+   "outcome": "located and consistent",
+   "sheets": [
+    "PAST1-01"
+   ],
+   "zones": [
+    "PAST1-01:E3",
+    "PAST1-01:E4"
+   ],
+   "missing": [],
+   "route": "Doc control",
+   "item": "S1/P1/PAST1/PIC-2240"
+  }
+ ],
+ "coverage": {
+  "sources": [
+   {
+    "id": "PID-P1-PAST1-01",
+    "register": "pid",
+    "scopes": [
+     "S1/P1/PAST1"
+    ],
+    "owner": "Doc control"
+   },
+   {
+    "id": "PID-P1-CIP1-01",
+    "register": "pid",
+    "scopes": [
+     "S1/P1/CIP1"
+    ],
+    "owner": "Doc control"
+   },
+   {
+    "id": "CMMS-2026-10",
+    "register": "maintenance_export",
+    "scopes": [
+     "S1/P1"
+    ],
+    "owner": "Maintenance"
+   },
+   {
+    "id": "INSTRUMENT-INDEX",
+    "register": "instrument_index",
+    "scopes": [
+     "S1/P1"
+    ],
+    "owner": "I&C"
+   },
+   {
+    "id": "PUMP-DATASHEETS",
+    "register": "datasheet",
+    "scopes": [
+     "S1/P1"
+    ],
+    "owner": "Engineering"
+   },
+   {
+    "id": "VALVE-DATASHEETS",
+    "register": "datasheet",
+    "scopes": [
+     "S1/P1"
+    ],
+    "owner": "Engineering"
+   },
+   {
+    "id": "LOOPS-PAST1",
+    "register": "loop_list",
+    "scopes": [
+     "S1/P1/PAST1"
+    ],
+    "owner": "I&C"
+   },
+   {
+    "id": "documents.json",
+    "register": "documents",
+    "scopes": [
+     "S1"
+    ]
+   },
+   {
+    "id": "WO-HISTORY",
+    "register": "work_order",
+    "scopes": [
+     "S1/P1"
+    ],
+    "owner": "Maintenance"
+   },
+   {
+    "id": "HACCP-P1-01",
+    "register": "ccp",
+    "scopes": [
+     "S1/P1"
+    ],
+    "owner": "Quality"
+   },
+   {
+    "id": "CAL-PAST1",
+    "register": "calibration_record",
+    "scopes": [
+     "S1/P1/PAST1"
+    ],
+    "owner": "Maintenance"
+   },
+   {
+    "id": "RELIEF-PAST1",
+    "register": "relief_device_register",
+    "scopes": [
+     "S1/P1/PAST1"
+    ],
+    "owner": "Process safety"
+   },
+   {
+    "id": "CRIT-P1",
+    "register": "criticality_ranking",
+    "scopes": [
+     "S1/P1"
+    ],
+    "owner": "Maintenance"
+   },
+   {
+    "id": "PM-P1",
+    "register": "pm_plan",
+    "scopes": [
+     "S1/P1"
+    ],
+    "owner": "Maintenance"
+   },
+   {
+    "id": "GLOSSARY-P1",
+    "register": "glossary",
+    "scopes": [
+     "S1/P1"
+    ],
+    "owner": "Quality"
+   }
+  ],
+  "relations_checked": {
+   "links": 64,
+   "checked": 63,
+   "unchecked_no_class": 1,
+   "do_not_fit": 1
+  }
+ },
+ "records": {
+  "work_order": [
+   {
+    "register": "work_order",
+    "id": "WO-55120",
+    "item": "S1/P1/PAST1/P-101",
+    "scope": "S1/P1/PAST1",
+    "values": {
+     "work_order": "WO-55120",
+     "tag": "P-101",
+     "plant": "P1",
+     "unit": "PAST1",
+     "work_type": "corrective",
+     "opened_on": "2026-08-04",
+     "closed_on": "2026-08-04",
+     "failure_mode": "ELP",
+     "detection_method": "operator observation",
+     "maintenance_activity": "replace",
+     "description": "Replaced shaft seal"
+    },
+    "source": {
+     "kind": "document",
+     "document": "WO-HISTORY",
+     "revision": "2026-10-01",
+     "sha256": "55b0e8e39903d17b80d2247af90f2e9c7a75f03cc5ce5342501b5ccdf1e002ab",
+     "path": "records/work_orders.csv",
+     "locator": "row 2"
+    },
+    "status": "unverified"
+   }
+  ],
+  "ccp": [
+   {
+    "register": "ccp",
+    "id": "CCP-1",
+    "item": "S1/P1/PAST1/TT-2207",
+    "scope": "S1/P1/PAST1",
+    "values": {
+     "ccp_id": "CCP-1",
+     "plant": "P1",
+     "unit": "PAST1",
+     "process_step": "Pasteurization (HTST)",
+     "hazard": "Vegetative pathogens surviving heat treatment",
+     "monitored_tag": "TT-2207",
+     "parameter": "hold tube outlet temperature",
+     "critical_limit_low": "72.0",
+     "uom": "degC",
+     "monitoring_frequency": "continuous, recorded",
+     "corrective_action": "FDV-2210 diverts",
+     "verification": "Daily record review",
+     "haccp_plan": "HACCP-P1-01",
+     "locator": "section 4 row 1"
+    },
+    "source": {
+     "kind": "document",
+     "document": "HACCP-P1-01",
+     "revision": "7",
+     "sha256": "c4b07cbe2ccd964fdee4e82acef81bb85f2c215e122f7bf98553a170e9054248",
+     "path": "records/ccp.csv",
+     "locator": "row 2; section 4 row 1"
+    },
+    "status": "unverified"
+   },
+   {
+    "register": "ccp",
+    "id": "CCP-2",
+    "item": "S1/P1/PAST1/FT-2203",
+    "scope": "S1/P1/PAST1",
+    "values": {
+     "ccp_id": "CCP-2",
+     "plant": "P1",
+     "unit": "PAST1",
+     "process_step": "Pasteurization (HTST)",
+     "hazard": "Short hold time",
+     "monitored_tag": "FT-2203",
+     "parameter": "product flow (hold time)",
+     "uom": "L/h",
+     "monitoring_frequency": "continuous",
+     "corrective_action": "Timing pump speed sealed",
+     "haccp_plan": "HACCP-P1-01",
+     "locator": "section 4 row 2",
+     "note": "Critical limit not written into the plan yet."
+    },
+    "source": {
+     "kind": "document",
+     "document": "HACCP-P1-01",
+     "revision": "7",
+     "sha256": "c4b07cbe2ccd964fdee4e82acef81bb85f2c215e122f7bf98553a170e9054248",
+     "path": "records/ccp.csv",
+     "locator": "row 3; section 4 row 2"
+    },
+    "status": "unverified"
+   }
+  ],
+  "calibration_record": [
+   {
+    "register": "calibration_record",
+    "id": "2026-09-01",
+    "item": "S1/P1/PAST1/TT-2207",
+    "scope": "S1/P1/PAST1",
+    "values": {
+     "tag": "TT-2207",
+     "plant": "P1",
+     "unit": "PAST1",
+     "calibrated_on": "2026-09-01",
+     "as_found": "71.8 at 72.0",
+     "as_left": "72.0 at 72.0",
+     "tolerance": "0.25 degC",
+     "result": "adjusted",
+     "reference_standard": "RT-04",
+     "work_order": "WO-55311",
+     "next_due": "2026-12-01",
+     "performed_by": "I&C technician"
+    },
+    "source": {
+     "kind": "document",
+     "document": "CAL-PAST1",
+     "revision": "2026-10-31",
+     "sha256": "df315627c73dfa648e4a5909e01fd8265801a9945556f6edf65287aaccfa041b",
+     "path": "records/calibration_record.csv",
+     "locator": "row 2"
+    },
+    "status": "unverified"
+   },
+   {
+    "register": "calibration_record",
+    "id": "2026-02-01",
+    "item": "S1/P1/PAST1/FT-2203",
+    "scope": "S1/P1/PAST1",
+    "values": {
+     "tag": "FT-2203",
+     "plant": "P1",
+     "unit": "PAST1",
+     "calibrated_on": "2026-02-01",
+     "tolerance": "1 %",
+     "result": "pass",
+     "reference_standard": "Prover P-2",
+     "work_order": "WO-51002",
+     "next_due": "2026-08-01",
+     "performed_by": "I&C technician",
+     "note": "Overdue."
+    },
+    "source": {
+     "kind": "document",
+     "document": "CAL-PAST1",
+     "revision": "2026-10-31",
+     "sha256": "df315627c73dfa648e4a5909e01fd8265801a9945556f6edf65287aaccfa041b",
+     "path": "records/calibration_record.csv",
+     "locator": "row 3"
+    },
+    "status": "unverified"
+   }
+  ],
+  "relief_device_register": [
+   {
+    "register": "relief_device_register",
+    "id": null,
+    "item": "S1/P1/PAST1/PSV-2215",
+    "scope": "S1/P1/PAST1",
+    "values": {
+     "tag": "PSV-2215",
+     "plant": "P1",
+     "unit": "PAST1",
+     "protects": "E-2215",
+     "device_type": "Safety valve",
+     "set_pressure": "6 barg",
+     "capacity": "450 kg/h",
+     "sizing_basis": "CALC-2215",
+     "last_tested": "2026-03-02",
+     "test_interval_months": "24",
+     "next_due": "2028-03-02"
+    },
+    "source": {
+     "kind": "document",
+     "document": "RELIEF-PAST1",
+     "revision": "3",
+     "sha256": "ecf6c9404e6aed989b419561f7d4dc82767d78404042816d56c1b68100a286c3",
+     "path": "records/relief_device_register.csv",
+     "locator": "row 2"
+    },
+    "status": "unverified"
+   }
+  ],
+  "criticality_ranking": [
+   {
+    "register": "criticality_ranking",
+    "id": null,
+    "item": "S1/P1/PAST1/P-101",
+    "scope": "S1/P1/PAST1",
+    "values": {
+     "tag": "P-101",
+     "plant": "P1",
+     "unit": "PAST1",
+     "criticality": "A",
+     "method": "Site criticality matrix",
+     "method_document": "PROC-MAINT-04",
+     "safety_consequence": "2",
+     "food_safety_consequence": "5",
+     "production_consequence": "5",
+     "environmental_consequence": "1",
+     "likelihood": "3",
+     "risk_score": "15",
+     "ranked_on": "2026-05-20",
+     "ranked_by": "Reliability team",
+     "next_review": "2027-05-20"
+    },
+    "source": {
+     "kind": "document",
+     "document": "CRIT-P1",
+     "revision": "2026-05",
+     "sha256": "11fda7b884c9bd16d67970aeecedbe3f4e4bbe230a00cec0774f61de32c51db4",
+     "path": "records/criticality_ranking.csv",
+     "locator": "row 2"
+    },
+    "status": "unverified"
+   },
+   {
+    "register": "criticality_ranking",
+    "id": null,
+    "item": "S1/P1/PAST1/TT-2207",
+    "scope": "S1/P1/PAST1",
+    "values": {
+     "tag": "TT-2207",
+     "plant": "P1",
+     "unit": "PAST1",
+     "criticality": "A",
+     "method": "Site criticality matrix",
+     "method_document": "PROC-MAINT-04",
+     "safety_consequence": "1",
+     "food_safety_consequence": "5",
+     "production_consequence": "4",
+     "environmental_consequence": "1",
+     "likelihood": "3",
+     "risk_score": "15",
+     "ranked_on": "2026-05-20",
+     "ranked_by": "Reliability team",
+     "next_review": "2027-05-20"
+    },
+    "source": {
+     "kind": "document",
+     "document": "CRIT-P1",
+     "revision": "2026-05",
+     "sha256": "11fda7b884c9bd16d67970aeecedbe3f4e4bbe230a00cec0774f61de32c51db4",
+     "path": "records/criticality_ranking.csv",
+     "locator": "row 3"
+    },
+    "status": "unverified"
+   },
+   {
+    "register": "criticality_ranking",
+    "id": null,
+    "item": "S1/P1/PAST1/FDV-2210",
+    "scope": "S1/P1/PAST1",
+    "values": {
+     "tag": "FDV-2210",
+     "plant": "P1",
+     "unit": "PAST1",
+     "criticality": "A",
+     "method": "Site criticality matrix",
+     "method_document": "PROC-MAINT-04",
+     "safety_consequence": "2",
+     "food_safety_consequence": "5",
+     "production_consequence": "4",
+     "environmental_consequence": "1",
+     "likelihood": "2",
+     "risk_score": "10",
+     "ranked_on": "2026-05-20",
+     "ranked_by": "Reliability team",
+     "next_review": "2027-05-20"
+    },
+    "source": {
+     "kind": "document",
+     "document": "CRIT-P1",
+     "revision": "2026-05",
+     "sha256": "11fda7b884c9bd16d67970aeecedbe3f4e4bbe230a00cec0774f61de32c51db4",
+     "path": "records/criticality_ranking.csv",
+     "locator": "row 4"
+    },
+    "status": "unverified"
+   },
+   {
+    "register": "criticality_ranking",
+    "id": null,
+    "item": "S1/P1/CIP1/P-301",
+    "scope": "S1/P1/CIP1",
+    "values": {
+     "tag": "P-301",
+     "plant": "P1",
+     "unit": "CIP1",
+     "criticality": "A",
+     "method": "Site criticality matrix",
+     "method_document": "PROC-MAINT-04",
+     "safety_consequence": "3",
+     "food_safety_consequence": "2",
+     "production_consequence": "4",
+     "environmental_consequence": "2",
+     "likelihood": "2",
+     "risk_score": "8",
+     "ranked_on": "2026-05-20",
+     "ranked_by": "Reliability team",
+     "next_review": "2027-05-20"
+    },
+    "source": {
+     "kind": "document",
+     "document": "CRIT-P1",
+     "revision": "2026-05",
+     "sha256": "11fda7b884c9bd16d67970aeecedbe3f4e4bbe230a00cec0774f61de32c51db4",
+     "path": "records/criticality_ranking.csv",
+     "locator": "row 5"
+    },
+    "status": "unverified"
+   }
+  ],
+  "pm_plan": [
+   {
+    "register": "pm_plan",
+    "id": "PM-TT2207-CAL",
+    "item": "S1/P1/PAST1/TT-2207",
+    "scope": "S1/P1/PAST1",
+    "values": {
+     "pm_id": "PM-TT2207-CAL",
+     "tag": "TT-2207",
+     "plant": "P1",
+     "unit": "PAST1",
+     "task": "Calibrate hold tube RTD",
+     "interval": "3",
+     "interval_unit": "months",
+     "last_done": "2026-09-01",
+     "next_due": "2026-12-01",
+     "job_plan": "JP-0417"
+    },
+    "source": {
+     "kind": "document",
+     "document": "PM-P1",
+     "revision": "2026-10",
+     "sha256": "1072d8b57786eaeaef7293c3d3fba7852ac27f6c3ced88945f7539752dfec42a",
+     "path": "records/pm_plan.csv",
+     "locator": "row 2"
+    },
+    "status": "unverified"
+   }
+  ],
+  "glossary": [
+   {
+    "register": "glossary",
+    "id": "HTST",
+    "item": null,
+    "scope": "S1/P1/PAST1",
+    "values": {
+     "term": "HTST",
+     "plant": "P1",
+     "unit": "PAST1",
+     "synonyms": "high temperature short time",
+     "definition": "The HTST pasteurizer unit as a whole.",
+     "maps_to_item": "S1/P1/PAST1",
+     "owner": "Quality",
+     "certification": "certified",
+     "certified_by": "Quality lead",
+     "certified_on": "2026-10-20"
+    },
+    "source": {
+     "kind": "document",
+     "document": "GLOSSARY-P1",
+     "revision": "2",
+     "sha256": "2004d923b4b4930bb8d9037498f2bdf40d1f600cc4b1e1228f144b19ae3a0316",
+     "path": "records/glossary.csv",
+     "locator": "row 2"
+    },
+    "status": "unverified"
+   },
+   {
+    "register": "glossary",
+    "id": "hold tube",
+    "item": null,
+    "scope": "S1/P1/PAST1",
+    "values": {
+     "term": "hold tube",
+     "plant": "P1",
+     "unit": "PAST1",
+     "synonyms": "holding tube",
+     "definition": "The tube that holds product at pasteurizing temperature.",
+     "maps_to_class": "hold_tube",
+     "maps_to_item": "HT-100",
+     "owner": "Quality",
+     "certification": "certified",
+     "certified_by": "Quality lead",
+     "certified_on": "2026-10-20"
+    },
+    "source": {
+     "kind": "document",
+     "document": "GLOSSARY-P1",
+     "revision": "2",
+     "sha256": "2004d923b4b4930bb8d9037498f2bdf40d1f600cc4b1e1228f144b19ae3a0316",
+     "path": "records/glossary.csv",
+     "locator": "row 3"
+    },
+    "status": "unverified"
+   },
+   {
+    "register": "glossary",
+    "id": "divert valve",
+    "item": null,
+    "scope": "S1/P1/PAST1",
+    "values": {
+     "term": "divert valve",
+     "plant": "P1",
+     "unit": "PAST1",
+     "synonyms": "FDV|flow diversion valve",
+     "definition": "The valve that diverts under-temperature product.",
+     "maps_to_class": "divert_valve",
+     "maps_to_item": "FDV-2210",
+     "owner": "Quality",
+     "certification": "certified",
+     "certified_by": "Quality lead",
+     "certified_on": "2026-10-20"
+    },
+    "source": {
+     "kind": "document",
+     "document": "GLOSSARY-P1",
+     "revision": "2",
+     "sha256": "2004d923b4b4930bb8d9037498f2bdf40d1f600cc4b1e1228f144b19ae3a0316",
+     "path": "records/glossary.csv",
+     "locator": "row 4"
+    },
+    "status": "unverified"
+   },
+   {
+    "register": "glossary",
+    "id": "timing pump",
+    "item": null,
+    "scope": "S1/P1/PAST1",
+    "values": {
+     "term": "timing pump",
+     "plant": "P1",
+     "unit": "PAST1",
+     "synonyms": "metering pump",
+     "definition": "The pump whose speed sets the hold time.",
+     "maps_to_class": "positive_displacement_pump",
+     "maps_to_item": "P-101",
+     "owner": "Production",
+     "certification": "draft",
+     "note": "Proposed by the night shift; not certified."
+    },
+    "source": {
+     "kind": "document",
+     "document": "GLOSSARY-P1",
+     "revision": "2",
+     "sha256": "2004d923b4b4930bb8d9037498f2bdf40d1f600cc4b1e1228f144b19ae3a0316",
+     "path": "records/glossary.csv",
+     "locator": "row 5"
+    },
+    "status": "unverified"
+   },
+   {
+    "register": "glossary",
+    "id": "product pump",
+    "item": null,
+    "scope": "S1/P1/PAST1",
+    "values": {
+     "term": "product pump",
+     "plant": "P1",
+     "unit": "PAST1",
+     "definition": "Any pump moving product in the pasteurizer.",
+     "maps_to_class": "pump",
+     "owner": "Production",
+     "certification": "certified",
+     "certified_by": "Production lead",
+     "certified_on": "2026-10-20",
+     "note": "Names a class: links only where one pump is in scope."
+    },
+    "source": {
+     "kind": "document",
+     "document": "GLOSSARY-P1",
+     "revision": "2",
+     "sha256": "2004d923b4b4930bb8d9037498f2bdf40d1f600cc4b1e1228f144b19ae3a0316",
+     "path": "records/glossary.csv",
+     "locator": "row 6"
+    },
+    "status": "unverified"
+   }
+  ]
+ },
+ "glossary": [
+  {
+   "term": "HTST",
+   "phrases": [
+    "HTST",
+    "high temperature short time"
+   ],
+   "scope": "S1/P1/PAST1",
+   "maps_to_class": null,
+   "maps_to_item": "S1/P1/PAST1",
+   "owner": "Quality",
+   "certification": {
+    "status": "certified",
+    "by": "Quality lead",
+    "on": "2026-10-20"
+   },
+   "certified": true,
+   "definition": "The HTST pasteurizer unit as a whole.",
+   "source": {
+    "kind": "document",
+    "document": "GLOSSARY-P1",
+    "revision": "2",
+    "sha256": "2004d923b4b4930bb8d9037498f2bdf40d1f600cc4b1e1228f144b19ae3a0316",
+    "path": "records/glossary.csv",
+    "locator": "row 2"
+   },
+   "problem": null
+  },
+  {
+   "term": "hold tube",
+   "phrases": [
+    "hold tube",
+    "holding tube"
+   ],
+   "scope": "S1/P1/PAST1",
+   "maps_to_class": "hold_tube",
+   "maps_to_item": "S1/P1/PAST1/HT-100",
+   "owner": "Quality",
+   "certification": {
+    "status": "certified",
+    "by": "Quality lead",
+    "on": "2026-10-20"
+   },
+   "certified": true,
+   "definition": "The tube that holds product at pasteurizing temperature.",
+   "source": {
+    "kind": "document",
+    "document": "GLOSSARY-P1",
+    "revision": "2",
+    "sha256": "2004d923b4b4930bb8d9037498f2bdf40d1f600cc4b1e1228f144b19ae3a0316",
+    "path": "records/glossary.csv",
+    "locator": "row 3"
+   },
+   "problem": null
+  },
+  {
+   "term": "divert valve",
+   "phrases": [
+    "divert valve",
+    "FDV",
+    "flow diversion valve"
+   ],
+   "scope": "S1/P1/PAST1",
+   "maps_to_class": "divert_valve",
+   "maps_to_item": "S1/P1/PAST1/FDV-2210",
+   "owner": "Quality",
+   "certification": {
+    "status": "certified",
+    "by": "Quality lead",
+    "on": "2026-10-20"
+   },
+   "certified": true,
+   "definition": "The valve that diverts under-temperature product.",
+   "source": {
+    "kind": "document",
+    "document": "GLOSSARY-P1",
+    "revision": "2",
+    "sha256": "2004d923b4b4930bb8d9037498f2bdf40d1f600cc4b1e1228f144b19ae3a0316",
+    "path": "records/glossary.csv",
+    "locator": "row 4"
+   },
+   "problem": null
+  },
+  {
+   "term": "timing pump",
+   "phrases": [
+    "timing pump",
+    "metering pump"
+   ],
+   "scope": "S1/P1/PAST1",
+   "maps_to_class": "positive_displacement_pump",
+   "maps_to_item": "S1/P1/PAST1/P-101",
+   "owner": "Production",
+   "certification": {
+    "status": "draft",
+    "by": "",
+    "on": ""
+   },
+   "certified": false,
+   "definition": "The pump whose speed sets the hold time.",
+   "source": {
+    "kind": "document",
+    "document": "GLOSSARY-P1",
+    "revision": "2",
+    "sha256": "2004d923b4b4930bb8d9037498f2bdf40d1f600cc4b1e1228f144b19ae3a0316",
+    "path": "records/glossary.csv",
+    "locator": "row 5"
+   },
+   "problem": null
+  },
+  {
+   "term": "product pump",
+   "phrases": [
+    "product pump"
+   ],
+   "scope": "S1/P1/PAST1",
+   "maps_to_class": "pump",
+   "maps_to_item": null,
+   "owner": "Production",
+   "certification": {
+    "status": "certified",
+    "by": "Production lead",
+    "on": "2026-10-20"
+   },
+   "certified": true,
+   "definition": "Any pump moving product in the pasteurizer.",
+   "source": {
+    "kind": "document",
+    "document": "GLOSSARY-P1",
+    "revision": "2",
+    "sha256": "2004d923b4b4930bb8d9037498f2bdf40d1f600cc4b1e1228f144b19ae3a0316",
+    "path": "records/glossary.csv",
+    "locator": "row 6"
+   },
+   "problem": null
+  }
+ ],
+ "expectations": {
+  "rules_source": "expectations.json",
+  "rules_version": "1.1.0-draft",
+  "as_of": "2026-11-04",
+  "results": [
+   {
+    "rule": "R-CCP-COMPLETE",
+    "subject": "S1/P1/PAST1/TT-2207",
+    "scope": "S1/P1/PAST1",
+    "status": "complete",
+    "missing": [],
+    "not_evaluable": [],
+    "owner": "Quality"
+   },
+   {
+    "rule": "R-CCP-COMPLETE",
+    "subject": "S1/P1/PAST1/FT-2203",
+    "scope": "S1/P1/PAST1",
+    "status": "missing",
+    "missing": [
+     "critical_limit: no critical_limit_low or critical_limit_high on ccp CCP-2 (FT-2203)",
+     "calibration_in_date: calibration_record for FT-2203 does not qualify (CAL-PAST1 row 3: next_due 2026-08-01 before 2026-11-04)",
+     "verification_document: no verification_record document covers or mentions FT-2203"
+    ],
+    "not_evaluable": [],
+    "owner": "Quality"
+   },
+   {
+    "rule": "R-RELIEF-PROTECTS",
+    "subject": "S1/P1/CIP1/PSV-3101",
+    "scope": "S1/P1/CIP1",
+    "status": "not_evaluable",
+    "missing": [],
+    "not_evaluable": [
+     "tested: no relief_device_register or inspection_record covers S1/P1/CIP1"
+    ],
+    "owner": "Process safety"
+   },
+   {
+    "rule": "R-RELIEF-PROTECTS",
+    "subject": "S1/P1/PAST1/PSV-2215",
+    "scope": "S1/P1/PAST1",
+    "status": "complete",
+    "missing": [],
+    "not_evaluable": [],
+    "owner": "Process safety"
+   },
+   {
+    "rule": "R-RELIEF-PROTECTS",
+    "subject": "S1/P1/PAST1/PSV-2216",
+    "scope": "S1/P1/PAST1",
+    "status": "missing",
+    "missing": [
+     "protects: no protects link from PSV-2216 and no relief_device_register row for PSV-2216",
+     "tested: no relief_device_register row for PSV-2216 and no inspection_record row for PSV-2216"
+    ],
+    "not_evaluable": [],
+    "owner": "Process safety"
+   },
+   {
+    "rule": "R-LOOP-COMPLETE",
+    "subject": "S1/P1/PAST1/TIC-2207",
+    "scope": "S1/P1/PAST1",
+    "status": "complete",
+    "missing": [],
+    "not_evaluable": [],
+    "owner": "I&C"
+   },
+   {
+    "rule": "R-LOOP-COMPLETE",
+    "subject": "S1/P1/PAST1/FIC-2203",
+    "scope": "S1/P1/PAST1",
+    "status": "complete",
+    "missing": [],
+    "not_evaluable": [],
+    "owner": "I&C"
+   },
+   {
+    "rule": "R-LOOP-COMPLETE",
+    "subject": "S1/P1/PAST1/PIC-2240",
+    "scope": "S1/P1/PAST1",
+    "status": "draft_rule",
+    "missing": [
+     "measurement: measurement PI-2240 is a indicator, not a transmitter or primary_element or switch"
+    ],
+    "not_evaluable": [],
+    "owner": "I&C"
+   },
+   {
+    "rule": "R-CRITICAL-PM",
+    "subject": "S1/P1/PAST1/P-101",
+    "scope": "S1/P1/PAST1",
+    "status": "missing",
+    "missing": [
+     "pm_plan: no pm_plan row for P-101"
+    ],
+    "not_evaluable": [],
+    "owner": "Maintenance"
+   },
+   {
+    "rule": "R-CRITICAL-PM",
+    "subject": "S1/P1/PAST1/TT-2207",
+    "scope": "S1/P1/PAST1",
+    "status": "complete",
+    "missing": [],
+    "not_evaluable": [],
+    "owner": "Maintenance"
+   },
+   {
+    "rule": "R-CRITICAL-PM",
+    "subject": "S1/P1/PAST1/FDV-2210",
+    "scope": "S1/P1/PAST1",
+    "status": "missing",
+    "missing": [
+     "pm_plan: no pm_plan row for FDV-2210"
+    ],
+    "not_evaluable": [],
+    "owner": "Maintenance"
+   },
+   {
+    "rule": "R-CRITICAL-PM",
+    "subject": "S1/P1/CIP1/P-301",
+    "scope": "S1/P1/CIP1",
+    "status": "not_rolled_out",
+    "missing": [
+     "pm_plan: no pm_plan row for P-301"
+    ],
+    "not_evaluable": [],
+    "owner": "Maintenance"
+   }
+  ],
+  "by_rule": [
+   {
+    "rule": "R-CCP-COMPLETE",
+    "certification": "certified",
+    "subjects": 2,
+    "complete": 1,
+    "missing": 1,
+    "not_evaluable": 0,
+    "not_rolled_out": 0,
+    "rows_raised": 1
+   },
+   {
+    "rule": "R-RELIEF-PROTECTS",
+    "certification": "certified",
+    "subjects": 3,
+    "complete": 1,
+    "missing": 1,
+    "not_evaluable": 1,
+    "not_rolled_out": 0,
+    "rows_raised": 1
+   },
+   {
+    "rule": "R-LOOP-COMPLETE",
+    "certification": "draft",
+    "subjects": 3,
+    "complete": 2,
+    "missing": 1,
+    "not_evaluable": 0,
+    "not_rolled_out": 0,
+    "rows_raised": 1
+   },
+   {
+    "rule": "R-CRITICAL-PM",
+    "certification": "certified",
+    "subjects": 4,
+    "complete": 1,
+    "missing": 2,
+    "not_evaluable": 0,
+    "not_rolled_out": 1,
+    "rows_raised": 2
+   },
+   {
+    "rule": "R-PID-IN-CMMS",
+    "certification": "certified",
+    "subjects": 7,
+    "complete": 7,
+    "missing": 0,
+    "not_evaluable": 0,
+    "not_rolled_out": 0,
+    "rows_raised": 0
+   }
+  ]
+ },
+ "counts": {
+  "nodes": 32,
+  "edges": 66,
+  "claims": 71,
+  "conflicts": 2,
+  "questions": 0,
+  "events": 0
+ }
+}

@@ -14,6 +14,8 @@ Keep identity, source revision, uncertainty and disagreement visible when answer
 
 Use the existing [one-map tools](ONE_MAP.md), [qualified drawing-path questions](PID_GRAPH_QUESTIONS.md)
 and [context register](CONTEXT_REGISTER.md) for their documented inputs and questions.
+The [offline map explorer](../examples/map-explorer/README.md) makes built maps,
+sources, questions and previous/current snapshots available to people and agents.
 An engineer or their agent should be able to follow the answer back to its evidence,
 see the limits, and retain a reviewed contribution to the map.
 

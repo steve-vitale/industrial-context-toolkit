@@ -10115,3 +10115,45 @@ unverified. The matrix has 51 cells with absent optional source caches. Pipeline
 freshness remains 50/52; manual te.pid_live and te.replay receipts are stale.
 The new feature remains independently unreviewed. Exact-final-head full CI is a
 separate release gate recorded in PR48; pending checks are never counted as passes.
+
+## 240. Use the engineering map without building a work-management layer
+
+Steve corrected the proposed planner/readiness framing. The toolkit's focus is
+building and using the engineering context map: scoped identities, source-linked
+facts, relationships, questions, disagreements and revision comparison. Existing
+company systems or a managed product keep assignments, readiness and approvals.
+README, agent, manager, consulting and foundation routes now state that boundary.
+
+The existing tools already answer five kinds of item question and compare map
+snapshots. `map_explorer.py` adds a portable read-only HTML/JSON presentation,
+using those actual consumers and retaining exact snapshots, full node/incident
+edge records, subject conflicts and history, related record rows and optional
+hash-bound originals. It neither reads new images nor operates a maintained
+source service. Full snapshots retain metadata/events beyond dedicated views.
+Original-file bindings distinguish retained, missing, unbound, mismatched and
+unsafe references. Coverage and text mentions are not equipment applicability.
+
+Plan/key/baseline precede implementation (0dbfc70); manual source inspection then
+corrected a document-id typo (baac63a). The first export refused its own readback
+because embedded JSON key ordering differed; deterministic sorting repaired the
+formatting. The first browser check matched two correct navigation links; its
+test selector was corrected without changing the records. Both failures remain
+in the example. No human baseline search or saving was measured.
+
+Development passes 11 checks through five real separate-process CLIs. Freeze
+4c68897 precedes the preselected existing pasteurizer C-to-D and public OPEN100
+reading transfers: 17 checks through nine CLIs. Complete copied receiving packets
+are verified and source bytes inspected. Thirteen new regression methods and
+79 existing one-map/ontology/plant-workflow methods pass. Desktop1500/mobile420
+browser selection, neighbor navigation and revision absence/current checks pass
+without page errors, horizontal overflow or HTTP(S) requests. The browser
+connector's file-protocol refusal led to installed local Edge via Playwright.
+
+These are author-known procedural/software cases, not independent review,
+unfamiliar drawing accuracy, company receiving or timed engineer usefulness.
+The public route consumes an exposed unverified model reading. Verification
+regenerates views and checks bytes; an independently retained receipt hash is
+needed to bind a particular delivery. Internal consistency alone authenticates
+neither the sender nor a deliberately substituted whole package. No context
+answer is silently refreshed; existing context tools keep that separate step.
+Historical CAD/source-acquisition negatives and open human/company trials remain.

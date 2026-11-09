@@ -1,0 +1,77 @@
+{
+  "schema": "map-explorer-replay-1",
+  "phase": "transfer",
+  "checks": [
+    {
+      "check": "revision-explorer: complete copy/reopen bytes and delivery anchor",
+      "passed": true
+    },
+    {
+      "check": "revision-explorer: exact original current snapshot",
+      "passed": true
+    },
+    {
+      "check": "revision-explorer: every complete node",
+      "passed": true
+    },
+    {
+      "check": "revision-explorer: every full incident edge",
+      "passed": true
+    },
+    {
+      "check": "revision-explorer: all retained sources equal declared raw hashes",
+      "passed": true
+    },
+    {
+      "check": "previous snapshot retained exactly",
+      "passed": true
+    },
+    {
+      "check": "new transmitter absent before and represented after",
+      "passed": true
+    },
+    {
+      "check": "independent unit full node unchanged",
+      "passed": true
+    },
+    {
+      "check": "superseded document basis retained",
+      "passed": true
+    },
+    {
+      "check": "full comparison identifies new transmitter",
+      "passed": true
+    },
+    {
+      "check": "public-explorer: complete copy/reopen bytes and delivery anchor",
+      "passed": true
+    },
+    {
+      "check": "public-explorer: exact original current snapshot",
+      "passed": true
+    },
+    {
+      "check": "public-explorer: every complete node",
+      "passed": true
+    },
+    {
+      "check": "public-explorer: every full incident edge",
+      "passed": true
+    },
+    {
+      "check": "public-explorer: all retained sources equal declared raw hashes",
+      "passed": true
+    },
+    {
+      "check": "public reading remains unverified",
+      "passed": true
+    },
+    {
+      "check": "public provenance remains on selected source",
+      "passed": true
+    }
+  ],
+  "commands": 9,
+  "exposure": "All sources and keys are author-known existing public/fictional fixtures. No blind input or human trial.",
+  "claim": "Local software and portable receiving only; no human effort or plant acceptance."
+}

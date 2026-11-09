@@ -18,6 +18,13 @@ Network membership, physical adjacency and operating consequences require differ
 
 ## The path
 
+To **use a map you have built**, open the [offline map explorer](../examples/map-explorer/README.md).
+It connects item selection, sourced facts/questions, related documents, stored
+relationships, disagreements and previous/current snapshots in one read-only
+package. It retains complete maps and optional hash-bound originals. It does not
+qualify operating routes or manage work; use the path-review rules above when a
+route question needs them. An assistant can read the same exported JSON directly.
+
 For a bounded equipment/work-order comparison, you can start without P&ID sheets. The
 [ordinary-export example](../examples/agent-first-use/README.md) prepares equipment and closed-work records with
 an empty drawing register. This compares supplied values; it supplies no drawing geometry or connectivity.

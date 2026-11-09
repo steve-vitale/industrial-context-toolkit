@@ -15,6 +15,13 @@ Demonstrate a result with the existing [markup return](../pid-markup-review/READ
 Use the example appropriate to the buyer's problem, then inspect a permitted sample of their own records.
 Examples remain public teaching evidence; do not imply that fictional work came from a client.
 
+For an engineering context-map assignment, demonstrate the [offline explorer](../map-explorer/README.md):
+one scoped system, agreed source revisions, identity mappings, sourced questions,
+unresolved disagreements and a returned revision. Deliver the portable map and
+evidence to the client's existing review route, with owners for the original
+records. Acceptance concerns traceable records and reproducible receiving;
+job readiness, ongoing assignments and a managed service are separate scopes.
+
 For a history investigation, demonstrate the [offline asset-history packet](../maintenance-history/README.md).
 Propose one bounded asset/system scope, an agreed request/event-date selection, named source owner,
 explicit labor/material meanings and one returned export. Acceptance is traceable selected records,
