@@ -66,9 +66,11 @@ pixels and six exact identities match, with six source/candidate images actually
 inspected. Three-asset fresh receiving also completes: 151 observations, twelve
 editability checks and 28 views. Its 21 comparisons report zero outside-region
 pixels and fourteen exact identities match. Actual inspection of all fourteen
-source/candidate images nevertheless finds occluded unchanged labels/geometry
-inside permitted regions; complete readable delivery fails. Pixel masks and
-matching counterpart images cannot replace inspection. All six complete UI
+source/candidate images confirms all three planned MODEL changes and complete
+attribute labels in detail views. An initial occlusion assessment was wrong;
+[the correction](../examples/cad-handoff/qualification/final-validation-23/UI-VISUAL-DIAGNOSTIC.json)
+retains its original identities and decoded difference bounds. Bounded model-view
+success does not close native-save or paper/typography failures. All six complete UI
 packets, thirty comparisons and twenty inspected images replay offline.
 This is not whole native CAD qualification or independent
 plant validation. No plant review time, customer acceptance or engineering release

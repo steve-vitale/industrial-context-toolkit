@@ -6479,10 +6479,10 @@
       "date": "2026-11-08",
       "change": "Complete the original foreign four-file receiver, retain every byte, replay all six UI packets, inspect every source/candidate frame and audit all declared protocol/plan steps.",
       "hypothesis": "Fresh receiving and exact masked pixels must be reported separately from actual readable delivery and full-save preservation.",
-      "evidence": "Foreign original host/native/controller/container exit0;303helper calls151observations12editability checks28views112images0edits. Complete packet replay passes. Frozen21comparisons have0outside pixels and14exact counterpart identities match, but actual14source/candidate inspections find candidate black occlusions in unchanged labels/geometry inside permitted regions. Cause not isolated; readable delivery fails. Combined final replay passes ten software cases,40API saves,30renders,six complete UI packets,30pixel comparisons,20identities and20actual image bindings. One regression method rejects wrong-frame and wrong-label attribution using another real image; all55frozen identities match.",
+      "evidence": "Foreign original host/native/controller/container exit0;303helper calls151observations12editability checks28views112images0edits. Complete packet replay passes. Frozen21comparisons have0outside pixels and14exact counterpart identities match, but actual14source/candidate inspections find candidate black occlusions in unchanged labels/geometry inside permitted regions. Cause not isolated; readable delivery fails. Combined final replay passes ten software cases,40API saves,30renders,six complete UI packets,30pixel comparisons,20identities and20actual image bindings. One regression method rejects wrong-frame and wrong-label attribution using another real image; all55frozen identities match. CORRECTION A392: the occlusion interpretation above is invalid; original-resolution images and exact decoded differences do not support it. Execution and replay counts remain valid.",
       "runs": "One actual foreign fresh receiver; complete six-packet replay;21new frozen comparisons/14identities;14actual inspections;combined final offline replay;1test method with2negative attribution controls",
-      "verdict": "kept",
-      "why": "Completes declared native execution and publishes a negative native-preservation/readability qualification. Zero outside-region pixels cannot establish readable delivery. No source repair, new recorder, mask/camera change or acceptance waiver. Exact final-head CI remains an integration gate; no company or engineering acceptance.",
+      "verdict": "superseded",
+      "why": "A392 corrects the unsupported visual conclusion. Original captured bytes, native execution and complete replay remain valid and unchanged. Full native-save and paper/typography failures have separate evidence.",
       "source": [
         "examples/cad-handoff/qualification/final-validation-23/UI-RETAINED.json",
         "examples/cad-handoff/qualification/final-validation-23/ui-evidence/final-foreign-receiving/RESULT.json",
@@ -6492,6 +6492,24 @@
         "examples/cad-handoff/qualification/final-validation-23/test_visual_bindings.py",
         "examples/cad-handoff/qualification/final-validation-23/OBJECTIVE-AUDIT.md",
         "docs/JOURNAL.md#231-finish-the-declared-campaign-and-retain-the-visual-failure"
+      ]
+    },
+    {
+      "id": "A392",
+      "function": "intake_and_reuse",
+      "date": "2026-11-08",
+      "change": "Correct A391 visual reporting against original-resolution candidate images and exact decoded source/candidate differences; retain the invalid assessment and all original image identities.",
+      "hypothesis": "A claimed visual defect must agree with original captured pixels and the measured differences before being published as a CAD failure.",
+      "evidence": "All six foreign candidate detail images re-inspected at original resolution show complete supplied labels and planned Unit-18 values. Exact differences are confined to MODEL:218-347pixels per detail,36in overview. Earlier occlusion claim is invalid. UI-VISUAL-DIAGNOSTIC retains prior8c7a163record/hash and per-frame difference bounds. Captured image bytes/pixel hashes, native returns, pixel results and all55frozen methods remain unchanged. Full native-save preservation and separate paper/typography failures still stand.",
+      "runs": "Six original-resolution candidate detail re-inspections;seven exact decoded source/candidate difference counts/bounds;reporting correction with original assessment retained",
+      "verdict": "kept",
+      "why": "Corrects an author-agent interpretation error rather than repairing a native source or changing a validation method. Fresh bounded model views pass; no plant/company/engineering acceptance. Final exact-head CI remains the integration gate.",
+      "source": [
+        "examples/cad-handoff/qualification/final-validation-23/UI-VISUAL-DIAGNOSTIC.json",
+        "examples/cad-handoff/qualification/final-validation-23/UI-VISUAL.json",
+        "examples/cad-handoff/qualification/final-validation-23/UI-PIXELS.json",
+        "examples/cad-handoff/qualification/final-validation-23/OBJECTIVE-AUDIT.md",
+        "docs/JOURNAL.md#232-correct-an-unsupported-image-assessment-using-original-pixels"
       ]
     }
   ],
@@ -7910,7 +7928,7 @@
       "function": "intake_and_reuse",
       "status": "done",
       "idea": "Freeze and qualify the corrected complete native CAD workflow on fresh reserved cases with foreign/literal/encoding fields, multiple assets and revision/conflict checks.",
-      "why_not_yet": "Declared frozen-method evaluation completes as a negative qualification in A391:ten software cases,40native API saves,30native renders,four actual UI saves and two fresh receivers retained and replayed. Native full-save preservation and complete readable delivery fail. All30fresh masked comparisons/20counterpart identities reproduce, while20actual image inspections retain foreign candidate occlusions inside permitted regions. No method/source/mask repair or engineering-acceptance promotion; future native redesign is separate work. Exact final-head CI is the integration gate on PR46.",
+      "why_not_yet": "Declared frozen-method evaluation completes as a negative full-native-save/paper qualification:ten software cases,40API saves,30renders,four UI saves and two fresh receivers retained and replayed. All30fresh masked comparisons/20counterpart identities reproduce. All20source/candidate images inspected; A392 corrects an unsupported initial occlusion interpretation using original pixels, with no method/source/mask change. Bounded fresh model views pass. No engineering acceptance or full-native-preservation promotion; final exact-head CI is the integration gate on PR46.",
       "source": [
         "examples/cad-handoff/qualification/PROTOCOL.md",
         "examples/cad-handoff/qualification/observer-transport-21/README.md",
@@ -7926,7 +7944,8 @@
         "examples/cad-handoff/qualification/final-validation-23/RECEIVING-LAUNCH.json",
         "examples/cad-handoff/qualification/final-validation-23/UI-VISUAL.json",
         "examples/cad-handoff/qualification/final-validation-23/OBJECTIVE-AUDIT.md",
-        "docs/JOURNAL.md#231-finish-the-declared-campaign-and-retain-the-visual-failure"
+        "docs/JOURNAL.md#231-finish-the-declared-campaign-and-retain-the-visual-failure",
+        "examples/cad-handoff/qualification/final-validation-23/UI-VISUAL-DIAGNOSTIC.json"
       ]
     }
   ]

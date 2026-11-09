@@ -10,9 +10,10 @@ now passes its software/loss/refusal/revision controls; all forty native API sav
 still fail strict preservation. Thirty actual model/paper exports retain their
 readability limits. All four predetermined UI saves and both fresh receivers
 finish normally. All six packets, thirty frozen comparisons and twenty inspected
-images replay offline. The foreign candidate views have occluded unchanged
-labels/geometry even though outside-region differences are zero; full native
-preservation and complete readable delivery fail. For the engineer/manager task, start with
+images replay offline. Actual foreign detail views show all planned values and
+complete attribute labels; an initial contrary image assessment is
+[corrected](final-validation-23/UI-VISUAL-DIAGNOSTIC.json). Full native-save
+preservation and complete readable paper/typographic delivery still fail. For the engineer/manager task, start with
 [drawing receiving](../../../docs/DRAWING_HANDOFF.md) and
 [current qualification scope/results](../../../docs/CAD_QUALIFICATION.md).
 

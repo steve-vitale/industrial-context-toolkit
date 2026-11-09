@@ -54,14 +54,17 @@ remain separate. The three-asset fresh receiver also finishes normally with
 151 observations, twelve editability checks, 28 views/112 images and zero edits.
 Its complete packet replays; 21 comparisons report zero outside-region pixels
 and all fourteen counterpart identities match. All fourteen source/candidate
-images are actually inspected. Candidate detail images contain black occlusions
-interrupting unchanged labels/identity and nearby geometry. Those defects lie
-inside the permitted comparison regions: **zero outside-region pixels does not
-mean readable delivery passes**. Their rendering cause is not isolated; exact
-counterpart agreement does not explain them away. No mask, camera or source is
-changed. Across both fresh receivers: 30 comparisons, twenty exact identities
-and twenty actual source/candidate inspections. Full native preservation and
-complete readable delivery remain failed qualifications.
+images are actually inspected. The three planned Unit-17 to Unit-18 changes
+are visible, with complete rotated attribute labels readable in the detail
+frames. Small overview text and crossing geometry remain explicit. The initial
+visual assessment incorrectly reported occlusions; original-resolution
+reinspection and exact decoded differences do not support that claim. The
+[invalid assessment and correction](UI-VISUAL-DIAGNOSTIC.json) retain its original
+image identities and observed difference bounds. No drawing, image, mask, camera
+or frozen method changed. Across both fresh receivers: 30 comparisons, twenty
+exact identities and twenty actual source/candidate inspections. Full native-save
+preservation and complete readable paper/typographic delivery remain failed
+qualifications, separately from these successful bounded model views.
 The [objective audit](OBJECTIVE-AUDIT.md) maps the work to the original requirements
 and keeps failed and unfinished gates distinct.
 

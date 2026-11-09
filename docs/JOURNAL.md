@@ -9911,6 +9911,10 @@ qualification promotion is made.
 
 ## 231. Finish the declared campaign and retain the visual failure
 
+**Correction in section 232:** the occlusion assessment below is invalid. It is
+retained as the original interpretation, not a current CAD defect claim. Complete
+execution counts and replay results remain valid.
+
 The original three-asset fresh receiver finishes normally without restart:
 303helper calls,151observations,12editable-field checks,28views/112images and
 zero edits. Retain its complete packet and original runtime bytes; all source,
@@ -9947,3 +9951,26 @@ review and company release remain unmeasured.
 A separate pipeline status check reports50/52fresh stages;TE live/replay stages
 are stale against changed replay-server code. No unrelated TE runtime is started
 and no whole-repository freshness claim is made.
+
+## 232. Correct an unsupported image assessment using original pixels
+
+The initial image interpretation in A391 incorrectly reported black occlusions
+in foreign candidate views. Reinspect all six actual candidate details at original
+resolution and compare exact decoded source/candidate pixels. Complete identity,
+TAG, MODEL, serial, DN50 and literal foreign labels are visible; all three MODEL
+changes read Unit-18. Source values read Unit-17. Detail differences total218-347
+pixels, with bounds around the changed final digit; the overview has36changed
+pixels across three assets. This does not support the earlier occlusion claim.
+Do not invent a CAD or viewer root cause for an interpretation error.
+
+Retain the invalid visual record, original committed file hash, source commit and
+per-frame decoded difference counts/bounds in UI-VISUAL-DIAGNOSTIC.json. Correct
+current observations and every front-door claim. Original captured PNG hashes,
+decoded pixel hashes, native files, comparison results, masks, cameras and all55
+frozen methods stay unchanged. The reporter was wrong; this is not a repaired
+native candidate or tuning on reserved results. A392 supersedes A391's visual
+conclusion while preserving its valid execution/replay evidence.
+
+The bounded fresh model views succeed. Native full-save preservation and broader
+paper/typographic readability failures remain independently evidenced. Final CI
+must reproduce the corrected reporting version before completion.

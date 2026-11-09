@@ -21,7 +21,7 @@ and all 55 frozen method identities remain unchanged.
 | 1. Exact source/before values; retain unplanned content | [Software results](SOFTWARE-RESULT.json), all ten sources/plans, refusal controls | All ten value-span candidates pass declared strict and independent raw checks. Native full saves remain separate failures. |
 | 2. Independent source-plus-plan reconstruction | Complete [software packet](SOFTWARE-RETAINED.json), unchanged byte checker | All ten candidates reconstruct exactly; all ten library-save baselines fail raw reconstruction, including nine with strict zero. |
 | 3. Strict zero and fresh native stored values | Forty [API saves](API-RETAINED.json), complete compressed receipt, six [UI packets](UI-RETAINED.json) | Complete supplied fields match on all ten API cases. All forty native saves fail strict preservation. Public UI baseline/edit each retain298strict differences; foreign baseline/edit each retain334. Full native qualification fails. |
-| 4. Same native frames/profile and actual inspection | [Thirty render observations](RENDER-VISUAL.json), [fresh pixels](UI-PIXELS.json), [twenty inspected views](UI-VISUAL.json) | Thirty fresh comparisons report zero outside-region pixels; twenty counterpart identities match. Foreign candidate views nevertheless occlude unchanged labels/geometry inside permitted regions. Complete readable delivery fails; cause not isolated. No mask/camera changes. |
+| 4. Same native frames/profile and actual inspection | [Thirty render observations](RENDER-VISUAL.json), [fresh pixels](UI-PIXELS.json), [twenty inspected views](UI-VISUAL.json) | Thirty fresh comparisons report zero outside-region pixels; twenty counterpart identities match. All three planned foreign MODEL changes and complete attribute labels are visible in detail views. An initial contrary assessment is corrected in UI-VISUAL-DIAGNOSTIC.json; actual captured bytes and masks are unchanged. Full paper/typographic delivery still fails separately. |
 | 5. Actual UI edit/save/close/reopen, fields and returns | Four save packets, [pre-fresh return pins](UI-RETURNS.json), both fresh receivers | All six executions finish normally. All three planned foreign MODEL edits commit. Public fresh: 79 observations / 4 editable-field checks / 12 views. Foreign fresh: 151 / 12 / 28. Complete inventory replay retains original runtime/config bytes. Field operation does not close preservation/readability failures. |
 | 6. Revised source and concurrent changes | All ten conflict/correction/original-scope resubmissions; [actual second-return receiving](../../../drawing-handoff/native-second-revision/README.md) | Stale proposals refuse; source/basis changes remain explicit; collateral findings and pending authority survive correction and portable replay. No installed record overwritten. |
 | 7. Refusals and planted losses | 90 refusals and 42 applicable deliberately wrong outputs in the software packet; exposed native revision/loss controls | Declared controls detect supplied faults. Foreign/XDATA losses are explicitly unavailable where public fixtures lack those records. Not every possible corruption. |
@@ -48,9 +48,11 @@ outcomes rather than reasons to start another native campaign.
 
 Runtime-packaging omissions, the palette-analysis error and cross-version PNG
 encoding comparison failure are recorded with evidence and corrected replay
-controls. Separate packaging/replay does not alter frozen native methods, strict
-comparison, raw reconstruction, masks or camera. Unknown rendering causes and
-unresolved native differences remain failures.
+controls. An invalid initial fresh-image visual assessment is separately retained
+and corrected by original-resolution inspection and exact decoded differences.
+Separate packaging/replay and this reporting correction do not alter frozen native
+methods, strict comparison, raw reconstruction, masks or camera. Unresolved native
+preservation differences remain failures.
 
 ## What remains outside this experiment
 

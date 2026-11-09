@@ -55,8 +55,10 @@ All four predetermined UI baseline/edit executions complete normally, retaining
 nine frozen model comparisons and six actual source/candidate image inspections
 complete. Three-asset fresh receiving also finishes: 151 observations, 12 editability
 checks, 28 views; 21 comparisons report zero outside-region pixels and 14 identities
-match. Actual inspection of all 14 source/candidate images finds occluded unchanged
-labels/geometry inside permitted regions. Readable delivery still fails. All six
+match. Original-resolution inspection of all 14 source/candidate images confirms
+planned values and complete attribute labels in detail views. An initial
+occlusion assessment is [corrected with retained evidence](../examples/cad-handoff/qualification/final-validation-23/UI-VISUAL-DIAGNOSTIC.json).
+Full-save preservation and paper/typographic delivery still fail. All six
 complete UI packets, 30 comparisons and 20 inspected image bindings reproduce offline.
 The previous branch CI failure was [PNG encoding equality](../examples/cad-handoff/qualification/full-ui-22/CI-PNG-ENCODING.md),
 reproduced with CI's Pillow version and corrected to exact decoded-pixel checks;
