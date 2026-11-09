@@ -1,0 +1,23 @@
+{
+ "schema": "one-map-sheet-1",
+ "note": "Hand-authored stand-in for fictional P&ID 300-01 rev A. Plant 2 also has a P-101; ids keep them apart.",
+ "equipment": [
+  {"tag": "P-101", "name": "Product pump", "zone": "B3"},
+  {"tag": "V-301", "name": "Product drum", "zone": "C2"}
+ ],
+ "instruments": [
+  {"tag": "FT-3101", "zone": "D3", "on": "P-101"},
+  {"tag": "FIC-3101", "zone": "D2"},
+  {"tag": "FV-3101", "zone": "D3", "on": "V-301"}
+ ],
+ "signal_lines": [["FT-3101", "FIC-3101"], ["FIC-3101", "FV-3101"]],
+ "lines": [
+  {"id": "L1", "from": "V-301", "to": "P-101"},
+  {"id": "L2", "from": "OPC-CWS", "to": "V-301"}
+ ],
+ "systems": [{"id": "CW", "name": "Cooling water (drawn as if Plant 2 owned it)"}],
+ "offpage": [
+  {"id": "OPC-CWS", "name": "Cooling water supply", "zone": "A1", "system": "CW",
+   "to": {"plant": "UTIL", "sheet": "CW-01", "connector": "OPC-P2"}, "attributes": {"size": "6 in"}}
+ ]
+}

@@ -1,0 +1,28 @@
+{
+ "schema": "one-map-sheet-1",
+ "note": "Hand-authored stand-in for what a drawing reader returns for fictional P&ID 200-01 rev D: tags with zones, lines, signal lines and off-page connectors.",
+ "equipment": [
+  {"tag": "P-101", "name": "Feed pump", "zone": "B2", "former_tag": "FP-01", "attributes": {"rated_flow": "45 m3/h"}},
+  {"tag": "V-204", "name": "Feed surge drum", "zone": "D3", "attributes": {"design_pressure": "12 barg"}}
+ ],
+ "instruments": [
+  {"tag": "FT-2203", "zone": "C2", "on": "P-101"},
+  {"tag": "FIC-2203", "zone": "C1"},
+  {"tag": "FV-2203", "zone": "C2", "on": "V-204"},
+  {"tag": "PSV-204", "zone": "D2", "on": "V-204"},
+  {"tag": "PT-2210", "zone": "E3", "on": "V-204"},
+  {"tag": "PIC-2210", "zone": "E2"},
+  {"tag": "PV-2210", "zone": "E3", "on": "V-204"},
+  {"tag": "TE-2207A", "zone": "D4", "on": "V-204"},
+  {"tag": "TE-2207B", "zone": "D4", "on": "V-204"}
+ ],
+ "signal_lines": [["FT-2203", "FIC-2203"], ["FIC-2203", "FV-2203"], ["PT-2210", "PIC-2210"], ["PIC-2210", "PV-2210"]],
+ "lines": [
+  {"id": "L1", "from": "P-101", "to": "V-204", "attributes": {"size": "3 in"}},
+  {"id": "L2", "from": "V-204", "to": "OPC-1", "attributes": {"size": "3 in"}}
+ ],
+ "offpage": [
+  {"id": "OPC-1", "name": "Feed to cooler", "zone": "F3", "to": {"plant": "P1", "sheet": "200-02", "connector": "OPC-2"},
+   "attributes": {"fluid": "feed"}}
+ ]
+}

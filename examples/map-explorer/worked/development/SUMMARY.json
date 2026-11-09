@@ -1,0 +1,53 @@
+{
+  "schema": "map-explorer-replay-1",
+  "phase": "development",
+  "checks": [
+    {
+      "check": "explorer: complete copy/reopen bytes and delivery anchor",
+      "passed": true
+    },
+    {
+      "check": "explorer: exact original current snapshot",
+      "passed": true
+    },
+    {
+      "check": "explorer: every complete node",
+      "passed": true
+    },
+    {
+      "check": "explorer: every full incident edge",
+      "passed": true
+    },
+    {
+      "check": "explorer: all retained sources equal declared raw hashes",
+      "passed": true
+    },
+    {
+      "check": "separate expected attribute and source locator",
+      "passed": true
+    },
+    {
+      "check": "separate expected disagreement and record owner",
+      "passed": true
+    },
+    {
+      "check": "same-tag separate scope",
+      "passed": true
+    },
+    {
+      "check": "all supported question kinds",
+      "passed": true
+    },
+    {
+      "check": "ambiguous document reference remains a conflict",
+      "passed": true
+    },
+    {
+      "check": "ambiguous refusal creates no output",
+      "passed": true
+    }
+  ],
+  "commands": 5,
+  "exposure": "All sources and keys are author-known existing public/fictional fixtures. No blind input or human trial.",
+  "claim": "Local software and portable receiving only; no human effort or plant acceptance."
+}
