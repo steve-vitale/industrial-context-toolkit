@@ -30,4 +30,7 @@ if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
     for name in ('attempt','host'):p.add_argument(name,type=Path)
     p.add_argument('name');a=p.parse_args();r=retain(a.attempt,a.host,a.name)
-    print(r['case'],r['role'],r['views'],'views',r['native_strict'].get('unexpected'),'strict differences; whole qualification remains false')
+    strict=r['native_strict'].get('unexpected')
+    print(r['case'],r['role'],r['views'],'views;',
+          str(strict)+' strict differences' if strict is not None else 'receiving role does not reclassify the parent strict failures',
+          '; whole qualification remains false')

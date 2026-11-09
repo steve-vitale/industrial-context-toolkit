@@ -42,8 +42,16 @@ foreign baseline/edit each retain 334. All three planned foreign-case MODEL edit
 commit; the complete fields and editability checks remain bound to each source.
 All four complete packet inventories replay, including original runtime bytes.
 The exact four returns and parent packets are committed at `e3c7899` before either
-fresh receiver starts. Both original fresh four-file processes are now running;
-their complete receiving and exact-frame visual checks remain unfinished.
+fresh receiver starts. The public fresh four-file receiver finishes normally:
+79 observations, four editability checks, twelve views/48 images and zero edits.
+Its complete packet replays. Nine frozen pixel comparisons have zero changes
+outside the declared text regions; six exact frame identities match. All six
+source/candidate images are actually inspected: the declared value change and
+complete asset labels are visible, while the separate disclaimer is clipped in
+detail frames and visible in overview. These are model observations, not paper or
+engineering acceptance. [Pixel artifacts](UI-PIXELS.json) and [image observations](UI-VISUAL.json)
+remain separate. The three-asset fresh receiver is still running; its complete
+receiving and exact-frame visual checks remain unfinished.
 Those checks, exact-head CI and the final objective audit prevent a
 whole-workflow completion claim. Full native preservation already fails.
 The [objective audit](OBJECTIVE-AUDIT.md) maps the work to the original requirements
@@ -58,10 +66,11 @@ bytes are retained separately in `ui-support/`. `receive_ui.py` restores them an
 the exact configuration from its already-public, externally bound pre-final
 parent packet. This avoids publishing configuration contents in new packets and
 still requires **every original file, size and hash** under the unchanged full
-inventory check. All four currently completed UI packets replay through it;
+inventory check. All five currently completed UI packets replay through it;
 the initial incomplete packaging is retained rather than rewritten.
 The fourth packet carries its exact runtime cache in `runtime-support/` beside
-the main archive. No native configuration contents are newly published.
+the main archive. Subsequent completed receivers use that same retention route.
+No native configuration contents are newly published.
 
 ## Reproduce completed checks offline
 

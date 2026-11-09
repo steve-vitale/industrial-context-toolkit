@@ -1,5 +1,5 @@
 {
-  "scope": "Exact completed actual native UI packets; fresh receiving not yet launched",
+  "scope": "Externally pinned completed original native UI save/reopen and fresh receiving packets; complete original inventories required",
   "attempts": {
     "public-air-water-baseline": {
       "inventory_sha256": "e4a2ad28ea616c8aae62c878de7d4677dce58d9d333ddb33e019c90aee1dbc91",
@@ -31,6 +31,19 @@
       "runtime_support": {
         "inventory_sha256": "6637c12441a5f6de8b2f045f1341c5afd2a7dd23c57946ab4de1acf3354a69cf",
         "archive_sha256": "f91069eaccf23ad78d6cb5e926c9a98060830e15c3e6a88850a671de268646ac",
+        "files": 9,
+        "raw_bytes": 85214
+      }
+    },
+    "public-air-water-receiving": {
+      "inventory_sha256": "48ca6ceaf64dbd4d95921bdd077916e9de349945d496cdb8e88c6ba93398d820",
+      "archive_sha256": "90e7691d1d4fc00f961792aab9348d6f50cab20f61bd0cb5103391281f63c913",
+      "files": 1367,
+      "raw_bytes": 25749037,
+      "result_sha256": "fe3630603989455017e330ad3ae46c66c5e8d15edb9be7c9e6729130d6ef4544",
+      "runtime_support": {
+        "inventory_sha256": "992e82c5358b0b4f88ef974ae48da6809ef9d1a2fdc0a617f436119c49f6f65d",
+        "archive_sha256": "7193d94bb26f9df66d790de770a0cad3dcc7bbbec10720991b16737799f74cfa",
         "files": 9,
         "raw_bytes": 85214
       }

@@ -9880,3 +9880,31 @@ launch at commit e3c7899. Both original fresh four-file receivers then start in
 new containers, using the unchanged method. No new source, camera, font or mask
 variant is introduced. Their receiving/pixel/actual-visual gates and final CI
 remain unfinished. No independent plant or organizational acceptance is inferred.
+
+## 230. Complete fresh public receiving and inspect every model frame
+
+The original reserved public four-file receiver exits normally, with159helper
+calls,79observations, four editability checks, twelve views/48images and zero
+edits. Complete inventory/source/parent/field/host replay succeeds, retaining
+all actual runtime bytes and using the exact already-public configuration.
+The frozen pixel method gives nine comparisons with zero outside-region pixels
+and six exact identities. Every source/candidate overview/asset/label frame is
+actually viewed. The declared QUAL-BEFORE to QUAL-AFTER change and complete
+asset labels are visible. The separate long disclaimer is clipped in detail
+frames and visible in overview; the label-detail frame also clips the symbol,
+which is shown in overview. Font substitution and paper/engineering limits
+remain explicit. Original native saves still have298strict differences each.
+
+Bind all six actual images by archive member, original byte hash, decoded pixel
+hash, mode and dimensions. Retain the exact original generated difference images;
+offline replay reproduces the entire frozen pixel result and exact decoded
+pixels/mode/size, with original artifact byte pins unchanged. The completed-case
+inventory requires every source/candidate frame, not a favorable subset.
+The public full packet and complete pixel/image-binding replay both pass.
+
+Both757a586 CIs now succeed, as does154da39 push CI. Its actual log reports98/98
+programs passed, zero failed and37individual unittest cases skipped; the native
+handoff/receiving/resubmission programs pass. This is not a zero-skip or engineering
+acceptance result. Newer exact-head CI and the still-live three-asset fresh
+receiver/pixels/actual-visual checks remain unfinished. No native restart or
+qualification promotion is made.

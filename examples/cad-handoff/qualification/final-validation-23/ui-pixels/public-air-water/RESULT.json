@@ -1,0 +1,251 @@
+{
+  "case": "public-air-water",
+  "comparisons": [
+    {
+      "frame": "overview",
+      "left": "source",
+      "right": "baseline",
+      "difference_image": "overview-source-baseline.png",
+      "changed_pixels": 0,
+      "outside_permitted_regions": 0,
+      "permitted_regions": [],
+      "pixel_status": "pass",
+      "size": [
+        693,
+        612
+      ]
+    },
+    {
+      "frame": "overview",
+      "left": "source",
+      "right": "candidate",
+      "difference_image": "overview-source-candidate.png",
+      "changed_pixels": 341,
+      "outside_permitted_regions": 0,
+      "permitted_regions": [
+        {
+          "id": "AUTHORED-QUAL/public-air-water/1",
+          "attribute": "MANUFACTURER",
+          "rectangle": [
+            168,
+            314,
+            258,
+            330
+          ]
+        }
+      ],
+      "pixel_status": "pass",
+      "size": [
+        693,
+        612
+      ]
+    },
+    {
+      "frame": "overview",
+      "left": "baseline",
+      "right": "edited",
+      "difference_image": "overview-baseline-edited.png",
+      "changed_pixels": 341,
+      "outside_permitted_regions": 0,
+      "permitted_regions": [
+        {
+          "id": "AUTHORED-QUAL/public-air-water/1",
+          "attribute": "MANUFACTURER",
+          "rectangle": [
+            168,
+            314,
+            258,
+            330
+          ]
+        }
+      ],
+      "pixel_status": "pass",
+      "size": [
+        693,
+        612
+      ]
+    },
+    {
+      "frame": "asset-1",
+      "left": "source",
+      "right": "baseline",
+      "difference_image": "asset-1-source-baseline.png",
+      "changed_pixels": 0,
+      "outside_permitted_regions": 0,
+      "permitted_regions": [],
+      "pixel_status": "pass",
+      "size": [
+        693,
+        612
+      ]
+    },
+    {
+      "frame": "asset-1",
+      "left": "source",
+      "right": "candidate",
+      "difference_image": "asset-1-source-candidate.png",
+      "changed_pixels": 974,
+      "outside_permitted_regions": 0,
+      "permitted_regions": [
+        {
+          "id": "AUTHORED-QUAL/public-air-water/1",
+          "attribute": "MANUFACTURER",
+          "rectangle": [
+            173,
+            260,
+            343,
+            286
+          ]
+        }
+      ],
+      "pixel_status": "pass",
+      "size": [
+        693,
+        612
+      ]
+    },
+    {
+      "frame": "asset-1",
+      "left": "baseline",
+      "right": "edited",
+      "difference_image": "asset-1-baseline-edited.png",
+      "changed_pixels": 974,
+      "outside_permitted_regions": 0,
+      "permitted_regions": [
+        {
+          "id": "AUTHORED-QUAL/public-air-water/1",
+          "attribute": "MANUFACTURER",
+          "rectangle": [
+            173,
+            260,
+            343,
+            286
+          ]
+        }
+      ],
+      "pixel_status": "pass",
+      "size": [
+        693,
+        612
+      ]
+    },
+    {
+      "frame": "labels-1",
+      "left": "source",
+      "right": "baseline",
+      "difference_image": "labels-1-source-baseline.png",
+      "changed_pixels": 0,
+      "outside_permitted_regions": 0,
+      "permitted_regions": [],
+      "pixel_status": "pass",
+      "size": [
+        693,
+        612
+      ]
+    },
+    {
+      "frame": "labels-1",
+      "left": "source",
+      "right": "candidate",
+      "difference_image": "labels-1-source-candidate.png",
+      "changed_pixels": 1171,
+      "outside_permitted_regions": 0,
+      "permitted_regions": [
+        {
+          "id": "AUTHORED-QUAL/public-air-water/1",
+          "attribute": "MANUFACTURER",
+          "rectangle": [
+            115,
+            251,
+            310,
+            279
+          ]
+        }
+      ],
+      "pixel_status": "pass",
+      "size": [
+        693,
+        612
+      ]
+    },
+    {
+      "frame": "labels-1",
+      "left": "baseline",
+      "right": "edited",
+      "difference_image": "labels-1-baseline-edited.png",
+      "changed_pixels": 1171,
+      "outside_permitted_regions": 0,
+      "permitted_regions": [
+        {
+          "id": "AUTHORED-QUAL/public-air-water/1",
+          "attribute": "MANUFACTURER",
+          "rectangle": [
+            115,
+            251,
+            310,
+            279
+          ]
+        }
+      ],
+      "pixel_status": "pass",
+      "size": [
+        693,
+        612
+      ]
+    }
+  ],
+  "exact_identities": [
+    {
+      "frame": "overview",
+      "left": "source",
+      "right": "baseline",
+      "identical_pixels": true,
+      "left_sha256": "b43911bf42e542b3035546e05454b350d1897f71e3a3c018ccc28d677c8e025a",
+      "right_sha256": "b43911bf42e542b3035546e05454b350d1897f71e3a3c018ccc28d677c8e025a"
+    },
+    {
+      "frame": "overview",
+      "left": "candidate",
+      "right": "edited",
+      "identical_pixels": true,
+      "left_sha256": "bfff82250b37c71c6f4fae97144fee3de8bd216c564dd73fd2554140748c1c88",
+      "right_sha256": "bfff82250b37c71c6f4fae97144fee3de8bd216c564dd73fd2554140748c1c88"
+    },
+    {
+      "frame": "asset-1",
+      "left": "source",
+      "right": "baseline",
+      "identical_pixels": true,
+      "left_sha256": "b1d6b4b0a9236f213d1eed37c72614b4b01c5a702ec25e349cba3742cc502306",
+      "right_sha256": "b1d6b4b0a9236f213d1eed37c72614b4b01c5a702ec25e349cba3742cc502306"
+    },
+    {
+      "frame": "asset-1",
+      "left": "candidate",
+      "right": "edited",
+      "identical_pixels": true,
+      "left_sha256": "c06ae68a81e9d38472babc4edd55388c4c4c6fa72f9bcb14b671a0d7e8297a5f",
+      "right_sha256": "c06ae68a81e9d38472babc4edd55388c4c4c6fa72f9bcb14b671a0d7e8297a5f"
+    },
+    {
+      "frame": "labels-1",
+      "left": "source",
+      "right": "baseline",
+      "identical_pixels": true,
+      "left_sha256": "57a1cc4725191298722c478ffb0b05ac853dff9b1979baccf781dc3a5798c087",
+      "right_sha256": "57a1cc4725191298722c478ffb0b05ac853dff9b1979baccf781dc3a5798c087"
+    },
+    {
+      "frame": "labels-1",
+      "left": "candidate",
+      "right": "edited",
+      "identical_pixels": true,
+      "left_sha256": "999781e4c1a9e1d0a2dc71af68fbe4220cc73f988a0ff01da1492107b2be587d",
+      "right_sha256": "999781e4c1a9e1d0a2dc71af68fbe4220cc73f988a0ff01da1492107b2be587d"
+    }
+  ],
+  "outside_pixels": 0,
+  "all_exact_identities": true,
+  "visual_inspection": "separate gate",
+  "whole_cad_qualified": false
+}

@@ -60,8 +60,10 @@ strict preservation. Thirty native model/paper images are retained and inspected
 the five newly authored paper cases display content, with readability/font limits.
 Matched native UI baseline/edit/save/reopen completes on the two predetermined
 cases: both public returns have 298 strict differences and both three-asset
-foreign returns have 334. All planned edits commit. Their two fresh receiving
-processes are running. This is not whole native CAD qualification or independent
+foreign returns have 334. All planned edits commit. Public fresh receiving and
+its frozen model comparisons complete: nine comparisons have zero outside-region
+pixels and six exact identities match, with six source/candidate images actually
+inspected. The three-asset fresh receiver remains running. This is not whole native CAD qualification or independent
 plant validation. No plant review time, customer acceptance or engineering release
 has been measured.
 
