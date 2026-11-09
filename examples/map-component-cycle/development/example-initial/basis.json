@@ -1,0 +1,984 @@
+{
+  "boundaries": [],
+  "claims": [
+    {
+      "id": "claim-a891eb650260e1deccb951e8",
+      "locator": "CSV record 2; physical lines 2-2; column Class",
+      "original_header": "Class",
+      "predicate": "class",
+      "record_id": null,
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "export_record",
+      "roots": [
+        "EQ"
+      ],
+      "source": "EQ",
+      "subject": "CF/P1/U1/P-101",
+      "unit": null,
+      "value": "pump"
+    },
+    {
+      "id": "claim-e7a37b06615b940e88fcb40e",
+      "locator": "CSV record 2; physical lines 2-2; column Description",
+      "original_header": "Description",
+      "predicate": "description",
+      "record_id": null,
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "export_record",
+      "roots": [
+        "EQ"
+      ],
+      "source": "EQ",
+      "subject": "CF/P1/U1/P-101",
+      "unit": null,
+      "value": "Feed pump"
+    },
+    {
+      "id": "claim-9eb1afeae273b17785b145b9",
+      "locator": "CSV record 2; physical lines 2-2; column Serial",
+      "original_header": "Serial",
+      "predicate": "serial_number",
+      "record_id": null,
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "export_record",
+      "roots": [
+        "EQ"
+      ],
+      "source": "EQ",
+      "subject": "CF/P1/U1/P-101",
+      "unit": null,
+      "value": "OLD-101"
+    },
+    {
+      "id": "claim-92acd8910ba20336c31beb2e",
+      "locator": "CSV record 2; physical lines 2-2; column Model",
+      "original_header": "Model",
+      "predicate": "model",
+      "record_id": null,
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "export_record",
+      "roots": [
+        "EQ"
+      ],
+      "source": "EQ",
+      "subject": "CF/P1/U1/P-101",
+      "unit": null,
+      "value": "PX20"
+    },
+    {
+      "id": "claim-0d4f5ff2f976b9cbc94b5f2e",
+      "locator": "CSV record 2; physical lines 2-2; column RatedFlow",
+      "original_header": "RatedFlow",
+      "predicate": "rated_flow",
+      "record_id": null,
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "export_record",
+      "roots": [
+        "EQ"
+      ],
+      "source": "EQ",
+      "subject": "CF/P1/U1/P-101",
+      "unit": "m3/h",
+      "value": "40"
+    },
+    {
+      "id": "claim-ed4fce18cdcdda0a6ce1c399",
+      "locator": "CSV record 2; physical lines 2-2; column FlowUnit",
+      "original_header": "FlowUnit",
+      "predicate": "flow_unit",
+      "record_id": null,
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "export_record",
+      "roots": [
+        "EQ"
+      ],
+      "source": "EQ",
+      "subject": "CF/P1/U1/P-101",
+      "unit": null,
+      "value": "m3/h"
+    },
+    {
+      "id": "claim-a3033a40401c1c13d196a7b1",
+      "locator": "CSV record 3; physical lines 3-3; column Class",
+      "original_header": "Class",
+      "predicate": "class",
+      "record_id": null,
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "export_record",
+      "roots": [
+        "EQ"
+      ],
+      "source": "EQ",
+      "subject": "CF/P1/U2/P-101",
+      "unit": null,
+      "value": "pump"
+    },
+    {
+      "id": "claim-403abdc6617afd3e8098770f",
+      "locator": "CSV record 3; physical lines 3-3; column Description",
+      "original_header": "Description",
+      "predicate": "description",
+      "record_id": null,
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "export_record",
+      "roots": [
+        "EQ"
+      ],
+      "source": "EQ",
+      "subject": "CF/P1/U2/P-101",
+      "unit": null,
+      "value": "Other unit pump"
+    },
+    {
+      "id": "claim-f092b76dfea1536aac899006",
+      "locator": "CSV record 3; physical lines 3-3; column Serial",
+      "original_header": "Serial",
+      "predicate": "serial_number",
+      "record_id": null,
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "export_record",
+      "roots": [
+        "EQ"
+      ],
+      "source": "EQ",
+      "subject": "CF/P1/U2/P-101",
+      "unit": null,
+      "value": "OTHER-101"
+    },
+    {
+      "id": "claim-4f4980dedf32d50d068e1d19",
+      "locator": "CSV record 3; physical lines 3-3; column Model",
+      "original_header": "Model",
+      "predicate": "model",
+      "record_id": null,
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "export_record",
+      "roots": [
+        "EQ"
+      ],
+      "source": "EQ",
+      "subject": "CF/P1/U2/P-101",
+      "unit": null,
+      "value": "PX20"
+    },
+    {
+      "id": "claim-0607ba1fa9d2cf46481e0b61",
+      "locator": "CSV record 3; physical lines 3-3; column RatedFlow",
+      "original_header": "RatedFlow",
+      "predicate": "rated_flow",
+      "record_id": null,
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "export_record",
+      "roots": [
+        "EQ"
+      ],
+      "source": "EQ",
+      "subject": "CF/P1/U2/P-101",
+      "unit": "m3/h",
+      "value": "35"
+    },
+    {
+      "id": "claim-d4d8529c30b1addcff48a695",
+      "locator": "CSV record 3; physical lines 3-3; column FlowUnit",
+      "original_header": "FlowUnit",
+      "predicate": "flow_unit",
+      "record_id": null,
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "export_record",
+      "roots": [
+        "EQ"
+      ],
+      "source": "EQ",
+      "subject": "CF/P1/U2/P-101",
+      "unit": null,
+      "value": "m3/h"
+    },
+    {
+      "id": "claim-ac1146017d8c3707ffb21c67",
+      "locator": "CSV record 4; physical lines 4-4; column Class",
+      "original_header": "Class",
+      "predicate": "class",
+      "record_id": null,
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "export_record",
+      "roots": [
+        "EQ"
+      ],
+      "source": "EQ",
+      "subject": "CF/P1/U1/TK-101",
+      "unit": null,
+      "value": "tank"
+    },
+    {
+      "id": "claim-97b865a7fb54724842a5238e",
+      "locator": "CSV record 4; physical lines 4-4; column Description",
+      "original_header": "Description",
+      "predicate": "description",
+      "record_id": null,
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "export_record",
+      "roots": [
+        "EQ"
+      ],
+      "source": "EQ",
+      "subject": "CF/P1/U1/TK-101",
+      "unit": null,
+      "value": "Water feed tank"
+    },
+    {
+      "id": "claim-11c6b81942b907c678e567c0",
+      "locator": "CSV record 2; physical lines 2-2; column Order",
+      "original_header": "Order",
+      "predicate": "work_order",
+      "record_id": "WO-801",
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "closed_order_record",
+      "roots": [
+        "WO"
+      ],
+      "source": "WO",
+      "subject": "CF/P1/U1/record:WO-801",
+      "unit": null,
+      "value": "WO-801"
+    },
+    {
+      "id": "claim-6b96bcd68a90cb2e82c64801",
+      "locator": "CSV record 2; physical lines 2-2; column Closed",
+      "original_header": "Closed",
+      "predicate": "closed_on",
+      "record_id": "WO-801",
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "closed_order_record",
+      "roots": [
+        "WO"
+      ],
+      "source": "WO",
+      "subject": "CF/P1/U1/record:WO-801",
+      "unit": null,
+      "value": "2026-11-01"
+    },
+    {
+      "id": "claim-f651ffde5766f87d74babc1c",
+      "locator": "CSV record 2; physical lines 2-2; column InstalledSerial",
+      "original_header": "InstalledSerial",
+      "predicate": "serial_number",
+      "record_id": "WO-801",
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "closed_order_record",
+      "roots": [
+        "WO"
+      ],
+      "source": "WO",
+      "subject": "CF/P1/U1/record:WO-801",
+      "unit": null,
+      "value": "NEW-101"
+    },
+    {
+      "id": "claim-49354fb185d97b3c4d99a9d8",
+      "locator": "CSV record 2; physical lines 2-2; column InstalledSerial",
+      "predicate": "serial_number",
+      "qualification": "Latest dated supplied closeout, not verified current installation",
+      "record_id": "WO-801",
+      "recorded_closed_on": "2026-11-01",
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "latest_closed_order_record",
+      "roots": [
+        "WO"
+      ],
+      "source": "WO",
+      "subject": "CF/P1/U1/P-101",
+      "unit": null,
+      "value": "NEW-101"
+    },
+    {
+      "id": "claim-ed231bacff81c1c3cd5d9fd6",
+      "locator": "CSV record 2; physical lines 2-2; column InstalledModel",
+      "original_header": "InstalledModel",
+      "predicate": "model",
+      "record_id": "WO-801",
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "closed_order_record",
+      "roots": [
+        "WO"
+      ],
+      "source": "WO",
+      "subject": "CF/P1/U1/record:WO-801",
+      "unit": null,
+      "value": "PX20"
+    },
+    {
+      "id": "claim-638b217b94891c5a58577086",
+      "locator": "CSV record 2; physical lines 2-2; column InstalledModel",
+      "predicate": "model",
+      "qualification": "Latest dated supplied closeout, not verified current installation",
+      "record_id": "WO-801",
+      "recorded_closed_on": "2026-11-01",
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "latest_closed_order_record",
+      "roots": [
+        "WO"
+      ],
+      "source": "WO",
+      "subject": "CF/P1/U1/P-101",
+      "unit": null,
+      "value": "PX20"
+    },
+    {
+      "id": "claim-f493b8d960094d837344e406",
+      "locator": "CSV record 2; physical lines 2-2; column Description",
+      "original_header": "Description",
+      "predicate": "description",
+      "record_id": "WO-801",
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "closed_order_record",
+      "roots": [
+        "WO"
+      ],
+      "source": "WO",
+      "subject": "CF/P1/U1/record:WO-801",
+      "unit": null,
+      "value": "Closed order records replacement"
+    },
+    {
+      "id": "claim-51324d145e0744d71709f3c9",
+      "locator": "CSV record 3; physical lines 3-3; column Order",
+      "original_header": "Order",
+      "predicate": "work_order",
+      "record_id": "WO-802",
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "open_order_proposal",
+      "roots": [
+        "WO"
+      ],
+      "source": "WO",
+      "subject": "CF/P1/U1/record:WO-802",
+      "unit": null,
+      "value": "WO-802"
+    },
+    {
+      "id": "claim-1d3aaa6b532d929a1aeb324d",
+      "locator": "CSV record 3; physical lines 3-3; column InstalledSerial",
+      "original_header": "InstalledSerial",
+      "predicate": "proposed_serial_number",
+      "record_id": "WO-802",
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "open_order_proposal",
+      "roots": [
+        "WO"
+      ],
+      "source": "WO",
+      "subject": "CF/P1/U1/record:WO-802",
+      "unit": null,
+      "value": "FUTURE-101"
+    },
+    {
+      "id": "claim-69fd87f576c27e6565e8bee4",
+      "locator": "CSV record 3; physical lines 3-3; column InstalledModel",
+      "original_header": "InstalledModel",
+      "predicate": "proposed_model",
+      "record_id": "WO-802",
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "open_order_proposal",
+      "roots": [
+        "WO"
+      ],
+      "source": "WO",
+      "subject": "CF/P1/U1/record:WO-802",
+      "unit": null,
+      "value": "PX20"
+    },
+    {
+      "id": "claim-b4abd4166bd443563d9ebe49",
+      "locator": "CSV record 3; physical lines 3-3; column Description",
+      "original_header": "Description",
+      "predicate": "description",
+      "record_id": "WO-802",
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "open_order_proposal",
+      "roots": [
+        "WO"
+      ],
+      "source": "WO",
+      "subject": "CF/P1/U1/record:WO-802",
+      "unit": null,
+      "value": "Open proposal; not evidence of installation"
+    },
+    {
+      "id": "claim-ecff193625952c575056897a",
+      "locator": "CSV record 2; physical lines 2-2; column Type",
+      "original_header": "Type",
+      "predicate": "class",
+      "record_id": null,
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "export_record",
+      "roots": [
+        "INST"
+      ],
+      "source": "INST",
+      "subject": "CF/P1/U1/FT-101",
+      "unit": null,
+      "value": "transmitter"
+    },
+    {
+      "id": "claim-c21d5bc5cc38a49e52ad6dbe",
+      "locator": "CSV record 2; physical lines 2-2; column Variable",
+      "original_header": "Variable",
+      "predicate": "variable",
+      "record_id": null,
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "export_record",
+      "roots": [
+        "INST"
+      ],
+      "source": "INST",
+      "subject": "CF/P1/U1/FT-101",
+      "unit": null,
+      "value": "flow"
+    },
+    {
+      "id": "claim-35d77e0976c8a5995d35b8b7",
+      "locator": "CSV record 2; physical lines 2-2; column EngineeringUnit",
+      "original_header": "EngineeringUnit",
+      "predicate": "engineering_unit",
+      "record_id": null,
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "export_record",
+      "roots": [
+        "INST"
+      ],
+      "source": "INST",
+      "subject": "CF/P1/U1/FT-101",
+      "unit": null,
+      "value": "m3/h"
+    },
+    {
+      "id": "claim-07665960220dc3b982f1eb36",
+      "locator": "CSV record 2; physical lines 2-2; column RangeLow",
+      "original_header": "RangeLow",
+      "predicate": "range_low",
+      "record_id": null,
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "export_record",
+      "roots": [
+        "INST"
+      ],
+      "source": "INST",
+      "subject": "CF/P1/U1/FT-101",
+      "unit": "m3/h",
+      "value": "0"
+    },
+    {
+      "id": "claim-455036b2bda1c28a1874de5b",
+      "locator": "CSV record 2; physical lines 2-2; column RangeHigh",
+      "original_header": "RangeHigh",
+      "predicate": "range_high",
+      "record_id": null,
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "export_record",
+      "roots": [
+        "INST"
+      ],
+      "source": "INST",
+      "subject": "CF/P1/U1/FT-101",
+      "unit": "m3/h",
+      "value": "60"
+    },
+    {
+      "id": "claim-22d673b208b73d5132e8c63e",
+      "locator": "CSV record 3; physical lines 3-3; column Type",
+      "original_header": "Type",
+      "predicate": "class",
+      "record_id": null,
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "export_record",
+      "roots": [
+        "INST"
+      ],
+      "source": "INST",
+      "subject": "CF/P1/U1/FIC-101",
+      "unit": null,
+      "value": "controller"
+    },
+    {
+      "id": "claim-ac1a0fbe4692e253788bdbee",
+      "locator": "CSV record 3; physical lines 3-3; column Variable",
+      "original_header": "Variable",
+      "predicate": "variable",
+      "record_id": null,
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "export_record",
+      "roots": [
+        "INST"
+      ],
+      "source": "INST",
+      "subject": "CF/P1/U1/FIC-101",
+      "unit": null,
+      "value": "flow"
+    },
+    {
+      "id": "claim-3ccae8a1806fd9ecbce247d5",
+      "locator": "CSV record 3; physical lines 3-3; column EngineeringUnit",
+      "original_header": "EngineeringUnit",
+      "predicate": "engineering_unit",
+      "record_id": null,
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "export_record",
+      "roots": [
+        "INST"
+      ],
+      "source": "INST",
+      "subject": "CF/P1/U1/FIC-101",
+      "unit": null,
+      "value": "m3/h"
+    },
+    {
+      "id": "claim-61da4a7211a9b36f1937e0f7",
+      "locator": "CSV record 4; physical lines 4-4; column Type",
+      "original_header": "Type",
+      "predicate": "class",
+      "record_id": null,
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "export_record",
+      "roots": [
+        "INST"
+      ],
+      "source": "INST",
+      "subject": "CF/P1/U1/FV-101",
+      "unit": null,
+      "value": "control_valve"
+    },
+    {
+      "id": "claim-84ba5278e987f4ad449d68bd",
+      "locator": "CSV record 2; physical lines 2-2; column RatedFlow",
+      "original_header": "RatedFlow",
+      "predicate": "rated_flow",
+      "record_id": null,
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "export_record",
+      "roots": [
+        "DS"
+      ],
+      "source": "DS",
+      "subject": "CF/P1/U1/P-101",
+      "unit": "m3/h",
+      "value": "45"
+    },
+    {
+      "id": "claim-ef3e26c452eecb1dddac3478",
+      "locator": "CSV record 2; physical lines 2-2; column FlowUnit",
+      "original_header": "FlowUnit",
+      "predicate": "flow_unit",
+      "record_id": null,
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "export_record",
+      "roots": [
+        "DS"
+      ],
+      "source": "DS",
+      "subject": "CF/P1/U1/P-101",
+      "unit": null,
+      "value": "m3/h"
+    },
+    {
+      "id": "claim-fc7a98d501861d4452fa715b",
+      "locator": "CSV record 2; physical lines 2-2; column DesignTemperature",
+      "original_header": "DesignTemperature",
+      "predicate": "design_temperature",
+      "record_id": null,
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "export_record",
+      "roots": [
+        "DS"
+      ],
+      "source": "DS",
+      "subject": "CF/P1/U1/P-101",
+      "unit": "C",
+      "value": "60"
+    },
+    {
+      "id": "claim-436d4d341ebb5bf018916e68",
+      "locator": "CSV record 2; physical lines 2-2; column TemperatureUnit",
+      "original_header": "TemperatureUnit",
+      "predicate": "temperature_unit",
+      "record_id": null,
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "export_record",
+      "roots": [
+        "DS"
+      ],
+      "source": "DS",
+      "subject": "CF/P1/U1/P-101",
+      "unit": null,
+      "value": "C"
+    }
+  ],
+  "corrections": [],
+  "entities": [
+    {
+      "aliases": [],
+      "id": "CF/P1/U1/P-101",
+      "identity_role": "functional_position",
+      "scope": "CF/P1/U1",
+      "tag": "P-101"
+    },
+    {
+      "aliases": [],
+      "id": "CF/P1/U2/P-101",
+      "identity_role": "functional_position",
+      "scope": "CF/P1/U2",
+      "tag": "P-101"
+    },
+    {
+      "aliases": [],
+      "id": "CF/P1/U1/TK-101",
+      "identity_role": "functional_position",
+      "scope": "CF/P1/U1",
+      "tag": "TK-101"
+    },
+    {
+      "aliases": [],
+      "id": "CF/P1/U1/record:WO-801",
+      "identity_role": "maintenance_record",
+      "scope": "CF/P1/U1",
+      "tag": "WO-801"
+    },
+    {
+      "aliases": [],
+      "id": "CF/P1/U1/record:WO-802",
+      "identity_role": "maintenance_record",
+      "scope": "CF/P1/U1",
+      "tag": "WO-802"
+    },
+    {
+      "aliases": [],
+      "id": "CF/P1/U1/FT-101",
+      "identity_role": "functional_position",
+      "scope": "CF/P1/U1",
+      "tag": "FT-101"
+    },
+    {
+      "aliases": [],
+      "id": "CF/P1/U1/FIC-101",
+      "identity_role": "functional_position",
+      "scope": "CF/P1/U1",
+      "tag": "FIC-101"
+    },
+    {
+      "aliases": [],
+      "id": "CF/P1/U1/FV-101",
+      "identity_role": "functional_position",
+      "scope": "CF/P1/U1",
+      "tag": "FV-101"
+    }
+  ],
+  "namespace": "CF/P1",
+  "omissions": [
+    {
+      "reason": "Serial values alone do not establish a durable physical-item identity or current installation.",
+      "source": "EQ",
+      "subject": "CF/P1/U1/P-101"
+    },
+    {
+      "reason": "Serial values alone do not establish a durable physical-item identity or current installation.",
+      "source": "EQ",
+      "subject": "CF/P1/U2/P-101"
+    },
+    {
+      "reason": "Serial values alone do not establish a durable physical-item identity or current installation.",
+      "source": "WO",
+      "subject": "CF/P1/U1/P-101"
+    },
+    {
+      "reason": "Serial values alone do not establish a durable physical-item identity or current installation.",
+      "source": "WO",
+      "subject": "CF/P1/U1/P-101"
+    },
+    {
+      "reason": "Original retained; document/model interpretation needs explicit source-bound contributions or an existing adapter.",
+      "source": "NOTE"
+    }
+  ],
+  "preparation": [
+    {
+      "kind": "declared_header_mapping",
+      "mapping": {
+        "Area": "unit",
+        "Class": "class",
+        "Description": "description",
+        "Equipment": "tag",
+        "FlowUnit": "flow_unit",
+        "Model": "model",
+        "RatedFlow": "rated_flow",
+        "Serial": "serial_number"
+      },
+      "source": "EQ",
+      "unmapped_columns": []
+    },
+    {
+      "kind": "declared_header_mapping",
+      "mapping": {
+        "Area": "unit",
+        "Closed": "closed_on",
+        "Description": "description",
+        "Equipment": "tag",
+        "InstalledModel": "installed_model",
+        "InstalledSerial": "installed_serial_number",
+        "Order": "work_order"
+      },
+      "source": "WO",
+      "unmapped_columns": []
+    },
+    {
+      "kind": "declared_header_mapping",
+      "mapping": {
+        "Area": "unit",
+        "EngineeringUnit": "engineering_unit",
+        "RangeHigh": "range_high",
+        "RangeLow": "range_low",
+        "Tag": "tag",
+        "Type": "class",
+        "Variable": "variable"
+      },
+      "source": "INST",
+      "unmapped_columns": []
+    },
+    {
+      "kind": "declared_header_mapping",
+      "mapping": {
+        "Area": "unit",
+        "DesignTemperature": "design_temperature",
+        "FlowUnit": "flow_unit",
+        "RatedFlow": "rated_flow",
+        "Tag": "tag",
+        "TemperatureUnit": "temperature_unit"
+      },
+      "source": "DS",
+      "unmapped_columns": []
+    },
+    {
+      "interpretation_review": "not performed",
+      "kind": "source_bound_contributions",
+      "records": 2,
+      "sha256": "be110768eaa010f353dc3c0644d8a608e2bec52779e42636eb63550d8a880e40"
+    }
+  ],
+  "relationships": [
+    {
+      "direction": "known",
+      "id": "relation-72a0f9bbc1ef329fc6c744db",
+      "locator": "CSV record 2",
+      "object": "CF/P1/U1/P-101",
+      "predicate": "associated_with",
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "maintenance_record_about_position",
+      "roots": [
+        "WO"
+      ],
+      "source": "WO",
+      "subject": "CF/P1/U1/record:WO-801"
+    },
+    {
+      "direction": "known",
+      "id": "relation-e9cad3106fcb3e10722232f7",
+      "locator": "CSV record 3",
+      "object": "CF/P1/U1/P-101",
+      "predicate": "associated_with",
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "maintenance_record_about_position",
+      "roots": [
+        "WO"
+      ],
+      "source": "WO",
+      "subject": "CF/P1/U1/record:WO-802"
+    },
+    {
+      "contribution_record": 2,
+      "direction": "known",
+      "id": "relation-97ac7f81b72c488649a179e6",
+      "locator": "line 4",
+      "object": "CF/P1/U1/FT-101",
+      "predicate": "reads",
+      "qualification": "Supplied unreviewed interpretation; matching quotation is not proof of engineering meaning.",
+      "quote": "FIC-101 reads FT-101 and adjusts FV-101.",
+      "rationale": "",
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "supplied_interpretation",
+      "roots": [
+        "NOTE"
+      ],
+      "source": "NOTE",
+      "subject": "CF/P1/U1/FIC-101"
+    },
+    {
+      "contribution_record": 3,
+      "direction": "known",
+      "id": "relation-7cbb88c375dc3c33c443555f",
+      "locator": "line 4",
+      "object": "CF/P1/U1/FV-101",
+      "predicate": "commands",
+      "qualification": "Supplied unreviewed interpretation; matching quotation is not proof of engineering meaning.",
+      "quote": "FIC-101 reads FT-101 and adjusts FV-101.",
+      "rationale": "",
+      "review": {
+        "status": "unreviewed"
+      },
+      "role": "supplied_interpretation",
+      "roots": [
+        "NOTE"
+      ],
+      "source": "NOTE",
+      "subject": "CF/P1/U1/FIC-101"
+    }
+  ],
+  "schema": "engineering-context-basis-1",
+  "sources": [
+    {
+      "applicability": "design specification copied into equipment export; unreviewed",
+      "availability_reason": null,
+      "id": "EQ",
+      "owner": "Maintenance",
+      "path": "equipment.csv",
+      "revision": "1",
+      "roots": [
+        "EQ"
+      ],
+      "sha256": "6c032ac1e71dab402c4bf862a2aecb9c20a2e7abebba2f891d86aeb27648fd84",
+      "status": "supplied"
+    },
+    {
+      "applicability": "recorded closeout; installed truth unverified",
+      "availability_reason": null,
+      "id": "WO",
+      "owner": "Maintenance",
+      "path": "work-orders.csv",
+      "revision": "1",
+      "roots": [
+        "WO"
+      ],
+      "sha256": "9737fda375bd0ce5f7c59d648eec4b27e52d753326f78f7ff187d5087dd47c40",
+      "status": "supplied"
+    },
+    {
+      "applicability": "design; unreviewed",
+      "availability_reason": null,
+      "id": "INST",
+      "owner": "Controls",
+      "path": "instruments.csv",
+      "revision": "1",
+      "roots": [
+        "INST"
+      ],
+      "sha256": "bc6fa51b24699416aea079068ec942fab9f3fb99d41f0d123b0a0c6603d50485",
+      "status": "supplied"
+    },
+    {
+      "applicability": "design description; unreviewed",
+      "availability_reason": null,
+      "id": "NOTE",
+      "owner": "Engineering",
+      "path": "engineering-note.txt",
+      "revision": "1",
+      "roots": [
+        "NOTE"
+      ],
+      "sha256": "1ce7dc9291ca23ca26f67e294d89751ccaef45b98f3964a68271d91cb1e322e7",
+      "status": "supplied"
+    },
+    {
+      "applicability": "design specification; unreviewed",
+      "availability_reason": null,
+      "id": "DS",
+      "owner": "Engineering",
+      "path": "datasheet.csv",
+      "revision": "1",
+      "roots": [
+        "DS"
+      ],
+      "sha256": "979a8504dd17502a8d7af76a188ab7c355e1e04f52b753e97c16648c14a27df1",
+      "status": "supplied"
+    }
+  ],
+  "version": 1
+}

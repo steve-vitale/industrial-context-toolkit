@@ -1,0 +1,124 @@
+Mode: FULL CACHED-DATA. No downloads, installs, or plant/gateway connections. Full tests include a temporary OPC UA replay service/client on 127.0.0.1 with an ephemeral port; source-only excludes it.
+PASS  scripts/test_context_basis.py: OK
+PASS  scripts/test_context_intake.py: OK
+PASS  scripts/test_context_components.py: OK
+PASS  scripts/test_context_packet.py: OK
+PASS  scripts/test_foundation_handoff.py: {"author_run": true, "checks": 12, "cli_calls": 23, "company_acceptance": false, "independent_review": false, "limits": ["Authored fictional records and mappings, no blind drawing reading.", "Procedural reservation is author-run, not independent site validation.", "Snapshot software receiving is not company receiving or ChangePilot integration."], "passed": 12, "reserved": false, "schema": "foundation-rehearsal-1"}
+PASS  scripts/test_maintenance_history.py: OK
+PASS  scripts/test_pid_path_review.py: OK
+PASS  scripts/test_pid_connections.py: OK
+PASS  scripts/test_pid_markups.py: OK
+PASS  scripts/test_maintenance_intake.py: OK
+PASS  scripts/test_batch_analysis.py: OK
+PASS  scripts/test_check_analysis_basis.py: OK
+PASS  scripts/test_join_batch_records.py: OK
+PASS  scripts/test_investigation_example.py: OK
+PASS  scripts/test_benchmark.py: test: 1 run/cohort results, 1 model/method groups
+      SKIP (unittest) 1 case(s); run this unittest script with -v for identities/reasons
+PASS  scripts/test_source_support.py: OK
+PASS  scripts/test_artifact_value_review.py: OK
+PASS  scripts/test_display_contract.py: 26 checks; 0 failed
+PASS  scripts/test_process_mimic.py: OK
+PASS  scripts/test_tiling.py: round trip: ok over 200 random sheets (worst count ratio 1.000)
+PASS  scripts/test_apply_review.py: all passed
+PASS  scripts/test_review_identity.py: OK
+PASS  scripts/test_scorer_controls.py: ALL CONTROLS PASS across 12 drawings
+PASS  scripts/test_pid2graph_synthetic_adapter.py: OK
+PASS  scripts/test_dexpi_adapter.py: OK (skipped=1)
+      SKIP (unittest) 1 case(s); run this unittest script with -v for identities/reasons
+PASS  scripts/test_dexpi_to_twin.py: OK (skipped=2)
+      SKIP (unittest) 2 case(s); run this unittest script with -v for identities/reasons
+PASS  scripts/test_dexpi_reader.py: OK (skipped=9)
+      SKIP (unittest) 9 case(s); run this unittest script with -v for identities/reasons
+PASS  scripts/test_source_evidence.py: OK
+PASS  scripts/test_source_capture_mode.py: OK
+PASS  scripts/test_source_handoff.py: OK
+      SKIP (platform) PT08 escaping-symlink creation unavailable: OSError errno=22 winerror=1314 [WinError 1314] A required privilege is not held by the client: 'C:\\Users\\Steve\\AppData\\Local\\Temp' -> 'C:\\Users\\Steve\\AppData\\Local\\Temp\\source handoff izclpe6_\\escape-link'
+PASS  scripts/test_score_tags.py: OK
+PASS  scripts/test_replicate_stats.py: OK
+PASS  scripts/test_review_kit.py: OK
+PASS  scripts/test_generate_validation.py: twin: wrote review_queue.csv, ignition/tags.json, pi/pi_builder_af.csv, pi/custom_uoms.csv, pi/attribute_descriptions.csv, pi/IMPORT_STEPS.txt, pi/reconciliation.json, svg/sheet_*.svg (1) in C:\Users\Steve\AppData\Local\Temp\tmpizxeclng
+PASS  scripts/test_export_review_boundaries.py: OK
+PASS  scripts/test_site_drawing_intake.py: OK
+PASS  scripts/test_site_extraction_workflow.py: {"sheet": "0", "model": null, "provider": null, "seconds": 0.0, "error": "600-second timeout"}
+      SKIP (unittest) 1 case(s); run this unittest script with -v for identities/reasons
+      SKIP (platform) __main__.WorkflowControls.test_symlink_outputs_rejected: this Windows account cannot create symlinks (WinError 1314, SeCreateSymbolicLinkPrivilege). Enable Developer Mode or run elevated to exercise it; Linux/macOS CI always runs it.
+PASS  scripts/test_pi_mapping.py: OK
+PASS  scripts/test_check_pi_export.py: OK
+PASS  scripts/test_gateway_acceptance_preflight.py: OK (skipped=1)
+      SKIP (unittest) 1 case(s); run this unittest script with -v for identities/reasons
+      SKIP (platform) __main__.AcceptancePreflightControls.test_paths_reject_external_symlinks: this Windows account cannot create symlinks (WinError 1314, SeCreateSymbolicLinkPrivilege). Enable Developer Mode or run elevated to exercise it; Linux/macOS CI always runs it.
+PASS  scripts/test_review_effort.py: OK
+PASS  scripts/test_map_points.py: OK
+PASS  scripts/test_run_tests.py: OK
+PASS  scripts/test_pipeline.py: 45/45 checks passed
+PASS  scripts/test_bayer_rt.py: OK
+PASS  scripts/test_check_claims.py: OK
+PASS  scripts/test_rescore.py: OK
+PASS  scripts/test_own_drawing_example.py: OK
+PASS  scripts/test_loop_audit.py: OK
+PASS  scripts/test_one_map.py: OK
+PASS  scripts/test_map_explorer.py: OK
+PASS  scripts/test_ontology.py: OK
+PASS  scripts/test_plant_workflows.py: OK
+PASS  scripts/test_context_map_format.py: OK (skipped=1)
+      SKIP (unittest) 1 case(s); run this unittest script with -v for identities/reasons
+PASS  scripts/test_sheet_from_prediction.py: OK
+PASS  scripts/test_extract_text.py: OK
+PASS  scripts/test_evaluate_vendor.py: OK
+PASS  scripts/test_drawing_case.py: OK
+PASS  scripts/test_reader_template.py: OK
+PASS  scripts/test_reader_leaderboard.py: OK
+PASS  scripts/test_script_index.py: OK
+PASS  scripts/test_attempts_ledger.py: OK
+PASS  scripts/test_graph_export.py: OK (skipped=1)
+      SKIP (unittest) 1 case(s); run this unittest script with -v for identities/reasons
+PASS  scripts/test_graph_provenance.py: OK
+PASS  scripts/test_snapshot_packet.py: OK
+PASS  scripts/test_knowledge_snapshot.py: OK
+PASS  scripts/test_knowledge_capture.py: OK
+PASS  scripts/test_feature_catalog.py: wrote docs/FEATURES.md: 21 of 36 have reviewed examples
+PASS  scripts/test_corpus_matrix.py:   row 8 x pronto-fig1: data/external/pronto-more/PRONTO benchmark case study/Technical documents/Technical report/Multiphase flow facility case study technical report.pdf
+      SKIP (unittest) 2 case(s); run this unittest script with -v for identities/reasons
+PASS  scripts/test_question_engine.py: OK (skipped=1)
+      SKIP (unittest) 1 case(s); run this unittest script with -v for identities/reasons
+PASS  scripts/test_estimate_impact.py: OK
+PASS  scripts/test_statements.py: OK
+PASS  scripts/test_bound_statement_example.py: OK
+PASS  scripts/test_context_register.py: OK
+PASS  scripts/test_context_examples.py: OK (skipped=1)
+      SKIP (unittest) 1 case(s); run this unittest script with -v for identities/reasons
+PASS  scripts/test_pump_revision.py: OK
+PASS  scripts/test_team_context.py: OK
+PASS  scripts/test_checkout_contracts.py: Git byte contracts: 1874 indexed + 3748 checkout target comparisons; 761 existing raw-packet files retained per configuration
+PASS  scripts/test_deliverable_report.py: OK
+PASS  scripts/test_fetch_corpus.py: OK
+PASS  scripts/test_delivery_examples.py: OK
+PASS  scripts/test_cad_handoff.py: OK
+PASS  scripts/test_cad_projection.py: OK
+PASS  scripts/test_receive_drawings.py: OK
+PASS  scripts/test_drawing_resubmission.py: OK
+PASS  scripts/test_cad_linux_evidence.py: Retained observations reproduce; CAD GUI execution, complete label readability and engineering acceptance are not rerun or inferred
+PASS  scripts/test_cad_exchange.py: OK
+PASS  scripts/test_generate_any_model.py: OK
+PASS  scripts/test_description_workflow.py: OK
+PASS  scripts/test_engineering_change.py: OK
+PASS  scripts/test_csv_tools.py: OK
+PASS  scripts/test_te_channels.py: PASS: 52 unique recorded channels + SC-212 unmapped; original paths, analyzer provenance, history/read-only/quality configuration, unchanged alarms, parent review inheritance; isolated Docker COPY payload imports and replay mapping
+PASS  scripts/test_along_line.py: all passed
+PASS  scripts/test_trace_connections_v2.py: OK
+PASS  scripts/test_scan_cleanup.py: OK
+PASS  scripts/test_line_layers.py: OK (skipped=2)
+      SKIP (unittest) 2 case(s); run this unittest script with -v for identities/reasons
+PASS  scripts/test_gateway_diff.py: all passed
+PASS  scripts/test_current_gateway_artifacts.py: OK
+PASS  scripts/test_fault_detection_eval.py: OK: fault detection eval tests, 0 failure(s)
+PASS  scripts/test_te_topology.py: OK
+PASS  scripts/test_te_control_loops.py: OK
+PASS  scripts/test_te_pid_roundtrip.py: OK
+PASS  scripts/test_open100_structural.py: all passed
+PASS  scripts/test_build_3d_scene.py: 82/82 3D scene contract checks passed
+PASS  scripts/test_verify_3d_render.py: 27/27 render verification checks passed
+FULL CACHED-DATA: 105/105 scripts passed; 0 failed; 23 unittest case(s) skipped; 3 platform notice(s); 0 additional skipped-check notice(s).
+Platform notices explain unittest skips where reported; do not add them to the unittest case count.
+FULL CACHED-DATA scripts passed, but some checks did not run (see skipped cases/notices above): not a complete pass here. This is offline evidence, not gateway/runtime acceptance.

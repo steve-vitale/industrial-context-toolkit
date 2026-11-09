@@ -1,0 +1,21 @@
+test_prepare_replays_original_column_order_in_new_process (test_context_packet.PacketWorkflowTests.test_prepare_replays_original_column_order_in_new_process) ... FAIL
+
+======================================================================
+FAIL: test_prepare_replays_original_column_order_in_new_process (test_context_packet.PacketWorkflowTests.test_prepare_replays_original_column_order_in_new_process)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Steve\.cp-scratch\map-component-foundation\scripts\test_context_packet.py", line 84, in test_prepare_replays_original_column_order_in_new_process
+    packet = self.prepare(1, "r1")
+  File "C:\Users\Steve\.cp-scratch\map-component-foundation\scripts\test_context_packet.py", line 80, in prepare
+    self.run_cli(*args)
+    ~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Steve\.cp-scratch\map-component-foundation\scripts\test_context_packet.py", line 68, in run_cli
+    self.assertEqual(run.returncode, code, stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : {"error": "basis does not reproduce from retained originals/mappings/contributions", "outcome": "refused; no acceptance claimed"}
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.262s
+
+FAILED (failures=1)

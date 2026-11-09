@@ -5,6 +5,14 @@ Use the [job selector](../README.md#start-wherever-you-are) to choose a tool or 
 [first-question guide](../examples/first-pilot/README.md) for a no-install contribution.
 The [workflow map](WORKFLOWS.md) owns supported inputs and outputs; this page owns current readiness and gaps.
 
+The [common-basis component prototype](../examples/map-component-cycle/README.md)
+now reuses ordinary record exports for equipment/instrument lists, datasheet
+scaffolds and control-narrative outlines. Its 37-method development replay covers
+source-linked queries, edits, three revisions and private full-source reopen.
+Existing graph/model adapters, scoped receiving, generator projection, browser/scale
+qualification and actual ChangePilot receiving remain unfinished; the 31-case
+goal is active. These development results are not a verified release or plant trial.
+
 [Maintenance-history investigation](MAINTENANCE_HISTORY.md) now produces offline
 asset chronologies, recurring-work candidates, conditional signed booked hours
 and source-linked actions from mapped exports. [Evidence and limits](../examples/maintenance-history/README.md):

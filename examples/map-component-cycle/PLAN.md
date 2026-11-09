@@ -1,6 +1,7 @@
 # Goal: ordinary records to reusable engineering context and ChangePilot receiving
 
-Set 2026-11-09, before implementation. Status: planned; no acceptance case has run.
+Set 2026-11-09, before implementation (original plan: a89a1b2). Status: implementation
+in progress; development evidence is recorded separately. No full-goal case is complete.
 Toolkit baseline: a26a0e0a4e8588081e16a1a63b2f26d045a75cb4.
 
 ## Outcome and customer journey

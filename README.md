@@ -17,6 +17,10 @@ and see what needs rechecking when a source changes. This is the toolkit's focus
 The [offline map explorer](examples/map-explorer/README.md) puts item navigation,
 sourced questions, relationships, disagreements and revision comparison together;
 an agent can use the same exported records directly.
+The [component-draft prototype](examples/map-component-cycle/README.md) reuses
+ordinary record exports for a list, datasheet scaffolds and narrative outlines,
+with retained edits and source revisions. Its complete map/product path is still
+being qualified.
 Company systems or a managed product own work assignment, job readiness, approvals
 and ongoing service operations.
 

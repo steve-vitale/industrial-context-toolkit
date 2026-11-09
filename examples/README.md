@@ -10,6 +10,9 @@ role, prerequisites, output and review boundary; the [workflow map](../docs/WORK
 For executable first steps, use [reproduce a workflow](../docs/REPRODUCE_A_WORKFLOW.md).
 It routes maintenance reconciliation, [asset-history investigation](maintenance-history/README.md), markup returns, exact ports, cross-sheet paths, drawing bundles,
 knowledge revisions and recorded batch calculations to their existing commands and expected findings.
+The [component prototype](map-component-cycle/README.md) shows three draft views
+from shared record context, edits and three source revisions; its full map/product
+goal remains unfinished.
 For equipment-data proposals and native drawing evidence, use the
 [CAD handoff](cad-handoff/README.md) and [qualification index](cad-handoff/qualification/README.md).
 Manual calculation/automation worksheets and scope/quote/receiving forms live in

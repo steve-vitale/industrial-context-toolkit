@@ -10254,3 +10254,62 @@ infrastructure to inspect and reuse. The detailed source-level report stays priv
 actual authorization, runtime, receiving and export remain unverified. No product
 change, live customer record, production promotion, new generator, native CAD
 qualification or human/company acceptance is established by this baseline phase.
+
+## 243. Retain one context basis through drafts, edits and source revisions
+
+2026-11-09. Implement a bounded draft projection over ordinary CSV record exports,
+with optional source-bound supplied interpretation. The common basis keeps scoped
+positions, source claims, exact typed values, explicit relation meanings and
+declarations of applicability/review. All three derived component views reuse
+the same source facts. Local prepare/query/edit/compare/reimport/bundle/reopen
+commands require no account or network; company systems retain authority.
+
+The first early review found seven defects missed by the initial unit checks.
+The retained pre-fix method and regression run failed eight assertions across
+seven cases: lossy floats, intermediate withdrawal, root-source revision basis,
+namespace escape, forged quotation bytes, other-item note disclosure and readable
+direction loss. Fixes now pass the same controls. A subsequent actual CLI test
+found column-order dependence after mapping JSON serialization; retain the exact
+failed method/output and fix iteration to use source CSV column order.
+
+Later review found relationship correction dependencies, invented correction
+lineage/basis, an installation implied by an open physical-item proposal and
+inactive links hidden in readable outlines. Eight assertions across four cases
+failed before repair. Retain those methods/results. Corrections now bind immutable
+proposals to actual historical content/evidence basis; open item IDs remain record
+proposals; inactive relationships stay sourced. A further retained failure exposed
+loss of helper-supplied annotations on an ordinary CLI edit. The common carry path
+now preserves them through intake/edit/reimport, including hidden selections.
+An earlier quantity checker also assumed insertion order; its console output was
+not separately archived. The correction compares the same typed alternatives.
+
+The final development replay passes 37 methods, including separate-process
+CLI execution. It checks literal preimplementation source keys, first serial/flow
+disagreements, same-tag other-unit separation, three drafts, manual edit retention,
+three source revisions, field content versus evidence impact, reimport without
+new independent claims, relocation and full-source delivery reopening. Rehashed
+wrong artifacts and other negative controls require specific refusals. Complete
+actual command/artifact evidence is retained in the development archive, with
+viewable initial excerpts and method/key pins. The 17.56-second run is software
+time on this machine, not customer effort or benefit.
+
+The broader cached-data run passed 105/105 test programs, zero failed, 23 skipped
+cases and three platform notices. It began before the later correction changes;
+its new context tests cover the earlier prototype, while the final focused run
+pins the updated core. It is legacy regression evidence, not exact final-candidate
+CI or a complete release pass. Four historical failed methods reproduce their
+intended assertion failures in temporary standalone workspaces.
+
+Read-only ChangePilot discovery also found that app-process isolation is not
+backend isolation. Available hosted defaults cannot be used as an isolated
+receiving proof. Product environment/contract work remains private and unverified;
+no shared hosted state, production or customer record was changed.
+
+This is a partial implementation of the active goal. All 31 full acceptance
+cases remain incomplete. Scope selection limits derived views but retains whole
+private originals/history; it is not access filtering. Existing map/model
+adapters, generator projection, explicit identity changes, scope-filtered receiving,
+browser/workload/clean-clone transfer and real authenticated product persistence,
+revision and exit still need implementation/evidence. No CAD failure or unrun
+human/company trial is promoted by these passes. See the detailed development
+record in examples/map-component-cycle/DEVELOPMENT.md.

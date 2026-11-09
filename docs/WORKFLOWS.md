@@ -9,6 +9,15 @@ revision through the existing description, generation and context contracts belo
 
 ## First choose what the question needs
 
+For three component drafts from ordinary CSV exports, the bounded
+[common-basis prototype](../examples/map-component-cycle/README.md) accepts
+equipment/instrument/work-order CSVs and optional source-register/source-bound
+interpretation CSV. `context_workflow.py prepare` retains exact originals,
+scoped `engineering-context-basis-1` claims and three derived views. Query,
+edit, compare, verify and private bundle/reopen use that same basis. Documents
+remain uninterpreted unless a reading is supplied; existing graph/model adapters,
+scope-filtered source delivery and actual ChangePilot receiving remain unfinished.
+
 For a built engineering context map, [map exploration](../examples/map-explorer/README.md)
 accepts a `twin-graph-2` snapshot and optional previous snapshot of the same site,
 plus optional explicit roots for hash-bound originals. `map_explorer.py export`

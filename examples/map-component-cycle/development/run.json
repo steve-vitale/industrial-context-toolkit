@@ -1,0 +1,36 @@
+{
+  "schema": "context-development-replay-1",
+  "command": [
+    "C:\\Python314\\python.exe",
+    "-B",
+    "-S",
+    "-m",
+    "unittest",
+    "-v",
+    "test_context_basis",
+    "test_context_intake",
+    "test_context_components",
+    "test_context_packet"
+  ],
+  "cwd": "scripts",
+  "exit_code": 0,
+  "elapsed_seconds": 17.564551599993138,
+  "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "method_sha256_lf": {
+    "scripts/test_context_basis.py": "f22ddba42499d146e96bedd340596fa34915afc06e65b1fccc3ccdb4994622d1",
+    "scripts/test_context_intake.py": "042a67c6c9a66f53c85f33c1e74c3c631f43c5a4da2bf6447966314e9f49c2b8",
+    "scripts/test_context_components.py": "c96dd06fe312b53df56721a2eb1467fd02a3d8941b2b7159ad4e58f00ec92ca1",
+    "scripts/test_context_packet.py": "b7c694aa7d2aaf7c5858cbace27c8a84d94e82e900cc50892da69fe146dd7e2b",
+    "scripts/context_basis.py": "41fc3edadb2b927b19a76471ef0dc7a423b5e31b8eb55bfaa5686db7bc0d32b5",
+    "scripts/context_components.py": "07e2e227122549a7a43ce09431d86d1e6a583846d126918e206670c7e3f0a16a",
+    "scripts/context_intake.py": "466605182e9aebc4a72f775a316cf87744c1a2499969d7000e649c3179b8caed",
+    "scripts/context_packet.py": "c04f5b71c6fd4fc617b8c4efa20ea19eadd53a4b04c58cd992b861bc967bffd5",
+    "scripts/context_register.py": "5a902bb2a405599b4d864e9e7ca77162d51488d8920bd24874bb9c426b06f30d",
+    "scripts/context_workflow.py": "ace96540b13874a9d73940146e8bcb3b29e45ebcf301ebc666787d5b4b78a951",
+    "examples/map-component-cycle/reproduce.py": "55c04704b1d5fcc914fc87861cd52ae56b0410a77c8dfa11aa2cc3c9fc0f4c08",
+    "examples/map-component-cycle/inputs/EXPECTED.json": "fa647b8705ad71bf4087a70791e83e88db64b6db1bfa798dcf7f24fc0128a6c3"
+  },
+  "scope": "Development fictional-source software tests only; not transfer, human benefit, plant truth or product receiving",
+  "goal_acceptance": "31 required cases remain incomplete pending full retained evidence"
+}

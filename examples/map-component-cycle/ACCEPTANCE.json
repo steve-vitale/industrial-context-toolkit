@@ -1,7 +1,7 @@
 {
   "schema": "map-component-goal-acceptance-1",
   "date": "2026-11-09",
-  "status": "planned_not_run",
+  "status": "in_progress_no_full_case_complete",
   "baseline": "a26a0e0a4e8588081e16a1a63b2f26d045a75cb4",
   "completion_rule": "Every required case needs retained actual passing evidence. Missing, mock-only, unrelated-error, skipped or not-run required acceptance is incomplete, not a pass.",
   "required_components": [
@@ -27,8 +27,13 @@
       "id": "ENTRY-MAINT",
       "required": true,
       "criterion": "Ordinary maintenance exports produce the fixed finding; guided mappings persist across revisions.",
-      "status": "not_run",
-      "evidence": []
+      "status": "partial",
+      "evidence": [
+        "development/run.json",
+        "development/MANIFEST.json",
+        "DEVELOPMENT.md"
+      ],
+      "remaining": "Focused ordinary-export finding/mapping replay passes; full matched low-friction customer journey and release evidence remain."
     },
     {
       "id": "ENTRY-DRAW",
@@ -41,8 +46,13 @@
       "id": "IDENTITY-SCOPE",
       "required": true,
       "criterion": "Equal bare tags across units never merge; ambiguous bare selection refuses specifically.",
-      "status": "not_run",
-      "evidence": []
+      "status": "partial",
+      "evidence": [
+        "development/run.json",
+        "development/MANIFEST.json",
+        "DEVELOPMENT.md"
+      ],
+      "remaining": "Focused qualified/bare-tag controls pass; complete delivered/received scope and release proof remain."
     },
     {
       "id": "IDENTITY-CHANGE",
@@ -55,36 +65,61 @@
       "id": "CLAIM-TYPES",
       "required": true,
       "criterion": "Boolean/number/null/lexical values and units survive; incompatible/unknown units do not silently merge.",
-      "status": "not_run",
-      "evidence": []
+      "status": "partial",
+      "evidence": [
+        "development/run.json",
+        "development/MANIFEST.json",
+        "DEVELOPMENT.md"
+      ],
+      "remaining": "Helper typed controls pass and lossy floats refuse; full typed artifact/product readback and transfer remain."
     },
     {
       "id": "CLAIM-CONFLICT",
       "required": true,
       "criterion": "Both conflicting sourced values and applicability survive order reversal and receiving.",
-      "status": "not_run",
-      "evidence": []
+      "status": "partial",
+      "evidence": [
+        "development/run.json",
+        "development/MANIFEST.json",
+        "DEVELOPMENT.md"
+      ],
+      "remaining": "Local competing source alternatives pass; order reversal and actual product receiving remain."
     },
     {
       "id": "SOURCE-STATE",
       "required": true,
       "criterion": "Missing, withdrawn, superseded, unavailable and hash-mismatched sources remain distinct.",
-      "status": "not_run",
-      "evidence": []
+      "status": "partial",
+      "evidence": [
+        "development/run.json",
+        "development/MANIFEST.json",
+        "DEVELOPMENT.md"
+      ],
+      "remaining": "Local withdrawn lineage and byte-mismatch controls pass; complete source-state/customer/product coverage remains."
     },
     {
       "id": "QUERY-CONTRACT",
       "required": true,
       "criterion": "Fresh-process discovery, lookup, typed traversal and evidence retrieval produce fixed sourced answers/gaps.",
-      "status": "not_run",
-      "evidence": []
+      "status": "partial",
+      "evidence": [
+        "development/run.json",
+        "development/MANIFEST.json",
+        "DEVELOPMENT.md"
+      ],
+      "remaining": "Separate-process local queries/traversal are tested on development; full discovery/adapter/product/transfer coverage remains."
     },
     {
       "id": "DRAFT-THREE",
       "required": true,
       "criterion": "List, datasheet and loop/narrative outline reuse the same facts with per-field basis and per-target gaps.",
-      "status": "not_run",
-      "evidence": []
+      "status": "partial",
+      "evidence": [
+        "development/run.json",
+        "development/MANIFEST.json",
+        "DEVELOPMENT.md"
+      ],
+      "remaining": "Three local delivered views share source facts; bounded coverage, human editing/browser/transfer/release proof remain."
     },
     {
       "id": "GENERATOR-BRIDGE",
@@ -97,36 +132,61 @@
       "id": "RELATION-MEANING",
       "required": true,
       "criterion": "Network membership is not adjacency; signal/association is not physical flow or control strategy.",
-      "status": "not_run",
-      "evidence": []
+      "status": "partial",
+      "evidence": [
+        "development/run.json",
+        "development/MANIFEST.json",
+        "DEVELOPMENT.md"
+      ],
+      "remaining": "Local typed relation/direction controls pass; native/map bridge, transfer and receiving coverage remain."
     },
     {
       "id": "IMPACT-THREE-REVISIONS",
       "required": true,
       "criterion": "Three revisions retain history and identify fixed dependent fields while proven independent content remains unaffected.",
-      "status": "not_run",
-      "evidence": []
+      "status": "partial",
+      "evidence": [
+        "development/run.json",
+        "development/MANIFEST.json",
+        "DEVELOPMENT.md"
+      ],
+      "remaining": "Development CSV three-revision field impact passes; other entry jobs and actual product revision remain."
     },
     {
       "id": "REVIEW-REVISION",
       "required": true,
       "criterion": "Revision-only/source withdrawal changes do not silently inherit current review; declare actual refresh policy.",
-      "status": "not_run",
-      "evidence": []
+      "status": "partial",
+      "evidence": [
+        "development/run.json",
+        "development/MANIFEST.json",
+        "DEVELOPMENT.md"
+      ],
+      "remaining": "Content versus transitive source evidence changes are tested locally; full authenticated receiving review applicability remains."
     },
     {
       "id": "EDIT-REGENERATE",
       "required": true,
       "criterion": "A manual edit survives or is explicitly reported after reopen and regeneration; unrelated fields remain exact.",
-      "status": "not_run",
-      "evidence": []
+      "status": "partial",
+      "evidence": [
+        "development/run.json",
+        "development/MANIFEST.json",
+        "DEVELOPMENT.md"
+      ],
+      "remaining": "Local CLI editorial proposal survives reopen/regeneration; broader delivered artifact and browser/product path remain."
     },
     {
       "id": "LINEAGE-REIMPORT",
       "required": true,
       "criterion": "Generated/copied document reimport cannot increase independent support for its source claims.",
-      "status": "not_run",
-      "evidence": []
+      "status": "partial",
+      "evidence": [
+        "development/run.json",
+        "development/MANIFEST.json",
+        "DEVELOPMENT.md"
+      ],
+      "remaining": "Own-format exact-basis reimport adds no source claims; copied/adapter/product path and final release checks remain."
     },
     {
       "id": "SCOPED-PACKAGE",
@@ -139,8 +199,13 @@
       "id": "PORTABLE-REOPEN",
       "required": true,
       "criterion": "Relocated fresh-process readback/export works without original workspace; required originals and archive-only fields remain accounted for.",
-      "status": "not_run",
-      "evidence": []
+      "status": "partial",
+      "evidence": [
+        "development/run.json",
+        "development/MANIFEST.json",
+        "DEVELOPMENT.md"
+      ],
+      "remaining": "Local full-source bundle/reopen passes in separate processes; qualified scoped package, clean clone and product exit remain."
     },
     {
       "id": "RECEIVER-CAPABILITY",
@@ -234,5 +299,6 @@
       "evidence": []
     }
   ],
-  "human_company_trials": "Separately unrun; software simulation cannot establish engineer benefit, plant truth or customer acceptance."
+  "human_company_trials": "Separately unrun; software simulation cannot establish engineer benefit, plant truth or customer acceptance.",
+  "status_scope": "Partial marks development software evidence only. No required case is closed until its complete criterion and release evidence pass."
 }

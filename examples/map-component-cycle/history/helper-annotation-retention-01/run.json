@@ -1,0 +1,24 @@
+{
+  "command": [
+    "python",
+    "-B",
+    "-S",
+    "-m",
+    "unittest",
+    "-v",
+    "test_context_packet.PacketWorkflowTests.test_valid_api_annotations_survive_ordinary_edit_and_reimport"
+  ],
+  "cwd": "scripts",
+  "exit_code": 1,
+  "method_sha256_lf": {
+    "context_basis.py": "497c978194764ba55a9bfcdfd4bd2af6a1ccd8ce6270925e128c1fe009f53106",
+    "context_components.py": "39fc9ca199d6040310d30400a1671d208aea07ced1a00bf29d30f24050f03ca2",
+    "context_intake.py": "e5bfa47175ead06b103d70dc60c9ee275b1dcac264110cde20b050c076c6545e",
+    "context_packet.py": "49cab6b707824bcf576e55af0027e3bc8dec3db574379e955f8991a1309444fc",
+    "context_workflow.py": "ace96540b13874a9d73940146e8bcb3b29e45ebcf301ebc666787d5b4b78a951",
+    "test_context_basis.py": "6bc8355206e381fda4a683bca491357e661bfb46d90997b8df18c90d0e62c9f4",
+    "test_context_components.py": "03a0c31aafb3ef3f7e98f04f36101d313c641aa1453eff8f49777b075114d763",
+    "test_context_intake.py": "d7ac620d1f7f32214263c990a74827c75d27e71de065c0b1b2b354ec138a9eda",
+    "test_context_packet.py": "4c61661a85daf6bd9822c5f58a261889f90e560d8bf5dd4b013809012f06436e"
+  }
+}
