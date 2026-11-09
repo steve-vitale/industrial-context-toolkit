@@ -1,0 +1,63 @@
+{
+  "schema": "foundation-development-1",
+  "failures": [
+    {
+      "attempt": 1,
+      "original_commands_sha256": "3a280a6860f69b61a956e9dc5099ca21ffd519eff5e5026702696eab98b8dd99",
+      "outcomes": [
+        {
+          "argv": [
+            "scripts/receive_drawings.py",
+            "--job",
+            "C:\\Users\\Steve\\.cp-scratch\\foundation-development-1\\first\\job.json",
+            "--out",
+            "C:\\Users\\Steve\\.cp-scratch\\foundation-development-1\\first\\drawing"
+          ],
+          "exit": 2,
+          "expected_exit": 0,
+          "stderr": "usage: receive_drawings.py [-h] --manifest MANIFEST --out OUT\n                           [--previous PREVIOUS]\nreceive_drawings.py: error: the following arguments are required: --manifest\n",
+          "stdout": ""
+        }
+      ]
+    },
+    {
+      "attempt": 2,
+      "original_commands_sha256": "c071860ccaa8cd564bac46047b6d3c81fefd07b6c0785421ba98fa1a41309d66",
+      "outcomes": [
+        {
+          "check": "changed sources reopen dependent questions and synthesis",
+          "failure": "Rubric expected a nonexistent question state stale; actual contract returns unanswered with each answer freshness stale",
+          "resolution": "Check per-answer freshness and unanswered, preserving the contract"
+        }
+      ]
+    },
+    {
+      "attempt": 3,
+      "original_commands_sha256": "5406b2aaea7547965b28135a44e74530f1a2ce7c9920488cf7b32219488f6bba",
+      "outcomes": [
+        {
+          "argv": [
+            "scripts/foundation_handoff.py",
+            "receive",
+            "--packet",
+            "C:\\Users\\Steve\\.cp-scratch\\foundation-development-3\\delivery-1",
+            "--out",
+            "C:\\Users\\Steve\\.cp-scratch\\foundation-development-3\\received-1"
+          ],
+          "exit": 2,
+          "expected_exit": 0,
+          "stderr": "REFUSED: Output aliases a retained input packet\n",
+          "stdout": ""
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Attempt1 used --job instead of --manifest; harness fixed.",
+    "Attempt2 incorrectly checked question state rather than answer freshness; key intent unchanged.",
+    "Attempt3 new output-alias protection also blocked the internal reproduction staging path; restaging as sibling corrected it.",
+    "Attempt4 passed12/12 but is superseded by separately versioned exact drawing-sheet/returned-revision admission; no reserved data used.",
+    "Attempt5 passed12/12,23CLI calls. Eight negative/control methods passed. CSV handle then closed before freeze; final regression remains required.",
+    "Implementation uses an authored twin-graph-1 directly, rather than adding an unnecessary Native-model generation step; accepted graph/context receiving contract unchanged."
+  ]
+}

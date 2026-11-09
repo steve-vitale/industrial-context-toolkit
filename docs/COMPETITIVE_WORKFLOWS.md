@@ -81,6 +81,58 @@ Use the standards publisher and the target implementation to settle versions, ra
 marketing page into an exchange contract. We inspected public descriptions, not the normative specification.
 No MTP/rMTP generator, validator, PLC deployment or qualified standards adapter is supplied here.
 
+## Plant as Code: preserve common identities without inventing a common format
+
+On 2026-11-09 UTC, the earlier short link
+[gQ4Gb26t](https://lnkd.in/p/gQ4Gb26t) was resolved to
+[Davy Demeyer's Plant as Code post](https://www.linkedin.com/posts/demeyerdavy_first-plant-with-the-new-plant-as-code-pac-ugcPost-7524024318847254528-XpQw/).
+It describes combining engineering formats, an autonomous two-train example,
+rework and paid proofs of concept, while saying a proposed combined-format
+repository is being prepared. We inspected the public post, not its files,
+simulations or customer engagements. Reported scale and commercial claims remain
+the author's statements, not evidence of toolkit capability or market demand.
+
+Apply the useful lessons here: retain exact scoped identities across selected
+records, make unsupported content visible, validate before accumulating dependent
+outputs, and exercise the recipient's next revision. The
+[foundation handoff](FOUNDATION_HANDOFF.md) tests that bounded software route with
+existing contracts. The existing DEXPI route remains separately scoped. No PaC,
+IFCX, CFIHOS or BatchML adapter, whole-plant generation or specification equivalence
+is implemented. A future adapter needs a released version, permitted source
+examples and a real receiving contract before adoption. Reusing a file-format
+name or producing a large package is insufficient.
+
+## Trace the lessons through existing evidence
+
+The existing attempt ledger and feature registry remain authoritative. This is
+source navigation, not another capability catalog:
+
+- [Johannes Van Opstal's structured P&ID experiment](PID_RULES_RESEARCH.md), shared
+  as `ggsbnBw7`: A352 and the registered port/markup checkers implement selected
+  prepared-record consistency checks. General design rules and complete reader
+  correctness remain unimplemented/unqualified; JSON alone is no guarantee.
+- [Maetee Lorprajuksiri's cross-sheet example](PID_GRAPH_QUESTIONS.md), `gmVa2TTE`:
+  A354 implements qualified paths, disputed associations and revision comparisons.
+  Complete line/valve registers and operating consequence inference remain outside
+  that route.
+- [Semodia's connected-engineering walkthrough](#the-overlap-is-real), `gSABYEmr`:
+  A356 supplies the primary-source comparison and manual automation handoff.
+  MTP generation and platform superiority are not implemented or measured.
+- [Flowstead's browser launch](#flowstead-distinguish-the-calculation-from-the-unfinished-plant-job),
+  `gXuMHZsU`: A357 retains one limited browser calculation and a manual review
+  worksheet. Simulator integration, mobile suitability and whole-suite accuracy
+  are unqualified.
+- The PaC source above is now explicitly retained under A397. The portable
+  foundation implementation/evidence is A396. The earlier attribution gap does
+  not establish that all lessons were already incorporated.
+
+N052 (human review timing), N062 (real organizational usefulness) and N063
+(authorized company receiving and next change) stay open in `docs/TRIED.md`.
+Managed notifications remain a product/integration decision in the
+[delivery roadmap](DELIVERY_ROADMAP.md), with no new alert service here. Do not
+treat documented advice, an exposed software example, independent review and a
+company-accepted result as interchangeable.
+
 ## A consulting offer to test against the alternatives
 
 Lead with the client's stalled job: **reconcile the selected records or check a consultant's return,

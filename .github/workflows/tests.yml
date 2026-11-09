@@ -34,6 +34,17 @@ jobs:
         run: |
           python -S examples/maintenance-history/reproduce.py --out "$RUNNER_TEMP/maintenance-history"
           python -S scripts/maintenance_history.py --check-packet examples/maintenance-history/worked/initial
+      - name: Verify the frozen foundation method and reopen its complete receiving packet
+        run: |
+          python -S - <<'PY'
+          import hashlib, json, os, subprocess, sys
+          from pathlib import Path
+          pins = json.loads(Path('examples/foundation-cycle/FREEZE.json').read_text())['files']
+          assert all(hashlib.sha256(Path(p).read_bytes().replace(b'\r\n', b'\n')).hexdigest() == h for p, h in pins.items()), 'Frozen foundation method changed'
+          packet = Path('examples/foundation-cycle/worked/received')
+          base = json.loads((packet / 'receipt.json').read_text())['base_receipt_sha256']
+          subprocess.run([sys.executable, '-S', 'scripts/foundation_handoff.py', 'receive', '--packet', str(packet), '--expected-base', base, '--out', str(Path(os.environ['RUNNER_TEMP']) / 'foundation-reopened')], check=True)
+          PY
       - name: Exercise disappeared findings with changed comparison basis
         run: python -S examples/maintenance-intake/reproduce.py --basis-controls --out "$RUNNER_TEMP/maintenance-basis"
       - name: Explain two native CAD returns without waiving strict differences

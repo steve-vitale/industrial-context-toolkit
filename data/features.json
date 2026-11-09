@@ -1884,6 +1884,30 @@
       "time": "Human preparation, review effort and benefit unmeasured",
       "you_get": "Sourced chronology, recurring-work candidates, conditional booked hours, individual material records, unknowns/actions and retained corrected/omitted-source history",
       "why": "Managers need one inspectable history and actionable missing evidence before a failure investigation; selected records cannot establish failure, consumption or savings."
+    },
+    {
+      "id": "foundation-handoff",
+      "category": "export",
+      "title": "Selected-unit foundation, receiving and next-change handoff",
+      "tools": [
+        "scripts/foundation_handoff.py"
+      ],
+      "guide": "docs/FOUNDATION_HANDOFF.md",
+      "example_outputs": [
+        "examples/foundation-cycle/worked/received/HANDOFF.md",
+        "examples/foundation-cycle/worked/received/receipt.json",
+        "examples/foundation-cycle/worked/procedural/score.json",
+        "examples/foundation-cycle/DEVELOPMENT.json",
+        "examples/foundation-cycle/VALIDATION.json"
+      ],
+      "tests": [
+        "scripts/test_foundation_handoff.py"
+      ],
+      "job": "Connect selected maintenance/drawing findings and notes to scoped assets, then receive and revise the portable evidence",
+      "you_need": "Verified source packets, authored twin-graph-1 graph/questions, explicit scoped review declarations and permitted documents; Python3.10+ standard library",
+      "time": "Preparation, engineering review, manager benefit and company receiving effort unmeasured",
+      "you_get": "Unverified typed projections, exact source archives, full actual snapshot readback, source-only revision/conflict/omission checks and complete export/reopen",
+      "why": "A reusable foundation needs scoped identities and version/history checks across tools. This author-run fictional/procedural software evidence establishes no product importer, company approval, plant truth or independent review."
     }
   ]
 }

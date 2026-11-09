@@ -40,6 +40,13 @@ and the recipient has the next actions. It need not mean every missing field has
 engineering issue resolved. The client retains engineering release and source-system acceptance.
 Use the [scope and acceptance template](../examples/consulting-start/SCOPE.md) to make that distinction explicit.
 
+Where the job crosses maintenance and drawing records, the
+[foundation handoff](FOUNDATION_HANDOFF.md) demonstrates the portable result and
+next-change check using fictional inputs. Agree the client's authoritative homes,
+identity mappings, permitted evidence, receiving owner and next refresh trigger in
+the assignment. Qualify a product destination separately; local software checks
+do not establish client acceptance, savings or an already available integration.
+
 For an agreed package-unit or automation handoff, an optional
 [requirements review worksheet](../examples/consulting-start/AUTOMATION_HANDOFF.md) separates requested
 behavior, supplier responses and receiving evidence. Scope the interpretation and responsible reviewers

@@ -1,6 +1,8 @@
 # Public methods for structured P&ID checks
 
 Reviewed 2026-11-08 in response to [Johannes Van Opstal's experiment](https://www.linkedin.com/posts/johannes-van-opstal-7900446_processengineering-pid-artificialintelligence-share-7525131450166284288-9bFo/).
+The originally shared short link was [ggsbnBw7](https://lnkd.in/p/ggsbnBw7);
+its public canonical post was rechecked on 2026-11-09 UTC.
 He describes explicit engineering records and deterministic checks alongside AI-assisted generation.
 The public post supplies no reproducible benchmark or implementation. JSON constrains representation;
 it does not establish that an interpretation, control strategy or drawing is correct.

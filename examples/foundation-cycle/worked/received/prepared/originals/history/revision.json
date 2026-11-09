@@ -1,0 +1,687 @@
+{
+  "schema": "maintenance-history-revision-1",
+  "basis_changes": [],
+  "as_of": {
+    "before": "2024-01-31",
+    "after": "2024-01-31"
+  },
+  "records": [
+    {
+      "table": "labor",
+      "identity": [
+        "R7",
+        "L1"
+      ],
+      "state": "changed",
+      "before": {
+        "id": "L1",
+        "scope": "R7",
+        "work_order_id": "W1",
+        "date": "2024-01-03",
+        "hours": "2",
+        "correction": "N",
+        "trade": "Mechanical",
+        "origin": {
+          "table": "labor",
+          "document": "FIX-labor",
+          "revision": "1",
+          "member": "originals/labor/001.csv",
+          "record": 2,
+          "end_line": 2,
+          "sha256": "88767ed38e941974de0bab0676a589ca01b2923641a45f3cdad343046f6f27f7",
+          "locator": "CSV record 2, ends at physical line 2"
+        },
+        "_dates": {
+          "date": {
+            "state": "known",
+            "raw": "2024-01-03",
+            "value": "2024-01-03",
+            "format": "iso_date",
+            "time_basis": "Authored calendar dates only; within-day event order unspecified"
+          }
+        },
+        "_numbers": {
+          "hours": "2"
+        },
+        "_flags": {
+          "correction": "false"
+        },
+        "_labels": {}
+      },
+      "after": {
+        "id": "L1",
+        "scope": "R7",
+        "work_order_id": "W1",
+        "date": "2024-01-03",
+        "hours": "4",
+        "correction": "N",
+        "trade": "Mechanical",
+        "origin": {
+          "table": "labor",
+          "document": "FIX-labor",
+          "revision": "2",
+          "member": "originals/labor/001.csv",
+          "record": 2,
+          "end_line": 2,
+          "sha256": "5e7059a1336c65f2c7abf8b880dda3f95fb0f216556575eaa77ce67701c58c9d",
+          "locator": "CSV record 2, ends at physical line 2"
+        },
+        "_dates": {
+          "date": {
+            "state": "known",
+            "raw": "2024-01-03",
+            "value": "2024-01-03",
+            "format": "iso_date",
+            "time_basis": "Authored calendar dates only; within-day event order unspecified"
+          }
+        },
+        "_numbers": {
+          "hours": "4"
+        },
+        "_flags": {
+          "correction": "false"
+        },
+        "_labels": {}
+      },
+      "meaning": "Source observation only; disposition remains pending."
+    },
+    {
+      "table": "work_orders",
+      "identity": [
+        "R7",
+        "W3"
+      ],
+      "state": "omitted",
+      "before": {
+        "id": "W3",
+        "scope": "R7",
+        "asset_id": "P-101",
+        "description": "Inspect inspection",
+        "work_class": "inspection",
+        "order_type": "PPM",
+        "job_type": "SCHD",
+        "created": "2024-01-07",
+        "completed": "2024-01-07",
+        "reopened": "N",
+        "parent_id": "",
+        "origin": {
+          "table": "work_orders",
+          "document": "FIX-work_orders",
+          "revision": "1",
+          "member": "originals/work_orders/001.csv",
+          "record": 4,
+          "end_line": 5,
+          "sha256": "b9056eaa3cfdc46e2c95cfb4ac83e02472cb8f94048349a19d49e8bdab84e43d",
+          "locator": "CSV record 4, ends at physical line 5"
+        },
+        "_dates": {
+          "created": {
+            "state": "known",
+            "raw": "2024-01-07",
+            "value": "2024-01-07",
+            "format": "iso_date",
+            "time_basis": "Authored calendar dates only; within-day event order unspecified"
+          },
+          "completed": {
+            "state": "known",
+            "raw": "2024-01-07",
+            "value": "2024-01-07",
+            "format": "iso_date",
+            "time_basis": "Authored calendar dates only; within-day event order unspecified"
+          }
+        },
+        "_numbers": {},
+        "_flags": {
+          "reopened": "false"
+        },
+        "_labels": {
+          "order_type": "Planned preventative maintenance"
+        }
+      },
+      "after": null,
+      "meaning": "Omission is not physical removal, closure or an accepted correction."
+    }
+  ],
+  "prior_issues": [
+    {
+      "previous": {
+        "id": "1969b4a3956380cb5696509a",
+        "code": "missing_completion_value",
+        "table": "work_orders",
+        "field": "completed",
+        "raw_value": null,
+        "action": "Check the current work-order record and disposition; missing completion does not prove open or overdue work.",
+        "suggested_role": "Maintenance records owner",
+        "assigned_person": "needs owner",
+        "disposition": "pending",
+        "evidence": [
+          {
+            "table": "work_orders",
+            "document": "FIX-work_orders",
+            "revision": "1",
+            "member": "originals/work_orders/001.csv",
+            "record": 6,
+            "end_line": 7,
+            "sha256": "b9056eaa3cfdc46e2c95cfb4ac83e02472cb8f94048349a19d49e8bdab84e43d",
+            "locator": "CSV record 6, ends at physical line 7"
+          }
+        ]
+      },
+      "current": {
+        "id": "1969b4a3956380cb5696509a",
+        "code": "missing_completion_value",
+        "table": "work_orders",
+        "field": "completed",
+        "raw_value": null,
+        "action": "Check the current work-order record and disposition; missing completion does not prove open or overdue work.",
+        "suggested_role": "Maintenance records owner",
+        "assigned_person": "needs owner",
+        "disposition": "pending",
+        "evidence": [
+          {
+            "table": "work_orders",
+            "document": "FIX-work_orders",
+            "revision": "2",
+            "member": "originals/work_orders/001.csv",
+            "record": 5,
+            "end_line": 6,
+            "sha256": "097f500bb37f6593b4cb323c2149f1726c81b15f169bbc328b2928ff21bcbcd0",
+            "locator": "CSV record 5, ends at physical line 6"
+          }
+        ]
+      },
+      "state": "still_detected"
+    },
+    {
+      "previous": {
+        "id": "c26727a2317fb10db567ac43",
+        "code": "missing_completion_value",
+        "table": "work_orders",
+        "field": "completed",
+        "raw_value": null,
+        "action": "Check the current work-order record and disposition; missing completion does not prove open or overdue work.",
+        "suggested_role": "Maintenance records owner",
+        "assigned_person": "needs owner",
+        "disposition": "pending",
+        "evidence": [
+          {
+            "table": "work_orders",
+            "document": "FIX-work_orders",
+            "revision": "1",
+            "member": "originals/work_orders/001.csv",
+            "record": 3,
+            "end_line": 4,
+            "sha256": "b9056eaa3cfdc46e2c95cfb4ac83e02472cb8f94048349a19d49e8bdab84e43d",
+            "locator": "CSV record 3, ends at physical line 4"
+          }
+        ]
+      },
+      "current": {
+        "id": "c26727a2317fb10db567ac43",
+        "code": "missing_completion_value",
+        "table": "work_orders",
+        "field": "completed",
+        "raw_value": null,
+        "action": "Check the current work-order record and disposition; missing completion does not prove open or overdue work.",
+        "suggested_role": "Maintenance records owner",
+        "assigned_person": "needs owner",
+        "disposition": "pending",
+        "evidence": [
+          {
+            "table": "work_orders",
+            "document": "FIX-work_orders",
+            "revision": "2",
+            "member": "originals/work_orders/001.csv",
+            "record": 3,
+            "end_line": 4,
+            "sha256": "097f500bb37f6593b4cb323c2149f1726c81b15f169bbc328b2928ff21bcbcd0",
+            "locator": "CSV record 3, ends at physical line 4"
+          }
+        ]
+      },
+      "state": "still_detected"
+    },
+    {
+      "previous": {
+        "id": "8d3deaf6261176e562b56160",
+        "code": "negative_material_quantity",
+        "table": "details",
+        "field": "quantity",
+        "raw_value": "-1",
+        "action": "Review the signed movement and any return/correction; do not infer installed quantity or consumption.",
+        "suggested_role": "Maintenance records owner",
+        "assigned_person": "needs owner",
+        "disposition": "pending",
+        "evidence": [
+          {
+            "table": "details",
+            "document": "FIX-details",
+            "revision": "1",
+            "member": "originals/details/001.csv",
+            "record": 3,
+            "end_line": 3,
+            "sha256": "da1a8e6d1af0a9f82225563986c489dcec0f7fc605d8ad10fde53bd506e7f752",
+            "locator": "CSV record 3, ends at physical line 3"
+          }
+        ]
+      },
+      "current": {
+        "id": "8d3deaf6261176e562b56160",
+        "code": "negative_material_quantity",
+        "table": "details",
+        "field": "quantity",
+        "raw_value": "-1",
+        "action": "Review the signed movement and any return/correction; do not infer installed quantity or consumption.",
+        "suggested_role": "Maintenance records owner",
+        "assigned_person": "needs owner",
+        "disposition": "pending",
+        "evidence": [
+          {
+            "table": "details",
+            "document": "FIX-details",
+            "revision": "2",
+            "member": "originals/details/001.csv",
+            "record": 3,
+            "end_line": 3,
+            "sha256": "da1a8e6d1af0a9f82225563986c489dcec0f7fc605d8ad10fde53bd506e7f752",
+            "locator": "CSV record 3, ends at physical line 3"
+          }
+        ]
+      },
+      "state": "still_detected"
+    },
+    {
+      "previous": {
+        "id": "47a9287892fdcb0e47ced9fb",
+        "code": "unknown_flag",
+        "table": "work_orders",
+        "field": "reopened",
+        "raw_value": "?",
+        "action": "Obtain the exact source code definition; retain this flag as unknown.",
+        "suggested_role": "Maintenance records owner",
+        "assigned_person": "needs owner",
+        "disposition": "pending",
+        "evidence": [
+          {
+            "table": "work_orders",
+            "document": "FIX-work_orders",
+            "revision": "1",
+            "member": "originals/work_orders/001.csv",
+            "record": 3,
+            "end_line": 4,
+            "sha256": "b9056eaa3cfdc46e2c95cfb4ac83e02472cb8f94048349a19d49e8bdab84e43d",
+            "locator": "CSV record 3, ends at physical line 4"
+          }
+        ]
+      },
+      "current": {
+        "id": "47a9287892fdcb0e47ced9fb",
+        "code": "unknown_flag",
+        "table": "work_orders",
+        "field": "reopened",
+        "raw_value": "?",
+        "action": "Obtain the exact source code definition; retain this flag as unknown.",
+        "suggested_role": "Maintenance records owner",
+        "assigned_person": "needs owner",
+        "disposition": "pending",
+        "evidence": [
+          {
+            "table": "work_orders",
+            "document": "FIX-work_orders",
+            "revision": "2",
+            "member": "originals/work_orders/001.csv",
+            "record": 3,
+            "end_line": 4,
+            "sha256": "097f500bb37f6593b4cb323c2149f1726c81b15f169bbc328b2928ff21bcbcd0",
+            "locator": "CSV record 3, ends at physical line 4"
+          }
+        ]
+      },
+      "state": "still_detected"
+    },
+    {
+      "previous": {
+        "id": "c2191a33ff9690106cc7fd8b",
+        "code": "unknown_flag",
+        "table": "labor",
+        "field": "correction",
+        "raw_value": "?",
+        "action": "Obtain the exact source code definition; retain this flag as unknown.",
+        "suggested_role": "Maintenance records owner",
+        "assigned_person": "needs owner",
+        "disposition": "pending",
+        "evidence": [
+          {
+            "table": "labor",
+            "document": "FIX-labor",
+            "revision": "1",
+            "member": "originals/labor/001.csv",
+            "record": 5,
+            "end_line": 5,
+            "sha256": "88767ed38e941974de0bab0676a589ca01b2923641a45f3cdad343046f6f27f7",
+            "locator": "CSV record 5, ends at physical line 5"
+          }
+        ]
+      },
+      "current": {
+        "id": "c2191a33ff9690106cc7fd8b",
+        "code": "unknown_flag",
+        "table": "labor",
+        "field": "correction",
+        "raw_value": "?",
+        "action": "Obtain the exact source code definition; retain this flag as unknown.",
+        "suggested_role": "Maintenance records owner",
+        "assigned_person": "needs owner",
+        "disposition": "pending",
+        "evidence": [
+          {
+            "table": "labor",
+            "document": "FIX-labor",
+            "revision": "2",
+            "member": "originals/labor/001.csv",
+            "record": 5,
+            "end_line": 5,
+            "sha256": "5e7059a1336c65f2c7abf8b880dda3f95fb0f216556575eaa77ce67701c58c9d",
+            "locator": "CSV record 5, ends at physical line 5"
+          }
+        ]
+      },
+      "state": "still_detected"
+    },
+    {
+      "previous": {
+        "id": "c5c84fb0e7755a11e52e01d6",
+        "code": "unlinked_details",
+        "table": "details",
+        "field": "relationship",
+        "raw_value": null,
+        "action": "Transaction is missing or has no qualified work-order association. Confirm the exact scoped parent/source relationship.",
+        "suggested_role": "Maintenance records owner",
+        "assigned_person": "needs owner",
+        "disposition": "pending",
+        "evidence": [
+          {
+            "table": "details",
+            "document": "FIX-details",
+            "revision": "1",
+            "member": "originals/details/001.csv",
+            "record": 4,
+            "end_line": 4,
+            "sha256": "da1a8e6d1af0a9f82225563986c489dcec0f7fc605d8ad10fde53bd506e7f752",
+            "locator": "CSV record 4, ends at physical line 4"
+          }
+        ]
+      },
+      "current": {
+        "id": "c5c84fb0e7755a11e52e01d6",
+        "code": "unlinked_details",
+        "table": "details",
+        "field": "relationship",
+        "raw_value": null,
+        "action": "Transaction is missing or has no qualified work-order association. Confirm the exact scoped parent/source relationship.",
+        "suggested_role": "Maintenance records owner",
+        "assigned_person": "needs owner",
+        "disposition": "pending",
+        "evidence": [
+          {
+            "table": "details",
+            "document": "FIX-details",
+            "revision": "2",
+            "member": "originals/details/001.csv",
+            "record": 4,
+            "end_line": 4,
+            "sha256": "da1a8e6d1af0a9f82225563986c489dcec0f7fc605d8ad10fde53bd506e7f752",
+            "locator": "CSV record 4, ends at physical line 4"
+          }
+        ]
+      },
+      "state": "still_detected"
+    },
+    {
+      "previous": {
+        "id": "fb463d61d6f302163c57ac47",
+        "code": "unlinked_details",
+        "table": "details",
+        "field": "relationship",
+        "raw_value": null,
+        "action": "Detail work-order reference disagrees with its transaction target; row quarantined. Confirm the exact scoped parent/source relationship.",
+        "suggested_role": "Maintenance records owner",
+        "assigned_person": "needs owner",
+        "disposition": "pending",
+        "evidence": [
+          {
+            "table": "details",
+            "document": "FIX-details",
+            "revision": "1",
+            "member": "originals/details/001.csv",
+            "record": 6,
+            "end_line": 6,
+            "sha256": "da1a8e6d1af0a9f82225563986c489dcec0f7fc605d8ad10fde53bd506e7f752",
+            "locator": "CSV record 6, ends at physical line 6"
+          }
+        ]
+      },
+      "current": {
+        "id": "fb463d61d6f302163c57ac47",
+        "code": "unlinked_details",
+        "table": "details",
+        "field": "relationship",
+        "raw_value": null,
+        "action": "Detail work-order reference disagrees with its transaction target; row quarantined. Confirm the exact scoped parent/source relationship.",
+        "suggested_role": "Maintenance records owner",
+        "assigned_person": "needs owner",
+        "disposition": "pending",
+        "evidence": [
+          {
+            "table": "details",
+            "document": "FIX-details",
+            "revision": "2",
+            "member": "originals/details/001.csv",
+            "record": 6,
+            "end_line": 6,
+            "sha256": "da1a8e6d1af0a9f82225563986c489dcec0f7fc605d8ad10fde53bd506e7f752",
+            "locator": "CSV record 6, ends at physical line 6"
+          }
+        ]
+      },
+      "state": "still_detected"
+    },
+    {
+      "previous": {
+        "id": "fa2f996bc11012999a7d9e85",
+        "code": "unlinked_labor",
+        "table": "labor",
+        "field": "relationship",
+        "raw_value": null,
+        "action": "Labor work-order reference is unavailable. Confirm the exact scoped parent/source relationship.",
+        "suggested_role": "Maintenance records owner",
+        "assigned_person": "needs owner",
+        "disposition": "pending",
+        "evidence": [
+          {
+            "table": "labor",
+            "document": "FIX-labor",
+            "revision": "1",
+            "member": "originals/labor/001.csv",
+            "record": 7,
+            "end_line": 7,
+            "sha256": "88767ed38e941974de0bab0676a589ca01b2923641a45f3cdad343046f6f27f7",
+            "locator": "CSV record 7, ends at physical line 7"
+          }
+        ]
+      },
+      "current": {
+        "id": "fa2f996bc11012999a7d9e85",
+        "code": "unlinked_labor",
+        "table": "labor",
+        "field": "relationship",
+        "raw_value": null,
+        "action": "Labor work-order reference is unavailable. Confirm the exact scoped parent/source relationship.",
+        "suggested_role": "Maintenance records owner",
+        "assigned_person": "needs owner",
+        "disposition": "pending",
+        "evidence": [
+          {
+            "table": "labor",
+            "document": "FIX-labor",
+            "revision": "2",
+            "member": "originals/labor/001.csv",
+            "record": 7,
+            "end_line": 7,
+            "sha256": "5e7059a1336c65f2c7abf8b880dda3f95fb0f216556575eaa77ce67701c58c9d",
+            "locator": "CSV record 7, ends at physical line 7"
+          }
+        ]
+      },
+      "state": "still_detected"
+    },
+    {
+      "previous": {
+        "id": "463b4acceac399836aae882e",
+        "code": "unlinked_transactions",
+        "table": "transactions",
+        "field": "relationship",
+        "raw_value": null,
+        "action": "Transaction target entity is outside the declared work-order namespace. Confirm the exact scoped parent/source relationship.",
+        "suggested_role": "Maintenance records owner",
+        "assigned_person": "needs owner",
+        "disposition": "pending",
+        "evidence": [
+          {
+            "table": "transactions",
+            "document": "FIX-transactions",
+            "revision": "1",
+            "member": "originals/transactions/001.csv",
+            "record": 4,
+            "end_line": 4,
+            "sha256": "b59c654662656cd40b64636e114a24cd14d417848e23278c8fcdf8991ec0b1f7",
+            "locator": "CSV record 4, ends at physical line 4"
+          }
+        ]
+      },
+      "current": {
+        "id": "463b4acceac399836aae882e",
+        "code": "unlinked_transactions",
+        "table": "transactions",
+        "field": "relationship",
+        "raw_value": null,
+        "action": "Transaction target entity is outside the declared work-order namespace. Confirm the exact scoped parent/source relationship.",
+        "suggested_role": "Maintenance records owner",
+        "assigned_person": "needs owner",
+        "disposition": "pending",
+        "evidence": [
+          {
+            "table": "transactions",
+            "document": "FIX-transactions",
+            "revision": "2",
+            "member": "originals/transactions/001.csv",
+            "record": 4,
+            "end_line": 4,
+            "sha256": "b59c654662656cd40b64636e114a24cd14d417848e23278c8fcdf8991ec0b1f7",
+            "locator": "CSV record 4, ends at physical line 4"
+          }
+        ]
+      },
+      "state": "still_detected"
+    },
+    {
+      "previous": {
+        "id": "1ba744a135d812de64e4f3ee",
+        "code": "unlinked_work_orders",
+        "table": "work_orders",
+        "field": "relationship",
+        "raw_value": null,
+        "action": "Asset reference is missing or not uniquely present in supplied assets. Confirm the exact scoped parent/source relationship.",
+        "suggested_role": "Maintenance records owner",
+        "assigned_person": "needs owner",
+        "disposition": "pending",
+        "evidence": [
+          {
+            "table": "work_orders",
+            "document": "FIX-work_orders",
+            "revision": "1",
+            "member": "originals/work_orders/001.csv",
+            "record": 6,
+            "end_line": 7,
+            "sha256": "b9056eaa3cfdc46e2c95cfb4ac83e02472cb8f94048349a19d49e8bdab84e43d",
+            "locator": "CSV record 6, ends at physical line 7"
+          }
+        ]
+      },
+      "current": {
+        "id": "1ba744a135d812de64e4f3ee",
+        "code": "unlinked_work_orders",
+        "table": "work_orders",
+        "field": "relationship",
+        "raw_value": null,
+        "action": "Asset reference is missing or not uniquely present in supplied assets. Confirm the exact scoped parent/source relationship.",
+        "suggested_role": "Maintenance records owner",
+        "assigned_person": "needs owner",
+        "disposition": "pending",
+        "evidence": [
+          {
+            "table": "work_orders",
+            "document": "FIX-work_orders",
+            "revision": "2",
+            "member": "originals/work_orders/001.csv",
+            "record": 5,
+            "end_line": 6,
+            "sha256": "097f500bb37f6593b4cb323c2149f1726c81b15f169bbc328b2928ff21bcbcd0",
+            "locator": "CSV record 5, ends at physical line 6"
+          }
+        ]
+      },
+      "state": "still_detected"
+    },
+    {
+      "previous": {
+        "id": "77a6d56b3eaee8242f9bfb3e",
+        "code": "unparsed_date",
+        "table": "work_orders",
+        "field": "created",
+        "raw_value": "03/04/2024",
+        "action": "Confirm the source date and declared format; no locale or chronology is guessed.",
+        "suggested_role": "Maintenance records owner",
+        "assigned_person": "needs owner",
+        "disposition": "pending",
+        "evidence": [
+          {
+            "table": "work_orders",
+            "document": "FIX-work_orders",
+            "revision": "1",
+            "member": "originals/work_orders/001.csv",
+            "record": 6,
+            "end_line": 7,
+            "sha256": "b9056eaa3cfdc46e2c95cfb4ac83e02472cb8f94048349a19d49e8bdab84e43d",
+            "locator": "CSV record 6, ends at physical line 7"
+          }
+        ]
+      },
+      "current": {
+        "id": "77a6d56b3eaee8242f9bfb3e",
+        "code": "unparsed_date",
+        "table": "work_orders",
+        "field": "created",
+        "raw_value": "03/04/2024",
+        "action": "Confirm the source date and declared format; no locale or chronology is guessed.",
+        "suggested_role": "Maintenance records owner",
+        "assigned_person": "needs owner",
+        "disposition": "pending",
+        "evidence": [
+          {
+            "table": "work_orders",
+            "document": "FIX-work_orders",
+            "revision": "2",
+            "member": "originals/work_orders/001.csv",
+            "record": 5,
+            "end_line": 6,
+            "sha256": "097f500bb37f6593b4cb323c2149f1726c81b15f169bbc328b2928ff21bcbcd0",
+            "locator": "CSV record 5, ends at physical line 6"
+          }
+        ]
+      },
+      "state": "still_detected"
+    }
+  ],
+  "meaning": "Changed or disappeared findings need source and receiving review. No prior disposition is inherited; changed basis and omissions remain explicit."
+}

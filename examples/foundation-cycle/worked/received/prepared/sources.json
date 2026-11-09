@@ -1,0 +1,68 @@
+{
+  "documents": [
+    {
+      "id": "HISTORY",
+      "locators": [
+        {
+          "id": "selected-records",
+          "locator": "Complete result.json; selected projections use JSON pointers",
+          "questions": [
+            "HISTORY",
+            "SYNTHESIS"
+          ]
+        }
+      ],
+      "path": "originals/history/result.json",
+      "revision": "2",
+      "sha256": "3250a9d4f2523e3d3ad6c59736acf525ee07faae951ea5077564b6537c60c653"
+    },
+    {
+      "id": "DRAWING",
+      "locators": [
+        {
+          "id": "selected-records",
+          "locator": "Complete brief.json; selected projections use JSON pointers",
+          "questions": [
+            "DRAWING",
+            "SYNTHESIS"
+          ]
+        }
+      ],
+      "path": "originals/drawing/brief.json",
+      "revision": "2",
+      "sha256": "6c8feb8334dd01a49ee19ac4feeb0293368b776ff415fa87f74e546c37e8f90f"
+    },
+    {
+      "id": "NOTE",
+      "locators": [
+        {
+          "id": "L1",
+          "locator": "Complete authored note, line 1",
+          "questions": [
+            "HISTORY",
+            "SYNTHESIS"
+          ]
+        }
+      ],
+      "path": "originals/documents/0.txt",
+      "revision": "B",
+      "sha256": "1af46355dc205c43313fb7676d5e93fc40ebf46bb622973995806af121719a56"
+    },
+    {
+      "id": "INDEPENDENT",
+      "locators": [
+        {
+          "id": "L1",
+          "locator": "Complete authored note, line 1",
+          "questions": [
+            "INDEPENDENT"
+          ]
+        }
+      ],
+      "path": "originals/documents/1.txt",
+      "revision": "A",
+      "sha256": "94ad21da042bf925f4f38c77b2193f30c4d4f4728799967c99bf5fafb518d63f"
+    }
+  ],
+  "schema": "context-sources-1"
+}

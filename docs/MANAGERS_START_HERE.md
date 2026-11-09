@@ -37,6 +37,13 @@ For a prepared multi-sheet graph, the [path review](PID_GRAPH_QUESTIONS.md) show
 connections and missing continuations. A missing route is an evidence gap, not proof of disconnection.
 To agree a bounded outside assignment, use the [paid review scope and acceptance forms](../examples/consulting-start/README.md).
 
+When one decision crosses work history, a drawing return and source notes, the
+[foundation cycle](FOUNDATION_HANDOFF.md) gives a concrete handoff and next-change
+example. Inspect `HANDOFF.md`, the source archive and declared owners; use the
+actual receiving check before transferring reliance. The example is software
+evidence, so a manager's usefulness/effort trial and the company's authorized
+acceptance remain separate work.
+
 For repeat-failure investigation, first assemble the work-order descriptions, identity/operating context and
 permitted observations behind a specific question. The [first-question brief](../examples/first-pilot/README.md)
 and [recorded-data routes](PROCESS_ANALYTICS.md) support investigation. This toolkit does not determine root cause,

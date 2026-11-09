@@ -1,0 +1,53 @@
+Mode: FULL CACHED-DATA. No downloads, installs, or plant/gateway connections. Full tests include a temporary OPC UA replay service/client on 127.0.0.1 with an ephemeral port; source-only excludes it.
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d00_te.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d06_te.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\teprob.f: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\temain_mod.f: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d00.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d01.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d01_te.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d02.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d02_te.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d03.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d03_te.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d04.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d04_te.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d05.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d05_te.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d06.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d07.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d07_te.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d08.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d08_te.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d09.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d09_te.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d10.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d10_te.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d11.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d11_te.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d12.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d12_te.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d13.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d13_te.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d14.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d14_te.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d15.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d15_te.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d16.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d16_te.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d17.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d17_te.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d18.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d18_te.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d19.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d19_te.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d20.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d20_te.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d21.dat: No such file or directory
+BLOCKED  missing/unreadable cached TE data: data\external\te-braatz\d21_te.dat: No such file or directory
+BLOCKED  missing/unreadable revised TE code: data\external\te-ricker\temexd_mod.zip: No such file or directory
+FULL CACHED-DATA: prerequisite check failed; no test scripts ran. No suite pass.
+Separate setup/remediation steps (NOT executed by this runner):
+  python scripts/fetch_te_data.py --all  # network download if cache is absent/invalid; verifies hashes
+  python scripts/verify_te_topology.py  # downloads the revised TE code if absent; report only
+  python scripts/run_tests.py --source-only  # narrower checks; NOT a full-suite pass

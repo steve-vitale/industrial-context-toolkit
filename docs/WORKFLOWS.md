@@ -9,6 +9,15 @@ revision through the existing description, generation and context contracts belo
 
 ## First choose what the question needs
 
+For a selected unit combining existing maintenance/drawing packets and notes, use
+the [foundation handoff](FOUNDATION_HANDOFF.md): `foundation-input-1` profile,
+explicit scoped mappings and authored graph/questions produce selected
+`twin-graph-1` projections and `context-sources-1` evidence. Apply the existing
+context register, then `deliver` and `receive` a bound graph/sidecar. Original
+structured records remain archives; native omissions, unavailable evidence,
+declarations and the actual toolkit receiving target are explicit. This route
+does not read drawings or implement a product/platform import.
+
 For a route question on an already prepared graph, use the [path consumer](PID_GRAPH_QUESTIONS.md).
 It reads existing twin-graph-1/2 records, retains conflict/status qualifications and returns a source-bound
 review packet with selected path, reachable associations and an explicit prior-revision comparison.

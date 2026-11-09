@@ -18,7 +18,9 @@ auditability and a single source of truth, carry that foundation into
 **ChangePilot or another suitable tool**. The
 [foundation roadmap](docs/ENGINEERING_FOUNDATION.md) explains the handoff and
 record authority; receiving-tool imports and ongoing service controls need their
-own qualification.
+own qualification. The [selected-unit handoff](docs/FOUNDATION_HANDOFF.md) connects
+prepared history, drawing findings and notes through explicit scoped mappings,
+then exercises toolkit receiving, revisions, conflicting proposals and export/reopen.
 
 The repository also contains worked tutorials, assembled screen/replay/3D demonstrations and reproducible
 task/model benchmarks. These support different parts of a maintained digital twin and engineering knowledge base;

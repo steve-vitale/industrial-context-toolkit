@@ -1,0 +1,188 @@
+{
+  "schema": "maintenance-history-1",
+  "namespace": "FICTIONAL",
+  "question": "Which selected work records need investigation or reconciliation?",
+  "as_of": "2024-01-31",
+  "recurring_fields": [
+    "work_class",
+    "order_type",
+    "job_type"
+  ],
+  "labor_ledger": {
+    "mode": "signed_all_entries",
+    "unit": "h",
+    "basis": "Authored fixture: hours are an additive signed ledger, including correction and zero entries."
+  },
+  "sources": {
+    "assets": {
+      "id": "FIX-assets",
+      "revision": "1",
+      "owner": "Maintenance records owner",
+      "coverage": "Authored selected-record excerpt; no absence or installed-state guarantee",
+      "format": "csv",
+      "files": [
+        {
+          "path": "assets.csv"
+        }
+      ],
+      "columns": {
+        "Export Id": "id",
+        "Export Scope": "scope",
+        "Export Description": "description",
+        "Export Kind": "kind"
+      },
+      "date_formats": {},
+      "delimiter": ";"
+    },
+    "work_orders": {
+      "id": "FIX-work_orders",
+      "revision": "1",
+      "owner": "Maintenance records owner",
+      "coverage": "Authored selected-record excerpt; no absence or installed-state guarantee",
+      "format": "csv",
+      "files": [
+        {
+          "path": "work_orders.csv"
+        }
+      ],
+      "columns": {
+        "Export Id": "id",
+        "Export Scope": "scope",
+        "Export Asset Id": "asset_id",
+        "Export Description": "description",
+        "Export Work Class": "work_class",
+        "Export Order Type": "order_type",
+        "Export Job Type": "job_type",
+        "Export Created": "created",
+        "Export Completed": "completed",
+        "Export Reopened": "reopened",
+        "Export Parent Id": "parent_id"
+      },
+      "date_formats": {
+        "created": "iso_date",
+        "completed": "iso_date"
+      },
+      "time_basis": "Authored calendar dates only; within-day event order unspecified",
+      "delimiter": ";",
+      "flags": {
+        "reopened": {
+          "true": [
+            "Y"
+          ],
+          "false": [
+            "N"
+          ]
+        }
+      },
+      "labels": {
+        "order_type": {
+          "CM": "Corrective work order",
+          "PPM": "Planned preventative maintenance"
+        }
+      }
+    },
+    "transactions": {
+      "id": "FIX-transactions",
+      "revision": "1",
+      "owner": "Maintenance records owner",
+      "coverage": "Authored selected-record excerpt; no absence or installed-state guarantee",
+      "format": "csv",
+      "files": [
+        {
+          "path": "transactions.csv"
+        }
+      ],
+      "columns": {
+        "Export Id": "id",
+        "Export Scope": "scope",
+        "Export Work Order Id": "work_order_id",
+        "Export Entity": "entity",
+        "Export Status": "status",
+        "Export Type": "type",
+        "Export Date": "date"
+      },
+      "date_formats": {
+        "date": "iso_date"
+      },
+      "time_basis": "Authored calendar dates only; within-day event order unspecified",
+      "delimiter": ";",
+      "work_order_entities": [
+        "WORK"
+      ],
+      "labels": {
+        "status": {
+          "A": "Approved",
+          "C": "Cancelled"
+        },
+        "type": {
+          "I": "Issue"
+        }
+      }
+    },
+    "details": {
+      "id": "FIX-details",
+      "revision": "1",
+      "owner": "Maintenance records owner",
+      "coverage": "Authored selected-record excerpt; no absence or installed-state guarantee",
+      "format": "csv",
+      "files": [
+        {
+          "path": "details.csv"
+        }
+      ],
+      "columns": {
+        "Export Id": "id",
+        "Export Scope": "scope",
+        "Export Transaction Id": "transaction_id",
+        "Export Work Order Id": "work_order_id",
+        "Export Part Id": "part_id",
+        "Export Description": "description",
+        "Export Quantity": "quantity",
+        "Export Unit": "unit",
+        "Export Price": "price",
+        "Export Date": "date"
+      },
+      "date_formats": {
+        "date": "iso_date"
+      },
+      "time_basis": "Authored calendar dates only; within-day event order unspecified",
+      "delimiter": ";"
+    },
+    "labor": {
+      "id": "FIX-labor",
+      "revision": "1",
+      "owner": "Maintenance records owner",
+      "coverage": "Authored selected-record excerpt; no absence or installed-state guarantee",
+      "format": "csv",
+      "files": [
+        {
+          "path": "labor.csv"
+        }
+      ],
+      "columns": {
+        "Export Id": "id",
+        "Export Scope": "scope",
+        "Export Work Order Id": "work_order_id",
+        "Export Date": "date",
+        "Export Hours": "hours",
+        "Export Correction": "correction",
+        "Export Trade": "trade"
+      },
+      "date_formats": {
+        "date": "iso_date"
+      },
+      "time_basis": "Authored calendar dates only; within-day event order unspecified",
+      "delimiter": ";",
+      "flags": {
+        "correction": {
+          "true": [
+            "Y"
+          ],
+          "false": [
+            "N"
+          ]
+        }
+      }
+    }
+  }
+}

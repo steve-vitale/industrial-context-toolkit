@@ -1,6 +1,6 @@
 # State of the toolkit
 
-Implementation snapshot: **2026-11-08**. The public package is **Industrial Context Toolkit** (renamed from Engineering Context Toolkit on 2026-11-05; old links redirect).
+Implementation snapshot: **2026-11-09 UTC**. The public package is **Industrial Context Toolkit** (renamed from Engineering Context Toolkit on 2026-11-05; old links redirect).
 Use the [job selector](../README.md#start-wherever-you-are) to choose a tool or the
 [first-question guide](../examples/first-pilot/README.md) for a no-install contribution.
 The [workflow map](WORKFLOWS.md) owns supported inputs and outputs; this page owns current readiness and gaps.
@@ -31,13 +31,34 @@ Company review, accepted identities and receiving-system checks determine what c
 
 ## Current verification
 
-The latest verified merged baseline is **`3ad016f`** (PR44). Its tree matches the
-checked head `8ce9ac5`; that head's
-[pull-request CI](https://github.com/steve-vitale/industrial-context-toolkit/actions/runs/42511226917)
-and [push CI](https://github.com/steve-vitale/industrial-context-toolkit/actions/runs/42511206112)
-both succeeded: **95/95 scripts, zero failed, 37 individual unittest cases skipped**.
-The CAD evidence module had no skipped cases. This is not a complete zero-skip
-suite or native engineering acceptance; original failed runs remain retained.
+The verified merged baseline before the foundation addition is **`55ec333`**:
+PR46 and PR47 are merged.
+Its tree equals checked PR47 head `b200b2f`; that head's
+[pull-request CI](https://github.com/steve-vitale/industrial-context-toolkit/actions/runs/42557550041)
+and [push CI](https://github.com/steve-vitale/industrial-context-toolkit/actions/runs/42557544500)
+succeeded. The [merged-main run](https://github.com/steve-vitale/industrial-context-toolkit/actions/runs/42563485293)
+also succeeded in both tests and snapshot-MCP jobs. The checked release suite ran
+**99/99 test programs, zero failed, 37 individual unittest cases skipped**.
+This is software integration evidence; original CAD/engineering failures and the
+reserved maintenance-source acquisition failure remain failures. New additions
+must pass their own exact-head checks before they become a verified release.
+
+The [foundation handoff](FOUNDATION_HANDOFF.md) deepens one selected-unit job with
+maintenance/drawing projections, retained evidence, actual snapshot receiving,
+source-only revision, conflicting proposals and complete export/reopen. Its
+[plan and evidence](../examples/foundation-cycle/README.md) distinguish exposed
+development from an author-known procedural namespace/layout check. It supplies
+no independent example review, ChangePilot importer, authenticated company
+acceptance or human benefit measurement. N052/N062/N063 remain unrun.
+
+The foundation working-tree source-only run passed **75/75 programs**, zero
+failures, **35 individual cases skipped and three platform notices**. Its frozen
+37 method/input files match; a fresh selected Git archive reopens the complete
+committed receiving packet without network or optional packages. This is not a
+local full-suite pass: optional TE caches were absent. The
+[validation record](../examples/foundation-cycle/VALIDATION.json) retains logs and
+cache qualifications; [PR48](https://github.com/steve-vitale/industrial-context-toolkit/pull/48)
+records exact-final-head CI separately. Pending checks are not successful checks.
 
 The new [workflow reproduction guide](REPRODUCE_A_WORKFLOW.md) and
 [portable entry-point check](../examples/agent-first-use/workflow-check/README.md)
@@ -70,8 +91,8 @@ Full-save preservation and paper/typographic delivery still fail. All six
 complete UI packets, 30 comparisons and 20 inspected image bindings reproduce offline.
 The previous branch CI failure was [PNG encoding equality](../examples/cad-handoff/qualification/full-ui-22/CI-PNG-ENCODING.md),
 reproduced with CI's Pillow version and corrected to exact decoded-pixel checks;
-new exact-head CI remains required. Engineering acceptance is not inferred. Inspect
-the version-specific CI before treating a branch addition as an integrated release.
+the corrected head and merged-main CI above now pass. Engineering acceptance is
+not inferred. New branch additions still require their own exact-head CI.
 
 An earlier full-suite release baseline was **`a439f14`**:
 [main CI run 41590240463](https://github.com/steve-vitale/industrial-context-toolkit/actions/runs/41590240463).
@@ -80,11 +101,14 @@ benchmark suites and the optional MCP/protocol job. This is software evidence, n
 company-client acceptance or plant validation. Check [committed-version CI](https://github.com/steve-vitale/industrial-context-toolkit/actions/workflows/tests.yml)
 for later revisions; the dated development records below apply only to their stated inputs and versions.
 
-The current runner registers **74 source-only and 95 full-suite programs**. On **`bcd75f6`**, both jobs in
+The current runner registers **75 source-only and 100 full-suite programs**.
+These registrations do not themselves establish a pass; consult exact-head CI.
+The earlier **`bcd75f6`** baseline registered 74 source-only and 95 full-suite
+programs; both jobs in
 [CI run 42491979757](https://github.com/steve-vitale/industrial-context-toolkit/actions/runs/42491979757) passed;
 the Linux full suite passed 95/95 programs with 37 individual unittest cases skipped. The matching local
 Windows run passed 95/95 programs with seven cases skipped and three explanatory platform notices.
-Those checks apply to that version; this later documentation update adds no executable capability.
+Those checks apply to that version, before the later drawing/history/foundation tools.
 The earlier 2026-11-06 local Windows run
 passed **89/89 programs**, with **seven individual unittest cases skipped** and three platform notices explaining
 skips. It is not a complete run of every optional check. The drawing-to-map fixture now pins LF source bytes to
@@ -97,7 +121,7 @@ Offline publication checks match
 **64 pass / 23 fail / 8 n/a**; its failures are retained research results, not failing unit tests.
 Pipeline freshness remains **50/52**: manual `te.pid_live` and `te.replay` receipts are stale.
 Saved predictions regenerate 23 matching tables and seven with documented historical formatting adjustments;
-five earlier diagnostic tables still lack predictions. The feature catalog has **33 features**, of which
+five earlier diagnostic tables still lack predictions. The feature catalog has **35 features**, of which
 **21 have current independently reviewed example outputs**; the generalization-matrix review is stale after
 the selected intake receipt refresh, and repository-check review does not cover the new workflow-reproduction
 receipts. Numerical results are unchanged. The new CAD and photo examples still
@@ -105,6 +129,8 @@ need independent review. The new [port revision example](../examples/pid-port-re
 Neither a passing software test nor a matching source hash establishes an accepted engineering conclusion.
 The new [cross-sheet path example](../examples/pid-path-review/README.md) also awaits independent review;
 its authored schedules, graph assumptions and key are exposed development material.
+Maintenance-history and selected-unit foundation examples also await independent
+review. Their procedural checks do not change the human/company acceptance gaps.
 
 The coherence audit corrected [core graph reduction](GRAPH_EXPORT.md#two-profiles-the-full-record-and-the-part-a-change-system-needs): connections stay
 whole when retained memberships cannot explicitly represent them, or when they carry substantive claims or
@@ -122,7 +148,7 @@ create those controls.
 |---|---|---|
 | Consultant P&ID markup return review | [Original/markups/returned review](PID_MARKUP_REVIEW.md) with explicit per-change checks, other observed changes and a portable packet; imperfect and corrected fictional returns reproduce offline. | Supplied source-bound interpretation and annotation inventory; no automatic PDF/handwriting reading, model accuracy, full-sheet equivalence, engineering release or map update. |
 | Maintenance record handoff | [One fictional replacement](../examples/maintenance-handoff/README.md) links the existing before/after model, changes and closeout tools into a reproducible job. | Supplied identities and records; no CMMS acceptance, real recipient observation or measured review-time result. |
-| Bounded editable CAD exchange | [Source-retaining DXF edits and mapped draft context](../examples/cad-handoff/README.md), plus a [local form/agent equipment-data exchange](../examples/cad-handoff/data-review/README.md) that avoids CAD resaving. Six fresh authored cases preserve all unplanned bytes; real browser downloads/reopen are retained. A [Linux native UI experiment](../examples/cad-handoff/qualification/linux-native-7/README.md) observes actual edit/save/close/reopen on the exposed valve and readable native candidate labels. | Profiled existing attributes only; this metadata operation requires no CAD UI. Full native save still fails: 287 new Linux strict differences, original Windows 335/344 unchanged. Complete layout/font acceptance, fresh native validation and company acceptance remain open; no inferred connectivity or automatic synchronization. |
+| Bounded editable CAD exchange | [Source-retaining DXF edits and mapped draft context](../examples/cad-handoff/README.md), plus a [local form/agent equipment-data exchange](../examples/cad-handoff/data-review/README.md) that avoids CAD resaving. Six fresh authored cases preserve all unplanned bytes; real browser downloads/reopen are retained. A [Linux native UI experiment](../examples/cad-handoff/qualification/linux-native-7/README.md) observes actual edit/save/close/reopen on the exposed valve and readable native candidate labels. | Profiled existing attributes only; this metadata operation requires no CAD UI. Full native save still fails: 287 new Linux strict differences, original Windows 335/344 unchanged. Fresh native validation is complete as a negative full-save/paper result; complete layout/font and company acceptance remain unestablished. No inferred connectivity or automatic synchronization. |
 | Public photo-to-record exercise | [Two attributed nameplate photographs](../examples/photo-to-record/README.md), candidate fields, six retained OCR attempts and explicit unknown asset identities. | Empty and incorrect OCR results remain visible. Candidate readings need independent review and site identity evidence; neither OCR confidence nor a legible plate establishes installed state. |
 | Drawing intake and review report | A supplied extraction becomes a draft model, review queue, staging and readable HTML. | Approved extraction, engineering review and receiving-company acceptance. |
 | DEXPI routes | Read supported XML or the separate adapted-key/sheet contract; report omissions. | Exporter coverage and downstream eligibility vary; supported unplaced roles can feed source-qualified questions while equipment placement remains unknown. This does not extend platform-generator eligibility. |
@@ -135,6 +161,7 @@ create those controls.
 | Selected batch-record joins | [Explicit batch/event/executed-recipe/lab/outcome selections](../examples/batch-analysis/record-joins/README.md), availability/quality gaps, reproduced calculation inputs, raw originals and descriptive differences. | Normalized local contracts; supplied metadata needs review. No record discovery, live connector, causal/yield model, actual historical-access proof or accepted investigation outcome. |
 | Question engine | Catalog screens produce investigations and collection requests; source-scoped recipes retain known answers. | No arbitrary natural-language diagnosis or broad usefulness/coverage benchmark. |
 | Model-bound context and graph snapshot | Retain supplied answers, source dependencies and decision/ownership history; explicitly refresh and read back the selected graph/context pair. | Supported model/question contracts and manual refresh/restart; no source fetching or shared company access service. |
+| Selected-unit foundation handoff | [Project selected history/drawing findings and notes](FOUNDATION_HANDOFF.md) through explicit scoped mappings; actual graph/context receiving, source-only revision, conflicting proposals, unavailable evidence and full export/reopen. | Unverified selected leaves plus complete original archives; declared reviewers/owners, whole-asset freshness and immutable bounded delivery chains. No ChangePilot importer, authenticated company receiving, live maintenance or human benefit established. |
 | Knowledge/workflow starter packet | [Author and read](../examples/engineering-onboarding/own-packet/README.md) a selected landing map, source references, roles and workflow/practice records without an asset model. | Reference data; the reader/MCP remains read-only. No workflow execution or authenticated assignment. |
 | Local knowledge contribution capture | [Capture selected text and authored findings](../examples/engineering-onboarding/contribution-loop/README.md) into a new packet with exact prior state, source pins, combined-source dependencies and readable handoff. | Complete UTF-8 text and authored links only; no semantic answer verification, automatic source watching, accepted-answer selection, concurrent shared writes or bound graph/context reconciliation. Fictional revision/readback controls do not measure human benefit. |
 | Checks, matrix and task/model benchmarks | Reproduce claims/results and exercise selected workflows with failures visible. | Four task adapters, including `tag-reading` / `tag-text-v1` with separate geometry and partial-list modes, raw fixture checks and offline saved-answer reports. Selected facts, fixed labels and tag coverage do not grade arbitrary engineering meaning or company asset identity. See the [task scope](../benchmarks/README.md#current-reproducible-tasks); these are not a whole-toolkit completion percentage or general model ranking. |

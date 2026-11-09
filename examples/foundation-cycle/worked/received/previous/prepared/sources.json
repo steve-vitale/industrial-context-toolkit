@@ -1,0 +1,83 @@
+{
+  "documents": [
+    {
+      "id": "HISTORY",
+      "locators": [
+        {
+          "id": "selected-records",
+          "locator": "Complete result.json; selected projections use JSON pointers",
+          "questions": [
+            "HISTORY",
+            "SYNTHESIS"
+          ]
+        }
+      ],
+      "path": "originals/history/result.json",
+      "revision": "1",
+      "sha256": "bd6ab635dd095fe46c613a755ae31de40d7fb54b1c3dd49ee8c4b175cd3d369c"
+    },
+    {
+      "id": "DRAWING",
+      "locators": [
+        {
+          "id": "selected-records",
+          "locator": "Complete brief.json; selected projections use JSON pointers",
+          "questions": [
+            "DRAWING",
+            "SYNTHESIS"
+          ]
+        }
+      ],
+      "path": "originals/drawing/brief.json",
+      "revision": "1",
+      "sha256": "665a224dbcd1b5c5317d5a0b6c37208e124b23405d8338b31d3a61b27537028e"
+    },
+    {
+      "id": "NOTE",
+      "locators": [
+        {
+          "id": "L1",
+          "locator": "Complete authored note, line 1",
+          "questions": [
+            "HISTORY",
+            "SYNTHESIS"
+          ]
+        }
+      ],
+      "path": "originals/documents/0.txt",
+      "revision": "A",
+      "sha256": "141dff83a7d4ac6b26d3b02b7e6e4344805ec7dc32930003fc3bee347c16ff74"
+    },
+    {
+      "id": "INDEPENDENT",
+      "locators": [
+        {
+          "id": "L1",
+          "locator": "Complete authored note, line 1",
+          "questions": [
+            "INDEPENDENT"
+          ]
+        }
+      ],
+      "path": "originals/documents/1.txt",
+      "revision": "A",
+      "sha256": "94ad21da042bf925f4f38c77b2193f30c4d4f4728799967c99bf5fafb518d63f"
+    },
+    {
+      "id": "OPTIONAL",
+      "locators": [
+        {
+          "id": "L1",
+          "locator": "Complete authored note, line 1",
+          "questions": [
+            "MISSING"
+          ]
+        }
+      ],
+      "path": "originals/documents/2.txt",
+      "revision": "A",
+      "sha256": "74fbf7aed3a55722c9f10a23f5d45c6dde0c702665356b9998f127fb309a593a"
+    }
+  ],
+  "schema": "context-sources-1"
+}

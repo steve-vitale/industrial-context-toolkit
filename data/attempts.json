@@ -6544,6 +6544,62 @@
         "examples/maintenance-history/FREEZE.json",
         "examples/maintenance-history/public/reserved-acquisition.json"
       ]
+    },
+    {
+      "id": "A395",
+      "function": "intake_and_reuse",
+      "date": "2026-11-09",
+      "change": "Consolidate checked CAD and maintenance releases and reconcile current readiness.",
+      "hypothesis": "A release should represent checked merged content and preserve negative qualification outcomes.",
+      "evidence": "PR46 merged as 071c2cb; PR47 retargeted and merged as 55ec333. Main tree equals checked b200b2f; main CI 42563485293 succeeds in tests and snapshot-MCP jobs. Prior checked suite 99/99 programs,37individual skips. Current registry/later branch checks remain separate.",
+      "runs": "Read PR review/thread/head/check state and branch authority before sequential merges. No review requested or outreach sent.",
+      "verdict": "kept",
+      "why": "Software integration is complete for that baseline; native full-save/paper and reserved AMPS acquisition failures remain failures.",
+      "source": [
+        "docs/STATUS.md",
+        "docs/JOURNAL.md#236-consolidate-the-checked-public-release"
+      ]
+    },
+    {
+      "id": "A396",
+      "function": "intake_and_reuse",
+      "date": "2026-11-09",
+      "change": "Project selected source-qualified maintenance/drawing records into existing graph/context receiving and preserve the next revision.",
+      "hypothesis": "Scoped declarations, exact originals and actual full readback can make one unit portable without inventing a universal engineering schema.",
+      "evidence": "Plan/key/baseline committed 28b9864. Method frozen 2f9ce89. Development and second-namespace procedural run each 12/12 checks,23 CLI calls; separately frozen procedural key 8/8. Eight regression methods pass with no skips; final integration checks remain separate. Full portable received packet retained. Source-only working-tree dispatch passes75/75programs with35individual skipped cases and3platform notices; no additional skip notices. Frozen37files match. A selected fresh Git archive atb671f1b reopens the complete retained receiving packet without network/site packages. Exact-final-head CI remains separate.",
+      "runs": "Actual separate-process producer/context/receiver/export CLIs on fictional records. Same author knew generator/key; procedural variation is not independent or unseen-drawing validation. Three initial development failures retained; no reserved criterion tuning.",
+      "verdict": "kept",
+      "why": "Kept bounded adapter and receiving path. Native omissions, whole-asset freshness, unserved metadata, unavailable sources, immutable eight-delivery maximum and declaration-only authority are explicit. No ChangePilot import, human benefit, maintained company connector or engineering approval.",
+      "source": [
+        "docs/JOURNAL.md#237-receive-one-unit-and-retain-the-next-change",
+        "docs/FOUNDATION_HANDOFF.md",
+        "examples/foundation-cycle/PLAN.md",
+        "examples/foundation-cycle/ACCEPTANCE.json",
+        "examples/foundation-cycle/FREEZE.json",
+        "examples/foundation-cycle/DEVELOPMENT.json",
+        "examples/foundation-cycle/worked/procedural/score.json",
+        "scripts/test_foundation_handoff.py",
+        "examples/foundation-cycle/VALIDATION.json"
+      ]
+    },
+    {
+      "id": "A397",
+      "function": "intake_and_reuse",
+      "date": "2026-11-09",
+      "change": "Resolve earlier shared-post attribution and trace lessons to existing implementations, documentation and open company trials.",
+      "hypothesis": "A precise source-to-existing-evidence trail should expose missing attribution and prevent documentation-only ideas being sold as tested integrations.",
+      "evidence": "Public canonical Johannes and Davy posts reopened 2026-11-09UTC after short-link tool failures and HTTP redirects. Johannes links to existing A352 checks; Davy PaC attribution was absent and is now retained as guidance. ExistingA354/A356/A357 supply path/platform/calculation evidence; no upstream artifact or customer claim reproduced.",
+      "runs": "Primary public posts/product records; no private social captures, copied third-party implementation, outreach or new content planning. Existing registries remain canonical.",
+      "verdict": "kept",
+      "why": "PaC/IFCX/CFIHOS/BatchML/MTP/simulator adapters deferred until a versioned receiving job and permitted test cases justify them. Alerts stay in product/integration roadmap. N052/N062/N063 remain not-done; source navigation is not a second feature catalog.",
+      "source": [
+        "docs/JOURNAL.md#238-trace-shared-lessons-without-promoting-unrun-work",
+        "docs/PID_RULES_RESEARCH.md",
+        "docs/PID_GRAPH_QUESTIONS.md",
+        "docs/COMPETITIVE_WORKFLOWS.md",
+        "docs/DELIVERY_ROADMAP.md",
+        "docs/WORK_WITH_ME.md"
+      ]
     }
   ],
   "not_tried": [
@@ -7961,7 +8017,7 @@
       "function": "intake_and_reuse",
       "status": "done",
       "idea": "Freeze and qualify the corrected complete native CAD workflow on fresh reserved cases with foreign/literal/encoding fields, multiple assets and revision/conflict checks.",
-      "why_not_yet": "Declared frozen-method evaluation completes as a negative full-native-save/paper qualification:ten software cases,40API saves,30renders,four UI saves and two fresh receivers retained and replayed. All30fresh masked comparisons/20counterpart identities reproduce. All20source/candidate images inspected; A392 corrects an unsupported initial occlusion interpretation using original pixels, with no method/source/mask change. Bounded fresh model views pass. No engineering acceptance or full-native-preservation promotion; final exact-head CI is the integration gate on PR46.",
+      "why_not_yet": "Declared frozen-method evaluation completes as a negative full-native-save/paper qualification:ten software cases,40API saves,30renders,four UI saves and two fresh receivers retained and replayed. All30fresh masked comparisons/20counterpart identities reproduce. All20source/candidate images inspected; A392 corrects an unsupported initial occlusion interpretation using original pixels, with no method/source/mask change. Bounded fresh model views pass. No engineering acceptance or full-native-preservation promotion; final exact-head CI is the integration gate on PR46. Release consolidation: PR46 is now merged; main55ec333 CI42563485293 succeeds. This closes integration for that baseline, without promoting native CAD acceptance.",
       "source": [
         "examples/cad-handoff/qualification/PROTOCOL.md",
         "examples/cad-handoff/qualification/observer-transport-21/README.md",

@@ -1,0 +1,79 @@
+MATCH-OLD out/scorecard_first-try
+        out/scorecard_first-try.md, out/scorecard_first-try.json
+        written before commit 3caf420 added review load: every committed byte regenerates; the current scorer also prints a review-load column and '(split: all)' in the title
+SKIP    out/scorecard_hb-tiles-2x2
+        answer keys not in this checkout: data\external\pid2graph\PID2Graph\Complete\Dataset PID (holdout B: python scripts/fetch_pid2graph.py)
+SKIP    out/scorecard_hb-tiles-trace
+        answer keys not in this checkout: data\external\pid2graph\PID2Graph\Complete\Dataset PID (holdout B: python scripts/fetch_pid2graph.py)
+SKIP    out/scorecard_hb-trace
+        answer keys not in this checkout: data\external\pid2graph\PID2Graph\Complete\Dataset PID (holdout B: python scripts/fetch_pid2graph.py)
+SKIP    out/scorecard_hb-v2
+        answer keys not in this checkout: data\external\pid2graph\PID2Graph\Complete\Dataset PID (holdout B: python scripts/fetch_pid2graph.py)
+GAP     out/scorecard_r2-tiles-2x2-ov_dev
+        predictions not committed for r2-tiles-2x2-ov: re-merge variant (scripts/remerge_tiles.py, attempt A043): its run records were not under runs/ on the machine the predictions were exported from (2026-10-29), and the repository records no copy or reason
+GAP     out/scorecard_r2-tiles-2x2-repeat-ov_dev
+        predictions not committed for r2-tiles-2x2-repeat-ov: re-merge variant (attempt A043): its run records were not under runs/ on the machine the predictions were exported from (2026-10-29), and the repository records no copy or reason
+MATCH   out/scorecard_r2-tiles-2x2-repeat_dev
+        out/scorecard_r2-tiles-2x2-repeat_dev.md, out/scorecard_r2-tiles-2x2-repeat_dev.json
+MATCH   out/scorecard_r2-tiles-2x2_dev
+        out/scorecard_r2-tiles-2x2_dev.md, out/scorecard_r2-tiles-2x2_dev.json
+MATCH   out/scorecard_r2-tiles-2x2_holdout-a
+        out/scorecard_r2-tiles-2x2_holdout-a.md, out/scorecard_r2-tiles-2x2_holdout-a.json
+MATCH   out/scorecard_r2-tiles-trace_dev
+        out/scorecard_r2-tiles-trace_dev.md, out/scorecard_r2-tiles-trace_dev.json
+MATCH   out/scorecard_r2-tiles-trace_holdout-a
+        out/scorecard_r2-tiles-trace_holdout-a.md, out/scorecard_r2-tiles-trace_holdout-a.json
+GAP     out/scorecard_r2-trace-oracle_dev
+        predictions not committed for r2-trace-oracle: oracle tracer (answer-key symbols, no model; scripts/trace_connections.py --oracle can rebuild it): its run records were not under runs/ on the machine the predictions were exported from (2026-10-29), and the repository records no copy or reason
+GAP     out/scorecard_r2-trace-union_dev
+        predictions not committed for r2-trace-union: union variant (attempt A026): its run records were not under runs/ on the machine the predictions were exported from (2026-10-29), and the repository records no copy or reason
+GAP     out/scorecard_r2-trace_dev
+        runs/r2-trace on the export machine holds drawings 6-11 only, for every tool; the development drawings 0-5 this scorecard scored are not there (claude: scorecard scored 6 drawings, predictions hold 0; codex: scorecard scored 6 drawings, predictions hold 0; gemini: scorecard scored 6 drawings, predictions hold 0)
+MATCH   out/scorecard_r2-trace_holdout-a
+        out/scorecard_r2-trace_holdout-a.md, out/scorecard_r2-trace_holdout-a.json
+MATCH   out/scorecard_r4-scan-L1-tiles_holdout-a
+        out/scorecard_r4-scan-L1-tiles_holdout-a.md, out/scorecard_r4-scan-L1-tiles_holdout-a.json
+MATCH   out/scorecard_r4-scan-L1-trace_holdout-a
+        out/scorecard_r4-scan-L1-trace_holdout-a.md, out/scorecard_r4-scan-L1-trace_holdout-a.json
+MATCH   out/scorecard_r4-scan-L2-tiles_holdout-a
+        out/scorecard_r4-scan-L2-tiles_holdout-a.md, out/scorecard_r4-scan-L2-tiles_holdout-a.json
+MATCH   out/scorecard_r4-scan-L2-trace_holdout-a
+        out/scorecard_r4-scan-L2-trace_holdout-a.md, out/scorecard_r4-scan-L2-trace_holdout-a.json
+MATCH   out/scorecard_r4-scan-L3-symbols-clean-trace_holdout-a
+        out/scorecard_r4-scan-L3-symbols-clean-trace_holdout-a.md, out/scorecard_r4-scan-L3-symbols-clean-trace_holdout-a.json
+MATCH   out/scorecard_r4-scan-L3-tiles_holdout-a
+        out/scorecard_r4-scan-L3-tiles_holdout-a.md, out/scorecard_r4-scan-L3-tiles_holdout-a.json
+MATCH   out/scorecard_r4-scan-L3-trace_holdout-a
+        out/scorecard_r4-scan-L3-trace_holdout-a.md, out/scorecard_r4-scan-L3-trace_holdout-a.json
+MATCH-OLD out/scorecard_repeat-v1
+        out/scorecard_repeat-v1.md, out/scorecard_repeat-v1.json
+        written before commit 3caf420 added review load: every committed byte regenerates; the current scorer also prints a review-load column and '(split: all)' in the title
+MATCH-OLD out/scorecard_smoke
+        out/scorecard_smoke.md, out/scorecard_smoke.json
+        written before commit 3caf420 added review load: every committed byte regenerates; the current scorer also prints a review-load column and '(split: all)' in the title
+MATCH-OLD out/scorecard_v2-named-fields
+        out/scorecard_v2-named-fields.md, out/scorecard_v2-named-fields.json
+        written before commit 3caf420 added review load: every committed byte regenerates; the current scorer also prints a review-load column and '(split: all)' in the title
+MATCH   out/scorecard_v2-named-fields_dev
+        out/scorecard_v2-named-fields_dev.md, out/scorecard_v2-named-fields_dev.json
+MATCH   out/scorecard_v2-named-fields_holdout-a
+        out/scorecard_v2-named-fields_holdout-a.md, out/scorecard_v2-named-fields_holdout-a.json
+MATCH-OLD out/scorecard_v2-open-weight-gemma-retry
+        out/scorecard_v2-open-weight-gemma-retry.md, out/scorecard_v2-open-weight-gemma-retry.json
+        written before commit 3caf420 added review load: every committed byte regenerates; the current scorer also prints a review-load column and '(split: all)' in the title
+MATCH-OLD out/scorecard_v2-open-weight-gemma
+        out/scorecard_v2-open-weight-gemma.md, out/scorecard_v2-open-weight-gemma.json
+        written before commit 3caf420 added review load: every committed byte regenerates; the current scorer also prints a review-load column and '(split: all)' in the title
+SKIP    out/replicates_r5_dexpi
+        answer keys not in this checkout: data\external\dexpi\sheets (holdout B: python scripts/fetch_pid2graph.py)
+SKIP    out/replicates_r5_dexpi_tiles_only_diagnostic
+        answer keys not in this checkout: data\external\dexpi\sheets (holdout B: python scripts/fetch_pid2graph.py)
+MATCH   out/replicates_r5_holdout-a
+        out/replicates_r5_holdout-a.json, out/replicates_r5_holdout-a.md
+MATCH-OLD out/te_pid/roundtrip_scores
+        out/te_pid/roundtrip_scores.md, out/te_pid/roundtrip_scores.json
+        revision-A markdown predates the source-location line; every original byte and the full JSON regenerate, with only that exact new line omitted
+MATCH   out/te_pid/roundtrip_scores_revC
+        out/te_pid/roundtrip_scores_revC.md, out/te_pid/roundtrip_scores_revC.json
+
+5 GAP, 17 MATCH, 7 MATCH-OLD, 6 SKIP

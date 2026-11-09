@@ -62,6 +62,15 @@ Ask about their own job after showing what the result looks like. Example record
 | Prepared graph and a question about a route across sheets | Use the [path review](PID_GRAPH_QUESTIONS.md) with exact IDs, explicit physical/logical and process/signal scope, and reviewed-only policy first. Preserve missing media, direction and open conflicts. | A sourced route or a specific stopping boundary, qualified record associations and an explicit comparison after a revision. No consequence or isolation inference. |
 | Recorded historian/batch CSVs | Read the [analytics guide](PROCESS_ANALYTICS.md) and the specific command's input contract; confirm time, units, operating context and coverage. | A bounded calculation or investigation with its source basis and limits. |
 
+When one job combines history, a drawing-return finding and notes, use the
+[foundation handoff](FOUNDATION_HANDOFF.md). Prepare the source packets first;
+supply exact scoped mappings and questions, project the selected records, then
+apply the existing context register and run actual receiving. Return the readable
+handoff, native omissions, unavailable sources, owner/review declarations and next
+refresh step. The receiver is the toolkit snapshot reader; do not claim a
+ChangePilot importer or company acceptance. Its whole-asset freshness boundary
+and immutable delivery chains are explicit in the guide.
+
 ## Do the preparation for them
 
 If the user's approved Copilot can already read the needed SharePoint records, use that access first. A

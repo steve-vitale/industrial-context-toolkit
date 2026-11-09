@@ -1,11 +1,21 @@
 # Delivery roadmap: prove a useful plant job
 
-Working priorities, 2026-11-06. The original [PLAN.md](PLAN.md) remains the dated research/showcase plan.
+Working priorities, updated 2026-11-09 UTC. The original [PLAN.md](PLAN.md) remains the dated research/showcase plan.
 This roadmap prioritizes useful delivery from the existing tools before more catalog breadth.
 
 The [current self-service gap record](SELF_SERVICE_GAPS.md) now links reusable export intake, real agent sessions
-and repeat-revision evidence. Native CAD acceptance remains open after a documented receiver/automation failure;
-those observations do not satisfy its completion gate.
+and repeat-revision evidence. PR46/47 are merged with passing main CI. The declared
+native CAD campaign is complete as a negative full-save/paper qualification;
+bounded model/metadata receiving does not satisfy native preservation or readable
+paper delivery. Keep those failures visible rather than widening that campaign.
+
+The next software depth is [one unit's foundation handoff](FOUNDATION_HANDOFF.md):
+selected history, drawing findings and notes, an actual supported receiver, full
+typed readback, revised sources, conflicts and export/reopen. Follow the
+[preimplementation plan](../examples/foundation-cycle/PLAN.md). The local receiver
+does not complete the separate human/company receiving priorities below. Before
+more breadth, measure one real engineer/manager result and one authorized
+destination's acceptance/next revision when participants become available.
 
 The primary readers are maintenance and engineering managers. The [manager starting guide](MANAGERS_START_HERE.md)
 and [offline review packet](../examples/manager-review/README.md) put the decision, source preparation, named
