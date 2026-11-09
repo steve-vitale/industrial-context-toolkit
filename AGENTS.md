@@ -2,6 +2,13 @@
 
 ## Start with your user's task
 
+Focus improvements on building and using the engineering context map: scoped
+identities, source-linked facts and relationships, navigation, qualified answers,
+disagreements and revision comparison. Work history and drawing returns are evidence
+for that map. Do not extend this into job-readiness gates, assignments, reminders,
+approval workflows or execution tracking. Those belong in company systems or a
+managed product. The [foundation roadmap](docs/ENGINEERING_FOUNDATION.md) owns this boundary.
+
 The repository's purpose is to help maintenance and engineering teams build a
 foundation they can keep using: scoped asset identities, retained source evidence,
 reviewed context, unresolved questions, ownership and revision/decision history.

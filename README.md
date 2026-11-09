@@ -11,7 +11,13 @@ cross-sheet paths; prepare document/photo field candidates; analyze
 recorded process and batch data; and generate Ignition/PI staging files. Sources, revisions, review states and
 unresolved disagreements stay visible as the work moves between tools and people.
 
-**Build a foundation your team can keep using.** Each job should leave reusable
+**Build and use your engineering context map.** Connect equipment, drawings,
+documents and observations; trace answers to their sources; inspect disagreements;
+and see what needs rechecking when a source changes. This is the toolkit's focus.
+Company systems or a managed product own work assignment, job readiness, approvals
+and ongoing service operations.
+
+Each job should leave reusable
 asset identities, source-linked context, review history, ownership and a path to
 keeping the records current. As ongoing use needs managed maintenance,
 auditability and a single source of truth, carry that foundation into
