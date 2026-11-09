@@ -10157,3 +10157,48 @@ needed to bind a particular delivery. Internal consistency alone authenticates
 neither the sender nor a deliberately substituted whole package. No context
 answer is silently refreshed; existing context tools keep that separate step.
 Historical CAD/source-acquisition negatives and open human/company trials remain.
+
+## 241. Keep map-generated components editable and test the engineer's whole task
+
+Steve's shared-model direction is captured on branch codex/map-generated-components
+in 65288bb: agents should query common engineering context and scaffold component
+drafts with output-specific minimum inputs, sources, gaps and derivation lineage.
+No general map-to-generator projection is implemented by that documentation.
+
+The additional shared link gtXsdiEP resolves to Moshe Baum's public Claude-to-CAD
+account. The short-link web reader failed, direct HTTP resolved the public page,
+and the web reader returned the complete resolved post and visible discussion.
+A supplementary HTML parser stopped on a valueless class attribute after reading
+description metadata; the analysis uses the successful public-page reading.
+Only paraphrased lessons and source links are retained, not the full post.
+
+His account raises human takeover/editability, repeated correction and complete
+task cost. These are practitioner observations, not independent platform/model
+benchmarks. His broad claims about creativity and learning are not adopted as
+universal conclusions. The official Onshape sources clarify that native features
+also have FeatureScript representations; script use itself does not establish
+whether a result has useful parametric/editing structure. An API is an available
+route, not a demonstrated toolkit integration or speed improvement.
+
+The linked Aaddrick Williams scene-testing article adds a method reminder:
+measure the evaluated returned artifact, challenge checkers with known defects,
+and bind results to the exact delivered file and specification. Its checker
+errors and incomplete final-file checks are retained as limits, not converted
+into engineering acceptance. No Blender numerical thresholds or physics results
+are transferred to plant work.
+
+Canonical foundation/agent guidance now requires a useful editable basis,
+retained manual edits on regeneration, applicable versioned correction context,
+actual-artifact checks and total preparation/retry/review/correction/receiving
+measurement. Competitive source navigation and delivery measurement link those
+requirements to the source review. These are planned adapter acceptance criteria;
+no new model training, agent memory engine, generator, Onshape connector or CAD
+qualification is claimed. Existing native preservation/paper failures and the
+unrun human/company trials remain unchanged.
+
+Documentation checks pass: 11 attempt-ledger regression methods, ledger/source
+anchors, the existing 35-feature catalog and 162-script index. The unchanged
+context-map format checks passed 28 methods with one skipped optional check
+while recording the preceding shared-model design. Local link targets and
+whitespace checks pass. These checks validate documentation/registry consistency,
+not the planned component adapters or the external demonstrations.

@@ -66,6 +66,14 @@ code or data without checking their respective licenses. This delivery uses no c
 
 ### Measure the whole first result
 
+For component generation, include the [editable takeover and correction lessons](COMPETITIVE_WORKFLOWS.md#moshe-baum-keep-generated-components-useful-for-the-engineer-who-edits-them).
+Start from the same selected map/context and required output under both methods.
+Retain preparation, retries, review, manual correction, receiving and regeneration
+effort separately. Demonstrate one useful human edit and verify it survives or is
+explicitly reported on the next generation. A fast render, software-only timing
+or an exported editable-looking file does not establish that an engineer can
+continue the job efficiently. No new human timing result is supplied here.
+
 The [Flowstead browser launch](COMPETITIVE_WORKFLOWS.md#flowstead-distinguish-the-calculation-from-the-unfinished-plant-job)
 reinforces a useful delivery test: can someone reach, inspect and retain a result when the question arises?
 The toolkit already has account-free committed examples and offline reports. That does not establish that

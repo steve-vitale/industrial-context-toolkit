@@ -17,6 +17,13 @@ lineage. Generated documents are derived views, not independent corroboration.
 Do not claim that today's one-way graph exports already provide a general
 map-to-generator-model projection.
 
+For a future component-generation change, retrieve applicable versioned
+corrections with the selected engineering context. Preserve their source and
+applicability; generated/copy-derived documents do not add independent support.
+Validate the actual delivered artifact and the engineer's edit/regeneration path,
+not only the builder's description or a preview. See the
+[editable-component requirements](docs/ENGINEERING_FOUNDATION.md#human-editable-components-and-retained-corrections).
+
 The repository's purpose is to help maintenance and engineering teams build a
 foundation they can keep using: scoped asset identities, retained source evidence,
 reviewed context, unresolved questions, ownership and revision/decision history.

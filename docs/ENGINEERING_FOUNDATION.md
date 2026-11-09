@@ -110,6 +110,40 @@ the wheel and appear better supported each time. Generated drafts can provide
 structure and reviewed proposals; independent evidence requires an actual new
 source or observation, not another rendering of the same claim.
 
+### Human-editable components and retained corrections
+
+The [Claude-to-CAD source review](COMPETITIVE_WORKFLOWS.md#moshe-baum-keep-generated-components-useful-for-the-engineer-who-edits-them)
+adds acceptance requirements to component generation:
+
+- **Name the editing target.** A draft needs a retained working source and useful
+  editing structure for its purpose: document fields, graph identities and
+  relationships, drawing entities, or parameters/features where claimed. Keep
+  the field-to-map mapping. A flattened preview alone does not establish editability.
+- **Exercise takeover and regeneration.** Make one declared manual correction,
+  reopen/read it back and retain unrelated fields. On regeneration, compare that
+  edited draft with its original basis and the new map. Preserve or explicitly
+  report the manual change; do not silently erase it. Return proposed engineering
+  changes through the map's existing review route rather than treating every
+  edited/generated document as new independent evidence.
+- **Load relevant corrections before generating.** Keep compact, versioned,
+  source-linked correction records with their affected class/operation, rationale,
+  applicability limits and a reproducible counterexample. An agent must retrieve
+  the applicable records with the selected context. A session transcript alone
+  is insufficient, and repeated exposure is not a claim of model training.
+- **Separate constraints from generation.** Check the supplied specification for
+  contradictory identities, units, relationships and requirements before building.
+  Prefer bounded structured operations where supported. Then measure the actual
+  returned artifact under fixed checks with wrong controls; a builder's account
+  of what it produced is not the result. Qualify any native or visual behavior
+  that those checks cannot establish.
+- **Count the engineer's complete task.** Retain preparation, retries, review,
+  manual correction and receiving effort beside the ordinary method. A faster
+  generator is useful only if the combined job benefits. That human comparison
+  has not been measured here.
+
+These are requirements for the planned component adapters, not implemented
+cross-session memory, new native CAD capabilities or a managed action service.
+
 ### The next implementation depth
 
 Deepen the agent query surface and implement a bounded **map-to-generator-model
