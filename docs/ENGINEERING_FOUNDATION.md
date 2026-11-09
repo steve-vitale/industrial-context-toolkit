@@ -26,9 +26,100 @@ execution tracking belong in the responsible company systems or a managed produc
 Review states here describe the evidence and interpretation; they do not release work.
 
 Further development should deepen map construction, navigation, sourced questions
-and revision comparison.
+and revision comparison, then use that shared context to draft its component records.
 Portable exports and bounded receiving checks support later adoption by ChangePilot
 or another tool without making the toolkit an operated context-management service.
+
+## One engineering model, many draft components
+
+**Intended architecture:** the map is the reusable engineering context behind the
+hub and spokes. Agents should be able to explore and query it, then request a
+rough component from the context already present: an equipment or instrument
+list, datasheet scaffold, loop sheet, process description, drawing or platform
+draft. Related documents contribute overlapping facts and structure, so producing
+the next document does not restart the engineering description from scratch.
+
+This is a development direction, not a claim that today's graph can generate
+every component. The [current contracts](WORKFLOWS.md) still include separate
+generator models and authored drawing layouts. The existing context-map format
+[design](CONTEXT_MAP_FORMAT.md#how-todays-toolkit-formats-fit-in) already proposes
+making those models views of the map; that reverse path remains unimplemented.
+
+```mermaid
+flowchart LR
+    R[Drawings, records, documents and observations] -->|Source-qualified intake| M[Shared engineering context map]
+    M --> Q[Agent exploration and questions]
+    M -->|Selected context and output requirements| V[Draft component views]
+    V --> D[Lists, datasheets, narratives, drawings and platform drafts]
+    D -.->|Reviewed additions with original lineage| M
+```
+
+The minimum context is **specific to the requested output**, not a single
+"map complete" flag. A partially populated map can already be useful. Return a
+partial draft or outline with gaps when that is all the selected context supports.
+Do not make the user reconstruct facts separately for each generator.
+
+| Requested draft | Context that can scaffold it | What remains explicit when absent |
+|---|---|---|
+| Equipment/instrument list | Scoped identities, kinds/classes, descriptions and known properties | Missing classifications and properties; position and physical-item identities remain distinct |
+| Datasheet | Item identity/class, applicable sourced properties, units and service context where available | Blank requirements/unknown values, conflicting alternatives and missing applicability evidence |
+| Loop sheet or control-narrative outline | Instrument roles, measurement/controller/final-element relationships and any supplied behavior | Missing loop members, signal details, setpoints, sequences and fail behavior; connections alone do not establish a control strategy |
+| Rough process schematic or P&ID draft | Equipment and appropriately typed connection/placement evidence | Unknown paths/media/direction; generated layout is presentation, not recovered CAD geometry. Network membership is not physical adjacency |
+| Draft asset hierarchy, HMI/tag or PI staging | Scoped assets, instrument variables/units and supplied relationships/mappings | Missing addresses, signal identity, presentation details and receiving-specific configuration; no live acceptance |
+
+These examples describe output requirements, not a second feature catalog or a
+promise that every adapter exists. An extensible component adapter should declare
+its required and optional context and reuse the existing generators where they fit.
+
+### Agent interaction and generation contract
+
+1. **Discover and query.** Expose the available entity/relation/property types and
+   supported draft targets. Permit scoped lookup, typed filtering, relationship
+   traversal and retrieval of full claims and their evidence. An agent should be
+   able to ask which facts disagree or which target lacks context without loading
+   every unrelated document. Begin with local functions/CLI and versioned JSON;
+   MCP is an optional interface, not a prerequisite or an authority service.
+2. **Check the requested component's context.** State which supplied facts support
+   the draft, which requirements are unknown or conflicting, and whether the
+   result can be a partial draft or only an outline. This checks an artifact's
+   inputs; it does not decide whether maintenance work is ready or authorized.
+3. **Generate a view with a basis.** Retain the map snapshot, selected identities,
+   source revisions/locators, field mappings, assumptions and adapter/template
+   version. Keep sourced facts, derived calculations, interpretation and generated
+   presentation distinct. Reuse facts across components through that shared basis.
+4. **Return a draft and its gaps.** Give the engineer a readable artifact and the
+   machine-readable basis needed to reproduce it. Preserve disagreements rather
+   than selecting an unrecorded winner. A changed source identifies dependent
+   drafts to revisit; it does not silently release their replacements.
+5. **Bring reviewed contributions back carefully.** Link corrections and newly
+   established facts to their evidence, preserving previous versions. Generated
+   text/layout does not become a new plant observation merely by being imported.
+   Company systems and responsible engineers keep release and ongoing service roles.
+
+### Redundancy should add context without manufacturing corroboration
+
+An equipment list, datasheet and P&ID can supply complementary pieces for the same
+item. Agreement may help cross-check a fact; disagreement can identify an error
+or a difference between design, installed and operating context. Retain those
+roles, applicability, dates and sources rather than merging every equal tag/value.
+
+**Three documents copied from one source are one evidence lineage, not three
+independent confirmations.** A draft generated from the map must retain its roots
+if it comes back as an input. Otherwise a mistaken value could be copied around
+the wheel and appear better supported each time. Generated drafts can provide
+structure and reviewed proposals; independent evidence requires an actual new
+source or observation, not another rendering of the same claim.
+
+### The next implementation depth
+
+Deepen the agent query surface and implement a bounded **map-to-generator-model
+projection**, then exercise several components from the same selected context.
+Before widening targets, retain a matched case showing that a fact is sourced
+consistently across drafts, an omitted fact stays unknown, a disputed fact stays
+disputed, and a source revision identifies the affected output fields while
+unrelated context remains unchanged. Include a generated-document reimport
+control that cannot inflate independent support. This is the missing generative
+path behind the explorer; it is not yet supplied by the explorer itself.
 
 ## The broader foundation and its owners
 

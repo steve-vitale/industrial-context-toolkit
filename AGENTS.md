@@ -9,6 +9,14 @@ for that map. Do not extend this into job-readiness gates, assignments, reminder
 approval workflows or execution tracking. Those belong in company systems or a
 managed product. The [foundation roadmap](docs/ENGINEERING_FOUNDATION.md) owns this boundary.
 
+The intended next depth is a queryable shared engineering model that can scaffold
+component drafts from the context it already holds. Follow the
+[component-view design](docs/ENGINEERING_FOUNDATION.md#one-engineering-model-many-draft-components):
+requirements are per output; retain missing/conflicting facts and original source
+lineage. Generated documents are derived views, not independent corroboration.
+Do not claim that today's one-way graph exports already provide a general
+map-to-generator-model projection.
+
 The repository's purpose is to help maintenance and engineering teams build a
 foundation they can keep using: scoped asset identities, retained source evidence,
 reviewed context, unresolved questions, ownership and revision/decision history.
