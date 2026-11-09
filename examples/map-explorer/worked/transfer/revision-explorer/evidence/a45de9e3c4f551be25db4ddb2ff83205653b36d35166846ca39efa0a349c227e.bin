@@ -1,0 +1,132 @@
+{
+ "schema": "one-map-sheet-1",
+ "note": "Hand-authored stand-in for a drawing reader's read of fictional P&ID PAST1-01 rev C. PI-2240 drawn on TIC-2207 is a deliberate misreading (a gauge cannot measure a controller); PSV-2216 is drawn on nothing.",
+ "equipment": [
+  {
+   "tag": "P-101",
+   "name": "Timing pump",
+   "zone": "B2"
+  },
+  {
+   "tag": "P-102",
+   "name": "Booster pump",
+   "zone": "B4"
+  },
+  {
+   "tag": "HT-100",
+   "name": "Hold tube",
+   "zone": "C3"
+  },
+  {
+   "tag": "PHE-2201",
+   "name": "Pasteurizer plate heat exchanger",
+   "zone": "C5"
+  },
+  {
+   "tag": "E-2215",
+   "name": "Hot water set heater",
+   "zone": "E5"
+  }
+ ],
+ "instruments": [
+  {
+   "tag": "TT-2207",
+   "zone": "D4",
+   "on": "HT-100"
+  },
+  {
+   "tag": "TIC-2207",
+   "zone": "D5"
+  },
+  {
+   "tag": "FDV-2210",
+   "zone": "D3",
+   "on": "HT-100"
+  },
+  {
+   "tag": "FT-2203",
+   "zone": "B3",
+   "on": "P-101"
+  },
+  {
+   "tag": "FIC-2203",
+   "zone": "B5"
+  },
+  {
+   "tag": "PI-2240",
+   "zone": "E3",
+   "on": "TIC-2207"
+  },
+  {
+   "tag": "PIC-2240",
+   "zone": "E4"
+  },
+  {
+   "tag": "PCV-2240",
+   "zone": "E4",
+   "on": "E-2215"
+  },
+  {
+   "tag": "PSV-2215",
+   "zone": "E6",
+   "on": "E-2215"
+  },
+  {
+   "tag": "PSV-2216",
+   "zone": "F6"
+  }
+ ],
+ "signal_lines": [
+  [
+   "TT-2207",
+   "TIC-2207"
+  ],
+  [
+   "TIC-2207",
+   "FDV-2210"
+  ],
+  [
+   "FT-2203",
+   "FIC-2203"
+  ],
+  [
+   "FIC-2203",
+   "P-101"
+  ],
+  [
+   "PI-2240",
+   "PIC-2240"
+  ],
+  [
+   "PIC-2240",
+   "PCV-2240"
+  ]
+ ],
+ "lines": [
+  {
+   "id": "L1",
+   "from": "P-102",
+   "to": "PHE-2201"
+  },
+  {
+   "id": "L2",
+   "from": "PHE-2201",
+   "to": "P-101"
+  },
+  {
+   "id": "L3",
+   "from": "P-101",
+   "to": "HT-100"
+  },
+  {
+   "id": "L4",
+   "from": "HT-100",
+   "to": "FDV-2210"
+  },
+  {
+   "id": "L5",
+   "from": "FDV-2210",
+   "to": "PHE-2201"
+  }
+ ]
+}

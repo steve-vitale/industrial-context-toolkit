@@ -1566,10 +1566,15 @@
       "title": "One map of P&IDs, equipment and instrument records, datasheets and documents, with owner-routed conflicts",
       "tools": [
         "scripts/one_map.py",
-        "scripts/map_changes.py"
+        "scripts/map_changes.py",
+        "scripts/map_explorer.py"
       ],
       "guide": "docs/ONE_MAP.md",
       "example_outputs": [
+        "examples/map-explorer/worked/development/explorer/index.html",
+        "examples/map-explorer/worked/development/explorer/exploration.json",
+        "examples/map-explorer/worked/transfer/revision-explorer/exploration.json",
+        "examples/map-explorer/worked/transfer/public-explorer/exploration.json",
         "examples/one-map/expected/start/report.md",
         "examples/one-map/expected/start/conflicts.md",
         "examples/one-map/expected/start/graph.json",
@@ -1592,6 +1597,7 @@
         "examples/one-map/expected/pasteurizer-moc/close/queues/review_queue.csv"
       ],
       "tests": [
+        "scripts/test_map_explorer.py",
         "scripts/test_one_map.py",
         "scripts/test_sheet_from_prediction.py",
         "scripts/test_ontology.py",
@@ -1600,7 +1606,7 @@
       "job": "Connect a site's plant records and documents across plants",
       "you_need": "P&ID sheets read by the drawing reader (converted with one_map.py sheet-from-prediction) or authored sheet reads, a sheet index, whatever equipment and instrument records exist (maintenance equipment export, instrument index, loop list), optional datasheets and a document manifest (PDF, Word, Excel, PowerPoint, HTML or text documents); a site file naming plants, units, shared systems, record owners and which record is authoritative for which kind of fact",
       "time": "Seconds",
-      "you_get": "A twin-graph-2 graph (site/plant/unit hierarchy, P&ID locations by sheet zone, documents with covers/based_on and mentions found in PDF/Office/HTML/text with a locator, exact or format-insensitive), conflict records routed to the owner of the non-authoritative record, low-priority P&ID value notes, located-loop outcomes, a risk-sorted review queue split by owner/plant/unit, and a draft maintenance equipment export, instrument index and loop list where none exists; item classes, links that do not fit what they connect, completeness rules (expected but missing, certified and rolled out per unit or owner), plant glossary terms in document matching (OCR text never links), read-only answers with sources or 'can't answer from this map', and an optional JSON-LD view. Prototype on fictional records and one public development P&ID sheet; no plant acceptance",
+      "you_get": "A twin-graph-2 graph (site/plant/unit hierarchy, P&ID locations by sheet zone, documents with covers/based_on and mentions found in PDF/Office/HTML/text with a locator, exact or format-insensitive), conflict records routed to the owner of the non-authoritative record, low-priority P&ID value notes, located-loop outcomes, a risk-sorted review queue split by owner/plant/unit, and a draft maintenance equipment export, instrument index and loop list where none exists; item classes, links that do not fit what they connect, completeness rules (expected but missing, certified and rolled out per unit or owner), plant glossary terms in document matching (OCR text never links), read-only answers with sources or 'can't answer from this map', and an optional JSON-LD view. Prototype on fictional records and one public development P&ID sheet; no plant acceptance; a read-only offline map explorer with complete node/edge/source/conflict/history inspection, existing sourced questions, previous/current comparison and portable source-byte/readback verification. Explorer examples remain independently unreviewed.",
       "why": "Departments keep their own records and documents; disagreements between them stay invisible until someone compares by hand. One graph keeps each record's source and owner, takes each value from the record that owns it, and sends each disagreement to the person who owns the record."
     },
     {

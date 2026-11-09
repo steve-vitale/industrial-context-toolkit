@@ -1,0 +1,2272 @@
+{
+ "schema": "one-map-sheet-1",
+ "note": "Converted from a drawing reader's prediction by one_map.py sheet-from-prediction. Every item is the reader's draft (unverified); zones are computed from the reader's boxes.",
+ "source": {
+  "kind": "reader_prediction",
+  "path": "predictions/r2-tiles-trace/codex/0.json",
+  "sha256": "f65df9b82a418de655276babbaeacebae443c26a4fa429ae0cc7efd01d142dc1",
+  "stored_form": true,
+  "sheet": "140",
+  "revision": "A",
+  "plant": "NPP",
+  "unit": "MSS",
+  "label": "r2-tiles-trace",
+  "tool": "codex",
+  "model": "gpt-6.1-sol",
+  "drawing": "0",
+  "prompt_sha256": "d98a6475c284b889be863b68fe09453f2aa8923954eee990bca21dc7aa600c65",
+  "image_sha256": "2451fbe9b8d0494a822901493cfbf1d2656f0bd7678f0f25bb2266b5e78a7dc9"
+ },
+ "zone_grid": {
+  "rows": 8,
+  "cols": 12,
+  "origin": "bottom-right",
+  "frame_0_1000": [
+   9.4,
+   19.5,
+   857.1,
+   981.1
+  ],
+  "format": "ROW-COL",
+  "rule": "rows lettered A at the bottom, columns numbered 1 at the right (ASME Y14.1 style); a box is zoned by its centre"
+ },
+ "equipment": [
+  {
+   "tag": "MSS-XSS-140",
+   "zone": "D-9",
+   "box_0_1000": [
+    226.6,
+    433.1,
+    259.0,
+    569.1
+   ],
+   "reader_symbol": "s1",
+   "reader_class": "tank",
+   "reader_confidence": 0.99,
+   "printed_tag": "MSS-XSS-140",
+   "tag_status": "as_extracted"
+  },
+  {
+   "tag": "RCS-SG-100",
+   "zone": "C-11",
+   "box_0_1000": [
+    85.4,
+    565.3,
+    120.0,
+    761.0
+   ],
+   "reader_symbol": "s83",
+   "reader_class": "tank",
+   "reader_confidence": 0.99,
+   "printed_tag": "RCS-SG-100",
+   "tag_status": "as_extracted"
+  }
+ ],
+ "instruments": [
+  {
+   "tag": "TCV-1401",
+   "zone": "E-10",
+   "box_0_1000": [
+    187.1,
+    385.0,
+    202.8,
+    409.3
+   ],
+   "reader_symbol": "s3",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "TCV 1401",
+   "tag_status": "as_extracted"
+  },
+  {
+   "tag": "FT-1401",
+   "zone": "F-8",
+   "box_0_1000": [
+    287.1,
+    354.2,
+    302.8,
+    377.4
+   ],
+   "reader_symbol": "s7",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "FT 1401",
+   "tag_status": "as_extracted",
+   "placement_candidates": [
+    "L-s1-s100",
+    "L-s1-s54",
+    "L-s1-s99",
+    "L-s100-s83",
+    "L-s54-s83",
+    "L-s83-s99"
+   ]
+  },
+  {
+   "tag": "FT-1401",
+   "zone": "F-8",
+   "box_0_1000": [
+    301.2,
+    354.2,
+    316.3,
+    377.4
+   ],
+   "reader_symbol": "s8",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "FT 1401",
+   "tag_status": "as_extracted"
+  },
+  {
+   "tag": "TE-14084A",
+   "zone": "F-9",
+   "box_0_1000": [
+    246.6,
+    306.0,
+    261.7,
+    329.8
+   ],
+   "reader_symbol": "s9",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "TE 14084A",
+   "tag_status": "as_extracted",
+   "placement_candidates": [
+    "L-s1-s100",
+    "L-s1-s54",
+    "L-s1-s99",
+    "L-s100-s83",
+    "L-s54-s83",
+    "L-s83-s99"
+   ]
+  },
+  {
+   "tag": "TE-14084B",
+   "zone": "F-9",
+   "box_0_1000": [
+    246.6,
+    327.1,
+    261.7,
+    350.4
+   ],
+   "reader_symbol": "s10",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "TE 14084B",
+   "tag_status": "as_extracted"
+  },
+  {
+   "tag": "RE-1402",
+   "zone": "G-8",
+   "box_0_1000": [
+    302.3,
+    222.8,
+    317.9,
+    247.1
+   ],
+   "reader_symbol": "s11",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "RE 1402",
+   "tag_status": "as_extracted",
+   "placement_candidates": [
+    "L-s1-s100",
+    "L-s1-s54",
+    "L-s1-s99",
+    "L-s100-s83",
+    "L-s54-s83",
+    "L-s83-s99"
+   ]
+  },
+  {
+   "tag": "PT-14085",
+   "zone": "G-8",
+   "box_0_1000": [
+    337.4,
+    222.8,
+    353.1,
+    247.1
+   ],
+   "reader_symbol": "s13",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "PT 14085",
+   "tag_status": "as_extracted",
+   "placement_candidates": [
+    "L-s1-s100",
+    "L-s1-s54",
+    "L-s1-s99",
+    "L-s100-s54",
+    "L-s100-s83",
+    "L-s100-s99",
+    "L-s54-s83",
+    "L-s54-s99",
+    "L-s83-s99"
+   ]
+  },
+  {
+   "tag": "PT-14086",
+   "zone": "G-7",
+   "box_0_1000": [
+    358.5,
+    222.8,
+    374.2,
+    247.1
+   ],
+   "reader_symbol": "s14",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "PT 14086",
+   "tag_status": "as_extracted",
+   "placement_candidates": [
+    "L-s1-s100",
+    "L-s1-s54",
+    "L-s1-s99",
+    "L-s100-s54",
+    "L-s100-s83",
+    "L-s100-s99",
+    "L-s54-s83",
+    "L-s54-s99",
+    "L-s83-s99"
+   ]
+  },
+  {
+   "tag": "PT-14087",
+   "zone": "G-7",
+   "box_0_1000": [
+    379.0,
+    222.8,
+    395.3,
+    247.1
+   ],
+   "reader_symbol": "s15",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "PT 14087",
+   "tag_status": "as_extracted",
+   "placement_candidates": [
+    "L-s1-s100",
+    "L-s1-s54",
+    "L-s1-s99",
+    "L-s100-s54",
+    "L-s100-s83",
+    "L-s100-s99",
+    "L-s54-s83",
+    "L-s54-s99",
+    "L-s83-s99"
+   ]
+  },
+  {
+   "tag": "PT-14088",
+   "zone": "G-7",
+   "box_0_1000": [
+    400.7,
+    222.8,
+    416.3,
+    247.1
+   ],
+   "reader_symbol": "s16",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "PT 14088",
+   "tag_status": "as_extracted",
+   "placement_candidates": [
+    "L-s1-s100",
+    "L-s1-s54",
+    "L-s1-s99",
+    "L-s100-s54",
+    "L-s100-s83",
+    "L-s100-s99",
+    "L-s54-s83",
+    "L-s54-s99",
+    "L-s83-s99"
+   ]
+  },
+  {
+   "tag": "TE-14089A",
+   "zone": "F-8",
+   "box_0_1000": [
+    354.2,
+    295.8,
+    369.8,
+    320.1
+   ],
+   "reader_symbol": "s17",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "TE 14089A",
+   "tag_status": "as_extracted",
+   "placement_candidates": [
+    "L-s1-s100",
+    "L-s1-s54",
+    "L-s1-s99",
+    "L-s100-s54",
+    "L-s100-s83",
+    "L-s100-s99",
+    "L-s54-s83",
+    "L-s54-s99",
+    "L-s83-s99"
+   ]
+  },
+  {
+   "tag": "TE-14089B",
+   "zone": "F-7",
+   "box_0_1000": [
+    370.4,
+    295.8,
+    386.1,
+    320.1
+   ],
+   "reader_symbol": "s18",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "TE 14089B",
+   "tag_status": "as_extracted"
+  },
+  {
+   "tag": "TCV-1402",
+   "zone": "F-7",
+   "box_0_1000": [
+    362.8,
+    326.0,
+    378.5,
+    349.8
+   ],
+   "reader_symbol": "s20",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "TCV 1402",
+   "tag_status": "as_extracted"
+  },
+  {
+   "tag": "AORV-XXX",
+   "zone": "G-7",
+   "box_0_1000": [
+    410.9,
+    162.8,
+    426.6,
+    186.5
+   ],
+   "reader_symbol": "s29",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.98,
+   "printed_tag": "AORV XXX",
+   "tag_status": "placeholder"
+  },
+  {
+   "tag": "PSV-1404",
+   "zone": "G-6",
+   "box_0_1000": [
+    441.8,
+    142.2,
+    457.4,
+    166.0
+   ],
+   "reader_symbol": "s31",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "PSV 1404",
+   "tag_status": "as_extracted",
+   "placement_candidates": [
+    "L-s1-s100",
+    "L-s1-s54",
+    "L-s1-s99",
+    "L-s100-s54",
+    "L-s100-s83",
+    "L-s100-s99",
+    "L-s54-s83",
+    "L-s54-s99",
+    "L-s83-s99"
+   ]
+  },
+  {
+   "tag": "PSV-1405",
+   "zone": "G-6",
+   "box_0_1000": [
+    462.8,
+    142.2,
+    479.1,
+    166.0
+   ],
+   "reader_symbol": "s33",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "PSV 1405",
+   "tag_status": "as_extracted",
+   "placement_candidates": [
+    "L-s1-s100",
+    "L-s1-s54",
+    "L-s1-s99",
+    "L-s100-s54",
+    "L-s100-s83",
+    "L-s100-s99",
+    "L-s54-s83",
+    "L-s54-s99",
+    "L-s83-s99"
+   ]
+  },
+  {
+   "tag": "PSV-1406",
+   "zone": "G-6",
+   "box_0_1000": [
+    484.5,
+    142.2,
+    500.7,
+    166.0
+   ],
+   "reader_symbol": "s35",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "PSV 1406",
+   "tag_status": "as_extracted",
+   "placement_candidates": [
+    "L-s1-s100",
+    "L-s1-s54",
+    "L-s1-s99",
+    "L-s100-s54",
+    "L-s100-s83",
+    "L-s100-s99",
+    "L-s54-s83",
+    "L-s54-s99",
+    "L-s83-s99"
+   ]
+  },
+  {
+   "tag": "PSV-1407",
+   "zone": "G-5",
+   "box_0_1000": [
+    505.6,
+    142.2,
+    522.3,
+    166.0
+   ],
+   "reader_symbol": "s37",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "PSV 1407",
+   "tag_status": "as_extracted",
+   "placement_candidates": [
+    "L-s1-s100",
+    "L-s1-s54",
+    "L-s1-s99",
+    "L-s100-s54",
+    "L-s100-s83",
+    "L-s100-s99",
+    "L-s54-s83",
+    "L-s54-s99",
+    "L-s83-s99"
+   ]
+  },
+  {
+   "tag": "MS-4010",
+   "zone": "G-5",
+   "box_0_1000": [
+    520.9,
+    186.5,
+    536.6,
+    209.8
+   ],
+   "reader_symbol": "s39",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.98,
+   "printed_tag": "MS 4010",
+   "tag_status": "as_extracted"
+  },
+  {
+   "tag": "MSIV-1402",
+   "zone": "G-6",
+   "box_0_1000": [
+    475.3,
+    239.5,
+    491.5,
+    262.8
+   ],
+   "reader_symbol": "s41",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "MSIV 1402",
+   "tag_status": "as_extracted",
+   "placement_candidates": [
+    "L-s1-s100",
+    "L-s1-s54",
+    "L-s1-s99",
+    "L-s100-s54",
+    "L-s100-s83",
+    "L-s100-s99",
+    "L-s54-s83",
+    "L-s54-s99",
+    "L-s83-s99"
+   ]
+  },
+  {
+   "tag": "RE-1403",
+   "zone": "G-5",
+   "box_0_1000": [
+    515.5,
+    223.3,
+    530.7,
+    246.0
+   ],
+   "reader_symbol": "s42",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "RE 1403",
+   "tag_status": "as_extracted",
+   "placement_candidates": [
+    "L-s1-s54",
+    "L-s100-s54",
+    "L-s54-s56",
+    "L-s54-s65",
+    "L-s54-s66",
+    "L-s54-s77",
+    "L-s54-s82",
+    "L-s54-s83",
+    "L-s54-s89",
+    "L-s54-s98",
+    "L-s54-s99"
+   ]
+  },
+  {
+   "tag": "TE-14090A",
+   "zone": "F-6",
+   "box_0_1000": [
+    458.5,
+    295.8,
+    474.2,
+    320.1
+   ],
+   "reader_symbol": "s44",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "TE 14090A",
+   "tag_status": "as_extracted",
+   "placement_candidates": [
+    "L-s1-s100",
+    "L-s1-s54",
+    "L-s1-s99",
+    "L-s100-s54",
+    "L-s100-s83",
+    "L-s100-s99",
+    "L-s54-s83",
+    "L-s54-s99",
+    "L-s83-s99"
+   ]
+  },
+  {
+   "tag": "TE-14090B",
+   "zone": "F-6",
+   "box_0_1000": [
+    474.7,
+    295.8,
+    490.4,
+    320.1
+   ],
+   "reader_symbol": "s45",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "TE 14090B",
+   "tag_status": "as_extracted"
+  },
+  {
+   "tag": "TCV-1403",
+   "zone": "F-6",
+   "box_0_1000": [
+    462.3,
+    328.2,
+    478.0,
+    352.0
+   ],
+   "reader_symbol": "s47",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "TCV 1403",
+   "tag_status": "as_extracted"
+  },
+  {
+   "tag": "MSCV-XXX",
+   "zone": "F-5",
+   "box_0_1000": [
+    538.2,
+    269.3,
+    549.1,
+    281.2
+   ],
+   "reader_symbol": "s54",
+   "reader_class": "valve",
+   "reader_confidence": 0.97,
+   "printed_tag": "MSCV-XXX",
+   "tag_status": "placeholder"
+  },
+  {
+   "tag": "TE-14091A",
+   "zone": "G-4",
+   "box_0_1000": [
+    605.8,
+    233.0,
+    621.5,
+    256.3
+   ],
+   "reader_symbol": "s57",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "TE 14091A",
+   "tag_status": "as_extracted",
+   "placement_candidates": [
+    "L-s1-s54",
+    "L-s100-s54",
+    "L-s54-s56",
+    "L-s54-s65",
+    "L-s54-s66",
+    "L-s54-s77",
+    "L-s54-s82",
+    "L-s54-s83",
+    "L-s54-s89",
+    "L-s54-s98",
+    "L-s54-s99",
+    "L-s56-s65",
+    "L-s56-s66",
+    "L-s56-s77",
+    "L-s56-s82",
+    "L-s56-s89",
+    "L-s56-s98",
+    "L-s65-s66",
+    "L-s65-s77",
+    "L-s65-s82",
+    "L-s65-s89",
+    "L-s65-s98",
+    "L-s66-s77",
+    "L-s66-s82",
+    "L-s66-s89",
+    "L-s66-s98",
+    "L-s77-s82",
+    "L-s77-s89",
+    "L-s77-s98",
+    "L-s82-s89",
+    "L-s82-s98",
+    "L-s89-s98"
+   ]
+  },
+  {
+   "tag": "TE-14091B",
+   "zone": "G-4",
+   "box_0_1000": [
+    622.0,
+    233.0,
+    637.2,
+    256.3
+   ],
+   "reader_symbol": "s58",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "TE 14091B",
+   "tag_status": "as_extracted"
+  },
+  {
+   "tag": "MSV-1404",
+   "zone": "G-3",
+   "box_0_1000": [
+    646.9,
+    242.2,
+    662.6,
+    265.5
+   ],
+   "reader_symbol": "s59",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "MSV 1404",
+   "tag_status": "as_extracted",
+   "placement_candidates": [
+    "L-s54-s65",
+    "L-s56-s65",
+    "L-s65-s66",
+    "L-s65-s77",
+    "L-s65-s82",
+    "L-s65-s89",
+    "L-s65-s98"
+   ]
+  },
+  {
+   "tag": "MSV-1405",
+   "zone": "G-3",
+   "box_0_1000": [
+    677.2,
+    242.2,
+    693.4,
+    265.5
+   ],
+   "reader_symbol": "s62",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "MSV 1405",
+   "tag_status": "as_extracted",
+   "placement_candidates": [
+    "L-s54-s65",
+    "L-s56-s65",
+    "L-s65-s66",
+    "L-s65-s77",
+    "L-s65-s82",
+    "L-s65-s89",
+    "L-s65-s98"
+   ]
+  },
+  {
+   "tag": "TE-14092A",
+   "zone": "F-4",
+   "box_0_1000": [
+    598.8,
+    306.6,
+    614.5,
+    329.8
+   ],
+   "reader_symbol": "s67",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "TE 14092A",
+   "tag_status": "as_extracted",
+   "placement_candidates": [
+    "L-s1-s54",
+    "L-s100-s54",
+    "L-s54-s56",
+    "L-s54-s65",
+    "L-s54-s66",
+    "L-s54-s77",
+    "L-s54-s82",
+    "L-s54-s83",
+    "L-s54-s89",
+    "L-s54-s98",
+    "L-s54-s99",
+    "L-s56-s65",
+    "L-s56-s66",
+    "L-s56-s77",
+    "L-s56-s82",
+    "L-s56-s89",
+    "L-s56-s98",
+    "L-s65-s66",
+    "L-s65-s77",
+    "L-s65-s82",
+    "L-s65-s89",
+    "L-s65-s98",
+    "L-s66-s77",
+    "L-s66-s82",
+    "L-s66-s89",
+    "L-s66-s98",
+    "L-s77-s82",
+    "L-s77-s89",
+    "L-s77-s98",
+    "L-s82-s89",
+    "L-s82-s98",
+    "L-s89-s98"
+   ]
+  },
+  {
+   "tag": "TE-14092B",
+   "zone": "F-4",
+   "box_0_1000": [
+    615.6,
+    306.6,
+    631.2,
+    329.8
+   ],
+   "reader_symbol": "s68",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "TE 14092B",
+   "tag_status": "as_extracted"
+  },
+  {
+   "tag": "TCV-1406",
+   "zone": "F-4",
+   "box_0_1000": [
+    603.1,
+    331.5,
+    618.8,
+    354.7
+   ],
+   "reader_symbol": "s69",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "TCV 1406",
+   "tag_status": "as_extracted"
+  },
+  {
+   "tag": "TE-14093B",
+   "zone": "D-4",
+   "box_0_1000": [
+    586.9,
+    494.2,
+    602.6,
+    517.5
+   ],
+   "reader_symbol": "s78",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "TE 14093B",
+   "tag_status": "as_extracted"
+  },
+  {
+   "tag": "TE-14093A",
+   "zone": "D-4",
+   "box_0_1000": [
+    603.1,
+    494.2,
+    618.8,
+    517.5
+   ],
+   "reader_symbol": "s79",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "TE 14093A",
+   "tag_status": "as_extracted",
+   "placement_candidates": [
+    "L-s1-s54",
+    "L-s100-s54",
+    "L-s54-s56",
+    "L-s54-s65",
+    "L-s54-s66",
+    "L-s54-s77",
+    "L-s54-s82",
+    "L-s54-s83",
+    "L-s54-s89",
+    "L-s54-s98",
+    "L-s54-s99",
+    "L-s56-s65",
+    "L-s56-s66",
+    "L-s56-s77",
+    "L-s56-s82",
+    "L-s56-s89",
+    "L-s56-s98",
+    "L-s65-s66",
+    "L-s65-s77",
+    "L-s65-s82",
+    "L-s65-s89",
+    "L-s65-s98",
+    "L-s66-s77",
+    "L-s66-s82",
+    "L-s66-s89",
+    "L-s66-s98",
+    "L-s77-s82",
+    "L-s77-s89",
+    "L-s77-s98",
+    "L-s82-s89",
+    "L-s82-s98",
+    "L-s89-s98"
+   ]
+  },
+  {
+   "tag": "MSBV-1407",
+   "zone": "D-3",
+   "box_0_1000": [
+    639.3,
+    497.5,
+    655.6,
+    521.2
+   ],
+   "reader_symbol": "s80",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "MSBV 1407",
+   "tag_status": "as_extracted"
+  },
+  {
+   "tag": "TCV-1408",
+   "zone": "D-4",
+   "box_0_1000": [
+    618.3,
+    540.9,
+    633.4,
+    563.6
+   ],
+   "reader_symbol": "s87",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "TCV 1408",
+   "tag_status": "as_extracted"
+  },
+  {
+   "tag": "TCV-1409",
+   "zone": "D-4",
+   "box_0_1000": [
+    583.1,
+    597.2,
+    598.8,
+    620.4
+   ],
+   "reader_symbol": "s90",
+   "reader_class": "instrumentation",
+   "reader_confidence": 0.99,
+   "printed_tag": "TCV 1409",
+   "tag_status": "as_extracted"
+  }
+ ],
+ "lines": [
+  {
+   "id": "L-s1-s100",
+   "from": "MSS-XSS-140",
+   "to": "s100",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s5 s2 s6 s12 s19",
+    "through": "2 valves and 3 other in-line symbols",
+    "prediction_connections": "c0 c120 c121 c23 c9 c1",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "5 run ends meet through 29 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s1-s54",
+   "from": "MSS-XSS-140",
+   "to": "MSCV-XXX",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s5 s2 s6 s12 s38",
+    "through": "2 valves and 3 other in-line symbols",
+    "prediction_connections": "c0 c120 c121 c23 c17 c201",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "5 run ends meet through 29 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s1-s83",
+   "from": "MSS-XSS-140",
+   "to": "RCS-SG-100",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s5 s84",
+    "through": "2 other in-line symbols",
+    "prediction_connections": "c0 c221 c333",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "5 run ends meet through 29 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s1-s99",
+   "from": "MSS-XSS-140",
+   "to": "s99",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s5 s2 s6 s12 s46",
+    "through": "2 valves and 3 other in-line symbols",
+    "prediction_connections": "c0 c120 c121 c23 c20 c217",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "5 run ends meet through 29 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s100-s54",
+   "from": "s100",
+   "to": "MSCV-XXX",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s19 s38",
+    "through": "2 valves",
+    "prediction_connections": "c1 c113 c201",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "5 run ends meet through 29 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s100-s83",
+   "from": "s100",
+   "to": "RCS-SG-100",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s19 s12 s6 s2 s84",
+    "through": "2 valves and 3 other in-line symbols",
+    "prediction_connections": "c1 c9 c23 c121 c122 c333",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "5 run ends meet through 29 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s100-s99",
+   "from": "s100",
+   "to": "s99",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s19 s46",
+    "through": "2 valves",
+    "prediction_connections": "c1 c116 c217",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "5 run ends meet through 29 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s54-s56",
+   "from": "MSCV-XXX",
+   "to": "s56",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s55",
+    "through": "1 valve",
+    "prediction_connections": "c225 c238",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "8 run ends meet through 21 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s54-s65",
+   "from": "MSCV-XXX",
+   "to": "s65",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s60 s63",
+    "through": "2 valves",
+    "prediction_connections": "c227 c267 c281",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "8 run ends meet through 21 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s54-s66",
+   "from": "MSCV-XXX",
+   "to": "s66",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "",
+    "through": "direct",
+    "prediction_connections": "c228",
+    "how_found": "reader connections"
+   }
+  },
+  {
+   "id": "L-s54-s77",
+   "from": "MSCV-XXX",
+   "to": "s77",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s70",
+    "through": "1 valve",
+    "prediction_connections": "c230 c302",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "8 run ends meet through 21 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s54-s82",
+   "from": "MSCV-XXX",
+   "to": "s82",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s81",
+    "through": "1 valve",
+    "prediction_connections": "c234 c328",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "8 run ends meet through 21 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s54-s83",
+   "from": "MSCV-XXX",
+   "to": "RCS-SG-100",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s38 s12 s6 s2 s84",
+    "through": "2 valves and 3 other in-line symbols",
+    "prediction_connections": "c201 c17 c23 c121 c122 c333",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "5 run ends meet through 29 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s54-s89",
+   "from": "MSCV-XXX",
+   "to": "s89",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s81 s88",
+    "through": "2 valves",
+    "prediction_connections": "c234 c329 c334",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "8 run ends meet through 21 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s54-s98",
+   "from": "MSCV-XXX",
+   "to": "s98",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s91",
+    "through": "1 valve",
+    "prediction_connections": "c235 c338",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "8 run ends meet through 21 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s54-s99",
+   "from": "MSCV-XXX",
+   "to": "s99",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s38 s46",
+    "through": "2 valves",
+    "prediction_connections": "c201 c198 c217",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "5 run ends meet through 29 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s56-s65",
+   "from": "s56",
+   "to": "s65",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s55 s60 s63",
+    "through": "3 valves",
+    "prediction_connections": "c238 c240 c267 c281",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "8 run ends meet through 21 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s56-s66",
+   "from": "s56",
+   "to": "s66",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s55",
+    "through": "1 valve",
+    "prediction_connections": "c238 c241",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "8 run ends meet through 21 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s56-s77",
+   "from": "s56",
+   "to": "s77",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s55 s70",
+    "through": "2 valves",
+    "prediction_connections": "c238 c243 c302",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "8 run ends meet through 21 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s56-s82",
+   "from": "s56",
+   "to": "s82",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s55 s81",
+    "through": "2 valves",
+    "prediction_connections": "c238 c247 c328",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "8 run ends meet through 21 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s56-s89",
+   "from": "s56",
+   "to": "s89",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s55 s81 s88",
+    "through": "3 valves",
+    "prediction_connections": "c238 c247 c329 c334",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "8 run ends meet through 21 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s56-s98",
+   "from": "s56",
+   "to": "s98",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s55 s91",
+    "through": "2 valves",
+    "prediction_connections": "c238 c248 c338",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "8 run ends meet through 21 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s65-s66",
+   "from": "s65",
+   "to": "s66",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s63 s60",
+    "through": "2 valves",
+    "prediction_connections": "c281 c267 c268",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "8 run ends meet through 21 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s65-s77",
+   "from": "s65",
+   "to": "s77",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s63 s60 s70",
+    "through": "3 valves",
+    "prediction_connections": "c281 c267 c270 c302",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "8 run ends meet through 21 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s65-s82",
+   "from": "s65",
+   "to": "s82",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s63 s60 s81",
+    "through": "3 valves",
+    "prediction_connections": "c281 c267 c274 c328",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "8 run ends meet through 21 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s65-s89",
+   "from": "s65",
+   "to": "s89",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s63 s60 s81 s88",
+    "through": "4 valves",
+    "prediction_connections": "c281 c267 c274 c329 c334",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "8 run ends meet through 21 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s65-s98",
+   "from": "s65",
+   "to": "s98",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s63 s60 s91",
+    "through": "3 valves",
+    "prediction_connections": "c281 c267 c275 c338",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "8 run ends meet through 21 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s66-s77",
+   "from": "s66",
+   "to": "s77",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s70",
+    "through": "1 valve",
+    "prediction_connections": "c283 c302",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "8 run ends meet through 21 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s66-s82",
+   "from": "s66",
+   "to": "s82",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s81",
+    "through": "1 valve",
+    "prediction_connections": "c287 c328",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "8 run ends meet through 21 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s66-s89",
+   "from": "s66",
+   "to": "s89",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s81 s88",
+    "through": "2 valves",
+    "prediction_connections": "c287 c329 c334",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "8 run ends meet through 21 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s66-s98",
+   "from": "s66",
+   "to": "s98",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s91",
+    "through": "1 valve",
+    "prediction_connections": "c288 c338",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "8 run ends meet through 21 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s77-s82",
+   "from": "s77",
+   "to": "s82",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s70 s81",
+    "through": "2 valves",
+    "prediction_connections": "c302 c304 c328",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "8 run ends meet through 21 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s77-s89",
+   "from": "s77",
+   "to": "s89",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s70 s81 s88",
+    "through": "3 valves",
+    "prediction_connections": "c302 c304 c329 c334",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "8 run ends meet through 21 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s77-s98",
+   "from": "s77",
+   "to": "s98",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s70 s91",
+    "through": "2 valves",
+    "prediction_connections": "c302 c305 c338",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "8 run ends meet through 21 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s82-s89",
+   "from": "s82",
+   "to": "s89",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s81 s88",
+    "through": "2 valves",
+    "prediction_connections": "c328 c329 c334",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "8 run ends meet through 21 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s82-s98",
+   "from": "s82",
+   "to": "s98",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s81 s91",
+    "through": "2 valves",
+    "prediction_connections": "c328 c330 c338",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "8 run ends meet through 21 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s83-s99",
+   "from": "RCS-SG-100",
+   "to": "s99",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s84 s2 s6 s12 s46",
+    "through": "2 valves and 3 other in-line symbols",
+    "prediction_connections": "c333 c122 c121 c23 c20 c217",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "5 run ends meet through 29 untagged in-line symbols; other paths may exist"
+   }
+  },
+  {
+   "id": "L-s89-s98",
+   "from": "s89",
+   "to": "s98",
+   "direction": "unknown",
+   "attributes": {
+    "via_symbols": "s88 s81 s91",
+    "through": "3 valves",
+    "prediction_connections": "c334 c329 c330 c338",
+    "how_found": "reader connections collapsed through untagged in-line symbols along one shortest path",
+    "branched_network": "8 run ends meet through 21 untagged in-line symbols; other paths may exist"
+   }
+  }
+ ],
+ "signal_lines": [],
+ "offpage": [
+  {
+   "id": "s56",
+   "name": "EXTRACTION STEAM ES PID 180-1",
+   "zone": "H-1",
+   "attributes": {
+    "drawing_reference": "ES PID 180-1"
+   }
+  },
+  {
+   "id": "s65",
+   "name": "TBS PID 240-1 TURBINE SYSTEM",
+   "zone": "F-1",
+   "attributes": {
+    "drawing_reference": "TBS PID 240-1"
+   }
+  },
+  {
+   "id": "s66",
+   "name": "TBS PID 240-1 TURBINE SYSTEM",
+   "zone": "F-1",
+   "attributes": {
+    "drawing_reference": "TBS PID 240-1"
+   }
+  },
+  {
+   "id": "s77",
+   "name": "HIGH PRESSURE STEAM DRAINS HPD PID 190-1",
+   "zone": "E-1",
+   "attributes": {
+    "drawing_reference": "HPD PID 190-1"
+   }
+  },
+  {
+   "id": "s82",
+   "name": "MAIN STEAM BY-PASS",
+   "zone": "D-1"
+  },
+  {
+   "id": "s89",
+   "name": "FWS TO STM BYPASS FWS PID 170-1",
+   "zone": "D-1",
+   "attributes": {
+    "drawing_reference": "FWS PID 170-1"
+   }
+  },
+  {
+   "id": "s98",
+   "name": "HIGH PRESSURE STEAM DRAINS HPD PID 190-1",
+   "zone": "C-1",
+   "attributes": {
+    "drawing_reference": "HPD PID 190-1"
+   }
+  },
+  {
+   "id": "s99",
+   "name": "HIGH PRESSURE STEAM DRAINS HPD PID 190-1",
+   "zone": "B-1",
+   "attributes": {
+    "drawing_reference": "HPD PID 190-1"
+   }
+  },
+  {
+   "id": "s100",
+   "name": "HIGH PRESSURE STEAM DRAINS HPD PID 190-1",
+   "zone": "B-1",
+   "attributes": {
+    "drawing_reference": "HPD PID 190-1"
+   }
+  }
+ ],
+ "untagged": [
+  {
+   "symbol": "s2",
+   "class": "valve",
+   "zone": "E-10",
+   "box_0_1000": [
+    179.5,
+    402.8,
+    188.2,
+    424.5
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.99,
+   "on_a_line": true
+  },
+  {
+   "symbol": "s4",
+   "class": "general",
+   "zone": "E-9",
+   "box_0_1000": [
+    259.5,
+    449.3,
+    263.3,
+    458.5
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.85,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s5",
+   "class": "general",
+   "zone": "D-9",
+   "box_0_1000": [
+    221.1,
+    533.4,
+    225.5,
+    542.0
+   ],
+   "printed_text": "N1",
+   "reader_confidence": 0.94,
+   "on_a_line": true
+  },
+  {
+   "symbol": "s6",
+   "class": "general",
+   "zone": "F-9",
+   "box_0_1000": [
+    270.4,
+    347.7,
+    294.1,
+    383.9
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.94,
+   "on_a_line": true
+  },
+  {
+   "symbol": "s12",
+   "class": "general",
+   "zone": "F-8",
+   "box_0_1000": [
+    301.7,
+    266.0,
+    318.5,
+    286.6
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.86,
+   "on_a_line": true
+  },
+  {
+   "symbol": "s19",
+   "class": "valve",
+   "zone": "F-8",
+   "box_0_1000": [
+    355.8,
+    342.3,
+    364.4,
+    364.4
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.99,
+   "on_a_line": true
+  },
+  {
+   "symbol": "s21",
+   "class": "valve",
+   "zone": "F-8",
+   "box_0_1000": [
+    347.1,
+    373.1,
+    355.2,
+    382.8
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.99,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s22",
+   "class": "general",
+   "zone": "F-7",
+   "box_0_1000": [
+    361.2,
+    373.1,
+    367.7,
+    383.9
+   ],
+   "printed_text": "T",
+   "reader_confidence": 0.98,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s23",
+   "class": "valve",
+   "zone": "F-7",
+   "box_0_1000": [
+    373.1,
+    373.1,
+    381.7,
+    382.8
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.99,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s24",
+   "class": "general",
+   "zone": "E-8",
+   "box_0_1000": [
+    336.9,
+    395.8,
+    344.4,
+    402.8
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.87,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s25",
+   "class": "valve",
+   "zone": "E-8",
+   "box_0_1000": [
+    343.9,
+    410.9,
+    352.5,
+    420.7
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.99,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s26",
+   "class": "valve",
+   "zone": "E-8",
+   "box_0_1000": [
+    357.4,
+    410.9,
+    366.1,
+    420.7
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.99,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s27",
+   "class": "valve",
+   "zone": "G-7",
+   "box_0_1000": [
+    428.2,
+    191.4,
+    434.7,
+    204.4
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.98,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s28",
+   "class": "valve",
+   "zone": "G-7",
+   "box_0_1000": [
+    420.1,
+    149.2,
+    435.3,
+    162.2
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.98,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s30",
+   "class": "valve",
+   "zone": "G-6",
+   "box_0_1000": [
+    443.4,
+    167.6,
+    449.9,
+    183.3
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.99,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s32",
+   "class": "valve",
+   "zone": "G-6",
+   "box_0_1000": [
+    464.5,
+    167.6,
+    471.0,
+    183.3
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.99,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s34",
+   "class": "valve",
+   "zone": "G-6",
+   "box_0_1000": [
+    485.0,
+    167.6,
+    491.5,
+    183.3
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.99,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s36",
+   "class": "valve",
+   "zone": "G-5",
+   "box_0_1000": [
+    506.1,
+    167.6,
+    512.6,
+    183.3
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.99,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s38",
+   "class": "valve",
+   "zone": "G-5",
+   "box_0_1000": [
+    511.5,
+    201.7,
+    521.2,
+    223.9
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.99,
+   "on_a_line": true
+  },
+  {
+   "symbol": "s40",
+   "class": "valve",
+   "zone": "F-6",
+   "box_0_1000": [
+    490.4,
+    259.0,
+    499.1,
+    280.6
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.99,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s43",
+   "class": "general",
+   "zone": "F-5",
+   "box_0_1000": [
+    515.0,
+    264.9,
+    531.7,
+    287.1
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.88,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s46",
+   "class": "valve",
+   "zone": "F-6",
+   "box_0_1000": [
+    455.3,
+    342.3,
+    464.5,
+    364.4
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.99,
+   "on_a_line": true
+  },
+  {
+   "symbol": "s48",
+   "class": "valve",
+   "zone": "F-6",
+   "box_0_1000": [
+    452.0,
+    373.1,
+    460.1,
+    382.8
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.99,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s49",
+   "class": "general",
+   "zone": "F-6",
+   "box_0_1000": [
+    465.5,
+    373.1,
+    472.6,
+    383.9
+   ],
+   "printed_text": "T",
+   "reader_confidence": 0.98,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s50",
+   "class": "valve",
+   "zone": "F-6",
+   "box_0_1000": [
+    478.0,
+    373.1,
+    486.6,
+    382.8
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.99,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s51",
+   "class": "general",
+   "zone": "E-6",
+   "box_0_1000": [
+    442.3,
+    395.8,
+    449.9,
+    402.8
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.87,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s52",
+   "class": "valve",
+   "zone": "E-6",
+   "box_0_1000": [
+    448.2,
+    410.9,
+    456.9,
+    420.7
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.99,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s53",
+   "class": "valve",
+   "zone": "E-6",
+   "box_0_1000": [
+    462.3,
+    410.9,
+    471.0,
+    420.7
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.99,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s55",
+   "class": "valve",
+   "zone": "F-4",
+   "box_0_1000": [
+    596.6,
+    254.7,
+    603.1,
+    267.7
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.99,
+   "on_a_line": true
+  },
+  {
+   "symbol": "s60",
+   "class": "valve",
+   "zone": "F-4",
+   "box_0_1000": [
+    638.8,
+    270.9,
+    647.5,
+    280.6
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.99,
+   "on_a_line": true
+  },
+  {
+   "symbol": "s61",
+   "class": "general",
+   "zone": "F-4",
+   "box_0_1000": [
+    639.9,
+    256.8,
+    645.3,
+    269.8
+   ],
+   "printed_text": "H",
+   "reader_confidence": 0.92,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s63",
+   "class": "valve",
+   "zone": "F-3",
+   "box_0_1000": [
+    668.0,
+    270.9,
+    676.1,
+    280.6
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.99,
+   "on_a_line": true
+  },
+  {
+   "symbol": "s64",
+   "class": "general",
+   "zone": "F-3",
+   "box_0_1000": [
+    669.1,
+    256.8,
+    675.0,
+    269.8
+   ],
+   "printed_text": "M",
+   "reader_confidence": 0.92,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s70",
+   "class": "valve",
+   "zone": "F-4",
+   "box_0_1000": [
+    595.6,
+    343.4,
+    604.2,
+    364.4
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.99,
+   "on_a_line": true
+  },
+  {
+   "symbol": "s71",
+   "class": "valve",
+   "zone": "F-4",
+   "box_0_1000": [
+    592.3,
+    374.7,
+    600.4,
+    382.8
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.99,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s72",
+   "class": "general",
+   "zone": "F-4",
+   "box_0_1000": [
+    606.4,
+    373.1,
+    613.4,
+    383.9
+   ],
+   "printed_text": "T",
+   "reader_confidence": 0.98,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s73",
+   "class": "valve",
+   "zone": "F-4",
+   "box_0_1000": [
+    618.3,
+    374.7,
+    626.9,
+    382.8
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.99,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s74",
+   "class": "general",
+   "zone": "E-4",
+   "box_0_1000": [
+    582.0,
+    395.8,
+    589.1,
+    402.8
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.81,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s75",
+   "class": "valve",
+   "zone": "E-4",
+   "box_0_1000": [
+    588.0,
+    411.5,
+    596.1,
+    420.1
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.99,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s76",
+   "class": "valve",
+   "zone": "E-4",
+   "box_0_1000": [
+    602.0,
+    411.5,
+    610.7,
+    420.1
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.99,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s81",
+   "class": "valve",
+   "zone": "D-4",
+   "box_0_1000": [
+    630.7,
+    521.5,
+    641.5,
+    543.6
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.99,
+   "on_a_line": true
+  },
+  {
+   "symbol": "s84",
+   "class": "general",
+   "zone": "D-11",
+   "box_0_1000": [
+    100.0,
+    553.9,
+    105.4,
+    559.3
+   ],
+   "printed_text": "N2",
+   "reader_confidence": 0.94,
+   "on_a_line": true
+  },
+  {
+   "symbol": "s85",
+   "class": "general",
+   "zone": "C-11",
+   "box_0_1000": [
+    120.0,
+    616.6,
+    127.6,
+    624.7
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.9,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s86",
+   "class": "general",
+   "zone": "C-11",
+   "box_0_1000": [
+    115.2,
+    732.3,
+    123.8,
+    740.5
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.9,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s88",
+   "class": "valve",
+   "zone": "D-4",
+   "box_0_1000": [
+    628.0,
+    564.2,
+    642.1,
+    576.6
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.99,
+   "on_a_line": true
+  },
+  {
+   "symbol": "s91",
+   "class": "valve",
+   "zone": "C-4",
+   "box_0_1000": [
+    576.6,
+    613.9,
+    584.7,
+    635.6
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.99,
+   "on_a_line": true
+  },
+  {
+   "symbol": "s92",
+   "class": "valve",
+   "zone": "C-5",
+   "box_0_1000": [
+    568.0,
+    644.8,
+    576.1,
+    653.4
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.98,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s93",
+   "class": "general",
+   "zone": "C-4",
+   "box_0_1000": [
+    582.0,
+    644.2,
+    588.0,
+    653.9
+   ],
+   "printed_text": "T",
+   "reader_confidence": 0.96,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s94",
+   "class": "valve",
+   "zone": "C-4",
+   "box_0_1000": [
+    593.9,
+    644.8,
+    602.6,
+    653.4
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.98,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s95",
+   "class": "general",
+   "zone": "C-5",
+   "box_0_1000": [
+    557.7,
+    665.8,
+    564.7,
+    673.4
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.79,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s96",
+   "class": "valve",
+   "zone": "C-5",
+   "box_0_1000": [
+    564.2,
+    682.1,
+    572.3,
+    690.7
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.98,
+   "on_a_line": false
+  },
+  {
+   "symbol": "s97",
+   "class": "valve",
+   "zone": "C-4",
+   "box_0_1000": [
+    578.2,
+    682.1,
+    586.4,
+    690.7
+   ],
+   "printed_text": null,
+   "reader_confidence": 0.97,
+   "on_a_line": false
+  }
+ ],
+ "conversion": {
+  "symbols_in": 100,
+  "connections_in": 345,
+  "equipment": 2,
+  "instruments": 37,
+  "offpage": 9,
+  "untagged": 52,
+  "lines": 38,
+  "signal_lines": 0,
+  "placeholder_tags": [
+   "AORV-XXX",
+   "MSCV-XXX"
+  ],
+  "duplicate_tags": [
+   "FT-1401"
+  ],
+  "instruments_placed": 0,
+  "instruments_placed_on_runs": 0,
+  "placement_unclear": [
+   "FT-1401",
+   "TE-14084A",
+   "RE-1402",
+   "PT-14085",
+   "PT-14086",
+   "PT-14087",
+   "PT-14088",
+   "TE-14089A",
+   "PSV-1404",
+   "PSV-1405",
+   "PSV-1406",
+   "PSV-1407",
+   "MSIV-1402",
+   "RE-1403",
+   "TE-14090A",
+   "TE-14091A",
+   "MSV-1404",
+   "MSV-1405",
+   "TE-14092A",
+   "TE-14093A"
+  ],
+  "branched_networks": [
+   {
+    "run_ends": [
+     "MSS-XSS-140",
+     "s100",
+     "MSCV-XXX",
+     "RCS-SG-100",
+     "s99"
+    ],
+    "untagged_in_line_symbols": 29,
+    "runs_written": true
+   },
+   {
+    "run_ends": [
+     "MSCV-XXX",
+     "s56",
+     "s65",
+     "s66",
+     "s77",
+     "s82",
+     "s89",
+     "s98"
+    ],
+    "untagged_in_line_symbols": 21,
+    "runs_written": true
+   }
+  ],
+  "not_converted": [
+   "18 symbol(s) with no connection: s10, s18, s20, s29, s3, s39, s45, s47, s58, s68, s69, s78, s8, s80, s85, s86, s87, s90",
+   "signal lines: the documented prediction format has no line type, so no signal lines are written and no loop is proposed from connectivity (loops come from the loop list or a format that carries line types, e.g. DEXPI; loop-number grouping still runs)",
+   "placement: 0 of 36 tagged instrument bubble(s) placed (0 on a run); 20 reach more than one candidate within 2 hops (placement unclear, for review); 16 reach no tagged item or run within 2 hops",
+   "untagged: 52 symbol(s) without a usable tag are carried under `untagged` (15 of them on a written run), not placed on the map",
+   "off-page connectors: the reading has no target connector, so `to` is empty; the map pairs a connector with one on another registered sheet when their printed references name each other's sheets"
+  ]
+ }
+}

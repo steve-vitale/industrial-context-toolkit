@@ -1,0 +1,15 @@
+{
+ "schema": "one-map-sheet-1",
+ "note": "Hand-authored stand-in for fictional site utilities sheet CW-01 rev C (cooling water header).",
+ "equipment": [{"tag": "CWP-901", "name": "Cooling water pump", "zone": "B2"}],
+ "lines": [
+  {"id": "L1", "from": "CWP-901", "to": "OPC-P1"},
+  {"id": "L2", "from": "CWP-901", "to": "OPC-P2"}
+ ],
+ "offpage": [
+  {"id": "OPC-P1", "name": "CW to Plant 1", "zone": "F1", "system": "CW",
+   "to": {"plant": "P1", "sheet": "200-02", "connector": "OPC-CWS"}, "attributes": {"size": "4 in"}},
+  {"id": "OPC-P2", "name": "CW to Plant 2", "zone": "F3", "system": "CW",
+   "to": {"plant": "P2", "sheet": "300-01", "connector": "OPC-CWS"}, "attributes": {"size": "8 in"}}
+ ]
+}

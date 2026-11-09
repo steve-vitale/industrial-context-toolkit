@@ -47,6 +47,21 @@ jobs:
           PY
       - name: Exercise disappeared findings with changed comparison basis
         run: python -S examples/maintenance-intake/reproduce.py --basis-controls --out "$RUNNER_TEMP/maintenance-basis"
+      # Portable context-map use, not managed work or a product integration.
+      - name: Verify frozen engineering map exploration and known-fixture transfer
+        run: |
+          python -S - <<'PY'
+          import hashlib, json, os, subprocess, sys
+          from pathlib import Path
+          pins = json.loads(Path('examples/map-explorer/FREEZE.json').read_text())['files']
+          assert all(hashlib.sha256(Path(p).read_bytes().replace(b'\r\n', b'\n')).hexdigest() == h for p, h in pins.items()), 'Frozen map explorer method changed'
+          for name in ('development/explorer', 'transfer/revision-explorer', 'transfer/public-explorer'):
+              packet = Path('examples/map-explorer/worked') / name
+              anchor = hashlib.sha256((packet / 'RECEIPT.json').read_bytes()).hexdigest()
+              subprocess.run([sys.executable, '-B', '-S', 'scripts/map_explorer.py', 'verify', str(packet), '--expected-receipt-sha256', anchor], check=True)
+          for phase in ('development', 'transfer'):
+              subprocess.run([sys.executable, '-B', '-S', 'examples/map-explorer/reproduce.py', '--phase', phase, '--out', str(Path(os.environ['RUNNER_TEMP']) / ('map-explorer-' + phase))], check=True)
+          PY
       - name: Explain two native CAD returns without waiving strict differences
         run: python examples/cad-handoff/receiving-review/reproduce.py --out "$RUNNER_TEMP/cad-receiving-review"
       - name: Rehearse drawing findings to an engineering receiving brief

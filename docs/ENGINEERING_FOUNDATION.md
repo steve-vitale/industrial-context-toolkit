@@ -1,5 +1,37 @@
 # What the engineering foundations unlock
 
+## This toolkit's focus: build and use the engineering context map
+
+Help engineers and engineering managers connect their records into a sourced map,
+then use it to answer engineering questions. Equipment, instruments, drawings,
+documents, observations and their relationships are the substance of that map.
+Keep identity, source revision, uncertainty and disagreement visible when answering:
+
+- What do we know about this equipment, and where does each fact come from?
+- Which drawings, documents and connected items concern it?
+- Where do records disagree, or leave a relationship unverified?
+- What changed in a returned drawing or source revision, and which answers need rechecking?
+
+Use the existing [one-map tools](ONE_MAP.md), [qualified drawing-path questions](PID_GRAPH_QUESTIONS.md)
+and [context register](CONTEXT_REGISTER.md) for their documented inputs and questions.
+The [offline map explorer](../examples/map-explorer/README.md) makes built maps,
+sources, questions and previous/current snapshots available to people and agents.
+An engineer or their agent should be able to follow the answer back to its evidence,
+see the limits, and retain a reviewed contribution to the map.
+
+Work-order history and consultant returns can supply engineering evidence. Reading
+those records does not make job preparation or work management the toolkit's next
+layer. Job-readiness gates, work assignment, reminders, approval workflows and
+execution tracking belong in the responsible company systems or a managed product.
+Review states here describe the evidence and interpretation; they do not release work.
+
+Further development should deepen map construction, navigation, sourced questions
+and revision comparison.
+Portable exports and bounded receiving checks support later adoption by ChangePilot
+or another tool without making the toolkit an operated context-management service.
+
+## The broader foundation and its owners
+
 The goal is an organization that can explain its decisions, coordinate work and learn from results. Engineers
 should inherit the evidence and reasoning behind a plant or project, make a useful reviewed contribution, and
 leave it in a maintained company record. A chatbot, graph or internal endpoint is one part of that capability.

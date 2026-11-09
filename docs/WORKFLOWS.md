@@ -9,6 +9,14 @@ revision through the existing description, generation and context contracts belo
 
 ## First choose what the question needs
 
+For a built engineering context map, [map exploration](../examples/map-explorer/README.md)
+accepts a `twin-graph-2` snapshot and optional previous snapshot of the same site,
+plus optional explicit roots for hash-bound originals. `map_explorer.py export`
+writes a read-only offline HTML/JSON package; `verify` recomputes its complete
+inspection/question/change views and checks retained bytes. This consumes prepared
+map records, adds no reader or operating workflow, and does not refresh context
+answers or implement a managed product import.
+
 For a selected unit combining existing maintenance/drawing packets and notes, use
 the [foundation handoff](FOUNDATION_HANDOFF.md): `foundation-input-1` profile,
 explicit scoped mappings and authored graph/questions produce selected

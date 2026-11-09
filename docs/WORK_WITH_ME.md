@@ -29,6 +29,10 @@ subset that answers the actual question; a document-only or equipment-record job
 
 You receive:
 
+- Where a graph fits the question, a portable engineering context map with sourced
+  item navigation, document/relationship exploration, disagreements and revision
+  comparison. [Try the fictional/public explorer](../examples/map-explorer/README.md).
+  Continuing service operations and work management are separately scoped.
 - A readable decision brief with the reviewed scope, source revisions and the facts that remain unknown.
 - A source-linked asset/record comparison and, where prepared connection records support it, a qualified
   cross-sheet route. Disputed links stay visible rather than becoming assumed connections.

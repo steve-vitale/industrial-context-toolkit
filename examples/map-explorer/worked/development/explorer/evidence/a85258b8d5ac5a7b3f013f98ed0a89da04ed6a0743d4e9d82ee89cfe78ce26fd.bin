@@ -1,0 +1,25 @@
+{
+ "schema": "one-map-sheet-1",
+ "note": "Hand-authored stand-in for fictional P&ID 200-02 rev B.",
+ "equipment": [
+  {"tag": "E-205", "name": "Feed cooler", "zone": "C2"},
+  {"tag": "P-102", "name": "Cooled feed pump", "zone": "E2"}
+ ],
+ "instruments": [
+  {"tag": "TT-2205", "zone": "D1", "on": "E-205"},
+  {"tag": "TIC-2205", "zone": "D1"},
+  {"tag": "TV-2205", "zone": "B1", "on": "E-205"}
+ ],
+ "signal_lines": [["TT-2205", "TIC-2205"], ["TIC-2205", "TV-2205"]],
+ "lines": [
+  {"id": "L1", "from": "OPC-2", "to": "E-205"},
+  {"id": "L2", "from": "E-205", "to": "P-102"},
+  {"id": "L3", "from": "OPC-CWS", "to": "E-205"}
+ ],
+ "offpage": [
+  {"id": "OPC-2", "name": "Feed from surge drum", "zone": "A2", "to": {"plant": "P1", "sheet": "200-01", "connector": "OPC-1"},
+   "attributes": {"fluid": "feed"}},
+  {"id": "OPC-CWS", "name": "Cooling water supply", "zone": "A1", "system": "CW",
+   "to": {"plant": "UTIL", "sheet": "CW-01", "connector": "OPC-P1"}, "attributes": {"size": "4 in"}}
+ ]
+}
