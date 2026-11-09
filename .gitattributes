@@ -296,3 +296,8 @@ examples/pid-path-review/** -text whitespace=blank-at-eol,blank-at-eof,space-bef
 examples/cad-handoff/qualification/full-ui-22/paper-render-1/** -text linguist-generated=true
 examples/cad-handoff/qualification/full-ui-22/paper-render-1/inputs/*.dxf whitespace=cr-at-eol,-blank-at-eof,-trailing-space
 examples/cad-handoff/qualification/full-ui-22/second-pixels-1/** -text linguist-generated=true
+# Final qualification inputs/evidence retain exact source bytes across platforms.
+examples/cad-handoff/qualification/final-validation-23/** -text whitespace=cr-at-eol,-blank-at-eof,-trailing-space
+examples/cad-handoff/qualification/final-validation-23/authored/** linguist-generated=true
+examples/cad-handoff/qualification/final-validation-23/*tree.json linguist-generated=true
+examples/cad-handoff/qualification/final-validation-23/SELECTION-AUDIT.json linguist-generated=true

@@ -1,0 +1,49 @@
+{
+  "rule": "Minimum SHA256 of ICT-FINAL-23: plus path in each declared metadata pool, excluding existing repository DXF Git blobs; no selected contents read",
+  "cases": [
+    {
+      "id": "public-air-water",
+      "repository": "LibreCAD/LibreCAD",
+      "commit": "c20884671c5f4566e7494890c5060569cc8d8330",
+      "path": "librecad/support/library/plan/air_water/aw22.dxf",
+      "git_blob_sha1": "bd790d0c19a3dffd2ec68f342218039859aaac6a",
+      "bytes": 9917,
+      "pool_size": 80,
+      "unseen_pool_size": 79,
+      "selection_score": "060c94fde31193abb0351a92e0957eeba7008a54759aa7fba1c5807947797694"
+    },
+    {
+      "id": "public-mechanical",
+      "repository": "LibreCAD/LibreCAD",
+      "commit": "c20884671c5f4566e7494890c5060569cc8d8330",
+      "path": "librecad/support/library/kinetics/kin130.dxf",
+      "git_blob_sha1": "f86a7a77b6b2341d5a7939cd5e7c746f558aa142",
+      "bytes": 8699,
+      "pool_size": 157,
+      "unseen_pool_size": 157,
+      "selection_score": "00686435a1a61d66abf11a75f36af3fa58f3b00df40745d81dacaf7b127777cb"
+    },
+    {
+      "id": "public-power",
+      "repository": "LibreCAD/LibreCAD",
+      "commit": "c20884671c5f4566e7494890c5060569cc8d8330",
+      "path": "librecad/support/library/plan/power_engineering/pe10.dxf",
+      "git_blob_sha1": "8a26befa2d4ba9a7c6404b1c3deec4cb7e549025",
+      "bytes": 9982,
+      "pool_size": 11,
+      "unseen_pool_size": 10,
+      "selection_score": "1af1d827c809925b07be2738872b45dd87abf2fe72572c5f39a4b9045e2598ee"
+    },
+    {
+      "id": "public-hatch",
+      "repository": "mozman/ezdxf",
+      "commit": "c498560bb491c357deda538360ed0c8fdb11f5a7",
+      "path": "examples_dxf/transform_hatch_pattern.dxf",
+      "git_blob_sha1": "a324e6436f9fc34f8ca4840be1441de749e1982b",
+      "bytes": 78804,
+      "pool_size": 8,
+      "unseen_pool_size": 6,
+      "selection_score": "557617a4edf617dc113b528f65e13a94d7a9ec7a094158020fd68a61839dd10e"
+    }
+  ]
+}

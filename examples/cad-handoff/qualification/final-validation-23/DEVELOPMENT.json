@@ -1,0 +1,360 @@
+{
+  "cases": [
+    {
+      "id": "exposed-cp1251",
+      "source": "examples/cad-handoff/qualification/validation-2/authored/validation-cp1251.dxf",
+      "source_sha256": "2044da26edd9188d07300f6b8f2abf4053956f31a7827bba488ec02c1351e158",
+      "plan": "examples/cad-handoff/qualification/validation-2/authored/validation-cp1251.plan.json",
+      "result": {
+        "case": "exposed-cp1251",
+        "source_sha256": "2044da26edd9188d07300f6b8f2abf4053956f31a7827bba488ec02c1351e158",
+        "routes": {
+          "library-save": {
+            "strict_status": "pass",
+            "strict_differences": 0,
+            "byte_check": {
+              "status": "fail",
+              "error": "Candidate differs from independent source-plus-plan reconstruction"
+            }
+          },
+          "value-spans": {
+            "strict_status": "pass",
+            "strict_differences": 0,
+            "byte_check": {
+              "status": "pass",
+              "values": 2,
+              "unplanned_byte_changes": 0,
+              "source_sha256": "2044da26edd9188d07300f6b8f2abf4053956f31a7827bba488ec02c1351e158",
+              "candidate_sha256": "1f78177f035dda54c25a26c55d727e5bde3f3e51f219a33dc1f35c5c90b49566",
+              "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+              "review": "same-author software check; not independent engineering review"
+            }
+          }
+        },
+        "refusals": [
+          {
+            "id": "stale_hash",
+            "refused": true,
+            "error": "InputError: Plan must name cad-edit-plan-1 and the exact current source SHA-256",
+            "output_preserved": true
+          },
+          {
+            "id": "wrong_before",
+            "refused": true,
+            "error": "InputError: Before-value mismatch: source or proposed edit is stale",
+            "output_preserved": true
+          },
+          {
+            "id": "duplicate_edit",
+            "refused": true,
+            "error": "InputError: Duplicate edit in plan",
+            "output_preserved": true
+          },
+          {
+            "id": "identity_edit",
+            "refused": true,
+            "error": "InputError: Unknown asset or noneditable attribute (ICT_ID cannot be changed)",
+            "output_preserved": true
+          },
+          {
+            "id": "newline_value",
+            "refused": true,
+            "error": "InputError: Only plain single-line attribute values are supported",
+            "output_preserved": true
+          },
+          {
+            "id": "ambiguous_serialization",
+            "refused": true,
+            "error": "InputError: Multiline/ambiguous target serialization is unsupported",
+            "output_preserved": true
+          },
+          {
+            "id": "output_collision",
+            "refused": true,
+            "error": "InputError: Output folder already exists; retain the earlier packet",
+            "output_preserved": true
+          },
+          {
+            "id": "stale_revision_hash",
+            "refused": true,
+            "error": "InputError: Plan must name cad-edit-plan-1 and the exact current source SHA-256",
+            "output_preserved": true
+          },
+          {
+            "id": "stale_revision_before",
+            "refused": true,
+            "error": "InputError: Before-value mismatch: source or proposed edit is stale",
+            "output_preserved": true
+          }
+        ],
+        "losses": [
+          {
+            "id": "geometry",
+            "mutation": {
+              "type": "INSERT",
+              "handle": "3D",
+              "group": 10,
+              "before_hex": "31352e30",
+              "after_hex": "31362e3235",
+              "operation": "replace value"
+            },
+            "strict_detected": true,
+            "strict_differences": 1,
+            "bytes_refused": true,
+            "byte_error": "Candidate differs from independent source-plus-plan reconstruction"
+          },
+          {
+            "id": "layer",
+            "mutation": {
+              "type": "INSERT",
+              "handle": "3D",
+              "group": 8,
+              "before_hex": "50495045",
+              "after_hex": "554e5245515545535445445f4c4f53535f4c41594552",
+              "operation": "replace value"
+            },
+            "strict_detected": true,
+            "strict_differences": 1,
+            "bytes_refused": true,
+            "byte_error": "Candidate differs from independent source-plus-plan reconstruction"
+          },
+          {
+            "id": "style",
+            "mutation": {
+              "type": "STYLE",
+              "handle": "29",
+              "group": 40,
+              "before_hex": "302e30",
+              "after_hex": "312e3235",
+              "operation": "replace value"
+            },
+            "strict_detected": true,
+            "strict_differences": 1,
+            "bytes_refused": true,
+            "byte_error": "Candidate differs from independent source-plus-plan reconstruction"
+          },
+          {
+            "id": "foreign_attribute",
+            "mutation": {
+              "type": "ATTRIB",
+              "handle": "44",
+              "group": 1,
+              "before_hex": "72657461696e207b76656e646f727d205c502030",
+              "after_hex": "4c4f53542d464f524549474e",
+              "operation": "replace value"
+            },
+            "strict_detected": true,
+            "strict_differences": 1,
+            "bytes_refused": true,
+            "byte_error": "Candidate differs from independent source-plus-plan reconstruction"
+          },
+          {
+            "id": "xdata",
+            "mutation": {
+              "type": "INSERT",
+              "handle": "3D",
+              "group": 1000,
+              "before_hex": "666f726569676e206964656e746974792030",
+              "after_hex": "4c4f53542d5844415441",
+              "operation": "replace value"
+            },
+            "strict_detected": true,
+            "strict_differences": 1,
+            "bytes_refused": true,
+            "byte_error": "Candidate differs from independent source-plus-plan reconstruction"
+          }
+        ],
+        "losses_not_applicable": [],
+        "revision": {
+          "original_scope_unexpected": 1,
+          "collateral": {
+            "id": "validation-cp1251/asset-2",
+            "attribute": "SERIAL",
+            "before": "UNCHANGED-1",
+            "after": "FIELD-OBSERVED",
+            "reason": "Authored concurrent test change; no installed-state authority"
+          },
+          "basis_changes": [],
+          "initial_actions": [
+            "return_for_correction",
+            "escalate_for_clarification_or_technical_review"
+          ],
+          "current_actions": [
+            "escalate_for_clarification_or_technical_review"
+          ],
+          "portable_brief_equal": true,
+          "authorized_decision": "pending",
+          "release_accepted": false
+        },
+        "source_unchanged": true,
+        "software_controls_pass": true
+      },
+      "observation": "Actual direct module evaluation on previously exposed inputs; no native/model call; no fabricated subprocess transcript"
+    },
+    {
+      "id": "exposed-public",
+      "source": "examples/cad-handoff/qualification/validation-2/public-adapted/text_in_viewports/adapted.dxf",
+      "source_sha256": "4a3e3fc6736d7e76746afd0f6b6a5dfacd43bfee55596319701032c5d8fd0eb2",
+      "plan": "examples/cad-handoff/qualification/validation-2/public-adapted/text_in_viewports/edit-plan.json",
+      "result": {
+        "case": "exposed-public",
+        "source_sha256": "4a3e3fc6736d7e76746afd0f6b6a5dfacd43bfee55596319701032c5d8fd0eb2",
+        "routes": {
+          "library-save": {
+            "strict_status": "pass",
+            "strict_differences": 0,
+            "byte_check": {
+              "status": "fail",
+              "error": "Candidate differs from independent source-plus-plan reconstruction"
+            }
+          },
+          "value-spans": {
+            "strict_status": "pass",
+            "strict_differences": 0,
+            "byte_check": {
+              "status": "pass",
+              "values": 1,
+              "unplanned_byte_changes": 0,
+              "source_sha256": "4a3e3fc6736d7e76746afd0f6b6a5dfacd43bfee55596319701032c5d8fd0eb2",
+              "candidate_sha256": "f41ab33031890b6329c20c03ef5c57c5e5ed35def37fdf71d718eb4b853845a6",
+              "check": "independent source/plan reconstruction, no candidate span receipt consumed",
+              "review": "same-author software check; not independent engineering review"
+            }
+          }
+        },
+        "refusals": [
+          {
+            "id": "stale_hash",
+            "refused": true,
+            "error": "InputError: Plan must name cad-edit-plan-1 and the exact current source SHA-256",
+            "output_preserved": true
+          },
+          {
+            "id": "wrong_before",
+            "refused": true,
+            "error": "InputError: Before-value mismatch: source or proposed edit is stale",
+            "output_preserved": true
+          },
+          {
+            "id": "duplicate_edit",
+            "refused": true,
+            "error": "InputError: Duplicate edit in plan",
+            "output_preserved": true
+          },
+          {
+            "id": "identity_edit",
+            "refused": true,
+            "error": "InputError: Unknown asset or noneditable attribute (ICT_ID cannot be changed)",
+            "output_preserved": true
+          },
+          {
+            "id": "newline_value",
+            "refused": true,
+            "error": "InputError: Only plain single-line attribute values are supported",
+            "output_preserved": true
+          },
+          {
+            "id": "ambiguous_serialization",
+            "refused": true,
+            "error": "InputError: Multiline/ambiguous target serialization is unsupported",
+            "output_preserved": true
+          },
+          {
+            "id": "output_collision",
+            "refused": true,
+            "error": "InputError: Output folder already exists; retain the earlier packet",
+            "output_preserved": true
+          },
+          {
+            "id": "stale_revision_hash",
+            "refused": true,
+            "error": "InputError: Plan must name cad-edit-plan-1 and the exact current source SHA-256",
+            "output_preserved": true
+          },
+          {
+            "id": "stale_revision_before",
+            "refused": true,
+            "error": "InputError: Before-value mismatch: source or proposed edit is stale",
+            "output_preserved": true
+          }
+        ],
+        "losses": [
+          {
+            "id": "geometry",
+            "mutation": {
+              "type": "INSERT",
+              "handle": "10F",
+              "group": 10,
+              "before_hex": "302e30",
+              "after_hex": "312e3235",
+              "operation": "replace value"
+            },
+            "strict_detected": true,
+            "strict_differences": 1,
+            "bytes_refused": true,
+            "byte_error": "Candidate differs from independent source-plus-plan reconstruction"
+          },
+          {
+            "id": "layer",
+            "mutation": {
+              "type": "INSERT",
+              "handle": "10F",
+              "group": 8,
+              "before_hex": "4943545f5155414c5f544553545f4f4e4c59",
+              "after_hex": "554e5245515545535445445f4c4f53535f4c41594552",
+              "operation": "replace value"
+            },
+            "strict_detected": true,
+            "strict_differences": 1,
+            "bytes_refused": true,
+            "byte_error": "Candidate differs from independent source-plus-plan reconstruction"
+          },
+          {
+            "id": "style",
+            "mutation": {
+              "type": "STYLE",
+              "handle": "11",
+              "group": 40,
+              "before_hex": "302e30",
+              "after_hex": "312e3235",
+              "operation": "replace value"
+            },
+            "strict_detected": true,
+            "strict_differences": 1,
+            "bytes_refused": true,
+            "byte_error": "Candidate differs from independent source-plus-plan reconstruction"
+          }
+        ],
+        "losses_not_applicable": [
+          "foreign_attribute",
+          "xdata"
+        ],
+        "revision": {
+          "original_scope_unexpected": 1,
+          "collateral": {
+            "id": "AUTHORED-QUAL/text_in_viewports/1",
+            "attribute": "TAG",
+            "before": "QA-1",
+            "after": "FIELD-OBSERVED",
+            "reason": "Authored concurrent test change; no installed-state authority"
+          },
+          "basis_changes": [],
+          "initial_actions": [
+            "return_for_correction",
+            "escalate_for_clarification_or_technical_review"
+          ],
+          "current_actions": [
+            "escalate_for_clarification_or_technical_review"
+          ],
+          "portable_brief_equal": true,
+          "authorized_decision": "pending",
+          "release_accepted": false
+        },
+        "source_unchanged": true,
+        "software_controls_pass": true
+      },
+      "observation": "Actual direct module evaluation on previously exposed inputs; no native/model call; no fabricated subprocess transcript"
+    }
+  ],
+  "scope": "Pre-freeze orchestration development on two old exposed sources; no newly reserved result opened"
+}
