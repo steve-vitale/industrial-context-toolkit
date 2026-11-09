@@ -19,6 +19,11 @@ def restore_packet(name,root):
     for key,raw in support.items():
         if key.startswith(prefix):
             member=key[len(prefix):];require(member not in saved,'Support overwrites a retained file');saved[member]=raw
+    if 'runtime_support' in pin:
+        extra=check_pin(packet/'runtime-support',pin['runtime_support'])
+        for member,raw in extra.items():
+            require(member.startswith('attempt/job/__pycache__/') and member not in saved,'Unexpected/overwriting runtime support member')
+            saved[member]=raw
     # Final PLAN keeps configuration contents out of new packets. This exact
     # profile is already retained in the public pre-final second-receiver packet.
     parent=HERE.parent/'full-ui-22';key='cp1251-second-receiving-1'
@@ -41,4 +46,7 @@ def check(name):
         require(equal(result,read(packet/'RESULT.json')) and equal(result,read(root/'receiving/RESULT.json')) and read(root/'execution/EXIT.json')['exit']==0,'Complete final UI receiving result differs')
         launch=read(HERE/'NATIVE-LAUNCH.json')
         if result['role']!='receiving':require(sha(root/'execution/SCRIPT.py')==launch['host_wrappers']['run_final_ui_host.py'],'Pre-execution original UI wrapper differs')
+        else:
+            from campaign import lf
+            require(lf(root/'execution/SCRIPT.py')==read(HERE/'RECEIVING-LAUNCH.json')['driver_sha256_lf'],'Pre-execution fresh receiver wrapper differs')
         return result

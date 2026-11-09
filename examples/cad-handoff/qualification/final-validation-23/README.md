@@ -71,3 +71,12 @@ and render evidence. It calls no model, native editor or network service. It
 does not repeat the native executions or constitute independent engineering
 review. Source interpretation, site applicability and company acceptance remain
 with the responsible engineering team.
+
+To repeat native execution, use the recorded [environment and publisher package
+identity](../linux-native-7/ENVIRONMENT.json), [Docker recipe](../linux-native-7/Dockerfile)
+and the prepared input/launch records here. The native image is a local evaluation
+artifact, not a redistributed CAD product. A rebuild with different dependencies,
+editor or fonts is a new environment and needs its own results. Offline replay
+reproduces the retained evidence without requiring that environment. For your
+own transmittal, the reusable receiving command accepts prepared source/return
+records directly; this native experiment is not an installation requirement.
