@@ -57,6 +57,12 @@ they do not establish installed equipment identity, a compatible BOM, physical p
 
 ## A useful starting job
 
+Subsequent work implements this bounded job in the reusable
+[maintenance-history workflow](../../../docs/MAINTENANCE_HISTORY.md), with a
+source-specific AMPS profile, primary-dictionary meanings and retained
+[development/reserved outcomes](../../maintenance-history/README.md). The
+structural-only boundaries below describe this acquisition pass itself.
+
 Ask your agent:
 
 > Fetch or inspect the pinned AMPS cohort using this guide. Show me the relationship-coverage report first.

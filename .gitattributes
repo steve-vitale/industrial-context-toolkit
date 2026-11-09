@@ -59,6 +59,8 @@ data/te_pid_layout.json text eol=lf
 /scripts/source_evidence.py text eol=lf
 /scripts/test_source_handoff.py text eol=lf
 /.gitattributes text eol=lf
+# Exact fictional history originals, receipts and method freeze survive checkout unchanged.
+/examples/maintenance-history/** -text
 # Frozen rehearsal prompts, keys and exact fixture/packet bytes retain their run identities on every OS.
 /examples/agent-rehearsal/** -text
 /examples/maintenance-intake/** -text

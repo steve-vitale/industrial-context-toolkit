@@ -1,5 +1,10 @@
 # Start with maintenance records that disagree
 
+If your question is what work keeps recurring rather than which installed fields
+disagree, use [maintenance-history investigation](MAINTENANCE_HISTORY.md). Its
+offline brief joins explicitly mapped assets, orders and optional parts/labor
+evidence, with a chronology, unknowns and next actions.
+
 Use this when a replacement, work order or maintenance question sends someone through several systems to work
 out which equipment is installed and which records describe it. Start with one unit, one tag and a question such
 as: **does the equipment register match the replacement recorded on the closed work order?**

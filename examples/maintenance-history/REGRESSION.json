@@ -1,0 +1,16 @@
+{
+  "schema": "maintenance-history-local-regression-1",
+  "initial_source_only": {
+    "passed_scripts": 74,
+    "total_scripts": 75,
+    "failed_script": "scripts/test_delivery_examples.py",
+    "errors": "Two CAD test methods import cad_handoff -> ezdxf, unavailable under -S",
+    "unittest_cases_skipped": 35,
+    "platform_notices": 3,
+    "log_sha256": "827304bba0b8a3d05dd12ed5c91633626a33da11d9f003f85a572e51c88235c3"
+  },
+  "correction": "Classify entire ezdxf-dependent delivery-evidence test program as full-only; all its assertions remain in full CI exactly once. Source-only remains a narrower check.",
+  "runner_controls": "19 test_run_tests.py methods pass",
+  "corrected_source_only": "running; not yet a pass",
+  "full_local": "Prerequisite preflight failed: packages/cached TE records absent; no full tests launched."
+}

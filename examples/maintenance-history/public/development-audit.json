@@ -1,0 +1,60 @@
+{
+  "schema": "maintenance-history-public-audit-1",
+  "checks": {
+    "original_counts": true,
+    "qualified_joins": true,
+    "asset_order_counts": true,
+    "per_asset_signed_hours": true,
+    "recurring_groups": true,
+    "every_record_locator": true
+  },
+  "passed": true,
+  "rows": {
+    "assets": 933,
+    "work_orders": 1612,
+    "transactions": 208,
+    "details": 263,
+    "labor": 5268
+  },
+  "linked": {
+    "work_orders": 1612,
+    "transactions": 208,
+    "details": 263,
+    "labor": 5268
+  },
+  "invalid_hours_asset_count": 0,
+  "baseline": {
+    "method": "raw-asset-id-row-count",
+    "raw_id_groups": 933,
+    "count_distribution": {
+      "1": 638,
+      "2": 167,
+      "3": 57,
+      "4": 34,
+      "5": 8,
+      "6": 10,
+      "7": 6,
+      "8": 3,
+      "9": 3,
+      "11": 2,
+      "14": 1,
+      "17": 1,
+      "27": 1,
+      "28": 1,
+      "32": 1
+    },
+    "boundary": "Counts supplied rows by raw asset ID. No scoped identity, join, status, repair or ledger qualification."
+  },
+  "tool": {
+    "scoped_assets": 933,
+    "recurring_groups": 177,
+    "issues": {
+      "missing_completion_value": 65,
+      "negative_material_quantity": 1,
+      "unavailable_parent_order": 1,
+      "unknown_code": 13,
+      "unknown_flag": 2
+    }
+  },
+  "boundary": "Original-column procedural checks, same source. No human review, planted public key, failure diagnosis, savings or plant acceptance."
+}

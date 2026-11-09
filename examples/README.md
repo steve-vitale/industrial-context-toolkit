@@ -8,7 +8,7 @@ to substitute. Case studies and evaluations retain results for their particular 
 role, prerequisites, output and review boundary; the [workflow map](../docs/WORKFLOWS.md) owns format connections.
 
 For executable first steps, use [reproduce a workflow](../docs/REPRODUCE_A_WORKFLOW.md).
-It routes maintenance reconciliation, markup returns, exact ports, cross-sheet paths, drawing bundles,
+It routes maintenance reconciliation, [asset-history investigation](maintenance-history/README.md), markup returns, exact ports, cross-sheet paths, drawing bundles,
 knowledge revisions and recorded batch calculations to their existing commands and expected findings.
 For equipment-data proposals and native drawing evidence, use the
 [CAD handoff](cad-handoff/README.md) and [qualification index](cad-handoff/qualification/README.md).

@@ -3,6 +3,14 @@
 If maintenance records disagree, drawings are missing, or an engineering question takes too long to reconstruct,
 start with one equipment system and one decision someone needs to make.
 
+The work should also leave a foundation your team can maintain after the
+assignment: usable asset identities, traceable sources, reviewed context, open
+questions, ownership and revision history. As continuing use needs managed
+maintenance, auditability and single-source-of-truth controls, that foundation
+can support a scoped transition to ChangePilot or another suitable tool. Agree
+the receiving mappings, authority, refresh responsibility and acceptance checks
+for that destination using the [foundation roadmap](ENGINEERING_FOUNDATION.md).
+
 [Connect with me on LinkedIn and message me there](https://www.linkedin.com/in/steve-vitale/).
 Describe the problem, the kinds of records you have and who needs the result. Keep company documents private;
 the first conversation does not require an upload or a GitHub issue.
@@ -48,6 +56,7 @@ maintenance/drawing review remains a complete starting assignment without simula
 | Job | Starting inputs | Proposed deliverable |
 |---|---|---|
 | [Reconcile maintenance information](MAINTENANCE_START.md) | Selected equipment export, work orders, datasheets, PM/spares records and permitted field observations | Source-linked asset information, disagreements and missing evidence, a correction list by record owner, and a reviewed handoff in the agreed receiving format. |
+| [Investigate maintenance histories](MAINTENANCE_HISTORY.md) | One agreed asset/system scope and selected work orders; related material/labor records and owner meanings where available | An asset-history brief, recurring-work questions, source/coverage gaps and an agreed next-export review. Scope record preparation, source-owner clarification and field investigation separately; do not promise root cause, savings or MTBF from selected exports. |
 | [Recover or update engineering drawings](DRAWING_RECOVERY.md) | Existing drawings where available, process knowledge, equipment records, field access/observations and the target CAD requirements | A scoped reconstruction plan, draft drawing and tag/line information, unresolved field questions, engineering review and an agreed CAD handoff. Native CAD compatibility is qualified for the selected tool/version before delivery is promised. |
 | [Review a consultant's P&ID return](PID_MARKUP_REVIEW.md) | Original drawings, exact markups/instructions sent out, returned revisions and the intended review scope | Annotation inventory, requested-change evidence, partial/missed changes, other observed changes and a correction/clarification handoff. Agree reading coverage and engineering review before claiming completion. |
 | [Check a route across sheets](PID_GRAPH_QUESTIONS.md) | Supplied graph records with exact identities, source revisions/locators, relation meaning, direction and review/conflict status | Reviewed-only or qualified exploratory route, missing continuations, query-relative record associations and explicit prior-answer/register changes. Graph preparation and engineering interpretation are separately scoped. |

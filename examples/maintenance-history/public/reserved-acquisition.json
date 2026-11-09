@@ -1,0 +1,155 @@
+{
+  "schema": "amps-linked-acquisition-1",
+  "started": "2026-11-09T03:05:28.783033+00:00",
+  "selection": "2024-01-15 <= evt_date < 2024-01-22; all outcomes",
+  "snapshot_consistency": "sequential current-row reads, no transactional or historical snapshot",
+  "recipe_sha256": "5411b80f2ab94ad1c53dc949566f2b010e7e0f173903a16f30c4486a932efc63",
+  "shared_recipe_sha256": "74809131aec2966a489b76130295fc025aed8ac5fcacf9fd60b4e7e4006e771c",
+  "errors": [
+    "HTTPError: HTTP Error 500: Server Error"
+  ],
+  "finished": "2026-11-09T03:06:33.130284+00:00",
+  "body_bytes": 754269,
+  "files": [
+    {
+      "path": "metadata-work-orders.json",
+      "role": "metadata",
+      "attempts": [
+        {
+          "attempt": 1,
+          "state": "received"
+        }
+      ],
+      "http_status": 200,
+      "bytes": 84836,
+      "sha256": "3deed4825d4618e1618b67237399bc3639c492116dadce870955e204f13a8407",
+      "query_url_sha256": "205416604a2fe6c597b79959e50add883da35970ee9379681f22d0ccdb50c23e"
+    },
+    {
+      "path": "metadata-assets.json",
+      "role": "metadata",
+      "attempts": [
+        {
+          "attempt": 1,
+          "state": "received"
+        }
+      ],
+      "http_status": 200,
+      "bytes": 53998,
+      "sha256": "e591f08cbefc4ab1a2061f6f459fa65026a0e22ecc6142206979b0e2d8abfd8f",
+      "query_url_sha256": "d92ac22849f66ef9e82df218f0c24aed90fbb147bde90a331f5e1dc2ab800bff"
+    },
+    {
+      "path": "metadata-transactions.json",
+      "role": "metadata",
+      "attempts": [
+        {
+          "attempt": 1,
+          "state": "received"
+        }
+      ],
+      "http_status": 200,
+      "bytes": 24705,
+      "sha256": "ba0f7bae87c611f11fc49107eaafd3d01ce92cd0fe368e354fb3d68fba164509",
+      "query_url_sha256": "7980335acd7f96b2a12ecd8bfec79606d80c7dd1bea0cf01fe0d322fade79eac"
+    },
+    {
+      "path": "metadata-details.json",
+      "role": "metadata",
+      "attempts": [
+        {
+          "attempt": 1,
+          "state": "received"
+        }
+      ],
+      "http_status": 200,
+      "bytes": 57023,
+      "sha256": "c766fceba89e30fc28c24fb831003140de2f2a2e1b7be4af3599dacf5fc23a30",
+      "query_url_sha256": "a575d323abcd730139c6e8236f1f317c7d56c8e463dfbdd49eaa9bb900055007"
+    },
+    {
+      "path": "metadata-labor.json",
+      "role": "metadata",
+      "attempts": [
+        {
+          "attempt": 1,
+          "state": "received"
+        }
+      ],
+      "http_status": 200,
+      "bytes": 32496,
+      "sha256": "c2e270e7e9daf357e7389beccab5a5e3a4e067b07f63eb311589d29475b85559",
+      "query_url_sha256": "da64f5cb014ea5782848448476e065097f025929824d8633ffafc144fbeb1d4f"
+    },
+    {
+      "path": "work-orders-000.json",
+      "role": "work-orders",
+      "attempts": [
+        {
+          "attempt": 1,
+          "state": "received"
+        }
+      ],
+      "http_status": 200,
+      "bytes": 417067,
+      "sha256": "8d3295d1f7fb7de6d848b541c224dcec16b4cade862c9a1f3b6959cf73a263b5",
+      "query_url_sha256": "b49dced2916b64770b57d2e3041753455e99eeba746f0364313db519be60417a"
+    },
+    {
+      "path": "assets-000.json",
+      "role": "assets",
+      "attempts": [
+        {
+          "attempt": 1,
+          "state": "received"
+        }
+      ],
+      "http_status": 200,
+      "bytes": 29173,
+      "sha256": "f10311c05d570d474d0e1c7b590c17b36e6203e7a4a2a5a5ebb51d5887928fd4",
+      "query_url_sha256": "1a19a0cc3ee046e13f87cc2705ecd83d5886a6fa7704f2da2c70d96da67f6b45"
+    },
+    {
+      "path": "assets-001.json",
+      "role": "assets",
+      "attempts": [
+        {
+          "attempt": 1,
+          "state": "received"
+        }
+      ],
+      "http_status": 200,
+      "bytes": 27585,
+      "sha256": "82adf34f0573346b424bc14a211827cb259073b29053e25fe624ece056c0cd76",
+      "query_url_sha256": "bab592199c994e73b2773fe0a1df9df015822c16ee33fb04fa299f52e1406a46"
+    },
+    {
+      "path": "assets-002.json",
+      "role": "assets",
+      "attempts": [
+        {
+          "attempt": 1,
+          "state": "received"
+        }
+      ],
+      "http_status": 200,
+      "bytes": 27386,
+      "sha256": "76ca191d954c74c5aea750efb4155e2eb605a3c08ea4361890a2acfa348365f0",
+      "query_url_sha256": "79592b7118205d450904f4ae9484f0cde942480b39f34edc886d442c6018c7f1"
+    },
+    {
+      "path": "assets-003.json",
+      "role": "assets",
+      "attempts": [
+        {
+          "attempt": 1,
+          "error": "HTTP Error 500: Server Error"
+        }
+      ],
+      "query_url_sha256": "d06f895cf2fff934e87174e658f94fb1b0669973ba873a621dcc6dc6ec8ba5a9"
+    }
+  ],
+  "outcome": "INCOMPLETE acquisition: HTTP 500 on fourth asset batch; no packet/audit, no reserved semantic pass",
+  "raw_receipt_sha256": "72e7e5771ea32a97f8ff10a908f3a6d586aef6eccd35fe002f3c3cfdb1190305",
+  "retention": "Original responses and query URLs kept privately; public summary contains pins/attempts, no row values or free text. HTTP error body was not saved."
+}

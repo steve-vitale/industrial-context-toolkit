@@ -5,6 +5,14 @@ Use the [job selector](../README.md#start-wherever-you-are) to choose a tool or 
 [first-question guide](../examples/first-pilot/README.md) for a no-install contribution.
 The [workflow map](WORKFLOWS.md) owns supported inputs and outputs; this page owns current readiness and gaps.
 
+[Maintenance-history investigation](MAINTENANCE_HISTORY.md) now produces offline
+asset chronologies, recurring-work candidates, conditional signed booked hours
+and source-linked actions from mapped exports. [Evidence and limits](../examples/maintenance-history/README.md):
+17 fictional control methods plus multi-layout/revision replay pass; six separate
+original-column checks pass on the 933-asset AMPS development cohort. The frozen
+reserved acquisition stopped at publisher HTTP 500, so reserved transfer is
+unverified. No independent example review, timed manager trial or plant acceptance.
+
 Maintenance and engineering managers can use the [decision-first guide](MANAGERS_START_HERE.md) and
 [offline review packet](../examples/manager-review/README.md) without installing software. The packet is an
 authored fictional handoff with reproduced source findings; human usefulness and company acceptance remain unrun.

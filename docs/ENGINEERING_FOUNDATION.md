@@ -4,6 +4,36 @@ The goal is an organization that can explain its decisions, coordinate work and 
 should inherit the evidence and reasoning behind a plant or project, make a useful reviewed contribution, and
 leave it in a maintained company record. A chatbot, graph or internal endpoint is one part of that capability.
 
+This repository is an on-ramp to that maintained foundation. A maintenance
+investigation, drawing review or record cleanup should solve today's job while
+leaving evidence and structure the organization can reuse. When continued
+reliance needs managed maintenance, auditability and single-source-of-truth
+controls, the foundation should carry into **ChangePilot or another suitable
+company tool**. Tool selection can follow the work and the operating need.
+
+Here **single source of truth (SSOT)** means explicit authoritative homes and
+owners for records and accepted facts, with derived views traceable to the
+applicable versions. The CMMS may own work-order status, document control the
+released drawing, and a reviewed context record the sourced interpretation and
+decision. Define how these fit together, who resolves disagreement, and which
+accepted version people may rely on.
+
+From the first job, retain a handoff basis:
+
+- Scope, asset identities and reviewed source-system crosswalks.
+- Original evidence or permitted references, revisions, locators and provenance.
+- Findings, accepted interpretations, unresolved conflicts and review/decision history.
+- Authoritative record locations, accountable owners and receiving responsibilities.
+- Dependencies, revision triggers and the agreed refresh/review procedure, including manual steps.
+- Portable outputs, destination mappings, known omissions and receiving readback checks.
+
+Record what is actually supplied or unknown in that basis. A named local reviewer
+does not establish authenticated approval. A snapshot does not establish an
+operated refresh service. The existing [record lifecycle](CONTEXT_LIFECYCLE.md)
+owns those distinctions. No implemented ChangePilot import or live synchronization
+is claimed here; qualify the chosen receiving route. Assess improvements by the
+useful job completed **and** the reusable, maintainable foundation it leaves.
+
 [![Six engineering capability layers, their benefits, cross-cutting controls and managed-product handoff](../assets/engineering-foundation.svg)](../assets/engineering-foundation.png)
 
 [Editable SVG](../assets/engineering-foundation.svg) · [Shareable PNG](../assets/engineering-foundation.png)

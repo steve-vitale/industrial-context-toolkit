@@ -1,0 +1,183 @@
+{
+  "schema": "maintenance-history-1",
+  "namespace": "FICTIONAL",
+  "question": "Which selected work records need investigation or reconciliation?",
+  "as_of": "2024-01-31",
+  "recurring_fields": [
+    "work_class",
+    "order_type",
+    "job_type"
+  ],
+  "labor_ledger": {
+    "mode": "signed_all_entries",
+    "unit": "h",
+    "basis": "Authored fixture: hours are an additive signed ledger, including correction and zero entries."
+  },
+  "sources": {
+    "assets": {
+      "id": "FIX-assets",
+      "revision": "1",
+      "owner": "Maintenance records owner",
+      "coverage": "Authored selected-record excerpt; no absence or installed-state guarantee",
+      "format": "csv",
+      "files": [
+        {
+          "path": "assets.csv"
+        }
+      ],
+      "columns": {
+        "id": "id",
+        "scope": "scope",
+        "description": "description",
+        "kind": "kind"
+      },
+      "date_formats": {}
+    },
+    "work_orders": {
+      "id": "FIX-work_orders",
+      "revision": "1",
+      "owner": "Maintenance records owner",
+      "coverage": "Authored selected-record excerpt; no absence or installed-state guarantee",
+      "format": "csv",
+      "files": [
+        {
+          "path": "work_orders.csv"
+        }
+      ],
+      "columns": {
+        "id": "id",
+        "scope": "scope",
+        "asset_id": "asset_id",
+        "description": "description",
+        "work_class": "work_class",
+        "order_type": "order_type",
+        "job_type": "job_type",
+        "created": "created",
+        "completed": "completed",
+        "reopened": "reopened",
+        "parent_id": "parent_id"
+      },
+      "date_formats": {
+        "created": "iso_date",
+        "completed": "iso_date"
+      },
+      "time_basis": "Authored calendar dates only; within-day event order unspecified",
+      "flags": {
+        "reopened": {
+          "true": [
+            "Y"
+          ],
+          "false": [
+            "N"
+          ]
+        }
+      },
+      "labels": {
+        "order_type": {
+          "CM": "Corrective work order",
+          "PPM": "Planned preventative maintenance"
+        }
+      }
+    },
+    "transactions": {
+      "id": "FIX-transactions",
+      "revision": "1",
+      "owner": "Maintenance records owner",
+      "coverage": "Authored selected-record excerpt; no absence or installed-state guarantee",
+      "format": "csv",
+      "files": [
+        {
+          "path": "transactions.csv"
+        }
+      ],
+      "columns": {
+        "id": "id",
+        "scope": "scope",
+        "work_order_id": "work_order_id",
+        "entity": "entity",
+        "status": "status",
+        "type": "type",
+        "date": "date"
+      },
+      "date_formats": {
+        "date": "iso_date"
+      },
+      "time_basis": "Authored calendar dates only; within-day event order unspecified",
+      "work_order_entities": [
+        "WORK"
+      ],
+      "labels": {
+        "status": {
+          "A": "Approved",
+          "C": "Cancelled"
+        },
+        "type": {
+          "I": "Issue"
+        }
+      }
+    },
+    "details": {
+      "id": "FIX-details",
+      "revision": "1",
+      "owner": "Maintenance records owner",
+      "coverage": "Authored selected-record excerpt; no absence or installed-state guarantee",
+      "format": "csv",
+      "files": [
+        {
+          "path": "details.csv"
+        }
+      ],
+      "columns": {
+        "id": "id",
+        "scope": "scope",
+        "transaction_id": "transaction_id",
+        "work_order_id": "work_order_id",
+        "part_id": "part_id",
+        "description": "description",
+        "quantity": "quantity",
+        "unit": "unit",
+        "price": "price",
+        "date": "date"
+      },
+      "date_formats": {
+        "date": "iso_date"
+      },
+      "time_basis": "Authored calendar dates only; within-day event order unspecified"
+    },
+    "labor": {
+      "id": "FIX-labor",
+      "revision": "1",
+      "owner": "Maintenance records owner",
+      "coverage": "Authored selected-record excerpt; no absence or installed-state guarantee",
+      "format": "csv",
+      "files": [
+        {
+          "path": "labor.csv"
+        }
+      ],
+      "columns": {
+        "id": "id",
+        "scope": "scope",
+        "work_order_id": "work_order_id",
+        "date": "date",
+        "hours": "hours",
+        "correction": "correction",
+        "trade": "trade"
+      },
+      "date_formats": {
+        "date": "iso_date"
+      },
+      "time_basis": "Authored calendar dates only; within-day event order unspecified",
+      "flags": {
+        "correction": {
+          "true": [
+            "Y"
+          ],
+          "false": [
+            "N"
+          ]
+        }
+      }
+    }
+  }
+}

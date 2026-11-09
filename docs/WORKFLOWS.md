@@ -81,6 +81,12 @@ The older converted-key DEXPI adapter produces an extracted twin through its sep
 
 ## Tool input and output contracts
 
+[Maintenance history](MAINTENANCE_HISTORY.md) accepts CSV/JSON assets and orders plus optional
+transactions/details/labor in an explicit `maintenance-history-1` profile. It produces an offline brief,
+scoped asset chronologies, exact recurring-work candidates, a conditional signed booked-hours ledger,
+original-row evidence, actions and portable revision history. Identity/meaning/coverage are supplied;
+no installed-state, failure diagnosis or automatic graph/live-system synchronization is inferred.
+
 [Maintenance export intake](MAINTENANCE_INTAKE.md) accepts two user CSVs plus an explicit `maintenance-intake-1`
 profile, normalizes only mapped fields into one-map contracts, and returns a sourced offline manager packet.
 Its original-row map, source revisions, complete queue and proposed actions accompany the report. A verified

@@ -9,6 +9,14 @@ To reproduce the approach on supplied examples, use the [workflow reproduction g
 real entry commands, expected findings, failure/revision checks and the distinction between replay, a new
 reading and native acceptance. Do not read the whole research journal before helping with one supported job.
 
+Keep the [long-term foundation](ENGINEERING_FOUNDATION.md) in view while finishing
+that job. Retain usable identities, sources, review history, open questions,
+authority/owners and a next-revision path alongside the finding. Explain what can
+carry into ChangePilot or another maintained company tool, what needs mapping and
+receiving checks, and who keeps it current after the assignment. Use the existing
+formats and lifecycle; document missing handoff elements without inventing
+approval, automatic synchronization or product compatibility.
+
 ## First response
 
 Explain the useful work in ordinary terms, then recommend one route from the supplied context. For a maintenance
@@ -43,6 +51,7 @@ Ask about their own job after showing what the result looks like. Example record
 | Available material / question | Agent's next work | Return to the user |
 |---|---|---|
 | Equipment and closed replacement work-order exports | Inspect headers, identity/scope, date meanings and coverage. Use the [reusable maintenance intake](MAINTENANCE_INTAKE.md) with an explicitly reviewed profile to prepare working copies, run one map and produce an offline packet. A drawing is not required. | Which supplied values disagree, both original source rows, unresolved identity/authority, proposed owner actions and a readable packet. |
+| Recurring-work or asset-history question, with exports | Use the [maintenance-history tool](MAINTENANCE_HISTORY.md): inspect source keys, scope, selection, dates, code meanings and signed-ledger convention before mapping. Run the offline fictional example when no records are supplied. | Sourced asset chronology, exact recurring-work groups, associated materials/labor, unknown meanings and next actions. Keep recurrence distinct from failure and missing rows distinct from zero. |
 | A few manuals, notices, reports or mixed documents | Inspect originals and revisions; use the [first-question method](../examples/first-pilot/README.md). Extract supported text through [document tools](DOCUMENT_TEXT.md) when needed. | A short answer with exact locators, conflicts, missing evidence and one next evidence request. A graph is optional. |
 | P&ID image | Follow [own drawing](../examples/own-drawing/README.md). Use the saved public reading for a demo; a new image needs its own permitted extraction and review. | Draft asset/review bundle and readable report; distinguish visible drawing evidence from interpretation. |
 | Original P&ID, markups/instructions sent out and consultant's return | Use [markup return review](PID_MARKUP_REVIEW.md). Inventory every annotation; prepare separate source-bound before/returned readings and explicit checks. Trace connections rather than just searching for tags. | Supported, partial, unchanged/different and unverifiable checks, original/returned locators, other observed changes and a correction queue. No full graph, MCP or CAD UI is needed for the local comparison; visual interpretation and inventory coverage still need review. |

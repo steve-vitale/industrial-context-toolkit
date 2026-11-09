@@ -1,5 +1,13 @@
 # Self-service depth before more breadth
 
+2026-11-08 addition: [maintenance-history investigation](MAINTENANCE_HISTORY.md)
+deepens asset/work-order intake with scoped histories, optional materials/labor,
+source meanings, recurring-work candidates and portable revision evidence. The
+[public/fictional evaluation](../examples/maintenance-history/README.md) retains
+the matched baseline and six passing original-column development checks. The
+frozen reserved acquisition failed at publisher HTTP 500; reserved transfer is
+unverified. Human benefit, independent review and company acceptance remain open.
+
 2026-11-06. The four requested improvements are tracked by observable outcomes. These are bounded development
 checks on fictional records; the repository's other research failures and company acceptance gaps remain visible
 in [status](STATUS.md), [generalization](GENERALIZATION.md) and the [acceptance plan](ACCEPTANCE.md).
