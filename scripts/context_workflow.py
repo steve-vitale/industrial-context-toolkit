@@ -10,6 +10,7 @@ import sys
 import context_basis as cb
 import context_components as cc
 import context_packet as cp
+import context_review as cr
 
 
 def parser():
@@ -63,6 +64,16 @@ def parser():
     unbundle.add_argument("delivery")
     unbundle.add_argument("--out", required=True)
     unbundle.add_argument("--expected-sha256")
+    review = sub.add_parser("review", help="Create an offline component review with downloadable text proposals")
+    review.add_argument("packet")
+    review.add_argument("--out", required=True)
+    verify_review = sub.add_parser("verify-review", help="Check exact delivered HTML against its retained packet")
+    verify_review.add_argument("packet")
+    verify_review.add_argument("html")
+    apply_review = sub.add_parser("apply-review", help="Retain a downloaded text proposal on its exact source basis")
+    apply_review.add_argument("packet")
+    apply_review.add_argument("--edit", required=True)
+    apply_review.add_argument("--out", required=True)
     return p
 
 
@@ -89,6 +100,7 @@ def main(argv=None):
             result = {**cb.capabilities(), "input_route": "ordinary CSV exports plus retained originals",
                       "preparation": "Document/graph interpretation needs source-bound contributions or qualified adapters",
                       "packet_history_revisions_max": 9, "packet_bytes_max": cp.MAX_PACKET_BYTES,
+                      "offline_review": "review / apply-review: bounded text proposals; no authenticated approval",
                       "product_receiving": "Not established by local packet verification"}
         elif args.command == "prepare":
             out = cp.prepare(args.records, args.out, args.site, args.plant, previous=args.previous,
@@ -122,6 +134,12 @@ def main(argv=None):
                       "qualification": "Retained editorial proposals; source facts unchanged"}
         elif args.command == "bundle":
             result = cp.bundle(args.packet, args.out, args.max_bytes)
+        elif args.command == "review":
+            result = cr.write(args.packet, args.out)
+        elif args.command == "verify-review":
+            result = cr.verify(args.packet, args.html)
+        elif args.command == "apply-review":
+            result = cr.apply(args.packet, args.edit, args.out)
         else:
             result = cp.unbundle(args.delivery, args.out, expected_sha256=args.expected_sha256)
         print(json.dumps(result, ensure_ascii=True, sort_keys=True, indent=2, allow_nan=False))

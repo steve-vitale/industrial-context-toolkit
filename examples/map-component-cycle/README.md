@@ -8,7 +8,7 @@ required. An agent can inspect the typed context directly through the CLI.
 
 This is a bounded prototype over record exports and supplied source-bound
 interpretation. Existing graph/model adapters, scoped source filtering, generator
-projection, browser interaction and actual ChangePilot receiving remain part of
+projection and actual ChangePilot receiving remain part of
 the [unfinished goal](PLAN.md). Local packet verification establishes source/draft
 replay; it does not establish engineering truth or product acceptance.
 
@@ -78,6 +78,41 @@ exact basis and explicit editorial proposals. Changing generated source fields
 is refused. Reimport does not add sources or independent support. Use `edit` for
 ordinary text/boolean/integer/number/null proposals; no JSON editing is required.
 
+## Review and edit without writing JSON
+
+```sh
+python -B -S scripts/context_workflow.py review out/my-context-r1 --out out/my-context-review.html
+```
+
+Open the HTML in a browser. Search by tag, choose the fully scoped item, and
+switch between the three component drafts. Inspect disagreements, missing
+prerequisites, inactive evidence, source filenames/revisions, declared owners
+and applicability. Expanded source details retain exact value types and literals.
+The page works offline and contacts no service.
+
+Choose a field or review note, enter proposed text and a reason, then select
+**Download proposed edit**. Keep that file and ask your agent to apply it:
+
+```sh
+python -B -S scripts/context_workflow.py apply-review out/my-context-r1 --edit context-review-edit.json --out out/my-context-reviewed
+python -B -S scripts/context_workflow.py review out/my-context-reviewed --out out/my-context-reviewed.html
+python -B -S scripts/context_workflow.py verify-review out/my-context-reviewed out/my-context-reviewed.html
+```
+
+The downloaded text proposal is bound to this exact packet and field/source
+dependencies. A changed packet refuses it; reopen the current review and
+explicitly rebase. Earlier proposals remain available, while source facts remain
+unchanged. Numeric or structured proposals can use the existing typed CLI/API
+contracts; the browser form deliberately proposes text. It saves to a download,
+not to the page or a managed service. Review HTML is capped at 32 MiB; edits at
+128 KiB and 32,768 characters per text field. The page checks encoded byte size
+before download, including Unicode/escaping overhead.
+
+[View the saved fictional review](development/review-browser-01/review.html) after
+downloading/opening it locally. The [browser run](development/review-browser-01/run.json)
+records actual desktop and 390px interactions, downloaded edits and fresh-process
+readback. This selected view does not redact the underlying source packet.
+
 ## Supply interpretation explicitly
 
 `prepare --contributions PATH` accepts CSV with Subject, Predicate, Source,
@@ -120,7 +155,7 @@ remain retained. No scale/load or product acceptance follows from these limits.
 python -B -S examples/map-component-cycle/reproduce.py --out out/my-context-development-check
 ```
 
-The current development suite passes 37 methods against exposed fictional
+The current development suite passes 43 methods against exposed fictional
 records and source-authored literal keys. It exercises actual separate-process
 commands, three drafts, edits, three revisions, relocation, delivery reopening
 and specific tamper refusals. The retained failures include source/selection faults,
@@ -128,8 +163,15 @@ column-order replay, correction lineage and proposal retention; see
 [development evidence](DEVELOPMENT.md).
 The [earlier-route baseline](BASELINE.md) remains separate.
 
+The optional actual-browser development runner needs Node, Playwright and a
+supported installed browser: `node examples/map-component-cycle/reproduce_review.cjs out/my-review-check`.
+`PLAYWRIGHT_PACKAGE` can select an existing Playwright install; `BROWSER_EXE`
+can select its executable. These are verification prerequisites, not customer
+requirements for opening the HTML. The runner serves only the review page on
+an ephemeral loopback port and closes its server/browser afterwards.
+
 All 31 full-goal acceptance cases remain incomplete. No frozen transfer, clean
-clone release, browser/customer trial or actual authenticated product receiving
+clone release, human/customer trial or actual authenticated product receiving
 has passed. No native CAD failure is changed by this work.
 
 The intended managed-service value is continuing ownership, access, source

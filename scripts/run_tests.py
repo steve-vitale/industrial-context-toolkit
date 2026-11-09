@@ -21,6 +21,7 @@ SOURCE_TESTS = (
     "scripts/test_context_intake.py",
     "scripts/test_context_components.py",
     "scripts/test_context_packet.py",
+    "scripts/test_context_review.py",
     "scripts/test_foundation_handoff.py",
     "scripts/test_maintenance_history.py",
     "scripts/test_pid_path_review.py",

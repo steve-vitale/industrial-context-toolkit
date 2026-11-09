@@ -14,7 +14,10 @@ For three component drafts from ordinary CSV exports, the bounded
 equipment/instrument/work-order CSVs and optional source-register/source-bound
 interpretation CSV. `context_workflow.py prepare` retains exact originals,
 scoped `engineering-context-basis-1` claims and three derived views. Query,
-edit, compare, verify and private bundle/reopen use that same basis. Documents
+edit, compare, verify and private bundle/reopen use that same basis. `review`
+creates offline HTML; `apply-review` retains its downloaded text proposal against
+the exact packet/source dependencies; `verify-review` rechecks delivered bytes.
+Documents
 remain uninterpreted unless a reading is supplied; existing graph/model adapters,
 scope-filtered source delivery and actual ChangePilot receiving remain unfinished.
 

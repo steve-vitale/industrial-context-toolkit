@@ -267,15 +267,25 @@
       "id": "FRICTION-VALUE",
       "required": true,
       "criterion": "Recorded matched customer journey: fixed useful result; zero JSON editing, repeated fact entry or repeated admitted-dialect mapping; count genuine clarification/setup/retry work.",
-      "status": "not_run",
-      "evidence": []
+      "status": "partial",
+      "evidence": [
+        "development/review-interface-01/run.json",
+        "development/review-browser-01/run.json",
+        "DEVELOPMENT.md"
+      ],
+      "remaining": "Browser text proposal needs no hand-written JSON and reuses retained facts; full matched customer setup/mapping/interpretation effort and product receiving remain."
     },
     {
       "id": "BROWSER-PATH",
       "required": true,
       "criterion": "Desktop and 390px actual interactions show sources, conflicts, drafts/revisions and product receiving without dead ends or hidden omissions.",
-      "status": "not_run",
-      "evidence": []
+      "status": "partial",
+      "evidence": [
+        "development/review-interface-01/run.json",
+        "development/review-browser-01/run.json",
+        "DEVELOPMENT.md"
+      ],
+      "remaining": "Actual component review/download/apply/reopen at1440/390 passes on exposed fictional records; complete cross-job and actual product journey remain."
     },
     {
       "id": "LOAD-BOUNDS",
@@ -295,8 +305,13 @@
       "id": "RELEASE-REPLAY",
       "required": true,
       "criterion": "Clean-clone offline replay, independent checking/product Judge, affected regressions/registries/full CI/governed landing and accurate docs pass with skips declared.",
-      "status": "not_run",
-      "evidence": []
+      "status": "partial",
+      "evidence": [
+        "development/review-interface-01/run.json",
+        "development/review-browser-01/run.json",
+        "DEVELOPMENT.md"
+      ],
+      "remaining": "Earlier99e621f passed CI and independent standard-library Git-clone replay. New UI has43 focused methods/browser development proof; final full-goal replay, current exact-head CI and product Judge/governed landing remain."
     }
   ],
   "human_company_trials": "Separately unrun; software simulation cannot establish engineer benefit, plant truth or customer acceptance.",

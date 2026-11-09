@@ -46,7 +46,8 @@ generator models and authored drawing layouts. The existing context-map format
 making those models views of the map; that reverse path remains unimplemented.
 The [bounded common-basis prototype](../examples/map-component-cycle/README.md)
 now reuses ordinary record exports for three draft components with retained edits
-and revision impact. This does not yet project existing one-map exports into the
+and revision impact. Its offline review lets an engineer inspect component fields
+and download a basis-bound proposed text edit without writing JSON. This does not yet project existing one-map exports into the
 generator model or establish managed-product receiving; its goal remains active.
 
 ```mermaid

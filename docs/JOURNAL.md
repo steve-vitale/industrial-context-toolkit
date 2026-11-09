@@ -10313,3 +10313,33 @@ browser/workload/clean-clone transfer and real authenticated product persistence
 revision and exit still need implementation/evidence. No CAD failure or unrun
 human/company trial is promoted by these passes. See the detailed development
 record in examples/map-component-cycle/DEVELOPMENT.md.
+
+## 244. Make shared component context reviewable without JSON editing
+
+The same retained record packet now produces an offline component-review HTML.
+An engineer can distinguish scoped items, inspect sources/revisions and gaps,
+and download a rationale-bearing proposed text edit. The CLI verifies its exact
+packet and source dependencies, retains previous edits, and regenerates without
+replacing source accounts. Changed packets require an explicit rebase.
+
+The actual desktop/390px run and fresh-process edit/reopen/revision controls pass.
+Independent review found Unicode byte-limit mismatch, missing-controller gaps
+hidden by target filtering, and ambiguous type display. Pre-fix code and source
+probes are retained; a separate old-method browser run fails specifically on the
+over-limit download. The original failure assertion tried to print the complete
+Playwright Download object and consumed excessive memory; that owned process
+was stopped. Its incomplete observation stays separate. The checker now compares
+whether a download occurred. Corrected byte checking, prerequisite retention and
+type/literal details pass, including an independent exact-byte-boundary recheck.
+
+Current focused development: 43 methods, zero skips, 28.39 seconds of machine
+time; no human benefit measured. Earlier commit99e621f passed both CI jobs and
+an independent standard-library Git-clone replay. New UI changes need their own
+exact-head release gate. All 31 full-goal criteria remain incomplete.
+
+Private product work has a real local Auth/Postgres/Storage runtime and bounded
+typed-admission/privacy drafts. Historical whole-file schema replay exposed
+dependency and obsolete-policy errors, so qualification is moving to an exact
+source-backed dependency closure. No authenticated product receiving, policy
+runtime acceptance, complete export, final Judge or governed landing is claimed.
+No shared hosted data, production or real customer records were changed.

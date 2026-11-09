@@ -13,7 +13,7 @@ SCHEMA = "engineering-context-packet-1"
 DELIVERY_SCHEMA = "engineering-context-delivery-1"
 MAX_PACKET_BYTES = 512 * 1024 * 1024
 METHODS = ("context_basis.py", "context_components.py", "context_intake.py", "context_packet.py",
-           "context_workflow.py")
+           "context_workflow.py", "context_review.py", "context_review_html.py")
 
 
 def encode(value):

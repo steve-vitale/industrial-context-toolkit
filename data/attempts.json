@@ -6678,6 +6678,26 @@
         "examples/map-component-cycle/history/correction-physical-lineage-01/run.json",
         "examples/map-component-cycle/history/helper-annotation-retention-01/run.json"
       ]
+    },
+    {
+      "id": "A402",
+      "function": "intake_and_reuse",
+      "date": "2026-11-09",
+      "change": "Add offline component review and downloaded text proposals tied to the exact retained packet and source dependencies.",
+      "hypothesis": "Engineers should inspect source conflicts/gaps and preserve a proposed edit without writing JSON or re-entering retained engineering facts.",
+      "evidence": "43 focused exposed-fictional methods pass with actual source/draft/edit/reopen controls. Actual1440px/390px browser interactions pass; downloaded edits reapply in a fresh CLI process, source facts remain exact, stale revisions refuse. Independent review found and confirmed fixes for Unicode byte limits, missing-controller prerequisites and hidden type distinctions.14 follow-up observations include exact131072-byte apply/reopen.",
+      "runs": "28.39-second focused software run, zero skips; two actual browser viewports with all command/artifact evidence. Earlier99e621f passed both CI jobs and independent standard-library clone replay. Old UI reconstructed browser control fails on over-limit download. Original large-object assertion run was interrupted during formatting and is not counted as a complete failing run. Current exact-head full CI pending.",
+      "verdict": "kept",
+      "why": "Bounded engineer review path, not authenticated approval or managed receiving. All31 full-goal cases remain incomplete. Model/map adapters, generator bridge, true scoped source package, scale/transfer and actual ChangePilot auth/persistence/readback/revision/export/landing remain.",
+      "source": [
+        "docs/JOURNAL.md#244-make-shared-component-context-reviewable-without-json-editing",
+        "examples/map-component-cycle/UI-PLAN.md",
+        "examples/map-component-cycle/README.md",
+        "examples/map-component-cycle/DEVELOPMENT.md",
+        "examples/map-component-cycle/development/review-interface-01/run.json",
+        "examples/map-component-cycle/development/review-browser-01/run.json",
+        "examples/map-component-cycle/history/component-review-01/README.md"
+      ]
     }
   ],
   "not_tried": [

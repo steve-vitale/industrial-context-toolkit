@@ -460,7 +460,7 @@ Example review: not yet: needs review
 
 **Inputs:** Permitted ordinary equipment/instrument/work-order CSV exports; optional source register and supplied source-bound interpretation. Existing graph/model adapters and product receiving remain unfinished.
 
-**Outputs:** Scoped source claims, explicit conflicts/unknowns, three draft views, retained editorial proposals, field revision comparisons and private full-source bundle/reopen. Selection is not source-file access filtering.
+**Outputs:** Scoped source claims, explicit conflicts/unknowns, three draft views, retained editorial proposals, field revision comparisons and private full-source bundle/reopen. Selection is not source-file access filtering. Offline component review with source/type details, missing prerequisites and downloadable basis-bound text proposals.
 
 **Time:** Development software timing in examples/map-component-cycle/development/run.json; no human time measured
 
@@ -470,8 +470,8 @@ Example review: not yet: needs review
 <details>
 <summary>Example files, tests and independent review</summary>
 
-- **Registered example files:** [`basis.json`](../examples/map-component-cycle/development/example-initial/basis.json), [`drafts.json`](../examples/map-component-cycle/development/example-initial/drafts.json), [`equipment-instruments.csv`](../examples/map-component-cycle/development/example-initial/equipment-instruments.csv), [`datasheets.md`](../examples/map-component-cycle/development/example-initial/datasheets.md), [`control-outline.md`](../examples/map-component-cycle/development/example-initial/control-outline.md)
-- **Tests:** `test_context_basis.py`, `test_context_intake.py`, `test_context_components.py`, `test_context_packet.py`
+- **Registered example files:** [`basis.json`](../examples/map-component-cycle/development/example-initial/basis.json), [`drafts.json`](../examples/map-component-cycle/development/example-initial/drafts.json), [`equipment-instruments.csv`](../examples/map-component-cycle/development/example-initial/equipment-instruments.csv), [`datasheets.md`](../examples/map-component-cycle/development/example-initial/datasheets.md), [`control-outline.md`](../examples/map-component-cycle/development/example-initial/control-outline.md), [`review.html`](../examples/map-component-cycle/development/review-browser-01/review.html)
+- **Tests:** `test_context_basis.py`, `test_context_intake.py`, `test_context_components.py`, `test_context_packet.py`, `test_context_review.py`
 - **Independent review:** none yet
 
 </details>

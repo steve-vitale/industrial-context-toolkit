@@ -7,9 +7,11 @@ The [workflow map](WORKFLOWS.md) owns supported inputs and outputs; this page ow
 
 The [common-basis component prototype](../examples/map-component-cycle/README.md)
 now reuses ordinary record exports for equipment/instrument lists, datasheet
-scaffolds and control-narrative outlines. Its 37-method development replay covers
+scaffolds and control-narrative outlines. Its 43-method development replay covers
 source-linked queries, edits, three revisions and private full-source reopen.
-Existing graph/model adapters, scoped receiving, generator projection, browser/scale
+Actual desktop/390px component review, downloaded text proposals, reopen and stale
+refusal pass on fictional development records. Existing graph/model adapters,
+scoped receiving, generator projection, scale
 qualification and actual ChangePilot receiving remain unfinished; the 31-case
 goal is active. These development results are not a verified release or plant trial.
 
@@ -38,6 +40,14 @@ The tutorials teach what to substitute at your plant; case studies retain their 
 Company review, accepted identities and receiving-system checks determine what can be relied on.
 
 ## Current verification
+
+The earlier common-basis commit `99e621f` passed both jobs in
+[PR51 CI](https://github.com/steve-vitale/industrial-context-toolkit/actions/runs/42678003549),
+including its full cached-data suite and saved-result rescoring. An independent
+local Git clone replayed its 37 development methods, four historical fault controls
+and source/registry checks using only the standard library. The newer review-page
+slice has separate [43-method and browser evidence](../examples/map-component-cycle/DEVELOPMENT.md);
+exact final-head release/product gates remain required. PR51 remains draft.
 
 The verified merged baseline before the foundation addition is **`55ec333`**:
 PR46 and PR47 are merged.

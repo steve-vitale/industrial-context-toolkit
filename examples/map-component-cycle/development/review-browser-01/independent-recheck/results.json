@@ -1,0 +1,182 @@
+{
+  "qualification": "Independent scoped development recheck; not full-goal acceptance or final ChangePilot Judge",
+  "pins": {
+    "scripts/context_basis.py": {
+      "raw_sha256": "41fc3edadb2b927b19a76471ef0dc7a423b5e31b8eb55bfaa5686db7bc0d32b5",
+      "lf_sha256": "41fc3edadb2b927b19a76471ef0dc7a423b5e31b8eb55bfaa5686db7bc0d32b5"
+    },
+    "scripts/context_components.py": {
+      "raw_sha256": "07e2e227122549a7a43ce09431d86d1e6a583846d126918e206670c7e3f0a16a",
+      "lf_sha256": "07e2e227122549a7a43ce09431d86d1e6a583846d126918e206670c7e3f0a16a"
+    },
+    "scripts/context_intake.py": {
+      "raw_sha256": "466605182e9aebc4a72f775a316cf87744c1a2499969d7000e649c3179b8caed",
+      "lf_sha256": "466605182e9aebc4a72f775a316cf87744c1a2499969d7000e649c3179b8caed"
+    },
+    "scripts/context_packet.py": {
+      "raw_sha256": "a16bb866e30be9f8512bd003b615fc294474d361a28397ed2ca74b346acc84e2",
+      "lf_sha256": "a16bb866e30be9f8512bd003b615fc294474d361a28397ed2ca74b346acc84e2"
+    },
+    "scripts/context_workflow.py": {
+      "raw_sha256": "e03a275adb6766b8a25f8bad7e0a0df8291e585429109d1964fe379a87ff1fdf",
+      "lf_sha256": "e03a275adb6766b8a25f8bad7e0a0df8291e585429109d1964fe379a87ff1fdf"
+    },
+    "scripts/context_review.py": {
+      "raw_sha256": "d5fa1b38e0d66c64a6633c6df7b2db297050b8b144994b6201b8c546ca3d8e30",
+      "lf_sha256": "d5fa1b38e0d66c64a6633c6df7b2db297050b8b144994b6201b8c546ca3d8e30"
+    },
+    "scripts/context_review_html.py": {
+      "raw_sha256": "ae4532f41286fa854c93848a6804b23aeae68f3e8f6962f6b304bea8cdd3a8ea",
+      "lf_sha256": "7ae15140947e7dbb90fd012be85f0dc097fcd20aee2f4e1541e21961953770de"
+    }
+  },
+  "observations": [
+    {
+      "name": "browser05_exact_candidate",
+      "code_pins_match": {
+        "scripts/context_basis.py": true,
+        "scripts/context_components.py": true,
+        "scripts/context_intake.py": true,
+        "scripts/context_packet.py": true,
+        "scripts/context_workflow.py": true,
+        "scripts/context_review.py": true,
+        "scripts/context_review_html.py": true
+      },
+      "outcome": "pass",
+      "width_results": [
+        {
+          "width": 1440,
+          "result": "pass",
+          "geometry": {
+            "viewport": 1440,
+            "page": 1440,
+            "unreachable": []
+          },
+          "errors": [],
+          "unicode_overlimit_download": "refused_before_download",
+          "missing_controller_gap": "visible"
+        },
+        {
+          "width": 390,
+          "result": "pass",
+          "geometry": {
+            "viewport": 390,
+            "page": 390,
+            "unreachable": []
+          },
+          "errors": [],
+          "unicode_overlimit_download": "refused_before_download",
+          "missing_controller_gap": "visible"
+        }
+      ]
+    },
+    {
+      "name": "exact_delivered_html",
+      "packet": "initial",
+      "page": "review.html",
+      "result": {
+        "verified": true,
+        "qualification": "Exact delivered view replay, not engineering acceptance"
+      },
+      "page_raw_sha256": "6cce29f3c68baa5916e1e3e4054be8e90275fd1325e0c1049e0787801c1188fe"
+    },
+    {
+      "name": "exact_delivered_html",
+      "packet": "1440-edited",
+      "page": "1440-reopened.html",
+      "result": {
+        "verified": true,
+        "qualification": "Exact delivered view replay, not engineering acceptance"
+      },
+      "page_raw_sha256": "1868ee12f121f36ebe43bcb45800cdda2edfa0299a56b0d8a388683f535e6026"
+    },
+    {
+      "name": "exact_delivered_html",
+      "packet": "390-edited",
+      "page": "390-reopened.html",
+      "result": {
+        "verified": true,
+        "qualification": "Exact delivered view replay, not engineering acceptance"
+      },
+      "page_raw_sha256": "1868ee12f121f36ebe43bcb45800cdda2edfa0299a56b0d8a388683f535e6026"
+    },
+    {
+      "name": "exact_delivered_html",
+      "packet": "1440-no-controller",
+      "page": "1440-no-controller.html",
+      "result": {
+        "verified": true,
+        "qualification": "Exact delivered view replay, not engineering acceptance"
+      },
+      "page_raw_sha256": "5efdb4aadcf87d7164f0fba4146e8331f53c1131b13de2465c8b46da615bca59"
+    },
+    {
+      "name": "exact_delivered_html",
+      "packet": "390-no-controller",
+      "page": "390-no-controller.html",
+      "result": {
+        "verified": true,
+        "qualification": "Exact delivered view replay, not engineering acceptance"
+      },
+      "page_raw_sha256": "5efdb4aadcf87d7164f0fba4146e8331f53c1131b13de2465c8b46da615bca59"
+    },
+    {
+      "name": "actual_saved_download_roundtrip",
+      "width": 1440,
+      "claims_and_sources_unchanged": true,
+      "retained_proposal": "Confirm manufacturer from permitted nameplate evidence."
+    },
+    {
+      "name": "stale_refusal",
+      "width": 1440,
+      "reason": "review proposal packet changed; reopen the current review and explicitly rebase"
+    },
+    {
+      "name": "all_component_prerequisites_retained",
+      "width": 1440,
+      "all_three_targets": true,
+      "original_reason": "No sourced controller class in selected context; outline only."
+    },
+    {
+      "name": "actual_saved_download_roundtrip",
+      "width": 390,
+      "claims_and_sources_unchanged": true,
+      "retained_proposal": "Confirm manufacturer from permitted nameplate evidence."
+    },
+    {
+      "name": "stale_refusal",
+      "width": 390,
+      "reason": "review proposal packet changed; reopen the current review and explicitly rebase"
+    },
+    {
+      "name": "all_component_prerequisites_retained",
+      "width": 390,
+      "all_three_targets": true,
+      "original_reason": "No sourced controller class in selected context; outline only."
+    },
+    {
+      "name": "delivered_javascript_handler_supplement",
+      "oversize": {
+        "download_count": 0,
+        "message": "Shorten the proposed text or reason: this edit exceeds the 128 KiB receiving limit."
+      },
+      "exact_limit": {
+        "bytes": 131072,
+        "download_count": 1
+      },
+      "one_over": {
+        "bytes": 131073,
+        "download_count": 0,
+        "message": "Shorten the proposed text or reason: this edit exceeds the 128 KiB receiving limit."
+      },
+      "typed_literals_visible": true,
+      "qualification": "Actual delivered handler with a narrow DOM/URL stub; browser05 supplies actual UI interaction proof"
+    },
+    {
+      "name": "exact_byte_boundary_actual_apply",
+      "request_bytes": 131072,
+      "value_and_rationale_retained_exactly": true,
+      "claims_unchanged": true
+    }
+  ]
+}

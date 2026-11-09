@@ -13,7 +13,8 @@ import sys
 import time
 
 ROOT = Path(__file__).resolve().parents[2]
-MODULES = ("test_context_basis", "test_context_intake", "test_context_components", "test_context_packet")
+MODULES = ("test_context_basis", "test_context_intake", "test_context_components", "test_context_packet",
+           "test_context_review")
 
 
 def main():
