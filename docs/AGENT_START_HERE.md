@@ -9,6 +9,14 @@ To reproduce the approach on supplied examples, use the [workflow reproduction g
 real entry commands, expected findings, failure/revision checks and the distinction between replay, a new
 reading and native acceptance. Do not read the whole research journal before helping with one supported job.
 
+Keep the [long-term foundation](ENGINEERING_FOUNDATION.md) in view while finishing
+that job. Retain usable identities, sources, review history, open questions,
+authority/owners and a next-revision path alongside the finding. Explain what can
+carry into ChangePilot or another maintained company tool, what needs mapping and
+receiving checks, and who keeps it current after the assignment. Use the existing
+formats and lifecycle; document missing handoff elements without inventing
+approval, automatic synchronization or product compatibility.
+
 ## First response
 
 Explain the useful work in ordinary terms, then recommend one route from the supplied context. For a maintenance

@@ -11,6 +11,15 @@ cross-sheet paths; prepare document/photo field candidates; analyze
 recorded process and batch data; and generate Ignition/PI staging files. Sources, revisions, review states and
 unresolved disagreements stay visible as the work moves between tools and people.
 
+**Build a foundation your team can keep using.** Each job should leave reusable
+asset identities, source-linked context, review history, ownership and a path to
+keeping the records current. As ongoing use needs managed maintenance,
+auditability and a single source of truth, carry that foundation into
+**ChangePilot or another suitable tool**. The
+[foundation roadmap](docs/ENGINEERING_FOUNDATION.md) explains the handoff and
+record authority; receiving-tool imports and ongoing service controls need their
+own qualification.
+
 The repository also contains worked tutorials, assembled screen/replay/3D demonstrations and reproducible
 task/model benchmarks. These support different parts of a maintained digital twin and engineering knowledge base;
 the [supported workflows](docs/WORKFLOWS.md) state which inputs and outputs connect today.

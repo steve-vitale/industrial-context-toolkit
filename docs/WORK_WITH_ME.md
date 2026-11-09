@@ -3,6 +3,14 @@
 If maintenance records disagree, drawings are missing, or an engineering question takes too long to reconstruct,
 start with one equipment system and one decision someone needs to make.
 
+The work should also leave a foundation your team can maintain after the
+assignment: usable asset identities, traceable sources, reviewed context, open
+questions, ownership and revision history. As continuing use needs managed
+maintenance, auditability and single-source-of-truth controls, that foundation
+can support a scoped transition to ChangePilot or another suitable tool. Agree
+the receiving mappings, authority, refresh responsibility and acceptance checks
+for that destination using the [foundation roadmap](ENGINEERING_FOUNDATION.md).
+
 [Connect with me on LinkedIn and message me there](https://www.linkedin.com/in/steve-vitale/).
 Describe the problem, the kinds of records you have and who needs the result. Keep company documents private;
 the first conversation does not require an upload or a GitHub issue.
