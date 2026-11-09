@@ -41,11 +41,20 @@ fresh four-file receiving and exact-frame visual checks follow the pinned
 returns. The public baseline has finished and retains 298 strict differences.
 These unfinished checks, exact-head CI and the final objective audit prevent a
 whole-workflow completion claim. Full native preservation already fails.
+The [objective audit](OBJECTIVE-AUDIT.md) maps the work to the original requirements
+and keeps failed and unfinished gates distinct.
 
 The frozen `native_ui.py` has an unused packaging entry-point import omission
 (`json`). Packaging uses the separate `retain.py`; the frozen receiving/pixel
 functions and all 55 method identities remain unchanged. This is an evidence
 packager limitation, not a new candidate method or a native qualification pass.
+The first new packets also omitted runtime cache files. Exact original cache
+bytes are retained separately in `ui-support/`. `receive_ui.py` restores them and
+the exact configuration from its already-public, externally bound pre-final
+parent packet. This avoids publishing configuration contents in new packets and
+still requires **every original file, size and hash** under the unchanged full
+inventory check. All three currently completed UI packets replay through it;
+the initial incomplete packaging is retained rather than rewritten.
 
 ## Reproduce completed checks offline
 

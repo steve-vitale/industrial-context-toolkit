@@ -7,13 +7,13 @@ from campaign import read, write, sha, require
 from evidence import MAX_FILES, MAX_FILE, MAX_RAW, unpack
 
 
-def package(folders, out, result=None):
+def package(folders, out, result=None, exclude_runtime=True):
     require(not out.exists(), 'New retained packet required')
     saved={}
     for prefix,folder in folders:
         for path in Path(folder).rglob('*'):
-            if path.is_file() and not any(p in ('.configuration','__pycache__') for p in path.relative_to(folder).parts):
-                saved[prefix+'/'+path.relative_to(folder).as_posix()]=path.read_bytes()
+            if path.is_file() and (not exclude_runtime or not any(p in ('.configuration','__pycache__') for p in path.relative_to(folder).parts)):
+                saved[(prefix+'/' if prefix else '')+path.relative_to(folder).as_posix()]=path.read_bytes()
     if result is not None:
         import json
         saved['receiving/RESULT.json']=(json.dumps(result,indent=2)+'\n').encode()

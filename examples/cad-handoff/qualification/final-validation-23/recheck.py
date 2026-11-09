@@ -6,6 +6,7 @@ from retain import check_pin
 from recheck_native_revisions import restore
 from receive_api import receive as receive_api
 from api_result import full_result
+from receive_ui import check as check_ui
 from receive_render import receive as receive_render
 from verify_bytes import verify
 
@@ -33,7 +34,9 @@ def main():
         require(len(visual['images'])==30 and {r['id'] for r in visual['images']}==set(observed),'Inspected image coverage differs')
         for row in visual['images']:
             require(row['actually_viewed'] is True and all(row[k]==observed[row['id']][k] for k in ('sha256','pixel_sha256','size','mode')),'Actual image observation binding differs')
-    print('Final reserved software, 40 native API saves, 30 native renders and image observations reproduced offline. Full native preservation remains failed.')
+    ui=read(HERE/'UI-RETAINED.json')['attempts']
+    for name in ui:check_ui(name)
+    print('Final reserved software, 40 native API saves, 30 native renders, image observations and',len(ui),'complete UI packets reproduced offline. Full native preservation remains failed.')
 
 
 if __name__=='__main__':main()

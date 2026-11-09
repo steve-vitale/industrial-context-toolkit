@@ -9850,3 +9850,15 @@ running; fresh four-file receiving and final audit remain unfinished. The frozen
 UI packager's missing json import is documented; a separate bounded retention
 helper packages the unchanged receiver outputs. No whole CAD qualification,
 human review-time benefit, plant correctness or company release is claimed.
+
+Final evidence-retention follow-up: complete API comparisons compress losslessly
+from55.5MB to138436bytes, with exact original raw SHA/size plus a readable summary.
+The new UI archive helper initially omits original runtime cache bytes, so a
+standalone replay correctly refuses full-inventory mismatch. Retain those exact
+cache bytes in a supplemental bounded archive; restore the exact configuration
+only from its already-public pre-final externally pinned parent packet. Every
+original inventory file/size/hash is still required by the frozen receiver.
+All three completed packets replay: public baseline/edit each298strictdifferences,
+authored foreign baseline334. Original native execution and55method hashes are
+unchanged; the fourth edited execution is still running. No cache/config omission
+is waived and no incomplete packet is silently relabeled complete.
