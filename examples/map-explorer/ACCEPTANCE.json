@@ -1,0 +1,30 @@
+{
+  "schema": "map-explorer-acceptance-1",
+  "exposure": "All sources and keys are author-known existing public/fictional fixtures. No blind input or human trial.",
+  "development": {
+    "site": "examples/one-map/inputs/site.json",
+    "sources": "examples/one-map/inputs",
+    "item": "S1/P1/200/P-101",
+    "other_item": "S1/P2/300/P-101",
+    "ambiguous": "P-101",
+    "attribute": {"name": "rated_flow", "value": "45 m3/h", "document": "EQUIPMENT-DATASHEETS", "revision": "2", "locator": "row 2"},
+    "conflict": {"subject": "S1/P1/200/P-101", "type": "value_disagreement", "attribute": "rated_flow", "record_owner": "Maintenance"},
+    "unresolved_document": "S1/DOC/CW-NOTE-01",
+    "required_questions": ["connects", "measured-by", "documents", "disagreements", "complete"]
+  },
+  "procedural_transfer": {
+    "previous_site": "examples/one-map/inputs/pasteurizer/site.json",
+    "site": "examples/one-map/inputs/pasteurizer/site-revD.json",
+    "sources": "examples/one-map/inputs/pasteurizer",
+    "item": "S1/P1/PAST1/FDV-2210",
+    "added_item": "S1/P1/PAST1/TT-2208",
+    "independent_item": "S1/P1/CIP1/P-301",
+    "basis_conflict_type": "superseded_basis"
+  },
+  "public_transfer": {
+    "site": "examples/drawing-to-map/inputs/site.json",
+    "sources": "examples/drawing-to-map/inputs",
+    "item": "O100/NPP/MSS/RCS-SG-100",
+    "source_role": "Committed drawing-reader interpretation of public OPEN100 development sheet 0, not a new extraction or independently reviewed plant model"
+  }
+}
