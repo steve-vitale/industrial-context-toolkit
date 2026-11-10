@@ -20,8 +20,12 @@
       "id": "ENTRY-DOC",
       "required": true,
       "criterion": "One source-supported document finding before signup; insufficient evidence stays explicit.",
-      "status": "not_run",
-      "evidence": []
+      "status": "partial",
+      "evidence": [
+        "RECEIVING_DEVELOPMENT.md",
+        "development/receiving-status-01.json"
+      ],
+      "remaining": "Offline supplied-interpretation replay and isolated product source/UI/MCP/export/reopen pass; final procedural-transfer and release qualification remain."
     },
     {
       "id": "ENTRY-MAINT",
@@ -31,16 +35,22 @@
       "evidence": [
         "development/run.json",
         "development/MANIFEST.json",
-        "DEVELOPMENT.md"
+        "DEVELOPMENT.md",
+        "RECEIVING_DEVELOPMENT.md",
+        "development/receiving-status-01.json"
       ],
-      "remaining": "Focused ordinary-export finding/mapping replay passes; full matched low-friction customer journey and release evidence remain."
+      "remaining": "Matched original two-CSV path reaches sourced conflict before signup and through isolated product/MCP/export with11 exact files; final full friction/revision/transfer and release ledger remain."
     },
     {
       "id": "ENTRY-DRAW",
       "required": true,
       "criterion": "Supplied markup/return preparation reaches the fixed receiving finding; no unrun reading claim.",
-      "status": "not_run",
-      "evidence": []
+      "status": "partial",
+      "evidence": [
+        "RECEIVING_DEVELOPMENT.md",
+        "development/receiving-status-01.json"
+      ],
+      "remaining": "Original supplied drawing-return interpretation retains custom-field finding and history through isolated receiving/reopen; no new CAD reading qualification; final transfer and release remain."
     },
     {
       "id": "IDENTITY-SCOPE",
@@ -58,8 +68,12 @@
       "id": "IDENTITY-CHANGE",
       "required": true,
       "criterion": "Explicit alias/tag crosswalk and physical replacement preserve distinct identities/history.",
-      "status": "not_run",
-      "evidence": []
+      "status": "partial",
+      "evidence": [
+        "RECEIVING_DEVELOPMENT.md",
+        "development/receiving-status-01.json"
+      ],
+      "remaining": "Explicit crosswalk/physical-item local checks and actual isolated sequential alias change/withdrawal/current-history UI and MCP pass; full physical-replacement product and final release qualification remain."
     },
     {
       "id": "CLAIM-TYPES",
@@ -69,9 +83,11 @@
       "evidence": [
         "development/run.json",
         "development/MANIFEST.json",
-        "DEVELOPMENT.md"
+        "DEVELOPMENT.md",
+        "RECEIVING_DEVELOPMENT.md",
+        "development/receiving-status-01.json"
       ],
-      "remaining": "Helper typed controls pass and lossy floats refuse; full typed artifact/product readback and transfer remain."
+      "remaining": "Isolated actual UI/MCP/export and fresh reopening preserve typed values and original unit alternatives; final scoped/transfer/release qualification remains."
     },
     {
       "id": "CLAIM-CONFLICT",
@@ -125,8 +141,12 @@
       "id": "GENERATOR-BRIDGE",
       "required": true,
       "criterion": "A bounded common-basis projection is actually consumed by an existing generator contract without invented engineering facts.",
-      "status": "not_run",
-      "evidence": []
+      "status": "partial",
+      "evidence": [
+        "RECEIVING_DEVELOPMENT.md",
+        "development/receiving-status-01.json"
+      ],
+      "remaining": "Equipment-only projection uses actual generator validator/consumer and exact delivered verification; independent controls and legacy byte checks pass; final transfer/release remain."
     },
     {
       "id": "RELATION-MEANING",
@@ -192,8 +212,12 @@
       "id": "SCOPED-PACKAGE",
       "required": true,
       "criterion": "Selected scope and explicit boundary references survive complete typed readback; navigation is not filtering.",
-      "status": "not_run",
-      "evidence": []
+      "status": "partial",
+      "evidence": [
+        "RECEIVING_DEVELOPMENT.md",
+        "development/receiving-status-01.json"
+      ],
+      "remaining": "Independent scoped source/permission/history controls and actual sequential isolated receiving/export/reopen pass for one position/alias. Broader incident-edge/correction/privacy/application controls and final release remain."
     },
     {
       "id": "PORTABLE-REOPEN",
@@ -211,57 +235,89 @@
       "id": "RECEIVER-CAPABILITY",
       "required": true,
       "criterion": "Inspect actual ChangePilot version/contracts; implement and test missing bounded receiver through canonical surfaces.",
-      "status": "not_run",
-      "evidence": []
+      "status": "partial",
+      "evidence": [
+        "RECEIVING_DEVELOPMENT.md",
+        "development/receiving-status-01.json"
+      ],
+      "remaining": "Bounded private-source receiver runs in actual isolated application; final scoped contract, discovery/readback and governed release remain."
     },
     {
       "id": "RECEIVER-AUTH",
       "required": true,
       "criterion": "Normal app authorization enforces owner/tenant scope and access withdrawal; no service-role-only proof or implicit share.",
-      "status": "not_run",
-      "evidence": []
+      "status": "partial",
+      "evidence": [
+        "RECEIVING_DEVELOPMENT.md",
+        "development/receiving-status-01.json"
+      ],
+      "remaining": "Actual no-auth/wrong-owner/cross-organization/revoked-seat denials and canonical withdrawal exercised; final scoped candidate and release qualification remain."
     },
     {
       "id": "RECEIVER-READBACK",
       "required": true,
       "criterion": "Real persisted UI/agent readback reproduces fixed facts, citations, unknowns, conflicts and history.",
-      "status": "not_run",
-      "evidence": []
+      "status": "partial",
+      "evidence": [
+        "RECEIVING_DEVELOPMENT.md",
+        "development/receiving-status-01.json"
+      ],
+      "remaining": "Actual persisted UI and cookie-free MCP preserve source values/locations on all three entry routes; final scoped/incoming-edge/alias and release checks remain."
     },
     {
       "id": "RECEIVER-RETRY",
       "required": true,
       "criterion": "Repeated delivery does not duplicate or overwrite unrelated existing records.",
-      "status": "not_run",
-      "evidence": []
+      "status": "partial",
+      "evidence": [
+        "RECEIVING_DEVELOPMENT.md",
+        "development/receiving-status-01.json"
+      ],
+      "remaining": "Actual exact-operation retry and concurrent one-winner behavior pass on isolated full-source route; final scoped candidate and release checks remain."
     },
     {
       "id": "RECEIVER-INTERRUPT",
       "required": true,
       "criterion": "Interrupted delivery has explicit recoverable/atomic outcome; no silent half-current scope.",
-      "status": "not_run",
-      "evidence": []
+      "status": "partial",
+      "evidence": [
+        "RECEIVING_DEVELOPMENT.md",
+        "development/receiving-status-01.json"
+      ],
+      "remaining": "Actual seal fault/repair and native-upload completion retry retain one operation/source; final scoped candidate and release checks remain."
     },
     {
       "id": "RECEIVER-BASE",
       "required": true,
       "criterion": "Stale/divergent base is specifically refused or explicitly reconciled without losing either history.",
-      "status": "not_run",
-      "evidence": []
+      "status": "partial",
+      "evidence": [
+        "RECEIVING_DEVELOPMENT.md",
+        "development/receiving-status-01.json"
+      ],
+      "remaining": "Actual stale-base409/concurrent full-source protection and truly sequential scoped predecessor bindings pass; final scoped adversarial candidate and release checks remain."
     },
     {
       "id": "RECEIVER-REVISION",
       "required": true,
       "criterion": "Subsequent product source/conflict/withdrawal revision retains history and correct dependency status.",
-      "status": "not_run",
-      "evidence": []
+      "status": "partial",
+      "evidence": [
+        "RECEIVING_DEVELOPMENT.md",
+        "development/receiving-status-01.json"
+      ],
+      "remaining": "Actual full-source history/repair and scoped R1 then newly constructed R2/R3 pass; current/history alias and withdrawal survive approved UI/MCP; full candidate controls and release remain."
     },
     {
       "id": "RECEIVER-EXIT",
       "required": true,
       "criterion": "Complete declared scope exports from ChangePilot and reopens with types, lineage, conflicts/history and omissions accounted for.",
-      "status": "not_run",
-      "evidence": []
+      "status": "partial",
+      "evidence": [
+        "RECEIVING_DEVELOPMENT.md",
+        "development/receiving-status-01.json"
+      ],
+      "remaining": "Actual complete full-source and scoped export/reopen pass; scoped sequential12/25/38files exact with unchanged prior permissions; final release remains."
     },
     {
       "id": "FRICTION-VALUE",
@@ -291,8 +347,12 @@
       "id": "LOAD-BOUNDS",
       "required": true,
       "criterion": "Measure time/memory/size at 100/1000/10000 synthetic assets, plus explicit over-limit refusal; report admitted limits and failures.",
-      "status": "not_run",
-      "evidence": []
+      "status": "partial",
+      "evidence": [
+        "RECEIVING_DEVELOPMENT.md",
+        "development/receiving-status-01.json"
+      ],
+      "remaining": "Actual100/1000/10000 development workload includes retained failures and compact/native-upload repairs; full final admitted bounds/performance/over-limit ledger remains."
     },
     {
       "id": "FROZEN-TRANSFER",

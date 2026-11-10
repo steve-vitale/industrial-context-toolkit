@@ -77,15 +77,32 @@ def payload(opened):
         items.append({"id": subject, "tag": view.entities[subject]["tag"],
                       "role": view.entities[subject]["identity_role"], "targets": targets,
                       "edit_fields": fields, "notes": notes})
+    boundaries = cb.canonical(opened["basis"]["boundaries"])
+    if opened.get("scope"):
+        import context_scope
+        boundaries += "\nScoped coverage: " + cb.canonical(context_scope.coverage(opened["scope"], opened["basis"]))
     return {"schema": SCHEMA, "basis_sha256": cb.digest(opened["basis"]),
             "receipt_sha256": opened["receipt_sha256"], "namespace": opened["basis"]["namespace"],
             "items": items, "edit_bytes_max": MAX_EDIT_BYTES,
             "omissions_text": cb.canonical(opened["basis"]["omissions"]),
-            "boundaries_text": cb.canonical(opened["basis"]["boundaries"])}
+            "boundaries_text": boundaries}
 
 
 def render(opened):
-    result = context_review_html.render(payload(opened)).encode("utf-8")
+    html = context_review_html.render(payload(opened))
+    if opened.get("scope"):
+        html = html.replace("The underlying packet contains complete private originals and retained history.",
+                            "This explicit scoped packet omits unrelated structured context and history. Included original files are WHOLE and may contain unrelated content. External subject references are unexpanded; counts distinguish them from selected targets. Corrections prove retained selected-field replay only, not the original whole parent basis digest or authentic origin. Apply new edits to the original permitted packet, then repackage.")
+        html = html.replace("This saves an editorial proposal with its source dependencies; it does not approve or replace them.",
+                            "This scoped view retains existing proposals with selected-field replay only, not the original whole-parent basis or authentic origin. Apply new edits to the original permitted packet, then explicitly repackage the selected scope.")
+        # Keep the notes container visible; it shares the original edit section.
+        anchors = ("<h2>Propose a text edit</h2>", "<style>",
+                   "Keep the downloaded file. Ask your agent to apply it to the packet with <code>context_workflow.py apply-review</code>, then reopen the generated review. No JSON editing is required.")
+        cb.require(all(html.count(anchor) == 1 for anchor in anchors), "scoped review template needs explicit read-only mapping")
+        html = html.replace(anchors[0], "<h2>Retained editorial proposals</h2>")
+        html = html.replace(anchors[1], "<style>\n#edit-section label,#edit-section select,#edit-section textarea,#edit-section button,#message{display:none}")
+        html = html.replace(anchors[2], "For new proposals, edit the original permitted whole packet, then explicitly preview and repackage its selected scope.")
+    result = html.encode("utf-8")
     cb.require(len(result) <= MAX_HTML_BYTES, "review HTML exceeds 32 MiB limit; select a smaller draft scope")
     return result
 

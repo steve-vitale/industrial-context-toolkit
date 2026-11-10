@@ -1,6 +1,7 @@
 """Portable record-route packets with source replay, derived-view readback and exact originals."""
 import base64
 import copy
+import hashlib
 import json
 import tempfile
 from pathlib import Path, PurePosixPath
@@ -70,7 +71,8 @@ def check_source_bindings(basis, originals):
 def source_replay(root, config, corrections):
     mapping = cb.read_json(root / "mappings.json")
     basis, originals, actual_mapping = ci.prepare(root / "originals", config["site"], config["plant"],
-            previous_mapping=mapping, encoding=config["encoding"], date_format=config["date_format"])
+            previous_mapping=mapping, encoding=config["encoding"], date_format=config["date_format"],
+            identity_crosswalk=config.get("identity_crosswalk"))
     contribution = root / "contributions.csv"
     if contribution.exists():
         basis = ci.add_contributions(basis, originals, contribution.read_bytes())
@@ -91,6 +93,10 @@ def open_packet(root, expected_receipt=None):
     represented = dict(files)
     represented.pop("RECEIPT.json")
     cb.require(represented == receipt.get("files"), "packet file inventory differs")
+    config_probe = cb.read_json(root / "intake.json")
+    if type(config_probe) is dict and config_probe.get("route") == "records_scoped_v1":
+        import context_scope
+        return context_scope.open_scoped(root, files, receipt, receipt_raw)
     managed = {"basis.json", "drafts.json", "mappings.json", "intake.json", "annotations.json",
                "equipment-instruments.csv", "datasheets.md", "control-outline.md", "contributions.csv",
                "changes.json"}
@@ -125,7 +131,13 @@ def open_packet(root, expected_receipt=None):
                    "unexpected history without declared previous basis")
     expected = cc.generate(basis, scope=config.get("scope"), item=config.get("item"),
                            annotations=cb.read_json(root / "annotations.json"), history_bases=history_bases)
-    cb.require(cb.canonical(expected) == cb.canonical(draft), "component views do not reproduce from retained basis")
+    if type(draft) is dict and draft.get("schema") == cc.SPEC_SCHEMA:
+        cb.require(cb.canonical(draft) == cb.canonical(cc.specification(expected, receipt.get("method_sha256_lf"))),
+                   "component view specification does not reproduce from retained basis/method/selection")
+        draft = expected
+    else:
+        # Legacy full-draft packets keep their original semantic replay contract.
+        cb.require(cb.canonical(expected) == cb.canonical(draft), "component views do not reproduce from retained basis")
     for name, text in cc.render(expected).items():
         cb.require((root / name).read_bytes() == text.encode("utf-8"), "readable component differs: " + name)
     if depth:
@@ -145,7 +157,7 @@ def emit(out, basis, originals, mappings, config, *, contribution=None, annotati
     check_source_bindings(basis, originals)
     draft = cc.generate(basis, scope=config.get("scope"), item=config.get("item"), annotations=annotations,
                         history_bases=previous["history_bases"] if previous is not None else None)
-    files = {"basis.json": encode(basis), "drafts.json": encode(draft),
+    files = {"basis.json": encode(basis), "drafts.json": encode(cc.specification(draft, pins())),
              "mappings.json": encode(mappings), "intake.json": encode(config),
              "annotations.json": encode(list(annotations)),
              **{name: text.encode("utf-8") for name, text in cc.render(draft).items()}}
@@ -172,6 +184,8 @@ def emit(out, basis, originals, mappings, config, *, contribution=None, annotati
                "access": "Whole supplied source files are private local originals; selecting items is not source-file access filtering",
                "product_receiving": "not established by this local packet"}
     files["RECEIPT.json"] = encode(receipt)
+    # Source replay below materializes its own verified draft. Do not keep this duplicate alive.
+    del draft
     out.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix=".context-", dir=out.parent) as temporary:
         stage = Path(temporary).resolve() / "packet"
@@ -188,13 +202,16 @@ def emit(out, basis, originals, mappings, config, *, contribution=None, annotati
 
 
 def prepare(records, out, site, plant, *, previous=None, mapping=None, contribution=None,
-            scope=None, item=None, encoding="utf-8-sig", date_format="ISO"):
+            scope=None, item=None, encoding="utf-8-sig", date_format="ISO", identity_crosswalk=None):
     cb.require(not Path(out).exists(), "output exists; choose a new directory")
     old = open_packet(previous) if previous is not None else None
+    cb.require(old is None or not old.get("scope"), "prepare revisions from the original permitted whole packet, then explicitly package the selected scope")
     saved = cb.read_json(mapping) if mapping is not None else (
         cb.read_json(old["root"] / "mappings.json") if old is not None else None)
+    if identity_crosswalk is None and old is not None:
+        identity_crosswalk = old["config"].get("identity_crosswalk")
     basis, originals, mappings = ci.prepare(records, site, plant, previous_mapping=saved,
-                                            encoding=encoding, date_format=date_format)
+                                            encoding=encoding, date_format=date_format, identity_crosswalk=identity_crosswalk)
     raw = Path(contribution).read_bytes() if contribution is not None else None
     if raw is not None:
         basis = ci.add_contributions(basis, originals, raw)
@@ -204,6 +221,8 @@ def prepare(records, out, site, plant, *, previous=None, mapping=None, contribut
         carry_annotations(basis, old)
     config = {"route": "records", "site": site, "plant": plant, "encoding": encoding,
               "date_format": date_format, "scope": scope, "item": item}
+    if identity_crosswalk is not None:
+        config["identity_crosswalk"] = identity_crosswalk
     return emit(out, basis, originals, mappings, config, contribution=raw, annotations=annotations, previous=old)
 
 
@@ -223,6 +242,7 @@ def carry_annotations(basis, verified_previous):
 
 def write_edited(packet, out, *, annotation=None, draft=None):
     old = open_packet(packet)
+    cb.require(not old.get("scope"), "scoped field witnesses do not establish the original whole edit basis; edit the original permitted whole packet then repackage")
     basis = copy.deepcopy(old["basis"])
     if draft is not None:
         basis = cc.reimport(basis, cb.read_json(draft), history_bases=old["history_bases"])
@@ -242,19 +262,56 @@ def write_edited(packet, out, *, annotation=None, draft=None):
                 previous=old)
 
 
+def materialize(packet, destination, *, scope=None, item=None):
+    """Export an explicit full typed draft for inspection/edit/reimport, within JSON input bounds."""
+    opened = open_packet(packet)
+    destination = Path(destination).absolute()
+    cb.require(not destination.resolve().is_relative_to(opened["root"].resolve()),
+               "materialized draft must be outside the retained packet")
+    cb.require(not destination.exists() and not destination.is_symlink(), "output exists; retain engineer work")
+    if opened.get("scope") and (scope is not None or item is not None):
+        import context_scope
+        draft = context_scope.materialized_selection(opened, scope=scope, item=item)
+    else:
+        draft = opened["draft"] if scope is None and item is None else cc.generate(
+            opened["basis"], scope=scope, item=item,
+            annotations=cb.read_json(opened["root"] / "annotations.json"), history_bases=opened["history_bases"])
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    digest, size = hashlib.sha256(), 0
+    encoder = json.JSONEncoder(ensure_ascii=False, sort_keys=True, indent=2, allow_nan=False)
+    with tempfile.TemporaryDirectory(prefix=".context-materialize-", dir=destination.parent) as temporary:
+        stage = Path(temporary) / "draft.json"
+        with stage.open("xb") as output:
+            for chunk in encoder.iterencode(draft):
+                raw = chunk.encode("utf-8")
+                size += len(raw)
+                cb.require(size <= cb.MAX_BYTES, "materialized draft exceeds declared JSON byte limit; select a bounded draft view")
+                output.write(raw); digest.update(raw)
+            size += 1
+            cb.require(size <= cb.MAX_BYTES, "materialized draft exceeds declared JSON byte limit; select a bounded draft view")
+            output.write(b"\n"); digest.update(b"\n")
+        cb.require(not destination.exists() and not destination.is_symlink(), "output appeared; refusing replacement")
+        stage.rename(destination)
+    return {"draft": str(destination), "schema": draft["schema"], "bytes": size, "sha256": digest.hexdigest(),
+            "basis_sha256": draft["basis_sha256"], "selection": draft["selection"],
+            "qualification": (draft["qualification"] if draft["schema"] != cc.SCHEMA else
+                "Complete typed derived view for this selection; basis/original source scope is unchanged")}
+
+
 def bundle(packet, destination, limit=25 * 1024 * 1024):
     opened = open_packet(packet)
     destination = Path(destination).absolute()
     cb.require(not destination.exists(), "delivery destination exists; retain it")
     require_files = inventory(opened["root"])
     delivery = {"schema": DELIVERY_SCHEMA, "packet_receipt_sha256": opened["receipt_sha256"],
-                "source_access": "Full retained originals; owner/private processing only until explicit permitted sharing",
+                "source_access": (opened["scope"]["qualification"] if opened.get("scope") else
+                                  "Full retained originals; owner/private processing only until explicit permitted sharing"),
                 "files": [{"path": name, "sha256": digest, "encoding": "base64",
                            "data": base64.b64encode((opened["root"] / name).read_bytes()).decode("ascii")}
                           for name, digest in require_files.items()],
                 "receiving": "This is a portable payload, not proof that a managed service has accepted it."}
     raw = encode(delivery)
-    cb.require(type(limit) is int and limit > 0 and len(raw) <= limit, "delivery exceeds declared receiving byte limit; choose a permitted smaller scope/qualified route")
+    cb.require(type(limit) is int and limit > 0 and len(raw) <= limit, "delivery exceeds declared receiving byte limit; draft selection does not filter retained basis or originals; use a separately qualified scoped receiving route")
     destination.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix=".context-delivery-", dir=destination.parent) as folder:
         temp = Path(folder)

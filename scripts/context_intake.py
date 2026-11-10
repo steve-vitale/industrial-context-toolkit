@@ -148,7 +148,8 @@ def source_inventory(folder, encoding):
 
 
 def consume_csv(builder, source, raw, site, plant, *, saved=None, encoding="utf-8-sig",
-                date_format="ISO"):
+                date_format="ISO", identity_origins=None):
+    cb.require(identity_origins is None or type(identity_origins) is list, "identity origin collector needs a local list")
     fields, records, delimiter = csv_rows(raw, encoding)
     mapping = mapped_headers(fields, saved)
     result = {"headers": fields, "mapping": mapping, "delimiter": delimiter,
@@ -180,6 +181,9 @@ def consume_csv(builder, source, raw, site, plant, *, saved=None, encoding="utf-
         cb.require(row["tag"] and row["unit"], "row needs tag/unit clarification; no identity guessed")
         subject = cb.qualified(site, plant, row["unit"], row["tag"])
         builder.entity(subject, row["tag"], subject.rsplit("/", 1)[0])
+        if identity_origins is not None:
+            identity_origins.append({"source": source, "subject": subject, "identity_role": "functional_position",
+                                     "locator": f"CSV record {number}; physical lines {start}-{end}"})
         order = row.get("work_order")
         closed = row.get("closed_on", "")
         parsed = None
@@ -194,6 +198,9 @@ def consume_csv(builder, source, raw, site, plant, *, saved=None, encoding="utf-
         if order:
             record_subject = subject.rsplit("/", 1)[0] + "/record:" + quote(order, safe="-._~")
             builder.entity(record_subject, order, subject.rsplit("/", 1)[0], identity_role="maintenance_record")
+            if identity_origins is not None:
+                identity_origins.append({"source": source, "subject": record_subject, "identity_role": "maintenance_record",
+                                         "locator": f"CSV record {number}; physical lines {start}-{end}"})
             builder.occurrence(record_subject, "associated_with", source, f"CSV record {number}",
                                target=subject, role="maintenance_record_about_position", direction="known")
         # JSON mapping serialization may reorder object keys. Source-column order
@@ -232,6 +239,9 @@ def consume_csv(builder, source, raw, site, plant, *, saved=None, encoding="utf-
                     "reason": "Open order proposes a physical item; no installation relationship established."})
             else:
                 builder.entity(item, row["physical_id"], subject.rsplit("/", 1)[0], identity_role="physical_item")
+                if identity_origins is not None:
+                    identity_origins.append({"source": source, "subject": item, "identity_role": "physical_item",
+                                             "locator": f"CSV record {number}; physical lines {start}-{end}"})
                 builder.occurrence(item, "reported_installation_at", source, locator,
                                    target=subject, role=role, direction="known", original_header=header,
                                    qualification="Supplied installation account; not independently verified current installation")
@@ -241,7 +251,44 @@ def consume_csv(builder, source, raw, site, plant, *, saved=None, encoding="utf-
     return result
 
 
-def prepare(folder, site, plant, *, previous_mapping=None, encoding="utf-8-sig", date_format="ISO"):
+def consume_identity_crosswalk(builder, source, raw, site, plant, *, encoding="utf-8-sig", retained_subjects=None):
+    """Declare aliases for existing stable positions from explicit ordinary CSV rows."""
+    fields, records, delimiter = csv_rows(raw, encoding)
+    cb.require({"Position", "Area", "Alias"} <= set(fields), "identity crosswalk needs Position, Area, Alias columns")
+    if retained_subjects is not None:
+        cb.require(type(retained_subjects) is list and len(retained_subjects) <= 100000
+                   and all(type(v) is str and v.startswith(builder.basis["namespace"] + "/") for v in retained_subjects)
+                   and retained_subjects == sorted(set(retained_subjects)), "invalid scoped identity retained subjects")
+    retained_records = 0
+    for row, number, start, end in records:
+        cb.require(row["Position"] and row["Area"] and row["Alias"], "identity crosswalk needs explicit position/area/alias")
+        subject = cb.qualified(site, plant, row["Area"], row["Position"])
+        if retained_subjects is not None and subject not in retained_subjects:
+            continue  # Whole bytes stay retained; unrelated target rows are not interpreted.
+        retained_records += 1
+        cb.require(subject in builder.entities, "identity crosswalk target must already exist: " + subject)
+        cb.require(builder.entities[subject]["identity_role"] == "functional_position", "identity crosswalk target must be a functional position")
+        builder.occurrence(subject, cb.IDENTITY_ALIAS_PREDICATE, source,
+                           f"CSV record {number}; physical lines {start}-{end}; column Alias",
+                           value=row["Alias"], role=cb.IDENTITY_ALIAS_ROLE,
+                           original_header="Alias", crosswalk_position=row["Position"], crosswalk_area=row["Area"],
+                           qualification="Explicit source-declared tag alias, not an entity merge or authenticated current installed identity")
+    unmapped = [f for f in fields if f not in {"Position", "Area", "Alias"}]
+    if unmapped:
+        builder.basis["omissions"].append({"source": source, "unmapped_columns": unmapped,
+            "reason": "Identity crosswalk uses only Position, Area, Alias; extra source columns retained without interpretation."})
+    builder.basis["preparation"].append({"source": source, "kind": "source_bound_identity_crosswalk",
+                                         "sha256": cb.raw_sha(raw), "records": len(records),
+                                         "interpretation_review": "not performed"})
+    if retained_subjects is not None:
+        builder.basis["preparation"][-1].update(retained_records=retained_records,
+            retained_subjects=list(retained_subjects),
+            projection_qualification="Only retained subject rows interpreted; other whole-file rows are not imported or validated as target identities.")
+    return {"mode": "source_bound_identity_crosswalk", "headers": fields, "delimiter": delimiter,
+            "encoding": encoding, "unmapped_columns": unmapped}
+
+
+def prepare(folder, site, plant, *, previous_mapping=None, encoding="utf-8-sig", date_format="ISO", identity_crosswalk=None, identity_crosswalk_subjects=None, identity_origins=None):
     folder = Path(folder).absolute()
     cb.require(folder.is_dir() and not folder.is_symlink(), "records need an ordinary local directory")
     folder = folder.resolve()
@@ -250,6 +297,12 @@ def prepare(folder, site, plant, *, previous_mapping=None, encoding="utf-8-sig",
     namespace = "/".join(quote(cb.text(p, "scope"), safe="-._~") for p in (site, plant))
     builder = cb.Builder(namespace)
     declarations, originals = source_inventory(folder, encoding)
+    cb.require(identity_crosswalk_subjects is None or identity_crosswalk is not None,
+               "scoped identity subjects need an explicit crosswalk path")
+    if identity_crosswalk is not None:
+        cb.require(type(identity_crosswalk) is str and Path(identity_crosswalk).suffix.lower() == ".csv", "identity crosswalk needs a relative CSV source path")
+        local(folder, identity_crosswalk)
+        cb.require(any(d["File"] == identity_crosswalk for d in declarations), "identity crosswalk source is not declared in supplied records")
     mappings = {}
     for declaration in declarations:
         filename, identifier = declaration["File"], declaration["DocumentID"]
@@ -264,11 +317,13 @@ def prepare(folder, site, plant, *, previous_mapping=None, encoding="utf-8-sig",
         if filename not in originals:
             builder.basis["omissions"].append({"source": identifier, "reason": "Source bytes unavailable; retain status and ask owner."})
             continue
+        if filename == identity_crosswalk:
+            continue  # explicit identity mode is parsed after ordinary entities exist
         suffix = Path(filename).suffix.lower()
         if suffix == ".csv":
             saved = None if previous_mapping is None else previous_mapping.get(identifier)
             mappings[identifier] = consume_csv(builder, identifier, originals[filename], site, plant,
-                    saved=saved, encoding=encoding, date_format=date_format)
+                    saved=saved, encoding=encoding, date_format=date_format, identity_origins=identity_origins)
         else:
             # No document-reading claim: an approved assistant/engineer supplies
             # explicit source-bound contributions through add_contributions().
@@ -281,16 +336,30 @@ def prepare(folder, site, plant, *, previous_mapping=None, encoding="utf-8-sig",
                     raise cb.ContextError("Derived context/draft requires its lineage-preserving import route; not a new independent source")
             builder.basis["omissions"].append({"source": identifier,
                 "reason": "Original retained; document/model interpretation needs explicit source-bound contributions or an existing adapter."})
+    if identity_crosswalk is not None:
+        declaration = next(d for d in declarations if d["File"] == identity_crosswalk)
+        if identity_crosswalk in originals:
+            mappings[declaration["DocumentID"]] = consume_identity_crosswalk(builder, declaration["DocumentID"],
+                originals[identity_crosswalk], site, plant, encoding=encoding, retained_subjects=identity_crosswalk_subjects)
+        else:
+            builder.basis["preparation"].append({"source": declaration["DocumentID"],
+                "kind": "source_bound_identity_crosswalk_unavailable", "active_aliases": 0})
     return builder.finish(), originals, mappings
 
 
-def add_contributions(basis, originals, raw_csv):
+def add_contributions(basis, originals, raw_csv, *, record_numbers=None):
     """Consume supplied interpretation; check literal quotation, not engineering truth."""
     builder = cb.Builder(basis["namespace"], basis)
     fields, records, _ = csv_rows(raw_csv)
     required = {"Subject", "Predicate", "Source", "Locator", "Quote"}
     cb.require(required <= set(fields), "contribution CSV needs Subject/Predicate/Source/Locator/Quote")
-    for row, number, _, _ in records:
+    if record_numbers is not None:
+        cb.require(type(record_numbers) is list and len(record_numbers) == len(records)
+                   and all(type(n) is int and 2 <= n <= 1000000 for n in record_numbers)
+                   and record_numbers == sorted(set(record_numbers)), "invalid retained contribution record numbers")
+    for index, (row, number, _, _) in enumerate(records):
+        if record_numbers is not None:
+            number = record_numbers[index]
         identifier, source_id = row["Subject"], row["Source"]
         cb.require(source_id in builder.sources, "contribution names unknown source")
         role = "functional_position"

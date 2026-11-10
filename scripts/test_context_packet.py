@@ -71,6 +71,11 @@ class PacketWorkflowTests(unittest.TestCase):
             self.assertIn(message, stderr)
         return json.loads(stdout if code == 0 else stderr)
 
+    def materialize(self, packet):
+        destination = self.folder / ("materialized-" + str(len(self.calls)) + ".json")
+        self.run_cli("materialize", packet, "--out", destination)
+        return destination
+
     def prepare(self, revision, name, previous=None, records=None, extra=()):
         target = self.folder / name
         args = ["prepare", "--records", records or FIXTURE / "development" / ("rev" + str(revision)),
@@ -101,7 +106,7 @@ class PacketWorkflowTests(unittest.TestCase):
         self.run_cli("query", packet, "--item", "P-101", code=2, message="ambiguous item")
         other = self.run_cli("query", packet, "--item", OTHER, "--field", "serial_number")
         self.assertEqual([r["value"] for r in other["alternatives"]], ["OTHER-101"])
-        draft = load(packet / "drafts.json")["components"]
+        draft = load(self.materialize(packet))["components"]
         fields = [draft[name]["items"][PUMP]["fields"]["rated_flow"]
                   for name in ("equipment_instrument_list", "item_datasheet_scaffold")]
         self.assertEqual(fields[0], fields[1])
@@ -118,8 +123,8 @@ class PacketWorkflowTests(unittest.TestCase):
         edited = self.folder / "edited"
         self.run_cli("edit", r1, "--item", edit["subject"], "--field", edit["field"],
                      "--value", edit["value"], "--rationale", "Awaiting permitted nameplate evidence", "--out", edited)
-        initial = load(r1 / "drafts.json")["components"]
-        self.assertEqual(load(edited / "drafts.json")["components"], initial)
+        initial = load(self.materialize(r1))["components"]
+        self.assertEqual(load(self.materialize(edited))["components"], initial)
         r2 = self.prepare(2, "r2", edited)
         impact = self.run_cli("compare", edited, r2)
         content = {(r["component"], r["subject"], r["field"]) for r in impact["changes"]
@@ -135,10 +140,10 @@ class PacketWorkflowTests(unittest.TestCase):
         self.assertEqual([r["value"] for r in flow["alternatives"] if r["active_source"]], ["40"])
         self.assertEqual([r["value"] for r in flow["alternatives"] if not r["active_source"]], ["50"])
         self.assertEqual(next(r for r in flow["alternatives"] if r["source"] == "DS")["source_record"]["status"], "withdrawn")
-        annotations = load(r3 / "drafts.json")["annotations"]
+        annotations = load(self.materialize(r3))["annotations"]
         self.assertEqual(annotations[0]["annotation"]["value"], edit["value"])
         again = self.folder / "reimported"
-        self.run_cli("reimport", r3, "--draft", r3 / "drafts.json", "--out", again)
+        self.run_cli("reimport", r3, "--draft", self.materialize(r3), "--out", again)
         self.assertEqual(load(again / "basis.json")["claims"], load(r3 / "basis.json")["claims"])
         self.assertEqual(load(again / "basis.json")["sources"], load(r3 / "basis.json")["sources"])
         self.assertEqual(len(load(again / "basis.json")["corrections"]), 1)
@@ -154,13 +159,14 @@ class PacketWorkflowTests(unittest.TestCase):
 
     def test_raw_tampering_and_rehashed_derived_fact_have_specific_refusals(self):
         packet = self.prepare(1, "r1")
+        full_draft = self.materialize(packet)
         raw = (packet / "originals/equipment.csv").read_bytes()
         (packet / "originals/equipment.csv").write_bytes(raw.replace(b"OLD-101", b"BAD-101"))
         self.run_cli("verify", packet, code=2, message="file inventory differs")
         self.rehash(packet)
         self.run_cli("verify", packet, code=2, message="raw-byte binding mismatch")
         (packet / "originals/equipment.csv").write_bytes(raw)
-        draft = load(packet / "drafts.json")
+        draft = load(full_draft)
         draft["components"]["item_datasheet_scaffold"]["items"][PUMP]["fields"]["rated_flow"]["state"] = "known"
         (packet / "drafts.json").write_bytes(cp.encode(draft))
         self.rehash(packet)
@@ -248,7 +254,7 @@ class PacketWorkflowTests(unittest.TestCase):
             writer.writeheader(); writer.writerows(rows)
         self.contribution.write_bytes(contributions(FV))
         revised = self.prepare(2, "revised", edited, records=records)
-        wrapped = load(revised / "drafts.json")["annotations"][0]
+        wrapped = load(self.materialize(revised))["annotations"][0]
         self.assertEqual(wrapped["state"], "needs_rebase")
         self.assertEqual(wrapped["annotation"], row)
         self.run_cli("verify", revised)
@@ -263,7 +269,7 @@ class PacketWorkflowTests(unittest.TestCase):
         self.assertNotIn("OTHER UNIT DETAIL", (selected / "datasheets.md").read_text(encoding="utf-8"))
         self.assertIn("OTHER UNIT DETAIL", (selected / "basis.json").read_text(encoding="utf-8"))
         all_items = self.prepare(3, "all-items", selected)
-        self.assertEqual(load(all_items / "drafts.json")["annotations"][0]["annotation"]["value"], "OTHER UNIT DETAIL")
+        self.assertEqual(load(self.materialize(all_items))["annotations"][0]["annotation"]["value"], "OTHER UNIT DETAIL")
         self.run_cli("verify", all_items)
 
     def test_valid_api_annotations_survive_ordinary_edit_and_reimport(self):
@@ -278,25 +284,25 @@ class PacketWorkflowTests(unittest.TestCase):
         self.run_cli("edit", annotated, "--item", PUMP, "--field", "model", "--value", "Check model",
                      "--rationale", "Await evidence", "--out", edited)
         with self.subTest(path="ordinary edit"):
-            self.assertEqual({a["annotation"]["field"] for a in load(edited / "drafts.json")["annotations"]},
+            self.assertEqual({a["annotation"]["field"] for a in load(self.materialize(edited))["annotations"]},
                              {"manufacturer", "model"})
             self.assertEqual(len(load(edited / "basis.json")["corrections"]), 2)
         reimported = self.folder / "reimported"
-        self.run_cli("reimport", annotated, "--draft", annotated / "drafts.json", "--out", reimported)
+        self.run_cli("reimport", annotated, "--draft", self.materialize(annotated), "--out", reimported)
         with self.subTest(path="own draft reimport"):
-            self.assertEqual(load(reimported / "drafts.json")["annotations"][0]["annotation"], note)
+            self.assertEqual(load(self.materialize(reimported))["annotations"][0]["annotation"], note)
         hidden = cc.new_annotation(old["basis"], OTHER, "manufacturer", "OTHER PRIVATE NOTE", "Other unit")
         limited = self.folder / "limited"
         cp.emit(limited, old["basis"], cp.source_bytes(packet), load(packet / "mappings.json"),
                 {**old["config"], "item": PUMP}, annotations=[hidden], contribution=self.contribution.read_bytes())
-        self.assertFalse(load(limited / "drafts.json")["annotations"])
+        self.assertFalse(load(self.materialize(limited))["annotations"])
         limited_edited = self.folder / "limited-edited"
         self.run_cli("edit", limited, "--item", PUMP, "--field", "model", "--value", "Check model",
                      "--rationale", "Await evidence", "--out", limited_edited)
         all_items = self.prepare(2, "all-after-limited", limited_edited)
         with self.subTest(path="hidden API annotation through edit and regeneration"):
             self.assertIn(hidden, load(all_items / "basis.json")["corrections"])
-            self.assertTrue(any(a["annotation"] == hidden for a in load(all_items / "drafts.json")["annotations"]))
+            self.assertTrue(any(a["annotation"] == hidden for a in load(self.materialize(all_items))["annotations"]))
 
 
 if __name__ == "__main__":

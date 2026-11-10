@@ -18,9 +18,16 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE_TESTS = (
     "scripts/test_context_basis.py",
+    "scripts/test_context_basis_compare.py",
     "scripts/test_context_intake.py",
+    "scripts/test_context_identity.py",
     "scripts/test_context_components.py",
     "scripts/test_context_packet.py",
+    "scripts/test_context_compact.py",
+    "scripts/test_context_generator.py",
+    "scripts/test_context_scope.py",
+    "scripts/test_context_scope_identity.py",
+    "scripts/test_context_scope_incremental.py",
     "scripts/test_context_review.py",
     "scripts/test_foundation_handoff.py",
     "scripts/test_maintenance_history.py",

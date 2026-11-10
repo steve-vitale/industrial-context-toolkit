@@ -17,9 +17,15 @@ scoped `engineering-context-basis-1` claims and three derived views. Query,
 edit, compare, verify and private bundle/reopen use that same basis. `review`
 creates offline HTML; `apply-review` retains its downloaded text proposal against
 the exact packet/source dependencies; `verify-review` rechecks delivered bytes.
-Documents
-remain uninterpreted unless a reading is supplied; existing graph/model adapters,
-scope-filtered source delivery and actual ChangePilot receiving remain unfinished.
+`materialize` emits the full typed draft from a compact packet. An explicit
+source crosswalk can resolve drawing/legacy tags to existing stable positions;
+it does not merge physical assets. `generate` projects eligible equipment into
+the existing model validator and generator; `verify-generated` checks the actual
+delivered files. It supplies no guessed piping, instruments or working signals.
+Documents remain uninterpreted unless a reading is supplied. Existing graph/model
+adapters, scope-filtered source delivery and released ChangePilot receiving
+qualification remain unfinished; the [interim receiving record](../examples/map-component-cycle/RECEIVING_DEVELOPMENT.md)
+distinguishes actual isolated product tests from those remaining checks.
 
 For a built engineering context map, [map exploration](../examples/map-explorer/README.md)
 accepts a `twin-graph-2` snapshot and optional previous snapshot of the same site,
@@ -28,6 +34,47 @@ writes a read-only offline HTML/JSON package; `verify` recomputes its complete
 inspection/question/change views and checks retained bytes. This consumes prepared
 map records, adds no reader or operating workflow, and does not refresh context
 answers or implement a managed product import.
+
+
+An explicit `context_workflow.py scope-preview` / `package-scope` route can omit unrelated structured
+records, source files and historical content from one verified record packet. It requires the exact
+preview SHA through `--permit-whole-files-preview` before packaging: included files remain **whole**,
+byte-exact and may contain unrelated rows, columns or text. This is not row redaction or an access grant.
+The explicit `records_scoped_v1` route retains selected facts, source applicability, corrections and
+unchanged typed relationships. Incoming identity-only subjects are marked `external_subject_reference`;
+query/draft expansion refuses until missing context is supplied. Other external objects remain unexpanded
+boundary IDs. Neither is an empty known entity. Scoped verify, query and review show these counts and limits.
+
+For example, after preparing the public fictional development packet, run:
+
+```sh
+python scripts/context_workflow.py scope-preview FULL_PACKET --item CF/P1/U1/P-101 --out preview.json
+python scripts/context_workflow.py package-scope FULL_PACKET --item CF/P1/U1/P-101 --permit-whole-files-preview PREVIEW_SHA --out SCOPED_PACKET
+python scripts/context_workflow.py verify SCOPED_PACKET
+python scripts/context_workflow.py review SCOPED_PACKET --out scoped-review.html
+```
+
+Read `preview.json` before permitting its exact digest. If any whole file is not permitted, retain the
+local packet or supply separately permitted source records. No publication replaces an existing output.
+`bundle`/`unbundle` support fresh scoped readback without omitted originals. Original proposals retain
+exact IDs, rationale, source roots and parent-basis commitments; their scoped witnesses prove only the
+selected historical field replay, not the omitted whole parent basis or authentic source origin.
+Edit/reimport on a scoped packet refuses: edit the original permitted whole packet and explicitly preview
+and repackage a new scope. This route does not claim scoped EDIT-REGENERATE. The existing receiver must
+refuse unsupported `records_scoped_v1` until that distinct contract and authorization are qualified.
+`prepare --item/--scope` still selects draft views only; it does not omit the retained source context.
+
+Explicitly retained supporting/evidence records can be targeted without changing the packet's default
+selection. For example, `materialize SCOPED_PACKET --item CF/P1/U1/record:WO-801 --out supporting.json`
+exports `engineering-scoped-component-materialization-1` when that work order is a retained dependency
+of the selected pump. This distinct envelope contains `selection`, the existing `component_draft`,
+exact `supporting_context` records from the retained model, and `readable_supporting_context` text
+**inside supporting.json**. This command writes one JSON file; it does not deliver CSV/Markdown sidecars.
+Nonasset records retain their actual identity roles. Components with no eligible asset remain empty with
+explicit gaps; no asset fields are invented. Original correction proposals retain the same selected-field
+witness qualification. Default materialization keeps the original selected targets and full-draft format;
+whole packet materialization is unchanged. Identity-only external subject references still refuse direct
+selection and further traversal, and this supporting envelope does not enable scoped editing/reimport.
 
 For a selected unit combining existing maintenance/drawing packets and notes, use
 the [foundation handoff](FOUNDATION_HANDOFF.md): `foundation-input-1` profile,
@@ -254,3 +301,12 @@ baselines. Fourteen cohort inputs remain exact no-ops and two R12 inputs refuse 
 reviewed source change, not automatic acceptance or a replacement for the UI-free metadata route.
 Full readable layout/font acceptance, opaque-content fidelity, fresh native validation, receiving-company approval
 and subsequent accepted revision behavior remain to be qualified in the actual target and [acceptance plan](ACCEPTANCE.md).
+
+Scoped record replay explicitly carries `identity_crosswalk` only when its retained source uses the
+existing source-bound crosswalk mapping. Whole mixed-unit CSV bytes stay disclosed; only retained subjects
+are interpreted, preserving their exact original physical-row locators without requiring omitted targets'
+unrelated source files. Alias lookup is projection-local after explicit qualified selection; full-input
+ambiguity still refuses before projection. Withdrawn alias evidence stays readable but cannot activate lookup.
+The optional path has the same strict type and source/mapping binding in scoped input and intake config.
+
+Scoped next revisions can use `scope-preview/package-scope --previous-scoped` to verify and preserve the already delivered scoped predecessor, while acknowledging a new exact whole-file preview. The optional versioned incremental history marker binds actual adjacent receipts; a fixed preview anchor binds the preserved packet. Existing historical projection without this option retains its shared-preview contract. Intervening local frames do not establish single-jump managed receiving. Sparse identity constructors are source-declared preparation witnesses, not engineering facts or authenticated origins.

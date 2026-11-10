@@ -13,8 +13,9 @@ import sys
 import time
 
 ROOT = Path(__file__).resolve().parents[2]
-MODULES = ("test_context_basis", "test_context_intake", "test_context_components", "test_context_packet",
-           "test_context_review")
+MODULES = ("test_context_basis", "test_context_intake", "test_context_identity", "test_context_components", "test_context_packet",
+           "test_context_review", "test_context_compact", "test_context_generator", "test_generate_validation",
+           "test_context_basis_compare", "test_context_scope", "test_context_scope_identity", "test_context_scope_incremental")
 
 
 def main():
@@ -31,7 +32,10 @@ def main():
     pins = {p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
             for p in paths}
     command = [sys.executable, "-B", "-S", "-m", "unittest", "-v", *MODULES]
-    environment = dict(os.environ, CONTEXT_TEST_EVIDENCE=str(out / "commands-and-artifacts"))
+    environment = dict(os.environ, CONTEXT_TEST_EVIDENCE=str(out / "commands-and-artifacts"),
+                       SCOPE_TEST_EVIDENCE=str(out / "scoped-commands-and-artifacts"),
+                       SCOPE_IDENTITY_TEST_EVIDENCE=str(out / "scoped-identity-commands-and-artifacts"),
+                       SCOPE_INCREMENTAL_TEST_EVIDENCE=str(out / "scoped-incremental-commands-and-artifacts"))
     started = time.perf_counter()
     run = subprocess.run(command, cwd=ROOT / "scripts", env=environment, capture_output=True)
     elapsed = time.perf_counter() - started

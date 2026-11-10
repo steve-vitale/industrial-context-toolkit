@@ -6,15 +6,40 @@ annotations are proposals; they do not overwrite source facts or add corroborati
 import copy
 import csv
 import io
+import hashlib
+import json
 
 import context_basis as cb
 
 SCHEMA = "engineering-component-drafts-1"
+SPEC_SCHEMA = "engineering-component-view-specification-1"
 LIST_FIELDS = ("class", "description", "manufacturer", "model", "serial_number",
                "rated_flow", "variable", "engineering_unit")
 SHEET_FIELDS = (*LIST_FIELDS, "design_temperature", "range_low", "range_high",
                 "fail_position", "operating_limits", "trip_settings")
 TARGETS = ("equipment_instrument_list", "item_datasheet_scaffold", "loop_control_narrative_outline")
+
+
+def draft_digest(draft):
+    """Hash exactly canonical JSON without allocating its complete serialized string."""
+    result = hashlib.sha256()
+    encoder = json.JSONEncoder(ensure_ascii=False, sort_keys=True, separators=(",", ":"), allow_nan=False)
+    try:
+        for chunk in encoder.iterencode(draft):
+            result.update(chunk.encode("utf-8"))
+    except (TypeError, ValueError, RecursionError) as error:
+        raise cb.ContextError("component draft is not finite JSON") from error
+    return result.hexdigest()
+
+
+def specification(draft, method_pins):
+    """Bind a reproducible view request; engineering values remain in the shared basis."""
+    cb.require(draft.get("schema") == SCHEMA, "view specification needs a full supported draft")
+    return {"schema": SPEC_SCHEMA, "full_draft_schema": SCHEMA,
+            "basis_sha256": draft["basis_sha256"], "namespace": draft["namespace"],
+            "selection": copy.deepcopy(draft["selection"]), "targets": list(TARGETS),
+            "full_draft_sha256": draft_digest(draft),
+            "method_sha256_lf": copy.deepcopy(method_pins)}
 
 
 def selected(view, scope=None, item=None):
@@ -137,6 +162,34 @@ def generate(basis, *, scope=None, item=None, annotations=(), history_bases=None
             "review": "Engineering interpretation and receiving acceptance remain required."}
 
 
+
+def render_annotation(annotation, view):
+    """Render a previously verified proposal; this helper confers no verification."""
+    subject, field = annotation.get("subject"), annotation.get("field")
+    cb.require(type(subject) is str and type(field) is str and bool(field), "editorial annotation needs subject/field")
+    cb.require("value" in annotation and type(annotation.get("rationale")) is str and annotation["rationale"].strip(),
+               "editorial annotation needs value and rationale")
+    if subject not in view.entities:
+        return {"annotation": annotation, "state": "subject_unavailable", "current_content_fingerprint": None,
+                "authority": "Retained proposal; subject absent in current inputs, not evidence of physical removal"}
+    field_basis = annotation_field(view, subject, field)
+    current = field_basis["content_fingerprint"]
+    return {"annotation": annotation,
+            "state": "needs_rebase" if annotation.get("expected_content_fingerprint") != current
+                     or annotation["expected_evidence_fingerprint"] != field_basis["evidence_fingerprint"] else "proposed_editorial",
+            "current_content_fingerprint": current, "current_evidence_fingerprint": field_basis["evidence_fingerprint"],
+            "authority": "Proposed edit, not a new independent observation or authenticated approval"}
+
+
+def check_field_annotation(annotation, reference):
+    """Scoped FIELD witness only; the supplied original whole-basis commitment is not recomputed."""
+    expected = new_annotation(reference, annotation.get("subject"), annotation.get("field"),
+                              annotation.get("value"), annotation.get("rationale"))
+    expected["basis_sha256"] = annotation.get("basis_sha256")
+    expected["id"] = "edit-" + cb.digest({k: v for k, v in expected.items() if k != "id"})[:24]
+    cb.require(cb.canonical(expected) == cb.canonical(annotation), "selected correction field witness differs")
+
+
 def new_annotation(basis, subject, field, value, rationale):
     view = cb.View(basis)
     subject = view.resolve(subject)
@@ -156,6 +209,8 @@ def new_annotation(basis, subject, field, value, rationale):
 
 def reimport(basis, draft, *, history_bases=None):
     """Admit exact own-format derivations and explicit edits without adding source claims."""
+    cb.require(not (type(draft) is dict and draft.get("schema") == SPEC_SCHEMA),
+               "compact view specification is not a full typed draft; use materialize before reimport")
     cb.require(type(draft) is dict and draft.get("schema") == SCHEMA,
                "unsupported component draft")
     cb.require(draft.get("basis_sha256") == cb.digest(basis), "draft basis changed; regenerate and explicitly rebase edits")
@@ -235,13 +290,13 @@ def readable(field):
 
 
 def csv_cell(value):
-    # Typed original remains in drafts.json; this protects the spreadsheet display.
+    # The full typed draft retains the original; this protects the spreadsheet display.
     text = str(value)
     return "'" + text if text.startswith(("=", "+", "-", "@", "\t", "\r")) else text
 
 
 def render(draft):
-    """Return readable artifacts; the complete typed/source basis stays in drafts.json."""
+    """Return readable artifacts from a full typed draft, materialized for compact packets."""
     stream = io.StringIO(newline="")
     writer = csv.writer(stream, lineterminator="\n")
     writer.writerow(["qualified_id", "tag", "identity_role", *LIST_FIELDS])
@@ -265,5 +320,9 @@ def render(draft):
             edit = row["annotation"]
             lines.append("- " + cb.canonical(edit["subject"]) + " / " + cb.canonical(edit["field"])
                          + ": " + cb.canonical(edit["value"]) + " — " + row["state"])
+        if draft.get("scope_coverage"):
+            lines += ["", "Scoped packet qualification: " + draft["scope_coverage"]["qualification"],
+                      "External references are unexpanded; missing context is not an empty known entity.",
+                      "Correction qualification: " + draft["scope_coverage"]["correction_verification"], ""]
         result[filename] = "\n".join(lines) + "\n"
     return result

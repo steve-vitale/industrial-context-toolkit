@@ -20,6 +20,8 @@ MAX_BYTES = 128 * 1024 * 1024
 ACTIVE_SOURCES = {"supplied", "derived"}
 SOURCE_STATES = ACTIVE_SOURCES | {"withdrawn", "superseded", "unavailable", "missing"}
 REVIEW_STATES = {"unreviewed", "proposed", "confirmed", "corrected", "rejected"}
+IDENTITY_ALIAS_PREDICATE = "identity_alias"
+IDENTITY_ALIAS_ROLE = "explicit_identity_crosswalk"
 RELATIONS = {
     "piped_to": "Explicit consecutive process items; not network co-membership.",
     "network_member": "On the same recorded network; no adjacency or flow inference.",
@@ -228,6 +230,17 @@ def validate(basis):
             if kind == "claim":
                 require("value" in row, "claim must retain its typed value")
                 require(row.get("unit") is None or type(row["unit"]) is str, "claim unit must be text or null")
+                if row["predicate"] == IDENTITY_ALIAS_PREDICATE and row["role"] == IDENTITY_ALIAS_ROLE:
+                    value = row["value"]
+                    require(type(value) is str and value and value == value.strip() and len(value) <= 2048
+                            and not any(ord(c) < 32 or ord(c) == 127 for c in value),
+                            "identity alias needs bounded exact text")
+                    entity = entities[row["subject"]]
+                    require(entity["identity_role"] == "functional_position", "identity alias needs an existing functional position")
+                    require(row.get("unit") is None, "identity alias cannot carry a measurement unit")
+                    for alias in (value, entity["scope"] + "/" + quote(value, safe="-._~")):
+                        require(alias not in entities or alias == row["subject"],
+                                "identity alias shadows a different canonical identity")
             else:
                 require(row.get("object") in entities or row.get("object") in boundaries,
                         "relation has unknown object")
@@ -334,12 +347,19 @@ class View:
         self.by_property = defaultdict(list)
         self.edges = defaultdict(list)
         self.lookup = defaultdict(set)
+        self.alias_claims = defaultdict(list)
         for entity in self.entities.values():
             for term in [entity["tag"], *entity.get("aliases", [])]:
                 self.lookup[term].add(entity["id"])
         for claim in basis["claims"]:
             self.by_subject[claim["subject"]].append(claim)
             self.by_property[(claim["subject"], claim["predicate"])].append(claim)
+            if (claim["predicate"] == IDENTITY_ALIAS_PREDICATE and claim["role"] == IDENTITY_ALIAS_ROLE
+                    and self.active(claim) and claim["review"]["status"] != "proposed"):
+                entity = self.entities[claim["subject"]]
+                for alias in {claim["value"], entity["scope"] + "/" + quote(claim["value"], safe="-._~")}:
+                    self.lookup[alias].add(claim["subject"])
+                    self.alias_claims[alias].append(claim)
         for edge in basis["relationships"]:
             self.edges[edge["subject"]].append(edge)
             if edge["object"] != edge["subject"]:
@@ -352,6 +372,16 @@ class View:
         require(bool(choices), "item not found: " + item)
         require(len(choices) == 1, "ambiguous item; choose qualified id: " + ", ".join(choices))
         return choices[0]
+
+    def alias_resolution(self, item):
+        """Return source-bound lookup evidence without promoting a tag to installed truth."""
+        if item in self.entities or not self.alias_claims.get(item):
+            return None
+        subject = self.resolve(item)
+        return {"input": item, "subject": subject,
+                "alias_evidence": [self.evidence(c) for c in sorted(self.alias_claims[item], key=lambda c: c["id"])
+                                   if c["subject"] == subject],
+                "qualification": "Explicit source-declared alias for an existing stable functional position; unreviewed, no automatic merge or current installed identity established."}
 
     def active(self, row):
         return (all(source["status"] in ACTIVE_SOURCES
@@ -369,26 +399,41 @@ class View:
         rows = self.by_property[(subject, predicate)]
         current = [row for row in rows if self.active(row)]
         alternatives = {semantic_value(row) for row in current}
-        state = ("disputed" if len(alternatives) > 1 else "sourced_unreviewed" if current
+        alias_set = (predicate == IDENTITY_ALIAS_PREDICATE and bool(rows)
+                     and all(row["role"] == IDENTITY_ALIAS_ROLE for row in rows))
+        if alias_set:
+            current = [row for row in current if row["review"]["status"] != "proposed"]
+        state = ("disputed" if len(alternatives) > 1 and not alias_set else "sourced_unreviewed" if current
                  else "inactive_evidence" if rows else "unknown")
         content = [{"id": row["id"], "value": row["value"], "unit": row.get("unit"),
                     "role": row["role"], "active": self.active(row), "review": row["review"]}
                    for row in sorted(rows, key=lambda r: r["id"])]
         evidence = [self.evidence(row) for row in sorted(rows, key=lambda r: r["id"])]
-        return {"subject": subject, "predicate": predicate, "state": state,
+        result = {"subject": subject, "predicate": predicate, "state": state,
                 "alternatives": evidence, "dependency": [subject, predicate],
                 "content_fingerprint": digest(content), "evidence_fingerprint": digest(evidence),
                 "distinct_declared_roots": sorted({r for row in current for r in row["roots"]}),
                 "independence": "lineage roots are declarations, not proof of independent observations"}
+        if alias_set:
+            result["cardinality"] = "declared_alias_set"
+            result["lookup_qualification"] = "Different alias names form a declared set, not competing scalar facts; each lookup may still be ambiguous across scoped positions."
+            for row in result["alternatives"]:
+                row["lookup_active"] = row["active_source"] and row["review"]["status"] != "proposed"
+            result["evidence_fingerprint"] = digest(result["alternatives"])
+        return result
 
     def inspect(self, item):
         subject = self.resolve(item)
         fields = {p: self.field(subject, p) for p in sorted({r["predicate"] for r in self.by_subject[subject]})}
-        return {"entity": copy.deepcopy(self.entities[subject]), "fields": fields,
+        result = {"entity": copy.deepcopy(self.entities[subject]), "fields": fields,
                 "relationships": [self.evidence(e) for e in self.edges[subject]],
                 "corrections": [copy.deepcopy(r) for r in self.basis["corrections"]
                                 if r.get("subject") == subject],
                 "unknowns": "Only represented facts are returned; absent facts remain unknown."}
+        resolution = self.alias_resolution(item)
+        if resolution is not None:
+            result["identity_resolution"] = resolution
+        return result
 
     def traverse(self, item, predicate, *, depth=1, limit=100):
         start = self.resolve(item)

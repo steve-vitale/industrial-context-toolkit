@@ -1,0 +1,61 @@
+{
+  "schema": "authored-record-dialect-original-key-1",
+  "namespace": "DIALECT2/P2",
+  "identity_owner_confirmation": "Equipment Number is a functional-position key within Functional Location; physical item IDs are separate.",
+  "date_policy": "DMY explicitly selected on each invocation;05/11/2026 means2026-11-05,notMay11.",
+  "r1": {
+    "east": "DIALECT2/P2/SKID-E/P-408",
+    "west": "DIALECT2/P2/SKID-W/P-408",
+    "equipment_serial": "00017",
+    "closed_serial": "00018",
+    "open_proposal_serial": "00019",
+    "equipment_model": "M;A",
+    "closed_model": "NEW-CLOSED",
+    "open_proposal_model": "FUTURE",
+    "east_flow": {
+      "type": "string",
+      "value": "12,5",
+      "unit": "m³/h"
+    },
+    "west_flow": {
+      "type": "string",
+      "value": "12.5",
+      "unit": "unknown-flow-unit"
+    },
+    "physical_items": [
+      "BODY-E1",
+      "BODY-E2",
+      "BODY-W1"
+    ],
+    "open_body_not_installed": "BODY-E3"
+  },
+  "r2": {
+    "equipment_model": "M;B",
+    "equipment_serial": "00017",
+    "closed_serial": "00018",
+    "closed_model": "NEW-CLOSED",
+    "open_proposal_model": "FUTURE"
+  },
+  "r3": {
+    "work_history_status": "withdrawn",
+    "equipment_model": "M;B",
+    "equipment_serial": "00017",
+    "retained_closed_serial": "00018",
+    "retained_open_proposal_serial": "00019"
+  },
+  "always": [
+    "P-408 bare identity ambiguous",
+    "original whole bytes retained",
+    "same serial does not merge physical IDs",
+    "no decimal-comma or engineering-unit normalization",
+    "unknown unit retained",
+    "all engineering claims unreviewed",
+    "generated views add no independent source root",
+    "unknown columns retained as omissions",
+    "source register is an unauthenticated fictional declaration",
+    "no current installed-state or plant acceptance"
+  ],
+  "contribution_rows": 0,
+  "customer_json_edits": 0,
+  "preparation": "Two semicolon CSV exports and one3-row includingheader comma source register perrevision; literal authored fictional keys, no extraction."
+}

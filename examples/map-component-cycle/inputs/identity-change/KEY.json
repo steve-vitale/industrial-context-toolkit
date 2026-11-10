@@ -1,0 +1,47 @@
+{
+  "scope": "Fictional exposed source-known ordinary CSVs frozen before method; customers already have stable functional-position keys in their exports. This is source-bound alias lookup, not intake entity rekey/merge or global physical identity.",
+  "namespace": "IX/P1",
+  "positions": [
+    "IX/P1/U1/FP-1001",
+    "IX/P1/U2/FP-2001"
+  ],
+  "r1_unique_alias": {
+    "LEGACY-7": "IX/P1/U1/FP-1001"
+  },
+  "r2_additional_alias": {
+    "P-201": "IX/P1/U1/FP-1001"
+  },
+  "ambiguous_bare_alias": "P-101",
+  "ambiguous_choices": [
+    "IX/P1/U1/FP-1001",
+    "IX/P1/U2/FP-2001"
+  ],
+  "r3_withdrawn_source_aliases_not_active": [
+    "LEGACY-7",
+    "P-201",
+    "P-101"
+  ],
+  "r2_distinct_physical_items_same_position": [
+    "IX/P1/U1/item:ITEM-A",
+    "IX/P1/U1/item:ITEM-B"
+  ],
+  "physical_position": "IX/P1/U1/FP-1001",
+  "same_serial_is_not_identity": "SERIAL-X",
+  "expected_physical_relationship": "reported_installation_at",
+  "installed_qualification": "Supplied installation account; not independently verified current installation",
+  "history_r1_originals_retained": true,
+  "sources": {
+    "rev1\\closed-orders.csv": "1a1cda4db728c90ca2a743545cf22b7d52a3d11b228974917d0c12393cea4991",
+    "rev1\\equipment.csv": "7db6b3b4f96ee44cb35caba5bc410bac3cc6908c1a6268c0c1d34084c2d8f69b",
+    "rev1\\identity-crosswalk.csv": "c68b15e5f33409709ff3a783132c7de679b27b0eaf75c28248a1d9cc010e0e27",
+    "rev1\\source-register.csv": "96d9c0a67904110a01f9db74c4b4da4973c0c61767be383a6ec9765867fa464a",
+    "rev2\\closed-orders.csv": "8c19359461dd291787ebed525c0b7034abc56e8b94c56b26af8b4017b5a8a0d4",
+    "rev2\\equipment.csv": "e477ddd8dafcc5f5f3b5ee378c09eda40ae0a26be510fe7abacee2fa8e61181e",
+    "rev2\\identity-crosswalk.csv": "c9dda68e3f45b00e0e9d37ecc14ad6ad1a4b5be92f8bd153f199d8bd2d8c615b",
+    "rev2\\source-register.csv": "74f0d8ba62bab77b6873611d75694babdd7b5b1c723ef28499132f4e35504c39",
+    "rev3\\closed-orders.csv": "8c19359461dd291787ebed525c0b7034abc56e8b94c56b26af8b4017b5a8a0d4",
+    "rev3\\equipment.csv": "e477ddd8dafcc5f5f3b5ee378c09eda40ae0a26be510fe7abacee2fa8e61181e",
+    "rev3\\identity-crosswalk.csv": "c9dda68e3f45b00e0e9d37ecc14ad6ad1a4b5be92f8bd153f199d8bd2d8c615b",
+    "rev3\\source-register.csv": "f0de8e5eec5c3fa33123c4731a931a49d9165c13bd73e0a50789c9ca7c2954d1"
+  }
+}

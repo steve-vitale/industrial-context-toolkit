@@ -132,15 +132,18 @@ boundary. This is a scoped development review, not final goal or product Judge.
 ## Current limits
 
 This is development, not a frozen generalization result. The public and second
-CSV-dialect transfers have not run. Inputs and keys are author-known. The typed
-source controls include direct helper tests; complete typed product readback is
-not established. The three-revision maintenance route uses ordinary exports;
+CSV-dialect transfers have not run. Inputs and keys are author-known. Subsequent
+isolated product runs now include typed source readback and full-source
+document, drawing and matched-maintenance export/reopening; see the
+[receiving development status](RECEIVING_DEVELOPMENT.md) for their scope and
+remaining checks. The three-revision maintenance route uses ordinary exports;
 the narrative relationships are supplied interpretation checked against a quote,
 not an automated document comprehension result.
 
-The complete selected-scope delivery, native generator bridge, existing map/model
-adapters, identity crosswalk/replacement route, complete cross-job/browser journey, measured workload,
-clean-clone release and actual ChangePilot persistence/auth/readback/export are
-unfinished. The [31-case acceptance file](ACCEPTANCE.json) remains incomplete;
+The equipment-only generator bridge and explicit identity crosswalk now have
+focused development and independent checks. Complete selected-scope delivery,
+existing map/model adapters, sequential scoped product receiving, the complete
+cross-job/browser journey, measured workload and clean-clone/governed release
+qualification remain unfinished. The [31-case acceptance file](ACCEPTANCE.json) remains incomplete;
 these development passes do not close product or whole-goal cases. Existing CAD
 preservation/paper failures and unrun human/company trials remain unchanged.
