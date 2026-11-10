@@ -205,8 +205,8 @@ step 2, then list them in one manifest. The committed example lists OPEN100 deve
 recorded extractions and runs offline:
 
 ```sh
-python -S scripts/import_drawing_set.py --manifest examples/own-drawing/set-manifest.json --out my-set --check-only
-python -S scripts/import_drawing_set.py --manifest examples/own-drawing/set-manifest.json --out my-set
+python scripts/import_drawing_set.py --manifest examples/own-drawing/set-manifest.json --out my-set --check-only
+python scripts/import_drawing_set.py --manifest examples/own-drawing/set-manifest.json --out my-set
 python scripts/deliverable_report.py my-set
 ```
 
@@ -220,7 +220,17 @@ Pairing uses them in two passes, and each pair records which rule matched:
    carries every word of the first sheet's title (`IRRIGATION EQUALIZATION TANK` on the sheet titled "Irrigation
    Equalization Tank P&ID").
 
-Unmatched connectors keep a reason, such as "target drawing is not in this sheet set". Every pair is unverified and
+Unmatched connectors keep a reason, such as "target drawing is not in this sheet set".
+
+The set bundle also carries the drawn line layers from [`line_layers.py`](../../scripts/line_layers.py): pipe
+segments between consecutive items (`piped_to` in the graph), instrument connections, actuator stems and
+junctions, re-traced from each sheet with the tracer's default options. This needs `requirements.txt`. Without it,
+or for an extraction that wasn't traced, the bundle is still written and `meta.line_layers_status` says why the
+layers were skipped (`--no-line-layers` turns them off). A line whose two ends the tracer placed on different
+networks is dropped and listed per sheet rather than refusing the drawing. On the Pahala set that dropped one
+dashed signal line and the tap it reached, leaving 42 pipe segments and 41 instrument connections. No topology key
+exists for those sheets, so their accuracy is unmeasured. On OPEN100 sheets 0 to 5 the pipe layer scores 0.931 and
+instrument connections 0.835 ([GOAL.md, round 6](../../docs/GOAL.md)). Every pair is unverified and
 listed in `review_queue.csv` and in the report's "Across sheets" section. The cross-sheet links appear in the graph
 export as `connects` edges, so paths can be followed from sheet to sheet. Sheet numbers in the bundle follow the
 manifest order (`svg/sheet_0.svg`, `svg/sheet_1.svg`, ...).

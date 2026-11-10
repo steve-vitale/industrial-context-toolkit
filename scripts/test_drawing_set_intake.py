@@ -9,6 +9,12 @@ import zlib
 import deliverable_report
 import import_drawing_set as dset
 
+try:
+    import cv2  # noqa: F401
+    HAVE_CV2 = True
+except ImportError:
+    HAVE_CV2 = False
+
 
 def png(width=200, height=100):
     def chunk(kind, payload):
@@ -124,6 +130,36 @@ class DrawingSetIntake(unittest.TestCase):
         path.write_text(json.dumps(manifest), encoding='utf-8')
         with self.assertRaises(ValueError):
             dset.import_set(path, self.out)
+
+    def test_line_layers_skip_is_recorded_and_the_bundle_is_still_written(self):
+        path = self.write([('P-1', None, ['REF SHT P-2']), ('P-2', None, ['REF SHT P-1'])])
+        result = dset.import_set(path, self.out)  # blank synthetic images: the links can't be re-traced
+        self.assertEqual(result['line_layers']['status'], 'skipped')
+        self.assertTrue(result['line_layers']['reason'])
+        model = self.model()
+        self.assertEqual(model['meta']['line_layers_status']['status'], 'skipped')
+        self.assertNotIn('line_layers', model)
+        self.assertIn('Drawn line layers not added', deliverable_report.build(self.out))
+
+    def test_line_layers_can_be_turned_off(self):
+        path = self.write([('P-1', None, ['A'])])
+        result = dset.import_set(path, self.out, line_layers=False)
+        self.assertEqual(result['line_layers'], {'status': 'not requested'})
+
+    @unittest.skipUnless(HAVE_CV2, 'needs OpenCV (requirements.txt)')
+    def test_committed_open100_set_gets_pipe_and_instrument_layers(self):
+        manifest = Path(__file__).resolve().parent.parent / 'examples' / 'own-drawing' / 'set-manifest.json'
+        result = dset.import_set(manifest, self.out)
+        layers = result['line_layers']
+        self.assertEqual(layers['status'], 'added', layers)
+        self.assertGreater(layers['pipe_segments'], 300)
+        self.assertGreater(layers['instrument_connections'], 0)
+        self.assertEqual(layers['dropped_inconsistent_lines'], 0)
+        import graph_export
+        graph = graph_export.build(self.out / 'plant_model.json')
+        types = {e['type'] for e in graph['edges']}
+        self.assertTrue({'piped_to', 'instrument_connection'} <= types)
+        self.assertEqual(graph_export.problems(graph), [])
 
     def test_check_only_writes_nothing(self):
         path = self.write([('P-1', None, ['A']), ('P-2', None, ['B'])])

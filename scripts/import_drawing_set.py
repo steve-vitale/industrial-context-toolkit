@@ -1,4 +1,4 @@
-"""Several local P&ID sheets + existing extractions -> one unverified review bundle (stdlib only).
+"""Several local P&ID sheets + existing extractions -> one unverified review bundle.
 
 The drawing-set sibling of import_site_drawing.py. It validates each sheet exactly as the one-sheet intake does,
 builds one model across the set (build_twin.py), and pairs off-page connectors across sheets. It never calls a
@@ -12,6 +12,12 @@ Cross-sheet pairing runs in two passes, each recorded on the pair as its method:
        one_way_number_plus_sheet_title     a connector on A names B's number, and a connector on B names no
                                            drawing but carries every word of A's supplied title.
 Every pair stays unverified and is listed in the review queue with its method.
+
+The bundle also gets the drawn line layers (scripts/line_layers.py): pipe segments between consecutive items
+(`piped_to` in the graph), instrument connections, actuator stems and junctions, re-traced from each sheet image
+with the tracer's default options. This needs OpenCV and NumPy (requirements.txt). Without them, or when the links
+can't be re-traced (an extraction written by hand rather than traced), the bundle is still written and
+meta.line_layers_status says why the layers were skipped. --no-line-layers turns them off.
 """
 import argparse
 import json
@@ -195,7 +201,24 @@ def load_set(manifest_path, out):
     return out, raw_manifest, producer, loaded, provenance
 
 
-def import_set(manifest_path, out, check_only=False):
+def add_line_layers(model, source):
+    """Add the drawn pipe and instrument layers in place; return a status record (never raises for a skip)."""
+    try:
+        import line_layers
+        line_layers.enrich(model, {s["sheet"]: str(source / f"{s['sheet']}.png") for s in model["systems"]})
+    except ImportError as error:
+        return {"status": "skipped", "reason": f"needs OpenCV and NumPy (pip install -r requirements.txt): {error}"}
+    except ValueError as error:
+        return {"status": "skipped", "reason": str(error)}
+    layers = model["line_layers"]
+    dropped = [x for v in layers["sheets"].values() for x in v.get("dropped_inconsistent_lines", [])]
+    return {"status": "added", "pipe_segments": len(layers["segments"]),
+            "instrument_connections": len(layers["instrument_lines"]), "junctions": len(layers["junctions"]),
+            "dropped_inconsistent_lines": sum(x["layer"] != "junctions" for x in dropped),
+            "dropped_orphan_junctions": sum(x["layer"] == "junctions" for x in dropped)}
+
+
+def import_set(manifest_path, out, check_only=False, line_layers=True):
     out, raw_manifest, producer, loaded, provenance = load_set(manifest_path, out)
     drawings = [s["drawing"] for s in loaded]
     if check_only:
@@ -245,6 +268,8 @@ def import_set(manifest_path, out, check_only=False):
         problems = generate.validate_twin(model)
         one.require(not problems, f"Converted model is invalid: {problems}")
         generate.export_twin(model, stage, images_dir=source)
+        layers = add_line_layers(model, source) if line_layers else {"status": "not requested"}
+        model["meta"]["line_layers_status"] = layers
         one.write_json(stage / "plant_model.json", model)
         one.write_json(stage / "intake_manifest.json", provenance)
         (stage / "READ_ME.txt").write_text("UNVERIFIED LOCAL REVIEW BUNDLE (DRAWING SET)\n\n" + "\n".join(LIMITATIONS)
@@ -252,7 +277,8 @@ def import_set(manifest_path, out, check_only=False):
         one.require(not out.exists() and not out.is_symlink(), f"Output appeared while preparing bundle: {out}")
         os.rename(stage, out)
         return {"inputs_valid": True, "exports_written": True, "output": str(out), "summary": model["summary"],
-                "pairs_from_supplied_numbers": added, "operational_export_allowed": False, "limitations": LIMITATIONS}
+                "pairs_from_supplied_numbers": added, "line_layers": layers, "operational_export_allowed": False,
+                "limitations": LIMITATIONS}
     finally:
         if stage.exists():
             shutil.rmtree(stage)
@@ -268,9 +294,10 @@ def main(argv=None):
     parser.add_argument("--manifest", required=True)
     parser.add_argument("--out", required=True)
     parser.add_argument("--check-only", action="store_true", help="validate inputs without writing")
+    parser.add_argument("--no-line-layers", action="store_true", help="skip the drawn pipe and instrument layers")
     args = parser.parse_args(argv)
     try:
-        result = import_set(args.manifest, args.out, args.check_only)
+        result = import_set(args.manifest, args.out, args.check_only, line_layers=not args.no_line_layers)
     except (ValueError, OSError, TypeError, KeyError, OverflowError, RecursionError) as error:
         parser.exit(2, f"Drawing set intake failed: {error}\n")
     print(json.dumps(result, indent=2, allow_nan=False))

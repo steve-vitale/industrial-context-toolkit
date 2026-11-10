@@ -850,15 +850,43 @@ def traced_layers(image_path, symbols, exclude=(), **opt):
     # no connector, the unerased edge of a symbol's own outline) carries no link and is only counted.
     out["networks"] = {int(r): list(ms) for r, ms in g["networks"].items() if len(ms) >= 2}
     out["single_item_networks"] = sum(1 for ms in g["networks"].values() if len(ms) < 2)
-    for a, b, net in out["segments"] + out["instrument_lines"] + out["actuator_stems"] + out["nozzle_stubs"]:
+    # A line whose two ends the tracer placed on different networks (seen on a consultant P&ID's dashed signal line,
+    # never on the development drawings) is dropped and listed, instead of refusing the whole drawing. Drawings
+    # without such lines are unchanged: the list is only written when something is dropped.
+    def off_network(a, b, net):
         for e in (a, b):
             if net is None and ((a, b) in out["touching"] or (b, a) in out["touching"]):
                 continue  # drawn against each other: no traced line, so on no network
             if e in out["junctions"]:
                 if out["junctions"][e]["network"] != net:
-                    out["problems"].append(f"segment {a}-{b}: junction {e} is on another network")
+                    return f"{a}-{b}: junction {e} is on another network"
             elif e not in out["networks"].get(net, ()):
-                out["problems"].append(f"segment {a}-{b}: {e} is not a member of network {net}")
+                return f"{a}-{b}: {e} is not a member of network {net}"
+        return None
+    inconsistent = []
+    for part in ("segments", "instrument_lines", "actuator_stems", "nozzle_stubs"):
+        keep = []
+        for x in out[part]:
+            why = off_network(*x)
+            (inconsistent.append({"layer": part, "line": why}) if why else keep.append(x))
+        out[part] = keep
+    if inconsistent:
+        dropped = {x["line"].split(":")[0] for x in inconsistent}
+        out["segment_taps"] = {k: v for k, v in out["segment_taps"].items() if f"{k[0]}-{k[1]}" not in dropped}
+        for j in out["junctions"].values():
+            if j.get("on_segment") and f"{j['on_segment'][0]}-{j['on_segment'][1]}" in dropped:
+                j.pop("on_segment")
+        # A junction no remaining line reaches (a tap whose only instrument line was dropped) goes too.
+        ends = {e for part in ("segments", "instrument_lines", "actuator_stems", "nozzle_stubs")
+                for x in out[part] for e in x[:2]}
+        idle = [j for j, v in out["junctions"].items() if j not in ends
+                and not (v["kind"] != "instrument_tap" and v.get("on_segment"))]
+        for j in idle:
+            del out["junctions"][j]
+            inconsistent.append({"layer": "junctions", "line": f"{j}: no remaining line reaches it"})
+        out["segment_taps"] = {k: [t for t in v if t not in idle] for k, v in out["segment_taps"].items()}
+        out["segment_taps"] = {k: v for k, v in out["segment_taps"].items() if v}
+        out["dropped_inconsistent_lines"] = inconsistent
     pairs = {frozenset((l["from"], l["to"])) for l in links}
     derived = {frozenset((a, b)) for ms in out["networks"].values() for i, a in enumerate(ms) for b in ms[i + 1:]}
     if o.get("emit") == "all" and o.get("max_clique", 10 ** 9) >= 10 ** 9 and pairs != derived:
@@ -985,7 +1013,9 @@ def enrich(model, images, **opt):
                          "junctions": len(S["junctions"]), "junction_kinds": dict(sorted(kinds.items())),
                          "segments": len(S["segments"]), "instrument_lines": len(S["instrument_lines"]),
                          "actuator_stems": len(S["actuator_stems"]), "nozzle_stubs": len(S["nozzle_stubs"]),
-                         "pairwise_links": len(S["links"])}
+                         "pairwise_links": len(S["links"]),
+                         **({"dropped_inconsistent_lines": S["dropped_inconsistent_lines"]}
+                            if S.get("dropped_inconsistent_lines") else {})}
     nets.sort(key=lambda n: n["id"])
     order = lambda s: (len(s["sheet"]), s["sheet"], sorted((s["from"], s["to"])))  # noqa: E731
     segs.sort(key=order)

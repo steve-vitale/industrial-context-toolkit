@@ -151,10 +151,22 @@ def across_sheets_html(model):
     table = (f'<div class=scroll><table><thead><tr><th>Pair</th><th>From</th><th>To</th><th>Matched by</th></tr>'
              f'</thead><tbody>{rows}</tbody></table></div>') if rows else "<p>No connectors were paired across sheets.</p>"
     count = len(model.get("offpage_pairs", []))
+    layers = (model.get("meta") or {}).get("line_layers_status") or {}
+    if layers.get("status") == "added":
+        lines_note = (f'<p>Drawn line layers: {layers["pipe_segments"]} pipe segments, '
+                      f'{layers["instrument_connections"]} instrument connections, {layers["junctions"]} junctions'
+                      + (f'; {layers["dropped_inconsistent_lines"]} inconsistent line(s) and '
+                         f'{layers.get("dropped_orphan_junctions", 0)} junction(s) left without a line were dropped '
+                         '(listed in <code>plant_model.json</code>)' if layers["dropped_inconsistent_lines"] else "")
+                      + '.</p>')
+    elif layers:
+        lines_note = f'<p class=sub>Drawn line layers not added: {e(str(layers.get("reason") or layers.get("status")))}.</p>'
+    else:
+        lines_note = ""
     return (f'<h2>Across sheets ({count} pair{"" if count == 1 else "s"})</h2><p class=sub>Off-page connectors '
             'matched to a connector on another sheet of this set. Each pair is a candidate for review, not an '
             'established continuation; it is also in <code>review_queue.csv</code>.</p>' + table
-            + (f"<p>Not paired:</p><ul>{unmatched}</ul>" if unmatched else ""))
+            + (f"<p>Not paired:</p><ul>{unmatched}</ul>" if unmatched else "") + lines_note)
 
 
 MODEL_GROUPS = ("units", "instruments", "final_elements", "line_items", "offpage_connectors", "streams")

@@ -69,7 +69,7 @@ queue, report, questions and graph the same way every time.
 | **Prepare** | Each page is rendered at a size the line tracer was tuned for. Scans can be cleaned on a separate copy; the original stays the source. |
 | **Read** | Overlapping tiles go to the model with [the extraction prompt](extraction/prompt_v2.md). Symbols get a class, tag, box and confidence. |
 | **Trace** | Code follows the drawn lines between symbols, locally, in seconds. |
-| **Build** | The intake writes one draft model for the whole drawing set, review queue, drawing overlays and Ignition/PI staging, with the source of every item. |
+| **Build** | The intake writes one draft model for the whole drawing set, with the drawn pipe segments and instrument connections, a review queue, drawing overlays and Ignition/PI staging, and the source of every item. |
 | **Pair** | Off-page connectors are matched across sheets by drawing number and title, so a line that leaves one sheet continues on the next. Each pair records the rule that matched it. |
 | **Check** | For CAD-exported PDFs, every tag printed in the PDF's own text is compared with what was extracted: tags the reader missed and possible misreads. Outlined or scanned pages are marked as needing OCR. |
 | **Question** | The question engine and graph export turn the model into investigation questions and a portable graph. |

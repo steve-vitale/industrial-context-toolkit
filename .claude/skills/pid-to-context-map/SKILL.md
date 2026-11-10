@@ -113,12 +113,14 @@ its title block (open the sheet image and look); they are what pair off-page con
 Add one entry per sheet, in the same order as the PNGs; `page` is the PDF page number. Then:
 
 ```sh
-python -S scripts/import_drawing_set.py --manifest work/<plant>/sheets/set.json --out work/<plant>/bundle --check-only
-python -S scripts/import_drawing_set.py --manifest work/<plant>/sheets/set.json --out work/<plant>/bundle
+python scripts/import_drawing_set.py --manifest work/<plant>/sheets/set.json --out work/<plant>/bundle --check-only
+python scripts/import_drawing_set.py --manifest work/<plant>/sheets/set.json --out work/<plant>/bundle
 ```
 
-The `--out` folder must not exist yet. The result lists how many connectors were paired across sheets; each pair
-names the rule that matched it, and unpaired connectors keep a reason. For a site-wide map that also joins
+The `--out` folder must not exist yet. The result lists how many connectors were paired across sheets (each pair
+names the rule that matched it; unpaired connectors keep a reason) and the drawn line layers: pipe segments,
+instrument connections and junctions, re-traced from each sheet. If `line_layers` says `skipped`, tell the user
+why; the usual cause is a missing OpenCV install. For a site-wide map that also joins
 equipment and instrument records, see [docs/ONE_MAP.md](../../../docs/ONE_MAP.md).
 
 ### 4. Report
@@ -162,6 +164,7 @@ Tell the user, briefly:
 
 - what was extracted (the counts at the top of the report) and how many items to check first;
 - which connectors were paired across sheets, and which pointed to a sheet that isn't loaded;
+- the pipe and instrument layers (counts, and any inconsistent line that was dropped);
 - the tag check: misses and possible misreads you confirmed on the drawing, and any page that needs OCR;
 - where the files are and which one to open;
 - anything that failed or looked wrong (a blank region, unreadable text, a page you skipped);
