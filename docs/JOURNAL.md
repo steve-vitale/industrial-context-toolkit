@@ -10366,3 +10366,20 @@ matrix check separately reports 50 cells whose optional source caches are absent
 The previous CI also failed pipeline checks; that separate failure remains under
 investigation. Focused repairs do not establish full-suite or managed-product
 acceptance. Public historical CAD, drawing-reader and historian failures remain.
+
+## 246. Carry the rebuilt generator bindings into the committed checkout
+
+The previous local pipeline pass depended on an uncommitted receipt refresh.
+A tracked-file-only checkout of 0a7c045 reproduces the CI failure: 43 of 45
+checks pass. The three export-stage receipts still bind the previous generate.py
+hash, so their dependent stages correctly report stale. The generator's current
+ordinary export bytes are unchanged; updating example outputs elsewhere did not
+carry these stage bindings into the commit.
+
+Retain the original failed CI and tracked-checkout run. Carry only the actual
+rebuilt generate.py input bindings for te.exports, te.pid_exports and
+open100.exports into this change. The unrelated local tour raster refresh stays
+outside it. Repeating the same pipeline tests against tracked source/output bytes
+and this exact receipt passes all 45 checks, including review propagation and
+byte-identical second rebuild. The two existing manual runtime stages remain
+stale; this does not establish a live gateway or replay acceptance run.
