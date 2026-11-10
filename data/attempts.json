@@ -6731,12 +6731,12 @@
       "id": "A405",
       "function": "line_tracing",
       "date": "2026-11-10",
-      "change": "line_layers.py: a line whose two ends the tracer placed on different networks, and a junction no remaining line reaches, are dropped and listed per sheet instead of refusing the whole drawing; the drawing-set intake now adds the line layers to every bundle.",
+      "change": "line_layers.py enrich (bundles only): a line whose two ends the tracer placed on different networks, and a junction no remaining line reaches, are dropped and listed per sheet instead of refusing the whole drawing; traced_layers() and every score are unchanged. The drawing-set intake now adds the line layers to every bundle.",
       "hypothesis": "The pipe and instrument layers reach real consultant drawings through the product path without changing any output on drawings they already accepted",
-      "evidence": "Pahala P-204, P-401, P-501 were refused (P-501: a dashed signal line's ends on two networks); now 42 pipe segments, 41 instrument connections, 20 junctions, with 1 line and 1 junction dropped and listed. OPEN100 sheets 0-5: enrich output byte-identical to the previous code; scripts/test_line_layers.py passes.",
+      "evidence": "Pahala P-204, P-401, P-501 were refused (P-501: a dashed signal line's ends on two networks); now 42 pipe segments, 41 instrument connections, 20 junctions, with 1 line and 1 junction dropped and listed. OPEN100 sheets 0-5: enrich output byte-identical to the previous code; development pipe F1 0.931 and instrument-connection F1 0.835 unchanged. A first version dropped the lines inside traced_layers(), which the scorer shares: the corpus-matrix re-run showed held-out sheet 6 instrument lines 43 -> 41 and instrument-connection F1 0.891 -> 0.889 (one true line lost). It was narrowed to enrich only; sheet 6 is back to 0.891 (41/43) and sheets 7-11 never changed.",
       "runs": "1 (single run)",
       "verdict": "kept",
-      "why": "Changes only inputs that were refused before; the Pahala layers have no topology key, so their accuracy is unmeasured",
+      "why": "Changes only drawings enrich refused before; scores untouched. The Pahala layers have no topology key, so their accuracy is unmeasured",
       "source": [
         "docs/GOAL.md#round-6-written-2026-11-10-before-any-round-6-method-change-the-drawing-as-engineering-relations"
       ]

@@ -757,7 +757,7 @@ count as delivered.
 ## Increments, in order, each kept only if it passes the decision rules
 
 1. **Wire the existing pipe and instrument layers into the drawing-set intake.** No method change: on every input
-   the layers already accepted, the output must be byte-identical. Drawings the layers refused (a line whose two ends
+   the layers already accepted, the output and every score must be byte-identical. Drawings the bundle step refused (a line whose two ends
    the tracer placed on different networks, first seen on Pahala P-501) are accepted with the inconsistent lines
    dropped and listed.
 2. **Carry flow direction into the bundle:** arrow, off-page flag, pump port and valve-chain evidence on `piped_to`,

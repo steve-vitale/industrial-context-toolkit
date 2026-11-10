@@ -850,43 +850,15 @@ def traced_layers(image_path, symbols, exclude=(), **opt):
     # no connector, the unerased edge of a symbol's own outline) carries no link and is only counted.
     out["networks"] = {int(r): list(ms) for r, ms in g["networks"].items() if len(ms) >= 2}
     out["single_item_networks"] = sum(1 for ms in g["networks"].values() if len(ms) < 2)
-    # A line whose two ends the tracer placed on different networks (seen on a consultant P&ID's dashed signal line,
-    # never on the development drawings) is dropped and listed, instead of refusing the whole drawing. Drawings
-    # without such lines are unchanged: the list is only written when something is dropped.
-    def off_network(a, b, net):
+    for a, b, net in out["segments"] + out["instrument_lines"] + out["actuator_stems"] + out["nozzle_stubs"]:
         for e in (a, b):
             if net is None and ((a, b) in out["touching"] or (b, a) in out["touching"]):
                 continue  # drawn against each other: no traced line, so on no network
             if e in out["junctions"]:
                 if out["junctions"][e]["network"] != net:
-                    return f"{a}-{b}: junction {e} is on another network"
+                    out["problems"].append(f"segment {a}-{b}: junction {e} is on another network")
             elif e not in out["networks"].get(net, ()):
-                return f"{a}-{b}: {e} is not a member of network {net}"
-        return None
-    inconsistent = []
-    for part in ("segments", "instrument_lines", "actuator_stems", "nozzle_stubs"):
-        keep = []
-        for x in out[part]:
-            why = off_network(*x)
-            (inconsistent.append({"layer": part, "line": why}) if why else keep.append(x))
-        out[part] = keep
-    if inconsistent:
-        dropped = {x["line"].split(":")[0] for x in inconsistent}
-        out["segment_taps"] = {k: v for k, v in out["segment_taps"].items() if f"{k[0]}-{k[1]}" not in dropped}
-        for j in out["junctions"].values():
-            if j.get("on_segment") and f"{j['on_segment'][0]}-{j['on_segment'][1]}" in dropped:
-                j.pop("on_segment")
-        # A junction no remaining line reaches (a tap whose only instrument line was dropped) goes too.
-        ends = {e for part in ("segments", "instrument_lines", "actuator_stems", "nozzle_stubs")
-                for x in out[part] for e in x[:2]}
-        idle = [j for j, v in out["junctions"].items() if j not in ends
-                and not (v["kind"] != "instrument_tap" and v.get("on_segment"))]
-        for j in idle:
-            del out["junctions"][j]
-            inconsistent.append({"layer": "junctions", "line": f"{j}: no remaining line reaches it"})
-        out["segment_taps"] = {k: [t for t in v if t not in idle] for k, v in out["segment_taps"].items()}
-        out["segment_taps"] = {k: v for k, v in out["segment_taps"].items() if v}
-        out["dropped_inconsistent_lines"] = inconsistent
+                out["problems"].append(f"segment {a}-{b}: {e} is not a member of network {net}")
     pairs = {frozenset((l["from"], l["to"])) for l in links}
     derived = {frozenset((a, b)) for ms in out["networks"].values() for i, a in enumerate(ms) for b in ms[i + 1:]}
     if o.get("emit") == "all" and o.get("max_clique", 10 ** 9) >= 10 ** 9 and pairs != derived:
@@ -895,6 +867,48 @@ def traced_layers(image_path, symbols, exclude=(), **opt):
 
 
 # ------------------------------------------------------------------ an extracted twin
+
+OFF_NETWORK = ("is not a member of network", "is on another network")
+
+
+def drop_off_network_lines(S):
+    """For a bundle only (enrich): remove the lines whose two ends the tracer placed on different networks, and any
+    junction no remaining line reaches, and return what was removed. traced_layers() and every score keep those lines
+    and report them as problems, unchanged; enrich() used to refuse the whole drawing instead (first seen on a
+    consultant P&ID's dashed signal line)."""
+    def off(a, b, net):
+        for e in (a, b):
+            if net is None and ((a, b) in S["touching"] or (b, a) in S["touching"]):
+                continue
+            if e in S["junctions"]:
+                if S["junctions"][e]["network"] != net:
+                    return f"{a}-{b}: junction {e} is on another network"
+            elif e not in S["networks"].get(net, ()):
+                return f"{a}-{b}: {e} is not a member of network {net}"
+        return None
+    removed = []
+    for part in ("segments", "instrument_lines", "actuator_stems", "nozzle_stubs"):
+        keep = []
+        for x in S[part]:
+            why = off(*x)
+            (removed.append({"layer": part, "line": why}) if why else keep.append(x))
+        S[part] = keep
+    cut = {x["line"].split(":")[0] for x in removed}
+    S["segment_taps"] = {k: v for k, v in S["segment_taps"].items() if f"{k[0]}-{k[1]}" not in cut}
+    for j in S["junctions"].values():
+        if j.get("on_segment") and f"{j['on_segment'][0]}-{j['on_segment'][1]}" in cut:
+            j.pop("on_segment")
+    ends = {e for part in ("segments", "instrument_lines", "actuator_stems", "nozzle_stubs") for x in S[part] for e in x[:2]}
+    idle = [j for j, v in S["junctions"].items() if j not in ends and not (v["kind"] != "instrument_tap" and v.get("on_segment"))]
+    for j in idle:
+        del S["junctions"][j]
+        removed.append({"layer": "junctions", "line": f"{j}: no remaining line reaches it"})
+    S["segment_taps"] = {k: [t for t in v if t not in idle] for k, v in S["segment_taps"].items()}
+    S["segment_taps"] = {k: v for k, v in S["segment_taps"].items() if v}
+    S["problems"] = [p for p in S["problems"] if not any(m in p for m in OFF_NETWORK)]
+    S["dropped_inconsistent_lines"] = removed
+    return removed
+
 
 def _sheet_symbols(model):
     out = defaultdict(dict)
@@ -942,6 +956,8 @@ def enrich(model, images, **opt):
         if traced != by_pair.get(sheet, set()):
             raise ValueError(f"sheet {sheet}: re-traced links differ from the twin's ({len(traced ^ by_pair.get(sheet, set()))} "
                              "differ); the layers would not describe the same lines")
+        if S["problems"] and all(any(m in p for m in OFF_NETWORK) for p in S["problems"]):
+            drop_off_network_lines(S)
         if S["problems"]:
             raise ValueError(f"sheet {sheet}: " + "; ".join(S["problems"][:5]))
         W, H = S["size"]
