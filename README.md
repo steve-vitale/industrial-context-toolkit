@@ -114,6 +114,10 @@ output.
   [MCP is optional](docs/INTERNAL_CONNECTIVITY.md#if-copilot-already-reads-sharepoint-why-add-mcp).
 - **Want to see it all together?** The [offline map explorer](examples/map-explorer/README.md) puts items,
   sourced questions, relationships, disagreements and revision comparison on one page.
+- **Drafting lists, datasheets or narratives from records you already have?** The
+  [component-draft prototype](examples/map-component-cycle/README.md) reuses ordinary exports, keeps edits and
+  source revisions, and shows disagreements and missing context on an offline review page. Its full path is still
+  being qualified.
 - **Every job the toolkit supports** is in the table [below](#start-wherever-you-are).
 
 ## Tools, tutorials and case studies

@@ -1,0 +1,126 @@
+{
+  "schema": "context-foundation-interim-receiving-status-1",
+  "status": "development_only_goal_and_release_incomplete",
+  "observed_date": "2026-11-09",
+  "product_environment": "isolated_loopback_application_auth_database_native_storage",
+  "product_candidate": "uncommitted_development_not_landed_or_production_promoted",
+  "records": {
+    "matched_maintenance_exit": {
+      "retained_private_receipt_sha256": "491be5462ac6e1f0acdbd4432f90744edb5351305122d7aaa8ae9cca9b40e9ad",
+      "passed": true,
+      "delivery_sha256": "59b01e5751e3c97e98716695f7c3c8b0848f74589b440e04716e6ef7064039c0",
+      "packet_artifacts_exact": 11,
+      "fresh_cli_calls": 3,
+      "exact_mcp_source_readback": true
+    },
+    "document_drawing_exit": {
+      "retained_private_receipt_sha256": "549ea2eb0fd10121a9f8f3e754da355f0e6baae63e52bc3c18168f96389bc5f3",
+      "passed": true,
+      "fresh_cli_calls": 9,
+      "literal_mcp_findings": {
+        "doc": {
+          "reported_result": "2.5",
+          "displayed_unit": "bar",
+          "governing_revision_known": false
+        },
+        "draw-current": {
+          "returned_model": "Assembly {D}"
+        },
+        "draw-history": {
+          "returned_model": "OTHER-CHOICE"
+        }
+      }
+    },
+    "public_entry_replay": {
+      "retained_private_receipt_sha256": "d1636f995d022f4c4e35115a14531146f4e1755efb9ef5063e1865223922a746",
+      "passed": true,
+      "commands": 21,
+      "customer_json_edits": 0,
+      "account_required": false,
+      "supplied_interpretation_rows": {
+        "document": 7,
+        "drawing_per_revision": 4
+      },
+      "source_register_rows": {
+        "document": 4,
+        "drawing_per_revision": 3
+      }
+    },
+    "public_entry_independent_review": {
+      "retained_private_report_sha256": "3df755df332a0d2e3aabcdf9fb9bd4db0801852d17d9ed3a39662359d40ca5b5",
+      "independent_controls": 58,
+      "corrupted_runner_copies": 7,
+      "qualification": "Exposed supplied-interpretation replay; no reader/CAD/product/human qualification"
+    },
+    "scoped_sequential_receiving": {
+      "revisions": [
+        {
+          "revision": 1,
+          "exact_packet_files": 12,
+          "delivery_sha256": "75ebba2b41b75a1b6e1324c6bf141a8595b10447bce6674319bc85164813c187",
+          "retained_private_receipt_sha256": "28f3231cd5f84d36dfbb714751c6efd964ee4c38dc9423aea6cff7dddff57c06"
+        },
+        {
+          "revision": 2,
+          "exact_packet_files": 25,
+          "delivery_sha256": "314cc52f1835a960afa3df09d6c68003281772fb8432e2e4c2f6388f2cb5735a",
+          "retained_private_receipt_sha256": "7282d31f5c207594cd0d11aa0b4e9fa290fbcbb1888643dc4263beac4088b817"
+        },
+        {
+          "revision": 3,
+          "exact_packet_files": 38,
+          "delivery_sha256": "4ccbd574fdb57c43d76ed3ed7e7846f7a20f4f479312a640c8ebfb11b658123c",
+          "retained_private_receipt_sha256": "3ff85fd29dc3586429548f831f7c456c5bd8fe9ddc31fe765433a8e64e1f0bca"
+        }
+      ],
+      "construction": "Each successor constructed after the actual predecessor sealed export and fresh exit",
+      "actual_post_admission_ui_queries": 6,
+      "actual_post_admission_mcp_queries": 7,
+      "independent_retained_evidence_review_sha256": "7312ec3ef9ca7919ca9e54385f0f12f2d40f101a8ec7dc404edabe19f0100134",
+      "qualification": "One selected position and alias source; isolated private source receiving, not engineering acceptance or released integration"
+    },
+    "public_structured_procedural_transfer": {
+      "retained_private_receipt_sha256": "661c85780ca155731af7f183fc86265caa59866b6ea3568af754c26cefc14564",
+      "method_checkpoint": "d1c9ecf45b083a16e4e2641eb3e9a0f450bc9d1f",
+      "cli_commands": 88,
+      "supplied_interpretation_rows": 21,
+      "literal_claims": 20,
+      "receiving_and_withdrawal": [
+        {
+          "exact_packet_files": 38,
+          "delivery_sha256": "09fa26e1f15c7c7c44a4092f0d3ff30acdeec8b9dcf65dd6731adfb9bf143b03",
+          "retained_private_receipt_sha256": "635fc1726a60c35b5c8c0883f3c7cb535df5ced88b9edabf807b2681e7a459a9",
+          "sealed_private_admission": true,
+          "fresh_process_exit": true
+        },
+        {
+          "exact_packet_files": 51,
+          "delivery_sha256": "2ec6c8c1e7d877cf1162128bac518913174f1b8932c33ea39fccd24d84ef0e02",
+          "retained_private_receipt_sha256": "a38846e662d3bd1e22683bb50d3515e6b7794f2e945e3d5399db675f73fbfd11",
+          "sealed_private_admission": true,
+          "fresh_process_exit": true
+        }
+      ],
+      "qualification": "Previously exposed public XML with supplied interpretation, frozen procedure and source-known original key. Success at its frozen method; later parser repair is a different method. Not automatic XML reading, CAD, blind, plant or release qualification."
+    },
+    "second_dialect_failure_and_development_repair": {
+      "first_frozen_attempt": "failed_missing_closed_work_order_physical_item",
+      "completed_cli_calls_before_checker_failure": 2,
+      "retained_private_commands_sha256": "d6538ec6dc7b4305e244e1c52c5a8a0aa9db248ef5283340208cb5c4fc4e16ed",
+      "root_cause": "Ambiguous stdlib dialect sniff failed; permissive comma fallback retained original bytes but omitted usable work-order interpretation.",
+      "classification": "Consumed development case; original failure remains. A repaired pass is not procedural transfer success.",
+      "development_replay_commands": 54,
+      "retained_private_development_receipt_sha256": "1fa9bb1a46600cd603696e6710560c181440d89525068eb1ed34394578b65b51",
+      "repair_review_sha256": "305026ff63c944698e5ae3ba595002e83c2ae1956646a741e06462f1e7fa9c7d",
+      "reserved_next_case": "Third dialect inputs/key independently frozen; no candidate execution credited here."
+    }
+  },
+  "evidence_access": "Private receipt hashes identify retained runs; they do not make private logs independently reproducible. Public entry replay is runnable separately.",
+  "human_effort": "unmeasured",
+  "limits": [
+    "scoped incident-edge, broader identity and final candidate controls remain",
+    "public frozen procedure passed; second dialect failed and became development; reserved third transfer not run",
+    "final regression clean-clone CI independent review and governed landing pending",
+    "no plant engineering acceptance or released integration claim"
+  ]
+}

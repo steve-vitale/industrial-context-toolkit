@@ -1,0 +1,218 @@
+{
+  "schema": "public-structured-transfer-original-oracle-1",
+  "status": "source_and_inputs_frozen_candidate_not_run",
+  "original": {
+    "path": "examples/source-handoff/fixture/I01V01-VER.EX01.xml",
+    "raw_sha256": "cdcb8a3ca7a447acab51957062d1473dd42826cb95798d50b097eedc88fe3269",
+    "bytes": 6144,
+    "lines": 133,
+    "CRLF_pairs": 133
+  },
+  "upstream_commit": "a23d61e2e089eb2ca464cd552f9ae580a2785963",
+  "license": "CC-BY-4.0",
+  "exposure": "Already public repository training source; exposed new-task-route transfer, not blind/heldout or plant evidence",
+  "oracle_basis": "Direct original XML lines only; no adapted model, prediction, generated brief or candidate output consulted for these literals",
+  "interpreter": "Agent-authored supplied interpretation, not independently engineering-reviewed; quotation validation alone is not semantic verification",
+  "receiving_namespace": "PUBDEXPI/I01",
+  "provisional_position_ids": [
+    "PUBDEXPI/I01/positions/T01",
+    "PUBDEXPI/I01/positions/T01/N3"
+  ],
+  "document_record_id": "PUBDEXPI/I01/documents/XML-I01",
+  "original_line_oracles": [
+    {
+      "name": "tank_xml_id",
+      "line": 14,
+      "quote": "ID = \"T01\"",
+      "value": "T01",
+      "type": "text"
+    },
+    {
+      "name": "tank_tag",
+      "line": 15,
+      "quote": "TagName = \"T01\"",
+      "value": "T01",
+      "type": "text"
+    },
+    {
+      "name": "tank_class",
+      "line": 16,
+      "quote": "ComponentClass = \"Tank\"",
+      "value": "Tank",
+      "type": "text"
+    },
+    {
+      "name": "nozzle_tag",
+      "line": 31,
+      "quote": "TagName = \"N3\"",
+      "value": "N3",
+      "type": "text"
+    },
+    {
+      "name": "nozzle_xml_id",
+      "line": 32,
+      "quote": "ID = \"T01_N3\"",
+      "value": "T01_N3",
+      "type": "text"
+    },
+    {
+      "name": "nozzle_class",
+      "line": 33,
+      "quote": "ComponentClass = \"Nozzle\"",
+      "value": "Nozzle",
+      "type": "text"
+    },
+    {
+      "name": "drawing_coordinate_unit",
+      "line": 9,
+      "quote": "Units = \"mm\"",
+      "value": "mm",
+      "type": "text",
+      "scope": "PlantInformation drawing coordinate declaration; not process measurement units"
+    },
+    {
+      "name": "loop_tag",
+      "line": 67,
+      "quote": "TagName = \"01\"",
+      "value": "01",
+      "type": "text"
+    },
+    {
+      "name": "function_tag",
+      "line": 81,
+      "quote": "TagName = \"\"",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "name": "function_class",
+      "line": 82,
+      "quote": "ComponentClass = \"ProcessInstrumentationFunction\"",
+      "value": "ProcessInstrumentationFunction",
+      "type": "text"
+    },
+    {
+      "name": "function_number",
+      "line": 93,
+      "quote": "Value = \"01\"",
+      "value": "01",
+      "type": "text"
+    },
+    {
+      "name": "function_category",
+      "line": 104,
+      "quote": "Value = \"L\"",
+      "value": "L",
+      "type": "text"
+    },
+    {
+      "name": "function_modifier",
+      "line": 110,
+      "quote": "Value = \"I\"",
+      "value": "I",
+      "type": "text"
+    },
+    {
+      "name": "function_location",
+      "line": 98,
+      "quote": "Value = \"CentralLocation\"",
+      "value": "CentralLocation",
+      "type": "text"
+    },
+    {
+      "name": "connection_from",
+      "line": 60,
+      "quote": "FromID = \"T01_N3\"",
+      "value": "T01_N3",
+      "type": "text"
+    },
+    {
+      "name": "connection_to",
+      "line": 61,
+      "quote": "ToID = \"PNS1_S1_C1\"",
+      "value": "PNS1_S1_C1",
+      "type": "text"
+    },
+    {
+      "name": "signal_logical_start",
+      "line": 118,
+      "quote": "ItemID = \"PIF01_PSGF01\"",
+      "value": "PIF01_PSGF01",
+      "type": "text"
+    },
+    {
+      "name": "signal_logical_end",
+      "line": 117,
+      "quote": "ItemID = \"PIF01\"",
+      "value": "PIF01",
+      "type": "text"
+    },
+    {
+      "name": "flange_class",
+      "line": 51,
+      "quote": "ComponentClass = \"BlindFlange\"",
+      "value": "BlindFlange",
+      "type": "text"
+    },
+    {
+      "name": "flange_xml_id",
+      "line": 50,
+      "quote": "ID = \"PNS1_S1_C1\"",
+      "value": "PNS1_S1_C1",
+      "type": "text"
+    },
+    {
+      "name": "tank_contains_nozzle",
+      "line": 30,
+      "quote": "<Nozzle",
+      "target": "PUBDEXPI/I01/positions/T01/N3",
+      "type": "declared_hierarchy_interpretation",
+      "support_range": [
+        13,
+        40
+      ],
+      "scope": "Direct XML child, no physical flow or installed-state inference"
+    }
+  ],
+  "expected_source_count": 1,
+  "expected_entity_count_for_supplied_preparation": 3,
+  "expected_claims": 20,
+  "expected_relationships": 1,
+  "expected_review_status": "unreviewed",
+  "unknowns": [
+    "manufacturer",
+    "model",
+    "serial_number",
+    "rated_flow",
+    "design_temperature",
+    "operating_limits",
+    "trip_settings",
+    "governing_company_owner",
+    "installed_state"
+  ],
+  "forbidden_inferences": [
+    "mm is an engineering measurement unit for every field",
+    "empty tag becomes LI01 or numeric1",
+    "FromID/ToID proves physical flow direction",
+    "signal association proves controller strategy or commands",
+    "generated CSV supplies independent corroboration",
+    "unknown trip data proves missing site protection"
+  ],
+  "required_method_lock": {
+    "provided_by": "root",
+    "state": "not_frozen_for_execution",
+    "method_manifest_sha256": null
+  },
+  "effort": {
+    "original_files": 1,
+    "source_register_rows": 1,
+    "source_register_columns": 6,
+    "supplied_interpretation_rows": 21,
+    "supplied_interpretation_columns": 10,
+    "provisional_position_identity_choices": 2,
+    "document_record_identity_choices": 1,
+    "new_source_parser": false,
+    "human_time_measured": false,
+    "candidate_run": false
+  }
+}

@@ -19,7 +19,7 @@ python scripts/check_claims.py
 python scripts/rescore.py --check
 ```
 
-The first checks the 42 registered numerical claims against their named publication and evidence files.
+The first checks the 43 registered numerical claims against their named publication and evidence files.
 It does not execute a model. The second re-scores saved predictions: 30 of 35 tables regenerate; five earlier
 diagnostic tables lack predictions and report GAP. Holdout-B keys need their separate public download.
 See [reviewing the evidence](REVIEWING.md) for test prerequisites, omissions and reproducibility limits.
@@ -27,9 +27,13 @@ See [reviewing the evidence](REVIEWING.md) for test prerequisites, omissions and
 ## Tool coverage
 
 The [corpus matrix](GENERALIZATION.md) covers eight selected workflows:
-64 cells pass, 23 fail and 8 are not applicable. Pipe tracing reaches F1 0.912 on the OPEN100 validation sheets
-(derived truth, only partly blind), while the mixed vendor-render pool still fails at 0.776. These are tool/input
-checks, not a complete-route success rate. Scan cleanup and daily-cycle historian analysis retain their failures.
+46 cells pass, 10 fail, 5 are not applicable and 34 need data in the current recorded matrix. The missing-data
+cells name absent optional caches; they are neither passes nor evidence that earlier failures were fixed.
+Rows have different run dates, recorded on the matrix page. Pipe tracing reaches F1 0.912 on the OPEN100 validation sheets
+(derived truth, only partly blind). The historical mixed vendor-render pool failed at 0.776; its per-sheet counts
+remain in the [earlier full-cache matrix](../examples/map-component-cycle/history/legacy-generator-rebuild-01/corpus/matrix.json).
+The current vendor cell needs data, so that historical score was not reproduced in the current run. These are
+tool/input checks, not a complete-route success rate. Earlier scan, vendor and historian failures remain evidence.
 
 ## Results (held-out drawings, and how they were used)
 

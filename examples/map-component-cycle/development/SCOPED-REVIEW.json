@@ -1,0 +1,28 @@
+{
+  "schema": "context-development-scoped-review-1",
+  "reviewer": "Independent read-only Codex subagent; inherited model identity not separately attested",
+  "scope": "Early compatibility review and targeted corrective rechecks; not full release review, fresh product Judge, engineering sign-off or receiving-runtime acceptance",
+  "source": "Actual subagent observations in this goal session; public-code-only summary authored by root",
+  "findings": "Initial seven core faults plus later four correction/relationship/physical-state faults and helper annotation retention defect recorded with regression methods and failed code snapshots. Root found the separate mapping order replay failure.",
+  "last_recheck": {
+    "specific_fix": "Helper-supplied and hidden proposals survive edit/reimport/regeneration",
+    "regression": "test_context_packet.PacketWorkflowTests.test_valid_api_annotations_survive_ordinary_edit_and_reimport",
+    "result": "pass",
+    "reported_seconds": 3.4,
+    "archive_sha256": "47decd6aa51cd37037b7e4c4c364d85bfaca03cccd853f556afd2cbac39728c0",
+    "recorded_pins_matched": 12,
+    "retained_test_methods": 37,
+    "regression_cli_calls": 6,
+    "new_findings_in_scoped_recheck": 0
+  },
+  "remaining": "Complete foundation goal, adapters, scope, generator, browser/load/transfer/release and actual authorized product persistence/readback/export remain incomplete.",
+  "reviewed_raw_sha256": {
+    "scripts/context_basis.py": "497c978194764ba55a9bfcdfd4bd2af6a1ccd8ce6270925e128c1fe009f53106",
+    "scripts/context_intake.py": "e5bfa47175ead06b103d70dc60c9ee275b1dcac264110cde20b050c076c6545e",
+    "scripts/context_components.py": "39fc9ca199d6040310d30400a1671d208aea07ced1a00bf29d30f24050f03ca2",
+    "scripts/context_packet.py": "d2b8f6bfd140e2340f8e1da1fdb6f00d2f505af065cbcd7c97423bb0ef093cdf",
+    "scripts/context_workflow.py": "ace96540b13874a9d73940146e8bcb3b29e45ebcf301ebc666787d5b4b78a951",
+    "scripts/test_context_packet.py": "b7c694aa7d2aaf7c5858cbace27c8a84d94e82e900cc50892da69fe146dd7e2b"
+  },
+  "after_review_change": "Extra blank EOF lines removed only; history/eof-format-cleanup.json retains before/after identities. Current37-method replay repinned; the scoped agent recheck preceded this whitespace-only cleanup. Fresh final release/product Judge remains required."
+}

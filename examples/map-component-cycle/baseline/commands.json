@@ -1,0 +1,81 @@
+[
+  {
+    "label": "maintenance-three-revisions",
+    "args": [
+      "examples/maintenance-intake/reproduce.py",
+      "--out",
+      "C:\\Users\\Steve\\.cp-scratch\\map-component-foundation\\out\\map-component-baseline-02\\maintenance"
+    ],
+    "exit_code": 0,
+    "expected_exit": 0,
+    "wall_seconds": 1.1475735999993049,
+    "stdout": "PASS: 5 exposed lifecycle conditions, three reusable intake runs\n",
+    "stderr": ""
+  },
+  {
+    "label": "drawing-receiving",
+    "args": [
+      "examples/drawing-handoff/reproduce.py",
+      "--out",
+      "C:\\Users\\Steve\\.cp-scratch\\map-component-foundation\\out\\map-component-baseline-02\\drawing"
+    ],
+    "exit_code": 0,
+    "expected_exit": 0,
+    "wall_seconds": 1.6285760999890044,
+    "stdout": "{\n  \"commands\": 4,\n  \"checks\": 14,\n  \"all_checks_pass\": true,\n  \"markup_counts\": {\n    \"supported\": 1,\n    \"not_supported\": 2,\n    \"partly_supported\": 1,\n    \"not_verifiable\": 2,\n    \"baseline_mismatch\": 1\n  },\n  \"cad_strict_differences\": 335,\n  \"actual_input_cases\": [\n    \"examples/pid-markup-review/inputs/manifest.json\",\n    \"examples/cad-handoff/source/valve.dxf\"\n  ],\n  \"runner_sha256_lf\": \"ee2b84781ec20a47018d85dc6ed61312c5cdfad3237f529276ef6c6f40ae6b3d\",\n  \"whole_cad_qualified\": false,\n  \"engineering_acceptance\": false\n}\n",
+    "stderr": ""
+  },
+  {
+    "label": "one-map",
+    "args": [
+      "scripts/one_map.py",
+      "build",
+      "examples/one-map/inputs/site.json",
+      "--out",
+      "C:\\Users\\Steve\\.cp-scratch\\map-component-foundation\\out\\map-component-baseline-02\\map"
+    ],
+    "exit_code": 0,
+    "expected_exit": 0,
+    "wall_seconds": 0.304541599994991,
+    "stdout": "{\"nodes\": 63, \"edges\": 114, \"claims\": 79, \"conflicts\": 14, \"questions\": 0, \"events\": 0} rebuilt 4 reused 0 sheet(s); 38 queue rows; 0 reopened -> C:\\Users\\Steve\\.cp-scratch\\map-component-foundation\\out\\map-component-baseline-02\\map\n",
+    "stderr": ""
+  },
+  {
+    "label": "ambiguous-tag",
+    "args": [
+      "scripts/one_map.py",
+      "ask",
+      "--map",
+      "C:\\Users\\Steve\\.cp-scratch\\map-component-foundation\\out\\map-component-baseline-02\\map\\graph.json",
+      "--question-kind",
+      "documents",
+      "--item",
+      "P-101",
+      "--json"
+    ],
+    "exit_code": 0,
+    "expected_exit": 0,
+    "wall_seconds": 0.23258850000274833,
+    "stdout": "{\n \"question\": \"which documents cover or mention P-101\",\n \"kind\": \"documents\",\n \"item\": null,\n \"answer\": \"can't answer from this map\",\n \"reason\": \"P-101 is in 2 scopes (S1/P1/200/P-101, S1/P2/300/P-101); give the qualified id\",\n \"facts\": []\n}\n",
+    "stderr": ""
+  },
+  {
+    "label": "qualified-question",
+    "args": [
+      "scripts/one_map.py",
+      "ask",
+      "--map",
+      "C:\\Users\\Steve\\.cp-scratch\\map-component-foundation\\out\\map-component-baseline-02\\map\\graph.json",
+      "--question-kind",
+      "disagreements",
+      "--item",
+      "S1/P1/200/P-101",
+      "--json"
+    ],
+    "exit_code": 0,
+    "expected_exit": 0,
+    "wall_seconds": 0.2116191999957664,
+    "stdout": "{\n \"question\": \"which records disagree about S1/P1/200/P-101\",\n \"kind\": \"disagreements\",\n \"item\": \"S1/P1/200/P-101\",\n \"answer\": \"answered\",\n \"facts\": [\n  {\n   \"says\": \"P-101 rated_flow: 45 m3/h in the datasheet EQUIPMENT-DATASHEETS (authoritative for rating), 40 m3/h in the maintenance equipment export CMMS-EQUIPMENT\",\n   \"conflict\": \"C-72b8f2dcce\",\n   \"status\": \"open\",\n   \"record_owner\": \"Maintenance\",\n   \"sides\": [\n    {\n     \"says\": \"45 m3/h\",\n     \"source\": {\n      \"document\": \"EQUIPMENT-DATASHEETS\",\n      \"revision\": \"2\",\n      \"locator\": \"row 2\"\n     }\n    },\n    {\n     \"says\": \"40 m3/h\",\n     \"source\": {\n      \"document\": \"CMMS-EQUIPMENT\",\n      \"revision\": \"2026-10-01\",\n      \"locator\": \"row 2\"\n     }\n    }\n   ]\n  }\n ]\n}\n",
+    "stderr": ""
+  }
+]

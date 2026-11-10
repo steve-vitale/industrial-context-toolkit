@@ -1,0 +1,128 @@
+{
+  "schema": "map-component-baseline-failure-1",
+  "kind": "checker-contract-assumption-error",
+  "runner_sha256_lf": "df71258f2a9bba44efb05108f0598f861d927f45bc5b3878e5f7ace8997875ed",
+  "actual_commands": [
+    {
+      "label": "maintenance-three-revisions",
+      "args": [
+        "examples/maintenance-intake/reproduce.py",
+        "--out",
+        "C:\\Users\\Steve\\.cp-scratch\\map-component-foundation\\out\\map-component-baseline-01\\maintenance"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "wall_seconds": 2.3481606999994256,
+      "stdout": "PASS: 5 exposed lifecycle conditions, three reusable intake runs\n",
+      "stderr": ""
+    },
+    {
+      "label": "drawing-receiving",
+      "args": [
+        "examples/drawing-handoff/reproduce.py",
+        "--out",
+        "C:\\Users\\Steve\\.cp-scratch\\map-component-foundation\\out\\map-component-baseline-01\\drawing"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "wall_seconds": 2.0202678000059677,
+      "stdout": "{\n  \"commands\": 4,\n  \"checks\": 14,\n  \"all_checks_pass\": true,\n  \"markup_counts\": {\n    \"supported\": 1,\n    \"not_supported\": 2,\n    \"partly_supported\": 1,\n    \"not_verifiable\": 2,\n    \"baseline_mismatch\": 1\n  },\n  \"cad_strict_differences\": 335,\n  \"actual_input_cases\": [\n    \"examples/pid-markup-review/inputs/manifest.json\",\n    \"examples/cad-handoff/source/valve.dxf\"\n  ],\n  \"runner_sha256_lf\": \"ee2b84781ec20a47018d85dc6ed61312c5cdfad3237f529276ef6c6f40ae6b3d\",\n  \"whole_cad_qualified\": false,\n  \"engineering_acceptance\": false\n}\n",
+      "stderr": ""
+    },
+    {
+      "label": "one-map",
+      "args": [
+        "scripts/one_map.py",
+        "build",
+        "examples/one-map/inputs/site.json",
+        "--out",
+        "C:\\Users\\Steve\\.cp-scratch\\map-component-foundation\\out\\map-component-baseline-01\\map"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "wall_seconds": 0.3894724999991013,
+      "stdout": "{\"nodes\": 63, \"edges\": 114, \"claims\": 79, \"conflicts\": 14, \"questions\": 0, \"events\": 0} rebuilt 4 reused 0 sheet(s); 38 queue rows; 0 reopened -> C:\\Users\\Steve\\.cp-scratch\\map-component-foundation\\out\\map-component-baseline-01\\map\n",
+      "stderr": ""
+    },
+    {
+      "label": "ambiguous-tag",
+      "args": [
+        "scripts/one_map.py",
+        "ask",
+        "--map",
+        "C:\\Users\\Steve\\.cp-scratch\\map-component-foundation\\out\\map-component-baseline-01\\map\\graph.json",
+        "--question-kind",
+        "documents",
+        "--item",
+        "P-101",
+        "--json"
+      ],
+      "exit_code": 0,
+      "expected_exit": 2,
+      "wall_seconds": 0.21539659998961724,
+      "stdout": "{\n \"question\": \"which documents cover or mention P-101\",\n \"kind\": \"documents\",\n \"item\": null,\n \"answer\": \"can't answer from this map\",\n \"reason\": \"P-101 is in 2 scopes (S1/P1/200/P-101, S1/P2/300/P-101); give the qualified id\",\n \"facts\": []\n}\n",
+      "stderr": ""
+    }
+  ],
+  "checks": [
+    {
+      "check": "original document fact lines",
+      "passed": true
+    },
+    {
+      "check": "original document missing context",
+      "passed": true
+    },
+    {
+      "check": "original equipment identities and serials",
+      "passed": true
+    },
+    {
+      "check": "closed installation and open proposal differ",
+      "passed": true
+    },
+    {
+      "check": "maintenance-three-revisions expected exit",
+      "passed": true
+    },
+    {
+      "check": "three actual conflict counts",
+      "passed": true
+    },
+    {
+      "check": "same functional position retains new installation discrepancy",
+      "passed": true
+    },
+    {
+      "check": "closed order source values retained",
+      "passed": true
+    },
+    {
+      "check": "vanished discrepancy is not accepted correction",
+      "passed": true
+    },
+    {
+      "check": "drawing request original literal basis",
+      "passed": true
+    },
+    {
+      "check": "drawing-receiving expected exit",
+      "passed": true
+    },
+    {
+      "check": "drawing release remains unaccepted",
+      "passed": true
+    },
+    {
+      "check": "one-map expected exit",
+      "passed": true
+    },
+    {
+      "check": "ambiguous-tag expected exit",
+      "passed": false
+    }
+  ],
+  "cause": "The baseline checker assumed an ambiguous tag must exit 2. Existing one_map.ask actually returns exit 0 with item null, no facts and an explicit qualified-scope clarification. The existing tool did not resolve the ambiguity or fabricate an answer.",
+  "correction": "Check exact structured abstention and both qualified alternatives; retain successful qualified lookup separately. No production method or acceptance requirement is changed.",
+  "product_receiving": "not run"
+}

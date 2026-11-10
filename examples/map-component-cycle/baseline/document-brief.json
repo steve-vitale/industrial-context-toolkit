@@ -1,0 +1,13 @@
+{
+  "operator": "root coding agent; fixture and key exposed",
+  "finding": "FIC-101 reads FT-101 and adjusts FV-101; no valve fail position or trip setting is supplied.",
+  "source": "examples/from-description/assisted/source.txt",
+  "locators": [
+    "line 7",
+    "line 8"
+  ],
+  "source_sha256": "4b36c932249a9db29c782771dd2cf6b76466a390e3565faf2a55aaa5ad4a196f",
+  "plant_acceptance": "not performed",
+  "software_route": "Agent-authored plain brief; no graph, signup or model call",
+  "human_time": "not measured"
+}

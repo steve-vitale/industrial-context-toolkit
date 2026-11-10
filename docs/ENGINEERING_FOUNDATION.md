@@ -30,6 +30,72 @@ and revision comparison, then use that shared context to draft its component rec
 Portable exports and bounded receiving checks support later adoption by ChangePilot
 or another tool without making the toolkit an operated context-management service.
 
+## From the records you have to a maintained foundation
+
+Start with one useful question. You do not need to buy a product, finish a plant
+graph or enter the same facts into several templates before getting an answer.
+
+| Step | Engineer or agent does | Value and retained work |
+|---|---|---|
+| Bring a small permitted sample | Inspect existing exports, documents or the original/marked-up/returned drawing set. Confirm only identities, meanings and access that affect the question. | A useful first finding with original source locations, disagreements and missing evidence. No signup required. |
+| Keep the basis | Retain scoped identities, exact permitted originals, source revisions, mappings and supplied interpretations in the supported packet. | The next question starts from existing context. Preparation and engineering review remain visible work; an agent does not infer authority from a matching tag. |
+| Use and revise it | Query facts and relationships, inspect sources, derive supported component drafts, retain editorial proposals and bring the next source revision. | Reuse facts across outputs and identify what changed. Drafts stay traceable to their basis; copies do not become additional corroboration. |
+| Transfer a declared scope | Check the receiving product's installed contract, permissions and limits; deliver the retained packet through its supported import. Have the recipient read back the original facts, conflicts, sources and history. | Carry the prepared context forward without typing its retained facts again. Unsupported fields, preparation and receiving steps must be disclosed before relying on the transfer. |
+| Maintain it in an agreed home | Name authoritative source homes, accepted-fact owners and the refresh/support responsibility. Exercise another revision, loss of access, retry/recovery and complete export. | A maintained service becomes valuable when shared reliance outgrows the team's current arrangements. The company still owns engineering acceptance and its master records. |
+
+The [task-first guide](AGENT_START_HERE.md) owns choosing and completing the first
+job; the [component exercise](../examples/map-component-cycle/README.md) owns the
+bounded common-basis commands. Do not ask a customer to rewrite JSON or re-enter
+facts already retained in a supported input. Ask for a genuine identity, source
+meaning or permission decision when it changes the result, and retain that answer
+for the next revision. Count source interpretation, mappings, setup, retries and
+review when assessing friction; zero JSON editing alone does not prove low effort.
+
+**ChangePilot receiving is being qualified, not offered here as a released
+integration.** The active [acceptance plan](../examples/map-component-cycle/PLAN.md)
+requires real product persistence, private human/agent readback, revision and
+conflict handling, interrupted/repeated delivery, access withdrawal and complete
+export/reopen. Toolkit packet verification cannot substitute for those checks.
+Keep using the offline foundation while the receiving contract is unfinished;
+do not repeat preparation just to demonstrate a product. A managed service's
+value must be continuing access, accountable maintenance, history and recovery
+for the agreed scope, demonstrated in that service, rather than another copy of
+the same documents. Existing company tooling may already meet that need.
+
+### What makes a customer ready to transfer
+
+Readiness applies to an agreed **context scope**, not a complete plant graph.
+A manager can start with two exports and one unresolved question. They do not
+need a P&ID, CAD session, historian connection or completed datasheets to use
+that evidence. Missing records remain questions to answer later.
+
+Before transferring, show the customer a short receiving brief:
+
+| Explain | Concrete receiving check |
+|---|---|
+| The useful result | Ask the same engineering question before and after import. Compare the actual values, original source locations, disagreement and uncertainty; a successful upload is insufficient. |
+| The included scope | Name the site/unit/items, history and exact original files. Inspect complete included files for other-unit or confidential content; selecting graph rows does not redact their original files. |
+| The remaining work | List unknown identity, source authority, interpretation and unsupported formats. Preserve them rather than making the customer complete every field before first use. |
+| The continuing owner | Identify where released drawings, CMMS records and accepted engineering facts belong, who refreshes this context and how the next source revision enters it. |
+| The exit path | Export the declared scope from the receiving service and reopen it independently, including its original evidence and retained history. |
+
+For the customer, the desired interaction is to review that brief, sign in through
+the receiving service's normal flow, select the prepared package and inspect the
+same finding. An agent can prepare the package and reuse retained mappings;
+the customer should not rebuild a graph or type its facts into another set of
+forms. Clarifications about identity, permission and engineering meaning remain
+real decisions. Installation, extraction, review, navigation and recovery effort
+still count when assessing friction.
+
+ChangePilot earns the next step when a team needs continuing authorized access,
+reliable revisions, retained decisions and recovery around that shared context.
+Agree and demonstrate those responsibilities for the selected scope. SharePoint
+can remain the authoritative document home, and an existing Copilot can keep
+using it. A receiving context query adds exact retained item/fact/history access;
+MCP is an optional interface and does not inherit document permissions or replace
+engineering review. The qualification plan above must pass before describing
+this intended customer interaction as a released ChangePilot capability.
+
 ## One engineering model, many draft components
 
 **Intended architecture:** the map is the reusable engineering context behind the
@@ -44,6 +110,14 @@ every component. The [current contracts](WORKFLOWS.md) still include separate
 generator models and authored drawing layouts. The existing context-map format
 [design](CONTEXT_MAP_FORMAT.md#how-todays-toolkit-formats-fit-in) already proposes
 making those models views of the map; that reverse path remains unimplemented.
+The [bounded common-basis prototype](../examples/map-component-cycle/README.md)
+now reuses ordinary record exports for three draft components with retained edits
+and revision impact. Its offline review lets an engineer inspect component fields
+and download a basis-bound proposed text edit without writing JSON. This does not yet project existing one-map exports into the
+generator model. Its bounded `generate` route projects supported source-declared
+equipment from the common basis into the existing generator, with readable SVG
+and equipment-only platform scaffolds; it infers no piping, controls or live
+signal mappings. Complete managed-product qualification remains unfinished.
 
 ```mermaid
 flowchart LR
@@ -146,14 +220,22 @@ cross-session memory, new native CAD capabilities or a managed action service.
 
 ### The next implementation depth
 
-Deepen the agent query surface and implement a bounded **map-to-generator-model
+Deepen the agent query surface and qualify the bounded **common-basis-to-generator
 projection**, then exercise several components from the same selected context.
 Before widening targets, retain a matched case showing that a fact is sourced
 consistently across drafts, an omitted fact stays unknown, a disputed fact stays
 disputed, and a source revision identifies the affected output fields while
 unrelated context remains unchanged. Include a generated-document reimport
-control that cannot inflate independent support. This is the missing generative
-path behind the explorer; it is not yet supplied by the explorer itself.
+control that cannot inflate independent support. The equipment-only record-basis
+bridge is a first implemented path; a general projection from existing explorer
+maps into every generator contract remains unfinished.
+
+The [active implementation goal](../examples/map-component-cycle/PLAN.md) defines
+the customer path from ordinary records to a useful finding, shared context,
+component drafts and actual ChangePilot receiving. Its
+[required acceptance cases](../examples/map-component-cycle/ACCEPTANCE.json)
+remain incomplete. Focused development checks are narrower than those full
+criteria and do not establish released product compatibility.
 
 ## The broader foundation and its owners
 
@@ -187,7 +269,7 @@ From the first job, retain a handoff basis:
 Record what is actually supplied or unknown in that basis. A named local reviewer
 does not establish authenticated approval. A snapshot does not establish an
 operated refresh service. The existing [record lifecycle](CONTEXT_LIFECYCLE.md)
-owns those distinctions. No implemented ChangePilot import or live synchronization
+owns those distinctions. No released ChangePilot import or live synchronization
 is claimed here; qualify the chosen receiving route. Assess improvements by the
 useful job completed **and** the reusable, maintainable foundation it leaves.
 
@@ -314,3 +396,32 @@ Company acceptance, authenticated publication, maintained connectors and a verif
 remain integration work. Controlled documents, work orders and operating data can stay in their existing systems.
 Use approved exports, replicas or local-only work where required; the roadmap requires no new OT network path
 or cloud processing. See [connectivity](INTERNAL_CONNECTIVITY.md) for the actual choices and boundaries.
+
+### Explicit scoped portable record packets
+
+The [record workflow](WORKFLOWS.md) distinguishes ordinary draft selection from explicit
+`records_scoped_v1` packet projection. Scope preview lists every included whole file and requires its
+exact digest as a permission declaration before packaging. Unrelated structured records, source files
+and history are omitted; included whole files can still contain unrelated content. No row-redaction,
+authentication or company-acceptance claim follows. Typed edges keep their original direction and IDs.
+Incoming identity-only subjects are explicitly unexpanded `external_subject_reference` records, excluded
+from default draft targets; missing context refuses expansion instead of becoming a known empty entity.
+
+Scoped historical corrections retain the original immutable proposal and full-parent commitment while
+replaying only the selected field/source witness. They do not verify an omitted whole parent basis or
+authentic origin. New edits require the original permitted whole packet followed by a new explicit preview
+and scoped package. Scoped delivery/reopen is a separate local contract; managed receiving must explicitly
+support it before acceptance is claimed. Existing whole/full and whole/compact replay semantics remain.
+
+Fully retained supporting records may be explicitly targeted in scoped materialization, while default
+targets remain the original selection. Dependency exports use the distinct
+`engineering-scoped-component-materialization-1` envelope: the existing component draft, exact supporting
+context, and a text appendix within the single delivered JSON. Maintenance records are not relabeled as
+assets; unsupported components retain empty items and explicit gaps. Identity-only external references
+remain nonselectable. Original whole/default materialization keeps its existing contract.
+
+Scoped identity-crosswalk replay retains whole disclosed bytes while interpreting only retained subjects'
+original rows and source declarations. A unique alias inside an explicitly selected projection is not a
+global or namespace-wide identity claim. Full-input ambiguity refuses before selection, and inactive alias
+evidence remains readable without activating lookup. Omitted subjects' aliases are not imported merely
+to preserve a wider lookup context.

@@ -310,3 +310,8 @@ examples/foundation-cycle/worked/** -text linguist-generated=true whitespace=cr-
 examples/map-explorer/** -text whitespace=cr-at-eol,-blank-at-eof,-trailing-space
 examples/map-explorer/worked/** linguist-generated=true
 examples/cad-handoff/qualification/full-ui-22/CI-427-FAILURE-EXCERPT.txt -text whitespace=cr-at-eol,-blank-at-eof,-trailing-space
+# Goal inputs and baseline receipts retain the exact bytes used by their source keys.
+examples/map-component-cycle/inputs/** -text
+examples/map-component-cycle/baseline/** -text linguist-generated=true whitespace=cr-at-eol,-blank-at-eof,-trailing-space
+examples/map-component-cycle/history/** -text whitespace=cr-at-eol,-blank-at-eof,-trailing-space
+examples/map-component-cycle/development/** -text linguist-generated=true whitespace=cr-at-eol,-blank-at-eof,-trailing-space
