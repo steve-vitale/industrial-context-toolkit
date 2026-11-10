@@ -134,8 +134,10 @@ generated publications and corpus results plus a checkout line-ending mismatch.
 Affected publications were rebuilt with their documented commands; their earlier
 versions remain in [history](history/legacy-generator-rebuild-01/MANIFEST.json).
 Independent comparison preserves the earlier engineering content and explicitly
-inherits unchanged review scope. Targeted checks pass; the final full suite and
-CI must still be rerun. The current 95-cell corpus matrix includes 34
+inherits unchanged review scope. The subsequent local cached-data run passed
+113/113 scripts, with 23 individual unittest cases skipped and three platform
+notices. This is not complete runtime or plant acceptance; exact-tip CI and
+full-goal release qualification remain separate. The current 95-cell corpus matrix includes 34
 `needs-data` cells and 10 failures. Missing optional public caches do not count
 as passes; the earlier matrix and its failures remain available in history.
 

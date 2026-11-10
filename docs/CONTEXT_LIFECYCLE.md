@@ -181,20 +181,32 @@ as three participant roles. These are proposed integration acceptance cases, not
 performance tests:
 
 1. Prepare independently identifiable, source-backed packets with model/graph/context, pinned source versions,
-   reviewed identity mappings and visible unknowns. Equal tags in different sites cannot silently join equipment.
+   reviewed identity mappings and visible unknowns. Equal tags in different sites or units cannot silently join equipment.
 2. Introduce a subsequent source revision, reconcile its pin and explicitly refresh. Dependent consumers reopen;
    independently sourced work stays current. Keep complete previous evidence and decisions and show why answers
    reopened. A changed source cannot authorize editing another team's controlled originals.
 3. Stage each packet in the receiving system. Its owner reads back identities, typed relationships, locators,
    owners, questions, disputes and history, and resolves mappings and omissions before organizational acceptance.
+   Ask the same engineering question through an ordinary receiving-system query, not only its archive viewer:
+   "Which unit's P-9187 is this, and which serial number do the records support?" Two source accounts for one
+   position must remain distinguishable; a same-tag position in another unit must stay separate. Show citations,
+   unresolved applicability and missing evidence. A successful upload or source-text view alone does not prove
+   that the receiving system's engineering consumers can use the retained context.
 4. Submit two proposals from the same base. The company acceptance route must preserve both conflicting claims
    and detect an outdated target before replacing it. Demonstrate manual-edit reconciliation, repeated and rejected
    jobs, interruption recovery and restoration of the previous version without losing history.
 5. Test different user permissions, excluded sources, revocation and bounded readback in the actual receiving
    system and approved client. A local test client or separate snapshot selection does not prove access enforcement.
+   Carry each source's sharing ceiling through extracted facts, conflict summaries, search results and exports.
+   Access to selected evidence must not require access to unrelated company history. Before sharing, explain
+   whether the destination makes facts available to the selected people or the whole organization; do not
+   silently widen visibility to fit its existing storage model. Distinguish an access refusal from absent data.
 6. Export an accepted version through a declared projection, run one generator and an appropriate check, and
    retain its receipt and draft differences. The responsible company reviewers authorize release. Confirm that
    only declared dependencies drive proposed rebuilds and that the next owner can reconstruct the handoff.
+   Retain a source's revision occurrences even when a value is unchanged, and retain a generated document's
+   original roots without counting it as independent corroboration. Reusing a document number for deduplication
+   is not by itself proof of either revision history or complete derivative lineage.
 7. Measure human review effort and whether the intended users benefited. Keep unsuccessful attempts and require
    actual participant observations through the [acceptance exercise](ACCEPTANCE.md).
 
