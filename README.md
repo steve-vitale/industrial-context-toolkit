@@ -2,83 +2,119 @@
 
 [![tests](https://github.com/steve-vitale/industrial-context-toolkit/actions/workflows/tests.yml/badge.svg)](https://github.com/steve-vitale/industrial-context-toolkit/actions/workflows/tests.yml)
 
-**Open source tools and repeatable methods for maintenance and engineering teams.** Reconcile equipment and
-work-order records, investigate asset work histories with related parts/labor evidence, prepare drawing recovery,
-check a consultant's P&ID markups, review editable CAD returns,
-and retain shared engineering context. Prepare sourced draft models from supplied P&ID readings, descriptions
-and supported DEXPI exports, with authored layouts for detailed draft drawings. Check supplied ports and
-cross-sheet paths; prepare document/photo field candidates; analyze
-recorded process and batch data; and generate Ignition/PI staging files. Sources, revisions, review states and
-unresolved disagreements stay visible as the work moves between tools and people.
+**Turn your P&IDs, equipment lists and work orders into one sourced map of your plant that people and agents can
+check, question and keep current.**
 
-**Build and use your engineering context map.** Connect equipment, drawings,
-documents and observations; trace answers to their sources; inspect disagreements;
-and see what needs rechecking when a source changes. This is the toolkit's focus.
-The [offline map explorer](examples/map-explorer/README.md) puts item navigation,
-sourced questions, relationships, disagreements and revision comparison together;
-an agent can use the same exported records directly.
-Company systems or a managed product own work assignment, job readiness, approvals
-and ongoing service operations.
+Give it a P&ID as a PDF or image and you get back:
 
-Each job should leave reusable
-asset identities, source-linked context, review history, ownership and a path to
-keeping the records current. As ongoing use needs managed maintenance,
-auditability and a single source of truth, carry that foundation into
-**ChangePilot or another suitable tool**. The
-[foundation roadmap](docs/ENGINEERING_FOUNDATION.md) explains the handoff and
-record authority; receiving-tool imports and ongoing service controls need their
-own qualification. The [selected-unit handoff](docs/FOUNDATION_HANDOFF.md) connects
-prepared history, drawing findings and notes through explicit scoped mappings,
-then exercises toolkit receiving, revisions, conflicting proposals and export/reopen.
+1. **A draft asset model:** equipment, instruments, valves, off-page connectors and the links between them, each
+   boxed on the drawing it came from.
+2. **A review queue and one-page report:** what was found, what to check first and what is still unknown.
+3. **A portable graph and investigation questions:** for an agent, a query, or staging files for Ignition and PI.
 
-The repository also contains worked tutorials, assembled screen/replay/3D demonstrations and reproducible
-task/model benchmarks. These support different parts of a maintained digital twin and engineering knowledge base;
-the [supported workflows](docs/WORKFLOWS.md) state which inputs and outputs connect today.
-Manual calculation/automation handoff worksheets, engineering onboarding and scoped consulting forms complement
-the executable tools. They add no simulator, PLC deployment or managed alert service.
+Then connect the drawings with your maintenance exports, instrument index and documents. Disagreements between
+records stay visible, each sent to the owner of that record.
 
-**Status:** prototypes tested on public and fictional inputs. Outputs need engineering review; site accuracy,
-live mappings and receiving-platform acceptance need evidence from your environment. The
-[feature reference](docs/FEATURES.md) distinguishes examples with an independent agent/model review from those
-awaiting one; those reviews are not engineering sign-offs.
+[![A P&ID with every extracted item boxed, and the counts a reviewer starts from](assets/report-preview.png)](examples/own-drawing/deliverable/REPORT.html)
 
-**Maintenance or engineering manager?** [Start with the decision you need to make](docs/MANAGERS_START_HERE.md).
-The [manager review packet](examples/manager-review/README.md) gives you a no-install brief, owner actions and
-copyable scope/review/effort forms. Use the tools below when you or your team are ready to prepare your own records.
-For consultant drawing returns, follow the [engineer-to-manager receiving workflow](docs/DRAWING_HANDOFF.md):
-requested changes, source evidence, correction actions and the organization's receiving decision.
-The [CAD qualification summary](docs/CAD_QUALIFICATION.md) separates supported attribute proposals
-and receiving checks from the tested native full-save and paper-delivery failures.
-The [frozen ten-case CAD validation](examples/cad-handoff/qualification/final-validation-23/README.md)
-reports attribute preservation, deliberately wrong controls and actual native results separately.
-Its declared native executions are complete: full-save preservation and complete readable
-output fail. Passing field or masked pixel checks does not close those failures.
-The [worked resubmission](examples/drawing-handoff/resubmission-worked/BRIEF.md) uses
-the reusable command to show which findings change after correction and what stays unresolved.
-Changed request scope and missing evidence remain explicit; engineering disposition stays pending.
+*A public sheet read by the toolkit: every extracted item boxed by type, with the counts a reviewer starts from.
+[Open the full sample report.](examples/own-drawing/deliverable/REPORT.html)*
 
-**Using an agent?** Point it at this repository and ask:
+## Quick start: see it in one minute, offline
 
-```text
-Read README.md and docs/AGENT_START_HERE.md. Help me choose and finish one useful
-maintenance or engineering job using the records I have. Show a concrete example
-if I have not supplied records yet. Ask only what changes the next step.
-```
+No accounts, model calls or extra packages. You need [Python](https://www.python.org/downloads/) 3.10 or newer.
 
-The [reusable maintenance intake](docs/MAINTENANCE_INTAKE.md) turns your explicitly mapped equipment and work-order
-exports into a sourced offline packet, with no P&ID required. It retains earlier packets for returned exports and
-later replacements. The [fresh-agent rehearsals](examples/agent-rehearsal/README.md) retain actual sessions and
-their limitations. Self-service use needs no contact with the author.
+1. **Get the repository.** Click the green **Code** button above, then **Download ZIP**, and unzip it
+   (or `git clone https://github.com/steve-vitale/industrial-context-toolkit`).
+2. **Open a terminal in that folder** and run:
 
-For recurring-work questions, the [maintenance-history workflow](docs/MAINTENANCE_HISTORY.md)
-turns explicitly mapped exports into an offline manager brief and sourced asset histories,
-with booked-hours ledgers, unknowns and actions. [Try it offline](examples/maintenance-history/README.md)
-before substituting your records. Recurrence is a review candidate; it does not establish failure or root cause.
+   ```sh
+   python -S scripts/import_site_drawing.py --manifest examples/own-drawing/manifest.json --out my-bundle
+   python -S scripts/deliverable_report.py my-bundle
+   ```
 
-**Already using Copilot with SharePoint?** Use that access for document questions and comparisons. Toolkit
-reports and tables can stay there too. [MCP is optional](docs/INTERNAL_CONNECTIVITY.md#if-copilot-already-reads-sharepoint-why-add-mcp):
-it exposes named queries into prepared records or separately implemented services. This repo's starter serves
-read-only snapshots; it does not search SharePoint, refresh sources or connect to a live CMMS/historian.
+3. **Open `my-bundle/REPORT.html`.** That's the report above, built on your machine from a committed drawing and
+   a saved extraction.
+
+## Use it on your own drawings with Claude Code
+
+No programming is needed. You need [Claude Code](https://code.claude.com/docs/en/overview) (desktop app or
+terminal) and Python 3.10 or newer.
+
+1. **Download the repository** as above and unzip it.
+2. **Open the folder in Claude Code.** In the desktop app, start a new Code session and choose the folder. The
+   included [`pid-to-context-map` skill](.claude/skills/pid-to-context-map/SKILL.md) loads by itself.
+3. **Put your P&ID in the folder** and ask, for example:
+
+   > Turn `unit-40.pdf` into a context map. The P&IDs are pages 3 to 6.
+
+4. **Claude sets things up and runs the steps.** It asks before sending your drawing to a hosted model and keeps
+   your files in `work/`, which git ignores. Expect a few minutes per sheet.
+5. **Check the result by asking questions you can verify on the drawing:**
+
+   > What is connected to the heat exchanger? Which off-page connectors lead to the cooling water system?
+   > What should I check first?
+
+Using Codex, Copilot or another agent? Point it at this repository and ask it to read
+[docs/AGENT_START_HERE.md](docs/AGENT_START_HERE.md) and help with one job using your records.
+
+## How it works
+
+**A model reads the drawing; tested scripts do everything else.** The model reads overlapping tiles of each sheet
+with a frozen prompt. A code line tracer finds the connections. The scripts then build the asset model, review
+queue, report, questions and graph the same way every time.
+
+| Step | What happens |
+|---|---|
+| **Prepare** | Each page is rendered at a size the line tracer was tuned for. Scans can be cleaned on a separate copy; the original stays the source. |
+| **Read** | Overlapping tiles go to the model with [the extraction prompt](extraction/prompt_v2.md). Symbols get a class, tag, box and confidence. |
+| **Trace** | Code follows the drawn lines between symbols, locally, in seconds. |
+| **Build** | The intake writes the draft model, review queue, drawing overlay and Ignition/PI staging, with the source of every item. |
+| **Question** | The question engine and graph export turn the model into investigation questions and a portable graph. |
+
+**The reader is measured and replaceable.** Every reader is scored on the same public drawings beside
+deliberately wrong answers on the [reader leaderboard](benchmarks/LEADERBOARD.md). A reader that can't beat
+those wrong answers hasn't shown anything. Trained models and commercial digitizers may read lines better; plug one
+in through [PLUG_IN_A_READER.md](docs/PLUG_IN_A_READER.md) and the same review, source and export tools use its
+output.
+
+## What you get
+
+| File | What it is |
+|---|---|
+| `REPORT.html` | The drawing with every extracted item boxed, counts, review status and next steps |
+| `review_queue.csv` | One row per item for a reviewer to confirm, correct or reject |
+| `plant_model.json` | The draft model: assets, represented connections and the source of each |
+| `svg/sheet_0.svg` | The extracted links drawn over the sheet |
+| `ignition/tags.json`, `pi/` | Draft Ignition tags and PI AF staging, with placeholder values until mapped |
+| `screen.md`, `graph.json` | Investigation questions with their evidence, and a portable graph for agents and queries |
+
+## Limits
+
+- **Everything is a draft.** It must be reviewed by a qualified engineer before use in design, operations,
+  management of change or safety studies such as HAZOP or LOPA.
+- **Accuracy depends on the drawing.** The public benchmark numbers don't transfer automatically to your drafting
+  style. Faded scans need much more review. Measure a reader on your own sheets with the
+  [vendor-evaluation kit](examples/vendor-evaluation/README.md).
+- **Tested on public and fictional inputs only.** No plant acceptance, timed review or live signal mapping is
+  established. [Results and limits](docs/RESULTS.md) has the details.
+- **Your company systems stay in charge** of approvals, assignments and continuing ownership. When shared
+  context needs managed upkeep, carry it into ChangePilot or another suitable tool
+  ([foundation roadmap](docs/ENGINEERING_FOUNDATION.md)).
+
+## More ways in
+
+- **Maintenance or engineering manager?** [Start with the decision you need to make](docs/MANAGERS_START_HERE.md),
+  or read the no-install [manager review packet](examples/manager-review/README.md).
+- **No P&ID?** [Reconcile equipment and work-order exports](docs/MAINTENANCE_INTAKE.md) or
+  [investigate recurring work on assets](docs/MAINTENANCE_HISTORY.md).
+- **Receiving consultant drawings?** Check [P&ID markups and returned revisions](docs/DRAWING_HANDOFF.md) and
+  [editable CAD returns](docs/CAD_QUALIFICATION.md).
+- **Already using Copilot with SharePoint?** Keep using it for document questions;
+  [MCP is optional](docs/INTERNAL_CONNECTIVITY.md#if-copilot-already-reads-sharepoint-why-add-mcp).
+- **Want to see it all together?** The [offline map explorer](examples/map-explorer/README.md) puts items,
+  sourced questions, relationships, disagreements and revision comparison on one page.
+- **Every job the toolkit supports** is in the table [below](#start-wherever-you-are).
 
 ## Tools, tutorials and case studies
 
@@ -129,35 +165,6 @@ See [working together](docs/WORK_WITH_ME.md) for inputs, deliverables and how a 
 **Prefer a first result without installation?** Use the [first-question guide](examples/first-pilot/README.md)
 by hand or with company-approved Copilot. For a team assignment, the [organization starting guide](docs/ORGANIZATION_START.md)
 separates ready-to-run steps, source preparation and continuing ownership. [Dependencies](docs/DEPENDENCIES.md) vary by route.
-
-## Try one concrete result
-
-The [public-sheet tutorial](examples/own-drawing/README.md) uses a committed drawing and saved extraction to
-build a draft asset model and review bundle offline. From a clone's repository root with Python 3.10 or newer,
-choose a new output directory (`my-bundle` must not already exist):
-
-```sh
-python -S scripts/import_site_drawing.py --manifest examples/own-drawing/manifest.json --out my-bundle
-python -S scripts/deliverable_report.py my-bundle
-```
-
-No accounts, model calls or additional packages are needed for this worked example. Open
-`my-bundle/REPORT.html` to inspect the drawing, extracted items, review states and next steps.
-The bundle includes:
-
-```text
-my-bundle/
-  plant_model.json          Draft assets and represented connections
-  review_queue.csv          Items for a reviewer to confirm, correct or reject
-  svg/sheet_0.svg           Logical links over the drawing
-  ignition/tags.json        Draft tags with unmapped placeholder values
-  pi/                      PI AF staging and receiving-system instructions
-  REPORT.html              Readable review report
-```
-
-The [committed sample report](examples/own-drawing/deliverable/REPORT.html) shows the same kind of output.
-This is a public development-sheet demonstration, not a new accuracy result. To use your own drawing, follow
-the tutorial's input and extraction steps, then review the model and supply the mappings your target system needs.
 
 ## Build and maintain a context map
 
