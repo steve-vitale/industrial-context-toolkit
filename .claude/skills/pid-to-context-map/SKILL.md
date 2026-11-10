@@ -1,6 +1,6 @@
 ---
 name: pid-to-context-map
-description: Turns a P&ID (PDF, scanned PDF or PNG) into a sourced draft asset model, a review queue, a one-page HTML report, investigation questions and a portable context-map graph, using this repository's benchmarked reader (tiled model reading plus a code line tracer). Use when the user wants to digitize, extract or review a P&ID, build an asset list, digital-twin starter, graph or engineering context from drawings, or asks "what can this repo do with my drawing?".
+description: Turns a P&ID or a whole drawing set (PDF, scanned PDF or PNG) into a sourced draft asset model with off-page connectors paired across sheets, a review queue, a one-page HTML report, a tag check against the PDF's own text, investigation questions and a portable context-map graph, using this repository's benchmarked reader (tiled model reading plus a code line tracer). Use when the user wants to digitize, extract or review a P&ID, build an asset list, digital-twin starter, graph or engineering context from drawings, or asks "what can this repo do with my drawing?".
 ---
 
 # P&ID to context map
@@ -53,10 +53,11 @@ Copy this checklist into your notes and tick it off:
 ```
 - [ ] 1. Pages:    render each P&ID page to work/<plant>/sheets/<n>.png, about 3,000 px wide
 - [ ] 2. Read:     run_extraction.py (tiles), then trace_connections.py, per sheet
-- [ ] 3. Bundle:   a manifest per sheet, then import_site_drawing.py (--check-only first)
+- [ ] 3. Bundle:   one set manifest for all sheets, then import_drawing_set.py (--check-only first)
 - [ ] 4. Report:   deliverable_report.py, then open REPORT.html
-- [ ] 5. Context:  question_engine.py and graph_export.py (then graph_export.py --check)
-- [ ] 6. Explain:  counts, what to check first, open questions, limits
+- [ ] 5. Tags:     for a PDF, pdf_tag_check.py against the PDF's own text
+- [ ] 6. Context:  question_engine.py and graph_export.py (then graph_export.py --check)
+- [ ] 7. Explain:  counts, cross-sheet pairs, tag check, what to check first, limits
 ```
 
 ### 1. Pages
@@ -92,64 +93,83 @@ The reading takes a few minutes per sheet; the tracer takes seconds. The result 
 
 ### 3. Build the draft bundle
 
-Write `work/<plant>/sheets/manifest-0.json` (paths are relative to the manifest):
+Use one manifest for the whole set, even for a single sheet. Read each sheet's **drawing number** and **title** from
+its title block (open the sheet image and look); they are what pair off-page connectors across sheets. Write
+`work/<plant>/sheets/set.json` (paths are relative to the manifest):
 
 ```json
 {
- "schema_version": "site-drawing-intake-1",
- "drawing_id": "<drawing number from the title block>",
- "revision": "<revision from the title block>",
- "page": 1,
- "image": "0.png",
- "extraction": "../../../runs/<plant>-trace/claude/0.json",
+ "schema_version": "site-drawing-set-1",
+ "set_id": "<plant or unit name>",
  "extraction_format": "run-record",
- "producer": {"method": "2x2 tiles with extraction/prompt_v2.md, then the code line tracer", "tool": "claude", "model": "<the run record's model field>"},
- "system_name": "<plant or unit name>"
+ "producer": {"method": "2x2 tiles with extraction/prompt_v2.md, then the code line tracer", "tool": "claude", "model": "<the run records' model field>"},
+ "sheets": [
+  {"drawing_id": "<drawing number>", "revision": "<revision>", "page": 13, "image": "0.png",
+   "extraction": "../../../runs/<plant>-trace/claude/0.json", "drawing_number": "<drawing number>", "title": "<title>"}
+ ]
 }
 ```
 
+Add one entry per sheet, in the same order as the PNGs; `page` is the PDF page number. Then:
+
 ```sh
-python -S scripts/import_site_drawing.py --manifest work/<plant>/sheets/manifest-0.json --out work/<plant>/bundle-0 --check-only
-python -S scripts/import_site_drawing.py --manifest work/<plant>/sheets/manifest-0.json --out work/<plant>/bundle-0
+python -S scripts/import_drawing_set.py --manifest work/<plant>/sheets/set.json --out work/<plant>/bundle --check-only
+python -S scripts/import_drawing_set.py --manifest work/<plant>/sheets/set.json --out work/<plant>/bundle
 ```
 
-The `--out` folder must not exist yet. Each sheet gets its own bundle; separate bundles are not merged into one
-plant automatically. For a site-wide map across sheets and records, see [docs/ONE_MAP.md](../../../docs/ONE_MAP.md).
+The `--out` folder must not exist yet. The result lists how many connectors were paired across sheets; each pair
+names the rule that matched it, and unpaired connectors keep a reason. For a site-wide map that also joins
+equipment and instrument records, see [docs/ONE_MAP.md](../../../docs/ONE_MAP.md).
 
 ### 4. Report
 
 ```sh
-python scripts/deliverable_report.py work/<plant>/bundle-0
+python scripts/deliverable_report.py work/<plant>/bundle
 ```
 
-Open `work/<plant>/bundle-0/REPORT.html` for the user: the drawing with every extracted item boxed, counts, review
-status and next steps. `review_queue.csv` is where a reviewer confirms, corrects or rejects items.
+Open `work/<plant>/bundle/REPORT.html` for the user: every sheet with its extracted items boxed, counts, the
+"Across sheets" pairs, review status and next steps. `review_queue.csv` is where a reviewer confirms, corrects or
+rejects items.
 
-### 5. Questions and graph
+### 5. Check the tags against the PDF (PDF input only)
 
 ```sh
-python -S scripts/question_engine.py --model work/<plant>/bundle-0/plant_model.json --out work/<plant>/questions-0
-python -S scripts/graph_export.py work/<plant>/bundle-0/plant_model.json --questions work/<plant>/questions-0/questions.json --out work/<plant>/graph-0.json
-python -S scripts/graph_export.py --check work/<plant>/graph-0.json
+python scripts/pdf_tag_check.py --bundle work/<plant>/bundle --pdf drawing.pdf --pages 13,21,22 --out work/<plant>/tag-check
 ```
 
-`questions-0/screen.md` lists investigation questions with their evidence and what to collect. `graph-0.json` is
-a portable graph of assets, relationships, sources and questions that an agent or the
-[read-only MCP starter](../../../examples/internal-mcp/README.md) can use. A sheet can produce no questions;
-that is a normal result, not a failure.
+`--pages` gives the PDF page for each sheet, in manifest order. `tag-check/tag_check.md` lists tags printed on the
+drawing that the reader missed, and extracted tags the drawing's text doesn't contain (possible misreads). Look at
+each one on the sheet image. Fix a genuine miss by correcting a copy of the extraction and rebuilding into a new
+bundle, never by editing the bundle. A page reported "not checked: needs OCR" has outlined or scanned text: say so
+and don't treat it as clean.
 
-### 6. Explain the result
+### 6. Questions and graph
+
+```sh
+python -S scripts/question_engine.py --model work/<plant>/bundle/plant_model.json --out work/<plant>/questions
+python -S scripts/graph_export.py work/<plant>/bundle/plant_model.json --questions work/<plant>/questions/questions.json --out work/<plant>/graph.json
+python -S scripts/graph_export.py --check work/<plant>/graph.json
+```
+
+`questions/screen.md` lists investigation questions with their evidence and what to collect. `graph.json` is a
+portable graph of assets, relationships, sources and questions that an agent or the
+[read-only MCP starter](../../../examples/internal-mcp/README.md) can use. Cross-sheet pairs are `connects` edges,
+so paths continue from sheet to sheet. A set can produce no questions; that is a normal result, not a failure.
+
+### 7. Explain the result
 
 Tell the user, briefly:
 
 - what was extracted (the counts at the top of the report) and how many items to check first;
+- which connectors were paired across sheets, and which pointed to a sheet that isn't loaded;
+- the tag check: misses and possible misreads you confirmed on the drawing, and any page that needs OCR;
 - where the files are and which one to open;
 - anything that failed or looked wrong (a blank region, unreadable text, a page you skipped);
 - the limits: this is an unreviewed draft; accuracy on their drawing style is unknown until a reviewer checks it
   (the [vendor-evaluation kit](../../../examples/vendor-evaluation/README.md) measures it on their own sheets);
   flow direction and signal mappings still need engineering review.
 
-When the user asks about the plant ("what is connected to X?"), answer from `graph-0.json` or `plant_model.json`,
+When the user asks about the plant ("what is connected to X?"), answer from `graph.json` or `plant_model.json`,
 name the items and the sheet they came from, and say when the answer rests on an unreviewed link. Check the
 drawing image before answering anything safety-related.
 

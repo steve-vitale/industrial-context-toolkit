@@ -197,6 +197,61 @@ run the two commands from step 0 with `--manifest mysheets/manifest.json` and a 
 exist yet, so don't reuse `my-bundle` from the example). The bundle always calls the sheet `0` (`svg/sheet_0.svg`,
 `source/0.png`); your drawing number lives in the manifest and in `intake_manifest.json`.
 
+### Several sheets as one drawing set
+
+A plant is drawn across many sheets, and a line that leaves one sheet through an off-page connector continues on
+another. `import_drawing_set.py` builds one bundle from a whole set and pairs those connectors. Read each sheet as in
+step 2, then list them in one manifest. The committed example lists OPEN100 development sheets 0 to 5 with their
+recorded extractions and runs offline:
+
+```sh
+python -S scripts/import_drawing_set.py --manifest examples/own-drawing/set-manifest.json --out my-set --check-only
+python -S scripts/import_drawing_set.py --manifest examples/own-drawing/set-manifest.json --out my-set
+python scripts/deliverable_report.py my-set
+```
+
+For your own set, copy [`set-manifest.json`](set-manifest.json) next to your PNGs and give each sheet its
+`drawing_id`, `revision`, `page`, `image`, `extraction` and, from its title block, its `drawing_number` and `title`.
+Pairing uses them in two passes, and each pair records which rule matched:
+
+1. **References written like `PID 140-1`** are paired by `build_twin.py`'s existing rules.
+2. **Any other style** (`REF SHT P-204`, `DWG 10-PI-003`) is matched literally against the supplied drawing numbers.
+   A pair needs either both connectors naming each other's number, or one naming the other's number while the other
+   carries every word of the first sheet's title (`IRRIGATION EQUALIZATION TANK` on the sheet titled "Irrigation
+   Equalization Tank P&ID").
+
+Unmatched connectors keep a reason, such as "target drawing is not in this sheet set". Every pair is unverified and
+listed in `review_queue.csv` and in the report's "Across sheets" section. The cross-sheet links appear in the graph
+export as `connects` edges, so paths can be followed from sheet to sheet. Sheet numbers in the bundle follow the
+manifest order (`svg/sheet_0.svg`, `svg/sheet_1.svg`, ...).
+
+Measured once on three public Pahala WWTP sheets (P-204, P-401, P-501, EPA docket): the reading took 183 s plus 9 s
+of tracing, giving 85 instruments. The second pass paired P-401 to P-501, where P-501 names P-401 only by its
+title. P-401's reference to P-204 stayed unpaired because P-204's outlet names a different destination. The
+existing rules alone paired nothing on that set. No answer key exists for these sheets, so this is not an
+accuracy result.
+
+### Check the tags against the PDF's own text
+
+Most P&IDs exported from CAD keep their text, so every printed tag is in the PDF with its position.
+`pdf_tag_check.py` compares that text with what the reader extracted, sheet by sheet. It needs PyMuPDF
+(`pip install pymupdf`). Pass the PDF page for each bundle sheet, in sheet order:
+
+```sh
+python scripts/pdf_tag_check.py --bundle my-bundle --pdf drawing.pdf --pages 21 --out my-tag-check
+```
+
+`my-tag-check/tag_check.md` lists, per sheet, tags printed on the drawing that no extracted item carries, and
+extracted tags the drawing's text doesn't contain (possible misreads), each with its location. Instrument bubbles
+are rebuilt from the letters above the loop number; tags compare on letters and digits only (`LI 401` = `LI-401`).
+Descriptive labels such as `TANK` aren't compared. Tags compare as a set, so one of two identical tags being misread
+goes unnoticed.
+
+A page whose text is outlined or scanned has almost no words. It's reported as "not checked: needs OCR", and
+nothing is inferred from it. On the Pahala set, P-401 and P-501 matched 14 of 14 and 13 of 13 tag-shaped labels
+with nothing missed. P-204 has outlined text and was not checked. With one tag renamed and one deleted on
+purpose, the check listed both.
+
 ## 4. Review, then map to real signals
 
 Keep the complete bundle and a separate filled review sheet in an approved private working folder. A qualified
@@ -254,7 +309,8 @@ structural part of your plant's draft digital twin.
 
 Begin with one sheet and a defined unit. The OPEN100 case study also demonstrates multi-sheet structure and
 off-page relationships; transferring that larger assembly requires your sheet register, reviewed continuation
-matches and site conventions. Separate single-sheet bundles are not automatically merged into one plant.
+matches and site conventions. Separate single-sheet bundles are not merged; build one bundle from the whole set
+([several sheets as one drawing set](#several-sheets-as-one-drawing-set)).
 
 Your process records and data supply the parts absent from the starting drawing: operating context, normal
 behavior, alarm definitions and mapped values. Flow direction must be supported by the drawing or independent

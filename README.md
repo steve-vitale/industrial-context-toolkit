@@ -8,7 +8,7 @@ check, question and keep current.**
 Give it a P&ID as a PDF or image and you get back:
 
 1. **A draft asset model:** equipment, instruments, valves, off-page connectors and the links between them, each
-   boxed on the drawing it came from.
+   boxed on the drawing it came from, with connectors paired across the sheets of a set.
 2. **A review queue and one-page report:** what was found, what to check first and what is still unknown.
 3. **A portable graph and investigation questions:** for an agent, a query, or staging files for Ignition and PI.
 
@@ -69,7 +69,9 @@ queue, report, questions and graph the same way every time.
 | **Prepare** | Each page is rendered at a size the line tracer was tuned for. Scans can be cleaned on a separate copy; the original stays the source. |
 | **Read** | Overlapping tiles go to the model with [the extraction prompt](extraction/prompt_v2.md). Symbols get a class, tag, box and confidence. |
 | **Trace** | Code follows the drawn lines between symbols, locally, in seconds. |
-| **Build** | The intake writes the draft model, review queue, drawing overlay and Ignition/PI staging, with the source of every item. |
+| **Build** | The intake writes one draft model for the whole drawing set, review queue, drawing overlays and Ignition/PI staging, with the source of every item. |
+| **Pair** | Off-page connectors are matched across sheets by drawing number and title, so a line that leaves one sheet continues on the next. Each pair records the rule that matched it. |
+| **Check** | For CAD-exported PDFs, every tag printed in the PDF's own text is compared with what was extracted: tags the reader missed and possible misreads. Outlined or scanned pages are marked as needing OCR. |
 | **Question** | The question engine and graph export turn the model into investigation questions and a portable graph. |
 
 **The reader is measured and replaceable.** Every reader is scored on the same public drawings beside
@@ -82,11 +84,12 @@ output.
 
 | File | What it is |
 |---|---|
-| `REPORT.html` | The drawing with every extracted item boxed, counts, review status and next steps |
+| `REPORT.html` | Every sheet with its extracted items boxed, counts, cross-sheet pairs, review status and next steps |
 | `review_queue.csv` | One row per item for a reviewer to confirm, correct or reject |
 | `plant_model.json` | The draft model: assets, represented connections and the source of each |
 | `svg/sheet_0.svg` | The extracted links drawn over the sheet |
 | `ignition/tags.json`, `pi/` | Draft Ignition tags and PI AF staging, with placeholder values until mapped |
+| `tag_check.md` | Tags printed in the PDF that the reader missed, and extracted tags the PDF doesn't contain |
 | `screen.md`, `graph.json` | Investigation questions with their evidence, and a portable graph for agents and queries |
 
 ## Limits
@@ -94,7 +97,7 @@ output.
 - **Everything is a draft.** It must be reviewed by a qualified engineer before use in design, operations,
   management of change or safety studies such as HAZOP or LOPA.
 - **Accuracy depends on the drawing.** The public benchmark numbers don't transfer automatically to your drafting
-  style. Faded scans need much more review. Measure a reader on your own sheets with the
+  style. Faded scans need much more review, and the tag check needs a PDF text layer (scans need OCR). Measure a reader on your own sheets with the
   [vendor-evaluation kit](examples/vendor-evaluation/README.md).
 - **Tested on public and fictional inputs only.** No plant acceptance, timed review or live signal mapping is
   established. [Results and limits](docs/RESULTS.md) has the details.

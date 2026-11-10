@@ -37,6 +37,29 @@
       "why": "Retyping drawings into asset lists takes manual effort in historian, HMI and digital twin projects. A draft turns some of that typing into checking; the time saved has not been measured."
     },
     {
+      "id": "drawing-set-to-bundle",
+      "category": "extract",
+      "title": "Several P&ID sheets to one bundle with cross-sheet pairs and a tag check",
+      "tools": [
+        "scripts/import_drawing_set.py",
+        "scripts/pdf_tag_check.py",
+        "scripts/deliverable_report.py"
+      ],
+      "guide": "examples/own-drawing/README.md",
+      "example_outputs": [
+        "examples/own-drawing/set-manifest.json"
+      ],
+      "tests": [
+        "scripts/test_drawing_set_intake.py",
+        "scripts/test_pdf_tag_check.py"
+      ],
+      "job": "Read a whole drawing set as one plant, and check the extracted tags against the PDF's own text",
+      "you_need": "Each sheet as a PNG with its extraction, drawing number and title; the original PDF for the tag check",
+      "time": "Three public Pahala WWTP sheets read in 183 s plus 9 s of tracing, measured once; intake, report and tag check took seconds; review time not measured",
+      "you_get": "One draft model across the sheets with off-page connectors paired by drawing number and title, a report with every sheet and the pairs, and per-sheet lists of tags the reader missed or may have misread. Pages without a text layer are reported as needing OCR",
+      "why": "Plants are drawn across many sheets, and a line or loop that leaves one sheet continues on another. A tag printed in the PDF is a free, exact check on what the reader extracted."
+    },
+    {
       "id": "client-report",
       "category": "export",
       "title": "The one-page report a client reads first",

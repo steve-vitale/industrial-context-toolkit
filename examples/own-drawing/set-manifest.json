@@ -1,0 +1,72 @@
+{
+ "schema_version": "site-drawing-set-1",
+ "set_id": "Public example: PID2Graph OPEN100 sheets 0-5 (CC BY-SA 4.0)",
+ "extraction_format": "run-record",
+ "producer": {
+  "method": "recorded run r2-tiles-trace: 2x2 tiles with extraction/prompt_v2.md, then the code line tracer",
+  "tool": "codex",
+  "model": "gpt-6.1-sol"
+ },
+ "sheets": [
+  {
+   "drawing_id": "OPEN100-0",
+   "revision": "public",
+   "page": 1,
+   "image": "../../data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/0.png",
+   "extraction": "../../predictions/r2-tiles-trace/codex/0.json",
+   "drawing_number": "140-1",
+   "system_code": "MSS",
+   "title": "Main Steam System"
+  },
+  {
+   "drawing_id": "OPEN100-1",
+   "revision": "public",
+   "page": 1,
+   "image": "../../data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/1.png",
+   "extraction": "../../predictions/r2-tiles-trace/codex/1.json",
+   "drawing_number": "150-1",
+   "system_code": "ACC",
+   "title": "Air Cooled Condenser"
+  },
+  {
+   "drawing_id": "OPEN100-2",
+   "revision": "public",
+   "page": 1,
+   "image": "../../data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/2.png",
+   "extraction": "../../predictions/r2-tiles-trace/codex/2.json",
+   "drawing_number": "160-1",
+   "system_code": "CND",
+   "title": "Condensate System"
+  },
+  {
+   "drawing_id": "OPEN100-3",
+   "revision": "public",
+   "page": 1,
+   "image": "../../data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/3.png",
+   "extraction": "../../predictions/r2-tiles-trace/codex/3.json",
+   "drawing_number": "170-1",
+   "system_code": "FWS",
+   "title": "Feedwater System"
+  },
+  {
+   "drawing_id": "OPEN100-4",
+   "revision": "public",
+   "page": 1,
+   "image": "../../data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/4.png",
+   "extraction": "../../predictions/r2-tiles-trace/codex/4.json",
+   "drawing_number": "180-1",
+   "system_code": "ESS",
+   "title": "Extraction Steam System"
+  },
+  {
+   "drawing_id": "OPEN100-5",
+   "revision": "public",
+   "page": 1,
+   "image": "../../data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/5.png",
+   "extraction": "../../predictions/r2-tiles-trace/codex/5.json",
+   "drawing_number": "100-1",
+   "system_code": "RCS",
+   "title": "Reactor Coolant System"
+  }
+ ]
+}
