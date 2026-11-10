@@ -86,6 +86,11 @@ explicitly rebuild the current publication, while preserving the earlier bundle.
 the two published default examples with today's default; they do not decide whether a company catalog is
 approved or still appropriate. `prepare` and `check` remain independent of catalog selection.
 
+The current examples were rebuilt after the equipment-scaffold generator change.
+Their earlier complete results remain in the
+[retained publication history](../map-component-cycle/history/legacy-generator-rebuild-01/MANIFEST.json).
+This refreshes producer identity and artifacts; it adds no engineering acceptance.
+
 </details>
 
 ## Use your own description with an approved assistant

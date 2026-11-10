@@ -63,6 +63,38 @@ after the correct application state had loaded; they are retained as automation
 errors, not product recovery or measured customer savings. Human effort is
 unmeasured.
 
+## Frozen transfer results and a real intake failure
+
+At the frozen `d1c9ecf` method, the source-known public DEXPI XML case passed
+88 separate CLI calls. Its 21 supplied interpretation rows retain 20 literal
+claims and one containment relationship. These are supplied interpretations,
+not a new automatic XML reader or CAD qualification. Original drawing-coordinate
+units remain drawing coordinates; unknown manufacturer and unverified questions
+remain separate from source facts.
+
+Both its main and withdrawn-source packages completed actual isolated product
+admission, export and fresh toolkit reopening: all 38 and 51 files respectively
+were exact. Post-admission agent queries preserve all 20 literal facts in the
+current and prior revision, with withdrawn evidence inactive in the current
+revision and active in its original history. An independent saved-evidence
+review checked the complete exports against the original XML and frozen packets.
+That review did not independently operate the product or rerun its service seal
+verifier. The withdrawn package was prepared by the frozen checker before the
+main product admission; the separately described alias sequence demonstrates
+successors constructed after actual receiving.
+
+The second frozen case **failed** after preparation and verification: delimiter
+sniffing failed on a valid semicolon CSV, then a comma fallback retained the
+original file but omitted usable work-order interpretation and a physical item.
+The general repair checks complete, quote-aware record structure, refuses
+ambiguous or malformed multicolumn input and reuses a retained delimiter. Its
+independent review includes four genuine old-method packet reopenings.
+The unchanged second-case oracle now passes a 54-call **development regression**
+on the repaired parser. The first failure remains; that later pass is not a
+successful transfer to unfamiliar input. A third dialect's original inputs and
+key are reserved for a separately frozen procedure. The earlier public success
+does not qualify this newer parser method.
+
 ## What remains before calling this ready
 
 The independently reviewed scoped sequence now preserves each exact earlier
@@ -84,11 +116,21 @@ agent source loader verifies source bytes and custody; separate canonical
 admission/export receipts establish sealing. Neither establishes engineering
 acceptance.
 
-Frozen-method procedural transfers, measured workload/over-limit coverage,
+The remaining reserved transfer, measured workload/over-limit coverage,
 complete friction ledger, clean-clone/CI replay and ChangePilot's independent
 review and governed landing remain. Candidate schema changes are local only;
 hosted application/schema qualification remains separate. No plant acceptance,
 human savings or released-product claim follows from these development results.
+
+The broad toolkit suite initially passed 109 of 113 scripts and exposed stale
+generated publications and corpus results plus a checkout line-ending mismatch.
+Affected publications were rebuilt with their documented commands; their earlier
+versions remain in [history](history/legacy-generator-rebuild-01/MANIFEST.json).
+Independent comparison preserves the earlier engineering content and explicitly
+inherits unchanged review scope. Targeted checks pass; the final full suite and
+CI must still be rerun. The current 95-cell corpus matrix includes 34
+`needs-data` cells and 10 failures. Missing optional public caches do not count
+as passes; the earlier matrix and its failures remain available in history.
 
 ## Why continue into a managed service?
 

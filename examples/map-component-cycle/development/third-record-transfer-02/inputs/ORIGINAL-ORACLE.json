@@ -1,0 +1,52 @@
+{
+  "schema": "authored-record-dialect-original-key-1",
+  "namespace": "DIALECT3/P3",
+  "identity_owner_confirmation": "Asset ID and Equipment Tag are functional-position keys within the declared unit; physical IDs are separate.",
+  "date_policy": "MDY explicitly selected;08/09/2026 means2026-08-09.",
+  "r1": {
+    "east": "DIALECT3/P3/UTILITY-A/Q-77",
+    "west": "DIALECT3/P3/UTILITY-B/Q-77",
+    "equipment_serial": "000071",
+    "closed_serial": "000072",
+    "open_proposal_serial": "000073",
+    "equipment_model": "Q|R",
+    "closed_model": "CLOSED-ACCOUNT",
+    "open_proposal_model": "OPEN-ACCOUNT",
+    "east_flow": {
+      "type": "string",
+      "value": "6.25",
+      "unit": "L/min"
+    },
+    "west_flow": {
+      "type": "string",
+      "value": "6,25",
+      "unit": "unit-unconfirmed"
+    },
+    "physical_items": [
+      "BODY-X1",
+      "BODY-X2",
+      "BODY-Y1"
+    ],
+    "open_body_not_installed": "BODY-X3",
+    "description": "Flush\npump | isolated",
+    "equipment_serial_locator": "CSV record 2; physical lines 2-3; column Serial Number"
+  },
+  "r2": {
+    "equipment_model": "Q|S",
+    "equipment_serial": "000071",
+    "closed_serial": "000072",
+    "closed_model": "CLOSED-ACCOUNT",
+    "open_proposal_model": "OPEN-ACCOUNT"
+  },
+  "r3": {
+    "work_history_status": "withdrawn",
+    "equipment_model": "Q|S",
+    "equipment_serial": "000071",
+    "retained_closed_serial": "000072",
+    "retained_open_proposal_serial": "000073"
+  },
+  "contribution_rows": 0,
+  "customer_json_edits": 0,
+  "source_known": true,
+  "qualification": "Fictional source-known procedural case. No production method imported/invoked for this preparation; no automatic reading, human or plant acceptance."
+}

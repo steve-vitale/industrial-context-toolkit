@@ -52,6 +52,13 @@ here (`scripts/test_deliverable_report.py` checks this). The association is an a
 bytes. For your model, [inspect individual records and supply your own checked basis](../../docs/REVIEW_HISTORY.md);
 do not copy this manifest or automatically associate a whole folder.
 
+The current publication was regenerated with the same illustrative review CSV,
+reviewer and date after a generator change. Its association names the newly
+produced model and record bytes. The
+[earlier publication](../map-component-cycle/history/legacy-generator-rebuild-01/review-and-mapping/README.md)
+is retained with its original associations; this rebuild supplies no new
+engineering review or source acceptance.
+
 Add `--dry-run` to `apply_review.py` to see the changes without writing them. If some rows are refused (an unknown
 item, a bad decision, a correction with no value), the valid rows are still applied and the run exits 1 listing the
 refusals: fix the sheet and apply it again, which leaves the rows already applied unchanged. Mapping without `--dry-run` writes the

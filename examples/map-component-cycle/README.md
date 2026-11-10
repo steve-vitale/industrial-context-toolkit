@@ -34,8 +34,9 @@ bare P-101 selection requests a qualified identity.
 
 For your own records, substitute the records directory and site/plant. Recognized
 headers include Tag/Equipment/Asset Number, Area/Unit/Functional Location, Serial,
-Manufacturer, Model, Order, Closed and Installed Serial. Delimiters are detected
-from comma, semicolon, tab or pipe. CSV values remain source text; blank cells do
+Manufacturer, Model, Order, Closed and Installed Serial. Delimiters are selected from comma, semicolon, tab or pipe only when complete quoted
+record structure is unambiguous. Ambiguous inputs request a source-level delimiter choice in the
+existing reviewed mapping; its retained delimiter is reused on replay and revisions. CSV values remain source text; blank cells do
 not become observations. Unknown columns and uninterpreted documents remain in
 the originals with an omission report. Unclear identity, duplicate mappings and
 changed headers request clarification rather than guesses. Review generated
@@ -391,7 +392,7 @@ remain retained. No scale/load or product acceptance follows from these limits.
 python -B -S examples/map-component-cycle/reproduce.py --out out/my-context-development-check
 ```
 
-The current development suite passes 145 methods against exposed fictional
+The current development suite passes 154 methods against exposed fictional
 records and source-authored literal keys. It exercises actual separate-process
 commands, three drafts, edits, three revisions, relocation, delivery reopening
 and specific tamper refusals. The retained failures include source/selection faults,
@@ -415,3 +416,5 @@ maintenance, auditable decisions and revision history over the same foundation.
 The customer should carry the existing context forward rather than re-enter facts.
 Until the full ChangePilot receiving/readback/export and release checks pass, this guide offers only
 the local reusable context and portable payload, not a ready product integration.
+
+The consumed second-record dialect case is a development regression after its first frozen run failed. Passing the repaired parser controls does not create a new transfer result; any later transfer uses separate inputs and a new pre-execution method lock.

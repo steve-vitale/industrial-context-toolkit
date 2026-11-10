@@ -62,36 +62,84 @@ def local(root, relative):
     return target
 
 
+CSV_DELIMITERS = (",", ";", "\t", "|")
+
+
+def _csv_records(decoded, delimiter, *, retain=True):
+    reader = csv.DictReader(io.StringIO(decoded, newline=""), delimiter=delimiter, strict=True)
+    fields = reader.fieldnames
+    cb.require(fields and all(type(f) is str and f.strip() for f in fields)
+               and len(set(fields)) == len(fields), "CSV headers need unique nonempty names")
+    result, previous = [], reader.line_num
+    for number, row in enumerate(reader, 2):
+        cb.require(None not in row and all(v is not None for v in row.values()),
+                   "CSV row width disagrees with its headers")
+        cb.require(all(len(v) <= FIELD_MAX for v in row.values()), "CSV field exceeds declared limit")
+        if retain:
+            result.append((row, number, previous + 1, reader.line_num))
+        previous = reader.line_num
+    return fields, result, delimiter
+
+
 def csv_rows(raw, encoding="utf-8-sig", delimiter=None):
+    """Choose one complete structural parse; ambiguous sources need a reviewed delimiter."""
     cb.require(len(raw) <= cb.MAX_BYTES, "source exceeds declared byte limit")
     try:
         decoded = raw.decode(encoding)
     except UnicodeError as error:
         raise cb.ContextError("source encoding needs clarification; no replacement decoding") from error
-    if delimiter is None:
-        try:
-            delimiter = csv.Sniffer().sniff(decoded[:16384], delimiters=",;\t|").delimiter
-        except csv.Error:
-            delimiter = ","
-    reader = csv.DictReader(io.StringIO(decoded, newline=""), delimiter=delimiter)
-    fields = reader.fieldnames
-    cb.require(fields and all(type(f) is str and f.strip() for f in fields)
-               and len(set(fields)) == len(fields), "CSV headers need unique nonempty names")
-    result, previous = [], reader.line_num
+    cb.require(delimiter is None or type(delimiter) is str and delimiter in CSV_DELIMITERS,
+               "CSV delimiter needs comma, semicolon, tab or pipe clarification")
     old_limit = csv.field_size_limit()
     csv.field_size_limit(FIELD_MAX)
     try:
-        for number, row in enumerate(reader, 2):
-            cb.require(None not in row and all(v is not None for v in row.values()),
-                       "CSV row width disagrees with its headers")
-            cb.require(all(len(v) <= FIELD_MAX for v in row.values()), "CSV field exceeds declared limit")
-            result.append((row, number, previous + 1, reader.line_num))
-            previous = reader.line_num
+        if delimiter is not None:
+            return _csv_records(decoded, delimiter)
+        candidates = []
+        for separator in CSV_DELIMITERS:
+            # Header structure shortlists candidates without interpreting header names.
+            try:
+                header = next(csv.reader(io.StringIO(decoded, newline=""), delimiter=separator, strict=True), [])
+            except csv.Error:
+                continue
+            if len(header) > 1:
+                candidates.append(separator)
+        if not candidates:
+            # A genuine one-column source remains retained without invented fields.
+            return _csv_records(decoded, ",")
+        if len(candidates) == 1:
+            return _csv_records(decoded, candidates[0])
+        parsed, errors = [], []
+        for separator in candidates:
+            try:
+                # Probe without retaining multiple copies of a large export.
+                _csv_records(decoded, separator, retain=False)
+            except (csv.Error, cb.ContextError) as error:
+                errors.append(error)
+            else:
+                parsed.append(separator)
+                cb.require(len(parsed) <= 1,
+                           "CSV delimiter ambiguous; supply a reviewed source delimiter in the retained mapping")
+        if not parsed:
+            # Never turn a malformed multicolumn export into a single unmapped header.
+            raise errors[0]
+        return _csv_records(decoded, parsed[0])
     except csv.Error as error:
         raise cb.ContextError("invalid or oversized CSV record") from error
     finally:
         csv.field_size_limit(old_limit)
-    return fields, result, delimiter
+
+
+def saved_delimiter(saved):
+    if saved is None:
+        return None
+    cb.require(type(saved) is dict, "saved source mapping is malformed")
+    if "delimiter" not in saved:
+        return None  # Older manually supplied mappings may omit this existing field.
+    delimiter = saved["delimiter"]
+    cb.require(type(delimiter) is str and delimiter in CSV_DELIMITERS,
+               "saved source delimiter needs comma, semicolon, tab or pipe clarification")
+    return delimiter
 
 
 def mapped_headers(fields, saved=None):
@@ -150,7 +198,7 @@ def source_inventory(folder, encoding):
 def consume_csv(builder, source, raw, site, plant, *, saved=None, encoding="utf-8-sig",
                 date_format="ISO", identity_origins=None):
     cb.require(identity_origins is None or type(identity_origins) is list, "identity origin collector needs a local list")
-    fields, records, delimiter = csv_rows(raw, encoding)
+    fields, records, delimiter = csv_rows(raw, encoding, delimiter=saved_delimiter(saved))
     mapping = mapped_headers(fields, saved)
     result = {"headers": fields, "mapping": mapping, "delimiter": delimiter,
               "unmapped_columns": [f for f in fields if f not in mapping],
@@ -251,9 +299,9 @@ def consume_csv(builder, source, raw, site, plant, *, saved=None, encoding="utf-
     return result
 
 
-def consume_identity_crosswalk(builder, source, raw, site, plant, *, encoding="utf-8-sig", retained_subjects=None):
+def consume_identity_crosswalk(builder, source, raw, site, plant, *, encoding="utf-8-sig", retained_subjects=None, saved=None):
     """Declare aliases for existing stable positions from explicit ordinary CSV rows."""
-    fields, records, delimiter = csv_rows(raw, encoding)
+    fields, records, delimiter = csv_rows(raw, encoding, delimiter=saved_delimiter(saved))
     cb.require({"Position", "Area", "Alias"} <= set(fields), "identity crosswalk needs Position, Area, Alias columns")
     if retained_subjects is not None:
         cb.require(type(retained_subjects) is list and len(retained_subjects) <= 100000
@@ -340,7 +388,8 @@ def prepare(folder, site, plant, *, previous_mapping=None, encoding="utf-8-sig",
         declaration = next(d for d in declarations if d["File"] == identity_crosswalk)
         if identity_crosswalk in originals:
             mappings[declaration["DocumentID"]] = consume_identity_crosswalk(builder, declaration["DocumentID"],
-                originals[identity_crosswalk], site, plant, encoding=encoding, retained_subjects=identity_crosswalk_subjects)
+                originals[identity_crosswalk], site, plant, encoding=encoding, retained_subjects=identity_crosswalk_subjects,
+                saved=None if previous_mapping is None else previous_mapping.get(declaration["DocumentID"]))
         else:
             builder.basis["preparation"].append({"source": declaration["DocumentID"],
                 "kind": "source_bound_identity_crosswalk_unavailable", "active_aliases": 0})
