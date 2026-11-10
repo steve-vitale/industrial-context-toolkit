@@ -6698,6 +6698,48 @@
         "examples/map-component-cycle/development/review-browser-01/run.json",
         "examples/map-component-cycle/history/component-review-01/README.md"
       ]
+    },
+    {
+      "id": "A403",
+      "function": "intake_and_reuse",
+      "date": "2026-11-10",
+      "change": "Drawing-set intake (scripts/import_drawing_set.py): one bundle from several sheets, with a second off-page pairing pass that matches connector text literally against supplied drawing numbers and titles (reciprocal numbers, or one number plus the other sheet's title).",
+      "hypothesis": "Consultant drawing sets that write references as 'REF SHT P-204', or name the other sheet only by its title, pair where build_twin.py's 'PID 140-1' rule finds nothing",
+      "evidence": "Pahala WWTP P-204, P-401 and P-501 (public EPA docket, no answer key): build_twin.py rules 0 pairs; second pass 1 pair (P-401 to P-501, number plus title), P-401's reference to P-204 kept unpaired with its reason. OPEN100 sheets 0-5 as a set: 4 pairs, the same as build_twin.py alone; the second pass added none.",
+      "runs": "1 (single run)",
+      "verdict": "kept",
+      "why": "Pairs only on literal supplied identities and records the rule on every pair; no accuracy key exists for the Pahala pairs, so it is a development observation, not a score",
+      "source": [
+        "examples/own-drawing/README.md#several-sheets-as-one-drawing-set"
+      ]
+    },
+    {
+      "id": "A404",
+      "function": "tag_reading",
+      "date": "2026-11-10",
+      "change": "PDF text-layer tag check (scripts/pdf_tag_check.py): rebuild instrument tags from the letters stacked over the loop number, compare letters and digits with the extracted tags, report misses and possible misreads; pages under 150 words are not checked (need OCR).",
+      "hypothesis": "A CAD-exported PDF's own text is an exact, free check on the reader's tags",
+      "evidence": "Pahala P-401 14/14 and P-501 13/13 tag-shaped labels matched after four fixes found on the same pages (neighbouring bubbles merged, number growth drifting off centre, descriptive labels compared, a title-block false tag); P-204 (outlined text, 118 words) not checked. Planted control on P-401: one renamed and one deleted tag, both reported.",
+      "runs": "1 (single run)",
+      "verdict": "kept",
+      "why": "Development-only and tuned on the same pages, including the 150-word threshold; tags compare as a set, so a misread of one of two identical tags is not caught",
+      "source": [
+        "examples/own-drawing/README.md#check-the-tags-against-the-pdfs-own-text"
+      ]
+    },
+    {
+      "id": "A405",
+      "function": "line_tracing",
+      "date": "2026-11-10",
+      "change": "line_layers.py enrich (bundles only): a line whose two ends the tracer placed on different networks, and a junction no remaining line reaches, are dropped and listed per sheet instead of refusing the whole drawing; traced_layers() and every score are unchanged. The drawing-set intake now adds the line layers to every bundle.",
+      "hypothesis": "The pipe and instrument layers reach real consultant drawings through the product path without changing any output on drawings they already accepted",
+      "evidence": "Pahala P-204, P-401, P-501 were refused (P-501: a dashed signal line's ends on two networks); now 42 pipe segments, 41 instrument connections, 20 junctions, with 1 line and 1 junction dropped and listed. OPEN100 sheets 0-5: enrich output byte-identical to the previous code; development pipe F1 0.931 and instrument-connection F1 0.835 unchanged. A first version dropped the lines inside traced_layers(), which the scorer shares: the corpus-matrix re-run showed held-out sheet 6 instrument lines 43 -> 41 and instrument-connection F1 0.891 -> 0.889 (one true line lost). It was narrowed to enrich only; sheet 6 is back to 0.891 (41/43) and sheets 7-11 never changed.",
+      "runs": "1 (single run)",
+      "verdict": "kept",
+      "why": "Changes only drawings enrich refused before; scores untouched. The Pahala layers have no topology key, so their accuracy is unmeasured",
+      "source": [
+        "docs/GOAL_ROUND6.md"
+      ]
     }
   ],
   "not_tried": [

@@ -82,11 +82,11 @@ Example review: not yet: needs review
 
 **Inputs:** Each sheet as a PNG with its extraction, drawing number and title; the original PDF for the tag check
 
-**Outputs:** One draft model across the sheets with off-page connectors paired by drawing number and title, a report with every sheet and the pairs, and per-sheet lists of tags the reader missed or may have misread. Pages without a text layer are reported as needing OCR
+**Outputs:** One draft model across the sheets with off-page connectors paired by drawing number and title, the drawn pipe segments and instrument connections as graph relations, a report with every sheet and the pairs, and per-sheet lists of tags the reader missed or may have misread. Pages without a text layer are reported as needing OCR
 
 **Time:** Three public Pahala WWTP sheets read in 183 s plus 9 s of tracing, measured once; intake, report and tag check took seconds; review time not measured
 
-- **Tools:** `import_drawing_set.py`, `pdf_tag_check.py`, `deliverable_report.py`
+- **Tools:** `import_drawing_set.py`, `line_layers.py`, `pdf_tag_check.py`, `deliverable_report.py`
 - **How to use it:** [README.md](../examples/own-drawing/README.md)
 
 <details>

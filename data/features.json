@@ -42,6 +42,7 @@
       "title": "Several P&ID sheets to one bundle with cross-sheet pairs and a tag check",
       "tools": [
         "scripts/import_drawing_set.py",
+        "scripts/line_layers.py",
         "scripts/pdf_tag_check.py",
         "scripts/deliverable_report.py"
       ],
@@ -56,7 +57,7 @@
       "job": "Read a whole drawing set as one plant, and check the extracted tags against the PDF's own text",
       "you_need": "Each sheet as a PNG with its extraction, drawing number and title; the original PDF for the tag check",
       "time": "Three public Pahala WWTP sheets read in 183 s plus 9 s of tracing, measured once; intake, report and tag check took seconds; review time not measured",
-      "you_get": "One draft model across the sheets with off-page connectors paired by drawing number and title, a report with every sheet and the pairs, and per-sheet lists of tags the reader missed or may have misread. Pages without a text layer are reported as needing OCR",
+      "you_get": "One draft model across the sheets with off-page connectors paired by drawing number and title, the drawn pipe segments and instrument connections as graph relations, a report with every sheet and the pairs, and per-sheet lists of tags the reader missed or may have misread. Pages without a text layer are reported as needing OCR",
       "why": "Plants are drawn across many sheets, and a line or loop that leaves one sheet continues on another. A tag printed in the PDF is a free, exact check on what the reader extracted."
     },
     {
