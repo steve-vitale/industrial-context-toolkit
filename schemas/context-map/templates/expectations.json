@@ -1,6 +1,6 @@
 {
  "format": "context-map-expectations-1",
- "format_version": "1.1.0-draft",
+ "format_version": "1.2.0-draft",
  "note": "Completeness rules: what must exist for a kind of item or record row. Every rule ships as draft: a draft rule never raises per-item rows, only one summary row per scope saying how many it would raise. A person certifies a rule (status certified, by, on) to let it act, and may roll it out to some scopes first (rollout.scopes) or cap its rows per scope (limit_per_scope). A check that needs a register absent for the subject's scope is not evaluated (counted, never a missing row). Copy this file next to the site file and edit it; see docs/CONTEXT_MAP_FORMAT.md, Expectations.",
  "as_of": null,
  "rollout": {

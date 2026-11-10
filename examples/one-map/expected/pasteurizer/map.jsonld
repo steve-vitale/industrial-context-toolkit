@@ -71,6 +71,10 @@
   "based_on": {
    "@id": "cm:based_on",
    "@type": "@id"
+  },
+  "network_member": {
+   "@id": "cm:network_member",
+   "@type": "@id"
   }
  },
  "@graph": [
@@ -673,7 +677,7 @@
    ],
    "cm:tag": "TK-301",
    "label": "CIP caustic tank",
-   "piped_to": [
+   "network_member": [
     "urn:context-map:S1/P1/CIP1/P-301"
    ]
   },
@@ -738,7 +742,7 @@
    ],
    "cm:tag": "FDV-2210",
    "label": "Flow diversion valve",
-   "piped_to": [
+   "network_member": [
     "urn:context-map:S1/P1/PAST1/PHE-2201"
    ]
   },
@@ -780,7 +784,7 @@
    ],
    "cm:tag": "HT-100",
    "label": "Hold tube",
-   "piped_to": [
+   "network_member": [
     "urn:context-map:S1/P1/PAST1/FDV-2210"
    ]
   },
@@ -792,7 +796,7 @@
    ],
    "cm:tag": "P-101",
    "label": "Timing pump",
-   "piped_to": [
+   "network_member": [
     "urn:context-map:S1/P1/PAST1/HT-100"
    ]
   },
@@ -804,7 +808,7 @@
    ],
    "cm:tag": "P-102",
    "label": "Booster pump",
-   "piped_to": [
+   "network_member": [
     "urn:context-map:S1/P1/PAST1/PHE-2201"
    ]
   },
@@ -828,7 +832,7 @@
    ],
    "cm:tag": "PHE-2201",
    "label": "Pasteurizer plate heat exchanger",
-   "piped_to": [
+   "network_member": [
     "urn:context-map:S1/P1/PAST1/P-101"
    ]
   },
@@ -917,7 +921,7 @@
    "@id": "urn:context-map:edge/S1/P1/CIP1/@CIP1-01/L1",
    "@type": "cm:Statement",
    "cm:relation": {
-    "@id": "cm:piped_to"
+    "@id": "cm:network_member"
    },
    "cm:from": {
     "@id": "urn:context-map:S1/P1/CIP1/TK-301"
@@ -936,7 +940,7 @@
    "@id": "urn:context-map:edge/S1/P1/PAST1/@PAST1-01/L1",
    "@type": "cm:Statement",
    "cm:relation": {
-    "@id": "cm:piped_to"
+    "@id": "cm:network_member"
    },
    "cm:from": {
     "@id": "urn:context-map:S1/P1/PAST1/P-102"
@@ -955,7 +959,7 @@
    "@id": "urn:context-map:edge/S1/P1/PAST1/@PAST1-01/L2",
    "@type": "cm:Statement",
    "cm:relation": {
-    "@id": "cm:piped_to"
+    "@id": "cm:network_member"
    },
    "cm:from": {
     "@id": "urn:context-map:S1/P1/PAST1/PHE-2201"
@@ -974,7 +978,7 @@
    "@id": "urn:context-map:edge/S1/P1/PAST1/@PAST1-01/L3",
    "@type": "cm:Statement",
    "cm:relation": {
-    "@id": "cm:piped_to"
+    "@id": "cm:network_member"
    },
    "cm:from": {
     "@id": "urn:context-map:S1/P1/PAST1/P-101"
@@ -993,7 +997,7 @@
    "@id": "urn:context-map:edge/S1/P1/PAST1/@PAST1-01/L4",
    "@type": "cm:Statement",
    "cm:relation": {
-    "@id": "cm:piped_to"
+    "@id": "cm:network_member"
    },
    "cm:from": {
     "@id": "urn:context-map:S1/P1/PAST1/HT-100"
@@ -1012,7 +1016,7 @@
    "@id": "urn:context-map:edge/S1/P1/PAST1/@PAST1-01/L5",
    "@type": "cm:Statement",
    "cm:relation": {
-    "@id": "cm:piped_to"
+    "@id": "cm:network_member"
    },
    "cm:from": {
     "@id": "urn:context-map:S1/P1/PAST1/FDV-2210"

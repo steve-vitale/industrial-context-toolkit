@@ -166,7 +166,8 @@ class Relations(unittest.TestCase):
         # twin-graph-1's measurement -> controller `controls` reads as signal_to
         self.assertEqual(self.onto.relation_for_edge("controls", "transmitter"), "signal_to")
         self.assertEqual(self.onto.relation_for_edge("controls", "controller"), "controls")
-        self.assertEqual(self.onto.relation_for_edge("connects", None), "piped_to")
+        # a run between tagged ends is network co-membership, never pipe adjacency (relations.json 1.2)
+        self.assertEqual(self.onto.relation_for_edge("connects", None), "network_member")
         self.assertIsNone(self.onto.relation_for_edge("concerns", None))
 
     def test_cardinality_upper_bound(self):
@@ -305,7 +306,9 @@ class Pasteurizer(unittest.TestCase):
         by_id = {x["@id"]: x for x in doc["@graph"]}
         ht = by_id["urn:context-map:S1/P1/PAST1/HT-100"]
         self.assertIn("cm:class/hold_tube", ht["@type"])
-        self.assertEqual(ht["piped_to"], ["urn:context-map:S1/P1/PAST1/FDV-2210"])
+        # the sheet's run HT-100 -> FDV-2210 is network co-membership, not proven pipe adjacency (relations.json 1.2)
+        self.assertEqual(ht["network_member"], ["urn:context-map:S1/P1/PAST1/FDV-2210"])
+        self.assertNotIn("piped_to", ht)
         pump = by_id["cm:class/centrifugal_pump"]
         self.assertEqual(pump["seeAlso"], ["https://dexpi.org/specification/2.0.1/html/models/Plant/ProcessEquipment/"
                                            "CentrifugalPump.html"])

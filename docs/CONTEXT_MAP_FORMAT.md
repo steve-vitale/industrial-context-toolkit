@@ -1,14 +1,17 @@
 # The context map format (`context-map-1`), draft for review
 
-**Status: design draft `1.1.0-draft`, 2026-11-04. No tool reads or writes a context-map-1 file yet;**
-[`one_map.py`](ONE_MAP.md) already uses its registers, class tree, relation semantics, expectation rules and
-glossary on its own graph. The machine-readable drafts are in [`schemas/context-map/`](../schemas/context-map/): the
+**Status: design draft `1.2.0-draft`, 2026-11-10. [`scripts/context_map.py`](../scripts/context_map.py) reads,
+writes and validates context-map-1 files** (from a one-map twin-graph-2 graph, from and to twin-graph-1; see
+[How the formats fit together](#how-the-formats-fit-together)); [`one_map.py`](ONE_MAP.md) still builds its own
+graph and uses the registers, class tree, relation semantics, expectation rules and glossary on it. The machine-readable drafts are in [`schemas/context-map/`](../schemas/context-map/): the
 JSON Schema, the register catalogue, a CSV template per register, wide-form datasheet templates, the standards-mapping
 table, the class tree (`classes.json`), relation semantics (`relations.json`), the expectation rules template
 (`templates/expectations.json`) and a small fictional example map. The owner's answers to the draft's open questions
 are applied; see [Decided (2026-11-04)](#decided-2026-11-04). Version 1.1 adds a small, pragmatic ontology
-([Classes](#classes) to [JSON-LD view](#json-ld-view)); every 1.0 file stays valid.
-`python scripts/test_context_map_format.py` checks that they parse and agree with each other.
+([Classes](#classes) to [JSON-LD view](#json-ld-view)); version 1.2 appends the `network_member` relation and the
+fields the converters need (see [Versioning](#versioning)); every 1.0 and 1.1 file stays valid.
+`python scripts/test_context_map_format.py` checks that they parse and agree with each other;
+`python scripts/test_context_map.py` checks the converters.
 
 ## In plain words
 
@@ -106,14 +109,17 @@ the mapping table [`standards-mapping.csv`](../schemas/context-map/standards-map
 | system | none | Equipment module | `PlantStructure/PlantSystem` | taxonomy level 5 (section/system) |
 
 **Items.** Required: `id`, `tag`, `scope`. Optional: `kind` (one of `equipment`, `instrument`, `controller`,
-`final_element`, `manual_valve`, `relief_device`, `line`, `offpage_connector`, `boundary`, `junction`, `other`),
+`final_element`, `manual_valve`, `relief_device`, `line`, `offpage_connector`, `boundary`, `junction`, `other`, and
+since 1.2 `line_network`: a recorded line network, the far end of a `network_member` link),
 `class` and `class_how` (since 1.1: a class id from `classes.json` and where it came from, see [Classes](#classes)),
 `name`, `parent`, `aliases`, `class_refs` (pointers into DEXPI, CFIHOS or ISO 14224 classes), `isa_letters`,
 `safety_relevant`, `status`, `lifecycle`, `appearances` (each P&ID sheet, revision and zone it is drawn on),
 `listed_in` (the sources that hold it; empty means on a P&ID but in no register) and `attributes`.
 
 **Relations.** Each relation has a `type`, `from`, `to` and a `source`, and may carry `revision`, `locator`,
-`status` and, for lines, `line_type` and `signal_type`.
+`status`, for lines `line_type` and `signal_type`, and since 1.2 `attributes`: values the source states about the
+link itself (a run's size or fluid, the in-line items it passes), each with its own provenance. Since 1.2 a fact's
+`value` may also be a list of plain values (the sheets an item is drawn on).
 
 **The relation names are frozen.** The names and directions below are stable from `context-map-1` on, so other
 systems can map to them. Adding a name is a minor version; renaming or removing one, or reversing its direction,
@@ -134,6 +140,7 @@ is no `has_part`.
 | `nozzle_of` | item → item | a nozzle on its equipment, not pipe (kept from twin-graph-1) | stable | nozzle classes |
 | `references` | off-page connector or boundary item → item | where a connector or boundary leads (one map) | stable | `PipeOffPageConnector`, `SignalOffPageConnector` |
 | `member_of` | item → loop | loop membership | stable | `InstrumentationLoopFunction` |
+| `network_member` | item → item or line network | on the same recorded line network (a drawn network, or a reader's run through untagged in-line items); not pipe adjacency, not flow | stable since 1.2 | none single; our own |
 | `covers` | document → scope or item | what a document is about (DOCUMENTS layer) | stable | none; our own |
 | `mentions` | document → item | a tag found in a document's text (DOCUMENTS layer) | stable | none; our own |
 | `based_on` | document → document at a revision | the basis a document was written from (DOCUMENTS layer) | stable | none; our own |
@@ -393,6 +400,7 @@ name for reading backwards, whether it is transitive, and the expected cardinali
 | `nozzle_of` | anything -> equipment | `has_nozzle` | no | 1 / 0..* |
 | `references` | connector -> anything | `referenced_by` | no | 0..* / 0..* |
 | `member_of` | instrument, valve, rotating equipment -> loop | `has_member` | no | 0..* / 1..* |
+| `network_member` | equipment, valve, line, in-line transmitter or element, connector -> the same, or a line network | `shares_network_with` | no | 0..* / 0..* |
 | `covers` | document -> anything | `covered_by` | no | 0..* / 0..* |
 | `mentions` | document -> anything | `mentioned_in` | no | 0..* / 0..* |
 | `based_on` | document -> document | `basis_of` | yes | 0..* / 0..* |
@@ -402,8 +410,16 @@ end of no class is counted, not checked. **A link outside its domain or range is
 map and becomes a review row, "link doesn't fit what it connects", for the owner of the record that asserted it (a
 reader's `PI-2240 measures TIC-2207` goes to the P&IDs' owner). An upper bound of 1 exceeded (an instrument that
 measures two items) is the same kind of row; lower bounds are the expectation rules' job. `relations.json` also maps
-one-map's twin-graph-2 edge names (`connects` reads as `piped_to`, `signal_line` as `signal_to`, and twin-graph-1's
-measurement-to-controller `controls` as `signal_to`).
+the other formats' edge names, and the converters read only these tables: one-map's twin-graph-2 edges
+(`twin_graph_2_edges`, with `twin_graph_2_edges_by_layer`: a `connects` run reads as `network_member`, an off-page
+pair as `references`; `signal_line` as `signal_to`), graph export's twin-graph-1 edges (`twin_graph_1_edges` and
+`twin_graph_1_edges_by_layer`: `connects` with layer `network_pair` and `on_network` read as `network_member`,
+`offpage_pair` as `references`; a hand-built model's logical `stream`, `sits_on`, `trips`, `applies_to` and
+`instrument_connection` map to no relation, with the reason in `twin_graph_1_not_mapped`), and the
+engineering-context-basis-1 predicates (`engineering_context_basis_1_relations`: `reads` reads as `signal_to` with
+its ends swapped, `commands` as `controls`). twin-graph-1's measurement-to-controller `controls` reads as
+`signal_to`. Until 1.2 `connects` read as `piped_to`; that was wrong, because a run between tagged ends is network
+co-membership (tees and untagged valves may sit between them), not consecutive items on one pipe.
 
 ## Expectations
 
@@ -598,10 +614,33 @@ continue to use their documented contracts until actual adapters are validated.
 | `one-map-site-1` | site file: hierarchy, register paths, owners, routing, authority | `map`, `settings`, `sources`, `plant.scopes` | **retired** after one release in which loaders still accept it |
 | `context-sources-1` | document manifest with owner, status, covers, based_on | `document_register` plus `sources`; locators become mention and evidence locators | **retired** into the DOCUMENTS layer; the context register reads a view |
 | One map's `decisions.csv` | `conflict_id,status,by,on,note` | the `ruling` register (a superset) | **retired** after migration |
+| `engineering-context-basis-1` (`context_basis.py`) | a bounded projection basis: typed claims with source lineage and explicit relationships, for drafting component views | PLANT items and relations plus RECORDS values; its predicates read through `relations.json` `engineering_context_basis_1_relations` | **stays** as a projection basis for component drafts; it shares the relation meanings (`piped_to`, `network_member`, `signal_to`) |
 | `context-register-1`, `engineering-onboarding-1` | questions, answers, onboarding packets | not part of the map; they reference map ids | **unchanged** |
 
 The CSV registers one map reads today (maintenance equipment export, instrument index, loop list, datasheets,
 P&ID sheet register) keep their columns; the templates add only optional columns.
+
+### How the formats fit together
+
+context-map-1 is the hub; the other formats are inputs to it or views of it, and one meaning per link holds across
+all of them (the edge tables in `relations.json`). The extracted twin (`plant_model.json`) and authored process
+models become twin-graph-1 through `graph_export.py`; P&ID sheet reads and registers become twin-graph-2 through
+`one_map.py build`. [`scripts/context_map.py`](../scripts/context_map.py) converts between them:
+
+```sh
+python scripts/context_map.py from-one-map out/drawing-to-map/graph.json --out map.json   # twin-graph-2 -> map
+python scripts/context_map.py from-twin-graph-1 examples/graph-export/sheet0_graph.json --out map.json
+python scripts/context_map.py to-twin-graph-1 map.json --out graph.json                  # the portable view
+python scripts/context_map.py validate map.json                                          # schema + cross-references
+```
+
+Every value keeps its source, locator and status (a status the format lacks, such as `extracted`, reads as
+`unverified`). Nothing is dropped silently: what has no slot in the map is counted, with its reason, under
+`extensions.x-toolkit-conversion`, and for twin-graph-1 input kept under `extensions.x-toolkit-twin-graph-1`, so
+`to-twin-graph-1` gives back the same graph (the test checks this on every committed twin-graph-1 file, OPEN100
+sheet 0 included). A map from one map's graph converts to a twin-graph-1 view that passes `graph_export.py --check`.
+one_map.py still stores its own twin-graph-2 graph; the map is written from it, not yet the other way round.
+engineering-context-basis-1 shares the relation meanings and has a mapping table, but no converter yet.
 
 ## Loading a contractor handover
 
@@ -638,10 +677,12 @@ under the authority map, and contractor tags that differ from site tags go throu
   direction, is a breaking change and needs `context-map-2`; the test pins the frozen set.
 - Every `StandardRef` records the standard version it points into, and `standards-mapping.csv` pins the version each
   mapping was made against. Moving to a new standard version is a mapping change, reviewed like any other.
-- This draft is `1.1.0-draft` (1.1 added `class`, the glossary register, `Certification`, `expectations`,
-  `settings.as_of`, `settings.authority_certification`, the `glossary` mention match and two coverage parts, all
-  optional). `registers.json`, `classes.json`, `relations.json` and the rules template carry the same version.
-  Nothing reads a context-map-1 file yet, so it may still change without a version bump.
+- This draft is `1.2.0-draft` (1.1 added `class`, the glossary register, `Certification`, `expectations`,
+  `settings.as_of`, `settings.authority_certification`, the `glossary` mention match and two coverage parts; 1.2
+  appended the `network_member` relation, the `@network` pseudo-class, the item kind `line_network`, relation
+  `attributes`, list-valued facts and the edge tables in `relations.json`; all optional). `registers.json`,
+  `classes.json`, `relations.json` and the rules template carry the same version. `scripts/context_map.py` reads and
+  writes it; it is still a draft, so a change before release needs only this version line and the converter test.
 
 ## Non-goals
 
@@ -691,7 +732,7 @@ choosing a site override example once a real site's authority choices are known.
 ## For agents
 
 ```text
-format:   context-map-1 (draft 1.1.0-draft); schema schemas/context-map/context-map-1.schema.json (JSON Schema 2020-12)
+format:   context-map-1 (draft 1.2.0-draft); schema schemas/context-map/context-map-1.schema.json (JSON Schema 2020-12)
 layers:   plant {scopes, items, relations, loops} | records {<register_id>: [rows]} | documents [] | decisions {conflicts, rulings}
 also:     map {site,...}, settings {owners, authority, authority_reasons, fact_kinds, routing, letter_overrides}, sources [], coverage {}
 required: format, map.site, plant.scopes, plant.items; item = {id: SITE/PLANT/UNIT/TAG, tag, scope}
@@ -701,7 +742,11 @@ datasheet: long form stored; templates/datasheet-wide/*.csv convert by registers
 absent register = not supplied; [] = supplied, no rows
 value:    scalar (inherits row source/revision/locator) or {value, uom, source, revision, locator, status, fact_kind}; no per-value std
 authority: ordered lists, registers.json default_authority + authority_rule (first present for the scope wins), overridden by settings.authority
-relations: frozen names ($defs.RelationType + covers, mentions, based_on); a rename needs context-map-2
+relations: frozen names ($defs.RelationType + covers, mentions, based_on); a rename needs context-map-2;
+          network_member (1.2) = same recorded line network, never piped_to; other formats' edges read only through
+          relations.json twin_graph_1_edges / twin_graph_2_edges (+ _by_layer) / engineering_context_basis_1_relations
+convert:  scripts/context_map.py from-one-map | from-twin-graph-1 | to-twin-graph-1 | validate; kept-out content
+          counted under extensions.x-toolkit-conversion, twin-graph-1 remainder under extensions.x-toolkit-twin-graph-1
 semantics: relations.json domain/range (classes or @scope/@connector/@loop/@any), inverse, transitive, cardinality;
           a link that does not fit -> review row "link doesn't fit what it connects", never dropped
 classes:  classes.json tree; item.class only from a record column, tag letters, equipment prefix, datasheet refine
@@ -713,5 +758,5 @@ ask:      one_map.py ask --map graph.json --question-kind connects|measured-by|d
           --item X -> facts with sources, or "can't answer from this map: no <register> covers <scope>"
 standards: schemas/context-map/standards-mapping.csv; identifiers and links only, never definitions; CFIHOS codes to_confirm except CFIHOS-10000395
 never:    renumber or trim a tag; join on a normalized tag; resolve a conflict; ship standards text or RDL files
-check:    python scripts/test_context_map_format.py; python scripts/test_ontology.py
+check:    python scripts/test_context_map_format.py; python scripts/test_context_map.py; python scripts/test_ontology.py
 ```

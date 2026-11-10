@@ -1,8 +1,9 @@
 """The context-map-1 drafts parse and agree with each other (standard library only).
 
 Checks schemas/context-map/: the JSON Schema, the register catalogue (registers.json), every CSV template, the
-standards-mapping table and the fictional example map. A small local validator covers the JSON Schema keywords the
-draft uses, so no third-party package is needed; if `jsonschema` happens to be installed it is used as well.
+standards-mapping table and the fictional example map. The local validator (scripts/context_map.py) covers the JSON
+Schema keywords the draft uses, so no third-party package is needed; if `jsonschema` happens to be installed it is
+used as well.
 """
 import copy
 import csv
@@ -11,6 +12,8 @@ import json
 import re
 import unittest
 from pathlib import Path
+
+from context_map import validate  # the format's own validator (scripts/context_map.py)
 
 ROOT = Path(__file__).resolve().parents[1]
 DIR = ROOT / "schemas" / "context-map"
@@ -23,78 +26,7 @@ CLASSES = DIR / "classes.json"
 RELATIONS = DIR / "relations.json"
 RULES = DIR / "templates" / "expectations.json"
 
-TYPES = {"object": dict, "array": list, "string": str, "boolean": bool, "null": type(None)}
 DATE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
-
-
-def _type_ok(value, t):
-    if t == "integer":
-        return isinstance(value, int) and not isinstance(value, bool)
-    if t == "number":
-        return isinstance(value, (int, float)) and not isinstance(value, bool)
-    return isinstance(value, TYPES[t])
-
-
-def validate(instance, schema, root, path="$"):
-    """Errors for the JSON Schema keywords context-map-1 uses. Unknown keywords are refused, not ignored."""
-    known = {"$schema", "$id", "$defs", "$ref", "title", "description", "type", "const", "enum", "required",
-             "properties", "additionalProperties", "propertyNames", "items", "minItems", "maxItems", "minLength",
-             "pattern", "oneOf", "minimum", "maximum"}
-    unknown = set(schema) - known
-    if unknown:
-        raise AssertionError(f"validator does not implement {sorted(unknown)} (at {path})")
-    errors = []
-    if "$ref" in schema:
-        ref = schema["$ref"]
-        assert ref.startswith("#/$defs/"), ref
-        errors += validate(instance, root["$defs"][ref.split("/")[-1]], root, path)
-    if "type" in schema:
-        types = schema["type"] if isinstance(schema["type"], list) else [schema["type"]]
-        if not any(_type_ok(instance, t) for t in types):
-            return errors + [f"{path}: expected {types}, got {type(instance).__name__}"]
-    if "const" in schema and instance != schema["const"]:
-        errors.append(f"{path}: must be {schema['const']!r}")
-    if "enum" in schema and instance not in schema["enum"]:
-        errors.append(f"{path}: {instance!r} not in {schema['enum']}")
-    if isinstance(instance, str):
-        if len(instance) < schema.get("minLength", 0):
-            errors.append(f"{path}: shorter than {schema['minLength']}")
-        if "pattern" in schema and not re.search(schema["pattern"], instance):
-            errors.append(f"{path}: {instance!r} does not match {schema['pattern']}")
-    if isinstance(instance, (int, float)) and not isinstance(instance, bool):
-        if "minimum" in schema and instance < schema["minimum"]:
-            errors.append(f"{path}: below {schema['minimum']}")
-        if "maximum" in schema and instance > schema["maximum"]:
-            errors.append(f"{path}: above {schema['maximum']}")
-    if isinstance(instance, dict):
-        for key in schema.get("required", []):
-            if key not in instance:
-                errors.append(f"{path}: missing {key}")
-        props = schema.get("properties", {})
-        for key, value in instance.items():
-            if "propertyNames" in schema:
-                errors += validate(key, schema["propertyNames"], root, f"{path}.<{key}>")
-            if key in props:
-                errors += validate(value, props[key], root, f"{path}.{key}")
-            else:
-                extra = schema.get("additionalProperties", True)
-                if extra is False:
-                    errors.append(f"{path}: unexpected {key}")
-                elif isinstance(extra, dict):
-                    errors += validate(value, extra, root, f"{path}.{key}")
-    if isinstance(instance, list):
-        if len(instance) < schema.get("minItems", 0):
-            errors.append(f"{path}: fewer than {schema['minItems']} items")
-        if "maxItems" in schema and len(instance) > schema["maxItems"]:
-            errors.append(f"{path}: more than {schema['maxItems']} items")
-        if "items" in schema:
-            for i, value in enumerate(instance):
-                errors += validate(value, schema["items"], root, f"{path}[{i}]")
-    if "oneOf" in schema:
-        passing = [s for s in schema["oneOf"] if not validate(instance, s, root, path)]
-        if len(passing) != 1:
-            errors.append(f"{path}: matches {len(passing)} of oneOf, needs exactly 1")
-    return errors
 
 
 def load(path):
@@ -108,7 +40,8 @@ def read_csv(path):
 
 # Relation names frozen in context-map-1 (decided 2026-11-04). Renaming or removing one needs context-map-2.
 FROZEN_RELATIONS = {"contains", "piped_to", "measures", "controls", "sets_point_of", "acts_on", "protects", "signal_to",
-                    "actuated_by", "nozzle_of", "references", "member_of"}
+                    "actuated_by", "nozzle_of", "references", "member_of",
+                    "network_member"}  # appended in 1.2
 FROZEN_DOCUMENT_RELATIONS = {"covers", "mentions", "based_on"}
 # Example tags every new register template draws on (the HTST pasteurizer unit PAST1).
 PASTEURIZER_TAGS = {"P-101", "TT-2207", "FDV-2210", "HT-100"}
@@ -593,9 +526,9 @@ class ContextMapFormat(unittest.TestCase):
     # ---------------------------------------------------------------- the ontology pieces (1.1)
     def test_ontology_files_share_the_minor_version(self):
         versions = {p.name: load(p)["format_version"] for p in (REGISTERS, CLASSES, RELATIONS, RULES, EXAMPLE)}
-        self.assertEqual(set(versions.values()), {"1.1.0-draft"}, versions)
-        self.assertIn("1.1", self.schema["title"])
-        self.assertIn("1.1.0-draft", DOC.read_text(encoding="utf-8"))
+        self.assertEqual(set(versions.values()), {"1.2.0-draft"}, versions)
+        self.assertIn("1.2", self.schema["title"])
+        self.assertIn("1.2.0-draft", DOC.read_text(encoding="utf-8"))
 
     def test_relation_semantics_cover_exactly_the_frozen_names(self):
         rel = load(RELATIONS)
