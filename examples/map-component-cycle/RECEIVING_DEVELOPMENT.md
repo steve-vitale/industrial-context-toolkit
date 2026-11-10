@@ -39,6 +39,13 @@ queries, private source admission, complete export and fresh toolkit reopening.
 This is stronger than an upload-success response or a local archive check, but
 still applies only to the executed isolated development candidate.
 
+Those UI/agent queries read the delivered context as a received source. They do
+not establish that its engineering facts feed ChangePilot's existing equipment
+knowledge, conflict readers or planning context. Receipt, custody and complete
+export are necessary parts of the handoff; useful incorporation into ordinary
+engineering queries remains a separate unqualified requirement. The isolated
+receiver is unmerged, and its successful archive queries do not close that gap.
+
 The matched maintenance run uses the same two original CSVs and literal source
 key as the earlier folder/tool baseline. Its exported delivery SHA-256 is
 `59b01e5751e3c97e98716695f7c3c8b0848f74589b440e04716e6ef7064039c0`.
@@ -140,6 +147,19 @@ authenticated access, controlled source retention/withdrawal, revision custody,
 durable audit and accountable maintenance at the required scale. The customer
 should be able to see and query the same facts and uncertainty after receiving,
 without entering them again, and export them again if they leave.
+
+Continuing use must also make those facts available in the service's normal
+engineering and decision context. For example, an engineer asking about a pump
+must be able to distinguish its unit, installed-item observations, proposed work
+and conflicting source accounts. The same question before and after handoff
+should retain its citations and qualifications. Reuse the destination's existing
+identity, evidence and governance mechanisms; qualify missing connections before
+adding another knowledge store or interface. A received-file query alone does
+not demonstrate this managed-service benefit. Permission to query a selected
+source must not silently become permission to read all company history, and a
+private source must not become organization-wide knowledge merely because its
+facts were extracted. The sharing preview and receiving tests must cover those
+boundaries alongside useful queries.
 
 Company document, CAD and maintenance systems can keep their authoritative
 records. Receiving context does not transfer their permissions or make a draft
