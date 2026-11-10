@@ -1,6 +1,6 @@
 {
  "format": "context-map-classes-1",
- "format_version": "1.1.0-draft",
+ "format_version": "1.2.0-draft",
  "note": "The small class tree of context-map-1 (since 1.1). Definitions are this project's own words. DEXPI class names and their class-page URLs were opened on 2026-11-04 (DEXPI 2.0.1); DEXPI publishes HTML class pages, not an RDF namespace, so the URLs are documentation links used as IRIs. CFIHOS tag class codes are not looked up (to_confirm). A class asserts nothing on its own: the inference rules below say when a tag or a datasheet value deterministically gives a class; anything else stays unset.",
  "attribution": "DEXPI Specification 2.0.1, DEXPI Initiative, CC BY 4.0; class names and page URLs only.",
  "certification_rule": "Only a certified class is assigned by inference or used to check relations. The shipped classes are certified as format vocabulary by its maintainers; that certifies the word, never that a given item belongs to it (an inferred class stays unverified). A site's own added classes start as draft.",
