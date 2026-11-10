@@ -230,7 +230,7 @@ layers were skipped (`--no-line-layers` turns them off). A line whose two ends t
 networks is dropped and listed per sheet rather than refusing the drawing. On the Pahala set that dropped one
 dashed signal line and the tap it reached, leaving 42 pipe segments and 41 instrument connections. No topology key
 exists for those sheets, so their accuracy is unmeasured. On OPEN100 sheets 0 to 5 the pipe layer scores 0.931 and
-instrument connections 0.835 ([GOAL.md, round 6](../../docs/GOAL.md)). Every pair is unverified and
+instrument connections 0.835 ([round-6 goal](../../docs/GOAL_ROUND6.md)). Every pair is unverified and
 listed in `review_queue.csv` and in the report's "Across sheets" section. The cross-sheet links appear in the graph
 export as `connects` edges, so paths can be followed from sheet to sheet. Sheet numbers in the bundle follow the
 manifest order (`svg/sheet_0.svg`, `svg/sheet_1.svg`, ...).

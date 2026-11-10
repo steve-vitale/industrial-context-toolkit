@@ -1,0 +1,64 @@
+# Standing depth goal (2026-11-10): every acquired source earns its place
+
+Companion to [GOAL_ROUND6.md](GOAL_ROUND6.md) (drawings) and [GOAL.md](GOAL.md) (rounds 2 to 5, unchanged).
+
+## The finding that sets it
+
+Five public-data passes acquired 218 files in 49 download groups. On 2026-11-10, none of the 40 groups in passes 1-4
+was used by any benchmark, corpus-matrix cell or test outside the acquisition folders. They appear only in the pin
+and source registries (`data/corpus_pins.json`, `data/public_sources_*.json`). Pass 5 describes its nine groups as
+acquired and unscored too. The scored work still rests on OPEN100, the generated Tennessee Eastman sheets, DEXPI
+and a few agent-keyed sheets. Breadth was collected; depth was not.
+
+## The goal, in one sentence
+
+**Before any further acquisition, every acquired source either feeds a scored task through the product path, or
+has a dated plan naming its key, or is retired with its reason. Each area the toolkit serves reaches depth on at
+least one real public source.**
+
+## What depth means for an area
+
+An area has depth when all six are true and checkable in the repository:
+
+1. A registered task with an answer key, its provenance and its limits (`benchmarks/registry.json`).
+2. A frozen scorer, with deliberately wrong controls reported in every table.
+3. A development result and one sealed held-out result, kept or not, recorded in `data/attempts.json`.
+4. A corpus-matrix cell that re-runs offline from pinned inputs (`docs/GENERALIZATION.md`).
+5. The scored output comes from the tool a user runs (the round-6 product-path rule), not from a research script.
+6. Failures on the real source are written up and either fixed or listed as limits.
+
+## Areas and the sources already acquired for them
+
+Key availability is a candidate until the first increment verifies it from each source's own files.
+
+| Area | Acquired groups | Candidate key |
+|---|---|---|
+| P&ID drawings | pahala-drawings, haile-water-treatment, salina-design-basis, ruttan-water-treatment, virden-drawings, doe-engineering-drawings | text-layer tags; hand-checked cross-sheet references and pipe/instrument relations on a few sheets; Virden as the scanned/OCR case |
+| Maintenance records and text | maintie, maintnorm, nestor-excavators, tina-mining, nyc-amps-2024w01, mro-catalog, doe-operations-maintenance | published annotations where a dataset has them; the NYC cohort's linked assets, work orders, parts and labor |
+| Process and historian data | historian-rca, bms-alarms, uci-ai4i, uci-aps, uci-secom, uci-gas-turbine, uci-naval, uci-steel-energy, nasa-cmapss, nasa-milling, usda-pumping, candida-bioreactor, pomace-fermentation, sequencing-batch-reactor, lanl-biomanufacturing, distillation-modalities | the datasets' own fault, failure or outcome labels |
+| Process models and networks | idaes-processes, modelica-fluid, epanet-networks | model topology as a key for `piped_to` and connectivity |
+| CAD | cad-extra-originals, freecad-originals, doe-mechanical | native-file round trips (docs/CAD_QUALIFICATION.md) |
+| Photos, nameplates, equipment | phoenix-nameplate, commons-equipment, commons-instruments, commons-fireboat | hand-keyed nameplate fields |
+| Unassigned | wine-competition and the nine pass-5 groups | to be assigned or retired |
+
+## Increments
+
+1. **Disposition every group.** Add a generated, checked register (`docs/CORPUS_DEPTH.md` from a data file) with one
+   row per group: area, the task it feeds or the planned key and task, or a retirement reason. Its `--check` fails on
+   any group without a disposition, and on any "evaluated" claim that no benchmark, matrix cell or test backs. Done
+   when 49 of 49 groups have a disposition.
+2. **One real source per area to depth**, in order of what users ask for:
+   - drawings: Pahala, round 6;
+   - maintenance records: the NYC cohort or MaintIE;
+   - process data: a labelled set such as C-MAPSS or SECOM;
+   - then models, nameplates and CAD.
+3. **A second source per area**, from a different publisher, before any claim that a method generalizes in that
+   area.
+
+## Rules
+
+- No new acquisition pass while any group lacks a disposition. Acquisition stays separate from evaluation, and is
+  not progress by itself.
+- Rights stay as recorded at acquisition. Original files that may not be redistributed stay fetch-by-hash. Keys and
+  results are derived facts, committed with their source pins.
+- A depth claim is the six checks above, not a count of files or groups.
