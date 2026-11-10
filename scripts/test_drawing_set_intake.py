@@ -67,6 +67,7 @@ class DrawingSetIntake(unittest.TestCase):
         self.assertEqual({c['refers_to_drawing'] for c in model['offpage_connectors']}, {'P-204', 'P-401'})
         self.assertTrue(any(s['kind'] == 'cross_sheet' for s in model['streams']))
         self.assertEqual(model['summary']['offpage_pairs'], 1)
+        self.assertEqual([s['name'] for s in model['systems']], ['Permeate collection', 'Equalization tank'])
         self.assertEqual(sorted(p.name for p in (self.out / 'svg').glob('sheet_*.svg')), ['sheet_0.svg', 'sheet_1.svg'])
         self.assertEqual(sorted(p.name for p in (self.out / 'source').glob('*.png')), ['0.png', '1.png'])
 

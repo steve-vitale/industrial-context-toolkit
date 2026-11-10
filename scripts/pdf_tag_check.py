@@ -26,7 +26,7 @@ import sys
 
 LETTERS = re.compile(r"[A-Z]{2,5}")
 NUMBER = re.compile(r"\d[\d,\s-]*[A-Z]?")
-SINGLE = re.compile(r"[A-Z]{2,5}-?\d{2,5}[A-Z]?")
+SINGLE = re.compile(r"[A-Z]{2,5}-?\d{2,7}[A-Z]?")  # one-letter forms (P-101) are skipped: they collide with drawing numbers
 MIN_WORDS_FOR_TEXT_LAYER = 150  # Pahala: title-block-only pages carry 118-121 words, P&ID text pages 207-263
 STOP = {"FOR", "REV", "NO", "DATE", "SHEET", "SHT", "OF", "DWG", "SCALE", "PAGE", "JOB", "SIZE", "NTS"}
 MAX_NUMBER_WIDTH = 4.5  # a bubble's number line is at most this many letter-heights wide

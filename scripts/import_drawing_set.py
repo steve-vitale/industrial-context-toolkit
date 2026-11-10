@@ -163,6 +163,8 @@ def load_set(manifest_path, out):
             prediction = one.validate_prediction(record)
         register = {k: one.text_field(sheet, k, optional=True) for k in ("drawing_number", "system_code", "system_name")}
         title = one.text_field(sheet, "title", optional=True)
+        if title and not register["system_name"]:
+            register["system_name"] = title  # name the sheet's system after its title block, not "Sheet 0"
         if register["drawing_number"]:
             key = re.sub(r"[^A-Z0-9]", "", register["drawing_number"].upper())
             one.require(key not in seen_numbers, f"sheets[{index}] repeats drawing_number {register['drawing_number']}")

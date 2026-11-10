@@ -35,9 +35,9 @@ class TagCheck(unittest.TestCase):
         self.assertEqual(found, {"ZSO 500, 101", "ZSC 500, 101", "LI 401"})
 
     def test_single_word_tags_and_title_block_words(self):
-        words = [word(100, 100, "FIT-403"), word(200, 100, "MB-01")] + bubble(400, 100, "FOR", ["2021"]) \
+        words = [word(100, 100, "FIT-403"), word(200, 100, "MB-01"), word(300, 100, "PMP-080101")] + bubble(400, 100, "FOR", ["2021"]) \
             + [word(500, 100, "P-204")]
-        self.assertEqual(set(t.drawing_tags(words)), {"FIT403", "MB01"})
+        self.assertEqual(set(t.drawing_tags(words)), {"FIT403", "MB01", "PMP080101"})
 
     def test_compare_lists_misses_and_possible_misreads_and_ignores_descriptive_labels(self):
         words = bubble(100, 100, "LI", ["401"]) + bubble(200, 100, "LAH", ["402"]) + FILLER
