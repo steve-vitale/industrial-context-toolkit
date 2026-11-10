@@ -36,6 +36,14 @@ class IntakeTests(unittest.TestCase):
         self.save()
         return mi.run(self.root / "profile.json", self.root / "equipment.csv", self.root / "work_orders.csv", self.root / name, previous)
 
+    def test_site_file_claims_no_drawing_register_without_drawings(self):
+        a = self.run_packet()
+        site = mi.load(a / "prepared/site.json")
+        self.assertNotIn("drawing_register", site)  # an empty register would claim drawings the intake never had
+        self.assertFalse((a / "prepared/drawings.csv").exists())
+        self.assertFalse([n for n in mi.load(a / "map/graph.json")["nodes"] if n["kind"] == "document"
+                          and str(n.get("id", "")).startswith("PID-")])
+
     def test_three_revisions_preserve_identity_history_and_sources(self):
         a = self.run_packet()
         before = mi.inventory(a)

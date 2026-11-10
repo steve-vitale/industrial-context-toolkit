@@ -67,7 +67,7 @@
     "scripts/import_drawing_set.py": {
       "kind": "tool",
       "guide": "examples/own-drawing/README.md",
-      "purpose": "Several sheets and their extractions to one review bundle, pairing off-page connectors across sheets by drawing number and title."
+      "purpose": "Several sheets and their extractions to one review bundle, pairing off-page connectors across sheets by drawing number, title and system code (offpage_pairing.py)."
     },
     "scripts/pdf_tag_check.py": {
       "kind": "check",
@@ -124,6 +124,11 @@
     "scripts/sheet_zone.py": {
       "kind": "support",
       "guide": "docs/ONE_MAP.md"
+    },
+    "scripts/offpage_pairing.py": {
+      "kind": "support",
+      "guide": "docs/ONE_MAP.md",
+      "purpose": "The one cross-sheet off-page pairing rule used by import_drawing_set.py and one_map.py after build_twin.py's in-model pass; ties stay unpaired for a person."
     },
     "scripts/extract_text.py": {
       "kind": "tool",

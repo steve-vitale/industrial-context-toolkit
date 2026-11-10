@@ -8,6 +8,7 @@ import zlib
 
 import deliverable_report
 import import_drawing_set as dset
+import offpage_pairing
 
 try:
     import cv2  # noqa: F401
@@ -97,7 +98,7 @@ class DrawingSetIntake(unittest.TestCase):
                          'unpaired: target sheet is in this set but no matching connector was found')
 
     def test_drawing_numbers_match_literally_with_separators_but_not_inside_longer_numbers(self):
-        pattern = dset.number_pattern('P-204')
+        pattern = offpage_pairing.number_pattern("P-204")
         for text in ('REF SHT P-204', 'P 204', 'SEE P204.', '(P-204)'):
             self.assertTrue(pattern.search(text.upper()), text)
         for text in ('P-2045', 'XP-204', 'P-20', 'P-2041'):

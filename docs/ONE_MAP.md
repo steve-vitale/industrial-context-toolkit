@@ -248,12 +248,15 @@ turns them into runs between tagged ends with these rules (`scripts/one_map.py`,
   `acts_on` or `protects` edge) or `on_line` a run (the run's `instruments_on` claim and the appearance's
   `on_line`). Two or more go to the review queue as `placement unclear` with the candidates, never guessed; a bubble
   that reaches nothing within the limit is counted, not placed.
-- **Off-page pairing.** A connector with no `to` pairs with a connector on another registered sheet of the site when
-  each one's printed reference names the other's sheet (`PID 180-1` names sheet `180-1`, `180-01`, or `180` for a
-  drawing registered without sheet numbers). Several matches narrow on the printed name with the reference removed;
-  a pair is written only when each side has exactly one candidate. Otherwise the connector is a review row:
-  `off-page connector unpaired` (no reference read, or the named sheet is not in the sheet index) or `off-page
-  pairing unclear`. A connector with an explicit `to` pairs as before.
+- **Off-page pairing.** A connector with no `to` is paired by [`offpage_pairing.py`](../scripts/offpage_pairing.py),
+  the repository's one cross-sheet rule (the drawing-set importer uses it too), with each registered sheet id as the
+  number its connectors print (`PID 180-1` names sheet `180-1`, `180-01`, or `180` for a drawing registered without
+  sheet numbers; an unreadable separator such as `140?1` still reads). Both connectors must name each other's sheet;
+  several matches narrow on the printed description with the reference removed. A tie is never decided by order:
+  every end of it becomes an `off-page pairing unclear` row naming the candidates, as does a connector whose only
+  candidates paired elsewhere. The edge's `how_found` is the rule's method. Otherwise the connector is an `off-page
+  connector unpaired` row (no reference read, the named sheet is not in the sheet index, or nothing there points
+  back). A connector with an explicit `to` pairs as before.
 
 ### Lining up and locating (step 2)
 

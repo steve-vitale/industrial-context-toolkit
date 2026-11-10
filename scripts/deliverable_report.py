@@ -135,6 +135,7 @@ PAIR_METHODS = {
     "one_way_ref_plus_system_code": "one names the other's drawing; system codes agree",
     "reciprocal_supplied_numbers": "each names the other's drawing number",
     "one_way_number_plus_sheet_title": "one names the other's number; the other carries its title",
+    "one_way_number_plus_system_code": "one names the other's number; the other carries its system code",
 }
 
 

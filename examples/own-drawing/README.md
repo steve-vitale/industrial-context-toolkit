@@ -215,10 +215,18 @@ For your own set, copy [`set-manifest.json`](set-manifest.json) next to your PNG
 Pairing uses them in two passes, and each pair records which rule matched:
 
 1. **References written like `PID 140-1`** are paired by `build_twin.py`'s existing rules.
-2. **Any other style** (`REF SHT P-204`, `DWG 10-PI-003`) is matched literally against the supplied drawing numbers.
-   A pair needs either both connectors naming each other's number, or one naming the other's number while the other
-   carries every word of the first sheet's title (`IRRIGATION EQUALIZATION TANK` on the sheet titled "Irrigation
-   Equalization Tank P&ID").
+2. **What that pass leaves** goes to [`offpage_pairing.py`](../../scripts/offpage_pairing.py), the one cross-sheet
+   rule (the one-map build uses it too). It matches the supplied drawing numbers literally in any reference style
+   (`REF SHT P-204`, `DWG 10-PI-003`, or `PID 140?1` where the reader lost the separator). A pair needs both
+   connectors naming each other's number, or one naming the other's number while the other carries every word of the
+   first sheet's title (`IRRIGATION EQUALIZATION TANK` on the sheet titled "Irrigation Equalization Tank P&ID") or,
+   when the first sheet has no supplied number, its system code. Equally good candidates are never decided by order;
+   they stay unpaired with the candidates named.
+
+On sheets 0 to 5 here the first pass makes 4 pairs and the second adds 1 (`MSS PID 140?1 PEGGING STEAM` to
+`EXTRACTION STEAM ES PID 180-1`): 5 of the 6 continuations the drawings print, all correct against the
+[printed-reference key](offpage-key.json). The sixth is lost because the reader dropped `ACC PID 150-1` from one
+end. Three of the first pass's four pairs were ties it broke by order; the key records which.
 
 Unmatched connectors keep a reason, such as "target drawing is not in this sheet set".
 

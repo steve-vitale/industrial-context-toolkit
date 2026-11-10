@@ -1,0 +1,36 @@
+{
+  "schema": "offpage-pairing-key-1",
+  "set_manifest": "examples/own-drawing/set-manifest.json",
+  "connectors": "the recorded reader's inlet/outlet symbols in predictions/r2-tiles-trace/codex/0-5.json; ids are <manifest sheet index>/<symbol id>",
+  "why_not_the_answer_keys": "The PID2Graph OPEN100 answer keys (*.graphml) hold symbol classes, boxes and same-sheet edges only: no text and no cross-sheet links. They cannot score cross-sheet pairing.",
+  "how_this_key_was_read": "From the drawing images, not from the reader's text. A continuation is accepted when the two connectors print each other's drawing number and the printed line number or service on both ends agrees. Read by one assistant (Claude) on 2026-11-10; not independently reviewed.",
+  "continuations": [
+    {"id": "G1", "a": "0/s56", "b": "4/s66", "printed": "140-1 'EXTRACTION STEAM ES PID 180-1' on line ES-140083; 180-1 'MSS PID 140-1 PEGGING STEAM' on line ESS-140083. The reader wrote 140-1 with an unreadable separator character on 4/s66."},
+    {"id": "G2", "a": "0/s82", "b": "1/s15", "printed": "140-1 'MAIN STEAM BY-PASS ACC PID 150-1' at grid E-1; 150-1 'MSS PID 140-1 (E-1) MAIN STEAM BYPASS'. The reader dropped 'ACC PID 150-1' from 0/s82, so no text rule can recover this one from this reading."},
+    {"id": "G3", "a": "0/s89", "b": "3/s38", "printed": "140-1 'FWS TO STM BYPASS FWS PID 170-1'; 170-1 'FWS TO MAIN STM BYPASS MSS PID 140-1'. Line numbers differ on the two sheets (FWS-140083, MSS-170133)."},
+    {"id": "G4", "a": "1/s17", "b": "2/s4", "printed": "150-1 'CND PID 160-1 CONDENSATE SYSTEM' on line COND-150104; 160-1 'ACC PID 150-1 (C-12) CONDENSATE RETURN' on line CND-150104. 1/s39 is the same line drawn again in 150-1's Detail A, so 1/s39-2/s4 is also accepted."},
+    {"id": "G5", "a": "1/s37", "b": "2/s1", "printed": "150-1 'PID 160-1 (F-1) CND RECEIVER TANK VENT' on line ACC-160090; 160-1 'ACC PID 150-1 ACC VACUUM PMPS' on line ACC-160090. The descriptions share no word; only the line number ties them."},
+    {"id": "G6", "a": "2/s107", "b": "4/s1", "printed": "160-1 'ESS PID 180-1 QUENCH TO DESUPERHEATER' on line ESS-165117; 180-1 prints two connectors 'CND PID 160-1 (E-1)' (s1 'CONDENSATE SYSTEM', s12 'CONDENSATE'), both on line CND-165117. One drawn continuation, two ends on 180-1: 2/s107-4/s12 is also accepted. Their grid E-1 points at a different 160-1 connector (PID 240-1 GLAND STEAM LEAKOFF, also labelled ESS-165117), a drawing inconsistency kept as found."}
+  ],
+  "acceptable_pairs": [
+    {"continuation": "G1", "accept": ["0/s56", "4/s66"]},
+    {"continuation": "G2", "accept": ["0/s82", "1/s15"]},
+    {"continuation": "G3", "accept": ["0/s89", "3/s38"]},
+    {"continuation": "G4", "accept": ["1/s17", "2/s4"]},
+    {"continuation": "G4", "accept": ["1/s39", "2/s4"]},
+    {"continuation": "G5", "accept": ["1/s37", "2/s1"]},
+    {"continuation": "G6", "accept": ["2/s107", "4/s1"]},
+    {"continuation": "G6", "accept": ["2/s107", "4/s12"]}
+  ],
+  "scoring": "precision = pairs in acceptable_pairs / pairs made; recall = continuations with at least one accepted pair / 6. Connectors that print a drawing outside sheets 0-5 have no partner in this set and are not scored.",
+  "measured": {
+    "date": "2026-11-10",
+    "build_twin_in_model_pass": {"pairs": 4, "correct": 4, "continuations_found": 4, "continuations": 6, "missed": ["G1", "G2"]},
+    "import_drawing_set_pair_by_supplied_numbers_alone": {"pairs": 4, "correct": 4, "continuations_found": 4, "continuations": 6, "missed": ["G1", "G2"]},
+    "one_map_pair_by_reference_before": {"pairs": 1, "correct": 1, "continuations_found": 1, "continuations": 6, "missed": ["G1", "G2", "G4", "G5", "G6"]},
+    "offpage_pairing": {"pairs": 2, "correct": 2, "continuations_found": 2, "continuations": 6, "missed": ["G2", "G4", "G5", "G6"]},
+    "import_drawing_set_after_change": {"pairs": 5, "correct": 5, "continuations_found": 5, "continuations": 6, "missed": ["G2"], "note": "build_twin's in-model pass (4 pairs) then offpage_pairing on what it leaves (G1)"},
+    "one_map_pair_by_reference_after_change": {"pairs": 2, "correct": 2, "continuations_found": 2, "continuations": 6, "missed": ["G2", "G4", "G5", "G6"], "note": "G4, G5 and G6 become 'off-page pairing unclear' review rows naming the tied candidates"},
+    "ties": "G4, G5 and G6 are ties on printed text: 1/s17 and 1/s39 both print 'CONDENSATE SYSTEM' toward 160-1; 4/s1 and 4/s12 both print 'CND PID 160-1 (E-1)' toward one 160-1 connector; G5's two ends share no description word with each other or with their rivals. build_twin's pass (and the old supplied-number pass) broke these ties by order: G4 and G6 were right whichever tied candidate was taken, G5 was right only by input order. offpage_pairing does not decide ties; it names the candidates for a person."
+  }
+}
