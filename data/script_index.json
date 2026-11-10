@@ -64,6 +64,16 @@
       "kind": "tool",
       "guide": "examples/own-drawing/README.md"
     },
+    "scripts/import_drawing_set.py": {
+      "kind": "tool",
+      "guide": "examples/own-drawing/README.md",
+      "purpose": "Several sheets and their extractions to one review bundle, pairing off-page connectors across sheets by drawing number and title."
+    },
+    "scripts/pdf_tag_check.py": {
+      "kind": "check",
+      "guide": "examples/own-drawing/README.md",
+      "purpose": "Compare a bundle's extracted tags with the PDF's own text layer: tags the reader missed and possible misreads."
+    },
     "scripts/generate.py": {
       "kind": "tool",
       "guide": "examples/from-description/README.md",

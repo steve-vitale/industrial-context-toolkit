@@ -71,9 +71,18 @@ def items(model):
                 yield it, prov
 
 
-def overlay(model, w, h, uri):
+def sheet_items(model, sheet):
+    """Every appearance on one sheet of a drawing-set bundle (an item can appear on several sheets)."""
+    for group in ("units", "instruments", "final_elements", "line_items", "offpage_connectors"):
+        for it in model.get(group, []):
+            for prov in it.get("provenance", []):
+                if prov.get("sheet") == sheet:
+                    yield it, prov
+
+
+def overlay(model, w, h, uri, sheet=None):
     boxes = []
-    for it, prov in items(model):
+    for it, prov in (items(model) if sheet is None else sheet_items(model, sheet)):
         x1, y1, x2, y2 = prov["box_0_1000"]
         colour = CLASS_COLOURS.get(it.get("class"), "#4b5563")
         label = html.escape(f'{it["id"]}: {it.get("tag") or "no tag"} ({it.get("class")})')
@@ -100,6 +109,52 @@ def hierarchy_html(node, depth=0):
 
 class BundleError(ValueError):
     pass
+
+
+SET_SCHEMA = "site-drawing-set-1"
+
+
+def set_drawings_html(model, intake, bundle, legend):
+    """One boxed drawing per sheet of a drawing-set bundle (scripts/import_drawing_set.py)."""
+    e = html.escape
+    parts = []
+    for sh in intake["sheets"]:
+        n = sh["internal_sheet"]
+        png = (bundle / "source" / f"{n}.png").read_bytes()
+        w, h = png_size(png)
+        d = sh["drawing"]
+        title = f' · {e(sh["title"])}' if sh.get("title") else ""
+        parts.append(f'<h3>Sheet {e(n)}: {e(d["drawing_id"])}, revision {e(str(d["revision"]))}, page '
+                     f'{e(str(d["page"]))}{title}</h3><figure>{overlay(model, w, h, drawing_uri(png), sheet=n)}'
+                     f'<figcaption class=legend>{legend}</figcaption></figure>')
+    return "".join(parts)
+
+
+PAIR_METHODS = {
+    "reciprocal_drawing_refs": "each names the other's drawing",
+    "one_way_ref_plus_system_code": "one names the other's drawing; system codes agree",
+    "reciprocal_supplied_numbers": "each names the other's drawing number",
+    "one_way_number_plus_sheet_title": "one names the other's number; the other carries its title",
+}
+
+
+def across_sheets_html(model):
+    """Cross-sheet pairs and the connectors still unmatched, for a drawing-set bundle."""
+    e = html.escape
+    connectors = model.get("offpage_connectors", [])
+    rows = "".join(
+        f'<tr><td>{e(p["id"])}</td><td>sheet {e(p["sheet_a"])}: {e(str(p["text_a"]))}</td>'
+        f'<td>sheet {e(p["sheet_b"])}: {e(str(p["text_b"]))}</td><td>{e(PAIR_METHODS.get(p["method"], p["method"]))}</td></tr>'
+        for p in model.get("offpage_pairs", []))
+    status = Counter(c.get("pair_status") for c in connectors if not c.get("pair"))
+    unmatched = "".join(f"<li>{n} × {e(str(k))}</li>" for k, n in status.most_common())
+    table = (f'<div class=scroll><table><thead><tr><th>Pair</th><th>From</th><th>To</th><th>Matched by</th></tr>'
+             f'</thead><tbody>{rows}</tbody></table></div>') if rows else "<p>No connectors were paired across sheets.</p>"
+    count = len(model.get("offpage_pairs", []))
+    return (f'<h2>Across sheets ({count} pair{"" if count == 1 else "s"})</h2><p class=sub>Off-page connectors '
+            'matched to a connector on another sheet of this set. Each pair is a candidate for review, not an '
+            'established continuation; it is also in <code>review_queue.csv</code>.</p>' + table
+            + (f"<p>Not paired:</p><ul>{unmatched}</ul>" if unmatched else ""))
 
 
 MODEL_GROUPS = ("units", "instruments", "final_elements", "line_items", "offpage_connectors", "streams")
@@ -165,6 +220,7 @@ def build(bundle):
         rows = list(reader)
     consistency(model, rows)
     reviewed = [it for g in MODEL_GROUPS for it in model.get(g, []) if (it.get("ops_review") or {}).get("status")]
+    is_set = intake.get("schema_version") == SET_SCHEMA
     png = pngs[0].read_bytes()
     w, h = png_size(png)
     s = model["summary"]
@@ -188,8 +244,28 @@ def build(bundle):
     first_rows = "".join(
         f"<tr><td>{e(r['item_id'])}</td><td>{e(r['what_it_is'])}</td><td>{e(r['item_type'])}</td>"
         f"<td>{e(r['why_check_this'])}</td></tr>" for r in first)
-    files = "".join(f"<tr><td><code>{e(n)}</code></td><td>{e(d)}</td></tr>" for n, d in FILES if (bundle / n).exists())
+    listed = [(("svg/", "One logical diagram per sheet: the extracted items and links, not pipe routes.")
+               if is_set and n == "svg/sheet_0.svg" else (n, d)) for n, d in FILES]
+    files = "".join(f"<tr><td><code>{e(n)}</code></td><td>{e(d)}</td></tr>" for n, d in listed if (bundle / n).exists())
     legend = "".join(f'<span><i style="border-color:{c}"></i>{e(k)}</span>' for k, c in CLASS_COLOURS.items())
+    if is_set:
+        heading = e(intake.get("set_id", ""))
+        subline = (f'{len(intake["sheets"])} sheets · {e(meta.get("title", ""))} · extraction: '
+                   f'{e(producer.get("method", "not stated"))}'
+                   + (f' ({e(producer.get("model"))})' if producer.get("model") else ""))
+        drawing_section = ('<h2>The drawings, with what was extracted</h2>'
+                           f'{set_drawings_html(model, intake, bundle, legend)}<p class=sub>Each box is one '
+                           "extracted item, coloured by class; hover for its id and tag. Links aren't drawn here "
+                           '(see <code>svg/</code>).</p>' + across_sheets_html(model))
+    else:
+        heading = e(drawing.get('drawing_id', meta.get('source_document', '')))
+        subline = (f"Revision {e(str(drawing.get('revision', '?')))}, page {e(str(drawing.get('page', '?')))} ·\n"
+                   f"{e(meta.get('title', ''))} · extraction: {e(producer.get('method', 'not stated'))}\n"
+                   + (('(' + e(producer.get('model')) + ')') if producer.get('model') else ''))
+        drawing_section = (f"<h2>The drawing, with what was extracted</h2>\n<figure>{overlay(model, w, h, drawing_uri(png))}\n"
+                           f"<figcaption class=legend>{legend}</figcaption></figure>\n<p class=sub>Each box is one "
+                           "extracted item, coloured by class; hover for its id and tag. Links aren't drawn here\n"
+                           "(see <code>svg/sheet_0.svg</code>).</p>")
     reason_list = "".join(f"<li>{n} × {e(k)}</li>" for k, n in reasons.most_common())
     return f"""<!doctype html><html lang=en><head><meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
@@ -214,10 +290,8 @@ th{{color:var(--mute);font-weight:600}}.scroll{{overflow-x:auto}}ul.tree,ul.tree
 ul.tree{{padding-left:0;font-size:14px}}.k{{color:var(--mute);font-size:12px}}code{{font-size:13px}}
 ol li,ul li{{margin:3px 0}}
 </style></head><body><main>
-<h1>Draft asset model: {e(drawing.get('drawing_id', meta.get('source_document', '')))}</h1>
-<div class=sub>Revision {e(str(drawing.get('revision', '?')))}, page {e(str(drawing.get('page', '?')))} ·
-{e(meta.get('title', ''))} · extraction: {e(producer.get('method', 'not stated'))}
-{('(' + e(producer.get('model')) + ')') if producer.get('model') else ''}</div>
+<h1>Draft asset model: {heading}</h1>
+<div class=sub>{subline}</div>
 <p>This bundle is a structural starting point for a digital twin of the process represented by the drawing:
 assets, represented connections and their source locations, ready for engineering review. Use the same intake
 and review tools with your approved P&amp;ID and extraction to build from your plant's records. Add operating
@@ -234,11 +308,7 @@ knowledge, retained decisions and reviewed signal mappings as the application de
 {tile(s['offpage_connectors'], 'off-page connectors')}{tile(s['streams_extracted'], 'links between items')}
 {tile(len(open_rows), 'rows still to review' if decided else 'rows to review')}{tile(len(first), 'to check first')}</div>
 
-<h2>The drawing, with what was extracted</h2>
-<figure>{overlay(model, w, h, drawing_uri(png))}
-<figcaption class=legend>{legend}</figcaption></figure>
-<p class=sub>Each box is one extracted item, coloured by class; hover for its id and tag. Links aren't drawn here
-(see <code>svg/sheet_0.svg</code>).</p>
+{drawing_section}
 
 {reviewed_html(reviewed, decided)}
 <h2>Check these first ({len(first)} of {len(open_rows)} rows{' still to review' if decided else ''})</h2>
