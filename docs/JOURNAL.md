@@ -10343,3 +10343,26 @@ dependency and obsolete-policy errors, so qualification is moving to an exact
 source-backed dependency closure. No authenticated product receiving, policy
 runtime acceptance, complete export, final Judge or governed landing is claimed.
 No shared hosted data, production or real customer records were changed.
+
+## 245. Separate current corpus availability from retained historical results
+
+The full suite at 0a7c045 failed its claim and matrix checks both locally and in
+[Linux CI](https://github.com/steve-vitale/industrial-context-toolkit/actions/runs/42737315250).
+The latest actual matrix recorded 46 pass, 10 fail, 5 not applicable and 34 needing
+data, while RESULTS still quoted the earlier full-cache totals. Its vendor pipe
+cell lacked the sheet counts needed to reproduce the historical 0.776 score.
+This is an evidence-publication defect, not evidence that the missing cases improved.
+
+RESULTS and the registered claims now report the current counts, including missing
+data. The historical vendor claim explicitly reads the original retained full-cache
+matrix; its failed result is not replaced or relabelled. The claim checker still
+derives pipe F1 from per-sheet counts rather than the stored summary. New controls
+reject a missing-data cell changed to a pass and altered historical vendor counts.
+All 16 claim tests pass; the receipt reports 42 numerical matches and one prose-only
+claim. The stale Bayer export cell was actually rerun after its guide changed:
+14 files, pass. All 44 matrix tests pass with two unavailable-input skips; the
+matrix check separately reports 50 cells whose optional source caches are absent.
+
+The previous CI also failed pipeline checks; that separate failure remains under
+investigation. Focused repairs do not establish full-suite or managed-product
+acceptance. Public historical CAD, drawing-reader and historian failures remain.

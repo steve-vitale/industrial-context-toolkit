@@ -47,6 +47,7 @@ REVC = "out/te_pid/roundtrip_scores_revC.json"
 LOOPS = "data/te_control_loops.json"
 BAYER_DOC = "docs/BAYER_RT.md"
 MATRIX = "out/generalization/matrix.json"
+HISTORICAL_MATRIX = "examples/map-component-cycle/history/legacy-generator-rebuild-01/corpus/matrix.json"
 
 
 class EvidenceError(Exception):
@@ -105,21 +106,23 @@ def matrix_cells():
     return at(load_json(MATRIX), ["cells"], MATRIX)
 
 
-def matrix_pipe_f1(input_id):
-    cells = [c for c in matrix_cells() if c["row"] == 8 and c["input"] == input_id]
+def matrix_pipe_f1(input_id, matrix_file=None):
+    evidence = MATRIX if matrix_file is None else matrix_file
+    source_cells = matrix_cells() if matrix_file is None else at(load_json(evidence), ["cells"], evidence)
+    cells = [c for c in source_cells if c["row"] == 8 and c["input"] == input_id]
     if len(cells) != 1:
-        raise EvidenceError(f"{MATRIX}: expected one row-8 cell for {input_id}, found {len(cells)}")
-    sheets = at(cells[0], ["detail", "sheets"], MATRIX)
+        raise EvidenceError(f"{evidence}: expected one row-8 cell for {input_id}, found {len(cells)}")
+    sheets = at(cells[0], ["detail", "sheets"], evidence)
     tp = predicted = truth = 0
     for name, sheet in sheets.items():
-        counts = [at(sheet, [key], MATRIX) for key in ("tp", "predicted", "truth")]
+        counts = [at(sheet, [key], evidence) for key in ("tp", "predicted", "truth")]
         if any(type(v) is not int or v < 0 for v in counts) or counts[0] > min(counts[1:]):
-            raise EvidenceError(f"{MATRIX}: invalid pipe counts for {input_id}/{name}")
+            raise EvidenceError(f"{evidence}: invalid pipe counts for {input_id}/{name}")
         tp += counts[0]
         predicted += counts[1]
         truth += counts[2]
     if not sheets:
-        raise EvidenceError(f"{MATRIX}: no pipe sheet counts for {input_id}")
+        raise EvidenceError(f"{evidence}: no pipe sheet counts for {input_id}")
     return 2 * tp / (predicted + truth) if predicted + truth else 1.0
 
 
@@ -225,16 +228,19 @@ class Claim:
 CLAIMS = [
     Claim("M-workflows", "eight selected workflows in the corpus matrix", ["covers eight selected workflows"], 8,
           lambda: len({c["row"] for c in matrix_cells()}), [MATRIX]),
-    Claim("M-pass", "64 corpus cells pass", ["64 cells pass, 23 fail and 8 are not applicable"], 64,
+    Claim("M-pass", "46 current corpus cells pass", ["46 cells pass, 10 fail, 5 are not applicable and 34 need data"], 46,
           lambda: sum(c["status"] == "pass" for c in matrix_cells()), [MATRIX]),
-    Claim("M-fail", "23 corpus cells fail", ["64 cells pass, 23 fail and 8 are not applicable"], 23,
+    Claim("M-fail", "10 current corpus cells fail", ["46 cells pass, 10 fail, 5 are not applicable and 34 need data"], 10,
           lambda: sum(c["status"] == "fail" for c in matrix_cells()), [MATRIX]),
-    Claim("M-na", "8 corpus cells are not applicable", ["64 cells pass, 23 fail and 8 are not applicable"], 8,
+    Claim("M-na", "5 current corpus cells are not applicable", ["46 cells pass, 10 fail, 5 are not applicable and 34 need data"], 5,
           lambda: sum(c["status"] == "n/a" for c in matrix_cells()), [MATRIX]),
+    Claim("M-needs-data", "34 current corpus cells need data", ["46 cells pass, 10 fail, 5 are not applicable and 34 need data"], 34,
+          lambda: sum(c["status"] == "needs data" for c in matrix_cells()), [MATRIX]),
     Claim("M-open100-pipe", "OPEN100 validation pipe F1 0.912", ["Pipe tracing reaches F1 0.912"], 0.912,
           lambda: matrix_pipe_f1("open100-holdout"), [MATRIX], 3),
-    Claim("M-vendor-pipe", "mixed vendor-render pool pipe F1 0.776", ["mixed vendor-render pool still fails at 0.776"], 0.776,
-          lambda: matrix_pipe_f1("dexpi-1.2-vendor-renders"), [MATRIX], 3),
+    Claim("M-vendor-pipe", "historical mixed vendor-render pool pipe F1 0.776", ["historical mixed vendor-render pool failed at 0.776"], 0.776,
+          lambda: matrix_pipe_f1("dexpi-1.2-vendor-renders", HISTORICAL_MATRIX), [HISTORICAL_MATRIX], 3,
+          note="retained earlier run; the current cell needs an absent optional cache and was not reproduced"),
     Claim("A-symbols-f1", "symbols F1 0.93 on held-out drawings, mean of five round-5 runs (GPT)", ["F1 0.93"], 0.93,
           lambda: replicate_mean(HOLDOUT_A, "symbol_f1_rough_classified", "codex"), [HOLDOUT_A], 2,
           note="rough_classified F1; the single round-2 run's rough_located F1 was 0.97"),

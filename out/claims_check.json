@@ -1,6 +1,6 @@
 {
   "schema": "publication-claims-1",
-  "summary": "41 ok, 1 prose only, 0 FAIL of 42 claims",
+  "summary": "42 ok, 1 prose only, 0 FAIL of 43 claims",
   "claims": [
     {
       "id": "M-workflows",
@@ -16,10 +16,10 @@
     },
     {
       "id": "M-pass",
-      "phrase": "64 corpus cells pass",
-      "published_says": "64",
+      "phrase": "46 current corpus cells pass",
+      "published_says": "46",
       "publication": "docs/RESULTS.md",
-      "evidence_says": "64",
+      "evidence_says": "46",
       "files": "out/generalization/matrix.json",
       "te": false,
       "note": "",
@@ -28,10 +28,10 @@
     },
     {
       "id": "M-fail",
-      "phrase": "23 corpus cells fail",
-      "published_says": "23",
+      "phrase": "10 current corpus cells fail",
+      "published_says": "10",
       "publication": "docs/RESULTS.md",
-      "evidence_says": "23",
+      "evidence_says": "10",
       "files": "out/generalization/matrix.json",
       "te": false,
       "note": "",
@@ -40,10 +40,22 @@
     },
     {
       "id": "M-na",
-      "phrase": "8 corpus cells are not applicable",
-      "published_says": "8",
+      "phrase": "5 current corpus cells are not applicable",
+      "published_says": "5",
       "publication": "docs/RESULTS.md",
-      "evidence_says": "8",
+      "evidence_says": "5",
+      "files": "out/generalization/matrix.json",
+      "te": false,
+      "note": "",
+      "status": "ok",
+      "detail": ""
+    },
+    {
+      "id": "M-needs-data",
+      "phrase": "34 current corpus cells need data",
+      "published_says": "34",
+      "publication": "docs/RESULTS.md",
+      "evidence_says": "34",
       "files": "out/generalization/matrix.json",
       "te": false,
       "note": "",
@@ -64,13 +76,13 @@
     },
     {
       "id": "M-vendor-pipe",
-      "phrase": "mixed vendor-render pool pipe F1 0.776",
+      "phrase": "historical mixed vendor-render pool pipe F1 0.776",
       "published_says": "0.776",
       "publication": "docs/RESULTS.md",
       "evidence_says": "0.776",
-      "files": "out/generalization/matrix.json",
+      "files": "examples/map-component-cycle/history/legacy-generator-rebuild-01/corpus/matrix.json",
       "te": false,
-      "note": "",
+      "note": "retained earlier run; the current cell needs an absent optional cache and was not reproduced",
       "status": "ok",
       "detail": ""
     },
