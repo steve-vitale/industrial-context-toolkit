@@ -1,0 +1,53 @@
+{
+  "checks": [
+    {
+      "history": "context-core-development-01",
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-B",
+        "-S",
+        "-m",
+        "unittest",
+        "-v",
+        "test_context_basis",
+        "test_context_intake",
+        "test_context_components"
+      ],
+      "exit_code": 1,
+      "expected_assertion_failures": 8,
+      "matched": true,
+      "sha256_raw": {
+        "context_basis.py": "b9a100d0888aded8e523756ecd33aada6a8f157233e2403e8186100d35d723b5",
+        "context_components.py": "d2590b64b7a9471bceff45beedcf33f225e35eb747830cca056503058e891add",
+        "context_intake.py": "554f3ba819730e0579bb2c7f2678dcc6e67fbd8952c0b04910bcbaccf405a0c3",
+        "test_context_basis.py": "7e05570722a943fdf8a50e6531590be93780b52744ca404b4e41342f50763285",
+        "test_context_components.py": "a85612a617c272a1dcb9f5fcf231997bd2b162abf8d9bfcc47fe01d70f8048c6",
+        "test_context_intake.py": "efd9cfb0f26bc7557249055f130ea247f1f1b4e2f350ca4daeb1683c507a999e"
+      }
+    },
+    {
+      "history": "context-packet-order-01",
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-B",
+        "-S",
+        "-m",
+        "unittest",
+        "-v",
+        "test_context_packet.PacketWorkflowTests.test_prepare_replays_original_column_order_in_new_process"
+      ],
+      "exit_code": 1,
+      "expected_assertion_failures": 1,
+      "matched": true,
+      "sha256_raw": {
+        "context_basis.py": "480035e77921a6535d3b79179513a7647a71a4a3fb4ded2ca3616ebe435d907b",
+        "context_components.py": "b5852458c6f133e560a76bdd116cc43d1ffcaf1e00ec2d987fcc4592a2222306",
+        "context_intake.py": "835e5b60f94524a0b7b4b8f18dba768f1bba78e17609a2ce22da0d80770d9455",
+        "context_packet.py": "d488927bbd374e1485f154cca85a111f98d8093d9bece93ba0fae0ac55b6a944",
+        "context_workflow.py": "d7b8dbfb73e0815231b88d24a6026888f10a8df29368183558dc75ad4c662605",
+        "test_context_packet.py": "90d4db589e0b018d7d6d3f44da459b78ebab1f735a943258968fe62b2b57521c"
+      }
+    }
+  ],
+  "scope": "Historical method reproduces intended failures in standalone temporary fixture workspace; not current candidate failure"
+}

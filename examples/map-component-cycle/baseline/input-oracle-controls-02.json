@@ -1,0 +1,39 @@
+{
+  "checks": 5,
+  "passed": 5,
+  "records": [
+    {
+      "control": "intact",
+      "expected": null,
+      "actual": null,
+      "passed": true
+    },
+    {
+      "control": "raw-source-tamper",
+      "expected": "raw bytes inputs/development/rev1/datasheet.csv",
+      "actual": "Input/key mismatch: raw bytes inputs/development/rev1/datasheet.csv",
+      "passed": true
+    },
+    {
+      "control": "tamper-rehashed",
+      "expected": "rev1 actual datasheet value/status",
+      "actual": "Input/key mismatch: rev1 actual datasheet value/status",
+      "passed": true
+    },
+    {
+      "control": "typed-oracle-change",
+      "expected": "false/zero/null/empty controls remain distinct types",
+      "actual": "Input/key mismatch: false/zero/null/empty controls remain distinct types",
+      "passed": true
+    },
+    {
+      "control": "independent-record-change",
+      "expected": "rev2 independent records unchanged",
+      "actual": "Input/key mismatch: rev2 independent records unchanged",
+      "passed": true
+    }
+  ],
+  "oracle_sha256_lf": "ac5d7c616628c4d24f86910d2f679457c4ed579e1757397edfb6e655bb099f04",
+  "input_freeze_sha256_lf": "d217b946ff35be3e1b53bcbdcc6d7c927eb972ed2e854c50639e15e0ec85bcb6",
+  "scope": "fixture oracle controls, not candidate or product acceptance"
+}

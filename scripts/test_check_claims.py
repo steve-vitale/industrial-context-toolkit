@@ -67,8 +67,29 @@ class Drift(unittest.TestCase):
             results = {r["id"]: r for r in cc.run(publications=publication())}
         for name in ("M-pass", "M-fail", "M-open100-pipe"):
             self.assertEqual(results[name]["status"], "FAIL", name)
-        for name in ("M-workflows", "M-na", "M-vendor-pipe"):
+        for name in ("M-workflows", "M-na", "M-needs-data", "M-vendor-pipe"):
             self.assertEqual(results[name]["status"], "ok", name)
+
+    def test_missing_data_count_drift_is_not_a_pass(self):
+        changed = copy.deepcopy(cc.matrix_cells())
+        next(c for c in changed if c["status"] == "needs data")["status"] = "pass"
+        with patch.object(cc, "matrix_cells", return_value=changed):
+            results = {r["id"]: r for r in cc.run(publications=publication())}
+        self.assertEqual(results["M-needs-data"]["status"], "FAIL")
+        self.assertEqual(results["M-pass"]["status"], "FAIL")
+
+    def test_historical_vendor_claim_uses_its_own_sheet_counts(self):
+        original = cc.load_json
+        historical = copy.deepcopy(original(cc.HISTORICAL_MATRIX))
+        cell = next(c for c in historical["cells"] if c["row"] == 8 and c["input"] == "dexpi-1.2-vendor-renders")
+        for sheet in cell["detail"]["sheets"].values():
+            sheet["tp"] = 0
+        def altered(path):
+            return historical if path == cc.HISTORICAL_MATRIX else original(path)
+        with patch.object(cc, "load_json", side_effect=altered):
+            results = {r["id"]: r for r in cc.run(publications=publication())}
+        self.assertEqual(results["M-vendor-pipe"]["status"], "FAIL")
+        self.assertEqual(results["M-open100-pipe"]["status"], "ok")
 
     def test_edited_publication_number_is_noticed(self):
         patched = publication()

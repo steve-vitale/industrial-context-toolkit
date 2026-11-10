@@ -10202,3 +10202,184 @@ context-map format checks passed 28 methods with one skipped optional check
 while recording the preceding shared-model design. Local link targets and
 whitespace checks pass. These checks validate documentation/registry consistency,
 not the planned component adapters or the external demonstrations.
+
+## 242. Fix the customer-to-context baseline before building the projection
+
+2026-11-09. The new goal is recorded before implementation in
+`examples/map-component-cycle/PLAN.md` and `ACCEPTANCE.json`: ordinary records,
+first useful finding, common engineering context, three component drafts, three
+revisions and actual authorized ChangePilot receiving. All 31 new required cases
+remain unrun. A local Snapshot or mock receiver cannot close the product cases.
+
+The earlier-route baseline actually runs the existing maintenance intake on three
+revisions, drawing receiving rehearsal, one-map build and item queries in separate
+processes. It checks literal original CSV/text/request facts, not just exits. The
+corrected baseline passes 16 conditions and retains complete selected records,
+commands, outputs and source/method pins. The document brief is root-agent-authored
+from an exposed fictional source; it is not an automated reader or fresh-agent trial.
+The mapping/profile and drawing readings were already supplied. Human preparation,
+customer interaction counts and savings are unmeasured; do not inflate baseline
+friction because a runner writes new profile versions while reusing old mappings.
+
+The first checker incorrectly expected ambiguous one_map.ask selection to exit 2.
+Actual behavior is exit 0 with no selected item or facts and both qualified scopes
+in a structured cannot-answer response. Preserve the original failing checker and
+its actual command/check records under history/. The corrected check requires that
+specific abstention; no production tool or engineering acceptance was relaxed.
+
+Twenty-two new fictional input/key files are pinned before candidate production
+code. Three related revisions contain a same-tag other-unit pump, serial disagreement,
+independent signal facts, a changed datasheet value and later withdrawal/replacement.
+The literal key is authored from original records, not generated from candidate
+outputs. The initial direct CSV/text checker passed 43 conditions. Adding an explicit
+original JSON source for the typed-value controls expands this to 45; the earlier
+21-file freeze and control record remain in history/. Five oracle controls pass:
+intact records, raw tampering, rehashed altered fact, false/zero key confusion and
+an unexpectedly changed independent record. Each wrong input fails for its intended
+reason. Input/byte checks are not proof of a candidate or company receiver.
+
+A second header/delimiter dialect and existing public DEXPI conversion are selected
+for later procedural transfer. Inputs are author-known, not blind. Tool/checker method
+freeze and transfer execution have not occurred. New fictional revisions are one
+source family. Original XML interpretation requires its own permitted-source check.
+Checking public conversion/report/README fingerprints against committed blobs found
+Windows checkout CRLF differences. Their declared text pins now use the existing
+LF-normalized text policy, with observed raw hashes and the earlier freeze retained
+separately. New original inputs keep strict raw-byte pins; no XML or engineering
+comparison is changed. Current source checks therefore cover both platform text
+representations without claiming their raw bytes are identical.
+
+Read-only product discovery found existing import/assertion/graph/conflict/recovery
+infrastructure to inspect and reuse. The detailed source-level report stays private;
+actual authorization, runtime, receiving and export remain unverified. No product
+change, live customer record, production promotion, new generator, native CAD
+qualification or human/company acceptance is established by this baseline phase.
+
+## 243. Retain one context basis through drafts, edits and source revisions
+
+2026-11-09. Implement a bounded draft projection over ordinary CSV record exports,
+with optional source-bound supplied interpretation. The common basis keeps scoped
+positions, source claims, exact typed values, explicit relation meanings and
+declarations of applicability/review. All three derived component views reuse
+the same source facts. Local prepare/query/edit/compare/reimport/bundle/reopen
+commands require no account or network; company systems retain authority.
+
+The first early review found seven defects missed by the initial unit checks.
+The retained pre-fix method and regression run failed eight assertions across
+seven cases: lossy floats, intermediate withdrawal, root-source revision basis,
+namespace escape, forged quotation bytes, other-item note disclosure and readable
+direction loss. Fixes now pass the same controls. A subsequent actual CLI test
+found column-order dependence after mapping JSON serialization; retain the exact
+failed method/output and fix iteration to use source CSV column order.
+
+Later review found relationship correction dependencies, invented correction
+lineage/basis, an installation implied by an open physical-item proposal and
+inactive links hidden in readable outlines. Eight assertions across four cases
+failed before repair. Retain those methods/results. Corrections now bind immutable
+proposals to actual historical content/evidence basis; open item IDs remain record
+proposals; inactive relationships stay sourced. A further retained failure exposed
+loss of helper-supplied annotations on an ordinary CLI edit. The common carry path
+now preserves them through intake/edit/reimport, including hidden selections.
+An earlier quantity checker also assumed insertion order; its console output was
+not separately archived. The correction compares the same typed alternatives.
+
+The final development replay passes 37 methods, including separate-process
+CLI execution. It checks literal preimplementation source keys, first serial/flow
+disagreements, same-tag other-unit separation, three drafts, manual edit retention,
+three source revisions, field content versus evidence impact, reimport without
+new independent claims, relocation and full-source delivery reopening. Rehashed
+wrong artifacts and other negative controls require specific refusals. Complete
+actual command/artifact evidence is retained in the development archive, with
+viewable initial excerpts and method/key pins. The 17.56-second run is software
+time on this machine, not customer effort or benefit.
+
+The broader cached-data run passed 105/105 test programs, zero failed, 23 skipped
+cases and three platform notices. It began before the later correction changes;
+its new context tests cover the earlier prototype, while the final focused run
+pins the updated core. It is legacy regression evidence, not exact final-candidate
+CI or a complete release pass. Four historical failed methods reproduce their
+intended assertion failures in temporary standalone workspaces.
+
+Read-only ChangePilot discovery also found that app-process isolation is not
+backend isolation. Available hosted defaults cannot be used as an isolated
+receiving proof. Product environment/contract work remains private and unverified;
+no shared hosted state, production or customer record was changed.
+
+This is a partial implementation of the active goal. All 31 full acceptance
+cases remain incomplete. Scope selection limits derived views but retains whole
+private originals/history; it is not access filtering. Existing map/model
+adapters, generator projection, explicit identity changes, scope-filtered receiving,
+browser/workload/clean-clone transfer and real authenticated product persistence,
+revision and exit still need implementation/evidence. No CAD failure or unrun
+human/company trial is promoted by these passes. See the detailed development
+record in examples/map-component-cycle/DEVELOPMENT.md.
+
+## 244. Make shared component context reviewable without JSON editing
+
+The same retained record packet now produces an offline component-review HTML.
+An engineer can distinguish scoped items, inspect sources/revisions and gaps,
+and download a rationale-bearing proposed text edit. The CLI verifies its exact
+packet and source dependencies, retains previous edits, and regenerates without
+replacing source accounts. Changed packets require an explicit rebase.
+
+The actual desktop/390px run and fresh-process edit/reopen/revision controls pass.
+Independent review found Unicode byte-limit mismatch, missing-controller gaps
+hidden by target filtering, and ambiguous type display. Pre-fix code and source
+probes are retained; a separate old-method browser run fails specifically on the
+over-limit download. The original failure assertion tried to print the complete
+Playwright Download object and consumed excessive memory; that owned process
+was stopped. Its incomplete observation stays separate. The checker now compares
+whether a download occurred. Corrected byte checking, prerequisite retention and
+type/literal details pass, including an independent exact-byte-boundary recheck.
+
+Current focused development: 43 methods, zero skips, 28.39 seconds of machine
+time; no human benefit measured. Earlier commit99e621f passed both CI jobs and
+an independent standard-library Git-clone replay. New UI changes need their own
+exact-head release gate. All 31 full-goal criteria remain incomplete.
+
+Private product work has a real local Auth/Postgres/Storage runtime and bounded
+typed-admission/privacy drafts. Historical whole-file schema replay exposed
+dependency and obsolete-policy errors, so qualification is moving to an exact
+source-backed dependency closure. No authenticated product receiving, policy
+runtime acceptance, complete export, final Judge or governed landing is claimed.
+No shared hosted data, production or real customer records were changed.
+
+## 245. Separate current corpus availability from retained historical results
+
+The full suite at 0a7c045 failed its claim and matrix checks both locally and in
+[Linux CI](https://github.com/steve-vitale/industrial-context-toolkit/actions/runs/42737315250).
+The latest actual matrix recorded 46 pass, 10 fail, 5 not applicable and 34 needing
+data, while RESULTS still quoted the earlier full-cache totals. Its vendor pipe
+cell lacked the sheet counts needed to reproduce the historical 0.776 score.
+This is an evidence-publication defect, not evidence that the missing cases improved.
+
+RESULTS and the registered claims now report the current counts, including missing
+data. The historical vendor claim explicitly reads the original retained full-cache
+matrix; its failed result is not replaced or relabelled. The claim checker still
+derives pipe F1 from per-sheet counts rather than the stored summary. New controls
+reject a missing-data cell changed to a pass and altered historical vendor counts.
+All 16 claim tests pass; the receipt reports 42 numerical matches and one prose-only
+claim. The stale Bayer export cell was actually rerun after its guide changed:
+14 files, pass. All 44 matrix tests pass with two unavailable-input skips; the
+matrix check separately reports 50 cells whose optional source caches are absent.
+
+The previous CI also failed pipeline checks; that separate failure remains under
+investigation. Focused repairs do not establish full-suite or managed-product
+acceptance. Public historical CAD, drawing-reader and historian failures remain.
+
+## 246. Carry the rebuilt generator bindings into the committed checkout
+
+The previous local pipeline pass depended on an uncommitted receipt refresh.
+A tracked-file-only checkout of 0a7c045 reproduces the CI failure: 43 of 45
+checks pass. The three export-stage receipts still bind the previous generate.py
+hash, so their dependent stages correctly report stale. The generator's current
+ordinary export bytes are unchanged; updating example outputs elsewhere did not
+carry these stage bindings into the commit.
+
+Retain the original failed CI and tracked-checkout run. Carry only the actual
+rebuilt generate.py input bindings for te.exports, te.pid_exports and
+open100.exports into this change. The unrelated local tour raster refresh stays
+outside it. Repeating the same pipeline tests against tracked source/output bytes
+and this exact receipt passes all 45 checks, including review propagation and
+byte-identical second rebuild. The two existing manual runtime stages remain
+stale; this does not establish a live gateway or replay acceptance run.

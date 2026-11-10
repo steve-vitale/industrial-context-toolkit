@@ -1,0 +1,96 @@
+{
+  "schema": "maintenance-findings-1",
+  "findings": [
+    {
+      "id": "C-cde5629da5",
+      "type": "value_disagreement",
+      "what": "P-101 serial_number: work order WO-803 (closed 2026-11-05) records serial_number NEXT-101 installed; the maintenance equipment export EQ-EXPORT (row 2) says NEW-101",
+      "subject": "SIM/P1/U1/P-101",
+      "attribute": "serial_number",
+      "source_a": {
+        "source": {
+          "kind": "document",
+          "document": "WO-EXPORT",
+          "revision": "2",
+          "sha256": "3d43ac969563b8030bf974cf12f4d04991702098036978b873e8790f07c56616",
+          "path": "work_orders.csv",
+          "locator": "row 4; original work_orders.csv CSV record 4 (ends at physical line 4)"
+        },
+        "says": "NEXT-101"
+      },
+      "source_b": {
+        "source": {
+          "kind": "document",
+          "document": "EQ-EXPORT",
+          "revision": "2",
+          "sha256": "39bd2360d6941e2150dad1323ca6369b798d546a339c1e868bb7a42893458692",
+          "path": "equipment.csv",
+          "locator": "row 2"
+        },
+        "says": "NEW-101"
+      },
+      "record_owner": "Maintenance",
+      "parties": [
+        "Maintenance"
+      ],
+      "status": "open",
+      "detected": true,
+      "history": [],
+      "original_evidence": [
+        {
+          "side": "source_a",
+          "says": "NEXT-101",
+          "source": {
+            "kind": "document",
+            "document": "WO-EXPORT",
+            "revision": "2",
+            "sha256": "3d43ac969563b8030bf974cf12f4d04991702098036978b873e8790f07c56616",
+            "path": "work_orders.csv",
+            "locator": "row 4; original work_orders.csv CSV record 4 (ends at physical line 4)"
+          },
+          "origin": {
+            "prepared": "work_orders.csv",
+            "prepared_record": 4,
+            "original": "originals/work_orders.csv",
+            "original_record": 4,
+            "original_end_line": 4,
+            "source_id": "WO-EXPORT",
+            "revision": "2",
+            "item": "SIM/P1/U1/P-101"
+          }
+        },
+        {
+          "side": "source_b",
+          "says": "NEW-101",
+          "source": {
+            "kind": "document",
+            "document": "EQ-EXPORT",
+            "revision": "2",
+            "sha256": "39bd2360d6941e2150dad1323ca6369b798d546a339c1e868bb7a42893458692",
+            "path": "equipment.csv",
+            "locator": "row 2"
+          },
+          "origin": {
+            "prepared": "equipment.csv",
+            "prepared_record": 2,
+            "original": "originals/equipment.csv",
+            "original_record": 2,
+            "original_end_line": 2,
+            "source_id": "EQ-EXPORT",
+            "revision": "2",
+            "item": "SIM/P1/U1/P-101"
+          }
+        }
+      ]
+    }
+  ],
+  "history": {
+    "new": [
+      "C-cde5629da5"
+    ],
+    "still_detected": [],
+    "no_longer_detected": [],
+    "meaning": "No longer detected is an observation, not an accepted correction or closure. Previous packet remains unchanged."
+  },
+  "comparison_basis": "comparison-basis.json"
+}

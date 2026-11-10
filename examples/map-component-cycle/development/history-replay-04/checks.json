@@ -1,0 +1,106 @@
+{
+  "checks": [
+    {
+      "history": "context-core-development-01",
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-B",
+        "-S",
+        "-m",
+        "unittest",
+        "-v",
+        "test_context_basis",
+        "test_context_intake",
+        "test_context_components"
+      ],
+      "exit_code": 1,
+      "expected_assertion_failures": 8,
+      "matched": true,
+      "sha256_raw": {
+        "context_basis.py": "b9a100d0888aded8e523756ecd33aada6a8f157233e2403e8186100d35d723b5",
+        "context_components.py": "d2590b64b7a9471bceff45beedcf33f225e35eb747830cca056503058e891add",
+        "context_intake.py": "554f3ba819730e0579bb2c7f2678dcc6e67fbd8952c0b04910bcbaccf405a0c3",
+        "test_context_basis.py": "7e05570722a943fdf8a50e6531590be93780b52744ca404b4e41342f50763285",
+        "test_context_components.py": "a85612a617c272a1dcb9f5fcf231997bd2b162abf8d9bfcc47fe01d70f8048c6",
+        "test_context_intake.py": "efd9cfb0f26bc7557249055f130ea247f1f1b4e2f350ca4daeb1683c507a999e"
+      }
+    },
+    {
+      "history": "context-packet-order-01",
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-B",
+        "-S",
+        "-m",
+        "unittest",
+        "-v",
+        "test_context_packet.PacketWorkflowTests.test_prepare_replays_original_column_order_in_new_process"
+      ],
+      "exit_code": 1,
+      "expected_assertion_failures": 1,
+      "matched": true,
+      "sha256_raw": {
+        "context_basis.py": "480035e77921a6535d3b79179513a7647a71a4a3fb4ded2ca3616ebe435d907b",
+        "context_components.py": "b5852458c6f133e560a76bdd116cc43d1ffcaf1e00ec2d987fcc4592a2222306",
+        "context_intake.py": "835e5b60f94524a0b7b4b8f18dba768f1bba78e17609a2ce22da0d80770d9455",
+        "context_packet.py": "d488927bbd374e1485f154cca85a111f98d8093d9bece93ba0fae0ac55b6a944",
+        "context_workflow.py": "d7b8dbfb73e0815231b88d24a6026888f10a8df29368183558dc75ad4c662605",
+        "test_context_packet.py": "90d4db589e0b018d7d6d3f44da459b78ebab1f735a943258968fe62b2b57521c"
+      }
+    },
+    {
+      "history": "correction-physical-lineage-01",
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-B",
+        "-S",
+        "-m",
+        "unittest",
+        "-v",
+        "test_context_components",
+        "test_context_intake"
+      ],
+      "exit_code": 1,
+      "expected_assertion_failures": 8,
+      "matched": true,
+      "sha256_raw": {
+        "context_basis.py": "480035e77921a6535d3b79179513a7647a71a4a3fb4ded2ca3616ebe435d907b",
+        "context_components.py": "b5852458c6f133e560a76bdd116cc43d1ffcaf1e00ec2d987fcc4592a2222306",
+        "context_intake.py": "76be28f12c52b212fc7ee95f8f4436b4c224fbbcf543d6a19b36ebc79d84dada",
+        "context_packet.py": "43388478c59c83a6cfe1be296f4a905c45404e6063dd0411efd05f59ac39debc",
+        "context_workflow.py": "ace96540b13874a9d73940146e8bcb3b29e45ebcf301ebc666787d5b4b78a951",
+        "test_context_basis.py": "d679a0159fdbe4efec6550f9b928249b0009481040f42e33051dffeb24b42154",
+        "test_context_components.py": "246fead431859b1839e8ec4724ae94b217c8631621ff9e56ccd79010b600410f",
+        "test_context_intake.py": "0b90b43a37111e167c6ce9ae5496ad065de5749bae587eef3bdaccd652b61ba7",
+        "test_context_packet.py": "f0cb2d7243b4fcbacd1f6bfdb4d1fd8c5979b0aeab8f0054bd2ec894e1bac5f0"
+      }
+    },
+    {
+      "history": "helper-annotation-retention-01",
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-B",
+        "-S",
+        "-m",
+        "unittest",
+        "-v",
+        "test_context_packet.PacketWorkflowTests.test_valid_api_annotations_survive_ordinary_edit_and_reimport"
+      ],
+      "exit_code": 1,
+      "expected_assertion_failures": 1,
+      "matched": true,
+      "sha256_raw": {
+        "context_basis.py": "497c978194764ba55a9bfcdfd4bd2af6a1ccd8ce6270925e128c1fe009f53106",
+        "context_components.py": "39fc9ca199d6040310d30400a1671d208aea07ced1a00bf29d30f24050f03ca2",
+        "context_intake.py": "e5bfa47175ead06b103d70dc60c9ee275b1dcac264110cde20b050c076c6545e",
+        "context_packet.py": "49cab6b707824bcf576e55af0027e3bc8dec3db574379e955f8991a1309444fc",
+        "context_workflow.py": "ace96540b13874a9d73940146e8bcb3b29e45ebcf301ebc666787d5b4b78a951",
+        "test_context_basis.py": "6bc8355206e381fda4a683bca491357e661bfb46d90997b8df18c90d0e62c9f4",
+        "test_context_components.py": "03a0c31aafb3ef3f7e98f04f36101d313c641aa1453eff8f49777b075114d763",
+        "test_context_intake.py": "d7ac620d1f7f32214263c990a74827c75d27e71de065c0b1b2b354ec138a9eda",
+        "test_context_packet.py": "4c61661a85daf6bd9822c5f58a261889f90e560d8bf5dd4b013809012f06436e"
+      }
+    }
+  ],
+  "scope": "Historical method reproduces intended failures in standalone temporary fixture workspace; not current candidate failure"
+}

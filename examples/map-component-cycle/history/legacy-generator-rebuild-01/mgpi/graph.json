@@ -1,0 +1,706 @@
+{
+ "schema": "twin-graph-1",
+ "source_model": "model.json",
+ "model_kind": "hand_built",
+ "title": "MGPI transfer paths - source-adapted development draft",
+ "nodes": [
+  {
+   "id": "PLANT",
+   "kind": "plant",
+   "tag": "mgpi-transfer-development",
+   "name": "MGPI transfer paths - source-adapted development draft",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [
+    {
+     "name": "assumptions",
+     "value": [
+      "No source-free process equipment or control equipment is added.",
+      "The later layout will propose geometry only; it will not infer equipment dimensions or nozzle positions."
+     ],
+     "status": "unverified",
+     "source": {
+      "kind": "model",
+      "document": "source.txt",
+      "note": "the item cites no source of its own"
+     }
+    },
+    {
+     "name": "authoring_exposure",
+     "value": [
+      "Maintainer read selected original narrative and saw report Figure3 during source scouting.",
+      "Source-adapted development case; not a blind or unfamiliar-description model experiment.",
+      "Independent original-source key not read before this candidate was frozen.",
+      "After first source audit, the original-source scope/key was expanded to resolve bulk placement; this is corrected development evidence, not model improvement."
+     ],
+     "status": "unverified",
+     "source": {
+      "kind": "model",
+      "document": "source.txt",
+      "note": "the item cites no source of its own"
+     }
+    },
+    {
+     "name": "source_document",
+     "value": "source.txt",
+     "status": "unverified",
+     "source": {
+      "kind": "model",
+      "document": "source.txt",
+      "note": "the item cites no source of its own"
+     }
+    },
+    {
+     "name": "source_report",
+     "value": "CSB 2017-01-I-KS, December2017; printedpages7-8,23",
+     "status": "unverified",
+     "source": {
+      "kind": "model",
+      "document": "source.txt",
+      "note": "the item cites no source of its own"
+     }
+    },
+    {
+     "name": "source_report_sha256",
+     "value": "2e8f0ef9db7b9c65b790dbb3c1a2f12f90a9a7051e531189b5868ce2c2e6a07e",
+     "status": "unverified",
+     "source": {
+      "kind": "model",
+      "document": "source.txt",
+      "note": "the item cites no source of its own"
+     }
+    },
+    {
+     "name": "source_scope_revision",
+     "value": "v2: adds the next section5.2 sentence explicitly locating the alarm in the bulk tank; v1 and its unsupported adaptation retained separately.",
+     "status": "unverified",
+     "source": {
+      "kind": "model",
+      "document": "source.txt",
+      "note": "the item cites no source of its own"
+     }
+    },
+    {
+     "name": "source_sha256",
+     "value": "551078e52d39c0f2dc587951b7534afaf8865c9e7c87e55e26ec27cbff4c74e8",
+     "status": "unverified",
+     "source": {
+      "kind": "model",
+      "document": "source.txt",
+      "note": "the item cites no source of its own"
+     }
+    },
+    {
+     "name": "unknowns",
+     "value": [
+      "All supplied IDs are project aliases, not reported plant tags.",
+      "Actual level units, alarm thresholds, pumps, valves, safeguards, line sizes and installed-state configuration remain unresolved.",
+      "HYPO_PROCESS is unnamed; the acid process destination is unspecified and must not be equated with it.",
+      "BL is a scope-boundary convention, not a common physical connection.",
+      "No automatic chemical-unloading shutdown is established; the level alarm is notification only."
+     ],
+     "status": "unverified",
+     "source": {
+      "kind": "model",
+      "document": "source.txt",
+      "note": "the item cites no source of its own"
+     }
+    }
+   ],
+   "source": {
+    "kind": "model",
+    "document": "source.txt",
+    "note": "the item cites no source of its own"
+   }
+  },
+  {
+   "id": "BL",
+   "kind": "boundary",
+   "tag": null,
+   "name": "battery limit",
+   "aliases": [],
+   "status": "confirmed",
+   "attributes": [],
+   "source": {
+    "kind": "model",
+    "document": "source.txt",
+    "note": "the item cites no source of its own"
+   }
+  },
+  {
+   "id": "HYPO_BULK",
+   "kind": "equipment",
+   "tag": "HYPO_BULK",
+   "name": "Sodium hypochlorite bulk tank",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [
+    {
+     "name": "assigned_tag",
+     "value": true,
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "source.txt:L3-L3"
+     }
+    },
+    {
+     "name": "name",
+     "value": "Sodium hypochlorite bulk tank",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "source.txt:L3-L3"
+     }
+    },
+    {
+     "name": "reported_capacity_gal",
+     "value": 6500,
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "source.txt:L3-L3"
+     }
+    },
+    {
+     "name": "reported_concentration_pct",
+     "value": 12.5,
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "source.txt:L3-L3"
+     }
+    },
+    {
+     "name": "storage_pressure_basis",
+     "value": "atmospheric",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "source.txt:L3-L3"
+     }
+    },
+    {
+     "name": "type",
+     "value": "tank",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "source.txt:L3-L3"
+     }
+    }
+   ],
+   "source": {
+    "kind": "document",
+    "document": "source.txt:L3-L3"
+   },
+   "citations": {
+    "source": "source.txt:L3-L3"
+   }
+  },
+  {
+   "id": "HYPO_DAY",
+   "kind": "equipment",
+   "tag": "HYPO_DAY",
+   "name": "Sodium hypochlorite day tank",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [
+    {
+     "name": "assigned_tag",
+     "value": true,
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "source.txt:L4-L4"
+     }
+    },
+    {
+     "name": "name",
+     "value": "Sodium hypochlorite day tank",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "source.txt:L4-L4"
+     }
+    },
+    {
+     "name": "type",
+     "value": "tank",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "source.txt:L4-L4"
+     }
+    }
+   ],
+   "source": {
+    "kind": "document",
+    "document": "source.txt:L4-L4"
+   },
+   "citations": {
+    "source": "source.txt:L4-L4"
+   }
+  },
+  {
+   "id": "HYPO_PROCESS",
+   "kind": "equipment",
+   "tag": "HYPO_PROCESS",
+   "name": "Unidentified sodium hypochlorite process vessel",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [
+    {
+     "name": "assigned_tag",
+     "value": true,
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "source.txt:L4-L4"
+     }
+    },
+    {
+     "name": "name",
+     "value": "Unidentified sodium hypochlorite process vessel",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "source.txt:L4-L4"
+     }
+    },
+    {
+     "name": "type",
+     "value": "vessel",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "source.txt:L4-L4"
+     }
+    }
+   ],
+   "source": {
+    "kind": "document",
+    "document": "source.txt:L4-L4"
+   },
+   "citations": {
+    "source": "source.txt:L4-L4"
+   }
+  },
+  {
+   "id": "ACID_DAY",
+   "kind": "equipment",
+   "tag": "ACID_DAY",
+   "name": "Sulfuric acid day tank",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [
+    {
+     "name": "assigned_tag",
+     "value": true,
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "source.txt:L5-L5"
+     }
+    },
+    {
+     "name": "name",
+     "value": "Sulfuric acid day tank",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "source.txt:L5-L5"
+     }
+    },
+    {
+     "name": "reported_capacity_gal",
+     "value": 8500,
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "source.txt:L5-L5"
+     }
+    },
+    {
+     "name": "reported_concentration_pct",
+     "value": 30,
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "source.txt:L5-L5"
+     }
+    },
+    {
+     "name": "type",
+     "value": "tank",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "source.txt:L5-L5"
+     }
+    }
+   ],
+   "source": {
+    "kind": "document",
+    "document": "source.txt:L5-L5"
+   },
+   "citations": {
+    "source": "source.txt:L5-L5"
+   }
+  },
+  {
+   "id": "LI_HYPO",
+   "kind": "instrument",
+   "tag": "LI_HYPO",
+   "name": "Level indication and high-level operator notification",
+   "aliases": [],
+   "status": "unverified",
+   "attributes": [
+    {
+     "name": "alarm_action_basis",
+     "value": "operator notification only; no automatic unloading shutdown",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "source.txt:L7-L7"
+     }
+    },
+    {
+     "name": "assigned_tag",
+     "value": true,
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "source.txt:L7-L7"
+     }
+    },
+    {
+     "name": "description",
+     "value": "Level indication and high-level operator notification",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "source.txt:L7-L7"
+     }
+    },
+    {
+     "name": "unit",
+     "value": "HYPO_BULK",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "source.txt:L7-L7"
+     }
+    },
+    {
+     "name": "uom",
+     "value": "",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "source.txt:L7-L7"
+     }
+    },
+    {
+     "name": "variable",
+     "value": "level",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "source.txt:L7-L7"
+     }
+    }
+   ],
+   "source": {
+    "kind": "document",
+    "document": "source.txt:L7-L7"
+   },
+   "citations": {
+    "source": "source.txt:L7-L7"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "id": "E00001",
+   "type": "contains",
+   "from": "PLANT",
+   "to": "HYPO_BULK",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "source.txt:L3-L3"
+   },
+   "citations": {
+    "source": "source.txt:L3-L3"
+   }
+  },
+  {
+   "id": "E00002",
+   "type": "contains",
+   "from": "PLANT",
+   "to": "HYPO_DAY",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "source.txt:L4-L4"
+   },
+   "citations": {
+    "source": "source.txt:L4-L4"
+   }
+  },
+  {
+   "id": "E00003",
+   "type": "contains",
+   "from": "PLANT",
+   "to": "HYPO_PROCESS",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "source.txt:L4-L4"
+   },
+   "citations": {
+    "source": "source.txt:L4-L4"
+   }
+  },
+  {
+   "id": "E00004",
+   "type": "contains",
+   "from": "PLANT",
+   "to": "ACID_DAY",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "source.txt:L5-L5"
+   },
+   "citations": {
+    "source": "source.txt:L5-L5"
+   }
+  },
+  {
+   "id": "H1",
+   "type": "connects",
+   "from": "BL",
+   "to": "HYPO_BULK",
+   "status": "unverified",
+   "direction": "known",
+   "source": {
+    "kind": "document",
+    "document": "source.txt:L6-L6"
+   },
+   "citations": {
+    "source": "source.txt:L6-L6"
+   },
+   "layer": "stream",
+   "attributes": [
+    {
+     "name": "name",
+     "value": "Hypochlorite unloading across scope boundary",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "source.txt:L6-L6"
+     }
+    }
+   ]
+  },
+  {
+   "id": "H2",
+   "type": "connects",
+   "from": "HYPO_BULK",
+   "to": "HYPO_DAY",
+   "status": "unverified",
+   "direction": "known",
+   "source": {
+    "kind": "document",
+    "document": "source.txt:L6-L6"
+   },
+   "citations": {
+    "source": "source.txt:L6-L6"
+   },
+   "layer": "stream",
+   "attributes": [
+    {
+     "name": "name",
+     "value": "Hypochlorite bulk-to-day transfer",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "source.txt:L6-L6"
+     }
+    }
+   ]
+  },
+  {
+   "id": "H3",
+   "type": "connects",
+   "from": "HYPO_DAY",
+   "to": "HYPO_PROCESS",
+   "status": "unverified",
+   "direction": "known",
+   "source": {
+    "kind": "document",
+    "document": "source.txt:L6-L6"
+   },
+   "citations": {
+    "source": "source.txt:L6-L6"
+   },
+   "layer": "stream",
+   "attributes": [
+    {
+     "name": "name",
+     "value": "Hypochlorite day-to-process transfer",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "source.txt:L6-L6"
+     }
+    }
+   ]
+  },
+  {
+   "id": "A1",
+   "type": "connects",
+   "from": "BL",
+   "to": "ACID_DAY",
+   "status": "unverified",
+   "direction": "known",
+   "source": {
+    "kind": "document",
+    "document": "source.txt:L6-L6"
+   },
+   "citations": {
+    "source": "source.txt:L6-L6"
+   },
+   "layer": "stream",
+   "attributes": [
+    {
+     "name": "name",
+     "value": "Sulfuric acid unloading across scope boundary",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "source.txt:L6-L6"
+     }
+    }
+   ]
+  },
+  {
+   "id": "A2",
+   "type": "connects",
+   "from": "ACID_DAY",
+   "to": "BL",
+   "status": "unverified",
+   "direction": "known",
+   "source": {
+    "kind": "document",
+    "document": "source.txt:L6-L6"
+   },
+   "citations": {
+    "source": "source.txt:L6-L6"
+   },
+   "layer": "stream",
+   "attributes": [
+    {
+     "name": "name",
+     "value": "Sulfuric acid to unspecified process boundary",
+     "status": "unverified",
+     "source": {
+      "kind": "document",
+      "document": "source.txt:L6-L6"
+     }
+    }
+   ]
+  },
+  {
+   "id": "E00010",
+   "type": "measures",
+   "from": "LI_HYPO",
+   "to": "HYPO_BULK",
+   "status": "unverified",
+   "direction": null,
+   "source": {
+    "kind": "document",
+    "document": "source.txt:L7-L7"
+   },
+   "citations": {
+    "source": "source.txt:L7-L7"
+   }
+  }
+ ],
+ "questions": [
+  {
+   "id": "C2@model",
+   "question_id": "C2",
+   "family": "controls",
+   "question": "What do existing records establish about these measurements' purpose, readers and remaining source/logic coverage?",
+   "about": "LI_HYPO",
+   "assets": [
+    {
+     "id": "LI_HYPO",
+     "tag": "LI_HYPO"
+    }
+   ],
+   "evidence": [
+    {
+     "role": "trigger",
+     "id": "LI_HYPO",
+     "tag": "LI_HYPO",
+     "text": "instrument LI_HYPO reads \"LI_HYPO Level indication and high-level operator notification\" at HYPO_BULK",
+     "field": "instruments[LI_HYPO]"
+    }
+   ],
+   "data_requests": [
+    {
+     "item": "Whether operators adjust anything by hand from these readings",
+     "state": "not_on_drawing",
+     "where": [
+      "site records: Existing exact measurement/source identity and quantity, actual indication/control/alarm/protection/recording purpose, normal and abnormal decisions, operator logs/round sheets and current availability/quality/coverage; retain per-subject association and source/revision.",
+      "a walkdown: Only if applicable questions remain after existing-record review, agree safe additional observations with the responsible specialist; no mandatory live test, sampling, shutdown, tuning, instrument or equipment change."
+     ],
+     "how": "Frequent manual adjustment can justify a control investigation, not automatic automation. A reading with no routine manual action may have a legitimate abnormal/alarm/protection/indication purpose; do not close it solely because nobody regularly acts. Acknowledge suitable existing purpose, manual or automatic operation, and record unresolved function/source suitability. No operator trial, live change or benefit is inferred.",
+     "candidate_scope": "anchors",
+     "candidate_facts": []
+    },
+    {
+     "item": "The control system's own loop list",
+     "state": "not_on_drawing",
+     "where": [
+      "site records: Existing current loop/point list, cause/effect, alarm/sequence/configuration and represented reader/interlock/source records; preserve exact endpoints and identify missing model coverage before concluding indication-only.",
+      "DCS/PLC configuration: Review a permitted current loop/point/configuration export, if available, as an existing source rather than a complete plant-truth inventory.",
+      "a walkdown: Only if applicable questions remain after existing-record review, agree safe additional observations with the responsible specialist; no mandatory live test, sampling, shutdown, tuning, instrument or equipment change."
+     ],
+     "how": "A controller or interlock reference is useful supplied evidence, not proof of complete current logic, correct process meaning, safety adequacy or measurement authority. A partial model without controllers can still prompt existing-record clarification; it does not prove no installed controls or require a fabricated loop list. S19 printed30 is broad monitoring/process-control guidance, not a per-reading automation acceptance test.",
+     "candidate_scope": "anchors",
+     "candidate_facts": []
+    }
+   ],
+   "decision_rule": "Review measurement purpose and actual normal/abnormal decisions, represented readers and source/logic coverage with the responsible specialist. Neither a missing model controller nor a represented reader settles installed control completeness or the need for automation. Suitable existing use or nonapplicability can be acknowledged; unresolved records remain explicit. No automatic upgrade, safety acceptance or source-reported saving is assigned.",
+   "typical_benefit": {
+    "wording": "\"energy and cost savings are around 5% or more for many industrial applications of process control systems\" (for plants without updated controls). Process control: \"Typically 2-18% savings.\" The source says these figures \"cannot be added\".",
+    "source": [
+     "S19"
+    ],
+    "arc": null,
+    "source_titles": [
+     "S19: Worrell & Galitsky, Energy Efficiency Improvement and Cost Saving Opportunities for Petroleum Refineries: An ENERGY STAR Guide (LBNL-56183, Feb 2005)"
+    ]
+   },
+   "limits": "Source review: S19 originalLBNL56183 official mirror printed30/PDF38, monitoring/process-control section and historical nonadditive table. This supports a bounded records investigation, not an automation decision, current control-system completeness or a measurement's safety/function truth. Six existing variable classes retained; other instrument classes remain outside this selector. Generic historical savings are not this plant's benefit.",
+   "status": "asked"
+  }
+ ],
+ "events": [],
+ "not_exported": [],
+ "counts": {
+  "nodes": 7,
+  "edges": 10,
+  "claims": 36,
+  "questions": 1,
+  "events": 0
+ }
+}

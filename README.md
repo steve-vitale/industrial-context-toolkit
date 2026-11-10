@@ -17,6 +17,11 @@ and see what needs rechecking when a source changes. This is the toolkit's focus
 The [offline map explorer](examples/map-explorer/README.md) puts item navigation,
 sourced questions, relationships, disagreements and revision comparison together;
 an agent can use the same exported records directly.
+The [component-draft prototype](examples/map-component-cycle/README.md) reuses
+ordinary record exports for a list, datasheet scaffolds and narrative outlines,
+with retained edits and source revisions. An offline review page exposes sources,
+disagreements and missing context, with downloadable text proposals. Its complete map/product path is still
+being qualified.
 Company systems or a managed product own work assignment, job readiness, approvals
 and ongoing service operations.
 
@@ -25,7 +30,9 @@ asset identities, source-linked context, review history, ownership and a path to
 keeping the records current. As ongoing use needs managed maintenance,
 auditability and a single source of truth, carry that foundation into
 **ChangePilot or another suitable tool**. The
-[foundation roadmap](docs/ENGINEERING_FOUNDATION.md) explains the handoff and
+[customer path](docs/ENGINEERING_FOUNDATION.md#from-the-records-you-have-to-a-maintained-foundation)
+starts with one sourced result before signup, then retains the context for reuse,
+revision and a qualified product handoff. The [foundation roadmap](docs/ENGINEERING_FOUNDATION.md) explains
 record authority; receiving-tool imports and ongoing service controls need their
 own qualification. The [selected-unit handoff](docs/FOUNDATION_HANDOFF.md) connects
 prepared history, drawing findings and notes through explicit scoped mappings,

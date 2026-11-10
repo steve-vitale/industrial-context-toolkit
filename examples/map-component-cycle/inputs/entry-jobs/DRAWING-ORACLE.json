@@ -1,0 +1,127 @@
+{
+  "subject": "DRAW/P1/validation-braces/asset-1",
+  "revisions": [
+    {
+      "revision": "1",
+      "source_pins": {
+        "original.dxf": {
+          "origin": "examples/cad-handoff/qualification/validation-2/authored/validation-braces.dxf",
+          "sha256": "614e83380bbe667c727363f02d32519b3340439028f0acd72807c82a45224abe"
+        },
+        "requested.plan.json": {
+          "origin": "examples/cad-handoff/qualification/validation-2/authored/validation-braces.plan.json",
+          "sha256": "5126be71101f71b51332b50fd52980c3f0146a19fded4e7f8b8571c6b45d8508"
+        },
+        "returned.dxf": {
+          "origin": "examples/cad-handoff/qualification/full-ui-22/concurrent-review-1/validation-braces/native-return.dxf",
+          "sha256": "25aa6294826284917784d54ed8241a55738a4f4c3c74b4b93ff51d6add6622f2"
+        }
+      },
+      "explicit_preparation_rows": [
+        [
+          "DRAW/P1/validation-braces/asset-1",
+          "original_model",
+          "ORIGINAL",
+          "line 2664",
+          "Assembly {C}",
+          "Assembly {C}",
+          "text"
+        ],
+        [
+          "DRAW/P1/validation-braces/asset-1",
+          "requested_model",
+          "REQUEST",
+          "line 9",
+          "\"after\": \"Assembly {D}\"",
+          "Assembly {D}",
+          "text"
+        ],
+        [
+          "DRAW/P1/validation-braces/asset-1",
+          "returned_model",
+          "RETURN",
+          "line 4996",
+          "OTHER-CHOICE",
+          "OTHER-CHOICE",
+          "text"
+        ],
+        [
+          "DRAW/P1/validation-braces/asset-2",
+          "returned_serial",
+          "RETURN",
+          "line 5284",
+          "FIELD-OBSERVED",
+          "FIELD-OBSERVED",
+          "text"
+        ]
+      ]
+    },
+    {
+      "revision": "2",
+      "source_pins": {
+        "original.dxf": {
+          "origin": "examples/cad-handoff/qualification/validation-2/authored/validation-braces.dxf",
+          "sha256": "614e83380bbe667c727363f02d32519b3340439028f0acd72807c82a45224abe"
+        },
+        "requested.plan.json": {
+          "origin": "examples/cad-handoff/qualification/validation-2/authored/validation-braces.plan.json",
+          "sha256": "5126be71101f71b51332b50fd52980c3f0146a19fded4e7f8b8571c6b45d8508"
+        },
+        "returned.dxf": {
+          "origin": "examples/drawing-handoff/native-second-revision/native-returns/validation-braces.dxf",
+          "sha256": "8f67fea4ac5aa04a65a6fa13ecbd386d04ca48d935f475cdfa7b3a140ab8ded0"
+        }
+      },
+      "explicit_preparation_rows": [
+        [
+          "DRAW/P1/validation-braces/asset-1",
+          "original_model",
+          "ORIGINAL",
+          "line 2664",
+          "Assembly {C}",
+          "Assembly {C}",
+          "text"
+        ],
+        [
+          "DRAW/P1/validation-braces/asset-1",
+          "requested_model",
+          "REQUEST",
+          "line 9",
+          "\"after\": \"Assembly {D}\"",
+          "Assembly {D}",
+          "text"
+        ],
+        [
+          "DRAW/P1/validation-braces/asset-1",
+          "returned_model",
+          "RETURN",
+          "line 4968",
+          "Assembly {D}",
+          "Assembly {D}",
+          "text"
+        ],
+        [
+          "DRAW/P1/validation-braces/asset-2",
+          "returned_serial",
+          "RETURN",
+          "line 5256",
+          "FIELD-OBSERVED",
+          "FIELD-OBSERVED",
+          "text"
+        ]
+      ]
+    }
+  ],
+  "fixed_findings": {
+    "initial_model": "OTHER-CHOICE",
+    "requested_model": "Assembly {D}",
+    "next_model": "Assembly {D}",
+    "unrequested_serial": "FIELD-OBSERVED",
+    "strict_differences": {
+      "initial": 321,
+      "next": 320
+    },
+    "engineering_disposition": "pending"
+  },
+  "scope": "source-bound supplied field interpretation after actual existing attributed-DXF receiving; not an image reader, native save qualification or installed-state claim"
+}

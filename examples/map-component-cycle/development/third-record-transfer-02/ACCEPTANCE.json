@@ -1,0 +1,838 @@
+{
+  "bare_tag": "Q-77",
+  "closed_iso_date": "2026-08-09",
+  "counting": {
+    "executed_counts": "Not yet measured. Future result must separately report revision prepare commands, negative-control prepare attempts, generated mappings, source declarations, subprocess commands and simulated editorial edits.",
+    "fixture_source_authoring": {
+      "authoring_effort": "unmeasured",
+      "fictional_csv_files": 9,
+      "original_key_files": 1,
+      "source_register_files": 3
+    },
+    "mappings": {
+      "generated_source_mapping_objects_per_revision": 2,
+      "mapping_objects_are_not_extra_user_entry_jobs": true,
+      "reused_on_successor_revisions": true
+    },
+    "ordinary_customer_preparation": {
+      "contribution_rows": 0,
+      "customer_json_edits": 0,
+      "date_policy_choices": 1,
+      "explicit_mapping_input_files": 0,
+      "export_data_records_per_revision": 4,
+      "identity_owner_confirmation_required": true,
+      "ordinary_exports_per_revision": 2,
+      "records_directory_revisions": 3,
+      "source_register_declarations_per_revision": 2
+    }
+  },
+  "date_format": "MDY",
+  "key": {
+    "contribution_rows": 0,
+    "customer_json_edits": 0,
+    "date_policy": "MDY explicitly selected;08/09/2026 means2026-08-09.",
+    "identity_owner_confirmation": "Asset ID and Equipment Tag are functional-position keys within the declared unit; physical IDs are separate.",
+    "namespace": "DIALECT3/P3",
+    "qualification": "Fictional source-known procedural case. No production method imported/invoked for this preparation; no automatic reading, human or plant acceptance.",
+    "r1": {
+      "closed_model": "CLOSED-ACCOUNT",
+      "closed_serial": "000072",
+      "description": "Flush\npump | isolated",
+      "east": "DIALECT3/P3/UTILITY-A/Q-77",
+      "east_flow": {
+        "type": "string",
+        "unit": "L/min",
+        "value": "6.25"
+      },
+      "equipment_model": "Q|R",
+      "equipment_serial": "000071",
+      "equipment_serial_locator": "CSV record 2; physical lines 2-3; column Serial Number",
+      "open_body_not_installed": "BODY-X3",
+      "open_proposal_model": "OPEN-ACCOUNT",
+      "open_proposal_serial": "000073",
+      "physical_items": [
+        "BODY-X1",
+        "BODY-X2",
+        "BODY-Y1"
+      ],
+      "west": "DIALECT3/P3/UTILITY-B/Q-77",
+      "west_flow": {
+        "type": "string",
+        "unit": "unit-unconfirmed",
+        "value": "6,25"
+      }
+    },
+    "r2": {
+      "closed_model": "CLOSED-ACCOUNT",
+      "closed_serial": "000072",
+      "equipment_model": "Q|S",
+      "equipment_serial": "000071",
+      "open_proposal_model": "OPEN-ACCOUNT"
+    },
+    "r3": {
+      "equipment_model": "Q|S",
+      "equipment_serial": "000071",
+      "retained_closed_serial": "000072",
+      "retained_open_proposal_serial": "000073",
+      "work_history_status": "withdrawn"
+    },
+    "schema": "authored-record-dialect-original-key-1",
+    "source_known": true
+  },
+  "literal_csv": {
+    "1": {
+      "equipment.csv": {
+        "delimiter": "|",
+        "headers": [
+          "Asset ID",
+          "Unit Code",
+          "Asset Kind",
+          "Asset Description",
+          "Vendor",
+          "Model",
+          "Serial Number",
+          "Physical Asset ID",
+          "Rated Flow",
+          "Flow Unit",
+          "Opaque Field"
+        ],
+        "rows": [
+          {
+            "physical_end": 1,
+            "physical_start": 1,
+            "values": [
+              "Asset ID",
+              "Unit Code",
+              "Asset Kind",
+              "Asset Description",
+              "Vendor",
+              "Model",
+              "Serial Number",
+              "Physical Asset ID",
+              "Rated Flow",
+              "Flow Unit",
+              "Opaque Field"
+            ]
+          },
+          {
+            "fields": {
+              "Asset Description": "Flush\npump | isolated",
+              "Asset ID": "Q-77",
+              "Asset Kind": "pump",
+              "Flow Unit": "L/min",
+              "Model": "Q|R",
+              "Opaque Field": "Retain\tthis field",
+              "Physical Asset ID": "BODY-X1",
+              "Rated Flow": "6.25",
+              "Serial Number": "000071",
+              "Unit Code": "UTILITY-A",
+              "Vendor": "Example Fabrication"
+            },
+            "physical_end": 3,
+            "physical_start": 2,
+            "values": [
+              "Q-77",
+              "UTILITY-A",
+              "pump",
+              "Flush\npump | isolated",
+              "Example Fabrication",
+              "Q|R",
+              "000071",
+              "BODY-X1",
+              "6.25",
+              "L/min",
+              "Retain\tthis field"
+            ]
+          },
+          {
+            "fields": {
+              "Asset Description": "Rinse pump",
+              "Asset ID": "Q-77",
+              "Asset Kind": "pump",
+              "Flow Unit": "unit-unconfirmed",
+              "Model": "RINSE",
+              "Opaque Field": "No unit equivalence asserted",
+              "Physical Asset ID": "BODY-Y1",
+              "Rated Flow": "6,25",
+              "Serial Number": "000071",
+              "Unit Code": "UTILITY-B",
+              "Vendor": "Example Fabrication"
+            },
+            "physical_end": 4,
+            "physical_start": 4,
+            "values": [
+              "Q-77",
+              "UTILITY-B",
+              "pump",
+              "Rinse pump",
+              "Example Fabrication",
+              "RINSE",
+              "000071",
+              "BODY-Y1",
+              "6,25",
+              "unit-unconfirmed",
+              "No unit equivalence asserted"
+            ]
+          }
+        ],
+        "sha256": "d248e7c480636549b24eb23e3c9f19d80e7880309c562e5ad2957464b8f3e91f"
+      },
+      "orders.csv": {
+        "delimiter": "|",
+        "headers": [
+          "Equipment Tag",
+          "Area",
+          "Order",
+          "Closed On",
+          "Installed Serial",
+          "Installed Model",
+          "Physical Asset ID",
+          "Opaque Field"
+        ],
+        "rows": [
+          {
+            "physical_end": 1,
+            "physical_start": 1,
+            "values": [
+              "Equipment Tag",
+              "Area",
+              "Order",
+              "Closed On",
+              "Installed Serial",
+              "Installed Model",
+              "Physical Asset ID",
+              "Opaque Field"
+            ]
+          },
+          {
+            "fields": {
+              "Area": "UTILITY-A",
+              "Closed On": "08/09/2026",
+              "Equipment Tag": "Q-77",
+              "Installed Model": "CLOSED-ACCOUNT",
+              "Installed Serial": "000072",
+              "Opaque Field": "Closed record | no current inspection",
+              "Order": "MX-7",
+              "Physical Asset ID": "BODY-X2"
+            },
+            "physical_end": 2,
+            "physical_start": 2,
+            "values": [
+              "Q-77",
+              "UTILITY-A",
+              "MX-7",
+              "08/09/2026",
+              "000072",
+              "CLOSED-ACCOUNT",
+              "BODY-X2",
+              "Closed record | no current inspection"
+            ]
+          },
+          {
+            "fields": {
+              "Area": "UTILITY-A",
+              "Closed On": "",
+              "Equipment Tag": "Q-77",
+              "Installed Model": "OPEN-ACCOUNT",
+              "Installed Serial": "000073",
+              "Opaque Field": "Open proposal | not installed",
+              "Order": "MX-8",
+              "Physical Asset ID": "BODY-X3"
+            },
+            "physical_end": 3,
+            "physical_start": 3,
+            "values": [
+              "Q-77",
+              "UTILITY-A",
+              "MX-8",
+              "",
+              "000073",
+              "OPEN-ACCOUNT",
+              "BODY-X3",
+              "Open proposal | not installed"
+            ]
+          }
+        ],
+        "sha256": "4cfc90e40bfa514b0fd0c425be87d69661dbecad89ba7303cfd4cc2415ed93a4"
+      },
+      "source-register.csv": {
+        "delimiter": ",",
+        "headers": [
+          "File",
+          "DocumentID",
+          "Revision",
+          "Status",
+          "Owner",
+          "Applicability"
+        ],
+        "rows": [
+          {
+            "physical_end": 1,
+            "physical_start": 1,
+            "values": [
+              "File",
+              "DocumentID",
+              "Revision",
+              "Status",
+              "Owner",
+              "Applicability"
+            ]
+          },
+          {
+            "fields": {
+              "Applicability": "Fictional exported record, unreviewed",
+              "DocumentID": "EQ-D3",
+              "File": "equipment.csv",
+              "Owner": "Maintenance",
+              "Revision": "1",
+              "Status": "supplied"
+            },
+            "physical_end": 2,
+            "physical_start": 2,
+            "values": [
+              "equipment.csv",
+              "EQ-D3",
+              "1",
+              "supplied",
+              "Maintenance",
+              "Fictional exported record, unreviewed"
+            ]
+          },
+          {
+            "fields": {
+              "Applicability": "Fictional history, not a current inspection",
+              "DocumentID": "WO-D3",
+              "File": "orders.csv",
+              "Owner": "Maintenance",
+              "Revision": "1",
+              "Status": "supplied"
+            },
+            "physical_end": 3,
+            "physical_start": 3,
+            "values": [
+              "orders.csv",
+              "WO-D3",
+              "1",
+              "supplied",
+              "Maintenance",
+              "Fictional history, not a current inspection"
+            ]
+          }
+        ],
+        "sha256": "4a29846848431565468474e22d17ce5ef30711f35dd3cd27cf0769c89bf8b877"
+      }
+    },
+    "2": {
+      "equipment.csv": {
+        "delimiter": "|",
+        "headers": [
+          "Asset ID",
+          "Unit Code",
+          "Asset Kind",
+          "Asset Description",
+          "Vendor",
+          "Model",
+          "Serial Number",
+          "Physical Asset ID",
+          "Rated Flow",
+          "Flow Unit",
+          "Opaque Field"
+        ],
+        "rows": [
+          {
+            "physical_end": 1,
+            "physical_start": 1,
+            "values": [
+              "Asset ID",
+              "Unit Code",
+              "Asset Kind",
+              "Asset Description",
+              "Vendor",
+              "Model",
+              "Serial Number",
+              "Physical Asset ID",
+              "Rated Flow",
+              "Flow Unit",
+              "Opaque Field"
+            ]
+          },
+          {
+            "fields": {
+              "Asset Description": "Flush\npump | isolated",
+              "Asset ID": "Q-77",
+              "Asset Kind": "pump",
+              "Flow Unit": "L/min",
+              "Model": "Q|S",
+              "Opaque Field": "Retain\tthis field",
+              "Physical Asset ID": "BODY-X1",
+              "Rated Flow": "6.25",
+              "Serial Number": "000071",
+              "Unit Code": "UTILITY-A",
+              "Vendor": "Example Fabrication"
+            },
+            "physical_end": 3,
+            "physical_start": 2,
+            "values": [
+              "Q-77",
+              "UTILITY-A",
+              "pump",
+              "Flush\npump | isolated",
+              "Example Fabrication",
+              "Q|S",
+              "000071",
+              "BODY-X1",
+              "6.25",
+              "L/min",
+              "Retain\tthis field"
+            ]
+          },
+          {
+            "fields": {
+              "Asset Description": "Rinse pump",
+              "Asset ID": "Q-77",
+              "Asset Kind": "pump",
+              "Flow Unit": "unit-unconfirmed",
+              "Model": "RINSE",
+              "Opaque Field": "No unit equivalence asserted",
+              "Physical Asset ID": "BODY-Y1",
+              "Rated Flow": "6,25",
+              "Serial Number": "000071",
+              "Unit Code": "UTILITY-B",
+              "Vendor": "Example Fabrication"
+            },
+            "physical_end": 4,
+            "physical_start": 4,
+            "values": [
+              "Q-77",
+              "UTILITY-B",
+              "pump",
+              "Rinse pump",
+              "Example Fabrication",
+              "RINSE",
+              "000071",
+              "BODY-Y1",
+              "6,25",
+              "unit-unconfirmed",
+              "No unit equivalence asserted"
+            ]
+          }
+        ],
+        "sha256": "c716cb091d338a37f4aeff727d91aeb05ce51283b64932b5101f25fc159a36e3"
+      },
+      "orders.csv": {
+        "delimiter": "|",
+        "headers": [
+          "Equipment Tag",
+          "Area",
+          "Order",
+          "Closed On",
+          "Installed Serial",
+          "Installed Model",
+          "Physical Asset ID",
+          "Opaque Field"
+        ],
+        "rows": [
+          {
+            "physical_end": 1,
+            "physical_start": 1,
+            "values": [
+              "Equipment Tag",
+              "Area",
+              "Order",
+              "Closed On",
+              "Installed Serial",
+              "Installed Model",
+              "Physical Asset ID",
+              "Opaque Field"
+            ]
+          },
+          {
+            "fields": {
+              "Area": "UTILITY-A",
+              "Closed On": "08/09/2026",
+              "Equipment Tag": "Q-77",
+              "Installed Model": "CLOSED-ACCOUNT",
+              "Installed Serial": "000072",
+              "Opaque Field": "Closed record | no current inspection",
+              "Order": "MX-7",
+              "Physical Asset ID": "BODY-X2"
+            },
+            "physical_end": 2,
+            "physical_start": 2,
+            "values": [
+              "Q-77",
+              "UTILITY-A",
+              "MX-7",
+              "08/09/2026",
+              "000072",
+              "CLOSED-ACCOUNT",
+              "BODY-X2",
+              "Closed record | no current inspection"
+            ]
+          },
+          {
+            "fields": {
+              "Area": "UTILITY-A",
+              "Closed On": "",
+              "Equipment Tag": "Q-77",
+              "Installed Model": "OPEN-ACCOUNT",
+              "Installed Serial": "000073",
+              "Opaque Field": "Open proposal | not installed",
+              "Order": "MX-8",
+              "Physical Asset ID": "BODY-X3"
+            },
+            "physical_end": 3,
+            "physical_start": 3,
+            "values": [
+              "Q-77",
+              "UTILITY-A",
+              "MX-8",
+              "",
+              "000073",
+              "OPEN-ACCOUNT",
+              "BODY-X3",
+              "Open proposal | not installed"
+            ]
+          }
+        ],
+        "sha256": "4cfc90e40bfa514b0fd0c425be87d69661dbecad89ba7303cfd4cc2415ed93a4"
+      },
+      "source-register.csv": {
+        "delimiter": ",",
+        "headers": [
+          "File",
+          "DocumentID",
+          "Revision",
+          "Status",
+          "Owner",
+          "Applicability"
+        ],
+        "rows": [
+          {
+            "physical_end": 1,
+            "physical_start": 1,
+            "values": [
+              "File",
+              "DocumentID",
+              "Revision",
+              "Status",
+              "Owner",
+              "Applicability"
+            ]
+          },
+          {
+            "fields": {
+              "Applicability": "Fictional exported record, unreviewed",
+              "DocumentID": "EQ-D3",
+              "File": "equipment.csv",
+              "Owner": "Maintenance",
+              "Revision": "2",
+              "Status": "supplied"
+            },
+            "physical_end": 2,
+            "physical_start": 2,
+            "values": [
+              "equipment.csv",
+              "EQ-D3",
+              "2",
+              "supplied",
+              "Maintenance",
+              "Fictional exported record, unreviewed"
+            ]
+          },
+          {
+            "fields": {
+              "Applicability": "Fictional history, not a current inspection",
+              "DocumentID": "WO-D3",
+              "File": "orders.csv",
+              "Owner": "Maintenance",
+              "Revision": "2",
+              "Status": "supplied"
+            },
+            "physical_end": 3,
+            "physical_start": 3,
+            "values": [
+              "orders.csv",
+              "WO-D3",
+              "2",
+              "supplied",
+              "Maintenance",
+              "Fictional history, not a current inspection"
+            ]
+          }
+        ],
+        "sha256": "e0efe1f8ab73664f85ee5d4f5d7521c1d774db360d1c86ebdaf8439f6ded33c0"
+      }
+    },
+    "3": {
+      "equipment.csv": {
+        "delimiter": "|",
+        "headers": [
+          "Asset ID",
+          "Unit Code",
+          "Asset Kind",
+          "Asset Description",
+          "Vendor",
+          "Model",
+          "Serial Number",
+          "Physical Asset ID",
+          "Rated Flow",
+          "Flow Unit",
+          "Opaque Field"
+        ],
+        "rows": [
+          {
+            "physical_end": 1,
+            "physical_start": 1,
+            "values": [
+              "Asset ID",
+              "Unit Code",
+              "Asset Kind",
+              "Asset Description",
+              "Vendor",
+              "Model",
+              "Serial Number",
+              "Physical Asset ID",
+              "Rated Flow",
+              "Flow Unit",
+              "Opaque Field"
+            ]
+          },
+          {
+            "fields": {
+              "Asset Description": "Flush\npump | isolated",
+              "Asset ID": "Q-77",
+              "Asset Kind": "pump",
+              "Flow Unit": "L/min",
+              "Model": "Q|S",
+              "Opaque Field": "Retain\tthis field",
+              "Physical Asset ID": "BODY-X1",
+              "Rated Flow": "6.25",
+              "Serial Number": "000071",
+              "Unit Code": "UTILITY-A",
+              "Vendor": "Example Fabrication"
+            },
+            "physical_end": 3,
+            "physical_start": 2,
+            "values": [
+              "Q-77",
+              "UTILITY-A",
+              "pump",
+              "Flush\npump | isolated",
+              "Example Fabrication",
+              "Q|S",
+              "000071",
+              "BODY-X1",
+              "6.25",
+              "L/min",
+              "Retain\tthis field"
+            ]
+          },
+          {
+            "fields": {
+              "Asset Description": "Rinse pump",
+              "Asset ID": "Q-77",
+              "Asset Kind": "pump",
+              "Flow Unit": "unit-unconfirmed",
+              "Model": "RINSE",
+              "Opaque Field": "No unit equivalence asserted",
+              "Physical Asset ID": "BODY-Y1",
+              "Rated Flow": "6,25",
+              "Serial Number": "000071",
+              "Unit Code": "UTILITY-B",
+              "Vendor": "Example Fabrication"
+            },
+            "physical_end": 4,
+            "physical_start": 4,
+            "values": [
+              "Q-77",
+              "UTILITY-B",
+              "pump",
+              "Rinse pump",
+              "Example Fabrication",
+              "RINSE",
+              "000071",
+              "BODY-Y1",
+              "6,25",
+              "unit-unconfirmed",
+              "No unit equivalence asserted"
+            ]
+          }
+        ],
+        "sha256": "c716cb091d338a37f4aeff727d91aeb05ce51283b64932b5101f25fc159a36e3"
+      },
+      "orders.csv": {
+        "delimiter": "|",
+        "headers": [
+          "Equipment Tag",
+          "Area",
+          "Order",
+          "Closed On",
+          "Installed Serial",
+          "Installed Model",
+          "Physical Asset ID",
+          "Opaque Field"
+        ],
+        "rows": [
+          {
+            "physical_end": 1,
+            "physical_start": 1,
+            "values": [
+              "Equipment Tag",
+              "Area",
+              "Order",
+              "Closed On",
+              "Installed Serial",
+              "Installed Model",
+              "Physical Asset ID",
+              "Opaque Field"
+            ]
+          },
+          {
+            "fields": {
+              "Area": "UTILITY-A",
+              "Closed On": "08/09/2026",
+              "Equipment Tag": "Q-77",
+              "Installed Model": "CLOSED-ACCOUNT",
+              "Installed Serial": "000072",
+              "Opaque Field": "Closed record | no current inspection",
+              "Order": "MX-7",
+              "Physical Asset ID": "BODY-X2"
+            },
+            "physical_end": 2,
+            "physical_start": 2,
+            "values": [
+              "Q-77",
+              "UTILITY-A",
+              "MX-7",
+              "08/09/2026",
+              "000072",
+              "CLOSED-ACCOUNT",
+              "BODY-X2",
+              "Closed record | no current inspection"
+            ]
+          },
+          {
+            "fields": {
+              "Area": "UTILITY-A",
+              "Closed On": "",
+              "Equipment Tag": "Q-77",
+              "Installed Model": "OPEN-ACCOUNT",
+              "Installed Serial": "000073",
+              "Opaque Field": "Open proposal | not installed",
+              "Order": "MX-8",
+              "Physical Asset ID": "BODY-X3"
+            },
+            "physical_end": 3,
+            "physical_start": 3,
+            "values": [
+              "Q-77",
+              "UTILITY-A",
+              "MX-8",
+              "",
+              "000073",
+              "OPEN-ACCOUNT",
+              "BODY-X3",
+              "Open proposal | not installed"
+            ]
+          }
+        ],
+        "sha256": "4cfc90e40bfa514b0fd0c425be87d69661dbecad89ba7303cfd4cc2415ed93a4"
+      },
+      "source-register.csv": {
+        "delimiter": ",",
+        "headers": [
+          "File",
+          "DocumentID",
+          "Revision",
+          "Status",
+          "Owner",
+          "Applicability"
+        ],
+        "rows": [
+          {
+            "physical_end": 1,
+            "physical_start": 1,
+            "values": [
+              "File",
+              "DocumentID",
+              "Revision",
+              "Status",
+              "Owner",
+              "Applicability"
+            ]
+          },
+          {
+            "fields": {
+              "Applicability": "Fictional exported record, unreviewed",
+              "DocumentID": "EQ-D3",
+              "File": "equipment.csv",
+              "Owner": "Maintenance",
+              "Revision": "3",
+              "Status": "supplied"
+            },
+            "physical_end": 2,
+            "physical_start": 2,
+            "values": [
+              "equipment.csv",
+              "EQ-D3",
+              "3",
+              "supplied",
+              "Maintenance",
+              "Fictional exported record, unreviewed"
+            ]
+          },
+          {
+            "fields": {
+              "Applicability": "Fictional history, not a current inspection",
+              "DocumentID": "WO-D3",
+              "File": "orders.csv",
+              "Owner": "Maintenance",
+              "Revision": "3",
+              "Status": "withdrawn"
+            },
+            "physical_end": 3,
+            "physical_start": 3,
+            "values": [
+              "orders.csv",
+              "WO-D3",
+              "3",
+              "withdrawn",
+              "Maintenance",
+              "Fictional history, not a current inspection"
+            ]
+          }
+        ],
+        "sha256": "d9f82362c051967d7946761113a3f1f039c56f87080eb1350996ca5da98b76df"
+      }
+    }
+  },
+  "maintenance_records": {
+    "closed": "MX-7",
+    "open": "MX-8"
+  },
+  "minimum_expected_entity_roles_per_revision": {
+    "functional_position": 2,
+    "maintenance_record": 2,
+    "physical_item": 3
+  },
+  "namespace": "DIALECT3/P3",
+  "original_key_sha256": "adc72d57ac772f50cd7ed47aaeec01d06078e689f38075163b65e3c1238ed4b7",
+  "plant": "P3",
+  "prior_checker_sha256": "450eec4775ce1bf7fabcd4e0606db31117a44f5cbead863c24aa4b713d37addc",
+  "qualification": "Authored fictional source-known procedural transfer preparation only. No candidate/baseline execution, blind/plant/human evidence or managed receiving acceptance.",
+  "required_components": [
+    "equipment_instrument_list",
+    "item_datasheet_scaffold",
+    "loop_control_narrative_outline"
+  ],
+  "schema": "third-record-literal-acceptance-1",
+  "site": "DIALECT3",
+  "source_and_input_pins_sha256": "d697a65d978b48bc33f42749f2643f200accf499f1f937947ecebd6af8b6eea6",
+  "source_ids": {
+    "equipment": "EQ-D3",
+    "orders": "WO-D3"
+  },
+  "status": "frozen_before_any_third_case_execution",
+  "work_account_qualification": "Supplied closeout is not verified current installation; open account remains a proposal."
+}

@@ -1,0 +1,25 @@
+{
+  "schema": "entry-document-original-oracle-1",
+  "source_sha256": {
+    "result-notice-A.txt": "b55c5761cd6c2cb24bddae87edd9e630231ad9aea8d8d078e76a86f69b3b09a3",
+    "result-notice-B.txt": "5713bc9eb7b078a8b11fbcd971ddad53eb4ceb00f2e5079f5109ce42eae06270",
+    "peer-note.txt": "efa957578f7878836b0940fff4c6ae17f4fd4978487a47de8010c080f6271c2c",
+    "review-route.txt": "619747ef9a93436989cf709a0e8cb18efc786fc7e114bb6ee047316281f91045"
+  },
+  "basis_namespace": "DOC/P1",
+  "B_subject": "DOC/P1/documents/NOTICE-B",
+  "B_values": {
+    "reported_result": "2.5",
+    "displayed_unit": "bar",
+    "governing_revision_known": false
+  },
+  "A_values": {
+    "reported_result": "250",
+    "displayed_unit": "kPa"
+  },
+  "peer_reason_verified": false,
+  "independent_support_claim": "none; supplied interpretations quote original fixtures",
+  "interpretation_rows": 7,
+  "manual_json_edits": 0,
+  "prerequisites": "Python3.10+ standard library; agent supplied source-bound CSV interpretation; no model/network/accounts"
+}

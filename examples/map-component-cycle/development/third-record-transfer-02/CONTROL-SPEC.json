@@ -1,0 +1,111 @@
+{
+  "acceptance_sha256": "2df4d654b0dd49088a3e3d4ffe8b3269cdbfe078181a9a0c3370ee4a14b99c1a",
+  "controls": {
+    "ambiguous_bare": {
+      "expected_exit_code": 2,
+      "expected_stderr_json_outcome": "refused; no acceptance claimed",
+      "operation": "Each revision: query exact bare Q-77 --field class. Qualified east/west positives must separately pass.",
+      "stderr_contains": "ambiguous item; choose qualified id: DIALECT3/P3/UTILITY-A/Q-77, DIALECT3/P3/UTILITY-B/Q-77"
+    },
+    "changed_derived_fact": {
+      "assertions": [
+        "one exact leaf changed",
+        "replacement is not000071 or000072",
+        "intact same full draft reimport is positive",
+        "refused output absent"
+      ],
+      "expected_exit_code": 2,
+      "expected_stderr_json_outcome": "refused; no acceptance claimed",
+      "operation": "Copy R1 full typed materialization object; mutate exactly one serial alternative value under east datasheet, preserving source metadata,basis_sha256,selection,namespace,annotations. No packet/source mutation. Reimport own changed file.",
+      "replacement": "TAMPERED-DERIVED-SERIAL",
+      "stderr_contains": "derived facts changed; submit explicit editorial annotations, not replacement source evidence"
+    },
+    "changed_header": {
+      "after": "Unsupported Model Header",
+      "assertions": [
+        "raw.count(before)==1",
+        "modified raw differs only by that substitution",
+        "output directory absent before and after refusal",
+        "frozen R2 inputs and intact R1 unchanged"
+      ],
+      "before": "Model",
+      "expected_exit_code": 2,
+      "expected_stderr_json_outcome": "refused; no acceptance claimed",
+      "operation": "Copy frozen R2 records. Replace exactly one UTF8 occurrence of header token before with after, preserving all other raw bytes; prepare with --previous intact R1 and explicit MDY.",
+      "stderr_contains": "source headers changed; review mapping before reuse"
+    },
+    "changed_locator": {
+      "after": "CSV record 3; physical lines 4-4; column Serial Number",
+      "assertions": [
+        "exactly one matching claim",
+        "exact mutation diff + dependent claim/receipt hashes only",
+        "source raw bytes and source SHA unchanged",
+        "no early inventory,source-binding or claim-ID refusal accepted as this control"
+      ],
+      "basis_digest_contract": "SHA256 UTF8 json.dumps(basis,ensure_ascii=False,sort_keys=True,separators=(comma,colon),allow_nan=False)",
+      "before": "CSV record 2; physical lines 2-3; column Serial Number",
+      "checker_reachability": "Intended replay mismatch category is inherited from exact prior checker semantics. Third-case control has not been executed; ROOT must review the hash-repair path before freezing execution.",
+      "claim_id_contract": "claim- + SHA256(UTF8 JSON of [subject,predicate,source,locator,role],ensure_ascii=False,sort_keys=True,separators=(comma,colon),allow_nan=False) first24hex",
+      "expected_exit_code": 2,
+      "expected_stderr_json_outcome": "refused; no acceptance claimed",
+      "operation": "Copy intact R1 packet. Select exactly one claim by east subject,EQ-D3 source,serial_number predicate,000071 string,export_record role and literal original multiline lines2-3 locator. Replace its locator with wrong row3 physical line4 locator. Recompute that claim ID using existing canonical source identity contract; recompute receipt.basis_sha256 and RECEIPT.files[basis.json] after serializing changed basis. Keep original bytes,mappings,intake,drafts unchanged. Verify mutant.",
+      "replacement": "CSV record 3; physical lines 4-4; column Serial Number",
+      "stderr_contains": "basis does not reproduce from retained originals/mappings/contributions"
+    },
+    "editorial_proposal": {
+      "assertions": [
+        "exact source claims,relationships,sources,original raw bytes and mappings unchanged",
+        "one editorial_proposal correction with exact subject,field,value,rationale and retained source basis/fingerprints",
+        "derived annotations describe proposed_editorial, never accepted source fact",
+        "generated/reimported copy does not create source roots or independent support"
+      ],
+      "expected_exit_code": 0,
+      "field": "manufacturer",
+      "operation": "Actual CLI edit R1 east manufacturer using exact value/rationale; query original manufacturer; materialize edited packet; reimport its full typed draft. This is a proposed question, not a replacement manufacturer fact.",
+      "rationale": "Explicit fictional editorial question; source evidence remains unchanged.",
+      "value": "Confirm the retained manufacturer account before engineering use?"
+    },
+    "rehashed_wrong_original": {
+      "expected_exit_code": 2,
+      "expected_stderr_json_outcome": "refused; no acceptance claimed",
+      "operation": "Copy intact R1 to own wrong-source folder; append bytes 0d0a to originals/equipment.csv; update only RECEIPT.files[originals/equipment.csv] to SHA256 changed raw bytes; leave source.sha256 and basis unchanged. Verify mutant.",
+      "preconditions": [
+        "Intact R1 verify passes",
+        "Changed bytes differ and original append is exact",
+        "Receipt inventory matches changed file before invocation",
+        "Intact R1 inventory unchanged afterward"
+      ],
+      "stderr_contains": "source raw-byte binding mismatch: EQ-D3"
+    }
+  },
+  "pre_execution_gates": [
+    "ROOT independently reviews exact checker/spec before candidate execution and retains that review hash.",
+    "Final EXECUTION-LOCK.json must pin this checker, acceptance/spec, all scripts/**/*.py paths and LF hashes, exact receiver source scope/review, inputs/key, acceptance, replay, independently retained expected lock SHA and checkpoint commits.",
+    "Earlier-method baseline and candidate attempts require separately identified exact lock roles/method sets and fresh outputs. No tuning may use this reserved case.",
+    "No baseline/candidate method was imported, copied or invoked during checker preparation. No third-case runtime/control outcome is asserted.",
+    "All negative controls require exact CLI exit2, JSON refusal outcome and designated diagnostic. Earlier guard failures, traceback and generic nonzero are failures of the control.",
+    "Rehash inputs, source methods, original prior checker and read-only plan before reporting; retain every failed attempt and reclassify any case used for repair as development.",
+    "Managed receiving/readback/export, browser/MCP, hosted schema and release acceptance remain separate required gates."
+  ],
+  "prior_checker_sha256": "450eec4775ce1bf7fabcd4e0606db31117a44f5cbead863c24aa4b713d37addc",
+  "required_components": [
+    "equipment_instrument_list",
+    "item_datasheet_scaffold",
+    "loop_control_narrative_outline"
+  ],
+  "required_lock_fields": [
+    "status",
+    "execution_role",
+    "checker_sha256",
+    "acceptance_sha256",
+    "control_spec_sha256",
+    "toolkit_method_sha256_lf",
+    "toolkit_review_manifest_sha256",
+    "receiver_review_manifest_sha256",
+    "controls",
+    "required_components"
+  ],
+  "schema": "third-record-control-specification-1",
+  "source_and_input_pins_sha256": "d697a65d978b48bc33f42749f2643f200accf499f1f937947ecebd6af8b6eea6",
+  "status": "frozen_specification_not_execution_authorization"
+}

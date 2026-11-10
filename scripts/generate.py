@@ -22,6 +22,7 @@ import math
 import os
 import re
 import stat
+import textwrap
 import sys
 from pathlib import Path
 from xml.sax.saxutils import escape, quoteattr
@@ -142,6 +143,16 @@ def validate(model):
             problems.append(f"unit {u['id']!r}: unsafe output filename")
         if u.get("type") not in SYMBOLS:
             problems.append(f"unit {u['id']}: unsupported symbol type {u.get('type')!r}")
+        if "presentation" in u:
+            display = u["presentation"]
+            if (not isinstance(display, dict) or set(display) != {"tag", "scope"}
+                    or any(not isinstance(display.get(k), str) or not display[k].strip()
+                           or display[k] != display[k].strip() or len(display[k]) > 2048
+                           or any(ord(c) < 32 or ord(c) == 127 for c in display[k])
+                           for k in ("tag", "scope"))):
+                problems.append(f"unit {u['id']}: presentation needs exact bounded tag/scope text")
+            if isinstance(u.get("name"), str) and len(u["name"]) > 4096:
+                problems.append(f"unit {u['id']}: presentation name exceeds 4096 characters")
         layout = u.get("layout")
         if not isinstance(layout, dict) or not all(_finite(layout.get(k)) for k in ("x", "y")):
             problems.append(f"unit {u['id']}: layout needs finite x and y")
@@ -239,6 +250,23 @@ def _mark_finals(model):
     return model
 
 
+def _presentation_lines(unit):
+    """Optional supplied display labels; model keys and engineering fields stay unchanged."""
+    display = unit.get("presentation")
+    if (not isinstance(display, dict) or set(display) != {"tag", "scope"}
+            or not all(isinstance(display.get(k), str) and 0 < len(display[k]) <= 2048 for k in ("tag", "scope"))
+            or not isinstance(unit.get("name"), str) or len(unit["name"]) > 4096):
+        return None
+    return [line for text in (display["tag"], display["scope"], unit["name"])
+            for line in textwrap.wrap(text, width=28, break_long_words=True, break_on_hyphens=False)]
+
+
+def _unit_description(unit):
+    display = unit.get("presentation")
+    return (f"{display['tag']} [{display['scope']}]: {unit['name']}"
+            if _presentation_lines(unit) is not None else unit["name"])
+
+
 def _auto_layout(model):
     """Units without a screen position get one, in flow order from the battery limit: display only."""
     if all(isinstance(u.get("layout"), dict) for u in model.get("units", [])):
@@ -259,13 +287,17 @@ def _auto_layout(model):
                 nxt += [s["to"] for s in model["streams"] if s.get("from") == uid and s.get("to") in ids]
         frontier, depth = nxt, depth + 1
     rank = {i: rank.get(i, 0) for i in ids}
-    seen = {}
+    seen, vertical = {}, {}
     for u in model["units"]:
         if not isinstance(u.get("layout"), dict):
             r = rank[u["id"]]
             k = seen.setdefault(r, 0)
             seen[r] += 1
-            u["layout"] = {"x": 160 + 420 * r, "y": 230 + 260 * k, "auto": True}
+            y = vertical.get(r, 0)
+            u["layout"] = {"x": 160 + 420 * r, "y": 230 + y, "auto": True}
+            lines = _presentation_lines(u)
+            half_h = SYMBOLS[u["type"]]()[1] if u.get("type") in SYMBOLS else 0
+            vertical[r] = y + (max(260, 2 * half_h + 24 + 16 * len(lines) + 80) if lines else 260)
     return model
 
 
@@ -307,8 +339,18 @@ def unit_group(unit, x, y, label=True):
     shape, half_h = SYMBOLS[unit["type"]]()
     text = (f'<text class="t" y="{-half_h - 12 if unit["type"] != "reactor" else -122}" text-anchor="middle">'
             f'{escape(unit["id"])} {escape(unit["name"])}</text>') if label else ""
+    lines = _presentation_lines(unit)
+    extent = half_h
+    if label and lines:
+        # SVG textLength bounds each wrapped line independently of font fallback.
+        # The supplied full name remains exact in model metadata and this title.
+        text = f'<title>{escape(_unit_description(unit))}</title>' + "".join(
+            f'<text class="t" y="{half_h + 24 + 16 * n}" text-anchor="middle" '
+            f'textLength="{min(240, max(12, len(line) * 7))}" lengthAdjust="spacingAndGlyphs">{escape(line)}</text>'
+            for n, line in enumerate(lines))
+        extent = half_h + 24 + 16 * len(lines)
     return (f'<g id={quoteattr(unit["id"])} data-asset={quoteattr(unit["id"])} data-type={quoteattr(unit["type"])} '
-            f'transform="translate({x},{y})">{shape}{text}</g>'), half_h
+            f'transform="translate({x},{y})">{shape}{text}</g>'), extent
 
 
 def items_for(model, unit_id):
@@ -360,6 +402,9 @@ def overview_svg(model):
     if auto:  # fit the canvas to the placed units
         W = max(W, max(u["layout"]["x"] for u in model["units"]) + 260)
         H = max(H, max(u["layout"]["y"] for u in model["units"]) + 320)
+        H = max(H, max((u["layout"]["y"] + SYMBOLS[u["type"]]()[1] + 24
+                        + 16 * len(_presentation_lines(u) or []) + 80
+                        for u in model["units"] if _presentation_lines(u)), default=H))
     pos = {u["id"]: (u["layout"]["x"], u["layout"]["y"]) for u in model["units"]}
     stubs = {}
     for s in model["streams"]:
@@ -409,7 +454,7 @@ def unit_svg(model, unit):
     g, half_h = unit_group(unit, 150, 140 if unit["type"] != "stripper" else 150)
     top = 140 + half_h + 50
     H = top + rows * 56 + 10
-    return svg_doc(300, H, g + instrument_grid(items, 150, top), f'{unit["id"]} {unit["name"]}')
+    return svg_doc(300, H, g + instrument_grid(items, 150, top), _unit_description(unit) if _presentation_lines(unit) else f'{unit["id"]} {unit["name"]}')
 
 # ---------------------------------------------------------------- platform exports
 
@@ -521,7 +566,7 @@ def ignition_tags(model):
                                      "OPCServer": {"dataType": "String", "value": "Ignition OPC UA Server"}},
                       "tags": members})
         instances.append({"name": u["id"], "tagType": "UdtInstance", "typeId": type_name,
-                          "documentation": u["name"] + seed_confidence(u),
+                          "documentation": _unit_description(u) + seed_confidence(u),
                           "parameters": {"BasePath": {"dataType": "String",
                                                       "value": f"ns=1;s={_point_prefix(model)}.{u['id']}"}}})
     folder = "TE_Plant" if _model_id(model) == "te-process" else _model_id(model)
@@ -561,7 +606,7 @@ def pi_af_rows(model):
     for u in model["units"]:
         if ops_status(u) == "rejected":
             continue
-        rows.append(["x", root, u["id"], "Element", u["name"] + seed_confidence(u), member_name(u["type"].replace("_", " ")),
+        rows.append(["x", root, u["id"], "Element", _unit_description(u) + seed_confidence(u), member_name(u["type"].replace("_", " ")),
                      "", "", "", ""])
         unit_items = items_for(model, u["id"])
         for it in unit_items:
@@ -606,7 +651,7 @@ def review_rows(model):
     unit_names = {u["id"]: u["name"] for u in model["units"]}
     rows = []
     for u in model["units"]:
-        rows.append([u["id"], "equipment", u["name"], "", "", u.get("source", ""), "seed",
+        rows.append([u["id"], "equipment", _unit_description(u), "", "", u.get("source", ""), "seed",
                      u.get("verification", {}).get("status", "unverified")] + ops_cols(u))
     for it in model["instruments"] + model["final_elements"]:
         kind = "control valve / output" if is_final(it) else "measurement"

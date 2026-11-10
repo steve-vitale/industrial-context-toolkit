@@ -1,0 +1,19 @@
+test_valid_api_annotations_survive_ordinary_edit_and_reimport (test_context_packet.PacketWorkflowTests.test_valid_api_annotations_survive_ordinary_edit_and_reimport) ... 
+  test_valid_api_annotations_survive_ordinary_edit_and_reimport (test_context_packet.PacketWorkflowTests.test_valid_api_annotations_survive_ordinary_edit_and_reimport) (path='ordinary edit') ... FAIL
+
+======================================================================
+FAIL: test_valid_api_annotations_survive_ordinary_edit_and_reimport (test_context_packet.PacketWorkflowTests.test_valid_api_annotations_survive_ordinary_edit_and_reimport) (path='ordinary edit')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Steve\.cp-scratch\map-component-foundation\scripts\test_context_packet.py", line 281, in test_valid_api_annotations_survive_ordinary_edit_and_reimport
+    self.assertEqual({a["annotation"]["field"] for a in load(edited / "drafts.json")["annotations"]},
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     {"manufacturer", "model"})
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Items in the second set but not the first:
+'manufacturer'
+
+----------------------------------------------------------------------
+Ran 1 test in 1.460s
+
+FAILED (failures=1)
