@@ -6785,6 +6785,22 @@
         "docs/GOAL_ROUND6.md",
         "out/open100_structural/spot_check/manifest.json"
       ]
+    },
+    {
+      "id": "A409",
+      "function": "extraction",
+      "date": "2026-11-11",
+      "change": "Ran an external reader through the reader slot: the public MIT pid-to-kg skill (github.com/ScottDuncanAI/PID-to-Knowledge-Graph, commit 7ee3a82), headless as its README describes (claude -p, the skill installed in a fresh project folder, claude-opus-5-5[1m], Python 3.12 with its OCR, one run per sheet, max 150 turns), on the development sheets only: OPEN100 0-5, TE revisions A and D (each PNG wrapped as a one-page PDF, since the skill reads PDFs), Pahala P-401/P-501 (the PDF pages). scripts/reader_external_kg.py converts its graph.json into the prediction format (rules fixed before any score: classes per extraction/prompt_v2.md, links through pipe segments only, the key converted through it scores perfect); scripts/external_reader_comparison.py scores it with the unchanged evaluate_vendor.py beside the controls and our committed readings, and adds TE tags, the drawing-set bundle, TE direction truth, the off-page key and the TE loop list. Its own builder (no model) assembled each set for loops and off-page links.",
+      "hypothesis": "With the same model, its reading method (overview, OCR-sized tiles, a page file per sheet, a QA report the model re-checks) reads our development sheets at least as well as our current reader, and its loop assembly gives a usable first loop layer",
+      "evidence": "Review load, OPEN100 0-5: pid-to-kg 92.3 (symbol F1 rough 0.732, strict 0.447, connection 0.489); its symbols with our tracer 60.6 (connection 0.616); ours r2-tiles-trace claude 36.1, codex 20.5, gemini 59.2; ours tiles with model links claude 73.5. By class it led on valves (0.93 vs claude 0.90) and matched tanks, pumps and flags, but lost on instruments (0.80 vs 0.94) and general items (0.19 vs 0.40: fittings it does not record). TE A: 64.9 vs ours 2.1-2.2, almost all from one convention: it reads a control valve as one item, so all 11 of its valves paired with the key's actuator bubble and all 11 key valve bodies went unpaired; our tracer on its symbols reproduced its links exactly (55/29/21 of 55/29/21), so its line reading on the clean sheets was right. TE D: 37.0, hybrid 16.1 (no reading of ours exists there). Tags: TE A 43/43 (ours 43/43 every run); TE D 54/62, 54/54 of found symbols; Pahala P-401 14/14 matched like ours, P-501 0/13 because it wrote tags reordered ('500-ZSO-101' for 'ZSO 500, 101'), ours 13/13. Loops on TE D (signal lines drawn): 10/11 valve loops and 7/8 cascades of data/te_control_loops.json; TE A draws no controllers (0/11). Ours builds no loops. Its directed pairs: TE A 8/8, TE D 29/29 correct where the stream truth reaches (reversed 0, layout 0.75/0.93). Off-page on OPEN100 0-5: 3 links, 3 correct, 3/6 continuations (ours 5/6, A407). Cost: 14 runs, 3,326 s wall, 19-35 turns, about 13.5 USD list-price equivalent (OPEN100 0-5 7.19 USD and 1,736 s vs our claude reading 2.84 USD notional, 547 s). It listed every non-blank tile as reviewed in every run, but opened 0-12 of 11-15 tiles.",
+      "runs": "1 per sheet (14 headless runs); converter, scorers and builders deterministic",
+      "verdict": "rejected",
+      "why": "Not adopted as a reader or a dependency: with the same model it reads OPEN100 0-5 worse than our current claude reading and costs more, and its single-item control valves do not match the keys' convention. Ideas worth building into our own reader are recorded in the comparison: ISA tag grouping plus signal tracing for round 6 increment 3 (it recovered 17 of 19 TE D loops), OCR tag hints on pages without a text layer (its hints held 101 of 105 TE key tags), and a model re-check pass over flagged items. Development sheets only and one run per sheet: no generalization or ranking claim",
+      "source": [
+        "out/ext_pidkg/comparison.md",
+        "out/scorecard_ext-pidkg-r1_dev.md",
+        "docs/PLUG_IN_A_READER.md"
+      ]
     }
   ],
   "not_tried": [

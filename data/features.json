@@ -305,6 +305,7 @@
       "title": "Plug a different drawing reader into the same pipeline, and compare readers on one leaderboard",
       "tools": [
         "scripts/reader_template.py",
+        "scripts/reader_external_kg.py",
         "scripts/reader_leaderboard.py"
       ],
       "guide": "docs/PLUG_IN_A_READER.md",
@@ -312,16 +313,18 @@
         "examples/plug-in-a-reader/reader_output_sheet0.json",
         "examples/plug-in-a-reader/prediction_sheet0.json",
         "examples/plug-in-a-reader/manifest.json",
-        "benchmarks/LEADERBOARD.md"
+        "benchmarks/LEADERBOARD.md",
+        "out/ext_pidkg/comparison.md"
       ],
       "tests": [
         "scripts/test_reader_template.py",
+        "scripts/test_reader_external_kg.py",
         "scripts/test_reader_leaderboard.py"
       ],
       "job": "Bring a better reader (trained model, vendor API, fine-tuned model) and keep the review queue, sources and exports around it",
       "you_need": "Your reader's per-sheet output and a small adapter to the documented prediction format; answer keys to score it",
       "time": "Seconds to convert and import one sheet; scoring as for the vendor-evaluation kit",
-      "you_get": "An importable prediction file, the same review bundle and exports as the current reader, and a registered result shown beside the controls, labelled development, validation or held-out. The worked example re-expresses an existing reading; no other reader has been run yet",
+      "you_get": "An importable prediction file, the same review bundle and exports as the current reader, and a registered result shown beside the controls, labelled development, validation or held-out. The worked example re-expresses an existing reading; one external reader, the public pid-to-kg skill, has been converted from its graph.json and compared on the development sets only, unregistered",
       "why": "The current reader drafts and is the most replaceable part. A reader that plugs into the same slot can be measured on the same keys and inherit everything around it."
     },
     {
