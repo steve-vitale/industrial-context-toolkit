@@ -243,6 +243,21 @@ listed in `review_queue.csv` and in the report's "Across sheets" section. The cr
 export as `connects` edges, so paths can be followed from sheet to sheet. Sheet numbers in the bundle follow the
 manifest order (`svg/sheet_0.svg`, `svg/sheet_1.svg`, ...).
 
+A pipe segment gets a flow direction only where the drawing shows one: an arrowhead drawn on it, an off-page flag's
+point, a pump's top discharge or side suction port, or continuity through an in-line valve from one of those (the
+detectors of [`flow_direction.py`](../../scripts/flow_direction.py)). A directed segment runs `from` -> `to` in the
+flow direction, with `direction: "forward"` and `direction_evidence` (basis, confidence, the kinds of evidence and
+where each was found); its `piped_to` edge in the graph export is `direction: forward`. Every other segment stays
+undirected. Flow through a valve with two pipe segments is continuous, so where the marks along such a run of
+pipe admit no single sense of flow, every direction on the run is withdrawn; those segments get no direction but a `direction_conflict` record
+saying whether the disagreement is on the segment itself or elsewhere, and which contradiction caused it.
+`meta.flow_direction_status` counts all three. Nothing is guessed
+from layout, and a drawn flow direction is review evidence, not isolation or lockout guidance. `--no-flow-direction`
+turns it off. On the development sheets ([scores](../../out/round6/flow_direction_dev.md)) about a quarter of the
+OPEN100 pipe segments and 30% of those on Pahala P-401/P-501 are directed. On the generated TE sheets every scored
+direction matched the model's streams, but those sheets are drawn left to right, so a layout guess also scores high
+there; it is an upper bound for clean drawings.
+
 Measured once on three public Pahala WWTP sheets (P-204, P-401, P-501, EPA docket): the reading took 183 s plus 9 s
 of tracing, giving 85 instruments. The second pass paired P-401 to P-501, where P-501 names P-401 only by its
 title. P-401's reference to P-204 stayed unpaired because P-204's outlet names a different destination. The

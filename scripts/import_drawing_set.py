@@ -18,6 +18,21 @@ The bundle also gets the drawn line layers (scripts/line_layers.py): pipe segmen
 with the tracer's default options. This needs OpenCV and NumPy (requirements.txt). Without them, or when the links
 can't be re-traced (an extraction written by hand rather than traced), the bundle is still written and
 meta.line_layers_status says why the layers were skipped. --no-line-layers turns them off.
+
+With the line layers, each pipe segment gets a flow direction only where the drawing shows one, read by
+scripts/flow_direction.py's detectors (unchanged): an arrowhead on the segment, an off-page flag's point, a pump's
+top discharge and side suction port, or continuity through an in-line valve from one of those. A directed segment
+has from -> to in the flow direction, direction "forward" and direction_evidence (basis, confidence, the evidence
+kinds and where each was found). A segment with no such evidence stays exactly as the line layers wrote it:
+undirected. Flow through a valve with exactly two pipe segments is continuous, so each maximal run of segments
+joined through such valves (a path or a ring, valve_runs) must carry one sense of flow: every mark and every
+continuity direction on it, however far apart and whatever unknown segments lie between, must agree with one
+traversal (one rotation on a ring). A run where any two disagree gets no direction at all: each segment evidence
+reached gets a direction_conflict record (local disagreement when its own marks point both ways, withdrawn
+otherwise) with the run's segments and valves in order and every observation on it, so a disagreement is never
+mistaken for missing evidence. Any other item, a junction or a valve with three or more segments ends a run. Nothing is inferred from layout (left to right, top to bottom),
+and a flow direction is not isolation or lockout guidance. meta.flow_direction_status counts all three.
+--no-flow-direction turns it off.
 """
 import argparse
 import json
@@ -185,7 +200,275 @@ def add_line_layers(model, source):
             "dropped_orphan_junctions": sum(x["layer"] == "junctions" for x in dropped)}
 
 
-def import_set(manifest_path, out, check_only=False, line_layers=True):
+FLOW_SOURCES = ("arrowhead", "offpage_flag", "pump_ports", "valve_chain")
+
+
+def _far_items(adj, seg, other, junctions):
+    """Items at the far end of a pipe segment: `other` itself, or every item reached from that junction through
+    junctions only (never through an item, never back along `seg`)."""
+    if other not in junctions:
+        return {other}
+    found, seen, todo = set(), {other}, [other]
+    while todo:
+        node = todo.pop()
+        for s, nxt in adj[node]:
+            if s is seg or nxt in seen:
+                continue
+            seen.add(nxt)
+            (todo.append(nxt) if nxt in junctions else found.add(nxt))
+    return found
+
+
+def segment_flow_evidence(model, per_sheet):
+    """{segment id: [(sign, source, confidence, detail)]} from flow_direction.py's per-sheet arrowheads, off-page
+    flags and pumps. sign +1: flow from the segment's `from` to its `to`. Only the segment the evidence is drawn on
+    gets it: an arrowhead orients the segment of the nearest item behind it that leads to what lies ahead (and the
+    nearest item ahead that leads back to what lies behind), a flag every segment at the flag, a pump the segment at
+    its top (discharge) or side (suction) port. A segment that can't be singled out gets nothing."""
+    import flow_direction as fd
+    layers = model["line_layers"]
+    junctions = {j["id"] for j in layers["junctions"]}
+    syms = fd.model_symbols(model)
+    adj = {}  # sheet -> node -> [(segment, node at its other end)]
+    for s in layers["segments"]:
+        for a, b in ((s["from"], s["to"]), (s["to"], s["from"])):
+            adj.setdefault(s["sheet"], {}).setdefault(a, []).append((s, b))
+    evidence = {}
+
+    def add(sheet, item, toward, away, sign_out, source, detail):
+        """Orient the one segment at `item` whose far side reaches `toward` and none of `away`."""
+        here = adj.get(sheet, {})
+        hits = []
+        for s, b in here.get(item, []):
+            far = _far_items(here, s, b, junctions) - {item}
+            if (toward is None or far & toward) and not (away and far & away):
+                hits.append(s)
+        if toward is not None and len(hits) != 1:
+            return
+        for s in hits:
+            out_of_item = s["from"] == item
+            evidence.setdefault(s["id"], []).append(
+                (sign_out if out_of_item else -sign_out, source, fd.confidence(source), detail))
+
+    for sheet, p in sorted(per_sheet.items(), key=lambda kv: int(kv[0])):
+        W, H = p["size_px"]
+        asset = {sid: v["asset"] for sid, v in syms[sheet].items()}
+        box = lambda b: [round(1000 * b[0] / W, 1), round(1000 * b[1] / H, 1),  # noqa: E731
+                         round(1000 * b[2] / W, 1), round(1000 * b[3] / H, 1)]
+        for a in p["arrows"]:
+            if a.get("status") != "orients links":
+                continue
+            ahead, behind = {asset[x] for x in a["ahead"]}, {asset[x] for x in a["behind"]}
+            detail = {"kind": "arrowhead", "sheet": sheet, "box_0_1000": box(a["box_px"]),
+                      "points": ("+" if a["dir"] > 0 else "-") + a["axis"]}
+            for u in sorted({asset[x] for x in a["near_behind"]}):
+                add(sheet, u, ahead, behind, +1, "arrowhead", detail)
+            for v in sorted({asset[x] for x in a["near_ahead"]}):
+                add(sheet, v, behind, ahead, -1, "arrowhead", detail)
+        for sid, f in sorted(p["flags"].items()):
+            if f["role"] in ("source", "sink"):
+                add(sheet, asset[sid], None, None, +1 if f["role"] == "source" else -1, "offpage_flag",
+                    {"kind": "offpage_flag", "sheet": sheet, "box_0_1000": box(f["box_px"]), "tip": f["tip"],
+                     "role": f["role"]})
+        for sid, pump in sorted(p["pumps"].items()):
+            if not pump["fires"]:
+                continue
+            top, side = {asset[x] for x in pump["discharge_to"]}, {asset[x] for x in pump["suction_from"]}
+            for toward, away, sign, port in ((top, side, +1, "discharge (top)"), (side, top, -1, "suction (side)")):
+                add(sheet, asset[sid], toward, away, sign, "pump_ports",
+                    {"kind": "pump_ports", "sheet": sheet, "box_0_1000": box(pump["box_px"]), "port": port})
+    for sid in evidence:  # the same drawn mark reached from both of its sides counts once
+        seen, keep = set(), []
+        for e in evidence[sid]:
+            key = (e[0], e[1], json.dumps(e[3], sort_keys=True))
+            if key not in seen:
+                seen.add(key)
+                keep.append(e)
+        evidence[sid] = keep
+    return evidence
+
+
+def _says(segment, e):
+    """One observation as recorded on a segment: which way it says the flow goes, and what was drawn."""
+    a, b = (segment["from"], segment["to"]) if e[0] > 0 else (segment["to"], segment["from"])
+    return {**e[3], "flow_from": a, "flow_to": b}
+
+
+def valve_runs(segments, valves):
+    """Maximal runs of pipe segments joined through two-port valves (a valve with exactly two pipe segments), in
+    traversal order. Each run is {"kind": "path" | "ring", "steps": [(segment, +1 if the segment's from -> to follows
+    the traversal else -1)], "valves": [the valves passed, in order]}. Anything else at a segment end (an item that
+    is not a valve, a valve with one or three or more segments, a junction) ends a run, so continuity is never
+    assumed through it. Every segment is in exactly one run."""
+    ends = {}
+    for s in segments:
+        for n in {s["from"], s["to"]}:
+            ends.setdefault(n, []).append(s)
+    two_port = {v for v in valves if len(ends.get(v, [])) == 2}
+
+    def other_end(s, n):
+        return s["to"] if s["from"] == n else s["from"]
+
+    def walk(s, start):
+        steps, vs, node, seen = [], [], start, set()
+        while s is not None and s["id"] not in seen:
+            seen.add(s["id"])
+            steps.append((s, 1 if s["from"] == node else -1))
+            node = other_end(s, node)
+            if node not in two_port:
+                break
+            nxt = next(x for x in ends[node] if x is not s)
+            if nxt["id"] in seen:  # back to the start: a ring
+                vs.append(node)
+                break
+            vs.append(node)
+            s = nxt
+        return steps, vs
+    runs, placed = [], set()
+    for s in segments:  # paths first, from an end that is not a two-port valve
+        if s["id"] in placed or s["from"] == s["to"]:
+            continue
+        for start in (s["from"], s["to"]):
+            if start not in two_port:
+                steps, vs = walk(s, start)
+                runs.append({"kind": "path", "steps": steps, "valves": vs})
+                placed |= {x["id"] for x, _ in steps}
+                break
+    for s in segments:  # what is left closes on itself through two-port valves
+        if s["id"] in placed:
+            continue
+        steps, vs = walk(s, s["from"])
+        runs.append({"kind": "ring" if s["from"] != s["to"] else "path", "steps": steps, "valves": vs})
+        placed |= {x["id"] for x, _ in steps}
+    return runs
+
+
+def decide_flow(segments, evidence, valves):
+    """({segment id: decision}, {segment id: segment}) for every segment that drawn evidence reached. A decision is
+    {"direction": forward | reverse, "confidence", "basis", "used"} or {"direction": "conflict", "seen", "local",
+    "contradictions"}.
+
+    Flow through a two-port valve is continuous, so along one run (valve_runs) every direction must agree with one
+    traversal sense, on a ring with one rotation. Each segment's own drawn marks, and continuity carried one hop
+    through a valve from a segment whose own marks agree (flow_direction.propagate_valves, unchanged), are oriented
+    to the run's traversal. If they all agree, the segments they reach are directed; if any two disagree, however far
+    apart and whatever unknown segments lie between, the run admits no consistent flow: every direction in it is
+    withdrawn, and each segment it reached records the run (its segments and valves in order) and every observation
+    on it. Runs never share a segment, so one run's contradiction withdraws nothing elsewhere."""
+    import flow_direction as fd
+    by_id = {s["id"]: s for s in segments}
+    first = {sid: fd.combine(e) for sid, e in evidence.items()}
+    seeds = {sid: d for sid, d in first.items() if d[0] in ("forward", "reverse")}
+    proposals = {sid: [(*e, sid) for e in obs] for sid, obs in evidence.items()}
+    for sid, more in fd.propagate_valves(segments, seeds, valves, fd.confidence("valve_chain")).items():
+        proposals.setdefault(sid, []).extend(
+            (e[0], e[1], e[2], {"kind": "valve_chain", "through": e[3]["through"], "from_segment": e[3]["from_link"]},
+             e[3]["from_link"]) for e in more)
+    out = {}
+    for run in valve_runs(segments, valves):
+        along = {s["id"]: sense for s, sense in run["steps"]}
+        reached = [s["id"] for s, _ in run["steps"] if proposals.get(s["id"])]
+        if not reached:
+            continue
+        senses = {x[0] * along[sid] for sid in reached for x in proposals[sid]}
+        if len(senses) == 1:
+            for sid in reached:
+                direction, confidence, basis = fd.combine([x[:4] for x in proposals[sid]])
+                tier = (lambda k: k != "valve_chain") if basis == "first_hand" else (lambda k: k == "valve_chain")
+                out[sid] = {"direction": direction, "confidence": confidence, "basis": basis,
+                            "used": [x[:4] for x in proposals[sid] if tier(x[1])]}
+            continue
+        cause = {"rule": f"directions along one {run['kind']} of two-port valves disagree"
+                         + (" (no single rotation)" if run["kind"] == "ring" else ""),
+                 "kind": run["kind"], "segments": [s["id"] for s, _ in run["steps"]], "valves": run["valves"],
+                 "seeds": sorted({x[4] for sid in reached for x in proposals[sid] if x[1] != "valve_chain"}),
+                 "observations": [(sid, x, x[0] * along[sid]) for sid in reached for x in proposals[sid]]}
+        for sid in reached:
+            own = evidence.get(sid, [])
+            out[sid] = {"direction": "conflict", "seen": proposals[sid], "local": len({x[0] for x in own}) > 1,
+                        "contradictions": [cause]}
+    return out, by_id
+
+
+def _conflict_record(s, d, by_id):
+    """direction_conflict for one segment: its own observations, whether its own marks disagree
+    (local_disagreement) or its direction is withdrawn because the run it is on admits no consistent flow
+    (withdrawn), and the run that caused it: segments and valves in traversal order, the seed segments, and every
+    observation on the run with the segment it is on, the flow it claims, its sense along the run (+1 / -1) and, for
+    continuity, the valve it passed through and the segment it came from."""
+    def obs(sid, x, sense):
+        return {**_says(by_id[sid], x), "segment": sid, "along_run": sense}
+    own = d["seen"]
+    return {
+        "status": "local_disagreement" if d["local"] else "withdrawn",
+        "qualification": ("the drawn marks on this segment point both ways; its direction is unknown" if d["local"]
+                          else "this segment's own observations agree, but the run of two-port valves it is on "
+                               "admits no consistent flow (caused_by), so its direction is withdrawn and unknown"),
+        "kinds": sorted({x[1] for x in own}, key=FLOW_SOURCES.index),
+        "found": [_says(s, x) for x in own],
+        "caused_by": [{"rule": c["rule"], "run": c["kind"], "segments": c["segments"], "valves": c["valves"],
+                       "seeds": c["seeds"], "observations": [obs(*o) for o in c["observations"]]}
+                      for c in d["contradictions"]]}
+
+
+def apply_flow(segments, evidence, valves):
+    """Write decide_flow()'s result onto the segments in place; return (counts, by basis, by kind, conflict ids).
+    A conflict keeps no direction (the graph's `unknown`) and gets direction_conflict (_conflict_record); a segment
+    with no evidence is not touched."""
+    decided, by_id = decide_flow(segments, evidence, valves)
+    records = {sid: _conflict_record(by_id[sid], d, by_id) for sid, d in decided.items()
+               if d["direction"] == "conflict"}  # before any directed segment's ends are swapped
+    counts = {"directed": 0, "undirected": 0, "conflict": 0}
+    by_basis, by_kind, conflicts = {}, {}, []
+    for s in segments:
+        d = decided.get(s["id"])
+        if d and d["direction"] == "conflict":
+            counts["conflict"] += 1
+            conflicts.append(s["id"])
+            s["direction_conflict"] = records[s["id"]]
+            continue
+        if not d or d["direction"] not in ("forward", "reverse"):
+            counts["undirected"] += 1
+            continue
+        counts["directed"] += 1
+        used = d["used"]
+        if d["direction"] == "reverse":
+            s["from"], s["to"] = s["to"], s["from"]
+        s["direction"] = "forward"
+        s["direction_evidence"] = {"basis": d["basis"], "confidence": d["confidence"],
+                                   "kinds": sorted({x[1] for x in used}, key=FLOW_SOURCES.index),
+                                   "found": [x[3] for x in used]}
+        by_basis[d["basis"]] = by_basis.get(d["basis"], 0) + 1
+        for k in s["direction_evidence"]["kinds"]:
+            by_kind[k] = by_kind.get(k, 0) + 1
+    return counts, by_basis, by_kind, conflicts
+
+
+def add_flow_direction(model, source):
+    """Direct the pipe segments that drawn evidence orients, in place (module docstring); return a status record
+    (never raises for a skip). Undirected segments are left byte for byte as the line layers wrote them."""
+    try:
+        import flow_direction as fd
+        _, per_sheet = fd.infer(model, source)
+    except ImportError as error:
+        return {"status": "skipped", "reason": f"needs OpenCV and NumPy (pip install -r requirements.txt): {error}"}
+    except SystemExit as error:  # flow_direction.infer refuses links it can't re-trace
+        return {"status": "skipped", "reason": str(error)}
+    segments = model["line_layers"]["segments"]
+    valves = [x["id"] for x in model["line_items"] if x["class"] == "valve"]
+    counts, by_basis, by_kind, conflicts = apply_flow(segments, segment_flow_evidence(model, per_sheet), valves)
+    arrows = {sheet: [{"box_0_1000": [round(1000 * a["box_px"][i] / p["size_px"][i % 2], 1) for i in range(4)],
+                       "points": ("+" if a["dir"] > 0 else "-") + a["axis"], "status": a.get("status")}
+                      for a in p["arrows"]] for sheet, p in sorted(per_sheet.items(), key=lambda kv: int(kv[0]))}
+    return {"status": "added", "method": "scripts/flow_direction.py detectors on each sheet image; evidence placed "
+                                         "on the pipe segment it is drawn on",
+            "pipe_segments": len(segments), **counts, "directed_by_basis": by_basis, "directed_by_evidence": by_kind,
+            "conflict_segments": conflicts, "arrowheads_found": arrows,
+            "not_used": "no direction is inferred from layout; a segment without drawn evidence stays undirected",
+            "limit": "drawn flow direction for review, not isolation or lockout guidance"}
+
+
+def import_set(manifest_path, out, check_only=False, line_layers=True, flow_direction=True):
     out, raw_manifest, producer, loaded, provenance = load_set(manifest_path, out)
     drawings = [s["drawing"] for s in loaded]
     if check_only:
@@ -238,6 +521,8 @@ def import_set(manifest_path, out, check_only=False, line_layers=True):
         generate.export_twin(model, stage, images_dir=source)
         layers = add_line_layers(model, source) if line_layers else {"status": "not requested"}
         model["meta"]["line_layers_status"] = layers
+        if flow_direction and layers["status"] == "added":
+            model["meta"]["flow_direction_status"] = add_flow_direction(model, source)
         one.write_json(stage / "plant_model.json", model)
         one.write_json(stage / "intake_manifest.json", provenance)
         (stage / "READ_ME.txt").write_text("UNVERIFIED LOCAL REVIEW BUNDLE (DRAWING SET)\n\n" + "\n".join(LIMITATIONS)
@@ -245,8 +530,11 @@ def import_set(manifest_path, out, check_only=False, line_layers=True):
         one.require(not out.exists() and not out.is_symlink(), f"Output appeared while preparing bundle: {out}")
         os.rename(stage, out)
         return {"inputs_valid": True, "exports_written": True, "output": str(out), "summary": model["summary"],
-                "pairs_from_supplied_numbers": added, "line_layers": layers, "operational_export_allowed": False,
-                "limitations": LIMITATIONS}
+                "pairs_from_supplied_numbers": added, "line_layers": layers,
+                **({"flow_direction": {k: v for k, v in model["meta"]["flow_direction_status"].items()
+                                       if k not in ("arrowheads_found", "conflict_segments")}}
+                   if "flow_direction_status" in model["meta"] else {}),
+                "operational_export_allowed": False, "limitations": LIMITATIONS}
     finally:
         if stage.exists():
             shutil.rmtree(stage)
@@ -263,9 +551,12 @@ def main(argv=None):
     parser.add_argument("--out", required=True)
     parser.add_argument("--check-only", action="store_true", help="validate inputs without writing")
     parser.add_argument("--no-line-layers", action="store_true", help="skip the drawn pipe and instrument layers")
+    parser.add_argument("--no-flow-direction", action="store_true",
+                        help="leave every pipe segment undirected (no drawn flow-direction evidence)")
     args = parser.parse_args(argv)
     try:
-        result = import_set(args.manifest, args.out, args.check_only, line_layers=not args.no_line_layers)
+        result = import_set(args.manifest, args.out, args.check_only, line_layers=not args.no_line_layers,
+                            flow_direction=not args.no_flow_direction)
     except (ValueError, OSError, TypeError, KeyError, OverflowError, RecursionError) as error:
         parser.exit(2, f"Drawing set intake failed: {error}\n")
     print(json.dumps(result, indent=2, allow_nan=False))

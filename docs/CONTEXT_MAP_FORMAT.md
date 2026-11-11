@@ -145,6 +145,20 @@ is no `has_part`.
 | `mentions` | document → item | a tag found in a document's text (DOCUMENTS layer) | stable | none; our own |
 | `based_on` | document → document at a revision | the basis a document was written from (DOCUMENTS layer) | stable | none; our own |
 
+A `piped_to` read from a drawing set (`scripts/import_drawing_set.py`, through the graph export) is `directed: true`
+only when the drawing shows the flow on that segment: an arrowhead, an off-page flag's point, a pump's discharge or
+suction port, or continuity through an in-line valve from one of those. Its `from` is then upstream, and its
+`attributes` carry `direction_evidence.basis`, `.confidence`, `.kinds` and where each piece of evidence was found.
+Every other drawn `piped_to` is `directed: false`; no direction is taken from layout. When the drawn
+evidence contradicts itself along a run of pipe joined through two-port valves (two marks on one segment, or
+marks anywhere on the run that no single sense of flow satisfies), every direction on that run is withdrawn. Such a relation is
+still `directed: false` but carries `direction_conflict.status` (`local_disagreement` when its own marks point
+both ways, `withdrawn` when they agree but rest on evidence that contradicts itself elsewhere), its own observations
+(`direction_conflict.found[n]`, each with the `flow_from`/`flow_to` it claims) and `direction_conflict.caused_by[n]`
+(the rule, the run's segments and valves in order, its seed segments and every observation on it with its sense along the run), so a disagreement is never read as no
+evidence. This uses the existing
+`directed` field and relation attributes, so it is no format change. A drawn direction is not isolation guidance.
+
 Line types: `process_pipe`, `utility_pipe`, `measuring_line` (impulse line, DEXPI `MeasuringLineFunction`),
 `signal_line`, `mechanical_link`, `unknown`. Signal types follow DEXPI's `SignalConveyingTypeClassification`
 (`electrical`, `pneumatic`, `hydraulic`, `capillary`, `conducted_radiation`) plus `data_link` and `wireless` from
