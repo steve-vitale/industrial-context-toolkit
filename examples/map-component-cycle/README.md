@@ -420,3 +420,5 @@ the local reusable context and portable payload, not a ready product integration
 The consumed second-record dialect case is a development regression after its first frozen run failed. Passing the repaired parser controls does not create a new transfer result; any later transfer uses separate inputs and a new pre-execution method lock.
 
 2026-11-10: vendor names removed from this packet; hashes re-pinned.
+
+2026-11-11: product name redacted from screenshots; hashes re-pinned.
