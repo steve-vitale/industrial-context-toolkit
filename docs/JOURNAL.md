@@ -10208,7 +10208,7 @@ not the planned component adapters or the external demonstrations.
 2026-11-09. The new goal is recorded before implementation in
 `examples/map-component-cycle/PLAN.md` and `ACCEPTANCE.json`: ordinary records,
 first useful finding, common engineering context, three component drafts, three
-revisions and actual authorized ChangePilot receiving. All 31 new required cases
+revisions and actual authorized receiving into a governed service. All 31 new required cases
 remain unrun. A local Snapshot or mock receiver cannot close the product cases.
 
 The earlier-route baseline actually runs the existing maintenance intake on three
@@ -10300,7 +10300,7 @@ pins the updated core. It is legacy regression evidence, not exact final-candida
 CI or a complete release pass. Four historical failed methods reproduce their
 intended assertion failures in temporary standalone workspaces.
 
-Read-only ChangePilot discovery also found that app-process isolation is not
+Read-only discovery in the governed receiving service also found that app-process isolation is not
 backend isolation. Available hosted defaults cannot be used as an isolated
 receiving proof. Product environment/contract work remains private and unverified;
 no shared hosted state, production or customer record was changed.

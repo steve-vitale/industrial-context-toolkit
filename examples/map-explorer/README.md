@@ -73,7 +73,7 @@ answers. Use [context register](../../docs/CONTEXT_REGISTER.md) and the
 [existing revision routine](../../docs/RUNNING_THE_MAP.md) for those supported
 steps. Decide with source owners what to revisit; company systems keep approvals
 and ongoing service responsibilities. Later managed receiving needs its own
-contract and qualification; no ChangePilot importer is implemented here.
+contract and qualification; no governed-service importer is implemented here.
 
 ## Reopen and check a delivery
 
@@ -130,3 +130,5 @@ python -B -S scripts/test_map_explorer.py
 Optional display repetition uses installed Playwright and a local Chromium/Edge
 executable: run `check_browser.py --packet PACKET --out NEW-FOLDER --browser EXE`.
 Those dependencies are not needed to build, open or verify an explorer.
+
+2026-11-10: vendor names removed from this packet; hashes re-pinned.

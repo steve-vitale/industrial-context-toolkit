@@ -1,7 +1,7 @@
 # Customer journey and receiving development status
 
 This is an interim record of software execution on public/fictional inputs,
-not a released ChangePilot integration or a completed goal. The
+not a released governed-service integration or a completed goal. The
 [plan](PLAN.md) and [31 acceptance criteria](ACCEPTANCE.json) still govern
 completion. Product implementation, account details and application logs remain
 private. The public replay below does not reproduce private product execution.
@@ -13,7 +13,7 @@ for access to their private logs or independent product replay.
 
 The intended path is existing permitted records → one sourced finding → retained
 context → reusable drafts and revisions → an optional managed-service handoff.
-The first useful result needs Python, not a ChangePilot account. Choose a small
+The first useful result needs Python, not a product account. Choose a small
 scope with an owner and an actual question; a complete plant graph is unnecessary.
 
 | Starting records | Finding exercised | Retained foundation |
@@ -33,14 +33,14 @@ measure automatic reading accuracy, native CAD preservation or human time.
 
 ## Actual isolated product receiving
 
-The candidate ChangePilot receiver has been exercised through normal authenticated
+The candidate governed-service receiver has been exercised through normal authenticated
 application upload, persisted source review, actual UI and cookie-free agent/MCP
 queries, private source admission, complete export and fresh toolkit reopening.
 This is stronger than an upload-success response or a local archive check, but
 still applies only to the executed isolated development candidate.
 
 Those UI/agent queries read the delivered context as a received source. They do
-not establish that its engineering facts feed ChangePilot's existing equipment
+not establish that its engineering facts feed the receiving service's existing equipment
 knowledge, conflict readers or planning context. Receipt, custody and complete
 export are necessary parts of the handoff; useful incorporation into ordinary
 engineering queries remains a separate unqualified requirement. The isolated
@@ -124,7 +124,7 @@ admission/export receipts establish sealing. Neither establishes engineering
 acceptance.
 
 The remaining reserved transfer, measured workload/over-limit coverage,
-complete friction ledger, clean-clone/CI replay and ChangePilot's independent
+complete friction ledger, clean-clone/CI replay and the receiving service's independent
 review and governed landing remain. Candidate schema changes are local only;
 hosted application/schema qualification remains separate. No plant acceptance,
 human savings or released-product claim follows from these development results.

@@ -199,7 +199,7 @@ def run(out, reserved=False):
           company_acceptance=False, independent_review=False,
           limits=['Authored fictional records and mappings, no blind drawing reading.',
                   'Procedural reservation is author-run, not independent site validation.',
-                  'Snapshot software receiving is not company receiving or ChangePilot integration.']))
+                  'Snapshot software receiving is not company receiving or governed-service integration.']))
     print(json.dumps(handoff.load(out / 'summary.json')))
 
 

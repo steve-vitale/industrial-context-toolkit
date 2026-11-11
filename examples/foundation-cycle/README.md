@@ -12,7 +12,7 @@ questions, proposed decisions, declared owners and exact originals. Actual toolk
 receiving, a document-only change, corrected exports, conflicting proposals,
 missing evidence and full export/reopen are exercised. This is author-run software
 evidence on fictional teaching records. It does not test a company's use, a
-ChangePilot importer or authenticated acceptance.
+governed-service importer or authenticated acceptance.
 
 [PLAN.md](PLAN.md), [ACCEPTANCE.json](ACCEPTANCE.json) and the inventory-only
 [baseline](baseline.py) were committed at `28b9864` before implementation. The
@@ -84,3 +84,5 @@ source-only/full/CI integration evidence is reported in the PR and repository
 75/75 source-only result (35 individual cases skipped, three platform notices),
 fresh selected Git archive receiving and optional-cache qualifications. Exact-head
 full CI is tracked in [PR48](https://github.com/steve-vitale/industrial-context-toolkit/pull/48).
+
+2026-11-10: vendor names removed from this packet; hashes re-pinned.

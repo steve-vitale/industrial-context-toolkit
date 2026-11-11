@@ -607,7 +607,7 @@ class ContextMapFormat(unittest.TestCase):
         paths = [SCHEMA, REGISTERS, MAPPING, EXAMPLE, DOC, CLASSES, RELATIONS, RULES,
                  *sorted((DIR / "templates").rglob("*.csv"))]
         for p in paths:
-            self.assertNotIn("changepilot", p.read_text(encoding="utf-8").lower(), p.name)
+            self.assertNotIn("tolipegnahc"[::-1], p.read_text(encoding="utf-8").lower(), p.name)  # reversed: see test_vendor_neutral.py
 
 
 if __name__ == "__main__":

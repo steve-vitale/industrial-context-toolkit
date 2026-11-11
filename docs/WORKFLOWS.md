@@ -23,7 +23,7 @@ it does not merge physical assets. `generate` projects eligible equipment into
 the existing model validator and generator; `verify-generated` checks the actual
 delivered files. It supplies no guessed piping, instruments or working signals.
 Documents remain uninterpreted unless a reading is supplied. Existing graph/model
-adapters, scope-filtered source delivery and released ChangePilot receiving
+adapters, scope-filtered source delivery and released governed-service receiving
 qualification remain unfinished; the [interim receiving record](../examples/map-component-cycle/RECEIVING_DEVELOPMENT.md)
 distinguishes actual isolated product tests from those remaining checks.
 

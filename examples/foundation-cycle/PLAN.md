@@ -24,7 +24,7 @@ every relevant represented field, source qualification, relationship and history
 not only return matching item counts. If a receiver represents a record only as
 retained source content, say so. Keep complete originals beside projections and
 report unsupported fields/roles. Do not describe archived JSON as native operational
-graph ingestion or as an implemented ChangePilot import. A later product adapter
+graph ingestion or as an implemented governed-service import. A later product adapter
 needs inspection of that product's actual contract and its own receiving checks.
 
 ## Acceptance, comparison and exposure
@@ -75,4 +75,4 @@ receiving/revision/reopen controls, appropriate regressions and exact-final-head
 CI. Human usefulness, paid demand, authenticated approvals, live source refresh,
 company receiving acceptance and plant truth remain unestablished. The client's
 first scoped job should leave a maintained foundation and an agreed next owner,
-even before ChangePilot or any other managed product is selected.
+even before any maintained company tool or governed service is selected.

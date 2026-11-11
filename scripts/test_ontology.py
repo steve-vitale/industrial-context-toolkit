@@ -539,7 +539,7 @@ class FormatFiles(unittest.TestCase):
     def test_public_files_name_no_private_product(self):
         for p in [onto_mod.CLASSES, onto_mod.RELATIONS, onto_mod.RULES_TEMPLATE, Path(onto_mod.__file__),
                   *sorted(PAST.rglob("*.*"))]:
-            self.assertNotIn("changepilot", p.read_text(encoding="utf-8").lower(), p.name)
+            self.assertNotIn("tolipegnahc"[::-1], p.read_text(encoding="utf-8").lower(), p.name)  # reversed: see test_vendor_neutral.py
 
 
 if __name__ == "__main__":
