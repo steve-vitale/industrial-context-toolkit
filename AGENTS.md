@@ -29,13 +29,20 @@ foundation they can keep using: scoped asset identities, retained source evidenc
 reviewed context, unresolved questions, ownership and revision/decision history.
 Each useful job should strengthen that foundation and leave a clear maintenance
 and receiving path. As continuing use needs managed maintenance, auditability and
-single-source-of-truth controls, it should be transferable to ChangePilot or
-another suitable company tool. Keep the foundation portable and useful before a
+single-source-of-truth controls, it should be transferable to a maintained company tool or
+a governed service. Keep the foundation portable and useful before a
 product is chosen. Follow [the foundation roadmap](docs/ENGINEERING_FOUNDATION.md)
 and [record lifecycle](docs/CONTEXT_LIFECYCLE.md); qualify receiving mappings and
 readback rather than claiming an implemented product integration. Explain SSOT
 through explicit authoritative homes and owners for records and accepted facts,
 with derived views traceable to those versions.
+
+**Standing rule: this public repository stays vendor-neutral.** Never name a
+specific company product as the destination for the foundation, in prose,
+examples, generated artifacts, logs or tests. Say "a maintained company tool" or
+"a governed service" instead, and describe unfinished receiving work as work for
+"a governed receiving service". `scripts/test_vendor_neutral.py` fails if a
+tracked file names one of the owner's private products.
 
 If your user asks what this repository can do for them, or wants help with their own records, start with
 [the agent task guide](docs/AGENT_START_HERE.md). Recommend one useful job from their context, inspect available

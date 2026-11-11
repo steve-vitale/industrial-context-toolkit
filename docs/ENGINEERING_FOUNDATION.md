@@ -27,8 +27,8 @@ Review states here describe the evidence and interpretation; they do not release
 
 Further development should deepen map construction, navigation, sourced questions
 and revision comparison, then use that shared context to draft its component records.
-Portable exports and bounded receiving checks support later adoption by ChangePilot
-or another tool without making the toolkit an operated context-management service.
+Portable exports and bounded receiving checks support later adoption by a maintained
+company tool without making the toolkit an operated context-management service.
 
 ## From the records you have to a maintained foundation
 
@@ -51,8 +51,8 @@ meaning or permission decision when it changes the result, and retain that answe
 for the next revision. Count source interpretation, mappings, setup, retries and
 review when assessing friction; zero JSON editing alone does not prove low effort.
 
-**ChangePilot receiving is being qualified, not offered here as a released
-integration.** The active [acceptance plan](../examples/map-component-cycle/PLAN.md)
+**Receiving into a governed service is being qualified, not offered here as a
+released integration.** The active [acceptance plan](../examples/map-component-cycle/PLAN.md)
 requires real product persistence, private human/agent readback, revision and
 conflict handling, interrupted/repeated delivery, access withdrawal and complete
 export/reopen. Toolkit packet verification cannot substitute for those checks.
@@ -87,14 +87,14 @@ forms. Clarifications about identity, permission and engineering meaning remain
 real decisions. Installation, extraction, review, navigation and recovery effort
 still count when assessing friction.
 
-ChangePilot earns the next step when a team needs continuing authorized access,
+A governed service earns the next step when a team needs continuing authorized access,
 reliable revisions, retained decisions and recovery around that shared context.
 Agree and demonstrate those responsibilities for the selected scope. SharePoint
 can remain the authoritative document home, and an existing Copilot can keep
 using it. A receiving context query adds exact retained item/fact/history access;
 MCP is an optional interface and does not inherit document permissions or replace
 engineering review. The qualification plan above must pass before describing
-this intended customer interaction as a released ChangePilot capability.
+this intended customer interaction as a released capability of a governed service.
 
 ## One engineering model, many draft components
 
@@ -232,7 +232,7 @@ maps into every generator contract remains unfinished.
 
 The [active implementation goal](../examples/map-component-cycle/PLAN.md) defines
 the customer path from ordinary records to a useful finding, shared context,
-component drafts and actual ChangePilot receiving. Its
+component drafts and actual receiving into a governed service. Its
 [required acceptance cases](../examples/map-component-cycle/ACCEPTANCE.json)
 remain incomplete. Focused development checks are narrower than those full
 criteria and do not establish released product compatibility.
@@ -247,8 +247,8 @@ This repository is an on-ramp to that maintained foundation. A maintenance
 investigation, drawing review or record cleanup should solve today's job while
 leaving evidence and structure the organization can reuse. When continued
 reliance needs managed maintenance, auditability and single-source-of-truth
-controls, the foundation should carry into **ChangePilot or another suitable
-company tool**. Tool selection can follow the work and the operating need.
+controls, the foundation should carry into **a maintained company tool or
+governed service**. Tool selection can follow the work and the operating need.
 
 Here **single source of truth (SSOT)** means explicit authoritative homes and
 owners for records and accepted facts, with derived views traceable to the
@@ -269,7 +269,7 @@ From the first job, retain a handoff basis:
 Record what is actually supplied or unknown in that basis. A named local reviewer
 does not establish authenticated approval. A snapshot does not establish an
 operated refresh service. The existing [record lifecycle](CONTEXT_LIFECYCLE.md)
-owns those distinctions. No released ChangePilot import or live synchronization
+owns those distinctions. No released governed-service import or live synchronization
 is claimed here; qualify the chosen receiving route. Assess improvements by the
 useful job completed **and** the reusable, maintainable foundation it leaves.
 
@@ -384,7 +384,7 @@ snapshot reader for actual local receiving. Its separate-process example covers
 complete typed readback, source-only changes, conflicting proposals, unavailable
 evidence and full export/reopen. Native projections and archive-only information
 are reported separately. It is a portable software foundation, not a managed
-source-of-truth service or a qualified ChangePilot import.
+source-of-truth service or a qualified governed-service import.
 
 The toolkit provides local source/model intake, graph exports, question screens, review/history mechanisms and
 generation/analysis tools through their [documented contracts](WORKFLOWS.md). The local context register requires

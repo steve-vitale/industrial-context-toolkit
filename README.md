@@ -102,7 +102,7 @@ output.
 - **Tested on public and fictional inputs only.** No plant acceptance, timed review or live signal mapping is
   established. [Results and limits](docs/RESULTS.md) has the details.
 - **Your company systems stay in charge** of approvals, assignments and continuing ownership. When shared
-  context needs managed upkeep, carry it into ChangePilot or another suitable tool
+  context needs managed upkeep, carry it into a maintained company tool
   ([foundation roadmap](docs/ENGINEERING_FOUNDATION.md)).
 
 ## More ways in

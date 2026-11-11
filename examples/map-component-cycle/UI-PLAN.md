@@ -19,5 +19,5 @@ downloaded bytes and actual browser observations. All controls must remain reach
 without horizontal page overflow. Source text is untrusted text, not executable HTML.
 
 This interface does not establish an engineering release, authenticated approval,
-source filtering/access controls or ChangePilot receiving. A selected draft is not
+source filtering/access controls or governed-service receiving. A selected draft is not
 a safe-to-share source package. Test claims about those independently.

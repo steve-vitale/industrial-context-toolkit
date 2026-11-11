@@ -8,7 +8,7 @@ required. An agent can inspect the typed context directly through the CLI.
 
 This is a bounded prototype over record exports and supplied source-bound
 interpretation, with an equipment-only projection into the existing generator.
-Existing graph/model adapters, scoped source filtering and complete ChangePilot receiving qualification remain part of
+Existing graph/model adapters, scoped source filtering and complete governed-service receiving qualification remain part of
 the [unfinished goal](PLAN.md). Local packet verification establishes source/draft
 replay; it does not establish engineering truth or product acceptance.
 The [receiving development record](RECEIVING_DEVELOPMENT.md) separates actual
@@ -87,7 +87,7 @@ The replay withholds its preparation folders before fresh-process reopening and
 checks exact packet files, original typed values and drawing history. It writes
 `document.context.json` and `drawing.context.json` for a separately qualified
 receiving route. This does not rerun the native CAD qualification or establish a
-released ChangePilot import; the drawing's unresolved receiving findings and
+released governed-service import; the drawing's unresolved receiving findings and
 engineering acceptance remain separate.
 
 ## Scaffold existing generator outputs from the same basis
@@ -177,7 +177,7 @@ The crosswalk is an original source file. Selecting an item does not remove
 other-unit rows from that file; a scoped transfer must inspect its whole-file
 privacy preview. External boundary references do not become selectable entities
 or alias targets. Local source-bound lookup and packet replay do not establish
-ChangePilot alias-query compatibility; product lookup/readback needs its own
+Governed-service alias-query compatibility; product lookup/readback needs its own
 qualified receiving check.
 
 ## Reuse the facts and revise them
@@ -414,7 +414,9 @@ unfinished. No human/customer trial has run. No native CAD failure is changed by
 The intended managed-service value is continuing ownership, access, source
 maintenance, auditable decisions and revision history over the same foundation.
 The customer should carry the existing context forward rather than re-enter facts.
-Until the full ChangePilot receiving/readback/export and release checks pass, this guide offers only
+Until the full governed-service receiving/readback/export and release checks pass, this guide offers only
 the local reusable context and portable payload, not a ready product integration.
 
 The consumed second-record dialect case is a development regression after its first frozen run failed. Passing the repaired parser controls does not create a new transfer result; any later transfer uses separate inputs and a new pre-execution method lock.
+
+2026-11-10: vendor names removed from this packet; hashes re-pinned.

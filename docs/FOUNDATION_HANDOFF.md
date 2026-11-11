@@ -10,7 +10,7 @@ It projects selected maintenance dossiers and exact single-subject markup reques
 onto an authored `twin-graph-1` graph, then packages the graph with an existing
 `context-register-1` sidecar. The actual receiving target is the toolkit's bounded
 `serve_snapshot.Snapshot` reader. This is a software receiving route, not an
-implemented ChangePilot importer or an organization's approval system.
+implemented governed-service importer or an organization's approval system.
 
 ## Try the complete local cycle
 

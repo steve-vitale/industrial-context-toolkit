@@ -33,5 +33,5 @@ Product discovery, kept separate from this completed service:
 - Candidate product experiment, success/stop criterion and permitted evidence: ____
 
 Requests for live monitoring or alerts need a separately agreed service and operating owner. A one-time graph
-snapshot is not a running alert service. Use repeated work to decide whether a future ChangePilot feature,
-another product or continued consulting is the right investment.
+snapshot is not a running alert service. Use repeated work to decide whether a maintained company tool,
+a governed service or continued consulting is the right investment.

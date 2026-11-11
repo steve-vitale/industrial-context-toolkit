@@ -384,7 +384,7 @@ def coverage(manifest, basis=None):
             "whole_files": manifest["whole_files"], "qualification": QUALIFICATION,
             "correction_verification": CORRECTION_QUALIFICATION,
             "parent_basis": "commitment_retained_not_reconstructed_or_authenticated",
-            "managed_receiving": "records_scoped_v1_not_qualified_for_ChangePilot"}
+            "managed_receiving": "records_scoped_v1_not_qualified_for_governed_service"}
     if "identity_crosswalk" in manifest["source_input"]:
         result["identity_lookup"] = "projection-local retained active source lineage only; not global or namespace uniqueness, entity merging or authenticated identity"
     if "incremental_history" in manifest:
@@ -498,7 +498,7 @@ def package(packet, out, *, scope=None, item=None, permission=None, previous_sco
                    "files": {name: cb.raw_sha(raw) for name, raw in files.items()}, "history_depth": generated["depth"] + 1 if generated else 0,
                    "previous_receipt_sha256": cb.raw_sha(generated["files"]["RECEIPT.json"]) if generated else None,
                    "source_authority": "Owner/review declarations; no authenticated engineering release",
-                   "access": QUALIFICATION, "product_receiving": "records_scoped_v1_not_qualified_for_ChangePilot"}
+                   "access": QUALIFICATION, "product_receiving": "records_scoped_v1_not_qualified_for_governed_service"}
         files["RECEIPT.json"] = cp.encode(receipt)
         cb.require(sum(map(len, files.values())) <= cp.MAX_PACKET_BYTES, "packet exceeds declared total byte limit")
         generated = {"files": files, "draft": draft, "depth": receipt["history_depth"], "scope": manifest}
@@ -522,7 +522,7 @@ def open_scoped(root, files, receipt, receipt_raw):
           "unsupported scoped packet receipt")
     cb.require(receipt["source_authority"] == "Owner/review declarations; no authenticated engineering release"
                and receipt["access"] == QUALIFICATION
-               and receipt["product_receiving"] == "records_scoped_v1_not_qualified_for_ChangePilot",
+               and receipt["product_receiving"] == "records_scoped_v1_not_qualified_for_governed_service",
                "unsupported scoped receipt qualification")
     pins = receipt["method_sha256_lf"]
     cb.require(type(pins) is dict and 0 < len(pins) <= 32

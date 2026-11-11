@@ -1,6 +1,6 @@
 """Retain the common-basis development regressions and actual fresh-process command evidence.
 
-This is not the frozen transfer, full-goal acceptance or ChangePilot receiving run.
+This is not the frozen transfer, full-goal acceptance or governed-service receiving run.
 """
 import argparse
 import hashlib
