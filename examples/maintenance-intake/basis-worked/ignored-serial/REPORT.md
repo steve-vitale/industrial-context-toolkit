@@ -9,7 +9,7 @@ Draft comparison of the supplied exports. Absence of a finding does not establis
 ## Comparison basis needs review
 
 - Recorded basis and export changes, not acceptance, physical change or proof of complete source coverage. Review disappeared findings against this basis.
-- Changed method files: generate.py, maintenance_intake.py, offpage_pairing.py, one_map.py. A changed result can reflect changed software; inspect before treating it as a source correction.
+- Changed method files: maintenance_intake.py. A changed result can reflect changed software; inspect before treating it as a source correction.
 - equipment: declared column/date/encoding interpretation changed. Identical bytes can produce different prepared values; review both mappings in comparison-basis.json.
 - equipment (EQ-EXPORT): revision 1 to 1; 2 to 2 rows; 0 added, 0 removed, 2 changed normalized records.
 - work_orders (WO-EXPORT): revision 1 to 1; 2 to 2 rows; 0 added, 0 removed, 0 changed normalized records.

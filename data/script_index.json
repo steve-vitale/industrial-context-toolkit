@@ -128,7 +128,7 @@
     "scripts/offpage_pairing.py": {
       "kind": "support",
       "guide": "docs/ONE_MAP.md",
-      "purpose": "The one cross-sheet off-page pairing rule used by import_drawing_set.py and one_map.py after build_twin.py's in-model pass; ties stay unpaired for a person."
+      "purpose": "The shared cross-sheet off-page pairing rule, used by import_drawing_set.py after build_twin.py's in-model pass; ties stay unpaired for a person. one_map.py adopts it after a deliberate map-explorer re-freeze."
     },
     "scripts/extract_text.py": {
       "kind": "tool",

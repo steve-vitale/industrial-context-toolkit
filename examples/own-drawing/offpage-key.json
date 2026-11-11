@@ -159,17 +159,8 @@
       "note": "build_twin's in-model pass (4 pairs) then offpage_pairing on what it leaves (G1)"
     },
     "one_map_pair_by_reference_after_change": {
-      "pairs": 2,
-      "correct": 2,
-      "continuations_found": 2,
-      "continuations": 6,
-      "missed": [
-        "G2",
-        "G4",
-        "G5",
-        "G6"
-      ],
-      "note": "G4, G5 and G6 become 'off-page pairing unclear' review rows naming the tied candidates"
+      "not_adopted": true,
+      "note": "one_map.py keeps its own rule (1 pair, 1/6, as one_map_pair_by_reference_before): its source is pinned by examples/map-explorer/FREEZE.json, so adopting offpage_pairing there waits on a deliberate re-freeze. Measured with the rule wired in, before that was withdrawn: 2 pairs, 2 correct, 2/6, with G4, G5 and G6 as 'off-page pairing unclear' rows."
     },
     "ties": "G4, G5 and G6 are ties on printed text: 1/s17 and 1/s39 both print 'CONDENSATE SYSTEM' toward 160-1; 4/s1 and 4/s12 both print 'CND PID 160-1 (E-1)' toward one 160-1 connector; G5's two ends share no description word with each other or with their rivals. build_twin's pass (and the old supplied-number pass) broke these ties by order: G4 and G6 were right whichever tied candidate was taken, G5 was right only by input order. offpage_pairing does not decide ties; it names the candidates for a person."
   },

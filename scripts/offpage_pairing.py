@@ -30,9 +30,10 @@ established continuation.
 
 Where this sits: scripts/build_twin.py pairs connectors inside its own model build (references written like
 "PID 140-1", reciprocal or with a matching system code; it breaks similarity ties by order) and is hash-pinned and
-left as it is: it is the first pass. This module is the one cross-sheet rule every later caller applies to what
-that pass leaves: import_drawing_set.py (supplied drawing numbers, titles and system codes) and one_map.py (printed
-references against the registered sheet ids). Measured on the public OPEN100 sheets 0-5 against a key read from the
+left as it is: it is the first pass. This module is the cross-sheet rule applied to what that pass leaves, today
+by import_drawing_set.py (supplied drawing numbers, titles and system codes). one_map.py still pairs by its own
+printed-reference rule: its source is hash-pinned by examples/map-explorer/FREEZE.json, so adopting this rule there
+waits on a deliberate re-freeze of the map-explorer method. Measured on the public OPEN100 sheets 0-5 against a key read from the
 drawings' printed references: examples/own-drawing/offpage-key.json, checked by scripts/test_offpage_pairing.py.
 Pure, stdlib only, no model calls.
 """

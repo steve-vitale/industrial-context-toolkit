@@ -357,13 +357,12 @@ def run(profile, equipment, work_orders, out, previous=None):
         for k, rr in rows.items():
             write_csv(prepared / (k + ".csv"), rr)
         dump(prepared / "row-origins.json", origins)
-        # No intake input carries drawings, so the site file claims no drawing register (one_map then has no
-        # sheets) rather than pointing at an empty one.
+        (prepared / "drawings.csv").write_text("sheet,rev,plant,unit,owner,path\n", encoding="utf-8")
         scope = p["site"] + "/" + p["plant"]
         def spec(k):
             return {"id": p[k]["id"], "revision": p[k]["revision"], "path": k + ".csv", "scopes": [scope]}
         site = {"schema": "one-map-site-1", "site": {"id": p["site"]}, "plants": [{"id": p["plant"], "units": [{"id": u} for u in p["units"]]}],
-                "as_of": p["as_of"], "record_owners": {"maintenance_export": p["equipment"]["owner"], "work_order": p["work_orders"]["owner"]},
+                "as_of": p["as_of"], "drawing_register": "drawings.csv", "record_owners": {"maintenance_export": p["equipment"]["owner"], "work_order": p["work_orders"]["owner"]},
                 "maintenance_export": spec("equipment"), "records": [dict(spec("work_orders"), register="work_order")]}
         dump(prepared / "site.json", site)
         one_map.build(prepared / "site.json", stage / "map")

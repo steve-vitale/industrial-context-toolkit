@@ -1,4 +1,5 @@
-"""Tests for scripts/offpage_pairing.py, the one cross-sheet off-page pairing rule, and its two callers.
+"""Tests for scripts/offpage_pairing.py, the shared cross-sheet off-page pairing rule, and its caller
+import_drawing_set.py.
 
 The OPEN100 control scores the rule against a key taken from the drawings' own printed references (PID2Graph's
 answer keys hold no cross-sheet links); the key and how it was read are in examples/own-drawing/offpage-key.json."""
@@ -81,8 +82,8 @@ class Rule(unittest.TestCase):
 
 
 class Open100(unittest.TestCase):
-    """The committed measurement: the rule and both callers on the recorded reader's OPEN100 sheets 0-5, scored on
-    the printed-reference key."""
+    """The committed measurement: the rule and the drawing-set import on the recorded reader's OPEN100 sheets 0-5,
+    scored on the printed-reference key."""
 
     def setUp(self):
         self.key = json.loads(KEY.read_text(encoding="utf-8"))
@@ -104,30 +105,6 @@ class Open100(unittest.TestCase):
         recorded = self.key["measured"]["import_drawing_set_after_change"]
         self.assertEqual((len(model["offpage_pairs"]), sorted(found)),
                          (recorded["pairs"], ["G1", "G3", "G4", "G5", "G6"]))
-
-    def test_one_map_pairs_only_what_the_rule_decides_and_names_the_ties(self):
-        import one_map as om
-
-        class Map:
-            def __init__(self):
-                self.nodes, self.edges, self.review = {}, [], []
-
-            def edge(self, e):
-                self.edges.append(e)
-        m, by_ref = Map(), {}
-        for i, sheet in enumerate(self.manifest["sheets"]):
-            read = om.sheet_from_prediction(ROOT / "examples/own-drawing" / sheet["extraction"],
-                                            sheet=sheet["drawing_number"], revision="public", plant="P1")
-            for o in read["offpage"]:
-                node = f"{i}/{o['id']}"
-                m.nodes[node] = {"source": {"kind": "test"}}
-                by_ref[("P1", sheet["drawing_number"], o["id"])] = {
-                    "id": o["id"], "name": o.get("name"), "to": {}, "attrs": o.get("attributes") or {}, "node": node,
-                    "owner": "Doc control", "plant": "P1", "sheet": sheet["drawing_number"]}
-        om.pair_by_reference(m, by_ref)
-        self.assertEqual(sorted(self.accept[frozenset((e["from"], e["to"]))] for e in m.edges), ["G1", "G3"])
-        unclear = {r["item"] for r in m.review if r["kind"] == "off-page pairing unclear"}
-        self.assertLessEqual({"1/s17", "1/s39", "2/s4", "1/s37", "2/s1", "2/s107", "4/s1", "4/s12"}, unclear)
 
     def test_rule_scores_on_the_printed_reference_key(self):
         key, manifest = self.key, self.manifest

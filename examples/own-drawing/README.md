@@ -215,8 +215,8 @@ For your own set, copy [`set-manifest.json`](set-manifest.json) next to your PNG
 Pairing uses them in two passes, and each pair records which rule matched:
 
 1. **References written like `PID 140-1`** are paired by `build_twin.py`'s existing rules.
-2. **What that pass leaves** goes to [`offpage_pairing.py`](../../scripts/offpage_pairing.py), the one cross-sheet
-   rule (the one-map build uses it too). It matches the supplied drawing numbers literally in any reference style
+2. **What that pass leaves** goes to [`offpage_pairing.py`](../../scripts/offpage_pairing.py), the shared
+   cross-sheet rule (the one-map build still uses its own rule until the map-explorer method is re-frozen). It matches the supplied drawing numbers literally in any reference style
    (`REF SHT P-204`, `DWG 10-PI-003`, or `PID 140?1` where the reader lost the separator). A pair needs both
    connectors naming each other's number, or one naming the other's number while the other carries every word of the
    first sheet's title (`IRRIGATION EQUALIZATION TANK` on the sheet titled "Irrigation Equalization Tank P&ID") or,

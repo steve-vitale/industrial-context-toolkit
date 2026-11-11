@@ -9,7 +9,7 @@ Draft comparison of the supplied exports. Absence of a finding does not establis
 ## Comparison basis needs review
 
 - Recorded basis and export changes, not acceptance, physical change or proof of complete source coverage. Review disappeared findings against this basis.
-- Changed method files: generate.py, maintenance_intake.py, offpage_pairing.py, one_map.py. A changed result can reflect changed software; inspect before treating it as a source correction.
+- Changed method files: maintenance_intake.py. A changed result can reflect changed software; inspect before treating it as a source correction.
 - equipment (EQ-EXPORT): revision 1 to 1; 2 to 2 rows; 0 added, 0 removed, 0 changed normalized records.
 - work_orders (WO-EXPORT): revision 1 to 2-omitted-history; 2 to 1 rows; 0 added, 1 removed, 0 changed normalized records.
 - Missing from the supplied export: P1/U1/P-101/WO-801, prior original CSV record 2. Omission is not physical removal or an accepted correction.

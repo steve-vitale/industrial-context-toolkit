@@ -308,10 +308,7 @@ def load_site(path):
 
 
 def load_register(cfg):
-    """The sheet index. A site file without `drawing_register` has no drawings yet (a lists-only start): no sheets."""
     rel = cfg["raw"].get("drawing_register")
-    if rel is None:
-        return []
     path = inside(cfg["root"], rel, "drawing_register")
     rows = read_csv(path, "drawing register", ("sheet", "rev", "plant", "unit", "owner", "path"))
     out, seen = [], set()
@@ -1181,68 +1178,60 @@ def printed_ref(op):
     return ((hit.group(2).lstrip("0") or "0", hit.group(3).lstrip("0") or "0") if hit else None), rest
 
 
+def names_sheet(ref, sheet):
+    """A printed reference (drawing, sheet) names a registered sheet id '180-1', '180-01' or, for a drawing registered
+    without sheet numbers, '180'."""
+    parts = [p.lstrip("0") or "0" for p in str(sheet).upper().split("-")]
+    return parts == list(ref) or parts == [ref[0]]
+
+
 def pair_by_reference(m, by_ref):
-    """Connectors with no `to` (a reader prediction never has one) pair across registered sheets of the site by
-    scripts/offpage_pairing.py, the one cross-sheet rule, with each registered sheet id as the number its connectors
-    print ('ES PID 180-1' names sheet '180-1', '180-01' or, registered without sheet numbers, '180'). A pair becomes
-    an offpage_pair edge whose how_found is the rule's method. Nothing is guessed: equally likely candidates, or a
-    connector whose candidates paired elsewhere, become "off-page pairing unclear" review rows naming them; the rest
-    are "off-page connector unpaired" rows (no reference, the named sheet is not registered, or nothing there points
-    back)."""
-    import offpage_pairing
+    """Connectors with no `to` (a reader prediction never has one) pair across registered sheets of the site when
+    each one's printed reference names the other's sheet. Several matches narrow on the printed name with the
+    reference removed; a connector pairs only when it and its match each have exactly one candidate. Everything else
+    stays a review row: unpaired (no reference, or the named sheet is not registered) or pairing unclear."""
     loose = {k: op for k, op in by_ref.items() if not op["to"]}
-    sheet_key = {k: f"{k[0]}/{k[1]}" for k in by_ref}
-    sheets = {sheet_key[k]: {"number": k[1]} for k in by_ref}
-    node_key = {op["node"]: k for k, op in loose.items()}
-    texts = {k: " ".join(str(x) for x in (op["attrs"].get("drawing_reference"), op.get("name")) if x)
-             for k, op in loose.items()}
-    result = offpage_pairing.pair([{"id": op["node"], "sheet": sheet_key[k], "text": texts[k]}
-                                   for k, op in sorted(loose.items())], sheets)
+    refs = {k: printed_ref(op) for k, op in loose.items()}
 
-    def label(op):
-        return f"off-page connector {op['id']}" + (f" ({op['name']})" if op.get("name") else "") + \
-            f" on sheet {op['sheet']}"
+    def candidates(key):
+        ref, name = refs[key]
+        if ref is None:
+            return []
+        found = [k for k in sorted(loose) if k[:2] != key[:2] and names_sheet(ref, k[1])
+                 and refs[k][0] is not None and names_sheet(refs[k][0], key[1])]
+        same = [k for k in found if refs[k][1] == name]
+        return same if len(found) > 1 and len(same) == 1 else found
 
-    by_pair = {}
-    for p in result["pairs"]:
-        a, b = sorted((node_key[p["a"]], node_key[p["b"]]))
-        src = m.nodes[loose[a]["node"]]["source"]
-        e = mk_edge("connects", loose[a]["node"], loose[b]["node"], src, layer="offpage_pair",
-                    attributes=[claim("how_found", p["method"], src),
-                                claim("chosen_by", p["evidence"]["chosen_by"], src)])
-        e["direction"] = "unknown"
-        m.edge(e)
-        by_pair[a] = by_pair[b] = p
+    sheets = {k[:2] for k in by_ref}
     for key in sorted(loose):
         op = loose[key]
-        if key in by_pair:
+        ref, _ = refs[key]
+        src = m.nodes[op["node"]]["source"]
+        mine = candidates(key)
+        label = f"off-page connector {op['id']}" + (f" ({op['name']})" if op.get("name") else "") + \
+            f" on sheet {op['sheet']}"
+        if len(mine) == 1 and candidates(mine[0]) == [key]:
+            if key < mine[0]:
+                other = loose[mine[0]]
+                e = mk_edge("connects", op["node"], other["node"], src, layer="offpage_pair",
+                            attributes=[claim("how_found", "printed references name each other's sheets", src)])
+                e["direction"] = "unknown"
+                m.edge(e)
             continue
-        status, named = result["status"][op["node"]], [s.split("/", 1)[1] for s in result["names"][op["node"]]]
-        cands = result["candidates"].get(op["node"]) or []
-        ref, _ = printed_ref(op)
-        if status.startswith("unpaired: tied"):
+        if mine:
             kind, why = "off-page pairing unclear", (
-                f"{label(op)} has equally likely partners ({', '.join(cands[:4])}{', ...' if len(cands) > 4 else ''})"
-                "; a person says which pairs with which")
-        elif cands:
-            kind, why = "off-page pairing unclear", (
-                f"{label(op)} points to {', '.join(cands[:4])}{', ...' if len(cands) > 4 else ''}, which paired "
-                "elsewhere or wait on a tie; a person says where it continues")
-        elif len(named) > 1:
-            kind, why = "off-page pairing unclear", (
-                f"{label(op)} names more than one registered sheet ({', '.join(named)}); a person says which it "
-                "continues on")
-        elif named:
-            kind, why = "off-page connector unpaired", (
-                f"{label(op)} names P&ID {'-'.join(ref) if ref else named[0]}, registered as sheet {named[0]}, but no "
-                f"connector there points back to sheet {op['sheet']}")
+                f"{label} names P&ID {'-'.join(ref)}, where {len(mine)} connector(s) point back "
+                f"({', '.join(loose[k]['node'] for k in mine[:4])}{', ...' if len(mine) > 4 else ''}) but they do "
+                "not pair one to one; a person says which pairs with which")
         elif ref is None:
-            kind, why = "off-page connector unpaired", f"{label(op)}: no sheet reference was read from it; a person " \
+            kind, why = "off-page connector unpaired", f"{label}: no sheet reference was read from it; a person " \
                                                        "supplies the sheet it continues on"
         else:
+            named = sorted(s for p, s in sheets if names_sheet(ref, s))
             kind, why = "off-page connector unpaired", (
-                f"{label(op)} names P&ID {'-'.join(ref)}, which is not in the sheet index; it pairs once that sheet "
-                "is registered and read")
+                f"{label} names P&ID {'-'.join(ref)}, " + (
+                    f"registered as sheet {', '.join(named)}, but no connector there points back to sheet {op['sheet']}"
+                    if named else "which is not in the sheet index; it pairs once that sheet is registered and read"))
         m.review.append({"item": op["node"], "kind": kind, "owner": op["owner"], "why": why})
 
 
