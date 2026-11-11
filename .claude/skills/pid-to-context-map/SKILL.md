@@ -164,7 +164,9 @@ Tell the user, briefly:
 
 - what was extracted (the counts at the top of the report) and how many items to check first;
 - which connectors were paired across sheets, and which pointed to a sheet that isn't loaded;
-- the pipe and instrument layers (counts, and any inconsistent line that was dropped);
+- the pipe and instrument layers (counts, and any inconsistent line that was dropped), and how many pipe segments
+  have a flow direction the drawing shows (`flow_direction` in the intake's output; the rest are undirected, and
+  a drawn direction is not isolation or lockout guidance);
 - the tag check: misses and possible misreads you confirmed on the drawing, and any page that needs OCR;
 - where the files are and which one to open;
 - anything that failed or looked wrong (a blank region, unreadable text, a page you skipped);

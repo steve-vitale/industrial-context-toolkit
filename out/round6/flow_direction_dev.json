@@ -1,0 +1,2627 @@
+{
+ "script": "scripts/flow_direction_score.py",
+ "goal": "docs/GOAL_ROUND6.md increment 2",
+ "held_out_not_read": "OPEN100 sheets 6-11, the DEXPI held-out renders, Pahala sheets other than P-401/P-501",
+ "sets": {
+  "open100": {
+   "truth": null,
+   "note": "PID2Graph keys are undirected: share directed and arrowhead detection only",
+   "runs": {
+    "r2-tiles-trace/claude": {
+     "line_layers": "added",
+     "flow_direction": {
+      "status": "added",
+      "method": "scripts/flow_direction.py detectors on each sheet image; evidence placed on the pipe segment it is drawn on",
+      "pipe_segments": 295,
+      "directed": 76,
+      "undirected": 215,
+      "conflict": 4,
+      "directed_by_basis": {
+       "first_hand": 51,
+       "valve_chain": 25
+      },
+      "directed_by_evidence": {
+       "arrowhead": 46,
+       "valve_chain": 25,
+       "offpage_flag": 12
+      },
+      "not_used": "no direction is inferred from layout; a segment without drawn evidence stays undirected",
+      "limit": "drawn flow direction for review, not isolation or lockout guidance"
+     },
+     "pipe_segments": 295,
+     "directed": 76,
+     "share": 0.258,
+     "per_sheet": {
+      "0": {
+       "pipe_segments": 89,
+       "directed": 18,
+       "share": 0.202
+      },
+      "1": {
+       "pipe_segments": 32,
+       "directed": 10,
+       "share": 0.312
+      },
+      "2": {
+       "pipe_segments": 47,
+       "directed": 18,
+       "share": 0.383
+      },
+      "3": {
+       "pipe_segments": 35,
+       "directed": 16,
+       "share": 0.457
+      },
+      "4": {
+       "pipe_segments": 48,
+       "directed": 4,
+       "share": 0.083
+      },
+      "5": {
+       "pipe_segments": 44,
+       "directed": 10,
+       "share": 0.227
+      }
+     },
+     "arrow_detection": {
+      "sheets": {
+       "0": {
+        "detections": 28,
+        "on_a_key_arrow": 24,
+        "key_arrows": 35,
+        "found": 24
+       },
+       "1": {
+        "detections": 22,
+        "on_a_key_arrow": 10,
+        "key_arrows": 59,
+        "found": 10
+       },
+       "2": {
+        "detections": 36,
+        "on_a_key_arrow": 26,
+        "key_arrows": 43,
+        "found": 26
+       },
+       "3": {
+        "detections": 17,
+        "on_a_key_arrow": 9,
+        "key_arrows": 15,
+        "found": 9
+       },
+       "4": {
+        "detections": 13,
+        "on_a_key_arrow": 5,
+        "key_arrows": 24,
+        "found": 6
+       },
+       "5": {
+        "detections": 35,
+        "on_a_key_arrow": 29,
+        "key_arrows": 38,
+        "found": 30
+       }
+      },
+      "precision": 0.682,
+      "recall": 0.491,
+      "detections": 151,
+      "key_arrows": 214
+     }
+    },
+    "r2-tiles-trace/codex": {
+     "line_layers": "added",
+     "flow_direction": {
+      "status": "added",
+      "method": "scripts/flow_direction.py detectors on each sheet image; evidence placed on the pipe segment it is drawn on",
+      "pipe_segments": 400,
+      "directed": 106,
+      "undirected": 293,
+      "conflict": 1,
+      "directed_by_basis": {
+       "first_hand": 71,
+       "valve_chain": 35
+      },
+      "directed_by_evidence": {
+       "arrowhead": 48,
+       "valve_chain": 35,
+       "offpage_flag": 41
+      },
+      "not_used": "no direction is inferred from layout; a segment without drawn evidence stays undirected",
+      "limit": "drawn flow direction for review, not isolation or lockout guidance"
+     },
+     "pipe_segments": 400,
+     "directed": 106,
+     "share": 0.265,
+     "per_sheet": {
+      "0": {
+       "pipe_segments": 92,
+       "directed": 23,
+       "share": 0.25
+      },
+      "1": {
+       "pipe_segments": 61,
+       "directed": 19,
+       "share": 0.311
+      },
+      "2": {
+       "pipe_segments": 87,
+       "directed": 22,
+       "share": 0.253
+      },
+      "3": {
+       "pipe_segments": 42,
+       "directed": 20,
+       "share": 0.476
+      },
+      "4": {
+       "pipe_segments": 70,
+       "directed": 12,
+       "share": 0.171
+      },
+      "5": {
+       "pipe_segments": 48,
+       "directed": 10,
+       "share": 0.208
+      }
+     },
+     "arrow_detection": {
+      "sheets": {
+       "0": {
+        "detections": 30,
+        "on_a_key_arrow": 25,
+        "key_arrows": 35,
+        "found": 25
+       },
+       "1": {
+        "detections": 22,
+        "on_a_key_arrow": 17,
+        "key_arrows": 59,
+        "found": 18
+       },
+       "2": {
+        "detections": 20,
+        "on_a_key_arrow": 15,
+        "key_arrows": 43,
+        "found": 15
+       },
+       "3": {
+        "detections": 14,
+        "on_a_key_arrow": 9,
+        "key_arrows": 15,
+        "found": 9
+       },
+       "4": {
+        "detections": 4,
+        "on_a_key_arrow": 3,
+        "key_arrows": 24,
+        "found": 3
+       },
+       "5": {
+        "detections": 34,
+        "on_a_key_arrow": 29,
+        "key_arrows": 38,
+        "found": 30
+       }
+      },
+      "precision": 0.79,
+      "recall": 0.467,
+      "detections": 124,
+      "key_arrows": 214
+     }
+    },
+    "r2-tiles-trace/gemini": {
+     "line_layers": "added",
+     "flow_direction": {
+      "status": "added",
+      "method": "scripts/flow_direction.py detectors on each sheet image; evidence placed on the pipe segment it is drawn on",
+      "pipe_segments": 297,
+      "directed": 78,
+      "undirected": 215,
+      "conflict": 4,
+      "directed_by_basis": {
+       "first_hand": 51,
+       "valve_chain": 27
+      },
+      "directed_by_evidence": {
+       "arrowhead": 38,
+       "valve_chain": 27,
+       "offpage_flag": 20
+      },
+      "not_used": "no direction is inferred from layout; a segment without drawn evidence stays undirected",
+      "limit": "drawn flow direction for review, not isolation or lockout guidance"
+     },
+     "pipe_segments": 297,
+     "directed": 78,
+     "share": 0.263,
+     "per_sheet": {
+      "0": {
+       "pipe_segments": 73,
+       "directed": 18,
+       "share": 0.247
+      },
+      "1": {
+       "pipe_segments": 46,
+       "directed": 12,
+       "share": 0.261
+      },
+      "2": {
+       "pipe_segments": 70,
+       "directed": 21,
+       "share": 0.3
+      },
+      "3": {
+       "pipe_segments": 30,
+       "directed": 8,
+       "share": 0.267
+      },
+      "4": {
+       "pipe_segments": 45,
+       "directed": 11,
+       "share": 0.244
+      },
+      "5": {
+       "pipe_segments": 33,
+       "directed": 8,
+       "share": 0.242
+      }
+     },
+     "arrow_detection": {
+      "sheets": {
+       "0": {
+        "detections": 32,
+        "on_a_key_arrow": 24,
+        "key_arrows": 35,
+        "found": 24
+       },
+       "1": {
+        "detections": 23,
+        "on_a_key_arrow": 12,
+        "key_arrows": 59,
+        "found": 12
+       },
+       "2": {
+        "detections": 34,
+        "on_a_key_arrow": 24,
+        "key_arrows": 43,
+        "found": 24
+       },
+       "3": {
+        "detections": 17,
+        "on_a_key_arrow": 9,
+        "key_arrows": 15,
+        "found": 9
+       },
+       "4": {
+        "detections": 14,
+        "on_a_key_arrow": 5,
+        "key_arrows": 24,
+        "found": 6
+       },
+       "5": {
+        "detections": 42,
+        "on_a_key_arrow": 29,
+        "key_arrows": 38,
+        "found": 30
+       }
+      },
+      "precision": 0.636,
+      "recall": 0.491,
+      "detections": 162,
+      "key_arrows": 214
+     }
+    }
+   }
+  },
+  "te-a": {
+   "truth": "data/te_process_model.json streams as the drawer laid them out (drawer, model, layout at 3c0101d)",
+   "truth_directed_segments": {
+    "101": 9,
+    "102": 10,
+    "103": 6
+   },
+   "truth_pipe_segments": {
+    "101": 17,
+    "102": 15,
+    "103": 9
+   },
+   "runs": {
+    "key symbols + tracer": {
+     "line_layers": "added",
+     "flow_direction": {
+      "status": "added",
+      "method": "scripts/flow_direction.py detectors on each sheet image; evidence placed on the pipe segment it is drawn on",
+      "pipe_segments": 41,
+      "directed": 32,
+      "undirected": 9,
+      "conflict": 0,
+      "directed_by_basis": {
+       "valve_chain": 10,
+       "first_hand": 22
+      },
+      "directed_by_evidence": {
+       "valve_chain": 10,
+       "arrowhead": 21,
+       "offpage_flag": 20
+      },
+      "not_used": "no direction is inferred from layout; a segment without drawn evidence stays undirected",
+      "limit": "drawn flow direction for review, not isolation or lockout guidance"
+     },
+     "pipe_segments": 41,
+     "directed": 32,
+     "share": 0.78,
+     "per_sheet": {
+      "0": {
+       "pipe_segments": 17,
+       "directed": 12,
+       "share": 0.706
+      },
+      "1": {
+       "pipe_segments": 15,
+       "directed": 11,
+       "share": 0.733
+      },
+      "2": {
+       "pipe_segments": 9,
+       "directed": 9,
+       "share": 1.0
+      }
+     },
+     "direction_vs_truth": {
+      "sheets": {
+       "101": {
+        "segments": 17,
+        "on_a_truth_segment": 17,
+        "directed_not_scorable": 4,
+        "truth_directed": 9,
+        "layout_correct": 8,
+        "directed": 8,
+        "correct": 8,
+        "precision": 1.0,
+        "recall_of_truth_directed": 0.889,
+        "controls": {
+         "perfect": {
+          "directed": 9,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 8,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 9,
+          "precision": 0.889
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       },
+       "102": {
+        "segments": 15,
+        "on_a_truth_segment": 15,
+        "truth_directed": 10,
+        "layout_correct": 8,
+        "directed": 8,
+        "correct": 8,
+        "directed_not_scorable": 3,
+        "precision": 1.0,
+        "recall_of_truth_directed": 0.8,
+        "controls": {
+         "perfect": {
+          "directed": 10,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 8,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 10,
+          "precision": 0.8
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       },
+       "103": {
+        "segments": 9,
+        "on_a_truth_segment": 9,
+        "truth_directed": 6,
+        "directed": 6,
+        "correct": 6,
+        "layout_correct": 6,
+        "directed_not_scorable": 3,
+        "precision": 1.0,
+        "recall_of_truth_directed": 1.0,
+        "controls": {
+         "perfect": {
+          "directed": 6,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 6,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 6,
+          "precision": 1.0
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       }
+      },
+      "total": {
+       "segments": 41,
+       "on_a_truth_segment": 41,
+       "directed_not_scorable": 10,
+       "truth_directed": 25,
+       "layout_correct": 22,
+       "directed": 22,
+       "correct": 22,
+       "precision": 1.0,
+       "recall_of_truth_directed": 0.88,
+       "controls": {
+        "perfect": {
+         "directed": 25,
+         "precision": 1.0
+        },
+        "reversed": {
+         "directed": 22,
+         "precision": 0.0
+        },
+        "layout": {
+         "directed": 25,
+         "precision": 0.88
+        },
+        "empty": {
+         "directed": 0,
+         "precision": null
+        }
+       }
+      }
+     },
+     "diagnostic_vs_every_drawn_route": {
+      "segments": 41,
+      "on_a_truth_segment": 41,
+      "truth_directed": 41,
+      "layout_correct": 34,
+      "directed": 32,
+      "correct": 32,
+      "precision": 1.0,
+      "recall_of_truth_directed": 0.78
+     }
+    },
+    "te-clean-trace-r1/claude": {
+     "line_layers": "added",
+     "flow_direction": {
+      "status": "added",
+      "method": "scripts/flow_direction.py detectors on each sheet image; evidence placed on the pipe segment it is drawn on",
+      "pipe_segments": 42,
+      "directed": 32,
+      "undirected": 10,
+      "conflict": 0,
+      "directed_by_basis": {
+       "valve_chain": 10,
+       "first_hand": 22
+      },
+      "directed_by_evidence": {
+       "valve_chain": 10,
+       "arrowhead": 17,
+       "offpage_flag": 15
+      },
+      "not_used": "no direction is inferred from layout; a segment without drawn evidence stays undirected",
+      "limit": "drawn flow direction for review, not isolation or lockout guidance"
+     },
+     "pipe_segments": 42,
+     "directed": 32,
+     "share": 0.762,
+     "per_sheet": {
+      "0": {
+       "pipe_segments": 18,
+       "directed": 12,
+       "share": 0.667
+      },
+      "1": {
+       "pipe_segments": 15,
+       "directed": 11,
+       "share": 0.733
+      },
+      "2": {
+       "pipe_segments": 9,
+       "directed": 9,
+       "share": 1.0
+      }
+     },
+     "direction_vs_truth": {
+      "sheets": {
+       "101": {
+        "segments": 18,
+        "on_a_truth_segment": 17,
+        "directed_not_scorable": 4,
+        "truth_directed": 9,
+        "layout_correct": 9,
+        "directed": 8,
+        "correct": 8,
+        "precision": 1.0,
+        "recall_of_truth_directed": 0.889,
+        "controls": {
+         "perfect": {
+          "directed": 9,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 8,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 9,
+          "precision": 1.0
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       },
+       "102": {
+        "segments": 15,
+        "on_a_truth_segment": 15,
+        "truth_directed": 10,
+        "layout_correct": 8,
+        "directed": 8,
+        "correct": 8,
+        "directed_not_scorable": 3,
+        "precision": 1.0,
+        "recall_of_truth_directed": 0.8,
+        "controls": {
+         "perfect": {
+          "directed": 10,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 8,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 10,
+          "precision": 0.8
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       },
+       "103": {
+        "segments": 9,
+        "on_a_truth_segment": 9,
+        "truth_directed": 6,
+        "directed": 6,
+        "correct": 6,
+        "layout_correct": 6,
+        "directed_not_scorable": 3,
+        "precision": 1.0,
+        "recall_of_truth_directed": 1.0,
+        "controls": {
+         "perfect": {
+          "directed": 6,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 6,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 6,
+          "precision": 1.0
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       }
+      },
+      "total": {
+       "segments": 42,
+       "on_a_truth_segment": 41,
+       "directed_not_scorable": 10,
+       "truth_directed": 25,
+       "layout_correct": 23,
+       "directed": 22,
+       "correct": 22,
+       "precision": 1.0,
+       "recall_of_truth_directed": 0.88,
+       "controls": {
+        "perfect": {
+         "directed": 25,
+         "precision": 1.0
+        },
+        "reversed": {
+         "directed": 22,
+         "precision": 0.0
+        },
+        "layout": {
+         "directed": 25,
+         "precision": 0.92
+        },
+        "empty": {
+         "directed": 0,
+         "precision": null
+        }
+       }
+      }
+     },
+     "diagnostic_vs_every_drawn_route": {
+      "segments": 42,
+      "on_a_truth_segment": 41,
+      "directed_not_scorable": 0,
+      "truth_directed": 41,
+      "layout_correct": 35,
+      "directed": 32,
+      "correct": 32,
+      "precision": 1.0,
+      "recall_of_truth_directed": 0.78
+     }
+    },
+    "te-clean-trace-r1/codex": {
+     "line_layers": "added",
+     "flow_direction": {
+      "status": "added",
+      "method": "scripts/flow_direction.py detectors on each sheet image; evidence placed on the pipe segment it is drawn on",
+      "pipe_segments": 42,
+      "directed": 32,
+      "undirected": 10,
+      "conflict": 0,
+      "directed_by_basis": {
+       "valve_chain": 10,
+       "first_hand": 22
+      },
+      "directed_by_evidence": {
+       "valve_chain": 10,
+       "arrowhead": 21,
+       "offpage_flag": 20
+      },
+      "not_used": "no direction is inferred from layout; a segment without drawn evidence stays undirected",
+      "limit": "drawn flow direction for review, not isolation or lockout guidance"
+     },
+     "pipe_segments": 42,
+     "directed": 32,
+     "share": 0.762,
+     "per_sheet": {
+      "0": {
+       "pipe_segments": 18,
+       "directed": 12,
+       "share": 0.667
+      },
+      "1": {
+       "pipe_segments": 15,
+       "directed": 11,
+       "share": 0.733
+      },
+      "2": {
+       "pipe_segments": 9,
+       "directed": 9,
+       "share": 1.0
+      }
+     },
+     "direction_vs_truth": {
+      "sheets": {
+       "101": {
+        "segments": 18,
+        "on_a_truth_segment": 17,
+        "directed_not_scorable": 4,
+        "truth_directed": 9,
+        "layout_correct": 9,
+        "directed": 8,
+        "correct": 8,
+        "precision": 1.0,
+        "recall_of_truth_directed": 0.889,
+        "controls": {
+         "perfect": {
+          "directed": 9,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 8,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 9,
+          "precision": 1.0
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       },
+       "102": {
+        "segments": 15,
+        "on_a_truth_segment": 15,
+        "truth_directed": 10,
+        "layout_correct": 8,
+        "directed": 8,
+        "correct": 8,
+        "directed_not_scorable": 3,
+        "precision": 1.0,
+        "recall_of_truth_directed": 0.8,
+        "controls": {
+         "perfect": {
+          "directed": 10,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 8,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 10,
+          "precision": 0.8
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       },
+       "103": {
+        "segments": 9,
+        "on_a_truth_segment": 9,
+        "truth_directed": 6,
+        "directed": 6,
+        "correct": 6,
+        "layout_correct": 6,
+        "directed_not_scorable": 3,
+        "precision": 1.0,
+        "recall_of_truth_directed": 1.0,
+        "controls": {
+         "perfect": {
+          "directed": 6,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 6,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 6,
+          "precision": 1.0
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       }
+      },
+      "total": {
+       "segments": 42,
+       "on_a_truth_segment": 41,
+       "directed_not_scorable": 10,
+       "truth_directed": 25,
+       "layout_correct": 23,
+       "directed": 22,
+       "correct": 22,
+       "precision": 1.0,
+       "recall_of_truth_directed": 0.88,
+       "controls": {
+        "perfect": {
+         "directed": 25,
+         "precision": 1.0
+        },
+        "reversed": {
+         "directed": 22,
+         "precision": 0.0
+        },
+        "layout": {
+         "directed": 25,
+         "precision": 0.92
+        },
+        "empty": {
+         "directed": 0,
+         "precision": null
+        }
+       }
+      }
+     },
+     "diagnostic_vs_every_drawn_route": {
+      "segments": 42,
+      "on_a_truth_segment": 41,
+      "directed_not_scorable": 0,
+      "truth_directed": 41,
+      "layout_correct": 35,
+      "directed": 32,
+      "correct": 32,
+      "precision": 1.0,
+      "recall_of_truth_directed": 0.78
+     }
+    },
+    "te-clean-trace-r2/claude": {
+     "line_layers": "added",
+     "flow_direction": {
+      "status": "added",
+      "method": "scripts/flow_direction.py detectors on each sheet image; evidence placed on the pipe segment it is drawn on",
+      "pipe_segments": 42,
+      "directed": 32,
+      "undirected": 10,
+      "conflict": 0,
+      "directed_by_basis": {
+       "valve_chain": 10,
+       "first_hand": 22
+      },
+      "directed_by_evidence": {
+       "valve_chain": 10,
+       "arrowhead": 20,
+       "offpage_flag": 12
+      },
+      "not_used": "no direction is inferred from layout; a segment without drawn evidence stays undirected",
+      "limit": "drawn flow direction for review, not isolation or lockout guidance"
+     },
+     "pipe_segments": 42,
+     "directed": 32,
+     "share": 0.762,
+     "per_sheet": {
+      "0": {
+       "pipe_segments": 18,
+       "directed": 12,
+       "share": 0.667
+      },
+      "1": {
+       "pipe_segments": 15,
+       "directed": 11,
+       "share": 0.733
+      },
+      "2": {
+       "pipe_segments": 9,
+       "directed": 9,
+       "share": 1.0
+      }
+     },
+     "direction_vs_truth": {
+      "sheets": {
+       "101": {
+        "segments": 18,
+        "on_a_truth_segment": 17,
+        "directed_not_scorable": 4,
+        "truth_directed": 9,
+        "layout_correct": 9,
+        "directed": 8,
+        "correct": 8,
+        "precision": 1.0,
+        "recall_of_truth_directed": 0.889,
+        "controls": {
+         "perfect": {
+          "directed": 9,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 8,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 9,
+          "precision": 1.0
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       },
+       "102": {
+        "segments": 15,
+        "on_a_truth_segment": 15,
+        "truth_directed": 10,
+        "layout_correct": 8,
+        "directed": 8,
+        "correct": 8,
+        "directed_not_scorable": 3,
+        "precision": 1.0,
+        "recall_of_truth_directed": 0.8,
+        "controls": {
+         "perfect": {
+          "directed": 10,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 8,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 10,
+          "precision": 0.8
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       },
+       "103": {
+        "segments": 9,
+        "on_a_truth_segment": 9,
+        "truth_directed": 6,
+        "directed": 6,
+        "correct": 6,
+        "layout_correct": 6,
+        "directed_not_scorable": 3,
+        "precision": 1.0,
+        "recall_of_truth_directed": 1.0,
+        "controls": {
+         "perfect": {
+          "directed": 6,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 6,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 6,
+          "precision": 1.0
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       }
+      },
+      "total": {
+       "segments": 42,
+       "on_a_truth_segment": 41,
+       "directed_not_scorable": 10,
+       "truth_directed": 25,
+       "layout_correct": 23,
+       "directed": 22,
+       "correct": 22,
+       "precision": 1.0,
+       "recall_of_truth_directed": 0.88,
+       "controls": {
+        "perfect": {
+         "directed": 25,
+         "precision": 1.0
+        },
+        "reversed": {
+         "directed": 22,
+         "precision": 0.0
+        },
+        "layout": {
+         "directed": 25,
+         "precision": 0.92
+        },
+        "empty": {
+         "directed": 0,
+         "precision": null
+        }
+       }
+      }
+     },
+     "diagnostic_vs_every_drawn_route": {
+      "segments": 42,
+      "on_a_truth_segment": 41,
+      "directed_not_scorable": 0,
+      "truth_directed": 41,
+      "layout_correct": 35,
+      "directed": 32,
+      "correct": 32,
+      "precision": 1.0,
+      "recall_of_truth_directed": 0.78
+     }
+    },
+    "te-clean-trace-r2/codex": {
+     "line_layers": "added",
+     "flow_direction": {
+      "status": "added",
+      "method": "scripts/flow_direction.py detectors on each sheet image; evidence placed on the pipe segment it is drawn on",
+      "pipe_segments": 42,
+      "directed": 32,
+      "undirected": 10,
+      "conflict": 0,
+      "directed_by_basis": {
+       "valve_chain": 10,
+       "first_hand": 22
+      },
+      "directed_by_evidence": {
+       "valve_chain": 10,
+       "arrowhead": 21,
+       "offpage_flag": 20
+      },
+      "not_used": "no direction is inferred from layout; a segment without drawn evidence stays undirected",
+      "limit": "drawn flow direction for review, not isolation or lockout guidance"
+     },
+     "pipe_segments": 42,
+     "directed": 32,
+     "share": 0.762,
+     "per_sheet": {
+      "0": {
+       "pipe_segments": 18,
+       "directed": 12,
+       "share": 0.667
+      },
+      "1": {
+       "pipe_segments": 15,
+       "directed": 11,
+       "share": 0.733
+      },
+      "2": {
+       "pipe_segments": 9,
+       "directed": 9,
+       "share": 1.0
+      }
+     },
+     "direction_vs_truth": {
+      "sheets": {
+       "101": {
+        "segments": 18,
+        "on_a_truth_segment": 17,
+        "directed_not_scorable": 4,
+        "truth_directed": 9,
+        "layout_correct": 9,
+        "directed": 8,
+        "correct": 8,
+        "precision": 1.0,
+        "recall_of_truth_directed": 0.889,
+        "controls": {
+         "perfect": {
+          "directed": 9,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 8,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 9,
+          "precision": 1.0
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       },
+       "102": {
+        "segments": 15,
+        "on_a_truth_segment": 15,
+        "truth_directed": 10,
+        "layout_correct": 8,
+        "directed": 8,
+        "correct": 8,
+        "directed_not_scorable": 3,
+        "precision": 1.0,
+        "recall_of_truth_directed": 0.8,
+        "controls": {
+         "perfect": {
+          "directed": 10,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 8,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 10,
+          "precision": 0.8
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       },
+       "103": {
+        "segments": 9,
+        "on_a_truth_segment": 9,
+        "truth_directed": 6,
+        "directed": 6,
+        "correct": 6,
+        "layout_correct": 6,
+        "directed_not_scorable": 3,
+        "precision": 1.0,
+        "recall_of_truth_directed": 1.0,
+        "controls": {
+         "perfect": {
+          "directed": 6,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 6,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 6,
+          "precision": 1.0
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       }
+      },
+      "total": {
+       "segments": 42,
+       "on_a_truth_segment": 41,
+       "directed_not_scorable": 10,
+       "truth_directed": 25,
+       "layout_correct": 23,
+       "directed": 22,
+       "correct": 22,
+       "precision": 1.0,
+       "recall_of_truth_directed": 0.88,
+       "controls": {
+        "perfect": {
+         "directed": 25,
+         "precision": 1.0
+        },
+        "reversed": {
+         "directed": 22,
+         "precision": 0.0
+        },
+        "layout": {
+         "directed": 25,
+         "precision": 0.92
+        },
+        "empty": {
+         "directed": 0,
+         "precision": null
+        }
+       }
+      }
+     },
+     "diagnostic_vs_every_drawn_route": {
+      "segments": 42,
+      "on_a_truth_segment": 41,
+      "directed_not_scorable": 0,
+      "truth_directed": 41,
+      "layout_correct": 35,
+      "directed": 32,
+      "correct": 32,
+      "precision": 1.0,
+      "recall_of_truth_directed": 0.78
+     }
+    },
+    "te-clean-trace-r3/claude": {
+     "line_layers": "added",
+     "flow_direction": {
+      "status": "added",
+      "method": "scripts/flow_direction.py detectors on each sheet image; evidence placed on the pipe segment it is drawn on",
+      "pipe_segments": 42,
+      "directed": 32,
+      "undirected": 10,
+      "conflict": 0,
+      "directed_by_basis": {
+       "valve_chain": 10,
+       "first_hand": 22
+      },
+      "directed_by_evidence": {
+       "valve_chain": 10,
+       "arrowhead": 20,
+       "offpage_flag": 13
+      },
+      "not_used": "no direction is inferred from layout; a segment without drawn evidence stays undirected",
+      "limit": "drawn flow direction for review, not isolation or lockout guidance"
+     },
+     "pipe_segments": 42,
+     "directed": 32,
+     "share": 0.762,
+     "per_sheet": {
+      "0": {
+       "pipe_segments": 18,
+       "directed": 12,
+       "share": 0.667
+      },
+      "1": {
+       "pipe_segments": 15,
+       "directed": 11,
+       "share": 0.733
+      },
+      "2": {
+       "pipe_segments": 9,
+       "directed": 9,
+       "share": 1.0
+      }
+     },
+     "direction_vs_truth": {
+      "sheets": {
+       "101": {
+        "segments": 18,
+        "on_a_truth_segment": 17,
+        "directed_not_scorable": 4,
+        "truth_directed": 9,
+        "layout_correct": 9,
+        "directed": 8,
+        "correct": 8,
+        "precision": 1.0,
+        "recall_of_truth_directed": 0.889,
+        "controls": {
+         "perfect": {
+          "directed": 9,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 8,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 9,
+          "precision": 1.0
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       },
+       "102": {
+        "segments": 15,
+        "on_a_truth_segment": 15,
+        "truth_directed": 10,
+        "layout_correct": 8,
+        "directed": 8,
+        "correct": 8,
+        "directed_not_scorable": 3,
+        "precision": 1.0,
+        "recall_of_truth_directed": 0.8,
+        "controls": {
+         "perfect": {
+          "directed": 10,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 8,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 10,
+          "precision": 0.8
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       },
+       "103": {
+        "segments": 9,
+        "on_a_truth_segment": 9,
+        "truth_directed": 6,
+        "directed": 6,
+        "correct": 6,
+        "layout_correct": 6,
+        "directed_not_scorable": 3,
+        "precision": 1.0,
+        "recall_of_truth_directed": 1.0,
+        "controls": {
+         "perfect": {
+          "directed": 6,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 6,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 6,
+          "precision": 1.0
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       }
+      },
+      "total": {
+       "segments": 42,
+       "on_a_truth_segment": 41,
+       "directed_not_scorable": 10,
+       "truth_directed": 25,
+       "layout_correct": 23,
+       "directed": 22,
+       "correct": 22,
+       "precision": 1.0,
+       "recall_of_truth_directed": 0.88,
+       "controls": {
+        "perfect": {
+         "directed": 25,
+         "precision": 1.0
+        },
+        "reversed": {
+         "directed": 22,
+         "precision": 0.0
+        },
+        "layout": {
+         "directed": 25,
+         "precision": 0.92
+        },
+        "empty": {
+         "directed": 0,
+         "precision": null
+        }
+       }
+      }
+     },
+     "diagnostic_vs_every_drawn_route": {
+      "segments": 42,
+      "on_a_truth_segment": 41,
+      "directed_not_scorable": 0,
+      "truth_directed": 41,
+      "layout_correct": 35,
+      "directed": 32,
+      "correct": 32,
+      "precision": 1.0,
+      "recall_of_truth_directed": 0.78
+     }
+    },
+    "te-clean-trace-r3/codex": {
+     "line_layers": "added",
+     "flow_direction": {
+      "status": "added",
+      "method": "scripts/flow_direction.py detectors on each sheet image; evidence placed on the pipe segment it is drawn on",
+      "pipe_segments": 42,
+      "directed": 32,
+      "undirected": 10,
+      "conflict": 0,
+      "directed_by_basis": {
+       "valve_chain": 10,
+       "first_hand": 22
+      },
+      "directed_by_evidence": {
+       "valve_chain": 10,
+       "arrowhead": 21,
+       "offpage_flag": 20
+      },
+      "not_used": "no direction is inferred from layout; a segment without drawn evidence stays undirected",
+      "limit": "drawn flow direction for review, not isolation or lockout guidance"
+     },
+     "pipe_segments": 42,
+     "directed": 32,
+     "share": 0.762,
+     "per_sheet": {
+      "0": {
+       "pipe_segments": 18,
+       "directed": 12,
+       "share": 0.667
+      },
+      "1": {
+       "pipe_segments": 15,
+       "directed": 11,
+       "share": 0.733
+      },
+      "2": {
+       "pipe_segments": 9,
+       "directed": 9,
+       "share": 1.0
+      }
+     },
+     "direction_vs_truth": {
+      "sheets": {
+       "101": {
+        "segments": 18,
+        "on_a_truth_segment": 17,
+        "directed_not_scorable": 4,
+        "truth_directed": 9,
+        "layout_correct": 9,
+        "directed": 8,
+        "correct": 8,
+        "precision": 1.0,
+        "recall_of_truth_directed": 0.889,
+        "controls": {
+         "perfect": {
+          "directed": 9,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 8,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 9,
+          "precision": 1.0
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       },
+       "102": {
+        "segments": 15,
+        "on_a_truth_segment": 15,
+        "truth_directed": 10,
+        "layout_correct": 8,
+        "directed": 8,
+        "correct": 8,
+        "directed_not_scorable": 3,
+        "precision": 1.0,
+        "recall_of_truth_directed": 0.8,
+        "controls": {
+         "perfect": {
+          "directed": 10,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 8,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 10,
+          "precision": 0.8
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       },
+       "103": {
+        "segments": 9,
+        "on_a_truth_segment": 9,
+        "truth_directed": 6,
+        "directed": 6,
+        "correct": 6,
+        "layout_correct": 6,
+        "directed_not_scorable": 3,
+        "precision": 1.0,
+        "recall_of_truth_directed": 1.0,
+        "controls": {
+         "perfect": {
+          "directed": 6,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 6,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 6,
+          "precision": 1.0
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       }
+      },
+      "total": {
+       "segments": 42,
+       "on_a_truth_segment": 41,
+       "directed_not_scorable": 10,
+       "truth_directed": 25,
+       "layout_correct": 23,
+       "directed": 22,
+       "correct": 22,
+       "precision": 1.0,
+       "recall_of_truth_directed": 0.88,
+       "controls": {
+        "perfect": {
+         "directed": 25,
+         "precision": 1.0
+        },
+        "reversed": {
+         "directed": 22,
+         "precision": 0.0
+        },
+        "layout": {
+         "directed": 25,
+         "precision": 0.92
+        },
+        "empty": {
+         "directed": 0,
+         "precision": null
+        }
+       }
+      }
+     },
+     "diagnostic_vs_every_drawn_route": {
+      "segments": 42,
+      "on_a_truth_segment": 41,
+      "directed_not_scorable": 0,
+      "truth_directed": 41,
+      "layout_correct": 35,
+      "directed": 32,
+      "correct": 32,
+      "precision": 1.0,
+      "recall_of_truth_directed": 0.78
+     }
+    },
+    "te-clean-trace-r4/claude": {
+     "line_layers": "added",
+     "flow_direction": {
+      "status": "added",
+      "method": "scripts/flow_direction.py detectors on each sheet image; evidence placed on the pipe segment it is drawn on",
+      "pipe_segments": 42,
+      "directed": 32,
+      "undirected": 10,
+      "conflict": 0,
+      "directed_by_basis": {
+       "valve_chain": 10,
+       "first_hand": 22
+      },
+      "directed_by_evidence": {
+       "valve_chain": 10,
+       "arrowhead": 17,
+       "offpage_flag": 17
+      },
+      "not_used": "no direction is inferred from layout; a segment without drawn evidence stays undirected",
+      "limit": "drawn flow direction for review, not isolation or lockout guidance"
+     },
+     "pipe_segments": 42,
+     "directed": 32,
+     "share": 0.762,
+     "per_sheet": {
+      "0": {
+       "pipe_segments": 18,
+       "directed": 12,
+       "share": 0.667
+      },
+      "1": {
+       "pipe_segments": 15,
+       "directed": 11,
+       "share": 0.733
+      },
+      "2": {
+       "pipe_segments": 9,
+       "directed": 9,
+       "share": 1.0
+      }
+     },
+     "direction_vs_truth": {
+      "sheets": {
+       "101": {
+        "segments": 18,
+        "on_a_truth_segment": 17,
+        "directed_not_scorable": 4,
+        "truth_directed": 9,
+        "layout_correct": 9,
+        "directed": 8,
+        "correct": 8,
+        "precision": 1.0,
+        "recall_of_truth_directed": 0.889,
+        "controls": {
+         "perfect": {
+          "directed": 9,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 8,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 9,
+          "precision": 1.0
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       },
+       "102": {
+        "segments": 15,
+        "on_a_truth_segment": 15,
+        "truth_directed": 10,
+        "layout_correct": 8,
+        "directed": 8,
+        "correct": 8,
+        "directed_not_scorable": 3,
+        "precision": 1.0,
+        "recall_of_truth_directed": 0.8,
+        "controls": {
+         "perfect": {
+          "directed": 10,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 8,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 10,
+          "precision": 0.8
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       },
+       "103": {
+        "segments": 9,
+        "on_a_truth_segment": 9,
+        "truth_directed": 6,
+        "directed": 6,
+        "correct": 6,
+        "layout_correct": 6,
+        "directed_not_scorable": 3,
+        "precision": 1.0,
+        "recall_of_truth_directed": 1.0,
+        "controls": {
+         "perfect": {
+          "directed": 6,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 6,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 6,
+          "precision": 1.0
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       }
+      },
+      "total": {
+       "segments": 42,
+       "on_a_truth_segment": 41,
+       "directed_not_scorable": 10,
+       "truth_directed": 25,
+       "layout_correct": 23,
+       "directed": 22,
+       "correct": 22,
+       "precision": 1.0,
+       "recall_of_truth_directed": 0.88,
+       "controls": {
+        "perfect": {
+         "directed": 25,
+         "precision": 1.0
+        },
+        "reversed": {
+         "directed": 22,
+         "precision": 0.0
+        },
+        "layout": {
+         "directed": 25,
+         "precision": 0.92
+        },
+        "empty": {
+         "directed": 0,
+         "precision": null
+        }
+       }
+      }
+     },
+     "diagnostic_vs_every_drawn_route": {
+      "segments": 42,
+      "on_a_truth_segment": 41,
+      "directed_not_scorable": 0,
+      "truth_directed": 41,
+      "layout_correct": 35,
+      "directed": 32,
+      "correct": 32,
+      "precision": 1.0,
+      "recall_of_truth_directed": 0.78
+     }
+    },
+    "te-clean-trace-r4/codex": {
+     "line_layers": "added",
+     "flow_direction": {
+      "status": "added",
+      "method": "scripts/flow_direction.py detectors on each sheet image; evidence placed on the pipe segment it is drawn on",
+      "pipe_segments": 42,
+      "directed": 32,
+      "undirected": 10,
+      "conflict": 0,
+      "directed_by_basis": {
+       "valve_chain": 10,
+       "first_hand": 22
+      },
+      "directed_by_evidence": {
+       "valve_chain": 10,
+       "arrowhead": 21,
+       "offpage_flag": 18
+      },
+      "not_used": "no direction is inferred from layout; a segment without drawn evidence stays undirected",
+      "limit": "drawn flow direction for review, not isolation or lockout guidance"
+     },
+     "pipe_segments": 42,
+     "directed": 32,
+     "share": 0.762,
+     "per_sheet": {
+      "0": {
+       "pipe_segments": 18,
+       "directed": 12,
+       "share": 0.667
+      },
+      "1": {
+       "pipe_segments": 15,
+       "directed": 11,
+       "share": 0.733
+      },
+      "2": {
+       "pipe_segments": 9,
+       "directed": 9,
+       "share": 1.0
+      }
+     },
+     "direction_vs_truth": {
+      "sheets": {
+       "101": {
+        "segments": 18,
+        "on_a_truth_segment": 17,
+        "directed_not_scorable": 4,
+        "truth_directed": 9,
+        "layout_correct": 9,
+        "directed": 8,
+        "correct": 8,
+        "precision": 1.0,
+        "recall_of_truth_directed": 0.889,
+        "controls": {
+         "perfect": {
+          "directed": 9,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 8,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 9,
+          "precision": 1.0
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       },
+       "102": {
+        "segments": 15,
+        "on_a_truth_segment": 15,
+        "truth_directed": 10,
+        "layout_correct": 8,
+        "directed": 8,
+        "correct": 8,
+        "directed_not_scorable": 3,
+        "precision": 1.0,
+        "recall_of_truth_directed": 0.8,
+        "controls": {
+         "perfect": {
+          "directed": 10,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 8,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 10,
+          "precision": 0.8
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       },
+       "103": {
+        "segments": 9,
+        "on_a_truth_segment": 9,
+        "truth_directed": 6,
+        "directed": 6,
+        "correct": 6,
+        "layout_correct": 6,
+        "directed_not_scorable": 3,
+        "precision": 1.0,
+        "recall_of_truth_directed": 1.0,
+        "controls": {
+         "perfect": {
+          "directed": 6,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 6,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 6,
+          "precision": 1.0
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       }
+      },
+      "total": {
+       "segments": 42,
+       "on_a_truth_segment": 41,
+       "directed_not_scorable": 10,
+       "truth_directed": 25,
+       "layout_correct": 23,
+       "directed": 22,
+       "correct": 22,
+       "precision": 1.0,
+       "recall_of_truth_directed": 0.88,
+       "controls": {
+        "perfect": {
+         "directed": 25,
+         "precision": 1.0
+        },
+        "reversed": {
+         "directed": 22,
+         "precision": 0.0
+        },
+        "layout": {
+         "directed": 25,
+         "precision": 0.92
+        },
+        "empty": {
+         "directed": 0,
+         "precision": null
+        }
+       }
+      }
+     },
+     "diagnostic_vs_every_drawn_route": {
+      "segments": 42,
+      "on_a_truth_segment": 41,
+      "directed_not_scorable": 0,
+      "truth_directed": 41,
+      "layout_correct": 35,
+      "directed": 32,
+      "correct": 32,
+      "precision": 1.0,
+      "recall_of_truth_directed": 0.78
+     }
+    },
+    "te-clean-trace-r5/claude": {
+     "line_layers": "added",
+     "flow_direction": {
+      "status": "added",
+      "method": "scripts/flow_direction.py detectors on each sheet image; evidence placed on the pipe segment it is drawn on",
+      "pipe_segments": 42,
+      "directed": 32,
+      "undirected": 10,
+      "conflict": 0,
+      "directed_by_basis": {
+       "valve_chain": 10,
+       "first_hand": 22
+      },
+      "directed_by_evidence": {
+       "valve_chain": 10,
+       "arrowhead": 19,
+       "offpage_flag": 15
+      },
+      "not_used": "no direction is inferred from layout; a segment without drawn evidence stays undirected",
+      "limit": "drawn flow direction for review, not isolation or lockout guidance"
+     },
+     "pipe_segments": 42,
+     "directed": 32,
+     "share": 0.762,
+     "per_sheet": {
+      "0": {
+       "pipe_segments": 18,
+       "directed": 12,
+       "share": 0.667
+      },
+      "1": {
+       "pipe_segments": 15,
+       "directed": 11,
+       "share": 0.733
+      },
+      "2": {
+       "pipe_segments": 9,
+       "directed": 9,
+       "share": 1.0
+      }
+     },
+     "direction_vs_truth": {
+      "sheets": {
+       "101": {
+        "segments": 18,
+        "on_a_truth_segment": 17,
+        "directed_not_scorable": 4,
+        "truth_directed": 9,
+        "layout_correct": 9,
+        "directed": 8,
+        "correct": 8,
+        "precision": 1.0,
+        "recall_of_truth_directed": 0.889,
+        "controls": {
+         "perfect": {
+          "directed": 9,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 8,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 9,
+          "precision": 1.0
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       },
+       "102": {
+        "segments": 15,
+        "on_a_truth_segment": 15,
+        "truth_directed": 10,
+        "layout_correct": 8,
+        "directed": 8,
+        "correct": 8,
+        "directed_not_scorable": 3,
+        "precision": 1.0,
+        "recall_of_truth_directed": 0.8,
+        "controls": {
+         "perfect": {
+          "directed": 10,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 8,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 10,
+          "precision": 0.8
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       },
+       "103": {
+        "segments": 9,
+        "on_a_truth_segment": 9,
+        "truth_directed": 6,
+        "directed": 6,
+        "correct": 6,
+        "layout_correct": 6,
+        "directed_not_scorable": 3,
+        "precision": 1.0,
+        "recall_of_truth_directed": 1.0,
+        "controls": {
+         "perfect": {
+          "directed": 6,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 6,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 6,
+          "precision": 1.0
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       }
+      },
+      "total": {
+       "segments": 42,
+       "on_a_truth_segment": 41,
+       "directed_not_scorable": 10,
+       "truth_directed": 25,
+       "layout_correct": 23,
+       "directed": 22,
+       "correct": 22,
+       "precision": 1.0,
+       "recall_of_truth_directed": 0.88,
+       "controls": {
+        "perfect": {
+         "directed": 25,
+         "precision": 1.0
+        },
+        "reversed": {
+         "directed": 22,
+         "precision": 0.0
+        },
+        "layout": {
+         "directed": 25,
+         "precision": 0.92
+        },
+        "empty": {
+         "directed": 0,
+         "precision": null
+        }
+       }
+      }
+     },
+     "diagnostic_vs_every_drawn_route": {
+      "segments": 42,
+      "on_a_truth_segment": 41,
+      "directed_not_scorable": 0,
+      "truth_directed": 41,
+      "layout_correct": 35,
+      "directed": 32,
+      "correct": 32,
+      "precision": 1.0,
+      "recall_of_truth_directed": 0.78
+     }
+    },
+    "te-clean-trace-r5/codex": {
+     "line_layers": "added",
+     "flow_direction": {
+      "status": "added",
+      "method": "scripts/flow_direction.py detectors on each sheet image; evidence placed on the pipe segment it is drawn on",
+      "pipe_segments": 42,
+      "directed": 32,
+      "undirected": 10,
+      "conflict": 0,
+      "directed_by_basis": {
+       "valve_chain": 10,
+       "first_hand": 22
+      },
+      "directed_by_evidence": {
+       "valve_chain": 10,
+       "arrowhead": 21,
+       "offpage_flag": 20
+      },
+      "not_used": "no direction is inferred from layout; a segment without drawn evidence stays undirected",
+      "limit": "drawn flow direction for review, not isolation or lockout guidance"
+     },
+     "pipe_segments": 42,
+     "directed": 32,
+     "share": 0.762,
+     "per_sheet": {
+      "0": {
+       "pipe_segments": 18,
+       "directed": 12,
+       "share": 0.667
+      },
+      "1": {
+       "pipe_segments": 15,
+       "directed": 11,
+       "share": 0.733
+      },
+      "2": {
+       "pipe_segments": 9,
+       "directed": 9,
+       "share": 1.0
+      }
+     },
+     "direction_vs_truth": {
+      "sheets": {
+       "101": {
+        "segments": 18,
+        "on_a_truth_segment": 17,
+        "directed_not_scorable": 4,
+        "truth_directed": 9,
+        "layout_correct": 9,
+        "directed": 8,
+        "correct": 8,
+        "precision": 1.0,
+        "recall_of_truth_directed": 0.889,
+        "controls": {
+         "perfect": {
+          "directed": 9,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 8,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 9,
+          "precision": 1.0
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       },
+       "102": {
+        "segments": 15,
+        "on_a_truth_segment": 15,
+        "truth_directed": 10,
+        "layout_correct": 8,
+        "directed": 8,
+        "correct": 8,
+        "directed_not_scorable": 3,
+        "precision": 1.0,
+        "recall_of_truth_directed": 0.8,
+        "controls": {
+         "perfect": {
+          "directed": 10,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 8,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 10,
+          "precision": 0.8
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       },
+       "103": {
+        "segments": 9,
+        "on_a_truth_segment": 9,
+        "truth_directed": 6,
+        "directed": 6,
+        "correct": 6,
+        "layout_correct": 6,
+        "directed_not_scorable": 3,
+        "precision": 1.0,
+        "recall_of_truth_directed": 1.0,
+        "controls": {
+         "perfect": {
+          "directed": 6,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 6,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 6,
+          "precision": 1.0
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       }
+      },
+      "total": {
+       "segments": 42,
+       "on_a_truth_segment": 41,
+       "directed_not_scorable": 10,
+       "truth_directed": 25,
+       "layout_correct": 23,
+       "directed": 22,
+       "correct": 22,
+       "precision": 1.0,
+       "recall_of_truth_directed": 0.88,
+       "controls": {
+        "perfect": {
+         "directed": 25,
+         "precision": 1.0
+        },
+        "reversed": {
+         "directed": 22,
+         "precision": 0.0
+        },
+        "layout": {
+         "directed": 25,
+         "precision": 0.92
+        },
+        "empty": {
+         "directed": 0,
+         "precision": null
+        }
+       }
+      }
+     },
+     "diagnostic_vs_every_drawn_route": {
+      "segments": 42,
+      "on_a_truth_segment": 41,
+      "directed_not_scorable": 0,
+      "truth_directed": 41,
+      "layout_correct": 35,
+      "directed": 32,
+      "correct": 32,
+      "precision": 1.0,
+      "recall_of_truth_directed": 0.78
+     }
+    }
+   }
+  },
+  "te-d": {
+   "truth": "data/te_process_model.json streams as the drawer laid them out",
+   "truth_directed_segments": {
+    "101": 21,
+    "102": 18,
+    "103": 14
+   },
+   "truth_pipe_segments": {
+    "101": 41,
+    "102": 33,
+    "103": 27
+   },
+   "runs": {
+    "key symbols + tracer": {
+     "line_layers": "added",
+     "flow_direction": {
+      "status": "added",
+      "method": "scripts/flow_direction.py detectors on each sheet image; evidence placed on the pipe segment it is drawn on",
+      "pipe_segments": 101,
+      "directed": 22,
+      "undirected": 79,
+      "conflict": 0,
+      "directed_by_basis": {
+       "first_hand": 22
+      },
+      "directed_by_evidence": {
+       "arrowhead": 19,
+       "offpage_flag": 20
+      },
+      "not_used": "no direction is inferred from layout; a segment without drawn evidence stays undirected",
+      "limit": "drawn flow direction for review, not isolation or lockout guidance"
+     },
+     "pipe_segments": 101,
+     "directed": 22,
+     "share": 0.218,
+     "per_sheet": {
+      "0": {
+       "pipe_segments": 41,
+       "directed": 8,
+       "share": 0.195
+      },
+      "1": {
+       "pipe_segments": 33,
+       "directed": 8,
+       "share": 0.242
+      },
+      "2": {
+       "pipe_segments": 27,
+       "directed": 6,
+       "share": 0.222
+      }
+     },
+     "direction_vs_truth": {
+      "sheets": {
+       "101": {
+        "segments": 41,
+        "on_a_truth_segment": 41,
+        "directed_not_scorable": 2,
+        "truth_directed": 21,
+        "layout_correct": 20,
+        "directed": 6,
+        "correct": 6,
+        "precision": 1.0,
+        "recall_of_truth_directed": 0.286,
+        "controls": {
+         "perfect": {
+          "directed": 21,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 6,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 21,
+          "precision": 0.952
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       },
+       "102": {
+        "segments": 33,
+        "on_a_truth_segment": 33,
+        "directed_not_scorable": 2,
+        "truth_directed": 18,
+        "layout_correct": 16,
+        "directed": 6,
+        "correct": 6,
+        "precision": 1.0,
+        "recall_of_truth_directed": 0.333,
+        "controls": {
+         "perfect": {
+          "directed": 18,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 6,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 18,
+          "precision": 0.889
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       },
+       "103": {
+        "segments": 27,
+        "on_a_truth_segment": 27,
+        "directed_not_scorable": 2,
+        "truth_directed": 14,
+        "directed": 4,
+        "correct": 4,
+        "layout_correct": 14,
+        "precision": 1.0,
+        "recall_of_truth_directed": 0.286,
+        "controls": {
+         "perfect": {
+          "directed": 14,
+          "precision": 1.0
+         },
+         "reversed": {
+          "directed": 4,
+          "precision": 0.0
+         },
+         "layout": {
+          "directed": 14,
+          "precision": 1.0
+         },
+         "empty": {
+          "directed": 0,
+          "precision": null
+         }
+        }
+       }
+      },
+      "total": {
+       "segments": 101,
+       "on_a_truth_segment": 101,
+       "directed_not_scorable": 6,
+       "truth_directed": 53,
+       "layout_correct": 50,
+       "directed": 16,
+       "correct": 16,
+       "precision": 1.0,
+       "recall_of_truth_directed": 0.302,
+       "controls": {
+        "perfect": {
+         "directed": 53,
+         "precision": 1.0
+        },
+        "reversed": {
+         "directed": 16,
+         "precision": 0.0
+        },
+        "layout": {
+         "directed": 53,
+         "precision": 0.943
+        },
+        "empty": {
+         "directed": 0,
+         "precision": null
+        }
+       }
+      }
+     },
+     "diagnostic_vs_every_drawn_route": {
+      "segments": 101,
+      "on_a_truth_segment": 101,
+      "truth_directed": 101,
+      "layout_correct": 93,
+      "directed": 22,
+      "correct": 22,
+      "precision": 1.0,
+      "recall_of_truth_directed": 0.218
+     }
+    }
+   }
+  },
+  "pahala": {
+   "truth": null,
+   "note": "no direction or topology key: share directed only",
+   "runs": {
+    "claude reading": {
+     "line_layers": "added",
+     "flow_direction": {
+      "status": "added",
+      "method": "scripts/flow_direction.py detectors on each sheet image; evidence placed on the pipe segment it is drawn on",
+      "pipe_segments": 20,
+      "directed": 6,
+      "undirected": 14,
+      "conflict": 0,
+      "directed_by_basis": {
+       "first_hand": 4,
+       "valve_chain": 2
+      },
+      "directed_by_evidence": {
+       "arrowhead": 2,
+       "valve_chain": 2,
+       "offpage_flag": 2
+      },
+      "not_used": "no direction is inferred from layout; a segment without drawn evidence stays undirected",
+      "limit": "drawn flow direction for review, not isolation or lockout guidance"
+     },
+     "pipe_segments": 20,
+     "directed": 6,
+     "share": 0.3,
+     "per_sheet": {
+      "0": {
+       "pipe_segments": 6,
+       "directed": 2,
+       "share": 0.333
+      },
+      "1": {
+       "pipe_segments": 14,
+       "directed": 4,
+       "share": 0.286
+      }
+     }
+    }
+   }
+  }
+ },
+ "summary": {
+  "open100": {
+   "runs_attempted": 3,
+   "runs_scored": 3,
+   "runs_refused_by_intake": 0,
+   "share_directed": {
+    "n": 3,
+    "mean": 0.262,
+    "min": 0.258,
+    "max": 0.265,
+    "sd": 0.004
+   },
+   "share_directed_by_sheet": {
+    "n": 18,
+    "mean": 0.272,
+    "min": 0.083,
+    "max": 0.476,
+    "sd": 0.095
+   },
+   "arrow_detection_precision": {
+    "n": 3,
+    "mean": 0.703,
+    "min": 0.636,
+    "max": 0.79,
+    "sd": 0.079
+   },
+   "arrow_detection_recall": {
+    "n": 3,
+    "mean": 0.483,
+    "min": 0.467,
+    "max": 0.491,
+    "sd": 0.014
+   }
+  },
+  "te-a": {
+   "runs_attempted": 11,
+   "runs_scored": 11,
+   "runs_refused_by_intake": 0,
+   "share_directed": {
+    "n": 11,
+    "mean": 0.764,
+    "min": 0.762,
+    "max": 0.78,
+    "sd": 0.005
+   },
+   "share_directed_by_sheet": {
+    "n": 33,
+    "mean": 0.801,
+    "min": 0.667,
+    "max": 1.0,
+    "sd": 0.145
+   },
+   "precision": {
+    "n": 11,
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "sd": 0.0
+   },
+   "precision_by_sheet": {
+    "n": 33,
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "sd": 0.0
+   },
+   "controls_precision": {
+    "perfect": {
+     "n": 11,
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0,
+     "sd": 0.0
+    },
+    "reversed": {
+     "n": 11,
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "sd": 0.0
+    },
+    "layout": {
+     "n": 11,
+     "mean": 0.916,
+     "min": 0.88,
+     "max": 0.92,
+     "sd": 0.012
+    }
+   }
+  },
+  "te-d": {
+   "runs_attempted": 1,
+   "runs_scored": 1,
+   "runs_refused_by_intake": 0,
+   "share_directed": {
+    "n": 1,
+    "mean": 0.218,
+    "min": 0.218,
+    "max": 0.218,
+    "sd": 0.0
+   },
+   "share_directed_by_sheet": {
+    "n": 3,
+    "mean": 0.22,
+    "min": 0.195,
+    "max": 0.242,
+    "sd": 0.024
+   },
+   "precision": {
+    "n": 1,
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "sd": 0.0
+   },
+   "precision_by_sheet": {
+    "n": 3,
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "sd": 0.0
+   },
+   "controls_precision": {
+    "perfect": {
+     "n": 1,
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0,
+     "sd": 0.0
+    },
+    "reversed": {
+     "n": 1,
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "sd": 0.0
+    },
+    "layout": {
+     "n": 1,
+     "mean": 0.943,
+     "min": 0.943,
+     "max": 0.943,
+     "sd": 0.0
+    }
+   }
+  },
+  "pahala": {
+   "runs_attempted": 1,
+   "runs_scored": 1,
+   "runs_refused_by_intake": 0,
+   "share_directed": {
+    "n": 1,
+    "mean": 0.3,
+    "min": 0.3,
+    "max": 0.3,
+    "sd": 0.0
+   },
+   "share_directed_by_sheet": {
+    "n": 2,
+    "mean": 0.309,
+    "min": 0.286,
+    "max": 0.333,
+    "sd": 0.033
+   }
+  }
+ }
+}

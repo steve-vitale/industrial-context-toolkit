@@ -161,6 +161,44 @@ class DrawingSetIntake(unittest.TestCase):
         types = {e['type'] for e in graph['edges']}
         self.assertTrue({'piped_to', 'instrument_connection'} <= types)
         self.assertEqual(graph_export.problems(graph), [])
+        # Flow direction (round 6 increment 2): only drawn evidence directs a segment; the rest stay as written
+        flow = result['flow_direction']
+        self.assertEqual(flow['status'], 'added', flow)
+        self.assertEqual(flow['directed'] + flow['undirected'] + flow['conflict'], layers['pipe_segments'])
+        self.assertGreater(flow['directed'], 50)
+        self.assertGreater(flow['undirected'], flow['directed'])  # most segments show no drawn direction
+        model = self.model()
+        for s in model['line_layers']['segments']:
+            if 'direction' in s:
+                ev = s['direction_evidence']
+                self.assertEqual(s['direction'], 'forward')
+                self.assertIn(ev['basis'], ('first_hand', 'valve_chain'))
+                self.assertTrue(ev['kinds'] and set(ev['kinds']) <= set(dset.FLOW_SOURCES), s)
+                self.assertTrue(0 < ev['confidence'] <= 1)
+                self.assertTrue(all(f['kind'] in ev['kinds'] for f in ev['found']))
+            else:
+                self.assertNotIn('direction_evidence', s)
+                self.assertEqual('direction_conflict' in s, s['id'] in model['meta']['flow_direction_status']['conflict_segments'])
+        directed = {e['id']: e for e in graph['edges'] if e['type'] == 'piped_to'}
+        self.assertEqual(sum(e['direction'] == 'forward' for e in directed.values()), flow['directed'])
+        self.assertEqual(sum(e['direction'] == 'unknown' for e in directed.values()),
+                         flow['undirected'] + flow['conflict'])
+        # turned off, every segment is exactly the line layers' own (the increment-1 bundle)
+        off = Path(self.tmp.name) / 'no-flow'
+        dset.import_set(manifest, off, flow_direction=False)
+        plain = json.loads((off / 'plant_model.json').read_text(encoding='utf-8'))
+        self.assertNotIn('flow_direction_status', plain['meta'])
+        by_id = {s['id']: s for s in plain['line_layers']['segments']}
+        for s in model['line_layers']['segments']:
+            o = by_id[s['id']]
+            if 'direction_conflict' in s:  # a disagreement is recorded beside the untouched segment
+                self.assertNotIn('direction', s)
+                s = {k: v for k, v in s.items() if k != 'direction_conflict'}
+            if 'direction' in s:
+                self.assertEqual({s['from'], s['to']}, {o['from'], o['to']})
+                s = {k: v for k, v in s.items() if k not in ('direction', 'direction_evidence', 'from', 'to')}
+                o = {k: v for k, v in o.items() if k not in ('from', 'to')}
+            self.assertEqual(s, o)
 
     def test_check_only_writes_nothing(self):
         path = self.write([('P-1', None, ['A']), ('P-2', None, ['B'])])
@@ -168,6 +206,230 @@ class DrawingSetIntake(unittest.TestCase):
         self.assertTrue(result['inputs_valid'])
         self.assertEqual([d['drawing_id'] for d in result['drawings']], ['DWG-0', 'DWG-1'])
         self.assertFalse(self.out.exists())
+
+
+def layered(segments, junctions):
+    """A minimal model: sheet 0, items A..E (symbol ids a..e), the given pipe segments and junction ids."""
+    items = [{'id': x, 'class': 'valve', 'provenance': [{'sheet': '0', 'symbol': x.lower(), 'class': 'valve',
+                                                          'box_0_1000': [0, 0, 1, 1]}]} for x in 'ABCDE']
+    return {'units': [], 'instruments': [], 'line_items': items, 'offpage_connectors': [],
+            'line_layers': {'junctions': [{'id': j} for j in junctions],
+                            'segments': [{'id': f'S0-PS{n:03d}', 'from': a, 'to': b, 'sheet': '0'}
+                                         for n, (a, b) in enumerate(segments, 1)]}}
+
+
+def sheet(arrows=(), flags=None, pumps=None):
+    return {'0': {'size_px': (1000, 1000), 'arrows': list(arrows), 'flags': flags or {}, 'pumps': pumps or {}}}
+
+
+def arrow(behind, ahead, near_behind, near_ahead):
+    return {'status': 'orients links', 'behind': behind, 'ahead': ahead, 'near_behind': near_behind,
+            'near_ahead': near_ahead, 'box_px': [10, 10, 20, 20], 'dir': 1, 'axis': 'x'}
+
+
+def _walk_relations(o):
+    if isinstance(o, dict):
+        if isinstance(o.get('relations'), list):
+            yield from o['relations']
+        for v in o.values():
+            yield from _walk_relations(v)
+    elif isinstance(o, list):
+        for v in o:
+            yield from _walk_relations(v)
+
+
+@unittest.skipUnless(HAVE_CV2, 'needs OpenCV (requirements.txt): flow_direction.py imports it')
+class SegmentFlowEvidence(unittest.TestCase):
+    """Drawn evidence lands on the one segment it is drawn on, or nowhere; never on a segment from layout."""
+
+    def test_an_arrow_behind_a_tee_orients_only_the_segment_it_is_on(self):
+        model = layered([('A', 'J1'), ('J1', 'B'), ('C', 'J1')], ['J1'])
+        ev = dset.segment_flow_evidence(model, sheet([arrow(['a'], ['b', 'c'], ['a'], [])]))
+        self.assertEqual(list(ev), ['S0-PS001'])
+        self.assertEqual([e[:2] for e in ev['S0-PS001']], [(1, 'arrowhead')])  # A -> J1, the segment's own order
+
+    def test_an_arrow_between_two_items_counts_once_and_points_the_drawn_way(self):
+        model = layered([('B', 'A')], [])
+        ev = dset.segment_flow_evidence(model, sheet([arrow(['a'], ['b'], ['a'], ['b'])]))
+        self.assertEqual([e[:2] for e in ev['S0-PS001']], [(-1, 'arrowhead')])  # flow A -> B is to -> from here
+
+    def test_an_item_with_two_segments_toward_what_lies_ahead_gets_nothing(self):
+        model = layered([('A', 'J1'), ('A', 'J2'), ('J1', 'B'), ('J2', 'B')], ['J1', 'J2'])
+        self.assertEqual(dset.segment_flow_evidence(model, sheet([arrow(['a'], ['b'], ['a'], [])])), {})
+
+    def test_a_segment_whose_far_side_reaches_back_behind_the_arrow_gets_nothing(self):
+        model = layered([('A', 'J1'), ('J1', 'B'), ('J1', 'C')], ['J1'])
+        self.assertEqual(dset.segment_flow_evidence(model, sheet([arrow(['c'], ['b'], ['a'], [])])), {})
+
+    def test_flags_and_pumps_orient_their_own_segments(self):
+        model = layered([('A', 'B'), ('C', 'D'), ('C', 'E')], [])
+        flags = {'a': {'role': 'source', 'tip': 'right', 'box_px': [0, 0, 5, 5]},
+                 'b': {'role': None, 'tip': None, 'box_px': [0, 0, 5, 5]}}
+        pumps = {'c': {'fires': True, 'discharge_to': ['d'], 'suction_from': ['e'], 'box_px': [0, 0, 5, 5]}}
+        ev = dset.segment_flow_evidence(model, sheet(flags=flags, pumps=pumps))
+        self.assertEqual({k: [e[:2] for e in v] for k, v in ev.items()},
+                         {'S0-PS001': [(1, 'offpage_flag')], 'S0-PS002': [(1, 'pump_ports')],
+                          'S0-PS003': [(-1, 'pump_ports')]})
+
+    def conflicted_bundle(self, pairs, extra_valves=()):
+        """A real one-sheet bundle (valve with two off-page flags) given pipe segments `pairs` (symbol ids) and two
+        source flags; returns (model, graph, context-map relations) after the bundle's own flow step."""
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        root = Path(tmp.name)
+        (root / '0.png').write_bytes(png())
+        pred = sheet_pred('U0', ['FROM A', 'FROM C'])
+        for n, v in enumerate(extra_valves):
+            pred['symbols'].append({'id': v, 'class': 'valve', 'tag': f'U0-V-{n + 2}',
+                                    'box': [500 + 60 * n, 300, 540 + 60 * n, 340], 'confidence': .9})
+        (root / '0.json').write_text(json.dumps(pred), encoding='utf-8')
+        (root / 'set.json').write_text(json.dumps({
+            'schema_version': dset.SCHEMA, 'set_id': 'Conflict control', 'extraction_format': 'prediction',
+            'producer': {'method': 'authored synthetic test', 'tool': 'manual', 'model': None},
+            'sheets': [{'drawing_id': 'DWG-0', 'revision': 'A', 'page': 1, 'image': '0.png',
+                        'extraction': '0.json'}]}), encoding='utf-8')
+        dset.import_set(root / 'set.json', root / 'bundle', line_layers=False)
+        model = json.loads((root / 'bundle' / 'plant_model.json').read_text(encoding='utf-8'))
+        asset = {p['symbol']: it['id'] for k in ('units', 'line_items', 'offpage_connectors', 'instruments')
+                 for it in model[k] for p in it['provenance']}
+        model['line_layers'] = {'junctions': [], 'networks': [], 'segments': [
+            {'id': f'S0-PS{n:03d}', 'from': asset[a], 'to': asset[b], 'sheet': '0'}
+            for n, (a, b) in enumerate(pairs, 1)]}
+        flags = {f: {'role': 'source', 'tip': 'right', 'box_px': [0, 0, 5, 5]} for f in ('op0', 'op1')}
+        ev = dset.segment_flow_evidence(model, sheet(flags=flags))
+        valves = [x['id'] for x in model['line_items'] if x['class'] == 'valve']
+        counts, _, _, conflicts = dset.apply_flow(model['line_layers']['segments'], ev, valves)
+        path = root / 'bundle' / 'plant_model.json'
+        path.write_text(json.dumps(model), encoding='utf-8')
+        import context_map
+        import graph_export
+        graph = graph_export.build(path)
+        self.assertEqual(graph_export.problems(graph), [])
+        cmap = context_map.from_twin_graph_1(graph)
+        cmap = cmap[0] if isinstance(cmap, tuple) else cmap
+        self.assertEqual(context_map.check(cmap), [])
+        rels = [r for u in cmap['plant']['units'] for r in u.get('relations', [])] if 'units' in cmap['plant']             else []
+        rels = rels or [r for r in _walk_relations(cmap) if r['type'] == 'piped_to']
+        return model, counts, conflicts, graph, rels
+
+    def test_opposite_flow_into_a_two_port_valve_is_a_conflict_on_both_segments(self):
+        # A -> valve <- C, each from a source flag: continuity through the valve contradicts both
+        model, counts, conflicts, graph, rels = self.conflicted_bundle([('op0', 'valve'), ('op1', 'valve')])
+        self.assertEqual(counts, {'directed': 0, 'undirected': 0, 'conflict': 2})
+        for s in model['line_layers']['segments']:
+            self.assertNotIn('direction', s)
+            c = s['direction_conflict']
+            self.assertEqual(c['kinds'], ['offpage_flag', 'valve_chain'])
+            self.assertEqual(len({(f['flow_from'], f['flow_to']) for f in c['found']}), 2)  # both ways kept
+        edges = [e for e in graph['edges'] if e['type'] == 'piped_to']
+        self.assertEqual({e['direction'] for e in edges}, {'unknown'})
+        for e in edges:
+            self.assertTrue(any(a['name'].startswith('direction_conflict.found') for a in e['attributes']))
+        self.assertEqual(len(rels), 2)
+        for r in rels:
+            self.assertIs(r['directed'], False)
+            self.assertIn('direction_conflict.qualification', r['attributes'])
+
+    def test_continuity_from_both_ends_meeting_at_a_middle_valve_is_withdrawn_with_its_cause(self):
+        # A -> V1 -> V2 <- V3 <- B: each outer flag directs its own segment, continuity carries each one valve on,
+        # and the two propagated directions both flow into V2. No direction may survive, and each record names V2.
+        model, counts, conflicts, graph, rels = self.conflicted_bundle(
+            [('op0', 'valve'), ('valve', 'v2'), ('v2', 'v3'), ('v3', 'op1')], extra_valves=['v2', 'v3'])
+        self.assertEqual(counts, {'directed': 0, 'undirected': 0, 'conflict': 4})
+        v2 = next(x['id'] for x in model['line_items'] if x['tag'] == 'U0-V-2')
+        for s in model['line_layers']['segments']:
+            c = s['direction_conflict']
+            self.assertEqual(c['status'], 'withdrawn')  # each segment's own observations agree
+            self.assertNotIn('points both ways', c['qualification'])
+            self.assertEqual([x['valve'] for x in c['caused_by']], [v2])
+            self.assertEqual(len(c['caused_by'][0]['seeds']), 2)
+            self.assertTrue(all('flow_from' in o and 'segment' in o for o in c['caused_by'][0]['observations']))
+        self.assertEqual({e['direction'] for e in graph['edges'] if e['type'] == 'piped_to'}, {'unknown'})
+        self.assertEqual(len(rels), 4)
+        for r in rels:
+            self.assertIs(r['directed'], False)
+            self.assertEqual(r['attributes']['direction_conflict.status']['value'], 'withdrawn')
+            self.assertEqual(r['attributes']['direction_conflict.caused_by[0].valve']['value'], v2)
+
+    def test_opposing_marks_on_one_segment_keep_both_observations(self):
+        model, counts, conflicts, graph, rels = self.conflicted_bundle([('op0', 'op1')])
+        self.assertEqual(counts['conflict'], 1)
+        c = model['line_layers']['segments'][0]['direction_conflict']
+        self.assertEqual(c['kinds'], ['offpage_flag'])
+        self.assertEqual(len(c['found']), 2)
+        self.assertNotEqual(c['found'][0]['flow_from'], c['found'][1]['flow_from'])
+        self.assertIs(rels[0]['directed'], False)
+        self.assertIn('direction_conflict.qualification', rels[0]['attributes'])
+
+    def test_consistent_flow_through_a_valve_stays_directed(self):
+        sheet_flags = {'op0': {'role': 'source', 'tip': 'right', 'box_px': [0, 0, 5, 5]},
+                       'op1': {'role': 'sink', 'tip': 'left', 'box_px': [0, 0, 5, 5]}}
+        model = layered([('A', 'B'), ('B', 'C')], [])
+        for x, sym in (('A', 'op0'), ('C', 'op1')):
+            model['line_items'][ord(x) - 65]['provenance'][0]['symbol'] = sym
+        ev = dset.segment_flow_evidence(model, sheet(flags=sheet_flags))
+        counts, _, _, _ = dset.apply_flow(model['line_layers']['segments'], ev, ['B'])
+        self.assertEqual(counts, {'directed': 2, 'undirected': 0, 'conflict': 0})
+        self.assertEqual([(s['from'], s['to']) for s in model['line_layers']['segments']], [('A', 'B'), ('B', 'C')])
+
+    def test_exhaustive_chains_and_rings_never_emit_a_continuity_contradiction(self):
+        """Every chain of 1-5 segments (inner nodes two-port valves, ends not valves) and every ring of 3-5 valves,
+        with each segment unmarked or marked either way, in both stored orientations: no two-port valve may end up
+        with both segments flowing in or both out, a directed segment never contradicts its own mark, and when all
+        marks agree with one flow along the run nothing is a conflict."""
+        import itertools
+        cases = 0
+        for ring, n in [(False, k) for k in range(1, 6)] + [(True, k) for k in range(3, 6)]:
+            nodes = [f'N{i}' for i in range(n if ring else n + 1)]
+            valves = nodes if ring else nodes[1:-1]
+            for flip in itertools.product((False, True), repeat=n):
+                if ring and flip[0]:
+                    continue  # rotation/reflection duplicates are cheap but the stored orientation of one is enough
+                for marks in itertools.product((0, 1, -1), repeat=n):
+                    segs, ev = [], {}
+                    for i in range(n):
+                        a, b = nodes[i], nodes[(i + 1) % len(nodes)]
+                        s = {'id': f'S{i}', 'from': b if flip[i] else a, 'to': a if flip[i] else b, 'sheet': '0'}
+                        segs.append(s)
+                        if marks[i]:  # +1: flow a -> b along the run
+                            sign = marks[i] * (-1 if flip[i] else 1)
+                            ev[s['id']] = [(sign, 'arrowhead', 0.8, {'kind': 'arrowhead', 'sheet': '0',
+                                                                       'box_0_1000': [i, 0, i + 1, 1]})]
+                    counts, _, _, _ = dset.apply_flow(segs, ev, valves)
+                    cases += 1
+                    flow = {}
+                    for i, s in enumerate(segs):
+                        if s.get('direction') == 'forward':
+                            along = 1 if (s['from'], s['to']) == (nodes[i], nodes[(i + 1) % len(nodes)]) else -1
+                            flow[i] = along
+                            if marks[i]:
+                                self.assertEqual(along, marks[i], (ring, n, flip, marks))
+                    for i in range(n if ring else n - 1):  # the valve between segment i and i + 1
+                        j = (i + 1) % n
+                        if i in flow and j in flow:
+                            self.assertEqual(flow[i], flow[j], ('contradiction emitted', ring, n, flip, marks))
+                    if len({m for m in marks if m}) <= 1:
+                        self.assertEqual(counts['conflict'], 0, (ring, n, flip, marks))
+                        self.assertTrue(all(i in flow for i in range(n) if marks[i]), (ring, n, flip, marks))
+        self.assertGreater(cases, 3000)
+
+    def test_a_contradiction_in_the_middle_withdraws_the_outer_seeds_and_names_it(self):
+        segs = [{'id': 'S0', 'from': 'A', 'to': 'V1', 'sheet': '0'}, {'id': 'S1', 'from': 'V1', 'to': 'V2', 'sheet': '0'},
+                {'id': 'S2', 'from': 'V2', 'to': 'B', 'sheet': '0'}]
+        mark = lambda s: [(s, 'arrowhead', 0.8, {'kind': 'arrowhead', 'sheet': '0'})]  # noqa: E731
+        counts, _, _, _ = dset.apply_flow(segs, {'S0': mark(1), 'S2': mark(-1)}, ['V1', 'V2'])  # A -> V1 - V2 <- B
+        self.assertEqual(counts['conflict'], 3)
+        middle, outer = segs[1]['direction_conflict'], (segs[0]['direction_conflict'], segs[2]['direction_conflict'])
+        self.assertEqual(middle['status'], 'local_disagreement')
+        for c in outer:
+            self.assertEqual(c['status'], 'withdrawn')
+            self.assertEqual([x['segments'] for x in c['caused_by']], [['S1']])
+            self.assertEqual(c['caused_by'][0]['seeds'], ['S0', 'S2'])
+            self.assertEqual({o.get('through') for o in c['caused_by'][0]['observations']}, {'V1', 'V2'})
+
+    def test_no_evidence_no_direction(self):
+        model = layered([('A', 'B'), ('B', 'C')], [])
+        self.assertEqual(dset.segment_flow_evidence(model, sheet()), {})
 
 
 if __name__ == '__main__':

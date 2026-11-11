@@ -57,6 +57,10 @@ count as delivered.
 - Development: OPEN100 sheets 0-5, TE revisions A and D, Pahala P-401 and P-501. Held out, sealed until a method is
   frozen and scored once: OPEN100 sheets 6-11, the DEXPI held-out renders (A177 split), and other Pahala sheets with
   a text layer.
+  *Qualification added 2026-11-11 (A408):* OPEN100 sheets 6-11 are not untouched for flow direction. The direction
+  confidences that `flow_direction.py` attaches (`data/open100_direction_confidence.json`) were calibrated on a
+  65-crop blind spot check, 31 of whose crops come from sheets 6-11 (`out/open100_structural/spot_check/manifest.json`),
+  and A037 measured arrowhead detection there. A later "sealed" direction score on those sheets must say so.
 - Keep a change only if its relation score rises beyond the run and sheet spread on development, and review load
   does not rise beyond its spread. Record every attempt in `data/attempts.json`, kept or not.
 - Corpus-matrix cells bound to changed code are re-recorded from a fresh clone. Statuses that change must be
