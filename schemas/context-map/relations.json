@@ -1,11 +1,12 @@
 {
  "format": "context-map-relations-1",
- "format_version": "1.1.0-draft",
- "note": "Semantics for every frozen relation name of context-map-1 (since 1.1). Domain and range are class ids from classes.json (a class admits its subclasses) or pseudo-classes: @scope (site, plant, unit, system), @connector (off-page connector, boundary), @loop, @any. A link is checked only when both ends have a certified class; an end with no class is not checked and is counted. A link outside its domain or range is never dropped: it becomes a review row ('link doesn't fit what it connects'). Cardinality is the expected count per from-end and per to-end (0..1, 1, 0..*, 1..*); an upper bound of 1 exceeded is a review row, a lower bound is an expectation rule's job.",
+ "format_version": "1.2.0-draft",
+ "note": "Semantics for every frozen relation name of context-map-1 (since 1.1; 1.2 appends network_member). Domain and range are class ids from classes.json (a class admits its subclasses) or pseudo-classes: @scope (site, plant, unit, system), @connector (off-page connector, boundary), @loop, @network (since 1.2), @any. A link is checked only when both ends have a certified class; an end with no class is not checked and is counted. A link outside its domain or range is never dropped: it becomes a review row ('link doesn't fit what it connects'). Cardinality is the expected count per from-end and per to-end (0..1, 1, 0..*, 1..*); an upper bound of 1 exceeded is a review row, a lower bound is an expectation rule's job.",
  "pseudo_classes": {
   "@scope": "a site, plant, unit or system scope",
   "@connector": "an off-page connector or boundary item",
   "@loop": "a loop",
+  "@network": "a recorded line network (an item of kind line_network); since 1.2",
   "@any": "anything on the map"
  },
  "relations": [
@@ -299,12 +300,41 @@
     "per_to": "0..*"
    },
    "note": "Transitive: a revision reopens everything based on it, directly or not."
+  },
+  {
+   "name": "network_member",
+   "from_to": "item -> item or line network",
+   "means": "on the same recorded line network; not pipe adjacency, not flow",
+   "domain": [
+    "equipment",
+    "valve",
+    "line",
+    "transmitter",
+    "primary_element",
+    "@connector"
+   ],
+   "range": [
+    "equipment",
+    "valve",
+    "line",
+    "transmitter",
+    "primary_element",
+    "@connector",
+    "@network"
+   ],
+   "inverse": "shares_network_with",
+   "transitive": false,
+   "cardinality": {
+    "per_from": "0..*",
+    "per_to": "0..*"
+   },
+   "note": "Since 1.2. Item -> item: both ends are on one recorded network (a drawn line network, or a reader's run between tagged ends through untagged in-line valves and fittings); tees and in-line items may sit between them. Item -> line network: the item is on that network. Never read as piped_to (consecutive items on a pipe run) and never as a flow direction. Same meaning as engineering-context-basis-1 network_member."
   }
  ],
- "twin_graph_2_edges_note": "How one_map.py's twin-graph-2 edge types read as context-map relations, for the same checks. twin-graph-1 uses `controls` for both measurement -> controller and controller -> final element; the first is read as signal_to.",
+ "twin_graph_2_edges_note": "How one_map.py's twin-graph-2 edge types read as context-map relations, for the same checks. twin-graph-1 uses `controls` for both measurement -> controller and controller -> final element; the first is read as signal_to. Since 1.2 `connects` reads as network_member (a run between tagged ends is network co-membership, not pipe adjacency; it read as piped_to in 1.1, which was wrong). The relation checks read this flat table; scripts/context_map.py also reads twin_graph_2_edges_by_layer, which wins where an edge's layer is listed.",
  "twin_graph_2_edges": {
   "contains": "contains",
-  "connects": "piped_to",
+  "connects": "network_member",
   "signal_line": "signal_to",
   "measures": "measures",
   "controls": "controls",
@@ -319,6 +349,63 @@
   "actuated_by": "actuated_by",
   "nozzle_of": "nozzle_of",
   "concerns": null
+ },
+ "twin_graph_2_edges_by_layer": {
+  "connects": {
+   "stream": "network_member",
+   "offpage_pair": "references"
+  }
+ },
+ "twin_graph_1_edges_note": "Since 1.2. How graph_export.py's twin-graph-1 edge types read as context-map relations (scripts/context_map.py). null = kept out of the map, with the reason in twin_graph_1_not_mapped; a converter keeps such edges verbatim beside the map, never drops them silently. `connects` is read by its layer (graph_export.py CONNECTS_LAYERS). A `controls` edge from a measurement reads as signal_to (controls_from_measurement_reads_as).",
+ "twin_graph_1_edges": {
+  "contains": "contains",
+  "connects": null,
+  "measures": "measures",
+  "controls": "controls",
+  "acts_on": "acts_on",
+  "sets_point_of": "sets_point_of",
+  "sits_on": null,
+  "protects": "protects",
+  "trips": null,
+  "applies_to": null,
+  "piped_to": "piped_to",
+  "on_network": "network_member",
+  "instrument_connection": null,
+  "actuated_by": "actuated_by",
+  "nozzle_of": "nozzle_of"
+ },
+ "twin_graph_1_edges_by_layer": {
+  "connects": {
+   "network_pair": "network_member",
+   "offpage_pair": "references",
+   "stream": null
+  }
+ },
+ "twin_graph_1_not_mapped": {
+  "connects/stream": "a hand-built model's logical process stream between declared endpoints; context-map-1 has no logical-stream relation, and piped_to or network_member would claim drawn line work the model does not have",
+  "sits_on": "an item on a logical stream; the stream is not an item of the map",
+  "trips": "measurement to interlock; interlocks belong in the interlock_list register, not the PLANT layer",
+  "applies_to": "limit to its tag; limits belong in the operating_limit register, not the PLANT layer",
+  "instrument_connection": "a drawn instrument line (a bubble's leader or impulse line); the drawing does not say whether it measures, signals or only labels, so no relation is claimed"
+ },
+ "engineering_context_basis_1_relations_note": "Since 1.2. How scripts/context_basis.py RELATIONS predicates read as context-map relations. null = no PLANT relation: the basis keeps it as its own claim. A predicate in engineering_context_basis_1_reversed reads with its ends swapped: 'FIC-101 reads FT-101' is FT-101 signal_to FIC-101.",
+ "engineering_context_basis_1_relations": {
+  "piped_to": "piped_to",
+  "network_member": "network_member",
+  "signal_to": "signal_to",
+  "reads": "signal_to",
+  "commands": "controls",
+  "measures": "measures",
+  "contains": "contains",
+  "associated_with": null,
+  "reported_installation_at": null
+ },
+ "engineering_context_basis_1_reversed": [
+  "reads"
+ ],
+ "engineering_context_basis_1_not_mapped": {
+  "associated_with": "a declared association with no physical or control meaning; no context-map relation says that little",
+  "reported_installation_at": "a record linking an observed physical item to a position; that is a maintenance_export row (RECORDS layer), not a PLANT relation"
  },
  "controls_from_measurement_reads_as": "signal_to"
 }

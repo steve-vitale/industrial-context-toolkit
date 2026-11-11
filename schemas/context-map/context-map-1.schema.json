@@ -1,7 +1,7 @@
 {
  "$schema": "https://json-schema.org/draft/2020-12/schema",
  "$id": "https://github.com/steve-vitale/industrial-context-toolkit/schemas/context-map/context-map-1.schema.json",
- "title": "context-map-1 (DRAFT, 1.1)",
+ "title": "context-map-1 (DRAFT, 1.2)",
  "description": "One plant context map: PLANT, RECORDS, DOCUMENTS and DECISIONS layers plus sources and a coverage report. Draft for owner review; see docs/CONTEXT_MAP_FORMAT.md. Only identity is required: everything a plant has not supplied stays empty and the file stays valid.",
  "type": "object",
  "required": ["format", "map", "plant"],
@@ -52,7 +52,7 @@
    "type": "object", "required": ["value"], "additionalProperties": false,
    "description": "One value with its own provenance. A bare scalar in a row inherits the row's source, revision and locator. No per-value standard reference: a field's standard lives on its definition in standards-mapping.csv.",
    "properties": {
-    "value": {"$ref": "#/$defs/Scalar"},
+    "value": {"oneOf": [{"$ref": "#/$defs/Scalar"}, {"type": "array", "items": {"$ref": "#/$defs/Scalar"}}], "description": "A plain value, or since 1.2 a list of plain values (a list claim such as the sheets an item is drawn on)."},
     "uom": {"type": "string"},
     "source": {"$ref": "#/$defs/Id"},
     "revision": {"type": "string"},
@@ -140,7 +140,7 @@
     "id": {"$ref": "#/$defs/QualifiedId"},
     "tag": {"$ref": "#/$defs/Segment"},
     "scope": {"$ref": "#/$defs/QualifiedId"},
-    "kind": {"enum": ["equipment", "instrument", "controller", "final_element", "manual_valve", "relief_device", "line", "offpage_connector", "boundary", "junction", "other"]},
+    "kind": {"enum": ["equipment", "instrument", "controller", "final_element", "manual_valve", "relief_device", "line", "offpage_connector", "boundary", "junction", "other", "line_network"], "description": "line_network (since 1.2): a recorded line network, the far end of a network_member link."},
     "class": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$", "description": "Since 1.1. Class id from classes.json. Optional; set only where a record says so or the tag letters or a datasheet value give it deterministically."},
     "class_how": {"type": "string", "description": "Since 1.1. Where the class came from (a record column, tag letters, a datasheet value)."},
     "name": {"$ref": "#/$defs/Value"},
@@ -193,12 +193,13 @@
     "source": {"$ref": "#/$defs/Id"},
     "revision": {"type": "string"},
     "locator": {"$ref": "#/$defs/Locator"},
-    "status": {"$ref": "#/$defs/Status"}
+    "status": {"$ref": "#/$defs/Status"},
+    "attributes": {"type": "object", "additionalProperties": {"$ref": "#/$defs/Value"}, "description": "Since 1.2. Values the source states about the link itself (a run's size, fluid, the in-line items it passes), each with its own provenance."}
    }
   },
   "RelationType": {
-   "description": "STABLE relation names, frozen in context-map-1. Other systems map to these names. Renaming or removing one, or changing its direction, needs a new major format (context-map-2); adding a name is a minor version. The document relations covers, mentions and based_on are Document properties and frozen the same way.",
-   "enum": ["contains", "piped_to", "measures", "controls", "sets_point_of", "acts_on", "protects", "signal_to", "actuated_by", "nozzle_of", "references", "member_of"]
+   "description": "STABLE relation names, frozen in context-map-1. Other systems map to these names. Renaming or removing one, or changing its direction, needs a new major format (context-map-2); adding a name is a minor version (1.2 appended network_member). The document relations covers, mentions and based_on are Document properties and frozen the same way.",
+   "enum": ["contains", "piped_to", "measures", "controls", "sets_point_of", "acts_on", "protects", "signal_to", "actuated_by", "nozzle_of", "references", "member_of", "network_member"]
   },
   "Loop": {
    "type": "object", "required": ["id", "scope"], "additionalProperties": false,

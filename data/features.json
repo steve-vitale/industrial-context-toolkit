@@ -1594,7 +1594,8 @@
       "tools": [
         "scripts/one_map.py",
         "scripts/map_changes.py",
-        "scripts/map_explorer.py"
+        "scripts/map_explorer.py",
+        "scripts/context_map.py"
       ],
       "guide": "docs/ONE_MAP.md",
       "example_outputs": [
@@ -1628,7 +1629,8 @@
         "scripts/test_one_map.py",
         "scripts/test_sheet_from_prediction.py",
         "scripts/test_ontology.py",
-        "scripts/test_plant_workflows.py"
+        "scripts/test_plant_workflows.py",
+        "scripts/test_context_map.py"
       ],
       "job": "Connect a site's plant records and documents across plants",
       "you_need": "P&ID sheets read by the drawing reader (converted with one_map.py sheet-from-prediction) or authored sheet reads, a sheet index, whatever equipment and instrument records exist (maintenance equipment export, instrument index, loop list), optional datasheets and a document manifest (PDF, Word, Excel, PowerPoint, HTML or text documents); a site file naming plants, units, shared systems, record owners and which record is authoritative for which kind of fact",

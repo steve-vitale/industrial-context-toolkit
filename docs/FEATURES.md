@@ -415,14 +415,14 @@ Example review: not yet: needs review
 
 **Time:** Seconds
 
-- **Tools:** `one_map.py`, `map_changes.py`, `map_explorer.py`
+- **Tools:** `one_map.py`, `map_changes.py`, `map_explorer.py`, `context_map.py`
 - **How to use it:** [ONE_MAP.md](../docs/ONE_MAP.md)
 
 <details>
 <summary>Example files, tests and independent review</summary>
 
 - **Registered example files:** [`index.html`](../examples/map-explorer/worked/development/explorer/index.html), [`exploration.json`](../examples/map-explorer/worked/development/explorer/exploration.json), [`exploration.json`](../examples/map-explorer/worked/transfer/revision-explorer/exploration.json), [`exploration.json`](../examples/map-explorer/worked/transfer/public-explorer/exploration.json), [`report.md`](../examples/one-map/expected/start/report.md), [`conflicts.md`](../examples/one-map/expected/start/conflicts.md), [`graph.json`](../examples/one-map/expected/start/graph.json), [`review_queue.csv`](../examples/one-map/expected/start/queues/review_queue.csv), [`loops.csv`](../examples/one-map/expected/drafts/p2-300/loops.csv), [`report.md`](../examples/one-map/expected/after-review/report.md), [`open100-sheet0-loops.md`](../examples/one-map/expected/open100-sheet0-loops.md), [`open100-0.json`](../examples/drawing-to-map/inputs/sheets/open100-0.json), [`review_queue.csv`](../examples/drawing-to-map/expected/map/queues/review_queue.csv), [`instrument_index.csv`](../examples/drawing-to-map/expected/drafts/npp-mss/instrument_index.csv), [`review_queue.csv`](../examples/one-map/expected/office/queues/review_queue.csv), [`graph.json`](../examples/one-map/expected/office/graph.json), [`report.md`](../examples/one-map/expected/pasteurizer/report.md), [`review_queue.csv`](../examples/one-map/expected/pasteurizer/queues/review_queue.csv), [`answers.md`](../examples/one-map/expected/pasteurizer/answers.md), [`map.jsonld`](../examples/one-map/expected/pasteurizer/map.jsonld), [`changes.md`](../examples/one-map/expected/pasteurizer-moc/release/changes.md), [`affected.md`](../examples/one-map/expected/pasteurizer-moc/moc-open/affected.md), [`closeout.md`](../examples/one-map/expected/pasteurizer-moc/moc-close/closeout.md), [`review_queue.csv`](../examples/one-map/expected/pasteurizer-moc/close/queues/review_queue.csv)
-- **Tests:** `test_map_explorer.py`, `test_one_map.py`, `test_sheet_from_prediction.py`, `test_ontology.py`, `test_plant_workflows.py`
+- **Tests:** `test_map_explorer.py`, `test_one_map.py`, `test_sheet_from_prediction.py`, `test_ontology.py`, `test_plant_workflows.py`, `test_context_map.py`
 - **Independent review:** none yet
 
 </details>

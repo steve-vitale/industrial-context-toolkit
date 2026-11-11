@@ -612,6 +612,11 @@
       "kind": "support",
       "guide": "examples/map-component-cycle/README.md"
     },
+    "scripts/context_map.py": {
+      "kind": "tool",
+      "guide": "docs/CONTEXT_MAP_FORMAT.md",
+      "purpose": "Read, write and validate context-map-1 files: convert a one-map twin-graph-2 graph or a twin-graph-1 export into the map, and the map back into a twin-graph-1 view, with edges read only through relations.json."
+    },
     "scripts/context_components.py": {
       "kind": "support",
       "guide": "examples/map-component-cycle/README.md"
