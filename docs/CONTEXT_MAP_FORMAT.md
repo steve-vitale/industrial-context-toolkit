@@ -150,12 +150,12 @@ only when the drawing shows the flow on that segment: an arrowhead, an off-page 
 suction port, or continuity through an in-line valve from one of those. Its `from` is then upstream, and its
 `attributes` carry `direction_evidence.basis`, `.confidence`, `.kinds` and where each piece of evidence was found.
 Every other drawn `piped_to` is `directed: false`; no direction is taken from layout. When the drawn
-evidence contradicts itself (two marks on one segment, or two directions meeting head on at a two-port valve,
-propagated ones included), every direction resting on the contradicting evidence is withdrawn. Such a relation is
-still `directed: false` but carries `direction_conflict.status` (`local_disagreement` when its own observations point
+evidence contradicts itself along a run of pipe joined through two-port valves (two marks on one segment, or
+marks anywhere on the run that no single sense of flow satisfies), every direction on that run is withdrawn. Such a relation is
+still `directed: false` but carries `direction_conflict.status` (`local_disagreement` when its own marks point
 both ways, `withdrawn` when they agree but rest on evidence that contradicts itself elsewhere), its own observations
 (`direction_conflict.found[n]`, each with the `flow_from`/`flow_to` it claims) and `direction_conflict.caused_by[n]`
-(the rule, segments, valve, seed segments and every observation involved), so a disagreement is never read as no
+(the rule, the run's segments and valves in order, its seed segments and every observation on it with its sense along the run), so a disagreement is never read as no
 evidence. This uses the existing
 `directed` field and relation attributes, so it is no format change. A drawn direction is not isolation guidance.
 

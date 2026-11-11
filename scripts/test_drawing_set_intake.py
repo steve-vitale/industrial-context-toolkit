@@ -341,7 +341,9 @@ class SegmentFlowEvidence(unittest.TestCase):
             c = s['direction_conflict']
             self.assertEqual(c['status'], 'withdrawn')  # each segment's own observations agree
             self.assertNotIn('points both ways', c['qualification'])
-            self.assertEqual([x['valve'] for x in c['caused_by']], [v2])
+            self.assertEqual(len(c['caused_by']), 1)
+            self.assertIn(v2, c['caused_by'][0]['valves'])
+            self.assertEqual(c['caused_by'][0]['run'], 'path')
             self.assertEqual(len(c['caused_by'][0]['seeds']), 2)
             self.assertTrue(all('flow_from' in o and 'segment' in o for o in c['caused_by'][0]['observations']))
         self.assertEqual({e['direction'] for e in graph['edges'] if e['type'] == 'piped_to'}, {'unknown'})
@@ -349,7 +351,7 @@ class SegmentFlowEvidence(unittest.TestCase):
         for r in rels:
             self.assertIs(r['directed'], False)
             self.assertEqual(r['attributes']['direction_conflict.status']['value'], 'withdrawn')
-            self.assertEqual(r['attributes']['direction_conflict.caused_by[0].valve']['value'], v2)
+            self.assertIn(v2, r['attributes']['direction_conflict.caused_by[0].valves']['value'])
 
     def test_opposing_marks_on_one_segment_keep_both_observations(self):
         model, counts, conflicts, graph, rels = self.conflicted_bundle([('op0', 'op1')])
@@ -372,60 +374,134 @@ class SegmentFlowEvidence(unittest.TestCase):
         self.assertEqual(counts, {'directed': 2, 'undirected': 0, 'conflict': 0})
         self.assertEqual([(s['from'], s['to']) for s in model['line_layers']['segments']], [('A', 'B'), ('B', 'C')])
 
-    def test_exhaustive_chains_and_rings_never_emit_a_continuity_contradiction(self):
-        """Every chain of 1-5 segments (inner nodes two-port valves, ends not valves) and every ring of 3-5 valves,
-        with each segment unmarked or marked either way, in both stored orientations: no two-port valve may end up
-        with both segments flowing in or both out, a directed segment never contradicts its own mark, and when all
-        marks agree with one flow along the run nothing is a conflict."""
+    def run_case(self, segs, ev, valves, label):
+        """Apply the flow step to a copy and check it with an oracle independent of valve_runs: runs are the segments
+        joined through valves with exactly two segments, each oriented by walking it; along each run every emitted
+        direction, and every own mark it rests on, must agree with one sense of travel (one rotation on a ring), so
+        the emitted directions admit a consistent completion. When every run's marks agree, nothing may be a
+        conflict and every marked segment is directed. Returns the counts."""
+        orig = {s['id']: (s['from'], s['to']) for s in segs}
+        segs = [dict(s) for s in segs]
+        counts, _, _, _ = dset.apply_flow(segs, ev, valves)
+        ends = {}
+        for sid, (a, b) in orig.items():
+            for node in {a, b}:
+                ends.setdefault(node, []).append(sid)
+        two = {v for v in valves if len(ends.get(v, [])) == 2}
+        sense, run_of = {}, {}
+        for start in orig:
+            if start in sense:
+                continue
+            sense[start], run_of[start], todo = 1, start, [start]
+            while todo:
+                x = todo.pop()
+                a, b = orig[x]
+                exit_node, entry_node = (b, a) if sense[x] > 0 else (a, b)
+                for node, leaving in ((exit_node, True), (entry_node, False)):
+                    if node not in two:
+                        continue
+                    y = next(i for i in ends[node] if i != x)
+                    if y in sense:
+                        continue
+                    ya, yb = orig[y]
+                    sense[y] = (1 if ya == node else -1) if leaving else (1 if yb == node else -1)
+                    run_of[y] = start
+                    todo.append(y)
+        emitted, marks = {}, {}
+        for s in segs:
+            r = run_of[s['id']]
+            if s.get('direction') == 'forward':
+                same = (s['from'], s['to']) == orig[s['id']]
+                emitted.setdefault(r, set()).add(sense[s['id']] * (1 if same else -1))
+                for e in ev.get(s['id'], []):  # a directed segment never contradicts its own mark
+                    self.assertEqual(e[0], 1 if same else -1, label)
+            for e in ev.get(s['id'], []):
+                marks.setdefault(r, set()).add(e[0] * sense[s['id']])
+        for r, senses in emitted.items():
+            self.assertEqual(len(senses), 1, ('no consistent completion', label))
+            self.assertLessEqual(marks.get(r, set()), senses, ('emitted against a mark on its run', label))
+        if all(len(v) == 1 for v in marks.values()):
+            self.assertEqual(counts['conflict'], 0, label)
+            self.assertTrue(all(s.get('direction') == 'forward' for s in segs if s['id'] in ev), label)
+        return counts
+
+    def test_reviewer_reproduction_a_gap_between_two_valves_hides_no_contradiction(self):
+        # A -> V1 -> V2 - V3 <- V4 <- B, marks on the outer segments only: the middle segment would have to point
+        # both ways, so nothing on the run may be directed
+        nodes = ['A', 'V1', 'V2', 'V3', 'V4', 'B']
+        segs = [{'id': str(i), 'from': a, 'to': b, 'sheet': '0'} for i, (a, b) in enumerate(zip(nodes, nodes[1:]))]
+        ev = {sid: [(sign, 'arrowhead', .886, {'kind': 'arrowhead'})] for sid, sign in (('0', 1), ('4', -1))}
+        counts, _, _, _ = dset.apply_flow(segs, ev, nodes[1:-1])
+        self.assertEqual(counts, {'directed': 0, 'undirected': 1, 'conflict': 4})
+        c = segs[0]['direction_conflict']
+        self.assertEqual(c['status'], 'withdrawn')
+        self.assertEqual(c['caused_by'][0]['segments'], ['0', '1', '2', '3', '4'])
+        self.assertEqual(c['caused_by'][0]['valves'], ['V1', 'V2', 'V3', 'V4'])
+        self.assertEqual(c['caused_by'][0]['seeds'], ['0', '4'])
+        self.assertEqual({o['along_run'] for o in c['caused_by'][0]['observations']}, {1, -1})
+        self.assertNotIn('direction', segs[2])
+        self.assertNotIn('direction_conflict', segs[2])  # no evidence reached it: untouched
+
+    def test_exhaustive_chains_and_rings_emit_only_directions_with_a_consistent_completion(self):
+        """Chains of 1-8 segments (inner nodes two-port valves) and rings of 3-8 valves, every mark pattern (none,
+        one way, the other); every stored orientation up to 5 segments, then all forward, alternating and two fixed
+        mixed patterns."""
         import itertools
         cases = 0
-        for ring, n in [(False, k) for k in range(1, 6)] + [(True, k) for k in range(3, 6)]:
+        for ring, n in [(False, k) for k in range(1, 9)] + [(True, k) for k in range(3, 9)]:
             nodes = [f'N{i}' for i in range(n if ring else n + 1)]
             valves = nodes if ring else nodes[1:-1]
-            for flip in itertools.product((False, True), repeat=n):
-                if ring and flip[0]:
-                    continue  # rotation/reflection duplicates are cheap but the stored orientation of one is enough
+            flips = (list(itertools.product((False, True), repeat=n)) if n <= 5 else
+                     [tuple([False] * n), tuple(i % 2 == 1 for i in range(n)), tuple(i % 3 == 0 for i in range(n)),
+                      tuple(i in (1, 2, 5) for i in range(n))])
+            for flip in flips:
+                segs = [{'id': f'S{i}', 'sheet': '0',
+                         'from': nodes[(i + 1) % len(nodes)] if flip[i] else nodes[i],
+                         'to': nodes[i] if flip[i] else nodes[(i + 1) % len(nodes)]} for i in range(n)]
                 for marks in itertools.product((0, 1, -1), repeat=n):
-                    segs, ev = [], {}
-                    for i in range(n):
-                        a, b = nodes[i], nodes[(i + 1) % len(nodes)]
-                        s = {'id': f'S{i}', 'from': b if flip[i] else a, 'to': a if flip[i] else b, 'sheet': '0'}
-                        segs.append(s)
-                        if marks[i]:  # +1: flow a -> b along the run
-                            sign = marks[i] * (-1 if flip[i] else 1)
-                            ev[s['id']] = [(sign, 'arrowhead', 0.8, {'kind': 'arrowhead', 'sheet': '0',
-                                                                       'box_0_1000': [i, 0, i + 1, 1]})]
-                    counts, _, _, _ = dset.apply_flow(segs, ev, valves)
+                    ev = {f'S{i}': [(m * (-1 if flip[i] else 1), 'arrowhead', .8,
+                                     {'kind': 'arrowhead', 'box_0_1000': [i, 0, i + 1, 1]})]
+                          for i, m in enumerate(marks) if m}
+                    self.run_case(segs, ev, valves, (ring, n, flip, marks))
                     cases += 1
-                    flow = {}
-                    for i, s in enumerate(segs):
-                        if s.get('direction') == 'forward':
-                            along = 1 if (s['from'], s['to']) == (nodes[i], nodes[(i + 1) % len(nodes)]) else -1
-                            flow[i] = along
-                            if marks[i]:
-                                self.assertEqual(along, marks[i], (ring, n, flip, marks))
-                    for i in range(n if ring else n - 1):  # the valve between segment i and i + 1
-                        j = (i + 1) % n
-                        if i in flow and j in flow:
-                            self.assertEqual(flow[i], flow[j], ('contradiction emitted', ring, n, flip, marks))
-                    if len({m for m in marks if m}) <= 1:
-                        self.assertEqual(counts['conflict'], 0, (ring, n, flip, marks))
-                        self.assertTrue(all(i in flow for i in range(n) if marks[i]), (ring, n, flip, marks))
-        self.assertGreater(cases, 3000)
+        self.assertEqual(cases, 94434)
 
-    def test_a_contradiction_in_the_middle_withdraws_the_outer_seeds_and_names_it(self):
+    def test_three_port_valves_and_other_items_split_runs(self):
+        """A valve with three segments, or an item that is not a valve, ends a run: marks on different arms never
+        contradict each other, and continuity is never carried through them."""
+        import itertools
+        for middle in ('V', 'P'):  # arm 0 passes a valve, or a pump (not a valve)
+            segs = []
+            for i in range(3):
+                inner = f'{middle if i == 0 else "V"}{i}'
+                segs += [{'id': f'S{i}a', 'from': f'A{i}', 'to': inner, 'sheet': '0'},
+                         {'id': f'S{i}b', 'from': inner, 'to': 'T', 'sheet': '0'}]
+            valves = ['T', 'V1', 'V2'] + (['V0'] if middle == 'V' else [])
+            for marks in itertools.product((0, 1, -1), repeat=6):
+                ev = {s['id']: [(m, 'arrowhead', .8, {'kind': 'arrowhead', 'box_0_1000': [k, 0, k + 1, 1]})]
+                      for k, (s, m) in enumerate(zip(segs, marks)) if m}
+                counts = self.run_case(segs, ev, valves, (middle, marks))
+                if middle == 'V' and marks == (1, 0, 1, 0, 1, 0):
+                    self.assertEqual(counts, {'directed': 6, 'undirected': 0, 'conflict': 0})  # all arms into T
+                if middle == 'P' and marks == (1, -1, 0, 0, 0, 0):
+                    self.assertEqual(counts['conflict'], 0)  # A0 -> pump <- T: no continuity through a pump
+
+    def test_a_contradiction_in_the_middle_withdraws_the_whole_run_and_names_it(self):
         segs = [{'id': 'S0', 'from': 'A', 'to': 'V1', 'sheet': '0'}, {'id': 'S1', 'from': 'V1', 'to': 'V2', 'sheet': '0'},
                 {'id': 'S2', 'from': 'V2', 'to': 'B', 'sheet': '0'}]
         mark = lambda s: [(s, 'arrowhead', 0.8, {'kind': 'arrowhead', 'sheet': '0'})]  # noqa: E731
         counts, _, _, _ = dset.apply_flow(segs, {'S0': mark(1), 'S2': mark(-1)}, ['V1', 'V2'])  # A -> V1 - V2 <- B
         self.assertEqual(counts['conflict'], 3)
-        middle, outer = segs[1]['direction_conflict'], (segs[0]['direction_conflict'], segs[2]['direction_conflict'])
-        self.assertEqual(middle['status'], 'local_disagreement')
-        for c in outer:
-            self.assertEqual(c['status'], 'withdrawn')
-            self.assertEqual([x['segments'] for x in c['caused_by']], [['S1']])
+        for s in segs:
+            c = s['direction_conflict']
+            self.assertEqual(c['status'], 'withdrawn')  # no segment's own marks disagree
+            self.assertEqual(c['caused_by'][0]['segments'], ['S0', 'S1', 'S2'])
             self.assertEqual(c['caused_by'][0]['seeds'], ['S0', 'S2'])
-            self.assertEqual({o.get('through') for o in c['caused_by'][0]['observations']}, {'V1', 'V2'})
+        self.assertEqual({o.get('through') for o in segs[1]['direction_conflict']['caused_by'][0]['observations']},
+                         {None, 'V1', 'V2'})
+        one = [{'id': 'S0', 'from': 'A', 'to': 'B', 'sheet': '0'}]
+        dset.apply_flow(one, {'S0': mark(1) + [(-1, 'offpage_flag', .8, {'kind': 'offpage_flag'})]}, [])
+        self.assertEqual(one[0]['direction_conflict']['status'], 'local_disagreement')
 
     def test_no_evidence_no_direction(self):
         model = layered([('A', 'B'), ('B', 'C')], [])

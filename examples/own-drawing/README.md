@@ -248,8 +248,8 @@ point, a pump's top discharge or side suction port, or continuity through an in-
 detectors of [`flow_direction.py`](../../scripts/flow_direction.py)). A directed segment runs `from` -> `to` in the
 flow direction, with `direction: "forward"` and `direction_evidence` (basis, confidence, the kinds of evidence and
 where each was found); its `piped_to` edge in the graph export is `direction: forward`. Every other segment stays
-undirected. Where the evidence contradicts itself (two marks on one segment, or two directions meeting head on at a
-valve), every direction resting on it is withdrawn; those segments get no direction but a `direction_conflict` record
+undirected. Flow through a valve with two pipe segments is continuous, so where the marks along such a run of
+pipe admit no single sense of flow, every direction on the run is withdrawn; those segments get no direction but a `direction_conflict` record
 saying whether the disagreement is on the segment itself or elsewhere, and which contradiction caused it.
 `meta.flow_direction_status` counts all three. Nothing is guessed
 from layout, and a drawn flow direction is review evidence, not isolation or lockout guidance. `--no-flow-direction`

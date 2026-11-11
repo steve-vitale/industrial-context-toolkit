@@ -24,11 +24,13 @@ scripts/flow_direction.py's detectors (unchanged): an arrowhead on the segment, 
 top discharge and side suction port, or continuity through an in-line valve from one of those. A directed segment
 has from -> to in the flow direction, direction "forward" and direction_evidence (basis, confidence, the evidence
 kinds and where each was found). A segment with no such evidence stays exactly as the line layers wrote it:
-undirected. Directions are checked for consistency after continuity is carried, propagated ones included: two marks
-on one segment must agree, and at every two-port valve one segment must flow in and the other out. A contradiction
-withdraws every direction that rests on its seeds (repeated to a fixpoint, decide_flow). A withdrawn or disputed
-segment gets no direction and a direction_conflict record (local disagreement or withdrawn, with the contradiction
-that caused it), so a disagreement is never mistaken for missing evidence. Nothing is inferred from layout (left to right, top to bottom),
+undirected. Flow through a valve with exactly two pipe segments is continuous, so each maximal run of segments
+joined through such valves (a path or a ring, valve_runs) must carry one sense of flow: every mark and every
+continuity direction on it, however far apart and whatever unknown segments lie between, must agree with one
+traversal (one rotation on a ring). A run where any two disagree gets no direction at all: each segment evidence
+reached gets a direction_conflict record (local disagreement when its own marks point both ways, withdrawn
+otherwise) with the run's segments and valves in order and every observation on it, so a disagreement is never
+mistaken for missing evidence. Any other item, a junction or a valve with three or more segments ends a run. Nothing is inferred from layout (left to right, top to bottom),
 and a flow direction is not isolation or lockout guidance. meta.flow_direction_status counts all three.
 --no-flow-direction turns it off.
 """
@@ -292,111 +294,120 @@ def _says(segment, e):
     return {**e[3], "flow_from": a, "flow_to": b}
 
 
-def _flows_into(segment, valve, sign):
-    """True when a segment directed `sign` (+1: from -> to) carries flow into `valve`, one of its ends."""
-    return (segment["to"] == valve) == (sign > 0)
+def valve_runs(segments, valves):
+    """Maximal runs of pipe segments joined through two-port valves (a valve with exactly two pipe segments), in
+    traversal order. Each run is {"kind": "path" | "ring", "steps": [(segment, +1 if the segment's from -> to follows
+    the traversal else -1)], "valves": [the valves passed, in order]}. Anything else at a segment end (an item that
+    is not a valve, a valve with one or three or more segments, a junction) ends a run, so continuity is never
+    assumed through it. Every segment is in exactly one run."""
+    ends = {}
+    for s in segments:
+        for n in {s["from"], s["to"]}:
+            ends.setdefault(n, []).append(s)
+    two_port = {v for v in valves if len(ends.get(v, [])) == 2}
+
+    def other_end(s, n):
+        return s["to"] if s["from"] == n else s["from"]
+
+    def walk(s, start):
+        steps, vs, node, seen = [], [], start, set()
+        while s is not None and s["id"] not in seen:
+            seen.add(s["id"])
+            steps.append((s, 1 if s["from"] == node else -1))
+            node = other_end(s, node)
+            if node not in two_port:
+                break
+            nxt = next(x for x in ends[node] if x is not s)
+            if nxt["id"] in seen:  # back to the start: a ring
+                vs.append(node)
+                break
+            vs.append(node)
+            s = nxt
+        return steps, vs
+    runs, placed = [], set()
+    for s in segments:  # paths first, from an end that is not a two-port valve
+        if s["id"] in placed or s["from"] == s["to"]:
+            continue
+        for start in (s["from"], s["to"]):
+            if start not in two_port:
+                steps, vs = walk(s, start)
+                runs.append({"kind": "path", "steps": steps, "valves": vs})
+                placed |= {x["id"] for x, _ in steps}
+                break
+    for s in segments:  # what is left closes on itself through two-port valves
+        if s["id"] in placed:
+            continue
+        steps, vs = walk(s, s["from"])
+        runs.append({"kind": "ring" if s["from"] != s["to"] else "path", "steps": steps, "valves": vs})
+        placed |= {x["id"] for x, _ in steps}
+    return runs
 
 
 def decide_flow(segments, evidence, valves):
     """({segment id: decision}, {segment id: segment}) for every segment that drawn evidence reached. A decision is
-    either {"direction": forward | reverse, "confidence", "basis", "lineage", "used"} or {"direction": "conflict",
-    "seen", "local", "contradictions"}.
+    {"direction": forward | reverse, "confidence", "basis", "used"} or {"direction": "conflict", "seen", "local",
+    "contradictions"}.
 
-    Proposals: each segment's own drawn marks (first-hand), and continuity through each valve with exactly two pipe
-    segments from a first-hand seed on the other side (flow_direction.propagate_valves, one hop, unchanged). Every
-    proposal carries its lineage: the seed segment it rests on. Two rules are then checked against the final
-    proposed directions, propagated ones included:
-      - the observations on one segment agree;
-      - at every two-port valve, one segment carries flow in and the other out.
-    A contradiction disputes every seed in its lineage; a disputed seed proposes nothing, so every direction that
-    rested on it is withdrawn. Repeated to a fixpoint (contradictions and disputed seeds only grow, so it ends). A
-    conflicted segment keeps the contradictions that caused it."""
+    Flow through a two-port valve is continuous, so along one run (valve_runs) every direction must agree with one
+    traversal sense, on a ring with one rotation. Each segment's own drawn marks, and continuity carried one hop
+    through a valve from a segment whose own marks agree (flow_direction.propagate_valves, unchanged), are oriented
+    to the run's traversal. If they all agree, the segments they reach are directed; if any two disagree, however far
+    apart and whatever unknown segments lie between, the run admits no consistent flow: every direction in it is
+    withdrawn, and each segment it reached records the run (its segments and valves in order) and every observation
+    on it. Runs never share a segment, so one run's contradiction withdraws nothing elsewhere."""
     import flow_direction as fd
     by_id = {s["id"]: s for s in segments}
-    ends = {}
-    for s in segments:
-        for n in (s["from"], s["to"]):
-            ends.setdefault(n, []).append(s)
-    two_port = {v: ends[v] for v in valves if len(ends.get(v, [])) == 2}
     first = {sid: fd.combine(e) for sid, e in evidence.items()}
-    seedable = {sid for sid, d in first.items() if d[0] in ("forward", "reverse")}
-    disputed, contradictions, seen = set(), {}, {}
-    while True:
-        seeds = seedable - disputed
-        proposals = {sid: [(*e, sid if sid in seeds else None) for e in obs] for sid, obs in evidence.items()}
-        chain = fd.propagate_valves(segments, {sid: first[sid] for sid in seeds}, valves, fd.confidence("valve_chain"))
-        for sid, more in chain.items():
-            proposals.setdefault(sid, []).extend(
-                (e[0], e[1], e[2], {"kind": "valve_chain", "through": e[3]["through"],
-                                    "from_segment": e[3]["from_link"]}, e[3]["from_link"]) for e in more)
-        for sid, obs in proposals.items():
-            for x in obs:
-                if x not in seen.setdefault(sid, []):
-                    seen[sid].append(x)
-        found, final = [], {}
-        for sid, obs in sorted(proposals.items()):
-            if not obs:
-                continue
-            lineage = {x[4] for x in obs if x[4]}
-            if len({x[0] for x in obs}) > 1:
-                found.append({"rule": "observations on one segment disagree", "segments": [sid], "valve": None,
-                              "observations": [(sid, x) for x in obs], "lineage": lineage})
-            elif sid in seeds or sid not in evidence:  # a disputed seed's own marks direct nothing
-                final[sid] = (obs[0][0], lineage)
-        for v, (a, b) in sorted(two_port.items()):
-            if a["id"] not in final or b["id"] not in final:
-                continue
-            into_a = _flows_into(a, v, final[a["id"]][0])
-            if into_a == _flows_into(b, v, final[b["id"]][0]):
-                both = sorted((a["id"], b["id"]))
-                found.append({"rule": "both segments of a two-port valve flow " + ("in" if into_a else "out"),
-                              "segments": both, "valve": v,
-                              "observations": [(sid, x) for sid in both for x in proposals[sid]],
-                              "lineage": final[a["id"]][1] | final[b["id"]][1]})
-        grew = False
-        for c in found:
-            key = (c["rule"], tuple(c["segments"]), c["valve"])
-            if key not in contradictions:
-                contradictions[key] = c
-                grew = True
-            if not c["lineage"] <= disputed:
-                disputed |= c["lineage"]
-                grew = True
-        if not grew:
-            break
+    seeds = {sid: d for sid, d in first.items() if d[0] in ("forward", "reverse")}
+    proposals = {sid: [(*e, sid) for e in obs] for sid, obs in evidence.items()}
+    for sid, more in fd.propagate_valves(segments, seeds, valves, fd.confidence("valve_chain")).items():
+        proposals.setdefault(sid, []).extend(
+            (e[0], e[1], e[2], {"kind": "valve_chain", "through": e[3]["through"], "from_segment": e[3]["from_link"]},
+             e[3]["from_link"]) for e in more)
     out = {}
-    for sid in seen:
-        mine = [c for c in contradictions.values() if sid in c["segments"]]
-        if sid in final and not mine:
-            direction, confidence, basis = fd.combine([x[:4] for x in proposals[sid]])
-            tier = (lambda k: k != "valve_chain") if basis == "first_hand" else (lambda k: k == "valve_chain")
-            out[sid] = {"direction": direction, "confidence": confidence, "basis": basis, "lineage": final[sid][1],
-                        "used": [x[:4] for x in proposals[sid] if tier(x[1])]}
+    for run in valve_runs(segments, valves):
+        along = {s["id"]: sense for s, sense in run["steps"]}
+        reached = [s["id"] for s, _ in run["steps"] if proposals.get(s["id"])]
+        if not reached:
             continue
-        rests_on = {x[4] for x in seen[sid] if x[4]} | ({sid} if sid in seedable else set())
-        caused = [c for c in contradictions.values() if c not in mine and c["lineage"] & rests_on]
-        out[sid] = {"direction": "conflict", "seen": seen[sid], "local": len({x[0] for x in seen[sid]}) > 1,
-                    "contradictions": mine + caused}
+        senses = {x[0] * along[sid] for sid in reached for x in proposals[sid]}
+        if len(senses) == 1:
+            for sid in reached:
+                direction, confidence, basis = fd.combine([x[:4] for x in proposals[sid]])
+                tier = (lambda k: k != "valve_chain") if basis == "first_hand" else (lambda k: k == "valve_chain")
+                out[sid] = {"direction": direction, "confidence": confidence, "basis": basis,
+                            "used": [x[:4] for x in proposals[sid] if tier(x[1])]}
+            continue
+        cause = {"rule": f"directions along one {run['kind']} of two-port valves disagree"
+                         + (" (no single rotation)" if run["kind"] == "ring" else ""),
+                 "kind": run["kind"], "segments": [s["id"] for s, _ in run["steps"]], "valves": run["valves"],
+                 "seeds": sorted({x[4] for sid in reached for x in proposals[sid] if x[1] != "valve_chain"}),
+                 "observations": [(sid, x, x[0] * along[sid]) for sid in reached for x in proposals[sid]]}
+        for sid in reached:
+            own = evidence.get(sid, [])
+            out[sid] = {"direction": "conflict", "seen": proposals[sid], "local": len({x[0] for x in own}) > 1,
+                        "contradictions": [cause]}
     return out, by_id
 
 
 def _conflict_record(s, d, by_id):
-    """direction_conflict for one segment: its own observations, whether they disagree here (local_disagreement) or
-    agree but rest on evidence that contradicts itself elsewhere (withdrawn), and each contradiction that caused it:
-    its rule, segments, valve, the seed segments involved and every observation, each with the segment it is on, the
-    flow it claims and, for continuity, the valve it passed through and the seed it came from."""
-    def obs(sid, x):
-        return {**_says(by_id[sid], x), "segment": sid, **({"seed": x[4]} if x[4] else {})}
+    """direction_conflict for one segment: its own observations, whether its own marks disagree
+    (local_disagreement) or its direction is withdrawn because the run it is on admits no consistent flow
+    (withdrawn), and the run that caused it: segments and valves in traversal order, the seed segments, and every
+    observation on the run with the segment it is on, the flow it claims, its sense along the run (+1 / -1) and, for
+    continuity, the valve it passed through and the segment it came from."""
+    def obs(sid, x, sense):
+        return {**_says(by_id[sid], x), "segment": sid, "along_run": sense}
     own = d["seen"]
     return {
         "status": "local_disagreement" if d["local"] else "withdrawn",
-        "qualification": ("the drawn evidence on this segment points both ways; its direction is unknown" if d["local"]
-                          else "this segment's own observations agree, but they rest on evidence that contradicts "
-                               "itself elsewhere (caused_by), so its direction is withdrawn and unknown"),
+        "qualification": ("the drawn marks on this segment point both ways; its direction is unknown" if d["local"]
+                          else "this segment's own observations agree, but the run of two-port valves it is on "
+                               "admits no consistent flow (caused_by), so its direction is withdrawn and unknown"),
         "kinds": sorted({x[1] for x in own}, key=FLOW_SOURCES.index),
         "found": [_says(s, x) for x in own],
-        "caused_by": [{"rule": c["rule"], "segments": c["segments"], **({"valve": c["valve"]} if c["valve"] else {}),
-                       "seeds": sorted(c["lineage"]), "observations": [obs(sid, x) for sid, x in c["observations"]]}
+        "caused_by": [{"rule": c["rule"], "run": c["kind"], "segments": c["segments"], "valves": c["valves"],
+                       "seeds": c["seeds"], "observations": [obs(*o) for o in c["observations"]]}
                       for c in d["contradictions"]]}
 
 
