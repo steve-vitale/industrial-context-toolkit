@@ -253,7 +253,10 @@ turns them into runs between tagged ends with these rules (`scripts/one_map.py`,
   drawing registered without sheet numbers). Several matches narrow on the printed name with the reference removed;
   a pair is written only when each side has exactly one candidate. Otherwise the connector is a review row:
   `off-page connector unpaired` (no reference read, or the named sheet is not in the sheet index) or `off-page
-  pairing unclear`. A connector with an explicit `to` pairs as before.
+  pairing unclear`. A connector with an explicit `to` pairs as before. The drawing-set importer now uses the shared
+  rule in [`offpage_pairing.py`](../scripts/offpage_pairing.py) (literal numbers with any separator, ties never
+  decided by order); this map keeps the rule above until the map-explorer method
+  ([FREEZE.json](../examples/map-explorer/FREEZE.json), which pins `one_map.py`) is deliberately re-frozen.
 
 ### Lining up and locating (step 2)
 

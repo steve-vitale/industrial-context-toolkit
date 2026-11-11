@@ -5,12 +5,12 @@ builds one model across the set (build_twin.py), and pairs off-page connectors a
 model, traces, scores, connects signals or approves operations. Input schema: site-drawing-set-1. See --help.
 
 Cross-sheet pairing runs in two passes, each recorded on the pair as its method:
-  1. build_twin.py's own rules, for references written like "PID 140-1".
-  2. Literal matching on the drawing numbers supplied in the manifest, for references written any other way
-     ("REF SHT P-204", "DWG 10-PI-003"):
-       reciprocal_supplied_numbers        a connector on sheet A names B's number and one on B names A's number;
-       one_way_number_plus_sheet_title     a connector on A names B's number, and a connector on B names no
-                                           drawing but carries every word of A's supplied title.
+  1. build_twin.py's own in-model pass, for references written like "PID 140-1".
+  2. scripts/offpage_pairing.py, the one cross-sheet rule, on the connectors pass 1 left: literal matching on the
+     drawing numbers and titles supplied in the manifest, for references written any other way ("REF SHT P-204",
+     "DWG 10-PI-003", "PID 140?1" with an unreadable separator). Its methods (reciprocal_supplied_numbers,
+     one_way_number_plus_sheet_title, one_way_number_plus_system_code) and evidence are kept on each pair;
+     equally good candidates are never decided by order and stay unpaired with the candidates named.
 Every pair stays unverified and is listed in the review queue with its method.
 
 The bundle also gets the drawn line layers (scripts/line_layers.py): pipe segments between consecutive items
@@ -30,95 +30,61 @@ import tempfile
 import build_twin
 import generate
 import import_site_drawing as one
+import offpage_pairing
 import pi_mapping
 
 SCHEMA = "site-drawing-set-1"
 MAX_SHEETS = 200
 LIMITATIONS = one.LIMITATIONS + [
-    "Cross-sheet pairs are matched from connector text and the supplied drawing numbers and titles; a pair is a "
-    "review candidate, not an established continuation.",
+    "Cross-sheet pairs are matched from connector text and the supplied drawing numbers, titles and system codes; a "
+    "pair is a review candidate, not an established continuation.",
 ]
-TITLE_STOP = {"PID", "P&ID", "DRAWING", "DWG", "SHEET", "SHT", "REF", "SEE", "FROM", "TO", "THE", "AND", "OF", "FOR"}
 SHEET_KEYS = {"drawing_id", "revision", "page", "image", "extraction", "drawing_number", "system_code",
               "system_name", "title"}
 
 
 def number_pattern(number):
-    """A supplied drawing number as a literal, separator-tolerant pattern: P-204 matches 'P-204', 'P 204', 'P204'
-    but never 'P-2045' or 'XP-204'."""
-    runs = re.findall(r"[A-Z0-9]+", number.upper())
-    one.require(bool(runs), f"drawing_number {number!r} has no letters or digits")
-    return re.compile(r"(?<![A-Z0-9])" + r"[\s\-_./]*".join(map(re.escape, runs)) + r"(?![A-Z0-9])")
+    """A supplied drawing number as offpage_pairing reads it; refuses a number with no letters or digits."""
+    try:
+        return offpage_pairing.number_pattern(number)
+    except ValueError as error:
+        raise ValueError(f"drawing_number {number!r} has no letters or digits") from error
 
 
-def title_words(text):
-    return {w for w in re.findall(r"[A-Z][A-Z0-9&]{2,}", (text or "").upper()) if w not in TITLE_STOP}
-
-
-def pair_by_supplied_numbers(model, numbers, titles):
-    """Second pairing pass (module docstring). Mutates the model's connectors, pairs and streams in place."""
-    patterns = {s: number_pattern(n) for s, n in numbers.items()}
+def pair_by_supplied_numbers(model, numbers, titles, codes=None):
+    """Second pairing pass (module docstring): offpage_pairing.pair over the connectors build_twin left unpaired.
+    Mutates the model's connectors, pairs and streams in place; returns the number of pairs added."""
     sheet_of = {c["id"]: c["provenance"][0]["sheet"] for c in model["offpage_connectors"]}
-
-    def refs(c):
-        text = (c.get("text") or "").upper()
-        return sorted(s for s, p in patterns.items() if s != sheet_of[c["id"]] and p.search(text))
-
     open_ = [c for c in model["offpage_connectors"] if not c["pair"]]
-    named = {c["id"]: refs(c) for c in open_}
-    candidates = []
-    for x in open_:
-        if len(named[x["id"]]) != 1:
-            continue
-        a, b = sheet_of[x["id"]], named[x["id"]][0]
-        for y in open_:
-            if sheet_of[y["id"]] != b:
-                continue
-            if named[y["id"]] == [a]:
-                method = "reciprocal_supplied_numbers"
-            elif not named[y["id"]] and not y.get("refers_to_drawing") and len(title_words(titles.get(a))) >= 2 \
-                    and title_words(titles.get(a)) <= title_words(y.get("text")):
-                method = "one_way_number_plus_sheet_title"
-            else:
-                continue
-            wx = build_twin.tag_tokens(patterns[b].sub(" ", (x.get("text") or "").upper()))
-            wy = build_twin.tag_tokens(patterns[a].sub(" ", (y.get("text") or "").upper()))
-            sim = len(wx & wy) / len(wx | wy) if wx | wy else 0.0
-            candidates.append((method != "reciprocal_supplied_numbers", -sim, x["id"], y["id"], method, sim))
-    candidates.sort()
-    options = {}
-    for _, _, xi, yi, _, _ in candidates:
-        options[xi] = options.get(xi, 0) + 1
-        options[yi] = options.get(yi, 0) + 1
+    sheets = {s: {"number": numbers.get(s), "title": titles.get(s), "system_code": (codes or {}).get(s)}
+              for s in sorted({*numbers, *titles, *(codes or {}), *sheet_of.values()})}
+    result = offpage_pairing.pair([{"id": c["id"], "sheet": sheet_of[c["id"]], "text": c.get("text")} for c in open_],
+                                  sheets)
     by_id = {c["id"]: c for c in model["offpage_connectors"]}
-    added = 0
-    for _, _, xi, yi, method, sim in candidates:
-        x, y = by_id[xi], by_id[yi]
-        if x["pair"] or y["pair"] or xi == yi:
-            continue
-        x["pair"], y["pair"] = yi, xi
-        for c, other in ((x, y), (y, x)):
-            c["pair_method"], c["pair_status"] = method, "paired"
-            c["pair_description_similarity"] = round(sim, 2)
+    named = result["names"]
+    for p in result["pairs"]:
+        x, y = by_id[p["a"]], by_id[p["b"]]
+        x["pair"], y["pair"] = y["id"], x["id"]
+        for c in (x, y):
+            c["pair_method"], c["pair_status"] = p["method"], "paired"
+            c["pair_description_similarity"] = p["description_similarity"]
             if not c.get("refers_to_drawing") and named.get(c["id"]):
                 c["refers_to_drawing"] = numbers[named[c["id"]][0]]
         pid = f"XP-{len(model['offpage_pairs']) + 1:03d}"
-        model["offpage_pairs"].append({"id": pid, "a": xi, "b": yi, "sheet_a": sheet_of[xi], "sheet_b": sheet_of[yi],
-                                       "text_a": x["text"], "text_b": y["text"], "method": method,
-                                       "description_similarity": round(sim, 2),
-                                       "alternatives": max(options[xi], options[yi]) - 1,
+        model["offpage_pairs"].append({"id": pid, "a": x["id"], "b": y["id"], "sheet_a": p["sheet_a"],
+                                       "sheet_b": p["sheet_b"], "text_a": x["text"], "text_b": y["text"],
+                                       "method": p["method"], "description_similarity": p["description_similarity"],
+                                       "alternatives": p["alternatives"], "evidence": p["evidence"],
                                        "verification": {"status": "unverified"}})
         model["streams"].append({"id": pid, "name": f"off-page {x['text']} <-> {y['text']}", "kind": "cross_sheet",
-                                 "from": xi, "to": yi, "sheet": None, "direction": "unknown", "confidence": None,
-                                 "verification": {"status": "unverified"}})
-        added += 1
+                                 "from": x["id"], "to": y["id"], "sheet": None, "direction": "unknown",
+                                 "confidence": None, "verification": {"status": "unverified"}})
     for c in open_:
         if c["pair"] or not named[c["id"]]:
             continue
         c["refers_to_drawing"] = c.get("refers_to_drawing") or numbers[named[c["id"]][0]]
-        c["pair_status"] = ("unpaired: target sheet is in this set but no matching connector was found"
-                            if len(named[c["id"]]) == 1 else "unpaired: names more than one sheet in this set")
-    return added
+        c["pair_status"] = result["status"][c["id"]]
+    return len(result["pairs"])
 
 
 def load_set(manifest_path, out):
@@ -192,7 +158,8 @@ def load_set(manifest_path, out):
                               "image_size_px": s["image_size_px"], "supplied_record_producer": s["record_producer"],
                               "normalized_record": f"source/{s['internal_sheet']}.json"} for s in loaded],
                   "normalization": "Only supported symbols and connections are converted. Extra input fields remain in the preserved originals; tag whitespace and box precision follow build_twin.",
-                  "pairing": "build_twin.py rules first, then literal matching on supplied drawing numbers and titles (scripts/import_drawing_set.py).",
+                  "pairing": "build_twin.py rules first, then scripts/offpage_pairing.py (supplied drawing numbers, titles and system codes).",
+                  "pairing_rule_sha256": one.digest(Path(offpage_pairing.__file__).read_bytes()),
                   "importer_sha256": one.digest(Path(__file__).read_bytes()),
                   "sheet_validator_sha256": one.digest(Path(one.__file__).read_bytes()),
                   "converter_sha256": one.digest(Path(build_twin.__file__).read_bytes()),
@@ -242,7 +209,8 @@ def import_set(manifest_path, out, check_only=False, line_layers=True):
                                  "site-drawing-set", parent_rule="linked")
         numbers = {s["internal_sheet"]: s["register"]["drawing_number"] for s in loaded if s["register"]["drawing_number"]}
         titles = {s["internal_sheet"]: s["title"] for s in loaded if s["title"]}
-        added = pair_by_supplied_numbers(model, numbers, titles)
+        codes = {s["internal_sheet"]: s["register"]["system_code"] for s in loaded if s["register"]["system_code"]}
+        added = pair_by_supplied_numbers(model, numbers, titles, codes)
         model["summary"] = build_twin.summary(model)
         model["meta"]["source_document"] = f"{provenance['set_id']}: " + "; ".join(
             f"{d['drawing_id']} rev {d['revision']} p{d['page']}" for d in drawings)

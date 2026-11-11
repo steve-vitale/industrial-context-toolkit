@@ -6740,6 +6740,35 @@
       "source": [
         "docs/GOAL_ROUND6.md"
       ]
+    },
+    {
+      "id": "A406",
+      "function": "intake_and_reuse",
+      "date": "2026-11-10",
+      "change": "Measured the three off-page pairing rules (build_twin.py in-model pass, import_drawing_set.py supplied-number pass, one_map.py printed-reference pass) on OPEN100 sheets 0-5 as one set. The PID2Graph answer keys hold no text and no cross-sheet links, so the key was read from the drawings' printed references and line numbers (examples/own-drawing/offpage-key.json): 6 continuations.",
+      "hypothesis": "The three rules disagree because they read references differently, not because the drawings are ambiguous",
+      "evidence": "build_twin.py 4 pairs, 4 correct, 4/6 continuations; supplied-number pass alone 4/4, 4/6; one_map.py 1/1, 1/6. All three miss 'MSS PID 140?1 PEGGING STEAM' (the reader wrote an unreadable separator) and 'MAIN STEAM BY-PASS' (the reader dropped 'ACC PID 150-1'). Three of build_twin's four pairs were similarity ties broken by order: two would be right whichever candidate was taken, one (CND RECEIVER TANK VENT to ACC VACUUM PMPS, which share no word) was right only by order. one_map.py refused all three ties.",
+      "runs": "1 (single run, recorded reader codex r2-tiles-trace)",
+      "verdict": "inconclusive",
+      "why": "A measurement round on six development sheets; the key was read by one assistant and blind re-read by a second, which rejected G3 under a strict line-number rule (recorded in the key); it set up A407",
+      "source": [
+        "examples/own-drawing/offpage-key.json"
+      ]
+    },
+    {
+      "id": "A407",
+      "function": "intake_and_reuse",
+      "date": "2026-11-10",
+      "change": "A shared cross-sheet pairing rule, scripts/offpage_pairing.py, called by import_drawing_set.py after build_twin.py's in-model pass (hash-pinned and unchanged): supplied numbers matched literally with any separator and leading zeros, methods reciprocal / one number plus title / one number plus system code, evidence on every pair, and ties never decided by order. one_map.py was not changed: adopting the rule there waits on a deliberate re-freeze of the map-explorer method (examples/map-explorer/FREEZE.json pins one_map.py). The maintenance intake's empty drawing register was also not changed: it waits on the foundation-cycle freeze (examples/foundation-cycle/FREEZE.json pins maintenance_intake.py).",
+      "hypothesis": "One rule that reads references the way the best of the three did, and never guesses, keeps every pair correct while recovering what the separator defeated",
+      "evidence": "OPEN100 sheets 0-5 against the printed key (6 continuations, G3 kept): the rule alone 2 pairs, 2 correct, 2/6, the three ties named for a person; the drawing-set import 5 pairs, 5 correct, 5/6 (up from 4/6: the second pass now adds PEGGING STEAM). Under a blind second reader's strict line-number rule (G3 rejected, 5 continuations): the rule alone 1/5 recall at 1/2 precision; the import 4/5 at 4/5. Pahala P-204/P-401/P-501: the same single pair as before (P-401 to P-501, number plus title). The rejected variant broke ties by order like build_twin: 5 pairs, 5 correct, 5/6, one of them right only by order. On the same key one_map.py's own rule (unchanged) makes 1 pair, 1/6.",
+      "runs": "1 (single run)",
+      "verdict": "kept",
+      "why": "A pair chosen by input order is not evidence; a reviewer gets the tied candidates instead. The higher recall of order tie-breaking came from one lucky pick and two duplicated depictions",
+      "source": [
+        "examples/own-drawing/offpage-key.json",
+        "examples/own-drawing/README.md#several-sheets-as-one-drawing-set"
+      ]
     }
   ],
   "not_tried": [
