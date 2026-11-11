@@ -1,6 +1,6 @@
 """Portable selected-record foundation using existing graph/context receiving contracts.
 
-No drawing reading, identity discovery, company approval or ChangePilot importer.
+No drawing reading, identity discovery, company approval or governed-service importer.
 Prepare supplied projections, apply context_register separately, then deliver/receive.
 """
 import argparse
@@ -229,7 +229,7 @@ def prepare(profile_path, out):
             'Graph scalar values retain original JSON types; decimal text remains text, not a measured number.',
             'Full structured records, unselected findings, originals and receipts remain source archives.',
             'Review names and source authority are declarations, not authenticated company decisions.',
-            'No extraction, operating acceptance, automatic synchronization or ChangePilot import.'])
+            'No extraction, operating acceptance, automatic synchronization or governed-service import.'])
     files.update({'profile.json': raw(portable), 'graph.json': raw(graph),
                   'sources.json': raw(dict(schema='context-sources-1', documents=sources)),
                   'projection.json': raw(report)})
@@ -364,7 +364,7 @@ def deliver(prepared, context_folder, out, previous=None, _verified_previous=Fal
         'Exact originals/receipts are in `prepared/originals`; prior deliveries are retained in `previous`. '
         'Owners/reviewers in context are supplied declarations. Ask the responsible company record owner '
         'to resolve stale/disputed items and record any receiving decision in their authorized system.\n\n'
-        'No live synchronization, authenticated approval, plant truth or ChangePilot importer is established.\n').encode('utf-8')
+        'No live synchronization, authenticated approval, plant truth or governed-service importer is established.\n').encode('utf-8')
     return write_files(out, files, 'foundation-delivery-receipt-1',
                        dict(company_acceptance=False, base_receipt_sha256=base))
 

@@ -3,7 +3,7 @@
 2026-11-09. The three findings in `REVIEW-COMPONENT-UI.md` are addressed in the
 reviewed candidate. **14 focused observations passed.** No new critical issue was
 found in this bounded recheck. This is development review, not full-goal acceptance,
-a final ChangePilot Judge, plant acceptance or a human usability study.
+a final landing Judge, plant acceptance or a human usability study.
 
 ## Independent checks
 
@@ -43,7 +43,7 @@ LF-normalized hashes of changed review files:
 - `scripts/context_review.py`:
   `d5fa1b38e0d66c64a6633c6df7b2db297050b8b144994b6201b8c546ca3d8e30`
 - `scripts/context_review_html.py`:
-  `7ae15140947e7dbb90fd012be85f0dc097fcd20aee2f4e1541e21961953770de`
+  `2238df2f241e4fad1bdaacd8a99dbcd9a5605845f08d7e810542553533bd8160`
 
 All seven raw/LF hashes, exact source snapshots, 14 observations, handler output,
 the exact-boundary request and artifact bindings are retained in:

@@ -12,10 +12,13 @@ reading and native acceptance. Do not read the whole research journal before hel
 Keep the [long-term foundation](ENGINEERING_FOUNDATION.md) in view while finishing
 that job. Retain usable identities, sources, review history, open questions,
 authority/owners and a next-revision path alongside the finding. Explain what can
-carry into ChangePilot or another maintained company tool, what needs mapping and
+carry into a maintained company tool, what needs mapping and
 receiving checks, and who keeps it current after the assignment. Use the existing
 formats and lifecycle; document missing handoff elements without inventing
-approval, automatic synchronization or product compatibility.
+approval, automatic synchronization or product compatibility. Keep this public
+repository vendor-neutral: never name a specific company product as the
+destination; say "a maintained company tool" or "a governed service"
+([standing rule](../AGENTS.md)).
 
 ## First response
 
@@ -70,7 +73,7 @@ supply exact scoped mappings and questions, project the selected records, then
 apply the existing context register and run actual receiving. Return the readable
 handoff, native omissions, unavailable sources, owner/review declarations and next
 refresh step. The receiver is the toolkit snapshot reader; do not claim a
-ChangePilot importer or company acceptance. Its whole-asset freshness boundary
+governed-service importer or company acceptance. Its whole-asset freshness boundary
 and immutable delivery chains are explicit in the guide.
 
 ## Do the preparation for them

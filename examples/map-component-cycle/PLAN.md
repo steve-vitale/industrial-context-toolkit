@@ -1,4 +1,4 @@
-# Goal: ordinary records to reusable engineering context and ChangePilot receiving
+# Goal: ordinary records to reusable engineering context and governed-service receiving
 
 Set 2026-11-09, before implementation (original plan: a89a1b2). Status: implementation
 in progress; development evidence is recorded separately. No full-goal case is complete.
@@ -9,7 +9,7 @@ Toolkit baseline: a26a0e0a4e8588081e16a1a63b2f26d045a75cb4.
 An engineering or maintenance manager starts with permitted records they already have,
 gets one source-supported finding, keeps an editable engineering context foundation,
 reuses it for component drafts and the next revision, and optionally carries that
-same foundation into ChangePilot for continuing managed use. Value must precede
+same foundation into a governed service for continuing managed use. Value must precede
 product signup. Each stage leaves a useful portable result even if the customer stops.
 
 1. Start from the existing job selector: document clarification, maintenance records,
@@ -27,7 +27,7 @@ product signup. Each stage leaves a useful portable result even if the customer 
 5. Offer a plain-language handoff preview: included scope, retained information,
    exclusions, unresolved questions, source authority and access requirements.
    Authentication and explicit sharing occur through the destination's normal path.
-6. Receive in actual ChangePilot, inspect/query the same evidence and uncertainty,
+6. Receive in the actual governed service, inspect/query the same evidence and uncertainty,
    handle another revision and export the complete declared scope again.
 
 This work improves the toolkit's context foundation and the bounded product receiving
@@ -57,7 +57,7 @@ its real validator/consumer. Supply no invented topology, signals, setpoints or 
 layout to make it pass. Partial/unsupported results are legitimate and explicit.
 This does not qualify native CAD or plant platform imports.
 
-Inspect ChangePilot's current code/contracts and governed context before declaring gaps.
+Inspect the receiving service's current code/contracts and governed context before declaring gaps.
 Reuse canonical import, evidence, context and agent/UI surfaces; implement missing
 bounded receiving pieces in an isolated product worktree when necessary. Follow that
 repository's instructions, exact-candidate independent review and governed landing.
@@ -93,7 +93,7 @@ or the goal remains incomplete. Do not silently shrink required scope to make it
    source locations/bytes where permitted, access requirements and omissions. A fresh
    process reopens it away from the original workspace and checks semantic equality,
    not just counts or self-consistent hashes.
-7. Actual ChangePilot acceptance covers authenticated scope, persisted readback,
+7. Actual governed-service acceptance covers authenticated scope, persisted readback,
    useful existing UI/agent access, conflicting proposals, retry without duplicates,
    interrupted delivery, stale base refusal, source/access withdrawal, next revision
    and a complete export/reopen. Any unsupported meaning is previewed and retained;
@@ -183,7 +183,7 @@ author's hidden knowledge, a call with the author or product purchase.
 No human engineer trial, real-plant acceptance, measured human saving or production
 service capacity is available merely because these software gates pass. N052/N062/
 N063 keep their separate human/company scope. Accountable source systems keep released
-records and engineering authority. ChangePilot receives a declared context scope; it
+records and engineering authority. The governed service receives a declared context scope; it
 does not become owner of every CAD object, CMMS event or design calculation.
 
 Produce a final per-criterion report with baseline/candidate results, every failed

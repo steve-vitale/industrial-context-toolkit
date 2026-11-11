@@ -6,10 +6,10 @@ when the work justifies it.
 
 The [customer path](ENGINEERING_FOUNDATION.md#from-the-records-you-have-to-a-maintained-foundation)
 shows how that first finding becomes reusable context, then a declared handoff to
-ChangePilot or another maintained tool. Keep the original records, mappings and
+a maintained company tool. Keep the original records, mappings and
 source history so the team can continue without entering the same facts again.
 Product receiving and continuing service responsibilities need their own checks;
-the current ChangePilot integration qualification remains unfinished.
+the current governed-service integration qualification remains unfinished.
 
 **Have an agent help:** use the [task-first guide](AGENT_START_HERE.md) and [reusable export intake](MAINTENANCE_INTAKE.md).
 The agent can inspect the records and prepare supported inputs for you; ask about meanings or identities that

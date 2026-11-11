@@ -12,7 +12,7 @@ source-linked queries, edits, three revisions and private full-source reopen.
 Actual desktop/390px component review, downloaded text proposals, reopen and stale
 refusal pass on fictional development records. Existing graph/model adapters,
 scoped receiving, generator projection, scale
-qualification and actual ChangePilot receiving remain unfinished; the 31-case
+qualification and actual receiving into a governed service remain unfinished; the 31-case
 goal is active. These development results are not a verified release or plant trial.
 
 [Maintenance-history investigation](MAINTENANCE_HISTORY.md) now produces offline
@@ -66,7 +66,7 @@ maintenance/drawing projections, retained evidence, actual snapshot receiving,
 source-only revision, conflicting proposals and complete export/reopen. Its
 [plan and evidence](../examples/foundation-cycle/README.md) distinguish exposed
 development from an author-known procedural namespace/layout check. It supplies
-no independent example review, ChangePilot importer, authenticated company
+no independent example review, governed-service importer, authenticated company
 acceptance or human benefit measurement. N052/N062/N063 remain unrun.
 
 The foundation working-tree source-only run passed **75/75 programs**, zero
@@ -179,7 +179,7 @@ create those controls.
 | Selected batch-record joins | [Explicit batch/event/executed-recipe/lab/outcome selections](../examples/batch-analysis/record-joins/README.md), availability/quality gaps, reproduced calculation inputs, raw originals and descriptive differences. | Normalized local contracts; supplied metadata needs review. No record discovery, live connector, causal/yield model, actual historical-access proof or accepted investigation outcome. |
 | Question engine | Catalog screens produce investigations and collection requests; source-scoped recipes retain known answers. | No arbitrary natural-language diagnosis or broad usefulness/coverage benchmark. |
 | Model-bound context and graph snapshot | Retain supplied answers, source dependencies and decision/ownership history; explicitly refresh and read back the selected graph/context pair. | Supported model/question contracts and manual refresh/restart; no source fetching or shared company access service. |
-| Selected-unit foundation handoff | [Project selected history/drawing findings and notes](FOUNDATION_HANDOFF.md) through explicit scoped mappings; actual graph/context receiving, source-only revision, conflicting proposals, unavailable evidence and full export/reopen. | Unverified selected leaves plus complete original archives; declared reviewers/owners, whole-asset freshness and immutable bounded delivery chains. No ChangePilot importer, authenticated company receiving, live maintenance or human benefit established. |
+| Selected-unit foundation handoff | [Project selected history/drawing findings and notes](FOUNDATION_HANDOFF.md) through explicit scoped mappings; actual graph/context receiving, source-only revision, conflicting proposals, unavailable evidence and full export/reopen. | Unverified selected leaves plus complete original archives; declared reviewers/owners, whole-asset freshness and immutable bounded delivery chains. No governed-service importer, authenticated company receiving, live maintenance or human benefit established. |
 | Knowledge/workflow starter packet | [Author and read](../examples/engineering-onboarding/own-packet/README.md) a selected landing map, source references, roles and workflow/practice records without an asset model. | Reference data; the reader/MCP remains read-only. No workflow execution or authenticated assignment. |
 | Local knowledge contribution capture | [Capture selected text and authored findings](../examples/engineering-onboarding/contribution-loop/README.md) into a new packet with exact prior state, source pins, combined-source dependencies and readable handoff. | Complete UTF-8 text and authored links only; no semantic answer verification, automatic source watching, accepted-answer selection, concurrent shared writes or bound graph/context reconciliation. Fictional revision/readback controls do not measure human benefit. |
 | Checks, matrix and task/model benchmarks | Reproduce claims/results and exercise selected workflows with failures visible. | Four task adapters, including `tag-reading` / `tag-text-v1` with separate geometry and partial-list modes, raw fixture checks and offline saved-answer reports. Selected facts, fixed labels and tag coverage do not grade arbitrary engineering meaning or company asset identity. See the [task scope](../benchmarks/README.md#current-reproducible-tasks); these are not a whole-toolkit completion percentage or general model ranking. |

@@ -7,10 +7,10 @@
     "scripts/context_packet.py": "a16bb866e30be9f8512bd003b615fc294474d361a28397ed2ca74b346acc84e2",
     "scripts/context_workflow.py": "e03a275adb6766b8a25f8bad7e0a0df8291e585429109d1964fe379a87ff1fdf",
     "scripts/context_review.py": "cd6d73111a02860265829f96369d56fe5b19e704bc5cb51b74c687b5cda269ab",
-    "scripts/context_review_html.py": "427334cfe803c2ad86c75276a707747ea51041863f3cd2af2084875d30d5b202",
+    "scripts/context_review_html.py": "43fc57422cf33deef7f80463ec479d5ee7106af0ad1138dce55d0fe74d2070d9",
     "examples/map-component-cycle/reproduce_review.cjs": "1c079998b866e7c898086c95a4544d644172502872af2e8a4b73485451ed2eef",
     "examples/map-component-cycle/inputs/EXPECTED.json": "fa647b8705ad71bf4087a70791e83e88db64b6db1bfa798dcf7f24fc0128a6c3",
-    "examples/map-component-cycle/UI-PLAN.md": "02304fbe7c0788c79037ece98eac213f370e2d3150fa39f98a1affea58fdc194"
+    "examples/map-component-cycle/UI-PLAN.md": "68a6fa94c5fa5443132a56d59dcb6c4edc88d2242f812067485f5f2c435ffff9"
   },
   "calls": [
     {
@@ -28,7 +28,7 @@
         "C:\\Users\\Steve\\.cp-scratch\\map-component-foundation\\out\\context-review-browser-03-failure\\initial"
       ],
       "exit": 0,
-      "stdout": "{\r\n  \"drafts\": [\r\n    \"equipment_instrument_list\",\r\n    \"item_datasheet_scaffold\",\r\n    \"loop_control_narrative_outline\"\r\n  ],\r\n  \"entities\": 8,\r\n  \"omissions\": [\r\n    {\r\n      \"reason\": \"Serial values alone do not establish a durable physical-item identity or current installation.\",\r\n      \"source\": \"EQ\",\r\n      \"subject\": \"CF/P1/U1/P-101\"\r\n    },\r\n    {\r\n      \"reason\": \"Serial values alone do not establish a durable physical-item identity or current installation.\",\r\n      \"source\": \"EQ\",\r\n      \"subject\": \"CF/P1/U2/P-101\"\r\n    },\r\n    {\r\n      \"reason\": \"Serial values alone do not establish a durable physical-item identity or current installation.\",\r\n      \"source\": \"WO\",\r\n      \"subject\": \"CF/P1/U1/P-101\"\r\n    },\r\n    {\r\n      \"reason\": \"Serial values alone do not establish a durable physical-item identity or current installation.\",\r\n      \"source\": \"WO\",\r\n      \"subject\": \"CF/P1/U1/P-101\"\r\n    },\r\n    {\r\n      \"reason\": \"Original retained; document/model interpretation needs explicit source-bound contributions or an existing adapter.\",\r\n      \"source\": \"NOTE\"\r\n    }\r\n  ],\r\n  \"packet\": \"C:\\\\Users\\\\Steve\\\\.cp-scratch\\\\map-component-foundation\\\\out\\\\context-review-browser-03-failure\\\\initial\",\r\n  \"product_receiving\": \"not established\",\r\n  \"receipt_sha256\": \"4b7be268c3c8cedf717b4b3b897c40b24eae5393b4371301e7fb203ebd330da6\"\r\n}\r\n",
+      "stdout": "{\r\n  \"drafts\": [\r\n    \"equipment_instrument_list\",\r\n    \"item_datasheet_scaffold\",\r\n    \"loop_control_narrative_outline\"\r\n  ],\r\n  \"entities\": 8,\r\n  \"omissions\": [\r\n    {\r\n      \"reason\": \"Serial values alone do not establish a durable physical-item identity or current installation.\",\r\n      \"source\": \"EQ\",\r\n      \"subject\": \"CF/P1/U1/P-101\"\r\n    },\r\n    {\r\n      \"reason\": \"Serial values alone do not establish a durable physical-item identity or current installation.\",\r\n      \"source\": \"EQ\",\r\n      \"subject\": \"CF/P1/U2/P-101\"\r\n    },\r\n    {\r\n      \"reason\": \"Serial values alone do not establish a durable physical-item identity or current installation.\",\r\n      \"source\": \"WO\",\r\n      \"subject\": \"CF/P1/U1/P-101\"\r\n    },\r\n    {\r\n      \"reason\": \"Serial values alone do not establish a durable physical-item identity or current installation.\",\r\n      \"source\": \"WO\",\r\n      \"subject\": \"CF/P1/U1/P-101\"\r\n    },\r\n    {\r\n      \"reason\": \"Original retained; document/model interpretation needs explicit source-bound contributions or an existing adapter.\",\r\n      \"source\": \"NOTE\"\r\n    }\r\n  ],\r\n  \"packet\": \"C:\\\\Users\\\\Steve\\\\.cp-scratch\\\\map-component-foundation\\\\out\\\\context-review-browser-03-failure\\\\initial\",\r\n  \"product_receiving\": \"not established\",\r\n  \"receipt_sha256\": \"0268ac1bc8489f1f504a7360ea78888b90bf2b54cbf7548f0577e5d0e189d542\"\r\n}\r\n",
       "stderr": "",
       "milliseconds": 346.5191
     },
@@ -40,7 +40,7 @@
         "C:\\Users\\Steve\\.cp-scratch\\map-component-foundation\\out\\context-review-browser-03-failure\\review.html"
       ],
       "exit": 0,
-      "stdout": "{\r\n  \"basis_sha256\": \"013b258cdafef7d8251df78b3cca9351afe8a86ba41c50865bc719c156c911b1\",\r\n  \"bytes\": 156806,\r\n  \"html\": \"C:\\\\Users\\\\Steve\\\\.cp-scratch\\\\map-component-foundation\\\\out\\\\context-review-browser-03-failure\\\\review.html\",\r\n  \"qualification\": \"Offline draft review; source selection is not an access boundary\",\r\n  \"sha256\": \"c7c0094d5f94c69228213a11b7ca7db9413db1c3117447b134c76b7a14917157\"\r\n}\r\n",
+      "stdout": "{\r\n  \"basis_sha256\": \"013b258cdafef7d8251df78b3cca9351afe8a86ba41c50865bc719c156c911b1\",\r\n  \"bytes\": 156806,\r\n  \"html\": \"C:\\\\Users\\\\Steve\\\\.cp-scratch\\\\map-component-foundation\\\\out\\\\context-review-browser-03-failure\\\\review.html\",\r\n  \"qualification\": \"Offline draft review; source selection is not an access boundary\",\r\n  \"sha256\": \"fd69977ec7d89460630176bd19f69132d7ebd92707ae16c3589c567b25932697\"\r\n}\r\n",
       "stderr": "",
       "milliseconds": 261.21699999999987
     },

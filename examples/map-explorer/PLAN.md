@@ -2,7 +2,7 @@
 
 2026-11-09. Scope follows Steve's correction: engineering context, not a
 planner-readiness cycle or managed work. The existing local graph/context tools
-remain the receiving route; no ChangePilot or CMMS adapter is claimed.
+remain the receiving route; no governed-service or CMMS adapter is claimed.
 
 ## Question and method
 

@@ -234,7 +234,7 @@
     {
       "id": "RECEIVER-CAPABILITY",
       "required": true,
-      "criterion": "Inspect actual ChangePilot version/contracts; implement and test missing bounded receiver through canonical surfaces.",
+      "criterion": "Inspect the actual governed receiving service's version/contracts; implement and test missing bounded receiver through canonical surfaces.",
       "status": "partial",
       "evidence": [
         "RECEIVING_DEVELOPMENT.md",
@@ -311,7 +311,7 @@
     {
       "id": "RECEIVER-EXIT",
       "required": true,
-      "criterion": "Complete declared scope exports from ChangePilot and reopens with types, lineage, conflicts/history and omissions accounted for.",
+      "criterion": "Complete declared scope exports from the governed receiving service and reopens with types, lineage, conflicts/history and omissions accounted for.",
       "status": "partial",
       "evidence": [
         "RECEIVING_DEVELOPMENT.md",
