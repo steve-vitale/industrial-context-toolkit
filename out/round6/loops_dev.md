@@ -2,23 +2,37 @@
 
 Development sets only. Every number is read from the `control_loops` block of the `plant_model.json` that `scripts/import_drawing_set.py` wrote (`scripts/loop_score.py`), against `data/te_control_loops.json` (19 running loops: 11 valve loops, 8 cascades). A loop counts when a confirmed loop has the key's controller, measurement and output; P = share of confirmed loops that are a key loop. TE sheets are drawn by this repository from its own model, so TE scores are upper bounds for clean drawings.
 
-| Set | Run | Confirmed / loops | Valve loops | Cascades | Loop P | Sensor P / R | Final element P / R | Cascade P / R | Shuffled roles, 10 seeds (loop R; P mean, range) | Tag-only (loop R / P) | Empty | Rest of bundle unchanged |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| te-a | key symbols + tracer | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
-| te-a | te-clean-trace-r1/claude | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
-| te-a | te-clean-trace-r1/codex | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
-| te-a | te-clean-trace-r2/claude | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
-| te-a | te-clean-trace-r2/codex | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
-| te-a | te-clean-trace-r3/claude | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
-| te-a | te-clean-trace-r3/codex | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
-| te-a | te-clean-trace-r4/claude | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
-| te-a | te-clean-trace-r4/codex | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
-| te-a | te-clean-trace-r5/claude | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
-| te-a | te-clean-trace-r5/codex | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
-| te-d | key symbols + tracer | 19 / 20 | 11/11 | 8/8 | 1.0 | 1.0 / 1.0 | 1.0 / 1.0 | 1.0 / 1.0 | 0.069 (0.0-0.158); 0.625 (0.0-1.0, 10 of 10 seeds assert any) | 0.579 / 0.55 | 0.0 | True |
-| open100 | r2-tiles-trace/claude | 0 / 0 | no key | no key | - | - | - | - | - | - | - | True |
-| open100 | r2-tiles-trace/codex | 0 / 0 | no key | no key | - | - | - | - | - | - | - | True |
-| open100 | r2-tiles-trace/gemini | 0 / 0 | no key | no key | - | - | - | - | - | - | - | True |
+Each scored run has two rows: **strict** first (the default consumer filter: relations and loops at tier `traced_through_crossing` dropped), then **every tier** (everything asserted, crossing tier included).
+
+| Set | Run | View | Confirmed / loops | Valve loops | Cascades | Loop P | Sensor P / R | Final element P / R | Cascade P / R | Shuffled roles, 10 seeds (loop R; P mean, range) | Tag-only (loop R / P) | Empty | Rest of bundle unchanged |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| te-a | key symbols + tracer | strict | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
+| te-a | key symbols + tracer | every tier | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
+| te-a | te-clean-trace-r1/claude | strict | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
+| te-a | te-clean-trace-r1/claude | every tier | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
+| te-a | te-clean-trace-r1/codex | strict | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
+| te-a | te-clean-trace-r1/codex | every tier | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
+| te-a | te-clean-trace-r2/claude | strict | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
+| te-a | te-clean-trace-r2/claude | every tier | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
+| te-a | te-clean-trace-r2/codex | strict | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
+| te-a | te-clean-trace-r2/codex | every tier | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
+| te-a | te-clean-trace-r3/claude | strict | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
+| te-a | te-clean-trace-r3/claude | every tier | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
+| te-a | te-clean-trace-r3/codex | strict | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
+| te-a | te-clean-trace-r3/codex | every tier | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
+| te-a | te-clean-trace-r4/claude | strict | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
+| te-a | te-clean-trace-r4/claude | every tier | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
+| te-a | te-clean-trace-r4/codex | strict | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
+| te-a | te-clean-trace-r4/codex | every tier | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
+| te-a | te-clean-trace-r5/claude | strict | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
+| te-a | te-clean-trace-r5/claude | every tier | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
+| te-a | te-clean-trace-r5/codex | strict | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
+| te-a | te-clean-trace-r5/codex | every tier | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
+| te-d | key symbols + tracer | strict | 10 / 20 | 7/11 | 3/8 | 1.0 | 1.0 / 0.526 | 1.0 / 0.636 | 1.0 / 0.375 | 0.069 (0.0-0.158); 0.625 (0.0-1.0, 10 of 10 seeds assert any) | 0.579 / 0.55 | 0.0 | True |
+| te-d | key symbols + tracer | every tier | 19 / 20 | 11/11 | 8/8 | 1.0 | 1.0 / 1.0 | 1.0 / 1.0 | 1.0 / 1.0 | 0.069 (0.0-0.158); 0.625 (0.0-1.0, 10 of 10 seeds assert any) | 0.579 / 0.55 | 0.0 | True |
+| open100 | r2-tiles-trace/claude | - | 0 / 0 | no key | no key | - | - | - | - | - | - | - | True |
+| open100 | r2-tiles-trace/codex | - | 0 / 0 | no key | no key | - | - | - | - | - | - | - | True |
+| open100 | r2-tiles-trace/gemini | - | 0 / 0 | no key | no key | - | - | - | - | - | - | - | True |
 
 Recall at four levels (loop R / P): strictly traced (asserted, dropping tier `traced_through_crossing`); asserted (confirmed loops, every tier); asserted plus every review candidate (`candidate_loops`) counted as if confirmed; the tag-only control.
 
@@ -35,7 +49,7 @@ Recall at four levels (loop R / P): strictly traced (asserted, dropping tier `tr
 | te-a | te-clean-trace-r4/codex | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
 | te-a | te-clean-trace-r5/claude | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
 | te-a | te-clean-trace-r5/codex | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
-| te-d | key symbols + tracer | 0.579 / 1.0 (7/11, 4/8) | 1.0 / 1.0 (11/11, 8/8) | 1.0 / 1.0 (11/11, 8/8) | 0.579 / 0.55 |
+| te-d | key symbols + tracer | 0.526 / 1.0 (7/11, 3/8) | 1.0 / 1.0 (11/11, 8/8) | 1.0 / 1.0 (11/11, 8/8) | 0.579 / 0.55 |
 
 Diagnostic, TE revision D: `signal_to` pairs against the drawn signal lines of the key (`signal_edges`, cross-sheet flags followed), unordered, by tag.
 

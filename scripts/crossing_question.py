@@ -51,8 +51,10 @@ VERDICTS = ("continues", "two_lines", "cannot_tell")
 BLUE, GREEN = (200, 80, 0), (0, 150, 0)  # BGR: the dashed line's band, the crossed line's band
 
 
-def key(image_sha, at_px):
-    return f"{image_sha}:{at_px[0]},{at_px[1]}"
+def key(image_sha, crossing):
+    """loop_assembly.crossing_key: sha:axis:gap_lo-gap_hi:x,y."""
+    import loop_assembly as la
+    return la.crossing_key(image_sha, crossing)
 
 
 def crop_panel(gray, crossing, n):
@@ -134,6 +136,7 @@ def ask(items, tool="claude", model=None, reader_model=None, call=None):
             return (rx.run_claude if tool == "claude" else rx.run_codex)(png, chosen, prompt)
     prompt_base = PROMPT_FILE.read_text(encoding="utf-8")
     answers, calls = {}, []
+    items = list({it["key"]: it for it in items}.values())  # one question per key: an answer is never overwritten
     for b in range(0, len(items), BATCH):
         batch = items[b:b + BATCH]
         panels = [crop_panel(it["gray"] if "gray" in it else cv2.imread(str(it["image"]), cv2.IMREAD_GRAYSCALE), it, n)
@@ -207,7 +210,7 @@ def _merges(name, img, boxes, truth, pair=None):
                                         "box": [b[0] / 1.0, b[1] * 1000 / 600, b[2] / 1.0, b[3] * 1000 / 600]}
                                        for k, b in boxes.items()])
         sha = hashlib.sha256(p.read_bytes()).hexdigest()
-    return [{"key": key(sha, c["at_px"]), "gray": img, **c, "truth": truth, "source": name}
+    return [{"key": key(sha, c), "gray": img, **c, "truth": truth, "source": name}
             for x in r["lines"] if x.get("merged_through_crossing") and (pair is None or sorted(x["members"]) == pair)
             for c in x["crossings"]]
 
@@ -274,7 +277,7 @@ def controls():
     def item(name, img, truth):
         sha = hashlib.sha256(img.tobytes()).hexdigest()
         c = {"at_px": [400, 300], "axis": "v", "side_px": 50.0, "stroke_px": 6, "crosses": "pipe"}
-        return {"key": key(sha, c["at_px"]), "gray": img, **c, "truth": truth, "source": name}
+        return {"key": key(sha, c), "gray": img, **c, "truth": truth, "source": name}
     pos = np.full((600, 1000), 255, np.uint8)
     _dsh(pos, [(400, 120), (400, 296)], dash=13, gap=8)
     _dsh(pos, [(400, 305), (400, 480)], dash=13, gap=8)
@@ -299,7 +302,7 @@ def te_d_merges(bundle):
         png = bundle / "source" / f"{x['sheet']}.png"
         sha = hashlib.sha256(png.read_bytes()).hexdigest()
         for c in x.get("crossings", []):
-            k = key(sha, c["at_px"])
+            k = key(sha, c)
             if k not in seen:
                 seen.add(k)
                 out.append({"key": k, "gray": cv2.imread(str(png), cv2.IMREAD_GRAYSCALE), **c, "truth": "continues",
@@ -431,7 +434,7 @@ def main(argv=None):
     for x in (model.get("control_loops") or {}).get("signal_lines", []):
         png = bundle / "source" / f"{x['sheet']}.png"
         sha = hashlib.sha256(png.read_bytes()).hexdigest()
-        items += [{"key": key(sha, c["at_px"]), "image": str(png), **c} for c in x.get("crossings", [])]
+        items += [{"key": key(sha, c), "image": str(png), **c} for c in x.get("crossings", [])]
     items = list({it["key"]: it for it in items}.values())
     answers, calls = ask(items, tool, args.model, reader_model=reader)
     doc = {"prompt_sha256": hashlib.sha256(PROMPT_FILE.read_bytes()).hexdigest(), "threshold": THRESHOLD,

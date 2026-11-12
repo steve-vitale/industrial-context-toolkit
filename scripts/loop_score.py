@@ -390,10 +390,12 @@ def markdown(doc):
              "(19 running loops: 11 valve loops, 8 cascades). A loop counts when a confirmed loop has the key's "
              "controller, measurement and output; P = share of confirmed loops that are a key loop. TE sheets are drawn "
              "by this repository from its own model, so TE scores are upper bounds for clean drawings.", "",
-             "| Set | Run | Confirmed / loops | Valve loops | Cascades | Loop P | Sensor P / R | Final element P / R | "
+             "Each scored run has two rows: **strict** first (the default consumer filter: relations and loops at tier "
+             "`traced_through_crossing` dropped), then **every tier** (everything asserted, crossing tier included).", "",
+             "| Set | Run | View | Confirmed / loops | Valve loops | Cascades | Loop P | Sensor P / R | Final element P / R | "
              "Cascade P / R | Shuffled roles, 10 seeds (loop R; P mean, range) | Tag-only (loop R / P) | Empty | "
              "Rest of bundle unchanged |",
-             "|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
+             "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
 
     def pr(x):
         return f"{x['precision'] if x['precision'] is not None else '-'} / {x['recall']}"
@@ -401,21 +403,25 @@ def markdown(doc):
         for run, x in r["runs"].items():
             if "refused_by_intake" in x:
                 why = " ".join(str(x["refused_by_intake"]).split()).replace("|", "/")
-                lines.append(f"| {name} | {run} | refused by the intake: {why} |" + " - |" * 11)
+                lines.append(f"| {name} | {run} | - | refused by the intake: {why} |" + " - |" * 11)
                 continue
             c = x.get("counts") or {}
             conf = f"{c.get('confirmed', 0)} / {c.get('loops', 0)}" if c else "0 / 0 (nothing to assemble)"
             same = x.get("bundle_identical_without_loops")
             if "score" not in x:
-                lines.append(f"| {name} | {run} | {conf} | no key | no key | - | - | - | - | - | - | - | {same} |")
+                lines.append(f"| {name} | {run} | - | {conf} | no key | no key | - | - | - | - | - | - | - | {same} |")
                 continue
-            s, k = x["score"], x["controls"]
-            lines.append(f"| {name} | {run} | {conf} | {s['loops']['valve_loops']} | {s['loops']['cascades']} | "
-                         f"{s['loops']['precision'] if s['loops']['precision'] is not None else '-'} | {pr(s['sensor'])} | "
-                         f"{pr(s['final'])} | {pr(s['cascade'])} | "
-                         + _seeds(k) +
-                         f"{k['tag_only']['loops']['recall']} / {k['tag_only']['loops']['precision'] or '-'} | "
-                         f"{k['empty']['loops']['recall']} | {same} |")
+            k = x["controls"]
+            bt = c.get("loops_by_tier") or {}
+            for view, s in (("strict", x["score_strict"]), ("every tier", x["score"])):
+                n = (bt.get("strict") or {}).get("confirmed_loops", 0) if view == "strict" else c.get("confirmed", 0)
+                lines.append(f"| {name} | {run} | {view} | {n} / {c.get('loops', 0)} | {s['loops']['valve_loops']} | "
+                             f"{s['loops']['cascades']} | "
+                             f"{s['loops']['precision'] if s['loops']['precision'] is not None else '-'} | "
+                             f"{pr(s['sensor'])} | {pr(s['final'])} | {pr(s['cascade'])} | "
+                             + _seeds(k) +
+                             f"{k['tag_only']['loops']['recall']} / {k['tag_only']['loops']['precision'] or '-'} | "
+                             f"{k['empty']['loops']['recall']} | {same} |")
     lines += ["", "Recall at four levels (loop R / P): strictly traced (asserted, dropping tier "
               "`traced_through_crossing`); asserted (confirmed loops, every tier); asserted plus every review candidate "
               "(`candidate_loops`) counted as if confirmed; the tag-only control.", "",

@@ -667,6 +667,14 @@ def _ink_between(ink, ax, c, a, b):
 
 # ---------------------------------------------------------------- signal lines and networks in a bundle
 
+def crossing_key(image_sha, crossing):
+    """The identity of one crossing question: the sheet image, the dashed run's axis, the gap it was joined across and
+    the crossing pixel (sha:axis:gap_lo-gap_hi:x,y). Two lines joined through each other at one pixel (one horizontal,
+    one vertical) are two questions, never one."""
+    g = crossing.get("gap_px") or ["", ""]
+    return f"{image_sha}:{crossing.get('axis', '')}:{g[0]}-{g[1]}:{crossing['at_px'][0]},{crossing['at_px'][1]}"
+
+
 def sheet_signal_lines(model, source):
     """[{id, sheet, line_kind, members (asset ids), ...}] for every traced signal line in the bundle: dashed lines
     traced from each sheet image (dashed_signal_lines, line_kind dashed_signal_line), and the line layer's instrument
@@ -688,7 +696,7 @@ def sheet_signal_lines(model, source):
                             "box_0_1000": line["box_0_1000"], "dashes": line["dashes"],
                             **{k: line.get(k) for k in ("stroke_px", "pipe_px", "outline_px")},
                             **({"merged_through_crossing": True,
-                                "crossings": [{**c, "key": f"{sha}:{c['at_px'][0]},{c['at_px'][1]}"}
+                                "crossings": [{**c, "key": crossing_key(sha, c)}
                                               for c in line.get("crossings", [])]}
                                if line.get("merged_through_crossing") else {}),
                             **({"passes_through_symbol": sorted({syms[sheet][m]["asset"]
@@ -986,9 +994,11 @@ def _cascades(links, role, untraced_finals=None, measured=None):
     traced controller-to-controller links. Equal or unknown distance leaves the link undirected, and so does a would-be
     outer controller that has a final element of its own loop identity no traced line reaches (it may be the inner
     one, with its output simply not traced), and so does a would-be outer controller with no traced measurement of
-    its own (a transmitter misread as a controller, FT read as FC, would otherwise become an outer loop). Links the
-    tracer merged through a crossing take no part. A direction found this way is inferred from graph distance, so its
-    relations carry the tier traced_direction_inferred."""
+    its own (a transmitter misread as a controller, FT read as FC, would otherwise become an outer loop). Demoted links
+    (merged, two lines by the enabled crossing evaluator) take no part; links at tier traced_through_crossing do, and
+    a cascade they make possible takes that tier (_tier_by_derivation: the strict pass leaves them out). A direction
+    found this way is inferred from graph distance, so its relations carry at least the tier
+    traced_direction_inferred."""
     links = [lk for lk in links if not lk.get("merged")]
     depth = {lk["from"]: 0 for lk in links if lk["directed"] and role.get(lk["from"]) == "controller"
              and role.get(lk["to"]) in ("final_element", "relay")}
@@ -1011,17 +1021,22 @@ def _cascades(links, role, untraced_finals=None, measured=None):
             lk["directed"], lk["cascade"] = True, True
 
 
-def assemble(model, lines, roles=None, corroboration=None, _assume_merged_ok=False):
+def assemble(model, lines, roles=None, corroboration=None, _assume_merged_ok=False, _strict_only=False):
     """The control_loops block from the bundle's traced signal lines (sheet_signal_lines). roles: {item: role}
     replaces the ISA roles (only the scorer's shuffled-roles control uses it). corroboration: {"reader_pairs": set of
     frozenset item pairs, "crossing_answers": {crossing key: answer}, "assert_enabled": bool} for lines joined through
-    a crossing (_channels). Reads no image."""
+    a crossing (_channels). Reads no image.
+    Tiers of derived relations and loops are set by _tier_by_derivation: the block is assembled a second time from the
+    strict links alone (_strict_only, every traced_through_crossing link left out), and anything that does not come
+    out the same there needed a crossing-tier input, so it takes traced_through_crossing."""
     cand = candidates(model)
     if roles is not None:
         cand = {k: {**v, "role": roles.get(k)} for k, v in cand.items()}
     role = {k: v["role"] for k, v in cand.items()}
     ident = {k: (v["scope"], v["number"]) for k, v in cand.items()}
     links, unresolved = _directed_links(signal_networks(model, lines), cand, role, corroboration, _assume_merged_ok)
+    if _strict_only:
+        links = [lk for lk in links if not lk.get("through_crossing")]
     solid = [lk for lk in links if not lk.get("merged")]  # the links loop logic may rest on
     reached = {lk["to"] for lk in solid if role.get(lk["to"]) == "final_element"}
     untraced_finals = {c: [k for k in cand if ident[k] == ident[c] and role[k] == "final_element"
@@ -1099,8 +1114,7 @@ def assemble(model, lines, roles=None, corroboration=None, _assume_merged_ok=Fal
         loops.append({
             "id": lid, "loop_identity": cand[c]["loop_identity"], "controller": c, "controller_tag": cand[c]["tag"],
             "loop_type": "cascade" if inner else "control", "status": status,
-            "tier": "traced_through_crossing" if any(lk.get("through_crossing") for lk in
-                                                     meas + inner + [x for _, p_ in finals for x in p_]) else "traced",
+            "tier": None,  # set by _tier_by_derivation
             "measurements": [{"id": lk["from"], "tag": cand[lk["from"]]["tag"], "role": role[lk["from"]],
                               "same_loop_identity": ident[lk["from"]] == ident[c]} for lk in meas],
             "final_elements": [{"id": f, "tag": cand[f]["tag"], "via": [lk["to"] for lk in path[:-1]],
@@ -1115,12 +1129,11 @@ def assemble(model, lines, roles=None, corroboration=None, _assume_merged_ok=Fal
                 ev = [e for lk in path for e in lk["evidence"]] + [
                     {"kind": "loop_confirmed", "loop": lid, "measured_by": sorted(lk["from"] for lk in meas)}]
                 add("controls", c, f, ev, "the controller's traced output, in a loop whose measurement is traced "
-                                          "into the controller", loop=lid,
-                    through=any(lk.get("through_crossing") for lk in path + meas))
+                                          "into the controller", loop=lid)
         for lk in inner:
             add("sets_point_of", c, lk["to"], lk["evidence"], "cascade: a traced signal from this controller to a "
                                                                "controller nearer a final element", loop=lid,
-                inferred=True, through=bool(lk.get("through_crossing")))
+                inferred=True)
         for kind, items in (("measurement", [lk["from"] for lk in meas]), ("final element", [f for f, _ in finals])):
             for m in items:
                 if ident[m] != ident[c]:
@@ -1148,8 +1161,10 @@ def assemble(model, lines, roles=None, corroboration=None, _assume_merged_ok=Fal
     for lp in loops:
         for m in lp["measurements"]:
             m["relation"] = seen[("signal_to", m["id"], lp["controller"])]["id"]
-    candidate_loops = [] if _assume_merged_ok else _candidates(model, lines, roles, corroboration, loops, unresolved,
-                                                                 cand, role, ident)
+    if _strict_only or _assume_merged_ok:
+        return {"relations": relations, "loops": loops}
+    _tier_by_derivation(relations, loops, assemble(model, lines, roles, corroboration, _strict_only=True))
+    candidate_loops = _candidates(model, lines, roles, corroboration, loops, unresolved, cand, role, ident)
     counts = {"loops": len(loops), **{s: sum(lp["status"] == s for lp in loops)
                                       for s in ("confirmed", "partly_confirmed", "unconfirmed")},
               "cascades": sum(lp["loop_type"] == "cascade" for lp in loops),
@@ -1158,6 +1173,7 @@ def assemble(model, lines, roles=None, corroboration=None, _assume_merged_ok=Fal
               "tag_groups_without_controller": len(no_ctrl), "conflicts": len(conflicts),
               "candidate_loops": len(candidate_loops),
               "relations_by_tier": {t: sum(r["confidence"] == t for r in relations) for t in CONFIDENCE},
+              "loops_by_tier": _loops_by_tier(relations, loops),
               **({"merged_lines_corroborated": sum(1 for r in relations if r.get("corroborated_by"))}
                  if any(r.get("corroborated_by") for r in relations) else {})}
     return {"schema": SCHEMA,
@@ -1191,6 +1207,46 @@ def assemble(model, lines, roles=None, corroboration=None, _assume_merged_ok=Fal
                                          "reader_pairs": sorted(sorted(p) for p in
                                                                 (corroboration or {}).get("reader_pairs") or [])}}
                if corroboration else {})}
+
+
+def _tier_by_derivation(relations, loops, strict):
+    """The one rule for the tier of anything derived: it takes the weakest tier of every input that made it possible.
+    `strict` is the same block assembled with every traced_through_crossing link left out. A relation that comes out
+    the same there (type, ends and direction) rests on strict inputs only and keeps its own tier; one that does not (a
+    cascade whose direction, a controls whose loop, or a signal whose direction needed a crossing-tier line) takes
+    traced_through_crossing. A loop keeps tier "traced" only if the strict block has the same loop (status, type,
+    measurements, final elements and inner controllers) and none of its relations is at the crossing tier; so a loop
+    at tier "traced" never rests on crossing-tier support."""
+    same = {(r["type"], r["from"], r["to"], r["direction"]) for r in strict["relations"]}
+    for r in relations:
+        if r["confidence"] != "traced_through_crossing" and (r["type"], r["from"], r["to"], r["direction"]) not in same:
+            r["confidence"] = "traced_through_crossing"
+            r["tier_basis"] = ("exists in this form only when a line joined through a crossing is counted: it takes "
+                               "the weakest tier of its inputs")
+        if r["confidence"] == "traced_through_crossing":
+            r["merged_through_crossing"] = True  # rests, directly or through what it was derived from, on such a line
+            r["review_question"] = CROSSING_QUESTION
+
+    def shape(lp):
+        return (lp["status"], lp["loop_type"], tuple(sorted(x["id"] for x in lp["measurements"])),
+                tuple(sorted(x["id"] for x in lp["final_elements"])), tuple(sorted(x["id"] for x in lp["sets_point_of"])))
+    strict_loops = {lp["controller"]: shape(lp) for lp in strict["loops"]}
+    weak = {(r["from"], r["to"]) for r in relations if r["confidence"] == "traced_through_crossing"}
+    for lp in loops:
+        c = lp["controller"]
+        rests = any((m["id"], c) in weak for m in lp["measurements"]) or any(
+            (c, x["id"]) in weak for x in lp["final_elements"] + lp["sets_point_of"])
+        lp["tier"] = "traced" if strict_loops.get(c) == shape(lp) and not rests else "traced_through_crossing"
+
+
+def _loops_by_tier(relations, loops):
+    """Counts split into the strict view (the default consumer filter) and the crossing tier (needs review)."""
+    def part(strict):
+        rs = [r for r in relations if (r["confidence"] in STRICT_TIERS) == strict]
+        ls_ = [lp for lp in loops if (lp.get("tier") == "traced") == strict and lp["status"] == "confirmed"]
+        return {"confirmed_loops": len(ls_), "cascades": sum(lp["loop_type"] == "cascade" for lp in ls_),
+                **{t: sum(r["type"] == t for r in rs) for t in ("signal_to", "controls", "sets_point_of")}}
+    return {"strict": part(True), "traced_through_crossing": part(False)}
 
 
 def _candidates(model, lines, roles, corroboration, loops, unresolved, cand, role, ident):
@@ -1259,11 +1315,26 @@ def reader_pairs(model, source):
 
 
 def load_crossing_answers(path):
-    """{"crossing_answers", "assert_enabled"} from a scripts/crossing_question.py answers file, or None."""
+    """{"crossing_answers", "assert_enabled"} from a scripts/crossing_question.py answers file, or None.
+    assert_enabled is not taken from the file: it is recomputed here from the scorecard the file names (its runs,
+    through crossing_question.enabled) and the prompt hash, which must match the current prompt in both the answers
+    and the scorecard. A missing or mismatched scorecard leaves the evaluator disabled: its answers then neither
+    promote nor demote anything."""
+    import crossing_question as cq
     if not path:
         return None
-    doc = json.loads(Path(path).read_text(encoding="utf-8"))
-    return {"crossing_answers": doc.get("answers") or {}, "assert_enabled": bool(doc.get("assert_enabled"))}
+    path = Path(path)
+    doc = json.loads(path.read_text(encoding="utf-8"))
+    prompt = hashlib.sha256(cq.PROMPT_FILE.read_bytes()).hexdigest()
+    enabled = False
+    card_path = doc.get("scorecard")
+    for cand_path in ([Path(card_path), path.parent / card_path] if card_path else []):
+        if cand_path.is_file():
+            card = json.loads(cand_path.read_text(encoding="utf-8"))
+            enabled = (card.get("prompt_sha256") == prompt == doc.get("prompt_sha256")
+                       and cq.enabled(card.get("runs") or []))
+            break
+    return {"crossing_answers": doc.get("answers") or {}, "assert_enabled": enabled}
 
 
 def add_loops(model, source, crossing_answers=None):

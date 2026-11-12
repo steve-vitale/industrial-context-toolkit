@@ -3,6 +3,7 @@
 The pure assembly tests need only the standard library; the drawn-line tests and the end-to-end intake test need
 OpenCV and NumPy and are skipped without them."""
 import contextlib
+import hashlib
 import io
 import json
 import random
@@ -1009,6 +1010,113 @@ class CrossingEvaluator(unittest.TestCase):
         answers, _ = cq.ask(items, call=always)
         run = {"score": cq.score_run(items, answers)}
         self.assertFalse(cq.enabled([run]))  # it says "continues" to everything, so it may assert nothing
+
+
+class FourthReview(unittest.TestCase):
+    """The fourth independent review's fixtures (loops-rereview4: ted_dep.py, c18_sweep.py, tier_attacks.py): a derived
+    relation or loop takes the weakest tier of every input that made it possible (_tier_by_derivation)."""
+
+    def strict(self, b, typ):
+        return {(r["from"], r["to"]) for r in b["relations"] if r["type"] == typ and r["confidence"] in la.STRICT_TIERS}
+
+    def weak(self, lid, ms):
+        return {**line(lid, ms), "merged_through_crossing": True,
+                "crossings": [{"key": f"sha:{lid}", "at_0_1000": [1.0, 1.0], "crosses": "pipe"}]}
+
+    def test_a_cascade_whose_direction_rests_on_a_crossing_line_takes_its_tier(self):
+        m = model([inst("T1", "TT 1"), inst("C1", "TIC 1"), inst("C2", "FIC 2"), inst("V2", "FV 2")])
+        b = la.assemble(m, [line("a", ["T1", "C1"]), line("b", ["C1", "C2"]), self.weak("w", ["C2", "V2"])])
+        self.assertEqual(rel(b, "sets_point_of"), {("C1", "C2")})
+        self.assertEqual(self.strict(b, "sets_point_of"), set())  # direction needed C2's crossing-tier valve line
+        self.assertEqual(self.strict(b, "signal_to"), {("T1", "C1")})  # C1-C2 is directed only through the crossing
+        self.assertEqual(loop(b, "C1")["tier"], "traced_through_crossing")
+        self.assertEqual(b["counts"]["loops_by_tier"]["strict"]["sets_point_of"], 0)
+
+    def test_an_outer_measurement_that_exists_only_through_a_crossing_line_takes_its_tier(self):
+        # FE 5 read as a controller's measurement only through a weak line (FT read as FC: FC 5 has no real measurement)
+        m = model([inst("E5", "FE 5"), inst("C1", "FC 5"), inst("C2", "FIC 6"), inst("V6", "FV 6"), inst("T6", "FT 6")])
+        base = [line("b", ["C1", "C2"]), line("c", ["C2", "V6"]), line("d", ["T6", "C2"])]
+        self.assertEqual(rel(la.assemble(m, base), "sets_point_of"), set())
+        b = la.assemble(m, base + [self.weak("w", ["E5", "C1"])])
+        self.assertEqual(self.strict(b, "sets_point_of"), set())
+        self.assertEqual(self.strict(b, "controls"), {("C2", "V6")})  # C2's own loop is strictly traced
+        self.assertEqual(loop(b, "C2")["tier"], "traced")
+
+    def test_a_loop_at_tier_traced_never_rests_on_crossing_support(self):
+        m = model([inst("T1", "TT 1"), inst("C1", "TIC 1"), inst("C2", "FIC 2"), inst("V2", "FV 2"), inst("T2", "FT 2")])
+        for extra in ([], [self.weak("w", ["C2", "V2"])], [self.weak("w", ["T2", "C2"])]):
+            b = la.assemble(m, [line("a", ["T1", "C1"]), line("b", ["C1", "C2"]), line("c", ["T2", "C2"]),
+                                line("d", ["C2", "V2"])][:3 + (not extra)] + extra)
+            weak = {(r["from"], r["to"]) for r in b["relations"] if r["confidence"] not in la.STRICT_TIERS}
+            for lp in b["loops"]:
+                if lp["tier"] == "traced":
+                    c = lp["controller"]
+                    self.assertFalse({(x["id"], c) for x in lp["measurements"]} & weak, extra)
+                    self.assertFalse({(c, x["id"]) for x in lp["final_elements"] + lp["sets_point_of"]} & weak, extra)
+
+    @unittest.skipUnless(HAVE_CV2, "needs OpenCV and NumPy")
+    def test_a_valve_line_ending_at_a_pipe_in_step_by_chance_gives_no_strict_cascade(self):
+        # c18_sweep.py: the inner controller's valve line is drawn to a pipe from both sides; at offsets 7-11 the two
+        # halves are in step by chance and merge, and the cascade direction rests on that merge
+        R = ReReview()
+        for off in range(7, 12):
+            def draw(img, b, off=off):
+                R.bub(img, b, "T1", 100, 100)
+                R.bub(img, b, "C1", 400, 100)
+                R.bub(img, b, "C2", 700, 100)
+                R.bub(img, b, "V2", 700, 500)
+                R.dsh(img, [(125, 100), (375, 100)])
+                R.dsh(img, [(425, 100), (675, 100)])
+                cv2.line(img, (500, 300), (900, 300), 0, 2)
+                R.dsh(img, [(700, 125), (700, 294)])
+                R.dsh(img, [(700, 306 + off), (700, 475)])
+            b = R.image(draw, {"T1": "TT 1", "C1": "TIC 1", "C2": "FIC 2", "V2": "FV 2"})
+            self.assertEqual(self.strict(b, "sets_point_of"), set(), off)
+            self.assertEqual(self.strict(b, "controls"), set(), off)
+
+    def test_two_lines_joined_at_one_pixel_are_two_questions(self):
+        h = {"at_px": [500, 300], "axis": "h", "gap_px": [490, 510]}
+        v = {"at_px": [500, 300], "axis": "v", "gap_px": [290, 310]}
+        self.assertNotEqual(la.crossing_key("sha", h), la.crossing_key("sha", v))
+
+    def test_the_evaluator_gate_is_recomputed_at_import_never_read_from_the_answers_file(self):
+        import crossing_question as cq
+        prompt = hashlib.sha256(cq.PROMPT_FILE.read_bytes()).hexdigest()
+        with tempfile.TemporaryDirectory() as t:
+            card = Path(t) / "card.json"
+            bad_run = {"score": {"false_merges_sweep": {"supported_continues": 1}, "fixtures_false":
+                                 {"supported_continues": 0}, "controls": {}, "true_crossings_te_d":
+                                 {"supported_continues": 3}, "fixtures_true": {"supported_continues": 0}}}
+            card.write_text(json.dumps({"prompt_sha256": prompt, "assert_enabled": True, "runs": [bad_run]}))
+            ans = Path(t) / "answers.json"
+            ans.write_text(json.dumps({"prompt_sha256": prompt, "assert_enabled": True, "scorecard": str(card),
+                                       "answers": {}}))
+            self.assertFalse(la.load_crossing_answers(ans)["assert_enabled"])  # the file says True; the runs say no
+            good_run = json.loads(json.dumps(bad_run))
+            good_run["score"]["false_merges_sweep"]["supported_continues"] = 0
+            card.write_text(json.dumps({"prompt_sha256": prompt, "runs": [good_run]}))
+            self.assertTrue(la.load_crossing_answers(ans)["assert_enabled"])
+            card.write_text(json.dumps({"prompt_sha256": "other", "runs": [good_run]}))
+            self.assertFalse(la.load_crossing_answers(ans)["assert_enabled"])  # another prompt's scorecard
+            ans.write_text(json.dumps({"prompt_sha256": prompt, "scorecard": str(Path(t) / "gone.json"), "answers": {}}))
+            self.assertFalse(la.load_crossing_answers(ans)["assert_enabled"])
+
+    @unittest.skipUnless(HAVE_CV2 and (Path(__file__).resolve().parent.parent / "data" / "te_pid").is_dir(),
+                         "needs OpenCV and the TE sheets")
+    def test_te_revision_d_strict_view_holds_only_strictly_traced_loops(self):
+        # ted_dep.py: TIC 109 -> TIC 121 is a cascade whose direction rests on TV 121's line across a pipe
+        import crossing_question as cq
+        with tempfile.TemporaryDirectory() as t:
+            bundle = cq.build_te_d_bundle(Path(t))
+            model_ = json.loads((bundle / "plant_model.json").read_text(encoding="utf-8"))
+        cl = model_["control_loops"]
+        tag = {k: la.compact(v["tag"]) for k, v in la.candidates(model_).items()}
+        strict = ls.score(ls.asserted(model_, strict=True), ls.key_loops())["loops"]
+        self.assertEqual((strict["valve_loops"], strict["cascades"], strict["precision"]), ("7/11", "3/8", 1.0))
+        self.assertEqual(ls.score(ls.asserted(model_), ls.key_loops())["loops"]["recall"], 1.0)
+        r = next(r for r in cl["relations"] if r["type"] == "sets_point_of" and tag[r["from"]] == "TIC109")
+        self.assertEqual((tag[r["to"]], r["confidence"]), ("TIC121", "traced_through_crossing"))
+        self.assertEqual(cl["counts"]["loops_by_tier"]["strict"]["confirmed_loops"], 10)
 
 
 class Scorer(unittest.TestCase):

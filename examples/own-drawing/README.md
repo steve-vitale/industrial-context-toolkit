@@ -285,11 +285,15 @@ hidden: every loop the assembly cannot prove is listed under `candidate_loops`, 
 confirm and its question.
 
 Every relation in `control_loops.relations` carries its tier in `confidence`, and every loop its `tier`; counts by tier
-are in `control_loops.counts.relations_by_tier`. The tiers, strongest first: `traced_and_grouped`, `traced`,
+are in `control_loops.counts.relations_by_tier`, and `loops_by_tier` (in the counts, in `meta.loops_status` and in the
+intake's `loops` summary) splits loops, cascades and relations into `strict` and `traced_through_crossing`. A derived
+relation or loop takes the weakest tier of every input that made it possible: anything that exists in its form only
+when a crossing-tier line is counted (a cascade whose direction, or a loop whose measurement or valve, needed one) is
+itself `traced_through_crossing`, so a loop at tier `traced` never rests on crossing-tier support. The tiers, strongest first: `traced_and_grouped`, `traced`,
 `traced_cross_sheet`, `traced_direction_inferred` (a cascade whose direction comes from graph distance) and
 `traced_through_crossing`. **Default filter for consumers: keep only relations whose `confidence` is not
 `traced_through_crossing`, and loops whose `tier` is `traced`** (`loop_assembly.STRICT_TIERS`). That is the strictly
-traced view. Take `traced_through_crossing` relations only into a review step that shows their `review_question`. `controls` (controller to final element) needs a confirmed loop (a traced measurement in, a
+traced view, and because tiers follow derivation, a loop kept by this filter contains no crossing-tier support. Take `traced_through_crossing` relations only into a review step that shows their `review_question`. `controls` (controller to final element) needs a confirmed loop (a traced measurement in, a
 traced output out, directly or through a relay), and `sets_point_of` marks a cascade. A loop that rests on its loop
 number alone stays `unconfirmed`, with the grouped tags listed for review; an item a traced line ties to another loop
 is listed as refuted and as a conflict. Every relation carries its evidence and an ordinal confidence tier (a
@@ -299,10 +303,10 @@ importer's own hash). The graph export does not carry loops yet ([N122](../../do
 `control_loops` under `not_exported`, where the item count is the number of keys in that block, not the number of
 loops. Nothing is taken from layout. On the development sheets ([scores](../../out/round6/loops_dev.md)), which the
 rules were tuned against, the generated TE revision D, read with its key's symbols, asserts all 19 of its control
-loops (11 of 11 valve loops, 8 of 8 cascades) with no wrong one; 16 of its 57 relations are at tier
-`traced_through_crossing`, because 8 of its true signal lines cross a pipe. Strictly traced (the default filter) it
-gives 11 of 19 (7 of 11 valve loops, 4 of 8 cascades), also with no wrong one; tag grouping alone gives 11 of 19 at
-0.55 precision. Neither channel promotes the crossed lines yet: the key reader's links come from the code tracer, and
+loops (11 of 11 valve loops, 8 of 8 cascades) with no wrong one; 18 of its 57 relations are at tier
+`traced_through_crossing`, because 8 of its true signal lines cross a pipe and two cascade directions rest on one of
+them. Strictly traced (the default filter) it gives 10 of 19 (7 of 11 valve loops, 3 of 8 cascades), also with no
+wrong one; tag grouping alone gives 11 of 19 at 0.55 precision. Neither channel promotes the crossed lines yet: the key reader's links come from the code tracer, and
 the blind evaluator failed its own scorecard (with the one model available today it supported 3 of the 60-placement
 sweep's 10 chance merges and missed the obvious separate-ends control; A416). TE is drawn by this repository with
 clean, consistent tags, so that is an upper bound. Precision is measured in effect on TE revision D only: the other two development
