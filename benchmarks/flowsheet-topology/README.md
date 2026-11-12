@@ -30,6 +30,35 @@ packet, give a model only `prompt.md`, `contract.md`, `reference_source.txt`, `r
 then `build`. The scored answer is the `model.json` that `build` writes. A run that never passes `check` is a failed
 answer and scores as empty. Three replicates per case; the spread is their range.
 
+### Development (A419, 2026-11-12) and the frozen method
+
+| Run | Built | Unit-role F1 | Connection F1 (per replicate) | Mean (SD) | Reversed / shuffled (wrong) | Mention-order chain |
+|---|---|---|---|---|---|---|
+| v0: workflow as on main `9ba93ccc` | 0 of 3 | 0.000 | 0.000, 0.000, 0.000 | 0.000 | n/a | n/a |
+| v1: frozen A419 contract | 3 of 3 | 1.000 (7/7) each | 0.462, 0.462, 0.947 | 0.624 (0.281) | 0.000 / 0.105-0.154 | 0.105-0.211 |
+
+Key controls on the development key: reference 1.000, reversed 0.000, shuffled 0.300, empty 0.000.
+
+- **v0 failure:** every replicate spent its four check rounds on one diagnostic, `route endpoint must touch the named
+  equipment outline bounds`, at the feed mixer. The contract said the mixer uses `at/r`; the check ignores `r` and
+  uses a fixed 35-pixel half-size, and the diagnostic never said where the outline was. No build, so the user gets
+  nothing. The unchecked answers also left out the turbine (no supported type) and every unit-to-unit connection
+  (the prose gives an order, not pipes).
+- **v1 changes, in `scripts/description_workflow.py` with RED-first tests:** the diagnostic names the outline and the
+  endpoint; the contract states the fixed mixer outline; and the contract asks the assistant not to drop equipment
+  the source names (closest supported type, substitution recorded in `meta.assumptions`) and to represent
+  connections the source gives by process order as streams, each recorded in `meta.assumptions` for review, never
+  connecting units whose order the source does not give.
+- **v1 result:** two of three replicates still left the seven process units unconnected: the prose lists them only
+  in a degrees-of-freedom sentence, and those replicates recorded that it is not a stated process order. One read the
+  list as order and recovered 9 of 10 arcs. All three missed the flash vapor to exhaust. The development cell
+  criterion (mean connection F1 >= 0.75) is not met.
+
+The method is frozen at v1 in the commit that adds this section. Before the held-out run, the held-out key was
+written once with `flowsheet_topology.py key`; its first parse refused the class `Splitter` (unit `S101`), and one
+mapping line (`Splitter` is a splitter, as `Separator` already was) was added. Only its counts (13 units, 13 arcs,
+as surveyed on 2026-11-12) and the key-control check were displayed; no answer had been produced for it.
+
 ## Score and controls
 
 Units: agreement of coarse unit roles (mixer, compressor, expander, pump, heat exchange, reactor, separator, splitter,

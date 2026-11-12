@@ -50,7 +50,7 @@ UNIT_LIBRARY = re.compile(r'idaes\.(models|generic_models)\.unit_models(\.|$)')
 ROLE_OF_CLASS = {
     'Feed': 'feed', 'FeedFlash': 'feed', 'Product': 'product',
     'Mixer': 'mixer', 'MixerData': 'mixer',
-    'Separator': 'splitter', 'SeparatorData': 'splitter',
+    'Separator': 'splitter', 'SeparatorData': 'splitter', 'Splitter': 'splitter',
     'Compressor': 'compressor', 'Pump': 'pump', 'Turbine': 'expander', 'PressureChanger': None,
     'Heater': 'heat_exchange', 'HeatExchanger': 'heat_exchange', 'HeatExchanger1D': 'heat_exchange',
     'HeatExchangerNTU': 'heat_exchange', 'HeatExchangerLumpedCapacitance': 'heat_exchange',

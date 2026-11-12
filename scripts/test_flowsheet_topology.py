@@ -80,6 +80,14 @@ class KeyTests(unittest.TestCase):
         self.path.write_text(src, encoding='utf-8')
         self.assertEqual({u['id']: u['role'] for u in ft.key_from_flowsheet(self.path)['units']}['T1'], 'expander')
 
+    def test_splitter_and_separator_classes_are_splitters(self):
+        """A419: the held-out key's first parse refused the Splitter class (S101); it maps like Separator."""
+        src = FLOWSHEET.replace('Separator,', 'Separator, Splitter,').replace(
+            'm.fs.P2 = Product()', 'm.fs.P2 = Product()\n    m.fs.S1 = Splitter()\n    m.fs.S2 = Separator()')
+        self.path.write_text(src, encoding='utf-8')
+        roles = {u['id']: u['role'] for u in ft.key_from_flowsheet(self.path)['units']}
+        self.assertEqual((roles['S1'], roles['S2']), ('splitter', 'splitter'))
+
     def test_unknown_unit_class_or_dangling_arc_refuses(self):
         self.path.write_text(FLOWSHEET.replace('Separator,', 'Separator, Mystery,').replace(
             'm.fs.H1 = Heater()', 'm.fs.H1 = Mystery()'), encoding='utf-8')

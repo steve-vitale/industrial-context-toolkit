@@ -1,0 +1,109 @@
+{
+  "prediction": {
+    "meta": {
+      "model_id": "methanol-synthesis-draft",
+      "title": "Methanol synthesis flowsheet example (assisted first draft)",
+      "source_document": "source.txt",
+      "source_sha256": "1e13f7fc9249891b146d57cd07529c43dc58429e4a7fec193836df84234d9beb",
+      "unknowns": [
+        "The source supplies no equipment, stream, instrument or valve tags; all unit and stream identifiers are newly assigned.",
+        "The order of feed mixing, the pre-reactor compressor and the pre-reactor heater relative to each other is not given; only that they precede the reactor. No connections between the mixer, compressor, heater and reactor are drawn.",
+        "The positions of the turbine and the cooler relative to the reactor and the Flash unit are not given. The list of units on L60 is a degrees-of-freedom list, not a stated process order. No connections between the reactor, turbine, cooler and Flash unit are drawn.",
+        "The Flash unit is described as post-reactor, but whether any equipment lies between the reactor and the Flash unit is not stated.",
+        "The source of the exhaust stream on L69 and the destination of any Flash vapor outlet are not specified.",
+        "No instruments, control valves, controllers, manual valves, relief devices, interlocks or limits are specified in the source.",
+        "Operating pressures, temperatures, duties, flows, compositions, line sizes, materials and valve failure positions are not given as plant values."
+      ],
+      "assumptions": [
+        "Symbol dimensions and locations are proposed drafting geometry, not plant dimensions or nozzle locations.",
+        "The source names a turbine, but no supported type fits it. It is represented with the closest supported type, compressor, and keeps the source name.",
+        "Feed mixing is described (L10) but no mixer equipment is named. It is represented as a feed_header unit (M-101) for review.",
+        "The hydrogen and carbon monoxide feeds are represented as battery-limit streams entering the mixing unit, based on L10. This is an order-based interpretation for review.",
+        "The 'liquid outlet Product block' (L58) is represented as a Flash liquid stream to a battery limit, not as a separate unit. This is an interpretation for review.",
+        "Flash unit is represented as a separator; the pre-reactor heater and the cooler are represented as heat_exchanger units."
+      ]
+    },
+    "units": [
+      {
+        "id": "M-101",
+        "name": "Pre-reactor feed mixing",
+        "type": "feed_header",
+        "assigned_tag": true,
+        "source": "source.txt:L10-L10"
+      },
+      {
+        "id": "C-101",
+        "name": "Pre-reactor compressor",
+        "type": "compressor",
+        "assigned_tag": true,
+        "source": "source.txt:L38-L38"
+      },
+      {
+        "id": "H-101",
+        "name": "Pre-reactor heater",
+        "type": "heat_exchanger",
+        "assigned_tag": true,
+        "source": "source.txt:L39-L39"
+      },
+      {
+        "id": "R-101",
+        "name": "Gas-phase reactor",
+        "type": "reactor",
+        "assigned_tag": true,
+        "source": "source.txt:L10-L10"
+      },
+      {
+        "id": "T-101",
+        "name": "Turbine",
+        "type": "compressor",
+        "assigned_tag": true,
+        "source": "source.txt:L60-L60"
+      },
+      {
+        "id": "E-102",
+        "name": "Cooler",
+        "type": "heat_exchanger",
+        "assigned_tag": true,
+        "source": "source.txt:L60-L60"
+      },
+      {
+        "id": "F-101",
+        "name": "Flash unit",
+        "type": "separator",
+        "assigned_tag": true,
+        "source": "source.txt:L10-L10"
+      }
+    ],
+    "streams": [
+      {
+        "id": "S-H2",
+        "name": "Hydrogen feed",
+        "from": "BL",
+        "to": "M-101",
+        "assigned_tag": true,
+        "source": "source.txt:L10-L10"
+      },
+      {
+        "id": "S-CO",
+        "name": "Carbon monoxide feed",
+        "from": "BL",
+        "to": "M-101",
+        "assigned_tag": true,
+        "source": "source.txt:L10-L10"
+      },
+      {
+        "id": "S-PROD",
+        "name": "Flash liquid outlet to Product",
+        "from": "F-101",
+        "to": "BL",
+        "assigned_tag": true,
+        "source": "source.txt:L58-L58"
+      }
+    ],
+    "instruments": [],
+    "final_elements": []
+  },
+  "ran_at": "2026-11-12T18:40:18Z",
+  "seconds": 88.5,
+  "cost_usd_notional": 0.1584
+}

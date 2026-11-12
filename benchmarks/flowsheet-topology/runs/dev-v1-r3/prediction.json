@@ -1,0 +1,110 @@
+{
+  "prediction": {
+    "meta": {
+      "model_id": "methanol-synthesis-draft",
+      "title": "Methanol synthesis flowsheet example (assisted first draft)",
+      "source_document": "source.txt",
+      "source_sha256": "1e13f7fc9249891b146d57cd07529c43dc58429e4a7fec193836df84234d9beb",
+      "unknowns": [
+        "The source is a simulation notebook description, not a plant description; no equipment tags, line numbers or drawing references are supplied.",
+        "The order of the pre-reactor compressor and pre-reactor heater relative to each other is not stated, so no streams are drawn between the feed mixing step, the compressor, the heater and the reactor.",
+        "The source states that the Flash unit is post-reactor but does not give the order of the reactor, turbine, cooler and Flash unit, so no streams are drawn among them.",
+        "The destination of the Flash vapor outlet and the origin of the exhaust stream are not stated.",
+        "Feed flows, pressures, enthalpies and compositions, unit operating conditions, line sizes and materials are unspecified.",
+        "No instruments, control valves, controllers, manual valves, relief devices, interlocks or limits are specified in the source."
+      ],
+      "assumptions": [
+        "Symbol dimensions and locations are proposed drafting geometry, not plant dimensions.",
+        "All unit and stream identifiers are newly assigned because the source supplies none.",
+        "The feed mixing step described in the source is represented as a feed_header unit named Feed mixer.",
+        "The turbine has no supported symbol type and is represented with the closest supported type (compressor) while keeping the name Turbine.",
+        "The pre-reactor heater and the cooler are represented as heat_exchanger units and the Flash unit as a separator.",
+        "Order-based interpretation for review: streams S1 (hydrogen feed) and S2 (carbon monoxide feed) run from the upstream battery limit to the Feed mixer because the source states the reactant vapors are mixed before conditioning and entering the reactor.",
+        "Order-based interpretation for review: stream S3 (liquid product) runs from the Flash unit liquid outlet to the downstream battery limit, based on the source's reference to the liquid outlet Product block.",
+        "The seven units are split over two sheets because the fixed legend fits six units per sheet; no stream crosses between the sheets."
+      ]
+    },
+    "units": [
+      {
+        "id": "MIX",
+        "name": "Feed mixer",
+        "type": "feed_header",
+        "assigned_tag": true,
+        "source": "source.txt:L67-L67"
+      },
+      {
+        "id": "COMP",
+        "name": "Pre-reactor compressor",
+        "type": "compressor",
+        "assigned_tag": true,
+        "source": "source.txt:L38-L38"
+      },
+      {
+        "id": "HTR",
+        "name": "Pre-reactor heater",
+        "type": "heat_exchanger",
+        "assigned_tag": true,
+        "source": "source.txt:L39-L39"
+      },
+      {
+        "id": "RXN",
+        "name": "Gas-phase reactor",
+        "type": "reactor",
+        "assigned_tag": true,
+        "source": "source.txt:L10-L10"
+      },
+      {
+        "id": "TURB",
+        "name": "Turbine",
+        "type": "compressor",
+        "assigned_tag": true,
+        "source": "source.txt:L60-L60"
+      },
+      {
+        "id": "COOL",
+        "name": "Cooler",
+        "type": "heat_exchanger",
+        "assigned_tag": true,
+        "source": "source.txt:L60-L60"
+      },
+      {
+        "id": "FLASH",
+        "name": "Flash unit",
+        "type": "separator",
+        "assigned_tag": true,
+        "source": "source.txt:L58-L58"
+      }
+    ],
+    "streams": [
+      {
+        "id": "S1",
+        "name": "Hydrogen feed",
+        "from": "BL",
+        "to": "MIX",
+        "assigned_tag": true,
+        "source": "source.txt:L10-L10"
+      },
+      {
+        "id": "S2",
+        "name": "Carbon monoxide feed",
+        "from": "BL",
+        "to": "MIX",
+        "assigned_tag": true,
+        "source": "source.txt:L10-L10"
+      },
+      {
+        "id": "S3",
+        "name": "Liquid methanol product",
+        "from": "FLASH",
+        "to": "BL",
+        "assigned_tag": true,
+        "source": "source.txt:L58-L58"
+      }
+    ],
+    "instruments": [],
+    "final_elements": []
+  },
+  "ran_at": "2026-11-12T18:40:18Z",
+  "seconds": 87.7,
+  "cost_usd_notional": 0.2339
+}

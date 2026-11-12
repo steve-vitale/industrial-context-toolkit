@@ -15,7 +15,8 @@
     "real_unit": "The real unit (Bayer residue treater): model from text, Figure 10/11 checks, replay",
     "tours_3d": "3D and browser tours",
     "review_loop": "Review loop: operations corrections, mapping, outside review",
-    "intake_and_reuse": "Intake and reuse: runbook, DEXPI route, loop audit, CSV tools, vendor kit"
+    "intake_and_reuse": "Intake and reuse: runbook, DEXPI route, loop audit, CSV tools, vendor kit",
+    "description_models": "Models from written descriptions: the units and connections the description workflow builds, scored against third-party flowsheets"
   },
   "attempts": [
     {
@@ -6876,6 +6877,22 @@
         "out/round6/crossing_judge_dev.md",
         "scripts/crossing_question.py",
         "examples/own-drawing/README.md"
+      ]
+    },
+    {
+      "id": "A419",
+      "function": "description_models",
+      "date": "2026-11-12",
+      "change": "First real source for process models and networks (DEPTH_GOAL increment 2): task flowsheet-topology (contract role-aligned-arcs-v1, scripts/flowsheet_topology.py) scores the model that description_workflow.py build writes from the IDAES methanol_synthesis.ipynb markdown prose against the units and Arc connections parsed (never executed) from methanol_flowsheet.py (development) and methanol_flowsheet_w_recycle.py (held out). scripts/run_description_author.py stands in for the approved assistant on the documented route (packet only, no tools, check diagnostics returned up to 4 rounds, then build), with the toolkit's Claude Code CLI model path. Workflow changes after development v0 (RED-first tests in scripts/test_description_workflow.py): an off-outline route diagnostic now names the outline it missed; the contract states the mixer's fixed outline (it said mixer uses at/r, but the check ignores r); and the contract asks the assistant to keep source-named equipment with the closest supported type (recorded in meta.assumptions) and to represent connections the source gives by process order as streams recorded in meta.assumptions, never connecting units whose order the source does not give.",
+      "hypothesis": "A written process description that names the equipment and its order is enough for the description workflow to build a model whose units and connections match the process's own flowsheet code, well above wrong controls.",
+      "evidence": "Model claude-opus-5-5 (Claude Code CLI 2.1.317; the only model path on this host on 2026-11-12: Codex CLI out until 2026-11-16, no Gemini key). Development, no-recycle flowsheet (key 11 units, 10 arcs), three replicates each. v0 (workflow as on main 9ba93ccc): 0 of 3 built; every replicate spent 4 check rounds on 'route endpoint must touch the named equipment outline bounds' at the feed mixer (route ends at r=40, the check uses a fixed 35-pixel outline and never said where), so the user gets nothing: connection F1 0.000. Unchecked v0 answers also dropped the turbine (no supported type) and every unit-to-unit connection (the prose gives order, not pipes). v1 (frozen A419 contract): 3 of 3 built in one round; unit-role F1 1.000 (7/7) on all three; connection F1 mean 0.624 (0.462, 0.462, 0.947; SD 0.281); boundaries 0.857 (the flash vapor to exhaust never represented). Wrong controls on the same answers: reversed 0.000, shuffled 0.105-0.154; key controls reference 1.000, reversed 0.000, shuffled 0.300, empty 0.000. Naive mention-order chain of the answers' own units 0.105-0.211. Two of three v1 replicates declined to connect the mixer, compressor, heater, reactor, turbine, cooler and flash because the prose lists them only in a degrees-of-freedom sentence, not as a process order (their meta.unknowns say so); one read that list as order and recovered 9 of 10 arcs. Development cell criterion (pre-registered: mean connection F1 >= 0.75): not met. Held-out run: pending, method frozen in this commit.",
+      "runs": "6 development runs (3 v0, 3 v1): 15 model calls (12 in v0, four check rounds each; 3 in v1), 1161 s of model time, notional cost USD 2.91",
+      "verdict": "inconclusive",
+      "why": "Held-out run pending. The pre-registered verdict rule is in benchmarks/flowsheet-topology/README.md.",
+      "source": [
+        "benchmarks/flowsheet-topology/README.md",
+        "scripts/flowsheet_topology.py",
+        "scripts/run_description_author.py"
       ]
     }
   ],

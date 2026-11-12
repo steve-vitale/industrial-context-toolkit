@@ -1,0 +1,36 @@
+{
+  "id": "flowsheet-topology-idaes-methanol",
+  "version": "1",
+  "task": "flowsheet-topology",
+  "protocol": "Notebook markdown prose only (code cells, outputs and flowsheet PNGs withheld) -> description_workflow.py prepare -> a model with no tools answers the packet, check diagnostics returned up to 4 rounds -> build; the built model.json is scored by role-aligned-arcs-v1 against the flowsheet code key. Three replicates per case.",
+  "registration": "A419. Development: the no-recycle flowsheet (v0 = workflow as on main 9ba93ccc; v1 = the frozen A419 contract). Held out: the recycle flowsheet, one sealed run of three replicates of v1 after the method was committed. Same-family model only (Claude); one publisher.",
+  "cases": [
+    {
+      "id": "methanol-no-recycle",
+      "family": "idaes-methanol",
+      "split": "development",
+      "evidence": "Third-party flowsheet code keys third-party prose; same author and notebook, one publisher (IDAES)",
+      "source_url": "https://github.com/IDAES/examples/tree/eb64e38ac429b7e3ae4f8db071f8d8cad2eef675/idaes_examples/notebooks/docs/flowsheets",
+      "license": "IDAES BSD-style license with DOE notice (benchmarks/flowsheet-topology/IDAES-LICENSE.md); derived prose and keys committed, originals fetch-by-hash (data/corpus_pins.json idaes-processes)",
+      "key_author": "Parsed mechanically from the IDAES flowsheet code by scripts/flowsheet_topology.py key (ast, never executed); not written by this repository. Development key, read while building the scorer.",
+      "files": {
+        "input": {
+          "path": "benchmarks/flowsheet-topology/inputs/methanol-no-recycle.txt",
+          "sha256": "1e13f7fc9249891b146d57cd07529c43dc58429e4a7fec193836df84234d9beb"
+        },
+        "key": {
+          "path": "benchmarks/flowsheet-topology/keys/methanol-no-recycle.json",
+          "sha256": "6949a3be2ef2070fc69ced5e287eaa2c4fd9b1cf04e47e6491c59949d7a3ccdc"
+        }
+      }
+    }
+  ],
+  "runs": [
+    "benchmarks/flowsheet-topology/runs/dev-v0-r1.json",
+    "benchmarks/flowsheet-topology/runs/dev-v0-r2.json",
+    "benchmarks/flowsheet-topology/runs/dev-v0-r3.json",
+    "benchmarks/flowsheet-topology/runs/dev-v1-r1.json",
+    "benchmarks/flowsheet-topology/runs/dev-v1-r2.json",
+    "benchmarks/flowsheet-topology/runs/dev-v1-r3.json"
+  ]
+}
