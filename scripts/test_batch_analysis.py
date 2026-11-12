@@ -225,6 +225,9 @@ class BatchAnalysis(unittest.TestCase):
         self.assertEqual(result["time_weighted_mean_observed"], 6)
         self.assertEqual(result["interpolation"], "next")
         self.assertIn("interval-ending", r["method"]["assumption"])
+        # The assumption must not claim both endpoints are required: next needs only the closing sample.
+        self.assertNotIn("both endpoints required", r["method"]["assumption"])
+        self.assertIn("only the closing sample", r["method"]["assumption"])
         self.assertIn("next", tool.markdown(r))
         self.assertIn("closing sample", tool.markdown(r))
 

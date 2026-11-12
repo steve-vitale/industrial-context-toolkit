@@ -1,0 +1,92 @@
+{
+  "cases": [
+    {
+      "evidence": "Publisher-logged running cumulative (total_fermentable_sugar_kg), withheld from the tool; whole-batch windows; development batches B01-B05",
+      "family": "industrial-yeast",
+      "files": {
+        "input": {
+          "path": "examples/batch-analysis/industrial-yeast/results/development/plans/method.batch.plan.json",
+          "sha256": "b3ddec83362e3976a63fa96836603529bc4f2e825f8615187f73d087087ae29e"
+        },
+        "key": {
+          "path": "examples/batch-analysis/industrial-yeast/results/development/key/key.batch.json",
+          "sha256": "bd121cadf2bf77ceeed795affb5745f3a5021d1d80b4e4f8a7415b3fc896fbcd"
+        }
+      },
+      "id": "yeast-development-batch",
+      "key_author": "Publisher operators' logged cumulative, transcribed by the publisher; derived mechanically by scripts/industrial_yeast_case.py",
+      "license": "CC BY 4.0 (Zhao et al. 2026); derived plans, keys and tool reports only, originals fetch-by-hash",
+      "source_url": "https://doi.org/10.6084/m9.figshare.33201579",
+      "split": "development"
+    },
+    {
+      "evidence": "Publisher-logged running cumulative (total_fermentable_sugar_kg), withheld from the tool; hourly windows; development batches B01-B05",
+      "family": "industrial-yeast",
+      "files": {
+        "input": {
+          "path": "examples/batch-analysis/industrial-yeast/results/development/plans/method.hourly.plan.json",
+          "sha256": "ad09dcb67774b0d1973d484b57eddf06654587e7d13b8b926b32e7e42587e6b0"
+        },
+        "key": {
+          "path": "examples/batch-analysis/industrial-yeast/results/development/key/key.hourly.json",
+          "sha256": "233a583ff8a5a00671b1e50b8122f7f2c324a2b02f1002bc811f2d8948a0dd2f"
+        }
+      },
+      "id": "yeast-development-hourly",
+      "key_author": "Publisher operators' logged cumulative, transcribed by the publisher; derived mechanically by scripts/industrial_yeast_case.py",
+      "license": "CC BY 4.0 (Zhao et al. 2026); derived plans, keys and tool reports only, originals fetch-by-hash",
+      "source_url": "https://doi.org/10.6084/m9.figshare.33201579",
+      "split": "development"
+    },
+    {
+      "evidence": "Publisher-logged running cumulative (total_fermentable_sugar_kg), withheld from the tool; whole-batch windows; sealed held-out batches B06-B10, scored once after the method and scorer were committed (A418)",
+      "family": "industrial-yeast",
+      "files": {
+        "input": {
+          "path": "examples/batch-analysis/industrial-yeast/results/held-out/plans/method.batch.plan.json",
+          "sha256": "ae5d2bb1a99b74028121717fa88154ae29ea72960d6bc1b153c6c58f902e892d"
+        },
+        "key": {
+          "path": "examples/batch-analysis/industrial-yeast/results/held-out/key/key.batch.json",
+          "sha256": "8188857eb8d384d448c9f634294a571ca54c0cdc97a00badec83703848ca9862"
+        }
+      },
+      "id": "yeast-held-out-batch",
+      "key_author": "Publisher operators' logged cumulative, transcribed by the publisher; derived mechanically by scripts/industrial_yeast_case.py",
+      "license": "CC BY 4.0 (Zhao et al. 2026); derived plans, keys and tool reports only, originals fetch-by-hash",
+      "source_url": "https://doi.org/10.6084/m9.figshare.33201579",
+      "split": "held-out"
+    },
+    {
+      "evidence": "Publisher-logged running cumulative (total_fermentable_sugar_kg), withheld from the tool; hourly windows; sealed held-out batches B06-B10, scored once after the method and scorer were committed (A418)",
+      "family": "industrial-yeast",
+      "files": {
+        "input": {
+          "path": "examples/batch-analysis/industrial-yeast/results/held-out/plans/method.hourly.plan.json",
+          "sha256": "c2fb7ef38150378011106efbfbbca3e8844e4e92f93127b277b515be04e24871"
+        },
+        "key": {
+          "path": "examples/batch-analysis/industrial-yeast/results/held-out/key/key.hourly.json",
+          "sha256": "47670fdb63748de6c23510bda6c0ea5dfebdfad239e73ba06bb932307de15085"
+        }
+      },
+      "id": "yeast-held-out-hourly",
+      "key_author": "Publisher operators' logged cumulative, transcribed by the publisher; derived mechanically by scripts/industrial_yeast_case.py",
+      "license": "CC BY 4.0 (Zhao et al. 2026); derived plans, keys and tool reports only, originals fetch-by-hash",
+      "source_url": "https://doi.org/10.6084/m9.figshare.33201579",
+      "split": "held-out"
+    }
+  ],
+  "id": "industrial-yeast-batch-totals",
+  "protocol": "scripts/batch_analysis.py full-window feed integrals (kg) per supplied window against the change in the publisher-logged running cumulative over the same window; match within 0.5 kg (scripts/score_batch_totals.py, rules frozen 2026-11-12).",
+  "registration": "Industrial-yeast depth task (docs/DEPTH_GOAL.md, attempt A418): development batches B01-B05; sealed held-out batches B06-B10 scored once after the method and scorer were committed. Held-out exposure: Held-out key counts were surveyed on 2026-11-12 (row and logged-cumulative counts over all batches and the completeness tier of every batch; key values were read for B01 only); no method was run. Deterministic tool runs; the key is the sum of the same logged feeds, so this checks integration semantics, units, coverage and windows, not measurement accuracy.",
+  "runs": [
+    "benchmarks/runs/yeast-method.json",
+    "benchmarks/runs/yeast-trapezoid.json",
+    "benchmarks/runs/yeast-trapezoid_zero_start.json",
+    "benchmarks/runs/yeast-previous_hold.json",
+    "benchmarks/runs/yeast-wrong_unit.json"
+  ],
+  "task": "batch-totals",
+  "version": "2"
+}

@@ -2,9 +2,15 @@
 
 **A registered, scored task for the [batch tool](../../../scripts/batch_analysis.py)** on a real public source: ten
 full-process production batches from an industrial baker's-yeast fed-batch fermenter (Zhao et al., figshare
-[10.6084/m9.figshare.33201579](https://doi.org/10.6084/m9.figshare.33201579), CC BY 4.0). This is the process-data
-area's depth task under [DEPTH_GOAL.md](../../../docs/DEPTH_GOAL.md) (attempt A418 in
-[data/attempts.json](../../../data/attempts.json)).
+[10.6084/m9.figshare.33201579](https://doi.org/10.6084/m9.figshare.33201579), CC BY 4.0), attempt A418 in
+[data/attempts.json](../../../data/attempts.json).
+
+**In one paragraph.** On ten real batches, the batch tool's `next` integral reproduces the publisher's logged running cumulative on 9 of 10 batches and 166 of 169 hours; the one mismatch (B09 hours 11-13) is an inconsistency inside the source. The key is the publisher's own sum of the same feed column, so this checks the interval convention, unit, window and coverage, and the source's internal consistency. It is not a measurement or outcome benchmark.
+
+Under [DEPTH_GOAL.md](../../../docs/DEPTH_GOAL.md) this is an *integration-semantics check with all six mechanics in
+place* (registered task, frozen scorer with controls, development and sealed held-out results, matrix cell, product
+path, written failures). It does **not** give the process-data area depth: that still needs a source with an outcome
+key (C-MAPSS or SECOM, deferred until a remaining-life estimate or a lot outcome screen exists).
 
 ## The question and the key
 
@@ -45,7 +51,8 @@ the logged sum by exactly half the last hour's feed (measured: 63.5 to 342.5 kg 
 python scripts/fetch_corpus.py industrial-yeast          # once; checks every file against data/corpus_pins.json
 python -B scripts/industrial_yeast_case.py --split development --out ../engineering-work/yeast-dev
 python -B scripts/industrial_yeast_case.py --split development --check   # re-run and compare with results/
-python scripts/benchmark.py --suite benchmarks/industrial-yeast-development.json --out ../engineering-work/yeast-bench
+python -B scripts/industrial_yeast_case.py --split held-out --check      # the sealed split, re-run deterministically
+python scripts/benchmark.py --suite benchmarks/industrial-yeast-batch-totals.json --out ../engineering-work/yeast-bench
 ```
 
 The case runner verifies the two originals it reads against their pins, keeps only the split's batches (from the
@@ -62,21 +69,45 @@ committed: fetch them by hash.
 |---|---|---|---|---|---|---|---|---|---|---|
 | development B01-B05 | batch | **5 / 5** | 0 / 5 | 0 / 5 | 0 / 5 | 0 / 5 | 5 / 5 | 0 / 5 | 2 / 5 | 3 / 5 |
 | development B01-B05 | hourly | **84 / 84** | 0 / 84 | 0 / 84 | 0 / 84 | 0 / 84 | 84 / 84 | 0 / 84 | 0 / 84 | 0 / 84 |
+| held out B06-B10 | batch | **4 / 5** | 0 / 5 | 0 / 5 | 0 / 5 | 0 / 5 | 5 / 5 | 0 / 5 | 2 / 5 | 3 / 5 |
+| held out B06-B10 | hourly | **82 / 85** | 0 / 85 | 0 / 85 | 1 / 85 | 0 / 85 | 85 / 85 | 0 / 85 | 1 / 85 | 0 / 85 |
 
-Full tables: [development](results/development/SCORE.md). The registered benchmark report is
+**Kept**, by the decision rule fixed before the held-out run (batch at least 4/5, hourly at least 0.95, each above
+every control except perfect), with no margin at the batch level: 4/5 is the floor. The method, the scorer and the
+development result were committed first (dd040dad); the held-out batches were then run once. The only evidence of
+that order is the commit order: one working session, the freeze commit at 13:37:26 and the held-out run at 13:37:37 (local
+time, 2026-11-12), and dd040dad bundles the rules with the development result rather than committing the rules first. After the
+held-out run, one wording-only change was made to the tool (the report's `method.assumption` text when `next` is
+used, which had wrongly said both endpoints are required); every committed report was regenerated and every score
+is byte-identical. The tool is deterministic, so there is no run spread; the corpus matrix (row 9) re-runs both
+splits and requires the same bytes. Held-out exposure, as the plan recorded it: held-out key counts were surveyed
+on 2026-11-12 (row and logged-cumulative counts over all batches and the completeness tier of every batch; key
+values were read for B01 only); no method was run.
+
+Full tables: [development](results/development/SCORE.md), [held out](results/held-out/SCORE.md). The registered
+benchmark report is [industrial-yeast-batch-totals](../../../benchmarks/results/industrial-yeast-batch-totals.md);
+the development-only report committed before the held-out run is kept as
 [industrial-yeast-development](../../../benchmarks/results/industrial-yeast-development.md).
 
 ## Failures on this source, and limits
 
+- **B09 (held out) does not match, and the cause is in the source.** Its logged cumulative rises 1,979, 1,907 and
+  1,973 kg over hours 11-13 while the logged feeds are 1,981, 1,973 and 1,814 kg, so the batch total differs by
+  91 kg (logged 22,700 kg; the feeds sum to 22,609 kg). The tool's totals equal the summed feeds there; the runner's
+  source check flags the same three hours. It looks like a transcription slip in one of the two columns (the
+  publisher's own README says the change equals the summed feed, and its QC record gives no residual error rate),
+  but the paper originals are not public, so which column is wrong cannot be settled here. Not fixed: no tool
+  change can correct a source, and nothing was tuned after the held-out run. A reviewer using totals from this
+  source should read the source check first.
 - **The tool could not read this log before the change.** Both existing interpolation rules refused every
-  whole-batch total (blank hour-0 feed) and misplaced every hourly value; this is fixed in the tool (`next`), not
+  whole-batch total (blank hour-0 feed) and put the hourly values in the wrong interval (1 of 338 hourly windows matched across both rules and splits, by coincidence); this is fixed in the tool (`next`), not
   in an adapter.
-- **Whole-batch totals barely separate a right answer from a recipe constant** (3 of 5 development batches log
+- **Whole-batch totals barely separate a right answer from a recipe constant** (3 of 5 batches in each split log
   exactly 22,700 kg). The hourly level carries the evidence; never quote the batch level alone.
 - **The key is not independent of the measurement.** It is the publisher's sum of the same logged feed values.
 - **Choosing `next` is a reading of the source**, from its README and the logged cumulative; on a log of
   instantaneous rates it would be wrong. The tool cannot tell which convention a source uses.
 - **Not used from the plan:** the published full-process statistics in `summary_stats.json` pool all ten batches
   (development and held-out) as row-level statistics, so they cannot be split, and row means are not the tool's
-  time-weighted window means. They were not read and are not a key here.
+  time-weighted window means. Their values were not read (only the file's key names, to confirm the pooling) and they are not a key here.
 - Ten batches from one plant and one strain; no claim beyond this publisher. The 49 sparse batches are not scored.

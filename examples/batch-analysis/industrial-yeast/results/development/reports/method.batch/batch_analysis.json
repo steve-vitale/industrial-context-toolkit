@@ -15,8 +15,8 @@
   "method": {
     "name": "adjacent-sample-selected-interpolation-v1",
     "max_gap_s": 3600,
-    "tool_sha256_lf": "cccf2b955b73add7fe69f4a2e3c4749259441c2f7c27ee3317dbd5a2844394f1",
-    "assumption": "per-signal linear or previous-value hold between adjacent admitted observations; both endpoints required; no extrapolation or gap filling; next is an interval-ending hold: each admitted closing sample's value applies to the interval it ends, and the opening row supplies only its time"
+    "tool_sha256_lf": "2bbe48827758d367be59ab2de932f27ca0d82a3707858fa5381e749dc575ef37",
+    "assumption": "per-signal linear, previous-value or interval-ending (next) hold between adjacent observations; linear and previous need both endpoints good, next needs only the closing sample good (its value covers the interval it ends; the opening row supplies only its time); no extrapolation or gap filling"
   },
   "signal_definitions": {
     "sugar_feed_rate_kg_rs_h": {

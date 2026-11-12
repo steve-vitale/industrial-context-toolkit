@@ -256,8 +256,10 @@ def analyze(csv_raw, plan_raw, graph_raw=None):
                                 assumption="per-signal linear or previous-value hold between adjacent admitted observations; both endpoints required; no extrapolation or gap filling")
         report["limits"].append("Accepted numeric samples and complete coverage do not verify source quality or original sensor continuity.")
         if any(spec["interpolation"] == "next" for spec in plan["signals"].values()):
-            report["method"]["assumption"] += ("; next is an interval-ending hold: each admitted closing sample's value "
-                                               "applies to the interval it ends, and the opening row supplies only its time")
+            report["method"]["assumption"] = ("per-signal linear, previous-value or interval-ending (next) hold between "
+                                              "adjacent observations; linear and previous need both endpoints good, next "
+                                              "needs only the closing sample good (its value covers the interval it ends; "
+                                              "the opening row supplies only its time); no extrapolation or gap filling")
             report["limits"].append("An interval-ending hold is right only for a log whose value covers the interval "
                                     "it closes (an hourly total or average); confirm the source's convention.")
     return report

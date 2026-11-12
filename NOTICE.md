@@ -113,6 +113,17 @@ columns, derive within-experiment elapsed time and author a calculation plan/key
 data with upstream interpolation and documented anomalies assessed negligible by its authors, not plant or
 fermentation acceptance. No author endorsement is implied. Toolkit helper code remains MIT.
 
+## Industrial baker's-yeast production batches
+
+The plans, keys, tool reports and scores under `examples/batch-analysis/industrial-yeast/results/` derive from
+Zhao L., Ren C., Wang Y., Wu Y., Han L., Liu X., Kang L., Guo Q., *An industrial baker's-yeast fed-batch
+fermentation dataset of 59 production batches*, figshare (2026),
+[10.6084/m9.figshare.33201579](https://doi.org/10.6084/m9.figshare.33201579), licensed
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The original files are not redistributed; they are
+fetched by hash (`python scripts/fetch_corpus.py industrial-yeast`). The derived files contain the ten full-process
+batches' hourly sugar-feed values as the batch tool reports them and differences of the logged running cumulative;
+no other column is copied. No author endorsement is implied. Toolkit code remains MIT.
+
 ## Public nameplate photographs
 
 `examples/photo-to-record/source/motor-nameplate.jpg` is tony_duell's **Motor Nameplate**, 3 July 2018,
