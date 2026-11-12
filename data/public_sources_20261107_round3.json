@@ -26,7 +26,14 @@
       "source_family": "tina-mining",
       "commit": "927b1584ea4aeac2ac7daa084a82f899b114419b",
       "metadata_snapshot": "data/public-source-evidence/2026-11-07-round-3/tina.json",
-      "metadata_snapshot_sha256": "e37d6ca673072894cddf31f4865568572aab9967d9082164dd8c4df8344b3b90"
+      "metadata_snapshot_sha256": "e37d6ca673072894cddf31f4865568572aab9967d9082164dd8c4df8344b3b90",
+      "depth": {
+        "key": {
+          "status": "publisher labels retained, unopened",
+          "what": "coded maintenance/alarm events; labels not read",
+          "evidence": "data/public_sources_20261107_round3.json#tina-mining"
+        }
+      }
     },
     "bms-alarms": {
       "name": "BMS alarm timeseries with periodicity labels, deposit 22301575",
@@ -50,7 +57,14 @@
       "source_family": "bms-alarms",
       "code_commit": "d3b143ba11c6f0e2b651bb5cacf91dc44bf83474",
       "metadata_snapshot": "data/public-source-evidence/2026-11-07-round-3/bms-zenodo.json",
-      "metadata_snapshot_sha256": "40464c9686d091cebbb679ac8adcedc11a646dea4ccdcd5e9888ff764fcc10be"
+      "metadata_snapshot_sha256": "40464c9686d091cebbb679ac8adcedc11a646dea4ccdcd5e9888ff764fcc10be",
+      "depth": {
+        "key": {
+          "status": "publisher labels retained, unopened",
+          "what": "periodicity labels",
+          "evidence": "data/public_sources_20261107_round3.json#bms-alarms"
+        }
+      }
     },
     "epanet-networks": {
       "name": "EPANET example networks Net1, Net2 and Net3",
@@ -75,7 +89,14 @@
       "source_family": "epanet",
       "commit": "57d8bd8ad60e89b57f2a1ac591f05c8e13589866",
       "metadata_snapshot": "data/public-source-evidence/2026-11-07-round-3/epanet.json",
-      "metadata_snapshot_sha256": "54820536b0ed9acfe82fbb607d75cb298c6df463ad69e400f707fd6df1d42cdd"
+      "metadata_snapshot_sha256": "54820536b0ed9acfe82fbb607d75cb298c6df463ad69e400f707fd6df1d42cdd",
+      "depth": {
+        "key": {
+          "status": "source structure (candidate)",
+          "what": "network topology in the INP sections",
+          "evidence": "data/public_sources_20261107_round3.json#epanet-networks"
+        }
+      }
     },
     "freecad-originals": {
       "name": "FreeCAD attachment, fillet and overconstraint example originals",
@@ -98,7 +119,14 @@
       "source_family": "freecad-examples",
       "commit": "40a806f3f3ef0e6a248fd5aed168a4d29213c421",
       "metadata_snapshot": "data/public-source-evidence/2026-11-07-round-3/freecad-tree.json",
-      "metadata_snapshot_sha256": "eb640c7bce64aef3c36bf720628302ec4d28197c7b6c9680346efdfcb14e465c"
+      "metadata_snapshot_sha256": "eb640c7bce64aef3c36bf720628302ec4d28197c7b6c9680346efdfcb14e465c",
+      "depth": {
+        "key": {
+          "status": "unknown",
+          "what": "contents uninspected",
+          "evidence": "data/public_sources_20261107_round3.json#freecad-originals"
+        }
+      }
     },
     "mro-catalog": {
       "name": "QTE industrial/scientific catalog, first and latest English snapshots in version 7",
@@ -122,7 +150,14 @@
       "source_family": "qte-mro-catalog",
       "dataset_version": 7,
       "metadata_snapshot": "data/public-source-evidence/2026-11-07-round-3/mro-api.txt",
-      "metadata_snapshot_sha256": "dc78e6810e1af2bfa8425cc13685a26420f8cd92796989233299c5bf3b637d23"
+      "metadata_snapshot_sha256": "dc78e6810e1af2bfa8425cc13685a26420f8cd92796989233299c5bf3b637d23",
+      "depth": {
+        "key": {
+          "status": "unknown",
+          "what": "two catalog revisions; no key stated",
+          "evidence": "data/public_sources_20261107_round3.json#mro-catalog"
+        }
+      }
     },
     "nasa-milling": {
       "name": "NASA-hosted milling wear experiment archive",
@@ -145,7 +180,14 @@
       "exposure": "Structural admission only; no model/task score.",
       "source_family": "nasa-milling",
       "metadata_snapshot": "data/public-source-evidence/2026-11-07-round-3/nasa.html",
-      "metadata_snapshot_sha256": "803672bf761e19d4e8d3c7de09151c98f78344196db1e5eef0818b8738b20d67"
+      "metadata_snapshot_sha256": "803672bf761e19d4e8d3c7de09151c98f78344196db1e5eef0818b8738b20d67",
+      "depth": {
+        "key": {
+          "status": "publisher labels retained, unopened",
+          "what": "wear labels, unread",
+          "evidence": "data/public_sources_20261107_round3.json#nasa-milling"
+        }
+      }
     },
     "nasa-cmapss": {
       "name": "NASA C-MAPSS turbofan degradation simulation archive",
@@ -168,7 +210,15 @@
       "exposure": "Structural admission only; no model/task score.",
       "source_family": "nasa-cmapss",
       "metadata_snapshot": "data/public-source-evidence/2026-11-07-round-3/nasa.html",
-      "metadata_snapshot_sha256": "803672bf761e19d4e8d3c7de09151c98f78344196db1e5eef0818b8738b20d67"
+      "metadata_snapshot_sha256": "803672bf761e19d4e8d3c7de09151c98f78344196db1e5eef0818b8738b20d67",
+      "depth": {
+        "key": {
+          "status": "publisher labels retained, unopened",
+          "what": "nested splits/labels, unopened",
+          "evidence": "data/public_sources_20261107_round3.json#nasa-cmapss"
+        },
+        "note": "named in docs/DEPTH_GOAL.md increment 2 as an option; no key or task committed"
+      }
     },
     "usda-pumping": {
       "name": "USDA NRCS National Engineering Handbook, Chapter 8 Irrigation Pumping Plants",
@@ -191,7 +241,14 @@
       "skipped": "Only the selected originals; no downloaded code executed.",
       "evidence_role": "acquired-unscored",
       "exposure": "Structural admission only; no model/task score.",
-      "source_family": "usda-pumping"
+      "source_family": "usda-pumping",
+      "depth": {
+        "key": {
+          "status": "unknown",
+          "what": "not stated",
+          "evidence": "data/public_sources_20261107_round3.json#usda-pumping"
+        }
+      }
     },
     "phoenix-nameplate": {
       "name": "Phoenix Pumps nameplate guidelines",
@@ -212,7 +269,14 @@
       "skipped": "Only the selected originals; no downloaded code executed.",
       "evidence_role": "acquired-unscored",
       "exposure": "Structural admission only; no model/task score.",
-      "source_family": "phoenix-nameplate"
+      "source_family": "phoenix-nameplate",
+      "depth": {
+        "key": {
+          "status": "unknown",
+          "what": "not stated",
+          "evidence": "data/public_sources_20261107_round3.json#phoenix-nameplate"
+        }
+      }
     },
     "commons-fireboat": {
       "name": "Historic Firefighter fireboat motor builder plate photograph",
@@ -234,7 +298,14 @@
       "exposure": "Structural admission only; no model/task score.",
       "source_family": "commons-firefighter-motor",
       "metadata_snapshot": "data/public-source-evidence/2026-11-07-round-3/commons-fireboat.json",
-      "metadata_snapshot_sha256": "7bc5ec6837cc2a265e248cfdd91340eae904972672212631b5908ec5385fce26"
+      "metadata_snapshot_sha256": "7bc5ec6837cc2a265e248cfdd91340eae904972672212631b5908ec5385fce26",
+      "depth": {
+        "key": {
+          "status": "no key in source",
+          "what": "no OCR/transcription key",
+          "evidence": "data/public_sources_20261107_round3.json#commons-fireboat"
+        }
+      }
     }
   }
 }

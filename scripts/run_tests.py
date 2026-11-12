@@ -101,6 +101,7 @@ SOURCE_TESTS = (
     "scripts/test_knowledge_capture.py",
     "scripts/test_feature_catalog.py",
     "scripts/test_corpus_matrix.py",
+    "scripts/test_corpus_depth.py",
     "scripts/test_question_engine.py",
     "scripts/test_estimate_impact.py",
     "scripts/test_statements.py",

@@ -25,7 +25,14 @@
       "exposure": "Structural admission only, annotations retained; no fresh holdout or task score.",
       "source_family": "industrial-yeast",
       "metadata_snapshot": "data/public-source-evidence/2026-11-07-round-5/yeast.json",
-      "metadata_snapshot_sha256": "575f76c593f8c7b4042c4724e58466050e499e541307e1aa3fb41a20e2a4e517"
+      "metadata_snapshot_sha256": "575f76c593f8c7b4042c4724e58466050e499e541307e1aa3fb41a20e2a4e517",
+      "depth": {
+        "key": {
+          "status": "publisher labels retained, unopened",
+          "what": "publisher evaluation profiles and summaries",
+          "evidence": "data/public_sources_20261107_round5.json#industrial-yeast"
+        }
+      }
     },
     "alpi-packaging": {
       "name": "ALPI industrial packaging-machine alarm logs",
@@ -48,7 +55,14 @@
       "exposure": "Structural admission only, annotations retained; no fresh holdout or task score.",
       "source_family": "alpi-packaging",
       "metadata_snapshot": "data/public-source-evidence/2026-11-07-round-5/alpi-metadata.json",
-      "metadata_snapshot_sha256": "3b1b9d63402add4e1e1514ebc6a1b5bd0a630c3d6ab3c3602e99bafa84ea5483"
+      "metadata_snapshot_sha256": "3b1b9d63402add4e1e1514ebc6a1b5bd0a630c3d6ab3c3602e99bafa84ea5483",
+      "depth": {
+        "key": {
+          "status": "publisher labels retained, unopened",
+          "what": "publisher processed splits, unopened",
+          "evidence": "data/public_sources_20261107_round5.json#alpi-packaging"
+        }
+      }
     },
     "synthetic-maint-sensor": {
       "name": "Synthetic industrial maintenance and sensor-tag records",
@@ -72,7 +86,14 @@
       "exposure": "Structural admission only, annotations retained; no fresh holdout or task score.",
       "source_family": "synthetic-maint-sensor",
       "metadata_snapshot": "data/public-source-evidence/2026-11-07-round-5/maintenance-hf.json",
-      "metadata_snapshot_sha256": "3a638e653d40d0546f0a57577a534486c6929014e6e2723c465b798fc6909fdf"
+      "metadata_snapshot_sha256": "3a638e653d40d0546f0a57577a534486c6929014e6e2723c465b798fc6909fdf",
+      "depth": {
+        "key": {
+          "status": "unknown",
+          "what": "synthetic; no join validation",
+          "evidence": "data/public_sources_20261107_round5.json#synthetic-maint-sensor"
+        }
+      }
     },
     "uci-steel-faults": {
       "name": "UCI Steel Plates Faults",
@@ -95,7 +116,14 @@
       "exposure": "Structural admission only, annotations retained; no fresh holdout or task score.",
       "source_family": "uci-steel-faults",
       "metadata_snapshot": "data/public-source-evidence/2026-11-07-round-5/uci-steel.json",
-      "metadata_snapshot_sha256": "5849dcb7dbaf914208b534a6c45a000759d0f0b3a6be4a5e1dd2d1ced3b8d9a2"
+      "metadata_snapshot_sha256": "5849dcb7dbaf914208b534a6c45a000759d0f0b3a6be4a5e1dd2d1ced3b8d9a2",
+      "depth": {
+        "key": {
+          "status": "publisher labels retained, unopened",
+          "what": "defect class labels",
+          "evidence": "data/public_sources_20261107_round5.json#uci-steel-faults"
+        }
+      }
     },
     "uci-ccpp": {
       "name": "UCI Combined Cycle Power Plant",
@@ -118,7 +146,14 @@
       "exposure": "Structural admission only, annotations retained; no fresh holdout or task score.",
       "source_family": "uci-ccpp",
       "metadata_snapshot": "data/public-source-evidence/2026-11-07-round-5/uci-power.json",
-      "metadata_snapshot_sha256": "5ba61595859018366941cdeaa75f8ccc496926590c91d0d30072efc8637a3b64"
+      "metadata_snapshot_sha256": "5ba61595859018366941cdeaa75f8ccc496926590c91d0d30072efc8637a3b64",
+      "depth": {
+        "key": {
+          "status": "unknown",
+          "what": "output column is a regression target, not a fault label",
+          "evidence": "data/public_sources_20261107_round5.json#uci-ccpp"
+        }
+      }
     },
     "idta-digital-nameplate": {
       "name": "IDTA Digital Nameplate 3.0 and 3.0.3 templates",
@@ -142,7 +177,14 @@
       "exposure": "Structural admission only, annotations retained; no fresh holdout or task score.",
       "source_family": "idta-digital-nameplate",
       "metadata_snapshot": "data/public-source-evidence/2026-11-07-round-5/idta-nameplate.json",
-      "metadata_snapshot_sha256": "1b8b72a80822cb493f5517f19709377b4e31b0b6741a0caad4fb69c1366ec18e"
+      "metadata_snapshot_sha256": "1b8b72a80822cb493f5517f19709377b4e31b0b6741a0caad4fb69c1366ec18e",
+      "depth": {
+        "key": {
+          "status": "source structure (candidate)",
+          "what": "template example values, not a transcription key",
+          "evidence": "data/public_sources_20261107_round5.json#idta-digital-nameplate"
+        }
+      }
     },
     "biosteam-sugarcane": {
       "name": "BioSTEAM sugarcane process-system source definitions",
@@ -166,7 +208,14 @@
       "exposure": "Structural admission only, annotations retained; no fresh holdout or task score.",
       "source_family": "biosteam",
       "metadata_snapshot": "data/public-source-evidence/2026-11-07-round-5/biorefineries.json",
-      "metadata_snapshot_sha256": "afdc092b1b84791c986186f4a8639d800e3e7aa17ac623d2040368100d3d91a0"
+      "metadata_snapshot_sha256": "afdc092b1b84791c986186f4a8639d800e3e7aa17ac623d2040368100d3d91a0",
+      "depth": {
+        "key": {
+          "status": "source structure (candidate)",
+          "what": "system definitions in source code, not executed",
+          "evidence": "data/public_sources_20261107_round5.json#biosteam-sugarcane"
+        }
+      }
     },
     "commons-ksb-pump": {
       "name": "KSB pump nameplate at Mine Goettelborn",
@@ -188,7 +237,14 @@
       "exposure": "Structural admission only, annotations retained; no fresh holdout or task score.",
       "source_family": "wikimedia-commons",
       "metadata_snapshot": "data/public-source-evidence/2026-11-07-round-5/commons-pump.json",
-      "metadata_snapshot_sha256": "e1719bf40e1220e253b41b7482a80c223d7bbe2c590f9ce5566cfd149af52ae6"
+      "metadata_snapshot_sha256": "e1719bf40e1220e253b41b7482a80c223d7bbe2c590f9ce5566cfd149af52ae6",
+      "depth": {
+        "key": {
+          "status": "no key in source",
+          "what": "no human field key",
+          "evidence": "data/public_sources_20261107_round5.json#commons-ksb-pump"
+        }
+      }
     },
     "nist-pmi-cases": {
       "name": "NIST PMI CAD models, STEP exchange files and case drawings",
@@ -212,7 +268,14 @@
       "exposure": "Structural admission only, annotations retained; no fresh holdout or task score.",
       "source_family": "nist-pmi",
       "metadata_snapshot": "data/public-source-evidence/2026-11-07-round-5/nist-metadata.json",
-      "metadata_snapshot_sha256": "2a3cdf03f66bb4349162427d450863ea7f866f399d864bc5fd6296531a9277d4"
+      "metadata_snapshot_sha256": "2a3cdf03f66bb4349162427d450863ea7f866f399d864bc5fd6296531a9277d4",
+      "depth": {
+        "key": {
+          "status": "source structure (candidate)",
+          "what": "case specifications, contents unopened",
+          "evidence": "data/public_sources_20261107_round5.json#nist-pmi-cases"
+        }
+      }
     }
   }
 }
