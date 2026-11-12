@@ -72,7 +72,7 @@
     "scripts/pdf_tag_check.py": {
       "kind": "check",
       "guide": "examples/own-drawing/README.md",
-      "purpose": "Compare a bundle's extracted tags with the PDF's own text layer: tags the reader missed and possible misreads."
+      "purpose": "Compare a bundle's extracted tags with the PDF's own text layer: tags the reader missed and possible misreads. Optional --ocr auto adds OCR tag hints (never verified tags) for pages without a text layer."
     },
     "scripts/generate.py": {
       "kind": "tool",
@@ -382,6 +382,10 @@
     "scripts/external_reader_comparison.py": {
       "kind": "research",
       "purpose": "Development-set comparison of an external reader entered through the reader slot (pid-to-kg) with our readers: frozen-scorer symbols, connections and review load beside the controls, TE tags, the drawing-set bundle, TE flow direction, off-page links and control loops."
+    },
+    "scripts/ocr_tag_hints_score.py": {
+      "kind": "research",
+      "purpose": "Round-6 development scores for pdf_tag_check.py's OCR tag hints (TE revisions A and D, degraded TE A, Pahala P-401/P-501 rendered without text, OPEN100 0-5 scans without a key), beside perfect, empty, random and shifted-box controls."
     },
     "scripts/hazard_citations.py": {
       "kind": "research"

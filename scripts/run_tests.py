@@ -83,6 +83,7 @@ SOURCE_TESTS = (
     "scripts/test_sheet_from_prediction.py",
     "scripts/test_offpage_pairing.py",
     "scripts/test_pdf_tag_check.py",
+    "scripts/test_ocr_tag_hints_score.py",
     "scripts/test_flow_direction_score.py",
     "scripts/test_extract_text.py",
     "scripts/test_evaluate_vendor.py",
