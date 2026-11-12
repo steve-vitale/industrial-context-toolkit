@@ -283,8 +283,25 @@ class HistoryTests(unittest.TestCase):
             mh.run(self.no_id_export('empty', [x + ('CM',) for x in self.ROWS], lambda p: self.derive(p, [dict(value='seal', terms=[])])), self.root / 'empty')
 
     def test_unmapped_completion_is_not_a_per_record_issue(self):
-        r = mh.run(self.no_id_export('nocompletion', [x + ('CM',) for x in self.ROWS]), self.root / 'nocompletion')
+        # Ordinary mapped IDs, no new options: only the completion column is absent from the export and the mapping.
+        import csv
+        profile = fixtures.write(self.root / 'nocompletion-inputs')
+        path = profile.parent / 'work_orders.csv'
+        with path.open(encoding='utf-8-sig', newline='') as stream:
+            rows = list(csv.DictReader(stream))
+        with path.open('w', encoding='utf-8', newline='') as stream:
+            writer = csv.DictWriter(stream, fieldnames=[f for f in rows[0] if f != 'completed'], lineterminator='\n')
+            writer.writeheader(); writer.writerows({k: v for k, v in row.items() if k != 'completed'} for row in rows)
+        p = json.loads(profile.read_bytes())
+        spec = p['sources']['work_orders']
+        spec['columns'] = {k: v for k, v in spec['columns'].items() if v != 'completed'}
+        spec['date_formats'].pop('completed')
+        mh.dump(profile, p)
+        r = mh.run(profile, self.root / 'nocompletion')
+        self.assertEqual(r['counts']['work_orders'], 7)
+        self.assertNotIn('completed', r['all_records']['work_orders'][0])
         self.assertNotIn('missing_completion_value', {i['code'] for i in r['issues']})
+        # A mapped but blank completion value still raises the issue.
         self.assertIn('missing_completion_value', {i['code'] for i in self.run_packet('mapped-completion')['issues']})
 
 if __name__ == '__main__':

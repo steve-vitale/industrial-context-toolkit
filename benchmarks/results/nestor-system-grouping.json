@@ -1,7 +1,8 @@
 {
   "case_total": 2,
   "code_sha256": {
-    "benchmark.py": "9956750dd5cd08cfebbbd46c16960c71d40d0526d688c9ff3869a818667039f6",
+    "benchmark.py": "cc0cabddd0c768b2c9492db5cb3237bb146c8da2fabf1d22fdae48a325423bd4",
+    "maintenance_system_posthoc.py": "3292a20b92ccd02cf6128514d55883957dce34a3b798528d6098b4f8a5851be6",
     "score_maintenance_systems.py": "4ea1c3fa378f9af662ee0dbda5726976eb636713208195749a41e896cdebfbf4"
   },
   "controls": {
@@ -136,11 +137,11 @@
     "Public keys and retrospective registration do not establish blindness. Synthetic controls and corrected/development results are separate.",
     "System grouping scores per-record classes against a publisher's own system coding, itself made by keyword rules over the same short text: agreement with those rules, not engineering truth, failure diagnosis or repair effectiveness. Records the key gives no system are outside the precision denominator and counted separately."
   ],
-  "registration": "Depth increment 2, attempt A420. Split decided 2026-11-12 before any result: development assets A-C, held out D-E. Method, scorer and pass margin frozen before the one held-out run. Key computed by the publisher from the same text (keyword rules), so a high score is agreement with those rules. Originals are not redistributed: in a clean clone this suite is UNVERIFIED and its committed report stands as recorded.",
+  "registration": "Depth increment 2, attempt A420. Split decided 2026-11-12 before any result: development assets A-C, held out D-E. Method, scorer and pass margin frozen before the one held-out run. What it shows: the tool derive option applies a user-declared vocabulary faithfully and groups by it, and a 10-rule vocabulary written from A-C (including their publisher codes) carries over to D-E under one publisher coding scheme. The vocabulary is a per-dataset profile artifact, not part of the product. It does not show what a user without a key would write (see the post-hoc key-free control run) and does not measure engineering correctness: the key was made by keyword rules over the same text. Originals are not redistributed: the suite opts in to optional_cache, so in a clean clone it is UNVERIFIED and its committed report stands as recorded.",
   "results": [
     {
       "case_count": 1,
-      "cohort": "f0033ed81e5f2b91745dcfdcb5188945257d766fde68f1d3d4fe1c4e763610b4",
+      "cohort": "dd2094e587cbad2c9aca681bff0a2c2c48bad12f9de904f7a75761b7590b46ea",
       "configuration": {
         "derive_source": "description",
         "recurring_fields": [
@@ -250,9 +251,15 @@
                   "precision": 0.2423,
                   "recall": 0.3679
                 },
+                "no_key_given_class": 832,
                 "orders": {
                   "f1": 0.4123,
                   "precision": 0.4123,
+                  "recall": 0.4123
+                },
+                "orders_no_key_as_fp": {
+                  "f1": 0.3052,
+                  "precision": 0.2423,
                   "recall": 0.4123
                 }
               },
@@ -267,9 +274,15 @@
                   "precision": 0.1003,
                   "recall": 0.0971
                 },
+                "no_key_given_class": 695,
                 "orders": {
                   "f1": 0.1451,
                   "precision": 0.2179,
+                  "recall": 0.1088
+                },
+                "orders_no_key_as_fp": {
+                  "f1": 0.1043,
+                  "precision": 0.1002,
                   "recall": 0.1088
                 }
               },
@@ -284,7 +297,13 @@
                   "precision": null,
                   "recall": 0.0
                 },
+                "no_key_given_class": 0,
                 "orders": {
+                  "f1": 0.0,
+                  "precision": null,
+                  "recall": 0.0
+                },
+                "orders_no_key_as_fp": {
                   "f1": 0.0,
                   "precision": null,
                   "recall": 0.0
@@ -301,7 +320,13 @@
                   "precision": 1.0,
                   "recall": 1.0
                 },
+                "no_key_given_class": 0,
                 "orders": {
+                  "f1": 1.0,
+                  "precision": 1.0,
+                  "recall": 1.0
+                },
+                "orders_no_key_as_fp": {
                   "f1": 1.0,
                   "precision": 1.0,
                   "recall": 1.0
@@ -318,9 +343,15 @@
                   "precision": 0.1773,
                   "recall": 0.1716
                 },
+                "no_key_given_class": 506,
                 "orders": {
                   "f1": 0.2318,
                   "precision": 0.2919,
+                  "recall": 0.1922
+                },
+                "orders_no_key_as_fp": {
+                  "f1": 0.1844,
+                  "precision": 0.1772,
                   "recall": 0.1922
                 }
               }
@@ -334,7 +365,12 @@
               "unmatched_cleaned": 0
             },
             "keyed_without_system": 832,
-            "margin_over_best_wrong_control": 0.5506
+            "margin_over_best_wrong_control": 0.5506,
+            "orders_no_key_as_fp": {
+              "f1": 0.9123,
+              "precision": 0.8765,
+              "recall": 0.9511
+            }
           },
           "note": null,
           "prediction_ref": {
@@ -355,7 +391,7 @@
     },
     {
       "case_count": 1,
-      "cohort": "37482a1f97cf356ab122aeb31ad6f03593ce5d3284a248b7242dc5b85e2a48ce",
+      "cohort": "dbca7bbb3639a6ef74748d3027f19038febfb598356244e0bd44c1035ecd9350",
       "configuration": {
         "derive_source": "description",
         "recurring_fields": [
@@ -465,9 +501,15 @@
                   "precision": 0.2247,
                   "recall": 0.3489
                 },
+                "no_key_given_class": 1412,
                 "orders": {
                   "f1": 0.3937,
                   "precision": 0.3937,
+                  "recall": 0.3937
+                },
+                "orders_no_key_as_fp": {
+                  "f1": 0.2861,
+                  "precision": 0.2247,
                   "recall": 0.3937
                 }
               },
@@ -482,9 +524,15 @@
                   "precision": 0.0974,
                   "recall": 0.0921
                 },
+                "no_key_given_class": 1128,
                 "orders": {
                   "f1": 0.1418,
                   "precision": 0.2231,
+                  "recall": 0.1039
+                },
+                "orders_no_key_as_fp": {
+                  "f1": 0.1005,
+                  "precision": 0.0974,
                   "recall": 0.1039
                 }
               },
@@ -499,7 +547,13 @@
                   "precision": null,
                   "recall": 0.0
                 },
+                "no_key_given_class": 0,
                 "orders": {
+                  "f1": 0.0,
+                  "precision": null,
+                  "recall": 0.0
+                },
+                "orders_no_key_as_fp": {
                   "f1": 0.0,
                   "precision": null,
                   "recall": 0.0
@@ -516,7 +570,13 @@
                   "precision": 1.0,
                   "recall": 1.0
                 },
+                "no_key_given_class": 0,
                 "orders": {
+                  "f1": 1.0,
+                  "precision": 1.0,
+                  "recall": 1.0
+                },
+                "orders_no_key_as_fp": {
                   "f1": 1.0,
                   "precision": 1.0,
                   "recall": 1.0
@@ -533,9 +593,15 @@
                   "precision": 0.1494,
                   "recall": 0.1412
                 },
+                "no_key_given_class": 857,
                 "orders": {
                   "f1": 0.1979,
                   "precision": 0.2611,
+                  "recall": 0.1593
+                },
+                "orders_no_key_as_fp": {
+                  "f1": 0.1542,
+                  "precision": 0.1494,
                   "recall": 0.1593
                 }
               }
@@ -549,7 +615,12 @@
               "unmatched_cleaned": 1
             },
             "keyed_without_system": 1412,
-            "margin_over_best_wrong_control": 0.5488
+            "margin_over_best_wrong_control": 0.5488,
+            "orders_no_key_as_fp": {
+              "f1": 0.8868,
+              "precision": 0.8591,
+              "recall": 0.9164
+            }
           },
           "note": null,
           "prediction_ref": {
@@ -567,6 +638,498 @@
       ],
       "run": "a420-maintenance-history-vocabulary",
       "split": "held-out"
+    },
+    {
+      "case_count": 1,
+      "cohort": "dd2094e587cbad2c9aca681bff0a2c2c48bad12f9de904f7a75761b7590b46ea",
+      "configuration": {
+        "derive_source": "description",
+        "recurring_fields": [
+          "work_class"
+        ],
+        "vocabulary": "class-name words"
+      },
+      "counts": {
+        "groups": {
+          "predicted": 18,
+          "tp": 18,
+          "truth": 25
+        },
+        "membership": {
+          "predicted": 545,
+          "tp": 435,
+          "truth": 1329
+        },
+        "orders": {
+          "predicted": 500,
+          "tp": 435,
+          "truth": 1186
+        }
+      },
+      "evidence": "frozen method, development fit (two vocabulary passes read on these assets)",
+      "family": "nestor-excavators",
+      "interface": "python scripts/maintenance_system_posthoc.py (scripts/maintenance_history.py derive)",
+      "method": "maintenance-history derive with a vocabulary of the class names own words only (and dropped), no development reading",
+      "metrics": {
+        "groups": {
+          "f1": 0.8372093023255814,
+          "precision": 1.0,
+          "recall": 0.72
+        },
+        "membership": {
+          "f1": 0.464247598719317,
+          "precision": 0.7981651376146789,
+          "recall": 0.327313769751693
+        },
+        "orders": {
+          "f1": 0.5160142348754448,
+          "precision": 0.87,
+          "recall": 0.36677908937605397
+        }
+      },
+      "model": {
+        "id": "maintenance_history.py derive",
+        "provider": "none (deterministic tool)",
+        "version": "class-name control 2026-11-12"
+      },
+      "not_attempted": [],
+      "provenance": "Added at review after the sealed held-out run, as a labelled post-hoc control; deterministic tool run, no model.",
+      "ran_at": "2026-11-12",
+      "recipe": [
+        {
+          "path": "scripts/maintenance_system_posthoc.py",
+          "role": "control_vocabulary_and_driver",
+          "sha256": "3292a20b92ccd02cf6128514d55883957dce34a3b798528d6098b4f8a5851be6"
+        },
+        {
+          "path": "examples/maintenance-history/nestor.py",
+          "role": "profile_and_driver",
+          "sha256": "9f16827b76cdd2fdb9e9cb381b47467bf44aad7ccdfb8d2396b9e8a50d5189c3"
+        },
+        {
+          "path": "scripts/maintenance_history.py",
+          "role": "tool",
+          "sha256": "224bfaf067df753d850b88e287b337fb2552d796a3ba2b1d0568f7767fde1e9e"
+        }
+      ],
+      "role": "post-hoc key-free control",
+      "rows": [
+        {
+          "case": "nestor-excavators-a-c",
+          "counts": {
+            "groups": {
+              "predicted": 18,
+              "tp": 18,
+              "truth": 25
+            },
+            "membership": {
+              "predicted": 545,
+              "tp": 435,
+              "truth": 1329
+            },
+            "orders": {
+              "predicted": 500,
+              "tp": 435,
+              "truth": 1186
+            }
+          },
+          "diagnostics": {
+            "assigned_without_key_system": 45,
+            "controls": {
+              "majority-system": {
+                "groups": {
+                  "f1": 0.2143,
+                  "precision": 1.0,
+                  "recall": 0.12
+                },
+                "membership": {
+                  "f1": 0.2922,
+                  "precision": 0.2423,
+                  "recall": 0.3679
+                },
+                "no_key_given_class": 832,
+                "orders": {
+                  "f1": 0.4123,
+                  "precision": 0.4123,
+                  "recall": 0.4123
+                },
+                "orders_no_key_as_fp": {
+                  "f1": 0.3052,
+                  "precision": 0.2423,
+                  "recall": 0.4123
+                }
+              },
+              "misaligned-key": {
+                "groups": {
+                  "f1": 0.8372,
+                  "precision": 1.0,
+                  "recall": 0.72
+                },
+                "membership": {
+                  "f1": 0.0961,
+                  "precision": 0.1651,
+                  "recall": 0.0677
+                },
+                "no_key_given_class": 251,
+                "orders": {
+                  "f1": 0.1216,
+                  "precision": 0.3061,
+                  "recall": 0.0759
+                },
+                "orders_no_key_as_fp": {
+                  "f1": 0.104,
+                  "precision": 0.1651,
+                  "recall": 0.0759
+                }
+              },
+              "raw-asset-baseline": {
+                "groups": {
+                  "f1": 0.0,
+                  "precision": null,
+                  "recall": 0.0
+                },
+                "membership": {
+                  "f1": 0.0,
+                  "precision": null,
+                  "recall": 0.0
+                },
+                "no_key_given_class": 0,
+                "orders": {
+                  "f1": 0.0,
+                  "precision": null,
+                  "recall": 0.0
+                },
+                "orders_no_key_as_fp": {
+                  "f1": 0.0,
+                  "precision": null,
+                  "recall": 0.0
+                }
+              },
+              "reference": {
+                "groups": {
+                  "f1": 1.0,
+                  "precision": 1.0,
+                  "recall": 1.0
+                },
+                "membership": {
+                  "f1": 1.0,
+                  "precision": 1.0,
+                  "recall": 1.0
+                },
+                "no_key_given_class": 0,
+                "orders": {
+                  "f1": 1.0,
+                  "precision": 1.0,
+                  "recall": 1.0
+                },
+                "orders_no_key_as_fp": {
+                  "f1": 1.0,
+                  "precision": 1.0,
+                  "recall": 1.0
+                }
+              },
+              "shuffled-within-asset": {
+                "groups": {
+                  "f1": 0.8372,
+                  "precision": 1.0,
+                  "recall": 0.72
+                },
+                "membership": {
+                  "f1": 0.0875,
+                  "precision": 0.1505,
+                  "recall": 0.0617
+                },
+                "no_key_given_class": 227,
+                "orders": {
+                  "f1": 0.109,
+                  "precision": 0.2579,
+                  "recall": 0.0691
+                },
+                "orders_no_key_as_fp": {
+                  "f1": 0.0947,
+                  "precision": 0.1505,
+                  "recall": 0.0691
+                }
+              }
+            },
+            "join": {
+              "cleaned_records": 2018,
+              "keyed": 2018,
+              "keyed_with_system": 1186,
+              "raw_records": 2160,
+              "unkeyed_raw": 142,
+              "unmatched_cleaned": 0
+            },
+            "keyed_without_system": 832,
+            "margin_over_best_wrong_control": 0.1037,
+            "orders_no_key_as_fp": {
+              "f1": 0.5026,
+              "precision": 0.7982,
+              "recall": 0.3668
+            }
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "benchmarks/maintenance-systems/predictions/development-classname-control.json",
+            "sha256": "c7e6ad9c406fe3de87b185abeb8e13d877431108ce4f947dbebc3f93e43091f8"
+          },
+          "recorded_run_at": null,
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": null,
+            "seconds": null
+          },
+          "status": "ok"
+        }
+      ],
+      "run": "a420-posthoc-classname-control",
+      "split": "development"
+    },
+    {
+      "case_count": 1,
+      "cohort": "dbca7bbb3639a6ef74748d3027f19038febfb598356244e0bd44c1035ecd9350",
+      "configuration": {
+        "derive_source": "description",
+        "recurring_fields": [
+          "work_class"
+        ],
+        "vocabulary": "class-name words"
+      },
+      "counts": {
+        "groups": {
+          "predicted": 14,
+          "tp": 14,
+          "truth": 22
+        },
+        "membership": {
+          "predicted": 814,
+          "tp": 656,
+          "truth": 2118
+        },
+        "orders": {
+          "predicted": 741,
+          "tp": 656,
+          "truth": 1877
+        }
+      },
+      "evidence": "frozen method, one sealed run 2026-11-12; exposure: Held-out key counts were surveyed on 2026-11-12 (work-order counts per asset for all five assets, the date range and the MajorSystem distinct count over all rows); no method was run. Any sealed score on assets D and E must state this.",
+      "family": "nestor-excavators",
+      "interface": "python scripts/maintenance_system_posthoc.py (scripts/maintenance_history.py derive)",
+      "method": "maintenance-history derive with a vocabulary of the class names own words only (and dropped), no development reading",
+      "metrics": {
+        "groups": {
+          "f1": 0.7777777777777778,
+          "precision": 1.0,
+          "recall": 0.6363636363636364
+        },
+        "membership": {
+          "f1": 0.44747612551159616,
+          "precision": 0.8058968058968059,
+          "recall": 0.3097261567516525
+        },
+        "orders": {
+          "f1": 0.5011459129106188,
+          "precision": 0.8852901484480432,
+          "recall": 0.34949387320191794
+        }
+      },
+      "model": {
+        "id": "maintenance_history.py derive",
+        "provider": "none (deterministic tool)",
+        "version": "class-name control 2026-11-12"
+      },
+      "not_attempted": [],
+      "provenance": "Added at review after the sealed held-out run, as a labelled post-hoc control; deterministic tool run, no model.",
+      "ran_at": "2026-11-12",
+      "recipe": [
+        {
+          "path": "scripts/maintenance_system_posthoc.py",
+          "role": "control_vocabulary_and_driver",
+          "sha256": "3292a20b92ccd02cf6128514d55883957dce34a3b798528d6098b4f8a5851be6"
+        },
+        {
+          "path": "examples/maintenance-history/nestor.py",
+          "role": "profile_and_driver",
+          "sha256": "9f16827b76cdd2fdb9e9cb381b47467bf44aad7ccdfb8d2396b9e8a50d5189c3"
+        },
+        {
+          "path": "scripts/maintenance_history.py",
+          "role": "tool",
+          "sha256": "224bfaf067df753d850b88e287b337fb2552d796a3ba2b1d0568f7767fde1e9e"
+        }
+      ],
+      "role": "post-hoc key-free control",
+      "rows": [
+        {
+          "case": "nestor-excavators-d-e",
+          "counts": {
+            "groups": {
+              "predicted": 14,
+              "tp": 14,
+              "truth": 22
+            },
+            "membership": {
+              "predicted": 814,
+              "tp": 656,
+              "truth": 2118
+            },
+            "orders": {
+              "predicted": 741,
+              "tp": 656,
+              "truth": 1877
+            }
+          },
+          "diagnostics": {
+            "assigned_without_key_system": 75,
+            "controls": {
+              "majority-system": {
+                "groups": {
+                  "f1": 0.1667,
+                  "precision": 1.0,
+                  "recall": 0.0909
+                },
+                "membership": {
+                  "f1": 0.2733,
+                  "precision": 0.2247,
+                  "recall": 0.3489
+                },
+                "no_key_given_class": 1412,
+                "orders": {
+                  "f1": 0.3937,
+                  "precision": 0.3937,
+                  "recall": 0.3937
+                },
+                "orders_no_key_as_fp": {
+                  "f1": 0.2861,
+                  "precision": 0.2247,
+                  "recall": 0.3937
+                }
+              },
+              "misaligned-key": {
+                "groups": {
+                  "f1": 0.7778,
+                  "precision": 1.0,
+                  "recall": 0.6364
+                },
+                "membership": {
+                  "f1": 0.0709,
+                  "precision": 0.1278,
+                  "recall": 0.0491
+                },
+                "no_key_given_class": 437,
+                "orders": {
+                  "f1": 0.0922,
+                  "precision": 0.2744,
+                  "recall": 0.0554
+                },
+                "orders_no_key_as_fp": {
+                  "f1": 0.0772,
+                  "precision": 0.1275,
+                  "recall": 0.0554
+                }
+              },
+              "raw-asset-baseline": {
+                "groups": {
+                  "f1": 0.0,
+                  "precision": null,
+                  "recall": 0.0
+                },
+                "membership": {
+                  "f1": 0.0,
+                  "precision": null,
+                  "recall": 0.0
+                },
+                "no_key_given_class": 0,
+                "orders": {
+                  "f1": 0.0,
+                  "precision": null,
+                  "recall": 0.0
+                },
+                "orders_no_key_as_fp": {
+                  "f1": 0.0,
+                  "precision": null,
+                  "recall": 0.0
+                }
+              },
+              "reference": {
+                "groups": {
+                  "f1": 1.0,
+                  "precision": 1.0,
+                  "recall": 1.0
+                },
+                "membership": {
+                  "f1": 1.0,
+                  "precision": 1.0,
+                  "recall": 1.0
+                },
+                "no_key_given_class": 0,
+                "orders": {
+                  "f1": 1.0,
+                  "precision": 1.0,
+                  "recall": 1.0
+                },
+                "orders_no_key_as_fp": {
+                  "f1": 1.0,
+                  "precision": 1.0,
+                  "recall": 1.0
+                }
+              },
+              "shuffled-within-asset": {
+                "groups": {
+                  "f1": 0.7778,
+                  "precision": 1.0,
+                  "recall": 0.6364
+                },
+                "membership": {
+                  "f1": 0.0668,
+                  "precision": 0.1204,
+                  "recall": 0.0463
+                },
+                "no_key_given_class": 351,
+                "orders": {
+                  "f1": 0.0837,
+                  "precision": 0.2108,
+                  "recall": 0.0522
+                },
+                "orders_no_key_as_fp": {
+                  "f1": 0.0728,
+                  "precision": 0.1201,
+                  "recall": 0.0522
+                }
+              }
+            },
+            "join": {
+              "cleaned_records": 3290,
+              "keyed": 3289,
+              "keyed_with_system": 1877,
+              "raw_records": 3325,
+              "unkeyed_raw": 36,
+              "unmatched_cleaned": 1
+            },
+            "keyed_without_system": 1412,
+            "margin_over_best_wrong_control": 0.1074,
+            "orders_no_key_as_fp": {
+              "f1": 0.4872,
+              "precision": 0.8039,
+              "recall": 0.3495
+            }
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "benchmarks/maintenance-systems/predictions/held-out-classname-control.json",
+            "sha256": "f4e95095fe64a0ce7e874c47298cb4a4f94a1c49278abe152fef18af5d6c69b3"
+          },
+          "recorded_run_at": null,
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": null,
+            "seconds": null
+          },
+          "status": "ok"
+        }
+      ],
+      "run": "a420-posthoc-classname-control",
+      "split": "held-out"
     }
   ],
   "schema": "task-benchmark-1",
@@ -576,15 +1139,112 @@
       "id": "a420-maintenance-history-vocabulary",
       "path": "benchmarks/maintenance-systems/runs/a420-maintenance-history.json",
       "sha256": "d2b2cb58a28170f1f0474fffa7c460844b4803c6a362bdafa0b3b198029b2ce3"
+    },
+    {
+      "id": "a420-posthoc-classname-control",
+      "path": "benchmarks/maintenance-systems/runs/a420-posthoc-classname-control.json",
+      "sha256": "b79916102a8bab6b774638b80cdc55d05ca574b855f4c718bacf16a72642292f"
     }
   ],
   "suite": "nestor-excavators-system-grouping",
-  "suite_sha256": "b1b5e6eb6f252b6ee4f23640e16fad6058bf508afee3ceeb2190eca90ec1468d",
-  "suite_version": "1",
+  "suite_sha256": "d8d0122be0c7fb20c3140a370c96a396b0707fe3bec829f4e1e0da153b6f2be8",
+  "suite_version": "2",
   "summary": [
     {
       "case_count": 1,
-      "cohort": "f0033ed81e5f2b91745dcfdcb5188945257d766fde68f1d3d4fe1c4e763610b4",
+      "cohort": "dd2094e587cbad2c9aca681bff0a2c2c48bad12f9de904f7a75761b7590b46ea",
+      "configuration": {
+        "derive_source": "description",
+        "recurring_fields": [
+          "work_class"
+        ],
+        "vocabulary": "class-name words"
+      },
+      "evidence": "frozen method, development fit (two vocabulary passes read on these assets)",
+      "family": "nestor-excavators",
+      "group": "536b55abfdb59af46607dff1bbb1d822ca9ade2453f514fcd3b17f86e1fdf23e",
+      "interface": "python scripts/maintenance_system_posthoc.py (scripts/maintenance_history.py derive)",
+      "method": "maintenance-history derive with a vocabulary of the class names own words only (and dropped), no development reading",
+      "metrics": {
+        "groups": {
+          "max_f1": 0.8372093023255814,
+          "mean_f1": 0.8372093023255814,
+          "min_f1": 0.8372093023255814,
+          "stdev_f1": null
+        },
+        "membership": {
+          "max_f1": 0.464247598719317,
+          "mean_f1": 0.464247598719317,
+          "min_f1": 0.464247598719317,
+          "stdev_f1": null
+        },
+        "orders": {
+          "max_f1": 0.5160142348754448,
+          "mean_f1": 0.5160142348754448,
+          "min_f1": 0.5160142348754448,
+          "stdev_f1": null
+        }
+      },
+      "model": {
+        "id": "maintenance_history.py derive",
+        "provider": "none (deterministic tool)",
+        "version": "class-name control 2026-11-12"
+      },
+      "replicates": 1,
+      "runs": [
+        "a420-posthoc-classname-control"
+      ],
+      "split": "development"
+    },
+    {
+      "case_count": 1,
+      "cohort": "dbca7bbb3639a6ef74748d3027f19038febfb598356244e0bd44c1035ecd9350",
+      "configuration": {
+        "derive_source": "description",
+        "recurring_fields": [
+          "work_class"
+        ],
+        "vocabulary": "class-name words"
+      },
+      "evidence": "frozen method, one sealed run 2026-11-12; exposure: Held-out key counts were surveyed on 2026-11-12 (work-order counts per asset for all five assets, the date range and the MajorSystem distinct count over all rows); no method was run. Any sealed score on assets D and E must state this.",
+      "family": "nestor-excavators",
+      "group": "56545c5fd4d9f9f80976c064cd9d782f4794743c187b39e0d51085177ca13c85",
+      "interface": "python scripts/maintenance_system_posthoc.py (scripts/maintenance_history.py derive)",
+      "method": "maintenance-history derive with a vocabulary of the class names own words only (and dropped), no development reading",
+      "metrics": {
+        "groups": {
+          "max_f1": 0.7777777777777778,
+          "mean_f1": 0.7777777777777778,
+          "min_f1": 0.7777777777777778,
+          "stdev_f1": null
+        },
+        "membership": {
+          "max_f1": 0.44747612551159616,
+          "mean_f1": 0.44747612551159616,
+          "min_f1": 0.44747612551159616,
+          "stdev_f1": null
+        },
+        "orders": {
+          "max_f1": 0.5011459129106188,
+          "mean_f1": 0.5011459129106188,
+          "min_f1": 0.5011459129106188,
+          "stdev_f1": null
+        }
+      },
+      "model": {
+        "id": "maintenance_history.py derive",
+        "provider": "none (deterministic tool)",
+        "version": "class-name control 2026-11-12"
+      },
+      "replicates": 1,
+      "runs": [
+        "a420-posthoc-classname-control"
+      ],
+      "split": "held-out"
+    },
+    {
+      "case_count": 1,
+      "cohort": "dd2094e587cbad2c9aca681bff0a2c2c48bad12f9de904f7a75761b7590b46ea",
       "configuration": {
         "derive_source": "description",
         "recurring_fields": [
@@ -594,7 +1254,7 @@
       },
       "evidence": "frozen method, development fit (two vocabulary passes read on these assets)",
       "family": "nestor-excavators",
-      "group": "3a2cd979cb99b94fbe2e114139bf4a1e2af21ef837a0de0d4f46c36c57e010e6",
+      "group": "c73298d851cb92939c6430c0ec0b20b24eb01be015468c023d97116e1c08f413",
       "interface": "python scripts/maintenance_history.py via examples/maintenance-history/nestor.py",
       "method": "maintenance-history derive: declared whole-word vocabulary over the short text, first rule wins; recurring_fields work_class",
       "metrics": {
@@ -630,7 +1290,7 @@
     },
     {
       "case_count": 1,
-      "cohort": "37482a1f97cf356ab122aeb31ad6f03593ce5d3284a248b7242dc5b85e2a48ce",
+      "cohort": "dbca7bbb3639a6ef74748d3027f19038febfb598356244e0bd44c1035ecd9350",
       "configuration": {
         "derive_source": "description",
         "recurring_fields": [
@@ -640,7 +1300,7 @@
       },
       "evidence": "frozen method, one sealed run 2026-11-12; exposure: Held-out key counts were surveyed on 2026-11-12 (work-order counts per asset for all five assets, the date range and the MajorSystem distinct count over all rows); no method was run. Any sealed score on assets D and E must state this.",
       "family": "nestor-excavators",
-      "group": "ce643cebe84d5ba6320d5d8424b14625a77bad09ad8f8f92a3daa0245efe4bf3",
+      "group": "987aa614217c49b4c19f36f17a8e4b167f1ae24932047285e01124c6bd6b4ec3",
       "interface": "python scripts/maintenance_history.py via examples/maintenance-history/nestor.py",
       "method": "maintenance-history derive: declared whole-word vocabulary over the short text, first rule wins; recurring_fields work_class",
       "metrics": {

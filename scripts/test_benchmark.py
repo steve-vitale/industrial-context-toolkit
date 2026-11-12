@@ -645,7 +645,7 @@ class SystemGroupingBenchmarkTests(unittest.TestCase):
                                'provenance': 'authored', 'model': {'provider': 'none', 'id': 'authored', 'version': '1'},
                                'configuration': {}, 'recipe': [ref('recipe.txt')], 'cases': ['demo-a'],
                                'predictions': {'demo-a': ref('answer.json')}})
-        self.save('suite.json', {'id': 'demo-systems', 'version': '1', 'task': 'maintenance-system-grouping',
+        self.save('suite.json', {'id': 'demo-systems', 'version': '1', 'task': 'maintenance-system-grouping', 'optional_cache': True,
                                  'protocol': 'system-groups-v1', 'registration': 'authored software control',
                                  'cases': [case], 'runs': ['run.json']})
         self.save('registry.json', {'schema': 'benchmark-registry-1', 'reports': [{'suite': 'suite.json', 'report': 'report'}]})
@@ -660,6 +660,9 @@ class SystemGroupingBenchmarkTests(unittest.TestCase):
         self.assertEqual(set(row['diagnostics']['controls']), {'reference', 'raw-asset-baseline', 'majority-system',
                                                                 'shuffled-within-asset', 'misaligned-key'})
         self.assertEqual(report['controls']['demo-a']['reference']['orders']['f1'], 1.0)
+        # No-key records given a class count as false positives in the strict columns: record 6 (key NA, answered Bucket).
+        self.assertEqual(row['diagnostics']['orders_no_key_as_fp'], {'precision': 0.6, 'recall': 0.6, 'f1': 0.6})
+        self.assertIn('no-key as FP', b.markdown(report))
         text = b.markdown(report)
         for name in ('answer', 'reference', 'raw-asset-baseline', 'majority-system', 'shuffled-within-asset', 'misaligned-key'):
             self.assertIn('| ' + name + ' |', text)
@@ -680,6 +683,11 @@ class SystemGroupingBenchmarkTests(unittest.TestCase):
         with contextlib.redirect_stdout(out):
             self.assertEqual(b.main(registry), 0)
         self.assertIn('UNVERIFIED: suite.json', out.getvalue())
+        # Only a suite that opts in may be skipped: without optional_cache the same absent cache fails.
+        suite = json.loads((self.root / 'suite.json').read_text(encoding='utf-8')); suite.pop('optional_cache')
+        self.save('suite.json', suite)
+        with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(b.main(registry), 2)
 
 
 if __name__ == '__main__':

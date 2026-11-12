@@ -124,28 +124,46 @@ declared [vocabulary](nestor/system_vocabulary.json) (`derive`); recurring group
 joins the packet's records to the cleaned file, which the tool never reads, and scores each
 record's class against `MajorSystem` beside five controls.
 
+**What it shows, and what it does not.** The tool's `derive` option applies a user-declared
+vocabulary faithfully and groups by it. A 10-rule vocabulary written from development assets
+A-C, including their publisher codes, agrees with the publisher's keyword-rule `MajorSystem`
+on held-out D-E at per-record F1 0.943 (0.887 if no-system rows given a class count as
+errors). Class-name words alone score 0.501. This shows that a vocabulary fitted on one part
+of a fleet carries over to the rest under one publisher's coding scheme. It does not show what
+a user without a key would write, and it does not measure engineering correctness. **The
+vocabulary is a per-dataset profile artifact, not part of the product**: a site writes its own.
+
 **How circular it is.** The key is a separate publisher field withheld from the tool, the
 least circular choice this source offers: per-asset counts, order types, cost sums,
 chronology or repeat intervals would all be our own calculation over the tool's input. But
 the publisher made `MajorSystem` with keyword rules over the same short text (the cleaned
-file's `Rule` column), so agreement measures how well a ten-rule declared vocabulary
-reproduces those rules, not whether a system is right. Some key codes are artefacts of
-substring matching: on development, a cab-heater fault is coded Bucket because "GET" (ground
-engaging tools) matches inside "getting".
+file's `Rule` column), and the vocabulary was written while reading A-C's codes, so agreement
+measures how well a declared vocabulary reproduces those rules, not whether a system is right.
+Some key codes are artefacts of substring matching: on development, a cab-heater fault is coded
+Bucket because "GET" (ground engaging tools) matches inside "getting".
 
-| Per-record system class | Development A-C (fit) | Held out D-E (one sealed run) |
+In the table, "frozen" precision leaves out the records the key gives no system (`NA`, about
+42% of joined rows), as the frozen scorer does; "no-key as FP" counts every such record given
+a class as a false positive. The key-free control was added at review, after the sealed run
+(post hoc): the same tool run with a vocabulary of only the class names' own words ("and"
+dropped), from [`maintenance_system_posthoc.py`](../../scripts/maintenance_system_posthoc.py).
+Other literal choices move it: adding plural forms gives 0.546 / 0.543, and plural forms with
+the shared word HYDRAULIC given only to Hydraulic System 0.615 / 0.594 (development / held out).
+
+| Per-record system class: P / R / F1 (frozen); P / F1 with no-key as FP | Development A-C (fit) | Held out D-E (one sealed run) |
 |---|---:|---:|
 | Raw rows / joined to the cleaned file / with a system | 2,160 / 2,018 / 1,186 | 3,325 / 3,289 / 1,877 |
-| **Tool: precision / recall / F1** | 0.975 / 0.951 / **0.963** | 0.970 / 0.916 / **0.943** |
-| Reference (the key itself) | 1.000 | 1.000 |
-| AMPS raw-asset grouping baseline (no system) | 0.000 | 0.000 |
-| Majority class for every record | 0.412 | 0.394 |
-| The tool's own classes shuffled within each asset | 0.232 | 0.198 |
-| The tool's classes against another record's key | 0.145 | 0.142 |
-| Margin over the best wrong control (bar 0.20, fixed before the held-out run) | 0.551 | 0.549 |
+| **Tool with the A-C vocabulary** | 0.975 / 0.951 / **0.963**; 0.877 / 0.912 | 0.970 / 0.916 / **0.943**; 0.859 / **0.887** |
+| Key-free control, class-name words only (post hoc) | 0.870 / 0.367 / 0.516; 0.798 / 0.503 | 0.885 / 0.350 / 0.501; 0.804 / 0.487 |
+| Reference (the key itself) | 1.000 / 1.000 / 1.000; 1.000 / 1.000 | 1.000 / 1.000 / 1.000; 1.000 / 1.000 |
+| Raw-asset baseline (no system) | - / 0.000 / 0.000; - / 0.000 | - / 0.000 / 0.000; - / 0.000 |
+| Majority class for every record | 0.412 / 0.412 / 0.412; 0.242 / 0.305 | 0.394 / 0.394 / 0.394; 0.225 / 0.286 |
+| The tool's own classes shuffled within each asset | 0.292 / 0.192 / 0.232; 0.177 / 0.184 | 0.261 / 0.159 / 0.198; 0.149 / 0.154 |
+| The tool's classes against another record's key | 0.218 / 0.109 / 0.145; 0.100 / 0.104 | 0.223 / 0.104 / 0.142; 0.097 / 0.101 |
+| Margin over the best wrong control, frozen F1 (bar 0.20, fixed before the held-out run) | 0.551 | 0.549 |
 | Membership F1, (record, system) pairs inside recurring groups | 0.862 | 0.835 |
 | (Asset, system) group F1 | 0.980 | 0.900 |
-| No-system records given a class (outside precision) | 130 of 832 | 229 of 1,412 |
+| No-system records given a class | 130 of 832 | 229 of 1,412 |
 
 The [benchmark report](../../benchmarks/results/nestor-system-grouping.md) has every
 control on every metric. The split (A-C development, D-E held out) was decided on
@@ -169,11 +187,13 @@ counts, per-asset counts, every record's date, asset and text at its locator, an
   first used only a record's first system and missed multi-system rows; it now uses the full set.
 - *Limits, not tuned after the held-out run:* the held-out key spells `Hydraulic Cylinder`
   (7 rows) where development has `Hydraulic Cylinders`, and codes `Slew` (7) and `Driveshaft`
-  (3), which the development key does not use; four held-out key groups are missed for these
+  (3); the development key uses `Slew` once and `Driveshaft` never, and the vocabulary has
+  neither; four held-out key groups are missed for these
   reasons. `Radiator` went to 27 held-out rows the key codes Engine or Hydraulic System
   (overheating and coolant terms). The group F1 does not separate (the shuffled and misaligned
   controls reach it too), so read per-record and membership F1. A no-system key row (`NA`,
-  42% of joined rows) is outside precision; 16% of them got a class on the held-out assets.
+  42% of joined rows) is outside the frozen precision; 16% of them got a class on the held-out
+  assets, which the no-key-as-FP columns count.
   142 and 36 raw rows have no cleaned row and are unscored; one development raw row is
   malformed in the source (its text runs into the order-type and cost columns), and the tool
   reports its order type as an unknown code. Cost is not read: the tool has no work-order

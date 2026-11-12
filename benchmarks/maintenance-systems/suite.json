@@ -51,11 +51,13 @@
     }
   ],
   "id": "nestor-excavators-system-grouping",
+  "optional_cache": true,
   "protocol": "system-groups-v1: per-record system class vs the cleaned file MajorSystem (split on _, NA = no system), joined on date, asset and normalized text; groups and membership at two or more records per asset; five controls",
-  "registration": "Depth increment 2, attempt A420. Split decided 2026-11-12 before any result: development assets A-C, held out D-E. Method, scorer and pass margin frozen before the one held-out run. Key computed by the publisher from the same text (keyword rules), so a high score is agreement with those rules. Originals are not redistributed: in a clean clone this suite is UNVERIFIED and its committed report stands as recorded.",
+  "registration": "Depth increment 2, attempt A420. Split decided 2026-11-12 before any result: development assets A-C, held out D-E. Method, scorer and pass margin frozen before the one held-out run. What it shows: the tool derive option applies a user-declared vocabulary faithfully and groups by it, and a 10-rule vocabulary written from A-C (including their publisher codes) carries over to D-E under one publisher coding scheme. The vocabulary is a per-dataset profile artifact, not part of the product. It does not show what a user without a key would write (see the post-hoc key-free control run) and does not measure engineering correctness: the key was made by keyword rules over the same text. Originals are not redistributed: the suite opts in to optional_cache, so in a clean clone it is UNVERIFIED and its committed report stands as recorded.",
   "runs": [
-    "benchmarks/maintenance-systems/runs/a420-maintenance-history.json"
+    "benchmarks/maintenance-systems/runs/a420-maintenance-history.json",
+    "benchmarks/maintenance-systems/runs/a420-posthoc-classname-control.json"
   ],
   "task": "maintenance-system-grouping",
-  "version": "1"
+  "version": "2"
 }

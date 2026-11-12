@@ -77,5 +77,15 @@ class ScorerTests(unittest.TestCase):
         self.assertEqual({k: v[1][0] for k, v in s.misaligned(key).items()}, {'2': 'y', '3': 'z', '4': 'w', '5': 'x'})
 
 
+    def test_posthoc_strict_rates_and_class_name_control_vocabulary(self):
+        import maintenance_system_posthoc as ph
+        answer = {'2': 'Bucket', '3': 'Hydraulic System', '4': 'Engine', '5': '', '6': 'Bucket', '7': 'Engine', '8': 'Hydraulic System'}
+        method = s.evaluate(self.raw, self.cleaned, ['A'], answer, 'Hydraulic System')['scores']['method']
+        self.assertEqual(ph.strict_rates(method), {'precision': 0.6, 'recall': 0.6, 'f1': 0.6})
+        rules = ph.classname_rules({'rules': [{'value': 'Induction and Exhaust', 'terms': ['MUFFLER']},
+                                              {'value': 'Hydraulic Cylinders', 'terms': ['CYL']}]})
+        self.assertEqual(rules, [{'value': 'Induction and Exhaust', 'terms': ['INDUCTION', 'EXHAUST']},
+                                 {'value': 'Hydraulic Cylinders', 'terms': ['HYDRAULIC', 'CYLINDERS']}])
+
 if __name__ == '__main__':
     unittest.main()

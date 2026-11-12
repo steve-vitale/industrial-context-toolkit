@@ -178,8 +178,12 @@ def metrics(total):
 
 
 def absent_caches(suite, root):
-    """data/external/<group> folders a suite's case files need that are entirely absent from this checkout."""
+    """data/external/<group> folders an opted-in suite's case files need that are entirely absent from this checkout.
+
+    Only a suite that declares `optional_cache: true` may be skipped; any other suite with a missing file fails."""
     out = set()
+    if not (isinstance(suite, dict) and suite.get('optional_cache') is True):
+        return []
     for case in suite.get('cases', []) if isinstance(suite, dict) else []:
         for ref in (case.get('files') or {}).values() if isinstance(case, dict) else []:
             path = ref.get('path', '') if isinstance(ref, dict) else ''
@@ -253,7 +257,7 @@ def evaluate(suite_path, root=ROOT):
     sources = ['benchmark.py'] + (['score_pid2graph.py', 'evaluate_vendor.py', 'replicate_stats.py',
                                  'score_tags.py', 'test_scorer_controls.py'] if task == 'drawing-extraction' else [])
     if task == 'maintenance-system-grouping':
-        sources.append('score_maintenance_systems.py')
+        sources.extend(['score_maintenance_systems.py', 'maintenance_system_posthoc.py'])
     if task == 'source-support':
         sources.append('source_support.py')
         if any(isinstance(c, dict) and 'artifact_values_protocol' in c for c in suite.get('cases', [])):
@@ -394,14 +398,18 @@ def evaluate(suite_path, root=ROOT):
                     import score_maintenance_systems as systems
                     out = systems.evaluate(loaded[cid]['input'], loaded[cid]['key'], case['assets'],
                                            system_answer(prediction) if status == 'ok' else {}, case['majority'])
-                    diagnostics['controls'] = {n: out['scores'][n]['rates'] for n in systems.CONTROL_ORDER}
+                    import maintenance_system_posthoc as posthoc
+                    diagnostics['controls'] = {n: dict(out['scores'][n]['rates'], orders_no_key_as_fp=posthoc.strict_rates(out['scores'][n]),
+                                                       no_key_given_class=out['scores'][n]['assigned_without_key_system'])
+                                               for n in systems.CONTROL_ORDER}
+                    diagnostics['orders_no_key_as_fp'] = posthoc.strict_rates(out['scores']['method'])
                     diagnostics['margin_over_best_wrong_control'] = systems.margin(out['scores'])
                 rows.append({'case': cid, 'status': status, 'note': note, 'counts': scored, 'diagnostics': diagnostics,
                              'reported_resources': reported, 'recorded_run_at': recorded_run_at,
                              'prediction_ref': ref})
                 if '_artifact_value_review' in loaded[cid]:
                     rows[-1]['artifact_value_review'] = loaded[cid]['_artifact_value_review'].report()
-            results.append({'run': run['id'], 'model': run['model'], 'interface': run['interface'],
+            results.append({**({'role': run['role']} if 'role' in run else {}), 'run': run['id'], 'model': run['model'], 'interface': run['interface'],
                             'method': run['method'], 'configuration': run['configuration'], 'recipe': run['recipe'],
                             'ran_at': run['ran_at'], 'provenance': run['provenance'], 'cohort': digest(encoded(cohort)),
                             'family': family, 'split': split, 'evidence': evidence, 'case_count': len(ids),
@@ -412,7 +420,10 @@ def evaluate(suite_path, root=ROOT):
         identity = {k: result[k] for k in ('cohort', 'model', 'interface', 'method', 'configuration', 'recipe')}
         groups[digest(encoded(identity))].append(result)
     summary = []
-    for group_id, repeats in sorted(groups.items()):
+    def stable(item):  # an order that does not move when a code hash (and so every cohort/group id) changes
+        first = item[1][0]
+        return encoded({k: first[k] for k in ('family', 'split', 'evidence', 'model', 'interface', 'method', 'configuration')})
+    for group_id, repeats in sorted(groups.items(), key=stable):
         first = repeats[0]
         row = {k: first[k] for k in ('model', 'interface', 'method', 'configuration', 'cohort', 'family', 'split', 'evidence', 'case_count')}
         row.update(group=group_id, runs=[r['run'] for r in repeats], replicates=len(repeats), metrics={})
@@ -483,25 +494,35 @@ def markdown(report):
                   'Per-record precision / recall / F1 for the scored answer and every control on the same keyed records. `reference` is '
                   'the key itself (must be 1.0); `raw-asset-baseline` is the predeclared raw-asset-ID grouping, which has no system; '
                   '`majority-system` gives every record one fixed class; `shuffled-within-asset` permutes the answer\'s own classes; '
-                  '`misaligned-key` scores the answer against another record\'s key. Records the key gives no system are outside '
-                  'precision and counted in the last column.', '',
-                  '| Run | Case / split | Answer or control | Orders P | Orders R | Orders F1 | Membership F1 | Groups F1 | No-system records given a class |',
-                  '|---|---|---|---|---|---|---|---|---|']
+                  '`misaligned-key` scores the answer against another record\'s key. A run with a role (the post-hoc key-free '
+                  'control, added at review after the sealed run) shows its answer row only. Records the key gives no system are '
+                  'outside the frozen precision and counted in the last column; the two "no-key as FP" columns count every such '
+                  'record given a class as a false positive.', '',
+                  '| Case / split | Run | Answer or control | Orders P | Orders R | Orders F1 | Orders P, no-key as FP | Orders F1, no-key as FP | Membership F1 | Groups F1 | No-system records given a class |',
+                  '|---|---|---|---|---|---|---|---|---|---|---|']
         def r4(value):
             return 'n/a' if value is None else f'{value:.4f}'
+        by_case = defaultdict(list)
         for run in report['results']:
             for case in run['rows']:
+                by_case[case['case'] + ' / ' + run['split']].append((run, case))
+        for label, entries in by_case.items():
+            for run, case in sorted(entries, key=lambda e: e[0].get('role') is not None):
                 d = case['diagnostics']
                 method = metrics(case['counts'])
-                rows_out = [('answer', method, d.get('assigned_without_key_system'))]
-                rows_out += [(name, values, '') for name, values in d.get('controls', {}).items()]
-                for name, values, extra in rows_out:
-                    lines.append('| ' + ' | '.join(safe(v) for v in [run['run'], case['case'] + ' / ' + run['split'], name,
-                        r4(values['orders']['precision']),
-                        r4(values['orders']['recall']), r4(values['orders']['f1']), r4(values['membership']['f1']),
-                        r4(values['groups']['f1']), extra]) + ' |')
-                lines.append('| ' + ' | '.join(safe(v) for v in [run['run'], case['case'] + ' / ' + run['split'], 'margin over the best wrong control (orders F1)',
-                             '', '', r4(d.get('margin_over_best_wrong_control')), '', '', '']) + ' |')
+                strict = d.get('orders_no_key_as_fp', {})
+                name = 'answer' + (' (' + run['role'] + ')' if run.get('role') else '')
+                rows_out = [(name, method, strict, d.get('assigned_without_key_system'))]
+                if not run.get('role'):
+                    rows_out += [(n, v, v.get('orders_no_key_as_fp', {}), v.get('no_key_given_class', '')) for n, v in d.get('controls', {}).items()]
+                for name, values, strict_values, extra in rows_out:
+                    lines.append('| ' + ' | '.join(safe(v) for v in [label, run['run'], name,
+                        r4(values['orders']['precision']), r4(values['orders']['recall']), r4(values['orders']['f1']),
+                        r4(strict_values.get('precision')), r4(strict_values.get('f1')),
+                        r4(values['membership']['f1']), r4(values['groups']['f1']), extra]) + ' |')
+                if not run.get('role'):
+                    lines.append('| ' + ' | '.join(safe(v) for v in [label, run['run'], 'margin over the best wrong control (orders F1)',
+                                 '', '', r4(d.get('margin_over_best_wrong_control')), '', '', '', '', '']) + ' |')
         lines += ['', 'The group F1 does not separate the answer from the shuffled or misaligned controls: most systems recur on '
                   'every asset under any labelling with the same class counts. Read the per-record and membership columns. '
                   'The model/method summary (one deterministic run per cohort, no replicates) is in the JSON only, so that '

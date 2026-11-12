@@ -25,7 +25,7 @@ No reader result is registered on a held-out split yet. Older one-time held-out 
 
 ### pid2graph-open100 · split `validation`
 
-Task `drawing-extraction`; 6 cases (open100-10, open100-11, open100-6, open100-7, open100-8, open100-9); cohort `7af6bbf2003e`. Evidence: [report](results/open100-validation-overflow-guard-artifact-values.md), [JSON](results/open100-validation-overflow-guard-artifact-values.json), [suite](open100-validation.json). Historical same-plant validation also used for method selection; third-party keys. Ranked by mean review load. Tag reading is not keyed for this family.
+Task `drawing-extraction`; 6 cases (open100-10, open100-11, open100-6, open100-7, open100-8, open100-9); cohort `d4b0ca6b3a5d`. Evidence: [report](results/open100-validation-overflow-guard-artifact-values.md), [JSON](results/open100-validation-overflow-guard-artifact-values.json), [suite](open100-validation.json). Historical same-plant validation also used for method selection; third-party keys. Ranked by mean review load. Tag reading is not keyed for this family.
 
 | Rank | Reader (model · method · interface) | Runs × cases | Review load per 100 key items (lower is better) | Symbol F1 rough | Symbol F1 strict | Connection F1 | Tag reading | Run dates |
 |---|---|---|---|---|---|---|---|---|
@@ -42,7 +42,7 @@ Task `drawing-extraction`; 6 cases (open100-10, open100-11, open100-6, open100-7
 
 ### dexpi-trainingtestcases · split `development` · `tag-reading (geometry)`
 
-3 cases (dexpi-c01, dexpi-c02, dexpi-c03); cohort `c29f507b690e`. Evidence: [report](results/tag-reading-development-artifact-values.md), [JSON](results/tag-reading-development-artifact-values.json), [suite](tag-reading-development.json). Exposed historical model answers; CURRENT frozen derived cache keys, original producing key/converter identity unknown. Development: not ranked. Symbol and connection F1 are not part of this task.
+3 cases (dexpi-c01, dexpi-c02, dexpi-c03); cohort `b133811e0676`. Evidence: [report](results/tag-reading-development-artifact-values.md), [JSON](results/tag-reading-development-artifact-values.json), [suite](tag-reading-development.json). Exposed historical model answers; CURRENT frozen derived cache keys, original producing key/converter identity unknown. Development: not ranked. Symbol and connection F1 are not part of this task.
 
 | Rank | Reader (model · method · interface) | Runs × cases | Strict tag recall (labelled symbols) | Strict accuracy on found symbols | Run dates |
 |---|---|---|---|---|---|
@@ -53,7 +53,7 @@ Task `drawing-extraction`; 6 cases (open100-10, open100-11, open100-6, open100-7
 
 ### dexpi-trainingtestcases · split `development` · `tag-reading (taglist)`
 
-2 cases (dexpi-c08a, dexpi-c08b); cohort `170682030ada`. Evidence: [report](results/tag-reading-development-artifact-values.md), [JSON](results/tag-reading-development-artifact-values.json), [suite](tag-reading-development.json). Exposed historical model answers; CURRENT frozen derived cache keys, original producing key/converter identity unknown. Development: not ranked. Symbol and connection F1 are not part of this task.
+2 cases (dexpi-c08a, dexpi-c08b); cohort `d3ffed0db729`. Evidence: [report](results/tag-reading-development-artifact-values.md), [JSON](results/tag-reading-development-artifact-values.json), [suite](tag-reading-development.json). Exposed historical model answers; CURRENT frozen derived cache keys, original producing key/converter identity unknown. Development: not ranked. Symbol and connection F1 are not part of this task.
 
 | Rank | Reader (model · method · interface) | Runs × cases | Identifier recall (partial list, lenient substring) | Class agreement on found identifiers | Run dates |
 |---|---|---|---|---|---|

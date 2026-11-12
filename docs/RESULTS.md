@@ -28,7 +28,11 @@ See [reviewing the evidence](REVIEWING.md) for test prerequisites, omissions and
 
 The [corpus matrix](GENERALIZATION.md) covers nine selected workflows:
 47 cells pass, 10 fail, 5 are not applicable and 34 need data in the current recorded matrix. The ninth, added
-2026-11-12, scores maintenance-history system grouping on the Nestor excavator records (A420). The missing-data
+2026-11-12, scores maintenance-history system grouping on the Nestor excavator records (A420): the `derive`
+option applies a declared vocabulary faithfully, and a vocabulary written from development assets A-C, including
+their publisher codes, agrees with the publisher's keyword-rule codes on held-out D-E at per-record F1 0.943 (0.887
+with no-system rows counted as errors; class-name words alone 0.501). It does not show what a user without a key
+would write, or engineering correctness; the vocabulary is a per-dataset profile artifact, not part of the product. The missing-data
 cells name absent optional caches; they are neither passes nor evidence that earlier failures were fixed.
 Rows have different run dates, recorded on the matrix page. Pipe tracing reaches F1 0.912 on the OPEN100 validation sheets
 (derived truth, only partly blind). The historical mixed vendor-render pool failed at 0.776; its per-sheet counts
