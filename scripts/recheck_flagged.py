@@ -369,6 +369,31 @@ def oracle_recheck(sheet, symbols, flags):
     return {"symbols": out, "connections": retrace(sheet, out)}
 
 
+def sheet_counts(preds):
+    """{sheet: (corrections, key items)} with the frozen scorer."""
+    out = {}
+    for sheet, pred in preds.items():
+        rl = sc.score(DATA / f"{sheet}.graphml", pred, DATA / f"{sheet}.png")["review_load"]
+        out[sheet] = (rl["corrections"], rl["key_items"])
+    return out
+
+
+def paired_bootstrap(before, after, sheets, n=10000, seed=412):
+    """Paired sheet bootstrap of the micro-averaged review-load change (after - before, per 100 key items): resample
+    sheets with replacement, keep each sheet's before/after pair together. Returns the point change and the 95%
+    percentile interval."""
+    import random
+    rng = random.Random(seed)
+
+    def delta(sample):
+        k = sum(before[s][1] for s in sample)
+        return 100 * (sum(after[s][0] for s in sample) - sum(before[s][0] for s in sample)) / k
+
+    ds = sorted(delta([rng.choice(sheets) for _ in sheets]) for _ in range(n))
+    return {"change": round(delta(sheets), 2), "ci95": [round(ds[int(0.025 * n) - 1], 2),
+                                                        round(ds[int(0.975 * n) - 1], 2)], "resamples": n}
+
+
 def controls():
     import test_scorer_controls as tsc
     rot = {c: sc.SCORED[(i + 1) % len(sc.SCORED)] for i, c in enumerate(sc.SCORED)}
@@ -385,7 +410,7 @@ def controls():
 
 
 def report():
-    rows, detail = {}, {}
+    rows, detail, boots = {}, {}, {}
     for tool in MODELS:
         base = {s: load_pred(READING, tool, s)["prediction"] for s in DEV_SHEETS}
         rep = {}
@@ -416,6 +441,11 @@ def report():
             if len(files) != len(DEV_SHEETS):
                 continue
             rows[tool][f"re-check {r}"] = score_set({s: f["prediction"] for s, f in files.items()})
+            before = sheet_counts(base)
+            after = sheet_counts({s: f["prediction"] for s, f in files.items()})
+            boots[f"{tool} {r}"] = {
+                "all sheets": paired_bootstrap(before, after, DEV_SHEETS),
+                "without sheet 1": paired_bootstrap(before, after, [s for s in DEV_SHEETS if s != "1"])}
             ch = [c for f in files.values() for c in f["changes"]]
             lc = [link_changes(load_pred(READING, tool, s)["prediction"]["connections"], f["prediction"]["connections"],
                                [c["id"] for c in f["changes"] if c["applied"] and not c["after"]["kept"]])
@@ -438,7 +468,7 @@ def report():
                 "tokens": sum(f["tokens"] or 0 for f in files.values()),
                 "models_reported": sorted({m for f in files.values() for m in f["models_reported"]})}
     ctl = controls()
-    res = {"rows": rows, "detail": detail, "controls": ctl, "threshold": THRESHOLD, "batch": BATCH,
+    res = {"rows": rows, "detail": detail, "paired_bootstrap": boots, "controls": ctl, "threshold": THRESHOLD, "batch": BATCH,
            "prompt_sha256": sha(PROMPT_FILE.read_text(encoding="utf-8").encode())}
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "summary.json").write_text(json.dumps(res, indent=1), encoding="utf-8")
@@ -463,6 +493,22 @@ def report():
                      f'{d["links_dropped_with_symbols"]} / {d["links_added_by_retrace"]} / {d["links_lost_otherwise"]} | '
                      f'{d["calls"]} ({d["calls_failed"]}) | {d["seconds"]} | ${d["cost_usd_notional"]:.2f} | '
                      f'{d["tokens"] or "n/a"} | {", ".join(d["models_reported"])} |')
+    lines += ["", "## Paired sheet bootstrap of the review-load change", "",
+              "Each re-check is a paired change on the same saved reading, so its noise is measured by resampling "
+              "sheets (with replacement, 10,000 resamples, seed 412) and keeping each sheet's before/after pair "
+              "together; review load is micro-averaged as above. Negative = fewer corrections.", "",
+              "| Run | Sheets | Change in review load | 95% interval |", "|---|---|---|---|"]
+    for k, b in boots.items():
+        for name, v in b.items():
+            lines.append(f'| {k} | {name} | {v["change"]:+.2f} | {v["ci95"][0]:+.2f} to {v["ci95"][1]:+.2f} |')
+    lines += ["", "## Notes", "",
+              "- r1 and r2 ran concurrently (two processes, four calls each in parallel), as independent calls.",
+              "- The `link_changes` field in each `r1`/`r2` sheet file was added to the already-written files after "
+              "the runs. It is a pure set function (`link_changes()`) of the saved reading's links, the re-check's "
+              "re-traced links and the removed ids, all committed, so it reproduces from committed data; this "
+              "report recomputes it rather than reading the stored field.",
+              "- The oracle row reads the answer key; it bounds what a perfect re-check of exactly these flagged "
+              "items could reach and is not a method."]
     (OUT / "summary.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     print("\n".join(lines))
 
