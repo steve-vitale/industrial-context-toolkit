@@ -44,6 +44,158 @@ def loop(block, ctrl):
     return next(lp for lp in block["loops"] if lp["controller"] == ctrl)
 
 
+FUZZ_LETTERS = ["TT", "TIC", "TV", "FT", "FIC", "FV", "PT", "PIC", "PV", "TY", "FE", "FY", "LT", "LIC", "LV", "TI"]
+
+
+def _fuzz_line(lid, ms, merged=False, ncross=1):
+    d = line(lid, ms)
+    if merged:
+        d["merged_through_crossing"] = True
+        d["crossings"] = [{"key": f"sha:{lid}:{j}", "at_0_1000": [1.0, 1.0], "crosses": "pipe"} for j in range(ncross)]
+    return d
+
+
+def _partitions(items):
+    if not items:
+        yield []
+        return
+    first, rest = items[0], items[1:]
+    for p in _partitions(rest):
+        for i in range(len(p)):
+            yield p[:i] + [[first] + p[i]] + p[i + 1:]
+        yield [[first]] + p
+
+
+def _readings(x):
+    """Every reading of one merged line: as drawn (one plain line), not a signal line at all, or cut at its crossings
+    into any number of pieces (every set partition of its members into two or more blocks; a one-member piece is a
+    stub)."""
+    plain = {k: v for k, v in x.items() if k not in ("merged_through_crossing", "crossings")}
+    return [[plain], []] + [[{**plain, "id": f"{x['id']}p{j}", "members": sorted(b)} for j, b in enumerate(p)]
+                            for p in _partitions(list(x["members"])) if len(p) >= 2]
+
+
+def _fuzz_model(rng, rich):
+    """A random model and its lines. rich: loop-shaped (per loop a transmitter, controller, valve, sometimes a relay
+    or a second valve; controller-to-controller lines for cascades, split-range tees, stray 2-3 member lines, lines
+    with two crossings, up to two off-page pairs, some of them cutting one line in two at the sheet edge)."""
+    if not rich:
+        ids = [f"I{i}" for i in range(rng.randint(3, 8))]
+        m = model([inst(i, f"{rng.choice(FUZZ_LETTERS)} {rng.randint(1, 3)}", rng.choice("01")) for i in ids])
+        lines = []
+        for k in range(rng.randint(1, 8)):
+            ms = rng.sample(ids, 2)
+            if rng.random() < 0.15:
+                ms.append(rng.choice([x for x in ids if x not in ms]))
+            lines.append(_fuzz_line(f"L{k}", ms, rng.random() < 0.4))
+        if rng.random() < 0.35 and len(lines) >= 2:
+            m["offpage_connectors"] = [{"id": "X1", "text": ""}, {"id": "X2", "text": ""}]
+            l1, l2 = rng.sample(lines, 2)
+            l1["members"], l2["members"] = sorted(l1["members"] + ["X1"]), sorted(l2["members"] + ["X2"])
+            m["offpage_pairs"] = [{"id": "P1", "a": "X1", "b": "X2", "sheet_a": "0", "sheet_b": "1"}]
+        return m, lines, ids
+    ids, insts, kinds = [], [], {}
+    for li in range(rng.randint(2, 4)):
+        v = rng.choice("TFPL")
+        for suf in ["T", "IC", "V"] + (["Y"] if rng.random() < 0.3 else []) + (["V"] if rng.random() < 0.2 else []):
+            iid = f"{v}{suf}{li + 1}_{len(ids)}"
+            ids.append(iid)
+            insts.append(inst(iid, f"{v}{suf} {li + 1}", rng.choice("01")))
+            kinds.setdefault(suf, []).append(iid)
+    m = model(insts)
+    T, C, V, Y = (kinds.get(k, []) for k in ("T", "IC", "V", "Y"))
+    pool = []
+    for c in C:
+        if rng.random() < 0.8:
+            pool.append([rng.choice(T), c])
+        if rng.random() < 0.8:
+            pool.append([c, rng.choice(V + Y)])
+    pool += [[y, rng.choice(V)] for y in Y]
+    pool += [rng.sample(C, 2) if len(C) > 1 else rng.sample(ids, 2) for _ in range(rng.randint(1, 3))]
+    pool += [rng.sample(ids, rng.choice([2, 2, 3])) for _ in range(rng.randint(0, 2))]
+    if rng.random() < 0.3 and len(V) > 1:
+        pool.append([rng.choice(C)] + rng.sample(V, 2))
+    lines = []
+    for k, ms in enumerate(pool):
+        r = rng.random()
+        lines.append(_fuzz_line(f"L{k}", ms, r < 0.35, 2 if r < 0.1 else 1))
+    for p in range(rng.choice([0, 1, 1, 2])):
+        if len(lines) < 2:
+            break
+        a, b = f"X{2 * p}", f"X{2 * p + 1}"
+        m["offpage_connectors"] += [{"id": a, "text": ""}, {"id": b, "text": ""}]
+        l1, l2 = rng.sample(lines, 2)
+        if rng.random() < 0.3:  # one line cut in two at the sheet edge
+            l1 = rng.choice(lines)
+            ms = l1["members"]
+            l1["members"] = sorted(ms[:1] + [a])
+            l2 = _fuzz_line(f"L{len(lines)}", ms[1:] + [b], rng.random() < 0.4)
+            lines.append(l2)
+        else:
+            l1["members"], l2["members"] = sorted(l1["members"] + [a]), sorted(l2["members"] + [b])
+        m["offpage_pairs"].append({"id": f"P{p}", "a": a, "b": b, "sheet_a": "0", "sheet_b": "1"})
+    return m, lines, ids
+
+
+def _fuzz_promoted(mod, m, lines, co):
+    """Merged lines an independent channel confirms, computed here from the channels themselves (signal_networks,
+    signal_conditions and _channels), not from the assembly's own bookkeeping: a network that passes every condition
+    and that a channel corroborates promotes every merged line in it."""
+    cand = mod.candidates(m)
+    role = {k: v["role"] for k, v in cand.items()}
+    out = set()
+    for net in mod.signal_networks(m, lines):
+        ms = [x for x in net["members"] if x in cand]
+        merged = [x["id"] for x in net["lines"] if x.get("merged_through_crossing")]
+        if merged and len(ms) >= 2 and not mod.signal_conditions(net, cand, role) and mod._channels(net, ms, cand, co)[0]:
+            out.update(merged)
+    return out
+
+
+def loop_fuzz(mod, seed, n_base=900, n_rich=1100, cap=24):
+    """([defect], readings checked) for `mod` (a loop_assembly module). For every model: each strict relation of the
+    full assembly must hold in every reading of each unconfirmed merged line (an undirected one keeps its pair), and
+    each confirmed loop at tier traced must stay confirmed with at least its measurements and final elements. At
+    most `cap` readings per model, sampled with the same seeded generator."""
+    import itertools
+    rng = random.Random(seed)
+    key = lambda r: (r["type"], r["from"], r["to"], r["direction"])  # noqa: E731
+    defects, n = [], 0
+    for it in range(n_base + n_rich):
+        m, lines, ids = _fuzz_model(rng, it >= n_base)
+        co = None
+        if rng.random() < 0.3:
+            co = {"crossing_answers": {c["key"]: {"verdict": rng.choice(["two_lines", "continues"]), "confidence": 0.95}
+                                       for x in lines if x.get("merged_through_crossing") for c in x["crossings"]
+                                       if rng.random() < 0.7},
+                  "assert_enabled": rng.random() < 0.5}
+            if rng.random() < 0.3:
+                co["reader_pairs"] = {frozenset(rng.sample(ids, 2)) for _ in range(3)}
+        full = mod.assemble(m, lines, corroboration=co)
+        strict = [r for r in full["relations"] if r["confidence"] in mod.STRICT_TIERS]
+        traced = [lp for lp in full["loops"] if lp["tier"] == "traced" and lp["status"] == "confirmed"]
+        prom = _fuzz_promoted(mod, m, lines, co)
+        fixed = [{k: v for k, v in x.items() if k != "merged_through_crossing"} for x in lines
+                 if not x.get("merged_through_crossing") or x["id"] in prom]
+        open_ = [x for x in lines if x.get("merged_through_crossing") and x["id"] not in prom]
+        combos = list(itertools.product(*[_readings(x) for x in open_]))
+        for combo in (rng.sample(combos, cap) if len(combos) > cap else combos):
+            b = mod.assemble(m, fixed + [y for part in combo for y in part])
+            got = {key(r) for r in b["relations"]}
+            pairs = {(r["type"], frozenset((r["from"], r["to"]))) for r in b["relations"]}
+            lps = {lp["controller"]: lp for lp in b["loops"]}
+            defects += [(it, "relation", key(r)) for r in strict if key(r) not in got and not (
+                r["direction"] == "unknown" and (r["type"], frozenset((r["from"], r["to"]))) in pairs)]
+            for lp in traced:
+                o = lps.get(lp["controller"])
+                if not o or o["status"] != "confirmed" or any(
+                        not {x["id"] for x in lp[f]} <= {x["id"] for x in o[f]}
+                        for f in ("measurements", "final_elements")):
+                    defects.append((it, "loop", lp["controller"]))
+            n += 1
+    return defects, n
+
+
 class TagsAndRoles(unittest.TestCase):
     def test_loop_identity_reads_area_number_and_suffix(self):
         self.assertEqual(la.loop_identity("FIC 101"), ("", "101", "", "FIC"))
@@ -1163,73 +1315,30 @@ class FifthReview(unittest.TestCase):
         b = la.assemble(m, [line("a", ["T", "C"]), line("b", ["C", "V"]), line("c", ["C", "V"])])
         self.assertEqual([x["id"] for x in loop(b, "C")["final_elements"]], ["V"])
 
-    def test_seeded_fuzz_no_strict_relation_depends_on_a_merged_line(self):
-        # 2,500 random models with crossings, promotion and demotion (evaluator answers, enabled or not; reader
-        # pairs), off-page pairs and 3-member lines. Every strict relation must come out of the assembly with the
-        # unconfirmed merged lines left out, and must hold (or, undirected, keep its pair) under every reading of
-        # each merged line: as drawn, split in two at the crossing (every 2-block split of its members), or not a
-        # signal line; a confirmed loop at tier traced stays confirmed in every reading.
-        import itertools
-        lets = ["TT", "TIC", "TV", "FT", "FIC", "FV", "PT", "PIC", "PV", "TY", "FE", "FY", "LT", "LIC", "LV", "TI"]
-        rng = random.Random(20261112)
-        key = lambda r: (r["type"], r["from"], r["to"], r["direction"])  # noqa: E731
+    def test_seeded_fuzz_no_strict_relation_or_traced_loop_depends_on_a_merged_line(self):
+        # loop_fuzz (module level): loop-shaped models plus random ones, every set partition of each merged line, and
+        # the loop-shape check. Seed 3 is the recorded RED: on 524bdbe's loop_assembly.py the same body finds
+        # defects (A410); here it must find none.
+        defects, n = loop_fuzz(la, seed=3)
+        self.assertGreater(n, 15000)
+        self.assertEqual(defects[:5], [])
 
-        def readings(x):
-            plain = {k: v for k, v in x.items() if k not in ("merged_through_crossing", "crossings")}
-            out, ms = [[plain], []], x["members"]
-            for n in range(1, len(ms)):
-                for left in itertools.combinations(ms, n):
-                    if ms[0] in left:
-                        right = [y for y in ms if y not in left]
-                        out.append([{**plain, "id": x["id"] + "a", "members": sorted(left)},
-                                    {**plain, "id": x["id"] + "b", "members": sorted(right)}])
-            return out
-        defects, n_readings = [], 0
-        for it in range(2500):
-            ids = [f"I{i}" for i in range(rng.randint(3, 8))]
-            m = model([inst(i, f"{rng.choice(lets)} {rng.randint(1, 3)}", rng.choice("01")) for i in ids])
-            lines = []
-            for k in range(rng.randint(1, 8)):
-                ms = rng.sample(ids, 2)
-                if rng.random() < 0.15:
-                    ms.append(rng.choice([x for x in ids if x not in ms]))
-                lines.append(self.merged(f"L{k}", ms) if rng.random() < 0.4 else line(f"L{k}", ms))
-            if rng.random() < 0.35 and len(lines) >= 2:
-                m["offpage_connectors"] = [{"id": "X1", "text": ""}, {"id": "X2", "text": ""}]
-                l1, l2 = rng.sample(lines, 2)
-                l1["members"], l2["members"] = sorted(l1["members"] + ["X1"]), sorted(l2["members"] + ["X2"])
-                m["offpage_pairs"] = [{"id": "P1", "a": "X1", "b": "X2", "sheet_a": "0", "sheet_b": "1"}]
-            co = None
-            if rng.random() < 0.3:
-                co = {"crossing_answers": {f"sha:{x['id']}": {"verdict": rng.choice(["two_lines", "continues"]),
-                                                              "confidence": 0.95}
-                                           for x in lines if x.get("merged_through_crossing") and rng.random() < 0.6},
-                      "assert_enabled": rng.random() < 0.5}
-                if rng.random() < 0.3:
-                    co["reader_pairs"] = {frozenset(rng.sample(ids, 2)) for _ in range(3)}
-            full = la.assemble(m, lines, corroboration=co)
-            strict = [r for r in full["relations"] if r["confidence"] in la.STRICT_TIERS]
-            traced = [lp["controller"] for lp in full["loops"] if lp["tier"] == "traced" and lp["status"] == "confirmed"]
-            info, cand = {}, la.candidates(m)
-            la._directed_links(la.signal_networks(m, lines), cand, {k: v["role"] for k, v in cand.items()}, co,
-                               False, info)
-            fixed = [{k: v for k, v in x.items() if k != "merged_through_crossing"} for x in lines
-                     if not x.get("merged_through_crossing") or x["id"] in info["promoted"]]
-            open_ = [x for x in lines if x.get("merged_through_crossing") and x["id"] not in info["promoted"]]
-            no_merged = {key(r) for r in la.assemble(m, fixed)["relations"]}
-            defects += [(it, "no merged lines", key(r)) for r in strict if key(r) not in no_merged]
-            combos = list(itertools.product(*[readings(x) for x in open_]))
-            for combo in (rng.sample(combos, 12) if len(combos) > 12 else combos):
-                b = la.assemble(m, fixed + [y for part in combo for y in part])
-                got = {key(r) for r in b["relations"]}
-                pairs = {(r["type"], frozenset((r["from"], r["to"]))) for r in b["relations"]}
-                st = {lp["controller"]: lp["status"] for lp in b["loops"]}
-                defects += [(it, "reading", key(r)) for r in strict if key(r) not in got and not (
-                    r["direction"] == "unknown" and (r["type"], frozenset((r["from"], r["to"]))) in pairs)]
-                defects += [(it, "reading loop", c) for c in traced if st.get(c) != "confirmed"]
-                n_readings += 1
-        self.assertGreater(n_readings, 10000)
-        self.assertEqual(defects, [])
+    def test_a_taint_that_cannot_move_a_cascade_leaves_it_strict(self):
+        # sixth review: the merged line only gives the INNER controller (TIC 2, which has its valve) a measurement, so
+        # no reading of it can change which controller is outer; TIC 3 -> TIC 2 stays strict
+        m = model([inst("I0", "TIC 3"), inst("I1", "FIC 3"), inst("I2", "PT 1"), inst("I3", "FV 1"),
+                   inst("I4", "TIC 2"), inst("I5", "TT 2")])
+        b = la.assemble(m, [line("a", ["I0", "I1", "I2"]), line("b", ["I0", "I4"]), line("c", ["I3", "I4"]),
+                            line("d", ["I0", "I5"]), self.merged("w", ["I2", "I4"])])
+        tier = {(r["type"], r["from"], r["to"]): r["confidence"] for r in b["relations"]}
+        self.assertEqual(tier[("sets_point_of", "I0", "I4")], "traced_direction_inferred")
+        self.assertEqual(tier[("signal_to", "I0", "I4")], "traced_direction_inferred")
+        self.assertEqual(tier[("signal_to", "I2", "I4")], "traced_through_crossing")
+        # a merged line from the outer controller to a valve could move the depths: never strict
+        b = la.assemble(m, [line("a", ["I0", "I1", "I2"]), line("b", ["I0", "I4"]), line("c", ["I3", "I4"]),
+                            line("d", ["I0", "I5"]), self.merged("w", ["I0", "I3"])])
+        tier = {(r["type"], r["from"], r["to"]): r["confidence"] for r in b["relations"]}
+        self.assertNotIn(tier.get(("sets_point_of", "I0", "I4")), la.STRICT_TIERS)
 
 
 class Scorer(unittest.TestCase):

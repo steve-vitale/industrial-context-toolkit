@@ -297,8 +297,9 @@ itself `traced_through_crossing`, so a loop at tier `traced` never rests on cros
 `traced_through_crossing`, and loops whose `tier` is `traced`** (`loop_assembly.STRICT_TIERS`). That is the strictly
 traced view, and because tiers follow derivation, a loop kept by this filter contains no crossing-tier support: the
 strict view is assembled from the drawing's lines with every unconfirmed merged line (and any plain line an off-page
-pair joins to it) left out before networks are formed, and a cascade whose chain touches such a network is not
-strict either, since another reading of that line could give its outer controller a valve. Take `traced_through_crossing` relations only into a review step that shows their `review_question`. `controls` (controller to final element) needs a confirmed loop (a traced measurement in, a
+pair joins to it) left out before networks are formed, and a cascade is not strict either when such a network
+could change it under another reading of the line: give or take a controller of its chain a valve, relay or
+controller link, or give its outer controller a measurement or a valve of its own loop. Take `traced_through_crossing` relations only into a review step that shows their `review_question`. `controls` (controller to final element) needs a confirmed loop (a traced measurement in, a
 traced output out, directly or through a relay), and `sets_point_of` marks a cascade. A loop that rests on its loop
 number alone stays `unconfirmed`, with the grouped tags listed for review; an item a traced line ties to another loop
 is listed as refuted and as a conflict. Every relation carries its evidence and an ordinal confidence tier (a

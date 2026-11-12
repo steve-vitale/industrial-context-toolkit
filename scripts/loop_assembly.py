@@ -949,13 +949,15 @@ def _directed_links(nets, cand, role, corroboration=None, assume_merged_ok=False
     an independent channel agrees (_channels); otherwise it is a review item with the crossing question.
     assume_merged_ok treats every merged network as corroborated (only for the review candidates).
     info, when given, receives "promoted" (ids of merged lines an independent channel confirmed) and "tainted" (every
-    item in a network that holds a merged line no channel confirmed, resolved or not) and "tainted_lines" (every line
+    item in a network that holds a merged line no channel confirmed, resolved or not), "tainted_nets" (the member set of
+    each such network) and "tainted_lines" (every line
     of such a network, the merged line and the plain lines an off-page pair joined to it): what another reading of
     such a line could change."""
     links, unresolved = [], []
     info = info if info is not None else {}
     info.setdefault("promoted", set())
     info.setdefault("tainted", set())
+    info.setdefault("tainted_nets", [])
     info.setdefault("tainted_lines", set())
     for net in nets:
         ms = [m for m in net["members"] if m in cand]
@@ -965,6 +967,7 @@ def _directed_links(nets, cand, role, corroboration=None, assume_merged_ok=False
         if failed:
             if has_merged:
                 info["tainted"].update(ms)
+                info["tainted_nets"].append(set(ms))
                 info["tainted_lines"].update(x["id"] for x in net["lines"])
             unresolved.append({"members": ms, "roles": {m: role[m] for m in ms}, "evidence": evidence,
                                "failed_conditions": [c for c, _ in failed],
@@ -978,6 +981,7 @@ def _directed_links(nets, cand, role, corroboration=None, assume_merged_ok=False
         if len(ms) < 2:
             if has_merged:
                 info["tainted"].update(ms)
+                info["tainted_nets"].append(set(ms))
                 info["tainted_lines"].update(x["id"] for x in net["lines"])
             continue
         merged = has_merged
@@ -986,6 +990,7 @@ def _directed_links(nets, cand, role, corroboration=None, assume_merged_ok=False
             corroborated_by, record = _channels(net, ms, cand, corroboration)
             if not corroborated_by:
                 info["tainted"].update(ms)
+                info["tainted_nets"].append(set(ms))
                 info["tainted_lines"].update(x["id"] for x in net["lines"])
             if corroborated_by:  # promoted: an independent channel agrees it is one line
                 evidence = evidence + [{"kind": "corroboration", "by": corroborated_by, **record}]
@@ -1207,7 +1212,7 @@ def assemble(model, lines, roles=None, corroboration=None, _assume_merged_ok=Fal
                     if x.get("merged_through_crossing") and x["id"] in info["promoted"] else x
                     for x in lines if x["id"] not in info["tainted_lines"]]
     _tier_by_derivation(relations, loops, assemble(model, strict_lines, roles, corroboration, _strict_only=True),
-                        _tainted_cascades(links, role, info["tainted"]))
+                        _tainted_cascades(links, role, info["tainted_nets"], ident))
     candidate_loops = _candidates(model, lines, roles, corroboration, loops, unresolved, cand, role, ident)
     counts = {"loops": len(loops), **{s: sum(lp["status"] == s for lp in loops)
                                       for s in ("confirmed", "partly_confirmed", "unconfirmed")},
@@ -1253,11 +1258,16 @@ def assemble(model, lines, roles=None, corroboration=None, _assume_merged_ok=Fal
                if corroboration else {})}
 
 
-def _tainted_cascades(links, role, tainted):
-    """{(outer, inner)} for every cascade whose chain holds a controller in a network with an unconfirmed merged line.
-    A cascade direction is read from graph distance to a final element, so it can change when any controller of its
-    chain (linked controller to controller, at any tier) gains or loses a link; and only a member of a network holding
-    a merged line can, under another reading of that line (whole, removed, or split in two)."""
+def _tainted_cascades(links, role, tainted_nets, ident):
+    """{(outer, inner)} for every cascade another reading of an unconfirmed merged line could change.
+    Any reading of such a line (as drawn, split, or not a signal line) can only add or remove links between members
+    of the network that holds it (tainted_nets: a split piece is a subset, and an off-page join only reaches lines
+    already in that network). A cascade direction is read from graph distance to a final element over its chain
+    (controllers linked controller to controller, at any tier), so the whole chain is demoted when a tainted network
+    could give or take a chain controller a link to a final element or relay (a depth seed) or a link to another
+    controller (a new or lost step). Otherwise the depths cannot move, and one cascade is demoted only when a tainted
+    network could give or take its outer controller a measurement, or reach a final element of the outer
+    controller's loop identity (the untraced-valve veto). A taint that can do none of these leaves it strict."""
     parent = {}
 
     def find(a):
@@ -1269,8 +1279,18 @@ def _tainted_cascades(links, role, tainted):
     for lk in links:
         if role.get(lk["from"]) == role.get(lk["to"]) == "controller":
             parent[find(lk["from"])] = find(lk["to"])
-    bad = {find(c) for c in tainted if role.get(c) == "controller" and c in parent}
-    return {(lk["from"], lk["to"]) for lk in links if lk.get("cascade") and find(lk["from"]) in bad}
+    chain_bad, outer_bad, ident_bad = set(), set(), set()
+    for ms in tainted_nets:
+        ctrl = [m for m in ms if role.get(m) == "controller"]
+        if not ctrl:
+            continue
+        if any(role.get(m) in ("final_element", "relay") for m in ms) or len(ctrl) > 1:
+            chain_bad |= {find(c) for c in ctrl if c in parent}
+        if any(role.get(m) in MEASUREMENTS for m in ms):
+            outer_bad |= set(ctrl)
+        ident_bad |= {ident[m] for m in ms if role.get(m) == "final_element"}
+    return {(lk["from"], lk["to"]) for lk in links if lk.get("cascade") and (
+        find(lk["from"]) in chain_bad or lk["from"] in outer_bad or ident.get(lk["from"]) in ident_bad)}
 
 
 def _tier_by_derivation(relations, loops, strict, tainted_cascades=frozenset()):
