@@ -13,7 +13,7 @@ import sys
 ROOT = Path(__file__).resolve().parent.parent
 TASKS = {'drawing-extraction': 'pid2graph-v1', 'description-facts': 'native-facts-v1',
          'source-support': 'claim-judgments-v1', 'tag-reading': 'tag-text-v1',
-         'maintenance-system-grouping': 'system-groups-v1'}
+         'flowsheet-topology': 'role-aligned-arcs-v1', 'maintenance-system-grouping': 'system-groups-v1'}
 # Cases whose input/key files sit in a local cache of originals that may not be redistributed (data/external/<group>,
 # fetch-by-hash). A clean clone lacks the whole cache: --registry then reports the suite UNVERIFIED instead of failing.
 # A present cache with a missing or changed file still fails.
@@ -204,6 +204,9 @@ def system_answer(prediction):
 
 
 def score_case(task, files, prediction):
+    if task == 'flowsheet-topology':
+        import flowsheet_topology
+        return flowsheet_topology.score(read_json(files['key']), prediction)
     if task == 'maintenance-system-grouping':
         import score_maintenance_systems as systems
         case = files['_case']
@@ -256,6 +259,8 @@ def evaluate(suite_path, root=ROOT):
         return benchmark_tags.evaluate(suite_path, root, sys.modules[__name__], suite)
     sources = ['benchmark.py'] + (['score_pid2graph.py', 'evaluate_vendor.py', 'replicate_stats.py',
                                  'score_tags.py', 'test_scorer_controls.py'] if task == 'drawing-extraction' else [])
+    if task == 'flowsheet-topology':
+        sources.append('flowsheet_topology.py')
     if task == 'maintenance-system-grouping':
         sources.extend(['score_maintenance_systems.py', 'maintenance_system_posthoc.py'])
     if task == 'source-support':
@@ -300,6 +305,12 @@ def evaluate(suite_path, root=ROOT):
             failures = vendor.check_controls({case['id']: table}, {k: table[k] for k in vendor.CONTROL_ORDER})
             require(not failures, 'Known-answer control failed: ' + '; '.join(failures))
             require(table['perfect']['key_items'] > 0, 'Drawing key has no scored items')
+            controls[case['id']] = table
+        elif task == 'flowsheet-topology':
+            import flowsheet_topology
+            table = flowsheet_topology.key_controls(read_json(files['key']))
+            failures = flowsheet_topology.check_key_controls(table)
+            require(not failures, 'Known-answer control failed: ' + '; '.join(failures))
             controls[case['id']] = table
         elif task == 'maintenance-system-grouping':
             import score_maintenance_systems as systems
@@ -444,7 +455,11 @@ def evaluate(suite_path, root=ROOT):
                        'Missing/failed attempted answers score empty; unattempted cases remain visible and create different comparison cohorts.',
                        'Public keys and retrospective registration do not establish blindness. Synthetic controls and corrected/development results are separate.',
                        *(['Description facts grade literal selected fields only: no prose names, source validity, dimensions, limits, layout quality or plant truth.']
-                         if task not in ('source-support', 'maintenance-system-grouping') else [])] +
+                         if task not in ('source-support', 'flowsheet-topology', 'maintenance-system-grouping') else []),
+                       *(['Flowsheet topology grades coarse unit roles and directed unit-to-unit connections after a role-preserving alignment: '
+                          'no names, ports, conditions, stream identities or engineering correctness; two units of one role can be swapped unseen. '
+                          'The key is the flowsheet code, a model, not plant truth.']
+                         if task == 'flowsheet-topology' else [])] +
                       (['System grouping scores per-record classes against a publisher\'s own system coding, itself made by keyword rules over the same short text: agreement with those rules, not engineering truth, failure diagnosis or repair effectiveness. Records the key gives no system are outside the precision denominator and counted separately.']
                        if task == 'maintenance-system-grouping' else []) +
                       (['Source-support grades labels for fixed supplied claims against a supplied key. It does not judge free-form reasoning, source validity, question usefulness or plant truth; cited IDs are checked structurally.']
@@ -489,6 +504,31 @@ def markdown(report):
                     coverage['semantic_groups'], contradictions, ', '.join(case['diagnostics'].get('missing_judgments', [])) or 'none']) + ' |')
         lines += ['', 'The label F1 rows below are companion diagnostics. F1 differs from exact accuracy when judgments are missing. '
                   'Inspect each claim and its reason; a correct label can accompany a false explanation.', '', '## Per-label diagnostics', '']
+    if report['task'] == 'flowsheet-topology':
+        def score_of(row):
+            total = row['predicted'] + row['truth']
+            return 'n/a' if not total else f"{2 * row['tp'] / total:.3f} ({row['tp']}/{row['truth']} key, {row['predicted']} given)"
+        lines += ['## Key controls (connection and unit F1 for answers built from the key alone)', '',
+                  'The reference is the key written as a native model and must score 1.000; reversed, shuffled and empty are '
+                  'deliberately wrong and must stay at or below the wrong-control bar of the scorer.', '',
+                  '| Case | Control | Units F1 | Boundaries F1 | Connections F1 |', '|---|---|---|---|---|']
+        for case_id, table in sorted(report['controls'].items()):
+            for name, row in table.items():
+                lines.append('| ' + ' | '.join(safe(v) for v in [case_id, name, score_of(row['units']),
+                    score_of(row['boundaries']), score_of(row['connections'])]) + ' |')
+        lines += ['', '## Each answer beside its own wrong controls and the naive baseline', '',
+                  'Reversed and shuffled corrupt the streams of the answer itself (wrong controls); mention-order chain links the '
+                  'units of the answer in the order the source first cites them (a naive method to beat, not a wrong answer).', '',
+                  '| Run | Case | Status | Units F1 | Connections F1 | Reversed | Shuffled | Mention-order chain |',
+                  '|---|---|---|---|---|---|---|---|']
+        for run in report['results']:
+            for case in run['rows']:
+                ctl = case['diagnostics'].get('controls') or {}
+                lines.append('| ' + ' | '.join(safe(v) for v in [run['run'], case['case'], case['status'],
+                    score_of(case['counts']['units']), score_of(case['counts']['connections'])] +
+                    [score_of(ctl[n]['connections']) if n in ctl else 'n/a'
+                     for n in ('reversed', 'shuffled', 'mention_order_chain')]) + ' |')
+        lines += ['']
     if report['task'] == 'maintenance-system-grouping':
         lines += ['## Per-record system classes beside the wrong controls', '',
                   'Per-record precision / recall / F1 for the scored answer and every control on the same keyed records. `reference` is '
@@ -550,7 +590,8 @@ def markdown(report):
                      '; suite-wide unattempted: ' + safe(', '.join(row['not_attempted']) or 'none') +
                      '; failed attempted answers: ' + safe(', '.join(bad) or 'none') + '.')
         for case in row['rows']:
-            for label in ('missing_facts', 'unexpected_facts', 'missing_judgments', 'incorrect_judgments'):
+            for label in ('missing_facts', 'unexpected_facts', 'missing_judgments', 'incorrect_judgments',
+                          'missing_arcs', 'unexpected_streams'):
                 facts = case['diagnostics'].get(label, [])
                 if facts:
                     lines.append('  ' + safe(case['case']) + ' ' + label + ': ' +

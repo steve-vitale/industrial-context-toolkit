@@ -1,0 +1,170 @@
+{
+  "schema": "flowsheet-topology-key/1",
+  "scoring_contract": "role-aligned-arcs-v1",
+  "source": {
+    "file": "methanol_flowsheet_w_recycle.py",
+    "sha256": "86a2d999e295c83cbf1377a00cbaa8dc1f79a165cf9d02e0b64685923d9df2f6",
+    "commit": "eb64e38ac429b7e3ae4f8db071f8d8cad2eef675"
+  },
+  "derivation": "scripts/flowsheet_topology.py key: ast parse of unit constructors imported from the IDAES unit model library and Arc(source=..., destination=...) assignments; not executed",
+  "units": [
+    {
+      "id": "H2",
+      "class": "Feed",
+      "role": "feed"
+    },
+    {
+      "id": "CO",
+      "class": "Feed",
+      "role": "feed"
+    },
+    {
+      "id": "M101",
+      "class": "Mixer",
+      "role": "mixer"
+    },
+    {
+      "id": "M102",
+      "class": "Mixer",
+      "role": "mixer"
+    },
+    {
+      "id": "C101",
+      "class": "Compressor",
+      "role": "compressor"
+    },
+    {
+      "id": "H101",
+      "class": "Heater",
+      "role": "heat_exchange"
+    },
+    {
+      "id": "R101",
+      "class": "StoichiometricReactor",
+      "role": "reactor"
+    },
+    {
+      "id": "T101",
+      "class": "Turbine",
+      "role": "expander"
+    },
+    {
+      "id": "H102",
+      "class": "Heater",
+      "role": "heat_exchange"
+    },
+    {
+      "id": "F101",
+      "class": "Flash",
+      "role": "separator"
+    },
+    {
+      "id": "S101",
+      "class": "Separator",
+      "role": "splitter"
+    },
+    {
+      "id": "EXHAUST",
+      "class": "Product",
+      "role": "product"
+    },
+    {
+      "id": "CH3OH",
+      "class": "Product",
+      "role": "product"
+    }
+  ],
+  "arcs": [
+    {
+      "id": "H2_FEED",
+      "from": "H2",
+      "from_port": "outlet",
+      "to": "M101",
+      "to_port": "H2_WGS"
+    },
+    {
+      "id": "CO_FEED",
+      "from": "CO",
+      "from_port": "outlet",
+      "to": "M101",
+      "to_port": "CO_WGS"
+    },
+    {
+      "id": "s01",
+      "from": "M101",
+      "from_port": "outlet",
+      "to": "M102",
+      "to_port": "feed"
+    },
+    {
+      "id": "s02",
+      "from": "M102",
+      "from_port": "outlet",
+      "to": "C101",
+      "to_port": "inlet"
+    },
+    {
+      "id": "s03",
+      "from": "C101",
+      "from_port": "outlet",
+      "to": "H101",
+      "to_port": "inlet"
+    },
+    {
+      "id": "s04",
+      "from": "H101",
+      "from_port": "outlet",
+      "to": "R101",
+      "to_port": "inlet"
+    },
+    {
+      "id": "s05",
+      "from": "R101",
+      "from_port": "outlet",
+      "to": "T101",
+      "to_port": "inlet"
+    },
+    {
+      "id": "s06",
+      "from": "T101",
+      "from_port": "outlet",
+      "to": "H102",
+      "to_port": "inlet"
+    },
+    {
+      "id": "s07",
+      "from": "H102",
+      "from_port": "outlet",
+      "to": "F101",
+      "to_port": "inlet"
+    },
+    {
+      "id": "s08",
+      "from": "F101",
+      "from_port": "vap_outlet",
+      "to": "S101",
+      "to_port": "inlet"
+    },
+    {
+      "id": "s09",
+      "from": "S101",
+      "from_port": "recycle",
+      "to": "M102",
+      "to_port": "recycle"
+    },
+    {
+      "id": "gas",
+      "from": "S101",
+      "from_port": "purge",
+      "to": "EXHAUST",
+      "to_port": "inlet"
+    },
+    {
+      "id": "prod",
+      "from": "F101",
+      "from_port": "liq_outlet",
+      "to": "CH3OH",
+      "to_port": "inlet"
+    }
+  ]
+}

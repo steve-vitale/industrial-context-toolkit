@@ -3,27 +3,31 @@
   "reports": [
     {
       "suite": "benchmarks/open100-validation.json",
-      "report": "benchmarks/results/open100-validation-overflow-guard-artifact-values"
+      "report": "benchmarks/results/open100-validation-overflow-guard-artifact-values-flowsheet-adapter"
     },
     {
       "suite": "benchmarks/description-controls-recipe-preserved.json",
-      "report": "benchmarks/results/description-controls-tag-adapter-artifact-values"
+      "report": "benchmarks/results/description-controls-tag-adapter-artifact-values-flowsheet-adapter"
     },
     {
       "suite": "benchmarks/mgpi-development-recipe-preserved.json",
-      "report": "benchmarks/results/mgpi-development-tag-adapter-artifact-values"
+      "report": "benchmarks/results/mgpi-development-tag-adapter-artifact-values-flowsheet-adapter"
     },
     {
       "suite": "benchmarks/source-support-development.json",
-      "report": "benchmarks/results/source-support-development-tag-adapter-artifact-values"
+      "report": "benchmarks/results/source-support-development-tag-adapter-artifact-values-flowsheet-adapter"
     },
     {
       "suite": "benchmarks/tag-reading-development.json",
-      "report": "benchmarks/results/tag-reading-development-artifact-values"
+      "report": "benchmarks/results/tag-reading-development-artifact-values-flowsheet-adapter"
     },
     {
       "suite": "benchmarks/source-support/artifact-values/suite.json",
-      "report": "benchmarks/results/artifact-value-review-development"
+      "report": "benchmarks/results/artifact-value-review-development-flowsheet-adapter"
+    },
+    {
+      "suite": "benchmarks/flowsheet-topology/suite.json",
+      "report": "benchmarks/results/flowsheet-topology-idaes-methanol"
     },
     {
       "suite": "benchmarks/maintenance-systems/suite.json",

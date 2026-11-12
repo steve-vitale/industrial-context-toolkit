@@ -7,7 +7,7 @@ or measured operational benefit is established. A successful example does not es
 | Evidence | What it answers |
 |---|---|
 | This page and the [claim receipt](../out/claims_check.md) | What the published research numbers mean, and whether they match their committed evidence. |
-| [Generalization matrix](GENERALIZATION.md) | Where nine selected workflows pass or fail on registered public inputs. |
+| [Generalization matrix](GENERALIZATION.md) | Where ten selected workflows pass or fail on registered public inputs. |
 | [Task/model benchmarks](../benchmarks/README.md) | How saved attempts compare on matching task, source, key and scorer cohorts. |
 | [Feature reference](FEATURES.md) | Which committed examples have current independent coding-agent reviews. |
 | [Evaluation protocol](EVALUATION.md) and [preregistered rounds](GOAL.md) | What was decided before a run, what was inspected and which layer each score measures. |
@@ -26,9 +26,11 @@ See [reviewing the evidence](REVIEWING.md) for test prerequisites, omissions and
 
 ## Tool coverage
 
-The [corpus matrix](GENERALIZATION.md) covers nine selected workflows:
-47 cells pass, 10 fail, 5 are not applicable and 34 need data in the current recorded matrix. The ninth, added
-2026-11-12, scores maintenance-history system grouping on the Nestor excavator records (A420): the `derive`
+The [corpus matrix](GENERALIZATION.md) covers ten selected workflows:
+47 cells pass, 12 fail, 5 are not applicable and 34 need data in the current recorded matrix. Row 9
+(added 2026-11-12, A419) scores the description workflow on the IDAES methanol prose; both of its cells fail. Its
+held-out connection F1 0.353 is boundary credit only: 0 of 9 unit-to-unit arcs (internal-arc F1 0.000). Row 10
+(added 2026-11-12, A420) scores maintenance-history system grouping on the Nestor excavator records: the `derive`
 option applies a declared vocabulary faithfully, and a vocabulary written from development assets A-C, including
 their publisher codes, agrees with the publisher's keyword-rule codes on held-out D-E at per-record F1 0.943 (0.887
 with no-system rows counted as errors; class-name words alone 0.501). It does not show what a user without a key

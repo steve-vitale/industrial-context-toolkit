@@ -1,7 +1,7 @@
 {
   "case_total": 2,
   "code_sha256": {
-    "benchmark.py": "cc0cabddd0c768b2c9492db5cb3237bb146c8da2fabf1d22fdae48a325423bd4"
+    "benchmark.py": "4cee3f9226dd44ff0e15ede4a31e2f1e5536617f010cf8ccb7a740b3d3a62224"
   },
   "controls": {
     "branch": {
@@ -189,7 +189,7 @@
   "results": [
     {
       "case_count": 2,
-      "cohort": "4f3f7f165fb542d80245b08e2045b80c3079b98610a01254ae533c8ef185b7d0",
+      "cohort": "cd76f39c6c7357abd7a62928345a81bbcb63057b9c743d8ceed62917154ad123",
       "configuration": {},
       "counts": {
         "controllers": {
@@ -422,7 +422,7 @@
     },
     {
       "case_count": 2,
-      "cohort": "4f3f7f165fb542d80245b08e2045b80c3079b98610a01254ae533c8ef185b7d0",
+      "cohort": "cd76f39c6c7357abd7a62928345a81bbcb63057b9c743d8ceed62917154ad123",
       "configuration": {},
       "counts": {
         "controllers": {
@@ -1035,7 +1035,7 @@
     },
     {
       "case_count": 2,
-      "cohort": "4f3f7f165fb542d80245b08e2045b80c3079b98610a01254ae533c8ef185b7d0",
+      "cohort": "cd76f39c6c7357abd7a62928345a81bbcb63057b9c743d8ceed62917154ad123",
       "configuration": {},
       "counts": {
         "controllers": {
@@ -1320,11 +1320,11 @@
   "summary": [
     {
       "case_count": 2,
-      "cohort": "4f3f7f165fb542d80245b08e2045b80c3079b98610a01254ae533c8ef185b7d0",
+      "cohort": "cd76f39c6c7357abd7a62928345a81bbcb63057b9c743d8ceed62917154ad123",
       "configuration": {},
       "evidence": "Authored reference answer supplies its own key; scorer plumbing only, no independent interpretation evidence",
       "family": "illustrative-water",
-      "group": "f17104e378283039a60ce02b8aebfac41cc7da966069395d3d67dbf924b485c0",
+      "group": "3538fdc1eb5189b248e8cccc372dd57e717ad56871c6b16a1672c7d369f9063f",
       "interface": "authored fixture",
       "method": "empty",
       "metrics": {
@@ -1390,81 +1390,11 @@
     },
     {
       "case_count": 2,
-      "cohort": "4f3f7f165fb542d80245b08e2045b80c3079b98610a01254ae533c8ef185b7d0",
+      "cohort": "cd76f39c6c7357abd7a62928345a81bbcb63057b9c743d8ceed62917154ad123",
       "configuration": {},
       "evidence": "Authored reference answer supplies its own key; scorer plumbing only, no independent interpretation evidence",
       "family": "illustrative-water",
-      "group": "ef2cbebe600139785749e966d7a379a6693d678a0c7279dce62c1c7a629e9501",
-      "interface": "authored fixture",
-      "method": "reference",
-      "metrics": {
-        "controllers": {
-          "max_f1": 1.0,
-          "mean_f1": 1.0,
-          "min_f1": 1.0,
-          "stdev_f1": null
-        },
-        "facts": {
-          "max_f1": 1.0,
-          "mean_f1": 1.0,
-          "min_f1": 1.0,
-          "stdev_f1": null
-        },
-        "final_elements": {
-          "max_f1": 1.0,
-          "mean_f1": 1.0,
-          "min_f1": 1.0,
-          "stdev_f1": null
-        },
-        "instruments": {
-          "max_f1": 1.0,
-          "mean_f1": 1.0,
-          "min_f1": 1.0,
-          "stdev_f1": null
-        },
-        "manual_valves": {
-          "max_f1": 1.0,
-          "mean_f1": 1.0,
-          "min_f1": 1.0,
-          "stdev_f1": null
-        },
-        "relief_devices": {
-          "max_f1": null,
-          "mean_f1": null,
-          "min_f1": null,
-          "stdev_f1": null
-        },
-        "streams": {
-          "max_f1": 1.0,
-          "mean_f1": 1.0,
-          "min_f1": 1.0,
-          "stdev_f1": null
-        },
-        "units": {
-          "max_f1": 1.0,
-          "mean_f1": 1.0,
-          "min_f1": 1.0,
-          "stdev_f1": null
-        }
-      },
-      "model": {
-        "id": "synthetic-control",
-        "provider": "none",
-        "version": "1"
-      },
-      "replicates": 1,
-      "runs": [
-        "description-control-reference"
-      ],
-      "split": "synthetic-control"
-    },
-    {
-      "case_count": 2,
-      "cohort": "4f3f7f165fb542d80245b08e2045b80c3079b98610a01254ae533c8ef185b7d0",
-      "configuration": {},
-      "evidence": "Authored reference answer supplies its own key; scorer plumbing only, no independent interpretation evidence",
-      "family": "illustrative-water",
-      "group": "822857484b4446ffa2d8452e6af04425ba20c5f381d86c3a51ca4a80b0c86e4d",
+      "group": "3fbef0200dc8d360911f8bfdef82cab780e00cf2b904cd0f32727fa5c58992ab",
       "interface": "authored fixture",
       "method": "wrong-endpoint",
       "metrics": {
@@ -1525,6 +1455,76 @@
       "replicates": 1,
       "runs": [
         "description-control-wrong-endpoint"
+      ],
+      "split": "synthetic-control"
+    },
+    {
+      "case_count": 2,
+      "cohort": "cd76f39c6c7357abd7a62928345a81bbcb63057b9c743d8ceed62917154ad123",
+      "configuration": {},
+      "evidence": "Authored reference answer supplies its own key; scorer plumbing only, no independent interpretation evidence",
+      "family": "illustrative-water",
+      "group": "6f15e0969d30336bcc29f50655b77f13a0d032a893f2d37159f5c7b6bdcb8b7f",
+      "interface": "authored fixture",
+      "method": "reference",
+      "metrics": {
+        "controllers": {
+          "max_f1": 1.0,
+          "mean_f1": 1.0,
+          "min_f1": 1.0,
+          "stdev_f1": null
+        },
+        "facts": {
+          "max_f1": 1.0,
+          "mean_f1": 1.0,
+          "min_f1": 1.0,
+          "stdev_f1": null
+        },
+        "final_elements": {
+          "max_f1": 1.0,
+          "mean_f1": 1.0,
+          "min_f1": 1.0,
+          "stdev_f1": null
+        },
+        "instruments": {
+          "max_f1": 1.0,
+          "mean_f1": 1.0,
+          "min_f1": 1.0,
+          "stdev_f1": null
+        },
+        "manual_valves": {
+          "max_f1": 1.0,
+          "mean_f1": 1.0,
+          "min_f1": 1.0,
+          "stdev_f1": null
+        },
+        "relief_devices": {
+          "max_f1": null,
+          "mean_f1": null,
+          "min_f1": null,
+          "stdev_f1": null
+        },
+        "streams": {
+          "max_f1": 1.0,
+          "mean_f1": 1.0,
+          "min_f1": 1.0,
+          "stdev_f1": null
+        },
+        "units": {
+          "max_f1": 1.0,
+          "mean_f1": 1.0,
+          "min_f1": 1.0,
+          "stdev_f1": null
+        }
+      },
+      "model": {
+        "id": "synthetic-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "replicates": 1,
+      "runs": [
+        "description-control-reference"
       ],
       "split": "synthetic-control"
     }

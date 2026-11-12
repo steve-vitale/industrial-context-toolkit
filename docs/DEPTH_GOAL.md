@@ -79,6 +79,32 @@ Key availability is a candidate until the first increment verifies it from each 
    - then models (IDAES, then Modelica), CAD (the DXF originals, as out-of-profile controls only) and nameplates,
      which have no acquired source with a field key.
 
+   *Status 2026-11-12, process models and networks (A419): one real source at depth, with a negative result.*
+   `idaes-processes` now feeds a scored task through the product path. (1) Task `flowsheet-topology`
+   (`role-aligned-arcs-v1`) is registered in `benchmarks/registry.json`; its key is the units and `Arc` connections
+   parsed, never executed, from the IDAES flowsheet code, kept apart from the notebook prose the tool reads
+   ([protocol, provenance and limits](../benchmarks/flowsheet-topology/README.md)). (2) The scorer was committed before
+   any model run; every table reports the key controls (reference 1.000; reversed, shuffled, empty) and each answer's
+   own reversed and shuffled streams, beside a naive mention-order chain. (3) Development, the no-recycle flowsheet:
+   the workflow as it stood built 0 of 3 answers; with the v1 fixes (bug fixes plus contract wording, changed
+   together), unit-role F1 1.000 and connection F1 0.624 (0.462-0.947 over three replicates; internal-arc F1 0.333,
+   one replicate 6 of 6 unit-to-unit arcs, two 0 of 6). One sealed held-out run on the recycle flowsheet, after the
+   method was frozen: unit-role F1 0.875, connection F1 0.353 on all three replicates (shuffled control 0.235), and
+   that 0.353 is boundary credit only: 0 of 9 unit-to-unit arcs in every replicate (internal-arc F1 0.000). The
+   held-out input contains the development input verbatim (its first 69 lines) plus the recycle paragraphs, so
+   "held out" means a held-out key and the recycle text. Both are in A419, whose held-out record repeats the plan's
+   exposure sentence. (4) Corpus-matrix row 9 re-runs both cells offline from the
+   pinned flowsheet code and the committed answers. (5) The scored output is the `model.json` that
+   `description_workflow.py build` writes; the workflow was changed there, RED-first: its route diagnostic names the
+   outline it missed, its contract states the fixed mixer outline (both behind the 0-of-3 builds), and the contract
+   keeps source-named equipment and order-based connections, each recorded in `meta.assumptions` for review.
+   (6) Failures are written up: the prose never states the process order or the recycle's return point, the native
+   model has no splitter or mixer type, boundary arcs give a sparse answer 0.35-0.46, and the held-out input describes
+   both configurations. **Not kept:** the pre-registered rule rejects it (held-out connection F1 below 0.75 and only
+   0.118 above the shuffled control), so prose of this kind is not shown to be enough to recover a flowsheet's
+   connections. A fairer second attempt (one human answer to the workflow's own unknowns, on a separate held-out
+   flowsheet) is N125. One notebook, one publisher, one model family (Claude; the Codex CLI is out until 2026-11-16).
+   Modelica remains this area's next source, and a second publisher comes before any generalization claim.
    *Status 2026-11-12, maintenance records: Nestor at depth (A420), with a narrow claim; the other areas are open.*
    The AMPS held-out cohort is still not acquired, so Nestor went first. Task `maintenance-system-grouping`: the
    maintenance-history packet's per-record system class, derived from the short text by a declared vocabulary,
@@ -94,17 +120,16 @@ Key availability is a candidate until the first increment verifies it from each 
    checks: (1) registered in `benchmarks/registry.json` with key, provenance and limits; (2) frozen scorer
    `scripts/score_maintenance_systems.py` with five controls (reference, raw-asset baseline, majority class,
    shuffled within asset, misaligned key) in every table, plus the post-hoc key-free control and no-key-as-FP
-   columns from `scripts/maintenance_system_posthoc.py` in the benchmark and README tables (the matrix row-9 table
-   gains them at the next matrix regeneration); (3) development A-C per-record F1 0.963 and one sealed held-out
+   columns from `scripts/maintenance_system_posthoc.py` in the benchmark, README and matrix row-10 tables; (3) development A-C per-record F1 0.963 and one sealed held-out
    run on D-E at 0.943, against a best wrong control of 0.394 (margin 0.549, bar 0.20 fixed before the run),
-   kept, recorded with the plan's exposure sentence; (4) corpus-matrix row 9 re-runs offline from the local pinned
+   kept, recorded with the plan's exposure sentence; (4) corpus-matrix row 10 (row 9 is IDAES) re-runs offline from the local pinned
    originals and is UNVERIFIED in a clean clone, because their terms are unresolved and they are not committed;
    (5) the scored output is the packet `scripts/maintenance_history.py` writes, which gained `identity: "record"`,
    `select` and `derive`, RED-first; (6) failures are fixed or listed as limits in
    [examples/maintenance-history/README.md](../examples/maintenance-history/README.md#a-second-publisher-nestor-excavator-records-grouped-by-system).
    `nestor-excavators` now derives as *feeds*. Both splits are one publisher and one fleet, so increment 3 still
-   needs a second maintenance source. Adding row 9 changed the matrix runner, so the other 95 cells were re-run in
-   the cache state each was recorded in; their statuses, values and reasons are unchanged. Changing
+   needs a second maintenance source. Adding row 10 changed the matrix runner, so every other cell was re-run in
+   the cache state it was recorded in; their statuses, values and reasons are unchanged. Changing
    `scripts/benchmark.py` changes the scorer-code hash in every registered report: they were regenerated with
    identical counts and scores (now in an order that does not move with that hash), and the task-benchmarks
    feature review reads as stale until re-reviewed.

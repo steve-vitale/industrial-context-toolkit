@@ -1,6 +1,6 @@
 """Run selected workflows across registered public inputs and publish the pass/fail matrix (docs/GENERALIZATION.md).
 
-The eight rows below cover selected workflows, not every tool in docs/SCRIPTS.md. This script runs each row on its
+The nine rows below cover selected workflows, not every tool in docs/SCRIPTS.md. This script runs each row on its
 applicable registered public inputs and records one cell per (workflow, input): pass, fail, n/a
 (the tool can't apply to this input, with the reason), needs data (the input isn't cached; the cell names the fetch
 command) or needs deps (a third-party module is missing). A red cell is the point: it says where a tool has not been
@@ -23,11 +23,15 @@ Rows (all model-free, offline):
      topology where the source holds it: the DEXPI XML (tees are elements), the current TE / Bayer drawer's own
      routes, and a truth derived from the OPEN100 key graph (line_layers.pid2graph_truth). A separate metric from
      row 1, which scores the network layer (all pairs on a line network). Pass = pipe-segment F1 >= PIPE_PASS_F1.
-  9  maintenance_history.py on the Nestor excavator work orders (examples/maintenance-history/nestor.py): the system
+  9  description_workflow.py check + build on saved assistant answers for a real process description, the model it
+     builds scored by flowsheet_topology.py against units and Arc connections parsed from the source's own flowsheet
+     code (re-derived from the pinned original each run). Pass = DESCRIPTION_PASS, fixed before the first model run.
+ 10  maintenance_history.py on the Nestor excavator work orders (examples/maintenance-history/nestor.py): the system
      class each record gets from its short text, scored against the publisher's cleaned MajorSystem codes, which the
-     tool never reads (score_maintenance_systems.py), on the development and the held-out assets. Pass = original-row
-     checks hold, the reference control is perfect and per-record F1 beats every wrong control by >= the margin in
-     nestor.py, on both splits. The originals may not be redistributed, so in a clean clone the cell is UNVERIFIED.
+     tool never reads (score_maintenance_systems.py), on the development and the held-out assets, beside a post-hoc
+     key-free control (maintenance_system_posthoc.py). Pass = original-row checks hold, the reference control is
+     perfect and per-record F1 beats every wrong control by >= the margin in nestor.py, on both splits. The originals
+     may not be redistributed, so in a clean clone the cell is UNVERIFIED.
 
 Inputs added 2026-10-29 (scripts/corpus_adapters.py turns each source into what the tool reads): DEXPI 1.2 exports
 from four commercial P&ID tools and the DEXPI reference solutions, and the 1.3 single-feature cases (rows 7 and 4,
@@ -108,7 +112,10 @@ ROWS = {
     8: {"tool": "line_layers.py (pipe layer, oracle symbols)", "short": "Pipe layer",
         "question": "Where the source holds the real pipe topology, does the traced pipe layer (what is piped "
                     "directly to what, through which junctions) match it?"},
-    9: {"tool": "maintenance_history.py (system classes derived from work-order text)", "short": "Maintenance systems",
+    9: {"tool": "description_workflow.py check + build, scored by flowsheet_topology.py", "short": "Description topology",
+        "question": "When a user describes a real process in prose, does the model the description workflow builds "
+                    "have the units and connections of that process's own flowsheet code?"},
+    10: {"tool": "maintenance_history.py (system classes derived from work-order text)", "short": "Maintenance systems",
         "question": "On a real public work-order export, does the history packet's system grouping, read from each "
                     "record's short text, agree with the publisher's own system codes beyond every wrong control?"},
 }
@@ -144,7 +151,8 @@ ROW_INPUTS = {
     7: ["dexpi"] + list(DEXPI_READER_INPUTS) + ["dexpi-1.2-cross-vendor"],
     8: ["open100-dev", "open100-holdout", "dexpi", "te-rev-a", "te-rev-c", "te-rev-d", "bayer-rt1",
         "dexpi-1.2-vendor-renders"] + AGENT_KEYED,
-    9: ["nestor-excavators"],
+    9: ["idaes-methanol-dev", "idaes-methanol-heldout"],
+    10: ["nestor-excavators"],
 }
 # The tool files each row's cells exercise (roots; the scripts/ modules they import are added by tool_files), hashed
 # into every cell so --check can tell a stale cell.
@@ -161,10 +169,14 @@ ROW_TOOL_FILES = {
     7: ["scripts/dexpi_to_twin.py", "scripts/adapt_dexpi.py", "scripts/import_site_drawing.py",
         "scripts/score_pid2graph.py", "scripts/confidence.py"],
     8: ["scripts/line_layers.py", "scripts/trace_connections.py", "scripts/score_pid2graph.py"],
-    9: ["examples/maintenance-history/nestor.py", "examples/maintenance-history/baseline.py",
-        "scripts/maintenance_history.py", "scripts/maintenance_history_report.py", "scripts/score_maintenance_systems.py"],
+    # build() runs the last three as subprocesses, so they are explicit roots.
+    9: ["scripts/description_workflow.py", "scripts/flowsheet_topology.py", "scripts/generate.py",
+        "scripts/question_engine.py", "scripts/graph_export.py"],
+    10: ["examples/maintenance-history/nestor.py", "examples/maintenance-history/baseline.py",
+         "scripts/maintenance_history.py", "scripts/maintenance_history_report.py", "scripts/score_maintenance_systems.py",
+         "scripts/maintenance_system_posthoc.py"],
 }
-# Row 9: the two pinned files the cell reads (the cache folder may also hold the publisher's README, LICENSE and loader).
+# Row 10: the two pinned files the cell reads (the cache folder may also hold the publisher's README, LICENSE and loader).
 NESTOR_FILES = ["nestor/datasets/excavators.csv", "nestor/datasets/excavators-cleaned.csv"]
 NESTOR_CONFIG = ["examples/maintenance-history/nestor/system_vocabulary.json", "examples/maintenance-history/nestor/FREEZE.json"]
 # Cells that exercise other files than their row's roots (the 2026-10-29 inputs): exactly these, plus their imports.
@@ -368,10 +380,15 @@ def source_specs(row, inp):
         add((ca.DEXPI_ROOT.relative_to(ca.ROOT) / f"dexpi {version}" / "example pids").as_posix(), patterns, optional)
     elif iid == VENDOR:
         add(local, ["*.png", "*.graphml", "*.json"], optional)
+    elif kind == DESCRIPTION_KIND:
+        add(local, optional=optional)  # the original flowsheet code the key is re-derived from
+        for rel in [inp["source_text"], inp["topology_key"], *inp["answers"]]:
+            add(rel)
+        add("data/questions.json")  # build's default question catalog
     elif kind in NOT_SCORED_KINDS:
         if iid == "hai-dcs-loops":
             add(local, ["dcs_*.json"], optional)
-    elif row == 9:
+    elif row == 10:
         add(local, NESTOR_FILES, optional, cache_root=local)
         for rel in NESTOR_CONFIG:
             add(rel)
@@ -1811,12 +1828,74 @@ def row6_heldout(inp):
                      note=f". {evidence_note}; a cyclic process ({cyc})")
 
 
+DESCRIPTION_KIND = "description-topology"
+DESCRIPTION_PASS = {"connections_f1": 0.75, "units_f1": 0.75, "margin_over_wrong": 0.30}
+
+
 def row9(inp):
-    """The frozen Nestor method on both splits, from the local pinned originals (A420; held out D-E sealed once)."""
+    """Re-derive the key from the pinned flowsheet code, rebuild every saved answer through the workflow, score."""
+    import description_workflow as dw
+    import flowsheet_topology as ft
+    key = ft.key_from_flowsheet(ROOT / inp["local_path"], inp["commit"])
+    committed = json.loads((ROOT / inp["topology_key"]).read_text(encoding="utf-8"))
+    problems = []
+    if key != committed:
+        problems.append("the key re-derived from the pinned flowsheet differs from the committed key")
+    controls = ft.key_controls(key)
+    problems += ft.check_key_controls(controls)
+    reps = []
+    with tempfile.TemporaryDirectory(prefix="matrix-row9-") as tmp:
+        tmp = Path(tmp)
+        quiet(dw.prepare, ROOT / inp["source_text"], tmp / "packet")
+        for n, rel in enumerate(inp["answers"], 1):
+            try:
+                report = quiet(dw.build, tmp / "packet", ROOT / rel, tmp / f"r{n}")
+            except (ValueError, OSError, KeyError, TypeError) as exc:  # the CLI reports these as a refusal
+                report = {"ok": False, "errors": [f"{type(exc).__name__}: {exc}"]}
+            if not report.get("ok"):
+                reps.append({"answer": rel, "built": False, "errors": report.get("errors", [])[:3]})
+                continue
+            counts, diag = ft.score(key, json.loads((tmp / f"r{n}" / "model.json").read_text(encoding="utf-8")))
+            reps.append({"answer": rel, "built": True,
+                         **{m: round(ft.f1(counts[m]) or 0.0, 3) for m in ft.METRICS},
+                         **{f"{c}_connections": round(ft.f1(diag["controls"][c]["connections"]) or 0.0, 3)
+                            for c in diag["controls"]},
+                         "missing_arcs": diag["missing_arcs"], "unexpected_streams": diag["unexpected_streams"]})
+
+    def mean(field):
+        return round(sum(r.get(field, 0.0) for r in reps) / len(reps), 3) if reps else 0.0
+    unbuilt = [r["answer"] for r in reps if not r["built"]]
+    if unbuilt:
+        problems.append(f"{len(unbuilt)} of {len(reps)} saved answers did not pass the workflow's build")
+    conn, units = mean("connections"), mean("units")
+    wrong = {c: mean(f"{c}_connections") for c in ft.WRONG_ANSWER_CONTROLS}
+    chain = mean("mention_order_chain_connections")
+    if conn < DESCRIPTION_PASS["connections_f1"]:
+        problems.append(f"mean connection F1 {conn} < {DESCRIPTION_PASS['connections_f1']}")
+    if units < DESCRIPTION_PASS["units_f1"]:
+        problems.append(f"mean unit F1 {units} < {DESCRIPTION_PASS['units_f1']}")
+    for c, v in wrong.items():
+        if conn - v < DESCRIPTION_PASS["margin_over_wrong"]:
+            problems.append(f"connection F1 only {round(conn - v, 3)} above the {c} control ({v})")
+    detail = {"split": inp["split"], "replicates": reps,
+              "mean": {"connections": conn, "units": units, "boundaries": mean("boundaries")},
+              "answer_controls_mean": {**wrong, "mention_order_chain": chain},
+              "key_controls": {n: {m: round(ft.f1(r) or 0.0, 3) for m, r in t.items()} for n, t in controls.items()},
+              "key": {"units": len(key["units"]), "arcs": len(key["arcs"]), "sha256": key["source"]["sha256"]},
+              "exposure": inp.get("exposure", "")}
+    value = (f"connections F1 {conn:.3f}, units {units:.3f} (chain {chain:.3f}, wrong max {max(wrong.values()):.3f}; "
+             f"{len(reps)} answers)")
+    return cell(9, inp, "fail" if problems else "pass", value, "; ".join(problems), detail)
+
+
+def row10(inp):
+    """The frozen Nestor method on both splits, from the local pinned originals (A420; held out D-E sealed once), and
+    the post-hoc key-free control (class-name words through the same tool), added at review."""
     sys.path.insert(0, str(ROOT / "examples" / "maintenance-history"))
     import nestor
+    import maintenance_system_posthoc as posthoc
     detail, passed = {"splits": {}}, True
-    with tempfile.TemporaryDirectory(prefix="row9-") as tmp:
+    with tempfile.TemporaryDirectory(prefix="row10-") as tmp:
         for split in ("development", "held-out"):
             report, _ = quiet(nestor.run, split, Path(tmp) / split, ROOT / inp["local_path"])
             sc = report["score"]["scores"]
@@ -1824,20 +1903,26 @@ def row9(inp):
                 "assets": report["assets"], "join": report["score"]["join"],
                 "procedural_checks": report["procedural"]["checks"],
                 "rates": {name: sc[name]["rates"] for name in ["method", *nestor.scorer.CONTROL_ORDER]},
+                "orders_no_key_as_fp": {name: posthoc.strict_rates(sc[name]) for name in ["method", *nestor.scorer.CONTROL_ORDER]},
                 "no_system_records_given_a_class": sc["method"]["assigned_without_key_system"],
                 "margin": report["orders_margin_over_best_wrong_control"], "passed": report["passed"],
                 "control_problems": report["score"]["control_problems"], "tool_issues": report["tool"]["issues"]}
+            keyfree = quiet(posthoc.keyfree_answer, split, ROOT / inp["local_path"])
+            kf = nestor.scorer.evaluate(ROOT / inp["local_path"] / nestor.RAW, ROOT / inp["local_path"] / nestor.CLEANED,
+                                        nestor.SPLITS[split], keyfree, nestor.MAJORITY)["scores"]["method"]
+            detail["splits"][split]["keyfree_control"] = {"rates": kf["rates"], "orders_no_key_as_fp": posthoc.strict_rates(kf),
+                                                          "no_system_records_given_a_class": kf["assigned_without_key_system"]}
             passed = passed and report["passed"]
     dev, held = (detail["splits"][s]["rates"]["method"]["orders"]["f1"] for s in ("development", "held-out"))
     detail["frozen"] = not nestor.frozen_problems()
     detail["held_out"] = ("assets D-E: sealed once 2026-11-12 under the frozen method (A420); later cells re-run that "
                           "frozen method deterministically. Exposure: " + json.loads(
                               (ROOT / "examples/maintenance-history/nestor/FREEZE.json").read_text(encoding="utf-8"))["exposure"])
-    return cell(9, inp, "pass" if passed and detail["frozen"] else "fail", f"held-out F1 {held:.3f} (dev {dev:.3f})",
+    return cell(10, inp, "pass" if passed and detail["frozen"] else "fail", f"held-out F1 {held:.3f} (dev {dev:.3f})",
                 "" if passed else "a split missed the margin, a control or an original-row check", detail)
 
 
-RUNNERS = {1: row1, 2: row2, 3: row3, 4: row4, 5: row5, 6: row6, 7: row7, 8: row8, 9: row9}
+RUNNERS = {1: row1, 2: row2, 3: row3, 4: row4, 5: row5, 6: row6, 7: row7, 8: row8, 9: row9, 10: row10}
 
 
 class StagingError(Exception):
@@ -2094,8 +2179,8 @@ def render(matrix, corpus):
          "Generated by `scripts/corpus_matrix.py` from `out/generalization/matrix.json`; the inputs are registered in",
          "`data/corpus.json`. Do not edit by hand: `python scripts/corpus_matrix.py` re-runs it and",
          "`python scripts/corpus_matrix.py --check` confirms this page matches the JSON.", "",
-         "These nine workflows cover tracing, scorer controls, intake/report, loop audit, exports, historian bands, "
-         "DEXPI conversion, pipe topology and maintenance-history system grouping. They do not cover every tool: point mapping, applying reviews, the "
+         "These ten workflows cover tracing, scorer controls, intake/report, loop audit, exports, historian bands, "
+         "DEXPI conversion, pipe topology, topology from a written description and maintenance-history system grouping. They do not cover every tool: point mapping, applying reviews, the "
          "question engine, impact estimates and live replay have their own feature tests and examples. Each cell "
          "runs one selected workflow on one registered public input it applies "
          "to, with no model and no network. **pass** and **FAIL** use the criterion stated for each row below; each "
@@ -2266,7 +2351,7 @@ def detail_line(c):
     if c["row"] == 7 and "sheets" in d:
         return "; ".join(f"{s}: {v['symbols']} symbols, {v['connections']} links, {v['corrections']} corrections"
                          for s, v in d["sheets"].items())
-    if c["row"] == 9 and "splits" in d:
+    if c["row"] == 10 and "splits" in d:
         return "; ".join(f"{s} {', '.join(v['assets'])}: {v['join']['keyed']} of {v['join']['raw_records']} records "
                          f"joined to the key, {v['join']['keyed_with_system']} with a system; margin {v['margin']:.3f} over "
                          f"the best wrong control; {v['no_system_records_given_a_class']} no-system records given a class"
@@ -2444,18 +2529,37 @@ ROW_CRITERIA = {
        f"result was only partly blind. {AGENT_KEYED_TEXT} Their pipe truth is derived from the agent-made key graph as for OPEN100 "
        f"(`pid2graph_truth`; the key's networks reproduce its all-pairs links on every sheet), and the agent-keyed "
        f"sheets are scored with the set registered for that call only (`line_layers.SETS` itself is not edited).",
-    9: "Added 2026-11-12 (depth increment 2, A420). The tool reads only the raw export (date, asset, short text, order "
+    9: "Added 2026-11-12 (A419), criterion fixed before the first model run (benchmarks/flowsheet-topology/README.md). "
+       "Input: the markdown prose of the IDAES `methanol_synthesis.ipynb` (code cells and outputs dropped), up to the "
+       "recycle section for `idaes-methanol-dev` and all of it for `idaes-methanol-heldout`. Key: the units and "
+       "`Arc(source=..., destination=...)` connections in `methanol_flowsheet.py` and "
+       "`methanol_flowsheet_w_recycle.py`, parsed (never executed) by `flowsheet_topology.key_from_flowsheet` from the "
+       "pinned original each run and compared with the committed key. Each saved answer (a model's reply to the "
+       "workflow's own packet, with no tools; `scripts/run_description_author.py`) goes through "
+       "`description_workflow.py build`; the model.json it writes is scored: connection F1 over directed unit-to-unit "
+       "edges after a role-preserving alignment, and unit-role F1. The model call is not re-run here. Pass: every "
+       f"answer builds, mean connection F1 >= {DESCRIPTION_PASS['connections_f1']}, mean unit F1 >= "
+       f"{DESCRIPTION_PASS['units_f1']}, the key controls pass (reference 1.000, reversed/shuffled/empty <= 0.35) and "
+       f"mean connection F1 at least {DESCRIPTION_PASS['margin_over_wrong']} above each answer-derived wrong control "
+       "(reversed, shuffled). The mention-order chain of the answer's own units is reported as a naive baseline, not "
+       "part of the pass.",
+    10: "Added 2026-11-12 (depth increment 2, A420; matrix row 9 until IDAES took it). The tool reads only the raw export (date, asset, short text, order "
        "type; cost ignored) through the profile `examples/maintenance-history/nestor.py` writes, and derives each "
        "record's system class from its short text with the declared vocabulary "
        "(`examples/maintenance-history/nestor/system_vocabulary.json`). `score_maintenance_systems.py` then joins the "
        "records to the publisher's cleaned file and scores per-record class against its MajorSystem codes, beside five "
-       "controls: the key itself (must be 1.0), the AMPS raw-asset grouping baseline (no system), one majority class, "
+       "controls: the key itself (must be 1.0), the raw-asset grouping baseline (no system), one majority class, "
        "the answer shuffled within each asset, and the answer against another record's key. Pass, fixed before the "
        "held-out run: original-row checks hold, the reference is perfect, and per-record F1 beats the best wrong control "
        "by at least 0.20 on both splits. Development assets A-C (two vocabulary passes were read there); held out D-E, "
        "scored once under the frozen method; these cells re-run that frozen method. The key was made by the publisher's "
        "keyword rules over the same text, so a pass is agreement with those rules, not engineering truth. The originals' "
-       "terms are unresolved: they stay in the local cache, and a clean clone reports this cell UNVERIFIED.",
+       "terms are unresolved: they stay in the local cache, and a clean clone reports this cell UNVERIFIED. Added at review, "
+       "after the sealed run (post hoc, outside the pass): the key-free control (the same tool with only the class names' "
+       "own words as its vocabulary) and precision/F1 with every no-system record given a class counted as a false "
+       "positive. What a pass shows: the derive option applies a declared vocabulary faithfully, and a vocabulary "
+       "written from A-C, including their publisher codes, carries over to D-E under one publisher's coding scheme; the "
+       "vocabulary is a per-dataset profile artifact, not part of the product.",
 }
 
 
@@ -2499,23 +2603,48 @@ def row8_table(by, r):
 
 
 def row9_table(by, r):
-    c = by.get((9, "nestor-excavators"))
+    out = ["Per answer (connection F1; units; reversed / shuffled / mention-order chain connection F1; key arcs "
+           "missed):", "", "| Input | Answers |", "|---|---|"]
+    for i in ROW_INPUTS[9]:
+        c = by.get((9, i))
+        if c and "replicates" in c["detail"]:
+            out.append(f"| `{i}` | " + "; ".join(
+                (f"{Path(x['answer']).parent.name}: {x['connections']}; {x['units']}; {x['reversed_connections']} / "
+                 f"{x['shuffled_connections']} / {x['mention_order_chain_connections']}; "
+                 f"{', '.join(x['missing_arcs']) or 'none'}") if x["built"] else
+                f"{Path(x['answer']).parent.name}: not built" for x in c["detail"]["replicates"]) + " |")
+    return out if len(out) > 4 else []
+
+
+def row10_table(by, r):
+    c = by.get((10, "nestor-excavators"))
     if not c or "splits" not in c["detail"]:
         return []
-    out = ["Per split, per-record system class (precision / recall / F1) beside every control; group F1 last:", "",
-           "| Split | Answer | Reference | Raw-asset baseline | Majority class | Shuffled within asset | Misaligned key | "
-           "Margin | Answer group F1 |", "|---|---|---|---|---|---|---|---|---|"]
-    def prf(v):
-        return "/".join("-" if v[k] is None else f"{v[k]:.3f}" for k in ("precision", "recall", "f1"))
+    names = [("method", "Answer"), ("keyfree", "Key-free control, class-name words (post hoc)"), ("reference", "Reference"),
+             ("raw-asset-baseline", "Raw-asset baseline"), ("majority-system", "Majority class"),
+             ("shuffled-within-asset", "Shuffled within asset"), ("misaligned-key", "Misaligned key")]
+    out = ["Per split, per-record system class: precision / recall / F1 as frozen (no-system key records outside "
+           "precision), then precision / F1 with every no-system record given a class counted as a false positive; the "
+           "key-free control was added at review, after the sealed run:", "",
+           "| Split | Answer or control | P / R / F1 (frozen) | P / F1 (no-key as FP) | Group F1 |", "|---|---|---|---|---|"]
+    def fmt(v, keys):
+        return "/".join("-" if v.get(k) is None else f"{v[k]:.3f}" for k in keys)
     for split, d in c["detail"]["splits"].items():
-        rates = d["rates"]
-        out.append(f"| {split} ({', '.join(d['assets'])}) | " + " | ".join(prf(rates[n]["orders"]) for n in (
-            "method", "reference", "raw-asset-baseline", "majority-system", "shuffled-within-asset", "misaligned-key"))
-            + f" | {d['margin']:.3f} | {rates['method']['groups']['f1']:.3f} |")
+        for key, label in names:
+            if key == "keyfree":
+                k = d.get("keyfree_control")
+                if not k:
+                    continue
+                rates, strict = k["rates"], k["orders_no_key_as_fp"]
+            else:
+                rates, strict = d["rates"][key], d.get("orders_no_key_as_fp", {}).get(key, {})
+            out.append(f"| {split} ({', '.join(d['assets'])}) | {label} | {fmt(rates['orders'], ('precision', 'recall', 'f1'))} | "
+                       f"{fmt(strict, ('precision', 'f1'))} | {rates['groups']['f1']:.3f} |")
+        out.append(f"| {split} ({', '.join(d['assets'])}) | Margin over the best wrong control (frozen F1) | {d['margin']:.3f} | | |")
     return out
 
 
-ROW_EXTRA = {1: row1_table, 6: row6_table, 8: row8_table, 9: row9_table}
+ROW_EXTRA = {1: row1_table, 6: row6_table, 8: row8_table, 9: row9_table, 10: row10_table}
 
 
 # ------------------------------------------------------------------ main

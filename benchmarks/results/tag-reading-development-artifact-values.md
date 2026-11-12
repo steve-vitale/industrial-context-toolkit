@@ -8,28 +8,12 @@ Task: `tag-reading` / `tag-text-v1`. Geometry and tag-list modes have separate d
 
 Strict recall includes unfound labelled symbols; found accuracy is conditional on a matched symbol. Lenient rates use the companion text normalization.
 
-### gpt-6.1-sol
-
-- **Provider / version:** OpenAI / provider build not recorded beyond the saved model identifier
-- **Method / client:** historical 2x2 tiled model extraction + deterministic trace replacement / Codex CLI
-- **Family / split / evidence:** dexpi-trainingtestcases / development / exposed historical model answers; CURRENT frozen derived cache keys, original producing key/converter identity unknown
-- **Cohort:** b133811e06769045bd94d07b87f5a7a7e97e9af239c2166f9d611582fefff73d; **group:** 174656730181291f873c1da166f1484dc21f5b28d270852b423d39d78e71ef95
-- **Selected cases / repeats:** 3 / 5
-- **Configuration:** {"overlap": 0.15, "reasoning_effort": "not recorded", "temperature": "not recorded", "tiles": "2x2", "trace": "replace"}
-
-| Rate | Mean | Range | SD | Defined / total |
-|---|---|---|---|---|
-| strict_end_to_end_recall | 0.8788 | 0.8788–0.8788 | 0.0000 | 5 / 5 |
-| strict_accuracy_on_found | 0.8788 | 0.8788–0.8788 | 0.0000 | 5 / 5 |
-| lenient_end_to_end_recall | 0.8788 | 0.8788–0.8788 | 0.0000 | 5 / 5 |
-| lenient_accuracy_on_found | 0.8788 | 0.8788–0.8788 | 0.0000 | 5 / 5 |
-
 ### claude-opus-5-5[1m]
 
 - **Provider / version:** Anthropic / provider build not recorded beyond the saved model identifier
 - **Method / client:** historical 2x2 tiled model extraction + deterministic trace replacement / Claude Code CLI
 - **Family / split / evidence:** dexpi-trainingtestcases / development / exposed historical model answers; CURRENT frozen derived cache keys, original producing key/converter identity unknown
-- **Cohort:** b133811e06769045bd94d07b87f5a7a7e97e9af239c2166f9d611582fefff73d; **group:** 32c79022dda08f965855393a111d38555783b72e9a27c493c96583587730db76
+- **Cohort:** 13890e30cebd7c27ac6488235bb260913ccd00a805245458d1d48c351afa9c92; **group:** 7ece7da2c77c596127529d3836eaa17bb5940aa94612e86b503a3ea838887dff
 - **Selected cases / repeats:** 3 / 5
 - **Configuration:** {"overlap": 0.15, "reasoning_effort": "not recorded", "temperature": "not recorded", "tiles": "2x2", "trace": "replace"}
 
@@ -40,6 +24,22 @@ Strict recall includes unfound labelled symbols; found accuracy is conditional o
 | lenient_end_to_end_recall | 0.8485 | 0.8485–0.8485 | 0.0000 | 5 / 5 |
 | lenient_accuracy_on_found | 0.9032 | 0.9032–0.9032 | 0.0000 | 5 / 5 |
 
+### gpt-6.1-sol
+
+- **Provider / version:** OpenAI / provider build not recorded beyond the saved model identifier
+- **Method / client:** historical 2x2 tiled model extraction + deterministic trace replacement / Codex CLI
+- **Family / split / evidence:** dexpi-trainingtestcases / development / exposed historical model answers; CURRENT frozen derived cache keys, original producing key/converter identity unknown
+- **Cohort:** 13890e30cebd7c27ac6488235bb260913ccd00a805245458d1d48c351afa9c92; **group:** b5c77918ef4f3884bc9a1e7ed4279a43269d94aab9d84f7dcaf67b9ff3ae6f48
+- **Selected cases / repeats:** 3 / 5
+- **Configuration:** {"overlap": 0.15, "reasoning_effort": "not recorded", "temperature": "not recorded", "tiles": "2x2", "trace": "replace"}
+
+| Rate | Mean | Range | SD | Defined / total |
+|---|---|---|---|---|
+| strict_end_to_end_recall | 0.8788 | 0.8788–0.8788 | 0.0000 | 5 / 5 |
+| strict_accuracy_on_found | 0.8788 | 0.8788–0.8788 | 0.0000 | 5 / 5 |
+| lenient_end_to_end_recall | 0.8788 | 0.8788–0.8788 | 0.0000 | 5 / 5 |
+| lenient_accuracy_on_found | 0.8788 | 0.8788–0.8788 | 0.0000 | 5 / 5 |
+
 ## Partial-list identifier rates
 
 Substring recall measures coverage of partial lists, without assigning identifiers to the correct item. Class agreement is a share of found identifiers, not precision.
@@ -49,7 +49,7 @@ Substring recall measures coverage of partial lists, without assigning identifie
 - **Provider / version:** OpenAI / provider build not recorded beyond the saved model identifier
 - **Method / client:** historical 2x2 tiled model extraction + deterministic trace replacement / Codex CLI
 - **Family / split / evidence:** dexpi-trainingtestcases / development / exposed historical model answers; CURRENT frozen derived cache keys, original producing key/converter identity unknown
-- **Cohort:** d3ffed0db72916e2b4d624e007b741f2408968a565d28ebb6f190d2948171b16; **group:** 5980024d9857909177dbfd7d179ac174279e1e0b8a3d3c8e2651bef4903d5c7e
+- **Cohort:** 25d3c96cc1e6030f45137603a5ff1f3013ef90ca53305a4c317d5ec963c7723d; **group:** 31e5d5317b117636817a04874292cc8a542fc54ce0638fde93bce0ae83aeeb7e
 - **Selected cases / repeats:** 2 / 5
 - **Configuration:** {"overlap": 0.15, "reasoning_effort": "not recorded", "temperature": "not recorded", "tiles": "2x2", "trace": "replace"}
 
@@ -69,7 +69,7 @@ Substring recall measures coverage of partial lists, without assigning identifie
 - **Provider / version:** Anthropic / provider build not recorded beyond the saved model identifier
 - **Method / client:** historical 2x2 tiled model extraction + deterministic trace replacement / Claude Code CLI
 - **Family / split / evidence:** dexpi-trainingtestcases / development / exposed historical model answers; CURRENT frozen derived cache keys, original producing key/converter identity unknown
-- **Cohort:** d3ffed0db72916e2b4d624e007b741f2408968a565d28ebb6f190d2948171b16; **group:** 7a1fe3e18284a736fcfc62f10973b8c7474e31a54c2d6676c0b712805e6ce5bf
+- **Cohort:** 25d3c96cc1e6030f45137603a5ff1f3013ef90ca53305a4c317d5ec963c7723d; **group:** c8d7ccd4b46e99117bc831ef1297fafde3a4dd91f1452c26b2dbdfb9689eb04a
 - **Selected cases / repeats:** 2 / 5
 - **Configuration:** {"overlap": 0.15, "reasoning_effort": "not recorded", "temperature": "not recorded", "tiles": "2x2", "trace": "replace"}
 

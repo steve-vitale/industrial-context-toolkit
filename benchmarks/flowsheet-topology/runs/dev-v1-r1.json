@@ -1,0 +1,51 @@
+{
+  "id": "dev-v1-r1",
+  "ran_at": "2026-11-12",
+  "model": {
+    "provider": "anthropic",
+    "id": "claude-opus-5-5",
+    "version": "served id from CLI modelUsage; build not provider-attested"
+  },
+  "interface": "claude-code-cli -p, --tools \"\" (no tools), --system-prompt (one neutral line), empty temporary folder, --strict-mcp-config, --disable-slash-commands",
+  "method": "description_workflow.py packet (A419 contract: source-named equipment kept, order-based connections recorded as assumptions, mixer outline stated) answered with no tools, check diagnostics returned up to 4 rounds, then build",
+  "configuration": {
+    "max_check_rounds": 4,
+    "requested_model": null,
+    "cli_version": "2.1.317 (Claude Code)",
+    "packet_sha256": {
+      "prompt.md": "845ae86753e139466131b93d030a253e2558fb11ccafe8d5d5ee2889bf959b5f",
+      "contract.md": "12b0aadc4badb0bf5dde7cfb95fbd3fb6362b135a7705ab65a815ebdc2ee1efd",
+      "reference_source.txt": "4b36c932249a9db29c782771dd2cf6b76466a390e3565faf2a55aaa5ad4a196f",
+      "reference_answer.json": "9711b7f1f7613f2d25d598dc38e1476032d92d384322788fac71734f8440fcc8",
+      "source_numbered.txt": "1ebb2983e85d76d33c77a9cf6c44897c68a0b8beaecd93622abe915a3df32dc7"
+    }
+  },
+  "recorded_tool": "scripts/run_description_author.py",
+  "provenance": "A419 development run v1 (the frozen method). The scored answer is the model.json build writes.",
+  "recipe": [
+    {
+      "path": "benchmarks/flowsheet-topology/recipe/dev-v1/prompt.md",
+      "sha256": "845ae86753e139466131b93d030a253e2558fb11ccafe8d5d5ee2889bf959b5f",
+      "role": "main_prompt"
+    },
+    {
+      "path": "benchmarks/flowsheet-topology/recipe/dev-v1/contract.md",
+      "sha256": "12b0aadc4badb0bf5dde7cfb95fbd3fb6362b135a7705ab65a815ebdc2ee1efd",
+      "role": "contract"
+    },
+    {
+      "path": "benchmarks/flowsheet-topology/recipe/run_description_author.py.txt",
+      "sha256": "f8df9aeca8d1b90f8caea9e256516197e17a23f8daa13120c4e1ecea810039b2",
+      "role": "runner"
+    }
+  ],
+  "cases": [
+    "methanol-no-recycle"
+  ],
+  "predictions": {
+    "methanol-no-recycle": {
+      "path": "benchmarks/flowsheet-topology/runs/dev-v1-r1/prediction.json",
+      "sha256": "2358b96f4ccf5fec0ebc8a2734e3c1357f5401195263c2b8d871e7e4d2558b85"
+    }
+  }
+}

@@ -208,7 +208,7 @@ committed; the fetch is by hash and refuses changed bytes):
 python scripts/fetch_public_group.py nestor-excavators --max-mb 2   # only if data/external/nestor-excavators is absent
 python examples/maintenance-history/nestor.py --split development --out ../nestor-dev
 python scripts/benchmark.py --registry benchmarks/registry.json     # UNVERIFIED without the local cache
-python scripts/corpus_matrix.py --rows 9 --out-dir ../nestor-matrix
+python scripts/corpus_matrix.py --rows 10 --out-dir ../nestor-matrix
 ```
 
 ## Use it as a bounded starting assignment
