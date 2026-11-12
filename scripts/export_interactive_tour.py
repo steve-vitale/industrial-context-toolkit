@@ -41,8 +41,6 @@ FAULT_START = 160          # IDV(6) switches on at sample 160 of 960 in the Braa
 MINUTES_PER_SAMPLE = 3
 RUNS = {"normal": ("d00_te.dat", "Normal operation (Braatz d00_te.dat)"),
         "fault6": ("d06_te.dat", "Fault 6, loss of A feed, from sample 160 (Braatz d06_te.dat)")}
-ENERGY = {"bl": "process fluid at feed or battery-limit pressure", "motor": "electrical (motor)",
-          "agitator": "electrical (agitator motor)", "utility": "utility fluid (cooling water or steam)"}
 
 
 def sha256(path):
@@ -184,14 +182,6 @@ def main(argv=None):
                 return {"sample": k, "tags": hits, "minutes_after_fault": (k - FAULT_START) * MINUTES_PER_SAMPLE}
         return None
 
-    loto = []
-    for p in full["loto_mockup"]["points"]:
-        kind, ref = p["point"].split(":", 1)
-        target = ({"stream": ref} if kind == "bl" else {"unit": ref} if kind in ("motor", "agitator")
-                  else {"utility": ref})
-        loto.append({"n": p["n"], "id": p["point"], "text": p["text"].rstrip("*"), "kind": kind,
-                     "energy": ENERGY[kind], "target": target, "basis": p["basis"]})
-
     service_labels = dict(O.SERVICE_LABELS)
     service_labels.update({"cooling_water_supply": "cooling water supply (inferred)",
                            "cooling_water_return": "cooling water return (inferred)", "process": "process"})
@@ -209,7 +199,6 @@ def main(argv=None):
         "services": {s: {"rgb": [round(c, 3) for c in colors.get(s, colors["process"])[:3]], "label": service_labels.get(s, s)}
                      for s in used},
         "states": list(B.STATES),
-        "loto": {"status": full["loto_mockup"]["status"], "points": loto},
         "replay": {"fault_start_sample": FAULT_START, "minutes_per_sample": MINUTES_PER_SAMPLE, "runs": runs,
                    "first_alarm": {r: first_alarm(r) for r in runs}},
         "fault_profile": full["tour_script"]["fault_profile"],
@@ -218,9 +207,9 @@ def main(argv=None):
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(data, indent=1, sort_keys=True, ensure_ascii=False) + "\n", encoding="utf-8")
     fa = data["replay"]["first_alarm"]
-    print("wrote %s: %d units, %d streams, %d utilities, %d tags (%d with replay), %d LOTO points; first alarm: "
+    print("wrote %s: %d units, %d streams, %d utilities, %d tags (%d with replay); first alarm: "
           "normal %s, fault6 %s" % (out.relative_to(ROOT).as_posix(), len(units), len(streams), len(utilities), len(tags),
-                                    sum(1 for t in tags if t["column"] is not None), len(loto),
+                                    sum(1 for t in tags if t["column"] is not None),
                                     fa["normal"] and fa["normal"]["sample"], fa["fault6"] and fa["fault6"]))
     return 0
 

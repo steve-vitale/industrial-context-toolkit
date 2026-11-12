@@ -141,6 +141,7 @@ FULL_ONLY_TESTS = (
     "scripts/test_te_control_loops.py",
     "scripts/test_te_pid_roundtrip.py",
     "scripts/test_open100_structural.py",
+    "scripts/test_loto_wording.py",
     "scripts/test_build_3d_scene.py",
     "scripts/test_verify_3d_render.py",
 )

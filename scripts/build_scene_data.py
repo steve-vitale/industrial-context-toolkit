@@ -2,7 +2,8 @@
 
 The 3D operator-orientation tour (drafts/3d-tour/) is rendered by a prototype that is not in this repository yet.
 This file is the data contract that sits between the process model and any 3D renderer: which equipment exists,
-which tags sit on it, which pipes join it, and which isolation points a lockout/tagout (LOTO) mockup could show.
+which tags sit on it, which pipes join it, and which control valves a lockout/tagout (LOTO) mockup must mark as
+not positive isolation.
 It is generated from data/te_process_model.json only, so a correction to the model reaches the scene by
 regenerating, never by editing the scene.
 
@@ -11,9 +12,10 @@ What is data and what is placeholder:
     (scripts/provenance.py). Nothing is upgraded on the way;
   - positions: the model's 2D layout scaled to metres. Sizes and elevations: fixed placeholders per equipment type.
     Neither comes from a plant;
-  - LOTO candidates: INFERRED. Every final element (valve) the model places on a stream that touches a unit is
-    listed as a candidate isolation point for that unit. That is a mockup input, not a procedure. A real LOTO
-    procedure comes from the site's energy-control program (OSHA 1910.147), verified P&IDs and an authorized person.
+  - LOTO valve crossings: INFERRED. Every final element the model places on a stream that touches a unit is a
+    control valve, listed for that unit as NOT positive isolation so that no view takes it for an isolating device.
+    The model holds no block valves, so which device isolates a unit is not assessed. This is a mockup input, not a
+    procedure (docs/GOAL_ISOLATION_POC.md; the site's energy-control program, OSHA 29 CFR 1910.147).
 
 Deterministic: no timestamps; sorted output. Stdlib only.
 Usage:  python scripts/build_scene_data.py [model.json] [out.json]
@@ -23,6 +25,7 @@ import json
 import sys
 from pathlib import Path
 
+from isolation_wording import MOCKUP_STATUS, NOT_POSITIVE
 from provenance import element
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -63,7 +66,9 @@ def build(model, source_hash):
         for fe in sorted(model["final_elements"], key=lambda x: x["tag"]):
             s = streams.get(fe.get("stream"))
             if s and u["id"] in (s["from"], s["to"]):
-                loto.append({"unit": u["id"], "isolation_candidate": fe["tag"], "stream": s["id"],
+                loto.append({"unit": u["id"], "control_valve": fe["tag"], "stream": s["id"],
+                             "isolation": NOT_POSITIVE + " (a control valve; which device isolates the stream is "
+                                                         "not assessed)",
                              "valve_owner_in_model": fe["unit"], "inferred": True,
                              "basis": f"final element on stream {s['id']} ({s['from']} -> {s['to']}) in the model",
                              "provenance": element(fe)})
@@ -76,9 +81,9 @@ def build(model, source_hash):
             "source_sha256": source_hash,
             "inherits": "every element carries the provenance of the model item it came from; geometry adds none",
             "geometry": "positions are the model's 2D layout scaled to metres; sizes, elevations and routes are placeholders",
-            "loto": "candidates are inferred from the model; this is not a LOTO procedure (OSHA 1910.147)",
+            "loto": MOCKUP_STATUS,
         },
-        "units": units, "pipes": pipes, "loto_candidates": loto,
+        "units": units, "pipes": pipes, "loto_valve_crossings": loto,
     }
 
 
@@ -92,7 +97,7 @@ def main(argv=None):
     out.write_text(json.dumps(scene, indent=1, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
     print(f"wrote {out.relative_to(ROOT).as_posix() if out.is_relative_to(ROOT) else out}: "
           f"{len(scene['units'])} units, {len(scene['pipes'])} pipes, "
-          f"{len(scene['loto_candidates'])} inferred LOTO candidates (proof of concept)")
+          f"{len(scene['loto_valve_crossings'])} control valves marked not positive isolation (proof of concept)")
     return 0
 
 

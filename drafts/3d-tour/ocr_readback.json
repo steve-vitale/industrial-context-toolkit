@@ -61,9 +61,9 @@
       "id": "unit:V-101",
       "kind": "unit",
       "truth": "V-101  Vapor/Liquid Separator",
-      "ocr_crop": "V-101 Vapor/Liquid S  Separator",
-      "char_accuracy": 0.929,
-      "exact": false,
+      "ocr_crop": "V-101 Vapor/Liquid Separator",
+      "char_accuracy": 1.0,
+      "exact": true,
       "ids": [
        "V-101"
       ],
@@ -95,9 +95,9 @@
       "id": "unit:C-101",
       "kind": "unit",
       "truth": "C-101  Product Stripper",
-      "ocr_crop": "C-101 Product Stripper",
-      "char_accuracy": 1.0,
-      "exact": true,
+      "ocr_crop": "C-101 Product t Stripper",
+      "char_accuracy": 0.909,
+      "exact": false,
       "ids": [
        "C-101"
       ],
@@ -112,9 +112,9 @@
       "id": "overlay:badge",
       "kind": "overlay_badge",
       "truth": "Prototype · placeholder geometry · recorded replay",
-      "ocr_crop": "Prototype · placeholder g r geometry · recorded replay",
-      "char_accuracy": 0.913,
-      "exact": false,
+      "ocr_crop": "Prototype · placeholder geometry · recorded replay",
+      "char_accuracy": 1.0,
+      "exact": true,
       "ids": [],
       "ids_read_in_crop": [],
       "ids_read_in_frame": []
@@ -153,76 +153,80 @@
       ]
      },
      {
-      "id": "tag:PI-107",
+      "id": "tag:PT-107",
       "kind": "tag",
-      "truth": "PI-107  Pressure · high alarm 2,895 kPa g",
-      "ocr_crop": "PI-107 Pressure · high alarm 2,895 kPa g",
+      "truth": "PT-107  Pressure · high alarm 2,895 kPa g",
+      "ocr_crop": "PT-107 Pressure · high alarm 2,895 kPa g",
       "char_accuracy": 1.0,
       "exact": true,
       "ids": [
-       "PI-107"
+       "PT-107"
       ],
       "ids_read_in_crop": [
-       "PI-107"
-      ],
-      "ids_read_in_frame": []
-     },
-     {
-      "id": "tag:TI-109",
-      "kind": "tag",
-      "truth": "TI-109  Temperature",
-      "ocr_crop": "TI-109 Temperature",
-      "char_accuracy": 1.0,
-      "exact": true,
-      "ids": [
-       "TI-109"
-      ],
-      "ids_read_in_crop": [
-       "TI-109"
+       "PT-107"
       ],
       "ids_read_in_frame": [
-       "TI-109"
+       "PT-107"
       ]
      },
      {
-      "id": "tag:TV-210",
+      "id": "tag:TT-109",
       "kind": "tag",
-      "truth": "TV-210  Cooling-water valve output",
-      "ocr_crop": "TV-210 Cooling-water valve output",
+      "truth": "TT-109  Temperature",
+      "ocr_crop": "TT-109 Temperature",
       "char_accuracy": 1.0,
       "exact": true,
       "ids": [
-       "TV-210"
+       "TT-109"
       ],
       "ids_read_in_crop": [
-       "TV-210"
+       "TT-109"
       ],
       "ids_read_in_frame": [
-       "TV-210"
+       "TT-109"
       ]
      },
      {
-      "id": "tag:TI-121",
+      "id": "tag:TV-121",
       "kind": "tag",
-      "truth": "TI-121  Cooling-water outlet T",
-      "ocr_crop": "TI-121 Cooling-water outlet t T",
-      "char_accuracy": 0.931,
-      "exact": false,
+      "truth": "TV-121  Cooling-water valve output",
+      "ocr_crop": "TV-121 Cooling-water valve output",
+      "char_accuracy": 1.0,
+      "exact": true,
       "ids": [
-       "TI-121"
+       "TV-121"
       ],
       "ids_read_in_crop": [
-       "TI-121"
+       "TV-121"
       ],
-      "ids_read_in_frame": []
+      "ids_read_in_frame": [
+       "TV-121"
+      ]
+     },
+     {
+      "id": "tag:TT-121",
+      "kind": "tag",
+      "truth": "TT-121  Cooling-water outlet T",
+      "ocr_crop": "TT-121 Cooling-water outlet T",
+      "char_accuracy": 1.0,
+      "exact": true,
+      "ids": [
+       "TT-121"
+      ],
+      "ids_read_in_crop": [
+       "TT-121"
+      ],
+      "ids_read_in_frame": [
+       "TT-121"
+      ]
      },
      {
       "id": "overlay:badge",
       "kind": "overlay_badge",
       "truth": "Prototype · placeholder geometry · recorded replay",
-      "ocr_crop": "Prototype · placeholder g r geometry · recorded replay",
-      "char_accuracy": 0.913,
-      "exact": false,
+      "ocr_crop": "Prototype · placeholder geometry · recorded replay",
+      "char_accuracy": 1.0,
+      "exact": true,
       "ids": [],
       "ids_read_in_crop": [],
       "ids_read_in_frame": []
@@ -230,8 +234,8 @@
      {
       "id": "overlay:purpose",
       "kind": "overlay_card",
-      "truth": "Purpose\nThe gas feeds react here to form the liquid\nproducts G and H, and the reactions give off\nheat.\nHeat removal: cooling water carries the heat\nof reaction away; the products leave as\nvapour.",
-      "ocr_crop": "Purpose The gas feeds react here to form the liquid products G and H, and the reactions give off heat. Heat removal: cooling water carries the heat of reaction away; the products leave as vapour.",
+      "truth": "Purpose\nThe agitated reactor where A, C, D and E react\nto the products G and H (with F as a\nbyproduct); cooling water removes the heat of\nreaction, and the products leave as vapour\nwith the unreacted gas (stream 7).\nHeat removal: cooling water carries the heat\nof reaction away; the products leave as\nvapour.",
+      "ocr_crop": "Purpose The agitated reactor where A, C, D and E react to the products G and H (with F as a byproduct); cooling water removes the heat of reaction, and the products leave as vapour with the unreacted gas (stream 7). Heat removal: cooling water carries the heat of reaction away; the products leave as vapour.",
       "char_accuracy": 1.0,
       "exact": true,
       "ids": [],
@@ -332,9 +336,9 @@
       "id": "unit:V-101",
       "kind": "unit",
       "truth": "V-101  Vapor/Liquid Separator",
-      "ocr_crop": "V-101 Vapor/Liquid S Separator",
-      "char_accuracy": 0.929,
-      "exact": false,
+      "ocr_crop": "V-101 Vapor/Liquid Separator",
+      "char_accuracy": 1.0,
+      "exact": true,
       "ids": [
        "V-101"
       ],
@@ -366,9 +370,9 @@
       "id": "unit:C-101",
       "kind": "unit",
       "truth": "C-101  Product Stripper",
-      "ocr_crop": "C-101 Product Stripper",
-      "char_accuracy": 1.0,
-      "exact": true,
+      "ocr_crop": "C-101 Product t Stripper",
+      "char_accuracy": 0.909,
+      "exact": false,
       "ids": [
        "C-101"
       ],
@@ -380,42 +384,46 @@
       ]
      },
      {
-      "id": "tag:PI-107",
+      "id": "tag:PT-107",
       "kind": "tag",
-      "truth": "PI-107  2,897 kPa g · high alarm 2,895 · shutdown 3,000",
-      "ocr_crop": "PI-107 2,897 kPa g· high alarm 2,895 · shutdown 3,000",
+      "truth": "PT-107  2,897 kPa g · high alarm 2,895 · shutdown 3,000",
+      "ocr_crop": "PT-107 2,897 kPa g · high alarm 2,895 · shutdown 3,000",
       "char_accuracy": 1.0,
       "exact": true,
       "ids": [
-       "PI-107"
+       "PT-107"
       ],
       "ids_read_in_crop": [
-       "PI-107"
+       "PT-107"
       ],
-      "ids_read_in_frame": []
+      "ids_read_in_frame": [
+       "PT-107"
+      ]
      },
      {
-      "id": "tag:TI-109",
+      "id": "tag:TT-109",
       "kind": "tag",
-      "truth": "TI-109  120.4 °C · shutdown 175",
-      "ocr_crop": "TI-109 120.4 °C·shutdown 175",
-      "char_accuracy": 1.0,
-      "exact": true,
+      "truth": "TT-109  120.4 °C · shutdown 175",
+      "ocr_crop": "TT-109 120.4 C·shutdown 175",
+      "char_accuracy": 0.964,
+      "exact": false,
       "ids": [
-       "TI-109"
+       "TT-109"
       ],
       "ids_read_in_crop": [
-       "TI-109"
+       "TT-109"
       ],
-      "ids_read_in_frame": []
+      "ids_read_in_frame": [
+       "TT-109"
+      ]
      },
      {
       "id": "overlay:badge",
       "kind": "overlay_badge",
       "truth": "Prototype · placeholder geometry · recorded replay",
-      "ocr_crop": "Prototype · placeholder g r geometry · recorded replay",
-      "char_accuracy": 0.913,
-      "exact": false,
+      "ocr_crop": "Prototype · placeholder geometry · recorded replay",
+      "char_accuracy": 1.0,
+      "exact": true,
       "ids": [],
       "ids_read_in_crop": [],
       "ids_read_in_frame": []
@@ -434,15 +442,19 @@
      {
       "id": "overlay:caption",
       "kind": "overlay_caption",
-      "truth": "Fault 6 (loss of A feed): +294 min\nPI-107 reaches 2,897 kPa g, above its 2,895 kPa g high alarm; 19 tags are outside their normal band.",
-      "ocr_crop": "Fault 6 (loss of A feed): +294 min Pl-107 reaches 2,897 kPa g, above its 2,895 kPa g high alarm; 19 tags are outside their normal band.",
-      "char_accuracy": 0.993,
-      "exact": false,
+      "truth": "Fault 6 (loss of A feed): +294 min\nPT-107 reaches 2,897 kPa g, above its 2,895 kPa g high alarm; 19 tags are outside their normal band.",
+      "ocr_crop": "Fault 6 (loss of A feed): +294 min PT-107 reaches 2,897 kPa g, above its 2,895 kPa g high alarm; 19 tags are outside their normal band.",
+      "char_accuracy": 1.0,
+      "exact": true,
       "ids": [
-       "PI-107"
+       "PT-107"
       ],
-      "ids_read_in_crop": [],
-      "ids_read_in_frame": []
+      "ids_read_in_crop": [
+       "PT-107"
+      ],
+      "ids_read_in_frame": [
+       "PT-107"
+      ]
      }
     ]
    },
@@ -496,7 +508,9 @@
       "ids_read_in_crop": [
        "E-101"
       ],
-      "ids_read_in_frame": []
+      "ids_read_in_frame": [
+       "E-101"
+      ]
      },
      {
       "id": "unit:V-101",
@@ -511,7 +525,9 @@
       "ids_read_in_crop": [
        "V-101"
       ],
-      "ids_read_in_frame": []
+      "ids_read_in_frame": [
+       "V-101"
+      ]
      },
      {
       "id": "unit:K-101",
@@ -534,9 +550,9 @@
       "id": "unit:C-101",
       "kind": "unit",
       "truth": "C-101  Product Stripper",
-      "ocr_crop": "C-101 Product Stripper",
-      "char_accuracy": 1.0,
-      "exact": true,
+      "ocr_crop": "C-101 Product t Stripper",
+      "char_accuracy": 0.909,
+      "exact": false,
       "ids": [
        "C-101"
       ],
@@ -551,9 +567,9 @@
       "id": "overlay:badge",
       "kind": "overlay_badge",
       "truth": "Prototype · placeholder geometry · recorded replay",
-      "ocr_crop": "Prototype · placeholder g r geometry · recorded replay",
-      "char_accuracy": 0.913,
-      "exact": false,
+      "ocr_crop": "Prototype · placeholder geometry · recorded replay",
+      "char_accuracy": 1.0,
+      "exact": true,
       "ids": [],
       "ids_read_in_crop": [],
       "ids_read_in_frame": []
@@ -572,8 +588,8 @@
      {
       "id": "overlay:caption",
       "kind": "overlay_caption",
-      "truth": "Process flow (seed topology, unverified)\nFeeds and recycle meet at the feed system, react in R-101, condense, separate; gas recycles through K-101 and liquid is stripped to product.",
-      "ocr_crop": "Process flow (seed topology, unverified) Feeds and recycle meet at the feed system, react in R-101, condense, separate; gas recycles through K-101 and liquid is stripped to product.",
+      "truth": "Process flow (source-checked topology)\nFeeds and recycle meet at the feed system, react in R-101, condense, separate; gas recycles through K-101 and liquid is stripped to product.",
+      "ocr_crop": "Process flow (source-checked topology) Feeds and recycle meet at the feed system, react in R-101, condense, separate; gas recycles through K-101 and liquid is stripped to product.",
       "char_accuracy": 1.0,
       "exact": true,
       "ids": [
@@ -598,9 +614,9 @@
       "id": "unit:U-100",
       "kind": "unit",
       "truth": "U-100  Feed System",
-      "ocr_crop": "U-100 Feed d System",
-      "char_accuracy": 0.882,
-      "exact": false,
+      "ocr_crop": "U-100 Feed  System",
+      "char_accuracy": 1.0,
+      "exact": true,
       "ids": [
        "U-100"
       ],
@@ -683,9 +699,9 @@
       "id": "unit:C-101",
       "kind": "unit",
       "truth": "C-101  Product Stripper",
-      "ocr_crop": "C-101 Product Stripper",
-      "char_accuracy": 1.0,
-      "exact": true,
+      "ocr_crop": "C-101 Product t Stripper",
+      "char_accuracy": 0.909,
+      "exact": false,
       "ids": [
        "C-101"
       ],
@@ -697,21 +713,10 @@
       ]
      },
      {
-      "id": "loto:1",
+      "id": "loto:bl:S1",
       "kind": "loto",
-      "truth": "1  A feed: battery-limit block valve*",
-      "ocr_crop": "A feed: battery-limit  block valve* I",
-      "char_accuracy": 0.889,
-      "exact": false,
-      "ids": [],
-      "ids_read_in_crop": [],
-      "ids_read_in_frame": []
-     },
-     {
-      "id": "loto:2",
-      "kind": "loto",
-      "truth": "2  D feed: battery-limit block valve*",
-      "ocr_crop": "2 D feed: battery-limit block valve*",
+      "truth": "S1 A feed: boundary, not assessed*",
+      "ocr_crop": "S1 A feed: boundary, not assessed*",
       "char_accuracy": 1.0,
       "exact": true,
       "ids": [],
@@ -719,10 +724,10 @@
       "ids_read_in_frame": []
      },
      {
-      "id": "loto:3",
+      "id": "loto:bl:S2",
       "kind": "loto",
-      "truth": "3  E feed: battery-limit block valve*",
-      "ocr_crop": "3 E feed: battery-limit block valve*",
+      "truth": "S2 D feed: boundary, not assessed*",
+      "ocr_crop": "S2 D feed: boundary, not assessed*",
       "char_accuracy": 1.0,
       "exact": true,
       "ids": [],
@@ -730,32 +735,10 @@
       "ids_read_in_frame": []
      },
      {
-      "id": "loto:4",
+      "id": "loto:bl:S3",
       "kind": "loto",
-      "truth": "4  A and C feed: battery-limit block valve*",
-      "ocr_crop": "A and C feed: battery-limit block valve* 4",
-      "char_accuracy": 0.905,
-      "exact": false,
-      "ids": [],
-      "ids_read_in_crop": [],
-      "ids_read_in_frame": []
-     },
-     {
-      "id": "loto:5",
-      "kind": "loto",
-      "truth": "5  Purge: battery-limit block valve*",
-      "ocr_crop": "5 Purge: battery-limit it block valve*",
-      "char_accuracy": 0.914,
-      "exact": false,
-      "ids": [],
-      "ids_read_in_crop": [],
-      "ids_read_in_frame": []
-     },
-     {
-      "id": "loto:6",
-      "kind": "loto",
-      "truth": "6  Stripper product: battery-limit block valve*",
-      "ocr_crop": "6 Stripper product: battery-limit block valve*",
+      "truth": "S3 E feed: boundary, not assessed*",
+      "ocr_crop": "S3 E feed: boundary, not assessed*",
       "char_accuracy": 1.0,
       "exact": true,
       "ids": [],
@@ -763,10 +746,43 @@
       "ids_read_in_frame": []
      },
      {
-      "id": "loto:7",
+      "id": "loto:bl:S4",
       "kind": "loto",
-      "truth": "7  R-101 agitator motor: electrical*",
-      "ocr_crop": "7 R-101 agitator motor: electrical*",
+      "truth": "S4 A and C feed: boundary, not assessed*",
+      "ocr_crop": "S4 A and C feed: boundary, not assessed*",
+      "char_accuracy": 1.0,
+      "exact": true,
+      "ids": [],
+      "ids_read_in_crop": [],
+      "ids_read_in_frame": []
+     },
+     {
+      "id": "loto:bl:S9",
+      "kind": "loto",
+      "truth": "S9 Purge: boundary, not assessed*",
+      "ocr_crop": "S9 Purge: boundary, not assessed*",
+      "char_accuracy": 1.0,
+      "exact": true,
+      "ids": [],
+      "ids_read_in_crop": [],
+      "ids_read_in_frame": []
+     },
+     {
+      "id": "loto:bl:S11",
+      "kind": "loto",
+      "truth": "S11 Stripper product: boundary, not assessed*",
+      "ocr_crop": "S11 Stripper r product: boundary, not assessed*",
+      "char_accuracy": 0.956,
+      "exact": false,
+      "ids": [],
+      "ids_read_in_crop": [],
+      "ids_read_in_frame": []
+     },
+     {
+      "id": "loto:agitator:R-101",
+      "kind": "loto",
+      "truth": "R-101 agitator motor: electrical, not assessed*",
+      "ocr_crop": "R-101 agitator motor: electrical, not assessed*",
       "char_accuracy": 1.0,
       "exact": true,
       "ids": [
@@ -780,12 +796,12 @@
       ]
      },
      {
-      "id": "loto:8",
+      "id": "loto:motor:K-101",
       "kind": "loto",
-      "truth": "8  K-101 motor: electrical*",
-      "ocr_crop": "8 K-101 motor: electrical*",
-      "char_accuracy": 1.0,
-      "exact": true,
+      "truth": "K-101 motor: electrical, not assessed*",
+      "ocr_crop": "K-101 motor: electrical, not t assessed*",
+      "char_accuracy": 0.947,
+      "exact": false,
       "ids": [
        "K-101"
       ],
@@ -797,10 +813,10 @@
       ]
      },
      {
-      "id": "loto:9",
+      "id": "loto:utility:FV-119-steam",
       "kind": "loto",
-      "truth": "9  C-101 steam*",
-      "ocr_crop": "9 C-101 steam*",
+      "truth": "C-101 steam: boundary, not assessed*",
+      "ocr_crop": "C-101 steam: boundary, not assessed*",
       "char_accuracy": 1.0,
       "exact": true,
       "ids": [
@@ -814,29 +830,29 @@
       ]
      },
      {
-      "id": "loto:10",
+      "id": "loto:utility:TV-121-supply",
       "kind": "loto",
-      "truth": "10  R-101 cooling water in/out*",
-      "ocr_crop": "10 R-101 cooling water in/out*",
-      "char_accuracy": 1.0,
-      "exact": true,
-      "ids": [
-       "R-101"
-      ],
-      "ids_read_in_crop": [
-       "R-101"
-      ],
-      "ids_read_in_frame": [
-       "R-101"
-      ]
-     },
-     {
-      "id": "loto:11",
-      "kind": "loto",
-      "truth": "11  E-101 cooling water in/out*",
-      "ocr_crop": "II E-101 cooling water in/out*",
-      "char_accuracy": 0.933,
+      "truth": "R-101 cooling water: boundary, not assessed*",
+      "ocr_crop": "R-101 cooling g water: boundary, not assessed*",
+      "char_accuracy": 0.955,
       "exact": false,
+      "ids": [
+       "R-101"
+      ],
+      "ids_read_in_crop": [
+       "R-101"
+      ],
+      "ids_read_in_frame": [
+       "R-101"
+      ]
+     },
+     {
+      "id": "loto:utility:FV-117-supply",
+      "kind": "loto",
+      "truth": "E-101 cooling water: boundary, not assessed*",
+      "ocr_crop": "E-101 cooling water: boundary, not assessed*",
+      "char_accuracy": 1.0,
+      "exact": true,
       "ids": [
        "E-101"
       ],
@@ -851,9 +867,9 @@
       "id": "overlay:badge",
       "kind": "overlay_badge",
       "truth": "Prototype · placeholder geometry · recorded replay",
-      "ocr_crop": "Prototype · placeholder g r geometry · recorded replay",
-      "char_accuracy": 0.913,
-      "exact": false,
+      "ocr_crop": "Prototype · placeholder geometry · recorded replay",
+      "char_accuracy": 1.0,
+      "exact": true,
       "ids": [],
       "ids_read_in_crop": [],
       "ids_read_in_frame": []
@@ -861,8 +877,8 @@
      {
       "id": "overlay:loto",
       "kind": "overlay_card",
-      "truth": "Design mockup, not a procedure\nIsolation points are inferred from the TE seed\nmodel (marked *). A real lockout/tagout\nprocedure comes from the site's energy-control\nprogram (OSHA 1910.147), its verified P&IDs\nand an authorized person.",
-      "ocr_crop": "Design mockup, not a procedure Isolation points are inferred from the TE seed model (marked *). A real lockout/tagout procedure comes from the site's energy-control program (OSHA 1910.147), its verified P&IDs and an authorized person.",
+      "truth": "DESIGN MOCKUP FOR A PROOF OF CONCEPT AND TESTING GROUND. NOT A PROCEDURE. All results must be\nverified by a qualified professional. THIS IS NOT AN ISOLATION OR LOCKOUT/TAGOUT PROCEDURE AND\nMUST NOT BE USED AS ONE. Every point and every path below must be verified by a qualified person\nagainst the as-built plant and the site's energy-control program (for example under OSHA 29 CFR\n1910.147). It is read from drawings, which are not as-built: a point it does not list may exist,\nand a point it lists may not isolate. Electrical, pneumatic, hydraulic, stored-pressure, gravity\nand thermal energy are not assessed.",
+      "ocr_crop": "DESIGN MOCKUP FOR A PROOF OF CONCEPT AND TESTING GROUND. NOT A PROCEDURE. All results must be verified by a qualified professional. THIS IS NOT AN ISOLATION OR LOCKOUT/TAGOUT PROCEDURE AND MUST NOT BE USED AS ONE. Every point and every path below must be verified by a qualified person against the as-built plant and the site's energy-control program (for example under OSHA 29 CFR 1910.147). It is read from drawings, which are not as-built: a point it does not list may exist, and a point it lists may not isolate. Electrical, pneumatic, hydraulic, stored-pressure, gravity and thermal energy are not assessed.",
       "char_accuracy": 1.0,
       "exact": true,
       "ids": [],
@@ -872,8 +888,8 @@
      {
       "id": "overlay:caption",
       "kind": "overlay_caption",
-      "truth": "Lockout/tagout view: design mockup only\nNumbered tags mark isolation points inferred from the seed model; this is not a LOTO procedure.",
-      "ocr_crop": "Lockout/tagout view: design mockup only Numbered tags mark isolation points inferred from the seed model; this is not a LOTO procedure.",
+      "truth": "Lockout/tagout view: design mockup only\nTags mark energy boundaries inferred from the seed model, by model ID, in no order; this is not a LOTO procedure.",
+      "ocr_crop": "Lockout/tagout view: design mockup only Tags mark energy boundaries inferred from the seed model, by model ID, in no order; this is not a LOTO procedure.",
       "char_accuracy": 1.0,
       "exact": true,
       "ids": [],
@@ -885,26 +901,24 @@
   ],
   "summary": {
    "labels": 57,
-   "exact_after_normalising": 40,
-   "mean_char_accuracy": 0.974,
+   "exact_after_normalising": 46,
+   "mean_char_accuracy": 0.984,
    "labels_below_0.90": [
     "00_overview_normal:unit:U-100",
     "21_overview_fault_alarm:unit:U-100",
-    "30_flow_legend:unit:U-100",
-    "40_loto_mockup:unit:U-100",
-    "40_loto_mockup:loto:1"
+    "30_flow_legend:unit:U-100"
    ],
    "tag_and_unit_ids": 42,
-   "ids_read_in_crop": 41,
-   "ids_read_in_frame": 35,
+   "ids_read_in_crop": 42,
+   "ids_read_in_frame": 42,
    "by_kind": {
-    "loto": 0.967,
-    "overlay_badge": 0.913,
-    "overlay_caption": 0.999,
+    "loto": 0.987,
+    "overlay_badge": 1.0,
+    "overlay_caption": 1.0,
     "overlay_card": 1.0,
     "overlay_legend": 1.0,
-    "tag": 0.989,
-    "unit": 0.975
+    "tag": 0.994,
+    "unit": 0.971
    }
   }
  },
@@ -970,9 +984,9 @@
       "id": "unit:V-101",
       "kind": "unit",
       "truth": "V-101  Vapor/Liquid Separator",
-      "ocr_crop": "V-101 Vapor/Liquid S  Separator",
-      "char_accuracy": 0.929,
-      "exact": false,
+      "ocr_crop": "V-101 Vapor/Liquid Separator",
+      "char_accuracy": 1.0,
+      "exact": true,
       "ids": [
        "V-101"
       ],
@@ -1004,9 +1018,9 @@
       "id": "unit:C-101",
       "kind": "unit",
       "truth": "C-101  Product Stripper",
-      "ocr_crop": "C-101 Product Stripper",
-      "char_accuracy": 1.0,
-      "exact": true,
+      "ocr_crop": "C-101 Product t Stripper",
+      "char_accuracy": 0.909,
+      "exact": false,
       "ids": [
        "C-101"
       ],
@@ -1021,9 +1035,9 @@
       "id": "overlay:badge",
       "kind": "overlay_badge",
       "truth": "Prototype · placeholder geometry · recorded replay",
-      "ocr_crop": "Prototype · placeholder g r geometry · recorded replay",
-      "char_accuracy": 0.913,
-      "exact": false,
+      "ocr_crop": "Prototype · placeholder geometry · recorded replay",
+      "char_accuracy": 1.0,
+      "exact": true,
       "ids": [],
       "ids_read_in_crop": [],
       "ids_read_in_frame": []
@@ -1062,74 +1076,78 @@
       ]
      },
      {
-      "id": "tag:PI-107",
+      "id": "tag:PT-107",
       "kind": "tag",
-      "truth": "PI-107  Pressure · high alarm 2,895 kPa g",
-      "ocr_crop": "PI-107 Pressure · high alarm 2,895 kPa g",
+      "truth": "PT-107  Pressure · high alarm 2,895 kPa g",
+      "ocr_crop": "PT-107 Pressure · high alarm 2,895 kPa g",
       "char_accuracy": 1.0,
       "exact": true,
       "ids": [
-       "PI-107"
+       "PT-107"
       ],
       "ids_read_in_crop": [
-       "PI-107"
+       "PT-107"
       ],
-      "ids_read_in_frame": []
+      "ids_read_in_frame": [
+       "PT-107"
+      ]
      },
      {
-      "id": "tag:TI-109",
+      "id": "tag:TT-109",
       "kind": "tag",
-      "truth": "TI-109  Temperature",
-      "ocr_crop": "601-11 Temperature",
-      "char_accuracy": 0.722,
+      "truth": "TT-109  Temperature",
+      "ocr_crop": "1-1-9 Temperature",
+      "char_accuracy": 0.833,
       "exact": false,
       "ids": [
-       "TI-109"
+       "TT-109"
       ],
       "ids_read_in_crop": [],
       "ids_read_in_frame": [
-       "TI-109"
+       "TT-109"
       ]
      },
      {
-      "id": "tag:TV-210",
+      "id": "tag:TV-121",
       "kind": "tag",
-      "truth": "TV-210  Cooling-water valve output",
-      "ocr_crop": "TV-210 Cooling-water valve output",
+      "truth": "TV-121  Cooling-water valve output",
+      "ocr_crop": "TV-121 Cooling-water valve output",
       "char_accuracy": 1.0,
       "exact": true,
       "ids": [
-       "TV-210"
+       "TV-121"
       ],
       "ids_read_in_crop": [
-       "TV-210"
+       "TV-121"
       ],
       "ids_read_in_frame": [
-       "TV-210"
+       "TV-121"
       ]
      },
      {
-      "id": "tag:TI-121",
+      "id": "tag:TT-121",
       "kind": "tag",
-      "truth": "TI-121  Cooling-water outlet T",
-      "ocr_crop": "TI-121 Cooling-water outlet t T",
-      "char_accuracy": 0.931,
-      "exact": false,
+      "truth": "TT-121  Cooling-water outlet T",
+      "ocr_crop": "TT-121 Cooling-water outlet T",
+      "char_accuracy": 1.0,
+      "exact": true,
       "ids": [
-       "TI-121"
+       "TT-121"
       ],
       "ids_read_in_crop": [
-       "TI-121"
+       "TT-121"
       ],
-      "ids_read_in_frame": []
+      "ids_read_in_frame": [
+       "TT-121"
+      ]
      },
      {
       "id": "overlay:badge",
       "kind": "overlay_badge",
       "truth": "Prototype · placeholder geometry · recorded replay",
-      "ocr_crop": "Prototype · placeholder g r geometry · recorded replay",
-      "char_accuracy": 0.913,
-      "exact": false,
+      "ocr_crop": "Prototype · placeholder geometry · recorded replay",
+      "char_accuracy": 1.0,
+      "exact": true,
       "ids": [],
       "ids_read_in_crop": [],
       "ids_read_in_frame": []
@@ -1137,8 +1155,8 @@
      {
       "id": "overlay:purpose",
       "kind": "overlay_card",
-      "truth": "Purpose\nThe gas feeds react here to form the liquid\nproducts G and H, and the reactions give off\nheat.\nHeat removal: cooling water carries the heat\nof reaction away; the products leave as\nvapour.",
-      "ocr_crop": "Purpose The gas feeds react here to form the liquid products G and H, and the reactions give off heat. Heat removal: cooling water carries the heat of reaction away; the products leave as vapour.",
+      "truth": "Purpose\nThe agitated reactor where A, C, D and E react\nto the products G and H (with F as a\nbyproduct); cooling water removes the heat of\nreaction, and the products leave as vapour\nwith the unreacted gas (stream 7).\nHeat removal: cooling water carries the heat\nof reaction away; the products leave as\nvapour.",
+      "ocr_crop": "Purpose The agitated reactor where A, C, D and E react to the products G and H (with F as a byproduct); cooling water removes the heat of reaction, and the products leave as vapour with the unreacted gas (stream 7). Heat removal: cooling water carries the heat of reaction away; the products leave as vapour.",
       "char_accuracy": 1.0,
       "exact": true,
       "ids": [],
@@ -1239,9 +1257,9 @@
       "id": "unit:V-101",
       "kind": "unit",
       "truth": "V-101  Vapor/Liquid Separator",
-      "ocr_crop": "V-101 Vapor/Liquid S Separator",
-      "char_accuracy": 0.929,
-      "exact": false,
+      "ocr_crop": "V-101 Vapor/Liquid Separator",
+      "char_accuracy": 1.0,
+      "exact": true,
       "ids": [
        "V-101"
       ],
@@ -1273,9 +1291,9 @@
       "id": "unit:C-101",
       "kind": "unit",
       "truth": "C-101  Product Stripper",
-      "ocr_crop": "C-101 Product Stripper",
-      "char_accuracy": 1.0,
-      "exact": true,
+      "ocr_crop": "C-101 Product t Stripper",
+      "char_accuracy": 0.909,
+      "exact": false,
       "ids": [
        "C-101"
       ],
@@ -1287,40 +1305,44 @@
       ]
      },
      {
-      "id": "tag:PI-107",
+      "id": "tag:PT-107",
       "kind": "tag",
-      "truth": "PI-107  2,897 kPa g · high alarm 2,895 · shutdown 3,000",
-      "ocr_crop": "PI-107 2,897 kPa g· high alarm 2,895 · shutdown 3,000",
+      "truth": "PT-107  2,897 kPa g · high alarm 2,895 · shutdown 3,000",
+      "ocr_crop": "PT-107 2,897 kPa g · high alarm 2,895 · shutdown 3,000",
       "char_accuracy": 1.0,
       "exact": true,
       "ids": [
-       "PI-107"
+       "PT-107"
       ],
       "ids_read_in_crop": [
-       "PI-107"
+       "PT-107"
       ],
-      "ids_read_in_frame": []
+      "ids_read_in_frame": [
+       "PT-107"
+      ]
      },
      {
-      "id": "tag:TI-109",
+      "id": "tag:TT-109",
       "kind": "tag",
-      "truth": "TI-109  120.4 °C · shutdown 175",
-      "ocr_crop": "601-11 120.4 °C·shutdown 175",
-      "char_accuracy": 0.821,
+      "truth": "TT-109  120.4 °C · shutdown 175",
+      "ocr_crop": "T-1-19 120.4 C·shutdown 175",
+      "char_accuracy": 0.857,
       "exact": false,
       "ids": [
-       "TI-109"
+       "TT-109"
       ],
       "ids_read_in_crop": [],
-      "ids_read_in_frame": []
+      "ids_read_in_frame": [
+       "TT-109"
+      ]
      },
      {
       "id": "overlay:badge",
       "kind": "overlay_badge",
       "truth": "Prototype · placeholder geometry · recorded replay",
-      "ocr_crop": "Prototype · placeholder g r geometry · recorded replay",
-      "char_accuracy": 0.913,
-      "exact": false,
+      "ocr_crop": "Prototype · placeholder geometry · recorded replay",
+      "char_accuracy": 1.0,
+      "exact": true,
       "ids": [],
       "ids_read_in_crop": [],
       "ids_read_in_frame": []
@@ -1339,15 +1361,19 @@
      {
       "id": "overlay:caption",
       "kind": "overlay_caption",
-      "truth": "Fault 6 (loss of A feed): +294 min\nPI-107 reaches 2,897 kPa g, above its 2,895 kPa g high alarm; 19 tags are outside their normal band.",
-      "ocr_crop": "Fault 6 (loss of A feed): +294 min Pl-107 reaches 2,897 kPa g, above its 2,895 kPa g high alarm; 19 tags are outside their normal band.",
-      "char_accuracy": 0.993,
-      "exact": false,
+      "truth": "Fault 6 (loss of A feed): +294 min\nPT-107 reaches 2,897 kPa g, above its 2,895 kPa g high alarm; 19 tags are outside their normal band.",
+      "ocr_crop": "Fault 6 (loss of A feed): +294 min PT-107 reaches 2,897 kPa g, above its 2,895 kPa g high alarm; 19 tags are outside their normal band.",
+      "char_accuracy": 1.0,
+      "exact": true,
       "ids": [
-       "PI-107"
+       "PT-107"
       ],
-      "ids_read_in_crop": [],
-      "ids_read_in_frame": []
+      "ids_read_in_crop": [
+       "PT-107"
+      ],
+      "ids_read_in_frame": [
+       "PT-107"
+      ]
      }
     ]
    },
@@ -1401,7 +1427,9 @@
       "ids_read_in_crop": [
        "E-101"
       ],
-      "ids_read_in_frame": []
+      "ids_read_in_frame": [
+       "E-101"
+      ]
      },
      {
       "id": "unit:V-101",
@@ -1416,7 +1444,9 @@
       "ids_read_in_crop": [
        "V-101"
       ],
-      "ids_read_in_frame": []
+      "ids_read_in_frame": [
+       "V-101"
+      ]
      },
      {
       "id": "unit:K-101",
@@ -1439,9 +1469,9 @@
       "id": "unit:C-101",
       "kind": "unit",
       "truth": "C-101  Product Stripper",
-      "ocr_crop": "C-101 Product Stripper",
-      "char_accuracy": 1.0,
-      "exact": true,
+      "ocr_crop": "C-101 Product t Stripper",
+      "char_accuracy": 0.909,
+      "exact": false,
       "ids": [
        "C-101"
       ],
@@ -1456,9 +1486,9 @@
       "id": "overlay:badge",
       "kind": "overlay_badge",
       "truth": "Prototype · placeholder geometry · recorded replay",
-      "ocr_crop": "Prototype · placeholder g r geometry · recorded replay",
-      "char_accuracy": 0.913,
-      "exact": false,
+      "ocr_crop": "Prototype · placeholder geometry · recorded replay",
+      "char_accuracy": 1.0,
+      "exact": true,
       "ids": [],
       "ids_read_in_crop": [],
       "ids_read_in_frame": []
@@ -1477,8 +1507,8 @@
      {
       "id": "overlay:caption",
       "kind": "overlay_caption",
-      "truth": "Process flow (seed topology, unverified)\nFeeds and recycle meet at the feed system, react in R-101, condense, separate; gas recycles through K-101 and liquid is stripped to product.",
-      "ocr_crop": "Process flow (seed topology, unverified) Feeds and recycle meet at the feed system, react in R-101, condense, separate; gas recycles through K-101 and liquid is stripped to product.",
+      "truth": "Process flow (source-checked topology)\nFeeds and recycle meet at the feed system, react in R-101, condense, separate; gas recycles through K-101 and liquid is stripped to product.",
+      "ocr_crop": "Process flow (source-checked topology) Feeds and recycle meet at the feed system, react in R-101, condense, separate; gas recycles through K-101 and liquid is stripped to product.",
       "char_accuracy": 1.0,
       "exact": true,
       "ids": [
@@ -1503,9 +1533,9 @@
       "id": "unit:U-100",
       "kind": "unit",
       "truth": "U-100  Feed System",
-      "ocr_crop": "U-100 Feed d System",
-      "char_accuracy": 0.882,
-      "exact": false,
+      "ocr_crop": "U-100 Feed  System",
+      "char_accuracy": 1.0,
+      "exact": true,
       "ids": [
        "U-100"
       ],
@@ -1588,9 +1618,9 @@
       "id": "unit:C-101",
       "kind": "unit",
       "truth": "C-101  Product Stripper",
-      "ocr_crop": "C-101 Product Stripper",
-      "char_accuracy": 1.0,
-      "exact": true,
+      "ocr_crop": "C-101 Product t Stripper",
+      "char_accuracy": 0.909,
+      "exact": false,
       "ids": [
        "C-101"
       ],
@@ -1602,21 +1632,10 @@
       ]
      },
      {
-      "id": "loto:1",
+      "id": "loto:bl:S1",
       "kind": "loto",
-      "truth": "1  A feed: battery-limit block valve*",
-      "ocr_crop": "A feed: battery-limit  block valve* I",
-      "char_accuracy": 0.889,
-      "exact": false,
-      "ids": [],
-      "ids_read_in_crop": [],
-      "ids_read_in_frame": []
-     },
-     {
-      "id": "loto:2",
-      "kind": "loto",
-      "truth": "2  D feed: battery-limit block valve*",
-      "ocr_crop": "2 D feed: battery-limit block valve*",
+      "truth": "S1 A feed: boundary, not assessed*",
+      "ocr_crop": "S1 A feed: boundary, not assessed*",
       "char_accuracy": 1.0,
       "exact": true,
       "ids": [],
@@ -1624,10 +1643,10 @@
       "ids_read_in_frame": []
      },
      {
-      "id": "loto:3",
+      "id": "loto:bl:S2",
       "kind": "loto",
-      "truth": "3  E feed: battery-limit block valve*",
-      "ocr_crop": "3 E feed: battery-limit block valve*",
+      "truth": "S2 D feed: boundary, not assessed*",
+      "ocr_crop": "S2 D feed: boundary, not assessed*",
       "char_accuracy": 1.0,
       "exact": true,
       "ids": [],
@@ -1635,32 +1654,10 @@
       "ids_read_in_frame": []
      },
      {
-      "id": "loto:4",
+      "id": "loto:bl:S3",
       "kind": "loto",
-      "truth": "4  A and C feed: battery-limit block valve*",
-      "ocr_crop": "A and C feed: battery-limit block valve* 4",
-      "char_accuracy": 0.905,
-      "exact": false,
-      "ids": [],
-      "ids_read_in_crop": [],
-      "ids_read_in_frame": []
-     },
-     {
-      "id": "loto:5",
-      "kind": "loto",
-      "truth": "5  Purge: battery-limit block valve*",
-      "ocr_crop": "5 Purge: battery-limit it block valve*",
-      "char_accuracy": 0.914,
-      "exact": false,
-      "ids": [],
-      "ids_read_in_crop": [],
-      "ids_read_in_frame": []
-     },
-     {
-      "id": "loto:6",
-      "kind": "loto",
-      "truth": "6  Stripper product: battery-limit block valve*",
-      "ocr_crop": "6 Stripper product: battery-limit block valve*",
+      "truth": "S3 E feed: boundary, not assessed*",
+      "ocr_crop": "S3 E feed: boundary, not assessed*",
       "char_accuracy": 1.0,
       "exact": true,
       "ids": [],
@@ -1668,10 +1665,43 @@
       "ids_read_in_frame": []
      },
      {
-      "id": "loto:7",
+      "id": "loto:bl:S4",
       "kind": "loto",
-      "truth": "7  R-101 agitator motor: electrical*",
-      "ocr_crop": "7 R-101 agitator motor: electrical*",
+      "truth": "S4 A and C feed: boundary, not assessed*",
+      "ocr_crop": "S4 A and C feed: boundary, not assessed*",
+      "char_accuracy": 1.0,
+      "exact": true,
+      "ids": [],
+      "ids_read_in_crop": [],
+      "ids_read_in_frame": []
+     },
+     {
+      "id": "loto:bl:S9",
+      "kind": "loto",
+      "truth": "S9 Purge: boundary, not assessed*",
+      "ocr_crop": "S9 Purge: boundary, not assessed*",
+      "char_accuracy": 1.0,
+      "exact": true,
+      "ids": [],
+      "ids_read_in_crop": [],
+      "ids_read_in_frame": []
+     },
+     {
+      "id": "loto:bl:S11",
+      "kind": "loto",
+      "truth": "S11 Stripper product: boundary, not assessed*",
+      "ocr_crop": "S11 Stripper r product: boundary, not assessed*",
+      "char_accuracy": 0.956,
+      "exact": false,
+      "ids": [],
+      "ids_read_in_crop": [],
+      "ids_read_in_frame": []
+     },
+     {
+      "id": "loto:agitator:R-101",
+      "kind": "loto",
+      "truth": "R-101 agitator motor: electrical, not assessed*",
+      "ocr_crop": "R-101 agitator motor: electrical, not assessed*",
       "char_accuracy": 1.0,
       "exact": true,
       "ids": [
@@ -1685,12 +1715,12 @@
       ]
      },
      {
-      "id": "loto:8",
+      "id": "loto:motor:K-101",
       "kind": "loto",
-      "truth": "8  K-101 motor: electrical*",
-      "ocr_crop": "8 K-101 motor: electrical*",
-      "char_accuracy": 1.0,
-      "exact": true,
+      "truth": "K-101 motor: electrical, not assessed*",
+      "ocr_crop": "K-101 motor: electrical, not t assessed*",
+      "char_accuracy": 0.947,
+      "exact": false,
       "ids": [
        "K-101"
       ],
@@ -1702,10 +1732,10 @@
       ]
      },
      {
-      "id": "loto:9",
+      "id": "loto:utility:FV-119-steam",
       "kind": "loto",
-      "truth": "9  C-101 steam*",
-      "ocr_crop": "9 C-101 steam*",
+      "truth": "C-101 steam: boundary, not assessed*",
+      "ocr_crop": "C-101 steam: boundary, not assessed*",
       "char_accuracy": 1.0,
       "exact": true,
       "ids": [
@@ -1719,29 +1749,29 @@
       ]
      },
      {
-      "id": "loto:10",
+      "id": "loto:utility:TV-121-supply",
       "kind": "loto",
-      "truth": "10  R-101 cooling water in/out*",
-      "ocr_crop": "10 R-101 cooling water in/out*",
-      "char_accuracy": 1.0,
-      "exact": true,
-      "ids": [
-       "R-101"
-      ],
-      "ids_read_in_crop": [
-       "R-101"
-      ],
-      "ids_read_in_frame": [
-       "R-101"
-      ]
-     },
-     {
-      "id": "loto:11",
-      "kind": "loto",
-      "truth": "11  E-101 cooling water in/out*",
-      "ocr_crop": "II E-101 cooling water in/out*",
-      "char_accuracy": 0.933,
+      "truth": "R-101 cooling water: boundary, not assessed*",
+      "ocr_crop": "R-101 cooling g water: boundary, not assessed*",
+      "char_accuracy": 0.955,
       "exact": false,
+      "ids": [
+       "R-101"
+      ],
+      "ids_read_in_crop": [
+       "R-101"
+      ],
+      "ids_read_in_frame": [
+       "R-101"
+      ]
+     },
+     {
+      "id": "loto:utility:FV-117-supply",
+      "kind": "loto",
+      "truth": "E-101 cooling water: boundary, not assessed*",
+      "ocr_crop": "E-101 cooling water: boundary, not assessed*",
+      "char_accuracy": 1.0,
+      "exact": true,
       "ids": [
        "E-101"
       ],
@@ -1756,9 +1786,9 @@
       "id": "overlay:badge",
       "kind": "overlay_badge",
       "truth": "Prototype · placeholder geometry · recorded replay",
-      "ocr_crop": "Prototype · placeholder g r geometry · recorded replay",
-      "char_accuracy": 0.913,
-      "exact": false,
+      "ocr_crop": "Prototype · placeholder geometry · recorded replay",
+      "char_accuracy": 1.0,
+      "exact": true,
       "ids": [],
       "ids_read_in_crop": [],
       "ids_read_in_frame": []
@@ -1766,8 +1796,8 @@
      {
       "id": "overlay:loto",
       "kind": "overlay_card",
-      "truth": "Design mockup, not a procedure\nIsolation points are inferred from the TE seed\nmodel (marked *). A real lockout/tagout\nprocedure comes from the site's energy-control\nprogram (OSHA 1910.147), its verified P&IDs\nand an authorized person.",
-      "ocr_crop": "Design mockup, not a procedure Isolation points are inferred from the TE seed model (marked *). A real lockout/tagout procedure comes from the site's energy-control program (OSHA 1910.147), its verified P&IDs and an authorized person.",
+      "truth": "DESIGN MOCKUP FOR A PROOF OF CONCEPT AND TESTING GROUND. NOT A PROCEDURE. All results must be\nverified by a qualified professional. THIS IS NOT AN ISOLATION OR LOCKOUT/TAGOUT PROCEDURE AND\nMUST NOT BE USED AS ONE. Every point and every path below must be verified by a qualified person\nagainst the as-built plant and the site's energy-control program (for example under OSHA 29 CFR\n1910.147). It is read from drawings, which are not as-built: a point it does not list may exist,\nand a point it lists may not isolate. Electrical, pneumatic, hydraulic, stored-pressure, gravity\nand thermal energy are not assessed.",
+      "ocr_crop": "DESIGN MOCKUP FOR A PROOF OF CONCEPT AND TESTING GROUND. NOT A PROCEDURE. All results must be verified by a qualified professional. THIS IS NOT AN ISOLATION OR LOCKOUT/TAGOUT PROCEDURE AND MUST NOT BE USED AS ONE. Every point and every path below must be verified by a qualified person against the as-built plant and the site's energy-control program (for example under OSHA 29 CFR 1910.147). It is read from drawings, which are not as-built: a point it does not list may exist, and a point it lists may not isolate. Electrical, pneumatic, hydraulic, stored-pressure, gravity and thermal energy are not assessed.",
       "char_accuracy": 1.0,
       "exact": true,
       "ids": [],
@@ -1777,8 +1807,8 @@
      {
       "id": "overlay:caption",
       "kind": "overlay_caption",
-      "truth": "Lockout/tagout view: design mockup only\nNumbered tags mark isolation points inferred from the seed model; this is not a LOTO procedure.",
-      "ocr_crop": "Lockout/tagout view: design mockup only Numbered tags mark isolation points inferred from the seed model; this is not a LOTO procedure.",
+      "truth": "Lockout/tagout view: design mockup only\nTags mark energy boundaries inferred from the seed model, by model ID, in no order; this is not a LOTO procedure.",
+      "ocr_crop": "Lockout/tagout view: design mockup only Tags mark energy boundaries inferred from the seed model, by model ID, in no order; this is not a LOTO procedure.",
       "char_accuracy": 1.0,
       "exact": true,
       "ids": [],
@@ -1790,28 +1820,26 @@
   ],
   "summary": {
    "labels": 57,
-   "exact_after_normalising": 38,
-   "mean_char_accuracy": 0.966,
+   "exact_after_normalising": 45,
+   "mean_char_accuracy": 0.979,
    "labels_below_0.90": [
     "00_overview_normal:unit:U-100",
-    "02_r-101_normal:tag:TI-109",
+    "02_r-101_normal:tag:TT-109",
     "21_overview_fault_alarm:unit:U-100",
-    "21_overview_fault_alarm:tag:TI-109",
-    "30_flow_legend:unit:U-100",
-    "40_loto_mockup:unit:U-100",
-    "40_loto_mockup:loto:1"
+    "21_overview_fault_alarm:tag:TT-109",
+    "30_flow_legend:unit:U-100"
    ],
    "tag_and_unit_ids": 42,
-   "ids_read_in_crop": 39,
-   "ids_read_in_frame": 35,
+   "ids_read_in_crop": 40,
+   "ids_read_in_frame": 42,
    "by_kind": {
-    "loto": 0.967,
-    "overlay_badge": 0.913,
-    "overlay_caption": 0.999,
+    "loto": 0.987,
+    "overlay_badge": 1.0,
+    "overlay_caption": 1.0,
     "overlay_card": 1.0,
     "overlay_legend": 1.0,
-    "tag": 0.912,
-    "unit": 0.975
+    "tag": 0.948,
+    "unit": 0.971
    }
   }
  }

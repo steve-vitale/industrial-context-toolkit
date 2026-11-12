@@ -1,6 +1,6 @@
 """The OPEN100 plant structure that needs no process data: areas, equipment and what each is for, the main flow paths
-between equipment, the 12 sheets stitched into one plant by their off-page connectors, a tour order, and the
-isolation points a lockout/tagout review would start from.
+between equipment, the 12 sheets stitched into one plant by their off-page connectors, a tour order, and a
+lockout/tagout design mockup listing the energy boundaries and devices the drawing shows (not a procedure).
 
 Inputs (all committed): the extracted twin (out/twin/r2-tiles-trace/codex/plant_model.json), the inferred flow
 directions (out/open100_structural/flow_direction.json, scripts/flow_direction.py) and the drawing register read
@@ -25,6 +25,8 @@ import json
 import re
 from collections import Counter, defaultdict, deque
 from pathlib import Path
+
+from isolation_wording import MOCKUP_STATUS, NOT_POSITIVE
 
 ROOT = Path(__file__).resolve().parent.parent
 TWIN = ROOT / "out" / "twin" / "r2-tiles-trace" / "codex" / "plant_model.json"
@@ -283,7 +285,8 @@ def build(model, dirs):
                                  "generic": "class description only"}},
             "areas": areas, "equipment": equipment, "unit_links": list(unit_links.values()),
             "area_links": edges, "connectors_stitched": area_links, "external_connectors": external,
-            "tour_order": order, "tour_order_basis": order_note, "isolation_points": loto,
+            "tour_order": order, "tour_order_basis": order_note,
+            "isolation_points_status": MOCKUP_STATUS, "isolation_points": loto,
             "instrument_markers": [{"id": i["id"], "tag": norm(i["tag"]), "unit": i["unit"],
                                     "sheet": i["provenance"][0]["sheet"]} for i in model["instruments"]
                                    if i.get("tag") and i.get("unit") in units and "XXX" not in i["tag"].upper()]}
@@ -349,41 +352,42 @@ def isolation_points(model, dirs, equipment, external, area_links, recs):
         p = v["provenance"][0]
         ops = inst_by_parent.get(v["id"], [])
         if any(MOTOR_VALVE.match(t or "") for t in ops):
-            kind, note = "motor_operated_valve", ("Motor-operated valve: an isolation point for the line, and its "
-                                                  "motor is an electrical energy source of its own.")
+            kind, note = "motor_operated_valve", ("Motor-operated valve in a line. Its motor is an electrical energy "
+                                                  "source of its own (not assessed). Not assessed: whether this "
+                                                  "valve isolates the line.")
         elif any(CONTROL_VALVE.match(t or "") for t in ops):
-            kind, note = "control_valve", ("Control valve: not an energy-isolating device by itself. Listed so it is "
-                                           "not mistaken for one.")
+            kind, note = "control_valve", ("Control valve: %s. Listed so it is not mistaken for an isolating "
+                                           "device. Not assessed: which device isolates this line." % NOT_POSITIVE)
         elif any(RELIEF.match(t or "") for t in ops):
-            kind, note = "relief_device", ("Relief device: must never be used for isolation, and must not be isolated "
-                                           "from the equipment it protects while that equipment can be pressured.")
+            kind, note = "relief_device", ("Relief device: %s. Its relief path is a way out for energy from the "
+                                           "equipment it protects (not assessed)." % NOT_POSITIVE)
         elif degree[v["id"]] <= 1:
-            kind, note = "vent_drain_or_test", ("Valve with one process connection: likely a vent, drain or test "
-                                                "connection, used to release or check for trapped pressure.")
+            kind, note = "vent_drain_or_test", ("Valve with one process connection on this drawing: possibly a vent, "
+                                                "drain or test connection. Not assessed: what it serves.")
         else:
-            kind, note = "manual_block_valve", "Manual valve in a line: a candidate block (isolation) valve."
+            kind, note = "manual_block_valve", ("Manual valve in a line, as read from the drawing. Not assessed: "
+                                                "whether it isolates the line.")
         pts.append({"sheet": p["sheet"], "id": v["id"], "tag": norm(v.get("tag")) or None, "kind": kind,
                     "operators": ops, "box_0_1000": p["box_0_1000"], "note": note})
     for e in equipment:
         if e["class"] == "pump":
             pts.append({"sheet": e["sheet"], "id": e["id"], "tag": e["tag"], "kind": "motor_driven_equipment",
                         "box_0_1000": e["box_0_1000"],
-                        "note": "Motor-driven: electrical isolation at its breaker or disconnect (not on this drawing), "
-                                "plus the suction and discharge block valves."})
+                        "note": "Motor-driven: electrical energy is not shown on this drawing (not assessed)."})
     for c in external + area_links:   # every off-page line is a way for energy to come in from another system
         t = c["text"].upper()
         vd = any(w in t for w in VENT_DRAIN_WORDS)
         pts.append({"sheet": c["sheet"], "id": c["connector"], "tag": None,
                     "kind": "vent_drain_connection" if vd else "boundary_connection",
                     "box_0_1000": c["box_0_1000"], "text": c["text"], "flow": c.get("direction"),
-                    "note": ("Line leaves to a vent or drain system (%s): isolate or verify it on that drawing."
-                             if vd else "Line crosses to another system (%s): energy can come in from there; "
-                             "isolate at the first block valve on this side or on that drawing.") % c["text"]})
+                    "note": ("Boundary: a line continues to a vent or drain system (%s); energy can leave or enter "
+                             "here. Not assessed: which device isolates it."
+                             if vd else "Boundary: a line continues to another system (%s); energy can enter here. "
+                             "Not assessed: which device isolates it.") % c["text"]})
     return pts
 
 
-LOTO_STATUS = ("DESIGN MOCKUP, NOT A PROCEDURE: unverified extraction; a valve the extraction missed is not listed; "
-               "isolation comes from the site's energy-control program and an authorized person")
+LOTO_STATUS = MOCKUP_STATUS   # the fixed wording of docs/GOAL_ISOLATION_POC.md, shared by every LOTO mockup
 
 
 def main():

@@ -342,7 +342,8 @@
     "scripts/ignition/build_mimic.py",
     "scripts/ignition/build_hmi.py",
     "scripts/build_scene_data.py",
-    "scripts/provenance.py"
+    "scripts/provenance.py",
+    "scripts/isolation_wording.py"
    ],
    "outputs": [
     "out/mimic/te_overview_layout.json"
@@ -365,7 +366,7 @@
    "id": "te.scene",
    "dataset": "te",
    "stage": 2,
-   "title": "3D scene data and inferred LOTO candidates",
+   "title": "3D scene data and the LOTO mockup's control valves (not positive isolation)",
    "kind": "generated",
    "rebuild": "auto",
    "poc": true,
@@ -377,7 +378,8 @@
    ],
    "code": [
     "scripts/build_scene_data.py",
-    "scripts/provenance.py"
+    "scripts/provenance.py",
+    "scripts/isolation_wording.py"
    ],
    "outputs": [
     "out/scene/te_scene.json"
@@ -389,8 +391,8 @@
     ]
    ],
    "requires": [],
-   "treatment": "Equipment, tags, ownership and stream ends copied from the model; positions are the 2D layout scaled; sizes, elevations and pipe routes are placeholders; LOTO candidates are inferred (valves on streams touching a unit).",
-   "carries": "every unit, tag, pipe and LOTO candidate: the provenance of its model item; geometry is marked placeholder; LOTO is marked inferred and not a procedure",
+   "treatment": "Equipment, tags, ownership and stream ends copied from the model; positions are the 2D layout scaled; sizes, elevations and pipe routes are placeholders; the control valves on streams touching a unit are listed for the LOTO mockup as not positive isolation (inferred; the model holds no block valves).",
+   "carries": "every unit, tag, pipe and LOTO valve crossing: the provenance of its model item; geometry is marked placeholder; LOTO is marked inferred and not a procedure",
    "checked_by": "scripts/test_pipeline.py (that it follows the model). The 3D tour that renders it is te.tour (proof of concept)",
    "config": []
   },
@@ -1623,7 +1625,8 @@
     "scripts/label_layout.py",
     "scripts/hazard_citations.py",
     "scripts/verify_3d_render.py",
-    "scripts/display_contract.py"
+    "scripts/display_contract.py",
+    "scripts/isolation_wording.py"
    ],
    "config": [
     "data/te_tour_cards.json",
@@ -1747,7 +1750,8 @@
     "drafts/interactive-tour/kit/iso-kit.mjs",
     "drafts/interactive-tour/kit/lathe.mjs",
     "drafts/interactive-tour/kit/tube.mjs",
-    "drafts/interactive-tour/kit/audit.mjs"
+    "drafts/interactive-tour/kit/audit.mjs",
+    "scripts/isolation_wording.py"
    ],
    "config": [
     "data/te_tour_cards.json",
@@ -1793,8 +1797,8 @@
     "data/external/te-braatz/d06_te.dat"
    ],
    "requires_note": "the recorded normal and fault-6 replays (python scripts/fetch_te_data.py); Node.js 20.10+ on PATH; a Chrome or Chromium for verify.mjs (CHROME_PATH, or a Playwright browser cache); optional TOUR_DENY_TERMS for the publication hygiene check",
-   "treatment": "Topology, tags, purposes, hazard citations, limits and LOTO points are read through the same functions the Blender tour uses (build_3d_scene.build_scene, tour_scene); the page itself (out/interactive_tour/te-tour.html and te-tour-light.html, ignored by git because it embeds the replay) is built with drawing code adapted from the MIT anatomy skill; sizes, heights, nozzles, routes and cutaway internals are placeholders; verify.mjs re-reads the model, the P&ID answer key, the Ignition and PI AF exports and the raw replay files independently and drives the page in headless Chrome. Screenshot pixels can differ slightly between runs (animation phase), so a rebuild may rewrite the stills.",
-   "carries": "PROOF OF CONCEPT: placeholder geometry, recorded replay, inferred LOTO points (not a procedure), text written with AI assistance and not reviewed by an operator",
+   "treatment": "Topology, tags, purposes, hazard citations and limits are read through the same functions the Blender tour uses (build_3d_scene.build_scene, tour_scene); the page itself (out/interactive_tour/te-tour.html and te-tour-light.html, ignored by git because it embeds the replay) is built with drawing code adapted from the MIT anatomy skill; sizes, heights, nozzles, routes and cutaway internals are placeholders; verify.mjs re-reads the model, the P&ID answer key, the Ignition and PI AF exports and the raw replay files independently and drives the page in headless Chrome. Screenshot pixels can differ slightly between runs (animation phase), so a rebuild may rewrite the stills.",
+   "carries": "PROOF OF CONCEPT: placeholder geometry, recorded replay, no lockout/tagout content, text written with AI assistance and not reviewed by an operator",
    "checked_by": "drafts/interactive-tour/verify.mjs (topology and tags against the raw model, P&ID key, Ignition and PI AF exports and replay files; the anatomy kit geometry audit; legibility at 390 and 1440 px in both themes; behaviour drive)"
   },
   {
@@ -2030,7 +2034,8 @@
     "data/open100_equipment_schedule.json"
    ],
    "code": [
-    "scripts/open100_structure.py"
+    "scripts/open100_structure.py",
+    "scripts/isolation_wording.py"
    ],
    "outputs": [
     "out/open100_structural/plant_structure.json",
@@ -2042,7 +2047,7 @@
    ],
    "id": "open100.structure",
    "stage": 4,
-   "title": "Plant structure: areas, equipment purposes, sheets stitched by connector drawing numbers, tour order, candidate isolation points",
+   "title": "Plant structure: areas, equipment purposes, sheets stitched by connector drawing numbers, tour order, LOTO mockup points (observations, not isolation points)",
    "kind": "generated",
    "rebuild": "auto",
    "command": [
@@ -2051,8 +2056,8 @@
      "scripts/open100_structure.py"
     ]
    ],
-   "treatment": "Areas named from title blocks or other sheets' connector text; purposes from the transcribed schedules; 38 sheet-to-sheet links (36 directed); 375 candidate isolation points with boxes.",
-   "carries": "structure only; every item stays unverified; the isolation points are a reviewer's checklist, not a LOTO procedure",
+   "treatment": "Areas named from title blocks or other sheets' connector text; purposes from the transcribed schedules; 38 sheet-to-sheet links (36 directed); LOTO mockup points with boxes, each a non-directive observation (control and relief valves marked not positive isolation).",
+   "carries": "structure only; every item stays unverified; the LOTO mockup points are observations for a reviewer, not isolation points or a LOTO procedure",
    "checked_by": "scripts/test_open100_structural.py (output consistency)"
   },
   {
@@ -2070,7 +2075,8 @@
    ],
    "code": [
     "scripts/render_open100_structural.py",
-    "scripts/ignition/build_open100_mimic.py"
+    "scripts/ignition/build_open100_mimic.py",
+    "scripts/isolation_wording.py"
    ],
    "outputs": [
     "out/open100_structural/mimic/views.json",

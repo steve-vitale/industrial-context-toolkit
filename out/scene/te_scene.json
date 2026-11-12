@@ -7,7 +7,7 @@
   "source_sha256": "7222ed15fa4b56ae0d38f6401160eef8881ccf1ba511380ba27161883f84921b",
   "inherits": "every element carries the provenance of the model item it came from; geometry adds none",
   "geometry": "positions are the model's 2D layout scaled to metres; sizes, elevations and routes are placeholders",
-  "loto": "candidates are inferred from the model; this is not a LOTO procedure (OSHA 1910.147)"
+  "loto": "DESIGN MOCKUP FOR A PROOF OF CONCEPT AND TESTING GROUND. NOT A PROCEDURE. All results must be verified by a qualified professional. THIS IS NOT AN ISOLATION OR LOCKOUT/TAGOUT PROCEDURE AND MUST NOT BE USED AS ONE. Every point and every path below must be verified by a qualified person against the as-built plant and the site's energy-control program (for example under OSHA 29 CFR 1910.147). It is read from drawings, which are not as-built: a point it does not list may exist, and a point it lists may not isolate. Electrical, pneumatic, hydraulic, stored-pressure, gravity and thermal energy are not assessed."
  },
  "units": [
   {
@@ -749,11 +749,12 @@
    }
   }
  ],
- "loto_candidates": [
+ "loto_valve_crossings": [
   {
    "unit": "C-101",
-   "isolation_candidate": "FV-104",
+   "control_valve": "FV-104",
    "stream": "S4",
+   "isolation": "not positive isolation (a control valve; which device isolates the stream is not assessed)",
    "valve_owner_in_model": "C-101",
    "inferred": true,
    "basis": "final element on stream S4 (BL -> C-101) in the model",
@@ -764,8 +765,9 @@
   },
   {
    "unit": "C-101",
-   "isolation_candidate": "LV-112",
+   "control_valve": "LV-112",
    "stream": "S10",
+   "isolation": "not positive isolation (a control valve; which device isolates the stream is not assessed)",
    "valve_owner_in_model": "V-101",
    "inferred": true,
    "basis": "final element on stream S10 (V-101 -> C-101) in the model",
@@ -776,8 +778,9 @@
   },
   {
    "unit": "C-101",
-   "isolation_candidate": "LV-115",
+   "control_valve": "LV-115",
    "stream": "S11",
+   "isolation": "not positive isolation (a control valve; which device isolates the stream is not assessed)",
    "valve_owner_in_model": "C-101",
    "inferred": true,
    "basis": "final element on stream S11 (C-101 -> BL) in the model",
@@ -788,8 +791,9 @@
   },
   {
    "unit": "U-100",
-   "isolation_candidate": "FV-101",
+   "control_valve": "FV-101",
    "stream": "S1",
+   "isolation": "not positive isolation (a control valve; which device isolates the stream is not assessed)",
    "valve_owner_in_model": "U-100",
    "inferred": true,
    "basis": "final element on stream S1 (BL -> U-100) in the model",
@@ -800,8 +804,9 @@
   },
   {
    "unit": "U-100",
-   "isolation_candidate": "FV-102",
+   "control_valve": "FV-102",
    "stream": "S2",
+   "isolation": "not positive isolation (a control valve; which device isolates the stream is not assessed)",
    "valve_owner_in_model": "U-100",
    "inferred": true,
    "basis": "final element on stream S2 (BL -> U-100) in the model",
@@ -812,8 +817,9 @@
   },
   {
    "unit": "U-100",
-   "isolation_candidate": "FV-103",
+   "control_valve": "FV-103",
    "stream": "S3",
+   "isolation": "not positive isolation (a control valve; which device isolates the stream is not assessed)",
    "valve_owner_in_model": "U-100",
    "inferred": true,
    "basis": "final element on stream S3 (BL -> U-100) in the model",
@@ -824,8 +830,9 @@
   },
   {
    "unit": "V-101",
-   "isolation_candidate": "FV-110",
+   "control_valve": "FV-110",
    "stream": "S9",
+   "isolation": "not positive isolation (a control valve; which device isolates the stream is not assessed)",
    "valve_owner_in_model": "V-101",
    "inferred": true,
    "basis": "final element on stream S9 (V-101 -> BL) in the model",
@@ -836,8 +843,9 @@
   },
   {
    "unit": "V-101",
-   "isolation_candidate": "LV-112",
+   "control_valve": "LV-112",
    "stream": "S10",
+   "isolation": "not positive isolation (a control valve; which device isolates the stream is not assessed)",
    "valve_owner_in_model": "V-101",
    "inferred": true,
    "basis": "final element on stream S10 (V-101 -> C-101) in the model",

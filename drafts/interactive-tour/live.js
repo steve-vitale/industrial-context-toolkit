@@ -1,5 +1,5 @@
 // Live layer of the interactive tour. Inlined by build.mjs after `const TOUR = {...}` and model.mjs (classify,
-// statesAt, alarmsAt, firstAlarm, flowShare, energized, minutesAfterFault, fmt). Every number written to the page
+// statesAt, alarmsAt, firstAlarm, flowShare, minutesAfterFault, fmt). Every number written to the page
 // is read from TOUR.data (the export of the repository's data files) through those functions.
 const D = TOUR.data;
 const L = TOUR.live;
@@ -13,7 +13,6 @@ const card = document.querySelector("[data-card]");
 const scrub = document.querySelector("[data-scrub]");
 const timeText = document.querySelector("[data-time]");
 const alarmBox = document.querySelector("[data-alarms]");
-const energyBox = document.querySelector("[data-energy]");
 const playButton = document.querySelector("[data-play]");
 const figure = document.querySelector(".tour-figure");
 const still = matchMedia("(prefers-reduced-motion: reduce)");
@@ -24,7 +23,7 @@ const utilityOf = Object.fromEntries(D.utilities.map((u) => [u.id, u]));
 const esc = (t) => String(t ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const NS = "http://www.w3.org/2000/svg";
 
-const S = { mode: "flow", focus: null, run: "normal", sample: 0, playing: false, isolated: new Set(), view: L.viewBox.slice(), target: null };
+const S = { mode: "flow", focus: null, run: "normal", sample: 0, playing: false, view: L.viewBox.slice(), target: null };
 
 // ------------------------------------------------------------------ flow pulses
 const flowPaths = {};
@@ -34,19 +33,8 @@ for (const path of plant.querySelectorAll("[data-flow-line]")) {
 const phase = Object.fromEntries(L.lines.map((l) => [l.id, 0]));
 const BASE_SPEED = 46; // viewBox units per second at the normal-band mean flow
 function lineShare(line) {
-  if (S.mode === "loto") return 1;
   if (line.kind === "utility") return 1;
   return flowShare(D, S.run, S.sample, streamOf[line.id]).share;
-}
-function lineOn(line) {
-  if (S.mode !== "loto") return true;
-  const e = energy();
-  return line.kind === "utility" ? e.utilities[line.id] : e.streams[line.id];
-}
-let energyCache = null;
-function energy() {
-  if (!energyCache) energyCache = energized(D, [...S.isolated]);
-  return energyCache;
 }
 function paintFlow() {
   for (const line of L.lines) {
@@ -92,7 +80,7 @@ function paintStates() {
   const hours = Math.floor((S.sample * D.replay.minutes_per_sample) / 60);
   const mins = (S.sample * D.replay.minutes_per_sample) % 60;
   timeText.textContent = `Sample ${S.sample} of ${D.replay.runs[S.run].samples - 1} · ${hours} h ${String(mins).padStart(2, "0")} min into the record · ${when}`;
-  readout.textContent = S.mode === "loto" ? `LOTO mockup · ${S.isolated.size} of ${D.loto.points.length} isolated` : `sample ${S.sample} · ${n ? `${n} alarm${n > 1 ? "s" : ""}` : "no alarm"}`;
+  readout.textContent = `sample ${S.sample} · ${n ? `${n} alarm${n > 1 ? "s" : ""}` : "no alarm"}`;
   alarmBox.innerHTML = n
     ? alarms.map((a) => {
         const t = tagOf[a.tag];
@@ -133,14 +121,6 @@ function paintFocus() {
     const dim = S.focus && !(it.dataset.unit === S.focus || (route && keep.has(route)) || (it.dataset.unit || "").endsWith(S.focus));
     it.classList.toggle("tour-dim", Boolean(dim));
   }
-  const on = energy();
-  for (const it of items) {
-    const route = it.dataset.route;
-    if (!route) continue;
-    const line = L.lines.find((l) => l.id === route);
-    it.classList.toggle("tour-off", Boolean(line) && !lineOn(line));
-  }
-  void on;
   for (const b of document.querySelectorAll("[data-unit-button]")) b.setAttribute("aria-pressed", String((b.dataset.unitButton || null) === S.focus));
   hint.textContent = S.focus ? "Arrow keys · Esc" : "Select a unit";
   S.target = S.focus ? fitView(L.units[S.focus].box) : L.viewBox.slice();
@@ -168,7 +148,7 @@ function applyView() {
   for (const s of svgs) s.setAttribute("viewBox", v);
 }
 
-// ------------------------------------------------------------------ labels: unit names, key tags, alarms, LOTO points
+// ------------------------------------------------------------------ labels: unit names, key tags, alarms
 let leaderSvg = null;
 function toScreen([x, y]) {
   const m = plant.getScreenCTM();
@@ -180,13 +160,6 @@ function wanted() {
   const out = [];
   const st = states();
   const focus = S.focus;
-  if (S.mode === "loto") {
-    for (const p of L.loto) {
-      if (focus && !lotoNear(p.id, focus)) continue;
-      const point = D.loto.points.find((x) => x.id === p.id);
-      out.push({ id: `loto:${p.id}`, kind: "loto", at: p.at, text: narrow && !focus ? `${p.n}` : `${p.n} ${point.text.split(":")[0]}`, isolated: S.isolated.has(p.id), priority: 2 });
-    }
-  }
   for (const id of D.tour_order) {
     if (focus && id !== focus) continue;
     const u = unitOf[id];
@@ -209,12 +182,6 @@ function wanted() {
     }
   }
   return out.sort((a, b) => b.priority - a.priority);
-}
-function lotoNear(pointId, uid) {
-  const p = D.loto.points.find((x) => x.id === pointId);
-  if (p.target.unit) return p.target.unit === uid;
-  if (p.target.stream) { const s = streamOf[p.target.stream]; return s.from === uid || s.to === uid; }
-  return utilityOf[p.target.utility]?.unit === uid;
 }
 // Occupancy of drawn geometry on screen, at a third of the pixel size, for label placement and its audit. Parts that
 // are dimmed in a focused view do not count: a label may sit over a faded unit.
@@ -279,14 +246,12 @@ function layoutLabels() {
       el.addEventListener("click", () => {
         if (w.kind === "unit") focusUnit(w.unit);
         else if (w.kind === "tag") focusUnit(tagOf[w.tag].unit);
-        else if (w.kind === "loto") toggleLoto(w.id.slice(5));
       });
       labelsBox.appendChild(el);
       pills.set(w.id, el);
     }
     if (el.textContent !== w.text) el.textContent = w.text;
     el.toggleAttribute("data-focus", Boolean(w.focus));
-    el.toggleAttribute("data-isolated", Boolean(w.isolated));
     if (w.state) el.dataset.state = w.state; else delete el.dataset.state;
     el.hidden = false; // a pill hidden by an earlier pass measures 0 x 0
     const bw = el.offsetWidth;
@@ -333,31 +298,6 @@ function layoutLabels() {
   leaderSvg.innerHTML = leaders;
 }
 
-// ------------------------------------------------------------------ LOTO pins drawn in the figure
-const lotoLayer = plant.querySelector(".tour-loto-layer");
-function paintLoto() {
-  energyCache = null;
-  if (S.mode !== "loto") { lotoLayer.innerHTML = ""; return; }
-  lotoLayer.innerHTML = L.loto.map((p) => {
-    const [x, y] = p.at;
-    const iso = S.isolated.has(p.id);
-    return `<g class="tour-loto-pin" data-pin="${esc(p.id)}"${iso ? " data-isolated" : ""}><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="7"/><path d="M${(x - 2.6).toFixed(1)} ${(y - 0.5).toFixed(1)}v-1.6a2.6 2.6 0 0 1 5.2 0v1.6M${(x - 3.4).toFixed(1)} ${(y - 0.4).toFixed(1)}h6.8v4.4h-6.8z"/></g>`;
-  }).join("");
-  const e = energy();
-  for (const b of document.querySelectorAll("[data-loto]")) b.setAttribute("aria-pressed", String(S.isolated.has(b.dataset.loto)));
-  const yes = e.sources.filter((s) => s.isolated);
-  const no = e.sources.filter((s) => !s.isolated);
-  energyBox.innerHTML = `<p><strong>Isolated (${yes.length}):</strong></p><ul>${yes.map((s) => `<li>${s.n}. ${esc(s.text)}: ${esc(s.energy)}; carries ${esc(s.carries)}</li>`).join("") || "<li>none</li>"}</ul>`
-    + `<p><strong>Not isolated (${no.length}):</strong></p><ul>${no.map((s) => `<li class="on">${s.n}. ${esc(s.text)}: ${esc(s.energy)}; carries ${esc(s.carries)}</li>`).join("") || "<li>none</li>"}</ul>`
-    + `<p data-stopped><strong>Lines with flow stopped (${e.stopped.length} of ${D.streams.length} streams):</strong> ${esc(e.stopped.join(", ") || "none")}</p>`
-    + `<p data-flowing><strong>Still flowing:</strong> ${esc(e.flowing.join(", ") || "none")}</p>`
-    + `<p><strong>Not modelled:</strong> ${esc(e.not_modelled)}. A real isolation is verified at the point (try-start, zero pressure and temperature) under the site's procedure.</p>`;
-}
-function toggleLoto(id) {
-  if (S.isolated.has(id)) S.isolated.delete(id); else S.isolated.add(id);
-  paintAll();
-}
-
 // ------------------------------------------------------------------ purpose card
 function citationText(c) {
   if (c.source === "teprob") return `teprob.f line ${c.line}: <code>${esc(c.code)}</code>: ${esc(c.shows)}`;
@@ -399,12 +339,9 @@ function focusUnit(uid) {
   paintAll();
 }
 function paintAll() {
-  energyCache = null;
   figure.dataset.mode = S.mode;
   for (const el of document.querySelectorAll("[data-flow-only]")) el.hidden = S.mode !== "flow";
-  for (const el of document.querySelectorAll("[data-loto-only]")) el.hidden = S.mode !== "loto";
   for (const b of document.querySelectorAll("[data-mode-button]")) b.setAttribute("aria-pressed", String(b.dataset.modeButton === S.mode));
-  paintLoto();
   paintStates();
   paintFocus();
   paintCard();
@@ -414,9 +351,6 @@ function paintAll() {
 }
 for (const b of document.querySelectorAll("[data-unit-button]")) b.addEventListener("click", () => focusUnit(b.dataset.unitButton || null));
 for (const b of document.querySelectorAll("[data-mode-button]")) b.addEventListener("click", () => { S.mode = b.dataset.modeButton; paintAll(); });
-for (const b of document.querySelectorAll("[data-loto]")) b.addEventListener("click", () => toggleLoto(b.dataset.loto));
-document.querySelector("[data-loto-all]").addEventListener("click", () => { for (const p of D.loto.points) S.isolated.add(p.id); paintAll(); });
-document.querySelector("[data-loto-none]").addEventListener("click", () => { S.isolated.clear(); paintAll(); });
 for (const r of document.querySelectorAll('input[name="run"]')) r.addEventListener("change", () => { if (r.checked) { S.run = r.value; paintAll(); } });
 scrub.addEventListener("input", () => { S.sample = Number(scrub.value); paintAll(); });
 playButton.addEventListener("click", () => { S.playing = !S.playing; playButton.textContent = S.playing ? "Pause" : "Play"; playButton.setAttribute("aria-label", S.playing ? "Pause the replay" : "Play the replay"); kick(); });
@@ -461,7 +395,7 @@ function tick(now) {
   last = now;
   let moving = false;
   if (!still.matches) {
-    for (const line of L.lines) phase[line.id] += BASE_SPEED * (lineOn(line) ? lineShare(line) : 0) * dt;
+    for (const line of L.lines) phase[line.id] += BASE_SPEED * lineShare(line) * dt;
     paintFlow();
     moving = true;
   }
@@ -501,8 +435,7 @@ still.addEventListener?.("change", () => paintAll());
 
 // Test hook for drafts/interactive-tour/verify.mjs (read-only state plus the same setters the controls use).
 window.__tour = {
-  state: () => ({ mode: S.mode, focus: S.focus, run: S.run, sample: S.sample, isolated: [...S.isolated], phase: { ...phase } }),
-  energy: () => energized(D, [...S.isolated]),
+  state: () => ({ mode: S.mode, focus: S.focus, run: S.run, sample: S.sample, phase: { ...phase } }),
   firstAlarm: (run) => firstAlarm(D, run),
   // share of each visible label's box that lies over drawn, undimmed geometry (for verify.mjs)
   labelCover: () => { const host = labelsBox.getBoundingClientRect(); const occ = occupancy(host); return [...pills.values()].filter((p) => !p.hidden).map((p) => { const r = p.getBoundingClientRect(); return { id: p.dataset.label, cover: +occ.cover({ x: r.left - host.left, y: r.top - host.top, w: r.width, h: r.height }).toFixed(3) }; }); },
