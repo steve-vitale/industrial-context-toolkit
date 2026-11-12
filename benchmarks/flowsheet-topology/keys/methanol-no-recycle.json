@@ -1,0 +1,139 @@
+{
+  "schema": "flowsheet-topology-key/1",
+  "scoring_contract": "role-aligned-arcs-v1",
+  "source": {
+    "file": "methanol_flowsheet.py",
+    "sha256": "33b24cf585d5ba779d20545f60bcd5d51238dbb217347048cacab9c2fd2bd504",
+    "commit": "eb64e38ac429b7e3ae4f8db071f8d8cad2eef675"
+  },
+  "derivation": "scripts/flowsheet_topology.py key: ast parse of unit constructors imported from the IDAES unit model library and Arc(source=..., destination=...) assignments; not executed",
+  "units": [
+    {
+      "id": "H2",
+      "class": "Feed",
+      "role": "feed"
+    },
+    {
+      "id": "CO",
+      "class": "Feed",
+      "role": "feed"
+    },
+    {
+      "id": "M101",
+      "class": "Mixer",
+      "role": "mixer"
+    },
+    {
+      "id": "C101",
+      "class": "Compressor",
+      "role": "compressor"
+    },
+    {
+      "id": "H101",
+      "class": "Heater",
+      "role": "heat_exchange"
+    },
+    {
+      "id": "R101",
+      "class": "StoichiometricReactor",
+      "role": "reactor"
+    },
+    {
+      "id": "T101",
+      "class": "Turbine",
+      "role": "expander"
+    },
+    {
+      "id": "H102",
+      "class": "Heater",
+      "role": "heat_exchange"
+    },
+    {
+      "id": "F101",
+      "class": "Flash",
+      "role": "separator"
+    },
+    {
+      "id": "EXHAUST",
+      "class": "Product",
+      "role": "product"
+    },
+    {
+      "id": "CH3OH",
+      "class": "Product",
+      "role": "product"
+    }
+  ],
+  "arcs": [
+    {
+      "id": "H2_FEED",
+      "from": "H2",
+      "from_port": "outlet",
+      "to": "M101",
+      "to_port": "H2_WGS"
+    },
+    {
+      "id": "CO_FEED",
+      "from": "CO",
+      "from_port": "outlet",
+      "to": "M101",
+      "to_port": "CO_WGS"
+    },
+    {
+      "id": "s02",
+      "from": "M101",
+      "from_port": "outlet",
+      "to": "C101",
+      "to_port": "inlet"
+    },
+    {
+      "id": "s03",
+      "from": "C101",
+      "from_port": "outlet",
+      "to": "H101",
+      "to_port": "inlet"
+    },
+    {
+      "id": "s04",
+      "from": "H101",
+      "from_port": "outlet",
+      "to": "R101",
+      "to_port": "inlet"
+    },
+    {
+      "id": "s05",
+      "from": "R101",
+      "from_port": "outlet",
+      "to": "T101",
+      "to_port": "inlet"
+    },
+    {
+      "id": "s06",
+      "from": "T101",
+      "from_port": "outlet",
+      "to": "H102",
+      "to_port": "inlet"
+    },
+    {
+      "id": "s07",
+      "from": "H102",
+      "from_port": "outlet",
+      "to": "F101",
+      "to_port": "inlet"
+    },
+    {
+      "id": "gas",
+      "from": "F101",
+      "from_port": "vap_outlet",
+      "to": "EXHAUST",
+      "to_port": "inlet"
+    },
+    {
+      "id": "prod",
+      "from": "F101",
+      "from_port": "liq_outlet",
+      "to": "CH3OH",
+      "to_port": "inlet"
+    }
+  ]
+}
