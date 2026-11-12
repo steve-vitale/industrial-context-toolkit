@@ -1,0 +1,1971 @@
+{
+ "set": "open100-dev",
+ "builder": "pid-to-kg build_kg.py @ 7ee3a82",
+ "build_exit": 0,
+ "stats": {
+  "nodes": 638,
+  "edges": 773,
+  "nodes_by_type": {
+   "Boundary": 5,
+   "Component": 139,
+   "ControlLoop": 27,
+   "Equipment": 28,
+   "Instrument": 116,
+   "OffPageConnector": 47,
+   "PipeSegment": 269,
+   "Plant": 1,
+   "Sheet": 6
+  },
+  "edges_by_type": {
+   "FEEDS": 58,
+   "FLOWS_TO": 539,
+   "MEASURES": 116,
+   "MEMBER_OF": 54,
+   "PART_OF": 6
+  },
+  "loops_by_type": {
+   "monitoring": 26,
+   "on_off": 1
+  },
+  "issues_by_severity": {
+   "info": 53,
+   "warning": 61
+  }
+ },
+ "offpage_connectors": 47,
+ "offpage_links": [
+  {
+   "from": {
+    "node": "P03.OPC_ACC",
+    "drawing": "2",
+    "label": "ACC PID 150-1 ACC VACUUM PMPS",
+    "bbox_0_1": [
+     0.024,
+     0.148,
+     0.095,
+     0.17
+    ],
+    "other_drawing": "ACC PID 150-1"
+   },
+   "to": {
+    "node": "P02.OPC_CRV",
+    "drawing": "1",
+    "label": "PID 160-1 (F-1) / CND RECEIVER TANK VENT",
+    "bbox_0_1": [
+     0.035,
+     0.595,
+     0.105,
+     0.62
+    ],
+    "other_drawing": "PID 160-1"
+   },
+   "linked_by": "connector pair",
+   "match_score": 6.17
+  }
+ ],
+ "loops": [
+  {
+   "loop": "F-1621",
+   "kind": "on_off",
+   "variable": "flow",
+   "sensors": [],
+   "controllers": [],
+   "final_elements": [
+    "FCV-1621"
+   ],
+   "drawings": [
+    "2"
+   ]
+  },
+  {
+   "loop": "L-1003",
+   "kind": "monitoring",
+   "variable": "level",
+   "sensors": [
+    "LE-1003A",
+    "LE-1003B"
+   ],
+   "controllers": [],
+   "final_elements": [],
+   "drawings": [
+    "5"
+   ]
+  },
+  {
+   "loop": "L-1006",
+   "kind": "monitoring",
+   "variable": "level",
+   "sensors": [
+    "LE-1006A",
+    "LE-1006B"
+   ],
+   "controllers": [],
+   "final_elements": [],
+   "drawings": [
+    "5"
+   ]
+  },
+  {
+   "loop": "L-16097",
+   "kind": "monitoring",
+   "variable": "level",
+   "sensors": [
+    "LIT-16097A",
+    "LIT-16097B"
+   ],
+   "controllers": [],
+   "final_elements": [],
+   "drawings": [
+    "2"
+   ]
+  },
+  {
+   "loop": "L-16098",
+   "kind": "monitoring",
+   "variable": "level",
+   "sensors": [
+    "LIT-16098A",
+    "LIT-16098B"
+   ],
+   "controllers": [],
+   "final_elements": [],
+   "drawings": [
+    "2"
+   ]
+  },
+  {
+   "loop": "L-25094",
+   "kind": "monitoring",
+   "variable": "level",
+   "sensors": [
+    "LIT-25094A",
+    "LIT-25094B"
+   ],
+   "controllers": [],
+   "final_elements": [],
+   "drawings": [
+    "1"
+   ]
+  },
+  {
+   "loop": "P-10013",
+   "kind": "monitoring",
+   "variable": "pressure",
+   "sensors": [
+    "PT-10013A",
+    "PT-10013B"
+   ],
+   "controllers": [],
+   "final_elements": [],
+   "drawings": [
+    "5"
+   ]
+  },
+  {
+   "loop": "P-1007",
+   "kind": "monitoring",
+   "variable": "pressure",
+   "sensors": [
+    "PT-1007A",
+    "PT-1007B"
+   ],
+   "controllers": [],
+   "final_elements": [],
+   "drawings": [
+    "5"
+   ]
+  },
+  {
+   "loop": "P-1009",
+   "kind": "monitoring",
+   "variable": "pressure",
+   "sensors": [
+    "PT-1009A",
+    "PT-1009B"
+   ],
+   "controllers": [],
+   "final_elements": [],
+   "drawings": [
+    "5"
+   ]
+  },
+  {
+   "loop": "P-10210",
+   "kind": "monitoring",
+   "variable": "pressure",
+   "sensors": [
+    "PT-10210A",
+    "PT-10210B"
+   ],
+   "controllers": [],
+   "final_elements": [],
+   "drawings": [
+    "5"
+   ]
+  },
+  {
+   "loop": "P-10214",
+   "kind": "monitoring",
+   "variable": "pressure",
+   "sensors": [
+    "PT-10214A",
+    "PT-10214B"
+   ],
+   "controllers": [],
+   "final_elements": [],
+   "drawings": [
+    "5"
+   ]
+  },
+  {
+   "loop": "T-1001",
+   "kind": "monitoring",
+   "variable": "temperature",
+   "sensors": [
+    "TE-1001A",
+    "TE-1001B"
+   ],
+   "controllers": [],
+   "final_elements": [],
+   "drawings": [
+    "5"
+   ]
+  },
+  {
+   "loop": "T-1002",
+   "kind": "monitoring",
+   "variable": "temperature",
+   "sensors": [
+    "TE-1002A",
+    "TE-1002B"
+   ],
+   "controllers": [],
+   "final_elements": [],
+   "drawings": [
+    "5"
+   ]
+  },
+  {
+   "loop": "T-1004",
+   "kind": "monitoring",
+   "variable": "temperature",
+   "sensors": [
+    "TE-1004A",
+    "TE-1004B"
+   ],
+   "controllers": [],
+   "final_elements": [],
+   "drawings": [
+    "5"
+   ]
+  },
+  {
+   "loop": "T-1005",
+   "kind": "monitoring",
+   "variable": "temperature",
+   "sensors": [
+    "TE-1005A",
+    "TE-1005B"
+   ],
+   "controllers": [],
+   "final_elements": [],
+   "drawings": [
+    "5"
+   ]
+  },
+  {
+   "loop": "T-1008",
+   "kind": "monitoring",
+   "variable": "temperature",
+   "sensors": [
+    "TE-1008A",
+    "TE-1008B"
+   ],
+   "controllers": [],
+   "final_elements": [],
+   "drawings": [
+    "5"
+   ]
+  },
+  {
+   "loop": "T-10211",
+   "kind": "monitoring",
+   "variable": "temperature",
+   "sensors": [
+    "TE-10211A",
+    "TE-10211B"
+   ],
+   "controllers": [],
+   "final_elements": [],
+   "drawings": [
+    "5"
+   ]
+  },
+  {
+   "loop": "T-10212",
+   "kind": "monitoring",
+   "variable": "temperature",
+   "sensors": [
+    "TE-10212A",
+    "TE-10212B"
+   ],
+   "controllers": [],
+   "final_elements": [],
+   "drawings": [
+    "5"
+   ]
+  },
+  {
+   "loop": "T-10215",
+   "kind": "monitoring",
+   "variable": "temperature",
+   "sensors": [
+    "TE-10215A",
+    "TE-10215B"
+   ],
+   "controllers": [],
+   "final_elements": [],
+   "drawings": [
+    "5"
+   ]
+  },
+  {
+   "loop": "T-10216",
+   "kind": "monitoring",
+   "variable": "temperature",
+   "sensors": [
+    "TE-10216A",
+    "TE-10216B"
+   ],
+   "controllers": [],
+   "final_elements": [],
+   "drawings": [
+    "5"
+   ]
+  },
+  {
+   "loop": "T-14084",
+   "kind": "monitoring",
+   "variable": "temperature",
+   "sensors": [
+    "TE-14084A",
+    "TE-14084B"
+   ],
+   "controllers": [],
+   "final_elements": [],
+   "drawings": [
+    "0"
+   ]
+  },
+  {
+   "loop": "T-14089",
+   "kind": "monitoring",
+   "variable": "temperature",
+   "sensors": [
+    "TE-14089A",
+    "TE-14089B"
+   ],
+   "controllers": [],
+   "final_elements": [],
+   "drawings": [
+    "0"
+   ]
+  },
+  {
+   "loop": "T-14090",
+   "kind": "monitoring",
+   "variable": "temperature",
+   "sensors": [
+    "TE-14090A",
+    "TE-14090B"
+   ],
+   "controllers": [],
+   "final_elements": [],
+   "drawings": [
+    "0"
+   ]
+  },
+  {
+   "loop": "T-14091",
+   "kind": "monitoring",
+   "variable": "temperature",
+   "sensors": [
+    "TE-14091A",
+    "TE-14091B"
+   ],
+   "controllers": [],
+   "final_elements": [],
+   "drawings": [
+    "0"
+   ]
+  },
+  {
+   "loop": "T-14092",
+   "kind": "monitoring",
+   "variable": "temperature",
+   "sensors": [
+    "TE-14092A",
+    "TE-14092B"
+   ],
+   "controllers": [],
+   "final_elements": [],
+   "drawings": [
+    "0"
+   ]
+  },
+  {
+   "loop": "T-14093",
+   "kind": "monitoring",
+   "variable": "temperature",
+   "sensors": [
+    "TE-14093A",
+    "TE-14093B"
+   ],
+   "controllers": [],
+   "final_elements": [],
+   "drawings": [
+    "0"
+   ]
+  },
+  {
+   "loop": "T-16096",
+   "kind": "monitoring",
+   "variable": "temperature",
+   "sensors": [
+    "TE-16096A",
+    "TE-16096B"
+   ],
+   "controllers": [],
+   "final_elements": [],
+   "drawings": [
+    "2"
+   ]
+  }
+ ],
+ "cascades": [],
+ "variant": "noqa-r1",
+ "directed_pairs_by_drawing": {
+  "0": [
+   {
+    "from": "RCS-SG-100",
+    "to": "MSS-XSS-140",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "RCS-SG-100",
+    "to": "TCV-1401",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "MSS-XSS-140",
+    "to": "FT-1401",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "TCV-1401",
+    "to": "FT-1401",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "MSIV-1402",
+    "to": "MSCV-XXX",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "MSCV-XXX",
+    "to": "MSV-1404",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "MSCV-XXX",
+    "to": "TCV-1409",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "MSCV-XXX",
+    "to": "TCV-1406",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "MSCV-XXX",
+    "to": "P01.OPC1",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "MSCV-XXX",
+    "to": "P01.OPC3",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "MSCV-XXX",
+    "to": "MSBV-1407",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "MSV-1404",
+    "to": "MSV-1405",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "MSV-1405",
+    "to": "P01.OPC2",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "MS-14010",
+    "to": "MSCV-XXX",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V_AORV_ISO",
+    "to": "AORV-XXX",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "TCV-1402",
+    "to": "P01.OPC9",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "TCV-1403",
+    "to": "P01.OPC8",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "TCV-1406",
+    "to": "P01.OPC4",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "TCV-1409",
+    "to": "P01.OPC7",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "MSBV-1407",
+    "to": "P01.OPC5",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "TCV-1408",
+    "to": "P01.OPC5",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FT-1401",
+    "to": "FT-1401_2",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FT-1401_2",
+    "to": "MSIV-1402",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FT-1401_2",
+    "to": "TCV-1402",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FT-1401_2",
+    "to": "TCV-1403",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FT-1401_2",
+    "to": "MS-14010",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FT-1401_2",
+    "to": "P01.V_AORV_ISO",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FT-1401_2",
+    "to": "PSV-1404",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FT-1401_2",
+    "to": "PSV-1405",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FT-1401_2",
+    "to": "PSV-1406",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FT-1401_2",
+    "to": "PSV-1407",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC6",
+    "to": "TCV-1408",
+    "flow_direction": "shown"
+   }
+  ],
+  "1": [
+   {
+    "from": "ACC-AC-150",
+    "to": "MOV-1531",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "ACC-AC-150",
+    "to": "MOV-1511",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "ACC-AC-150",
+    "to": "MOV-1521",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "ACC-PU-151",
+    "to": "P01.R4",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "ACC-PU-152",
+    "to": "P01.R5",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "ACC-PU-153",
+    "to": "ACC-SX-154",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.R1",
+    "to": "P01.R2",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.R1",
+    "to": "ACC-AC-150",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.R2",
+    "to": "P01.R3",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.R2",
+    "to": "ACC-AC-150",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.R3",
+    "to": "ACC-AC-150",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "LCV-1501",
+    "to": "P01.OPC_CND",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "MOV-1511",
+    "to": "ACC-PU-151",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "MOV-1521",
+    "to": "ACC-PU-152",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "MOV-1531",
+    "to": "ACC-PU-153",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.R4",
+    "to": "P01.R5",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.R5",
+    "to": "ACC-SX-154",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC_TURB",
+    "to": "P01.R1",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC_TURB",
+    "to": "ACC-AC-150",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC_TURB",
+    "to": "LCV-1501",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC_MSS",
+    "to": "P01.R1",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC_MSS",
+    "to": "ACC-AC-150",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC_MSS",
+    "to": "LCV-1501",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC_HPD",
+    "to": "P01.R1",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC_HPD",
+    "to": "ACC-AC-150",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC_HPD",
+    "to": "LCV-1501",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC_CRV",
+    "to": "MOV-1531",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC_CRV",
+    "to": "MOV-1511",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC_CRV",
+    "to": "MOV-1521",
+    "flow_direction": "shown"
+   }
+  ],
+  "2": [
+   {
+    "from": "CND-TK-160",
+    "to": "RO-1603",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "CND-TK-160",
+    "to": "PSV-1601",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "CND-TK-160",
+    "to": "P01.V4",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "CND-TK-160",
+    "to": "P01.V2",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "CND-TK-160",
+    "to": "P01.V3",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "CND-HTR-161",
+    "to": "P01.V11",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "CND-HTR-161",
+    "to": "LCV-1611",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "CND-HTR-161",
+    "to": "P01.TRAP1",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "CND-PU-162",
+    "to": "FO-1621",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "CND-PU-162",
+    "to": "P01.V5",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "CND-PU-162",
+    "to": "P01.V8",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "CND-PU-163",
+    "to": "P01.V6",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "CND-PU-163",
+    "to": "FO-1621",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "CND-PU-163",
+    "to": "P01.V7",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "CND-PU-163",
+    "to": "P01.V5",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "CND-PU-163",
+    "to": "P01.V8",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "CND-PU-164",
+    "to": "FO-1621",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "CND-PU-164",
+    "to": "P01.V7",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "CND-PU-164",
+    "to": "P01.V5",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "CND-PU-164",
+    "to": "P01.V8",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "CND-HTR-166",
+    "to": "CND-TK-165",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "CND-FLT-167",
+    "to": "P01.V10",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "CND-FLT-167",
+    "to": "P01.OPC_WPS",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "RD-1602",
+    "to": "CND-TK-160",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "RO-1603",
+    "to": "P01.OPC_ACC",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V1",
+    "to": "CND-TK-160",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V2",
+    "to": "CND-PU-162",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V3",
+    "to": "CND-PU-163",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V4",
+    "to": "CND-PU-164",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "SP-01",
+    "to": "CND-PU-162",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V5",
+    "to": "SP-01",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "SP-02",
+    "to": "CND-PU-163",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "P01.V6",
+    "to": "SP-02",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "SP-03",
+    "to": "CND-PU-164",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "P01.V7",
+    "to": "SP-03",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "P01.V8",
+    "to": "P01.OPC_WWS",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "P01.V9",
+    "to": "CND-FLT-167",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V10",
+    "to": "TCV-1622",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V10",
+    "to": "P01.V16",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V10",
+    "to": "P01.V15",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V10",
+    "to": "P01.V14",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V10",
+    "to": "P01.V12",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FCV-1621",
+    "to": "TCV-1622",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FCV-1621",
+    "to": "P01.V16",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FCV-1621",
+    "to": "P01.V15",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FCV-1621",
+    "to": "P01.V14",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FCV-1621",
+    "to": "P01.V12",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "TCV-1622",
+    "to": "FCV-XXX",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V11",
+    "to": "FCV-XXX",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V12",
+    "to": "CND-HTR-161",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "LCV-1611",
+    "to": "P01.V1",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.TRAP1",
+    "to": "P01.V13",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "P01.V13",
+    "to": "P01.DRN1",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "P01.V14",
+    "to": "P01.OPC_WSS",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V15",
+    "to": "P01.OPC_ESS",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V16",
+    "to": "P01.OPC_GSQ",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FCV-XXX",
+    "to": "CND-HTR-166",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FO-1621",
+    "to": "P01.V9",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FO-1621",
+    "to": "FCV-1621",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC_CR",
+    "to": "CND-TK-160",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC_WTS",
+    "to": "CND-TK-160",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC_FWS",
+    "to": "CND-TK-160",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC_GSL",
+    "to": "CND-HTR-161",
+    "flow_direction": "shown"
+   }
+  ],
+  "3": [
+   {
+    "from": "CND-HTR-160",
+    "to": "CND-TK-165",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "CND-HTR-160",
+    "to": "P01.V1",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "CND-TK-165",
+    "to": "MOV-1652",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "CND-TK-165",
+    "to": "MOV-1651",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FWS-PU-170A",
+    "to": "MOV-1701",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FWS-PU-170B",
+    "to": "MOV-1702",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FWS-HTR-170",
+    "to": "P01.V6",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V1",
+    "to": "P01.V2",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "P01.V2",
+    "to": "CND-TK-165",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "MOV-1651",
+    "to": "FWS-PU-170A",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "MOV-1652",
+    "to": "FWS-PU-170B",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "MOV-1701",
+    "to": "P01.CV1",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "MOV-1702",
+    "to": "P01.CV2",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.CV1",
+    "to": "PCV-1703",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.CV1",
+    "to": "FCV-XXX",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.CV2",
+    "to": "PCV-1703",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FCV-XXX",
+    "to": "CND-HTR-160",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "PCV-1703",
+    "to": "P01.V5",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "PCV-1703",
+    "to": "P01.V4",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "PCV-1703",
+    "to": "P01.V3",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "PCV-1703",
+    "to": "MOV-1704",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V3",
+    "to": "P01.OPC1",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "P01.V4",
+    "to": "P01.OPC2",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "MOV-1704",
+    "to": "FCV-1615",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V5",
+    "to": "FWS-HTR-170",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V6",
+    "to": "FCV-1615",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FCV-1615",
+    "to": "P01.OPC3",
+    "flow_direction": "shown"
+   }
+  ],
+  "4": [
+   {
+    "from": "CND-HTR-166",
+    "to": "PSV-1663",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "CND-HTR-166",
+    "to": "CND-TK-165",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "CND-HTR-166",
+    "to": "FO-1661",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "CND-HTR-166",
+    "to": "FO-1662",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "CND-HTR-166",
+    "to": "P01.V6",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "CND-HTR-166",
+    "to": "P01.V7",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "ESS-HTR-180",
+    "to": "P01.V5",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FWS-HTR-161",
+    "to": "LVC-1615",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FWS-HTR-161",
+    "to": "P01.V13",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "FCV-16508",
+    "to": "CND-HTR-166",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FCV-16506",
+    "to": "CND-HTR-166",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "TCV-16013",
+    "to": "P01.CV1",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.CV1",
+    "to": "ESS-HTR-180",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "MOV-14010",
+    "to": "PCV-14011",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "MOV-14010",
+    "to": "P01.V1",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "P01.V1",
+    "to": "P01.V2",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "PCV-14011",
+    "to": "FCV-18012",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "PCV-14011",
+    "to": "P01.V3",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "PCV-14011",
+    "to": "PSV-14014",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "P01.V3",
+    "to": "P01.V4",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "FCV-18012",
+    "to": "ESS-HTR-180",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "P01.V5",
+    "to": "CND-HTR-166",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "TCV-2502",
+    "to": "CND-HTR-166",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V8",
+    "to": "P01.ST1",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.ST1",
+    "to": "P01.V9",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V9",
+    "to": "P01.OPC7",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V10",
+    "to": "P01.OPC7",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "P01.V11",
+    "to": "P01.V12",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "P01.MOV1",
+    "to": "FWS-HTR-161",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "LVC-1615",
+    "to": "FCV-16506",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V13",
+    "to": "P01.V14",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "P01.OPC1",
+    "to": "TCV-16013",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC2",
+    "to": "FCV-16508",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC5",
+    "to": "MOV-14010",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "P01.OPC6",
+    "to": "TCV-2502",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC6",
+    "to": "P01.V8",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC6",
+    "to": "P01.V11",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "P01.OPC6",
+    "to": "P01.V10",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "P01.OPC8",
+    "to": "P01.MOV1",
+    "flow_direction": "shown"
+   }
+  ],
+  "5": [
+   {
+    "from": "RCS-XR-100",
+    "to": "RCS-SG-101",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "RCS-XR-100",
+    "to": "V-1-100X",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "RCS-XR-100",
+    "to": "P01.OPC2",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "RCS-SG-101",
+    "to": "RCS-PU-102B",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "RCS-SG-101",
+    "to": "FT-1014",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "RCS-SG-101",
+    "to": "V-1-1014",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "RCS-SG-101",
+    "to": "P01.OPC10",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "RCS-SG-101",
+    "to": "P01.OPC9",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "RCS-SG-101",
+    "to": "RCS-PU-102A",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "RCS-SG-101",
+    "to": "FT-1015",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "RCS-SG-101",
+    "to": "FT-1016",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "RCS-SG-101",
+    "to": "V-1-100X_7",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "RCS-SG-101",
+    "to": "V-1-100X_6",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "RCS-SG-101",
+    "to": "FT-1011",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "RCS-SG-101",
+    "to": "FT-1013",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "RCS-SG-101",
+    "to": "FT-1012",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "RCS-PU-102A",
+    "to": "P01.CHK1",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "RCS-PU-102B",
+    "to": "P01.CHK2",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "V-1-100X",
+    "to": "V-1-100X_2",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "V-1-100X_2",
+    "to": "P01.OPC3",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.CHK1",
+    "to": "RCS-XR-100",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.CHK1",
+    "to": "P01.OPC4",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.CHK2",
+    "to": "RCS-XR-100",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.CHK2",
+    "to": "P01.OPC12",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "V-1-100X_3",
+    "to": "RCS-PU-102A",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-100X_3",
+    "to": "V-1-100X_6",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-100X_3",
+    "to": "FT-1011",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-100X_3",
+    "to": "FT-1013",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-100X_3",
+    "to": "FT-1012",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-100X_4",
+    "to": "RCS-PU-102A",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-100X_4",
+    "to": "V-1-100X_6",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-100X_4",
+    "to": "FT-1011",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-100X_4",
+    "to": "FT-1013",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-100X_4",
+    "to": "FT-1012",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-100X_5",
+    "to": "RCS-PU-102A",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-100X_5",
+    "to": "V-1-100X_6",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-100X_5",
+    "to": "FT-1011",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-100X_5",
+    "to": "FT-1013",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-100X_5",
+    "to": "FT-1012",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-100X_6",
+    "to": "RCS-PU-102A",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-100X_6",
+    "to": "FT-1011",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-100X_6",
+    "to": "FT-1013",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-100X_6",
+    "to": "FT-1012",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1013",
+    "to": "RCS-PU-102B",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1013",
+    "to": "FT-1014",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1013",
+    "to": "V-1-1014",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1013",
+    "to": "P01.OPC10",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1013",
+    "to": "P01.OPC9",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1013",
+    "to": "RCS-PU-102A",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1013",
+    "to": "FT-1015",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1013",
+    "to": "FT-1016",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1013",
+    "to": "V-1-100X_7",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1013",
+    "to": "V-1-100X_6",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1013",
+    "to": "FT-1011",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1013",
+    "to": "FT-1013",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1013",
+    "to": "FT-1012",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1012",
+    "to": "RCS-PU-102B",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1012",
+    "to": "FT-1014",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1012",
+    "to": "V-1-1014",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1012",
+    "to": "P01.OPC10",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1012",
+    "to": "P01.OPC9",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1012",
+    "to": "RCS-PU-102A",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1012",
+    "to": "FT-1015",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1012",
+    "to": "FT-1016",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1012",
+    "to": "V-1-100X_7",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1012",
+    "to": "V-1-100X_6",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1012",
+    "to": "FT-1011",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1012",
+    "to": "FT-1013",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1012",
+    "to": "FT-1012",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1011",
+    "to": "RCS-PU-102B",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1011",
+    "to": "FT-1014",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1011",
+    "to": "V-1-1014",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1011",
+    "to": "P01.OPC10",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1011",
+    "to": "P01.OPC9",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1011",
+    "to": "RCS-PU-102A",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1011",
+    "to": "FT-1015",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1011",
+    "to": "FT-1016",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1011",
+    "to": "V-1-100X_7",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1011",
+    "to": "V-1-100X_6",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1011",
+    "to": "FT-1011",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1011",
+    "to": "FT-1013",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1011",
+    "to": "FT-1012",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1014",
+    "to": "RCS-PU-102B",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1014",
+    "to": "FT-1014",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1014",
+    "to": "P01.OPC10",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1014",
+    "to": "P01.OPC9",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1014",
+    "to": "RCS-PU-102A",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1014",
+    "to": "FT-1015",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1014",
+    "to": "FT-1016",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1014",
+    "to": "V-1-100X_7",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1014",
+    "to": "V-1-100X_6",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1014",
+    "to": "FT-1011",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1014",
+    "to": "FT-1013",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-1014",
+    "to": "FT-1012",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-1-100X_7",
+    "to": "V-1-100X_8",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "V-1-100X_8",
+    "to": "P01.OPC11",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FT-1011",
+    "to": "V-1-100X_3",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "FT-1012",
+    "to": "V-1-100X_4",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "FT-1013",
+    "to": "V-1-100X_5",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "FT-1014",
+    "to": "V-1-1013",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "FT-1015",
+    "to": "V-1-1012",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "FT-1016",
+    "to": "V-1-1011",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "P01.OPC1",
+    "to": "RCS-SG-101",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC1",
+    "to": "P01.OPC2",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "P01.OPC5",
+    "to": "RCS-XR-100",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC5",
+    "to": "P01.OPC4",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC6",
+    "to": "RCS-XR-100",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC6",
+    "to": "P01.OPC4",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC7",
+    "to": "RCS-XR-100",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC7",
+    "to": "P01.OPC12",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC8",
+    "to": "RCS-XR-100",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC8",
+    "to": "P01.OPC12",
+    "flow_direction": "shown"
+   }
+  ]
+ }
+}

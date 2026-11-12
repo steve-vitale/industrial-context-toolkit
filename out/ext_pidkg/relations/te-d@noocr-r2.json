@@ -1,0 +1,916 @@
+{
+ "set": "te-d",
+ "builder": "pid-to-kg build_kg.py @ 7ee3a82",
+ "build_exit": 0,
+ "stats": {
+  "nodes": 214,
+  "edges": 305,
+  "nodes_by_type": {
+   "Boundary": 6,
+   "Component": 41,
+   "ControlLoop": 18,
+   "Equipment": 7,
+   "Instrument": 45,
+   "OffPageConnector": 18,
+   "PipeSegment": 75,
+   "Plant": 1,
+   "Sheet": 3
+  },
+  "edges_by_type": {
+   "ACTUATES": 11,
+   "CASCADES_TO": 7,
+   "FEEDS": 13,
+   "FLOWS_TO": 156,
+   "MEASURES": 25,
+   "MEMBER_OF": 48,
+   "PART_OF": 4,
+   "SIGNAL_TO": 41
+  },
+  "loops_by_type": {
+   "control": 18
+  },
+  "issues_by_severity": {
+   "info": 5,
+   "warning": 8
+  }
+ },
+ "offpage_connectors": 18,
+ "offpage_links": [
+  {
+   "from": {
+    "node": "P03.OPC4",
+    "drawing": "103",
+    "label": "RXN PID 101-1 (E-11) STRIPPER OVERHEAD",
+    "bbox_0_1": [
+     0.756,
+     0.129,
+     0.829,
+     0.153
+    ],
+    "other_drawing": "PID 101-1"
+   },
+   "to": {
+    "node": "P01.OPC_STRIP",
+    "drawing": "101",
+    "label": "PRD PID 103-1 (H-3) STRIPPER OVERHEAD",
+    "bbox_0_1": [
+     0.038,
+     0.44,
+     0.11,
+     0.46
+    ],
+    "other_drawing": "PID 103-1"
+   },
+   "linked_by": "connector pair",
+   "match_score": 10.67
+  },
+  {
+   "from": {
+    "node": "P02.OPC5",
+    "drawing": "102",
+    "label": "PRD PID 103-1 (F-11) SEPARATOR UNDERFLOW",
+    "bbox_0_1": [
+     0.757,
+     0.74,
+     0.828,
+     0.763
+    ],
+    "other_drawing": "PID 103-1"
+   },
+   "to": {
+    "node": "P03.OPC1",
+    "drawing": "103",
+    "label": "SEP PID 102-1 (B-3) SEPARATOR UNDERFLOW",
+    "bbox_0_1": [
+     0.037,
+     0.345,
+     0.11,
+     0.369
+    ],
+    "other_drawing": "PID 102-1"
+   },
+   "linked_by": "connector pair",
+   "match_score": 10.67
+  },
+  {
+   "from": {
+    "node": "P02.OPC4",
+    "drawing": "102",
+    "label": "RXN PID 101-1 (D-11) RECYCLE TO FEED",
+    "bbox_0_1": [
+     0.038,
+     0.082,
+     0.109,
+     0.106
+    ],
+    "other_drawing": "PID 101-1"
+   },
+   "to": {
+    "node": "P01.OPC_RECY",
+    "drawing": "101",
+    "label": "SEP PID 102-1 (H-12) RECYCLE TO FEED",
+    "bbox_0_1": [
+     0.038,
+     0.535,
+     0.11,
+     0.555
+    ],
+    "other_drawing": "PID 102-1"
+   },
+   "linked_by": "connector pair",
+   "match_score": 10.67
+  },
+  {
+   "from": {
+    "node": "P01.OPC_PROD",
+    "drawing": "101",
+    "label": "SEP PID 102-1 (G-11) REACTOR PRODUCT",
+    "bbox_0_1": [
+     0.757,
+     0.373,
+     0.83,
+     0.397
+    ],
+    "other_drawing": "PID 102-1"
+   },
+   "to": {
+    "node": "P02.OPC1",
+    "drawing": "102",
+    "label": "RXN PID 101-1 (E-3) REACTOR PRODUCT",
+    "bbox_0_1": [
+     0.038,
+     0.252,
+     0.109,
+     0.276
+    ],
+    "other_drawing": "PID 101-1"
+   },
+   "linked_by": "connector pair",
+   "match_score": 10.67
+  },
+  {
+   "from": {
+    "node": "P03.OPC6",
+    "drawing": "103",
+    "label": "SIG PID 102-1 (F-12) TO FV 117",
+    "bbox_0_1": [
+     0.756,
+     0.786,
+     0.829,
+     0.81
+    ],
+    "other_drawing": "PID 102-1"
+   },
+   "to": {
+    "node": "P02.OPC6",
+    "drawing": "102",
+    "label": "SIG PID 103-1 (B-3) FROM FIC 117",
+    "bbox_0_1": [
+     0.038,
+     0.313,
+     0.109,
+     0.337
+    ],
+    "other_drawing": "PID 103-1"
+   },
+   "linked_by": "connector pair",
+   "match_score": 6.55
+  },
+  {
+   "from": {
+    "node": "P01.OPC_SIG",
+    "drawing": "101",
+    "label": "SIG PID 103-1 (E-12) TO FIC 104",
+    "bbox_0_1": [
+     0.757,
+     0.473,
+     0.83,
+     0.497
+    ],
+    "other_drawing": "PID 103-1"
+   },
+   "to": {
+    "node": "P03.OPC5",
+    "drawing": "103",
+    "label": "SIG PID 101-1 (E-3) FROM LIC 108",
+    "bbox_0_1": [
+     0.037,
+     0.393,
+     0.11,
+     0.416
+    ],
+    "other_drawing": "PID 101-1"
+   },
+   "linked_by": "connector pair",
+   "match_score": 6.36
+  }
+ ],
+ "loops": [
+  {
+   "loop": "A-123",
+   "kind": "control",
+   "variable": "analysis",
+   "sensors": [
+    "AT-123"
+   ],
+   "controllers": [
+    "AIC-123A",
+    "AIC-123D",
+    "AIC-123E"
+   ],
+   "final_elements": [],
+   "drawings": [
+    "101"
+   ]
+  },
+  {
+   "loop": "A-129",
+   "kind": "control",
+   "variable": "analysis",
+   "sensors": [
+    "AT-129"
+   ],
+   "controllers": [
+    "AIC-129"
+   ],
+   "final_elements": [],
+   "drawings": [
+    "102"
+   ]
+  },
+  {
+   "loop": "A-137",
+   "kind": "control",
+   "variable": "analysis",
+   "sensors": [
+    "AT-137"
+   ],
+   "controllers": [
+    "AIC-137"
+   ],
+   "final_elements": [],
+   "drawings": [
+    "103"
+   ]
+  },
+  {
+   "loop": "F-101",
+   "kind": "control",
+   "variable": "flow",
+   "sensors": [
+    "FT-101"
+   ],
+   "controllers": [
+    "FIC-101"
+   ],
+   "final_elements": [
+    "FV-101"
+   ],
+   "drawings": [
+    "101"
+   ]
+  },
+  {
+   "loop": "F-102",
+   "kind": "control",
+   "variable": "flow",
+   "sensors": [
+    "FT-102"
+   ],
+   "controllers": [
+    "FIC-102"
+   ],
+   "final_elements": [
+    "FV-102"
+   ],
+   "drawings": [
+    "101"
+   ]
+  },
+  {
+   "loop": "F-103",
+   "kind": "control",
+   "variable": "flow",
+   "sensors": [
+    "FT-103"
+   ],
+   "controllers": [
+    "FIC-103"
+   ],
+   "final_elements": [
+    "FV-103"
+   ],
+   "drawings": [
+    "101"
+   ]
+  },
+  {
+   "loop": "F-104",
+   "kind": "control",
+   "variable": "flow",
+   "sensors": [
+    "FT-104"
+   ],
+   "controllers": [
+    "FIC-104"
+   ],
+   "final_elements": [
+    "FV-104"
+   ],
+   "drawings": [
+    "103"
+   ]
+  },
+  {
+   "loop": "F-105",
+   "kind": "control",
+   "variable": "flow",
+   "sensors": [
+    "FT-105"
+   ],
+   "controllers": [
+    "FIC-105"
+   ],
+   "final_elements": [
+    "FV-105"
+   ],
+   "drawings": [
+    "102"
+   ]
+  },
+  {
+   "loop": "F-110",
+   "kind": "control",
+   "variable": "flow",
+   "sensors": [
+    "FT-110"
+   ],
+   "controllers": [
+    "FIC-110"
+   ],
+   "final_elements": [
+    "FV-110"
+   ],
+   "drawings": [
+    "102"
+   ]
+  },
+  {
+   "loop": "F-117@PID-103-1",
+   "kind": "control",
+   "variable": "flow",
+   "sensors": [
+    "FT-117"
+   ],
+   "controllers": [
+    "FIC-117"
+   ],
+   "final_elements": [],
+   "drawings": [
+    "103"
+   ]
+  },
+  {
+   "loop": "F-119",
+   "kind": "control",
+   "variable": "flow",
+   "sensors": [
+    "FT-119"
+   ],
+   "controllers": [
+    "FIC-119"
+   ],
+   "final_elements": [
+    "FV-119"
+   ],
+   "drawings": [
+    "103"
+   ]
+  },
+  {
+   "loop": "L-108",
+   "kind": "control",
+   "variable": "level",
+   "sensors": [
+    "LT-108"
+   ],
+   "controllers": [
+    "LIC-108"
+   ],
+   "final_elements": [],
+   "drawings": [
+    "101"
+   ]
+  },
+  {
+   "loop": "L-112",
+   "kind": "control",
+   "variable": "level",
+   "sensors": [
+    "LT-112"
+   ],
+   "controllers": [
+    "LIC-112"
+   ],
+   "final_elements": [
+    "LV-112"
+   ],
+   "drawings": [
+    "102"
+   ]
+  },
+  {
+   "loop": "L-115",
+   "kind": "control",
+   "variable": "level",
+   "sensors": [
+    "LT-115"
+   ],
+   "controllers": [
+    "LIC-115"
+   ],
+   "final_elements": [
+    "LV-115"
+   ],
+   "drawings": [
+    "103"
+   ]
+  },
+  {
+   "loop": "S-212",
+   "kind": "control",
+   "variable": "speed/frequency",
+   "sensors": [],
+   "controllers": [
+    "SC-212"
+   ],
+   "final_elements": [
+    "M (agitator drive)"
+   ],
+   "drawings": [
+    "101"
+   ]
+  },
+  {
+   "loop": "T-109",
+   "kind": "control",
+   "variable": "temperature",
+   "sensors": [
+    "TT-109"
+   ],
+   "controllers": [
+    "TIC-109"
+   ],
+   "final_elements": [],
+   "drawings": [
+    "101"
+   ]
+  },
+  {
+   "loop": "T-118",
+   "kind": "control",
+   "variable": "temperature",
+   "sensors": [
+    "TT-118"
+   ],
+   "controllers": [
+    "TIC-118"
+   ],
+   "final_elements": [],
+   "drawings": [
+    "103"
+   ]
+  },
+  {
+   "loop": "T-121",
+   "kind": "control",
+   "variable": "temperature",
+   "sensors": [
+    "TT-121"
+   ],
+   "controllers": [
+    "TIC-121"
+   ],
+   "final_elements": [
+    "TV-121"
+   ],
+   "drawings": [
+    "101"
+   ]
+  }
+ ],
+ "cascades": [
+  {
+   "master": "A-123",
+   "slave": "F-101"
+  },
+  {
+   "master": "A-123",
+   "slave": "F-102"
+  },
+  {
+   "master": "A-123",
+   "slave": "F-103"
+  },
+  {
+   "master": "A-129",
+   "slave": "F-110"
+  },
+  {
+   "master": "A-137",
+   "slave": "T-118"
+  },
+  {
+   "master": "T-109",
+   "slave": "T-121"
+  },
+  {
+   "master": "T-118",
+   "slave": "F-119"
+  }
+ ],
+ "variant": "noocr-r2",
+ "directed_pairs_by_drawing": {
+  "101": [
+   {
+    "from": "U-100",
+    "to": "R-101",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "R-101",
+    "to": "P01.OPC_PROD",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "R-101",
+    "to": "P01.OPC_CWR",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V101U",
+    "to": "FV-101",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FV-101",
+    "to": "P01.V101D",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V101D",
+    "to": "U-100",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V101B",
+    "to": "U-100",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "P01.V102U",
+    "to": "FV-102",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FV-102",
+    "to": "P01.V102D",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V102D",
+    "to": "U-100",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V102B",
+    "to": "U-100",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "P01.V103U",
+    "to": "FV-103",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FV-103",
+    "to": "P01.V103D",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V103D",
+    "to": "U-100",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V103B",
+    "to": "U-100",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "P01.V121U",
+    "to": "TV-121",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "TV-121",
+    "to": "P01.V121D",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V121D",
+    "to": "R-101",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V121B",
+    "to": "R-101",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "P01.OPC_STRIP",
+    "to": "U-100",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC_RECY",
+    "to": "U-100",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC_CWS",
+    "to": "P01.V121U",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC_CWS",
+    "to": "P01.V121B",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "BOUNDARY_BATTERY_LIMIT_A_FEED",
+    "to": "P01.V101U",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "BOUNDARY_BATTERY_LIMIT_A_FEED",
+    "to": "P01.V101B",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "BOUNDARY_BATTERY_LIMIT_D_FEED",
+    "to": "P01.V102U",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "BOUNDARY_BATTERY_LIMIT_D_FEED",
+    "to": "P01.V102B",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "BOUNDARY_BATTERY_LIMIT_E_FEED",
+    "to": "P01.V103U",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "BOUNDARY_BATTERY_LIMIT_E_FEED",
+    "to": "P01.V103B",
+    "flow_direction": "inferred"
+   }
+  ],
+  "102": [
+   {
+    "from": "E-101",
+    "to": "P01.OPC2",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "E-101",
+    "to": "V-101",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "V-101",
+    "to": "P01.V4",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-101",
+    "to": "P01.V7",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "V-101",
+    "to": "K-101",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "V-101",
+    "to": "P01.V6",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-101",
+    "to": "P01.V9",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "K-101",
+    "to": "P01.OPC4",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "K-101",
+    "to": "FV-105",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "P01.V1",
+    "to": "FV-117",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FV-117",
+    "to": "P01.V2",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V2",
+    "to": "E-101",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V3",
+    "to": "E-101",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "FV-105",
+    "to": "K-101",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "P01.V4",
+    "to": "FV-110",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "FV-110",
+    "to": "P01.V5",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "P01.V5",
+    "to": "BOUNDARY_BATTERY_LIMIT_PURGE",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "P01.V6",
+    "to": "BOUNDARY_BATTERY_LIMIT_PURGE",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "P01.V7",
+    "to": "LV-112",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "LV-112",
+    "to": "P01.V8",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V8",
+    "to": "P01.OPC5",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V9",
+    "to": "P01.OPC5",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "P01.OPC1",
+    "to": "E-101",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC3",
+    "to": "P01.V1",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC3",
+    "to": "P01.V3",
+    "flow_direction": "inferred"
+   }
+  ],
+  "103": [
+   {
+    "from": "C-101",
+    "to": "P01.OPC3",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "C-101",
+    "to": "P01.OPC4",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "C-101",
+    "to": "P01.V7",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "C-101",
+    "to": "P01.V9",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "P01.V1",
+    "to": "FV-104",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FV-104",
+    "to": "P01.V2",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V2",
+    "to": "C-101",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V3",
+    "to": "C-101",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "P01.V4",
+    "to": "FV-119",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FV-119",
+    "to": "P01.V5",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V5",
+    "to": "C-101",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V6",
+    "to": "C-101",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "P01.V7",
+    "to": "LV-115",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "LV-115",
+    "to": "P01.V8",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V8",
+    "to": "BOUNDARY_BATTERY_LIMIT_STRIPPER_PRODUCT",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.V9",
+    "to": "BOUNDARY_BATTERY_LIMIT_STRIPPER_PRODUCT",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "P01.OPC1",
+    "to": "C-101",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC2",
+    "to": "P01.V4",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC2",
+    "to": "P01.V6",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "BOUNDARY_BATTERY_LIMIT_A_AND_C_FEED",
+    "to": "P01.V1",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "BOUNDARY_BATTERY_LIMIT_A_AND_C_FEED",
+    "to": "P01.V3",
+    "flow_direction": "inferred"
+   }
+  ]
+ }
+}

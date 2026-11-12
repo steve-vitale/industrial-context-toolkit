@@ -9,11 +9,24 @@
   "prompt": "Convert `<sheet>.pdf` into a knowledge graph. The P&ID is on page 1.\n\nThis is a non-interactive run: nobody can answer questions, so make the choice you would recommend and note it in your final report. Python 3.12 with the skill's packages is already installed and on PATH; run every script as `python -I <full path to the script>`, and do not install anything.",
   "cli": "claude -p PROMPT --model 'claude-opus-5-5[1m]' --max-turns 150 --setting-sources project --strict-mcp-config --permission-mode default --tools Read Write Edit Glob Grep Bash Skill --allowedTools Read Write Edit Glob Grep Skill 'Bash(python -I:*)' 'Bash(ls:*)' --output-format stream-json --verbose",
   "inputs": "OPEN100 and TE PNGs saved as one-page PDFs at a declared 300 dpi (Pillow); Pahala pages 21 and 22 copied out of the public PDF",
-  "concurrency": "up to four sheets at once, 2026-11-11",
+  "concurrency": "run 1: up to four sheets at once; replicates and ablations: up to eight at once, 2026-11-11",
+  "voided": {
+   "runs": 46,
+   "usd_list_equivalent": 50.39,
+   "wall_s": 13917,
+   "why": "A first launch of the 46 ablation runs wrote the variant names with a trailing carriage return (Windows line endings in the lane lists); the Read tool could not open files under those folder names, so many runs copied their pages to scratch folders and read them there, which changes how they read tiles. No run read another run's files. All 46 were set aside unscored and re-run under clean names; the harness now refuses a name with a control character."
+  },
+  "variants": {
+   "r1-r3": "replicates, identical recipe, a fresh project folder per run",
+   "noocr": "the skill's requirements without rapidocr-onnxruntime (a second venv; numpy is then absent too, so blank-tile detection uses the skill's histogram fallback): no OCR hints, no OCR orientation or text-size render choice; text-layer hints remain on PDFs that have one",
+   "noqa": "prompt adds: Skip the QA loop (step 7 of the checklist): run build_kg.py once, do not re-check or fix any warning, and go straight to the report.",
+   "2x2": "prompt adds: When you render the pages, run render_pages.py with the options `--long-edge 5000 --tile 3000 --overlap 900` (a 2x2 tile grid); otherwise follow the skill as written."
+  },
   "harness_sha256": {
    "run_sheet.sh": "007f208a586057b4ecafd3525daf6da5f89ec9610df1ab54ee08abf762c260b5",
+   "run_variant.sh": "41f1c30f6cc005ce01d1118df215215d0454d7e58d272ecd75ae97059f795ae6",
    "make_pdfs.py": "26482806131d4eb2dcbefcfd6117b84ed5aa499eb9ac4ca30781dd0cb1226717",
-   "collect.py": "fef1d85f689caf189f1c00ebefeea716a6237a88dbb52dfb0e65cccdf2889a7d"
+   "collect.py": "5a0445d4f6c1cd082f489daff95c15a9d2a558bc7011fe2deb0e68000baea012"
   }
  },
  "inputs": {
@@ -165,8 +178,10 @@
   }
  },
  "runs": {
-  "open100-0": {
+  "open100-0@r1": {
    "set": "open100-dev",
+   "variant": "r1",
+   "label": "ext-pidkg-r1",
    "drawing": "0",
    "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/0.png",
    "exit": 0,
@@ -258,8 +273,10 @@
     "printed_tags_used": 39
    }
   },
-  "open100-1": {
+  "open100-1@r1": {
    "set": "open100-dev",
+   "variant": "r1",
+   "label": "ext-pidkg-r1",
    "drawing": "1",
    "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/1.png",
    "exit": 0,
@@ -347,8 +364,10 @@
     "printed_tags_used": 11
    }
   },
-  "open100-2": {
+  "open100-2@r1": {
    "set": "open100-dev",
+   "variant": "r1",
+   "label": "ext-pidkg-r1",
    "drawing": "2",
    "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/2.png",
    "exit": 0,
@@ -443,8 +462,10 @@
     "printed_tags_used": 31
    }
   },
-  "open100-3": {
+  "open100-3@r1": {
    "set": "open100-dev",
+   "variant": "r1",
+   "label": "ext-pidkg-r1",
    "drawing": "3",
    "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/3.png",
    "exit": 0,
@@ -527,8 +548,10 @@
     "printed_tags_used": 36
    }
   },
-  "open100-4": {
+  "open100-4@r1": {
    "set": "open100-dev",
+   "variant": "r1",
+   "label": "ext-pidkg-r1",
    "drawing": "4",
    "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/4.png",
    "exit": 0,
@@ -611,8 +634,10 @@
     "printed_tags_used": 36
    }
   },
-  "open100-5": {
+  "open100-5@r1": {
    "set": "open100-dev",
+   "variant": "r1",
+   "label": "ext-pidkg-r1",
    "drawing": "5",
    "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/5.png",
    "exit": 0,
@@ -700,8 +725,3329 @@
     "printed_tags_used": 50
    }
   },
-  "te-a-101": {
+  "open100-0@r2": {
+   "set": "open100-dev",
+   "variant": "r2",
+   "label": "ext-pidkg-r2",
+   "drawing": "0",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/0.png",
+   "exit": 0,
+   "wall_s": 296,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 23,
+   "duration_api_ms": 200973,
+   "cost_usd_list_equivalent": 1.1252,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 32,
+    "cache_creation": 71837,
+    "cache_read": 570471,
+    "output": 21816,
+    "thinking_in_output": 6526
+   },
+   "qa_loop": {
+    "build_runs": 2,
+    "extraction_edits_after_first_build": 1,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 7,
+    "Read": 11,
+    "Write": 1,
+    "Edit": 1
+   },
+   "tool_errors": 1,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 8,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     4942,
+     3309
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 11,
+    "qa_info": 1,
+    "nodes_by_type": {
+     "Boundary": 1,
+     "Component": 47,
+     "ControlLoop": 6,
+     "Equipment": 2,
+     "Instrument": 21,
+     "OffPageConnector": 9,
+     "PipeSegment": 69,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "monitoring": 6
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 2,
+     "valve": 35,
+     "general": 12,
+     "instrumentation": 21,
+     "inlet/outlet": 9
+    },
+    "no_box": [
+     "BOUNDARY:ATMOSPHERE"
+    ],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 69,
+     "ControlLoop:monitoring": 6
+    },
+    "connections": 488,
+    "directed_pairs": 64,
+    "directed_pairs_shown": 32,
+    "printed_tags_used": 39
+   }
+  },
+  "open100-1@r2": {
+   "set": "open100-dev",
+   "variant": "r2",
+   "label": "ext-pidkg-r2",
+   "drawing": "1",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/1.png",
+   "exit": 0,
+   "wall_s": 266,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 27,
+   "duration_api_ms": 172015,
+   "cost_usd_list_equivalent": 0.9501,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 36,
+    "cache_creation": 61087,
+    "cache_read": 628537,
+    "output": 16779,
+    "thinking_in_output": 6049
+   },
+   "qa_loop": {
+    "build_runs": 1,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 8,
+    "Read": 12,
+    "Grep": 2,
+    "Write": 1,
+    "Edit": 1
+   },
+   "tool_errors": 2,
+   "tool_errors_permission": 2,
+   "image_reads": {
+    "tiles": 6,
+    "overview": 1,
+    "crops": 3
+   },
+   "coverage": {
+    "render_px": [
+     4597,
+     3072
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 5,
+    "qa_info": 0,
+    "nodes_by_type": {
+     "Component": 13,
+     "ControlLoop": 1,
+     "Equipment": 5,
+     "Instrument": 2,
+     "OffPageConnector": 5,
+     "PipeSegment": 30,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "monitoring": 1
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 2,
+     "pump": 3,
+     "valve": 8,
+     "general": 5,
+     "instrumentation": 2,
+     "inlet/outlet": 5
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 30,
+     "ControlLoop:monitoring": 1
+    },
+    "connections": 60,
+    "directed_pairs": 33,
+    "directed_pairs_shown": 33,
+    "printed_tags_used": 11
+   }
+  },
+  "open100-2@r2": {
+   "set": "open100-dev",
+   "variant": "r2",
+   "label": "ext-pidkg-r2",
+   "drawing": "2",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/2.png",
+   "exit": 0,
+   "wall_s": 334,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 40,
+   "duration_api_ms": 247846,
+   "cost_usd_list_equivalent": 1.429,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 44,
+    "cache_creation": 90327,
+    "cache_read": 1011518,
+    "output": 25196,
+    "thinking_in_output": 7855
+   },
+   "qa_loop": {
+    "build_runs": 4,
+    "extraction_edits_after_first_build": 8,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 13,
+    "Read": 15,
+    "Write": 1,
+    "Edit": 8
+   },
+   "tool_errors": 4,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 12,
+    "overview": 1,
+    "crops": 1
+   },
+   "coverage": {
+    "render_px": [
+     4941,
+     3308
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 11,
+    "qa_info": 11,
+    "nodes_by_type": {
+     "Boundary": 1,
+     "Component": 32,
+     "ControlLoop": 4,
+     "Equipment": 8,
+     "Instrument": 15,
+     "OffPageConnector": 10,
+     "PipeSegment": 61,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "monitoring": 3,
+     "on_off": 1
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 5,
+     "pump": 3,
+     "valve": 24,
+     "general": 6,
+     "instrumentation": 15,
+     "inlet/outlet": 10
+    },
+    "no_box": [
+     "BOUNDARY:ATMOSPHERE"
+    ],
+    "not_symbols": {
+     "Sheet": 1,
+     "Component:tee": 2,
+     "PipeSegment": 61,
+     "ControlLoop:on_off": 1,
+     "ControlLoop:monitoring": 3
+    },
+    "connections": 133,
+    "directed_pairs": 63,
+    "directed_pairs_shown": 45,
+    "printed_tags_used": 33
+   }
+  },
+  "open100-3@r2": {
+   "set": "open100-dev",
+   "variant": "r2",
+   "label": "ext-pidkg-r2",
+   "drawing": "3",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/3.png",
+   "exit": 0,
+   "wall_s": 208,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 24,
+   "duration_api_ms": 154361,
+   "cost_usd_list_equivalent": 0.9449,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 34,
+    "cache_creation": 60679,
+    "cache_read": 631122,
+    "output": 16655,
+    "thinking_in_output": 5003
+   },
+   "qa_loop": {
+    "build_runs": 2,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 8,
+    "Read": 11,
+    "Grep": 1,
+    "Write": 1
+   },
+   "tool_errors": 3,
+   "tool_errors_permission": 2,
+   "image_reads": {
+    "tiles": 6,
+    "overview": 1,
+    "crops": 2
+   },
+   "coverage": {
+    "render_px": [
+     5339,
+     3583
+    ],
+    "tiles": 15,
+    "non_blank_tiles": 15,
+    "tiles_listed_reviewed": 15,
+    "qa_errors": 0,
+    "qa_warnings": 4,
+    "qa_info": 24,
+    "nodes_by_type": {
+     "Component": 16,
+     "Equipment": 5,
+     "Instrument": 23,
+     "OffPageConnector": 3,
+     "PipeSegment": 27,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {},
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 3,
+     "pump": 2,
+     "valve": 16,
+     "instrumentation": 23,
+     "inlet/outlet": 3
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 27
+    },
+    "connections": 91,
+    "directed_pairs": 27,
+    "directed_pairs_shown": 23,
+    "printed_tags_used": 36
+   }
+  },
+  "open100-4@r2": {
+   "set": "open100-dev",
+   "variant": "r2",
+   "label": "ext-pidkg-r2",
+   "drawing": "4",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/4.png",
+   "exit": 0,
+   "wall_s": 390,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 34,
+   "duration_api_ms": 224486,
+   "cost_usd_list_equivalent": 1.3989,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 52,
+    "cache_creation": 86031,
+    "cache_read": 1270186,
+    "output": 22818,
+    "thinking_in_output": 7634
+   },
+   "qa_loop": {
+    "build_runs": 2,
+    "extraction_edits_after_first_build": 1,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 12,
+    "Read": 17,
+    "Write": 1,
+    "Edit": 1
+   },
+   "tool_errors": 3,
+   "tool_errors_permission": 2,
+   "image_reads": {
+    "tiles": 12,
+    "overview": 1,
+    "crops": 2
+   },
+   "coverage": {
+    "render_px": [
+     4956,
+     3308
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 9,
+    "qa_info": 19,
+    "nodes_by_type": {
+     "Component": 37,
+     "Equipment": 4,
+     "Instrument": 20,
+     "OffPageConnector": 8,
+     "PipeSegment": 53,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {},
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 4,
+     "valve": 28,
+     "general": 9,
+     "instrumentation": 20,
+     "inlet/outlet": 8
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 53
+    },
+    "connections": 138,
+    "directed_pairs": 53,
+    "directed_pairs_shown": 29,
+    "printed_tags_used": 36
+   }
+  },
+  "open100-5@r2": {
+   "set": "open100-dev",
+   "variant": "r2",
+   "label": "ext-pidkg-r2",
+   "drawing": "5",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/5.png",
+   "exit": 0,
+   "wall_s": 411,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 34,
+   "duration_api_ms": 263921,
+   "cost_usd_list_equivalent": 1.4908,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 50,
+    "cache_creation": 86981,
+    "cache_read": 1233055,
+    "output": 27409,
+    "thinking_in_output": 9080
+   },
+   "qa_loop": {
+    "build_runs": 4,
+    "extraction_edits_after_first_build": 2,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 13,
+    "Read": 16,
+    "Write": 1,
+    "Edit": 1
+   },
+   "tool_errors": 3,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 12,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     4949,
+     3308
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 13,
+    "qa_info": 1,
+    "nodes_by_type": {
+     "Component": 21,
+     "ControlLoop": 16,
+     "Equipment": 4,
+     "Instrument": 42,
+     "OffPageConnector": 12,
+     "PipeSegment": 52,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "monitoring": 16
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 2,
+     "pump": 2,
+     "valve": 21,
+     "instrumentation": 42,
+     "inlet/outlet": 12
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 52,
+     "ControlLoop:monitoring": 16
+    },
+    "connections": 359,
+    "directed_pairs": 72,
+    "directed_pairs_shown": 27,
+    "printed_tags_used": 51
+   }
+  },
+  "open100-0@r3": {
+   "set": "open100-dev",
+   "variant": "r3",
+   "label": "ext-pidkg-r3",
+   "drawing": "0",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/0.png",
+   "exit": 0,
+   "wall_s": 358,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 31,
+   "duration_api_ms": 199963,
+   "cost_usd_list_equivalent": 1.0982,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 48,
+    "cache_creation": 67348,
+    "cache_read": 930247,
+    "output": 18657,
+    "thinking_in_output": 5629
+   },
+   "qa_loop": {
+    "build_runs": 1,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": true
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 13,
+    "Read": 12,
+    "Grep": 2,
+    "Write": 1
+   },
+   "tool_errors": 3,
+   "tool_errors_permission": 2,
+   "image_reads": {
+    "tiles": 7,
+    "overview": 1,
+    "crops": 2
+   },
+   "coverage": {
+    "render_px": [
+     4942,
+     3309
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 11,
+    "qa_info": 0,
+    "nodes_by_type": {
+     "Boundary": 2,
+     "Component": 39,
+     "ControlLoop": 6,
+     "Equipment": 2,
+     "Instrument": 21,
+     "OffPageConnector": 9,
+     "PipeSegment": 65,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "monitoring": 6
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 2,
+     "valve": 35,
+     "general": 4,
+     "instrumentation": 21,
+     "inlet/outlet": 9
+    },
+    "no_box": [
+     "BOUNDARY:ATMOSPHERE RELIEF VENT DISCHARGE OPEN ARROWS",
+     "BOUNDARY:DRIP-LEG DRAIN OPEN END AFTER DOUBLE VALVES"
+    ],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 65,
+     "ControlLoop:monitoring": 6
+    },
+    "connections": 480,
+    "directed_pairs": 56,
+    "directed_pairs_shown": 56,
+    "printed_tags_used": 39
+   }
+  },
+  "open100-1@r3": {
+   "set": "open100-dev",
+   "variant": "r3",
+   "label": "ext-pidkg-r3",
+   "drawing": "1",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/1.png",
+   "exit": 0,
+   "wall_s": 272,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 24,
+   "duration_api_ms": 158439,
+   "cost_usd_list_equivalent": 0.8737,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 34,
+    "cache_creation": 58813,
+    "cache_read": 531844,
+    "output": 14837,
+    "thinking_in_output": 5524
+   },
+   "qa_loop": {
+    "build_runs": 1,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 8,
+    "Read": 12,
+    "Write": 1
+   },
+   "tool_errors": 2,
+   "tool_errors_permission": 2,
+   "image_reads": {
+    "tiles": 8,
+    "overview": 1,
+    "crops": 2
+   },
+   "coverage": {
+    "render_px": [
+     4597,
+     3072
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 5,
+    "qa_info": 0,
+    "nodes_by_type": {
+     "Component": 9,
+     "ControlLoop": 1,
+     "Equipment": 5,
+     "Instrument": 2,
+     "OffPageConnector": 5,
+     "PipeSegment": 23,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "monitoring": 1
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 2,
+     "pump": 3,
+     "general": 5,
+     "valve": 4,
+     "instrumentation": 2,
+     "inlet/outlet": 5
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 23,
+     "ControlLoop:monitoring": 1
+    },
+    "connections": 53,
+    "directed_pairs": 29,
+    "directed_pairs_shown": 29,
+    "printed_tags_used": 11
+   }
+  },
+  "open100-2@r3": {
+   "set": "open100-dev",
+   "variant": "r3",
+   "label": "ext-pidkg-r3",
+   "drawing": "2",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/2.png",
+   "exit": 0,
+   "wall_s": 436,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 43,
+   "duration_api_ms": 280094,
+   "cost_usd_list_equivalent": 1.5627,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 54,
+    "cache_creation": 90602,
+    "cache_read": 1329031,
+    "output": 28591,
+    "thinking_in_output": 10519
+   },
+   "qa_loop": {
+    "build_runs": 5,
+    "extraction_edits_after_first_build": 8,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 13,
+    "Read": 17,
+    "Write": 1,
+    "Edit": 8,
+    "Grep": 1
+   },
+   "tool_errors": 5,
+   "tool_errors_permission": 2,
+   "image_reads": {
+    "tiles": 12,
+    "overview": 1,
+    "crops": 3
+   },
+   "coverage": {
+    "render_px": [
+     4941,
+     3308
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 11,
+    "qa_info": 6,
+    "nodes_by_type": {
+     "Boundary": 3,
+     "Component": 29,
+     "ControlLoop": 4,
+     "Equipment": 8,
+     "Instrument": 15,
+     "OffPageConnector": 10,
+     "PipeSegment": 58,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "monitoring": 3,
+     "on_off": 1
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 5,
+     "pump": 3,
+     "general": 5,
+     "valve": 22,
+     "instrumentation": 15,
+     "inlet/outlet": 10
+    },
+    "no_box": [
+     "BOUNDARY:PSV-1601 DISCHARGE OPEN ARROW ATMOSPHERE",
+     "BOUNDARY:ATMOSPHERE VACUUM BREAKER INLET",
+     "BOUNDARY:HEATER DRAIN OPEN-ENDED VALVE"
+    ],
+    "not_symbols": {
+     "Sheet": 1,
+     "Component:tee": 2,
+     "PipeSegment": 58,
+     "ControlLoop:on_off": 1,
+     "ControlLoop:monitoring": 3
+    },
+    "connections": 129,
+    "directed_pairs": 59,
+    "directed_pairs_shown": 35,
+    "printed_tags_used": 31
+   }
+  },
+  "open100-3@r3": {
+   "set": "open100-dev",
+   "variant": "r3",
+   "label": "ext-pidkg-r3",
+   "drawing": "3",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/3.png",
+   "exit": 0,
+   "wall_s": 305,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 26,
+   "duration_api_ms": 166888,
+   "cost_usd_list_equivalent": 1.0175,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 38,
+    "cache_creation": 65816,
+    "cache_read": 735541,
+    "output": 17187,
+    "thinking_in_output": 5656
+   },
+   "qa_loop": {
+    "build_runs": 1,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 6,
+    "Read": 14,
+    "Write": 1,
+    "Grep": 2
+   },
+   "tool_errors": 1,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 10,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     5339,
+     3583
+    ],
+    "tiles": 15,
+    "non_blank_tiles": 15,
+    "tiles_listed_reviewed": 15,
+    "qa_errors": 0,
+    "qa_warnings": 4,
+    "qa_info": 24,
+    "nodes_by_type": {
+     "Component": 16,
+     "Equipment": 5,
+     "Instrument": 23,
+     "OffPageConnector": 3,
+     "PipeSegment": 27,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {},
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 3,
+     "pump": 2,
+     "valve": 16,
+     "instrumentation": 23,
+     "inlet/outlet": 3
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 27
+    },
+    "connections": 91,
+    "directed_pairs": 27,
+    "directed_pairs_shown": 23,
+    "printed_tags_used": 36
+   }
+  },
+  "open100-4@r3": {
+   "set": "open100-dev",
+   "variant": "r3",
+   "label": "ext-pidkg-r3",
+   "drawing": "4",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/4.png",
+   "exit": 0,
+   "wall_s": 327,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 28,
+   "duration_api_ms": 194637,
+   "cost_usd_list_equivalent": 1.1818,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 40,
+    "cache_creation": 75944,
+    "cache_read": 887072,
+    "output": 19834,
+    "thinking_in_output": 6025
+   },
+   "qa_loop": {
+    "build_runs": 2,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 1,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 10,
+    "Read": 14,
+    "Write": 1
+   },
+   "tool_errors": 2,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 9,
+    "overview": 1,
+    "crops": 3
+   },
+   "coverage": {
+    "render_px": [
+     4956,
+     3308
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 9,
+    "qa_info": 19,
+    "nodes_by_type": {
+     "Boundary": 1,
+     "Component": 33,
+     "Equipment": 4,
+     "Instrument": 20,
+     "OffPageConnector": 8,
+     "PipeSegment": 53,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {},
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 4,
+     "valve": 28,
+     "general": 5,
+     "instrumentation": 20,
+     "inlet/outlet": 8
+    },
+    "no_box": [
+     "BOUNDARY:VENT ATMOSPHERE OPEN-ENDED ARROW NO DESTINATION PRINTED"
+    ],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 53
+    },
+    "connections": 127,
+    "directed_pairs": 47,
+    "directed_pairs_shown": 30,
+    "printed_tags_used": 36
+   }
+  },
+  "open100-5@r3": {
+   "set": "open100-dev",
+   "variant": "r3",
+   "label": "ext-pidkg-r3",
+   "drawing": "5",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/5.png",
+   "exit": 0,
+   "wall_s": 560,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 34,
+   "duration_api_ms": 302222,
+   "cost_usd_list_equivalent": 1.5834,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 52,
+    "cache_creation": 95608,
+    "cache_read": 1144086,
+    "output": 29477,
+    "thinking_in_output": 11323
+   },
+   "qa_loop": {
+    "build_runs": 1,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 13,
+    "Read": 17,
+    "Write": 1
+   },
+   "tool_errors": 3,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 12,
+    "overview": 1,
+    "crops": 1
+   },
+   "coverage": {
+    "render_px": [
+     4949,
+     3308
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 13,
+    "qa_info": 1,
+    "nodes_by_type": {
+     "Component": 25,
+     "ControlLoop": 16,
+     "Equipment": 4,
+     "Instrument": 38,
+     "OffPageConnector": 12,
+     "PipeSegment": 61,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "monitoring": 16
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 2,
+     "pump": 2,
+     "valve": 21,
+     "general": 4,
+     "instrumentation": 38,
+     "inlet/outlet": 12
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 61,
+     "ControlLoop:monitoring": 16
+    },
+    "connections": 277,
+    "directed_pairs": 83,
+    "directed_pairs_shown": 27,
+    "printed_tags_used": 50
+   }
+  },
+  "open100-0@noqa-r1": {
+   "set": "open100-dev",
+   "variant": "noqa-r1",
+   "label": "ext-pidkg-noqa-r1",
+   "drawing": "0",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/0.png",
+   "exit": 0,
+   "wall_s": 287,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 27,
+   "duration_api_ms": 197065,
+   "cost_usd_list_equivalent": 1.0261,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 40,
+    "cache_creation": 56346,
+    "cache_read": 668535,
+    "output": 22071,
+    "thinking_in_output": 6592
+   },
+   "qa_loop": {
+    "build_runs": 4,
+    "extraction_edits_after_first_build": 4,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 11,
+    "Read": 7,
+    "Grep": 1,
+    "Write": 1,
+    "Edit": 4
+   },
+   "tool_errors": 6,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 4,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     4942,
+     3309
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 11,
+    "qa_info": 1,
+    "nodes_by_type": {
+     "Boundary": 2,
+     "Component": 42,
+     "ControlLoop": 6,
+     "Equipment": 2,
+     "Instrument": 20,
+     "OffPageConnector": 9,
+     "PipeSegment": 69,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "monitoring": 6
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 2,
+     "valve": 18,
+     "instrumentation": 20,
+     "inlet/outlet": 9
+    },
+    "no_box": [
+     "P01.V78A",
+     "P01.ST78",
+     "P01.V78B",
+     "P01.POT78",
+     "P01.V78C",
+     "P01.V78D",
+     "P01.V79A",
+     "P01.ST79",
+     "P01.V79B",
+     "P01.POT79",
+     "P01.V79C",
+     "P01.V79D",
+     "P01.V82A",
+     "P01.ST82",
+     "P01.V82B",
+     "P01.POT82",
+     "P01.V82C",
+     "P01.V82D",
+     "P01.V80A",
+     "P01.ST80",
+     "P01.V80B",
+     "P01.POT80",
+     "P01.V80C",
+     "P01.V80D",
+     "BOUNDARY:TO ATMOSPHERE RELIEF VENT DISCHARGE OPEN ARROW",
+     "BOUNDARY:DRAIN DRIP-LEG DRAIN VALVES OPEN END"
+    ],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 69,
+     "ControlLoop:monitoring": 6
+    },
+    "connections": 310,
+    "directed_pairs": 32,
+    "directed_pairs_shown": 32,
+    "printed_tags_used": 39
+   }
+  },
+  "open100-1@noqa-r1": {
+   "set": "open100-dev",
+   "variant": "noqa-r1",
+   "label": "ext-pidkg-noqa-r1",
+   "drawing": "1",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/1.png",
+   "exit": 0,
+   "wall_s": 189,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 19,
+   "duration_api_ms": 117148,
+   "cost_usd_list_equivalent": 0.7891,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 28,
+    "cache_creation": 57710,
+    "cache_read": 402709,
+    "output": 12336,
+    "thinking_in_output": 3648
+   },
+   "qa_loop": {
+    "build_runs": 1,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 6,
+    "Read": 9,
+    "Write": 1
+   },
+   "tool_errors": 2,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 5,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     4597,
+     3072
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 5,
+    "qa_info": 0,
+    "nodes_by_type": {
+     "Component": 9,
+     "ControlLoop": 1,
+     "Equipment": 5,
+     "Instrument": 2,
+     "OffPageConnector": 5,
+     "PipeSegment": 23,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "monitoring": 1
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 2,
+     "pump": 3,
+     "general": 5,
+     "valve": 4,
+     "instrumentation": 2,
+     "inlet/outlet": 5
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 23,
+     "ControlLoop:monitoring": 1
+    },
+    "connections": 53,
+    "directed_pairs": 29,
+    "directed_pairs_shown": 29,
+    "printed_tags_used": 11
+   }
+  },
+  "open100-2@noqa-r1": {
+   "set": "open100-dev",
+   "variant": "noqa-r1",
+   "label": "ext-pidkg-noqa-r1",
+   "drawing": "2",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/2.png",
+   "exit": 0,
+   "wall_s": 302,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 27,
+   "duration_api_ms": 199869,
+   "cost_usd_list_equivalent": 1.1345,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 38,
+    "cache_creation": 69935,
+    "cache_read": 707820,
+    "output": 21663,
+    "thinking_in_output": 7449
+   },
+   "qa_loop": {
+    "build_runs": 2,
+    "extraction_edits_after_first_build": 1,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 9,
+    "Read": 12,
+    "Grep": 1,
+    "Write": 1,
+    "Edit": 1
+   },
+   "tool_errors": 3,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 8,
+    "overview": 1,
+    "crops": 1
+   },
+   "coverage": {
+    "render_px": [
+     4941,
+     3308
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 11,
+    "qa_info": 7,
+    "nodes_by_type": {
+     "Boundary": 1,
+     "Component": 28,
+     "ControlLoop": 4,
+     "Equipment": 8,
+     "Instrument": 15,
+     "OffPageConnector": 10,
+     "PipeSegment": 56,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "monitoring": 3,
+     "on_off": 1
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 5,
+     "pump": 3,
+     "valve": 22,
+     "general": 6,
+     "instrumentation": 15,
+     "inlet/outlet": 10
+    },
+    "no_box": [
+     "BOUNDARY:ATMOSPHERE RELIEF DISCHARGE VACUUM BREAKER"
+    ],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 56,
+     "ControlLoop:on_off": 1,
+     "ControlLoop:monitoring": 3
+    },
+    "connections": 132,
+    "directed_pairs": 63,
+    "directed_pairs_shown": 47,
+    "printed_tags_used": 33
+   }
+  },
+  "open100-3@noqa-r1": {
+   "set": "open100-dev",
+   "variant": "noqa-r1",
+   "label": "ext-pidkg-noqa-r1",
+   "drawing": "3",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/3.png",
+   "exit": 0,
+   "wall_s": 207,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 26,
+   "duration_api_ms": 149580,
+   "cost_usd_list_equivalent": 0.8673,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 42,
+    "cache_creation": 53225,
+    "cache_read": 706125,
+    "output": 15003,
+    "thinking_in_output": 3574
+   },
+   "qa_loop": {
+    "build_runs": 3,
+    "extraction_edits_after_first_build": 2,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 9,
+    "Read": 10,
+    "Grep": 1,
+    "Write": 1,
+    "Edit": 2
+   },
+   "tool_errors": 4,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 6,
+    "overview": 1,
+    "crops": 1
+   },
+   "coverage": {
+    "render_px": [
+     5339,
+     3583
+    ],
+    "tiles": 15,
+    "non_blank_tiles": 15,
+    "tiles_listed_reviewed": 15,
+    "qa_errors": 0,
+    "qa_warnings": 4,
+    "qa_info": 24,
+    "nodes_by_type": {
+     "Component": 16,
+     "Equipment": 5,
+     "Instrument": 23,
+     "OffPageConnector": 3,
+     "PipeSegment": 27,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {},
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 3,
+     "pump": 2,
+     "valve": 16,
+     "instrumentation": 23,
+     "inlet/outlet": 3
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 27
+    },
+    "connections": 91,
+    "directed_pairs": 27,
+    "directed_pairs_shown": 21,
+    "printed_tags_used": 36
+   }
+  },
+  "open100-4@noqa-r1": {
+   "set": "open100-dev",
+   "variant": "noqa-r1",
+   "label": "ext-pidkg-noqa-r1",
+   "drawing": "4",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/4.png",
+   "exit": 0,
+   "wall_s": 249,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 27,
+   "duration_api_ms": 183056,
+   "cost_usd_list_equivalent": 1.1233,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 40,
+    "cache_creation": 70330,
+    "cache_read": 747377,
+    "output": 20550,
+    "thinking_in_output": 6279
+   },
+   "qa_loop": {
+    "build_runs": 3,
+    "extraction_edits_after_first_build": 2,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 9,
+    "Read": 12,
+    "Write": 1,
+    "Edit": 2
+   },
+   "tool_errors": 4,
+   "tool_errors_permission": 2,
+   "image_reads": {
+    "tiles": 10,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     4956,
+     3308
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 11,
+    "qa_info": 19,
+    "nodes_by_type": {
+     "Boundary": 2,
+     "Component": 31,
+     "Equipment": 4,
+     "Instrument": 18,
+     "OffPageConnector": 8,
+     "PipeSegment": 49,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {},
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 4,
+     "valve": 28,
+     "general": 3,
+     "instrumentation": 18,
+     "inlet/outlet": 8
+    },
+    "no_box": [
+     "BOUNDARY:ATMOSPHERE VENT RELIEF DISCHARGE",
+     "BOUNDARY:OPEN DRAIN VALVED DRAIN ENDS"
+    ],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 49
+    },
+    "connections": 119,
+    "directed_pairs": 39,
+    "directed_pairs_shown": 21,
+    "printed_tags_used": 36
+   }
+  },
+  "open100-5@noqa-r1": {
+   "set": "open100-dev",
+   "variant": "noqa-r1",
+   "label": "ext-pidkg-noqa-r1",
+   "drawing": "5",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/5.png",
+   "exit": 0,
+   "wall_s": 257,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 28,
+   "duration_api_ms": 194737,
+   "cost_usd_list_equivalent": 1.1596,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 38,
+    "cache_creation": 74688,
+    "cache_read": 735368,
+    "output": 20744,
+    "thinking_in_output": 6338
+   },
+   "qa_loop": {
+    "build_runs": 1,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 7,
+    "Read": 16,
+    "Grep": 1,
+    "Write": 1
+   },
+   "tool_errors": 2,
+   "tool_errors_permission": 0,
+   "image_reads": {
+    "tiles": 12,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     4949,
+     3308
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 20,
+    "qa_info": 1,
+    "nodes_by_type": {
+     "Component": 14,
+     "ControlLoop": 16,
+     "Equipment": 4,
+     "Instrument": 38,
+     "OffPageConnector": 12,
+     "PipeSegment": 45,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "monitoring": 16
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 2,
+     "pump": 2,
+     "valve": 14,
+     "instrumentation": 38,
+     "inlet/outlet": 12
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 45,
+     "ControlLoop:monitoring": 16
+    },
+    "connections": 405,
+    "directed_pairs": 112,
+    "directed_pairs_shown": 25,
+    "printed_tags_used": 54
+   }
+  },
+  "open100-0@noqa-r2": {
+   "set": "open100-dev",
+   "variant": "noqa-r2",
+   "label": "ext-pidkg-noqa-r2",
+   "drawing": "0",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/0.png",
+   "exit": 0,
+   "wall_s": 286,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 23,
+   "duration_api_ms": 206761,
+   "cost_usd_list_equivalent": 1.12,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 38,
+    "cache_creation": 64672,
+    "cache_read": 678533,
+    "output": 23339,
+    "thinking_in_output": 5348
+   },
+   "qa_loop": {
+    "build_runs": 2,
+    "extraction_edits_after_first_build": 1,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": true
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 10,
+    "Read": 9,
+    "Write": 1
+   },
+   "tool_errors": 4,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 7,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     4942,
+     3309
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 11,
+    "qa_info": 1,
+    "nodes_by_type": {
+     "Boundary": 2,
+     "Component": 40,
+     "ControlLoop": 6,
+     "Equipment": 2,
+     "Instrument": 20,
+     "OffPageConnector": 9,
+     "PipeSegment": 67,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "monitoring": 6
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 2,
+     "general": 5,
+     "valve": 35,
+     "instrumentation": 20,
+     "inlet/outlet": 9
+    },
+    "no_box": [
+     "BOUNDARY:ATMOSPHERE RELIEF VENT DISCHARGE ARROW UP",
+     "BOUNDARY:DRIP-LEG BLOWDOWN DRAIN OPEN END"
+    ],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 67,
+     "ControlLoop:monitoring": 6
+    },
+    "connections": 416,
+    "directed_pairs": 58,
+    "directed_pairs_shown": 34,
+    "printed_tags_used": 39
+   }
+  },
+  "open100-1@noqa-r2": {
+   "set": "open100-dev",
+   "variant": "noqa-r2",
+   "label": "ext-pidkg-noqa-r2",
+   "drawing": "1",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/1.png",
+   "exit": 0,
+   "wall_s": 178,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 24,
+   "duration_api_ms": 113030,
+   "cost_usd_list_equivalent": 0.6511,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 36,
+    "cache_creation": 41637,
+    "cache_read": 496109,
+    "output": 10933,
+    "thinking_in_output": 2184
+   },
+   "qa_loop": {
+    "build_runs": 3,
+    "extraction_edits_after_first_build": 3,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 7,
+    "Read": 9,
+    "Grep": 1,
+    "Write": 1,
+    "Edit": 3
+   },
+   "tool_errors": 4,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 4,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     4597,
+     3072
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 5,
+    "qa_info": 0,
+    "nodes_by_type": {
+     "Component": 6,
+     "ControlLoop": 1,
+     "Equipment": 5,
+     "Instrument": 2,
+     "OffPageConnector": 5,
+     "PipeSegment": 17,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "monitoring": 1
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 2,
+     "pump": 3,
+     "valve": 4,
+     "general": 2,
+     "instrumentation": 2,
+     "inlet/outlet": 5
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 17,
+     "ControlLoop:monitoring": 1
+    },
+    "connections": 42,
+    "directed_pairs": 21,
+    "directed_pairs_shown": 21,
+    "printed_tags_used": 11
+   }
+  },
+  "open100-2@noqa-r2": {
+   "set": "open100-dev",
+   "variant": "noqa-r2",
+   "label": "ext-pidkg-noqa-r2",
+   "drawing": "2",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/2.png",
+   "exit": 0,
+   "wall_s": 242,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 25,
+   "duration_api_ms": 166519,
+   "cost_usd_list_equivalent": 1.0122,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 34,
+    "cache_creation": 66126,
+    "cache_read": 613340,
+    "output": 18020,
+    "thinking_in_output": 3732
+   },
+   "qa_loop": {
+    "build_runs": 1,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 9,
+    "Read": 11,
+    "Grep": 1,
+    "Write": 1
+   },
+   "tool_errors": 2,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 8,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     4941,
+     3308
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 11,
+    "qa_info": 6,
+    "nodes_by_type": {
+     "Boundary": 2,
+     "Component": 28,
+     "ControlLoop": 4,
+     "Equipment": 8,
+     "Instrument": 15,
+     "OffPageConnector": 10,
+     "PipeSegment": 56,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "monitoring": 3,
+     "on_off": 1
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 5,
+     "pump": 3,
+     "valve": 22,
+     "general": 6,
+     "instrumentation": 15,
+     "inlet/outlet": 12
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 56,
+     "ControlLoop:on_off": 1,
+     "ControlLoop:monitoring": 3
+    },
+    "connections": 132,
+    "directed_pairs": 64,
+    "directed_pairs_shown": 43,
+    "printed_tags_used": 31
+   }
+  },
+  "open100-3@noqa-r2": {
+   "set": "open100-dev",
+   "variant": "noqa-r2",
+   "label": "ext-pidkg-noqa-r2",
+   "drawing": "3",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/3.png",
+   "exit": 0,
+   "wall_s": 294,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 25,
+   "duration_api_ms": 161836,
+   "cost_usd_list_equivalent": 0.8924,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 36,
+    "cache_creation": 56136,
+    "cache_read": 564819,
+    "output": 16512,
+    "thinking_in_output": 4783
+   },
+   "qa_loop": {
+    "build_runs": 4,
+    "extraction_edits_after_first_build": 2,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 10,
+    "Read": 9,
+    "Write": 1,
+    "Edit": 2
+   },
+   "tool_errors": 5,
+   "tool_errors_permission": 2,
+   "image_reads": {
+    "tiles": 6,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     5339,
+     3583
+    ],
+    "tiles": 15,
+    "non_blank_tiles": 15,
+    "tiles_listed_reviewed": 15,
+    "qa_errors": 0,
+    "qa_warnings": 4,
+    "qa_info": 24,
+    "nodes_by_type": {
+     "Component": 16,
+     "Equipment": 5,
+     "Instrument": 23,
+     "OffPageConnector": 3,
+     "PipeSegment": 27,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {},
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 3,
+     "pump": 2,
+     "valve": 16,
+     "instrumentation": 23,
+     "inlet/outlet": 3
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 27
+    },
+    "connections": 91,
+    "directed_pairs": 28,
+    "directed_pairs_shown": 22,
+    "printed_tags_used": 36
+   }
+  },
+  "open100-4@noqa-r2": {
+   "set": "open100-dev",
+   "variant": "noqa-r2",
+   "label": "ext-pidkg-noqa-r2",
+   "drawing": "4",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/4.png",
+   "exit": 0,
+   "wall_s": 319,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 27,
+   "duration_api_ms": 172330,
+   "cost_usd_list_equivalent": 1.0221,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 32,
+    "cache_creation": 68827,
+    "cache_read": 557738,
+    "output": 17989,
+    "thinking_in_output": 3862
+   },
+   "qa_loop": {
+    "build_runs": 2,
+    "extraction_edits_after_first_build": 1,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 10,
+    "Read": 12,
+    "Write": 1,
+    "Edit": 1
+   },
+   "tool_errors": 3,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 10,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     4956,
+     3308
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 9,
+    "qa_info": 19,
+    "nodes_by_type": {
+     "Boundary": 2,
+     "Component": 38,
+     "Equipment": 4,
+     "Instrument": 18,
+     "OffPageConnector": 8,
+     "PipeSegment": 56,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {},
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 4,
+     "valve": 31,
+     "general": 7,
+     "instrumentation": 18,
+     "inlet/outlet": 8
+    },
+    "no_box": [
+     "BOUNDARY:ATMOSPHERE PSV-14014 DISCHARGE",
+     "BOUNDARY:ATMOSPHERE DEAERATOR VENTS PSV-1663 DISCHARGE"
+    ],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 56
+    },
+    "connections": 114,
+    "directed_pairs": 50,
+    "directed_pairs_shown": 28,
+    "printed_tags_used": 36
+   }
+  },
+  "open100-5@noqa-r2": {
+   "set": "open100-dev",
+   "variant": "noqa-r2",
+   "label": "ext-pidkg-noqa-r2",
+   "drawing": "5",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/5.png",
+   "exit": 0,
+   "wall_s": 397,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 29,
+   "duration_api_ms": 264072,
+   "cost_usd_list_equivalent": 1.441,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 38,
+    "cache_creation": 88606,
+    "cache_read": 763296,
+    "output": 28969,
+    "thinking_in_output": 11187
+   },
+   "qa_loop": {
+    "build_runs": 1,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 9,
+    "Read": 15,
+    "Grep": 1,
+    "Write": 1
+   },
+   "tool_errors": 2,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 12,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     4949,
+     3308
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 37,
+    "qa_info": 1,
+    "nodes_by_type": {
+     "Component": 25,
+     "ControlLoop": 16,
+     "Equipment": 4,
+     "Instrument": 44,
+     "OffPageConnector": 12,
+     "PipeSegment": 43,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "monitoring": 16
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 2,
+     "pump": 2,
+     "valve": 21,
+     "general": 4,
+     "instrumentation": 44,
+     "inlet/outlet": 12
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 43,
+     "ControlLoop:monitoring": 16
+    },
+    "connections": 306,
+    "directed_pairs": 61,
+    "directed_pairs_shown": 27,
+    "printed_tags_used": 65
+   }
+  },
+  "open100-0@2x2-r1": {
+   "set": "open100-dev",
+   "variant": "2x2-r1",
+   "label": "ext-pidkg-2x2-r1",
+   "drawing": "0",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/0.png",
+   "exit": 0,
+   "wall_s": 351,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 25,
+   "duration_api_ms": 217246,
+   "cost_usd_list_equivalent": 1.1241,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 38,
+    "cache_creation": 65603,
+    "cache_read": 665180,
+    "output": 23302,
+    "thinking_in_output": 7076
+   },
+   "qa_loop": {
+    "build_runs": 2,
+    "extraction_edits_after_first_build": 1,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 11,
+    "Read": 7,
+    "Write": 1,
+    "Edit": 1
+   },
+   "tool_errors": 3,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 2,
+    "overview": 1,
+    "crops": 3
+   },
+   "coverage": {
+    "render_px": [
+     5000,
+     3347
+    ],
+    "tiles": 4,
+    "non_blank_tiles": 4,
+    "tiles_listed_reviewed": 4,
+    "qa_errors": 0,
+    "qa_warnings": 11,
+    "qa_info": 5,
+    "nodes_by_type": {
+     "Boundary": 1,
+     "Component": 47,
+     "ControlLoop": 6,
+     "Equipment": 2,
+     "Instrument": 21,
+     "OffPageConnector": 9,
+     "PipeSegment": 69,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "monitoring": 6
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 2,
+     "valve": 35,
+     "general": 12,
+     "instrumentation": 21,
+     "inlet/outlet": 9
+    },
+    "no_box": [
+     "BOUNDARY:ATMOSPHERE OPEN DISCHARGE ARROWS FROM PSVS AND AORV"
+    ],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 69,
+     "ControlLoop:monitoring": 6
+    },
+    "connections": 488,
+    "directed_pairs": 64,
+    "directed_pairs_shown": 48,
+    "printed_tags_used": 39
+   }
+  },
+  "open100-1@2x2-r1": {
+   "set": "open100-dev",
+   "variant": "2x2-r1",
+   "label": "ext-pidkg-2x2-r1",
+   "drawing": "1",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/1.png",
+   "exit": 0,
+   "wall_s": 294,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 33,
+   "duration_api_ms": 151579,
+   "cost_usd_list_equivalent": 0.9681,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 38,
+    "cache_creation": 63271,
+    "cache_read": 813067,
+    "output": 14958,
+    "thinking_in_output": 4273
+   },
+   "qa_loop": {
+    "build_runs": 4,
+    "extraction_edits_after_first_build": 3,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 11,
+    "Read": 10,
+    "Grep": 1,
+    "Write": 1,
+    "Edit": 3
+   },
+   "tool_errors": 7,
+   "tool_errors_permission": 2,
+   "image_reads": {
+    "tiles": 4,
+    "overview": 1,
+    "crops": 3
+   },
+   "coverage": {
+    "render_px": [
+     5000,
+     3341
+    ],
+    "tiles": 4,
+    "non_blank_tiles": 4,
+    "tiles_listed_reviewed": 4,
+    "qa_errors": 0,
+    "qa_warnings": 6,
+    "qa_info": 0,
+    "nodes_by_type": {
+     "Component": 6,
+     "ControlLoop": 1,
+     "Equipment": 5,
+     "Instrument": 2,
+     "OffPageConnector": 5,
+     "PipeSegment": 17,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "monitoring": 1
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 2,
+     "pump": 3,
+     "valve": 4,
+     "general": 2,
+     "instrumentation": 2,
+     "inlet/outlet": 5
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 17,
+     "ControlLoop:monitoring": 1
+    },
+    "connections": 42,
+    "directed_pairs": 21,
+    "directed_pairs_shown": 21,
+    "printed_tags_used": 11
+   }
+  },
+  "open100-2@2x2-r1": {
+   "set": "open100-dev",
+   "variant": "2x2-r1",
+   "label": "ext-pidkg-2x2-r1",
+   "drawing": "2",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/2.png",
+   "exit": 0,
+   "wall_s": 328,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 44,
+   "duration_api_ms": 242179,
+   "cost_usd_list_equivalent": 1.3851,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 50,
+    "cache_creation": 78887,
+    "cache_read": 1135287,
+    "output": 26337,
+    "thinking_in_output": 9068
+   },
+   "qa_loop": {
+    "build_runs": 5,
+    "extraction_edits_after_first_build": 8,
+    "crops_after_first_build": 1,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 14,
+    "Read": 12,
+    "Grep": 2,
+    "Write": 1,
+    "Edit": 8
+   },
+   "tool_errors": 6,
+   "tool_errors_permission": 2,
+   "image_reads": {
+    "tiles": 4,
+    "overview": 1,
+    "crops": 5
+   },
+   "coverage": {
+    "render_px": [
+     5000,
+     3347
+    ],
+    "tiles": 4,
+    "non_blank_tiles": 4,
+    "tiles_listed_reviewed": 4,
+    "qa_errors": 0,
+    "qa_warnings": 11,
+    "qa_info": 8,
+    "nodes_by_type": {
+     "Boundary": 3,
+     "Component": 28,
+     "ControlLoop": 4,
+     "Equipment": 8,
+     "Instrument": 16,
+     "OffPageConnector": 10,
+     "PipeSegment": 58,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "monitoring": 3,
+     "on_off": 1
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 5,
+     "pump": 3,
+     "valve": 6,
+     "general": 3,
+     "instrumentation": 16,
+     "inlet/outlet": 10
+    },
+    "no_box": [
+     "P01.V1",
+     "P01.V2",
+     "P01.V3",
+     "P01.V4",
+     "P01.V5",
+     "P01.V6",
+     "P01.V7",
+     "P01.V8",
+     "P01.V9",
+     "P01.V10",
+     "P01.V11",
+     "P01.V12",
+     "P01.T1",
+     "P01.V13",
+     "P01.V14",
+     "P01.V15",
+     "P01.V16",
+     "BOUNDARY:PSV-1601 DISCHARGE OPEN END ATMOSPHERE",
+     "BOUNDARY:ATMOSPHERE VACUUM BREAKER INLET",
+     "BOUNDARY:DRAIN OPEN END BELOW CND-HTR-161"
+    ],
+    "not_symbols": {
+     "Sheet": 1,
+     "Component:tee": 2,
+     "PipeSegment": 58,
+     "ControlLoop:on_off": 1,
+     "ControlLoop:monitoring": 3
+    },
+    "connections": 46,
+    "directed_pairs": 21,
+    "directed_pairs_shown": 16,
+    "printed_tags_used": 33
+   }
+  },
+  "open100-3@2x2-r1": {
+   "set": "open100-dev",
+   "variant": "2x2-r1",
+   "label": "ext-pidkg-2x2-r1",
+   "drawing": "3",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/3.png",
+   "exit": 0,
+   "wall_s": 207,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 27,
+   "duration_api_ms": 149214,
+   "cost_usd_list_equivalent": 0.9409,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 38,
+    "cache_creation": 61668,
+    "cache_read": 673377,
+    "output": 15635,
+    "thinking_in_output": 4583
+   },
+   "qa_loop": {
+    "build_runs": 1,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 2,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 11,
+    "Read": 8,
+    "Write": 1
+   },
+   "tool_errors": 2,
+   "tool_errors_permission": 2,
+   "image_reads": {
+    "tiles": 4,
+    "overview": 1,
+    "crops": 2
+   },
+   "coverage": {
+    "render_px": [
+     5000,
+     3356
+    ],
+    "tiles": 4,
+    "non_blank_tiles": 4,
+    "tiles_listed_reviewed": 4,
+    "qa_errors": 0,
+    "qa_warnings": 4,
+    "qa_info": 24,
+    "nodes_by_type": {
+     "Component": 16,
+     "Equipment": 5,
+     "Instrument": 23,
+     "OffPageConnector": 3,
+     "PipeSegment": 27,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {},
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 3,
+     "pump": 2,
+     "valve": 16,
+     "instrumentation": 23,
+     "inlet/outlet": 3
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 27
+    },
+    "connections": 101,
+    "directed_pairs": 27,
+    "directed_pairs_shown": 23,
+    "printed_tags_used": 36
+   }
+  },
+  "open100-4@2x2-r1": {
+   "set": "open100-dev",
+   "variant": "2x2-r1",
+   "label": "ext-pidkg-2x2-r1",
+   "drawing": "4",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/4.png",
+   "exit": 0,
+   "wall_s": 234,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 33,
+   "duration_api_ms": 174881,
+   "cost_usd_list_equivalent": 1.2353,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 50,
+    "cache_creation": 79924,
+    "cache_read": 1158178,
+    "output": 18202,
+    "thinking_in_output": 5651
+   },
+   "qa_loop": {
+    "build_runs": 3,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 1,
+    "wrote_generator_script": true
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 10,
+    "Read": 15,
+    "Write": 1
+   },
+   "tool_errors": 4,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 4,
+    "overview": 1,
+    "crops": 4
+   },
+   "coverage": {
+    "render_px": [
+     4985,
+     3328
+    ],
+    "tiles": 4,
+    "non_blank_tiles": 4,
+    "tiles_listed_reviewed": 4,
+    "qa_errors": 0,
+    "qa_warnings": 9,
+    "qa_info": 19,
+    "nodes_by_type": {
+     "Component": 39,
+     "Equipment": 4,
+     "Instrument": 20,
+     "OffPageConnector": 8,
+     "PipeSegment": 55,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {},
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 4,
+     "valve": 28,
+     "general": 11,
+     "instrumentation": 20,
+     "inlet/outlet": 8
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 55
+    },
+    "connections": 140,
+    "directed_pairs": 55,
+    "directed_pairs_shown": 54,
+    "printed_tags_used": 36
+   }
+  },
+  "open100-5@2x2-r1": {
+   "set": "open100-dev",
+   "variant": "2x2-r1",
+   "label": "ext-pidkg-2x2-r1",
+   "drawing": "5",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/5.png",
+   "exit": 0,
+   "wall_s": 294,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 30,
+   "duration_api_ms": 215697,
+   "cost_usd_list_equivalent": 1.1885,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 48,
+    "cache_creation": 70747,
+    "cache_read": 774286,
+    "output": 23375,
+    "thinking_in_output": 6978
+   },
+   "qa_loop": {
+    "build_runs": 2,
+    "extraction_edits_after_first_build": 1,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 12,
+    "Read": 9,
+    "Write": 1,
+    "Edit": 1
+   },
+   "tool_errors": 4,
+   "tool_errors_permission": 2,
+   "image_reads": {
+    "tiles": 4,
+    "overview": 1,
+    "crops": 3
+   },
+   "coverage": {
+    "render_px": [
+     5000,
+     3342
+    ],
+    "tiles": 4,
+    "non_blank_tiles": 4,
+    "tiles_listed_reviewed": 4,
+    "qa_errors": 0,
+    "qa_warnings": 13,
+    "qa_info": 1,
+    "nodes_by_type": {
+     "Component": 14,
+     "ControlLoop": 16,
+     "Equipment": 4,
+     "Instrument": 38,
+     "OffPageConnector": 12,
+     "PipeSegment": 47,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "monitoring": 16
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 2,
+     "pump": 2,
+     "valve": 14,
+     "instrumentation": 38,
+     "inlet/outlet": 12
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 47,
+     "ControlLoop:monitoring": 16
+    },
+    "connections": 405,
+    "directed_pairs": 112,
+    "directed_pairs_shown": 27,
+    "printed_tags_used": 46
+   }
+  },
+  "open100-0@2x2-r2": {
+   "set": "open100-dev",
+   "variant": "2x2-r2",
+   "label": "ext-pidkg-2x2-r2",
+   "drawing": "0",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/0.png",
+   "exit": 0,
+   "wall_s": 253,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 32,
+   "duration_api_ms": 185574,
+   "cost_usd_list_equivalent": 1.1251,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 48,
+    "cache_creation": 69902,
+    "cache_read": 966176,
+    "output": 18621,
+    "thinking_in_output": 5643
+   },
+   "qa_loop": {
+    "build_runs": 3,
+    "extraction_edits_after_first_build": 1,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": true
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 13,
+    "Read": 10,
+    "Write": 1,
+    "Edit": 1
+   },
+   "tool_errors": 5,
+   "tool_errors_permission": 2,
+   "image_reads": {
+    "tiles": 4,
+    "overview": 1,
+    "crops": 3
+   },
+   "coverage": {
+    "render_px": [
+     5000,
+     3347
+    ],
+    "tiles": 4,
+    "non_blank_tiles": 4,
+    "tiles_listed_reviewed": 4,
+    "qa_errors": 0,
+    "qa_warnings": 11,
+    "qa_info": 1,
+    "nodes_by_type": {
+     "Boundary": 1,
+     "Component": 43,
+     "ControlLoop": 6,
+     "Equipment": 2,
+     "Instrument": 21,
+     "OffPageConnector": 9,
+     "PipeSegment": 65,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "monitoring": 6
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 2,
+     "valve": 35,
+     "general": 8,
+     "instrumentation": 21,
+     "inlet/outlet": 9
+    },
+    "no_box": [
+     "BOUNDARY:ATMOSPHERE RELIEF VENT DISCHARGE OPEN ARROW"
+    ],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 65,
+     "ControlLoop:monitoring": 6
+    },
+    "connections": 484,
+    "directed_pairs": 60,
+    "directed_pairs_shown": 44,
+    "printed_tags_used": 39
+   }
+  },
+  "open100-1@2x2-r2": {
+   "set": "open100-dev",
+   "variant": "2x2-r2",
+   "label": "ext-pidkg-2x2-r2",
+   "drawing": "1",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/1.png",
+   "exit": 0,
+   "wall_s": 230,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 28,
+   "duration_api_ms": 157912,
+   "cost_usd_list_equivalent": 0.9033,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 40,
+    "cache_creation": 58704,
+    "cache_read": 667781,
+    "output": 14997,
+    "thinking_in_output": 5212
+   },
+   "qa_loop": {
+    "build_runs": 4,
+    "extraction_edits_after_first_build": 2,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 11,
+    "Read": 7,
+    "Write": 1,
+    "Edit": 2
+   },
+   "tool_errors": 4,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 4,
+    "overview": 1,
+    "crops": 1
+   },
+   "coverage": {
+    "render_px": [
+     5000,
+     3341
+    ],
+    "tiles": 4,
+    "non_blank_tiles": 4,
+    "tiles_listed_reviewed": 4,
+    "qa_errors": 0,
+    "qa_warnings": 5,
+    "qa_info": 1,
+    "nodes_by_type": {
+     "Component": 6,
+     "ControlLoop": 1,
+     "Equipment": 5,
+     "Instrument": 2,
+     "OffPageConnector": 5,
+     "PipeSegment": 20,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "monitoring": 1
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 2,
+     "pump": 3,
+     "valve": 4,
+     "general": 2,
+     "instrumentation": 2,
+     "inlet/outlet": 5
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 20,
+     "ControlLoop:monitoring": 1
+    },
+    "connections": 42,
+    "directed_pairs": 21,
+    "directed_pairs_shown": 17,
+    "printed_tags_used": 11
+   }
+  },
+  "open100-2@2x2-r2": {
+   "set": "open100-dev",
+   "variant": "2x2-r2",
+   "label": "ext-pidkg-2x2-r2",
+   "drawing": "2",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/2.png",
+   "exit": 0,
+   "wall_s": 334,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 32,
+   "duration_api_ms": 237651,
+   "cost_usd_list_equivalent": 1.3749,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 48,
+    "cache_creation": 86467,
+    "cache_read": 895548,
+    "output": 25195,
+    "thinking_in_output": 9655
+   },
+   "qa_loop": {
+    "build_runs": 2,
+    "extraction_edits_after_first_build": 1,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 11,
+    "Read": 12,
+    "Write": 1,
+    "Edit": 1
+   },
+   "tool_errors": 2,
+   "tool_errors_permission": 2,
+   "image_reads": {
+    "tiles": 4,
+    "overview": 1,
+    "crops": 5
+   },
+   "coverage": {
+    "render_px": [
+     5000,
+     3347
+    ],
+    "tiles": 4,
+    "non_blank_tiles": 4,
+    "tiles_listed_reviewed": 4,
+    "qa_errors": 0,
+    "qa_warnings": 11,
+    "qa_info": 6,
+    "nodes_by_type": {
+     "Boundary": 1,
+     "Component": 31,
+     "ControlLoop": 4,
+     "Equipment": 8,
+     "Instrument": 14,
+     "OffPageConnector": 10,
+     "PipeSegment": 59,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "monitoring": 3,
+     "on_off": 1
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 5,
+     "pump": 3,
+     "valve": 24,
+     "general": 7,
+     "instrumentation": 14,
+     "inlet/outlet": 10
+    },
+    "no_box": [
+     "BOUNDARY:ATMOSPHERE VACUUM BREAKER AIR INLET"
+    ],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 59,
+     "ControlLoop:on_off": 1,
+     "ControlLoop:monitoring": 3
+    },
+    "connections": 133,
+    "directed_pairs": 67,
+    "directed_pairs_shown": 40,
+    "printed_tags_used": 30
+   }
+  },
+  "open100-3@2x2-r2": {
+   "set": "open100-dev",
+   "variant": "2x2-r2",
+   "label": "ext-pidkg-2x2-r2",
+   "drawing": "3",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/3.png",
+   "exit": 0,
+   "wall_s": 265,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 45,
+   "duration_api_ms": 192990,
+   "cost_usd_list_equivalent": 1.1803,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 48,
+    "cache_creation": 70539,
+    "cache_read": 1080304,
+    "output": 19989,
+    "thinking_in_output": 4353
+   },
+   "qa_loop": {
+    "build_runs": 6,
+    "extraction_edits_after_first_build": 4,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": true
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 20,
+    "Read": 11,
+    "Write": 1,
+    "Edit": 3,
+    "Grep": 3
+   },
+   "tool_errors": 7,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 4,
+    "overview": 1,
+    "crops": 1
+   },
+   "coverage": {
+    "render_px": [
+     5000,
+     3356
+    ],
+    "tiles": 4,
+    "non_blank_tiles": 4,
+    "tiles_listed_reviewed": 4,
+    "qa_errors": 0,
+    "qa_warnings": 4,
+    "qa_info": 24,
+    "nodes_by_type": {
+     "Component": 16,
+     "Equipment": 5,
+     "Instrument": 23,
+     "OffPageConnector": 3,
+     "PipeSegment": 27,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {},
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 3,
+     "pump": 2,
+     "valve": 16,
+     "instrumentation": 23,
+     "inlet/outlet": 3
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 27
+    },
+    "connections": 91,
+    "directed_pairs": 28,
+    "directed_pairs_shown": 24,
+    "printed_tags_used": 36
+   }
+  },
+  "open100-4@2x2-r2": {
+   "set": "open100-dev",
+   "variant": "2x2-r2",
+   "label": "ext-pidkg-2x2-r2",
+   "drawing": "4",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/4.png",
+   "exit": 0,
+   "wall_s": 234,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 28,
+   "duration_api_ms": 183369,
+   "cost_usd_list_equivalent": 1.0848,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 44,
+    "cache_creation": 70411,
+    "cache_read": 704737,
+    "output": 19020,
+    "thinking_in_output": 5665
+   },
+   "qa_loop": {
+    "build_runs": 1,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 9,
+    "Read": 10,
+    "Grep": 1,
+    "Write": 1
+   },
+   "tool_errors": 3,
+   "tool_errors_permission": 2,
+   "image_reads": {
+    "tiles": 4,
+    "overview": 1,
+    "crops": 3
+   },
+   "coverage": {
+    "render_px": [
+     4985,
+     3328
+    ],
+    "tiles": 4,
+    "non_blank_tiles": 4,
+    "tiles_listed_reviewed": 4,
+    "qa_errors": 0,
+    "qa_warnings": 9,
+    "qa_info": 19,
+    "nodes_by_type": {
+     "Boundary": 2,
+     "Component": 31,
+     "Equipment": 4,
+     "Instrument": 20,
+     "OffPageConnector": 8,
+     "PipeSegment": 55,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {},
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 4,
+     "valve": 28,
+     "general": 3,
+     "instrumentation": 20,
+     "inlet/outlet": 8
+    },
+    "no_box": [
+     "BOUNDARY:ATMOSPHERE VENT RELIEF DISCHARGE",
+     "BOUNDARY:OPEN DRAIN VALVED DRAIN ENDS"
+    ],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 55
+    },
+    "connections": 130,
+    "directed_pairs": 45,
+    "directed_pairs_shown": 25,
+    "printed_tags_used": 36
+   }
+  },
+  "open100-5@2x2-r2": {
+   "set": "open100-dev",
+   "variant": "2x2-r2",
+   "label": "ext-pidkg-2x2-r2",
+   "drawing": "5",
+   "image": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/5.png",
+   "exit": 0,
+   "wall_s": 289,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 28,
+   "duration_api_ms": 220643,
+   "cost_usd_list_equivalent": 1.2168,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 40,
+    "cache_creation": 77685,
+    "cache_read": 775230,
+    "output": 22007,
+    "thinking_in_output": 8354
+   },
+   "qa_loop": {
+    "build_runs": 1,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": true
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 11,
+    "Read": 9,
+    "Write": 1
+   },
+   "tool_errors": 2,
+   "tool_errors_permission": 2,
+   "image_reads": {
+    "tiles": 4,
+    "overview": 1,
+    "crops": 2
+   },
+   "coverage": {
+    "render_px": [
+     5000,
+     3342
+    ],
+    "tiles": 4,
+    "non_blank_tiles": 4,
+    "tiles_listed_reviewed": 4,
+    "qa_errors": 0,
+    "qa_warnings": 13,
+    "qa_info": 1,
+    "nodes_by_type": {
+     "Component": 30,
+     "ControlLoop": 16,
+     "Equipment": 4,
+     "Instrument": 38,
+     "OffPageConnector": 12,
+     "PipeSegment": 66,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "monitoring": 16
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 2,
+     "pump": 2,
+     "general": 9,
+     "valve": 21,
+     "instrumentation": 38,
+     "inlet/outlet": 12
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 66,
+     "ControlLoop:monitoring": 16
+    },
+    "connections": 303,
+    "directed_pairs": 87,
+    "directed_pairs_shown": 32,
+    "printed_tags_used": 50
+   }
+  },
+  "te-a-101@r1": {
    "set": "te-a",
+   "variant": "r1",
+   "label": "ext-pidkg-te-a-r1",
    "drawing": "101",
    "image": "data/te_pid/rev-a/101.png",
    "exit": 0,
@@ -794,8 +4140,10 @@
     "printed_tags_used": 16
    }
   },
-  "te-a-102": {
+  "te-a-102@r1": {
    "set": "te-a",
+   "variant": "r1",
+   "label": "ext-pidkg-te-a-r1",
    "drawing": "102",
    "image": "data/te_pid/rev-a/102.png",
    "exit": 0,
@@ -886,8 +4234,10 @@
     "printed_tags_used": 16
    }
   },
-  "te-a-103": {
+  "te-a-103@r1": {
    "set": "te-a",
+   "variant": "r1",
+   "label": "ext-pidkg-te-a-r1",
    "drawing": "103",
    "image": "data/te_pid/rev-a/103.png",
    "exit": 0,
@@ -976,8 +4326,1152 @@
     "printed_tags_used": 11
    }
   },
-  "te-d-101": {
+  "te-a-101@r2": {
+   "set": "te-a",
+   "variant": "r2",
+   "label": "ext-pidkg-te-a-r2",
+   "drawing": "101",
+   "image": "data/te_pid/rev-a/101.png",
+   "exit": 0,
+   "wall_s": 199,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 22,
+   "duration_api_ms": 110190,
+   "cost_usd_list_equivalent": 0.7771,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 32,
+    "cache_creation": 58459,
+    "cache_read": 554246,
+    "output": 9921,
+    "thinking_in_output": 1807
+   },
+   "qa_loop": {
+    "build_runs": 2,
+    "extraction_edits_after_first_build": 1,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 9,
+    "Read": 7,
+    "Grep": 1,
+    "Write": 1,
+    "Edit": 1
+   },
+   "tool_errors": 3,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 4,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     4613,
+     3072
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 5,
+    "qa_info": 2,
+    "nodes_by_type": {
+     "Boundary": 3,
+     "Component": 4,
+     "ControlLoop": 1,
+     "Equipment": 3,
+     "Instrument": 10,
+     "OffPageConnector": 5,
+     "PipeSegment": 13,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "control": 1
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "ocr_hints_vs_key_tags": {
+    "candidates": 18,
+    "key_tags": 16,
+    "key_tags_in_candidates": 15,
+    "candidates_in_key": 15
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 1,
+     "general": 2,
+     "valve": 4,
+     "instrumentation": 10,
+     "inlet/outlet": 8
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 13,
+     "ControlLoop:control": 1
+    },
+    "connections": 55,
+    "directed_pairs": 13,
+    "directed_pairs_shown": 12,
+    "printed_tags_used": 16
+   }
+  },
+  "te-a-102@r2": {
+   "set": "te-a",
+   "variant": "r2",
+   "label": "ext-pidkg-te-a-r2",
+   "drawing": "102",
+   "image": "data/te_pid/rev-a/102.png",
+   "exit": 0,
+   "wall_s": 228,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 20,
+   "duration_api_ms": 98351,
+   "cost_usd_list_equivalent": 0.7327,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 34,
+    "cache_creation": 52543,
+    "cache_read": 581031,
+    "output": 9801,
+    "thinking_in_output": 1679
+   },
+   "qa_loop": {
+    "build_runs": 2,
+    "extraction_edits_after_first_build": 1,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": true
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 10,
+    "Read": 5,
+    "Write": 2
+   },
+   "tool_errors": 3,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 1,
+    "overview": 1,
+    "crops": 1
+   },
+   "coverage": {
+    "render_px": [
+     4968,
+     3308
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 5,
+    "qa_info": 1,
+    "nodes_by_type": {
+     "Boundary": 1,
+     "Component": 4,
+     "Equipment": 3,
+     "Instrument": 9,
+     "OffPageConnector": 5,
+     "PipeSegment": 13,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {},
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "ocr_hints_vs_key_tags": {
+    "candidates": 18,
+    "key_tags": 16,
+    "key_tags_in_candidates": 16,
+    "candidates_in_key": 16
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 2,
+     "pump": 1,
+     "valve": 4,
+     "instrumentation": 9,
+     "inlet/outlet": 5
+    },
+    "no_box": [
+     "BOUNDARY:BATTERY LIMIT PURGE"
+    ],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 13
+    },
+    "connections": 29,
+    "directed_pairs": 12,
+    "directed_pairs_shown": 9,
+    "printed_tags_used": 16
+   }
+  },
+  "te-a-103@r2": {
+   "set": "te-a",
+   "variant": "r2",
+   "label": "ext-pidkg-te-a-r2",
+   "drawing": "103",
+   "image": "data/te_pid/rev-a/103.png",
+   "exit": 0,
+   "wall_s": 132,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 20,
+   "duration_api_ms": 87797,
+   "cost_usd_list_equivalent": 0.617,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 28,
+    "cache_creation": 46997,
+    "cache_read": 375854,
+    "output": 8286,
+    "thinking_in_output": 1553
+   },
+   "qa_loop": {
+    "build_runs": 1,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 6,
+    "Read": 8,
+    "Grep": 1,
+    "Write": 1,
+    "Edit": 1
+   },
+   "tool_errors": 1,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 6,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     4968,
+     3308
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 4,
+    "qa_info": 0,
+    "nodes_by_type": {
+     "Boundary": 2,
+     "Component": 3,
+     "Equipment": 1,
+     "Instrument": 7,
+     "OffPageConnector": 4,
+     "PipeSegment": 9,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {},
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "ocr_hints_vs_key_tags": {
+    "candidates": 12,
+    "key_tags": 11,
+    "key_tags_in_candidates": 11,
+    "candidates_in_key": 11
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 1,
+     "valve": 3,
+     "instrumentation": 7,
+     "inlet/outlet": 6
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 9
+    },
+    "connections": 21,
+    "directed_pairs": 9,
+    "directed_pairs_shown": 9,
+    "printed_tags_used": 11
+   }
+  },
+  "te-a-101@r3": {
+   "set": "te-a",
+   "variant": "r3",
+   "label": "ext-pidkg-te-a-r3",
+   "drawing": "101",
+   "image": "data/te_pid/rev-a/101.png",
+   "exit": 0,
+   "wall_s": 183,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 28,
+   "duration_api_ms": 116096,
+   "cost_usd_list_equivalent": 0.7954,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 34,
+    "cache_creation": 58835,
+    "cache_read": 588226,
+    "output": 10347,
+    "thinking_in_output": 1623
+   },
+   "qa_loop": {
+    "build_runs": 3,
+    "extraction_edits_after_first_build": 1,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 10,
+    "Read": 13,
+    "Write": 1,
+    "Edit": 1
+   },
+   "tool_errors": 4,
+   "tool_errors_permission": 2,
+   "image_reads": {
+    "tiles": 10,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     4613,
+     3072
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 5,
+    "qa_info": 2,
+    "nodes_by_type": {
+     "Boundary": 3,
+     "Component": 4,
+     "ControlLoop": 1,
+     "Equipment": 3,
+     "Instrument": 10,
+     "OffPageConnector": 5,
+     "PipeSegment": 13,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "control": 1
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "ocr_hints_vs_key_tags": {
+    "candidates": 18,
+    "key_tags": 16,
+    "key_tags_in_candidates": 15,
+    "candidates_in_key": 15
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 1,
+     "general": 2,
+     "valve": 4,
+     "instrumentation": 10,
+     "inlet/outlet": 8
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 13,
+     "ControlLoop:control": 1
+    },
+    "connections": 55,
+    "directed_pairs": 13,
+    "directed_pairs_shown": 12,
+    "printed_tags_used": 16
+   }
+  },
+  "te-a-102@r3": {
+   "set": "te-a",
+   "variant": "r3",
+   "label": "ext-pidkg-te-a-r3",
+   "drawing": "102",
+   "image": "data/te_pid/rev-a/102.png",
+   "exit": 0,
+   "wall_s": 156,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 22,
+   "duration_api_ms": 109217,
+   "cost_usd_list_equivalent": 0.6499,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 34,
+    "cache_creation": 42966,
+    "cache_read": 470114,
+    "output": 10599,
+    "thinking_in_output": 2723
+   },
+   "qa_loop": {
+    "build_runs": 3,
+    "extraction_edits_after_first_build": 1,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 9,
+    "Read": 8,
+    "Write": 1,
+    "Edit": 1
+   },
+   "tool_errors": 4,
+   "tool_errors_permission": 2,
+   "image_reads": {
+    "tiles": 4,
+    "overview": 1,
+    "crops": 2
+   },
+   "coverage": {
+    "render_px": [
+     4968,
+     3308
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 5,
+    "qa_info": 1,
+    "nodes_by_type": {
+     "Boundary": 1,
+     "Component": 4,
+     "Equipment": 3,
+     "Instrument": 9,
+     "OffPageConnector": 5,
+     "PipeSegment": 13,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {},
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "ocr_hints_vs_key_tags": {
+    "candidates": 18,
+    "key_tags": 16,
+    "key_tags_in_candidates": 16,
+    "candidates_in_key": 16
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 2,
+     "pump": 1,
+     "valve": 4,
+     "instrumentation": 9,
+     "inlet/outlet": 6
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 13
+    },
+    "connections": 30,
+    "directed_pairs": 13,
+    "directed_pairs_shown": 9,
+    "printed_tags_used": 16
+   }
+  },
+  "te-a-103@r3": {
+   "set": "te-a",
+   "variant": "r3",
+   "label": "ext-pidkg-te-a-r3",
+   "drawing": "103",
+   "image": "data/te_pid/rev-a/103.png",
+   "exit": 0,
+   "wall_s": 179,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 24,
+   "duration_api_ms": 97438,
+   "cost_usd_list_equivalent": 0.677,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 32,
+    "cache_creation": 49307,
+    "cache_read": 499041,
+    "output": 9130,
+    "thinking_in_output": 1747
+   },
+   "qa_loop": {
+    "build_runs": 3,
+    "extraction_edits_after_first_build": 1,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 9,
+    "Read": 10,
+    "Write": 1,
+    "Edit": 1
+   },
+   "tool_errors": 4,
+   "tool_errors_permission": 2,
+   "image_reads": {
+    "tiles": 8,
+    "overview": 1,
+    "crops": 1
+   },
+   "coverage": {
+    "render_px": [
+     4968,
+     3308
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 4,
+    "qa_info": 0,
+    "nodes_by_type": {
+     "Boundary": 2,
+     "Component": 3,
+     "Equipment": 1,
+     "Instrument": 7,
+     "OffPageConnector": 4,
+     "PipeSegment": 9,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {},
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "ocr_hints_vs_key_tags": {
+    "candidates": 12,
+    "key_tags": 11,
+    "key_tags_in_candidates": 11,
+    "candidates_in_key": 11
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 1,
+     "valve": 3,
+     "instrumentation": 7,
+     "inlet/outlet": 6
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 9
+    },
+    "connections": 21,
+    "directed_pairs": 9,
+    "directed_pairs_shown": 9,
+    "printed_tags_used": 11
+   }
+  },
+  "te-a-101@noocr-r1": {
+   "set": "te-a",
+   "variant": "noocr-r1",
+   "label": "ext-pidkg-noocr-te-a-r1",
+   "drawing": "101",
+   "image": "data/te_pid/rev-a/101.png",
+   "exit": 0,
+   "wall_s": 113,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 19,
+   "duration_api_ms": 102977,
+   "cost_usd_list_equivalent": 0.6202,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 30,
+    "cache_creation": 41115,
+    "cache_read": 382087,
+    "output": 10737,
+    "thinking_in_output": 2344
+   },
+   "qa_loop": {
+    "build_runs": 1,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 9,
+    "Read": 6,
+    "Write": 1
+   },
+   "tool_errors": 1,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 2,
+    "overview": 1,
+    "crops": 2
+   },
+   "coverage": {
+    "render_px": [
+     4000,
+     2664
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 5,
+    "qa_info": 2,
+    "nodes_by_type": {
+     "Boundary": 3,
+     "Component": 4,
+     "ControlLoop": 1,
+     "Equipment": 3,
+     "Instrument": 10,
+     "OffPageConnector": 5,
+     "PipeSegment": 13,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "control": 1
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "ocr_hints_vs_key_tags": {
+    "candidates": 0,
+    "key_tags": 16,
+    "key_tags_in_candidates": 0,
+    "candidates_in_key": 0
+   },
+   "adapter": {
+    "by_class": {
+     "general": 2,
+     "tank": 1,
+     "valve": 4,
+     "instrumentation": 10,
+     "inlet/outlet": 8
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 13,
+     "ControlLoop:control": 1
+    },
+    "connections": 55,
+    "directed_pairs": 13,
+    "directed_pairs_shown": 12,
+    "printed_tags_used": 16
+   }
+  },
+  "te-a-102@noocr-r1": {
+   "set": "te-a",
+   "variant": "noocr-r1",
+   "label": "ext-pidkg-noocr-te-a-r1",
+   "drawing": "102",
+   "image": "data/te_pid/rev-a/102.png",
+   "exit": 0,
+   "wall_s": 101,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 22,
+   "duration_api_ms": 91940,
+   "cost_usd_list_equivalent": 0.6235,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 34,
+    "cache_creation": 42728,
+    "cache_read": 491977,
+    "output": 9157,
+    "thinking_in_output": 1378
+   },
+   "qa_loop": {
+    "build_runs": 2,
+    "extraction_edits_after_first_build": 1,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 7,
+    "Read": 9,
+    "Grep": 1,
+    "Write": 1,
+    "Edit": 1
+   },
+   "tool_errors": 2,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 4,
+    "overview": 1,
+    "crops": 2
+   },
+   "coverage": {
+    "render_px": [
+     4000,
+     2664
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 5,
+    "qa_info": 1,
+    "nodes_by_type": {
+     "Boundary": 1,
+     "Component": 4,
+     "Equipment": 3,
+     "Instrument": 9,
+     "OffPageConnector": 5,
+     "PipeSegment": 13,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {},
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "ocr_hints_vs_key_tags": {
+    "candidates": 0,
+    "key_tags": 16,
+    "key_tags_in_candidates": 0,
+    "candidates_in_key": 0
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 2,
+     "pump": 1,
+     "valve": 4,
+     "instrumentation": 9,
+     "inlet/outlet": 5
+    },
+    "no_box": [
+     "BOUNDARY:BATTERY LIMIT PURGE"
+    ],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 13
+    },
+    "connections": 29,
+    "directed_pairs": 12,
+    "directed_pairs_shown": 9,
+    "printed_tags_used": 16
+   }
+  },
+  "te-a-103@noocr-r1": {
+   "set": "te-a",
+   "variant": "noocr-r1",
+   "label": "ext-pidkg-noocr-te-a-r1",
+   "drawing": "103",
+   "image": "data/te_pid/rev-a/103.png",
+   "exit": 0,
+   "wall_s": 102,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 28,
+   "duration_api_ms": 91870,
+   "cost_usd_list_equivalent": 0.5977,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 36,
+    "cache_creation": 40103,
+    "cache_read": 444930,
+    "output": 9386,
+    "thinking_in_output": 683
+   },
+   "qa_loop": {
+    "build_runs": 2,
+    "extraction_edits_after_first_build": 1,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 14,
+    "Read": 8,
+    "Grep": 1,
+    "Write": 1,
+    "Edit": 1
+   },
+   "tool_errors": 4,
+   "tool_errors_permission": 2,
+   "image_reads": {
+    "tiles": 0,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     4000,
+     2664
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 4,
+    "qa_info": 0,
+    "nodes_by_type": {
+     "Boundary": 2,
+     "Component": 3,
+     "Equipment": 1,
+     "Instrument": 7,
+     "OffPageConnector": 4,
+     "PipeSegment": 9,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {},
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "ocr_hints_vs_key_tags": {
+    "candidates": 0,
+    "key_tags": 11,
+    "key_tags_in_candidates": 0,
+    "candidates_in_key": 0
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 1,
+     "valve": 3,
+     "instrumentation": 7,
+     "inlet/outlet": 4
+    },
+    "no_box": [
+     "BOUNDARY:BATTERY LIMIT A AND C FEED",
+     "BOUNDARY:BATTERY LIMIT STRIPPER PRODUCT"
+    ],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 9
+    },
+    "connections": 19,
+    "directed_pairs": 7,
+    "directed_pairs_shown": 7,
+    "printed_tags_used": 11
+   }
+  },
+  "te-a-101@noocr-r2": {
+   "set": "te-a",
+   "variant": "noocr-r2",
+   "label": "ext-pidkg-noocr-te-a-r2",
+   "drawing": "101",
+   "image": "data/te_pid/rev-a/101.png",
+   "exit": 0,
+   "wall_s": 117,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 28,
+   "duration_api_ms": 109441,
+   "cost_usd_list_equivalent": 0.7998,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 34,
+    "cache_creation": 59863,
+    "cache_read": 535514,
+    "output": 10681,
+    "thinking_in_output": 2285
+   },
+   "qa_loop": {
+    "build_runs": 1,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 10,
+    "Read": 13,
+    "Grep": 1,
+    "Write": 1
+   },
+   "tool_errors": 2,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 11,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     4000,
+     2664
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 5,
+    "qa_info": 2,
+    "nodes_by_type": {
+     "Boundary": 3,
+     "Component": 4,
+     "ControlLoop": 1,
+     "Equipment": 3,
+     "Instrument": 10,
+     "OffPageConnector": 5,
+     "PipeSegment": 13,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "control": 1
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "ocr_hints_vs_key_tags": {
+    "candidates": 0,
+    "key_tags": 16,
+    "key_tags_in_candidates": 0,
+    "candidates_in_key": 0
+   },
+   "adapter": {
+    "by_class": {
+     "general": 2,
+     "tank": 1,
+     "valve": 4,
+     "instrumentation": 10,
+     "inlet/outlet": 5
+    },
+    "no_box": [
+     "BOUNDARY:BATTERY LIMIT A FEED",
+     "BOUNDARY:BATTERY LIMIT D FEED",
+     "BOUNDARY:BATTERY LIMIT E FEED"
+    ],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 13,
+     "ControlLoop:control": 1
+    },
+    "connections": 52,
+    "directed_pairs": 10,
+    "directed_pairs_shown": 9,
+    "printed_tags_used": 16
+   }
+  },
+  "te-a-102@noocr-r2": {
+   "set": "te-a",
+   "variant": "noocr-r2",
+   "label": "ext-pidkg-noocr-te-a-r2",
+   "drawing": "102",
+   "image": "data/te_pid/rev-a/102.png",
+   "exit": 0,
+   "wall_s": 101,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 19,
+   "duration_api_ms": 91718,
+   "cost_usd_list_equivalent": 0.6198,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 30,
+    "cache_creation": 43099,
+    "cache_read": 402335,
+    "output": 9721,
+    "thinking_in_output": 2459
+   },
+   "qa_loop": {
+    "build_runs": 1,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 7,
+    "Read": 8,
+    "Write": 1
+   },
+   "tool_errors": 1,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 4,
+    "overview": 1,
+    "crops": 2
+   },
+   "coverage": {
+    "render_px": [
+     4000,
+     2664
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 5,
+    "qa_info": 1,
+    "nodes_by_type": {
+     "Boundary": 1,
+     "Component": 4,
+     "Equipment": 3,
+     "Instrument": 9,
+     "OffPageConnector": 5,
+     "PipeSegment": 13,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {},
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "ocr_hints_vs_key_tags": {
+    "candidates": 0,
+    "key_tags": 16,
+    "key_tags_in_candidates": 0,
+    "candidates_in_key": 0
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 2,
+     "pump": 1,
+     "valve": 4,
+     "instrumentation": 9,
+     "inlet/outlet": 6
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 13
+    },
+    "connections": 30,
+    "directed_pairs": 13,
+    "directed_pairs_shown": 9,
+    "printed_tags_used": 16
+   }
+  },
+  "te-a-103@noocr-r2": {
+   "set": "te-a",
+   "variant": "noocr-r2",
+   "label": "ext-pidkg-noocr-te-a-r2",
+   "drawing": "103",
+   "image": "data/te_pid/rev-a/103.png",
+   "exit": 0,
+   "wall_s": 95,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 23,
+   "duration_api_ms": 87237,
+   "cost_usd_list_equivalent": 0.6507,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 30,
+    "cache_creation": 49074,
+    "cache_read": 415358,
+    "output": 8747,
+    "thinking_in_output": 1856
+   },
+   "qa_loop": {
+    "build_runs": 1,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 9,
+    "Read": 10,
+    "Write": 1
+   },
+   "tool_errors": 2,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 8,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     4000,
+     2664
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 4,
+    "qa_info": 0,
+    "nodes_by_type": {
+     "Boundary": 2,
+     "Component": 3,
+     "Equipment": 1,
+     "Instrument": 7,
+     "OffPageConnector": 4,
+     "PipeSegment": 9,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {},
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "ocr_hints_vs_key_tags": {
+    "candidates": 0,
+    "key_tags": 11,
+    "key_tags_in_candidates": 0,
+    "candidates_in_key": 0
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 1,
+     "valve": 3,
+     "instrumentation": 7,
+     "inlet/outlet": 4
+    },
+    "no_box": [
+     "BOUNDARY:BATTERY LIMIT A AND C FEED",
+     "BOUNDARY:BATTERY LIMIT STRIPPER PRODUCT"
+    ],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 9
+    },
+    "connections": 19,
+    "directed_pairs": 7,
+    "directed_pairs_shown": 7,
+    "printed_tags_used": 11
+   }
+  },
+  "te-d-101@r1": {
    "set": "te-d",
+   "variant": "r1",
+   "label": "ext-pidkg-te-d-r1",
    "drawing": "101",
    "image": "data/te_pid/101.png",
    "exit": 0,
@@ -1071,8 +5565,10 @@
     "printed_tags_used": 25
    }
   },
-  "te-d-102": {
+  "te-d-102@r1": {
    "set": "te-d",
+   "variant": "r1",
+   "label": "ext-pidkg-te-d-r1",
    "drawing": "102",
    "image": "data/te_pid/102.png",
    "exit": 0,
@@ -1166,8 +5662,10 @@
     "printed_tags_used": 20
    }
   },
-  "te-d-103": {
+  "te-d-103@r1": {
    "set": "te-d",
+   "variant": "r1",
+   "label": "ext-pidkg-te-d-r1",
    "drawing": "103",
    "image": "data/te_pid/103.png",
    "exit": 0,
@@ -1260,8 +5758,1748 @@
     "printed_tags_used": 17
    }
   },
-  "pahala-P-401": {
+  "te-d-101@r2": {
+   "set": "te-d",
+   "variant": "r2",
+   "label": "ext-pidkg-te-d-r2",
+   "drawing": "101",
+   "image": "data/te_pid/101.png",
+   "exit": 0,
+   "wall_s": 186,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 23,
+   "duration_api_ms": 136232,
+   "cost_usd_list_equivalent": 0.8932,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 36,
+    "cache_creation": 59739,
+    "cache_read": 650720,
+    "output": 14251,
+    "thinking_in_output": 3556
+   },
+   "qa_loop": {
+    "build_runs": 2,
+    "extraction_edits_after_first_build": 1,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 9,
+    "Read": 9,
+    "Write": 1,
+    "Edit": 1
+   },
+   "tool_errors": 2,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 7,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     4968,
+     3308
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 8,
+    "qa_info": 2,
+    "nodes_by_type": {
+     "Boundary": 3,
+     "Component": 16,
+     "ControlLoop": 8,
+     "Equipment": 3,
+     "Instrument": 19,
+     "OffPageConnector": 6,
+     "PipeSegment": 29,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "control": 8
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "ocr_hints_vs_key_tags": {
+    "candidates": 30,
+    "key_tags": 25,
+    "key_tags_in_candidates": 22,
+    "candidates_in_key": 22
+   },
+   "adapter": {
+    "by_class": {
+     "general": 2,
+     "tank": 1,
+     "valve": 16,
+     "instrumentation": 19,
+     "inlet/outlet": 9
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 29,
+     "ControlLoop:control": 8
+    },
+    "connections": 121,
+    "directed_pairs": 29,
+    "directed_pairs_shown": 20,
+    "printed_tags_used": 25
+   }
+  },
+  "te-d-102@r2": {
+   "set": "te-d",
+   "variant": "r2",
+   "label": "ext-pidkg-te-d-r2",
+   "drawing": "102",
+   "image": "data/te_pid/102.png",
+   "exit": 0,
+   "wall_s": 215,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 22,
+   "duration_api_ms": 137495,
+   "cost_usd_list_equivalent": 0.7607,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 34,
+    "cache_creation": 48472,
+    "cache_read": 514328,
+    "output": 13494,
+    "thinking_in_output": 3725
+   },
+   "qa_loop": {
+    "build_runs": 3,
+    "extraction_edits_after_first_build": 1,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 9,
+    "Read": 8,
+    "Write": 1,
+    "Edit": 1
+   },
+   "tool_errors": 3,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 5,
+    "overview": 1,
+    "crops": 1
+   },
+   "coverage": {
+    "render_px": [
+     4968,
+     3308
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 6,
+    "qa_info": 1,
+    "nodes_by_type": {
+     "Boundary": 1,
+     "Component": 13,
+     "ControlLoop": 4,
+     "Equipment": 3,
+     "Instrument": 13,
+     "OffPageConnector": 6,
+     "PipeSegment": 25,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "control": 4
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "ocr_hints_vs_key_tags": {
+    "candidates": 22,
+    "key_tags": 20,
+    "key_tags_in_candidates": 20,
+    "candidates_in_key": 20
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 2,
+     "pump": 1,
+     "valve": 13,
+     "instrumentation": 13,
+     "inlet/outlet": 7
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 25,
+     "ControlLoop:control": 4
+    },
+    "connections": 60,
+    "directed_pairs": 25,
+    "directed_pairs_shown": 13,
+    "printed_tags_used": 20
+   }
+  },
+  "te-d-103@r2": {
+   "set": "te-d",
+   "variant": "r2",
+   "label": "ext-pidkg-te-d-r2",
+   "drawing": "103",
+   "image": "data/te_pid/103.png",
+   "exit": 0,
+   "wall_s": 162,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 22,
+   "duration_api_ms": 109038,
+   "cost_usd_list_equivalent": 0.6732,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 32,
+    "cache_creation": 46122,
+    "cache_read": 457657,
+    "output": 10630,
+    "thinking_in_output": 1295
+   },
+   "qa_loop": {
+    "build_runs": 2,
+    "extraction_edits_after_first_build": 1,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 10,
+    "Read": 7,
+    "Write": 1,
+    "Edit": 1
+   },
+   "tool_errors": 4,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 5,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     4968,
+     3308
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 7,
+    "qa_info": 1,
+    "nodes_by_type": {
+     "Boundary": 2,
+     "Component": 12,
+     "ControlLoop": 6,
+     "Equipment": 1,
+     "Instrument": 13,
+     "OffPageConnector": 6,
+     "PipeSegment": 21,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "control": 6
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "ocr_hints_vs_key_tags": {
+    "candidates": 20,
+    "key_tags": 17,
+    "key_tags_in_candidates": 17,
+    "candidates_in_key": 17
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 1,
+     "valve": 12,
+     "instrumentation": 13,
+     "inlet/outlet": 8
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 21,
+     "ControlLoop:control": 6
+    },
+    "connections": 56,
+    "directed_pairs": 21,
+    "directed_pairs_shown": 15,
+    "printed_tags_used": 17
+   }
+  },
+  "te-d-101@r3": {
+   "set": "te-d",
+   "variant": "r3",
+   "label": "ext-pidkg-te-d-r3",
+   "drawing": "101",
+   "image": "data/te_pid/101.png",
+   "exit": 0,
+   "wall_s": 281,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 28,
+   "duration_api_ms": 187290,
+   "cost_usd_list_equivalent": 1.1042,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 40,
+    "cache_creation": 67934,
+    "cache_read": 861187,
+    "output": 19416,
+    "thinking_in_output": 4454
+   },
+   "qa_loop": {
+    "build_runs": 5,
+    "extraction_edits_after_first_build": 2,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": true
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 13,
+    "Read": 10,
+    "Write": 1,
+    "Edit": 1
+   },
+   "tool_errors": 5,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 7,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     4968,
+     3308
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 8,
+    "qa_info": 2,
+    "nodes_by_type": {
+     "Boundary": 3,
+     "Component": 16,
+     "ControlLoop": 8,
+     "Equipment": 3,
+     "Instrument": 19,
+     "OffPageConnector": 6,
+     "PipeSegment": 29,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "control": 8
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "ocr_hints_vs_key_tags": {
+    "candidates": 30,
+    "key_tags": 25,
+    "key_tags_in_candidates": 22,
+    "candidates_in_key": 22
+   },
+   "adapter": {
+    "by_class": {
+     "general": 2,
+     "tank": 1,
+     "valve": 16,
+     "instrumentation": 19,
+     "inlet/outlet": 9
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 29,
+     "ControlLoop:control": 8
+    },
+    "connections": 121,
+    "directed_pairs": 29,
+    "directed_pairs_shown": 20,
+    "printed_tags_used": 25
+   }
+  },
+  "te-d-102@r3": {
+   "set": "te-d",
+   "variant": "r3",
+   "label": "ext-pidkg-te-d-r3",
+   "drawing": "102",
+   "image": "data/te_pid/102.png",
+   "exit": 0,
+   "wall_s": 169,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 20,
+   "duration_api_ms": 119491,
+   "cost_usd_list_equivalent": 0.7229,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 28,
+    "cache_creation": 50536,
+    "cache_read": 387693,
+    "output": 12050,
+    "thinking_in_output": 2829
+   },
+   "qa_loop": {
+    "build_runs": 1,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 6,
+    "Read": 9,
+    "Grep": 1,
+    "Write": 1
+   },
+   "tool_errors": 1,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 6,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     4968,
+     3308
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 6,
+    "qa_info": 1,
+    "nodes_by_type": {
+     "Boundary": 1,
+     "Component": 13,
+     "ControlLoop": 4,
+     "Equipment": 3,
+     "Instrument": 13,
+     "OffPageConnector": 6,
+     "PipeSegment": 25,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "control": 4
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "ocr_hints_vs_key_tags": {
+    "candidates": 22,
+    "key_tags": 20,
+    "key_tags_in_candidates": 20,
+    "candidates_in_key": 20
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 2,
+     "pump": 1,
+     "valve": 13,
+     "instrumentation": 13,
+     "inlet/outlet": 6
+    },
+    "no_box": [
+     "BOUNDARY:BATTERY LIMIT PURGE"
+    ],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 25,
+     "ControlLoop:control": 4
+    },
+    "connections": 58,
+    "directed_pairs": 23,
+    "directed_pairs_shown": 13,
+    "printed_tags_used": 20
+   }
+  },
+  "te-d-103@r3": {
+   "set": "te-d",
+   "variant": "r3",
+   "label": "ext-pidkg-te-d-r3",
+   "drawing": "103",
+   "image": "data/te_pid/103.png",
+   "exit": 0,
+   "wall_s": 156,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 20,
+   "duration_api_ms": 109926,
+   "cost_usd_list_equivalent": 0.6613,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 30,
+    "cache_creation": 45253,
+    "cache_read": 416172,
+    "output": 10797,
+    "thinking_in_output": 1706
+   },
+   "qa_loop": {
+    "build_runs": 1,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 1,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 8,
+    "Read": 8,
+    "Write": 1
+   },
+   "tool_errors": 1,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 4,
+    "overview": 1,
+    "crops": 2
+   },
+   "coverage": {
+    "render_px": [
+     4968,
+     3308
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 7,
+    "qa_info": 1,
+    "nodes_by_type": {
+     "Boundary": 2,
+     "Component": 12,
+     "ControlLoop": 6,
+     "Equipment": 1,
+     "Instrument": 13,
+     "OffPageConnector": 6,
+     "PipeSegment": 21,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "control": 6
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "ocr_hints_vs_key_tags": {
+    "candidates": 20,
+    "key_tags": 17,
+    "key_tags_in_candidates": 17,
+    "candidates_in_key": 17
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 1,
+     "valve": 12,
+     "instrumentation": 13,
+     "inlet/outlet": 8
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 21,
+     "ControlLoop:control": 6
+    },
+    "connections": 56,
+    "directed_pairs": 21,
+    "directed_pairs_shown": 15,
+    "printed_tags_used": 17
+   }
+  },
+  "te-d-101@noocr-r1": {
+   "set": "te-d",
+   "variant": "noocr-r1",
+   "label": "ext-pidkg-noocr-te-d-r1",
+   "drawing": "101",
+   "image": "data/te_pid/101.png",
+   "exit": 0,
+   "wall_s": 160,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 25,
+   "duration_api_ms": 149966,
+   "cost_usd_list_equivalent": 0.9488,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 36,
+    "cache_creation": 63269,
+    "cache_read": 608825,
+    "output": 16036,
+    "thinking_in_output": 4515
+   },
+   "qa_loop": {
+    "build_runs": 1,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 9,
+    "Read": 10,
+    "Write": 1,
+    "Edit": 2
+   },
+   "tool_errors": 1,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 7,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     4000,
+     2664
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 6,
+    "qa_info": 2,
+    "nodes_by_type": {
+     "Boundary": 3,
+     "Component": 16,
+     "ControlLoop": 8,
+     "Equipment": 3,
+     "Instrument": 19,
+     "OffPageConnector": 5,
+     "PipeSegment": 29,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "control": 8
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "ocr_hints_vs_key_tags": {
+    "candidates": 0,
+    "key_tags": 25,
+    "key_tags_in_candidates": 0,
+    "candidates_in_key": 0
+   },
+   "adapter": {
+    "by_class": {
+     "general": 2,
+     "tank": 1,
+     "valve": 16,
+     "instrumentation": 19,
+     "inlet/outlet": 8
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 29,
+     "ControlLoop:control": 8
+    },
+    "connections": 120,
+    "directed_pairs": 29,
+    "directed_pairs_shown": 20,
+    "printed_tags_used": 25
+   }
+  },
+  "te-d-102@noocr-r1": {
+   "set": "te-d",
+   "variant": "noocr-r1",
+   "label": "ext-pidkg-noocr-te-d-r1",
+   "drawing": "102",
+   "image": "data/te_pid/102.png",
+   "exit": 0,
+   "wall_s": 131,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 20,
+   "duration_api_ms": 121187,
+   "cost_usd_list_equivalent": 0.8025,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 30,
+    "cache_creation": 56851,
+    "cache_read": 460556,
+    "output": 12774,
+    "thinking_in_output": 3532
+   },
+   "qa_loop": {
+    "build_runs": 1,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 6,
+    "Read": 9,
+    "Grep": 1,
+    "Write": 1
+   },
+   "tool_errors": 2,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 5,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     4000,
+     2664
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 5,
+    "qa_info": 2,
+    "nodes_by_type": {
+     "Boundary": 1,
+     "Component": 13,
+     "ControlLoop": 5,
+     "Equipment": 3,
+     "Instrument": 14,
+     "OffPageConnector": 5,
+     "PipeSegment": 25,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "control": 5
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "ocr_hints_vs_key_tags": {
+    "candidates": 0,
+    "key_tags": 20,
+    "key_tags_in_candidates": 0,
+    "candidates_in_key": 0
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 2,
+     "pump": 1,
+     "valve": 13,
+     "instrumentation": 14,
+     "inlet/outlet": 6
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 25,
+     "ControlLoop:control": 5
+    },
+    "connections": 60,
+    "directed_pairs": 25,
+    "directed_pairs_shown": 13,
+    "printed_tags_used": 21
+   }
+  },
+  "te-d-103@noocr-r1": {
+   "set": "te-d",
+   "variant": "noocr-r1",
+   "label": "ext-pidkg-noocr-te-d-r1",
+   "drawing": "103",
+   "image": "data/te_pid/103.png",
+   "exit": 0,
+   "wall_s": 117,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 21,
+   "duration_api_ms": 107815,
+   "cost_usd_list_equivalent": 0.6782,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 32,
+    "cache_creation": 45166,
+    "cache_read": 452459,
+    "output": 11314,
+    "thinking_in_output": 1963
+   },
+   "qa_loop": {
+    "build_runs": 3,
+    "extraction_edits_after_first_build": 1,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 8,
+    "Read": 8,
+    "Write": 1,
+    "Edit": 1
+   },
+   "tool_errors": 3,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 4,
+    "overview": 1,
+    "crops": 2
+   },
+   "coverage": {
+    "render_px": [
+     4000,
+     2664
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 7,
+    "qa_info": 1,
+    "nodes_by_type": {
+     "Boundary": 2,
+     "Component": 12,
+     "ControlLoop": 6,
+     "Equipment": 1,
+     "Instrument": 13,
+     "OffPageConnector": 6,
+     "PipeSegment": 21,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "control": 6
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "ocr_hints_vs_key_tags": {
+    "candidates": 0,
+    "key_tags": 17,
+    "key_tags_in_candidates": 0,
+    "candidates_in_key": 0
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 1,
+     "valve": 12,
+     "instrumentation": 13,
+     "inlet/outlet": 8
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 21,
+     "ControlLoop:control": 6
+    },
+    "connections": 56,
+    "directed_pairs": 21,
+    "directed_pairs_shown": 15,
+    "printed_tags_used": 17
+   }
+  },
+  "te-d-101@noocr-r2": {
+   "set": "te-d",
+   "variant": "noocr-r2",
+   "label": "ext-pidkg-noocr-te-d-r2",
+   "drawing": "101",
+   "image": "data/te_pid/101.png",
+   "exit": 0,
+   "wall_s": 186,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 30,
+   "duration_api_ms": 172438,
+   "cost_usd_list_equivalent": 1.0786,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 40,
+    "cache_creation": 65499,
+    "cache_read": 792420,
+    "output": 19800,
+    "thinking_in_output": 3012
+   },
+   "qa_loop": {
+    "build_runs": 6,
+    "extraction_edits_after_first_build": 4,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": true
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 11,
+    "Read": 11,
+    "Grep": 1,
+    "Write": 1,
+    "Edit": 3
+   },
+   "tool_errors": 6,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 8,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     4000,
+     2664
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 7,
+    "qa_info": 2,
+    "nodes_by_type": {
+     "Boundary": 3,
+     "Component": 16,
+     "ControlLoop": 8,
+     "Equipment": 3,
+     "Instrument": 19,
+     "OffPageConnector": 6,
+     "PipeSegment": 29,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "control": 8
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "ocr_hints_vs_key_tags": {
+    "candidates": 0,
+    "key_tags": 25,
+    "key_tags_in_candidates": 0,
+    "candidates_in_key": 0
+   },
+   "adapter": {
+    "by_class": {
+     "general": 2,
+     "tank": 1,
+     "valve": 16,
+     "instrumentation": 19,
+     "inlet/outlet": 9
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 29,
+     "ControlLoop:control": 8
+    },
+    "connections": 121,
+    "directed_pairs": 29,
+    "directed_pairs_shown": 20,
+    "printed_tags_used": 25
+   }
+  },
+  "te-d-102@noocr-r2": {
+   "set": "te-d",
+   "variant": "noocr-r2",
+   "label": "ext-pidkg-noocr-te-d-r2",
+   "drawing": "102",
+   "image": "data/te_pid/102.png",
+   "exit": 0,
+   "wall_s": 123,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 20,
+   "duration_api_ms": 114540,
+   "cost_usd_list_equivalent": 0.6989,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 32,
+    "cache_creation": 47627,
+    "cache_read": 430869,
+    "output": 11578,
+    "thinking_in_output": 2362
+   },
+   "qa_loop": {
+    "build_runs": 1,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 8,
+    "Read": 8,
+    "Write": 1
+   },
+   "tool_errors": 2,
+   "tool_errors_permission": 2,
+   "image_reads": {
+    "tiles": 4,
+    "overview": 1,
+    "crops": 2
+   },
+   "coverage": {
+    "render_px": [
+     4000,
+     2664
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 6,
+    "qa_info": 1,
+    "nodes_by_type": {
+     "Boundary": 1,
+     "Component": 13,
+     "ControlLoop": 4,
+     "Equipment": 3,
+     "Instrument": 13,
+     "OffPageConnector": 6,
+     "PipeSegment": 25,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "control": 4
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "ocr_hints_vs_key_tags": {
+    "candidates": 0,
+    "key_tags": 20,
+    "key_tags_in_candidates": 0,
+    "candidates_in_key": 0
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 2,
+     "pump": 1,
+     "valve": 13,
+     "instrumentation": 13,
+     "inlet/outlet": 7
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 25,
+     "ControlLoop:control": 4
+    },
+    "connections": 60,
+    "directed_pairs": 25,
+    "directed_pairs_shown": 13,
+    "printed_tags_used": 20
+   }
+  },
+  "te-d-103@noocr-r2": {
+   "set": "te-d",
+   "variant": "noocr-r2",
+   "label": "ext-pidkg-noocr-te-d-r2",
+   "drawing": "103",
+   "image": "data/te_pid/103.png",
+   "exit": 0,
+   "wall_s": 121,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 21,
+   "duration_api_ms": 111988,
+   "cost_usd_list_equivalent": 0.7718,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 30,
+    "cache_creation": 54373,
+    "cache_read": 475405,
+    "output": 12081,
+    "thinking_in_output": 2736
+   },
+   "qa_loop": {
+    "build_runs": 1,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 8,
+    "Read": 9,
+    "Write": 1
+   },
+   "tool_errors": 2,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 7,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     4000,
+     2664
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 7,
+    "qa_info": 1,
+    "nodes_by_type": {
+     "Boundary": 2,
+     "Component": 12,
+     "ControlLoop": 6,
+     "Equipment": 1,
+     "Instrument": 13,
+     "OffPageConnector": 6,
+     "PipeSegment": 21,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "control": 6
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "ocr_hints_vs_key_tags": {
+    "candidates": 0,
+    "key_tags": 17,
+    "key_tags_in_candidates": 0,
+    "candidates_in_key": 0
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 1,
+     "valve": 12,
+     "instrumentation": 13,
+     "inlet/outlet": 8
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 21,
+     "ControlLoop:control": 6
+    },
+    "connections": 56,
+    "directed_pairs": 21,
+    "directed_pairs_shown": 15,
+    "printed_tags_used": 17
+   }
+  },
+  "te-d-101@noqa-r1": {
+   "set": "te-d",
+   "variant": "noqa-r1",
+   "label": "ext-pidkg-noqa-te-d-r1",
+   "drawing": "101",
+   "image": "data/te_pid/101.png",
+   "exit": 0,
+   "wall_s": 190,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 25,
+   "duration_api_ms": 131327,
+   "cost_usd_list_equivalent": 0.8935,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 32,
+    "cache_creation": 62919,
+    "cache_read": 521597,
+    "output": 14285,
+    "thinking_in_output": 3026
+   },
+   "qa_loop": {
+    "build_runs": 1,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 8,
+    "Read": 13,
+    "Write": 1
+   },
+   "tool_errors": 3,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 8,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     4968,
+     3308
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 8,
+    "qa_info": 2,
+    "nodes_by_type": {
+     "Boundary": 3,
+     "Component": 16,
+     "ControlLoop": 8,
+     "Equipment": 3,
+     "Instrument": 19,
+     "OffPageConnector": 6,
+     "PipeSegment": 29,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "control": 8
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "ocr_hints_vs_key_tags": {
+    "candidates": 30,
+    "key_tags": 25,
+    "key_tags_in_candidates": 22,
+    "candidates_in_key": 22
+   },
+   "adapter": {
+    "by_class": {
+     "general": 2,
+     "tank": 1,
+     "valve": 16,
+     "instrumentation": 19,
+     "inlet/outlet": 9
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 29,
+     "ControlLoop:control": 8
+    },
+    "connections": 121,
+    "directed_pairs": 29,
+    "directed_pairs_shown": 20,
+    "printed_tags_used": 25
+   }
+  },
+  "te-d-102@noqa-r1": {
+   "set": "te-d",
+   "variant": "noqa-r1",
+   "label": "ext-pidkg-noqa-te-d-r1",
+   "drawing": "102",
+   "image": "data/te_pid/102.png",
+   "exit": 0,
+   "wall_s": 182,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 18,
+   "duration_api_ms": 112636,
+   "cost_usd_list_equivalent": 0.7063,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 26,
+    "cache_creation": 49783,
+    "cache_read": 337708,
+    "output": 12018,
+    "thinking_in_output": 3478
+   },
+   "qa_loop": {
+    "build_runs": 1,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 7,
+    "Read": 7,
+    "Write": 1
+   },
+   "tool_errors": 1,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 5,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     4968,
+     3308
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 6,
+    "qa_info": 1,
+    "nodes_by_type": {
+     "Boundary": 1,
+     "Component": 13,
+     "ControlLoop": 4,
+     "Equipment": 3,
+     "Instrument": 13,
+     "OffPageConnector": 6,
+     "PipeSegment": 25,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "control": 4
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "ocr_hints_vs_key_tags": {
+    "candidates": 22,
+    "key_tags": 20,
+    "key_tags_in_candidates": 20,
+    "candidates_in_key": 20
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 2,
+     "pump": 1,
+     "valve": 13,
+     "instrumentation": 13,
+     "inlet/outlet": 7
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 25,
+     "ControlLoop:control": 4
+    },
+    "connections": 60,
+    "directed_pairs": 25,
+    "directed_pairs_shown": 13,
+    "printed_tags_used": 20
+   }
+  },
+  "te-d-103@noqa-r1": {
+   "set": "te-d",
+   "variant": "noqa-r1",
+   "label": "ext-pidkg-noqa-te-d-r1",
+   "drawing": "103",
+   "image": "data/te_pid/103.png",
+   "exit": 0,
+   "wall_s": 143,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 16,
+   "duration_api_ms": 96163,
+   "cost_usd_list_equivalent": 0.5909,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 24,
+    "cache_creation": 40540,
+    "cache_read": 260376,
+    "output": 10718,
+    "thinking_in_output": 2372
+   },
+   "qa_loop": {
+    "build_runs": 1,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 7,
+    "Read": 5,
+    "Write": 1
+   },
+   "tool_errors": 2,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 3,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     4968,
+     3308
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 7,
+    "qa_info": 1,
+    "nodes_by_type": {
+     "Boundary": 2,
+     "Component": 12,
+     "ControlLoop": 6,
+     "Equipment": 1,
+     "Instrument": 13,
+     "OffPageConnector": 6,
+     "PipeSegment": 21,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "control": 6
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "ocr_hints_vs_key_tags": {
+    "candidates": 20,
+    "key_tags": 17,
+    "key_tags_in_candidates": 17,
+    "candidates_in_key": 17
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 1,
+     "valve": 12,
+     "instrumentation": 13,
+     "inlet/outlet": 8
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 21,
+     "ControlLoop:control": 6
+    },
+    "connections": 56,
+    "directed_pairs": 21,
+    "directed_pairs_shown": 15,
+    "printed_tags_used": 17
+   }
+  },
+  "te-d-101@noqa-r2": {
+   "set": "te-d",
+   "variant": "noqa-r2",
+   "label": "ext-pidkg-noqa-te-d-r2",
+   "drawing": "101",
+   "image": "data/te_pid/101.png",
+   "exit": 0,
+   "wall_s": 193,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 22,
+   "duration_api_ms": 138058,
+   "cost_usd_list_equivalent": 0.8524,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 30,
+    "cache_creation": 59763,
+    "cache_read": 461591,
+    "output": 14093,
+    "thinking_in_output": 3063
+   },
+   "qa_loop": {
+    "build_runs": 1,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 7,
+    "Read": 11,
+    "Write": 1
+   },
+   "tool_errors": 2,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 8,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     4968,
+     3308
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 8,
+    "qa_info": 2,
+    "nodes_by_type": {
+     "Boundary": 3,
+     "Component": 16,
+     "ControlLoop": 8,
+     "Equipment": 3,
+     "Instrument": 19,
+     "OffPageConnector": 6,
+     "PipeSegment": 29,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "control": 8
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "ocr_hints_vs_key_tags": {
+    "candidates": 30,
+    "key_tags": 25,
+    "key_tags_in_candidates": 22,
+    "candidates_in_key": 22
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 1,
+     "general": 2,
+     "valve": 16,
+     "instrumentation": 19,
+     "inlet/outlet": 9
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 29,
+     "ControlLoop:control": 8
+    },
+    "connections": 121,
+    "directed_pairs": 29,
+    "directed_pairs_shown": 20,
+    "printed_tags_used": 25
+   }
+  },
+  "te-d-102@noqa-r2": {
+   "set": "te-d",
+   "variant": "noqa-r2",
+   "label": "ext-pidkg-noqa-te-d-r2",
+   "drawing": "102",
+   "image": "data/te_pid/102.png",
+   "exit": 0,
+   "wall_s": 216,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 27,
+   "duration_api_ms": 146184,
+   "cost_usd_list_equivalent": 0.8012,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 42,
+    "cache_creation": 49254,
+    "cache_read": 646907,
+    "output": 13880,
+    "thinking_in_output": 3148
+   },
+   "qa_loop": {
+    "build_runs": 2,
+    "extraction_edits_after_first_build": 1,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 11,
+    "Read": 8,
+    "Grep": 3,
+    "Write": 1,
+    "Edit": 1
+   },
+   "tool_errors": 3,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 5,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     4968,
+     3308
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 6,
+    "qa_info": 1,
+    "nodes_by_type": {
+     "Boundary": 1,
+     "Component": 13,
+     "ControlLoop": 4,
+     "Equipment": 3,
+     "Instrument": 13,
+     "OffPageConnector": 6,
+     "PipeSegment": 25,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "control": 4
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "ocr_hints_vs_key_tags": {
+    "candidates": 22,
+    "key_tags": 20,
+    "key_tags_in_candidates": 20,
+    "candidates_in_key": 20
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 2,
+     "pump": 1,
+     "valve": 13,
+     "instrumentation": 13,
+     "inlet/outlet": 6
+    },
+    "no_box": [
+     "BOUNDARY:BATTERY LIMIT PURGE"
+    ],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 25,
+     "ControlLoop:control": 4
+    },
+    "connections": 58,
+    "directed_pairs": 23,
+    "directed_pairs_shown": 13,
+    "printed_tags_used": 20
+   }
+  },
+  "te-d-103@noqa-r2": {
+   "set": "te-d",
+   "variant": "noqa-r2",
+   "label": "ext-pidkg-noqa-te-d-r2",
+   "drawing": "103",
+   "image": "data/te_pid/103.png",
+   "exit": 0,
+   "wall_s": 256,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 23,
+   "duration_api_ms": 141418,
+   "cost_usd_list_equivalent": 0.8103,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 36,
+    "cache_creation": 49270,
+    "cache_read": 522935,
+    "output": 15570,
+    "thinking_in_output": 2518
+   },
+   "qa_loop": {
+    "build_runs": 2,
+    "extraction_edits_after_first_build": 1,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 11,
+    "Read": 8,
+    "Write": 1
+   },
+   "tool_errors": 3,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 4,
+    "overview": 1,
+    "crops": 2
+   },
+   "coverage": {
+    "render_px": [
+     4968,
+     3308
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 7,
+    "qa_info": 1,
+    "nodes_by_type": {
+     "Boundary": 2,
+     "Component": 12,
+     "ControlLoop": 6,
+     "Equipment": 1,
+     "Instrument": 13,
+     "OffPageConnector": 6,
+     "PipeSegment": 21,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "control": 6
+    },
+    "page_class": "raster",
+    "ocr_hints": true
+   },
+   "ocr_hints_vs_key_tags": {
+    "candidates": 20,
+    "key_tags": 17,
+    "key_tags_in_candidates": 17,
+    "candidates_in_key": 17
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 1,
+     "valve": 12,
+     "instrumentation": 13,
+     "inlet/outlet": 8
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 21,
+     "ControlLoop:control": 6
+    },
+    "connections": 56,
+    "directed_pairs": 21,
+    "directed_pairs_shown": 15,
+    "printed_tags_used": 17
+   }
+  },
+  "pahala-P-401@r1": {
    "set": "pahala",
+   "variant": "r1",
+   "label": null,
    "drawing": "1",
    "image": "(not in repository) 1.png",
    "exit": 0,
@@ -1349,8 +7587,10 @@
     "printed_tags_used": 18
    }
   },
-  "pahala-P-501": {
+  "pahala-P-501@r1": {
    "set": "pahala",
+   "variant": "r1",
+   "label": null,
    "drawing": "2",
    "image": "(not in repository) 2.png",
    "exit": 0,
@@ -1437,6 +7677,738 @@
     "directed_pairs": 8,
     "directed_pairs_shown": 8,
     "printed_tags_used": 17
+   }
+  },
+  "pahala-P-401@r2": {
+   "set": "pahala",
+   "variant": "r2",
+   "label": null,
+   "drawing": "1",
+   "image": "(not in repository) 1.png",
+   "exit": 0,
+   "wall_s": 211,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 23,
+   "duration_api_ms": 137170,
+   "cost_usd_list_equivalent": 0.9958,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 38,
+    "cache_creation": 71551,
+    "cache_read": 805609,
+    "output": 13108,
+    "thinking_in_output": 3910
+   },
+   "qa_loop": {
+    "build_runs": 3,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 11,
+    "Read": 7,
+    "Grep": 1,
+    "Write": 1
+   },
+   "tool_errors": 1,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 4,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     4521,
+     2926
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 9,
+    "qa_info": 3,
+    "nodes_by_type": {
+     "Boundary": 1,
+     "ControlLoop": 6,
+     "Equipment": 2,
+     "Instrument": 19,
+     "OffPageConnector": 2,
+     "PipeSegment": 5,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "control": 3,
+     "interlock": 1,
+     "monitoring": 2
+    },
+    "page_class": "vector_text",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 2,
+     "instrumentation": 19,
+     "inlet/outlet": 3
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 5,
+     "ControlLoop:monitoring": 2,
+     "ControlLoop:control": 3,
+     "ControlLoop:interlock": 1
+    },
+    "connections": 25,
+    "directed_pairs": 5,
+    "directed_pairs_shown": 5,
+    "printed_tags_used": 18
+   }
+  },
+  "pahala-P-501@r2": {
+   "set": "pahala",
+   "variant": "r2",
+   "label": null,
+   "drawing": "2",
+   "image": "(not in repository) 2.png",
+   "exit": 0,
+   "wall_s": 201,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 21,
+   "duration_api_ms": 142408,
+   "cost_usd_list_equivalent": 0.7164,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 34,
+    "cache_creation": 45094,
+    "cache_read": 469376,
+    "output": 13081,
+    "thinking_in_output": 3443
+   },
+   "qa_loop": {
+    "build_runs": 2,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 11,
+    "Read": 6,
+    "Write": 1
+   },
+   "tool_errors": 1,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 0,
+    "overview": 1,
+    "crops": 3
+   },
+   "coverage": {
+    "render_px": [
+     4869,
+     3151
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 11,
+    "tiles_listed_reviewed": 11,
+    "qa_errors": 0,
+    "qa_warnings": 8,
+    "qa_info": 0,
+    "nodes_by_type": {
+     "Boundary": 5,
+     "Component": 4,
+     "ControlLoop": 5,
+     "Instrument": 21,
+     "PipeSegment": 8,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "control": 1,
+     "monitoring": 2,
+     "on_off": 2
+    },
+    "page_class": "vector_text",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "valve": 4,
+     "instrumentation": 21,
+     "inlet/outlet": 5
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 8,
+     "ControlLoop:control": 1,
+     "ControlLoop:monitoring": 2,
+     "ControlLoop:on_off": 2
+    },
+    "connections": 35,
+    "directed_pairs": 8,
+    "directed_pairs_shown": 8,
+    "printed_tags_used": 21
+   }
+  },
+  "pahala-P-401@r3": {
+   "set": "pahala",
+   "variant": "r3",
+   "label": null,
+   "drawing": "1",
+   "image": "(not in repository) 1.png",
+   "exit": 0,
+   "wall_s": 169,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 27,
+   "duration_api_ms": 133923,
+   "cost_usd_list_equivalent": 0.7476,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 44,
+    "cache_creation": 44488,
+    "cache_read": 724454,
+    "output": 12329,
+    "thinking_in_output": 2644
+   },
+   "qa_loop": {
+    "build_runs": 4,
+    "extraction_edits_after_first_build": 2,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 13,
+    "Read": 7,
+    "Write": 1,
+    "Edit": 2,
+    "Grep": 1
+   },
+   "tool_errors": 2,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 0,
+    "overview": 1,
+    "crops": 3
+   },
+   "coverage": {
+    "render_px": [
+     4521,
+     2926
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 9,
+    "qa_info": 4,
+    "nodes_by_type": {
+     "Boundary": 1,
+     "ControlLoop": 6,
+     "Equipment": 2,
+     "Instrument": 19,
+     "OffPageConnector": 2,
+     "PipeSegment": 5,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "control": 3,
+     "interlock": 1,
+     "monitoring": 2
+    },
+    "page_class": "vector_text",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 2,
+     "instrumentation": 19,
+     "inlet/outlet": 2
+    },
+    "no_box": [
+     "BOUNDARY:HYPOCHLORITE SOLUTION"
+    ],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 5,
+     "ControlLoop:monitoring": 2,
+     "ControlLoop:control": 3,
+     "ControlLoop:interlock": 1
+    },
+    "connections": 23,
+    "directed_pairs": 4,
+    "directed_pairs_shown": 4,
+    "printed_tags_used": 18
+   }
+  },
+  "pahala-P-501@r3": {
+   "set": "pahala",
+   "variant": "r3",
+   "label": null,
+   "drawing": "2",
+   "image": "(not in repository) 2.png",
+   "exit": 0,
+   "wall_s": 196,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 25,
+   "duration_api_ms": 164189,
+   "cost_usd_list_equivalent": 0.8296,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 44,
+    "cache_creation": 47777,
+    "cache_read": 692623,
+    "output": 15434,
+    "thinking_in_output": 4464
+   },
+   "qa_loop": {
+    "build_runs": 3,
+    "extraction_edits_after_first_build": 1,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": true
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 15,
+    "Read": 5,
+    "Write": 2
+   },
+   "tool_errors": 4,
+   "tool_errors_permission": 2,
+   "image_reads": {
+    "tiles": 0,
+    "overview": 1,
+    "crops": 2
+   },
+   "coverage": {
+    "render_px": [
+     4869,
+     3151
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 11,
+    "tiles_listed_reviewed": 11,
+    "qa_errors": 0,
+    "qa_warnings": 8,
+    "qa_info": 0,
+    "nodes_by_type": {
+     "Boundary": 5,
+     "Component": 4,
+     "ControlLoop": 5,
+     "Instrument": 21,
+     "PipeSegment": 8,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "control": 1,
+     "monitoring": 2,
+     "on_off": 2
+    },
+    "page_class": "vector_text",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "valve": 4,
+     "instrumentation": 21,
+     "inlet/outlet": 5
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 8,
+     "ControlLoop:control": 1,
+     "ControlLoop:monitoring": 2,
+     "ControlLoop:on_off": 2
+    },
+    "connections": 35,
+    "directed_pairs": 8,
+    "directed_pairs_shown": 8,
+    "printed_tags_used": 21
+   }
+  },
+  "pahala-P-401@noocr-r1": {
+   "set": "pahala",
+   "variant": "noocr-r1",
+   "label": null,
+   "drawing": "1",
+   "image": "(not in repository) 1.png",
+   "exit": 0,
+   "wall_s": 130,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 24,
+   "duration_api_ms": 118977,
+   "cost_usd_list_equivalent": 0.9624,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 38,
+    "cache_creation": 69835,
+    "cache_read": 827398,
+    "output": 11903,
+    "thinking_in_output": 2800
+   },
+   "qa_loop": {
+    "build_runs": 2,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 10,
+    "Read": 8,
+    "Grep": 2,
+    "Write": 1
+   },
+   "tool_errors": 2,
+   "tool_errors_permission": 1,
+   "image_reads": {
+    "tiles": 4,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     5000,
+     3236
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 9,
+    "qa_info": 4,
+    "nodes_by_type": {
+     "Boundary": 1,
+     "ControlLoop": 6,
+     "Equipment": 2,
+     "Instrument": 19,
+     "OffPageConnector": 2,
+     "PipeSegment": 5,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "control": 3,
+     "monitoring": 3
+    },
+    "page_class": "vector_text",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 2,
+     "instrumentation": 19,
+     "inlet/outlet": 2
+    },
+    "no_box": [
+     "BOUNDARY:HYPOCHLORITE SOLUTION"
+    ],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 5,
+     "ControlLoop:monitoring": 3,
+     "ControlLoop:control": 3
+    },
+    "connections": 22,
+    "directed_pairs": 4,
+    "directed_pairs_shown": 4,
+    "printed_tags_used": 18
+   }
+  },
+  "pahala-P-501@noocr-r1": {
+   "set": "pahala",
+   "variant": "noocr-r1",
+   "label": null,
+   "drawing": "2",
+   "image": "(not in repository) 2.png",
+   "exit": 0,
+   "wall_s": 172,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 25,
+   "duration_api_ms": 157798,
+   "cost_usd_list_equivalent": 1.0818,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 42,
+    "cache_creation": 71175,
+    "cache_read": 938526,
+    "output": 16225,
+    "thinking_in_output": 5029
+   },
+   "qa_loop": {
+    "build_runs": 3,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 13,
+    "Read": 6,
+    "Write": 1,
+    "Grep": 2
+   },
+   "tool_errors": 2,
+   "tool_errors_permission": 2,
+   "image_reads": {
+    "tiles": 0,
+    "overview": 1,
+    "crops": 3
+   },
+   "coverage": {
+    "render_px": [
+     5000,
+     3236
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 8,
+    "qa_info": 0,
+    "nodes_by_type": {
+     "Boundary": 5,
+     "Component": 4,
+     "ControlLoop": 5,
+     "Instrument": 21,
+     "PipeSegment": 8,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "control": 1,
+     "monitoring": 1,
+     "on_off": 3
+    },
+    "page_class": "vector_text",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "valve": 4,
+     "instrumentation": 21,
+     "inlet/outlet": 5
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 8,
+     "ControlLoop:control": 1,
+     "ControlLoop:monitoring": 1,
+     "ControlLoop:on_off": 3
+    },
+    "connections": 35,
+    "directed_pairs": 8,
+    "directed_pairs_shown": 8,
+    "printed_tags_used": 21
+   }
+  },
+  "pahala-P-401@noocr-r2": {
+   "set": "pahala",
+   "variant": "noocr-r2",
+   "label": null,
+   "drawing": "1",
+   "image": "(not in repository) 1.png",
+   "exit": 0,
+   "wall_s": 131,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 23,
+   "duration_api_ms": 121231,
+   "cost_usd_list_equivalent": 0.7585,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 36,
+    "cache_creation": 50794,
+    "cache_read": 548404,
+    "output": 12117,
+    "thinking_in_output": 2953
+   },
+   "qa_loop": {
+    "build_runs": 3,
+    "extraction_edits_after_first_build": 1,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 10,
+    "Read": 7,
+    "Grep": 1,
+    "Write": 1,
+    "Edit": 1
+   },
+   "tool_errors": 3,
+   "tool_errors_permission": 2,
+   "image_reads": {
+    "tiles": 4,
+    "overview": 1,
+    "crops": 0
+   },
+   "coverage": {
+    "render_px": [
+     5000,
+     3236
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 9,
+    "qa_info": 4,
+    "nodes_by_type": {
+     "Boundary": 1,
+     "ControlLoop": 6,
+     "Equipment": 2,
+     "Instrument": 19,
+     "OffPageConnector": 2,
+     "PipeSegment": 5,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "control": 3,
+     "monitoring": 3
+    },
+    "page_class": "vector_text",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "tank": 2,
+     "instrumentation": 19,
+     "inlet/outlet": 3
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 5,
+     "ControlLoop:monitoring": 3,
+     "ControlLoop:control": 3
+    },
+    "connections": 24,
+    "directed_pairs": 5,
+    "directed_pairs_shown": 3,
+    "printed_tags_used": 18
+   }
+  },
+  "pahala-P-501@noocr-r2": {
+   "set": "pahala",
+   "variant": "noocr-r2",
+   "label": null,
+   "drawing": "2",
+   "image": "(not in repository) 2.png",
+   "exit": 0,
+   "wall_s": 168,
+   "result": "success",
+   "is_error": false,
+   "num_turns": 24,
+   "duration_api_ms": 137681,
+   "cost_usd_list_equivalent": 0.7507,
+   "models_served": [
+    "claude-opus-5-5"
+   ],
+   "tokens": {
+    "input": 40,
+    "cache_creation": 43580,
+    "cache_read": 618624,
+    "output": 13910,
+    "thinking_in_output": 3772
+   },
+   "qa_loop": {
+    "build_runs": 3,
+    "extraction_edits_after_first_build": 0,
+    "crops_after_first_build": 0,
+    "wrote_generator_script": false
+   },
+   "tool_calls": {
+    "Skill": 1,
+    "Bash": 12,
+    "Read": 6,
+    "Grep": 2,
+    "Write": 1
+   },
+   "tool_errors": 4,
+   "tool_errors_permission": 2,
+   "image_reads": {
+    "tiles": 2,
+    "overview": 1,
+    "crops": 2
+   },
+   "coverage": {
+    "render_px": [
+     5000,
+     3236
+    ],
+    "tiles": 12,
+    "non_blank_tiles": 12,
+    "tiles_listed_reviewed": 12,
+    "qa_errors": 0,
+    "qa_warnings": 8,
+    "qa_info": 0,
+    "nodes_by_type": {
+     "Boundary": 5,
+     "Component": 4,
+     "ControlLoop": 5,
+     "Instrument": 21,
+     "PipeSegment": 8,
+     "Plant": 1,
+     "Sheet": 1
+    },
+    "loops_by_type": {
+     "control": 1,
+     "monitoring": 2,
+     "on_off": 2
+    },
+    "page_class": "vector_text",
+    "ocr_hints": true
+   },
+   "adapter": {
+    "by_class": {
+     "valve": 4,
+     "instrumentation": 21,
+     "inlet/outlet": 5
+    },
+    "no_box": [],
+    "not_symbols": {
+     "Sheet": 1,
+     "PipeSegment": 8,
+     "ControlLoop:control": 1,
+     "ControlLoop:monitoring": 2,
+     "ControlLoop:on_off": 2
+    },
+    "connections": 35,
+    "directed_pairs": 8,
+    "directed_pairs_shown": 8,
+    "printed_tags_used": 21
    }
   }
  }

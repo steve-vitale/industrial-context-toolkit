@@ -28,11 +28,11 @@ Standard library only, offline, a few minutes for everything.
 The prompt files themselves are in `extraction/`; `prompt_sha256` and `image_sha256` tie each prediction to the exact
 prompt and image it answered.
 
-## Labels committed (104 labels, 1,135 files, 15.2 MB)
+## Labels committed (120 labels, 1,201 files, 16.0 MB)
 
 The initial 52 labels were exported from the active checkout with `python scripts/rescore.py --export`.
-Another 49 labels (391 files) were recovered from preserved research working copies on the same date. The three
-`ext-pidkg-*` labels (12 files) were added on 2026-11-11 from an external reader's headless runs.
+Another 49 labels (391 files) were recovered from preserved research working copies on the same date. The 19
+`ext-pidkg-*` labels (78 files) were added on 2026-11-11 from an external reader's headless runs.
 [RECOVERY.json](RECOVERY.json) records each original raw-record hash and each parsed-export hash, plus the
 checkout snapshot identity; the snapshot does not contain the ignored raw records. The receipt documents the
 recovery and file identity, not an authenticated attestation from the model provider.
@@ -49,7 +49,7 @@ recovery and file identity, not an authenticated attestation from the model prov
 | `r5-hA-rep*`, `r5-dx-rep*` (20 recovered labels) | OPEN100 6-11 and DEXPI C01-C03/C08a/C08b | claude, codex | 2.6 MB |
 | `te-*` (29 recovered labels, revision A round trip and perfect-reader key) | generated TE sheets 101-103 | claude, codex, key | 1.0 MB |
 | `tec-*` (Tennessee Eastman revision C round trip, 29 labels) | generated TE sheets 101-103 | claude, codex | 1.5 MB |
-| `ext-pidkg-r1`, `ext-pidkg-te-a-r1`, `ext-pidkg-te-d-r1` (an external reader: the public pid-to-kg skill, its graph.json converted by `scripts/reader_external_kg.py`; [comparison](../out/ext_pidkg/comparison.md)) | OPEN100 0-5, TE revisions A and D 101-103 | pid-to-kg | 0.1 MB |
+| `ext-pidkg-r1..r3`, `ext-pidkg-te-a-r1..r3`, `ext-pidkg-te-d-r1..r3`, ablations `ext-pidkg-noocr-te-a/te-d-r1..r2`, `ext-pidkg-noqa-r1..r2`, `ext-pidkg-noqa-te-d-r1..r2`, `ext-pidkg-2x2-r1..r2` (an external reader: the public pid-to-kg skill, its graph.json converted by `scripts/reader_external_kg.py`; [comparison](../out/ext_pidkg/comparison.md)) | OPEN100 0-5, TE revisions A and D 101-103 | pid-to-kg | 0.99 MB |
 | `zz-runbook-trace-test` | OPEN100 0 | codex | 0.03 MB |
 
 ## What re-scores, and what doesn't
@@ -82,12 +82,12 @@ scorecards report `SKIP`, not a pass.
 The predictions are model readings of public or generated drawings, so they are data derived from those drawings:
 
 - **OPEN100 sheets 0-11 and their degraded scan copies** (`first-try`, `repeat-v1`, `v2-*`, `smoke*`, `r2-*`, `r5-hA-*`,
-  `r4-*`, `zz-*`, `ext-pidkg-r1`): derived from [PID2Graph, Zenodo record 14803338](https://zenodo.org/records/14803338) (OPEN100
+  `r4-*`, `zz-*`, `ext-pidkg-r*`, `ext-pidkg-noqa-r*`, `ext-pidkg-2x2-r*`): derived from [PID2Graph, Zenodo record 14803338](https://zenodo.org/records/14803338) (OPEN100
   design by the Energy Impact Center), shared under **CC BY-SA 4.0** as that licence requires. Changes: read by a
   model, parsed into symbols and connections, and for traced labels re-linked by `scripts/trace_connections.py`.
 - **Holdout B** (`hb-*`): derived from PID2Graph's "Dataset PID" in the same Zenodo record, **CC BY-SA 4.0**, same
   changes. The drawings themselves are not redistributed here.
-- **Tennessee Eastman sheets** (`te-*`, `tec-*`, `ext-pidkg-te-a-r1`, `ext-pidkg-te-d-r1`): drawn by this repository's code from its own process model, so the
+- **Tennessee Eastman sheets** (`te-*`, `tec-*`, `ext-pidkg-te-*`, `ext-pidkg-noocr-*`, `ext-pidkg-noqa-te-d-*`): drawn by this repository's code from its own process model, so the
   readings are MIT licensed like the drawings (NOTICE.md).
 
 Credit to the PID2Graph authors (Jan Marius Stürmer, Marius Graumann and Tobias Koch) and to the Energy Impact
