@@ -1,5 +1,5 @@
 {
- "tool": "pid-to-kg (https://github.com/ScottDuncanAI/PID-to-Knowledge-Graph, MIT)",
+ "tool": "pid-to-kg (MIT, (c) the pid-to-kg contributors; repository by Scott Duncan, https://github.com/ScottDuncanAI/PID-to-Knowledge-Graph)",
  "commit": "7ee3a82e655c13c11aa26ee25bdc2c0c01bd58f1",
  "interface": "Claude Code CLI 2.1.317 headless (claude -p), skill installed in a fresh project folder",
  "model_requested": "claude-opus-5-5[1m]",
@@ -14,7 +14,7 @@
    "runs": 46,
    "usd_list_equivalent": 50.39,
    "wall_s": 13917,
-   "why": "A first launch of the 46 ablation runs wrote the variant names with a trailing carriage return (Windows line endings in the lane lists); the Read tool could not open files under those folder names, so many runs copied their pages to scratch folders and read them there, which changes how they read tiles. No run read another run's files. All 46 were set aside unscored and re-run under clean names; the harness now refuses a name with a control character."
+   "why": "A first launch of the 46 ablation runs wrote the variant names with a trailing carriage return (Windows line endings in the lane lists); the Read tool could not open files under those folder names, so many runs copied their pages to scratch folders and read them there, which changes how they read tiles. All 46 were set aside unscored and re-run under clean names; the harness now refuses a name with a control character. A scan of every scored run's commands and tool results found no path into another run's folder; outside its own folder a scored run touched only the CLI's own task-output temp files (open100-0@r3, open100-2@r3, open100-3@noqa-r2, open100-5@r3). The set-aside runs did write scratch copies outside their folders, and were not scored."
   },
   "variants": {
    "r1-r3": "replicates, identical recipe, a fresh project folder per run",
@@ -26,7 +26,10 @@
    "run_sheet.sh": "007f208a586057b4ecafd3525daf6da5f89ec9610df1ab54ee08abf762c260b5",
    "run_variant.sh": "41f1c30f6cc005ce01d1118df215215d0454d7e58d272ecd75ae97059f795ae6",
    "make_pdfs.py": "26482806131d4eb2dcbefcfd6117b84ed5aa499eb9ac4ca30781dd0cb1226717",
-   "collect.py": "5a0445d4f6c1cd082f489daff95c15a9d2a558bc7011fe2deb0e68000baea012"
+   "collect.py": "6626946fc167ca8d28e539a10841ddf3e444ce0907266f0a8e0839767e0b0a04"
+  },
+  "adapter_sha256": {
+   "scripts/reader_external_kg.py": "9b8cacb8de89ae8b3128f26d85bc77674f516b58192dc5b265be11947d609580"
   }
  },
  "inputs": {

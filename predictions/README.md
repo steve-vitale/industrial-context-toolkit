@@ -49,7 +49,7 @@ recovery and file identity, not an authenticated attestation from the model prov
 | `r5-hA-rep*`, `r5-dx-rep*` (20 recovered labels) | OPEN100 6-11 and DEXPI C01-C03/C08a/C08b | claude, codex | 2.6 MB |
 | `te-*` (29 recovered labels, revision A round trip and perfect-reader key) | generated TE sheets 101-103 | claude, codex, key | 1.0 MB |
 | `tec-*` (Tennessee Eastman revision C round trip, 29 labels) | generated TE sheets 101-103 | claude, codex | 1.5 MB |
-| `ext-pidkg-r1..r3`, `ext-pidkg-te-a-r1..r3`, `ext-pidkg-te-d-r1..r3`, ablations `ext-pidkg-noocr-te-a/te-d-r1..r2`, `ext-pidkg-noqa-r1..r2`, `ext-pidkg-noqa-te-d-r1..r2`, `ext-pidkg-2x2-r1..r2` (an external reader: the public pid-to-kg skill, its graph.json converted by `scripts/reader_external_kg.py`; [comparison](../out/ext_pidkg/comparison.md)) | OPEN100 0-5, TE revisions A and D 101-103 | pid-to-kg | 0.99 MB |
+| `ext-pidkg-r1..r3`, `ext-pidkg-te-a-r1..r3`, `ext-pidkg-te-d-r1..r3`, ablations `ext-pidkg-noocr-te-a/te-d-r1..r2`, `ext-pidkg-noqa-r1..r2`, `ext-pidkg-noqa-te-d-r1..r2`, `ext-pidkg-2x2-r1..r2` (an external reader: the public pid-to-kg skill, MIT, © the pid-to-kg contributors, repository by Scott Duncan; its graph.json converted by `scripts/reader_external_kg.py`; [comparison](../out/ext_pidkg/comparison.md)) | OPEN100 0-5, TE revisions A and D 101-103 | pid-to-kg | 0.99 MB |
 | `zz-runbook-trace-test` | OPEN100 0 | codex | 0.03 MB |
 
 ## What re-scores, and what doesn't

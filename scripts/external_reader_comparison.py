@@ -1,7 +1,8 @@
 """Compare an external reader that entered through the reader slot with our readers, on the development sets only.
 
-The first external reader is pid-to-kg (Scott Duncan's public MIT skill,
-https://github.com/ScottDuncanAI/PID-to-Knowledge-Graph), run headless as its README describes, its graph.json
+The first external reader is pid-to-kg (MIT, (c) the pid-to-kg contributors; repository by Scott Duncan,
+https://github.com/ScottDuncanAI/PID-to-Knowledge-Graph). Its README describes a person running it in an interactive
+Claude Code session; here it ran headless (claude -p), the differences stated in the comparison. Its graph.json is
 converted by scripts/reader_external_kg.py. Its readings are committed like any reader's: three replicate runs per
 development sheet (predictions/ext-pidkg-r1..r3, ext-pidkg-te-a-r1..r3, ext-pidkg-te-d-r1..r3) and two runs of
 each ablation (ext-pidkg-noocr-*, ext-pidkg-noqa-*, ext-pidkg-2x2-*). The relations its own builder assembled across
@@ -109,6 +110,8 @@ def by_class(keys, sheets, folder):
     paired with a key instrument bubble (a control valve read as one item where the key draws a valve body and an
     actuator bubble), and key valves left unpaired."""
     acc = {c: {"tp": 0, "predicted": 0, "in_key": 0} for c in sc.SCORED}
+    kinds = ("false_symbols", "missed_symbols", "relabels", "false_links", "missed_links")
+    fix = dict.fromkeys(kinds, 0)
     diag = {"predicted_valves": 0, "valve_paired_with_key_instrument": 0, "key_valves": 0, "key_valves_unpaired": 0}
     for s in sheets:
         pred, _, _ = ev.load_prediction(folder / f"{s}.json")
@@ -117,6 +120,8 @@ def by_class(keys, sheets, folder):
         for c in sc.SCORED:
             for k in acc[c]:
                 acc[c][k] += r["rough"]["by_class"][c][k]
+        for k in kinds:
+            fix[k] += r["review_load"][k]
         w, h = sc.png_size(keys / f"{s}.png")
         nodes, _ = sc.load_key(keys / f"{s}.graphml", w, h)
         kk = {k: v for k, v in nodes.items() if v["class"] in sc.SCORED}
@@ -128,7 +133,7 @@ def by_class(keys, sheets, folder):
         key_valves = [k for k, v in kk.items() if v["class"] == "valve"]
         diag["key_valves"] += len(key_valves)
         diag["key_valves_unpaired"] += sum(k not in set(m.values()) for k in key_valves)
-    return {c: sc.prf(v["tp"], v["predicted"], v["in_key"]) for c, v in acc.items()}, diag
+    return {c: sc.prf(v["tp"], v["predicted"], v["in_key"]) for c, v in acc.items()}, {**diag, "corrections": fix}
 
 
 def reader_row(keys, sheets, folders, name):
@@ -140,7 +145,8 @@ def reader_row(keys, sheets, folders, name):
            "sheet_bootstrap_95": {m: rep[m].get("bootstrap_95") for m, _ in ev.HEADLINE},
            "per_sheet": {s: r["per_sheet"][s]["vendor_mean"] for s in sheets},
            "per_class_rough_f1": {c: spread([cl[0][c]["f1"] for cl in classes]) for c in sc.SCORED},
-           "valve_convention_first_run": classes[0][1], "missing_or_failed": r["missing_or_failed"],
+           "valve_convention_first_run": {k: v for k, v in classes[0][1].items() if k != "corrections"},
+           "diagnostic_per_run": [cl[1] for cl in classes], "missing_or_failed": r["missing_or_failed"],
            "_corrections": {s: [run["per_sheet"][s]["corrections"] for run in r["runs"]] for s in sheets},
            "_key_items": {s: r["runs"][0]["per_sheet"][s]["key_items"] for s in sheets}}
     return row, r["controls"]
@@ -161,8 +167,8 @@ def decide(a, b, sheets):
     d = diff(sheets)
     return {"against": b["name"], "difference": round(d, 1), "sheet_bootstrap_95": [round(lo, 1), round(hi, 1)],
             "run_ranges_overlap": overlap,
-            "verdict": ("higher review load" if d > 0 else "lower review load") + " beyond run and sheet spread"
-            if beyond else "within spread"}
+            "verdict": (f"{a['name']} higher, beyond spread" if d > 0 else f"{a['name']} lower, beyond spread")
+            if beyond else f"within spread ({a['name']} {'higher' if d > 0 else 'lower' if d < 0 else 'equal'} on the mean)"}
 
 
 def hybrid_folder(set_id, label, tmp):
@@ -425,12 +431,25 @@ def pahala(images, ext_root, ours_dir, pdf, tmp):
     return out
 
 
+def ocr_hints(runs):
+    """Per set and variant family, per run, the OCR hint counts the harness recorded, summed over the run's sheets."""
+    acc = defaultdict(lambda: defaultdict(lambda: defaultdict(int)))
+    for r in runs.values():
+        h = r.get("ocr_hints_vs_key_tags")
+        if h:
+            v = r["variant"]
+            fam = "replicates r1-r3" if "-" not in v else v.split("-")[0]
+            for k, n in h.items():
+                acc[f"{r['set']} / {fam}"][v][k] += n
+    return {g: [dict(per[v]) for v in sorted(per)] for g, per in sorted(acc.items())}
+
+
 def costs(runs):
     groups = defaultdict(list)
     for r in runs.values():
         v = r["variant"]
         groups[(r["set"], "replicates r1-r3" if "-" not in v else v.split("-")[0])].append(r)
-    return {f"{s} | {g}": {"runs": len(rs), "wall_s_per_run": spread([r["wall_s"] for r in rs]),
+    return {f"{s} / {g}": {"runs": len(rs), "wall_s_per_run": spread([r["wall_s"] for r in rs]),
                            "turns": spread([r["num_turns"] for r in rs]),
                            "usd_per_run": spread([r["cost_usd_list_equivalent"] for r in rs]),
                            "usd_total": round(sum(r["cost_usd_list_equivalent"] for r in rs), 2),
@@ -471,8 +490,8 @@ def markdown(doc):
     L = ["# An external reader through the reader slot: pid-to-kg on the development sets", "",
          "Generated by `scripts/external_reader_comparison.py`; do not edit by hand. Development sets only (OPEN100 0-5, "
          "TE revisions A and D, Pahala P-401/P-501): every number here was seen while comparing, none is a "
-         "generalization claim. pid-to-kg is [Scott Duncan's public MIT skill]"
-         "(https://github.com/ScottDuncanAI/PID-to-Knowledge-Graph); it is a measured comparison and a source of ideas "
+         "generalization claim. [pid-to-kg](https://github.com/ScottDuncanAI/PID-to-Knowledge-Graph) "
+         "(MIT, © the pid-to-kg contributors; repository by Scott Duncan) is a public P&ID skill; it is a measured comparison and a source of ideas "
          "here, not a dependency. Its graph.json enters through `scripts/reader_external_kg.py`; the adapter's rules were "
          "fixed before any score was seen, and the key converted through it scores perfect "
          "(`scripts/test_reader_external_kg.py`). Readings of OPEN100 sheets are CC BY-SA 4.0 derived data "
@@ -482,19 +501,29 @@ def markdown(doc):
          "the skill copied into a fresh project folder per run, Python 3.12 with its requirements (OCR on). Exact prompt, "
          "flags and harness hashes: `out/ext_pidkg/runs.json`.",
          "- Three runs per development sheet with the identical recipe; ablations two runs each.",
-         "- Not how its README describes a person using it: (1) OPEN100 and TE sheets are PNGs, saved as one-page PDFs at a "
+         "- Its README describes a person running it in an interactive Claude Code session; these runs were headless. "
+         "Differences from that use: (1) OPEN100 and TE sheets are PNGs, saved as one-page PDFs at a "
          "declared 300 dpi because the skill reads PDFs, so they take its scanned-page route (upscaling, contrast); "
          "(2) headless, so nobody answered its questions (it was told to choose and note); (3) Python and packages were "
          "installed beforehand, not by the skill; (4) one run per sheet, with each set assembled afterwards by its own "
          "builder (no model), so its model never re-checked cross-sheet links; (5) shell access was limited to "
          "`python -I` and `ls`, so a few shell calls per run were refused and it worked around them.",
+         "- Home-field advantage, which favours our readers throughout: our prompt (`extraction/prompt_v2.md`) and our "
+         "tracer were built and tuned on these development sheets; that prompt asks for the key's six classes, and its "
+         "valve and instrument-bubble definitions match the key's control-valve convention (a valve body plus a separate "
+         "actuator bubble); the TE sheets are drawn by this repository's own code. pid-to-kg targets a different ontology: "
+         "a control valve is one Component with an actuator attribute, and there is no flange kind (the key's flanges are "
+         "`general`, which bears on its low general-class F1). Its scores here measure distance from our key's "
+         "conventions as well as reading quality.",
          f"- Ablations, each a user-level setting with no change to its code: OCR off = {rec['variants']['noocr']}; "
          f"QA loop off = {rec['variants']['noqa']}; 2x2 tiles = {rec['variants']['2x2']}", "",
          "## Decision rule", "",
          "Review loads differ only when the run ranges do not overlap and the 95% paired sheet-bootstrap interval of the "
          "difference excludes 0 (module docstring). Our OPEN100 traced readings are one run each, so their run range is "
          "a single value; our validation-set replicates (the leaderboard: claude 27.2-31.6 over five runs on other "
-         "sheets) show a run spread of a few points.", ""]
+         "sheets) show a run spread of a few points. The TE sets have three sheets, so the sheet bootstrap has only 10 "
+         "distinct resamples, and against a one-run row the no-overlap test is weak; read the TE verdicts with both in "
+         "mind. Each verdict names which reader is higher.", ""]
     L += ["## Symbols, connections and review load (frozen scorer, beside the controls)", "",
           "Mean over runs with the run range. Review load counts corrections per 100 key items (lower is better). "
           "Connections are network co-membership, the key's own definition.", ""]
@@ -531,6 +560,24 @@ def markdown(doc):
             d = r["valve_convention_first_run"]
             L.append(f"| {r['name']} | {d['predicted_valves']} | {d['valve_paired_with_key_instrument']} | {d['key_valves']} | "
                      f"{d['key_valves_unpaired']} |")
+        L += ["", "Post-hoc diagnostic, not used for any verdict: the review load's corrections by kind, summed over the "
+              "set's sheets, per run (range over runs), beside the valve-convention counts per run. The convention counts "
+              "come from the scorer's class-free rough match, the one that decides missed symbols and link endpoints; an "
+              "unpaired key valve is one missed symbol. Relabels come from a separate class-required match, so a valve "
+              "paired with a bubble here is not necessarily a relabel. Links touching either are not separated out, so "
+              "the convention's share of the link corrections is not measured.", "",
+              "| Reader | Runs | False symbols | Missed symbols | Relabels | False links | Missed links | "
+              "Valves paired with a key bubble | Key valves unpaired |", "|---|---|---|---|---|---|---|---|---|"]
+        for r in t["rows"]:
+            dd = r["diagnostic_per_run"]
+            L.append(f"| {r['name']} | {len(dd)} | " + " | ".join(rng_txt([d["corrections"][k] for d in dd]) for k in
+                     ("false_symbols", "missed_symbols", "relabels", "false_links", "missed_links")) +
+                     f" | {rng_txt([d['valve_paired_with_key_instrument'] for d in dd])} | "
+                     f"{rng_txt([d['key_valves_unpaired'] for d in dd])} |")
+        if set_id == "te-a":
+            L += ["", "TE A is where home-field advantage is largest: the sheets are drawn by this repository's code, and "
+                  "our prompt's valve definition matches the key's control-valve convention, which pid-to-kg's ontology "
+                  "does not share (see How it was run)."]
         L.append("")
     L += ["## Tags on the TE sheets (printed text; letters and digits compared)", "",
           "Totals over runs, with the per-run share range when it varies.", "",
@@ -554,7 +601,8 @@ def markdown(doc):
                      f"{rng_txt([r.get('scorable') for r in runs])} | {rng_txt([r.get('correct') for r in runs])} | "
                      f"{rng_txt([r['precision'] for r in runs], '{:.3f}')} | {rng_txt([r['layout_control'] for r in runs], '{:.3f}')} |")
     L += ["", "Run 1 through our bundle (product path): its own links are accepted when our tracer re-traces exactly the "
-          "same links, otherwise the line layers are skipped; its symbols with our tracer always get them.", "",
+          "same links, otherwise the line layers are skipped; its symbols with our tracer always get them. In a note, "
+          "'sheet 0' is the bundle's own index of the set's first sheet (OPEN100 sheet 0; TE sheet 101).", "",
           "| Set | Reading | Line layers | Pipe segments | Directed | Direction precision | Note |", "|---|---|---|---|---|---|---|"]
     for set_id, rows in doc["product_path"].items():
         for name, p in rows.items():
@@ -595,9 +643,19 @@ def markdown(doc):
         L += ["", "The readers saw different inputs: ours a PNG render of each page, pid-to-kg the PDF page itself, whose text "
               "layer its own QA uses as hints. A run that rewrites a printed tag into another order (P-501 prints 'ZSO 500, "
               "101'; a run may record '500-ZSO-101') reads as not printed. No symbol key exists for Pahala.", ""]
-    L += ["## Run cost (pid-to-kg)", "",
+    L += ["## OCR tag hints on the TE sheets (pid-to-kg's hints file against the key's printed tags)", "",
+          "Its OCR step writes tag candidates before the model reads; these count, over each run's three sheets, the key's "
+          "printed tags (off-page connectors excluded) found among the candidates, letters and digits only "
+          "(`ocr_hints_vs_key_tags` in `out/ext_pidkg/runs.json`). OCR-off runs still write a hints file, with no OCR "
+          "candidates: the TE PDFs have no text layer.", "",
+          "| Set / variant | Runs | Key tags among the hints, per run | Hints that are key tags, per run |", "|---|---|---|---|"]
+    for g, h in doc["ocr_hints"].items():
+        L.append(f"| {g} | {len(h)} | " + ", ".join(f"{x['key_tags_in_candidates']}/{x['key_tags']}" for x in h) + " | "
+                 + ", ".join(f"{x['candidates_in_key']}/{x['candidates']}" for x in h) + " |")
+    L += ["", "## Run cost (pid-to-kg)", "",
           "List-price equivalent as the CLI reports it; the runs used a subscription. Tiles opened is the share of non-blank "
-          "tiles the run actually opened as images; every run listed all of them as reviewed.", "",
+          "tiles the run opened as images. In these headless runs the model listed every non-blank tile as reviewed in "
+          "its page file, including tiles it had not opened.", "",
           "| Set and variant | Runs | Wall s per run | Turns | USD per run | USD total | Output tokens | Cache-read tokens | Tiles opened |",
           "|---|---|---|---|---|---|---|---|---|"]
     for g, c in doc["costs"].items():
@@ -609,7 +667,9 @@ def markdown(doc):
     vo = rec.get("voided")
     L += ["", f"Scored runs: {len(tot)}, {sum(r['wall_s'] for r in tot.values())} s of run time (several at once: "
           f"{rec['concurrency']}), {sum(r['cost_usd_list_equivalent'] for r in tot.values()):.2f} USD list-price "
-          "equivalent. Our claude reading of OPEN100 0-5 (r2-tiles-trace): 547 s, 2.84 USD notional, one run."]
+          "equivalent. Our claude reading of OPEN100 0-5 (r2-tiles-trace): 547 s, 2.84 USD notional, one run. The two "
+          "costs are approximate and not like for like: the CLI's list-price equivalent against our run records' "
+          "notional price."]
     if vo:
         L += ["", f"Set aside unscored: {vo['runs']} runs, {vo['wall_s']} s, {vo['usd_list_equivalent']:.2f} USD. {vo['why']}"]
     L.append("")
@@ -631,7 +691,7 @@ def main(argv=None):
         product, truths = product_path(symbols, tmp)
         doc = {"runs": runs, "symbols": {k: {kk: vv for kk, vv in v.items() if kk != "hybrid_dir"} for k, v in symbols.items()},
                "tags": tag_tables(), "product_path": product, "own_directions": own_directions(truths), "loops": loops(),
-               "offpage": offpage(), "costs": costs(runs["runs"]),
+               "offpage": offpage(), "costs": costs(runs["runs"]), "ocr_hints": ocr_hints(runs["runs"]),
                "pahala": pahala(a.pahala_images, a.pahala_ext_root, a.pahala_ours, a.pahala_pdf, tmp)
                if a.pahala_images and a.pahala_pdf and a.pahala_ext_root else None}
     out = Path(a.out)

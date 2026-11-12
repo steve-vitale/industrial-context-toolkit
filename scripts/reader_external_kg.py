@@ -1,6 +1,7 @@
 """Reader adapter for an external knowledge-graph reader: a pid-to-kg graph.json -> the documented prediction format.
 
-pid-to-kg is Scott Duncan's public, MIT-licensed P&ID skill (https://github.com/ScottDuncanAI/PID-to-Knowledge-Graph):
+pid-to-kg (MIT, (c) the pid-to-kg contributors; repository by Scott Duncan,
+https://github.com/ScottDuncanAI/PID-to-Knowledge-Graph) is a public P&ID skill:
 a model reads each sheet into a page file, and its own scripts build one process graph (graph.json, schema 1.0).
 This adapter is that graph's part of the reader slot (docs/PLUG_IN_A_READER.md). It reads one sheet's items out of
 graph.json, maps them onto the six scored classes, collapses the graph's pipe segments into symbol-to-symbol

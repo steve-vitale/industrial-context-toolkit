@@ -1,6 +1,6 @@
 {
  "runs": {
-  "tool": "pid-to-kg (https://github.com/ScottDuncanAI/PID-to-Knowledge-Graph, MIT)",
+  "tool": "pid-to-kg (MIT, (c) the pid-to-kg contributors; repository by Scott Duncan, https://github.com/ScottDuncanAI/PID-to-Knowledge-Graph)",
   "commit": "7ee3a82e655c13c11aa26ee25bdc2c0c01bd58f1",
   "interface": "Claude Code CLI 2.1.317 headless (claude -p), skill installed in a fresh project folder",
   "model_requested": "claude-opus-5-5[1m]",
@@ -15,7 +15,7 @@
     "runs": 46,
     "usd_list_equivalent": 50.39,
     "wall_s": 13917,
-    "why": "A first launch of the 46 ablation runs wrote the variant names with a trailing carriage return (Windows line endings in the lane lists); the Read tool could not open files under those folder names, so many runs copied their pages to scratch folders and read them there, which changes how they read tiles. No run read another run's files. All 46 were set aside unscored and re-run under clean names; the harness now refuses a name with a control character."
+    "why": "A first launch of the 46 ablation runs wrote the variant names with a trailing carriage return (Windows line endings in the lane lists); the Read tool could not open files under those folder names, so many runs copied their pages to scratch folders and read them there, which changes how they read tiles. All 46 were set aside unscored and re-run under clean names; the harness now refuses a name with a control character. A scan of every scored run's commands and tool results found no path into another run's folder; outside its own folder a scored run touched only the CLI's own task-output temp files (open100-0@r3, open100-2@r3, open100-3@noqa-r2, open100-5@r3). The set-aside runs did write scratch copies outside their folders, and were not scored."
    },
    "variants": {
     "r1-r3": "replicates, identical recipe, a fresh project folder per run",
@@ -27,7 +27,10 @@
     "run_sheet.sh": "007f208a586057b4ecafd3525daf6da5f89ec9610df1ab54ee08abf762c260b5",
     "run_variant.sh": "41f1c30f6cc005ce01d1118df215215d0454d7e58d272ecd75ae97059f795ae6",
     "make_pdfs.py": "26482806131d4eb2dcbefcfd6117b84ed5aa499eb9ac4ca30781dd0cb1226717",
-    "collect.py": "5a0445d4f6c1cd082f489daff95c15a9d2a558bc7011fe2deb0e68000baea012"
+    "collect.py": "6626946fc167ca8d28e539a10841ddf3e444ce0907266f0a8e0839767e0b0a04"
+   },
+   "adapter_sha256": {
+    "scripts/reader_external_kg.py": "9b8cacb8de89ae8b3128f26d85bc77674f516b58192dc5b265be11947d609580"
    }
   },
   "inputs": {
@@ -8552,6 +8555,47 @@
       "key_valves": 139,
       "key_valves_unpaired": 22
      },
+     "diagnostic_per_run": [
+      {
+       "predicted_valves": 129,
+       "valve_paired_with_key_instrument": 13,
+       "key_valves": 139,
+       "key_valves_unpaired": 22,
+       "corrections": {
+        "false_symbols": 17,
+        "missed_symbols": 162,
+        "relabels": 25,
+        "false_links": 796,
+        "missed_links": 514
+       }
+      },
+      {
+       "predicted_valves": 132,
+       "valve_paired_with_key_instrument": 40,
+       "key_valves": 139,
+       "key_valves_unpaired": 48,
+       "corrections": {
+        "false_symbols": 22,
+        "missed_symbols": 160,
+        "relabels": 32,
+        "false_links": 883,
+        "missed_links": 755
+       }
+      },
+      {
+       "predicted_valves": 126,
+       "valve_paired_with_key_instrument": 35,
+       "key_valves": 139,
+       "key_valves_unpaired": 48,
+       "corrections": {
+        "false_symbols": 12,
+        "missed_symbols": 169,
+        "relabels": 28,
+        "false_links": 750,
+        "missed_links": 734
+       }
+      }
+     ],
      "missing_or_failed": []
     },
     {
@@ -8680,6 +8724,47 @@
       "key_valves": 139,
       "key_valves_unpaired": 22
      },
+     "diagnostic_per_run": [
+      {
+       "predicted_valves": 129,
+       "valve_paired_with_key_instrument": 13,
+       "key_valves": 139,
+       "key_valves_unpaired": 22,
+       "corrections": {
+        "false_symbols": 17,
+        "missed_symbols": 162,
+        "relabels": 25,
+        "false_links": 285,
+        "missed_links": 506
+       }
+      },
+      {
+       "predicted_valves": 132,
+       "valve_paired_with_key_instrument": 40,
+       "key_valves": 139,
+       "key_valves_unpaired": 48,
+       "corrections": {
+        "false_symbols": 22,
+        "missed_symbols": 160,
+        "relabels": 32,
+        "false_links": 363,
+        "missed_links": 737
+       }
+      },
+      {
+       "predicted_valves": 126,
+       "valve_paired_with_key_instrument": 35,
+       "key_valves": 139,
+       "key_valves_unpaired": 48,
+       "corrections": {
+        "false_symbols": 12,
+        "missed_symbols": 169,
+        "relabels": 28,
+        "false_links": 401,
+        "missed_links": 704
+       }
+      }
+     ],
      "missing_or_failed": []
     },
     {
@@ -8808,6 +8893,34 @@
       "key_valves": 139,
       "key_valves_unpaired": 70
      },
+     "diagnostic_per_run": [
+      {
+       "predicted_valves": 102,
+       "valve_paired_with_key_instrument": 32,
+       "key_valves": 139,
+       "key_valves_unpaired": 70,
+       "corrections": {
+        "false_symbols": 6,
+        "missed_symbols": 199,
+        "relabels": 27,
+        "false_links": 779,
+        "missed_links": 810
+       }
+      },
+      {
+       "predicted_valves": 129,
+       "valve_paired_with_key_instrument": 37,
+       "key_valves": 139,
+       "key_valves_unpaired": 46,
+       "corrections": {
+        "false_symbols": 19,
+        "missed_symbols": 167,
+        "relabels": 29,
+        "false_links": 739,
+        "missed_links": 779
+       }
+      }
+     ],
      "missing_or_failed": []
     },
     {
@@ -8936,6 +9049,34 @@
       "key_valves": 139,
       "key_valves_unpaired": 61
      },
+     "diagnostic_per_run": [
+      {
+       "predicted_valves": 103,
+       "valve_paired_with_key_instrument": 26,
+       "key_valves": 139,
+       "key_valves_unpaired": 61,
+       "corrections": {
+        "false_symbols": 16,
+        "missed_symbols": 190,
+        "relabels": 26,
+        "false_links": 808,
+        "missed_links": 727
+       }
+      },
+      {
+       "predicted_valves": 128,
+       "valve_paired_with_key_instrument": 21,
+       "key_valves": 139,
+       "key_valves_unpaired": 29,
+       "corrections": {
+        "false_symbols": 15,
+        "missed_symbols": 165,
+        "relabels": 28,
+        "false_links": 648,
+        "missed_links": 606
+       }
+      }
+     ],
      "missing_or_failed": []
     },
     {
@@ -9064,6 +9205,21 @@
       "key_valves": 139,
       "key_valves_unpaired": 12
      },
+     "diagnostic_per_run": [
+      {
+       "predicted_valves": 144,
+       "valve_paired_with_key_instrument": 4,
+       "key_valves": 139,
+       "key_valves_unpaired": 12,
+       "corrections": {
+        "false_symbols": 38,
+        "missed_symbols": 96,
+        "relabels": 23,
+        "false_links": 116,
+        "missed_links": 319
+       }
+      }
+     ],
      "missing_or_failed": []
     },
     {
@@ -9192,6 +9348,21 @@
       "key_valves": 139,
       "key_valves_unpaired": 0
      },
+     "diagnostic_per_run": [
+      {
+       "predicted_valves": 139,
+       "valve_paired_with_key_instrument": 0,
+       "key_valves": 139,
+       "key_valves_unpaired": 0,
+       "corrections": {
+        "false_symbols": 28,
+        "missed_symbols": 19,
+        "relabels": 27,
+        "false_links": 94,
+        "missed_links": 169
+       }
+      }
+     ],
      "missing_or_failed": []
     },
     {
@@ -9320,6 +9491,21 @@
       "key_valves": 139,
       "key_valves_unpaired": 13
      },
+     "diagnostic_per_run": [
+      {
+       "predicted_valves": 142,
+       "valve_paired_with_key_instrument": 0,
+       "key_valves": 139,
+       "key_valves_unpaired": 13,
+       "corrections": {
+        "false_symbols": 35,
+        "missed_symbols": 96,
+        "relabels": 29,
+        "false_links": 312,
+        "missed_links": 499
+       }
+      }
+     ],
      "missing_or_failed": []
     },
     {
@@ -9448,6 +9634,34 @@
       "key_valves": 139,
       "key_valves_unpaired": 12
      },
+     "diagnostic_per_run": [
+      {
+       "predicted_valves": 144,
+       "valve_paired_with_key_instrument": 4,
+       "key_valves": 139,
+       "key_valves_unpaired": 12,
+       "corrections": {
+        "false_symbols": 38,
+        "missed_symbols": 96,
+        "relabels": 23,
+        "false_links": 165,
+        "missed_links": 884
+       }
+      },
+      {
+       "predicted_valves": 143,
+       "valve_paired_with_key_instrument": 0,
+       "key_valves": 139,
+       "key_valves_unpaired": 16,
+       "corrections": {
+        "false_symbols": 41,
+        "missed_symbols": 104,
+        "relabels": 20,
+        "false_links": 144,
+        "missed_links": 886
+       }
+      }
+     ],
      "missing_or_failed": []
     },
     {
@@ -9576,6 +9790,34 @@
       "key_valves": 139,
       "key_valves_unpaired": 0
      },
+     "diagnostic_per_run": [
+      {
+       "predicted_valves": 139,
+       "valve_paired_with_key_instrument": 0,
+       "key_valves": 139,
+       "key_valves_unpaired": 0,
+       "corrections": {
+        "false_symbols": 28,
+        "missed_symbols": 19,
+        "relabels": 27,
+        "false_links": 142,
+        "missed_links": 544
+       }
+      },
+      {
+       "predicted_valves": 137,
+       "valve_paired_with_key_instrument": 0,
+       "key_valves": 139,
+       "key_valves_unpaired": 0,
+       "corrections": {
+        "false_symbols": 18,
+        "missed_symbols": 25,
+        "relabels": 26,
+        "false_links": 142,
+        "missed_links": 559
+       }
+      }
+     ],
      "missing_or_failed": []
     },
     {
@@ -9704,6 +9946,34 @@
       "key_valves": 139,
       "key_valves_unpaired": 13
      },
+     "diagnostic_per_run": [
+      {
+       "predicted_valves": 142,
+       "valve_paired_with_key_instrument": 0,
+       "key_valves": 139,
+       "key_valves_unpaired": 13,
+       "corrections": {
+        "false_symbols": 35,
+        "missed_symbols": 96,
+        "relabels": 29,
+        "false_links": 151,
+        "missed_links": 938
+       }
+      },
+      {
+       "predicted_valves": 149,
+       "valve_paired_with_key_instrument": 0,
+       "key_valves": 139,
+       "key_valves_unpaired": 12,
+       "corrections": {
+        "false_symbols": 30,
+        "missed_symbols": 110,
+        "relabels": 29,
+        "false_links": 130,
+        "missed_links": 933
+       }
+      }
+     ],
      "missing_or_failed": []
     }
    ],
@@ -9742,7 +10012,7 @@
       35.6
      ],
      "run_ranges_overlap": false,
-     "verdict": "higher review load beyond run and sheet spread"
+     "verdict": "pid-to-kg (its own links) higher, beyond spread"
     },
     {
      "against": "pid-to-kg, QA re-check loop off",
@@ -9752,7 +10022,7 @@
       6.3
      ],
      "run_ranges_overlap": true,
-     "verdict": "within spread"
+     "verdict": "within spread (pid-to-kg (its own links) lower on the mean)"
     },
     {
      "against": "pid-to-kg, 2x2 tiles",
@@ -9762,7 +10032,7 @@
       14.7
      ],
      "run_ranges_overlap": true,
-     "verdict": "within spread"
+     "verdict": "within spread (pid-to-kg (its own links) higher on the mean)"
     },
     {
      "against": "ours: r2-tiles-trace (tiles + our tracer), claude",
@@ -9772,7 +10042,7 @@
       97.0
      ],
      "run_ranges_overlap": false,
-     "verdict": "higher review load beyond run and sheet spread"
+     "verdict": "pid-to-kg (its own links) higher, beyond spread"
     },
     {
      "against": "ours: r2-tiles-trace (tiles + our tracer), codex",
@@ -9782,7 +10052,7 @@
       104.7
      ],
      "run_ranges_overlap": false,
-     "verdict": "higher review load beyond run and sheet spread"
+     "verdict": "pid-to-kg (its own links) higher, beyond spread"
     },
     {
      "against": "ours: r2-tiles-trace (tiles + our tracer), gemini",
@@ -9792,7 +10062,7 @@
       54.4
      ],
      "run_ranges_overlap": false,
-     "verdict": "higher review load beyond run and sheet spread"
+     "verdict": "pid-to-kg (its own links) higher, beyond spread"
     },
     {
      "against": "ours: r2-tiles-2x2 (tiles, model links), claude",
@@ -9802,7 +10072,7 @@
       50.0
      ],
      "run_ranges_overlap": false,
-     "verdict": "higher review load beyond run and sheet spread"
+     "verdict": "pid-to-kg (its own links) higher, beyond spread"
     },
     {
      "against": "ours: r2-tiles-2x2 (tiles, model links), codex",
@@ -9812,7 +10082,7 @@
       66.4
      ],
      "run_ranges_overlap": false,
-     "verdict": "higher review load beyond run and sheet spread"
+     "verdict": "pid-to-kg (its own links) higher, beyond spread"
     },
     {
      "against": "ours: r2-tiles-2x2 (tiles, model links), gemini",
@@ -9822,7 +10092,7 @@
       41.9
      ],
      "run_ranges_overlap": false,
-     "verdict": "higher review load beyond run and sheet spread"
+     "verdict": "pid-to-kg (its own links) higher, beyond spread"
     }
    ]
   },
@@ -9942,6 +10212,47 @@
       "key_valves": 11,
       "key_valves_unpaired": 11
      },
+     "diagnostic_per_run": [
+      {
+       "predicted_valves": 11,
+       "valve_paired_with_key_instrument": 11,
+       "key_valves": 11,
+       "key_valves_unpaired": 11,
+       "corrections": {
+        "false_symbols": 2,
+        "missed_symbols": 12,
+        "relabels": 0,
+        "false_links": 49,
+        "missed_links": 61
+       }
+      },
+      {
+       "predicted_valves": 11,
+       "valve_paired_with_key_instrument": 7,
+       "key_valves": 11,
+       "key_valves_unpaired": 7,
+       "corrections": {
+        "false_symbols": 1,
+        "missed_symbols": 12,
+        "relabels": 0,
+        "false_links": 37,
+        "missed_links": 49
+       }
+      },
+      {
+       "predicted_valves": 11,
+       "valve_paired_with_key_instrument": 11,
+       "key_valves": 11,
+       "key_valves_unpaired": 11,
+       "corrections": {
+        "false_symbols": 1,
+        "missed_symbols": 11,
+        "relabels": 1,
+        "false_links": 50,
+        "missed_links": 61
+       }
+      }
+     ],
      "missing_or_failed": []
     },
     {
@@ -10052,6 +10363,47 @@
       "key_valves": 11,
       "key_valves_unpaired": 11
      },
+     "diagnostic_per_run": [
+      {
+       "predicted_valves": 11,
+       "valve_paired_with_key_instrument": 11,
+       "key_valves": 11,
+       "key_valves_unpaired": 11,
+       "corrections": {
+        "false_symbols": 2,
+        "missed_symbols": 12,
+        "relabels": 0,
+        "false_links": 49,
+        "missed_links": 61
+       }
+      },
+      {
+       "predicted_valves": 11,
+       "valve_paired_with_key_instrument": 7,
+       "key_valves": 11,
+       "key_valves_unpaired": 7,
+       "corrections": {
+        "false_symbols": 1,
+        "missed_symbols": 12,
+        "relabels": 0,
+        "false_links": 37,
+        "missed_links": 49
+       }
+      },
+      {
+       "predicted_valves": 11,
+       "valve_paired_with_key_instrument": 11,
+       "key_valves": 11,
+       "key_valves_unpaired": 11,
+       "corrections": {
+        "false_symbols": 1,
+        "missed_symbols": 11,
+        "relabels": 1,
+        "false_links": 62,
+        "missed_links": 61
+       }
+      }
+     ],
      "missing_or_failed": []
     },
     {
@@ -10162,6 +10514,34 @@
       "key_valves": 11,
       "key_valves_unpaired": 11
      },
+     "diagnostic_per_run": [
+      {
+       "predicted_valves": 11,
+       "valve_paired_with_key_instrument": 11,
+       "key_valves": 11,
+       "key_valves_unpaired": 11,
+       "corrections": {
+        "false_symbols": 1,
+        "missed_symbols": 14,
+        "relabels": 0,
+        "false_links": 47,
+        "missed_links": 61
+       }
+      },
+      {
+       "predicted_valves": 11,
+       "valve_paired_with_key_instrument": 7,
+       "key_valves": 11,
+       "key_valves_unpaired": 7,
+       "corrections": {
+        "false_symbols": 1,
+        "missed_symbols": 16,
+        "relabels": 0,
+        "false_links": 32,
+        "missed_links": 48
+       }
+      }
+     ],
      "missing_or_failed": []
     },
     {
@@ -10272,6 +10652,73 @@
       "key_valves": 11,
       "key_valves_unpaired": 0
      },
+     "diagnostic_per_run": [
+      {
+       "predicted_valves": 11,
+       "valve_paired_with_key_instrument": 0,
+       "key_valves": 11,
+       "key_valves_unpaired": 0,
+       "corrections": {
+        "false_symbols": 2,
+        "missed_symbols": 0,
+        "relabels": 0,
+        "false_links": 2,
+        "missed_links": 1
+       }
+      },
+      {
+       "predicted_valves": 11,
+       "valve_paired_with_key_instrument": 0,
+       "key_valves": 11,
+       "key_valves_unpaired": 0,
+       "corrections": {
+        "false_symbols": 1,
+        "missed_symbols": 0,
+        "relabels": 0,
+        "false_links": 2,
+        "missed_links": 1
+       }
+      },
+      {
+       "predicted_valves": 11,
+       "valve_paired_with_key_instrument": 0,
+       "key_valves": 11,
+       "key_valves_unpaired": 0,
+       "corrections": {
+        "false_symbols": 1,
+        "missed_symbols": 0,
+        "relabels": 0,
+        "false_links": 2,
+        "missed_links": 1
+       }
+      },
+      {
+       "predicted_valves": 11,
+       "valve_paired_with_key_instrument": 0,
+       "key_valves": 11,
+       "key_valves_unpaired": 0,
+       "corrections": {
+        "false_symbols": 1,
+        "missed_symbols": 0,
+        "relabels": 0,
+        "false_links": 2,
+        "missed_links": 1
+       }
+      },
+      {
+       "predicted_valves": 11,
+       "valve_paired_with_key_instrument": 0,
+       "key_valves": 11,
+       "key_valves_unpaired": 0,
+       "corrections": {
+        "false_symbols": 1,
+        "missed_symbols": 0,
+        "relabels": 0,
+        "false_links": 2,
+        "missed_links": 1
+       }
+      }
+     ],
      "missing_or_failed": []
     },
     {
@@ -10382,6 +10829,73 @@
       "key_valves": 11,
       "key_valves_unpaired": 0
      },
+     "diagnostic_per_run": [
+      {
+       "predicted_valves": 11,
+       "valve_paired_with_key_instrument": 0,
+       "key_valves": 11,
+       "key_valves_unpaired": 0,
+       "corrections": {
+        "false_symbols": 1,
+        "missed_symbols": 0,
+        "relabels": 0,
+        "false_links": 2,
+        "missed_links": 1
+       }
+      },
+      {
+       "predicted_valves": 11,
+       "valve_paired_with_key_instrument": 0,
+       "key_valves": 11,
+       "key_valves_unpaired": 0,
+       "corrections": {
+        "false_symbols": 1,
+        "missed_symbols": 0,
+        "relabels": 0,
+        "false_links": 2,
+        "missed_links": 1
+       }
+      },
+      {
+       "predicted_valves": 11,
+       "valve_paired_with_key_instrument": 0,
+       "key_valves": 11,
+       "key_valves_unpaired": 0,
+       "corrections": {
+        "false_symbols": 1,
+        "missed_symbols": 0,
+        "relabels": 0,
+        "false_links": 2,
+        "missed_links": 1
+       }
+      },
+      {
+       "predicted_valves": 11,
+       "valve_paired_with_key_instrument": 0,
+       "key_valves": 11,
+       "key_valves_unpaired": 0,
+       "corrections": {
+        "false_symbols": 1,
+        "missed_symbols": 0,
+        "relabels": 0,
+        "false_links": 2,
+        "missed_links": 1
+       }
+      },
+      {
+       "predicted_valves": 11,
+       "valve_paired_with_key_instrument": 0,
+       "key_valves": 11,
+       "key_valves_unpaired": 0,
+       "corrections": {
+        "false_symbols": 1,
+        "missed_symbols": 0,
+        "relabels": 0,
+        "false_links": 2,
+        "missed_links": 1
+       }
+      }
+     ],
      "missing_or_failed": []
     },
     {
@@ -10492,6 +11006,73 @@
       "key_valves": 11,
       "key_valves_unpaired": 0
      },
+     "diagnostic_per_run": [
+      {
+       "predicted_valves": 11,
+       "valve_paired_with_key_instrument": 0,
+       "key_valves": 11,
+       "key_valves_unpaired": 0,
+       "corrections": {
+        "false_symbols": 2,
+        "missed_symbols": 0,
+        "relabels": 0,
+        "false_links": 2,
+        "missed_links": 48
+       }
+      },
+      {
+       "predicted_valves": 11,
+       "valve_paired_with_key_instrument": 0,
+       "key_valves": 11,
+       "key_valves_unpaired": 0,
+       "corrections": {
+        "false_symbols": 1,
+        "missed_symbols": 0,
+        "relabels": 0,
+        "false_links": 2,
+        "missed_links": 50
+       }
+      },
+      {
+       "predicted_valves": 11,
+       "valve_paired_with_key_instrument": 0,
+       "key_valves": 11,
+       "key_valves_unpaired": 0,
+       "corrections": {
+        "false_symbols": 1,
+        "missed_symbols": 0,
+        "relabels": 0,
+        "false_links": 2,
+        "missed_links": 49
+       }
+      },
+      {
+       "predicted_valves": 11,
+       "valve_paired_with_key_instrument": 0,
+       "key_valves": 11,
+       "key_valves_unpaired": 0,
+       "corrections": {
+        "false_symbols": 1,
+        "missed_symbols": 0,
+        "relabels": 0,
+        "false_links": 2,
+        "missed_links": 50
+       }
+      },
+      {
+       "predicted_valves": 11,
+       "valve_paired_with_key_instrument": 0,
+       "key_valves": 11,
+       "key_valves_unpaired": 0,
+       "corrections": {
+        "false_symbols": 1,
+        "missed_symbols": 0,
+        "relabels": 0,
+        "false_links": 2,
+        "missed_links": 48
+       }
+      }
+     ],
      "missing_or_failed": []
     },
     {
@@ -10602,6 +11183,73 @@
       "key_valves": 11,
       "key_valves_unpaired": 0
      },
+     "diagnostic_per_run": [
+      {
+       "predicted_valves": 11,
+       "valve_paired_with_key_instrument": 0,
+       "key_valves": 11,
+       "key_valves_unpaired": 0,
+       "corrections": {
+        "false_symbols": 1,
+        "missed_symbols": 0,
+        "relabels": 0,
+        "false_links": 2,
+        "missed_links": 33
+       }
+      },
+      {
+       "predicted_valves": 11,
+       "valve_paired_with_key_instrument": 0,
+       "key_valves": 11,
+       "key_valves_unpaired": 0,
+       "corrections": {
+        "false_symbols": 1,
+        "missed_symbols": 0,
+        "relabels": 0,
+        "false_links": 2,
+        "missed_links": 24
+       }
+      },
+      {
+       "predicted_valves": 11,
+       "valve_paired_with_key_instrument": 0,
+       "key_valves": 11,
+       "key_valves_unpaired": 0,
+       "corrections": {
+        "false_symbols": 1,
+        "missed_symbols": 0,
+        "relabels": 0,
+        "false_links": 2,
+        "missed_links": 21
+       }
+      },
+      {
+       "predicted_valves": 11,
+       "valve_paired_with_key_instrument": 0,
+       "key_valves": 11,
+       "key_valves_unpaired": 0,
+       "corrections": {
+        "false_symbols": 1,
+        "missed_symbols": 0,
+        "relabels": 0,
+        "false_links": 2,
+        "missed_links": 25
+       }
+      },
+      {
+       "predicted_valves": 11,
+       "valve_paired_with_key_instrument": 0,
+       "key_valves": 11,
+       "key_valves_unpaired": 0,
+       "corrections": {
+        "false_symbols": 1,
+        "missed_symbols": 0,
+        "relabels": 0,
+        "false_links": 2,
+        "missed_links": 22
+       }
+      }
+     ],
      "missing_or_failed": []
     }
    ],
@@ -10640,7 +11288,7 @@
       0.0
      ],
      "run_ranges_overlap": true,
-     "verdict": "within spread"
+     "verdict": "within spread (pid-to-kg (its own links) lower on the mean)"
     },
     {
      "against": "pid-to-kg, OCR off",
@@ -10650,7 +11298,7 @@
       8.3
      ],
      "run_ranges_overlap": true,
-     "verdict": "within spread"
+     "verdict": "within spread (pid-to-kg (its own links) higher on the mean)"
     },
     {
      "against": "ours: te-clean-trace (tiles + our tracer), claude",
@@ -10660,7 +11308,7 @@
       68.6
      ],
      "run_ranges_overlap": false,
-     "verdict": "higher review load beyond run and sheet spread"
+     "verdict": "pid-to-kg (its own links) higher, beyond spread"
     },
     {
      "against": "ours: te-clean-trace (tiles + our tracer), codex",
@@ -10670,7 +11318,7 @@
       68.6
      ],
      "run_ranges_overlap": false,
-     "verdict": "higher review load beyond run and sheet spread"
+     "verdict": "pid-to-kg (its own links) higher, beyond spread"
     },
     {
      "against": "ours: te-clean-tiles (tiles, model links), claude",
@@ -10680,7 +11328,7 @@
       49.1
      ],
      "run_ranges_overlap": false,
-     "verdict": "higher review load beyond run and sheet spread"
+     "verdict": "pid-to-kg (its own links) higher, beyond spread"
     },
     {
      "against": "ours: te-clean-tiles (tiles, model links), codex",
@@ -10690,7 +11338,7 @@
       52.7
      ],
      "run_ranges_overlap": false,
-     "verdict": "higher review load beyond run and sheet spread"
+     "verdict": "pid-to-kg (its own links) higher, beyond spread"
     }
    ]
   },
@@ -10810,6 +11458,47 @@
       "key_valves": 41,
       "key_valves_unpaired": 3
      },
+     "diagnostic_per_run": [
+      {
+       "predicted_valves": 41,
+       "valve_paired_with_key_instrument": 3,
+       "key_valves": 41,
+       "key_valves_unpaired": 3,
+       "corrections": {
+        "false_symbols": 2,
+        "missed_symbols": 11,
+        "relabels": 0,
+        "false_links": 47,
+        "missed_links": 64
+       }
+      },
+      {
+       "predicted_valves": 41,
+       "valve_paired_with_key_instrument": 7,
+       "key_valves": 41,
+       "key_valves_unpaired": 7,
+       "corrections": {
+        "false_symbols": 1,
+        "missed_symbols": 11,
+        "relabels": 0,
+        "false_links": 55,
+        "missed_links": 26
+       }
+      },
+      {
+       "predicted_valves": 41,
+       "valve_paired_with_key_instrument": 7,
+       "key_valves": 41,
+       "key_valves_unpaired": 7,
+       "corrections": {
+        "false_symbols": 1,
+        "missed_symbols": 12,
+        "relabels": 0,
+        "false_links": 57,
+        "missed_links": 30
+       }
+      }
+     ],
      "missing_or_failed": []
     },
     {
@@ -10920,6 +11609,47 @@
       "key_valves": 41,
       "key_valves_unpaired": 3
      },
+     "diagnostic_per_run": [
+      {
+       "predicted_valves": 41,
+       "valve_paired_with_key_instrument": 3,
+       "key_valves": 41,
+       "key_valves_unpaired": 3,
+       "corrections": {
+        "false_symbols": 2,
+        "missed_symbols": 11,
+        "relabels": 0,
+        "false_links": 21,
+        "missed_links": 20
+       }
+      },
+      {
+       "predicted_valves": 41,
+       "valve_paired_with_key_instrument": 7,
+       "key_valves": 41,
+       "key_valves_unpaired": 7,
+       "corrections": {
+        "false_symbols": 1,
+        "missed_symbols": 11,
+        "relabels": 0,
+        "false_links": 28,
+        "missed_links": 26
+       }
+      },
+      {
+       "predicted_valves": 41,
+       "valve_paired_with_key_instrument": 7,
+       "key_valves": 41,
+       "key_valves_unpaired": 7,
+       "corrections": {
+        "false_symbols": 1,
+        "missed_symbols": 12,
+        "relabels": 0,
+        "false_links": 35,
+        "missed_links": 30
+       }
+      }
+     ],
      "missing_or_failed": []
     },
     {
@@ -11030,6 +11760,34 @@
       "key_valves": 41,
       "key_valves_unpaired": 11
      },
+     "diagnostic_per_run": [
+      {
+       "predicted_valves": 41,
+       "valve_paired_with_key_instrument": 11,
+       "key_valves": 41,
+       "key_valves_unpaired": 11,
+       "corrections": {
+        "false_symbols": 1,
+        "missed_symbols": 12,
+        "relabels": 1,
+        "false_links": 64,
+        "missed_links": 36
+       }
+      },
+      {
+       "predicted_valves": 41,
+       "valve_paired_with_key_instrument": 7,
+       "key_valves": 41,
+       "key_valves_unpaired": 7,
+       "corrections": {
+        "false_symbols": 1,
+        "missed_symbols": 11,
+        "relabels": 0,
+        "false_links": 57,
+        "missed_links": 28
+       }
+      }
+     ],
      "missing_or_failed": []
     },
     {
@@ -11140,6 +11898,34 @@
       "key_valves": 41,
       "key_valves_unpaired": 7
      },
+     "diagnostic_per_run": [
+      {
+       "predicted_valves": 41,
+       "valve_paired_with_key_instrument": 7,
+       "key_valves": 41,
+       "key_valves_unpaired": 7,
+       "corrections": {
+        "false_symbols": 1,
+        "missed_symbols": 11,
+        "relabels": 0,
+        "false_links": 55,
+        "missed_links": 26
+       }
+      },
+      {
+       "predicted_valves": 41,
+       "valve_paired_with_key_instrument": 0,
+       "key_valves": 41,
+       "key_valves_unpaired": 0,
+       "corrections": {
+        "false_symbols": 1,
+        "missed_symbols": 12,
+        "relabels": 0,
+        "false_links": 41,
+        "missed_links": 14
+       }
+      }
+     ],
      "missing_or_failed": []
     }
    ],
@@ -11178,7 +11964,7 @@
       18.5
      ],
      "run_ranges_overlap": false,
-     "verdict": "higher review load beyond run and sheet spread"
+     "verdict": "pid-to-kg (its own links) higher, beyond spread"
     },
     {
      "against": "pid-to-kg, OCR off",
@@ -11188,7 +11974,7 @@
       8.3
      ],
      "run_ranges_overlap": true,
-     "verdict": "within spread"
+     "verdict": "within spread (pid-to-kg (its own links) higher on the mean)"
     },
     {
      "against": "pid-to-kg, QA re-check loop off",
@@ -11198,7 +11984,7 @@
       8.3
      ],
      "run_ranges_overlap": true,
-     "verdict": "within spread"
+     "verdict": "within spread (pid-to-kg (its own links) higher on the mean)"
     }
    ]
   }
@@ -12732,7 +13518,7 @@
   "ours_A407": "drawing-set import 5 pairs, 5 correct, 5/6 continuations; offpage_pairing alone 2/2, 2/6"
  },
  "costs": {
-  "open100-dev | 2x2": {
+  "open100-dev / 2x2": {
    "runs": 12,
    "wall_s_per_run": {
     "mean": 276.0833,
@@ -12762,7 +13548,7 @@
     "n": 12
    }
   },
-  "open100-dev | noqa": {
+  "open100-dev / noqa": {
    "runs": 12,
    "wall_s_per_run": {
     "mean": 267.25,
@@ -12792,7 +13578,7 @@
     "n": 12
    }
   },
-  "open100-dev | replicates r1-r3": {
+  "open100-dev / replicates r1-r3": {
    "runs": 18,
    "wall_s_per_run": {
     "mean": 327.7222,
@@ -12822,7 +13608,7 @@
     "n": 18
    }
   },
-  "pahala | noocr": {
+  "pahala / noocr": {
    "runs": 4,
    "wall_s_per_run": {
     "mean": 150.25,
@@ -12852,7 +13638,7 @@
     "n": 4
    }
   },
-  "pahala | replicates r1-r3": {
+  "pahala / replicates r1-r3": {
    "runs": 6,
    "wall_s_per_run": {
     "mean": 199.6667,
@@ -12882,7 +13668,7 @@
     "n": 6
    }
   },
-  "te-a | noocr": {
+  "te-a / noocr": {
    "runs": 6,
    "wall_s_per_run": {
     "mean": 104.8333,
@@ -12912,7 +13698,7 @@
     "n": 6
    }
   },
-  "te-a | replicates r1-r3": {
+  "te-a / replicates r1-r3": {
    "runs": 9,
    "wall_s_per_run": {
     "mean": 181.5556,
@@ -12942,7 +13728,7 @@
     "n": 9
    }
   },
-  "te-d | noocr": {
+  "te-d / noocr": {
    "runs": 6,
    "wall_s_per_run": {
     "mean": 139.6667,
@@ -12972,7 +13758,7 @@
     "n": 6
    }
   },
-  "te-d | noqa": {
+  "te-d / noqa": {
    "runs": 6,
    "wall_s_per_run": {
     "mean": 196.6667,
@@ -13002,7 +13788,7 @@
     "n": 6
    }
   },
-  "te-d | replicates r1-r3": {
+  "te-d / replicates r1-r3": {
    "runs": 9,
    "wall_s_per_run": {
     "mean": 197.8889,
@@ -13032,6 +13818,90 @@
     "n": 9
    }
   }
+ },
+ "ocr_hints": {
+  "te-a / noocr": [
+   {
+    "candidates": 0,
+    "key_tags": 43,
+    "key_tags_in_candidates": 0,
+    "candidates_in_key": 0
+   },
+   {
+    "candidates": 0,
+    "key_tags": 43,
+    "key_tags_in_candidates": 0,
+    "candidates_in_key": 0
+   }
+  ],
+  "te-a / replicates r1-r3": [
+   {
+    "candidates": 48,
+    "key_tags": 43,
+    "key_tags_in_candidates": 42,
+    "candidates_in_key": 42
+   },
+   {
+    "candidates": 48,
+    "key_tags": 43,
+    "key_tags_in_candidates": 42,
+    "candidates_in_key": 42
+   },
+   {
+    "candidates": 48,
+    "key_tags": 43,
+    "key_tags_in_candidates": 42,
+    "candidates_in_key": 42
+   }
+  ],
+  "te-d / noocr": [
+   {
+    "candidates": 0,
+    "key_tags": 62,
+    "key_tags_in_candidates": 0,
+    "candidates_in_key": 0
+   },
+   {
+    "candidates": 0,
+    "key_tags": 62,
+    "key_tags_in_candidates": 0,
+    "candidates_in_key": 0
+   }
+  ],
+  "te-d / noqa": [
+   {
+    "candidates": 72,
+    "key_tags": 62,
+    "key_tags_in_candidates": 59,
+    "candidates_in_key": 59
+   },
+   {
+    "candidates": 72,
+    "key_tags": 62,
+    "key_tags_in_candidates": 59,
+    "candidates_in_key": 59
+   }
+  ],
+  "te-d / replicates r1-r3": [
+   {
+    "candidates": 72,
+    "key_tags": 62,
+    "key_tags_in_candidates": 59,
+    "candidates_in_key": 59
+   },
+   {
+    "candidates": 72,
+    "key_tags": 62,
+    "key_tags_in_candidates": 59,
+    "candidates_in_key": 59
+   },
+   {
+    "candidates": 72,
+    "key_tags": 62,
+    "key_tags_in_candidates": 59,
+    "candidates_in_key": 59
+   }
+  ]
  },
  "pahala": {
   "pid-to-kg (its own links), run 1": {
