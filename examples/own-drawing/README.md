@@ -312,6 +312,8 @@ sheets whose pipes are drawn thinner than their signal lines.
 
 Known false-assertion modes (three independent reviews built drawings and models to break the assembly; each case is
 a test in [`test_loop_assembly.py`](../../scripts/test_loop_assembly.py)):
+A case is marked inherently ambiguous when nothing in the drawing could tell a reader, person or machine, that it is
+false: its label comes from how the fixture was built, not from the picture.
 
 | Case | Before | Now |
 |---|---|---|
@@ -319,7 +321,7 @@ a test in [`test_loop_assembly.py`](../../scripts/test_loop_assembly.py)):
 | A line end between two stacked bubbles | attached to both | attaches to neither, unresolved (fixed) |
 | A branching {T, C, V} line | false T to V | unresolved (fixed) |
 | One loop number in two units, no prefix | duplicate loop ids, false refuted members | scoped per sheet (fixed) |
-| Two dashed lines ending at a pipe from either side | merged in 10 of 60 random placements (fixed seed), each a false confirmed `controls` | still merged in those 10 by chance step, but marked `merged_through_crossing`: `signal_to` at `traced` only, 0 of 60 false `controls` or `sets_point_of`; each is a review candidate a reviewer must answer "no" (open as a `signal_to`) |
+| Two dashed lines ending at a pipe from either side, in step by chance | merged in 10 of 60 random placements (fixed seed), each a false confirmed `controls` | **inherently ambiguous**, not a defect: 2 of the 10 drawings are pixel-identical to one dashed line crossing the pipe, and the other 8 differ from it only by a uniform 1-2 px shift of the dashes below the pipe, which no drawing convention gives a meaning; both ends carry the same loop number with a controller and its valve, so a qualified reader reads all 10 as one line crossing. Today each is a review candidate at `traced`, with no false `controls` or `sets_point_of` |
 | Two dashed lines ending on a dashed line from either side, the two ends controllers or a controller and a valve | merged across it: false `controls` and a false `sets_point_of` | kept apart, and neither end tees into the dashed line (fixed) |
 | A transmitter misread as a controller (`FT` read as `FC`) beside a real controller | false outer loop, `sets_point_of` | no cascade without a traced measurement into the outer controller (fixed) |
 | A dashed line drawn straight through bubbles it does not end at | false `signal_to` into and out of each bubble, false `controls` | unresolved, `not_through_a_symbol` (fixed) |
