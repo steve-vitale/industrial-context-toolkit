@@ -108,7 +108,7 @@ The comparison distinguishes vendor descriptions, toolkit evidence and untested 
 | You need to distinguish three types of testing | [Workflow generalization](GENERALIZATION.md) · [Saved task/model comparisons](../benchmarks/README.md) · [Example reviews](FEATURES.md) |
 | You want to reproduce or challenge a published result | [Reviewer checks](REVIEWING.md) · [Advanced reproduction](REPLICATE_AT_YOUR_PLANT.md) · [Predictions](../predictions/README.md) |
 | You need the source/confidence lineage of the demonstrations | [Data lineage](DATA_LINEAGE.md) · [Demo deliverables](DELIVERABLES.md) |
-| You want the current goals and how they are scored | [Round 6: drawings as engineering relations](GOAL_ROUND6.md) · [Standing depth goal for acquired sources](DEPTH_GOAL.md) |
+| You want the current goals and how they are scored | [Round 6: drawings as engineering relations](GOAL_ROUND6.md) · [Standing depth goal for acquired sources](DEPTH_GOAL.md) · [Corpus depth register](CORPUS_DEPTH.md) |
 
 **Historical research:** [PLAN.md](PLAN.md) is the dated original plan; [GOAL.md](GOAL.md) retains experiment
 protocols and later acceptance notes; [JOURNAL.md](JOURNAL.md) is chronological development history;
