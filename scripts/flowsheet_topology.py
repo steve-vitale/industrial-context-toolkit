@@ -11,7 +11,9 @@ Task `flowsheet-topology`, scoring contract `role-aligned-arcs-v1` (benchmarks/R
   A unit's role comes from its native type (ROLE_OF_TYPE). The native vocabulary has no turbine, splitter or mixer
   type, so two name rules apply, and only inside a type group: a `compressor` whose name or id says turbine or
   expander is an expander; a vessel-type unit or `feed_header` whose name or id says split is a splitter.
-- Units: multiset agreement of process-unit roles. Boundaries: feed and product terminal counts. Connections: directed
+- Units: multiset agreement of process-unit roles. Boundaries: feed and product terminal counts. Internal: the
+  connections between two process units only (feeds and products excluded), under the same alignment, so boundary
+  credit is visible on its own. Connections: directed
   unit-to-unit (and terminal) edges, after the role-preserving one-to-one alignment of answer nodes to key nodes that
   matches the most key arcs. Names, ports, stream identities, conditions and the order of parallel arcs are not
   graded; two units of the same role can be swapped by the alignment (a heater/cooler swap is invisible).
@@ -40,7 +42,7 @@ import sys
 
 SCHEMA = 'flowsheet-topology-key/1'
 CONTRACT = 'role-aligned-arcs-v1'
-METRICS = ('units', 'boundaries', 'connections')
+METRICS = ('units', 'boundaries', 'connections', 'internal')
 TERMINALS = ('feed', 'product')
 WRONG_KEY_CONTROLS = ('empty', 'reversed', 'shuffled')
 WRONG_ANSWER_CONTROLS = ('reversed', 'shuffled')
@@ -50,7 +52,7 @@ UNIT_LIBRARY = re.compile(r'idaes\.(models|generic_models)\.unit_models(\.|$)')
 ROLE_OF_CLASS = {
     'Feed': 'feed', 'FeedFlash': 'feed', 'Product': 'product',
     'Mixer': 'mixer', 'MixerData': 'mixer',
-    'Separator': 'splitter', 'SeparatorData': 'splitter', 'Splitter': 'splitter',
+    'Separator': 'splitter', 'SeparatorData': 'splitter',
     'Compressor': 'compressor', 'Pump': 'pump', 'Turbine': 'expander', 'PressureChanger': None,
     'Heater': 'heat_exchange', 'HeatExchanger': 'heat_exchange', 'HeatExchanger1D': 'heat_exchange',
     'HeatExchangerNTU': 'heat_exchange', 'HeatExchangerLumpedCapacitance': 'heat_exchange',
@@ -107,10 +109,10 @@ def key_from_flowsheet(path, commit=None):
     """Parse (never execute) a flowsheet module into its units and Arc connections."""
     raw = Path(path).read_bytes()
     tree = ast.parse(raw.decode('utf-8-sig'))
-    library = set()
+    library = {}  # local name -> the library's class name (`Separator as Splitter` records Separator)
     for node in ast.walk(tree):
         if isinstance(node, ast.ImportFrom) and node.module and UNIT_LIBRARY.match(node.module):
-            library.update(alias.asname or alias.name for alias in node.names)
+            library.update({alias.asname or alias.name: alias.name for alias in node.names})
     units, arcs, seen = [], [], set()
     for node in ast.walk(tree):
         if not (isinstance(node, ast.Assign) and len(node.targets) == 1 and isinstance(node.value, ast.Call)):
@@ -127,6 +129,7 @@ def key_from_flowsheet(path, commit=None):
             (a, pa), (b, pb) = _port(kwargs['source']), _port(kwargs['destination'])
             arcs.append({'id': name, 'from': a, 'from_port': pa, 'to': b, 'to_port': pb})
         elif cls in library:
+            cls = library[cls]
             if cls not in ROLE_OF_CLASS:
                 raise ValueError(f'Unit class {cls} ({name}) has no role in ROLE_OF_CLASS; add one before scoring')
             role = ROLE_OF_CLASS[cls]
@@ -267,6 +270,14 @@ def counts_of(key, pred_nodes, pred_edges):
         out[metric] = {'tp': sum((want & got).values()), 'predicted': sum(got.values()), 'truth': sum(want.values())}
     mapping, tp = best_alignment(pred_nodes, pred_edges, key_nodes, key_edges)
     out['connections'] = {'tp': tp, 'predicted': len(pred_edges), 'truth': len(key_edges)}
+    # Internal arcs: unit-to-unit only, under the same alignment, so boundary credit (feeds, products) is visible.
+    def internal(nodes, edges):
+        return [(a, b) for a, b, *_ in edges if nodes[a] not in TERMINALS and nodes[b] not in TERMINALS]
+    want = Counter(internal(key_nodes, key_edges))
+    got = internal(pred_nodes, pred_edges)
+    mapped = Counter((mapping.get(a), mapping.get(b)) for a, b in got)
+    out['internal'] = {'tp': sum(min(n, want[pair]) for pair, n in mapped.items() if None not in pair),
+                       'predicted': len(got), 'truth': sum(want.values())}
     return out, mapping
 
 

@@ -28,10 +28,10 @@
       "id": "methanol-recycle",
       "family": "idaes-methanol",
       "split": "held-out",
-      "evidence": "Third-party flowsheet code keys third-party prose; same author and notebook, one publisher (IDAES)",
+      "evidence": "Third-party flowsheet code keys third-party prose; same author and notebook, one publisher (IDAES); the held-out input contains the development input verbatim (its first 69 lines) plus the recycle paragraphs, so held out means a held-out key and the recycle text",
       "source_url": "https://github.com/IDAES/examples/tree/eb64e38ac429b7e3ae4f8db071f8d8cad2eef675/idaes_examples/notebooks/docs/flowsheets",
       "license": "IDAES BSD-style license with DOE notice (benchmarks/flowsheet-topology/IDAES-LICENSE.md); derived prose and keys committed, originals fetch-by-hash (data/corpus_pins.json idaes-processes)",
-      "key_author": "Parsed mechanically from the IDAES flowsheet code by scripts/flowsheet_topology.py key (ast, never executed); not written by this repository. Held-out key: written once before the held-out run; only its counts (13 units, 13 arcs) and the key-control check were displayed, and its first parse added the Splitter class mapping. Held-out key counts were surveyed on 2026-11-12 (its arc and unit counts, and unit-name counts over the whole notebook text); no method was run. Any sealed score on the recycle flowsheet must state this.",
+      "key_author": "Parsed mechanically from the IDAES flowsheet code by scripts/flowsheet_topology.py key (ast, never executed); not written by this repository. Held-out key: written once before the held-out run; only its counts (13 units, 13 arcs) and the key-control check were displayed, and its first parse refused the import alias Splitter (the source imports Separator as Splitter); the parser now resolves import aliases and records Separator, with no arc or role change. Held-out key counts were surveyed on 2026-11-12 (its arc and unit counts, and unit-name counts over the whole notebook text); no method was run. Any sealed score on the recycle flowsheet must state this.",
       "files": {
         "input": {
           "path": "benchmarks/flowsheet-topology/inputs/methanol-recycle.txt",
@@ -39,7 +39,7 @@
         },
         "key": {
           "path": "benchmarks/flowsheet-topology/keys/methanol-recycle.json",
-          "sha256": "337d8b4ec2b8620dff873bff4118a0c704d862d798aa0669cf1fca4cea152f19"
+          "sha256": "c3badf545c57c25bb4abc10a5d3f620e2fb50931c5fa820d5ce3a83741689aaa"
         }
       }
     }

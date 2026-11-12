@@ -1,14 +1,9 @@
 {
  "about": "Generalization matrix written by scripts/corpus_matrix.py; rendered as docs/GENERALIZATION.md.",
- "ran_at": "2026-11-12 19:02 UTC",
- "seconds": 651.4,
+ "ran_at": "2026-11-12 20:02 UTC",
+ "seconds": 651.3,
  "rows_run_this_time": [
-  1,
-  3,
-  8
- ],
- "inputs_run_this_time": [
-  "pronto-fig1"
+  9
  ],
  "tracer_pass_f1": 0.88,
  "pipe_pass_f1": 0.88,
@@ -10176,6 +10171,7 @@
       "units": 1.0,
       "boundaries": 0.857,
       "connections": 0.947,
+      "internal": 1.0,
       "reversed_connections": 0.0,
       "shuffled_connections": 0.105,
       "mention_order_chain_connections": 0.211,
@@ -10190,6 +10186,7 @@
       "units": 1.0,
       "boundaries": 0.857,
       "connections": 0.462,
+      "internal": 0.0,
       "reversed_connections": 0.0,
       "shuffled_connections": 0.154,
       "mention_order_chain_connections": 0.105,
@@ -10210,6 +10207,7 @@
       "units": 1.0,
       "boundaries": 0.857,
       "connections": 0.462,
+      "internal": 0.0,
       "reversed_connections": 0.0,
       "shuffled_connections": 0.154,
       "mention_order_chain_connections": 0.105,
@@ -10239,22 +10237,26 @@
      "reference": {
       "units": 1.0,
       "boundaries": 1.0,
-      "connections": 1.0
+      "connections": 1.0,
+      "internal": 1.0
      },
      "empty": {
       "units": 0.0,
       "boundaries": 0.0,
-      "connections": 0.0
+      "connections": 0.0,
+      "internal": 0.0
      },
      "reversed": {
       "units": 1.0,
       "boundaries": 1.0,
-      "connections": 0.0
+      "connections": 0.0,
+      "internal": 0.0
      },
      "shuffled": {
       "units": 1.0,
       "boundaries": 1.0,
-      "connections": 0.3
+      "connections": 0.3,
+      "internal": 0.167
      }
     },
     "key": {
@@ -10265,12 +10267,12 @@
     "exposure": ""
    },
    "published": [],
-   "seconds": 3.7,
-   "ran_at": "2026-11-12 19:01 UTC",
+   "seconds": 4.0,
+   "ran_at": "2026-11-12 20:02 UTC",
    "tool_files": {
     "scripts/description_workflow.py": "sha256:a04f3514a42267a2",
     "scripts/draw_pid_from_model.py": "sha256:019f4a4903cba9e8",
-    "scripts/flowsheet_topology.py": "sha256:c01202dcaff87ac1",
+    "scripts/flowsheet_topology.py": "sha256:5caa7eef56e93d64",
     "scripts/generate.py": "sha256:6f47eed857558e2f",
     "scripts/graph_export.py": "sha256:bd4854c679193c49",
     "scripts/graph_review_records.py": "sha256:404cffabf1028eff",
@@ -10375,6 +10377,7 @@
       "units": 0.875,
       "boundaries": 1.0,
       "connections": 0.353,
+      "internal": 0.0,
       "reversed_connections": 0.0,
       "shuffled_connections": 0.235,
       "mention_order_chain_connections": 0.087,
@@ -10400,6 +10403,7 @@
       "units": 0.875,
       "boundaries": 1.0,
       "connections": 0.353,
+      "internal": 0.0,
       "reversed_connections": 0.0,
       "shuffled_connections": 0.235,
       "mention_order_chain_connections": 0.087,
@@ -10425,6 +10429,7 @@
       "units": 0.875,
       "boundaries": 1.0,
       "connections": 0.353,
+      "internal": 0.0,
       "reversed_connections": 0.0,
       "shuffled_connections": 0.235,
       "mention_order_chain_connections": 0.174,
@@ -10459,22 +10464,26 @@
      "reference": {
       "units": 1.0,
       "boundaries": 1.0,
-      "connections": 1.0
+      "connections": 1.0,
+      "internal": 1.0
      },
      "empty": {
       "units": 0.0,
       "boundaries": 0.0,
-      "connections": 0.0
+      "connections": 0.0,
+      "internal": 0.0
      },
      "reversed": {
       "units": 1.0,
       "boundaries": 1.0,
-      "connections": 0.077
+      "connections": 0.077,
+      "internal": 0.111
      },
      "shuffled": {
       "units": 1.0,
       "boundaries": 1.0,
-      "connections": 0.308
+      "connections": 0.308,
+      "internal": 0.333
      }
     },
     "key": {
@@ -10485,12 +10494,12 @@
     "exposure": "Held-out key counts were surveyed on 2026-11-12 (its arc and unit counts, and unit-name counts over the whole notebook text); no method was run. Any sealed score on the recycle flowsheet must state this."
    },
    "published": [],
-   "seconds": 3.9,
-   "ran_at": "2026-11-12 19:01 UTC",
+   "seconds": 3.5,
+   "ran_at": "2026-11-12 20:02 UTC",
    "tool_files": {
     "scripts/description_workflow.py": "sha256:a04f3514a42267a2",
     "scripts/draw_pid_from_model.py": "sha256:019f4a4903cba9e8",
-    "scripts/flowsheet_topology.py": "sha256:c01202dcaff87ac1",
+    "scripts/flowsheet_topology.py": "sha256:5caa7eef56e93d64",
     "scripts/generate.py": "sha256:6f47eed857558e2f",
     "scripts/graph_export.py": "sha256:bd4854c679193c49",
     "scripts/graph_review_records.py": "sha256:404cffabf1028eff",
@@ -10522,7 +10531,7 @@
       "exists": true,
       "directory": false,
       "files": {
-       "benchmarks/flowsheet-topology/keys/methanol-recycle.json": "sha256:337d8b4ec2b8620dff873bff4118a0c704d862d798aa0669cf1fca4cea152f19"
+       "benchmarks/flowsheet-topology/keys/methanol-recycle.json": "sha256:c3badf545c57c25bb4abc10a5d3f620e2fb50931c5fa820d5ce3a83741689aaa"
       }
      },
      {

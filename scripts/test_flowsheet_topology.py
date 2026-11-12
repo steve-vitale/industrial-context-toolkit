@@ -80,13 +80,13 @@ class KeyTests(unittest.TestCase):
         self.path.write_text(src, encoding='utf-8')
         self.assertEqual({u['id']: u['role'] for u in ft.key_from_flowsheet(self.path)['units']}['T1'], 'expander')
 
-    def test_splitter_and_separator_classes_are_splitters(self):
-        """A419: the held-out key's first parse refused the Splitter class (S101); it maps like Separator."""
-        src = FLOWSHEET.replace('Separator,', 'Separator, Splitter,').replace(
-            'm.fs.P2 = Product()', 'm.fs.P2 = Product()\n    m.fs.S1 = Splitter()\n    m.fs.S2 = Separator()')
+    def test_import_alias_records_the_library_class(self):
+        """A419 review: the held-out source imports `Separator as Splitter`; the key records Separator, not the alias."""
+        src = FLOWSHEET.replace('Separator,', 'Separator as Splitter,').replace(
+            'm.fs.P2 = Product()', 'm.fs.P2 = Product()\n    m.fs.S1 = Splitter()')
         self.path.write_text(src, encoding='utf-8')
-        roles = {u['id']: u['role'] for u in ft.key_from_flowsheet(self.path)['units']}
-        self.assertEqual((roles['S1'], roles['S2']), ('splitter', 'splitter'))
+        units = {u['id']: u for u in ft.key_from_flowsheet(self.path)['units']}
+        self.assertEqual((units['S1']['class'], units['S1']['role']), ('Separator', 'splitter'))
 
     def test_unknown_unit_class_or_dangling_arc_refuses(self):
         self.path.write_text(FLOWSHEET.replace('Separator,', 'Separator, Mystery,').replace(
@@ -138,6 +138,15 @@ class ScoreTests(unittest.TestCase):
     def test_unknown_stream_endpoint_is_an_invalid_answer(self):
         with self.assertRaises(ValueError):
             ft.score(self.key, model(GOOD_UNITS, GOOD_STREAMS + [('RX', 'NOPE')]))
+
+    def test_internal_arcs_are_reported_apart_from_boundary_credit(self):
+        """A419 review: an answer with only feeds and products earns connection credit but no internal arc."""
+        boundary_only = [('BL', 'MX'), ('BL', 'MX'), ('D1', 'BL'), ('D1', 'BL')]
+        counts, _ = ft.score(self.key, model(GOOD_UNITS, boundary_only))
+        self.assertEqual(counts['connections']['tp'], 4)
+        self.assertEqual(counts['internal'], {'tp': 0, 'predicted': 0, 'truth': 5})
+        counts, _ = ft.score(self.key, model(GOOD_UNITS, GOOD_STREAMS))
+        self.assertEqual(counts['internal'], {'tp': 5, 'predicted': 5, 'truth': 5})
 
     def test_key_controls_separate(self):
         table = ft.key_controls(self.key)

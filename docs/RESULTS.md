@@ -28,7 +28,8 @@ See [reviewing the evidence](REVIEWING.md) for test prerequisites, omissions and
 
 The [corpus matrix](GENERALIZATION.md) covers nine selected workflows:
 46 cells pass, 12 fail, 5 are not applicable and 34 need data in the current recorded matrix. Row 9
-(added 2026-11-12, A419) scores the description workflow on the IDAES methanol prose; both of its cells fail. The missing-data
+(added 2026-11-12, A419) scores the description workflow on the IDAES methanol prose; both of its cells fail. Its
+held-out connection F1 0.353 is boundary credit only: 0 of 9 unit-to-unit arcs (internal-arc F1 0.000). The missing-data
 cells name absent optional caches; they are neither passes nor evidence that earlier failures were fixed.
 Rows have different run dates, recorded on the matrix page. Pipe tracing reaches F1 0.912 on the OPEN100 validation sheets
 (derived truth, only partly blind). The historical mixed vendor-render pool failed at 0.776; its per-sheet counts

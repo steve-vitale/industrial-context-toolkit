@@ -12,7 +12,9 @@ that model match a real flowsheet that a third party wrote as code, when the too
 - **Input (what the tool sees):** the markdown cells of `methanol_synthesis.ipynb`, in order, with code cells and
   their outputs dropped and trailing spaces stripped (`flowsheet_topology.py prose`). The development input stops
   before the cell that starts `# 4.` (the recycle section); the held-out input is every markdown cell, because a
-  user describing the recycle process would give the whole description. The notebook's flowsheet PNGs are not
+  user describing the recycle process would give the whole description. The held-out input therefore contains the
+  development input verbatim (its first 69 of 108 lines) plus the recycle paragraphs: "held out" here means a
+  held-out key and the recycle text, not unseen prose. The notebook's flowsheet PNGs are not
   given: they draw the answer. Committed as [inputs/](inputs/), derived text redistributed under the license.
 - **Key (what the tool never sees):** units and `Arc(source=..., destination=...)` connections parsed from
   `methanol_flowsheet.py` (development) and `methanol_flowsheet_w_recycle.py` (held out) with Python `ast`, never
@@ -32,10 +34,10 @@ answer and scores as empty. Three replicates per case; the spread is their range
 
 ### Development (A419, 2026-11-12) and the frozen method
 
-| Run | Built | Unit-role F1 | Connection F1 (per replicate) | Mean (SD) | Reversed / shuffled (wrong) | Mention-order chain |
-|---|---|---|---|---|---|---|
-| v0: workflow as on main `9ba93ccc` | 0 of 3 | 0.000 | 0.000, 0.000, 0.000 | 0.000 | n/a | n/a |
-| v1: frozen A419 contract | 3 of 3 | 1.000 (7/7) each | 0.462, 0.462, 0.947 | 0.624 (0.281) | 0.000 / 0.105-0.154 | 0.105-0.211 |
+| Run | Built | Unit-role F1 | Connection F1 (per replicate) | Mean (SD) | Internal-arc F1 (unit to unit, of 6) | Reversed / shuffled (wrong) | Mention-order chain |
+|---|---|---|---|---|---|---|---|
+| v0: workflow as on main `9ba93ccc` | 0 of 3 | 0.000 | 0.000, 0.000, 0.000 | 0.000 | 0.000 (0/6 each) | n/a | n/a |
+| v1: frozen A419 contract | 3 of 3 | 1.000 (7/7) each | 0.462, 0.462, 0.947 | 0.624 (0.281) | 0.000, 0.000, 1.000 (0/6, 0/6, 6/6); mean 0.333 | 0.000 / 0.105-0.154 | 0.105-0.211 |
 
 Key controls on the development key: reference 1.000, reversed 0.000, shuffled 0.300, empty 0.000.
 
@@ -44,7 +46,8 @@ Key controls on the development key: reference 1.000, reversed 0.000, shuffled 0
   uses a fixed 35-pixel half-size, and the diagnostic never said where the outline was. No build, so the user gets
   nothing. The unchecked answers also left out the turbine (no supported type) and every unit-to-unit connection
   (the prose gives an order, not pipes).
-- **v1 changes, in `scripts/description_workflow.py` with RED-first tests:** the diagnostic names the outline and the
+- **v1 changes, in `scripts/description_workflow.py` with RED-first tests** (bug fixes and contract wording, changed
+  together, so the move from 0 of 3 to 3 of 3 builds is attributed to the v1 fixes jointly, not to one of them): the diagnostic names the outline and the
   endpoint; the contract states the fixed mixer outline; and the contract asks the assistant not to drop equipment
   the source names (closest supported type, substitution recorded in `meta.assumptions`) and to represent
   connections the source gives by process order as streams, each recorded in `meta.assumptions` for review, never
@@ -55,18 +58,24 @@ Key controls on the development key: reference 1.000, reversed 0.000, shuffled 0
   criterion (mean connection F1 >= 0.75) is not met.
 
 The method is frozen at v1 in the commit that adds this section. Before the held-out run, the held-out key was
-written once with `flowsheet_topology.py key`; its first parse refused the class `Splitter` (unit `S101`), and one
-mapping line (`Splitter` is a splitter, as `Separator` already was) was added. Only its counts (13 units, 13 arcs,
-as surveyed on 2026-11-12) and the key-control check were displayed; no answer had been produced for it.
+written once with `flowsheet_topology.py key`; its first parse refused the name `Splitter` (unit `S101`), and one
+mapping line (`Splitter` is a splitter) was added. Only its counts (13 units, 13 arcs, as surveyed on 2026-11-12)
+and the key-control check were displayed; no answer had been produced for it. After the run, review found that
+`Splitter` is an import alias (`from idaes.models.unit_models import Separator as Splitter`); the parser now resolves
+import aliases, the key records class `Separator`, and the extra mapping line is removed. Arcs, roles and every score
+are unchanged.
 
 ### Held out (the one sealed run, 2026-11-12)
 
 Held-out key counts were surveyed on 2026-11-12 (its arc and unit counts, and unit-name counts over the whole
 notebook text); no method was run. Any sealed score on the recycle flowsheet must state this.
 
-| Run | Built | Unit-role F1 | Connection F1 (per replicate) | Mean (SD) | Reversed / shuffled (wrong) | Mention-order chain |
-|---|---|---|---|---|---|---|
-| v1, frozen in `6c512e23` | 3 of 3 | 0.875 (7/9) each | 0.353, 0.353, 0.353 | 0.353 (0.000) | 0.000 / 0.235 | 0.087-0.174 |
+| Run | Built | Unit-role F1 | Connection F1 (per replicate) | Mean (SD) | Internal-arc F1 (unit to unit, of 9) | Reversed / shuffled (wrong) | Mention-order chain |
+|---|---|---|---|---|---|---|---|
+| v1, frozen in `6c512e23` | 3 of 3 | 0.875 (7/9) each | 0.353, 0.353, 0.353 | 0.353 (0.000) | **0.000 (0/9 each)** | 0.000 / 0.235 | 0.087-0.174 |
+
+The 0.353 is boundary credit only: the two feeds into the mixer and the liquid product (3 of 13 arcs). No held-out
+replicate gave a single unit-to-unit connection; 0 of the 9 internal arcs were found (internal-arc F1 0.000).
 
 Key controls on the held-out key: reference 1.000, reversed 0.077, shuffled 0.308, empty 0.000.
 **Verdict: rejected** under the rule above: mean connection F1 0.353 < 0.75, and only 0.118 above the shuffled
@@ -96,7 +105,9 @@ ledger entry A419 ([TRIED.md](../../docs/TRIED.md)).
 
 Units: agreement of coarse unit roles (mixer, compressor, expander, pump, heat exchange, reactor, separator, splitter,
 column). Boundaries: feed and product terminal counts. Connections (primary): directed edges, after the
-role-preserving alignment of answer units to key units that matches the most key arcs. Every table reports:
+role-preserving alignment of answer units to key units that matches the most key arcs. Internal arcs (reported
+since the review, computed under the same alignment): the connections between two process units only, so boundary
+credit is visible apart. Every table reports:
 
 - key controls: reference (the key as a native model, must be 1.000), empty, reversed, shuffled (wrong, each at or
   below connection F1 0.35);
