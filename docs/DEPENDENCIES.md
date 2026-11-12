@@ -15,6 +15,7 @@ dependency.** DEXPI is an interchange standard used by one input route; the curr
 | New image tracing, cleanup and research image workflows | NumPy, Pillow and OpenCV as used by the selected scripts. | Approved image interpretation and site-specific validation. |
 | Optional PDF/SVG source preparation | PyMuPDF for documented preparation/adaptation paths. | Source/revision and checked text/page preparation; no generic document-folder importer. |
 | Document text (procedures, PHAs, work orders) | Standard library for Word, Excel, PowerPoint, HTML and text files, their embedded Office files and Excel displayed values (`--excel-display`). PDF text needs optional pypdf, or a `pdftotext` program; without either, PDFs are reported, not read. Optional programs, used only when asked for and installed: Tesseract for `--ocr auto` (plus Poppler's `pdftoppm` for scanned PDF pages), LibreOffice (`soffice`) for `--convert-legacy`, `pdftotext` or pypdf 3.17+ for `--pdf-layout`. Programs are found on PATH, through `TESSERACT_CMD`, `SOFFICE_CMD` or `POPPLER_BIN`, or on Windows in their standard install folders. Without them the file is reported as before, with a warning naming what is missing. | An approved OCR tool where Tesseract is not permitted, the trust decision for converting untrusted legacy files, and review of what a found tag (especially an OCR reading) means ([document text](DOCUMENT_TEXT.md#optional-add-ons)). |
+| OCR tag hints for drawing pages without a text layer (`pdf_tag_check.py --ocr auto`) | PyMuPDF, NumPy and OpenCV, plus the separately installed Tesseract program (found as for document text: `TESSERACT_CMD`, PATH or the standard install folder) with its own English data. Nothing is downloaded at run time. Without Tesseract, or with the default `--ocr off`, the check's output is byte-identical to the check without OCR. | Every hint is unverified: a person checks it on the drawing. Hints never become text-layer matches. |
 | Actual MCP server/client checks | Optional MCP Python SDK environment; server code also imports Pydantic. Pure selected-file reads need no SDK. | Client approval, identity/access, tenant configuration and service operations. |
 | OPC UA replay/client and lab verification | asyncua; cryptography for selected certificate/security paths. | Endpoints, source identity, approved network route and native acceptance. |
 | Optional TE interactive-tour case study | Browser for the committed standalone HTML; Node.js 20.10+ to rebuild; Chrome or Chromium for the verifier. The MIT-licensed Anatomy presentation kit is vendored, with no separate installation. | TE-specific presentation, placeholder geometry and case checks; engineering review and operator usefulness remain separate. |
@@ -26,6 +27,13 @@ opencv-python-headless 5.0.0.93, asyncua 2.1.0 and cryptography 49.0.0. Optional
 The document-text add-ons call separately installed programs, which are not pinned: Tesseract (Apache-2.0),
 Poppler `pdftoppm`/`pdftotext` (GPL, run as separate programs) and LibreOffice (MPL-2.0). Each output records the
 program version that read it; OCR and converted text can change with the version and, for OCR, the language data.
+The drawing tag check's optional OCR hints use the same Tesseract program; no pip package is added for them.
+Tesseract was chosen over a pip-installed OCR model because the repository already supports it as a separately
+installed, offline program with its own language data, it runs on every Python version the toolkit supports, and it
+adds no model files to the dependency set. The idea of reading tag hints from the page image when a drawing has no
+text layer comes from the public `pid-to-kg` skill (ScottDuncanAI/PID-to-Knowledge-Graph, MIT), which uses RapidOCR;
+this repository implements its own version and does not depend on that skill or its engine
+([attempt A411](TRIED.md), [scores](../out/round6/ocr_tag_hints_dev.md)).
 These are not a complete lock of transitive dependencies. The SDK path needs its resolved environment,
 including the Pydantic API imported here. Validate interpreter, packages, platform and approved package source
 together; the core Python minimum does not establish every optional package/interpreter combination.

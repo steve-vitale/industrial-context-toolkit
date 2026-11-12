@@ -14,15 +14,28 @@ their letters and digits only, so "LI 401", "LI-401" and "LI401" agree.
 A page with no usable text layer (outlined CAD text, or a scan) is reported as not checked: it needs OCR, and
 nothing is inferred from its absence. The check never edits the bundle. Needs PyMuPDF (pip install pymupdf).
 
+Optional OCR hints (--ocr auto): on a page that is not checked, the page image is read by the separately installed
+Tesseract program and the same tag rules run on its words. The results are HINTS, kept apart from the text-layer
+lists under "ocr_hints": each carries its OCR confidence and box, the page stays "not checked", and an OCR hint is
+never reported as a matched, missed or misread tag. Tesseract (with its own language data, offline) is found the
+way extract_text.py finds it; OCR also needs NumPy and OpenCV (requirements.txt). With the default --ocr off the
+output is exactly what it was before OCR hints existed; with --ocr auto and no engine, the sheets are unchanged and
+"ocr" says what is missing. Reading tags from the page image as hints is an idea credited in docs/DEPENDENCIES.md;
+no outside tool is used.
+
 Usage:
     python scripts/pdf_tag_check.py --bundle work/plant/bundle --pdf drawing.pdf --pages 21 --out work/plant/tag-check
     python scripts/pdf_tag_check.py --bundle work/plant/set-bundle --pdf set.pdf --pages 13,21,22 --out ...
+    python scripts/pdf_tag_check.py ... --ocr auto     # OCR hints for pages without a text layer
 """
 import argparse
 import json
+import os
 from pathlib import Path
 import re
+import subprocess
 import sys
+import tempfile
 
 LETTERS = re.compile(r"[A-Z]{2,5}")
 NUMBER = re.compile(r"\d[\d,\s-]*[A-Z]?")
@@ -31,6 +44,20 @@ MIN_WORDS_FOR_TEXT_LAYER = 150  # Pahala: title-block-only pages carry 118-121 w
 STOP = {"FOR", "REV", "NO", "DATE", "SHEET", "SHT", "OF", "DWG", "SCALE", "PAGE", "JOB", "SIZE", "NTS"}
 MAX_NUMBER_WIDTH = 4.5  # a bubble's number line is at most this many letter-heights wide
 TAG_GROUPS = ("units", "instruments", "line_items")
+
+# OCR hints (--ocr auto). Settings chosen on the TE revision A and D sheets only (attempt A411, data/attempts.json).
+OCR_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-,./()"  # tags are printed in capitals
+OCR_PSM = 11                # Tesseract page segmentation: sparse text, the way a drawing carries it
+OCR_GLYPH_PX = 22           # characters are scaled to about this height before OCR (measured on each page)
+OCR_MAX_SCALE = 4
+OCR_INTERP = "linear"       # upscaling interpolation ("linear" or "cubic")
+OCR_INK_SHARE = 0.375       # ink: darker than the paper by this share of the paper-to-darkest range (160 on white)
+OCR_DPI = 300               # render resolution for a page without one dominant image
+OCR_MAX_PIXELS = 150_000_000
+OCR_TIMEOUT = 300
+OCR_PAD = 0.25              # an OCR box hugs the ink; pad it by this share of its height to a type-sized box
+OCR_LABEL = ("OCR hints, not verified tags: read from the page image by OCR, each with the engine's confidence "
+             "(0-100) and its box. Check each one on the drawing; nothing here is a text-layer match.")
 
 
 def key(text):
@@ -73,9 +100,8 @@ def number_below(letters, words):
     return cx0, min(w[1] for w in cluster), cx1, max(w[3] for w in cluster), " ".join(w[4] for w in cluster)
 
 
-def drawing_tags(words):
-    """Tags printed on a page: stacked instrument bubbles plus single-word tags. words are PyMuPDF
-    get_text('words') tuples (x0, y0, x1, y1, text, ...). Returns {key: {"text", "box"}} in page units."""
+def tags_with_words(words):
+    """drawing_tags, also returning the words each tag was built from ("words": the letters and the number line)."""
     found = {}
     for w in words:
         text = w[4].upper()
@@ -83,10 +109,19 @@ def drawing_tags(words):
             c = number_below(w, words)
             if c and NUMBER.fullmatch(c[4].upper()):
                 tag = f"{text} {c[4]}"
-                found.setdefault(key(tag), {"text": tag, "box": [min(w[0], c[0]), w[1], max(w[2], c[2]), c[3]]})
+                line = [x for x in words if is_number_word(x[4]) and x[0] >= c[0] and x[2] <= c[2]
+                        and x[1] >= c[1] and x[3] <= c[3]]
+                found.setdefault(key(tag), {"text": tag, "box": [min(w[0], c[0]), w[1], max(w[2], c[2]), c[3]],
+                                            "words": [w] + line})
         elif SINGLE.fullmatch(text):
-            found.setdefault(key(text), {"text": w[4], "box": list(w[:4])})
+            found.setdefault(key(text), {"text": w[4], "box": list(w[:4]), "words": [w]})
     return found
+
+
+def drawing_tags(words):
+    """Tags printed on a page: stacked instrument bubbles plus single-word tags. words are PyMuPDF
+    get_text('words') tuples (x0, y0, x1, y1, text, ...). Returns {key: {"text", "box"}} in page units."""
+    return {k: {"text": v["text"], "box": v["box"]} for k, v in tags_with_words(words).items()}
 
 
 def tag_shaped(text):
@@ -121,7 +156,131 @@ def compare(drawn, extracted, page_size, word_count):
             "not_in_text_layer": [x for k in sorted(extracted) if k not in drawn for x in extracted[k]]}
 
 
-def check(bundle, pdf, pages):
+def ocr_engine():
+    """(tesseract program, version, None) when OCR hints can run, else (None, None, reason). Tesseract is found the way
+    extract_text.py finds it (TESSERACT_CMD, PATH, standard install folders); its language data is installed with it
+    and nothing is downloaded."""
+    try:
+        import cv2  # noqa: F401  (text isolation and scaling)
+        import numpy  # noqa: F401
+    except ImportError:
+        return None, None, "OCR hints need NumPy and OpenCV (pip install -r requirements.txt)"
+    import extract_text
+    tess = extract_text._tesseract()
+    if not tess:
+        return None, None, "OCR hints need " + extract_text._not_found("tesseract", "Tesseract OCR")
+    return tess, extract_text._tool_version(tess, "--version", r"tesseract v?([\w.\-]+)"), None
+
+
+def render_page(page):
+    """The page as a greyscale image and its resolution in dpi: at the resolution of an image covering most of the
+    page (a scan's own pixels), else OCR_DPI; reduced if over OCR_MAX_PIXELS."""
+    import numpy as np
+    dpi, best = OCR_DPI, 0.0
+    for img in page.get_images(full=True):
+        for rect in page.get_image_rects(img[0]):
+            if rect.width > 0 and rect.get_area() > best:
+                best, dpi = rect.get_area(), img[2] * 72 / rect.width
+    if best < 0.5 * page.rect.get_area():
+        dpi = OCR_DPI
+    pixels = page.rect.width * page.rect.height * (dpi / 72) ** 2
+    if pixels > OCR_MAX_PIXELS:
+        dpi *= (OCR_MAX_PIXELS / pixels) ** 0.5
+    pix = page.get_pixmap(dpi=max(36, round(dpi)), colorspace="gray", alpha=False)
+    gray = np.frombuffer(pix.samples, dtype=np.uint8).reshape(pix.height, pix.stride)[:, :pix.width]
+    return gray, pix.width * 72 / page.rect.width
+
+
+def isolate_text(gray):
+    """Keep only character-sized ink (pipes, bubbles and frames are larger connected shapes, which OCR reads as
+    noise) and measure the character height. A degraded scan is first cleaned to black on white by scan_cleanup.py's
+    frozen round-4 step (clean drawings are left as they are). Returns (image, glyph height in pixels, cleaned)."""
+    import cv2
+    import numpy as np
+    import scan_cleanup
+    gray, cleaned = scan_cleanup.prepare(gray, clean="auto")
+    paper, darkest = float(np.median(gray)), float(np.percentile(gray, 0.5))  # ink is a small share of a drawing
+    ink = (gray < paper - OCR_INK_SHARE * (paper - darkest)).astype(np.uint8)
+    n, labels, stats, _ = cv2.connectedComponentsWithStats(ink, connectivity=8)
+    h, w = stats[1:, cv2.CC_STAT_HEIGHT], stats[1:, cv2.CC_STAT_WIDTH]
+    plausible = (h >= 4) & (h <= 120) & (w <= 2 * h)
+    glyph = float(np.median(h[plausible])) if plausible.any() else 10.0
+    keep = np.zeros(n, bool)
+    keep[1:] = (h <= 2.2 * glyph) & (w <= 3 * glyph) & (h >= 0.3 * glyph)
+    return np.where(keep[labels], gray, 255).astype(np.uint8), glyph, cleaned
+
+
+def parse_tsv(tsv, scale):
+    """Tesseract TSV -> word tuples (x0, y0, x1, y1, text, confidence) in the image's pixels before scaling. Each box
+    is padded vertically by OCR_PAD of its height, so it compares with the tag rules like a text layer's type box."""
+    words = []
+    for line in tsv.splitlines()[1:]:
+        c = line.split("\t")
+        if len(c) < 12 or c[0] != "5" or not c[11].strip():
+            continue
+        left, top, width, height, conf = int(c[6]), int(c[7]), int(c[8]), int(c[9]), float(c[10])
+        pad = OCR_PAD * height
+        words.append((left / scale, (top - pad) / scale, (left + width) / scale, (top + height + pad) / scale,
+                      c[11].strip(), conf))
+    return words
+
+
+def ocr_words(gray, tess):
+    """OCR one page image -> (word tuples in the image's pixels, the measured glyph height and scale)."""
+    import cv2
+    import extract_text
+    text, glyph, cleaned = isolate_text(gray)
+    OCR_INTERPOLATION = cv2.INTER_LINEAR if OCR_INTERP == "linear" else cv2.INTER_CUBIC
+    scale = min(OCR_MAX_SCALE, max(1.0, OCR_GLYPH_PX / glyph))
+    if scale > 1:
+        text = cv2.resize(text, None, fx=scale, fy=scale, interpolation=OCR_INTERPOLATION)
+    with tempfile.TemporaryDirectory() as tmp:
+        image = Path(tmp) / "page.png"
+        cv2.imwrite(str(image), text)
+        cmd = [tess, str(image), "stdout", "-l", "eng", "--psm", str(OCR_PSM), "--dpi", "300",
+               "-c", f"tessedit_char_whitelist={OCR_CHARS}", "tsv"]
+        try:
+            run = extract_text._run(cmd, OCR_TIMEOUT, dict(os.environ, OMP_THREAD_LIMIT="1"))
+        except subprocess.TimeoutExpired:
+            raise ValueError(f"tesseract did not finish within {OCR_TIMEOUT} s") from None
+        if run.returncode != 0:
+            raise ValueError("tesseract could not read the page image: " + extract_text._last_line(run))
+    return parse_tsv(run.stdout.decode("utf-8", "replace"), scale), {"scan_cleaned": cleaned,
+                                                                     "glyph_px": round(glyph, 1), "scale": round(scale, 2)}
+
+
+def hints_from_words(words, dpi, page_size):
+    """OCR word tuples (image pixels at dpi) -> {key: {"tag", "ocr_text", "confidence", "box_0_1000"}}. A hint's
+    confidence is the lowest of the words it was built from."""
+    w, h = page_size
+    to_page = 72 / dpi
+    hints = {}
+    for k, v in tags_with_words(words).items():
+        box = [c * to_page for c in v["box"]]
+        hints[k] = {"tag": v["text"], "ocr_text": " ".join(x[4] for x in v["words"]),
+                    "confidence": round(min(x[5] for x in v["words"]), 1),
+                    "box_0_1000": [round(box[0] * 1000 / w, 1), round(box[1] * 1000 / h, 1),
+                                   round(box[2] * 1000 / w, 1), round(box[3] * 1000 / h, 1)]}
+    return hints
+
+
+def page_hints(page, tess):
+    """OCR hints for one PDF page, and how the page was read."""
+    gray, dpi = render_page(page)
+    words, settings = ocr_words(gray, tess)
+    return hints_from_words(words, dpi, (page.rect.width, page.rect.height)), {"dpi": round(dpi, 1), **settings}
+
+
+def compare_hints(hints, extracted, render):
+    """OCR hints against the extracted tags, in lists named apart from the text-layer ones. A hint that agrees with
+    an extracted tag is still a hint: the page stays not checked."""
+    return {"label": OCR_LABEL, "render": render, "hints": len(hints),
+            "hint_matches_extracted": [{**hints[k], "extracted": extracted[k]} for k in sorted(hints) if k in extracted],
+            "hint_not_extracted": [hints[k] for k in sorted(hints) if k not in extracted],
+            "extracted_without_hint": [x for k in sorted(extracted) if k not in hints for x in extracted[k]]}
+
+
+def check(bundle, pdf, pages, ocr="off"):
     try:
         import pymupdf
     except ImportError:
@@ -133,13 +292,26 @@ def check(bundle, pdf, pages):
         raise ValueError(f"--pages lists {len(pages)} page(s) but the bundle has {len(sheets)} sheet(s): {sheets}")
     doc = pymupdf.open(pdf)
     result = {"pdf": Path(pdf).name, "bundle": bundle.as_posix(), "sheets": []}
+    tess = None
+    if ocr == "auto":
+        tess, version, reason = ocr_engine()
+        result["ocr"] = ({"engine": f"tesseract {version}", "language": "eng", "psm": OCR_PSM, "label": OCR_LABEL}
+                         if tess else {"engine": None, "unavailable": reason})
     for sheet, page in zip(sheets, pages):
         if not 1 <= page <= doc.page_count:
             raise ValueError(f"page {page} is outside the PDF (1 to {doc.page_count})")
         p = doc[page - 1]
         words = p.get_text("words")
-        entry = compare(drawing_tags(words), model_tags(model, sheet), (p.rect.width, p.rect.height), len(words))
+        extracted = model_tags(model, sheet)
+        entry = compare(drawing_tags(words), extracted, (p.rect.width, p.rect.height), len(words))
+        if tess and not entry["checked"]:
+            try:
+                hints, render = page_hints(p, tess)
+                entry["ocr_hints"] = compare_hints(hints, extracted, render)
+            except (ValueError, OSError) as error:  # the page keeps its "needs OCR" entry; the reason is recorded
+                result["ocr"].setdefault("errors", []).append({"sheet": sheet, "page": page, "error": str(error)})
         result["sheets"].append({"sheet": sheet, "page": page, **entry})
+    doc.close()
     return result
 
 
@@ -151,6 +323,8 @@ def markdown(result):
         lines.append(f"## Sheet {s['sheet']} (PDF page {s['page']})")
         if not s["checked"]:
             lines += ["", f"Not checked: {s['reason']}", ""]
+            if "ocr_hints" in s:
+                lines += hint_markdown(s["ocr_hints"])
             continue
         lines += ["", f"{len(s['matched'])} matched · {len(s['missed_by_reader'])} on the drawing but not extracted · "
                   f"{len(s['not_in_text_layer'])} extracted but not in the text layer", ""]
@@ -163,6 +337,22 @@ def markdown(result):
     return "\n".join(lines) + "\n"
 
 
+def hint_markdown(o):
+    lines = ["### OCR hints (not verified tags)", "", o["label"], "",
+             f"{o['hints']} hints · {len(o['hint_matches_extracted'])} agree with an extracted tag · "
+             f"{len(o['hint_not_extracted'])} not extracted · {len(o['extracted_without_hint'])} extracted tags "
+             "with no hint (OCR misses tags, so this is not a sign of a misread)", ""]
+    if o["hint_not_extracted"]:
+        lines += ["**OCR hint, not extracted (look on the drawing):**", ""]
+        lines += [f"- `{x['tag']}` (OCR read `{x['ocr_text']}`, confidence {x['confidence']}) at {x['box_0_1000']}"
+                  for x in o["hint_not_extracted"]] + [""]
+    if o["hint_matches_extracted"]:
+        lines += ["**OCR hint agrees with an extracted tag (still unverified):**", ""]
+        lines += [f"- `{x['tag']}` (confidence {x['confidence']}) at {x['box_0_1000']}"
+                  for x in o["hint_matches_extracted"]] + [""]
+    return lines
+
+
 def main(argv=None):
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -171,21 +361,31 @@ def main(argv=None):
     ap.add_argument("--pdf", required=True)
     ap.add_argument("--pages", required=True, help="1-based PDF page per bundle sheet, in sheet order, e.g. 13,21,22")
     ap.add_argument("--out", required=True, help="new or empty folder for tag_check.json and tag_check.md")
+    ap.add_argument("--ocr", choices=("off", "auto"), default="off",
+                    help="auto: OCR hints (never verified tags) for pages without a text layer, when Tesseract is "
+                         "installed; off (default): those pages are only reported as needing OCR")
     a = ap.parse_args(argv)
     out = Path(a.out)
     if out.exists() and any(out.iterdir()):
         ap.exit(2, f"{out} is not empty\n")
     try:
-        result = check(a.bundle, a.pdf, [int(x) for x in a.pages.split(",")])
+        result = check(a.bundle, a.pdf, [int(x) for x in a.pages.split(",")], ocr=a.ocr)
     except (ValueError, OSError, KeyError) as error:
         ap.exit(2, f"Tag check failed: {error}\n")
     out.mkdir(parents=True, exist_ok=True)
     (out / "tag_check.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8", newline="\n")
     (out / "tag_check.md").write_text(markdown(result), encoding="utf-8", newline="\n")
+    if result.get("ocr", {}).get("unavailable"):
+        print(f"OCR hints not made: {result['ocr']['unavailable']}", file=sys.stderr)
+    for e in result.get("ocr", {}).get("errors", []):
+        print(f"OCR hints not made for sheet {e['sheet']} (page {e['page']}): {e['error']}", file=sys.stderr)
     for s in result["sheets"]:
+        hint = s.get("ocr_hints")
         print(f"sheet {s['sheet']} (page {s['page']}): " + (
             f"{len(s['matched'])} matched, {len(s['missed_by_reader'])} missed by reader, "
-            f"{len(s['not_in_text_layer'])} not in text layer" if s["checked"] else "not checked (needs OCR)"))
+            f"{len(s['not_in_text_layer'])} not in text layer" if s["checked"] else "not checked (needs OCR)" + (
+                f"; {hint['hints']} OCR hints, {len(hint['hint_matches_extracted'])} agreeing with extracted tags "
+                "(hints, not verified)" if hint else "")))
     print(f"wrote {out / 'tag_check.md'}")
     return 0
 

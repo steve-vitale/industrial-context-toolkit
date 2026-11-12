@@ -137,6 +137,7 @@ rejects items.
 
 ```sh
 python scripts/pdf_tag_check.py --bundle work/<plant>/bundle --pdf drawing.pdf --pages 13,21,22 --out work/<plant>/tag-check
+# a page with no text layer: add --ocr auto (Tesseract installed) for OCR tag HINTS, never verified tags
 ```
 
 `--pages` gives the PDF page for each sheet, in manifest order. `tag-check/tag_check.md` lists tags printed on the
