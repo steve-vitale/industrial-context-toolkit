@@ -35,7 +35,8 @@
       "signal_lines": 0,
       "unresolved_signal_networks": 0,
       "tag_groups_without_controller": 0,
-      "conflicts": 0
+      "conflicts": 0,
+      "candidate_loops": 0
      },
      "counts": {
       "loops": 1,
@@ -49,10 +50,69 @@
       "signal_lines": 0,
       "unresolved_signal_networks": 0,
       "tag_groups_without_controller": 0,
-      "conflicts": 0
+      "conflicts": 0,
+      "candidate_loops": 0
      },
      "bundle_identical_without_loops": true,
      "score": {
+      "controllers": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "sensor": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "final": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 11,
+       "precision": null,
+       "recall": 0.0
+      },
+      "cascade": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 8,
+       "precision": null,
+       "recall": 0.0
+      },
+      "loops": {
+       "valve_loops": "0/11",
+       "cascades": "0/8",
+       "recall": 0.0,
+       "asserted": 0,
+       "precision": null,
+       "missed": [
+        "C1",
+        "C10",
+        "C11",
+        "C13",
+        "C14",
+        "C15",
+        "C16",
+        "C17",
+        "C18",
+        "C19",
+        "C2",
+        "C20",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9"
+       ]
+      }
+     },
+     "score_with_candidates": {
       "controllers": {
        "tp": 0,
        "asserted": 0,
@@ -375,7 +435,8 @@
       "signal_lines": 0,
       "unresolved_signal_networks": 0,
       "tag_groups_without_controller": 11,
-      "conflicts": 0
+      "conflicts": 0,
+      "candidate_loops": 0
      },
      "counts": {
       "loops": 1,
@@ -389,10 +450,69 @@
       "signal_lines": 0,
       "unresolved_signal_networks": 0,
       "tag_groups_without_controller": 11,
-      "conflicts": 0
+      "conflicts": 0,
+      "candidate_loops": 0
      },
      "bundle_identical_without_loops": true,
      "score": {
+      "controllers": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "sensor": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "final": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 11,
+       "precision": null,
+       "recall": 0.0
+      },
+      "cascade": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 8,
+       "precision": null,
+       "recall": 0.0
+      },
+      "loops": {
+       "valve_loops": "0/11",
+       "cascades": "0/8",
+       "recall": 0.0,
+       "asserted": 0,
+       "precision": null,
+       "missed": [
+        "C1",
+        "C10",
+        "C11",
+        "C13",
+        "C14",
+        "C15",
+        "C16",
+        "C17",
+        "C18",
+        "C19",
+        "C2",
+        "C20",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9"
+       ]
+      }
+     },
+     "score_with_candidates": {
       "controllers": {
        "tp": 0,
        "asserted": 0,
@@ -715,7 +835,8 @@
       "signal_lines": 0,
       "unresolved_signal_networks": 0,
       "tag_groups_without_controller": 0,
-      "conflicts": 0
+      "conflicts": 0,
+      "candidate_loops": 0
      },
      "counts": {
       "loops": 1,
@@ -729,10 +850,69 @@
       "signal_lines": 0,
       "unresolved_signal_networks": 0,
       "tag_groups_without_controller": 0,
-      "conflicts": 0
+      "conflicts": 0,
+      "candidate_loops": 0
      },
      "bundle_identical_without_loops": true,
      "score": {
+      "controllers": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "sensor": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "final": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 11,
+       "precision": null,
+       "recall": 0.0
+      },
+      "cascade": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 8,
+       "precision": null,
+       "recall": 0.0
+      },
+      "loops": {
+       "valve_loops": "0/11",
+       "cascades": "0/8",
+       "recall": 0.0,
+       "asserted": 0,
+       "precision": null,
+       "missed": [
+        "C1",
+        "C10",
+        "C11",
+        "C13",
+        "C14",
+        "C15",
+        "C16",
+        "C17",
+        "C18",
+        "C19",
+        "C2",
+        "C20",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9"
+       ]
+      }
+     },
+     "score_with_candidates": {
       "controllers": {
        "tp": 0,
        "asserted": 0,
@@ -1055,7 +1235,8 @@
       "signal_lines": 0,
       "unresolved_signal_networks": 0,
       "tag_groups_without_controller": 11,
-      "conflicts": 0
+      "conflicts": 0,
+      "candidate_loops": 0
      },
      "counts": {
       "loops": 1,
@@ -1069,10 +1250,69 @@
       "signal_lines": 0,
       "unresolved_signal_networks": 0,
       "tag_groups_without_controller": 11,
-      "conflicts": 0
+      "conflicts": 0,
+      "candidate_loops": 0
      },
      "bundle_identical_without_loops": true,
      "score": {
+      "controllers": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "sensor": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "final": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 11,
+       "precision": null,
+       "recall": 0.0
+      },
+      "cascade": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 8,
+       "precision": null,
+       "recall": 0.0
+      },
+      "loops": {
+       "valve_loops": "0/11",
+       "cascades": "0/8",
+       "recall": 0.0,
+       "asserted": 0,
+       "precision": null,
+       "missed": [
+        "C1",
+        "C10",
+        "C11",
+        "C13",
+        "C14",
+        "C15",
+        "C16",
+        "C17",
+        "C18",
+        "C19",
+        "C2",
+        "C20",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9"
+       ]
+      }
+     },
+     "score_with_candidates": {
       "controllers": {
        "tp": 0,
        "asserted": 0,
@@ -1395,7 +1635,8 @@
       "signal_lines": 0,
       "unresolved_signal_networks": 0,
       "tag_groups_without_controller": 0,
-      "conflicts": 0
+      "conflicts": 0,
+      "candidate_loops": 0
      },
      "counts": {
       "loops": 1,
@@ -1409,10 +1650,69 @@
       "signal_lines": 0,
       "unresolved_signal_networks": 0,
       "tag_groups_without_controller": 0,
-      "conflicts": 0
+      "conflicts": 0,
+      "candidate_loops": 0
      },
      "bundle_identical_without_loops": true,
      "score": {
+      "controllers": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "sensor": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "final": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 11,
+       "precision": null,
+       "recall": 0.0
+      },
+      "cascade": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 8,
+       "precision": null,
+       "recall": 0.0
+      },
+      "loops": {
+       "valve_loops": "0/11",
+       "cascades": "0/8",
+       "recall": 0.0,
+       "asserted": 0,
+       "precision": null,
+       "missed": [
+        "C1",
+        "C10",
+        "C11",
+        "C13",
+        "C14",
+        "C15",
+        "C16",
+        "C17",
+        "C18",
+        "C19",
+        "C2",
+        "C20",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9"
+       ]
+      }
+     },
+     "score_with_candidates": {
       "controllers": {
        "tp": 0,
        "asserted": 0,
@@ -1735,7 +2035,8 @@
       "signal_lines": 0,
       "unresolved_signal_networks": 0,
       "tag_groups_without_controller": 9,
-      "conflicts": 0
+      "conflicts": 0,
+      "candidate_loops": 0
      },
      "counts": {
       "loops": 1,
@@ -1749,10 +2050,69 @@
       "signal_lines": 0,
       "unresolved_signal_networks": 0,
       "tag_groups_without_controller": 9,
-      "conflicts": 0
+      "conflicts": 0,
+      "candidate_loops": 0
      },
      "bundle_identical_without_loops": true,
      "score": {
+      "controllers": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "sensor": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "final": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 11,
+       "precision": null,
+       "recall": 0.0
+      },
+      "cascade": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 8,
+       "precision": null,
+       "recall": 0.0
+      },
+      "loops": {
+       "valve_loops": "0/11",
+       "cascades": "0/8",
+       "recall": 0.0,
+       "asserted": 0,
+       "precision": null,
+       "missed": [
+        "C1",
+        "C10",
+        "C11",
+        "C13",
+        "C14",
+        "C15",
+        "C16",
+        "C17",
+        "C18",
+        "C19",
+        "C2",
+        "C20",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9"
+       ]
+      }
+     },
+     "score_with_candidates": {
       "controllers": {
        "tp": 0,
        "asserted": 0,
@@ -2075,7 +2435,8 @@
       "signal_lines": 0,
       "unresolved_signal_networks": 0,
       "tag_groups_without_controller": 0,
-      "conflicts": 0
+      "conflicts": 0,
+      "candidate_loops": 0
      },
      "counts": {
       "loops": 1,
@@ -2089,10 +2450,69 @@
       "signal_lines": 0,
       "unresolved_signal_networks": 0,
       "tag_groups_without_controller": 0,
-      "conflicts": 0
+      "conflicts": 0,
+      "candidate_loops": 0
      },
      "bundle_identical_without_loops": true,
      "score": {
+      "controllers": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "sensor": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "final": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 11,
+       "precision": null,
+       "recall": 0.0
+      },
+      "cascade": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 8,
+       "precision": null,
+       "recall": 0.0
+      },
+      "loops": {
+       "valve_loops": "0/11",
+       "cascades": "0/8",
+       "recall": 0.0,
+       "asserted": 0,
+       "precision": null,
+       "missed": [
+        "C1",
+        "C10",
+        "C11",
+        "C13",
+        "C14",
+        "C15",
+        "C16",
+        "C17",
+        "C18",
+        "C19",
+        "C2",
+        "C20",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9"
+       ]
+      }
+     },
+     "score_with_candidates": {
       "controllers": {
        "tp": 0,
        "asserted": 0,
@@ -2415,7 +2835,8 @@
       "signal_lines": 0,
       "unresolved_signal_networks": 0,
       "tag_groups_without_controller": 9,
-      "conflicts": 0
+      "conflicts": 0,
+      "candidate_loops": 0
      },
      "counts": {
       "loops": 1,
@@ -2429,10 +2850,69 @@
       "signal_lines": 0,
       "unresolved_signal_networks": 0,
       "tag_groups_without_controller": 9,
-      "conflicts": 0
+      "conflicts": 0,
+      "candidate_loops": 0
      },
      "bundle_identical_without_loops": true,
      "score": {
+      "controllers": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "sensor": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "final": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 11,
+       "precision": null,
+       "recall": 0.0
+      },
+      "cascade": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 8,
+       "precision": null,
+       "recall": 0.0
+      },
+      "loops": {
+       "valve_loops": "0/11",
+       "cascades": "0/8",
+       "recall": 0.0,
+       "asserted": 0,
+       "precision": null,
+       "missed": [
+        "C1",
+        "C10",
+        "C11",
+        "C13",
+        "C14",
+        "C15",
+        "C16",
+        "C17",
+        "C18",
+        "C19",
+        "C2",
+        "C20",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9"
+       ]
+      }
+     },
+     "score_with_candidates": {
       "controllers": {
        "tp": 0,
        "asserted": 0,
@@ -2755,7 +3235,8 @@
       "signal_lines": 0,
       "unresolved_signal_networks": 0,
       "tag_groups_without_controller": 0,
-      "conflicts": 0
+      "conflicts": 0,
+      "candidate_loops": 0
      },
      "counts": {
       "loops": 1,
@@ -2769,10 +3250,69 @@
       "signal_lines": 0,
       "unresolved_signal_networks": 0,
       "tag_groups_without_controller": 0,
-      "conflicts": 0
+      "conflicts": 0,
+      "candidate_loops": 0
      },
      "bundle_identical_without_loops": true,
      "score": {
+      "controllers": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "sensor": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "final": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 11,
+       "precision": null,
+       "recall": 0.0
+      },
+      "cascade": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 8,
+       "precision": null,
+       "recall": 0.0
+      },
+      "loops": {
+       "valve_loops": "0/11",
+       "cascades": "0/8",
+       "recall": 0.0,
+       "asserted": 0,
+       "precision": null,
+       "missed": [
+        "C1",
+        "C10",
+        "C11",
+        "C13",
+        "C14",
+        "C15",
+        "C16",
+        "C17",
+        "C18",
+        "C19",
+        "C2",
+        "C20",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9"
+       ]
+      }
+     },
+     "score_with_candidates": {
       "controllers": {
        "tp": 0,
        "asserted": 0,
@@ -3095,7 +3635,8 @@
       "signal_lines": 0,
       "unresolved_signal_networks": 0,
       "tag_groups_without_controller": 11,
-      "conflicts": 0
+      "conflicts": 0,
+      "candidate_loops": 0
      },
      "counts": {
       "loops": 1,
@@ -3109,10 +3650,69 @@
       "signal_lines": 0,
       "unresolved_signal_networks": 0,
       "tag_groups_without_controller": 11,
-      "conflicts": 0
+      "conflicts": 0,
+      "candidate_loops": 0
      },
      "bundle_identical_without_loops": true,
      "score": {
+      "controllers": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "sensor": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "final": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 11,
+       "precision": null,
+       "recall": 0.0
+      },
+      "cascade": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 8,
+       "precision": null,
+       "recall": 0.0
+      },
+      "loops": {
+       "valve_loops": "0/11",
+       "cascades": "0/8",
+       "recall": 0.0,
+       "asserted": 0,
+       "precision": null,
+       "missed": [
+        "C1",
+        "C10",
+        "C11",
+        "C13",
+        "C14",
+        "C15",
+        "C16",
+        "C17",
+        "C18",
+        "C19",
+        "C2",
+        "C20",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9"
+       ]
+      }
+     },
+     "score_with_candidates": {
       "controllers": {
        "tp": 0,
        "asserted": 0,
@@ -3435,7 +4035,8 @@
       "signal_lines": 0,
       "unresolved_signal_networks": 0,
       "tag_groups_without_controller": 0,
-      "conflicts": 0
+      "conflicts": 0,
+      "candidate_loops": 0
      },
      "counts": {
       "loops": 1,
@@ -3449,10 +4050,69 @@
       "signal_lines": 0,
       "unresolved_signal_networks": 0,
       "tag_groups_without_controller": 0,
-      "conflicts": 0
+      "conflicts": 0,
+      "candidate_loops": 0
      },
      "bundle_identical_without_loops": true,
      "score": {
+      "controllers": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "sensor": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "final": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 11,
+       "precision": null,
+       "recall": 0.0
+      },
+      "cascade": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 8,
+       "precision": null,
+       "recall": 0.0
+      },
+      "loops": {
+       "valve_loops": "0/11",
+       "cascades": "0/8",
+       "recall": 0.0,
+       "asserted": 0,
+       "precision": null,
+       "missed": [
+        "C1",
+        "C10",
+        "C11",
+        "C13",
+        "C14",
+        "C15",
+        "C16",
+        "C17",
+        "C18",
+        "C19",
+        "C2",
+        "C20",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9"
+       ]
+      }
+     },
+     "score_with_candidates": {
       "controllers": {
        "tp": 0,
        "asserted": 0,
@@ -3781,7 +4441,8 @@
       "signal_lines": 38,
       "unresolved_signal_networks": 8,
       "tag_groups_without_controller": 0,
-      "conflicts": 0
+      "conflicts": 0,
+      "candidate_loops": 9
      },
      "counts": {
       "loops": 20,
@@ -3795,7 +4456,8 @@
       "signal_lines": 38,
       "unresolved_signal_networks": 8,
       "tag_groups_without_controller": 0,
-      "conflicts": 0
+      "conflicts": 0,
+      "candidate_loops": 9
      },
      "bundle_identical_without_loops": true,
      "score": {
@@ -3844,6 +4506,44 @@
         "C5",
         "C8"
        ]
+      }
+     },
+     "score_with_candidates": {
+      "controllers": {
+       "tp": 19,
+       "asserted": 19,
+       "key": 19,
+       "precision": 1.0,
+       "recall": 1.0
+      },
+      "sensor": {
+       "tp": 19,
+       "asserted": 19,
+       "key": 19,
+       "precision": 1.0,
+       "recall": 1.0
+      },
+      "final": {
+       "tp": 11,
+       "asserted": 11,
+       "key": 11,
+       "precision": 1.0,
+       "recall": 1.0
+      },
+      "cascade": {
+       "tp": 8,
+       "asserted": 8,
+       "key": 8,
+       "precision": 1.0,
+       "recall": 1.0
+      },
+      "loops": {
+       "valve_loops": "11/11",
+       "cascades": "8/8",
+       "recall": 1.0,
+       "asserted": 19,
+       "precision": 1.0,
+       "missed": []
       }
      },
      "controls": {
@@ -4127,7 +4827,8 @@
       "signal_lines": 25,
       "unresolved_signal_networks": 23,
       "tag_groups_without_controller": 62,
-      "conflicts": 0
+      "conflicts": 0,
+      "candidate_loops": 0
      },
      "counts": {
       "loops": 0,
@@ -4141,7 +4842,8 @@
       "signal_lines": 25,
       "unresolved_signal_networks": 23,
       "tag_groups_without_controller": 62,
-      "conflicts": 0
+      "conflicts": 0,
+      "candidate_loops": 0
      },
      "bundle_identical_without_loops": true
     },
@@ -4159,7 +4861,8 @@
       "signal_lines": 25,
       "unresolved_signal_networks": 23,
       "tag_groups_without_controller": 52,
-      "conflicts": 0
+      "conflicts": 0,
+      "candidate_loops": 0
      },
      "counts": {
       "loops": 0,
@@ -4173,7 +4876,8 @@
       "signal_lines": 25,
       "unresolved_signal_networks": 23,
       "tag_groups_without_controller": 52,
-      "conflicts": 0
+      "conflicts": 0,
+      "candidate_loops": 0
      },
      "bundle_identical_without_loops": true
     },
@@ -4191,7 +4895,8 @@
       "signal_lines": 23,
       "unresolved_signal_networks": 23,
       "tag_groups_without_controller": 52,
-      "conflicts": 0
+      "conflicts": 0,
+      "candidate_loops": 0
      },
      "counts": {
       "loops": 0,
@@ -4205,7 +4910,8 @@
       "signal_lines": 23,
       "unresolved_signal_networks": 23,
       "tag_groups_without_controller": 52,
-      "conflicts": 0
+      "conflicts": 0,
+      "candidate_loops": 0
      },
      "bundle_identical_without_loops": true
     }

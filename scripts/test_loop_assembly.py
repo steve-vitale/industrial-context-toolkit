@@ -881,6 +881,115 @@ class ThirdReview(unittest.TestCase):
         self.assertEqual(loop(b, "C")["status"], "confirmed")
 
 
+class MergedLineChannels(unittest.TestCase):
+    """A line joined through a crossing counts in full only with an independent channel: the reader's own link, or the
+    blind crossing evaluator (scripts/crossing_question.py) when its scorecard enabled it. Tag agreement alone never
+    does. Every loop the assembly cannot prove is a review candidate, never hidden."""
+
+    def m(self):
+        return model([inst("T", "FT 1"), inst("C", "FIC 1"), inst("V", "FV 1")])
+
+    def lines(self):
+        merged = {**line("b", ["C", "V"]), "merged_through_crossing": True,
+                  "crossings": [{"key": "img:10,20", "at_0_1000": [10.0, 20.0], "crosses": "pipe"}]}
+        return [line("a", ["T", "C"]), merged]
+
+    def loop_rel(self, b):
+        return {(r["type"], r["from"], r["to"]) for r in b["relations"] if r["type"] in ("controls", "sets_point_of")}
+
+    def test_tag_agreement_alone_never_confirms_and_the_loop_is_a_candidate_with_its_question(self):
+        b = la.assemble(self.m(), self.lines())  # same loop number at both ends, no channel
+        self.assertEqual(self.loop_rel(b), set())
+        u = next(u for u in b["unresolved_signal_networks"] if u.get("review_question"))
+        self.assertTrue(u["channels"]["tag_agreement"])
+        self.assertIsNone(u["channels"]["reader_link"])
+        cands = b["candidate_loops"]
+        self.assertEqual([(c["controller"], c["kind"]) for c in cands], [("C", "merged_line_needs_review")])
+        self.assertEqual(cands[0]["would_confirm"]["final_elements"], ["V"])
+        self.assertEqual(cands[0]["questions"][0]["question"], la.CROSSING_QUESTION)
+
+    def test_a_confident_continues_from_an_enabled_judge_confirms(self):
+        yes = {"verdict": "continues", "confidence": 0.9}
+        b = la.assemble(self.m(), self.lines(), corroboration={"crossing_answers": {"img:10,20": yes},
+                                                                "assert_enabled": True})
+        self.assertEqual(self.loop_rel(b), {("controls", "C", "V")})
+        r = next(r for r in b["relations"] if r["type"] == "signal_to" and r["to"] == "V")
+        self.assertEqual(r["corroborated_by"], ["crossing_judge"])
+        self.assertEqual(b["candidate_loops"], [])
+
+    def test_a_judge_its_scorecard_did_not_enable_or_an_unsure_answer_goes_to_review(self):
+        for answer, enabled in (({"verdict": "continues", "confidence": 0.9}, False),
+                                ({"verdict": "continues", "confidence": 0.7}, True),
+                                ({"verdict": "cannot_tell", "confidence": 0.9}, True),
+                                ({"verdict": "two_lines", "confidence": 0.9}, True)):
+            b = la.assemble(self.m(), self.lines(), corroboration={"crossing_answers": {"img:10,20": answer},
+                                                                    "assert_enabled": enabled})
+            self.assertEqual(self.loop_rel(b), set(), (answer, enabled))
+            self.assertEqual(len(b["candidate_loops"]), 1, (answer, enabled))
+
+    def test_the_readers_own_link_confirms(self):
+        b = la.assemble(self.m(), self.lines(), corroboration={"reader_pairs": {frozenset(("C", "V"))}})
+        self.assertEqual(self.loop_rel(b), {("controls", "C", "V")})
+        b = la.assemble(self.m(), self.lines(), corroboration={"reader_pairs": {frozenset(("T", "V"))}})
+        self.assertEqual(self.loop_rel(b), set())
+
+    def test_a_loop_resting_on_its_tag_group_is_a_candidate(self):
+        b = la.assemble(self.m(), [])
+        self.assertEqual([(c["controller"], c["kind"]) for c in b["candidate_loops"]], [("C", "grouped_by_tag")])
+        self.assertEqual(b["relations"], [])
+
+    def test_the_scorer_reports_candidates_apart_from_the_asserted_loops(self):
+        m = self.m()
+        m["control_loops"] = la.assemble(m, self.lines())
+        tagged = {k: la.compact(v["tag"]) for k, v in la.candidates(m).items()}
+        self.assertEqual(ls.asserted(m)["final"], set())
+        self.assertEqual(ls.with_candidates(m)["final"], {(tagged["C"], tagged["V"])})
+
+
+@unittest.skipUnless(HAVE_CV2, "needs OpenCV and NumPy")
+class CrossingEvaluator(unittest.TestCase):
+    """The blind second evaluator (scripts/crossing_question.py), with the model call replaced."""
+
+    def test_the_panel_shows_only_the_two_lines_never_a_tag_or_symbol(self):
+        import crossing_question as cq
+        img = np.full((600, 1000), 255, np.uint8)
+        cv2.circle(img, (440, 260), 24, 0, 2)  # a bubble beside the crossing
+        cv2.putText(img, "FIC", (420, 262), cv2.FONT_HERSHEY_SIMPLEX, 0.4, 0, 1)
+        cv2.line(img, (50, 300), (950, 300), 0, 2)
+        DashedLines().dashed(img, [(400, 120), (400, 480)])
+        panel = cq.crop_panel(img, {"at_px": [400, 300], "axis": "v", "side_px": 50.0, "stroke_px": 6}, 1)
+        body = panel[40:, 40:]  # the number sits in the top-left corner
+        colours = {tuple(int(v) for v in px) for px in body.reshape(-1, 3)}
+        self.assertLessEqual(colours, {(255, 255, 255), cq.BLUE, cq.GREEN, (160, 160, 160)})
+        self.assertIn(cq.BLUE, colours)
+        self.assertIn(cq.GREEN, colours)
+
+    def test_answers_record_the_judge_and_unanswered_items_go_to_review(self):
+        import crossing_question as cq
+        img = np.full((600, 1000), 255, np.uint8)
+        items = [{"key": f"k{n}", "gray": img, "at_px": [400, 300], "axis": "v", "side_px": 50.0, "stroke_px": 6}
+                 for n in range(3)]
+        reply = {"text": json.dumps({"items": [{"n": 1, "verdict": "continues", "confidence": 0.95, "reason": "r"}]}),
+                 "model": "judge-x"}
+        answers, calls = cq.ask(items, "claude", reader_model="claude-opus-5-5", call=lambda png, prompt: reply)
+        self.assertTrue(cq.supports(answers["k0"]))
+        self.assertFalse(cq.supports(answers["k1"]))  # no answer: review
+        self.assertEqual(answers["k1"]["verdict"], "cannot_tell")
+        self.assertEqual(answers["k0"]["judge_model"], "judge-x")
+        self.assertTrue(answers["k0"]["same_model_as_reader"])  # flagged: weaker independence
+        self.assertEqual(len(calls), 1)
+
+    def test_the_scorecard_gate_refuses_a_judge_that_supports_a_false_merge(self):
+        import crossing_question as cq
+        always = lambda png, prompt: {"text": json.dumps({"items": [  # noqa: E731
+            {"n": n, "verdict": "continues", "confidence": 0.9, "reason": "r"} for n in range(1, 9)]})}
+        items = cq.sweep_merges(n=12) + cq.controls()
+        self.assertTrue(any(it["truth"] == "two_lines" for it in items))
+        answers, _ = cq.ask(items, call=always)
+        run = {"score": cq.score_run(items, answers)}
+        self.assertFalse(cq.enabled([run]))  # it says "continues" to everything, so it may assert nothing
+
+
 class Scorer(unittest.TestCase):
     def test_perfect_and_empty_controls(self):
         key = ls.key_loops()

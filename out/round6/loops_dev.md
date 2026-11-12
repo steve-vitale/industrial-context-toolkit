@@ -20,6 +20,23 @@ Development sets only. Every number is read from the `control_loops` block of th
 | open100 | r2-tiles-trace/codex | 0 / 0 | no key | no key | - | - | - | - | - | - | - | True |
 | open100 | r2-tiles-trace/gemini | 0 / 0 | no key | no key | - | - | - | - | - | - | - | True |
 
+Recall at three levels (loop R / P): asserted (confirmed loops only); asserted plus every review candidate (`candidate_loops`: a merged line that needs review, or a tag group) counted as if confirmed; the tag-only control.
+
+| Set | Run | Asserted | Asserted + candidates | Tag-only |
+|---|---|---|---|---|
+| te-a | key symbols + tracer | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
+| te-a | te-clean-trace-r1/claude | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
+| te-a | te-clean-trace-r1/codex | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
+| te-a | te-clean-trace-r2/claude | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
+| te-a | te-clean-trace-r2/codex | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
+| te-a | te-clean-trace-r3/claude | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
+| te-a | te-clean-trace-r3/codex | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
+| te-a | te-clean-trace-r4/claude | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
+| te-a | te-clean-trace-r4/codex | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
+| te-a | te-clean-trace-r5/claude | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
+| te-a | te-clean-trace-r5/codex | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
+| te-d | key symbols + tracer | 0.526 / 1.0 (7/11, 3/8) | 1.0 / 1.0 (11/11, 8/8) | 0.579 / 0.55 |
+
 Diagnostic, TE revision D: `signal_to` pairs against the drawn signal lines of the key (`signal_edges`, cross-sheet flags followed), unordered, by tag.
 
 | Run | Asserted | Correct | Drawn | P | R |

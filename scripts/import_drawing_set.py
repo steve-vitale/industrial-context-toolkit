@@ -479,13 +479,15 @@ def add_flow_direction(model, source):
             "limit": "drawn flow direction for review, not isolation or lockout guidance"}
 
 
-def add_loops(model, source):
-    """Control loops and signal relations (scripts/loop_assembly.py, module docstring); a status record."""
+def add_loops(model, source, crossing_answers=None):
+    """Control loops and signal relations (scripts/loop_assembly.py, module docstring); a status record.
+    crossing_answers: a scripts/crossing_question.py answers file for lines joined through a crossing."""
     import loop_assembly
-    return loop_assembly.add_loops(model, source)
+    return loop_assembly.add_loops(model, source, crossing_answers)
 
 
-def import_set(manifest_path, out, check_only=False, line_layers=True, flow_direction=True, loops=True):
+def import_set(manifest_path, out, check_only=False, line_layers=True, flow_direction=True, loops=True,
+               crossing_answers=None):
     out, raw_manifest, producer, loaded, provenance = load_set(manifest_path, out)
     drawings = [s["drawing"] for s in loaded]
     if check_only:
@@ -540,7 +542,7 @@ def import_set(manifest_path, out, check_only=False, line_layers=True, flow_dire
         model["meta"]["line_layers_status"] = layers
         if flow_direction and layers["status"] == "added":
             model["meta"]["flow_direction_status"] = add_flow_direction(model, source)
-        loop_status = add_loops(model, source) if loops else {"status": "not requested"}
+        loop_status = add_loops(model, source, crossing_answers) if loops else {"status": "not requested"}
         if loop_status["status"] == "added":
             model["meta"]["loops_status"] = loop_status
         one.write_json(stage / "plant_model.json", model)
@@ -577,10 +579,13 @@ def main(argv=None):
     parser.add_argument("--no-loops", action="store_true",
                         help="no control loops or signal relations (the bundle is then increment 2's, except "
                              "meta.intake.importer_sha256, which hashes this file)")
+    parser.add_argument("--crossing-answers", help="a scripts/crossing_question.py answers file: the blind crossing "
+                             "evaluator's answers for signal lines joined through a crossing (corroboration channel b)")
     args = parser.parse_args(argv)
     try:
         result = import_set(args.manifest, args.out, args.check_only, line_layers=not args.no_line_layers,
-                            flow_direction=not args.no_flow_direction, loops=not args.no_loops)
+                            flow_direction=not args.no_flow_direction, loops=not args.no_loops,
+                            crossing_answers=args.crossing_answers)
     except (ValueError, OSError, TypeError, KeyError, OverflowError, RecursionError) as error:
         parser.exit(2, f"Drawing set intake failed: {error}\n")
     print(json.dumps(result, indent=2, allow_nan=False))

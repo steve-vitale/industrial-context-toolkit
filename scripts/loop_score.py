@@ -79,6 +79,32 @@ def asserted(model, block=None):
                        "outputs": {tag[x["id"]] for x in lp["final_elements"] + lp["sets_point_of"]}} for lp in loops]}
 
 
+def with_candidates(model):
+    """asserted() plus every review candidate (control_loops.candidate_loops) as if it were confirmed: the recall a
+    reviewer reaches by answering the candidates' questions with yes. Never the asserted score."""
+    cl = model.get("control_loops") or {}
+    tag = {k: la.compact(v["tag"]) for k, v in la.candidates(model).items()}
+    a = asserted(model)
+    for c in cl.get("candidate_loops", []):
+        t, w = tag[c["controller"]], c["would_confirm"]
+        ms, fs, inner = ({tag[m] for m in w[k]} for k in ("measurements", "final_elements", "sets_point_of"))
+        a["controllers"].add(t)
+        a["sensor"] |= {(t, m) for m in ms}
+        a["final"] |= {(t, f) for f in fs}
+        a["cascade"] |= {(t, i) for i in inner}
+        a["loops"] = [lp for lp in a["loops"] if lp["controller"] != t or lp["outputs"]] + \
+            [{"controller": t, "measurements": ms, "outputs": fs | inner}]
+    return a
+
+
+def corroboration_of(model):
+    """The corroboration inputs the bundle was assembled with, for re-assembly (the shuffled-roles control)."""
+    co = (model.get("control_loops") or {}).get("corroboration_inputs")
+    if not co:
+        return None
+    return {**co, "reader_pairs": {frozenset(p) for p in co.get("reader_pairs", [])}}
+
+
 def prf(pred, truth):
     tp = len(pred & truth)
     return {"tp": tp, "asserted": len(pred), "key": len(truth),
@@ -124,7 +150,8 @@ def shuffled_roles(model, seed=0):
     ids = sorted(cand)
     roles = [cand[k]["role"] for k in ids]
     random.Random(seed).shuffle(roles)
-    block = la.assemble(model, (model.get("control_loops") or {}).get("signal_lines", []), roles=dict(zip(ids, roles)))
+    block = la.assemble(model, (model.get("control_loops") or {}).get("signal_lines", []), roles=dict(zip(ids, roles)),
+                        corroboration=corroboration_of(model))
     return asserted(model, block)
 
 
@@ -185,6 +212,7 @@ def record(result, model, key, key_doc=None, sheets=None, no_loops_model=None):
         rec["bundle_identical_without_loops"] = without_loops(model) == no_loops_model
     if key is not None:
         rec["score"] = score(asserted(model), key)
+        rec["score_with_candidates"] = score(with_candidates(model), key)
         shuffled = [score(shuffled_roles(model, seed), key) if model.get("control_loops") else score(empty(), key)
                     for seed in SHUFFLE_SEEDS]
         rec["controls"] = {"perfect": score(perfect(key), key), "empty": score(empty(), key),
@@ -200,10 +228,13 @@ def record(result, model, key, key_doc=None, sheets=None, no_loops_model=None):
     return rec
 
 
+CROSSING_ANSWERS = None  # --crossing-answers: the blind crossing evaluator's answers file (keyed by image sha)
+
+
 def _bundle_pair(manifest, folder):
     """The bundle with loops, and the same inputs through --no-loops (to show nothing else moved)."""
     import import_drawing_set as dset
-    result = dset.import_set(manifest, folder / "bundle")
+    result = dset.import_set(manifest, folder / "bundle", crossing_answers=CROSSING_ANSWERS)
     model = json.loads((folder / "bundle" / "plant_model.json").read_text(encoding="utf-8"))
     dset.import_set(manifest, folder / "bundle-no-loops", loops=False)
     plain = json.loads((folder / "bundle-no-loops" / "plant_model.json").read_text(encoding="utf-8"))
@@ -381,6 +412,19 @@ def markdown(doc):
                          + _seeds(k) +
                          f"{k['tag_only']['loops']['recall']} / {k['tag_only']['loops']['precision'] or '-'} | "
                          f"{k['empty']['loops']['recall']} | {same} |")
+    lines += ["", "Recall at three levels (loop R / P): asserted (confirmed loops only); asserted plus every review "
+              "candidate (`candidate_loops`: a merged line that needs review, or a tag group) counted as if confirmed; "
+              "the tag-only control.", "", "| Set | Run | Asserted | Asserted + candidates | Tag-only |",
+              "|---|---|---|---|---|"]
+    for name, r in doc["sets"].items():
+        for run, x in r["runs"].items():
+            if "score" in x:
+                f = lambda s_: f"{s_['loops']['recall']} / {s_['loops']['precision']}"  # noqa: E731
+                lines.append(f"| {name} | {run} | {f(x['score'])} ({x['score']['loops']['valve_loops']}, "
+                             f"{x['score']['loops']['cascades']}) | {f(x['score_with_candidates'])} "
+                             f"({x['score_with_candidates']['loops']['valve_loops']}, "
+                             f"{x['score_with_candidates']['loops']['cascades']}) | "
+                             f"{f(x['controls']['tag_only'])} |")
     lines += ["", "Diagnostic, TE revision D: `signal_to` pairs against the drawn signal lines of the key (`signal_edges`, "
               "cross-sheet flags followed), unordered, by tag.", "", "| Run | Asserted | Correct | Drawn | P | R |",
               "|---|---|---|---|---|---|"]
@@ -397,7 +441,11 @@ def main(argv=None):
     ap.add_argument("--sets", default="te-a,te-d,open100,pahala")
     ap.add_argument("--pahala-manifest", help="site-drawing-set-1 manifest holding Pahala P-401 and P-501")
     ap.add_argument("--out", required=True, help="output prefix: writes <prefix>.json and <prefix>.md")
+    ap.add_argument("--crossing-answers", help="scripts/crossing_question.py answers for lines joined through a "
+                    "crossing; applied to every bundle (an answer counts only for the exact image it was asked of)")
     a = ap.parse_args(argv)
+    global CROSSING_ANSWERS
+    CROSSING_ANSWERS = a.crossing_answers
     chosen = [s for s in a.sets.split(",") if s]
     bad = [s for s in chosen if s not in SETS]
     if bad:

@@ -46,6 +46,8 @@ Nothing is taken from layout: no relation comes from where symbols sit, only fro
 Confidence is an ordinal tier, not a calibrated probability: traced_and_grouped, traced, traced_cross_sheet, and
 traced_direction_inferred for a cascade, whose direction comes from graph distance to a final element.
 """
+import hashlib
+import json
 import re
 from pathlib import Path
 from collections import defaultdict
@@ -336,6 +338,7 @@ def dashed_signal_lines(image_path, symbols, debug=None, **opt):
     for si, st in enumerate(strokes):
         by_axis[st[0]].append(si)
     merged_strokes = set()
+    crossing_at = []  # (stroke, (x, y) px, what crosses): where a line was joined through a crossing
     for ax, ids in by_axis.items():  # 3. straight runs
         ids.sort(key=lambda si: (strokes[si][2], strokes[si][1]))
         for a_i, si in enumerate(ids):
@@ -357,6 +360,9 @@ def dashed_signal_lines(image_path, symbols, debug=None, **opt):
                 if not _in_phase(strokes, ids, si, best, tmax, gap):
                     continue  # two dashed lines each drawn to the other line, not one crossing it: kept apart
                 merged_strokes.update((si, best))  # joined through a crossing: provenance for the assembly
+                mid = (hi + nxt) / 2
+                crossing_at.append((si, (mid, c) if ax == "h" else (c, mid), "pipe" if _ink_between(
+                    solid0, ax, c, hi, nxt) else "line", ax, hi, nxt))
             elif d > gap + 1:
                 continue
             parent[find(si)] = find(best)
@@ -371,6 +377,12 @@ def dashed_signal_lines(image_path, symbols, debug=None, **opt):
     for ri in run_info.values():
         ri["c"] = sum(ri["cs"]) / len(ri["cs"])
     merged_runs = {find(si) for si in merged_strokes}
+    run_crossings = defaultdict(list)
+    for si, (px, py), what, ax, gap_lo, gap_hi in crossing_at:
+        run_crossings[find(si)].append({"at_0_1000": [round(1000 * px / W, 1), round(1000 * py / H, 1)],
+                                        "at_px": [int(round(px)), int(round(py))], "crosses": what,
+                                        "axis": ax, "gap_px": [int(gap_lo), int(gap_hi)],
+                                        "stroke_px": tmax, "side_px": round(side, 1)})
     net = {r: r for r in run_info}
 
     def nfind(a):
@@ -487,7 +499,9 @@ def dashed_signal_lines(image_path, symbols, debug=None, **opt):
         widths = sorted(thick[p] for p in pieces)
         behind = sorted(set().union(*(through[r] for r in rs)))
         lines.append({"members": sorted(hit), "dashes": len(pieces),
-                      **({"merged_through_crossing": True} if any(r in merged_runs for r in rs) else {}),
+                      **({"merged_through_crossing": True,
+                          "crossings": sorted((x for r in rs for x in run_crossings[r]), key=lambda x: x["at_px"])}
+                         if any(r in merged_runs for r in rs) else {}),
                       **({"passes_through_symbol": behind} if behind else {}),
                       "stroke_px": round(widths[len(widths) // 2], 2), "pipe_px": pipe_px, "outline_px": outline_px,
                       **({"ambiguous_ends": sorted(ambiguous)} if ambiguous else {}),
@@ -658,7 +672,9 @@ def sheet_signal_lines(model, source):
     syms = ll._sheet_symbols(model)
     out = []
     for sheet in sorted(syms, key=lambda s: (len(s), s)):
-        r = dashed_signal_lines(Path(source) / f"{sheet}.png",
+        image = Path(source) / f"{sheet}.png"
+        sha = hashlib.sha256(image.read_bytes()).hexdigest() if image.exists() else None
+        r = dashed_signal_lines(image,
                                 [{"id": k, "box": v["box"], "class": v["class"]} for k, v in syms[sheet].items()])
         for line in r["lines"]:
             members = sorted({syms[sheet][m]["asset"] for m in line["members"]})
@@ -667,7 +683,10 @@ def sheet_signal_lines(model, source):
                 out.append({"sheet": sheet, "line_kind": "dashed_signal_line", "members": members,
                             "box_0_1000": line["box_0_1000"], "dashes": line["dashes"],
                             **{k: line.get(k) for k in ("stroke_px", "pipe_px", "outline_px")},
-                            **({"merged_through_crossing": True} if line.get("merged_through_crossing") else {}),
+                            **({"merged_through_crossing": True,
+                                "crossings": [{**c, "key": f"{sha}:{c['at_px'][0]},{c['at_px'][1]}"}
+                                              for c in line.get("crossings", [])]}
+                               if line.get("merged_through_crossing") else {}),
                             **({"passes_through_symbol": sorted({syms[sheet][m]["asset"]
                                                                  for m in line["passes_through_symbol"]})}
                                if line.get("passes_through_symbol") else {}),
@@ -874,9 +893,38 @@ def signal_conditions(net, cand, role, model=None):
     return failed
 
 
-def _directed_links(nets, cand, role):
+CROSSING_QUESTION = ("Does the dashed line continue across the line it meets here, or do two separate dashed lines "
+                     "end at it from either side?")
+
+
+def _channels(net, ms, cand, corroboration):
+    """The independent channels for a network joined through a crossing (module docstring, 'merged lines'):
+      reader_link       the reader's own connections (a model reading, not a code tracer) join the same two items;
+      crossing_judge    the blind second evaluator (scripts/crossing_question.py) answered a confident "continues"
+                        for every crossing on the network, and its scorecard enabled it;
+      tag_agreement     the members share a loop identity: supporting evidence only, never enough alone.
+    Returns (corroborated_by [names], record)."""
+    import crossing_question as cq
+    co = corroboration or {}
+    pairs = co.get("reader_pairs") or set()
+    reader = all(frozenset((a, b)) in pairs for i, a in enumerate(ms) for b in ms[i + 1:]) if pairs else None
+    crossings = [c for x in net["lines"] for c in x.get("crossings", [])]
+    answers = co.get("crossing_answers") or {}
+    judged = [dict(answers[c["key"]], key=c["key"]) for c in crossings if c.get("key") in answers]
+    judge = bool(crossings) and len(judged) == len(crossings) and \
+        all(cq.supports(a, co.get("assert_enabled", False)) for a in judged)
+    tags = len({(cand[m]["scope"], cand[m]["number"]) for m in ms}) == 1
+    by = [n for n, ok in (("reader_link", reader), ("crossing_judge", judge)) if ok]
+    return by, {"reader_link": reader, "crossing_judge": judged or None,
+                "crossing_judge_enabled": bool(co.get("assert_enabled", False)), "tag_agreement": tags,
+                "crossings": [{k: c[k] for k in ("key", "at_0_1000", "crosses") if k in c} for c in crossings]}
+
+
+def _directed_links(nets, cand, role, corroboration=None, assume_merged_ok=False):
     """[(from, to, directed, evidence)] for the networks that meet every signal_conditions() condition, and the
-    unresolved networks with the conditions each failed."""
+    unresolved networks with the conditions each failed. A network joined through a crossing counts in full only when
+    an independent channel agrees (_channels); otherwise it is a review item with the crossing question.
+    assume_merged_ok treats every merged network as corroborated (only for the review candidates)."""
     links, unresolved = [], []
     for net in nets:
         ms = [m for m in net["members"] if m in cand]
@@ -892,21 +940,33 @@ def _directed_links(nets, cand, role):
         if len(ms) < 2:
             continue
         merged = any(x.get("merged_through_crossing") for x in net["lines"])
+        corroborated_by = []
         if merged:
-            unresolved.append({"members": ms, "roles": {m: role[m] for m in ms}, "evidence": evidence,
-                               "failed_conditions": ["not_merged_through_a_crossing"], "signal_to_kept": True,
-                               "why": "not_merged_through_a_crossing: the tracer joined this line through a crossing "
-                                      "(a pipe or another line in a gap); its signal_to is kept at tier traced, and it "
-                                      "is not used for controls, sets_point_of or a confirmed loop"})
+            corroborated_by, record = _channels(net, ms, cand, corroboration)
+            if assume_merged_ok:
+                corroborated_by = corroborated_by or ["assumed_for_review_candidates"]
+            if corroborated_by:
+                evidence = evidence + [{"kind": "corroboration", "by": corroborated_by, **record}]
+                merged = False
+            else:
+                unresolved.append({"members": ms, "roles": {m: role[m] for m in ms}, "evidence": evidence,
+                                   "failed_conditions": ["not_merged_through_a_crossing"], "signal_to_kept": True,
+                                   "review_question": CROSSING_QUESTION, "channels": record,
+                                   "why": "not_merged_through_a_crossing: the tracer joined this line through a "
+                                          "crossing (a pipe or another line in a gap) and no independent channel "
+                                          "(the reader's own link, the crossing evaluator) agrees; its signal_to is "
+                                          "kept at tier traced, and it is not used for controls, sets_point_of or a "
+                                          "confirmed loop until the question is answered"})
         if len(ms) == 2:
             a, b = sorted(ms, key=lambda m: RANK[role[m]])
             directed = RANK[role[a]] != RANK[role[b]]
-            links.append({"from": a, "to": b, "directed": directed, "evidence": evidence, "merged": merged})
+            links.append({"from": a, "to": b, "directed": directed, "evidence": evidence, "merged": merged,
+                          "corroborated_by": corroborated_by})
             continue
         low = min(RANK[role[m]] for m in ms)
         sender = next(m for m in ms if RANK[role[m]] == low)
-        links += [{"from": sender, "to": m, "directed": True, "evidence": evidence, "merged": merged}
-                  for m in ms if m != sender]
+        links += [{"from": sender, "to": m, "directed": True, "evidence": evidence, "merged": merged,
+                   "corroborated_by": corroborated_by} for m in ms if m != sender]
     return links, unresolved
 
 
@@ -940,15 +1000,17 @@ def _cascades(links, role, untraced_finals=None, measured=None):
             lk["directed"], lk["cascade"] = True, True
 
 
-def assemble(model, lines, roles=None):
+def assemble(model, lines, roles=None, corroboration=None, _assume_merged_ok=False):
     """The control_loops block from the bundle's traced signal lines (sheet_signal_lines). roles: {item: role}
-    replaces the ISA roles (only the scorer's shuffled-roles control uses it). Reads no image."""
+    replaces the ISA roles (only the scorer's shuffled-roles control uses it). corroboration: {"reader_pairs": set of
+    frozenset item pairs, "crossing_answers": {crossing key: answer}, "assert_enabled": bool} for lines joined through
+    a crossing (_channels). Reads no image."""
     cand = candidates(model)
     if roles is not None:
         cand = {k: {**v, "role": roles.get(k)} for k, v in cand.items()}
     role = {k: v["role"] for k, v in cand.items()}
     ident = {k: (v["scope"], v["number"]) for k, v in cand.items()}
-    links, unresolved = _directed_links(signal_networks(model, lines), cand, role)
+    links, unresolved = _directed_links(signal_networks(model, lines), cand, role, corroboration, _assume_merged_ok)
     solid = [lk for lk in links if not lk.get("merged")]  # the links loop logic may rest on
     reached = {lk["to"] for lk in solid if role.get(lk["to"]) == "final_element"}
     untraced_finals = {c: [k for k in cand if ident[k] == ident[c] and role[k] == "final_element"
@@ -958,13 +1020,14 @@ def assemble(model, lines, roles=None):
     _cascades(links, role, untraced_finals, measured)
     relations, seen = [], {}
 
-    def add(typ, a, b, evidence, basis, loop=None, inferred=False, merged=False):
+    def add(typ, a, b, evidence, basis, loop=None, inferred=False, merged=False, corroborated=None):
         if (typ, a, b) in seen:
             return seen[(typ, a, b)]
         cross = any(e["kind"] == "cross_sheet_flag" for e in evidence)
         rec = {"id": None, "type": typ, "from": a, "to": b, "direction": "forward" if basis else "unknown",
                **({"direction_basis": basis} if basis else {}),
                **({"merged_through_crossing": True} if merged else {}),
+               **({"corroborated_by": corroborated} if corroborated else {}),
                "confidence": "traced_direction_inferred" if inferred else "traced_cross_sheet" if cross else
                              "traced_and_grouped" if ident[a] == ident[b] and not merged else "traced",
                "evidence": evidence, **({"loop": loop} if loop else {}),
@@ -979,7 +1042,8 @@ def assemble(model, lines, roles=None):
         a, b = lk["from"], lk["to"]
         basis = ("cascade: the receiving controller is nearer a final element along traced signals" if lk.get("cascade")
                  else f"ISA-5.1 roles: {role[a]} -> {role[b]}" if lk["directed"] else None)
-        add("signal_to", a, b, lk["evidence"], basis, inferred=bool(lk.get("cascade")), merged=bool(lk.get("merged")))
+        add("signal_to", a, b, lk["evidence"], basis, inferred=bool(lk.get("cascade")), merged=bool(lk.get("merged")),
+            corroborated=lk.get("corroborated_by") or None)
     into, outof = defaultdict(list), defaultdict(list)
     for lk in solid:
         if lk["directed"]:
@@ -1067,12 +1131,17 @@ def assemble(model, lines, roles=None):
     for lp in loops:
         for m in lp["measurements"]:
             m["relation"] = seen[("signal_to", m["id"], lp["controller"])]["id"]
+    candidate_loops = [] if _assume_merged_ok else _candidates(model, lines, roles, corroboration, loops, unresolved,
+                                                                 cand, role, ident)
     counts = {"loops": len(loops), **{s: sum(lp["status"] == s for lp in loops)
                                       for s in ("confirmed", "partly_confirmed", "unconfirmed")},
               "cascades": sum(lp["loop_type"] == "cascade" for lp in loops),
               **{t: sum(r["type"] == t for r in relations) for t in order},
               "signal_lines": len(lines), "unresolved_signal_networks": len(unresolved),
-              "tag_groups_without_controller": len(no_ctrl), "conflicts": len(conflicts)}
+              "tag_groups_without_controller": len(no_ctrl), "conflicts": len(conflicts),
+              "candidate_loops": len(candidate_loops),
+              **({"merged_lines_corroborated": sum(1 for r in relations if r.get("corroborated_by"))}
+                 if any(r.get("corroborated_by") for r in relations) else {})}
     return {"schema": SCHEMA,
             "method": "scripts/loop_assembly.py: ISA-5.1 loop identity and roles from the read tags, confirmed or "
                       "refuted by traced signal lines",
@@ -1093,10 +1162,88 @@ def assemble(model, lines, roles=None):
             "not_used": "no relation is taken from layout or from tag grouping alone",
             "counts": counts, "signal_lines": lines, "relations": relations, "loops": loops,
             "unresolved_signal_networks": unresolved, "tag_groups_without_controller": no_ctrl,
-            "conflicts": conflicts}
+            "conflicts": conflicts, "candidate_loops": candidate_loops,
+            **({"corroboration_inputs": {"crossing_answers": (corroboration or {}).get("crossing_answers") or {},
+                                         "assert_enabled": bool((corroboration or {}).get("assert_enabled")),
+                                         "reader_pairs": sorted(sorted(p) for p in
+                                                                (corroboration or {}).get("reader_pairs") or [])}}
+               if corroboration else {})}
 
 
-def add_loops(model, source):
+def _candidates(model, lines, roles, corroboration, loops, unresolved, cand, role, ident):
+    """Every loop the assembly cannot prove, as a review candidate, never hidden:
+      merged_line_needs_review  the loop would be confirmed (or gain its cascade) if the lines joined through a
+                                crossing on it were accepted; carries the crossing question and the channels' answers.
+      grouped_by_tag            a controller whose loop number groups a measurement and a final element, with no traced
+                                line confirming the loop; carries the question to check on the drawing.
+    A candidate is not a relation and is never scored as asserted."""
+    hyp = {lp["controller"]: lp for lp in assemble(model, lines, roles, corroboration, _assume_merged_ok=True)["loops"]}
+    open_q = [u for u in unresolved if u.get("review_question")]
+    out = []
+    for lp in loops:
+        h = hyp.get(lp["controller"])
+        gains = h and (h["status"] == "confirmed" and lp["status"] != "confirmed"
+                       or len(h["sets_point_of"]) > len(lp["sets_point_of"]))
+        if gains:
+            items = {x["id"] for x in h["measurements"] + h["final_elements"] + h["sets_point_of"]} | {lp["controller"]}
+            qs = [u for u in open_q if set(u["members"]) & items]
+            out.append({"controller": lp["controller"], "controller_tag": lp["controller_tag"],
+                        "kind": "merged_line_needs_review",
+                        "would_confirm": {"measurements": [x["id"] for x in h["measurements"]],
+                                          "final_elements": [x["id"] for x in h["final_elements"]],
+                                          "sets_point_of": [x["id"] for x in h["sets_point_of"]]},
+                        "reason": "a signal line on this loop was joined through a crossing, and no independent "
+                                  "channel has confirmed that it is one line",
+                        "questions": [{"question": u["review_question"], "members": u["members"],
+                                       "crossings": u["channels"]["crossings"],
+                                       "crossing_judge": u["channels"]["crossing_judge"]} for u in qs]})
+            continue
+        if lp["status"] == "confirmed":
+            continue
+        g = [m for m in cand if ident[m] == ident[lp["controller"]] and m != lp["controller"]]
+        ms = [m for m in g if role[m] in MEASUREMENTS]
+        fs = [m for m in g if role[m] == "final_element"]
+        if ms and fs:
+            out.append({"controller": lp["controller"], "controller_tag": lp["controller_tag"],
+                        "kind": "grouped_by_tag", "would_confirm": {"measurements": ms, "final_elements": fs,
+                                                                     "sets_point_of": []},
+                        "reason": "the loop number groups a measurement and a final element with this controller; no "
+                                  "traced signal line confirms the loop",
+                        "questions": [{"question": f"Is {cand[lp['controller']]['tag']} drawn with signal lines to "
+                                                   + ", ".join(cand[m]["tag"] for m in ms + fs) + "?"}]})
+    return out
+
+
+def reader_pairs(model, source):
+    """Corroboration channel (a): item pairs the reader's own connections join, when the reader is a model (a
+    run-record with a model and no code tracer). The bundle keeps each sheet's original extraction under source/."""
+    import line_layers as ll
+    pairs = set()
+    syms = ll._sheet_symbols(model)
+    for sheet in syms:
+        path = Path(source) / f"extraction-original-{sheet}.json"
+        try:
+            rec = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            continue
+        if not isinstance(rec, dict) or not rec.get("model") or rec.get("tracer") or "prediction" not in rec:
+            continue  # a supplied prediction, or links a code tracer drew: not independent of the geometry
+        for c in (rec.get("prediction") or {}).get("connections", []):
+            a, b = (syms[sheet].get(str(c.get(k)), {}).get("asset") for k in ("from", "to"))
+            if a and b and a != b:
+                pairs.add(frozenset((a, b)))
+    return pairs
+
+
+def load_crossing_answers(path):
+    """{"crossing_answers", "assert_enabled"} from a scripts/crossing_question.py answers file, or None."""
+    if not path:
+        return None
+    doc = json.loads(Path(path).read_text(encoding="utf-8"))
+    return {"crossing_answers": doc.get("answers") or {}, "assert_enabled": bool(doc.get("assert_enabled"))}
+
+
+def add_loops(model, source, crossing_answers=None):
     """Assemble model["control_loops"] in place from the sheet images in `source`; return a status record (never
     raises for a skip). Nothing is written to the model when no item reads as an ISA-5.1 instrument with a loop role,
     so a bundle loops add nothing to is unchanged."""
@@ -1107,5 +1254,9 @@ def add_loops(model, source):
         lines = sheet_signal_lines(model, source)
     except ImportError as error:
         return {"status": "skipped", "reason": f"needs OpenCV and NumPy (pip install -r requirements.txt): {error}"}
-    model["control_loops"] = assemble(model, lines)
+    co = load_crossing_answers(crossing_answers) or {}
+    pairs = reader_pairs(model, source)
+    if pairs:
+        co["reader_pairs"] = pairs
+    model["control_loops"] = assemble(model, lines, corroboration=co or None)
     return {"status": "added", **model["control_loops"]["counts"]}

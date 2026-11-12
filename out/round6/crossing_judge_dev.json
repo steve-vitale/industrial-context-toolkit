@@ -1,0 +1,1484 @@
+{
+ "script": "scripts/crossing_question.py",
+ "prompt_sha256": "df3e18650ae97dd7de6e49d44e107199ae7e8419b18af875e02ab7a7db602d84",
+ "threshold": 0.8,
+ "tool": "claude",
+ "model": "claude-opus-5-5",
+ "items": [
+  {
+   "key": "9bd4fc722bbc81bae833748d2f0b271f4ed94aae84e30a62835e343850188fa6:2200,1300",
+   "at_0_1000": [
+    687.7,
+    610.6
+   ],
+   "at_px": [
+    2200,
+    1300
+   ],
+   "crosses": "pipe",
+   "axis": "v",
+   "gap_px": [
+    1296,
+    1305
+   ],
+   "stroke_px": 6,
+   "side_px": 50.0,
+   "truth": "continues",
+   "source": "te_d:S2-SL036"
+  },
+  {
+   "key": "513bd14acbd343df9a0af5c7c71e3485cbe95bd48ad1509f923baaa6c1bc04e0:1657,620",
+   "at_0_1000": [
+    517.8,
+    291.3
+   ],
+   "at_px": [
+    1657,
+    620
+   ],
+   "crosses": "pipe",
+   "axis": "h",
+   "gap_px": [
+    1650,
+    1664
+   ],
+   "stroke_px": 6,
+   "side_px": 50.0,
+   "truth": "continues",
+   "source": "te_d:S1-SL021"
+  },
+  {
+   "key": "b29bf9637a883dfe7e900b834a28c09854d01baf29c365f792dcb962cc67af55:400,302",
+   "at_0_1000": [
+    400.0,
+    504.2
+   ],
+   "at_px": [
+    400,
+    302
+   ],
+   "crosses": "pipe",
+   "axis": "v",
+   "gap_px": [
+    297,
+    308
+   ],
+   "stroke_px": 6,
+   "side_px": 50.0,
+   "truth": "two_lines",
+   "source": "sweep#57"
+  },
+  {
+   "key": "9bd4fc722bbc81bae833748d2f0b271f4ed94aae84e30a62835e343850188fa6:800,1441",
+   "at_0_1000": [
+    249.8,
+    676.5
+   ],
+   "at_px": [
+    800,
+    1441
+   ],
+   "crosses": "pipe",
+   "axis": "v",
+   "gap_px": [
+    1436,
+    1446
+   ],
+   "stroke_px": 6,
+   "side_px": 50.0,
+   "truth": "continues",
+   "source": "te_d:S2-SL036"
+  },
+  {
+   "key": "9bd4fc722bbc81bae833748d2f0b271f4ed94aae84e30a62835e343850188fa6:1900,1263",
+   "at_0_1000": [
+    593.9,
+    593.0
+   ],
+   "at_px": [
+    1900,
+    1263
+   ],
+   "crosses": "pipe",
+   "axis": "v",
+   "gap_px": [
+    1256,
+    1270
+   ],
+   "stroke_px": 6,
+   "side_px": 50.0,
+   "truth": "continues",
+   "source": "te_d:S2-SL030"
+  },
+  {
+   "key": "f350102c3670f75e9cd647774ca8d99e3b54a496b32434f5ebf1db3ffe2838fe:400,300",
+   "at_px": [
+    400,
+    300
+   ],
+   "axis": "v",
+   "side_px": 50.0,
+   "stroke_px": 6,
+   "crosses": "pipe",
+   "truth": "two_lines",
+   "source": "control:obvious_separate_ends"
+  },
+  {
+   "key": "6655f5491f3dca670d133ec4fbf0129586a3a6adcd0dc66a961354cebaaf554c:400,297",
+   "at_0_1000": [
+    400.0,
+    495.0
+   ],
+   "at_px": [
+    400,
+    297
+   ],
+   "crosses": "pipe",
+   "axis": "v",
+   "gap_px": [
+    291,
+    303
+   ],
+   "stroke_px": 6,
+   "side_px": 50.0,
+   "truth": "two_lines",
+   "source": "sweep#6"
+  },
+  {
+   "key": "2d61901bd7b854b6fa8cf01f5990c9daad315898a2eab1c567d6a024e1b2202a:400,302",
+   "at_0_1000": [
+    400.0,
+    504.2
+   ],
+   "at_px": [
+    400,
+    302
+   ],
+   "crosses": "pipe",
+   "axis": "v",
+   "gap_px": [
+    297,
+    308
+   ],
+   "stroke_px": 6,
+   "side_px": 50.0,
+   "truth": "two_lines",
+   "source": "sweep#23"
+  },
+  {
+   "key": "1a6079b3e7762769653eb6c61154cada6dbd0ef577042a25b08eda2bdb92c9f9:400,300",
+   "at_px": [
+    400,
+    300
+   ],
+   "axis": "v",
+   "side_px": 50.0,
+   "stroke_px": 6,
+   "crosses": "pipe",
+   "truth": "cannot_tell",
+   "source": "control:blank"
+  },
+  {
+   "key": "3cbade0714e820920e5c416c56f1d941d87e405ee970ae28563f972e9d9779d1:400,300",
+   "at_0_1000": [
+    400.0,
+    499.2
+   ],
+   "at_px": [
+    400,
+    300
+   ],
+   "crosses": "pipe",
+   "axis": "v",
+   "gap_px": [
+    296,
+    303
+   ],
+   "stroke_px": 6,
+   "side_px": 50.0,
+   "truth": "two_lines",
+   "source": "sweep#48"
+  },
+  {
+   "key": "615c63f05a3bc9a5dacd0226190db66195300c9d1e035678418ba605de28d082:400,300",
+   "at_0_1000": [
+    400.0,
+    500.8
+   ],
+   "at_px": [
+    400,
+    300
+   ],
+   "crosses": "pipe",
+   "axis": "v",
+   "gap_px": [
+    297,
+    304
+   ],
+   "stroke_px": 6,
+   "side_px": 50.0,
+   "truth": "two_lines",
+   "source": "sweep#1"
+  },
+  {
+   "key": "4badc08dd2558e2ee55a913e5d03fe5b1e4ee16d2a2436f651b9a88ac7794a1c:400,300",
+   "at_px": [
+    400,
+    300
+   ],
+   "axis": "v",
+   "side_px": 50.0,
+   "stroke_px": 6,
+   "crosses": "pipe",
+   "truth": "continues",
+   "source": "control:obvious_crossing"
+  },
+  {
+   "key": "6f0b1575f14e63eea58b0299250ac3fb6465a95f1950bc18e68442f5a21f650b:400,304",
+   "at_0_1000": [
+    400.0,
+    505.8
+   ],
+   "at_px": [
+    400,
+    304
+   ],
+   "crosses": "pipe",
+   "axis": "v",
+   "gap_px": [
+    297,
+    310
+   ],
+   "stroke_px": 6,
+   "side_px": 50.0,
+   "truth": "two_lines",
+   "source": "sweep#11"
+  },
+  {
+   "key": "2c93a1fecbae9e7659495a2f1d85b05cb63eed7cd67129f09240a4d6626b4da6:400,302",
+   "at_0_1000": [
+    400.0,
+    503.3
+   ],
+   "at_px": [
+    400,
+    302
+   ],
+   "crosses": "line",
+   "axis": "v",
+   "gap_px": [
+    290,
+    314
+   ],
+   "stroke_px": 6,
+   "side_px": 50.0,
+   "truth": "continues",
+   "source": "b_cross_cc"
+  },
+  {
+   "key": "a40b77c494df1d357e1c0dd0f06e1b81ffa7d2aa619e0c4f13bf08cd76a4b299:1698,1560",
+   "at_0_1000": [
+    530.6,
+    732.2
+   ],
+   "at_px": [
+    1698,
+    1560
+   ],
+   "crosses": "pipe",
+   "axis": "h",
+   "gap_px": [
+    1692,
+    1704
+   ],
+   "stroke_px": 6,
+   "side_px": 50.0,
+   "truth": "continues",
+   "source": "te_d:S0-SL008"
+  },
+  {
+   "key": "9bd4fc722bbc81bae833748d2f0b271f4ed94aae84e30a62835e343850188fa6:1520,1596",
+   "at_0_1000": [
+    475.2,
+    749.5
+   ],
+   "at_px": [
+    1520,
+    1596
+   ],
+   "crosses": "pipe",
+   "axis": "v",
+   "gap_px": [
+    1589,
+    1604
+   ],
+   "stroke_px": 6,
+   "side_px": 50.0,
+   "truth": "continues",
+   "source": "te_d:S2-SL028"
+  },
+  {
+   "key": "68578815b2f408fcdbd362e9a0ddda8c37a7af735a93bf06222c0b6be50f42b5:400,302",
+   "at_0_1000": [
+    400.0,
+    503.3
+   ],
+   "at_px": [
+    400,
+    302
+   ],
+   "crosses": "pipe",
+   "axis": "v",
+   "gap_px": [
+    297,
+    307
+   ],
+   "stroke_px": 6,
+   "side_px": 50.0,
+   "truth": "two_lines",
+   "source": "sweep#17"
+  },
+  {
+   "key": "bbb62108ba2ff3ace2e3763eaf590c6f527c40da04c4ac22dd1c228c47cf10c8:400,299",
+   "at_0_1000": [
+    400.0,
+    498.3
+   ],
+   "at_px": [
+    400,
+    299
+   ],
+   "crosses": "pipe",
+   "axis": "v",
+   "gap_px": [
+    295,
+    303
+   ],
+   "stroke_px": 6,
+   "side_px": 50.0,
+   "truth": "two_lines",
+   "source": "sweep#58"
+  },
+  {
+   "key": "9bd4fc722bbc81bae833748d2f0b271f4ed94aae84e30a62835e343850188fa6:2200,1700",
+   "at_0_1000": [
+    687.7,
+    798.4
+   ],
+   "at_px": [
+    2200,
+    1700
+   ],
+   "crosses": "line",
+   "axis": "v",
+   "gap_px": [
+    1697,
+    1704
+   ],
+   "stroke_px": 6,
+   "side_px": 50.0,
+   "truth": "continues",
+   "source": "te_d:S2-SL036"
+  },
+  {
+   "key": "a40b77c494df1d357e1c0dd0f06e1b81ffa7d2aa619e0c4f13bf08cd76a4b299:1098,684",
+   "at_0_1000": [
+    343.1,
+    321.4
+   ],
+   "at_px": [
+    1098,
+    684
+   ],
+   "crosses": "pipe",
+   "axis": "h",
+   "gap_px": [
+    1092,
+    1104
+   ],
+   "stroke_px": 6,
+   "side_px": 50.0,
+   "truth": "continues",
+   "source": "te_d:S0-SL014"
+  },
+  {
+   "key": "284e0265869a30224a1ae96ddf0c1766cfbbd018422b283506a175029bd4942e:400,304",
+   "at_0_1000": [
+    400.0,
+    505.8
+   ],
+   "at_px": [
+    400,
+    304
+   ],
+   "crosses": "pipe",
+   "axis": "v",
+   "gap_px": [
+    297,
+    310
+   ],
+   "stroke_px": 6,
+   "side_px": 50.0,
+   "truth": "two_lines",
+   "source": "sweep#21"
+  },
+  {
+   "key": "a40b77c494df1d357e1c0dd0f06e1b81ffa7d2aa619e0c4f13bf08cd76a4b299:1098,420",
+   "at_0_1000": [
+    343.1,
+    196.9
+   ],
+   "at_px": [
+    1098,
+    420
+   ],
+   "crosses": "pipe",
+   "axis": "h",
+   "gap_px": [
+    1092,
+    1104
+   ],
+   "stroke_px": 6,
+   "side_px": 50.0,
+   "truth": "continues",
+   "source": "te_d:S0-SL013"
+  },
+  {
+   "key": "a40b77c494df1d357e1c0dd0f06e1b81ffa7d2aa619e0c4f13bf08cd76a4b299:2204,1560",
+   "at_0_1000": [
+    688.8,
+    732.2
+   ],
+   "at_px": [
+    2204,
+    1560
+   ],
+   "crosses": "pipe",
+   "axis": "h",
+   "gap_px": [
+    2196,
+    2212
+   ],
+   "stroke_px": 6,
+   "side_px": 50.0,
+   "truth": "continues",
+   "source": "te_d:S0-SL008"
+  },
+  {
+   "key": "2703eeac94bddbad1a2964cb5b895ca5f365062ba6be2e7bcc6c5b61eb490f73:400,297",
+   "at_0_1000": [
+    400.0,
+    495.0
+   ],
+   "at_px": [
+    400,
+    297
+   ],
+   "crosses": "pipe",
+   "axis": "v",
+   "gap_px": [
+    291,
+    303
+   ],
+   "stroke_px": 6,
+   "side_px": 50.0,
+   "truth": "two_lines",
+   "source": "sweep#54"
+  },
+  {
+   "key": "9bd4fc722bbc81bae833748d2f0b271f4ed94aae84e30a62835e343850188fa6:2000,1256",
+   "at_0_1000": [
+    624.8,
+    589.9
+   ],
+   "at_px": [
+    2000,
+    1256
+   ],
+   "crosses": "pipe",
+   "axis": "v",
+   "gap_px": [
+    1249,
+    1264
+   ],
+   "stroke_px": 6,
+   "side_px": 50.0,
+   "truth": "continues",
+   "source": "te_d:S2-SL037"
+  },
+  {
+   "key": "513bd14acbd343df9a0af5c7c71e3485cbe95bd48ad1509f923baaa6c1bc04e0:1600,200",
+   "at_0_1000": [
+    500.2,
+    93.7
+   ],
+   "at_px": [
+    1600,
+    200
+   ],
+   "crosses": "pipe",
+   "axis": "v",
+   "gap_px": [
+    195,
+    204
+   ],
+   "stroke_px": 6,
+   "side_px": 50.0,
+   "truth": "continues",
+   "source": "te_d:S1-SL021"
+  },
+  {
+   "key": "9bd4fc722bbc81bae833748d2f0b271f4ed94aae84e30a62835e343850188fa6:2200,1602",
+   "at_0_1000": [
+    687.7,
+    752.3
+   ],
+   "at_px": [
+    2200,
+    1602
+   ],
+   "crosses": "pipe",
+   "axis": "v",
+   "gap_px": [
+    1596,
+    1609
+   ],
+   "stroke_px": 6,
+   "side_px": 50.0,
+   "truth": "continues",
+   "source": "te_d:S2-SL036"
+  }
+ ],
+ "runs": [
+  {
+   "run": 1,
+   "calls": 4,
+   "seconds": 139.2,
+   "errors": 0,
+   "judge_model": "claude-opus-5-5",
+   "score": {
+    "true_crossings_te_d": {
+     "n": 13,
+     "answered_at_bar": 4,
+     "correct_at_bar": 4,
+     "accuracy_at_bar": 1.0,
+     "cannot_tell_or_below_bar": 9,
+     "supported_continues": 4
+    },
+    "false_merges_sweep": {
+     "n": 10,
+     "answered_at_bar": 3,
+     "correct_at_bar": 0,
+     "accuracy_at_bar": 0.0,
+     "cannot_tell_or_below_bar": 7,
+     "supported_continues": 3
+    },
+    "fixtures_true": {
+     "n": 1,
+     "answered_at_bar": 0,
+     "correct_at_bar": 0,
+     "accuracy_at_bar": null,
+     "cannot_tell_or_below_bar": 1,
+     "supported_continues": 0
+    },
+    "fixtures_false": {
+     "n": 0,
+     "answered_at_bar": 0,
+     "correct_at_bar": 0,
+     "accuracy_at_bar": null,
+     "cannot_tell_or_below_bar": 0,
+     "supported_continues": 0
+    },
+    "controls": {
+     "control:obvious_separate_ends": {
+      "verdict": "cannot_tell",
+      "confidence": 0.45
+     },
+     "control:blank": {
+      "verdict": "cannot_tell",
+      "confidence": 0.95
+     },
+     "control:obvious_crossing": {
+      "verdict": "continues",
+      "confidence": 0.8
+     }
+    },
+    "rows": [
+     {
+      "source": "te_d:S2-SL036",
+      "truth": "continues",
+      "verdict": "continues",
+      "confidence": 0.85,
+      "supports": true
+     },
+     {
+      "source": "te_d:S1-SL021",
+      "truth": "continues",
+      "verdict": "continues",
+      "confidence": 0.85,
+      "supports": true
+     },
+     {
+      "source": "sweep#57",
+      "truth": "two_lines",
+      "verdict": "continues",
+      "confidence": 0.8,
+      "supports": true
+     },
+     {
+      "source": "te_d:S2-SL036",
+      "truth": "continues",
+      "verdict": "continues",
+      "confidence": 0.8,
+      "supports": true
+     },
+     {
+      "source": "te_d:S2-SL030",
+      "truth": "continues",
+      "verdict": "continues",
+      "confidence": 0.8,
+      "supports": true
+     },
+     {
+      "source": "control:obvious_separate_ends",
+      "truth": "two_lines",
+      "verdict": "cannot_tell",
+      "confidence": 0.45,
+      "supports": false
+     },
+     {
+      "source": "sweep#6",
+      "truth": "two_lines",
+      "verdict": "continues",
+      "confidence": 0.75,
+      "supports": false
+     },
+     {
+      "source": "sweep#23",
+      "truth": "two_lines",
+      "verdict": "continues",
+      "confidence": 0.75,
+      "supports": false
+     },
+     {
+      "source": "control:blank",
+      "truth": "cannot_tell",
+      "verdict": "cannot_tell",
+      "confidence": 0.95,
+      "supports": false
+     },
+     {
+      "source": "sweep#48",
+      "truth": "two_lines",
+      "verdict": "continues",
+      "confidence": 0.8,
+      "supports": true
+     },
+     {
+      "source": "sweep#1",
+      "truth": "two_lines",
+      "verdict": "continues",
+      "confidence": 0.8,
+      "supports": true
+     },
+     {
+      "source": "control:obvious_crossing",
+      "truth": "continues",
+      "verdict": "continues",
+      "confidence": 0.8,
+      "supports": true
+     },
+     {
+      "source": "sweep#11",
+      "truth": "two_lines",
+      "verdict": "continues",
+      "confidence": 0.75,
+      "supports": false
+     },
+     {
+      "source": "b_cross_cc",
+      "truth": "continues",
+      "verdict": "continues",
+      "confidence": 0.75,
+      "supports": false
+     },
+     {
+      "source": "te_d:S0-SL008",
+      "truth": "continues",
+      "verdict": "continues",
+      "confidence": 0.75,
+      "supports": false
+     },
+     {
+      "source": "te_d:S2-SL028",
+      "truth": "continues",
+      "verdict": "continues",
+      "confidence": 0.7,
+      "supports": false
+     },
+     {
+      "source": "sweep#17",
+      "truth": "two_lines",
+      "verdict": "continues",
+      "confidence": 0.75,
+      "supports": false
+     },
+     {
+      "source": "sweep#58",
+      "truth": "two_lines",
+      "verdict": "continues",
+      "confidence": 0.75,
+      "supports": false
+     },
+     {
+      "source": "te_d:S2-SL036",
+      "truth": "continues",
+      "verdict": "continues",
+      "confidence": 0.7,
+      "supports": false
+     },
+     {
+      "source": "te_d:S0-SL014",
+      "truth": "continues",
+      "verdict": "continues",
+      "confidence": 0.75,
+      "supports": false
+     },
+     {
+      "source": "sweep#21",
+      "truth": "two_lines",
+      "verdict": "continues",
+      "confidence": 0.75,
+      "supports": false
+     },
+     {
+      "source": "te_d:S0-SL013",
+      "truth": "continues",
+      "verdict": "continues",
+      "confidence": 0.75,
+      "supports": false
+     },
+     {
+      "source": "te_d:S0-SL008",
+      "truth": "continues",
+      "verdict": "continues",
+      "confidence": 0.7,
+      "supports": false
+     },
+     {
+      "source": "sweep#54",
+      "truth": "two_lines",
+      "verdict": "continues",
+      "confidence": 0.75,
+      "supports": false
+     },
+     {
+      "source": "te_d:S2-SL037",
+      "truth": "continues",
+      "verdict": "continues",
+      "confidence": 0.7,
+      "supports": false
+     },
+     {
+      "source": "te_d:S1-SL021",
+      "truth": "continues",
+      "verdict": "continues",
+      "confidence": 0.65,
+      "supports": false
+     },
+     {
+      "source": "te_d:S2-SL036",
+      "truth": "continues",
+      "verdict": "continues",
+      "confidence": 0.65,
+      "supports": false
+     }
+    ]
+   },
+   "answers": {
+    "9bd4fc722bbc81bae833748d2f0b271f4ed94aae84e30a62835e343850188fa6:2200,1300": {
+     "verdict": "continues",
+     "confidence": 0.85,
+     "reason": "Blue dashes line up above and below the pipe, and a dash segment runs through the crossing.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "513bd14acbd343df9a0af5c7c71e3485cbe95bd48ad1509f923baaa6c1bc04e0:1657,620": {
+     "verdict": "continues",
+     "confidence": 0.85,
+     "reason": "Horizontal dashes on both sides are on the same line, and the dash pattern carries straight through the green line.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "b29bf9637a883dfe7e900b834a28c09854d01baf29c365f792dcb962cc67af55:400,302": {
+     "verdict": "continues",
+     "confidence": 0.8,
+     "reason": "Vertical dashes on both sides line up, with a dash segment at the crossing.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "9bd4fc722bbc81bae833748d2f0b271f4ed94aae84e30a62835e343850188fa6:800,1441": {
+     "verdict": "continues",
+     "confidence": 0.8,
+     "reason": "The dashed line keeps an even pattern above and below the pipe, with a dash segment at the crossing.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "9bd4fc722bbc81bae833748d2f0b271f4ed94aae84e30a62835e343850188fa6:1900,1263": {
+     "verdict": "continues",
+     "confidence": 0.8,
+     "reason": "Dashes line up across the pipe, and a dash segment sits at the crossing.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "f350102c3670f75e9cd647774ca8d99e3b54a496b32434f5ebf1db3ffe2838fe:400,300": {
+     "verdict": "cannot_tell",
+     "confidence": 0.45,
+     "reason": "There is a large gap on both sides of the green line. Neither dashed piece reaches it, so the panel does not show whether they are one line or two.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "6655f5491f3dca670d133ec4fbf0129586a3a6adcd0dc66a961354cebaaf554c:400,297": {
+     "verdict": "continues",
+     "confidence": 0.75,
+     "reason": "Dashes line up and the even dash pattern carries through, with a dash segment at the crossing.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "2d61901bd7b854b6fa8cf01f5990c9daad315898a2eab1c567d6a024e1b2202a:400,302": {
+     "verdict": "continues",
+     "confidence": 0.75,
+     "reason": "Dashes line up on both sides, with a dash segment through the green line.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "1a6079b3e7762769653eb6c61154cada6dbd0ef577042a25b08eda2bdb92c9f9:400,300": {
+     "verdict": "cannot_tell",
+     "confidence": 0.95,
+     "reason": "The panel is blank and shows no lines.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "3cbade0714e820920e5c416c56f1d941d87e405ee970ae28563f972e9d9779d1:400,300": {
+     "verdict": "continues",
+     "confidence": 0.8,
+     "reason": "The vertical blue dashed line stays in line on both sides of the green pipe, with no break.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "615c63f05a3bc9a5dacd0226190db66195300c9d1e035678418ba605de28d082:400,300": {
+     "verdict": "continues",
+     "confidence": 0.8,
+     "reason": "The blue dashes line up exactly above and below the green pipe.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "4badc08dd2558e2ee55a913e5d03fe5b1e4ee16d2a2436f651b9a88ac7794a1c:400,300": {
+     "verdict": "continues",
+     "confidence": 0.8,
+     "reason": "The blue dashed line passes straight through the green pipe at the same x-position.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "6f0b1575f14e63eea58b0299250ac3fb6465a95f1950bc18e68442f5a21f650b:400,304": {
+     "verdict": "continues",
+     "confidence": 0.75,
+     "reason": "The blue dashes line up across the green pipe, with a short dash at the crossing.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "2c93a1fecbae9e7659495a2f1d85b05cb63eed7cd67129f09240a4d6626b4da6:400,302": {
+     "verdict": "continues",
+     "confidence": 0.75,
+     "reason": "The vertical blue dashed line crosses the green dashed line with no break or offset.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "a40b77c494df1d357e1c0dd0f06e1b81ffa7d2aa619e0c4f13bf08cd76a4b299:1698,1560": {
+     "verdict": "continues",
+     "confidence": 0.75,
+     "reason": "The horizontal blue dashed line stays at the same height on both sides of the green pipe.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "9bd4fc722bbc81bae833748d2f0b271f4ed94aae84e30a62835e343850188fa6:1520,1596": {
+     "verdict": "continues",
+     "confidence": 0.7,
+     "reason": "The blue dashes above and below the thick green pipe are in line, with a dash crossing it.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "68578815b2f408fcdbd362e9a0ddda8c37a7af735a93bf06222c0b6be50f42b5:400,302": {
+     "verdict": "continues",
+     "confidence": 0.75,
+     "reason": "Blue dashes above and below are on the same vertical line with the same dash pattern, so they read as one line crossing the pipe.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "bbb62108ba2ff3ace2e3763eaf590c6f527c40da04c4ac22dd1c228c47cf10c8:400,299": {
+     "verdict": "continues",
+     "confidence": 0.75,
+     "reason": "The vertical dashed segments line up exactly across the green pipe.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "9bd4fc722bbc81bae833748d2f0b271f4ed94aae84e30a62835e343850188fa6:2200,1700": {
+     "verdict": "continues",
+     "confidence": 0.7,
+     "reason": "The blue dashed line keeps the same position and pattern across the green dashed line.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "a40b77c494df1d357e1c0dd0f06e1b81ffa7d2aa619e0c4f13bf08cd76a4b299:1098,684": {
+     "verdict": "continues",
+     "confidence": 0.75,
+     "reason": "The horizontal blue dashes on both sides of the vertical pipe are at the same height.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "284e0265869a30224a1ae96ddf0c1766cfbbd018422b283506a175029bd4942e:400,304": {
+     "verdict": "continues",
+     "confidence": 0.75,
+     "reason": "Blue dashes above and below the pipe are on the same line, with only a small gap at the crossing.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "a40b77c494df1d357e1c0dd0f06e1b81ffa7d2aa619e0c4f13bf08cd76a4b299:1098,420": {
+     "verdict": "continues",
+     "confidence": 0.75,
+     "reason": "The horizontal dashed line runs on across the thick vertical pipe at the same height.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "a40b77c494df1d357e1c0dd0f06e1b81ffa7d2aa619e0c4f13bf08cd76a4b299:2204,1560": {
+     "verdict": "continues",
+     "confidence": 0.7,
+     "reason": "The blue dashed line passes through the vertical pipe at the same height on both sides.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "2703eeac94bddbad1a2964cb5b895ca5f365062ba6be2e7bcc6c5b61eb490f73:400,297": {
+     "verdict": "continues",
+     "confidence": 0.75,
+     "reason": "The vertical dashes above and below the horizontal pipe line up.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "9bd4fc722bbc81bae833748d2f0b271f4ed94aae84e30a62835e343850188fa6:2000,1256": {
+     "verdict": "continues",
+     "confidence": 0.7,
+     "reason": "The blue dashes above and below sit on the same vertical axis, and the dash pattern carries on through the green pipe with no end mark on either side.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "513bd14acbd343df9a0af5c7c71e3485cbe95bd48ad1509f923baaa6c1bc04e0:1600,200": {
+     "verdict": "continues",
+     "confidence": 0.65,
+     "reason": "The dashes line up across the green pipe; the T-shaped end mark is at the top of the panel, far from the centre, and nothing marks an end at the crossing.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "9bd4fc722bbc81bae833748d2f0b271f4ed94aae84e30a62835e343850188fa6:2200,1602": {
+     "verdict": "continues",
+     "confidence": 0.65,
+     "reason": "The dashes above and below line up and keep the same rhythm across the green pipe, with no end mark at the crossing.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    }
+   }
+  },
+  {
+   "run": 2,
+   "calls": 4,
+   "seconds": 129.0,
+   "errors": 0,
+   "judge_model": "claude-opus-5-5",
+   "score": {
+    "true_crossings_te_d": {
+     "n": 13,
+     "answered_at_bar": 4,
+     "correct_at_bar": 4,
+     "accuracy_at_bar": 1.0,
+     "cannot_tell_or_below_bar": 9,
+     "supported_continues": 4
+    },
+    "false_merges_sweep": {
+     "n": 10,
+     "answered_at_bar": 3,
+     "correct_at_bar": 0,
+     "accuracy_at_bar": 0.0,
+     "cannot_tell_or_below_bar": 7,
+     "supported_continues": 3
+    },
+    "fixtures_true": {
+     "n": 1,
+     "answered_at_bar": 0,
+     "correct_at_bar": 0,
+     "accuracy_at_bar": null,
+     "cannot_tell_or_below_bar": 1,
+     "supported_continues": 0
+    },
+    "fixtures_false": {
+     "n": 0,
+     "answered_at_bar": 0,
+     "correct_at_bar": 0,
+     "accuracy_at_bar": null,
+     "cannot_tell_or_below_bar": 0,
+     "supported_continues": 0
+    },
+    "controls": {
+     "control:obvious_separate_ends": {
+      "verdict": "continues",
+      "confidence": 0.45
+     },
+     "control:blank": {
+      "verdict": "cannot_tell",
+      "confidence": 0.95
+     },
+     "control:obvious_crossing": {
+      "verdict": "continues",
+      "confidence": 0.75
+     }
+    },
+    "rows": [
+     {
+      "source": "te_d:S2-SL036",
+      "truth": "continues",
+      "verdict": "continues",
+      "confidence": 0.85,
+      "supports": true
+     },
+     {
+      "source": "te_d:S1-SL021",
+      "truth": "continues",
+      "verdict": "continues",
+      "confidence": 0.8,
+      "supports": true
+     },
+     {
+      "source": "sweep#57",
+      "truth": "two_lines",
+      "verdict": "continues",
+      "confidence": 0.85,
+      "supports": true
+     },
+     {
+      "source": "te_d:S2-SL036",
+      "truth": "continues",
+      "verdict": "continues",
+      "confidence": 0.85,
+      "supports": true
+     },
+     {
+      "source": "te_d:S2-SL030",
+      "truth": "continues",
+      "verdict": "continues",
+      "confidence": 0.85,
+      "supports": true
+     },
+     {
+      "source": "control:obvious_separate_ends",
+      "truth": "two_lines",
+      "verdict": "continues",
+      "confidence": 0.45,
+      "supports": false
+     },
+     {
+      "source": "sweep#6",
+      "truth": "two_lines",
+      "verdict": "continues",
+      "confidence": 0.8,
+      "supports": true
+     },
+     {
+      "source": "sweep#23",
+      "truth": "two_lines",
+      "verdict": "continues",
+      "confidence": 0.8,
+      "supports": true
+     },
+     {
+      "source": "control:blank",
+      "truth": "cannot_tell",
+      "verdict": "cannot_tell",
+      "confidence": 0.95,
+      "supports": false
+     },
+     {
+      "source": "sweep#48",
+      "truth": "two_lines",
+      "verdict": "continues",
+      "confidence": 0.75,
+      "supports": false
+     },
+     {
+      "source": "sweep#1",
+      "truth": "two_lines",
+      "verdict": "continues",
+      "confidence": 0.75,
+      "supports": false
+     },
+     {
+      "source": "control:obvious_crossing",
+      "truth": "continues",
+      "verdict": "continues",
+      "confidence": 0.75,
+      "supports": false
+     },
+     {
+      "source": "sweep#11",
+      "truth": "two_lines",
+      "verdict": "continues",
+      "confidence": 0.7,
+      "supports": false
+     },
+     {
+      "source": "b_cross_cc",
+      "truth": "continues",
+      "verdict": "continues",
+      "confidence": 0.75,
+      "supports": false
+     },
+     {
+      "source": "te_d:S0-SL008",
+      "truth": "continues",
+      "verdict": "continues",
+      "confidence": 0.75,
+      "supports": false
+     },
+     {
+      "source": "te_d:S2-SL028",
+      "truth": "continues",
+      "verdict": "continues",
+      "confidence": 0.7,
+      "supports": false
+     },
+     {
+      "source": "sweep#17",
+      "truth": "two_lines",
+      "verdict": "continues",
+      "confidence": 0.7,
+      "supports": false
+     },
+     {
+      "source": "sweep#58",
+      "truth": "two_lines",
+      "verdict": "continues",
+      "confidence": 0.7,
+      "supports": false
+     },
+     {
+      "source": "te_d:S2-SL036",
+      "truth": "continues",
+      "verdict": "continues",
+      "confidence": 0.65,
+      "supports": false
+     },
+     {
+      "source": "te_d:S0-SL014",
+      "truth": "continues",
+      "verdict": "continues",
+      "confidence": 0.7,
+      "supports": false
+     },
+     {
+      "source": "sweep#21",
+      "truth": "two_lines",
+      "verdict": "continues",
+      "confidence": 0.7,
+      "supports": false
+     },
+     {
+      "source": "te_d:S0-SL013",
+      "truth": "continues",
+      "verdict": "continues",
+      "confidence": 0.7,
+      "supports": false
+     },
+     {
+      "source": "te_d:S0-SL008",
+      "truth": "continues",
+      "verdict": "continues",
+      "confidence": 0.65,
+      "supports": false
+     },
+     {
+      "source": "sweep#54",
+      "truth": "two_lines",
+      "verdict": "continues",
+      "confidence": 0.7,
+      "supports": false
+     },
+     {
+      "source": "te_d:S2-SL037",
+      "truth": "continues",
+      "verdict": "continues",
+      "confidence": 0.75,
+      "supports": false
+     },
+     {
+      "source": "te_d:S1-SL021",
+      "truth": "continues",
+      "verdict": "continues",
+      "confidence": 0.65,
+      "supports": false
+     },
+     {
+      "source": "te_d:S2-SL036",
+      "truth": "continues",
+      "verdict": "continues",
+      "confidence": 0.75,
+      "supports": false
+     }
+    ]
+   },
+   "answers": {
+    "9bd4fc722bbc81bae833748d2f0b271f4ed94aae84e30a62835e343850188fa6:2200,1300": {
+     "verdict": "continues",
+     "confidence": 0.85,
+     "reason": "The vertical dashes line up exactly above and below the pipe, with a regular dash pattern through the crossing.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "513bd14acbd343df9a0af5c7c71e3485cbe95bd48ad1509f923baaa6c1bc04e0:1657,620": {
+     "verdict": "continues",
+     "confidence": 0.8,
+     "reason": "The horizontal dashes line up on both sides of the vertical pipe and keep the same spacing.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "b29bf9637a883dfe7e900b834a28c09854d01baf29c365f792dcb962cc67af55:400,302": {
+     "verdict": "continues",
+     "confidence": 0.85,
+     "reason": "The vertical dashes line up exactly through the thin pipe with an unbroken rhythm.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "9bd4fc722bbc81bae833748d2f0b271f4ed94aae84e30a62835e343850188fa6:800,1441": {
+     "verdict": "continues",
+     "confidence": 0.85,
+     "reason": "The dashes line up on both sides of the pipe and the spacing stays the same across it.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "9bd4fc722bbc81bae833748d2f0b271f4ed94aae84e30a62835e343850188fa6:1900,1263": {
+     "verdict": "continues",
+     "confidence": 0.85,
+     "reason": "The vertical dashes line up through the pipe with normal spacing.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "f350102c3670f75e9cd647774ca8d99e3b54a496b32434f5ebf1db3ffe2838fe:400,300": {
+     "verdict": "continues",
+     "confidence": 0.45,
+     "reason": "The two segments line up, but there is a large gap on each side of the green line and neither touches it, so the drawing is ambiguous.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "6655f5491f3dca670d133ec4fbf0129586a3a6adcd0dc66a961354cebaaf554c:400,297": {
+     "verdict": "continues",
+     "confidence": 0.8,
+     "reason": "The dashes line up above and below the pipe and a dash runs across it.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "2d61901bd7b854b6fa8cf01f5990c9daad315898a2eab1c567d6a024e1b2202a:400,302": {
+     "verdict": "continues",
+     "confidence": 0.8,
+     "reason": "The dashes line up across the pipe and a dash overlaps the crossing.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "1a6079b3e7762769653eb6c61154cada6dbd0ef577042a25b08eda2bdb92c9f9:400,300": {
+     "verdict": "cannot_tell",
+     "confidence": 0.95,
+     "reason": "Panel is blank; no lines are drawn.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "3cbade0714e820920e5c416c56f1d941d87e405ee970ae28563f972e9d9779d1:400,300": {
+     "verdict": "continues",
+     "confidence": 0.75,
+     "reason": "The vertical blue dashes line up exactly above and below the pipe, with a steady dash rhythm across it.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "615c63f05a3bc9a5dacd0226190db66195300c9d1e035678418ba605de28d082:400,300": {
+     "verdict": "continues",
+     "confidence": 0.75,
+     "reason": "One straight line of blue dashes passes through the pipe with no offset or gap.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "4badc08dd2558e2ee55a913e5d03fe5b1e4ee16d2a2436f651b9a88ac7794a1c:400,300": {
+     "verdict": "continues",
+     "confidence": 0.75,
+     "reason": "The blue dashes line up and keep the same spacing on both sides of the pipe.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "6f0b1575f14e63eea58b0299250ac3fb6465a95f1950bc18e68442f5a21f650b:400,304": {
+     "verdict": "continues",
+     "confidence": 0.7,
+     "reason": "The vertical dashes line up across the pipe; the small gap at the crossing fits the normal dash spacing.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "2c93a1fecbae9e7659495a2f1d85b05cb63eed7cd67129f09240a4d6626b4da6:400,302": {
+     "verdict": "continues",
+     "confidence": 0.75,
+     "reason": "The blue vertical dashes keep their rhythm and line up across the green dashed line.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "a40b77c494df1d357e1c0dd0f06e1b81ffa7d2aa619e0c4f13bf08cd76a4b299:1698,1560": {
+     "verdict": "continues",
+     "confidence": 0.75,
+     "reason": "The horizontal blue dashes line up on both sides of the thick vertical pipe with even spacing.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "9bd4fc722bbc81bae833748d2f0b271f4ed94aae84e30a62835e343850188fa6:1520,1596": {
+     "verdict": "continues",
+     "confidence": 0.7,
+     "reason": "The vertical blue dashes are lined up above and below the thick pipe with no offset.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "68578815b2f408fcdbd362e9a0ddda8c37a7af735a93bf06222c0b6be50f42b5:400,302": {
+     "verdict": "continues",
+     "confidence": 0.7,
+     "reason": "Blue dashes above and below the pipe line up exactly, with the same dash pattern, so they read as one line crossing it.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "bbb62108ba2ff3ace2e3763eaf590c6f527c40da04c4ac22dd1c228c47cf10c8:400,299": {
+     "verdict": "continues",
+     "confidence": 0.7,
+     "reason": "Blue dashes line up exactly and keep the same rhythm on both sides of the green pipe.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "9bd4fc722bbc81bae833748d2f0b271f4ed94aae84e30a62835e343850188fa6:2200,1700": {
+     "verdict": "continues",
+     "confidence": 0.65,
+     "reason": "The vertical blue dashed line runs straight through the green dashed line and stays in line on both sides.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "a40b77c494df1d357e1c0dd0f06e1b81ffa7d2aa619e0c4f13bf08cd76a4b299:1098,684": {
+     "verdict": "continues",
+     "confidence": 0.7,
+     "reason": "The horizontal blue dashes stay in line and keep the same spacing across the vertical green pipe.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "284e0265869a30224a1ae96ddf0c1766cfbbd018422b283506a175029bd4942e:400,304": {
+     "verdict": "continues",
+     "confidence": 0.7,
+     "reason": "Blue dashes above and below the pipe are lined up, and the dash pattern does not break.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "a40b77c494df1d357e1c0dd0f06e1b81ffa7d2aa619e0c4f13bf08cd76a4b299:1098,420": {
+     "verdict": "continues",
+     "confidence": 0.7,
+     "reason": "The horizontal blue dashes line up exactly on both sides of the vertical pipe.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "a40b77c494df1d357e1c0dd0f06e1b81ffa7d2aa619e0c4f13bf08cd76a4b299:2204,1560": {
+     "verdict": "continues",
+     "confidence": 0.65,
+     "reason": "The blue dashed line passes straight across the pipe, with the same dashes in line on both sides.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "2703eeac94bddbad1a2964cb5b895ca5f365062ba6be2e7bcc6c5b61eb490f73:400,297": {
+     "verdict": "continues",
+     "confidence": 0.7,
+     "reason": "The vertical blue dashes line up and keep the same pattern across the horizontal pipe.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "9bd4fc722bbc81bae833748d2f0b271f4ed94aae84e30a62835e343850188fa6:2000,1256": {
+     "verdict": "continues",
+     "confidence": 0.75,
+     "reason": "The blue dashes above and below the green line are aligned, and the dash spacing stays even across it, so it reads as one line.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "513bd14acbd343df9a0af5c7c71e3485cbe95bd48ad1509f923baaa6c1bc04e0:1600,200": {
+     "verdict": "continues",
+     "confidence": 0.65,
+     "reason": "The blue dashes line up on both sides of the green line. The upper part ends in a T-terminator at a tag, but nothing drawn shows a break at the green line.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    },
+    "9bd4fc722bbc81bae833748d2f0b271f4ed94aae84e30a62835e343850188fa6:2200,1602": {
+     "verdict": "continues",
+     "confidence": 0.75,
+     "reason": "The dashes on both sides are aligned and evenly spaced, with nothing drawn to mark an end at the green line.",
+     "judge_tool": "claude",
+     "judge_model": "claude-opus-5-5",
+     "same_model_as_reader": false
+    }
+   }
+  }
+ ],
+ "assert_enabled": false,
+ "command": "python scripts/crossing_question.py scorecard --tool claude --runs 2"
+}
