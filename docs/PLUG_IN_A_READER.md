@@ -5,8 +5,13 @@ bought, should inherit the sources, review queue and exports around it without a
 should be measured on the same keys and controls as the reader it replaces.
 
 This is a prototype. Today's reader (a general model on drawing tiles plus a code line tracer) drafts; trained models
-such as PID2Graph's and commercial readers very likely read lines better ([PRIOR_ART.md](PRIOR_ART.md)). No other
-reader has been run here yet. Current results are on the [reader leaderboard](../benchmarks/LEADERBOARD.md).
+such as PID2Graph's and commercial readers very likely read lines better ([PRIOR_ART.md](PRIOR_ART.md)). Current
+results are on the [reader leaderboard](../benchmarks/LEADERBOARD.md). One external reader has been run through the
+slot so far, unregistered and on development sheets only: the public
+[pid-to-kg skill](https://github.com/ScottDuncanAI/PID-to-Knowledge-Graph) (MIT, © the pid-to-kg contributors;
+repository by Scott Duncan), whose graph.json
+[`scripts/reader_external_kg.py`](../scripts/reader_external_kg.py) converts
+([comparison](../out/ext_pidkg/comparison.md)). It is a measured comparison and a source of ideas, not a dependency.
 
 ## The slot
 

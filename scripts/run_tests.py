@@ -88,6 +88,7 @@ SOURCE_TESTS = (
     "scripts/test_evaluate_vendor.py",
     "scripts/test_drawing_case.py",
     "scripts/test_reader_template.py",
+    "scripts/test_reader_external_kg.py",
     "scripts/test_reader_leaderboard.py",
     "scripts/test_script_index.py",
     "scripts/test_attempts_ledger.py",

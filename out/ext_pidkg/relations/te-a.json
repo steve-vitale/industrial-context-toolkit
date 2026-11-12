@@ -1,0 +1,348 @@
+{
+ "set": "te-a",
+ "builder": "pid-to-kg build_kg.py @ 7ee3a82",
+ "build_exit": 0,
+ "stats": {
+  "nodes": 105,
+  "edges": 121,
+  "nodes_by_type": {
+   "Boundary": 6,
+   "Component": 11,
+   "ControlLoop": 1,
+   "Equipment": 8,
+   "Instrument": 26,
+   "OffPageConnector": 14,
+   "PipeSegment": 35,
+   "Plant": 1,
+   "Sheet": 3
+  },
+  "edges_by_type": {
+   "ACTUATES": 1,
+   "FEEDS": 13,
+   "FLOWS_TO": 74,
+   "MEASURES": 25,
+   "MEMBER_OF": 2,
+   "PART_OF": 5,
+   "SIGNAL_TO": 1
+  },
+  "loops_by_type": {
+   "control": 1
+  },
+  "issues_by_severity": {
+   "warning": 6,
+   "info": 2
+  }
+ },
+ "offpage_connectors": 14,
+ "offpage_links": [
+  {
+   "from": {
+    "node": "P03.OPC2",
+    "drawing": "103",
+    "label": "RXN PID 101-1 (E-11) / STRIPPER OVERHEAD",
+    "bbox_0_1": [
+     0.756,
+     0.128,
+     0.83,
+     0.155
+    ],
+    "other_drawing": "PID 101-1"
+   },
+   "to": {
+    "node": "P01.OPC-S5",
+    "drawing": "101",
+    "label": "PRD PID 103-1 (H-3) STRIPPER OVERHEAD",
+    "bbox_0_1": [
+     0.037,
+     0.44,
+     0.11,
+     0.462
+    ],
+    "other_drawing": "PID 103-1"
+   },
+   "linked_by": "connector pair",
+   "match_score": 10.67
+  },
+  {
+   "from": {
+    "node": "P02.OPC3",
+    "drawing": "102",
+    "label": "PRD PID 103-1 (F-11) SEPARATOR UNDERFLOW",
+    "bbox_0_1": [
+     0.757,
+     0.74,
+     0.83,
+     0.763
+    ],
+    "other_drawing": "PID 103-1"
+   },
+   "to": {
+    "node": "P03.OPC1",
+    "drawing": "103",
+    "label": "SEP PID 102-1 (B-3) / SEPARATOR UNDERFLOW",
+    "bbox_0_1": [
+     0.037,
+     0.345,
+     0.11,
+     0.37
+    ],
+    "other_drawing": "PID 102-1"
+   },
+   "linked_by": "connector pair",
+   "match_score": 10.67
+  },
+  {
+   "from": {
+    "node": "P02.OPC2",
+    "drawing": "102",
+    "label": "RXN PID 101-1 (D-11) RECYCLE TO FEED",
+    "bbox_0_1": [
+     0.038,
+     0.082,
+     0.11,
+     0.105
+    ],
+    "other_drawing": "PID 101-1"
+   },
+   "to": {
+    "node": "P01.OPC-S8B",
+    "drawing": "101",
+    "label": "SEP PID 102-1 (H-12) RECYCLE TO FEED",
+    "bbox_0_1": [
+     0.037,
+     0.533,
+     0.11,
+     0.555
+    ],
+    "other_drawing": "PID 102-1"
+   },
+   "linked_by": "connector pair",
+   "match_score": 10.67
+  },
+  {
+   "from": {
+    "node": "P01.OPC-S7",
+    "drawing": "101",
+    "label": "SEP PID 102-1 (G-11) REACTOR PRODUCT",
+    "bbox_0_1": [
+     0.756,
+     0.373,
+     0.829,
+     0.396
+    ],
+    "other_drawing": "PID 102-1"
+   },
+   "to": {
+    "node": "P02.OPC1",
+    "drawing": "102",
+    "label": "RXN PID 101-1 (E-3) REACTOR PRODUCT",
+    "bbox_0_1": [
+     0.038,
+     0.252,
+     0.11,
+     0.275
+    ],
+    "other_drawing": "PID 101-1"
+   },
+   "linked_by": "connector pair",
+   "match_score": 10.67
+  }
+ ],
+ "loops": [
+  {
+   "loop": "S-212",
+   "kind": "control",
+   "variable": "speed/frequency",
+   "sensors": [],
+   "controllers": [
+    "SC-212"
+   ],
+   "final_elements": [
+    "Agitator motor (M)"
+   ],
+   "drawings": [
+    "101"
+   ]
+  }
+ ],
+ "cascades": [],
+ "variant": "r1",
+ "directed_pairs_by_drawing": {
+  "101": [
+   {
+    "from": "R-101",
+    "to": "P01.OPC-S7",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "R-101",
+    "to": "P01.OPC-CWR",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "U-100",
+    "to": "R-101",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "FV-203",
+    "to": "U-100",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FV-201",
+    "to": "U-100",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FV-202",
+    "to": "U-100",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "TV-210",
+    "to": "R-101",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC-S5",
+    "to": "U-100",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC-S8B",
+    "to": "U-100",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC-CWS",
+    "to": "TV-210",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "BOUNDARY_BATTERY_LIMIT_A_FEED",
+    "to": "FV-203",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "BOUNDARY_BATTERY_LIMIT_D_FEED",
+    "to": "FV-201",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "BOUNDARY_BATTERY_LIMIT_E_FEED",
+    "to": "FV-202",
+    "flow_direction": "shown"
+   }
+  ],
+  "102": [
+   {
+    "from": "E-101",
+    "to": "V-101",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "E-101",
+    "to": "P01.OPC5",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "V-101",
+    "to": "K-101",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "V-101",
+    "to": "FV-206",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "V-101",
+    "to": "LV-207",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "K-101",
+    "to": "P01.OPC2",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "K-101",
+    "to": "HV-205",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "TV-211",
+    "to": "E-101",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "HV-205",
+    "to": "K-101",
+    "flow_direction": "inferred"
+   },
+   {
+    "from": "LV-207",
+    "to": "P01.OPC3",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC1",
+    "to": "E-101",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC4",
+    "to": "TV-211",
+    "flow_direction": "shown"
+   }
+  ],
+  "103": [
+   {
+    "from": "C-101",
+    "to": "P01.OPC2",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "C-101",
+    "to": "LV-208",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "C-101",
+    "to": "P01.OPC4",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FV-204",
+    "to": "C-101",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "FV-209",
+    "to": "C-101",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "LV-208",
+    "to": "BOUNDARY_BATTERY_LIMIT_STRIPPER_PRODUCT",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC1",
+    "to": "C-101",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "P01.OPC3",
+    "to": "FV-209",
+    "flow_direction": "shown"
+   },
+   {
+    "from": "BOUNDARY_BATTERY_LIMIT_A_AND_C_FEED",
+    "to": "FV-204",
+    "flow_direction": "shown"
+   }
+  ]
+ }
+}

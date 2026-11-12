@@ -588,18 +588,18 @@ Example review: not yet: needs review
 
 **Inputs:** Your reader's per-sheet output and a small adapter to the documented prediction format; answer keys to score it
 
-**Outputs:** An importable prediction file, the same review bundle and exports as the current reader, and a registered result shown beside the controls, labelled development, validation or held-out. The worked example re-expresses an existing reading; no other reader has been run yet
+**Outputs:** An importable prediction file, the same review bundle and exports as the current reader, and a registered result shown beside the controls, labelled development, validation or held-out. The worked example re-expresses an existing reading; one external reader, the public pid-to-kg skill, has been converted from its graph.json and compared on the development sets only, unregistered
 
 **Time:** Seconds to convert and import one sheet; scoring as for the vendor-evaluation kit
 
-- **Tools:** `reader_template.py`, `reader_leaderboard.py`
+- **Tools:** `reader_template.py`, `reader_external_kg.py`, `reader_leaderboard.py`
 - **How to use it:** [PLUG_IN_A_READER.md](../docs/PLUG_IN_A_READER.md)
 
 <details>
 <summary>Example files, tests and independent review</summary>
 
-- **Registered example files:** [`reader_output_sheet0.json`](../examples/plug-in-a-reader/reader_output_sheet0.json), [`prediction_sheet0.json`](../examples/plug-in-a-reader/prediction_sheet0.json), [`manifest.json`](../examples/plug-in-a-reader/manifest.json), [`LEADERBOARD.md`](../benchmarks/LEADERBOARD.md)
-- **Tests:** `test_reader_template.py`, `test_reader_leaderboard.py`
+- **Registered example files:** [`reader_output_sheet0.json`](../examples/plug-in-a-reader/reader_output_sheet0.json), [`prediction_sheet0.json`](../examples/plug-in-a-reader/prediction_sheet0.json), [`manifest.json`](../examples/plug-in-a-reader/manifest.json), [`LEADERBOARD.md`](../benchmarks/LEADERBOARD.md), [`comparison.md`](../out/ext_pidkg/comparison.md)
+- **Tests:** `test_reader_template.py`, `test_reader_external_kg.py`, `test_reader_leaderboard.py`
 - **Independent review:** none yet
 
 </details>
