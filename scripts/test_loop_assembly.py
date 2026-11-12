@@ -1119,6 +1119,119 @@ class FourthReview(unittest.TestCase):
         self.assertEqual(cl["counts"]["loops_by_tier"]["strict"]["confirmed_loops"], 10)
 
 
+class FifthReview(unittest.TestCase):
+    """The fifth independent review (loops-rereview5: offpage_poison.py, fuzz.py): the strict pass is assembled from
+    the drawing's lines with every unconfirmed merged line, and the plain lines an off-page pair joins to it, removed
+    before networks are formed; a cascade whose chain touches such a network is not strict."""
+
+    def merged(self, lid, ms):
+        return {**line(lid, ms), "merged_through_crossing": True,
+                "crossings": [{"key": f"sha:{lid}", "at_0_1000": [1.0, 1.0], "crosses": "pipe"}]}
+
+    def poison(self, extra):
+        m = model([inst("T", "FT 5"), inst("A", "FIC 5"), inst("B", "TIC 7"), inst("V2", "TV 7"), inst("V", "PV 9"),
+                   inst("Q", "LT 11")], connectors=[{"id": "X1", "text": ""}, {"id": "X2", "text": ""}],
+                  pairs=[{"id": "P1", "a": "X1", "b": "X2", "sheet_a": "0", "sheet_b": "1"}])
+        base = [line("L0", ["T", "A"]), line("L1", ["A", "B"]), line("L2", ["B", "V2"]), line("L3", ["A", "X1"])]
+        return la.assemble(m, base + extra)
+
+    def test_an_unresolved_merged_network_hiding_an_output_gives_no_strict_cascade(self):
+        # offpage_poison.py: A's line runs off-page to X2, where a line merged through a pipe reaches PV 9 and LT 11.
+        # The joined network fails role_order, so A's real output (reading 1: A -> PV 9) is hidden, and A -> B read
+        # as a cascade only because A seemed to have no output.
+        b = self.poison([self.merged("L4", ["V", "Q", "X2"])])
+        strict = {(r["type"], r["from"], r["to"]) for r in b["relations"] if r["confidence"] in la.STRICT_TIERS}
+        self.assertNotIn(("sets_point_of", "A", "B"), strict)
+        self.assertNotIn(("signal_to", "A", "B"), strict)
+        self.assertEqual(loop(b, "A")["tier"], "traced_through_crossing")
+        u = next(u for u in b["unresolved_signal_networks"] if set(u["members"]) == {"A", "Q", "V"})
+        self.assertEqual(u["review_question"], la.CROSSING_QUESTION)  # a merged line's network carries the question
+        # reading 1 (two lines, V-X2 and a Q stub) is the drawing that gives A its output; no cascade there
+        r1 = self.poison([line("L4", ["V", "X2"])])
+        self.assertEqual(rel(r1, "controls"), {("A", "V")})
+        self.assertEqual(rel(r1, "sets_point_of"), set())
+
+    def test_a_strict_line_and_a_merged_line_on_one_pair_take_the_strict_tier(self):
+        m = model([inst("T", "FT 1"), inst("C", "FIC 1"), inst("V", "FV 1")])
+        b = la.assemble(m, [self.merged("w", ["T", "C"]), line("a", ["T", "C"]), line("b", ["C", "V"])])
+        r = next(r for r in b["relations"] if r["type"] == "signal_to" and (r["from"], r["to"]) == ("T", "C"))
+        self.assertEqual(r["confidence"], "traced_and_grouped")
+        self.assertEqual(len(loop(b, "C")["measurements"]), 1)  # one member, not two
+
+    def test_final_elements_are_listed_once(self):
+        m = model([inst("T", "FT 1"), inst("C", "FIC 1"), inst("V", "FV 1")])
+        b = la.assemble(m, [line("a", ["T", "C"]), line("b", ["C", "V"]), line("c", ["C", "V"])])
+        self.assertEqual([x["id"] for x in loop(b, "C")["final_elements"]], ["V"])
+
+    def test_seeded_fuzz_no_strict_relation_depends_on_a_merged_line(self):
+        # 2,500 random models with crossings, promotion and demotion (evaluator answers, enabled or not; reader
+        # pairs), off-page pairs and 3-member lines. Every strict relation must come out of the assembly with the
+        # unconfirmed merged lines left out, and must hold (or, undirected, keep its pair) under every reading of
+        # each merged line: as drawn, split in two at the crossing (every 2-block split of its members), or not a
+        # signal line; a confirmed loop at tier traced stays confirmed in every reading.
+        import itertools
+        lets = ["TT", "TIC", "TV", "FT", "FIC", "FV", "PT", "PIC", "PV", "TY", "FE", "FY", "LT", "LIC", "LV", "TI"]
+        rng = random.Random(20261112)
+        key = lambda r: (r["type"], r["from"], r["to"], r["direction"])  # noqa: E731
+
+        def readings(x):
+            plain = {k: v for k, v in x.items() if k not in ("merged_through_crossing", "crossings")}
+            out, ms = [[plain], []], x["members"]
+            for n in range(1, len(ms)):
+                for left in itertools.combinations(ms, n):
+                    if ms[0] in left:
+                        right = [y for y in ms if y not in left]
+                        out.append([{**plain, "id": x["id"] + "a", "members": sorted(left)},
+                                    {**plain, "id": x["id"] + "b", "members": sorted(right)}])
+            return out
+        defects, n_readings = [], 0
+        for it in range(2500):
+            ids = [f"I{i}" for i in range(rng.randint(3, 8))]
+            m = model([inst(i, f"{rng.choice(lets)} {rng.randint(1, 3)}", rng.choice("01")) for i in ids])
+            lines = []
+            for k in range(rng.randint(1, 8)):
+                ms = rng.sample(ids, 2)
+                if rng.random() < 0.15:
+                    ms.append(rng.choice([x for x in ids if x not in ms]))
+                lines.append(self.merged(f"L{k}", ms) if rng.random() < 0.4 else line(f"L{k}", ms))
+            if rng.random() < 0.35 and len(lines) >= 2:
+                m["offpage_connectors"] = [{"id": "X1", "text": ""}, {"id": "X2", "text": ""}]
+                l1, l2 = rng.sample(lines, 2)
+                l1["members"], l2["members"] = sorted(l1["members"] + ["X1"]), sorted(l2["members"] + ["X2"])
+                m["offpage_pairs"] = [{"id": "P1", "a": "X1", "b": "X2", "sheet_a": "0", "sheet_b": "1"}]
+            co = None
+            if rng.random() < 0.3:
+                co = {"crossing_answers": {f"sha:{x['id']}": {"verdict": rng.choice(["two_lines", "continues"]),
+                                                              "confidence": 0.95}
+                                           for x in lines if x.get("merged_through_crossing") and rng.random() < 0.6},
+                      "assert_enabled": rng.random() < 0.5}
+                if rng.random() < 0.3:
+                    co["reader_pairs"] = {frozenset(rng.sample(ids, 2)) for _ in range(3)}
+            full = la.assemble(m, lines, corroboration=co)
+            strict = [r for r in full["relations"] if r["confidence"] in la.STRICT_TIERS]
+            traced = [lp["controller"] for lp in full["loops"] if lp["tier"] == "traced" and lp["status"] == "confirmed"]
+            info, cand = {}, la.candidates(m)
+            la._directed_links(la.signal_networks(m, lines), cand, {k: v["role"] for k, v in cand.items()}, co,
+                               False, info)
+            fixed = [{k: v for k, v in x.items() if k != "merged_through_crossing"} for x in lines
+                     if not x.get("merged_through_crossing") or x["id"] in info["promoted"]]
+            open_ = [x for x in lines if x.get("merged_through_crossing") and x["id"] not in info["promoted"]]
+            no_merged = {key(r) for r in la.assemble(m, fixed)["relations"]}
+            defects += [(it, "no merged lines", key(r)) for r in strict if key(r) not in no_merged]
+            combos = list(itertools.product(*[readings(x) for x in open_]))
+            for combo in (rng.sample(combos, 12) if len(combos) > 12 else combos):
+                b = la.assemble(m, fixed + [y for part in combo for y in part])
+                got = {key(r) for r in b["relations"]}
+                pairs = {(r["type"], frozenset((r["from"], r["to"]))) for r in b["relations"]}
+                st = {lp["controller"]: lp["status"] for lp in b["loops"]}
+                defects += [(it, "reading", key(r)) for r in strict if key(r) not in got and not (
+                    r["direction"] == "unknown" and (r["type"], frozenset((r["from"], r["to"]))) in pairs)]
+                defects += [(it, "reading loop", c) for c in traced if st.get(c) != "confirmed"]
+                n_readings += 1
+        self.assertGreater(n_readings, 10000)
+        self.assertEqual(defects, [])
+
+
 class Scorer(unittest.TestCase):
     def test_perfect_and_empty_controls(self):
         key = ls.key_loops()

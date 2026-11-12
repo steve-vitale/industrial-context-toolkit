@@ -938,32 +938,59 @@ def _channels(net, ms, cand, corroboration):
                 "crossings": [{k: c[k] for k in ("key", "at_0_1000", "crosses") if k in c} for c in crossings]}
 
 
-def _directed_links(nets, cand, role, corroboration=None, assume_merged_ok=False):
+def _merged_crossings(net):
+    return [{k: c[k] for k in ("key", "at_0_1000", "crosses") if k in c}
+            for x in net["lines"] if x.get("merged_through_crossing") for c in x.get("crossings", [])]
+
+
+def _directed_links(nets, cand, role, corroboration=None, assume_merged_ok=False, info=None):
     """[(from, to, directed, evidence)] for the networks that meet every signal_conditions() condition, and the
     unresolved networks with the conditions each failed. A network joined through a crossing counts in full only when
     an independent channel agrees (_channels); otherwise it is a review item with the crossing question.
-    assume_merged_ok treats every merged network as corroborated (only for the review candidates)."""
+    assume_merged_ok treats every merged network as corroborated (only for the review candidates).
+    info, when given, receives "promoted" (ids of merged lines an independent channel confirmed) and "tainted" (every
+    item in a network that holds a merged line no channel confirmed, resolved or not) and "tainted_lines" (every line
+    of such a network, the merged line and the plain lines an off-page pair joined to it): what another reading of
+    such a line could change."""
     links, unresolved = [], []
+    info = info if info is not None else {}
+    info.setdefault("promoted", set())
+    info.setdefault("tainted", set())
+    info.setdefault("tainted_lines", set())
     for net in nets:
         ms = [m for m in net["members"] if m in cand]
         evidence = _line_evidence(net["lines"]) + net["flags"]
         failed = signal_conditions(net, cand, role)
+        has_merged = any(x.get("merged_through_crossing") for x in net["lines"])
         if failed:
+            if has_merged:
+                info["tainted"].update(ms)
+                info["tainted_lines"].update(x["id"] for x in net["lines"])
             unresolved.append({"members": ms, "roles": {m: role[m] for m in ms}, "evidence": evidence,
                                "failed_conditions": [c for c, _ in failed],
                                "why": "; ".join(f"{c}: {d}" for c, d in failed),
                                **({"ambiguous_ends": [a for x in net["lines"] for a in x.get("ambiguous_ends", [])]}
-                                  if any(x.get("ambiguous_ends") for x in net["lines"]) else {})})
+                                  if any(x.get("ambiguous_ends") for x in net["lines"]) else {}),
+                               **({"review_question": CROSSING_QUESTION,
+                                   "channels": {"crossings": _merged_crossings(net), "crossing_judge": None}}
+                                  if has_merged else {})})
             continue
         if len(ms) < 2:
+            if has_merged:
+                info["tainted"].update(ms)
+                info["tainted_lines"].update(x["id"] for x in net["lines"])
             continue
-        merged = any(x.get("merged_through_crossing") for x in net["lines"])
+        merged = has_merged
         corroborated_by, through = [], False
         if merged:
             corroborated_by, record = _channels(net, ms, cand, corroboration)
+            if not corroborated_by:
+                info["tainted"].update(ms)
+                info["tainted_lines"].update(x["id"] for x in net["lines"])
             if corroborated_by:  # promoted: an independent channel agrees it is one line
                 evidence = evidence + [{"kind": "corroboration", "by": corroborated_by, **record}]
                 merged = False
+                info["promoted"].update(x["id"] for x in net["lines"] if x.get("merged_through_crossing"))
             elif record["demoted_by_crossing_judge"] and not assume_merged_ok:  # demoted: two lines, for review
                 unresolved.append({"members": ms, "roles": {m: role[m] for m in ms}, "evidence": evidence,
                                    "failed_conditions": ["demoted_by_crossing_judge"], "signal_to_kept": True,
@@ -1027,16 +1054,20 @@ def assemble(model, lines, roles=None, corroboration=None, _assume_merged_ok=Fal
     frozenset item pairs, "crossing_answers": {crossing key: answer}, "assert_enabled": bool} for lines joined through
     a crossing (_channels). Reads no image.
     Tiers of derived relations and loops are set by _tier_by_derivation: the block is assembled a second time from the
-    strict links alone (_strict_only, every traced_through_crossing link left out), and anything that does not come
-    out the same there needed a crossing-tier input, so it takes traced_through_crossing."""
+    drawing's lines with every line joined through a crossing that no channel confirmed removed entirely, together
+    with the plain lines an off-page pair joins to it (_strict_only; removed before networks, off-page joins and
+    signal_conditions are formed, since another reading of the merged line can still join or poison them; a confirmed
+    one stays, as a plain traced line), and anything that does not come out the same there needed a crossing-tier input, so it takes
+    traced_through_crossing. A cascade direction is also not strict when a controller of its cascade chain sits in a
+    network holding such a line (_tier_by_derivation): its direction depends on what that line is."""
     cand = candidates(model)
     if roles is not None:
         cand = {k: {**v, "role": roles.get(k)} for k, v in cand.items()}
     role = {k: v["role"] for k, v in cand.items()}
     ident = {k: (v["scope"], v["number"]) for k, v in cand.items()}
-    links, unresolved = _directed_links(signal_networks(model, lines), cand, role, corroboration, _assume_merged_ok)
-    if _strict_only:
-        links = [lk for lk in links if not lk.get("through_crossing")]
+    info = {}
+    links, unresolved = _directed_links(signal_networks(model, lines), cand, role, corroboration, _assume_merged_ok,
+                                        info)
     solid = [lk for lk in links if not lk.get("merged")]  # the links loop logic may rest on
     reached = {lk["to"] for lk in solid if role.get(lk["to"]) == "final_element"}
     untraced_finals = {c: [k for k in cand if ident[k] == ident[c] and role[k] == "final_element"
@@ -1067,7 +1098,7 @@ def assemble(model, lines, roles=None, corroboration=None, _assume_merged_ok=Fal
         relations.append(rec)
         seen[(typ, a, b)] = rec
         return rec
-    for lk in links:
+    for lk in sorted(links, key=lambda lk: bool(lk.get("through_crossing"))):  # a strict line sets a pair's tier
         a, b = lk["from"], lk["to"]
         basis = ("cascade: the receiving controller is nearer a final element along traced signals" if lk.get("cascade")
                  else f"ISA-5.1 roles: {role[a]} -> {role[b]}" if lk["directed"] else None)
@@ -1092,15 +1123,24 @@ def assemble(model, lines, roles=None, corroboration=None, _assume_merged_ok=Fal
                 if role.get(y) == "controller":
                     reaches[x].add(y)
     loops, conflicts = [], []
+    def first_by(items, key):  # one entry per item: two lines joining the same pair are one member, not two
+        out, seen_ = [], set()
+        for x in sorted(items, key=lambda x: any(lk.get("through_crossing") for lk in (x[1] if isinstance(x, tuple)
+                                                                                         else [x]))):
+            if key(x) not in seen_:
+                seen_.add(key(x))
+                out.append(x)
+        return out
     for c in controllers:
-        meas = [lk for lk in into[c] if role.get(lk["from"]) in MEASUREMENTS]
+        meas = first_by([lk for lk in into[c] if role.get(lk["from"]) in MEASUREMENTS], lambda lk: lk["from"])
         finals = []
         for lk in outof[c]:
             if role.get(lk["to"]) == "final_element":
                 finals.append((lk["to"], [lk]))
             elif role.get(lk["to"]) == "relay":
                 finals += [(l2["to"], [lk, l2]) for l2 in outof[lk["to"]] if role.get(l2["to"]) == "final_element"]
-        inner = [lk for lk in outof[c] if lk.get("cascade")]
+        finals = first_by(finals, lambda x: x[0])
+        inner = first_by([lk for lk in outof[c] if lk.get("cascade")], lambda lk: lk["to"])
         traced = {lk["from"] for lk in meas} | {f for f, _ in finals} | {lk["to"] for lk in inner} | \
             {lk["to"] for _, path in finals for lk in path[:-1]}  # a relay on the way to the valve is traced
         group = [m for m in groups[ident[c]] if role[m] in MEASUREMENTS + ("final_element", "relay")
@@ -1163,7 +1203,11 @@ def assemble(model, lines, roles=None, corroboration=None, _assume_merged_ok=Fal
             m["relation"] = seen[("signal_to", m["id"], lp["controller"])]["id"]
     if _strict_only or _assume_merged_ok:
         return {"relations": relations, "loops": loops}
-    _tier_by_derivation(relations, loops, assemble(model, lines, roles, corroboration, _strict_only=True))
+    strict_lines = [{k: v for k, v in x.items() if k != "merged_through_crossing"}
+                    if x.get("merged_through_crossing") and x["id"] in info["promoted"] else x
+                    for x in lines if x["id"] not in info["tainted_lines"]]
+    _tier_by_derivation(relations, loops, assemble(model, strict_lines, roles, corroboration, _strict_only=True),
+                        _tainted_cascades(links, role, info["tainted"]))
     candidate_loops = _candidates(model, lines, roles, corroboration, loops, unresolved, cand, role, ident)
     counts = {"loops": len(loops), **{s: sum(lp["status"] == s for lp in loops)
                                       for s in ("confirmed", "partly_confirmed", "unconfirmed")},
@@ -1209,12 +1253,33 @@ def assemble(model, lines, roles=None, corroboration=None, _assume_merged_ok=Fal
                if corroboration else {})}
 
 
-def _tier_by_derivation(relations, loops, strict):
+def _tainted_cascades(links, role, tainted):
+    """{(outer, inner)} for every cascade whose chain holds a controller in a network with an unconfirmed merged line.
+    A cascade direction is read from graph distance to a final element, so it can change when any controller of its
+    chain (linked controller to controller, at any tier) gains or loses a link; and only a member of a network holding
+    a merged line can, under another reading of that line (whole, removed, or split in two)."""
+    parent = {}
+
+    def find(a):
+        parent.setdefault(a, a)
+        while parent[a] != a:
+            parent[a] = parent[parent[a]]
+            a = parent[a]
+        return a
+    for lk in links:
+        if role.get(lk["from"]) == role.get(lk["to"]) == "controller":
+            parent[find(lk["from"])] = find(lk["to"])
+    bad = {find(c) for c in tainted if role.get(c) == "controller" and c in parent}
+    return {(lk["from"], lk["to"]) for lk in links if lk.get("cascade") and find(lk["from"]) in bad}
+
+
+def _tier_by_derivation(relations, loops, strict, tainted_cascades=frozenset()):
     """The one rule for the tier of anything derived: it takes the weakest tier of every input that made it possible.
-    `strict` is the same block assembled with every traced_through_crossing link left out. A relation that comes out
-    the same there (type, ends and direction) rests on strict inputs only and keeps its own tier; one that does not (a
-    cascade whose direction, a controls whose loop, or a signal whose direction needed a crossing-tier line) takes
-    traced_through_crossing. A loop keeps tier "traced" only if the strict block has the same loop (status, type,
+    `strict` is the same block assembled from the drawing's lines with every unconfirmed merged line removed. A relation
+    that comes out the same there (type, ends and direction) rests on strict inputs only and keeps its own tier; one
+    that does not (a cascade whose direction, a controls whose loop, or a signal whose direction needed a crossing-tier
+    line) takes traced_through_crossing, and so does a cascade in `tainted_cascades` (_tainted_cascades), whose
+    direction another reading of a merged line could change even though removing it does not. A loop keeps tier "traced" only if the strict block has the same loop (status, type,
     measurements, final elements and inner controllers) and none of its relations is at the crossing tier; so a loop
     at tier "traced" never rests on crossing-tier support."""
     same = {(r["type"], r["from"], r["to"], r["direction"]) for r in strict["relations"]}
@@ -1223,6 +1288,12 @@ def _tier_by_derivation(relations, loops, strict):
             r["confidence"] = "traced_through_crossing"
             r["tier_basis"] = ("exists in this form only when a line joined through a crossing is counted: it takes "
                                "the weakest tier of its inputs")
+        elif (r["confidence"] != "traced_through_crossing" and r["type"] in ("signal_to", "sets_point_of")
+              and (r["from"], r["to"]) in tainted_cascades):
+            r["confidence"] = "traced_through_crossing"
+            r["tier_basis"] = ("a cascade direction inferred from graph distance, with a controller of its chain in a "
+                               "network holding a line joined through a crossing: another reading of that line could "
+                               "change which controller is outer")
         if r["confidence"] == "traced_through_crossing":
             r["merged_through_crossing"] = True  # rests, directly or through what it was derived from, on such a line
             r["review_question"] = CROSSING_QUESTION
@@ -1275,7 +1346,7 @@ def _candidates(model, lines, roles, corroboration, loops, unresolved, cand, rol
                                   "channel has confirmed that it is one line",
                         "questions": [{"question": u["review_question"], "members": u["members"],
                                        "crossings": u["channels"]["crossings"],
-                                       "crossing_judge": u["channels"]["crossing_judge"]} for u in qs]})
+                                       "crossing_judge": u["channels"].get("crossing_judge")} for u in qs]})
             continue
         if lp["status"] == "confirmed":
             continue
@@ -1319,7 +1390,9 @@ def load_crossing_answers(path):
     assert_enabled is not taken from the file: it is recomputed here from the scorecard the file names (its runs,
     through crossing_question.enabled) and the prompt hash, which must match the current prompt in both the answers
     and the scorecard. A missing or mismatched scorecard leaves the evaluator disabled: its answers then neither
-    promote nor demote anything."""
+    promote nor demote anything. The gate trusts the scorecard file the answers name: it recomputes the decision
+    from that file's recorded runs, but does not re-run them or check who wrote it. That is enough for a local run
+    on your own files; a shared pipeline that accepts answers from elsewhere should pin the scorecard's hash."""
     import crossing_question as cq
     if not path:
         return None
