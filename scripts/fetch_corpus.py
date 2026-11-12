@@ -40,7 +40,7 @@ fetched again, so a re-run with everything present needs no network:
                  These three were held out for drift, then used to develop the cyclic/auto method.
   battledim-2019 BattLeDIM 2019 SCADA CSVs, configuration, README (CC BY 4.0): held out for cyclic/auto, same network.
   industrial-yeast  the five figshare files of the industrial baker's-yeast batches (CC BY 4.0), read by
-                 scripts/industrial_yeast_case.py (matrix row 9); name, licence and URLs from its acquisition record.
+                 scripts/industrial_yeast_case.py (matrix row 11); name, licence and URLs from its acquisition record.
 
 Model use: none. Stdlib only. No downloaded code is executed. Claude (the coding agent) wrote the code.
 

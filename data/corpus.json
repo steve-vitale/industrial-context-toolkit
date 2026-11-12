@@ -1,5 +1,5 @@
 {
- "about": "Every public input the generalization matrix (scripts/corpus_matrix.py, docs/GENERALIZATION.md) runs the repository's tools against, plus public sources not yet added. local_path is relative to the repository root. committed=true means a clean clone has it; otherwise fetch is the command that builds or downloads it, and the matrix marks the cells 'needs data: <fetch>' until it is run. 'exercises' names the matrix rows the input feeds (1 tracer, 2 scorer controls, 3 intake + report, 4 loop audit, 5 exports, 6 historian bands, 7 DEXPI route, 8 pipe layer, 9 batch totals). Licenses of inputs are as stated in NOTICE.md; candidate licenses are copied from a license check done 2026-10-29 and are not legal advice. Inputs of kind needs_key (a sheet without a machine-readable key) or needs_confirmation (a pairing a person must confirm) get an n/a cell with the reason in 'not_scored' and are never scored. 'attribution' is the credit line to give when reusing the source; 'real' says whether the data were measured or drawn by people outside this repository (true) or simulated/synthetic (false).",
+ "about": "Every public input the generalization matrix (scripts/corpus_matrix.py, docs/GENERALIZATION.md) runs the repository's tools against, plus public sources not yet added. local_path is relative to the repository root. committed=true means a clean clone has it; otherwise fetch is the command that builds or downloads it, and the matrix marks the cells 'needs data: <fetch>' until it is run. 'exercises' names the matrix rows the input feeds (1 tracer, 2 scorer controls, 3 intake + report, 4 loop audit, 5 exports, 6 historian bands, 7 DEXPI route, 8 pipe layer, 9 description topology, 10 maintenance systems, 11 batch totals). Licenses of inputs are as stated in NOTICE.md; candidate licenses are copied from a license check done 2026-10-29 and are not legal advice. Inputs of kind needs_key (a sheet without a machine-readable key) or needs_confirmation (a pairing a person must confirm) get an n/a cell with the reason in 'not_scored' and are never scored. 'attribution' is the credit line to give when reusing the source; 'real' says whether the data were measured or drawn by people outside this repository (true) or simulated/synthetic (false).",
  "context_packets": [
   {
    "id": "pronto-linked-context",
@@ -920,6 +920,78 @@
    "evidence_role": "Platform export plumbing on an authored source adaptation. Separate original-source agent inventories; no heldout interpretation, plant approval or current installed-state claim."
   },
   {
+   "id": "idaes-methanol-dev",
+   "name": "IDAES methanol synthesis notebook prose up to the recycle section, keyed by methanol_flowsheet.py (development: 11 units, 10 arcs)",
+   "family": "idaes",
+   "kind": "description-topology",
+   "source_url": "https://github.com/IDAES/examples/tree/eb64e38ac429b7e3ae4f8db071f8d8cad2eef675/idaes_examples/notebooks/docs/flowsheets",
+   "license": "IDAES BSD-style license with DOE notice (benchmarks/flowsheet-topology/IDAES-LICENSE.md); derived prose, keys and answers committed; the original flowsheet code is fetch-by-hash",
+   "attribution": "IDAES PSE Framework example contributors (methanol synthesis example, Brandon Paul)",
+   "local_path": "data/external/idaes-processes/idaes_examples/notebooks/docs/flowsheets/methanol_flowsheet.py",
+   "committed": false,
+   "fetch": "python scripts/fetch_corpus.py idaes-processes",
+   "real": false,
+   "style": "a simulation flowsheet and its tutorial prose, written by the IDAES team (a model, not a plant)",
+   "exercises": [
+    9
+   ],
+   "split": "development",
+   "commit": "eb64e38ac429b7e3ae4f8db071f8d8cad2eef675",
+   "source_text": "benchmarks/flowsheet-topology/inputs/methanol-no-recycle.txt",
+   "topology_key": "benchmarks/flowsheet-topology/keys/methanol-no-recycle.json",
+   "answers": [
+    "benchmarks/flowsheet-topology/runs/dev-v1-r1/answer.json",
+    "benchmarks/flowsheet-topology/runs/dev-v1-r2/answer.json",
+    "benchmarks/flowsheet-topology/runs/dev-v1-r3/answer.json"
+   ],
+   "evidence_role": "A419: description workflow output scored against the source's own flowsheet code; one notebook, one publisher, one model family. Development data for the A419 contract change; the scorer was built with this key in view."
+  },
+  {
+   "id": "idaes-methanol-heldout",
+   "name": "IDAES methanol synthesis notebook prose including the recycle section, keyed by methanol_flowsheet_w_recycle.py (held out: 13 units, 13 arcs)",
+   "family": "idaes",
+   "kind": "description-topology",
+   "source_url": "https://github.com/IDAES/examples/tree/eb64e38ac429b7e3ae4f8db071f8d8cad2eef675/idaes_examples/notebooks/docs/flowsheets",
+   "license": "IDAES BSD-style license with DOE notice (benchmarks/flowsheet-topology/IDAES-LICENSE.md); derived prose, keys and answers committed; the original flowsheet code is fetch-by-hash",
+   "attribution": "IDAES PSE Framework example contributors (methanol synthesis example, Brandon Paul)",
+   "local_path": "data/external/idaes-processes/idaes_examples/notebooks/docs/flowsheets/methanol_flowsheet_w_recycle.py",
+   "committed": false,
+   "fetch": "python scripts/fetch_corpus.py idaes-processes",
+   "real": false,
+   "style": "a simulation flowsheet and its tutorial prose, written by the IDAES team (a model, not a plant)",
+   "exercises": [
+    9
+   ],
+   "split": "held-out",
+   "commit": "eb64e38ac429b7e3ae4f8db071f8d8cad2eef675",
+   "source_text": "benchmarks/flowsheet-topology/inputs/methanol-recycle.txt",
+   "topology_key": "benchmarks/flowsheet-topology/keys/methanol-recycle.json",
+   "answers": [
+    "benchmarks/flowsheet-topology/runs/heldout-v1-r1/answer.json",
+    "benchmarks/flowsheet-topology/runs/heldout-v1-r2/answer.json",
+    "benchmarks/flowsheet-topology/runs/heldout-v1-r3/answer.json"
+   ],
+   "evidence_role": "A419: description workflow output scored against the source's own flowsheet code; one notebook, one publisher, one model family. One sealed held-out run of the frozen method. Held-out key counts were surveyed on 2026-11-12 (its arc and unit counts, and unit-name counts over the whole notebook text); no method was run. Any sealed score on the recycle flowsheet must state this.",
+   "exposure": "Held-out key counts were surveyed on 2026-11-12 (its arc and unit counts, and unit-name counts over the whole notebook text); no method was run. Any sealed score on the recycle flowsheet must state this."
+  },
+  {
+   "id": "nestor-excavators",
+   "name": "Nestor excavator work orders: 5,485 historical maintenance work orders on five mining excavators (start date, asset, short text, order type, cost) and the publisher's cleaned file with system codes",
+   "family": "nestor-excavators",
+   "kind": "maintenance-records",
+   "source_url": "https://github.com/usnistgov/nestor/tree/1d9cd96f129fb6562f5fdb86ae0a39fb50085048/nestor/datasets",
+   "license": "Dataset terms unresolved (data/public_sources_20261107_round2.json, nestor-excavators). Local use only: fetched by hash into data/external/nestor-excavators (gitignored); no original row or excerpt is committed, only derived counts and the tool's per-record classes",
+   "attribution": "Hodkiewicz, M. and Ho, M. (2016), Cleaning historical maintenance work order data for reliability analysis, Journal of Quality in Maintenance Engineering 22(2); historical CSVs distributed by NIST Nestor",
+   "local_path": "data/external/nestor-excavators",
+   "committed": false,
+   "fetch": "python scripts/fetch_public_group.py nestor-excavators --max-mb 2",
+   "real": true,
+   "evaluation_role": "development assets A-C; held out D-E, scored once under the frozen method (A420)",
+   "exercises": [
+    10
+   ]
+  },
+  {
    "id": "industrial-yeast",
    "name": "Industrial baker's-yeast fed-batch production records (figshare 33201579): the ten full-process batches' hourly sugar feed and logged running cumulative",
    "family": "industrial-yeast",
@@ -933,7 +1005,7 @@
    "real": true,
    "evaluation_role": "development B01-B05; held out B06-B10, sealed until the A418 method and scorer were committed, then run once",
    "exercises": [
-    9
+    11
    ]
   }
  ],

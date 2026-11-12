@@ -1,0 +1,164 @@
+{
+  "prediction": {
+    "meta": {
+      "model_id": "methanol-synthesis-draft",
+      "title": "Methanol synthesis flowsheet example (assisted first draft)",
+      "source_document": "source.txt",
+      "source_sha256": "1e13f7fc9249891b146d57cd07529c43dc58429e4a7fec193836df84234d9beb",
+      "unknowns": [
+        "The source supplies no equipment tags. All unit and stream identifiers are newly assigned.",
+        "The source specifies no instruments, control valves, controllers, manual valves, relief devices, interlocks or limits. Those lists are left empty or omitted.",
+        "Values are unspecified for the compressor outlet pressure, heater outlet temperature, feed flows, pressures, enthalpies and compositions, and all equipment duties and sizes. Engineering units for these inputs appear only as model variables (L37-L39).",
+        "The relative order of the pre-reactor compressor and heater is uncertain. L60 lists the compressor before the heater, but L67 says the pre-reactor section brings the reactants to 'temperature and pressure'. The drawn order C-1 then H-1 requires review.",
+        "The positions of the turbine and cooler between the reactor and the Flash unit come only from the L60 unit enumeration. No explicit before or after statement gives them.",
+        "The source mentions an exhaust (L69) but does not state which unit or outlet it leaves from. No exhaust stream is drawn.",
+        "The vapor outlet of the Flash unit and any recycle are not described.",
+        "L60 refers to 'the process diagram in section 2.2', but section 2.2 (L41-L46) lists Main Outputs and contains no diagram.",
+        "Whether 'Product block' (L58) is equipment or only a model product terminal is unclear. It is drawn as a battery-limit product flag.",
+        "Line sizes, specifications, valve fail positions, operating limits and trip settings are unspecified."
+      ],
+      "assumptions": [
+        "Symbol dimensions and locations are proposed drafting geometry, not plant dimensions.",
+        "The turbine (L34, L44, L60) has no supported symbol type. It is represented with the closest supported type, compressor, and keeps the name 'Turbine'.",
+        "The pre-reactor heater (L39) and the cooler (L60) are represented as type heat_exchanger.",
+        "The feed mixing step (L10, L67) is represented as a feed_header unit named 'Feed mixer'.",
+        "The post-reactor Flash unit (L10) is represented as type separator.",
+        "Order-based interpretation for review: streams S-H2 and S-CO (hydrogen and carbon monoxide feeds from the battery limit to MX-1) rest on L10, which says the reactant vapors are mixed.",
+        "Order-based interpretation for review: stream S3 (MX-1 to C-1) rests on L67. It says the pre-reactor section mixes the feeds and then brings the reactants to temperature and pressure. That the compressor is first is taken from the L60 enumeration.",
+        "Order-based interpretation for review: streams S4 (C-1 to H-1), S5 (H-1 to R-1), S6 (R-1 to T-1), S7 (T-1 to CL-1) and S8 (CL-1 to F-1) treat the L60 per-unit list (compressor, heater, reactor, turbine, cooler, flash) as a list of units in process order.",
+        "Order-based interpretation for review: stream S9 (F-1 liquid outlet to the product battery limit) rests on L58, which refers to the liquid outlet Product block of the Flash unit.",
+        "Stream names are drafting descriptions derived from the cited lines."
+      ]
+    },
+    "units": [
+      {
+        "id": "MX-1",
+        "name": "Feed mixer",
+        "type": "feed_header",
+        "assigned_tag": true,
+        "source": "source.txt:L10-L10"
+      },
+      {
+        "id": "C-1",
+        "name": "Pre-reactor compressor",
+        "type": "compressor",
+        "assigned_tag": true,
+        "source": "source.txt:L38-L38"
+      },
+      {
+        "id": "H-1",
+        "name": "Pre-reactor heater",
+        "type": "heat_exchanger",
+        "assigned_tag": true,
+        "source": "source.txt:L39-L39"
+      },
+      {
+        "id": "R-1",
+        "name": "Gas-phase reactor",
+        "type": "reactor",
+        "assigned_tag": true,
+        "source": "source.txt:L10-L10"
+      },
+      {
+        "id": "T-1",
+        "name": "Turbine",
+        "type": "compressor",
+        "assigned_tag": true,
+        "source": "source.txt:L44-L44"
+      },
+      {
+        "id": "CL-1",
+        "name": "Cooler",
+        "type": "heat_exchanger",
+        "assigned_tag": true,
+        "source": "source.txt:L60-L60"
+      },
+      {
+        "id": "F-1",
+        "name": "Flash unit",
+        "type": "separator",
+        "assigned_tag": true,
+        "source": "source.txt:L10-L10"
+      }
+    ],
+    "streams": [
+      {
+        "id": "S-H2",
+        "name": "Hydrogen feed",
+        "from": "BL",
+        "to": "MX-1",
+        "assigned_tag": true,
+        "source": "source.txt:L10-L10"
+      },
+      {
+        "id": "S-CO",
+        "name": "Carbon monoxide feed",
+        "from": "BL",
+        "to": "MX-1",
+        "assigned_tag": true,
+        "source": "source.txt:L10-L10"
+      },
+      {
+        "id": "S3",
+        "name": "Mixed feed to compressor",
+        "from": "MX-1",
+        "to": "C-1",
+        "assigned_tag": true,
+        "source": "source.txt:L67-L67"
+      },
+      {
+        "id": "S4",
+        "name": "Compressor outlet to heater",
+        "from": "C-1",
+        "to": "H-1",
+        "assigned_tag": true,
+        "source": "source.txt:L60-L60"
+      },
+      {
+        "id": "S5",
+        "name": "Heater outlet to reactor",
+        "from": "H-1",
+        "to": "R-1",
+        "assigned_tag": true,
+        "source": "source.txt:L60-L60"
+      },
+      {
+        "id": "S6",
+        "name": "Reactor outlet to turbine",
+        "from": "R-1",
+        "to": "T-1",
+        "assigned_tag": true,
+        "source": "source.txt:L60-L60"
+      },
+      {
+        "id": "S7",
+        "name": "Turbine outlet to cooler",
+        "from": "T-1",
+        "to": "CL-1",
+        "assigned_tag": true,
+        "source": "source.txt:L60-L60"
+      },
+      {
+        "id": "S8",
+        "name": "Cooler outlet to Flash unit",
+        "from": "CL-1",
+        "to": "F-1",
+        "assigned_tag": true,
+        "source": "source.txt:L60-L60"
+      },
+      {
+        "id": "S9",
+        "name": "Flash liquid product",
+        "from": "F-1",
+        "to": "BL",
+        "assigned_tag": true,
+        "source": "source.txt:L58-L58"
+      }
+    ],
+    "instruments": [],
+    "final_elements": []
+  },
+  "ran_at": "2026-11-12T18:40:18Z",
+  "seconds": 113.2,
+  "cost_usd_notional": 0.2218
+}

@@ -1,0 +1,353 @@
+{
+  "model": {
+    "meta": {
+      "model_id": "methanol-synthesis-draft",
+      "title": "Methanol synthesis flowsheet example (assisted first draft)",
+      "source_document": "source.txt",
+      "source_sha256": "c2bfe1b3c28762f78aaa5e546ccce9a9407fb00324d251a5690b8f95c4af0bc7",
+      "unknowns": [
+        "The source gives no equipment tags, instrument tags, control valves, controllers, manual valves, relief devices, interlocks or operating limits; none are represented.",
+        "The source does not give the order of the pre-reactor compressor and pre-reactor heater relative to each other. It states only that both are pre-reactor and that the feeds are mixed before reaching reaction conditions. Streams from the feed mixer through the compressor and heater to the reactor are therefore not drawn.",
+        "The source does not state where the turbine and cooler sit relative to the reactor and the Flash unit, so no streams connect the reactor, turbine, cooler and Flash unit. The degrees-of-freedom list on L60 names the units, but the source does not say that list is in process order.",
+        "The recycle case (sections 4-5) sends most Flash vapor 'back to the start of the process' with a 10-50% purge to the exhaust. The recycle destination, the splitting equipment and the recycle stream are not specified, so the recycle is not drawn.",
+        "Section 3.2 refers to a 'process diagram in section 2.2', but no diagram is present in the source.",
+        "Engineering units of measure, pressures, temperatures, flows, line sizes, materials and equipment dimensions for the plant are not specified as plant data. The source is a simulation notebook and states that it does not represent any particular chemical process."
+      ],
+      "assumptions": [
+        "Symbol dimensions and locations are proposed drafting geometry, not plant dimensions.",
+        "All unit identifiers (M-1, C-1, E-1, R-1, T-1, E-2, F-1) are newly assigned because the source supplies no tags.",
+        "The turbine has no supported symbol type, so it is represented with the closest supported type (compressor) and keeps the source name 'Turbine'.",
+        "The pre-reactor heater and the cooler are represented as heat_exchanger type.",
+        "The feed mixing named on L10 is represented as a feed_header unit (M-1).",
+        "The Flash unit is represented as separator type.",
+        "The liquid methanol Product block and the exhaust are represented as battery limits (BL), not as equipment.",
+        "Stream S3 (Flash vapor to exhaust) is interpreted from L73, which describes Flash vapor going to the exhaust. This is an interpretation for review.",
+        "The model represents the base (no-recycle) flowsheet; the recycle variant is recorded in unknowns."
+      ]
+    },
+    "units": [
+      {
+        "id": "M-1",
+        "name": "Feed mixer (reactant vapor mixing)",
+        "type": "feed_header",
+        "assigned_tag": true,
+        "source": "source.txt:L10-L10"
+      },
+      {
+        "id": "C-1",
+        "name": "Pre-reactor compressor",
+        "type": "compressor",
+        "assigned_tag": true,
+        "source": "source.txt:L38-L38"
+      },
+      {
+        "id": "E-1",
+        "name": "Pre-reactor heater",
+        "type": "heat_exchanger",
+        "assigned_tag": true,
+        "source": "source.txt:L39-L39"
+      },
+      {
+        "id": "R-1",
+        "name": "Gas-phase reactor",
+        "type": "reactor",
+        "assigned_tag": true,
+        "source": "source.txt:L10-L10"
+      },
+      {
+        "id": "T-1",
+        "name": "Turbine",
+        "type": "compressor",
+        "assigned_tag": true,
+        "source": "source.txt:L60-L60"
+      },
+      {
+        "id": "E-2",
+        "name": "Cooler",
+        "type": "heat_exchanger",
+        "assigned_tag": true,
+        "source": "source.txt:L60-L60"
+      },
+      {
+        "id": "F-1",
+        "name": "Flash unit (post-reactor methanol recovery)",
+        "type": "separator",
+        "assigned_tag": true,
+        "source": "source.txt:L10-L10"
+      }
+    ],
+    "streams": [
+      {
+        "id": "S1",
+        "name": "Hydrogen feed",
+        "from": "BL",
+        "to": "M-1",
+        "assigned_tag": true,
+        "source": "source.txt:L10-L10"
+      },
+      {
+        "id": "S2",
+        "name": "Carbon monoxide feed",
+        "from": "BL",
+        "to": "M-1",
+        "assigned_tag": true,
+        "source": "source.txt:L10-L10"
+      },
+      {
+        "id": "S3",
+        "name": "Flash vapor to exhaust",
+        "from": "F-1",
+        "to": "BL",
+        "assigned_tag": true,
+        "source": "source.txt:L73-L73"
+      },
+      {
+        "id": "S4",
+        "name": "Flash liquid outlet to Product",
+        "from": "F-1",
+        "to": "BL",
+        "assigned_tag": true,
+        "source": "source.txt:L58-L58"
+      }
+    ],
+    "instruments": [],
+    "final_elements": []
+  },
+  "layout": {
+    "sheet_px": [
+      3200,
+      2130
+    ],
+    "control_valve_stations": false,
+    "line_label_prefix": "UNSIZED",
+    "register_header": "# Assisted draft from a simulation notebook, not a plant drawing register.",
+    "title_block": {
+      "project": "METHANOL SYNTHESIS FLOWSHEET EXAMPLE",
+      "drawn_by": "ASSISTED DRAFT",
+      "date": "UNKNOWN",
+      "revision": "DRAFT",
+      "scale": "NONE",
+      "notes": [
+        "NOT A DRAWING OF RECORD",
+        "SOURCE FACTS REQUIRE REVIEW",
+        "GEOMETRY IS PROPOSED ONLY",
+        "SIZE/SPEC ARE PLACEHOLDERS"
+      ]
+    },
+    "sheets": [
+      {
+        "id": "D1",
+        "drawing": "DRAFT-001",
+        "system": "PRE-REACTOR AND REACTOR",
+        "title": "METHANOL SYNTHESIS - FEEDS AND REACTION",
+        "units": {
+          "M-1": {
+            "shape": "mixer",
+            "at": [
+              600,
+              900
+            ]
+          },
+          "C-1": {
+            "shape": "compressor",
+            "at": [
+              1100,
+              900
+            ],
+            "r": 50
+          },
+          "E-1": {
+            "shape": "horizontal_exchanger",
+            "x0": 1400,
+            "x1": 1800,
+            "cy": 900,
+            "h": 100
+          },
+          "R-1": {
+            "shape": "vertical_vessel",
+            "cx": 2300,
+            "top": 700,
+            "bottom": 1100,
+            "w": 220,
+            "head": 50
+          }
+        },
+        "flags": {
+          "IN_H2": {
+            "stream": "S1",
+            "label": "HYDROGEN FEED",
+            "at": [
+              120,
+              800
+            ],
+            "dir": "right"
+          },
+          "IN_CO": {
+            "stream": "S2",
+            "label": "CARBON MONOXIDE FEED",
+            "at": [
+              120,
+              1000
+            ],
+            "dir": "right"
+          }
+        },
+        "controllers": {},
+        "signals": [],
+        "routes": [
+          {
+            "id": "S1",
+            "stream": "S1",
+            "from": {
+              "flag": "IN_H2"
+            },
+            "to": {
+              "unit": "M-1"
+            },
+            "pts": [
+              [
+                350,
+                800
+              ],
+              [
+                600,
+                800
+              ],
+              [
+                600,
+                865
+              ]
+            ]
+          },
+          {
+            "id": "S2",
+            "stream": "S2",
+            "from": {
+              "flag": "IN_CO"
+            },
+            "to": {
+              "unit": "M-1"
+            },
+            "pts": [
+              [
+                350,
+                1000
+              ],
+              [
+                600,
+                1000
+              ],
+              [
+                600,
+                935
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "id": "D2",
+        "drawing": "DRAFT-002",
+        "system": "POST-REACTOR AND RECOVERY",
+        "title": "METHANOL SYNTHESIS - TURBINE, COOLER AND FLASH",
+        "units": {
+          "T-1": {
+            "shape": "compressor",
+            "at": [
+              700,
+              900
+            ],
+            "r": 50
+          },
+          "E-2": {
+            "shape": "horizontal_exchanger",
+            "x0": 1000,
+            "x1": 1400,
+            "cy": 900,
+            "h": 100
+          },
+          "F-1": {
+            "shape": "vertical_vessel",
+            "cx": 1900,
+            "top": 700,
+            "bottom": 1100,
+            "w": 220,
+            "head": 50
+          }
+        },
+        "flags": {
+          "OUT_EXH": {
+            "stream": "S3",
+            "label": "EXHAUST",
+            "at": [
+              2600,
+              750
+            ],
+            "dir": "right"
+          },
+          "OUT_PROD": {
+            "stream": "S4",
+            "label": "LIQUID PRODUCT",
+            "at": [
+              2600,
+              1050
+            ],
+            "dir": "right"
+          }
+        },
+        "controllers": {},
+        "signals": [],
+        "routes": [
+          {
+            "id": "S3",
+            "stream": "S3",
+            "from": {
+              "unit": "F-1"
+            },
+            "to": {
+              "flag": "OUT_EXH"
+            },
+            "pts": [
+              [
+                2010,
+                750
+              ],
+              [
+                2600,
+                750
+              ]
+            ]
+          },
+          {
+            "id": "S4",
+            "stream": "S4",
+            "from": {
+              "unit": "F-1"
+            },
+            "to": {
+              "flag": "OUT_PROD"
+            },
+            "pts": [
+              [
+                2010,
+                1050
+              ],
+              [
+                2600,
+                1050
+              ]
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "evidence": {
+    "source.txt:L10-L10": "This example demonstrates a steady-state model of methanol synthesis from hydrogen and carbon monoxide. To simulate relevant natural gas components, the reactant vapors are mixed stoichiometrically and brought to optimal reaction conditions prior to entering the gas-phase reactor. Vapor liquid equilibrium is mainly applicable in the post-reactor Flash unit for methanol recovery, and is accounted for by separate vapor and VLE thermophysical property packages. See `methanol_flowsheet.py` for more information on how to assemble the flowsheet, as well as [idaes_examples.mod.methanol.methanol_ideal_VLE.py](https://github.com/IDAES/examples-pse/tree/main/pkg/idaes_examples/common/methanol/methanol_ideal_VLE.py), [idaes_examples.mod.methanol.methanol_ideal_vapor](https://github.com/IDAES/examples-pse/tree/main/pkg/idaes_examples/common/methanol/methanol_ideal_vapor.py) and [idaes_examples.mod.methanol.methanol_reactions](https://github.com/IDAES/examples-pse/tree/main/pkg/idaes_examples/common/methanol/methanol_reactions.py) for more information on the thermophyscial and reaction properties.",
+    "source.txt:L38-L38": "- Pre-reactor compressor outlet pressure (Pa)",
+    "source.txt:L39-L39": "- Pre-reactor heater outlet temperature (K)",
+    "source.txt:L58-L58": "In the code below, we first define a Pyomo model object and build the model by defining each unit block with relevant property packages. As mentioned earlier, only the Flash unit (and the liquid outlet Product block) employ the VLE property package to ensure fast convergence of vapor-only processes.",
+    "source.txt:L60-L60": "The process inputs are set for stoichiometric hydrogen and carbon monoxide feeds according to the process diagram in section 2.2. In the output below, the script returns the expected degrees of freedom for the model for each unit (compressor pressure change, heater duty, reactor duty and conversion, turbine pressure change and efficiency, cooler duty and flash duty and pressure change) and the actual model degrees of freedom before input specification, after the feed inputs are specified (flow, enthalpy, pressure, and composition for each feed) and after the unit model inputs are specified.",
+    "source.txt:L73-L73": "To increase the efficiency of the process as well as overall methanol production and revenue, we can add a recycle stream to send most of the Flash vapor back to the start of the process. This will reduce methanol loss in the exhaust and increase feed utilization, resulting in increased operating costs and increased production (revenue) at the same conversion. Note that for conversions less than 100%, a simulation with no purge will never converge due to accumulation of gases within the system. Therefore, to ensure we close the mass balance we set a lower bound at 10% purge from the Flash vapor to the exhaust. We expect to see a marginal increase in operating costs due to increased flow, and a much larger increase in overall production resulting in a higher total revenue."
+  }
+}

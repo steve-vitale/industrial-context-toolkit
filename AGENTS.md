@@ -193,7 +193,7 @@ Pick whichever matters to your user and follow it from source to number. Each of
 
 For a user-requested improvement or corpus contribution, follow [CONTRIBUTING.md](CONTRIBUTING.md): retain a
 reproducible failing case, source/key provenance, saved model/method metadata and matched baseline results.
-The [task/model benchmarks](benchmarks/README.md) are separate from the eight-workflow matrix and feature reviews;
+The [task/model benchmarks](benchmarks/README.md) are separate from the nine-workflow matrix and feature reviews;
 only the documented task adapters are implemented. Their checks re-score saved answers without calling models.
 
 Open an issue on the repository with the claim, the file and line, and what you expected. That is the most useful

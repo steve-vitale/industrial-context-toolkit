@@ -1,0 +1,55 @@
+{
+  "cases": [
+    "nestor-excavators-a-c",
+    "nestor-excavators-d-e"
+  ],
+  "configuration": {
+    "derive_source": "description",
+    "recurring_fields": [
+      "work_class"
+    ],
+    "vocabulary_rules": 10
+  },
+  "id": "a420-maintenance-history-vocabulary",
+  "interface": "python scripts/maintenance_history.py via examples/maintenance-history/nestor.py",
+  "method": "maintenance-history derive: declared whole-word vocabulary over the short text, first rule wins; recurring_fields work_class",
+  "model": {
+    "id": "maintenance_history.py derive",
+    "provider": "none (deterministic tool)",
+    "version": "frozen 2026-11-12 (FREEZE.json)"
+  },
+  "predictions": {
+    "nestor-excavators-a-c": {
+      "path": "benchmarks/maintenance-systems/predictions/development.json",
+      "sha256": "436cc8d6ed5739b44799ba8f8094d71e3c6c771594fadf0f13268012623242b5"
+    },
+    "nestor-excavators-d-e": {
+      "path": "benchmarks/maintenance-systems/predictions/held-out.json",
+      "sha256": "f485a18cb89de2c63a45865bfe9c3e065454cb7dfd710f3b6aec4b2e9aab65ff"
+    }
+  },
+  "provenance": "Deterministic tool run, no model. Development answer from a re-run of the frozen method (identical to the pre-freeze run); held-out answer from the one sealed run (A420).",
+  "ran_at": "2026-11-12",
+  "recipe": [
+    {
+      "path": "examples/maintenance-history/nestor/system_vocabulary.json",
+      "role": "vocabulary",
+      "sha256": "0c54b1bad4a8d9f06145ef2de186a4400284293ca42c43962ce61fffdb5a0bb4"
+    },
+    {
+      "path": "examples/maintenance-history/nestor.py",
+      "role": "profile_and_driver",
+      "sha256": "9f16827b76cdd2fdb9e9cb381b47467bf44aad7ccdfb8d2396b9e8a50d5189c3"
+    },
+    {
+      "path": "scripts/maintenance_history.py",
+      "role": "tool",
+      "sha256": "224bfaf067df753d850b88e287b337fb2552d796a3ba2b1d0568f7767fde1e9e"
+    },
+    {
+      "path": "examples/maintenance-history/nestor/FREEZE.json",
+      "role": "freeze",
+      "sha256": "7eab245fb0aefa656736d0df08fd9b104bd5c0a7780b7e651fcfb91822df71b1"
+    }
+  ]
+}

@@ -324,18 +324,44 @@ class Rendering(unittest.TestCase):
                     self.assertTrue((Path(d) / f"{s}.graphml").is_file())
             self.assertEqual(set(notes), set(inp["sheets"]))
 
-    def test_batch_totals_row_runs_the_product_tool_on_the_yeast_batches(self):
+    def test_row11_batch_totals_runs_the_product_tool_on_the_yeast_batches(self):
         inp = cm.inputs_by_id(cm.load_corpus())["industrial-yeast"]
-        self.assertEqual(inp["exercises"], [9])
+        self.assertEqual(inp["exercises"], [11])
         self.assertEqual(inp["fetch"], "python scripts/fetch_corpus.py industrial-yeast")
-        files = cm.tool_files(9, "industrial-yeast")
+        files = cm.tool_files(11, "industrial-yeast")
         for rel in ("scripts/batch_analysis.py", "scripts/score_batch_totals.py", "scripts/industrial_yeast_case.py"):
             self.assertIn(rel, files)
-        specs = {s["path"]: s for s in cm.source_specs(9, inp)}
+        specs = {s["path"]: s for s in cm.source_specs(11, inp)}
         self.assertTrue(specs["data/external/industrial-yeast"]["optional"])
         self.assertFalse(specs["examples/batch-analysis/industrial-yeast/results"]["optional"])
         self.assertEqual(cm.missing_files(dict(inp, local_path="data/external/no-such-yeast-cache")),
                          ["data/external/no-such-yeast-cache"])
+
+    def test_row10_binds_the_two_read_originals_as_an_optional_cache_and_its_frozen_config(self):
+        inp = cm.inputs_by_id(cm.load_corpus())["nestor-excavators"]
+        self.assertFalse(inp["committed"])
+        self.assertEqual(inp["exercises"], [10])
+        self.assertTrue(inp["fetch"].startswith("python scripts/fetch_public_group.py nestor-excavators"))
+        specs = {s["path"]: s for s in cm.source_specs(10, inp)}
+        cache = specs["data/external/nestor-excavators"]
+        self.assertEqual(cache["patterns"], sorted(cm.NESTOR_FILES))
+        self.assertTrue(cache["optional"])
+        self.assertEqual(cache["cache_root"], "data/external/nestor-excavators")
+        for rel in cm.NESTOR_CONFIG:
+            self.assertFalse(specs[rel]["optional"], rel)
+        tools = cm.tool_files(10, "nestor-excavators")
+        for rel in ("scripts/maintenance_intake.py", "examples/maintenance-history/nestor.py", "scripts/maintenance_system_posthoc.py"):
+            self.assertIn(rel, tools)
+        rates = {"precision": 0.5, "recall": 0.5, "f1": 0.5}
+        names = ("method", "reference", "raw-asset-baseline", "majority-system", "shuffled-within-asset", "misaligned-key")
+        split = {"assets": ["A"], "margin": 0.3, "rates": {n: {"orders": rates, "groups": rates} for n in names},
+                 "orders_no_key_as_fp": {n: rates for n in names},
+                 "keyfree_control": {"rates": {"orders": rates, "groups": rates}, "orders_no_key_as_fp": rates}}
+        table = "\n".join(cm.row10_table({(10, "nestor-excavators"): {"detail": {"splits": {"development": split}}}}, 10))
+        for column in ("Key-free control", "no-key as FP", "Reference", "Raw-asset baseline", "Majority class",
+                       "Shuffled within asset", "Misaligned key"):
+            self.assertIn(column, table)
+        self.assertNotIn("AMPS", cm.ROW_CRITERIA[10])
 
     def test_heldout_historian_sources_registered_with_fetch(self):
         import fetch_corpus as fc

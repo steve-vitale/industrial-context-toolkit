@@ -350,7 +350,7 @@ def render(sections, skipped):
     if skipped:
         for entry, task in skipped:
             what = ("scores a batch tool's recorded totals, not a drawing reader" if task == "batch-totals"
-                    else "scores descriptions, models or claims, not a drawing reader")
+                    else "scores descriptions, models, claims or maintenance records, not a drawing reader")
             out.append(f"- `{task}` ({links(entry)}): {what}.")
     else:
         out.append("- None.")

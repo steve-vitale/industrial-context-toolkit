@@ -7,7 +7,7 @@ or measured operational benefit is established. A successful example does not es
 | Evidence | What it answers |
 |---|---|
 | This page and the [claim receipt](../out/claims_check.md) | What the published research numbers mean, and whether they match their committed evidence. |
-| [Generalization matrix](GENERALIZATION.md) | Where nine selected workflows pass or fail on registered public inputs. |
+| [Generalization matrix](GENERALIZATION.md) | Where eleven selected workflows pass or fail on registered public inputs. |
 | [Task/model benchmarks](../benchmarks/README.md) | How saved attempts compare on matching task, source, key and scorer cohorts. |
 | [Feature reference](FEATURES.md) | Which committed examples have current independent coding-agent reviews. |
 | [Evaluation protocol](EVALUATION.md) and [preregistered rounds](GOAL.md) | What was decided before a run, what was inspected and which layer each score measures. |
@@ -26,10 +26,17 @@ See [reviewing the evidence](REVIEWING.md) for test prerequisites, omissions and
 
 ## Tool coverage
 
-The [corpus matrix](GENERALIZATION.md) covers nine selected workflows:
-47 cells pass, 10 fail, 5 are not applicable and 34 need data in the current recorded matrix. The missing-data
+The [corpus matrix](GENERALIZATION.md) covers eleven selected workflows:
+48 cells pass, 12 fail, 5 are not applicable and 34 need data in the current recorded matrix. Row 9
+(added 2026-11-12, A419) scores the description workflow on the IDAES methanol prose; both of its cells fail. Its
+held-out connection F1 0.353 is boundary credit only: 0 of 9 unit-to-unit arcs (internal-arc F1 0.000). Row 10
+(added 2026-11-12, A420) scores maintenance-history system grouping on the Nestor excavator records: the `derive`
+option applies a declared vocabulary faithfully, and a vocabulary written from development assets A-C, including
+their publisher codes, agrees with the publisher's keyword-rule codes on held-out D-E at per-record F1 0.943 (0.887
+with no-system rows counted as errors; class-name words alone 0.501). It does not show what a user without a key
+would write, or engineering correctness; the vocabulary is a per-dataset profile artifact, not part of the product. The missing-data
 cells name absent optional caches; they are neither passes nor evidence that earlier failures were fixed.
-Row 9 is the batch tool on public industrial baker's-yeast batches ([case](../examples/batch-analysis/industrial-yeast/README.md), A418). On ten real batches, the batch tool's `next` integral reproduces the publisher's logged running cumulative on 9 of 10 batches and 166 of 169 hours; the one mismatch (B09 hours 11-13) is an inconsistency inside the source. The key is the publisher's own sum of the same feed column, so this checks the interval convention, unit, window and coverage, and the source's internal consistency. It is not a measurement or outcome benchmark.
+Row 11 is the batch tool on public industrial baker's-yeast batches ([case](../examples/batch-analysis/industrial-yeast/README.md), A418). On ten real batches, the batch tool's `next` integral reproduces the publisher's logged running cumulative on 9 of 10 batches and 166 of 169 hours; the one mismatch (B09 hours 11-13) is an inconsistency inside the source. The key is the publisher's own sum of the same feed column, so this checks the interval convention, unit, window and coverage, and the source's internal consistency. It is not a measurement or outcome benchmark.
 It does not give the process-data area depth on an outcome key.
 Rows have different run dates, recorded on the matrix page. Pipe tracing reaches F1 0.912 on the OPEN100 validation sheets
 (derived truth, only partly blind). The historical mixed vendor-render pool failed at 0.776; its per-sheet counts

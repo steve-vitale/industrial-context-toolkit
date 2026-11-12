@@ -226,15 +226,15 @@ class Claim:
 
 
 CLAIMS = [
-    Claim("M-workflows", "nine selected workflows in the corpus matrix", ["covers nine selected workflows"], 9,
+    Claim("M-workflows", "eleven selected workflows in the corpus matrix", ["covers eleven selected workflows"], 11,
           lambda: len({c["row"] for c in matrix_cells()}), [MATRIX]),
-    Claim("M-pass", "47 current corpus cells pass", ["47 cells pass, 10 fail, 5 are not applicable and 34 need data"], 47,
+    Claim("M-pass", "48 current corpus cells pass", ["48 cells pass, 12 fail, 5 are not applicable and 34 need data"], 48,
           lambda: sum(c["status"] == "pass" for c in matrix_cells()), [MATRIX]),
-    Claim("M-fail", "10 current corpus cells fail", ["47 cells pass, 10 fail, 5 are not applicable and 34 need data"], 10,
+    Claim("M-fail", "12 current corpus cells fail", ["48 cells pass, 12 fail, 5 are not applicable and 34 need data"], 12,
           lambda: sum(c["status"] == "fail" for c in matrix_cells()), [MATRIX]),
-    Claim("M-na", "5 current corpus cells are not applicable", ["47 cells pass, 10 fail, 5 are not applicable and 34 need data"], 5,
+    Claim("M-na", "5 current corpus cells are not applicable", ["48 cells pass, 12 fail, 5 are not applicable and 34 need data"], 5,
           lambda: sum(c["status"] == "n/a" for c in matrix_cells()), [MATRIX]),
-    Claim("M-needs-data", "34 current corpus cells need data", ["47 cells pass, 10 fail, 5 are not applicable and 34 need data"], 34,
+    Claim("M-needs-data", "34 current corpus cells need data", ["48 cells pass, 12 fail, 5 are not applicable and 34 need data"], 34,
           lambda: sum(c["status"] == "needs data" for c in matrix_cells()), [MATRIX]),
     Claim("M-open100-pipe", "OPEN100 validation pipe F1 0.912", ["Pipe tracing reaches F1 0.912"], 0.912,
           lambda: matrix_pipe_f1("open100-holdout"), [MATRIX], 3),

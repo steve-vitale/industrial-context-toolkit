@@ -1,0 +1,2298 @@
+{
+  "case_total": 2,
+  "code_sha256": {
+    "benchmark.py": "c3e20b636f0afae1395870eddc5e2d26ecf91ed41b0faf4ccd67d2cfbda678f5",
+    "flowsheet_topology.py": "5caa7eef56e93d6488bd127909f4ba55c6579a3a36777f0a29e535d761cca81c"
+  },
+  "controls": {
+    "methanol-no-recycle": {
+      "empty": {
+        "boundaries": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 4
+        },
+        "connections": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 10
+        },
+        "internal": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 6
+        },
+        "units": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 7
+        }
+      },
+      "reference": {
+        "boundaries": {
+          "predicted": 4,
+          "tp": 4,
+          "truth": 4
+        },
+        "connections": {
+          "predicted": 10,
+          "tp": 10,
+          "truth": 10
+        },
+        "internal": {
+          "predicted": 6,
+          "tp": 6,
+          "truth": 6
+        },
+        "units": {
+          "predicted": 7,
+          "tp": 7,
+          "truth": 7
+        }
+      },
+      "reversed": {
+        "boundaries": {
+          "predicted": 4,
+          "tp": 4,
+          "truth": 4
+        },
+        "connections": {
+          "predicted": 10,
+          "tp": 0,
+          "truth": 10
+        },
+        "internal": {
+          "predicted": 6,
+          "tp": 0,
+          "truth": 6
+        },
+        "units": {
+          "predicted": 7,
+          "tp": 7,
+          "truth": 7
+        }
+      },
+      "shuffled": {
+        "boundaries": {
+          "predicted": 4,
+          "tp": 4,
+          "truth": 4
+        },
+        "connections": {
+          "predicted": 10,
+          "tp": 3,
+          "truth": 10
+        },
+        "internal": {
+          "predicted": 6,
+          "tp": 1,
+          "truth": 6
+        },
+        "units": {
+          "predicted": 7,
+          "tp": 7,
+          "truth": 7
+        }
+      }
+    },
+    "methanol-recycle": {
+      "empty": {
+        "boundaries": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 4
+        },
+        "connections": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 13
+        },
+        "internal": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 9
+        },
+        "units": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 9
+        }
+      },
+      "reference": {
+        "boundaries": {
+          "predicted": 4,
+          "tp": 4,
+          "truth": 4
+        },
+        "connections": {
+          "predicted": 13,
+          "tp": 13,
+          "truth": 13
+        },
+        "internal": {
+          "predicted": 9,
+          "tp": 9,
+          "truth": 9
+        },
+        "units": {
+          "predicted": 9,
+          "tp": 9,
+          "truth": 9
+        }
+      },
+      "reversed": {
+        "boundaries": {
+          "predicted": 4,
+          "tp": 4,
+          "truth": 4
+        },
+        "connections": {
+          "predicted": 13,
+          "tp": 1,
+          "truth": 13
+        },
+        "internal": {
+          "predicted": 9,
+          "tp": 1,
+          "truth": 9
+        },
+        "units": {
+          "predicted": 9,
+          "tp": 9,
+          "truth": 9
+        }
+      },
+      "shuffled": {
+        "boundaries": {
+          "predicted": 4,
+          "tp": 4,
+          "truth": 4
+        },
+        "connections": {
+          "predicted": 13,
+          "tp": 4,
+          "truth": 13
+        },
+        "internal": {
+          "predicted": 9,
+          "tp": 3,
+          "truth": 9
+        },
+        "units": {
+          "predicted": 9,
+          "tp": 9,
+          "truth": 9
+        }
+      }
+    }
+  },
+  "hash_method": "SHA256; CRLF normalized to LF for declared text extensions, raw binary otherwise",
+  "limits": [
+    "Compare only the same cohort and scoring contract; model identity is contributor-declared, not provider-attested.",
+    "Each replicate pools counts over its cases; summary reports mean/range/stdev over replicates, not a significance test or winner.",
+    "Missing/failed attempted answers score empty; unattempted cases remain visible and create different comparison cohorts.",
+    "Public keys and retrospective registration do not establish blindness. Synthetic controls and corrected/development results are separate.",
+    "Flowsheet topology grades coarse unit roles and directed unit-to-unit connections after a role-preserving alignment: no names, ports, conditions, stream identities or engineering correctness; two units of one role can be swapped unseen. The key is the flowsheet code, a model, not plant truth."
+  ],
+  "registration": "A419. Development: the no-recycle flowsheet (v0 = workflow as on main 9ba93ccc; v1 = the frozen A419 contract). Held out: the recycle flowsheet, one sealed run of three replicates of v1 after the method was committed. Same-family model only (Claude); one publisher.",
+  "results": [
+    {
+      "case_count": 1,
+      "cohort": "568671fa1928fbcab6baf33c2119ae4e51bec04fbd7ccbcfe345cc26668fcfdc",
+      "configuration": {
+        "cli_version": "2.1.317 (Claude Code)",
+        "max_check_rounds": 4,
+        "packet_sha256": {
+          "contract.md": "1c65eeaa19b74c0b76b516b6fff16393f28ef1cf9a6116dc289b1103a294364c",
+          "prompt.md": "845ae86753e139466131b93d030a253e2558fb11ccafe8d5d5ee2889bf959b5f",
+          "reference_answer.json": "9711b7f1f7613f2d25d598dc38e1476032d92d384322788fac71734f8440fcc8",
+          "reference_source.txt": "4b36c932249a9db29c782771dd2cf6b76466a390e3565faf2a55aaa5ad4a196f",
+          "source_numbered.txt": "1ebb2983e85d76d33c77a9cf6c44897c68a0b8beaecd93622abe915a3df32dc7"
+        },
+        "requested_model": null
+      },
+      "counts": {
+        "boundaries": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 4
+        },
+        "connections": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 10
+        },
+        "internal": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 6
+        },
+        "units": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 7
+        }
+      },
+      "evidence": "Third-party flowsheet code keys third-party prose; same author and notebook, one publisher (IDAES)",
+      "family": "idaes-methanol",
+      "interface": "claude-code-cli -p, --tools \"\" (no tools), --system-prompt (one neutral line), empty temporary folder, --strict-mcp-config, --disable-slash-commands",
+      "method": "description_workflow.py packet (contract before A419) answered with no tools, check diagnostics returned up to 4 rounds, then build",
+      "metrics": {
+        "boundaries": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        "connections": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        "internal": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        "units": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        }
+      },
+      "model": {
+        "id": "claude-opus-5-5",
+        "provider": "anthropic",
+        "version": "served id from CLI modelUsage; build not provider-attested"
+      },
+      "not_attempted": [
+        "methanol-recycle"
+      ],
+      "provenance": "A419 development run v0: the workflow as it stood on main 9ba93ccc. The scored answer is the model.json build writes; no build means a failed, empty answer.",
+      "ran_at": "2026-11-12",
+      "recipe": [
+        {
+          "path": "benchmarks/flowsheet-topology/recipe/dev-v0/prompt.md",
+          "role": "main_prompt",
+          "sha256": "845ae86753e139466131b93d030a253e2558fb11ccafe8d5d5ee2889bf959b5f"
+        },
+        {
+          "path": "benchmarks/flowsheet-topology/recipe/dev-v0/contract.md",
+          "role": "contract",
+          "sha256": "1c65eeaa19b74c0b76b516b6fff16393f28ef1cf9a6116dc289b1103a294364c"
+        },
+        {
+          "path": "benchmarks/flowsheet-topology/recipe/run_description_author.py.txt",
+          "role": "runner",
+          "sha256": "f8df9aeca8d1b90f8caea9e256516197e17a23f8daa13120c4e1ecea810039b2"
+        }
+      ],
+      "rows": [
+        {
+          "case": "methanol-no-recycle",
+          "counts": {
+            "boundaries": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 4
+            },
+            "connections": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 10
+            },
+            "internal": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 6
+            },
+            "units": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 7
+            }
+          },
+          "diagnostics": {
+            "alignment": {},
+            "answer_roles": {},
+            "controls": {},
+            "missing_arcs": [
+              "CO_FEED",
+              "H2_FEED",
+              "gas",
+              "prod",
+              "s02",
+              "s03",
+              "s04",
+              "s05",
+              "s06",
+              "s07"
+            ],
+            "unexpected_streams": []
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "benchmarks/flowsheet-topology/runs/dev-v0-r1/prediction.json",
+            "sha256": "a3a2d8710615bd77508e8852ddf001b2ac990160a6c2d0eaef57804e2b0d1993"
+          },
+          "recorded_run_at": "2026-11-12T18:32:56Z",
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": 0.7129,
+            "seconds": 275.2
+          },
+          "status": "failed"
+        }
+      ],
+      "run": "dev-v0-r1",
+      "split": "development"
+    },
+    {
+      "case_count": 1,
+      "cohort": "568671fa1928fbcab6baf33c2119ae4e51bec04fbd7ccbcfe345cc26668fcfdc",
+      "configuration": {
+        "cli_version": "2.1.317 (Claude Code)",
+        "max_check_rounds": 4,
+        "packet_sha256": {
+          "contract.md": "1c65eeaa19b74c0b76b516b6fff16393f28ef1cf9a6116dc289b1103a294364c",
+          "prompt.md": "845ae86753e139466131b93d030a253e2558fb11ccafe8d5d5ee2889bf959b5f",
+          "reference_answer.json": "9711b7f1f7613f2d25d598dc38e1476032d92d384322788fac71734f8440fcc8",
+          "reference_source.txt": "4b36c932249a9db29c782771dd2cf6b76466a390e3565faf2a55aaa5ad4a196f",
+          "source_numbered.txt": "1ebb2983e85d76d33c77a9cf6c44897c68a0b8beaecd93622abe915a3df32dc7"
+        },
+        "requested_model": null
+      },
+      "counts": {
+        "boundaries": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 4
+        },
+        "connections": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 10
+        },
+        "internal": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 6
+        },
+        "units": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 7
+        }
+      },
+      "evidence": "Third-party flowsheet code keys third-party prose; same author and notebook, one publisher (IDAES)",
+      "family": "idaes-methanol",
+      "interface": "claude-code-cli -p, --tools \"\" (no tools), --system-prompt (one neutral line), empty temporary folder, --strict-mcp-config, --disable-slash-commands",
+      "method": "description_workflow.py packet (contract before A419) answered with no tools, check diagnostics returned up to 4 rounds, then build",
+      "metrics": {
+        "boundaries": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        "connections": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        "internal": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        "units": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        }
+      },
+      "model": {
+        "id": "claude-opus-5-5",
+        "provider": "anthropic",
+        "version": "served id from CLI modelUsage; build not provider-attested"
+      },
+      "not_attempted": [
+        "methanol-recycle"
+      ],
+      "provenance": "A419 development run v0: the workflow as it stood on main 9ba93ccc. The scored answer is the model.json build writes; no build means a failed, empty answer.",
+      "ran_at": "2026-11-12",
+      "recipe": [
+        {
+          "path": "benchmarks/flowsheet-topology/recipe/dev-v0/prompt.md",
+          "role": "main_prompt",
+          "sha256": "845ae86753e139466131b93d030a253e2558fb11ccafe8d5d5ee2889bf959b5f"
+        },
+        {
+          "path": "benchmarks/flowsheet-topology/recipe/dev-v0/contract.md",
+          "role": "contract",
+          "sha256": "1c65eeaa19b74c0b76b516b6fff16393f28ef1cf9a6116dc289b1103a294364c"
+        },
+        {
+          "path": "benchmarks/flowsheet-topology/recipe/run_description_author.py.txt",
+          "role": "runner",
+          "sha256": "f8df9aeca8d1b90f8caea9e256516197e17a23f8daa13120c4e1ecea810039b2"
+        }
+      ],
+      "rows": [
+        {
+          "case": "methanol-no-recycle",
+          "counts": {
+            "boundaries": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 4
+            },
+            "connections": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 10
+            },
+            "internal": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 6
+            },
+            "units": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 7
+            }
+          },
+          "diagnostics": {
+            "alignment": {},
+            "answer_roles": {},
+            "controls": {},
+            "missing_arcs": [
+              "CO_FEED",
+              "H2_FEED",
+              "gas",
+              "prod",
+              "s02",
+              "s03",
+              "s04",
+              "s05",
+              "s06",
+              "s07"
+            ],
+            "unexpected_streams": []
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "benchmarks/flowsheet-topology/runs/dev-v0-r2/prediction.json",
+            "sha256": "8eed48b3df33e1a217fac9390c653f04563a6a8229def4d7596f30b72c1993b7"
+          },
+          "recorded_run_at": "2026-11-12T18:32:56Z",
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": 0.8696,
+            "seconds": 292.3
+          },
+          "status": "failed"
+        }
+      ],
+      "run": "dev-v0-r2",
+      "split": "development"
+    },
+    {
+      "case_count": 1,
+      "cohort": "568671fa1928fbcab6baf33c2119ae4e51bec04fbd7ccbcfe345cc26668fcfdc",
+      "configuration": {
+        "cli_version": "2.1.317 (Claude Code)",
+        "max_check_rounds": 4,
+        "packet_sha256": {
+          "contract.md": "1c65eeaa19b74c0b76b516b6fff16393f28ef1cf9a6116dc289b1103a294364c",
+          "prompt.md": "845ae86753e139466131b93d030a253e2558fb11ccafe8d5d5ee2889bf959b5f",
+          "reference_answer.json": "9711b7f1f7613f2d25d598dc38e1476032d92d384322788fac71734f8440fcc8",
+          "reference_source.txt": "4b36c932249a9db29c782771dd2cf6b76466a390e3565faf2a55aaa5ad4a196f",
+          "source_numbered.txt": "1ebb2983e85d76d33c77a9cf6c44897c68a0b8beaecd93622abe915a3df32dc7"
+        },
+        "requested_model": null
+      },
+      "counts": {
+        "boundaries": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 4
+        },
+        "connections": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 10
+        },
+        "internal": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 6
+        },
+        "units": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 7
+        }
+      },
+      "evidence": "Third-party flowsheet code keys third-party prose; same author and notebook, one publisher (IDAES)",
+      "family": "idaes-methanol",
+      "interface": "claude-code-cli -p, --tools \"\" (no tools), --system-prompt (one neutral line), empty temporary folder, --strict-mcp-config, --disable-slash-commands",
+      "method": "description_workflow.py packet (contract before A419) answered with no tools, check diagnostics returned up to 4 rounds, then build",
+      "metrics": {
+        "boundaries": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        "connections": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        "internal": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        "units": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        }
+      },
+      "model": {
+        "id": "claude-opus-5-5",
+        "provider": "anthropic",
+        "version": "served id from CLI modelUsage; build not provider-attested"
+      },
+      "not_attempted": [
+        "methanol-recycle"
+      ],
+      "provenance": "A419 development run v0: the workflow as it stood on main 9ba93ccc. The scored answer is the model.json build writes; no build means a failed, empty answer.",
+      "ran_at": "2026-11-12",
+      "recipe": [
+        {
+          "path": "benchmarks/flowsheet-topology/recipe/dev-v0/prompt.md",
+          "role": "main_prompt",
+          "sha256": "845ae86753e139466131b93d030a253e2558fb11ccafe8d5d5ee2889bf959b5f"
+        },
+        {
+          "path": "benchmarks/flowsheet-topology/recipe/dev-v0/contract.md",
+          "role": "contract",
+          "sha256": "1c65eeaa19b74c0b76b516b6fff16393f28ef1cf9a6116dc289b1103a294364c"
+        },
+        {
+          "path": "benchmarks/flowsheet-topology/recipe/run_description_author.py.txt",
+          "role": "runner",
+          "sha256": "f8df9aeca8d1b90f8caea9e256516197e17a23f8daa13120c4e1ecea810039b2"
+        }
+      ],
+      "rows": [
+        {
+          "case": "methanol-no-recycle",
+          "counts": {
+            "boundaries": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 4
+            },
+            "connections": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 10
+            },
+            "internal": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 6
+            },
+            "units": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 7
+            }
+          },
+          "diagnostics": {
+            "alignment": {},
+            "answer_roles": {},
+            "controls": {},
+            "missing_arcs": [
+              "CO_FEED",
+              "H2_FEED",
+              "gas",
+              "prod",
+              "s02",
+              "s03",
+              "s04",
+              "s05",
+              "s06",
+              "s07"
+            ],
+            "unexpected_streams": []
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "benchmarks/flowsheet-topology/runs/dev-v0-r3/prediction.json",
+            "sha256": "0b5d79f4f1309c4f0f392416a6c803f2c73e808a1b9bcf37342311488cd68275"
+          },
+          "recorded_run_at": "2026-11-12T18:32:56Z",
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": 0.7167,
+            "seconds": 304.0
+          },
+          "status": "failed"
+        }
+      ],
+      "run": "dev-v0-r3",
+      "split": "development"
+    },
+    {
+      "case_count": 1,
+      "cohort": "568671fa1928fbcab6baf33c2119ae4e51bec04fbd7ccbcfe345cc26668fcfdc",
+      "configuration": {
+        "cli_version": "2.1.317 (Claude Code)",
+        "max_check_rounds": 4,
+        "packet_sha256": {
+          "contract.md": "12b0aadc4badb0bf5dde7cfb95fbd3fb6362b135a7705ab65a815ebdc2ee1efd",
+          "prompt.md": "845ae86753e139466131b93d030a253e2558fb11ccafe8d5d5ee2889bf959b5f",
+          "reference_answer.json": "9711b7f1f7613f2d25d598dc38e1476032d92d384322788fac71734f8440fcc8",
+          "reference_source.txt": "4b36c932249a9db29c782771dd2cf6b76466a390e3565faf2a55aaa5ad4a196f",
+          "source_numbered.txt": "1ebb2983e85d76d33c77a9cf6c44897c68a0b8beaecd93622abe915a3df32dc7"
+        },
+        "requested_model": null
+      },
+      "counts": {
+        "boundaries": {
+          "predicted": 3,
+          "tp": 3,
+          "truth": 4
+        },
+        "connections": {
+          "predicted": 9,
+          "tp": 9,
+          "truth": 10
+        },
+        "internal": {
+          "predicted": 6,
+          "tp": 6,
+          "truth": 6
+        },
+        "units": {
+          "predicted": 7,
+          "tp": 7,
+          "truth": 7
+        }
+      },
+      "evidence": "Third-party flowsheet code keys third-party prose; same author and notebook, one publisher (IDAES)",
+      "family": "idaes-methanol",
+      "interface": "claude-code-cli -p, --tools \"\" (no tools), --system-prompt (one neutral line), empty temporary folder, --strict-mcp-config, --disable-slash-commands",
+      "method": "description_workflow.py packet (A419 contract: source-named equipment kept, order-based connections recorded as assumptions, mixer outline stated) answered with no tools, check diagnostics returned up to 4 rounds, then build",
+      "metrics": {
+        "boundaries": {
+          "f1": 0.8571428571428571,
+          "precision": 1.0,
+          "recall": 0.75
+        },
+        "connections": {
+          "f1": 0.9473684210526315,
+          "precision": 1.0,
+          "recall": 0.9
+        },
+        "internal": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "units": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      },
+      "model": {
+        "id": "claude-opus-5-5",
+        "provider": "anthropic",
+        "version": "served id from CLI modelUsage; build not provider-attested"
+      },
+      "not_attempted": [
+        "methanol-recycle"
+      ],
+      "provenance": "A419 development run v1 (the frozen method). The scored answer is the model.json build writes.",
+      "ran_at": "2026-11-12",
+      "recipe": [
+        {
+          "path": "benchmarks/flowsheet-topology/recipe/dev-v1/prompt.md",
+          "role": "main_prompt",
+          "sha256": "845ae86753e139466131b93d030a253e2558fb11ccafe8d5d5ee2889bf959b5f"
+        },
+        {
+          "path": "benchmarks/flowsheet-topology/recipe/dev-v1/contract.md",
+          "role": "contract",
+          "sha256": "12b0aadc4badb0bf5dde7cfb95fbd3fb6362b135a7705ab65a815ebdc2ee1efd"
+        },
+        {
+          "path": "benchmarks/flowsheet-topology/recipe/run_description_author.py.txt",
+          "role": "runner",
+          "sha256": "f8df9aeca8d1b90f8caea9e256516197e17a23f8daa13120c4e1ecea810039b2"
+        }
+      ],
+      "rows": [
+        {
+          "case": "methanol-no-recycle",
+          "counts": {
+            "boundaries": {
+              "predicted": 3,
+              "tp": 3,
+              "truth": 4
+            },
+            "connections": {
+              "predicted": 9,
+              "tp": 9,
+              "truth": 10
+            },
+            "internal": {
+              "predicted": 6,
+              "tp": 6,
+              "truth": 6
+            },
+            "units": {
+              "predicted": 7,
+              "tp": 7,
+              "truth": 7
+            }
+          },
+          "diagnostics": {
+            "alignment": {
+              "BL:feed:S-CO": "CO",
+              "BL:feed:S-H2": "H2",
+              "BL:product:S9": "CH3OH",
+              "C-1": "C101",
+              "CL-1": "H102",
+              "F-1": "F101",
+              "H-1": "H101",
+              "MX-1": "M101",
+              "R-1": "R101",
+              "T-1": "T101"
+            },
+            "answer_roles": {
+              "compressor": 1,
+              "expander": 1,
+              "feed": 2,
+              "heat_exchange": 2,
+              "mixer": 1,
+              "product": 1,
+              "reactor": 1,
+              "separator": 1
+            },
+            "controls": {
+              "mention_order_chain": {
+                "boundaries": {
+                  "predicted": 3,
+                  "tp": 3,
+                  "truth": 4
+                },
+                "connections": {
+                  "predicted": 9,
+                  "tp": 2,
+                  "truth": 10
+                },
+                "internal": {
+                  "predicted": 6,
+                  "tp": 2,
+                  "truth": 6
+                },
+                "units": {
+                  "predicted": 7,
+                  "tp": 7,
+                  "truth": 7
+                }
+              },
+              "reversed": {
+                "boundaries": {
+                  "predicted": 3,
+                  "tp": 3,
+                  "truth": 4
+                },
+                "connections": {
+                  "predicted": 9,
+                  "tp": 0,
+                  "truth": 10
+                },
+                "internal": {
+                  "predicted": 6,
+                  "tp": 0,
+                  "truth": 6
+                },
+                "units": {
+                  "predicted": 7,
+                  "tp": 7,
+                  "truth": 7
+                }
+              },
+              "shuffled": {
+                "boundaries": {
+                  "predicted": 3,
+                  "tp": 3,
+                  "truth": 4
+                },
+                "connections": {
+                  "predicted": 9,
+                  "tp": 1,
+                  "truth": 10
+                },
+                "internal": {
+                  "predicted": 6,
+                  "tp": 0,
+                  "truth": 6
+                },
+                "units": {
+                  "predicted": 7,
+                  "tp": 7,
+                  "truth": 7
+                }
+              }
+            },
+            "missing_arcs": [
+              "gas"
+            ],
+            "unexpected_streams": []
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "benchmarks/flowsheet-topology/runs/dev-v1-r1/prediction.json",
+            "sha256": "2358b96f4ccf5fec0ebc8a2734e3c1357f5401195263c2b8d871e7e4d2558b85"
+          },
+          "recorded_run_at": "2026-11-12T18:40:18Z",
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": 0.2218,
+            "seconds": 113.2
+          },
+          "status": "ok"
+        }
+      ],
+      "run": "dev-v1-r1",
+      "split": "development"
+    },
+    {
+      "case_count": 1,
+      "cohort": "568671fa1928fbcab6baf33c2119ae4e51bec04fbd7ccbcfe345cc26668fcfdc",
+      "configuration": {
+        "cli_version": "2.1.317 (Claude Code)",
+        "max_check_rounds": 4,
+        "packet_sha256": {
+          "contract.md": "12b0aadc4badb0bf5dde7cfb95fbd3fb6362b135a7705ab65a815ebdc2ee1efd",
+          "prompt.md": "845ae86753e139466131b93d030a253e2558fb11ccafe8d5d5ee2889bf959b5f",
+          "reference_answer.json": "9711b7f1f7613f2d25d598dc38e1476032d92d384322788fac71734f8440fcc8",
+          "reference_source.txt": "4b36c932249a9db29c782771dd2cf6b76466a390e3565faf2a55aaa5ad4a196f",
+          "source_numbered.txt": "1ebb2983e85d76d33c77a9cf6c44897c68a0b8beaecd93622abe915a3df32dc7"
+        },
+        "requested_model": null
+      },
+      "counts": {
+        "boundaries": {
+          "predicted": 3,
+          "tp": 3,
+          "truth": 4
+        },
+        "connections": {
+          "predicted": 3,
+          "tp": 3,
+          "truth": 10
+        },
+        "internal": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 6
+        },
+        "units": {
+          "predicted": 7,
+          "tp": 7,
+          "truth": 7
+        }
+      },
+      "evidence": "Third-party flowsheet code keys third-party prose; same author and notebook, one publisher (IDAES)",
+      "family": "idaes-methanol",
+      "interface": "claude-code-cli -p, --tools \"\" (no tools), --system-prompt (one neutral line), empty temporary folder, --strict-mcp-config, --disable-slash-commands",
+      "method": "description_workflow.py packet (A419 contract: source-named equipment kept, order-based connections recorded as assumptions, mixer outline stated) answered with no tools, check diagnostics returned up to 4 rounds, then build",
+      "metrics": {
+        "boundaries": {
+          "f1": 0.8571428571428571,
+          "precision": 1.0,
+          "recall": 0.75
+        },
+        "connections": {
+          "f1": 0.46153846153846156,
+          "precision": 1.0,
+          "recall": 0.3
+        },
+        "internal": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        "units": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      },
+      "model": {
+        "id": "claude-opus-5-5",
+        "provider": "anthropic",
+        "version": "served id from CLI modelUsage; build not provider-attested"
+      },
+      "not_attempted": [
+        "methanol-recycle"
+      ],
+      "provenance": "A419 development run v1 (the frozen method). The scored answer is the model.json build writes.",
+      "ran_at": "2026-11-12",
+      "recipe": [
+        {
+          "path": "benchmarks/flowsheet-topology/recipe/dev-v1/prompt.md",
+          "role": "main_prompt",
+          "sha256": "845ae86753e139466131b93d030a253e2558fb11ccafe8d5d5ee2889bf959b5f"
+        },
+        {
+          "path": "benchmarks/flowsheet-topology/recipe/dev-v1/contract.md",
+          "role": "contract",
+          "sha256": "12b0aadc4badb0bf5dde7cfb95fbd3fb6362b135a7705ab65a815ebdc2ee1efd"
+        },
+        {
+          "path": "benchmarks/flowsheet-topology/recipe/run_description_author.py.txt",
+          "role": "runner",
+          "sha256": "f8df9aeca8d1b90f8caea9e256516197e17a23f8daa13120c4e1ecea810039b2"
+        }
+      ],
+      "rows": [
+        {
+          "case": "methanol-no-recycle",
+          "counts": {
+            "boundaries": {
+              "predicted": 3,
+              "tp": 3,
+              "truth": 4
+            },
+            "connections": {
+              "predicted": 3,
+              "tp": 3,
+              "truth": 10
+            },
+            "internal": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 6
+            },
+            "units": {
+              "predicted": 7,
+              "tp": 7,
+              "truth": 7
+            }
+          },
+          "diagnostics": {
+            "alignment": {
+              "BL:feed:S-CO": "CO",
+              "BL:feed:S-H2": "H2",
+              "BL:product:S-PROD": "CH3OH",
+              "C-101": "C101",
+              "E-102": "H101",
+              "F-101": "F101",
+              "H-101": "H102",
+              "M-101": "M101",
+              "R-101": "R101",
+              "T-101": "T101"
+            },
+            "answer_roles": {
+              "compressor": 1,
+              "expander": 1,
+              "feed": 2,
+              "heat_exchange": 2,
+              "mixer": 1,
+              "product": 1,
+              "reactor": 1,
+              "separator": 1
+            },
+            "controls": {
+              "mention_order_chain": {
+                "boundaries": {
+                  "predicted": 3,
+                  "tp": 3,
+                  "truth": 4
+                },
+                "connections": {
+                  "predicted": 9,
+                  "tp": 1,
+                  "truth": 10
+                },
+                "internal": {
+                  "predicted": 6,
+                  "tp": 1,
+                  "truth": 6
+                },
+                "units": {
+                  "predicted": 7,
+                  "tp": 7,
+                  "truth": 7
+                }
+              },
+              "reversed": {
+                "boundaries": {
+                  "predicted": 3,
+                  "tp": 3,
+                  "truth": 4
+                },
+                "connections": {
+                  "predicted": 3,
+                  "tp": 0,
+                  "truth": 10
+                },
+                "internal": {
+                  "predicted": 0,
+                  "tp": 0,
+                  "truth": 6
+                },
+                "units": {
+                  "predicted": 7,
+                  "tp": 7,
+                  "truth": 7
+                }
+              },
+              "shuffled": {
+                "boundaries": {
+                  "predicted": 3,
+                  "tp": 3,
+                  "truth": 4
+                },
+                "connections": {
+                  "predicted": 3,
+                  "tp": 1,
+                  "truth": 10
+                },
+                "internal": {
+                  "predicted": 1,
+                  "tp": 0,
+                  "truth": 6
+                },
+                "units": {
+                  "predicted": 7,
+                  "tp": 7,
+                  "truth": 7
+                }
+              }
+            },
+            "missing_arcs": [
+              "gas",
+              "s02",
+              "s03",
+              "s04",
+              "s05",
+              "s06",
+              "s07"
+            ],
+            "unexpected_streams": []
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "benchmarks/flowsheet-topology/runs/dev-v1-r2/prediction.json",
+            "sha256": "dbc4fd01139e0fe6c26085a12466b02adb8b506d4740ce71debba41476f37525"
+          },
+          "recorded_run_at": "2026-11-12T18:40:18Z",
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": 0.1584,
+            "seconds": 88.5
+          },
+          "status": "ok"
+        }
+      ],
+      "run": "dev-v1-r2",
+      "split": "development"
+    },
+    {
+      "case_count": 1,
+      "cohort": "568671fa1928fbcab6baf33c2119ae4e51bec04fbd7ccbcfe345cc26668fcfdc",
+      "configuration": {
+        "cli_version": "2.1.317 (Claude Code)",
+        "max_check_rounds": 4,
+        "packet_sha256": {
+          "contract.md": "12b0aadc4badb0bf5dde7cfb95fbd3fb6362b135a7705ab65a815ebdc2ee1efd",
+          "prompt.md": "845ae86753e139466131b93d030a253e2558fb11ccafe8d5d5ee2889bf959b5f",
+          "reference_answer.json": "9711b7f1f7613f2d25d598dc38e1476032d92d384322788fac71734f8440fcc8",
+          "reference_source.txt": "4b36c932249a9db29c782771dd2cf6b76466a390e3565faf2a55aaa5ad4a196f",
+          "source_numbered.txt": "1ebb2983e85d76d33c77a9cf6c44897c68a0b8beaecd93622abe915a3df32dc7"
+        },
+        "requested_model": null
+      },
+      "counts": {
+        "boundaries": {
+          "predicted": 3,
+          "tp": 3,
+          "truth": 4
+        },
+        "connections": {
+          "predicted": 3,
+          "tp": 3,
+          "truth": 10
+        },
+        "internal": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 6
+        },
+        "units": {
+          "predicted": 7,
+          "tp": 7,
+          "truth": 7
+        }
+      },
+      "evidence": "Third-party flowsheet code keys third-party prose; same author and notebook, one publisher (IDAES)",
+      "family": "idaes-methanol",
+      "interface": "claude-code-cli -p, --tools \"\" (no tools), --system-prompt (one neutral line), empty temporary folder, --strict-mcp-config, --disable-slash-commands",
+      "method": "description_workflow.py packet (A419 contract: source-named equipment kept, order-based connections recorded as assumptions, mixer outline stated) answered with no tools, check diagnostics returned up to 4 rounds, then build",
+      "metrics": {
+        "boundaries": {
+          "f1": 0.8571428571428571,
+          "precision": 1.0,
+          "recall": 0.75
+        },
+        "connections": {
+          "f1": 0.46153846153846156,
+          "precision": 1.0,
+          "recall": 0.3
+        },
+        "internal": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        "units": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      },
+      "model": {
+        "id": "claude-opus-5-5",
+        "provider": "anthropic",
+        "version": "served id from CLI modelUsage; build not provider-attested"
+      },
+      "not_attempted": [
+        "methanol-recycle"
+      ],
+      "provenance": "A419 development run v1 (the frozen method). The scored answer is the model.json build writes.",
+      "ran_at": "2026-11-12",
+      "recipe": [
+        {
+          "path": "benchmarks/flowsheet-topology/recipe/dev-v1/prompt.md",
+          "role": "main_prompt",
+          "sha256": "845ae86753e139466131b93d030a253e2558fb11ccafe8d5d5ee2889bf959b5f"
+        },
+        {
+          "path": "benchmarks/flowsheet-topology/recipe/dev-v1/contract.md",
+          "role": "contract",
+          "sha256": "12b0aadc4badb0bf5dde7cfb95fbd3fb6362b135a7705ab65a815ebdc2ee1efd"
+        },
+        {
+          "path": "benchmarks/flowsheet-topology/recipe/run_description_author.py.txt",
+          "role": "runner",
+          "sha256": "f8df9aeca8d1b90f8caea9e256516197e17a23f8daa13120c4e1ecea810039b2"
+        }
+      ],
+      "rows": [
+        {
+          "case": "methanol-no-recycle",
+          "counts": {
+            "boundaries": {
+              "predicted": 3,
+              "tp": 3,
+              "truth": 4
+            },
+            "connections": {
+              "predicted": 3,
+              "tp": 3,
+              "truth": 10
+            },
+            "internal": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 6
+            },
+            "units": {
+              "predicted": 7,
+              "tp": 7,
+              "truth": 7
+            }
+          },
+          "diagnostics": {
+            "alignment": {
+              "BL:feed:S1": "CO",
+              "BL:feed:S2": "H2",
+              "BL:product:S3": "CH3OH",
+              "COMP": "C101",
+              "COOL": "H101",
+              "FLASH": "F101",
+              "HTR": "H102",
+              "MIX": "M101",
+              "RXN": "R101",
+              "TURB": "T101"
+            },
+            "answer_roles": {
+              "compressor": 1,
+              "expander": 1,
+              "feed": 2,
+              "heat_exchange": 2,
+              "mixer": 1,
+              "product": 1,
+              "reactor": 1,
+              "separator": 1
+            },
+            "controls": {
+              "mention_order_chain": {
+                "boundaries": {
+                  "predicted": 3,
+                  "tp": 3,
+                  "truth": 4
+                },
+                "connections": {
+                  "predicted": 9,
+                  "tp": 1,
+                  "truth": 10
+                },
+                "internal": {
+                  "predicted": 6,
+                  "tp": 1,
+                  "truth": 6
+                },
+                "units": {
+                  "predicted": 7,
+                  "tp": 7,
+                  "truth": 7
+                }
+              },
+              "reversed": {
+                "boundaries": {
+                  "predicted": 3,
+                  "tp": 3,
+                  "truth": 4
+                },
+                "connections": {
+                  "predicted": 3,
+                  "tp": 0,
+                  "truth": 10
+                },
+                "internal": {
+                  "predicted": 0,
+                  "tp": 0,
+                  "truth": 6
+                },
+                "units": {
+                  "predicted": 7,
+                  "tp": 7,
+                  "truth": 7
+                }
+              },
+              "shuffled": {
+                "boundaries": {
+                  "predicted": 3,
+                  "tp": 3,
+                  "truth": 4
+                },
+                "connections": {
+                  "predicted": 3,
+                  "tp": 1,
+                  "truth": 10
+                },
+                "internal": {
+                  "predicted": 1,
+                  "tp": 0,
+                  "truth": 6
+                },
+                "units": {
+                  "predicted": 7,
+                  "tp": 7,
+                  "truth": 7
+                }
+              }
+            },
+            "missing_arcs": [
+              "gas",
+              "s02",
+              "s03",
+              "s04",
+              "s05",
+              "s06",
+              "s07"
+            ],
+            "unexpected_streams": []
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "benchmarks/flowsheet-topology/runs/dev-v1-r3/prediction.json",
+            "sha256": "b295a95d28fee1897cf9f4ef8362d5bbaab77bc78049e80e193f4f210b8d54d2"
+          },
+          "recorded_run_at": "2026-11-12T18:40:18Z",
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": 0.2339,
+            "seconds": 87.7
+          },
+          "status": "ok"
+        }
+      ],
+      "run": "dev-v1-r3",
+      "split": "development"
+    },
+    {
+      "case_count": 1,
+      "cohort": "2e755feb94c97f9e6064ede2d76805db253ce997d388257b463adffdedb4ed4c",
+      "configuration": {
+        "cli_version": "2.1.317 (Claude Code)",
+        "max_check_rounds": 4,
+        "packet_sha256": {
+          "contract.md": "12b0aadc4badb0bf5dde7cfb95fbd3fb6362b135a7705ab65a815ebdc2ee1efd",
+          "prompt.md": "0aea1367666632cba8856914151ad4fd648442b44956f1c5516de40a25ae483f",
+          "reference_answer.json": "9711b7f1f7613f2d25d598dc38e1476032d92d384322788fac71734f8440fcc8",
+          "reference_source.txt": "4b36c932249a9db29c782771dd2cf6b76466a390e3565faf2a55aaa5ad4a196f",
+          "source_numbered.txt": "57760e8f314d36bc606b0d7e24781eec708b5ea38c2d8dd01f25d1d3bfea527d"
+        },
+        "requested_model": null
+      },
+      "counts": {
+        "boundaries": {
+          "predicted": 4,
+          "tp": 4,
+          "truth": 4
+        },
+        "connections": {
+          "predicted": 4,
+          "tp": 3,
+          "truth": 13
+        },
+        "internal": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 9
+        },
+        "units": {
+          "predicted": 7,
+          "tp": 7,
+          "truth": 9
+        }
+      },
+      "evidence": "Third-party flowsheet code keys third-party prose; same author and notebook, one publisher (IDAES); the held-out input contains the development input verbatim (its first 69 lines) plus the recycle paragraphs, so held out means a held-out key and the recycle text",
+      "family": "idaes-methanol",
+      "interface": "claude-code-cli -p, --tools \"\" (no tools), --system-prompt (one neutral line), empty temporary folder, --strict-mcp-config, --disable-slash-commands",
+      "method": "description_workflow.py packet (A419 contract: source-named equipment kept, order-based connections recorded as assumptions, mixer outline stated) answered with no tools, check diagnostics returned up to 4 rounds, then build",
+      "metrics": {
+        "boundaries": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "connections": {
+          "f1": 0.35294117647058826,
+          "precision": 0.75,
+          "recall": 0.23076923076923078
+        },
+        "internal": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        "units": {
+          "f1": 0.875,
+          "precision": 1.0,
+          "recall": 0.7777777777777778
+        }
+      },
+      "model": {
+        "id": "claude-opus-5-5",
+        "provider": "anthropic",
+        "version": "served id from CLI modelUsage; build not provider-attested"
+      },
+      "not_attempted": [
+        "methanol-no-recycle"
+      ],
+      "provenance": "A419 sealed held-out run: the one run of the method frozen in commit 6c512e23e6a02a4510e3b64da35d0b79416a36d7, three replicates, scored once. Held-out key counts were surveyed on 2026-11-12 (its arc and unit counts, and unit-name counts over the whole notebook text); no method was run. Any sealed score on the recycle flowsheet must state this.",
+      "ran_at": "2026-11-12",
+      "recipe": [
+        {
+          "path": "benchmarks/flowsheet-topology/recipe/heldout-v1/prompt.md",
+          "role": "main_prompt",
+          "sha256": "0aea1367666632cba8856914151ad4fd648442b44956f1c5516de40a25ae483f"
+        },
+        {
+          "path": "benchmarks/flowsheet-topology/recipe/heldout-v1/contract.md",
+          "role": "contract",
+          "sha256": "12b0aadc4badb0bf5dde7cfb95fbd3fb6362b135a7705ab65a815ebdc2ee1efd"
+        },
+        {
+          "path": "benchmarks/flowsheet-topology/recipe/run_description_author.py.txt",
+          "role": "runner",
+          "sha256": "f8df9aeca8d1b90f8caea9e256516197e17a23f8daa13120c4e1ecea810039b2"
+        }
+      ],
+      "rows": [
+        {
+          "case": "methanol-recycle",
+          "counts": {
+            "boundaries": {
+              "predicted": 4,
+              "tp": 4,
+              "truth": 4
+            },
+            "connections": {
+              "predicted": 4,
+              "tp": 3,
+              "truth": 13
+            },
+            "internal": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 9
+            },
+            "units": {
+              "predicted": 7,
+              "tp": 7,
+              "truth": 9
+            }
+          },
+          "diagnostics": {
+            "alignment": {
+              "BL:feed:S1": "CO",
+              "BL:feed:S2": "H2",
+              "BL:product:S3": "CH3OH",
+              "BL:product:S4": "EXHAUST",
+              "C-1": "C101",
+              "E-1": "H101",
+              "E-2": "H102",
+              "F-1": "F101",
+              "M-1": "M101",
+              "R-1": "R101",
+              "T-1": "T101"
+            },
+            "answer_roles": {
+              "compressor": 1,
+              "expander": 1,
+              "feed": 2,
+              "heat_exchange": 2,
+              "mixer": 1,
+              "product": 2,
+              "reactor": 1,
+              "separator": 1
+            },
+            "controls": {
+              "mention_order_chain": {
+                "boundaries": {
+                  "predicted": 4,
+                  "tp": 4,
+                  "truth": 4
+                },
+                "connections": {
+                  "predicted": 10,
+                  "tp": 1,
+                  "truth": 13
+                },
+                "internal": {
+                  "predicted": 6,
+                  "tp": 1,
+                  "truth": 9
+                },
+                "units": {
+                  "predicted": 7,
+                  "tp": 7,
+                  "truth": 9
+                }
+              },
+              "reversed": {
+                "boundaries": {
+                  "predicted": 4,
+                  "tp": 4,
+                  "truth": 4
+                },
+                "connections": {
+                  "predicted": 4,
+                  "tp": 0,
+                  "truth": 13
+                },
+                "internal": {
+                  "predicted": 0,
+                  "tp": 0,
+                  "truth": 9
+                },
+                "units": {
+                  "predicted": 7,
+                  "tp": 7,
+                  "truth": 9
+                }
+              },
+              "shuffled": {
+                "boundaries": {
+                  "predicted": 4,
+                  "tp": 4,
+                  "truth": 4
+                },
+                "connections": {
+                  "predicted": 4,
+                  "tp": 2,
+                  "truth": 13
+                },
+                "internal": {
+                  "predicted": 1,
+                  "tp": 0,
+                  "truth": 9
+                },
+                "units": {
+                  "predicted": 7,
+                  "tp": 7,
+                  "truth": 9
+                }
+              }
+            },
+            "missing_arcs": [
+              "gas",
+              "s01",
+              "s02",
+              "s03",
+              "s04",
+              "s05",
+              "s06",
+              "s07",
+              "s08",
+              "s09"
+            ],
+            "unexpected_streams": [
+              "S4"
+            ]
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "benchmarks/flowsheet-topology/runs/heldout-v1-r1/prediction.json",
+            "sha256": "c5c0d1742b3c2ef9dce71603f2f55c48850b32950c7b6e57a944829120b1f7d0"
+          },
+          "recorded_run_at": "2026-11-12T18:45:51Z",
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": 0.2745,
+            "seconds": 100.5
+          },
+          "status": "ok"
+        }
+      ],
+      "run": "heldout-v1-r1",
+      "split": "held-out"
+    },
+    {
+      "case_count": 1,
+      "cohort": "2e755feb94c97f9e6064ede2d76805db253ce997d388257b463adffdedb4ed4c",
+      "configuration": {
+        "cli_version": "2.1.317 (Claude Code)",
+        "max_check_rounds": 4,
+        "packet_sha256": {
+          "contract.md": "12b0aadc4badb0bf5dde7cfb95fbd3fb6362b135a7705ab65a815ebdc2ee1efd",
+          "prompt.md": "0aea1367666632cba8856914151ad4fd648442b44956f1c5516de40a25ae483f",
+          "reference_answer.json": "9711b7f1f7613f2d25d598dc38e1476032d92d384322788fac71734f8440fcc8",
+          "reference_source.txt": "4b36c932249a9db29c782771dd2cf6b76466a390e3565faf2a55aaa5ad4a196f",
+          "source_numbered.txt": "57760e8f314d36bc606b0d7e24781eec708b5ea38c2d8dd01f25d1d3bfea527d"
+        },
+        "requested_model": null
+      },
+      "counts": {
+        "boundaries": {
+          "predicted": 4,
+          "tp": 4,
+          "truth": 4
+        },
+        "connections": {
+          "predicted": 4,
+          "tp": 3,
+          "truth": 13
+        },
+        "internal": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 9
+        },
+        "units": {
+          "predicted": 7,
+          "tp": 7,
+          "truth": 9
+        }
+      },
+      "evidence": "Third-party flowsheet code keys third-party prose; same author and notebook, one publisher (IDAES); the held-out input contains the development input verbatim (its first 69 lines) plus the recycle paragraphs, so held out means a held-out key and the recycle text",
+      "family": "idaes-methanol",
+      "interface": "claude-code-cli -p, --tools \"\" (no tools), --system-prompt (one neutral line), empty temporary folder, --strict-mcp-config, --disable-slash-commands",
+      "method": "description_workflow.py packet (A419 contract: source-named equipment kept, order-based connections recorded as assumptions, mixer outline stated) answered with no tools, check diagnostics returned up to 4 rounds, then build",
+      "metrics": {
+        "boundaries": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "connections": {
+          "f1": 0.35294117647058826,
+          "precision": 0.75,
+          "recall": 0.23076923076923078
+        },
+        "internal": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        "units": {
+          "f1": 0.875,
+          "precision": 1.0,
+          "recall": 0.7777777777777778
+        }
+      },
+      "model": {
+        "id": "claude-opus-5-5",
+        "provider": "anthropic",
+        "version": "served id from CLI modelUsage; build not provider-attested"
+      },
+      "not_attempted": [
+        "methanol-no-recycle"
+      ],
+      "provenance": "A419 sealed held-out run: the one run of the method frozen in commit 6c512e23e6a02a4510e3b64da35d0b79416a36d7, three replicates, scored once. Held-out key counts were surveyed on 2026-11-12 (its arc and unit counts, and unit-name counts over the whole notebook text); no method was run. Any sealed score on the recycle flowsheet must state this.",
+      "ran_at": "2026-11-12",
+      "recipe": [
+        {
+          "path": "benchmarks/flowsheet-topology/recipe/heldout-v1/prompt.md",
+          "role": "main_prompt",
+          "sha256": "0aea1367666632cba8856914151ad4fd648442b44956f1c5516de40a25ae483f"
+        },
+        {
+          "path": "benchmarks/flowsheet-topology/recipe/heldout-v1/contract.md",
+          "role": "contract",
+          "sha256": "12b0aadc4badb0bf5dde7cfb95fbd3fb6362b135a7705ab65a815ebdc2ee1efd"
+        },
+        {
+          "path": "benchmarks/flowsheet-topology/recipe/run_description_author.py.txt",
+          "role": "runner",
+          "sha256": "f8df9aeca8d1b90f8caea9e256516197e17a23f8daa13120c4e1ecea810039b2"
+        }
+      ],
+      "rows": [
+        {
+          "case": "methanol-recycle",
+          "counts": {
+            "boundaries": {
+              "predicted": 4,
+              "tp": 4,
+              "truth": 4
+            },
+            "connections": {
+              "predicted": 4,
+              "tp": 3,
+              "truth": 13
+            },
+            "internal": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 9
+            },
+            "units": {
+              "predicted": 7,
+              "tp": 7,
+              "truth": 9
+            }
+          },
+          "diagnostics": {
+            "alignment": {
+              "BL:feed:S-CO": "CO",
+              "BL:feed:S-H2": "H2",
+              "BL:product:S-LIQ": "CH3OH",
+              "BL:product:S-VAP": "EXHAUST",
+              "COMPRESSOR": "C101",
+              "COOLER": "H101",
+              "FLASH": "F101",
+              "HEATER": "H102",
+              "MIXER": "M101",
+              "REACTOR": "R101",
+              "TURBINE": "T101"
+            },
+            "answer_roles": {
+              "compressor": 1,
+              "expander": 1,
+              "feed": 2,
+              "heat_exchange": 2,
+              "mixer": 1,
+              "product": 2,
+              "reactor": 1,
+              "separator": 1
+            },
+            "controls": {
+              "mention_order_chain": {
+                "boundaries": {
+                  "predicted": 4,
+                  "tp": 4,
+                  "truth": 4
+                },
+                "connections": {
+                  "predicted": 10,
+                  "tp": 1,
+                  "truth": 13
+                },
+                "internal": {
+                  "predicted": 6,
+                  "tp": 1,
+                  "truth": 9
+                },
+                "units": {
+                  "predicted": 7,
+                  "tp": 7,
+                  "truth": 9
+                }
+              },
+              "reversed": {
+                "boundaries": {
+                  "predicted": 4,
+                  "tp": 4,
+                  "truth": 4
+                },
+                "connections": {
+                  "predicted": 4,
+                  "tp": 0,
+                  "truth": 13
+                },
+                "internal": {
+                  "predicted": 0,
+                  "tp": 0,
+                  "truth": 9
+                },
+                "units": {
+                  "predicted": 7,
+                  "tp": 7,
+                  "truth": 9
+                }
+              },
+              "shuffled": {
+                "boundaries": {
+                  "predicted": 4,
+                  "tp": 4,
+                  "truth": 4
+                },
+                "connections": {
+                  "predicted": 4,
+                  "tp": 2,
+                  "truth": 13
+                },
+                "internal": {
+                  "predicted": 1,
+                  "tp": 0,
+                  "truth": 9
+                },
+                "units": {
+                  "predicted": 7,
+                  "tp": 7,
+                  "truth": 9
+                }
+              }
+            },
+            "missing_arcs": [
+              "gas",
+              "s01",
+              "s02",
+              "s03",
+              "s04",
+              "s05",
+              "s06",
+              "s07",
+              "s08",
+              "s09"
+            ],
+            "unexpected_streams": [
+              "S-VAP"
+            ]
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "benchmarks/flowsheet-topology/runs/heldout-v1-r2/prediction.json",
+            "sha256": "eb93be3f2fa08eaebb1d8fb206a103377d5db39f975e24d759339bdb709d3740"
+          },
+          "recorded_run_at": "2026-11-12T18:45:51Z",
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": 0.2947,
+            "seconds": 108.3
+          },
+          "status": "ok"
+        }
+      ],
+      "run": "heldout-v1-r2",
+      "split": "held-out"
+    },
+    {
+      "case_count": 1,
+      "cohort": "2e755feb94c97f9e6064ede2d76805db253ce997d388257b463adffdedb4ed4c",
+      "configuration": {
+        "cli_version": "2.1.317 (Claude Code)",
+        "max_check_rounds": 4,
+        "packet_sha256": {
+          "contract.md": "12b0aadc4badb0bf5dde7cfb95fbd3fb6362b135a7705ab65a815ebdc2ee1efd",
+          "prompt.md": "0aea1367666632cba8856914151ad4fd648442b44956f1c5516de40a25ae483f",
+          "reference_answer.json": "9711b7f1f7613f2d25d598dc38e1476032d92d384322788fac71734f8440fcc8",
+          "reference_source.txt": "4b36c932249a9db29c782771dd2cf6b76466a390e3565faf2a55aaa5ad4a196f",
+          "source_numbered.txt": "57760e8f314d36bc606b0d7e24781eec708b5ea38c2d8dd01f25d1d3bfea527d"
+        },
+        "requested_model": null
+      },
+      "counts": {
+        "boundaries": {
+          "predicted": 4,
+          "tp": 4,
+          "truth": 4
+        },
+        "connections": {
+          "predicted": 4,
+          "tp": 3,
+          "truth": 13
+        },
+        "internal": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 9
+        },
+        "units": {
+          "predicted": 7,
+          "tp": 7,
+          "truth": 9
+        }
+      },
+      "evidence": "Third-party flowsheet code keys third-party prose; same author and notebook, one publisher (IDAES); the held-out input contains the development input verbatim (its first 69 lines) plus the recycle paragraphs, so held out means a held-out key and the recycle text",
+      "family": "idaes-methanol",
+      "interface": "claude-code-cli -p, --tools \"\" (no tools), --system-prompt (one neutral line), empty temporary folder, --strict-mcp-config, --disable-slash-commands",
+      "method": "description_workflow.py packet (A419 contract: source-named equipment kept, order-based connections recorded as assumptions, mixer outline stated) answered with no tools, check diagnostics returned up to 4 rounds, then build",
+      "metrics": {
+        "boundaries": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "connections": {
+          "f1": 0.35294117647058826,
+          "precision": 0.75,
+          "recall": 0.23076923076923078
+        },
+        "internal": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        "units": {
+          "f1": 0.875,
+          "precision": 1.0,
+          "recall": 0.7777777777777778
+        }
+      },
+      "model": {
+        "id": "claude-opus-5-5",
+        "provider": "anthropic",
+        "version": "served id from CLI modelUsage; build not provider-attested"
+      },
+      "not_attempted": [
+        "methanol-no-recycle"
+      ],
+      "provenance": "A419 sealed held-out run: the one run of the method frozen in commit 6c512e23e6a02a4510e3b64da35d0b79416a36d7, three replicates, scored once. Held-out key counts were surveyed on 2026-11-12 (its arc and unit counts, and unit-name counts over the whole notebook text); no method was run. Any sealed score on the recycle flowsheet must state this.",
+      "ran_at": "2026-11-12",
+      "recipe": [
+        {
+          "path": "benchmarks/flowsheet-topology/recipe/heldout-v1/prompt.md",
+          "role": "main_prompt",
+          "sha256": "0aea1367666632cba8856914151ad4fd648442b44956f1c5516de40a25ae483f"
+        },
+        {
+          "path": "benchmarks/flowsheet-topology/recipe/heldout-v1/contract.md",
+          "role": "contract",
+          "sha256": "12b0aadc4badb0bf5dde7cfb95fbd3fb6362b135a7705ab65a815ebdc2ee1efd"
+        },
+        {
+          "path": "benchmarks/flowsheet-topology/recipe/run_description_author.py.txt",
+          "role": "runner",
+          "sha256": "f8df9aeca8d1b90f8caea9e256516197e17a23f8daa13120c4e1ecea810039b2"
+        }
+      ],
+      "rows": [
+        {
+          "case": "methanol-recycle",
+          "counts": {
+            "boundaries": {
+              "predicted": 4,
+              "tp": 4,
+              "truth": 4
+            },
+            "connections": {
+              "predicted": 4,
+              "tp": 3,
+              "truth": 13
+            },
+            "internal": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 9
+            },
+            "units": {
+              "predicted": 7,
+              "tp": 7,
+              "truth": 9
+            }
+          },
+          "diagnostics": {
+            "alignment": {
+              "BL:feed:S-CO": "CO",
+              "BL:feed:S-H2": "H2",
+              "BL:product:S-LIQ": "CH3OH",
+              "BL:product:S-VAP": "EXHAUST",
+              "C-101": "C101",
+              "E-101": "H101",
+              "F-101": "F101",
+              "H-101": "H102",
+              "M-101": "M101",
+              "R-101": "R101",
+              "T-101": "T101"
+            },
+            "answer_roles": {
+              "compressor": 1,
+              "expander": 1,
+              "feed": 2,
+              "heat_exchange": 2,
+              "mixer": 1,
+              "product": 2,
+              "reactor": 1,
+              "separator": 1
+            },
+            "controls": {
+              "mention_order_chain": {
+                "boundaries": {
+                  "predicted": 4,
+                  "tp": 4,
+                  "truth": 4
+                },
+                "connections": {
+                  "predicted": 10,
+                  "tp": 2,
+                  "truth": 13
+                },
+                "internal": {
+                  "predicted": 6,
+                  "tp": 2,
+                  "truth": 9
+                },
+                "units": {
+                  "predicted": 7,
+                  "tp": 7,
+                  "truth": 9
+                }
+              },
+              "reversed": {
+                "boundaries": {
+                  "predicted": 4,
+                  "tp": 4,
+                  "truth": 4
+                },
+                "connections": {
+                  "predicted": 4,
+                  "tp": 0,
+                  "truth": 13
+                },
+                "internal": {
+                  "predicted": 0,
+                  "tp": 0,
+                  "truth": 9
+                },
+                "units": {
+                  "predicted": 7,
+                  "tp": 7,
+                  "truth": 9
+                }
+              },
+              "shuffled": {
+                "boundaries": {
+                  "predicted": 4,
+                  "tp": 4,
+                  "truth": 4
+                },
+                "connections": {
+                  "predicted": 4,
+                  "tp": 2,
+                  "truth": 13
+                },
+                "internal": {
+                  "predicted": 1,
+                  "tp": 0,
+                  "truth": 9
+                },
+                "units": {
+                  "predicted": 7,
+                  "tp": 7,
+                  "truth": 9
+                }
+              }
+            },
+            "missing_arcs": [
+              "gas",
+              "s01",
+              "s02",
+              "s03",
+              "s04",
+              "s05",
+              "s06",
+              "s07",
+              "s08",
+              "s09"
+            ],
+            "unexpected_streams": [
+              "S-VAP"
+            ]
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "benchmarks/flowsheet-topology/runs/heldout-v1-r3/prediction.json",
+            "sha256": "c063ab890ecf4eaf828848db371374a4bbd0b8d2d5c3483e1c2f25fedd1e61a6"
+          },
+          "recorded_run_at": "2026-11-12T18:45:51Z",
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": 0.289,
+            "seconds": 105.9
+          },
+          "status": "ok"
+        }
+      ],
+      "run": "heldout-v1-r3",
+      "split": "held-out"
+    }
+  ],
+  "schema": "task-benchmark-1",
+  "scoring_contract": "role-aligned-arcs-v1",
+  "submissions": [
+    {
+      "id": "dev-v0-r1",
+      "path": "benchmarks/flowsheet-topology/runs/dev-v0-r1.json",
+      "sha256": "accf6deea960641b301b903d28ffde9d34731a6bbb4893b41da04fa88236282a"
+    },
+    {
+      "id": "dev-v0-r2",
+      "path": "benchmarks/flowsheet-topology/runs/dev-v0-r2.json",
+      "sha256": "8bb651d95ecc6ba50735bd4485e323c836c78724bc0363ff60e9a8f78a7e7739"
+    },
+    {
+      "id": "dev-v0-r3",
+      "path": "benchmarks/flowsheet-topology/runs/dev-v0-r3.json",
+      "sha256": "641c03e49f2c9adf4a43b527e85c71fb9197045f679ba817ea489f775063ed60"
+    },
+    {
+      "id": "dev-v1-r1",
+      "path": "benchmarks/flowsheet-topology/runs/dev-v1-r1.json",
+      "sha256": "cf9866763908bfce0c9818f3bd894e708340ea61477f9c175240898691550f7b"
+    },
+    {
+      "id": "dev-v1-r2",
+      "path": "benchmarks/flowsheet-topology/runs/dev-v1-r2.json",
+      "sha256": "7e697617c96e984bb871a7dc9bd638f356002fddf6f03c563beaf193905acd5a"
+    },
+    {
+      "id": "dev-v1-r3",
+      "path": "benchmarks/flowsheet-topology/runs/dev-v1-r3.json",
+      "sha256": "26e9dd49065805cea9dd0008c189d0fb8379130487a83781714b22a0f8636609"
+    },
+    {
+      "id": "heldout-v1-r1",
+      "path": "benchmarks/flowsheet-topology/runs/heldout-v1-r1.json",
+      "sha256": "c572283d68b9e4ed61b7a5318a574a7cd15df6315f767a10cc36062ee9782d2d"
+    },
+    {
+      "id": "heldout-v1-r2",
+      "path": "benchmarks/flowsheet-topology/runs/heldout-v1-r2.json",
+      "sha256": "af67203ebbcb579f82092746a1f105761bd8b63362a25ac65387a6ebed4c056e"
+    },
+    {
+      "id": "heldout-v1-r3",
+      "path": "benchmarks/flowsheet-topology/runs/heldout-v1-r3.json",
+      "sha256": "45b28d78b12181eeb923c41460ed0d39695a14006b7ce3d135c0eb327aef2064"
+    }
+  ],
+  "suite": "flowsheet-topology-idaes-methanol",
+  "suite_sha256": "efa9a9c89ea3ebf1c6117905d23d83aee65ca06bc55cff9738ebb2270b29b918",
+  "suite_version": "1",
+  "summary": [
+    {
+      "case_count": 1,
+      "cohort": "2e755feb94c97f9e6064ede2d76805db253ce997d388257b463adffdedb4ed4c",
+      "configuration": {
+        "cli_version": "2.1.317 (Claude Code)",
+        "max_check_rounds": 4,
+        "packet_sha256": {
+          "contract.md": "12b0aadc4badb0bf5dde7cfb95fbd3fb6362b135a7705ab65a815ebdc2ee1efd",
+          "prompt.md": "0aea1367666632cba8856914151ad4fd648442b44956f1c5516de40a25ae483f",
+          "reference_answer.json": "9711b7f1f7613f2d25d598dc38e1476032d92d384322788fac71734f8440fcc8",
+          "reference_source.txt": "4b36c932249a9db29c782771dd2cf6b76466a390e3565faf2a55aaa5ad4a196f",
+          "source_numbered.txt": "57760e8f314d36bc606b0d7e24781eec708b5ea38c2d8dd01f25d1d3bfea527d"
+        },
+        "requested_model": null
+      },
+      "evidence": "Third-party flowsheet code keys third-party prose; same author and notebook, one publisher (IDAES); the held-out input contains the development input verbatim (its first 69 lines) plus the recycle paragraphs, so held out means a held-out key and the recycle text",
+      "family": "idaes-methanol",
+      "group": "6e5aa162c91ae2e6b48ace6c7991f5951abf5fa42cd50cd0dc8f70c37eef36bc",
+      "interface": "claude-code-cli -p, --tools \"\" (no tools), --system-prompt (one neutral line), empty temporary folder, --strict-mcp-config, --disable-slash-commands",
+      "method": "description_workflow.py packet (A419 contract: source-named equipment kept, order-based connections recorded as assumptions, mixer outline stated) answered with no tools, check diagnostics returned up to 4 rounds, then build",
+      "metrics": {
+        "boundaries": {
+          "max_f1": 1.0,
+          "mean_f1": 1.0,
+          "min_f1": 1.0,
+          "stdev_f1": 0.0
+        },
+        "connections": {
+          "max_f1": 0.35294117647058826,
+          "mean_f1": 0.35294117647058826,
+          "min_f1": 0.35294117647058826,
+          "stdev_f1": 0.0
+        },
+        "internal": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": 0.0
+        },
+        "units": {
+          "max_f1": 0.875,
+          "mean_f1": 0.875,
+          "min_f1": 0.875,
+          "stdev_f1": 0.0
+        }
+      },
+      "model": {
+        "id": "claude-opus-5-5",
+        "provider": "anthropic",
+        "version": "served id from CLI modelUsage; build not provider-attested"
+      },
+      "replicates": 3,
+      "runs": [
+        "heldout-v1-r1",
+        "heldout-v1-r2",
+        "heldout-v1-r3"
+      ],
+      "split": "held-out"
+    },
+    {
+      "case_count": 1,
+      "cohort": "568671fa1928fbcab6baf33c2119ae4e51bec04fbd7ccbcfe345cc26668fcfdc",
+      "configuration": {
+        "cli_version": "2.1.317 (Claude Code)",
+        "max_check_rounds": 4,
+        "packet_sha256": {
+          "contract.md": "12b0aadc4badb0bf5dde7cfb95fbd3fb6362b135a7705ab65a815ebdc2ee1efd",
+          "prompt.md": "845ae86753e139466131b93d030a253e2558fb11ccafe8d5d5ee2889bf959b5f",
+          "reference_answer.json": "9711b7f1f7613f2d25d598dc38e1476032d92d384322788fac71734f8440fcc8",
+          "reference_source.txt": "4b36c932249a9db29c782771dd2cf6b76466a390e3565faf2a55aaa5ad4a196f",
+          "source_numbered.txt": "1ebb2983e85d76d33c77a9cf6c44897c68a0b8beaecd93622abe915a3df32dc7"
+        },
+        "requested_model": null
+      },
+      "evidence": "Third-party flowsheet code keys third-party prose; same author and notebook, one publisher (IDAES)",
+      "family": "idaes-methanol",
+      "group": "9dee07759ad5c203800ffccea2ae899398252d36e5510ae973b5cbe7d0058576",
+      "interface": "claude-code-cli -p, --tools \"\" (no tools), --system-prompt (one neutral line), empty temporary folder, --strict-mcp-config, --disable-slash-commands",
+      "method": "description_workflow.py packet (A419 contract: source-named equipment kept, order-based connections recorded as assumptions, mixer outline stated) answered with no tools, check diagnostics returned up to 4 rounds, then build",
+      "metrics": {
+        "boundaries": {
+          "max_f1": 0.8571428571428571,
+          "mean_f1": 0.8571428571428571,
+          "min_f1": 0.8571428571428571,
+          "stdev_f1": 0.0
+        },
+        "connections": {
+          "max_f1": 0.9473684210526315,
+          "mean_f1": 0.6234817813765182,
+          "min_f1": 0.46153846153846156,
+          "stdev_f1": 0.280494057905891
+        },
+        "internal": {
+          "max_f1": 1.0,
+          "mean_f1": 0.3333333333333333,
+          "min_f1": 0.0,
+          "stdev_f1": 0.5773502691896257
+        },
+        "units": {
+          "max_f1": 1.0,
+          "mean_f1": 1.0,
+          "min_f1": 1.0,
+          "stdev_f1": 0.0
+        }
+      },
+      "model": {
+        "id": "claude-opus-5-5",
+        "provider": "anthropic",
+        "version": "served id from CLI modelUsage; build not provider-attested"
+      },
+      "replicates": 3,
+      "runs": [
+        "dev-v1-r1",
+        "dev-v1-r2",
+        "dev-v1-r3"
+      ],
+      "split": "development"
+    },
+    {
+      "case_count": 1,
+      "cohort": "568671fa1928fbcab6baf33c2119ae4e51bec04fbd7ccbcfe345cc26668fcfdc",
+      "configuration": {
+        "cli_version": "2.1.317 (Claude Code)",
+        "max_check_rounds": 4,
+        "packet_sha256": {
+          "contract.md": "1c65eeaa19b74c0b76b516b6fff16393f28ef1cf9a6116dc289b1103a294364c",
+          "prompt.md": "845ae86753e139466131b93d030a253e2558fb11ccafe8d5d5ee2889bf959b5f",
+          "reference_answer.json": "9711b7f1f7613f2d25d598dc38e1476032d92d384322788fac71734f8440fcc8",
+          "reference_source.txt": "4b36c932249a9db29c782771dd2cf6b76466a390e3565faf2a55aaa5ad4a196f",
+          "source_numbered.txt": "1ebb2983e85d76d33c77a9cf6c44897c68a0b8beaecd93622abe915a3df32dc7"
+        },
+        "requested_model": null
+      },
+      "evidence": "Third-party flowsheet code keys third-party prose; same author and notebook, one publisher (IDAES)",
+      "family": "idaes-methanol",
+      "group": "7abc344de1bb6d9bff105d772ea986ddb7a59a54a2069f07fce961f528039895",
+      "interface": "claude-code-cli -p, --tools \"\" (no tools), --system-prompt (one neutral line), empty temporary folder, --strict-mcp-config, --disable-slash-commands",
+      "method": "description_workflow.py packet (contract before A419) answered with no tools, check diagnostics returned up to 4 rounds, then build",
+      "metrics": {
+        "boundaries": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": 0.0
+        },
+        "connections": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": 0.0
+        },
+        "internal": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": 0.0
+        },
+        "units": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": 0.0
+        }
+      },
+      "model": {
+        "id": "claude-opus-5-5",
+        "provider": "anthropic",
+        "version": "served id from CLI modelUsage; build not provider-attested"
+      },
+      "replicates": 3,
+      "runs": [
+        "dev-v0-r1",
+        "dev-v0-r2",
+        "dev-v0-r3"
+      ],
+      "split": "development"
+    }
+  ],
+  "task": "flowsheet-topology"
+}

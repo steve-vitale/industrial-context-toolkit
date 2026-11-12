@@ -1,0 +1,51 @@
+{
+  "cases": [
+    "nestor-excavators-a-c",
+    "nestor-excavators-d-e"
+  ],
+  "configuration": {
+    "derive_source": "description",
+    "recurring_fields": [
+      "work_class"
+    ],
+    "vocabulary": "class-name words"
+  },
+  "id": "a420-posthoc-classname-control",
+  "interface": "python scripts/maintenance_system_posthoc.py (scripts/maintenance_history.py derive)",
+  "method": "maintenance-history derive with a vocabulary of the class names own words only (and dropped), no development reading",
+  "model": {
+    "id": "maintenance_history.py derive",
+    "provider": "none (deterministic tool)",
+    "version": "class-name control 2026-11-12"
+  },
+  "predictions": {
+    "nestor-excavators-a-c": {
+      "path": "benchmarks/maintenance-systems/predictions/development-classname-control.json",
+      "sha256": "c7e6ad9c406fe3de87b185abeb8e13d877431108ce4f947dbebc3f93e43091f8"
+    },
+    "nestor-excavators-d-e": {
+      "path": "benchmarks/maintenance-systems/predictions/held-out-classname-control.json",
+      "sha256": "f4e95095fe64a0ce7e874c47298cb4a4f94a1c49278abe152fef18af5d6c69b3"
+    }
+  },
+  "provenance": "Added at review after the sealed held-out run, as a labelled post-hoc control; deterministic tool run, no model.",
+  "ran_at": "2026-11-12",
+  "recipe": [
+    {
+      "path": "scripts/maintenance_system_posthoc.py",
+      "role": "control_vocabulary_and_driver",
+      "sha256": "3292a20b92ccd02cf6128514d55883957dce34a3b798528d6098b4f8a5851be6"
+    },
+    {
+      "path": "examples/maintenance-history/nestor.py",
+      "role": "profile_and_driver",
+      "sha256": "9f16827b76cdd2fdb9e9cb381b47467bf44aad7ccdfb8d2396b9e8a50d5189c3"
+    },
+    {
+      "path": "scripts/maintenance_history.py",
+      "role": "tool",
+      "sha256": "224bfaf067df753d850b88e287b337fb2552d796a3ba2b1d0568f7767fde1e9e"
+    }
+  ],
+  "role": "post-hoc key-free control"
+}

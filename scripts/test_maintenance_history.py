@@ -205,5 +205,104 @@ class HistoryTests(unittest.TestCase):
         self.assertTrue(any(x['record'] == ['U1', 'W1'] for x in r['unlinked']['work_orders']))
 
 
+    def no_id_export(self, name, rows, edit=None):
+        """A one-file work-order export without an ID column (as in the Nestor excavator records)."""
+        profile = fixtures.write(self.root / (name + '-inputs'))
+        folder = profile.parent
+        with (folder / 'work_orders.csv').open('w', encoding='utf-8', newline='') as stream:
+            stream.write('Date,Asset,Text,Type\n')
+            for row in rows:
+                stream.write(','.join(row) + '\n')
+        p = json.loads(profile.read_bytes())
+        p['recurring_fields'] = ['work_class']
+        p['sources'] = {k: v for k, v in p['sources'].items() if k in ('assets', 'work_orders')}
+        p.pop('labor_ledger')
+        p['sources']['work_orders'] = dict(id='FIX-orders', revision='1', owner='Records owner', coverage='Authored no-ID export',
+                                          files=[dict(path='work_orders.csv')], constants=dict(scope='U1'), identity='record',
+                                          columns=dict(Date='created', Asset='asset_id', Text='description', Type='order_type'),
+                                          date_formats=dict(created='iso_date'), time_basis='Dates only')
+        if edit:
+            edit(p)
+        mh.dump(profile, p)
+        return profile
+
+    ROWS = [('2024-01-02', 'P-101', 'Replace seal'), ('2024-01-03', 'P-101', 'SEAL leaking again'),
+            ('2024-01-04', 'PARK', 'mow grass'), ('2024-01-05', 'P-101', 'sealant on cover'),
+            ('2024-01-06', 'P-101', 'pump seal and bearing'), ('2024-01-07', 'PARK', 'Bearing noise')]
+    RULES = [dict(value='seal', terms=['SEAL']), dict(value='bearing', terms=['BEARING', 'BRG'])]
+
+    def derive(self, p, rules=None):
+        p['sources']['work_orders']['derive'] = dict(work_class=dict(source='description', rules=rules or self.RULES,
+                                                     basis='Authored test vocabulary; not source codes'))
+
+    def test_record_identity_uses_the_source_record_number(self):
+        profile = self.no_id_export('ordinal', [r + ('CM',) for r in self.ROWS])
+        r = mh.run(profile, self.root / 'ordinal')
+        ids = [w['id'] for w in r['all_records']['work_orders']]
+        self.assertEqual(ids, ['2', '3', '4', '5', '6', '7'])
+        self.assertTrue(all(w['origin']['record'] == int(w['id']) for w in r['all_records']['work_orders']))
+        mh.verify_packet(self.root / 'ordinal')
+        def both(p):
+            p['sources']['work_orders']['columns']['Type'] = 'id'
+        with self.assertRaisesRegex(ValueError, 'record identity'):
+            mh.run(self.no_id_export('both', [r + ('CM',) for r in self.ROWS], both), self.root / 'both')
+
+    def test_selection_keeps_declared_values_counts_the_rest_and_keeps_locators(self):
+        def select(p):
+            p['sources']['work_orders']['select'] = dict(asset_id=['PARK'])
+        r = mh.run(self.no_id_export('select', [x + ('CM',) for x in self.ROWS], select), self.root / 'select')
+        self.assertEqual([w['id'] for w in r['all_records']['work_orders']], ['4', '7'])
+        self.assertEqual(r['counts']['work_orders'], 2)
+        self.assertEqual(r['selection'], dict(work_orders=dict(field='asset_id', values=['PARK'], kept=2, excluded=4)))
+        self.assertEqual(r['relationship_coverage']['work_orders']['unlinked'], 0)
+        self.assertNotIn('selection', self.run_packet('plain'))
+        def bad(p):
+            p['sources']['work_orders']['select'] = dict(status=['open'])
+        with self.assertRaisesRegex(ValueError, 'select'):
+            mh.run(self.no_id_export('bad-select', [x + ('CM',) for x in self.ROWS], bad), self.root / 'bad-select')
+
+    def test_derived_class_from_declared_description_terms_is_marked_and_grouped(self):
+        r = mh.run(self.no_id_export('derive', [x + ('CM',) for x in self.ROWS], self.derive), self.root / 'derive')
+        rows = {w['id']: w for w in r['all_records']['work_orders']}
+        # Whole words, case-insensitive, first declared rule wins; 'sealant' is not 'seal'.
+        self.assertEqual({k: v.get('work_class', '') for k, v in rows.items()},
+                         {'2': 'seal', '3': 'seal', '4': '', '5': '', '6': 'seal', '7': 'bearing'})
+        self.assertEqual(rows['3']['_derived']['work_class'], dict(value='seal', rule=1, term='SEAL', source='description'))
+        self.assertNotIn('work_class', rows['4']['_derived'])
+        pump = self.asset(r)
+        self.assertEqual([(g['fields'], g['orders']) for g in pump['recurring_work']], [(dict(work_class='seal'), ['2', '3', '6'])])
+        self.assertEqual(pump['recurring_work'][0]['derived_fields'], ['work_class'])
+        self.assertEqual(pump['unclassified_orders'], ['5'])
+        page = (self.root / 'derive' / pump['page']).read_text(encoding='utf-8')
+        self.assertIn('derived from description', page)
+        def mapped(p):
+            self.derive(p); p['sources']['work_orders']['columns']['Type'] = 'work_class'
+        with self.assertRaisesRegex(ValueError, 'derive'):
+            mh.run(self.no_id_export('mapped', [x + ('CM',) for x in self.ROWS], mapped), self.root / 'mapped')
+        with self.assertRaisesRegex(ValueError, 'derive'):
+            mh.run(self.no_id_export('empty', [x + ('CM',) for x in self.ROWS], lambda p: self.derive(p, [dict(value='seal', terms=[])])), self.root / 'empty')
+
+    def test_unmapped_completion_is_not_a_per_record_issue(self):
+        # Ordinary mapped IDs, no new options: only the completion column is absent from the export and the mapping.
+        import csv
+        profile = fixtures.write(self.root / 'nocompletion-inputs')
+        path = profile.parent / 'work_orders.csv'
+        with path.open(encoding='utf-8-sig', newline='') as stream:
+            rows = list(csv.DictReader(stream))
+        with path.open('w', encoding='utf-8', newline='') as stream:
+            writer = csv.DictWriter(stream, fieldnames=[f for f in rows[0] if f != 'completed'], lineterminator='\n')
+            writer.writeheader(); writer.writerows({k: v for k, v in row.items() if k != 'completed'} for row in rows)
+        p = json.loads(profile.read_bytes())
+        spec = p['sources']['work_orders']
+        spec['columns'] = {k: v for k, v in spec['columns'].items() if v != 'completed'}
+        spec['date_formats'].pop('completed')
+        mh.dump(profile, p)
+        r = mh.run(profile, self.root / 'nocompletion')
+        self.assertEqual(r['counts']['work_orders'], 7)
+        self.assertNotIn('completed', r['all_records']['work_orders'][0])
+        self.assertNotIn('missing_completion_value', {i['code'] for i in r['issues']})
+        # A mapped but blank completion value still raises the issue.
+        self.assertIn('missing_completion_value', {i['code'] for i in self.run_packet('mapped-completion')['issues']})
+
 if __name__ == '__main__':
     unittest.main()

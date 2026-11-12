@@ -58,6 +58,9 @@ For each source in `sources` declare:
 | `flags` | Optional `reopened`/`correction` dictionaries with disjoint exact `true`/`false` lists. Unmapped codes stay unknown, including blank flags. Nonempty unknowns generate actions. |
 | `labels` | Field → exact raw code → meaning, grounded in the source owner/dictionary. Empty dictionary deliberately exposes all observed nonempty codes as unresolved. |
 | `work_order_entities` | Required on transactions: exact entity codes allowed to reference work orders. Equal-looking IDs in another entity cannot join. |
+| `identity: "record"` | Optional, for a one-file export with no ID column: the record number becomes `id` (CSV records count the header as record 1, so the first data row is `2`; JSON records are one-based). No `id` column may also be mapped. The locator and the identity are then the same number. |
+| `select` | Optional on `work_orders`: one mapped field and the exact values to keep, e.g. `{"asset_id": ["A", "B"]}`. Other records are not analysed; `result.json` reports `selection` with kept and excluded counts, and the original file is still retained whole. Use it for a declared scope or split, not to hide records. |
+| `derive` | Optional on `work_orders`: `{"work_class": {"source": "description", "rules": [{"value": "...", "terms": ["..."]}], "basis": "..."}}` (also `order_type` or `job_type`). The target may not be mapped. A record takes the first rule with a whole-word, case-insensitive term in the source field (letters and digits form words; other characters separate them); otherwise it stays unclassified. Each record keeps `_derived` (value, rule number, matched term); the dossier says the class is derived and recurring groups list `derived_fields`. A derived class is a reviewable reading of the text, not a source code. |
 
 All tables require exact nonempty `id` and `scope`; duplicate `(scope,id)` keys
 are refused before publication. References join only within the same scope.
@@ -93,8 +96,11 @@ currency, payroll or savings calculations. The report labels totals **booked hou
 `job_type` (default all three). Within each scoped asset, at least two distinct
 orders with identical nonempty values form a review candidate. Missing values
 are listed as unclassified. Descriptions, parent orders and planned work remain
-visible; this is transparent grouping, not a classifier, failure episode counter,
-root-cause diagnosis or priority based on safety/criticality. The asset index is
+visible; this is transparent grouping, not a failure episode counter, root-cause
+diagnosis or priority based on safety/criticality. The only classification is a
+declared `derive` vocabulary, whose every match is shown with its term. A work-order
+export with no completion column raises no per-record missing-completion issue;
+a mapped but blank completion value still does. The asset index is
 sorted by selected-order count. Confirm whether each asset is equipment, a system
 or a broad location before acting on recurrence.
 

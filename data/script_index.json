@@ -158,6 +158,14 @@
       "kind": "tool",
       "guide": "examples/vendor-evaluation/README.md"
     },
+    "scripts/maintenance_system_posthoc.py": {
+      "kind": "support",
+      "guide": "benchmarks/README.md"
+    },
+    "scripts/score_maintenance_systems.py": {
+      "kind": "support",
+      "guide": "benchmarks/README.md"
+    },
     "scripts/score_pid2graph.py": {
       "kind": "tool",
       "guide": "examples/vendor-evaluation/README.md"
@@ -247,6 +255,10 @@
       "guide": "docs/GENERALIZATION.md"
     },
     "scripts/fetch_corpus.py": {
+      "kind": "check",
+      "guide": "docs/CORPUS_FETCH.md"
+    },
+    "scripts/fetch_public_group.py": {
       "kind": "check",
       "guide": "docs/CORPUS_FETCH.md"
     },
@@ -689,6 +701,15 @@
     "scripts/context_scope.py": {
       "kind": "support",
       "guide": "examples/map-component-cycle/README.md"
+    },
+    "scripts/flowsheet_topology.py": {
+      "kind": "support",
+      "purpose": "The flowsheet-topology scorer (contract role-aligned-arcs-v1): units and Arc connections parsed, never executed, from flowsheet source code as the key; a described model's unit roles and directed connections scored after a role-preserving alignment, beside reference, empty, reversed, shuffled and mention-order-chain controls. Imported by benchmark.py and corpus_matrix.py row 9."
+    },
+    "scripts/run_description_author.py": {
+      "kind": "research",
+      "guide": "examples/from-description/README.md",
+      "purpose": "Stands in for the approved assistant on the description workflow's documented route for the A419 benchmark: gives a model only the prepared packet (no tools, empty folder), returns check diagnostics for correction up to a round limit, then builds; the scored output is the build's model.json."
     },
     "scripts/score_batch_totals.py": {
       "kind": "support",

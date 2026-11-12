@@ -3,31 +3,39 @@
   "reports": [
     {
       "suite": "benchmarks/open100-validation.json",
-      "report": "benchmarks/results/open100-validation-overflow-guard-artifact-values-batch-totals"
+      "report": "benchmarks/results/open100-validation-overflow-guard-artifact-values-flowsheet-adapter-yeast-adapter"
     },
     {
       "suite": "benchmarks/description-controls-recipe-preserved.json",
-      "report": "benchmarks/results/description-controls-tag-adapter-artifact-values-batch-totals"
+      "report": "benchmarks/results/description-controls-tag-adapter-artifact-values-flowsheet-adapter-yeast-adapter"
     },
     {
       "suite": "benchmarks/mgpi-development-recipe-preserved.json",
-      "report": "benchmarks/results/mgpi-development-tag-adapter-artifact-values-batch-totals"
+      "report": "benchmarks/results/mgpi-development-tag-adapter-artifact-values-flowsheet-adapter-yeast-adapter"
     },
     {
       "suite": "benchmarks/source-support-development.json",
-      "report": "benchmarks/results/source-support-development-tag-adapter-artifact-values-batch-totals"
+      "report": "benchmarks/results/source-support-development-tag-adapter-artifact-values-flowsheet-adapter-yeast-adapter"
     },
     {
       "suite": "benchmarks/tag-reading-development.json",
-      "report": "benchmarks/results/tag-reading-development-artifact-values-batch-totals"
+      "report": "benchmarks/results/tag-reading-development-artifact-values-flowsheet-adapter-yeast-adapter"
     },
     {
       "suite": "benchmarks/source-support/artifact-values/suite.json",
-      "report": "benchmarks/results/artifact-value-review-development-batch-totals"
+      "report": "benchmarks/results/artifact-value-review-development-flowsheet-adapter-yeast-adapter"
+    },
+    {
+      "suite": "benchmarks/flowsheet-topology/suite.json",
+      "report": "benchmarks/results/flowsheet-topology-idaes-methanol-yeast-adapter"
+    },
+    {
+      "suite": "benchmarks/maintenance-systems/suite.json",
+      "report": "benchmarks/results/nestor-system-grouping-yeast-adapter"
     },
     {
       "suite": "benchmarks/industrial-yeast-batch-totals.json",
-      "report": "benchmarks/results/industrial-yeast-batch-totals"
+      "report": "benchmarks/results/industrial-yeast-batch-totals-merged"
     }
   ]
 }

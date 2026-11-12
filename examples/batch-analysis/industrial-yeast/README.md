@@ -79,7 +79,7 @@ that order is the commit order: one working session, the freeze commit at 13:37:
 time, 2026-11-12), and dd040dad bundles the rules with the development result rather than committing the rules first. After the
 held-out run, one wording-only change was made to the tool (the report's `method.assumption` text when `next` is
 used, which had wrongly said both endpoints are required); every committed report was regenerated and every score
-is byte-identical. The tool is deterministic, so there is no run spread; the corpus matrix (row 9) re-runs both
+is byte-identical. The tool is deterministic, so there is no run spread; the corpus matrix (row 11) re-runs both
 splits and requires the same bytes. Held-out exposure, as the plan recorded it: held-out key counts were surveyed
 on 2026-11-12 (row and logged-cumulative counts over all batches and the completeness tier of every batch; key
 values were read for B01 only); no method was run.

@@ -128,8 +128,9 @@ class Register(unittest.TestCase):
         with patch.object(cd, "suite_paths", lambda rel, root=cd.ROOT: {"data/external/maintie/x.json"}):
             self.assertTrue(cd.benchmark_suites("maintie"))
             self.assertEqual(cd.benchmark_suites("maint"), [])
-        # The real suites name no acquired group's files.
-        self.assertTrue(all(not r["suites"] for r in self.rows))
+        # Of the real suites, only the Nestor system-grouping suite (A420) names an acquired group's files.
+        self.assertEqual({r["id"]: r["suites"] for r in self.rows if r["suites"]},
+                         {"nestor-excavators": ["benchmarks/maintenance-systems/suite.json"]})
 
     def test_status_cannot_be_typed_in(self):
         def side(s):
