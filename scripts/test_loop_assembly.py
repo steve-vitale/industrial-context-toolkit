@@ -5,6 +5,7 @@ OpenCV and NumPy and are skipped without them."""
 import contextlib
 import io
 import json
+import random
 from pathlib import Path
 import tempfile
 import unittest
@@ -430,8 +431,9 @@ class ReviewFindings(unittest.TestCase):
         self.assertEqual(len(b["unresolved_signal_networks"]), 1)
 
     def test_a_dashed_line_between_two_items_of_one_role_is_not_a_signal(self):
-        # OPEN100 sheet 3 (claude reading): one MOV 1651 read twice, a 3-dash line between the two readings
-        for where, tags in (("line_items", ("MOV 1651", "MOV 1651")), ("instruments", ("FT 90", "PT 91"))):
+        # OPEN100 sheet 3 (claude reading) read one MOV 1651 twice, joined by a 3-dash line; MOV now has no ISA role,
+        # so the same shape is kept here with a valve that has one
+        for where, tags in (("line_items", ("XV 1651", "XV 1651")), ("instruments", ("FT 90", "PT 91"))):
             m = model([])
             m[where] = [inst("A", tags[0]), inst("B", tags[1])]
             b = la.assemble(m, [line("a", ["A", "B"])])
@@ -730,6 +732,153 @@ class ReReview(unittest.TestCase):
                             line("d", ["Y", "V"])])
         self.assertEqual(rel(b, "controls"), set())
         self.assertIn(["F", "P", "Y"], [u["members"] for u in b["unresolved_signal_networks"]])
+
+
+class ThirdReview(unittest.TestCase):
+    """The third independent review's fixtures (a_inphase.py, b2.py, b_merge.py, attacks.py, letters.py), kept as
+    permanent tests. A line the tracer joined through a crossing may support signal_to at tier traced at most, never
+    controls, sets_point_of or a confirmed loop."""
+    R = ReReview()
+
+    def image(self, draw, tags):
+        return self.R.image(draw, tags)
+
+    def bub(self, img, b, k, x, y):
+        self.R.bub(img, b, k, x, y)
+
+    def dsh(self, img, pts):
+        self.R.dsh(img, pts)
+
+    def loop_relations(self, b):
+        return {(r["type"], r["from"], r["to"]) for r in b["relations"] if r["type"] in ("controls", "sets_point_of")}
+
+    def test_random_placements_of_two_lines_ending_at_a_pipe_never_confirm_a_loop(self):
+        rng = random.Random(1)
+        false, merged = 0, 0
+        for _ in range(60):
+            yc, yd = 100 + rng.randint(0, 30), 500 - rng.randint(0, 30)
+
+            def draw(img, b):
+                self.bub(img, b, "C", 400, yc)
+                self.bub(img, b, "D", 400, yd)
+                cv2.line(img, (50, 300), (950, 300), 0, 2)
+                self.bub(img, b, "TT", 150, yc)
+                self.dsh(img, [(175, yc), (375, yc)])
+                self.dsh(img, [(400, yc + 25), (400, 299)])
+                self.dsh(img, [(400, yd - 25), (400, 301)])
+            b = self.image(draw, {"C": "TIC 20", "TT": "TT 20", "D": "TV 20"})
+            false += bool(self.loop_relations(b))
+            cd = [r for r in b["relations"] if {r["from"], r["to"]} == {"C", "D"}]
+            merged += bool(cd)
+            for r in cd:  # a chance in-step merge: kept as a signal at tier traced, and listed for review
+                self.assertEqual(r["confidence"], "traced")
+                self.assertTrue(r.get("merged_through_crossing"))
+        self.assertEqual(false, 0)
+        self.assertGreater(merged, 0)  # the sweep does reach the chance merge it guards against
+
+    def test_lines_ending_on_a_dashed_line_from_either_side_confirm_nothing(self):
+        def lines_to_a_dashed(img, b):
+            self.bub(img, b, "C", 400, 100)
+            self.bub(img, b, "TT", 150, 100)
+            self.dsh(img, [(175, 100), (375, 100)])
+            self.bub(img, b, "V", 400, 500)
+            self.bub(img, b, "L", 100, 300)
+            self.bub(img, b, "R", 700, 300)
+            self.dsh(img, [(125, 300), (675, 300)])
+            self.dsh(img, [(400, 125), (400, 294)])
+            self.dsh(img, [(400, 306), (400, 475)])
+        for v in ("FV 99", "TV 20"):
+            b = self.image(lines_to_a_dashed, {"C": "TIC 20", "TT": "TT 20", "V": v, "L": "FT 30", "R": "FIC 30"})
+            self.assertEqual(self.loop_relations(b), set(), v)
+            self.assertFalse({r["from"] for r in b["relations"] if r["to"] in ("C", "V")} & {"L", "C"}, v)
+
+        def false_cascade(img, b):
+            self.bub(img, b, "C", 400, 100)
+            self.bub(img, b, "TT", 150, 100)
+            self.dsh(img, [(175, 100), (375, 100)])
+            self.bub(img, b, "D", 400, 500)
+            self.bub(img, b, "FV", 650, 500)
+            self.dsh(img, [(425, 500), (625, 500)])
+            self.bub(img, b, "FT", 150, 500)
+            self.dsh(img, [(175, 500), (375, 500)])
+            self.bub(img, b, "L", 60, 300)
+            self.bub(img, b, "R", 900, 300)
+            self.dsh(img, [(85, 300), (875, 300)])
+            self.dsh(img, [(400, 125), (400, 294)])
+            self.dsh(img, [(400, 306), (400, 475)])
+        b = self.image(false_cascade, {"C": "TIC 20", "TT": "TT 20", "D": "FIC 21", "FT": "FT 21", "FV": "FV 21",
+                                       "L": "FT 30", "R": "FIC 30"})
+        self.assertEqual(self.loop_relations(b), {("controls", "D", "FV")})
+        self.assertFalse([r for r in b["relations"] if r["from"] == "L" and r["to"] in ("C", "D")])
+
+    def test_a_merged_line_is_a_signal_at_tier_traced_and_nothing_more(self):
+        m = model([inst("T", "FT 1"), inst("C", "FIC 1"), inst("V", "FV 1"), inst("T2", "TT 2"), inst("C2", "TIC 2")])
+        merged = {**line("b", ["C", "V"]), "merged_through_crossing": True}
+        b = la.assemble(m, [line("a", ["T", "C"]), merged, line("c", ["T2", "C2"]),
+                            {**line("d", ["C2", "C"]), "merged_through_crossing": True}])
+        self.assertEqual(self.loop_relations(b), set())
+        r = next(r for r in b["relations"] if (r["from"], r["to"]) == ("C", "V"))
+        self.assertEqual((r["confidence"], r["merged_through_crossing"]), ("traced", True))
+        self.assertEqual(loop(b, "C")["status"], "partly_confirmed")
+        listed = [u for u in b["unresolved_signal_networks"] if u["failed_conditions"] == ["not_merged_through_a_crossing"]]
+        self.assertEqual(len(listed), 2)
+        b = la.assemble(m, [line("a", ["T", "C"]), line("b", ["C", "V"])])  # the same lines unmerged
+        self.assertEqual(self.loop_relations(b), {("controls", "C", "V")})
+
+    def test_a_transmitter_misread_as_a_controller_is_not_an_outer_loop(self):
+        for tags in ({"T": "FC 101", "C": "FIC 101", "V": "FV 101"}, {"T": "FT 101", "C": "FIC 101", "V": "FC 101"}):
+            def basic(img, b):
+                self.bub(img, b, "T", 100, 100)
+                self.bub(img, b, "C", 400, 100)
+                self.bub(img, b, "V", 400, 400)
+                self.dsh(img, [(125, 100), (375, 100)])
+                self.dsh(img, [(400, 125), (400, 375)])
+            b = self.image(basic, tags)
+            self.assertEqual([r for r in b["relations"] if r["type"] == "sets_point_of"], [], tags)
+        m = model([inst("T1", "TT 1"), inst("C1", "TIC 1"), inst("T2", "FT 2"), inst("C2", "FIC 2"),
+                   inst("V", "FV 2")])  # a real cascade: the outer controller has its own measurement
+        b = la.assemble(m, [line("a", ["T1", "C1"]), line("b", ["C1", "C2"]), line("c", ["T2", "C2"]),
+                            line("d", ["C2", "V"])])
+        self.assertEqual(rel(b, "sets_point_of"), {("C1", "C2")})
+        b = la.assemble(m, [line("b", ["C1", "C2"]), line("c", ["T2", "C2"]), line("d", ["C2", "V"])])
+        self.assertEqual(rel(b, "sets_point_of"), set())
+
+    def test_a_line_drawn_through_bubbles_it_does_not_end_at_is_unresolved(self):
+        def through(img, b):
+            self.bub(img, b, "T", 60, 300)
+            self.bub(img, b, "X", 300, 300)
+            self.bub(img, b, "C", 550, 300)
+            self.bub(img, b, "V", 900, 300)
+            self.dsh(img, [(85, 300), (875, 300)])
+            self.bub(img, b, "CT", 550, 100)
+            self.dsh(img, [(550, 125), (550, 275)])
+        b = self.image(through, {"T": "FT 7", "X": "LI 8", "C": "FIC 9", "V": "FV 9", "CT": "FT 9"})
+        self.assertEqual(rel(b, "signal_to"), {("CT", "C")})
+        self.assertEqual(rel(b, "controls"), set())
+        self.assertTrue(any("not_through_a_symbol" in u["failed_conditions"] for u in b["unresolved_signal_networks"]))
+
+        for shift in range(0, 19, 3):  # a controller's input and output drawn in one row still confirm
+            def drawn(img, b, s=shift):
+                self.bub(img, b, "T", 100, 300)
+                self.bub(img, b, "C", 450, 300)
+                self.bub(img, b, "V", 800, 300)
+                self.dsh(img, [(125, 300), (425, 300)])
+                self.dsh(img, [(475 + s, 300), (775, 300)])
+            b = self.image(drawn, {"T": "FT 1", "C": "FIC 1", "V": "FV 1"})
+            self.assertEqual(rel(b, "controls"), {("C", "V")}, shift)
+
+    def test_letters_out_of_isa_order_and_shut_down_valves(self):
+        self.assertEqual(la.role_of("ESDV"), "final_element")
+        self.assertEqual(la.role_of("SDV"), "final_element")
+        for letters in ("FCI", "FTC", "FIV", "LVC"):
+            self.assertIsNone(la.role_of(letters), letters)
+            self.assertTrue(la.letters_out_of_order(letters), letters)
+        self.assertEqual(la.role_of("FICA"), "controller")
+        self.assertEqual(la.role_of("PDIT"), "transmitter")
+        m = model([inst("E", "FE 12"), inst("T", "FT 12"), inst("C", "FIC 12"), inst("V", "FV 12")])
+        b = la.assemble(m, [line("a", ["E", "T"]), line("b", ["T", "C"]), line("c", ["C", "V"])])
+        self.assertIn(("E", "T"), rel(b, "signal_to"))  # a primary element to its transmitter
+        self.assertEqual(loop(b, "C")["status"], "confirmed")
 
 
 class Scorer(unittest.TestCase):

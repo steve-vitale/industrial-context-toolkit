@@ -61,7 +61,8 @@ MEASUREMENTS = SENSORS + ("switch", "indicator")
 CONFIDENCE = ("traced_and_grouped", "traced", "traced_cross_sheet", "traced_direction_inferred")
 # Which role a signal may go to next: a measurement to a controller (or a transmitter to its indicator or switch), a
 # controller to a final element or relay, a relay to a final element. Controller to controller is a cascade.
-NEXT = {"transmitter": {"controller", "indicator", "switch"}, "primary_element": {"controller", "indicator", "switch"},
+NEXT = {"transmitter": {"controller", "indicator", "switch"},
+        "primary_element": {"transmitter", "controller", "indicator", "switch"},
         "switch": {"controller"}, "indicator": {"controller"}, "controller": {"final_element", "relay"},
         "relay": {"final_element"}}
 
@@ -95,63 +96,85 @@ LEVEL_MODIFIERS = set("HLM")        # high, low, middle (PSHH, PAL), read at the
 SWITCH_MODIFIERS = set("OC") | LEVEL_MODIFIERS  # a switch's open or closed position (ZSO, ZSC), or its level
 
 
+PASSIVE = set("ABEGILNOPRUWX")   # readout or passive functions: alarm, element, glass, indicate, record, well ...
+OUTPUT = set("CKSTVYZ")          # output functions: control, control station, switch, transmit, valve, relay, driver
+OUTPUTS = {"", "C", "K", "S", "T", "V", "Y", "Z", "CV", "SV"}  # one output, or a control or shut-off valve
+
+
 def parse_letters(letters):
-    """ISA-5.1 letters read in order: {variable, modifier, functions}, or None when they do not parse.
-    The first letter is the measured or initiating variable. Then an optional first-letter modifier (D, F, Q, J).
-    Then the function letters, with level modifiers (H, L, M) at the end, and after a switch S its position
-    modifiers too: in ZSC the C is "closed", not control. A valve letter V must come last (LVC does not parse)."""
+    """ISA-5.1 letters read in order: {variable, modifier, passive, output, relief}, or None when they do not parse.
+    The first letter is the measured or initiating variable; then an optional first-letter modifier (D, F, Q, J);
+    then readout or passive functions (I, R, E, ...); then at most one output function (C, T, S, Y, V, ...; CV and SV
+    are one valve); then function modifiers: levels (H, L, M) at the end, and after a switch S its position too (in ZSC
+    the C is "closed", not control), and an alarm A after an output (FICA). A valve takes no readout letter before it
+    (FIV does not parse), an output comes after the readouts (FCI does not), and two outputs do not parse (FTC). A
+    safety or relief valve or element on pressure, temperature, flow or level (PSV, TSE, PRV) is marked relief;
+    ESDV, SDV and BDV are shut-down and blow-down valves."""
     if not letters or not letters.isalpha():
         return None
     first, rest = letters[0], letters[1:]
     modifier = None
+    if first in "PTFL" and rest in ("SV", "SE", "RV"):
+        return {"variable": first, "modifier": None, "passive": "", "output": rest, "relief": True}
+    if rest == "SDV":  # ESDV: emergency shut-down valve
+        rest = "V"
     if len(rest) > 1 and rest[0] in FIRST_MODIFIERS:
         modifier, rest = rest[0], rest[1:]
     if "S" in rest:
-        i = rest.index("S")
-        if rest[i + 1:] and set(rest[i + 1:]) <= SWITCH_MODIFIERS:
-            rest = rest[:i + 1]
+        k = rest.index("S")
+        if rest[k + 1:] and set(rest[k + 1:]) <= SWITCH_MODIFIERS:
+            rest = rest[:k + 1]
     while len(rest) > 1 and rest[-1] in LEVEL_MODIFIERS and rest[-2] in "ASIRT" + "HLM":
         rest = rest[:-1]
-    if not rest or set(rest) - FUNCTIONS or ("V" in rest and not rest.endswith("V")):
+    if len(rest) > 1 and rest[-1] == "A" and rest[-2] in OUTPUT:
+        rest = rest[:-1]
+    if not rest:
         return None
-    return {"variable": first, "modifier": modifier, "functions": rest}
+    k = next((n for n, ch in enumerate(rest) if ch in OUTPUT), len(rest))
+    passive, output = rest[:k], rest[k:]
+    if set(passive) - PASSIVE or output not in OUTPUTS or (output.endswith("V") and passive):
+        return None
+    return {"variable": first, "modifier": modifier, "passive": passive, "output": output, "relief": False}
 
 
 def letters_out_of_order(letters):
-    """True when the letters are ISA-5.1-shaped but do not read in order (LVC: a valve letter V not last)."""
-    return bool(letters) and "V" in letters[1:-1] and parse_letters(letters) is None
+    """True when the letters are made of ISA-5.1 function letters but do not read in ISA order (LVC, FCI, FTC, FIV)."""
+    return bool(letters) and len(letters) > 1 and parse_letters(letters) is None and \
+        not set(letters[1:]) - (FUNCTIONS | FIRST_MODIFIERS | LEVEL_MODIFIERS)
 
 
 def role_of(letters):
     """The loop role ISA-5.1 letters give, or None, from parse_letters:
       relief_device   a safety (S) or relief (R) valve or element on pressure, temperature, flow or level: PSV, TSV,
                       PSE, PRV, FSV. Self-acting, never a loop's final element.
-      final_element   the function letters end in V: FV, FCV, PCV, LCV, XV, HV, SDV, and actuated shut-off valves
+      final_element   the output is a valve: FV, FCV, PCV, LCV, XV, HV, SDV, ESDV, and actuated shut-off valves
                       named ESV or SV (E or S is then the first letter, not a safety modifier).
       controller      C or K among the functions: FIC, FRC, PDIC, FFIC, FQIC, HIC, HC.
       transmitter     T: FT, PIT, AIT, PDT.          switch     S (H first: hand_switch): PSHH, ZSO, ZSC.
       relay           Y: FY, TY.                     primary_element  E: FE, TE.
       indicator       I, R or A only: PI, TR, LAH.
-    Anything else (TW, FO, PID, LVC, PVC) has no loop role."""
+    Anything else (TW, FO, PID, LVC, PVC, FCI, FTC, FIV, MOV) has no loop role."""
     parsed = parse_letters(letters)
     if parsed is None:
         return None
-    first, fn = parsed["variable"], parsed["functions"]
-    if first in "PTFL" and fn in ("SV", "SE", "RV") and parsed["modifier"] is None:
+    first, out, passive = parsed["variable"], parsed["output"], parsed["passive"]
+    if parsed["relief"]:
         return "relief_device"
-    if fn.endswith("V"):
+    if out.endswith("V"):
         return "final_element"
-    if "C" in fn or "K" in fn:
+    if out in ("C", "K"):
         return "controller"
-    if "T" in fn:
+    if out == "T":
         return "transmitter"
-    if "S" in fn:
+    if out == "S":
         return "hand_switch" if first == "H" else "switch"
-    if "Y" in fn:
+    if out == "Y":
         return "relay"
-    if "E" in fn:
+    if out:
+        return None
+    if "E" in passive:
         return "primary_element"
-    if set(fn) <= set("IRA"):
+    if set(passive) <= set("IRA"):
         return "indicator"
     return None
 
@@ -208,18 +231,21 @@ def dashed_signal_lines(image_path, symbols, debug=None, **opt):
        joined. Anything else (text, a crossing where two dashes overlap, arrowheads) is not a dash.
     3. Dashes on one axis whose facing ends are within max_gap_frac of a symbol side, offset no more than a stroke
        width, form one straight run. Where a solid line lies in the gap, the two sides join only when the dash pattern
-       carries on in step through it (_in_phase): one line crossing a pipe, not two lines each drawn to it. Where the
-       piece two dashes make where dashed lines cross lies in the gap, the gap may be twice that.
+       carries on in step through it (_in_phase): one line crossing a pipe, not two lines each drawn to it. The same
+       holds where a dashed line or the piece two crossing dashes make lies in the gap (that gap may be twice as
+       wide). A line joined this way is marked merged_through_crossing: being in step is evidence, not proof.
     4. Runs join only where one ENDS: a corner (two runs ending at one point) or a tee (a run ending on the side of
        another). Two runs that both pass through the meeting point cross and are not joined, as line_layers.py treats
-       an unmarked crossing.
+       an unmarked crossing; two runs that end on one run from opposite sides at one point are not tees either.
     5. A network of runs with min_dashes dashes or more is a signal line; it joins the symbols its free run ends point
        at, within the gap of the box edge. A run end at a symbol box is terminal and is never joined to another run in
        step 4, so a controller's input and output stay two lines. An end in reach of two boxes attaches to neither:
        the line lists the boxes under ambiguous_ends instead. A shorter one counts only between two instrument bubbles (a signal drawn
        across the short gap between two stacked controllers). Text strokes can look like dashes; a network is kept
        only where it reaches two symbols.
-    6. Each line records its stroke width (stroke_px, measured across its dashes on the original ink), the sheet's
+    6. A straight line that ends at a box from both sides with its dashes carrying on inside it is drawn through the
+       box: both sides list it under passes_through_symbol.
+    7. Each line records its stroke width (stroke_px, measured across its dashes on the original ink), the sheet's
        solid-line width (pipe_px, None without solid lines) and the instrument bubbles' outline width (outline_px), for
        the thin_stroke condition of signal_conditions()."""
     import cv2
@@ -309,7 +335,7 @@ def dashed_signal_lines(image_path, symbols, debug=None, **opt):
     by_axis = defaultdict(list)
     for si, st in enumerate(strokes):
         by_axis[st[0]].append(si)
-    crossings = []
+    merged_strokes = set()
     for ax, ids in by_axis.items():  # 3. straight runs
         ids.sort(key=lambda si: (strokes[si][2], strokes[si][1]))
         for a_i, si in enumerate(ids):
@@ -325,17 +351,14 @@ def dashed_signal_lines(image_path, symbols, debug=None, **opt):
                 continue
             nxt = strokes[best][2]
             d = nxt - hi
-            if _ink_between(solid0, ax, c, hi, nxt):
+            crossed = _ink_between(solid0, ax, c, hi, nxt) or _ink_between(res, ax, c, hi, nxt) or any(
+                st[0] != ax and st[2] - tmax <= c <= st[3] + tmax and hi < st[1] < nxt for st in strokes)
+            if crossed:  # another line (a pipe, a dashed line) lies in the gap
                 if not _in_phase(strokes, ids, si, best, tmax, gap):
-                    continue  # two dashed lines meeting a pipe from either side, not one crossing it: kept apart
-                crossings.append((ax, c, hi, nxt))
-                parent[find(si)] = find(best)
+                    continue  # two dashed lines each drawn to the other line, not one crossing it: kept apart
+                merged_strokes.update((si, best))  # joined through a crossing: provenance for the assembly
+            elif d > gap + 1:
                 continue
-            if d > gap + 1:  # a wider gap only where another line crosses it
-                crossed = _ink_between(res, ax, c, hi, nxt) or any(
-                    st[0] != ax and st[2] - tmax <= c <= st[3] + tmax and hi < st[1] < nxt for st in strokes)
-                if not crossed:
-                    continue
             parent[find(si)] = find(best)
     run_info = {}
     for si in range(len(strokes)):
@@ -347,6 +370,7 @@ def dashed_signal_lines(image_path, symbols, debug=None, **opt):
         ri["pieces"].add(strokes[si][4])
     for ri in run_info.values():
         ri["c"] = sum(ri["cs"]) / len(ri["cs"])
+    merged_runs = {find(si) for si in merged_strokes}
     net = {r: r for r in run_info}
 
     def nfind(a):
@@ -381,6 +405,25 @@ def dashed_signal_lines(image_path, symbols, debug=None, **opt):
     # lines meeting at one bubble, its input and its output, stay two lines).
     terminal = {(r, e): boxes_at(r, e) for r in run_info for e in ("lo", "hi")}
     terminal = {k: v for k, v in terminal.items() if v}
+    through = defaultdict(set)  # run -> boxes a straight line is drawn through (its dashes carry on inside the box)
+    end_stroke = {}
+    for si, st in enumerate(strokes):
+        r = find(si)
+        for e, pos in (("lo", st[2]), ("hi", st[3])):
+            if pos == run_info[r][e]:
+                end_stroke[(r, e)] = si
+    for (r1, e1), at1 in terminal.items():
+        if e1 != "hi" or len(at1) != 1:
+            continue
+        for (r2, e2), at2 in terminal.items():
+            if e2 != "lo" or at2 != at1 or r2 == r1 or run_info[r2]["axis"] != run_info[r1]["axis"] or \
+                    abs(run_info[r2]["c"] - run_info[r1]["c"]) > tmax or run_info[r2]["lo"] <= run_info[r1]["hi"]:
+                continue
+            run_strokes = [si for si in range(len(strokes)) if find(si) in (r1, r2)]
+            if _dashes_inside(ink0, boxes[at1[0]], run_info[r1]["axis"], run_info[r1]["c"],
+                              [strokes[si] for si in run_strokes]):
+                through[r1].add(at1[0])
+                through[r2].add(at1[0])
     for hs, vs, he, ve in corner_pairs:  # 4. corners drawn as one piece
         a, b = find(hs), find(vs)
         ends = [(run, e) for run, stroke, e in ((a, hs, he), (b, vs, ve))
@@ -408,6 +451,8 @@ def dashed_signal_lines(image_path, symbols, debug=None, **opt):
                 corner = abs(at - qi[qe]) <= gap + tmax
                 if corner and (q, qe) in terminal:
                     continue  # q ends at a symbol here: no corner through a symbol
+                if not corner and _opposite_stub(run_info, r, e, q, tmax, gap):
+                    break  # two runs end on q from opposite sides at one point: a crossing, not two tees
                 net[nfind(r)] = nfind(q)
                 used.add((r, e))
                 if corner:  # q ends here too
@@ -440,7 +485,10 @@ def dashed_signal_lines(image_path, symbols, debug=None, **opt):
         x0, x1 = min(p[0] for p in pts) - tmax / 2, max(p[0] for p in pts) + tmax / 2  # a line has a stroke width
         y0, y1 = min(p[1] for p in pts) - tmax / 2, max(p[1] for p in pts) + tmax / 2
         widths = sorted(thick[p] for p in pieces)
+        behind = sorted(set().union(*(through[r] for r in rs)))
         lines.append({"members": sorted(hit), "dashes": len(pieces),
+                      **({"merged_through_crossing": True} if any(r in merged_runs for r in rs) else {}),
+                      **({"passes_through_symbol": behind} if behind else {}),
                       "stroke_px": round(widths[len(widths) // 2], 2), "pipe_px": pipe_px, "outline_px": outline_px,
                       **({"ambiguous_ends": sorted(ambiguous)} if ambiguous else {}),
                       "box_0_1000": [round(max(0.0, 1000 * x0 / W), 1), round(max(0.0, 1000 * y0 / H), 1),
@@ -506,6 +554,51 @@ def _outline_width(cv2, np, ink, boxes):
         if per:
             w.append(2 * area / per)
     return round(float(np.median(w)), 2) if w else None
+
+
+def _opposite_stub(run_info, r, e, q, tmax, gap):
+    """True when another run collinear with run r ends on run q from the other side, at the same point: the shape of
+    one line crossing q (or two lines drawn to it) that the in-step test kept apart. Neither end is then read as a tee
+    into q, so the two stubs are not joined to q's line or, through it, to each other."""
+    ri, qi = run_info[r], run_info[q]
+    mine = (ri["lo"] if e == "lo" else ri["hi"]) - qi["c"]
+    for r2, r2i in run_info.items():
+        if r2 in (r, q) or r2i["axis"] != ri["axis"] or abs(r2i["c"] - ri["c"]) > tmax:
+            continue
+        for e2 in ("lo", "hi"):
+            theirs = r2i[e2] - qi["c"]
+            if theirs * mine < 0 and abs(theirs) <= gap + tmax and qi["lo"] - gap <= ri["c"] <= qi["hi"] + gap:
+                return True
+    return False
+
+
+def _dashes_inside(ink, box, axis, c, run_strokes):
+    """True when a straight dashed line that ends at a box from both sides carries on inside it: on the original ink,
+    along the line's centre row inside the box (its outline ring left out), runs of the line's own dash length cover
+    at least 35% of the inside, and no run is longer than a dash. A line that ends at a bubble leaves its inside empty or holds text there, whose strokes are
+    shorter; a solid divider (a shared-display bubble) is longer."""
+    x0, y0, x1, y1 = box
+    lens = sorted(st[3] - st[2] + 1 for st in run_strokes)
+    if not lens:
+        return False
+    dash = lens[(3 * len(lens)) // 4]
+    lo, hi = (x0, x1) if axis == "h" else (y0, y1)
+    margin = max(2, (hi - lo) // 6)
+    best = 0
+    for dc in (-1, 0, 1):
+        row = int(round(c)) + dc
+        seg = ink[row, lo + margin:hi - margin + 1] if axis == "h" else ink[lo + margin:hi - margin + 1, row]
+        runs, n = [], 0
+        for v in list(seg) + [0]:
+            if v:
+                n += 1
+            elif n:
+                runs.append(n)
+                n = 0
+        dashes = [r for r in runs if 0.6 * dash <= r <= 1.4 * dash]
+        if dashes and not [r for r in runs if r > 1.4 * dash]:
+            best = max(best, sum(dashes) / max(1, len(seg)))
+    return best >= 0.35
 
 
 def _in_phase(strokes, ids, si, best, tmax, gap):
@@ -574,6 +667,10 @@ def sheet_signal_lines(model, source):
                 out.append({"sheet": sheet, "line_kind": "dashed_signal_line", "members": members,
                             "box_0_1000": line["box_0_1000"], "dashes": line["dashes"],
                             **{k: line.get(k) for k in ("stroke_px", "pipe_px", "outline_px")},
+                            **({"merged_through_crossing": True} if line.get("merged_through_crossing") else {}),
+                            **({"passes_through_symbol": sorted({syms[sheet][m]["asset"]
+                                                                 for m in line["passes_through_symbol"]})}
+                               if line.get("passes_through_symbol") else {}),
                             **({"ambiguous_ends": ambiguous} if ambiguous else {})})
     layers = model.get("line_layers") or {}
     inst = {i["id"] for i in model.get("instruments", [])}
@@ -606,8 +703,8 @@ def sheet_signal_lines(model, source):
     return [{"id": x.pop("id"), **x} for x in out]
 
 
-RANK = {"transmitter": 0, "primary_element": 0, "switch": 1, "indicator": 1, "controller": 2, "relay": 3,
-        "final_element": 4}
+RANK = {"primary_element": 0, "transmitter": 1, "switch": 2, "indicator": 2, "controller": 3, "relay": 4,
+        "final_element": 5}
 
 
 def compact(text):
@@ -707,13 +804,23 @@ def signal_conditions(net, cand, role, model=None):
                            from opposite sides are one line only when the dash pattern carries on in step through it;
                            two lines drawn to a pipe stay two lines.
       ends_resolved        no line end is in reach of two symbols (ambiguous_ends).
+      not_through_a_symbol no line passes behind a symbol: two collinear runs that end at one box from opposite sides
+                           with the dash pattern in step across it are one line drawn through the box
+                           (passes_through_symbol), not a signal into it and another out of it.
       known_roles          every member has a loop role in SIGNAL_ROLES from the full ISA-5.1 letter parse (role_of):
                            no plant-coded tag, relief device, hand switch or letters that do not parse.
       role_order           two members: a sender and its next receiver (NEXT: measurement -> controller, controller ->
                            final element or relay, relay -> final element), or two controllers (a cascade, ordered by
                            _cascades). More members: one sender, and every other member one of its next receivers.
       connector_text_agrees  where the network runs through a paired off-page connector whose printed text names an
-                           ISA-5.1 tag with a loop role ("TO FV 401"), the joined lines reach an item with that tag."""
+                           ISA-5.1 tag with a loop role ("TO FV 401"), the joined lines reach an item with that tag.
+    And one limit on what a passing network may support, applied in _directed_links and assemble():
+      not_merged_through_a_crossing  a line the tracer joined through a crossing (merged_through_crossing: a pipe or
+                           another line lay in a gap, and the dash pattern was in step across it) supports a signal_to
+                           at tier traced at most, and never controls, sets_point_of or a confirmed loop; the network is
+                           also listed under unresolved_signal_networks with this condition named. Being in step is
+                           evidence, not proof: two lines drawn to a pipe from either side are in step by chance about
+                           one time in six."""
     failed = []
     lines = net["lines"]
     ms = [m for m in net["members"] if m in cand]
@@ -735,6 +842,10 @@ def signal_conditions(net, cand, role, model=None):
     ambiguous = [a for x in lines for a in x.get("ambiguous_ends", [])]
     if ambiguous:
         failed.append(("ends_resolved", f"a line end in reach of {ambiguous}"))
+    behind = sorted({b for x in lines for b in x.get("passes_through_symbol", [])})
+    if behind:
+        failed.append(("not_through_a_symbol", "the line runs on in step on the far side of " + ", ".join(behind)
+                       + ": it passes behind the symbol rather than ending at it"))
     if len(ms) < 2:
         if not failed:
             return []  # one item or none: nothing to assert, nothing to review
@@ -780,23 +891,34 @@ def _directed_links(nets, cand, role):
             continue
         if len(ms) < 2:
             continue
+        merged = any(x.get("merged_through_crossing") for x in net["lines"])
+        if merged:
+            unresolved.append({"members": ms, "roles": {m: role[m] for m in ms}, "evidence": evidence,
+                               "failed_conditions": ["not_merged_through_a_crossing"], "signal_to_kept": True,
+                               "why": "not_merged_through_a_crossing: the tracer joined this line through a crossing "
+                                      "(a pipe or another line in a gap); its signal_to is kept at tier traced, and it "
+                                      "is not used for controls, sets_point_of or a confirmed loop"})
         if len(ms) == 2:
             a, b = sorted(ms, key=lambda m: RANK[role[m]])
             directed = RANK[role[a]] != RANK[role[b]]
-            links.append({"from": a, "to": b, "directed": directed, "evidence": evidence})
+            links.append({"from": a, "to": b, "directed": directed, "evidence": evidence, "merged": merged})
             continue
         low = min(RANK[role[m]] for m in ms)
         sender = next(m for m in ms if RANK[role[m]] == low)
-        links += [{"from": sender, "to": m, "directed": True, "evidence": evidence} for m in ms if m != sender]
+        links += [{"from": sender, "to": m, "directed": True, "evidence": evidence, "merged": merged}
+                  for m in ms if m != sender]
     return links, unresolved
 
 
-def _cascades(links, role, untraced_finals=None):
+def _cascades(links, role, untraced_finals=None, measured=None):
     """Direct controller-to-controller links outer -> inner: the inner controller is nearer a final element along
     traced controller-to-controller links. Equal or unknown distance leaves the link undirected, and so does a would-be
     outer controller that has a final element of its own loop identity no traced line reaches (it may be the inner
-    one, with its output simply not traced). A direction found this way is inferred from graph distance, so its
+    one, with its output simply not traced), and so does a would-be outer controller with no traced measurement of
+    its own (a transmitter misread as a controller, FT read as FC, would otherwise become an outer loop). Links the
+    tracer merged through a crossing take no part. A direction found this way is inferred from graph distance, so its
     relations carry the tier traced_direction_inferred."""
+    links = [lk for lk in links if not lk.get("merged")]
     depth = {lk["from"]: 0 for lk in links if lk["directed"] and role.get(lk["from"]) == "controller"
              and role.get(lk["to"]) in ("final_element", "relay")}
     cc = [lk for lk in links if role.get(lk["from"]) == role.get(lk["to"]) == "controller"]
@@ -812,7 +934,7 @@ def _cascades(links, role, untraced_finals=None):
         a, b = lk["from"], lk["to"]
         if depth.get(a) is not None and depth.get(b) is not None and depth[a] != depth[b]:
             outer, inner = (a, b) if depth[a] > depth[b] else (b, a)
-            if (untraced_finals or {}).get(outer):
+            if (untraced_finals or {}).get(outer) or (measured is not None and outer not in measured):
                 continue
             lk["from"], lk["to"] = outer, inner
             lk["directed"], lk["cascade"] = True, True
@@ -827,20 +949,24 @@ def assemble(model, lines, roles=None):
     role = {k: v["role"] for k, v in cand.items()}
     ident = {k: (v["scope"], v["number"]) for k, v in cand.items()}
     links, unresolved = _directed_links(signal_networks(model, lines), cand, role)
-    reached = {lk["to"] for lk in links if role.get(lk["to"]) == "final_element"}
+    solid = [lk for lk in links if not lk.get("merged")]  # the links loop logic may rest on
+    reached = {lk["to"] for lk in solid if role.get(lk["to"]) == "final_element"}
     untraced_finals = {c: [k for k in cand if ident[k] == ident[c] and role[k] == "final_element"
                            and k not in reached] for c in cand if role[c] == "controller"}
-    _cascades(links, role, untraced_finals)
+    measured = {lk["to"] for lk in solid if lk["directed"] and role.get(lk["from"]) in MEASUREMENTS
+                and role.get(lk["to"]) == "controller"}
+    _cascades(links, role, untraced_finals, measured)
     relations, seen = [], {}
 
-    def add(typ, a, b, evidence, basis, loop=None, inferred=False):
+    def add(typ, a, b, evidence, basis, loop=None, inferred=False, merged=False):
         if (typ, a, b) in seen:
             return seen[(typ, a, b)]
         cross = any(e["kind"] == "cross_sheet_flag" for e in evidence)
         rec = {"id": None, "type": typ, "from": a, "to": b, "direction": "forward" if basis else "unknown",
                **({"direction_basis": basis} if basis else {}),
+               **({"merged_through_crossing": True} if merged else {}),
                "confidence": "traced_direction_inferred" if inferred else "traced_cross_sheet" if cross else
-                             "traced_and_grouped" if ident[a] == ident[b] else "traced",
+                             "traced_and_grouped" if ident[a] == ident[b] and not merged else "traced",
                "evidence": evidence, **({"loop": loop} if loop else {}),
                "provenance": [{"sheet": e["sheet"], "box_0_1000": e["box_0_1000"], "line": e["line"],
                                "source_run": "scripts/loop_assembly.py", "model": None}
@@ -853,9 +979,9 @@ def assemble(model, lines, roles=None):
         a, b = lk["from"], lk["to"]
         basis = ("cascade: the receiving controller is nearer a final element along traced signals" if lk.get("cascade")
                  else f"ISA-5.1 roles: {role[a]} -> {role[b]}" if lk["directed"] else None)
-        add("signal_to", a, b, lk["evidence"], basis, inferred=bool(lk.get("cascade")))
+        add("signal_to", a, b, lk["evidence"], basis, inferred=bool(lk.get("cascade")), merged=bool(lk.get("merged")))
     into, outof = defaultdict(list), defaultdict(list)
-    for lk in links:
+    for lk in solid:
         if lk["directed"]:
             outof[lk["from"]].append(lk)
             into[lk["to"]].append(lk)
@@ -867,7 +993,7 @@ def assemble(model, lines, roles=None):
     for c in controllers:
         for lk in into[c] + outof[c]:
             reaches[lk["from"] if lk["to"] == c else lk["to"]].add(c)
-    for lk in links:
+    for lk in solid:
         if not lk["directed"]:
             for x, y in ((lk["from"], lk["to"]), (lk["to"], lk["from"])):
                 if role.get(y) == "controller":

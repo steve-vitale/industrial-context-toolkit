@@ -269,8 +269,11 @@ script): dashed lines only, at least two dash pieces, a stroke no thicker than t
 pipes, no end in reach of two bubbles, every item with a loop role, a sender and its next receiver (a measurement to
 its controller, a controller to its valve or relay, or two controllers), and any ISA tag an off-page connector names
 reached by the joined lines. Two dashed lines that meet a pipe from either side are one line only when the dash
-pattern carries on in step through it. Anything else is listed under `unresolved_signal_networks` with the
-conditions it failed. `controls` (controller to final element) needs a confirmed loop (a traced measurement in, a
+pattern carries on in step through it, and such a joined line is marked `merged_through_crossing`: it may
+support a `signal_to` at tier `traced` at most, never `controls`, `sets_point_of` or a confirmed loop, because two
+lines drawn to a pipe are in step by chance about one time in six. A line drawn straight through a bubble it does not
+end at is not read as a signal into it. Anything else is listed under `unresolved_signal_networks` with the
+conditions it failed. A cascade (`sets_point_of`) also needs a traced measurement into the outer controller. `controls` (controller to final element) needs a confirmed loop (a traced measurement in, a
 traced output out, directly or through a relay), and `sets_point_of` marks a cascade. A loop that rests on its loop
 number alone stays `unconfirmed`, with the grouped tags listed for review; an item a traced line ties to another loop
 is listed as refuted and as a conflict. Every relation carries its evidence and an ordinal confidence tier (a
@@ -279,13 +282,22 @@ cascade's direction, inferred from which controller is nearer a valve, has its o
 importer's own hash). The graph export does not carry loops yet ([N122](../../docs/TRIED.md)): it lists
 `control_loops` under `not_exported`, where the item count is the number of keys in that block, not the number of
 loops. Nothing is taken from layout. On the development sheets ([scores](../../out/round6/loops_dev.md)), which the
-rules were tuned against, the generated TE revision D, read with its key's symbols, gives all 19 of its control loops
-with no wrong one; revision A draws no controllers, so nothing is asserted. TE is drawn by this repository with clean,
-consistent tags, so that is an upper bound. Grouping by loop number and then tracing follows the public pid-to-kg
+rules were tuned against, the generated TE revision D, read with its key's symbols, gives 10 of its 19 control loops
+(7 of 11 valve loops, 3 of 8 cascades) with no wrong one. The nine it misses each rest on a signal line drawn across a
+pipe, which the merge rule above no longer lets confirm a loop. TE is drawn by this repository with clean, consistent
+tags, so that is an upper bound. Precision is measured in effect on TE revision D only: the other two development
+sets, TE revision A and OPEN100 0-5, draw no controllers, so they cannot show a false `controls` or cascade. TE
+revision A also traces no signal lines at all, so its "0 relations" proves nothing beyond that. OPEN100's 23 to 25
+traced lines per reading all stay unresolved. Grouping by loop number and then tracing follows the public pid-to-kg
 skill (A409); the code here is the toolkit's own.
 
-Known false-assertion modes (two independent reviews built drawings and models to break the assembly; each case is a
-test in [`test_loop_assembly.py`](../../scripts/test_loop_assembly.py)):
+What the tracer does not find (recall limits measured on synthetic loops; each misses a true loop): dashes at least
+0.6 of a bubble side long (read as solid lines), diagonal signal lines (only horizontal and vertical runs are traced),
+lines drawn with a heavier pen than the bubbles (bubble pen 1 with line pen 2, or line pen 3 with bubble pen 2), and
+sheets whose pipes are drawn thinner than their signal lines.
+
+Known false-assertion modes (three independent reviews built drawings and models to break the assembly; each case is
+a test in [`test_loop_assembly.py`](../../scripts/test_loop_assembly.py)):
 
 | Case | Before | Now |
 |---|---|---|
@@ -293,15 +305,17 @@ test in [`test_loop_assembly.py`](../../scripts/test_loop_assembly.py)):
 | A line end between two stacked bubbles | attached to both | attaches to neither, unresolved (fixed) |
 | A branching {T, C, V} line | false T to V | unresolved (fixed) |
 | One loop number in two units, no prefix | duplicate loop ids, false refuted members | scoped per sheet (fixed) |
-| Two dashed lines ending at a pipe from either side | merged, false `signal_to` across loops | two lines (fixed) |
+| Two dashed lines ending at a pipe from either side | merged in 10 of 60 random placements (fixed seed), each a false confirmed `controls` | still merged in those 10 by chance step, but marked `merged_through_crossing`: `signal_to` at `traced` only, 0 of 60 false `controls` or `sets_point_of` (open as a `signal_to`) |
+| Two dashed lines ending on a dashed line from either side, the two ends controllers or a controller and a valve | merged across it: false `controls` and a false `sets_point_of` | kept apart, and neither end tees into the dashed line (fixed) |
+| A transmitter misread as a controller (`FT` read as `FC`) beside a real controller | false outer loop, `sets_point_of` | no cascade without a traced measurement into the outer controller (fixed) |
+| A dashed line drawn straight through bubbles it does not end at | false `signal_to` into and out of each bubble, false `controls` | unresolved, `not_through_a_symbol` (fixed) |
 | One stroke between two stacked controllers | false cascade, `traced_direction_inferred` | unresolved (fixed) |
 | A thick process line broken into dash-sized pieces | false `signal_to` | unresolved, `thin_stroke` (fixed) |
 | `ZSO`/`ZSC` position switches beside an `XV` | `ZSC` read as a controller, false loop | switches, unresolved (fixed) |
 | Off-page connectors whose text names other instruments | loop confirmed through them | unresolved, `connector_text_agrees` (fixed) |
 | `PSV`, a plant-coded `MOV`, `TW` or `HS` on a controller line | undirected `signal_to` | unresolved, `known_roles` (fixed) |
 | An I/P relay on the way to the valve | relay listed as refuted | traced (fixed) |
-| Two dashed lines meeting a pipe in step with each other's dash pattern | would merge | open: the tracer cannot tell this from one line crossing |
-| Two dashed lines either side of a dashed horizontal line | merged into one line | open: merged; asserted as an undirected controller-to-controller `signal_to` when both ends are controllers |
+| Letters out of ISA order (`FCI`, `FTC`, `FIV`) | read as controllers (`FCI`, `FTC`) or a valve (`FIV`) | no role (fixed); `ESDV` is a final element |
 | One controller drawn on two sheets (`FIC 101` twice) with its valve reached through an off-page pair | false `loop_identity` conflict | open: the relation is right, the conflict is not |
 | A controller with its own valve fed by a second controller | cascade direction may be reversed | open: carried at the lower tier `traced_direction_inferred` |
 | Redundant transmitters `FT 3A`/`FT 3B` on one branch into a controller | no loop | known partial: unresolved, accepted |
