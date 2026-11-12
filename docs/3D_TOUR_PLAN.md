@@ -352,6 +352,15 @@ analysis.
 
 ## Lockout/tagout mode (design and a mockup still; not a procedure)
 
+**Status 2026-11-11:** the mockup below stays a mockup. Isolation work now goes through
+[GOAL_ISOLATION_POC.md](GOAL_ISOLATION_POC.md), a pre-registered proof of concept and testing ground that lists
+**isolation boundary candidates** read from the drawings. Its output is not an isolation procedure, and every point
+and path in it must be verified by a qualified person against the as-built plant and the site's energy-control
+program. That goal does not change this still, and the still does not meet its safeguards: its points are
+inferred from the seed model (some placed from control valves' positions) rather than read from the drawing, it
+lists no paths out such as bypasses or instrument connections, and its numbers can be read as an order. A tour view
+of boundary candidates would come only after that goal passes, and would carry the same fixed header.
+
 The idea: a mode of the same scene in which every energy-isolation point is highlighted and tagged, and the tour
 walks through:
 - isolation in steps;
