@@ -752,9 +752,12 @@ class ThirdReview(unittest.TestCase):
     def loop_relations(self, b):
         return {(r["type"], r["from"], r["to"]) for r in b["relations"] if r["type"] in ("controls", "sets_point_of")}
 
-    def test_random_placements_of_two_lines_ending_at_a_pipe_never_confirm_a_loop(self):
+    def test_random_placements_of_two_lines_ending_at_a_pipe_assert_nothing_strictly_traced(self):
+        # Two lines drawn to a pipe and in step by chance are, to within a pixel, one line crossing it: inherently
+        # ambiguous, read as a qualified reader reads them, at tier traced_through_crossing with the question attached.
+        # A defect would be a loop relation at a strictly traced tier: there must be none.
         rng = random.Random(1)
-        false, merged = 0, 0
+        defects, ambiguous = 0, 0
         for _ in range(60):
             yc, yd = 100 + rng.randint(0, 30), 500 - rng.randint(0, 30)
 
@@ -767,14 +770,16 @@ class ThirdReview(unittest.TestCase):
                 self.dsh(img, [(400, yc + 25), (400, 299)])
                 self.dsh(img, [(400, yd - 25), (400, 301)])
             b = self.image(draw, {"C": "TIC 20", "TT": "TT 20", "D": "TV 20"})
-            false += bool(self.loop_relations(b))
-            cd = [r for r in b["relations"] if {r["from"], r["to"]} == {"C", "D"}]
-            merged += bool(cd)
-            for r in cd:  # a chance in-step merge: kept as a signal at tier traced, and listed for review
-                self.assertEqual(r["confidence"], "traced")
-                self.assertTrue(r.get("merged_through_crossing"))
-        self.assertEqual(false, 0)
-        self.assertGreater(merged, 0)  # the sweep does reach the chance merge it guards against
+            for r in b["relations"]:
+                if {r["from"], r["to"]} == {"C", "D"} or r["type"] in ("controls", "sets_point_of"):
+                    if r["confidence"] in la.STRICT_TIERS:
+                        defects += 1
+                    else:
+                        ambiguous += r["type"] == "controls"
+                        self.assertTrue(r["merged_through_crossing"])
+                        self.assertEqual(r["review_question"], la.CROSSING_QUESTION)
+        self.assertEqual(defects, 0)
+        self.assertGreater(ambiguous, 0)  # the sweep does reach the chance merge it guards against
 
     def test_lines_ending_on_a_dashed_line_from_either_side_confirm_nothing(self):
         def lines_to_a_dashed(img, b):
@@ -811,19 +816,21 @@ class ThirdReview(unittest.TestCase):
         self.assertEqual(self.loop_relations(b), {("controls", "D", "FV")})
         self.assertFalse([r for r in b["relations"] if r["from"] == "L" and r["to"] in ("C", "D")])
 
-    def test_a_merged_line_is_a_signal_at_tier_traced_and_nothing_more(self):
+    def test_a_merged_line_asserts_only_at_its_own_tier(self):
         m = model([inst("T", "FT 1"), inst("C", "FIC 1"), inst("V", "FV 1"), inst("T2", "TT 2"), inst("C2", "TIC 2")])
         merged = {**line("b", ["C", "V"]), "merged_through_crossing": True}
         b = la.assemble(m, [line("a", ["T", "C"]), merged, line("c", ["T2", "C2"]),
                             {**line("d", ["C2", "C"]), "merged_through_crossing": True}])
-        self.assertEqual(self.loop_relations(b), set())
-        r = next(r for r in b["relations"] if (r["from"], r["to"]) == ("C", "V"))
-        self.assertEqual((r["confidence"], r["merged_through_crossing"]), ("traced", True))
-        self.assertEqual(loop(b, "C")["status"], "partly_confirmed")
-        listed = [u for u in b["unresolved_signal_networks"] if u["failed_conditions"] == ["not_merged_through_a_crossing"]]
-        self.assertEqual(len(listed), 2)
+        self.assertEqual(self.loop_relations(b), {("controls", "C", "V"), ("sets_point_of", "C2", "C")})
+        for r in b["relations"]:
+            resting = (r["from"], r["to"]) in {("C", "V"), ("C2", "C")} or r["type"] != "signal_to"
+            self.assertEqual(r["confidence"] == "traced_through_crossing", resting, r)
+        self.assertEqual(loop(b, "C")["tier"], "traced_through_crossing")
+        self.assertEqual(loop(b, "C2")["tier"], "traced_through_crossing")
+        self.assertEqual(b["counts"]["relations_by_tier"]["traced_through_crossing"], 4)
         b = la.assemble(m, [line("a", ["T", "C"]), line("b", ["C", "V"])])  # the same lines unmerged
-        self.assertEqual(self.loop_relations(b), {("controls", "C", "V")})
+        self.assertEqual(next(r for r in b["relations"] if r["type"] == "controls")["confidence"], "traced_and_grouped")
+        self.assertEqual(loop(b, "C")["tier"], "traced")
 
     def test_a_transmitter_misread_as_a_controller_is_not_an_outer_loop(self):
         for tags in ({"T": "FC 101", "C": "FIC 101", "V": "FV 101"}, {"T": "FT 101", "C": "FIC 101", "V": "FC 101"}):
@@ -882,9 +889,11 @@ class ThirdReview(unittest.TestCase):
 
 
 class MergedLineChannels(unittest.TestCase):
-    """A line joined through a crossing counts in full only with an independent channel: the reader's own link, or the
-    blind crossing evaluator (scripts/crossing_question.py) when its scorecard enabled it. Tag agreement alone never
-    does. Every loop the assembly cannot prove is a review candidate, never hidden."""
+    """A line joined through a crossing (in step) is read as a qualified reader reads it, one line crossing, and
+    asserted at its own tier traced_through_crossing with the crossing question attached. An independent channel
+    promotes it (the reader's own link, or the blind crossing evaluator when its scorecard enabled it); a confident
+    "two lines" from an enabled evaluator demotes it to review. Tag agreement plays no part. Every loop the assembly
+    cannot prove is a review candidate, never hidden."""
 
     def m(self):
         return model([inst("T", "FT 1"), inst("C", "FIC 1"), inst("V", "FV 1")])
@@ -897,53 +906,65 @@ class MergedLineChannels(unittest.TestCase):
     def loop_rel(self, b):
         return {(r["type"], r["from"], r["to"]) for r in b["relations"] if r["type"] in ("controls", "sets_point_of")}
 
-    def test_tag_agreement_alone_never_confirms_and_the_loop_is_a_candidate_with_its_question(self):
-        b = la.assemble(self.m(), self.lines())  # same loop number at both ends, no channel
-        self.assertEqual(self.loop_rel(b), set())
-        u = next(u for u in b["unresolved_signal_networks"] if u.get("review_question"))
-        self.assertTrue(u["channels"]["tag_agreement"])
-        self.assertIsNone(u["channels"]["reader_link"])
-        cands = b["candidate_loops"]
-        self.assertEqual([(c["controller"], c["kind"]) for c in cands], [("C", "merged_line_needs_review")])
-        self.assertEqual(cands[0]["would_confirm"]["final_elements"], ["V"])
-        self.assertEqual(cands[0]["questions"][0]["question"], la.CROSSING_QUESTION)
+    def test_without_a_channel_a_merged_line_asserts_at_its_own_tier_and_tags_play_no_part(self):
+        for valve in ("FV 1", "FV 2"):  # the same loop number at both ends, or not: no difference
+            m = model([inst("T", "FT 1"), inst("C", "FIC 1"), inst("V", valve)])
+            b = la.assemble(m, self.lines())
+            r = next(r for r in b["relations"] if r["type"] == "controls")
+            self.assertEqual((r["confidence"], r["review_question"]), ("traced_through_crossing", la.CROSSING_QUESTION))
+            ev = next(e for e in r["evidence"] if e["kind"] == "through_crossing")
+            self.assertEqual(ev["tag_agreement"], valve == "FV 1")  # recorded for the reviewer only
+            self.assertEqual(b["candidate_loops"], [])
 
-    def test_a_confident_continues_from_an_enabled_judge_confirms(self):
+    def test_a_confident_continues_from_an_enabled_judge_promotes(self):
         yes = {"verdict": "continues", "confidence": 0.9}
         b = la.assemble(self.m(), self.lines(), corroboration={"crossing_answers": {"img:10,20": yes},
                                                                 "assert_enabled": True})
         self.assertEqual(self.loop_rel(b), {("controls", "C", "V")})
         r = next(r for r in b["relations"] if r["type"] == "signal_to" and r["to"] == "V")
-        self.assertEqual(r["corroborated_by"], ["crossing_judge"])
+        self.assertEqual((r["corroborated_by"], r["confidence"]), (["crossing_judge"], "traced_and_grouped"))
+        self.assertEqual(loop(b, "C")["tier"], "traced")
         self.assertEqual(b["candidate_loops"], [])
 
-    def test_a_judge_its_scorecard_did_not_enable_or_an_unsure_answer_goes_to_review(self):
-        for answer, enabled in (({"verdict": "continues", "confidence": 0.9}, False),
+    def test_a_confident_two_lines_from_an_enabled_judge_demotes_and_anything_else_leaves_the_tier(self):
+        no = {"verdict": "two_lines", "confidence": 0.9}
+        b = la.assemble(self.m(), self.lines(), corroboration={"crossing_answers": {"img:10,20": no},
+                                                                "assert_enabled": True})
+        self.assertEqual(self.loop_rel(b), set())
+        self.assertEqual(b["unresolved_signal_networks"][0]["failed_conditions"], ["demoted_by_crossing_judge"])
+        self.assertEqual([c["kind"] for c in b["candidate_loops"]], ["merged_line_needs_review"])
+        for answer, enabled in ((no, False), ({"verdict": "continues", "confidence": 0.9}, False),
                                 ({"verdict": "continues", "confidence": 0.7}, True),
-                                ({"verdict": "cannot_tell", "confidence": 0.9}, True),
-                                ({"verdict": "two_lines", "confidence": 0.9}, True)):
+                                ({"verdict": "cannot_tell", "confidence": 0.9}, True)):
             b = la.assemble(self.m(), self.lines(), corroboration={"crossing_answers": {"img:10,20": answer},
                                                                     "assert_enabled": enabled})
-            self.assertEqual(self.loop_rel(b), set(), (answer, enabled))
-            self.assertEqual(len(b["candidate_loops"]), 1, (answer, enabled))
+            r = next(r for r in b["relations"] if r["type"] == "controls")
+            self.assertEqual(r["confidence"], "traced_through_crossing", (answer, enabled))
 
-    def test_the_readers_own_link_confirms(self):
+    def test_the_readers_own_link_promotes(self):
         b = la.assemble(self.m(), self.lines(), corroboration={"reader_pairs": {frozenset(("C", "V"))}})
-        self.assertEqual(self.loop_rel(b), {("controls", "C", "V")})
+        r = next(r for r in b["relations"] if r["type"] == "controls")
+        self.assertEqual(r["confidence"], "traced_and_grouped")
         b = la.assemble(self.m(), self.lines(), corroboration={"reader_pairs": {frozenset(("T", "V"))}})
-        self.assertEqual(self.loop_rel(b), set())
+        r = next(r for r in b["relations"] if r["type"] == "controls")
+        self.assertEqual(r["confidence"], "traced_through_crossing")
 
     def test_a_loop_resting_on_its_tag_group_is_a_candidate(self):
         b = la.assemble(self.m(), [])
         self.assertEqual([(c["controller"], c["kind"]) for c in b["candidate_loops"]], [("C", "grouped_by_tag")])
         self.assertEqual(b["relations"], [])
 
-    def test_the_scorer_reports_candidates_apart_from_the_asserted_loops(self):
+    def test_the_scorer_reports_strict_asserted_and_candidate_levels_apart(self):
         m = self.m()
         m["control_loops"] = la.assemble(m, self.lines())
         tagged = {k: la.compact(v["tag"]) for k, v in la.candidates(m).items()}
-        self.assertEqual(ls.asserted(m)["final"], set())
-        self.assertEqual(ls.with_candidates(m)["final"], {(tagged["C"], tagged["V"])})
+        self.assertEqual(ls.asserted(m)["final"], {(tagged["C"], tagged["V"])})
+        self.assertEqual(ls.asserted(m, strict=True)["final"], set())
+        self.assertEqual(ls.asserted(m, strict=True)["loops"], [])
+        m2 = self.m()
+        m2["control_loops"] = la.assemble(m2, [line("a", ["T", "C"])])  # the output is not traced
+        self.assertEqual(ls.asserted(m2)["final"], set())
+        self.assertEqual(ls.with_candidates(m2)["final"], {(tagged["C"], tagged["V"])})  # a grouped_by_tag candidate
 
 
 @unittest.skipUnless(HAVE_CV2, "needs OpenCV and NumPy")

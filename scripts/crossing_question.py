@@ -2,8 +2,9 @@
 
 scripts/loop_assembly.py joins two dashed runs through a pipe or another line only when their dash pattern is in step,
 and marks the line merged_through_crossing with its crossing points. Geometry alone cannot tell one line crossing a
-pipe from two lines drawn to it from either side, so such a line may support controls, sets_point_of or a confirmed
-loop only when an independent channel agrees. This is one such channel, built as a separate evaluator:
+pipe from two lines drawn to it from either side, so everything resting on such a line carries the weakest tier,
+traced_through_crossing, until an independent channel promotes it (or this evaluator, enabled, demotes it with a
+confident "two lines"). This is one such channel, built as a separate evaluator:
 
   Blind. For each crossing it shows only a crop centred on the crossing, with everything outside two narrow bands
   blanked: the dashed line's band (blue) and the crossed line's band (green). No tag, no symbol, no tracer verdict
@@ -17,8 +18,9 @@ loop only when an independent channel agrees. This is one such channel, built as
   re-drawn reviewer fixtures, and three controls (an obvious crossing, obvious separate ends, a blank crop). Two runs
   for spread. The scorecard decides `assert_enabled`: the judge's "continues" may support a loop only if, in every
   run, it supported no false merge and no negative control, and supported at least one true crossing. Otherwise its
-  answers are attached to the review item as advice and never assert anything.
-  Unanswered crossings ("cannot_tell", below THRESHOLD, no answer) go to review; nothing is asserted on them.
+  answers are attached as advice and neither promote nor demote anything.
+  Unanswered crossings ("cannot_tell", below THRESHOLD, no answer) leave the line at traced_through_crossing, with
+  its review question.
 
     python scripts/crossing_question.py scorecard [--tool claude] [--runs 2]   # spends model calls
     python scripts/crossing_question.py ask --bundle <bundle dir> --out <answers.json> --scorecard <scorecard.json>

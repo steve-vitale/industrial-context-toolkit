@@ -43,8 +43,10 @@ unresolved_signal_networks with the conditions it failed, and nothing is asserte
 Tag grouping without a traced line is recorded on the loop as unconfirmed members, never as a relation. A traced
 line that contradicts the tag grouping (a transmitter traced to another loop's controller) is kept as a conflict.
 Nothing is taken from layout: no relation comes from where symbols sit, only from drawn lines and printed tags.
-Confidence is an ordinal tier, not a calibrated probability: traced_and_grouped, traced, traced_cross_sheet, and
-traced_direction_inferred for a cascade, whose direction comes from graph distance to a final element.
+Confidence is an ordinal tier, not a calibrated probability, strongest first: traced_and_grouped, traced,
+traced_cross_sheet, traced_direction_inferred for a cascade, whose direction comes from graph distance to a final
+element, and traced_through_crossing for anything resting on a line joined through a crossing (signal_conditions).
+Every relation and loop carries its tier; a consumer wanting strictly traced relations keeps STRICT_TIERS.
 """
 import hashlib
 import json
@@ -60,7 +62,9 @@ ROLES = ("controller", "final_element", "transmitter", "primary_element", "switc
          "relief_device", "hand_switch")
 SENSORS = ("transmitter", "primary_element")
 MEASUREMENTS = SENSORS + ("switch", "indicator")
-CONFIDENCE = ("traced_and_grouped", "traced", "traced_cross_sheet", "traced_direction_inferred")
+CONFIDENCE = ("traced_and_grouped", "traced", "traced_cross_sheet", "traced_direction_inferred",
+              "traced_through_crossing")  # strongest first; a consumer wanting strictly traced relations drops the last
+STRICT_TIERS = CONFIDENCE[:-1]
 # Which role a signal may go to next: a measurement to a controller (or a transmitter to its indicator or switch), a
 # controller to a final element or relay, a relay to a final element. Controller to controller is a cascade.
 NEXT = {"transmitter": {"controller", "indicator", "switch"},
@@ -833,13 +837,16 @@ def signal_conditions(net, cand, role, model=None):
                            _cascades). More members: one sender, and every other member one of its next receivers.
       connector_text_agrees  where the network runs through a paired off-page connector whose printed text names an
                            ISA-5.1 tag with a loop role ("TO FV 401"), the joined lines reach an item with that tag.
-    And one limit on what a passing network may support, applied in _directed_links and assemble():
-      not_merged_through_a_crossing  a line the tracer joined through a crossing (merged_through_crossing: a pipe or
-                           another line lay in a gap, and the dash pattern was in step across it) supports a signal_to
-                           at tier traced at most, and never controls, sets_point_of or a confirmed loop; the network is
-                           also listed under unresolved_signal_networks with this condition named. Being in step is
-                           evidence, not proof: two lines drawn to a pipe from either side are in step by chance about
-                           one time in six."""
+    And the tier of a passing network joined through a crossing, applied in _directed_links and assemble():
+      traced_through_crossing  a line the tracer joined through a crossing (merged_through_crossing: a pipe or another
+                           line lay in a gap, and the dash pattern was in step across it) is read as a qualified reader
+                           reads it, one line crossing, and everything resting on it (signal_to, controls,
+                           sets_point_of, the loop) carries this weakest tier and the crossing question. Being in step
+                           is evidence, not proof: two lines drawn to a pipe are in step by chance about one time in
+                           six, and then the picture is the same as one line crossing (inherently ambiguous). An
+                           independent channel promotes the line to its ordinary tier (the reader's own link, or the
+                           enabled crossing evaluator's confident "continues"); the enabled evaluator's confident "two
+                           lines" demotes it to review (demoted_by_crossing_judge). Tag agreement plays no part."""
     failed = []
     lines = net["lines"]
     ms = [m for m in net["members"] if m in cand]
@@ -903,7 +910,8 @@ def _channels(net, ms, cand, corroboration):
       crossing_judge    the blind second evaluator (scripts/crossing_question.py) answered a confident "continues"
                         for every crossing on the network, and its scorecard enabled it;
       tag_agreement     the members share a loop identity: supporting evidence only, never enough alone.
-    Returns (corroborated_by [names], record)."""
+    Returns (corroborated_by [names], record). A confident "two_lines" from an enabled evaluator demotes the line
+    (record["demoted_by_crossing_judge"]). Tag agreement is recorded for the reviewer and plays no part in either."""
     import crossing_question as cq
     co = corroboration or {}
     pairs = co.get("reader_pairs") or set()
@@ -915,7 +923,9 @@ def _channels(net, ms, cand, corroboration):
         all(cq.supports(a, co.get("assert_enabled", False)) for a in judged)
     tags = len({(cand[m]["scope"], cand[m]["number"]) for m in ms}) == 1
     by = [n for n, ok in (("reader_link", reader), ("crossing_judge", judge)) if ok]
-    return by, {"reader_link": reader, "crossing_judge": judged or None,
+    demoted = bool(co.get("assert_enabled")) and any(
+        a.get("verdict") == "two_lines" and a.get("confidence", 0) >= cq.THRESHOLD for a in judged)
+    return by, {"reader_link": reader, "crossing_judge": judged or None, "demoted_by_crossing_judge": demoted,
                 "crossing_judge_enabled": bool(co.get("assert_enabled", False)), "tag_agreement": tags,
                 "crossings": [{k: c[k] for k in ("key", "at_0_1000", "crosses") if k in c} for c in crossings]}
 
@@ -940,33 +950,34 @@ def _directed_links(nets, cand, role, corroboration=None, assume_merged_ok=False
         if len(ms) < 2:
             continue
         merged = any(x.get("merged_through_crossing") for x in net["lines"])
-        corroborated_by = []
+        corroborated_by, through = [], False
         if merged:
             corroborated_by, record = _channels(net, ms, cand, corroboration)
-            if assume_merged_ok:
-                corroborated_by = corroborated_by or ["assumed_for_review_candidates"]
-            if corroborated_by:
+            if corroborated_by:  # promoted: an independent channel agrees it is one line
                 evidence = evidence + [{"kind": "corroboration", "by": corroborated_by, **record}]
                 merged = False
-            else:
+            elif record["demoted_by_crossing_judge"] and not assume_merged_ok:  # demoted: two lines, for review
                 unresolved.append({"members": ms, "roles": {m: role[m] for m in ms}, "evidence": evidence,
-                                   "failed_conditions": ["not_merged_through_a_crossing"], "signal_to_kept": True,
+                                   "failed_conditions": ["demoted_by_crossing_judge"], "signal_to_kept": True,
                                    "review_question": CROSSING_QUESTION, "channels": record,
-                                   "why": "not_merged_through_a_crossing: the tracer joined this line through a "
-                                          "crossing (a pipe or another line in a gap) and no independent channel "
-                                          "(the reader's own link, the crossing evaluator) agrees; its signal_to is "
-                                          "kept at tier traced, and it is not used for controls, sets_point_of or a "
-                                          "confirmed loop until the question is answered"})
+                                   "why": "demoted_by_crossing_judge: the line was joined through a crossing and the "
+                                          "enabled crossing evaluator answered, confidently, that two lines end there; "
+                                          "its signal_to is kept at tier traced_through_crossing and it supports no "
+                                          "loop until the question is answered"})
+                through = True
+            else:  # read as a qualified reader reads it: one line crossing, at its own tier, question attached
+                evidence = evidence + [{"kind": "through_crossing", "review_question": CROSSING_QUESTION, **record}]
+                merged, through = False, True
         if len(ms) == 2:
             a, b = sorted(ms, key=lambda m: RANK[role[m]])
             directed = RANK[role[a]] != RANK[role[b]]
             links.append({"from": a, "to": b, "directed": directed, "evidence": evidence, "merged": merged,
-                          "corroborated_by": corroborated_by})
+                          "through_crossing": through, "corroborated_by": corroborated_by})
             continue
         low = min(RANK[role[m]] for m in ms)
         sender = next(m for m in ms if RANK[role[m]] == low)
         links += [{"from": sender, "to": m, "directed": True, "evidence": evidence, "merged": merged,
-                   "corroborated_by": corroborated_by} for m in ms if m != sender]
+                   "through_crossing": through, "corroborated_by": corroborated_by} for m in ms if m != sender]
     return links, unresolved
 
 
@@ -1020,16 +1031,19 @@ def assemble(model, lines, roles=None, corroboration=None, _assume_merged_ok=Fal
     _cascades(links, role, untraced_finals, measured)
     relations, seen = [], {}
 
-    def add(typ, a, b, evidence, basis, loop=None, inferred=False, merged=False, corroborated=None):
+    def add(typ, a, b, evidence, basis, loop=None, inferred=False, through=False, corroborated=None):
         if (typ, a, b) in seen:
             return seen[(typ, a, b)]
         cross = any(e["kind"] == "cross_sheet_flag" for e in evidence)
+        merged = through or any(e["kind"] in ("through_crossing", "corroboration") for e in evidence)
         rec = {"id": None, "type": typ, "from": a, "to": b, "direction": "forward" if basis else "unknown",
                **({"direction_basis": basis} if basis else {}),
                **({"merged_through_crossing": True} if merged else {}),
+               **({"review_question": CROSSING_QUESTION} if through else {}),
                **({"corroborated_by": corroborated} if corroborated else {}),
-               "confidence": "traced_direction_inferred" if inferred else "traced_cross_sheet" if cross else
-                             "traced_and_grouped" if ident[a] == ident[b] and not merged else "traced",
+               "confidence": "traced_through_crossing" if through else "traced_direction_inferred" if inferred else
+                             "traced_cross_sheet" if cross else
+                             "traced_and_grouped" if ident[a] == ident[b] else "traced",
                "evidence": evidence, **({"loop": loop} if loop else {}),
                "provenance": [{"sheet": e["sheet"], "box_0_1000": e["box_0_1000"], "line": e["line"],
                                "source_run": "scripts/loop_assembly.py", "model": None}
@@ -1042,8 +1056,8 @@ def assemble(model, lines, roles=None, corroboration=None, _assume_merged_ok=Fal
         a, b = lk["from"], lk["to"]
         basis = ("cascade: the receiving controller is nearer a final element along traced signals" if lk.get("cascade")
                  else f"ISA-5.1 roles: {role[a]} -> {role[b]}" if lk["directed"] else None)
-        add("signal_to", a, b, lk["evidence"], basis, inferred=bool(lk.get("cascade")), merged=bool(lk.get("merged")),
-            corroborated=lk.get("corroborated_by") or None)
+        add("signal_to", a, b, lk["evidence"], basis, inferred=bool(lk.get("cascade")),
+            through=bool(lk.get("through_crossing")), corroborated=lk.get("corroborated_by") or None)
     into, outof = defaultdict(list), defaultdict(list)
     for lk in solid:
         if lk["directed"]:
@@ -1085,6 +1099,8 @@ def assemble(model, lines, roles=None, corroboration=None, _assume_merged_ok=Fal
         loops.append({
             "id": lid, "loop_identity": cand[c]["loop_identity"], "controller": c, "controller_tag": cand[c]["tag"],
             "loop_type": "cascade" if inner else "control", "status": status,
+            "tier": "traced_through_crossing" if any(lk.get("through_crossing") for lk in
+                                                     meas + inner + [x for _, p_ in finals for x in p_]) else "traced",
             "measurements": [{"id": lk["from"], "tag": cand[lk["from"]]["tag"], "role": role[lk["from"]],
                               "same_loop_identity": ident[lk["from"]] == ident[c]} for lk in meas],
             "final_elements": [{"id": f, "tag": cand[f]["tag"], "via": [lk["to"] for lk in path[:-1]],
@@ -1099,11 +1115,12 @@ def assemble(model, lines, roles=None, corroboration=None, _assume_merged_ok=Fal
                 ev = [e for lk in path for e in lk["evidence"]] + [
                     {"kind": "loop_confirmed", "loop": lid, "measured_by": sorted(lk["from"] for lk in meas)}]
                 add("controls", c, f, ev, "the controller's traced output, in a loop whose measurement is traced "
-                                          "into the controller", loop=lid)
+                                          "into the controller", loop=lid,
+                    through=any(lk.get("through_crossing") for lk in path + meas))
         for lk in inner:
             add("sets_point_of", c, lk["to"], lk["evidence"], "cascade: a traced signal from this controller to a "
                                                                "controller nearer a final element", loop=lid,
-                inferred=True)
+                inferred=True, through=bool(lk.get("through_crossing")))
         for kind, items in (("measurement", [lk["from"] for lk in meas]), ("final element", [f for f, _ in finals])):
             for m in items:
                 if ident[m] != ident[c]:
@@ -1140,6 +1157,7 @@ def assemble(model, lines, roles=None, corroboration=None, _assume_merged_ok=Fal
               "signal_lines": len(lines), "unresolved_signal_networks": len(unresolved),
               "tag_groups_without_controller": len(no_ctrl), "conflicts": len(conflicts),
               "candidate_loops": len(candidate_loops),
+              "relations_by_tier": {t: sum(r["confidence"] == t for r in relations) for t in CONFIDENCE},
               **({"merged_lines_corroborated": sum(1 for r in relations if r.get("corroborated_by"))}
                  if any(r.get("corroborated_by") for r in relations) else {})}
     return {"schema": SCHEMA,
@@ -1152,7 +1170,12 @@ def assemble(model, lines, roles=None, corroboration=None, _assume_merged_ok=Fal
                                                "proposes membership, never asserts a relation",
                                "traced_line": "a drawn signal line traced from the sheet image or the line layer",
                                "cross_sheet_flag": "an off-page pair joining traced signal lines across sheets"},
-            "confidence_tiers": {"traced_direction_inferred": "a cascade: the line is traced, but which controller is "
+            "confidence_tiers": {"traced_through_crossing": "rests on a line the tracer joined through a crossing (a pipe "
+                                                            "or another line), read as one line crossing as a qualified "
+                                                            "reader reads it, with no independent channel yet; the "
+                                                            "crossing question is attached. Weakest tier: a consumer "
+                                                            "wanting strictly traced relations drops it",
+                                 "traced_direction_inferred": "a cascade: the line is traced, but which controller is "
                                                               "outer is inferred from graph distance to a final "
                                                               "element",
                                  "traced_and_grouped": "traced, and both ends share a loop identity",

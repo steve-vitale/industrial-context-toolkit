@@ -69,7 +69,8 @@ count as delivered.
   positive list of signal conditions was then shaped by three independent reviews' synthetic drawings, which are
   tests, not scores. Neither revision A nor OPEN100 0-5 draws a controller, so loop precision is in effect measured
   on revision D alone, and revision A traces no signal lines, so its zero proves nothing beyond that. Loop recall is
-  reported at three levels: asserted, asserted plus review candidates (`candidate_loops`), and the tag-only control.
+  reported at four levels: strictly traced (dropping tier `traced_through_crossing`), asserted, asserted plus review
+  candidates (`candidate_loops`), and the tag-only control.
 - Keep a change only if its relation score rises beyond the run and sheet spread on development, and review load
   does not rise beyond its spread. Record every attempt in `data/attempts.json`, kept or not.
 - Corpus-matrix cells bound to changed code are re-recorded from a fresh clone. Statuses that change must be

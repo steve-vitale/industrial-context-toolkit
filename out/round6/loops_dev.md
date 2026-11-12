@@ -15,27 +15,27 @@ Development sets only. Every number is read from the `control_loops` block of th
 | te-a | te-clean-trace-r4/codex | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
 | te-a | te-clean-trace-r5/claude | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
 | te-a | te-clean-trace-r5/codex | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
-| te-d | key symbols + tracer | 10 / 20 | 7/11 | 3/8 | 1.0 | 1.0 / 0.526 | 1.0 / 0.636 | 1.0 / 0.375 | 0.037 (0.0-0.105); 0.643 (0.0-1.0, 7 of 10 seeds assert any) | 0.579 / 0.55 | 0.0 | True |
+| te-d | key symbols + tracer | 19 / 20 | 11/11 | 8/8 | 1.0 | 1.0 / 1.0 | 1.0 / 1.0 | 1.0 / 1.0 | 0.069 (0.0-0.158); 0.625 (0.0-1.0, 10 of 10 seeds assert any) | 0.579 / 0.55 | 0.0 | True |
 | open100 | r2-tiles-trace/claude | 0 / 0 | no key | no key | - | - | - | - | - | - | - | True |
 | open100 | r2-tiles-trace/codex | 0 / 0 | no key | no key | - | - | - | - | - | - | - | True |
 | open100 | r2-tiles-trace/gemini | 0 / 0 | no key | no key | - | - | - | - | - | - | - | True |
 
-Recall at three levels (loop R / P): asserted (confirmed loops only); asserted plus every review candidate (`candidate_loops`: a merged line that needs review, or a tag group) counted as if confirmed; the tag-only control.
+Recall at four levels (loop R / P): strictly traced (asserted, dropping tier `traced_through_crossing`); asserted (confirmed loops, every tier); asserted plus every review candidate (`candidate_loops`) counted as if confirmed; the tag-only control.
 
-| Set | Run | Asserted | Asserted + candidates | Tag-only |
-|---|---|---|---|---|
-| te-a | key symbols + tracer | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
-| te-a | te-clean-trace-r1/claude | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
-| te-a | te-clean-trace-r1/codex | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
-| te-a | te-clean-trace-r2/claude | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
-| te-a | te-clean-trace-r2/codex | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
-| te-a | te-clean-trace-r3/claude | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
-| te-a | te-clean-trace-r3/codex | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
-| te-a | te-clean-trace-r4/claude | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
-| te-a | te-clean-trace-r4/codex | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
-| te-a | te-clean-trace-r5/claude | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
-| te-a | te-clean-trace-r5/codex | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
-| te-d | key symbols + tracer | 0.526 / 1.0 (7/11, 3/8) | 1.0 / 1.0 (11/11, 8/8) | 0.579 / 0.55 |
+| Set | Run | Strictly traced | Asserted | Asserted + candidates | Tag-only |
+|---|---|---|---|---|---|
+| te-a | key symbols + tracer | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
+| te-a | te-clean-trace-r1/claude | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
+| te-a | te-clean-trace-r1/codex | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
+| te-a | te-clean-trace-r2/claude | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
+| te-a | te-clean-trace-r2/codex | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
+| te-a | te-clean-trace-r3/claude | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
+| te-a | te-clean-trace-r3/codex | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
+| te-a | te-clean-trace-r4/claude | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
+| te-a | te-clean-trace-r4/codex | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
+| te-a | te-clean-trace-r5/claude | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
+| te-a | te-clean-trace-r5/codex | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / None (0/11, 0/8) | 0.0 / 0.0 |
+| te-d | key symbols + tracer | 0.579 / 1.0 (7/11, 4/8) | 1.0 / 1.0 (11/11, 8/8) | 1.0 / 1.0 (11/11, 8/8) | 0.579 / 0.55 |
 
 Diagnostic, TE revision D: `signal_to` pairs against the drawn signal lines of the key (`signal_edges`, cross-sheet flags followed), unordered, by tag.
 
@@ -468,9 +468,9 @@ Diagnostic, TE revision D: `signal_to` pairs against the drawn signal lines of t
   "bundle_identical_without_loops": true,
   "controller_recall": {
    "n": 1,
-   "mean": 0.526,
-   "min": 0.526,
-   "max": 0.526,
+   "mean": 1.0,
+   "min": 1.0,
+   "max": 1.0,
    "sd": 0.0
   },
   "controller_precision": {
@@ -482,9 +482,9 @@ Diagnostic, TE revision D: `signal_to` pairs against the drawn signal lines of t
   },
   "sensor_recall": {
    "n": 1,
-   "mean": 0.526,
-   "min": 0.526,
-   "max": 0.526,
+   "mean": 1.0,
+   "min": 1.0,
+   "max": 1.0,
    "sd": 0.0
   },
   "sensor_precision": {
@@ -496,9 +496,9 @@ Diagnostic, TE revision D: `signal_to` pairs against the drawn signal lines of t
   },
   "final_recall": {
    "n": 1,
-   "mean": 0.636,
-   "min": 0.636,
-   "max": 0.636,
+   "mean": 1.0,
+   "min": 1.0,
+   "max": 1.0,
    "sd": 0.0
   },
   "final_precision": {
@@ -510,9 +510,9 @@ Diagnostic, TE revision D: `signal_to` pairs against the drawn signal lines of t
   },
   "cascade_recall": {
    "n": 1,
-   "mean": 0.375,
-   "min": 0.375,
-   "max": 0.375,
+   "mean": 1.0,
+   "min": 1.0,
+   "max": 1.0,
    "sd": 0.0
   },
   "cascade_precision": {
@@ -524,9 +524,9 @@ Diagnostic, TE revision D: `signal_to` pairs against the drawn signal lines of t
   },
   "loop_recall": {
    "n": 1,
-   "mean": 0.526,
-   "min": 0.526,
-   "max": 0.526,
+   "mean": 1.0,
+   "min": 1.0,
+   "max": 1.0,
    "sd": 0.0
   },
   "loop_precision": {
@@ -538,10 +538,10 @@ Diagnostic, TE revision D: `signal_to` pairs against the drawn signal lines of t
   },
   "loop_recall_by_sheet": {
    "n": 3,
-   "mean": 0.546,
-   "min": 0.333,
-   "max": 0.75,
-   "sd": 0.209
+   "mean": 1.0,
+   "min": 1.0,
+   "max": 1.0,
+   "sd": 0.0
   },
   "controls_shuffled_roles_over_seeds": [
    {
@@ -559,24 +559,24 @@ Diagnostic, TE revision D: `signal_to` pairs against the drawn signal lines of t
     ],
     "loop_recall": {
      "n": 10,
-     "mean": 0.037,
+     "mean": 0.069,
      "min": 0.0,
-     "max": 0.105,
-     "sd": 0.036
+     "max": 0.158,
+     "sd": 0.056
     },
     "loop_precision": {
-     "n": 7,
-     "mean": 0.643,
+     "n": 10,
+     "mean": 0.625,
      "min": 0.0,
      "max": 1.0,
-     "sd": 0.378
+     "sd": 0.403
     },
     "loops_asserted": {
      "n": 10,
-     "mean": 1.1,
-     "min": 0,
-     "max": 2,
-     "sd": 0.876
+     "mean": 2,
+     "min": 1,
+     "max": 4,
+     "sd": 1.155
     }
    }
   ],
@@ -621,9 +621,9 @@ Diagnostic, TE revision D: `signal_to` pairs against the drawn signal lines of t
    "empty": null,
    "shuffled_roles": {
     "n": 1,
-    "mean": 1.0,
-    "min": 1.0,
-    "max": 1.0,
+    "mean": 0.667,
+    "min": 0.667,
+    "max": 0.667,
     "sd": 0.0
    },
    "tag_only": {

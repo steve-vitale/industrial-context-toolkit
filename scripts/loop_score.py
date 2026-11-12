@@ -65,16 +65,19 @@ def key_loops(path=KEY):
             for lp in doc["loops"] if lp.get("runs") and lp.get("controller_tag")]
 
 
-def asserted(model, block=None):
+def asserted(model, block=None, strict=False):
     """What a control_loops block asserts, by compacted tag: confirmed loops, their measurement pairs, controls and
-    sets_point_of relations."""
+    sets_point_of relations. strict drops everything at tier traced_through_crossing (the consumer filter for
+    strictly traced relations)."""
     cl = block if block is not None else (model.get("control_loops") or {})
     tag = {k: la.compact(v["tag"]) for k, v in la.candidates(model).items()}
-    loops = [lp for lp in cl.get("loops", []) if lp["status"] == "confirmed"]
+    loops = [lp for lp in cl.get("loops", []) if lp["status"] == "confirmed"
+             and not (strict and lp.get("tier") == "traced_through_crossing")]
+    rels = [r for r in cl.get("relations", []) if not (strict and r["confidence"] not in la.STRICT_TIERS)]
     return {"controllers": {tag[lp["controller"]] for lp in loops},
             "sensor": {(tag[lp["controller"]], tag[m["id"]]) for lp in loops for m in lp["measurements"]},
-            "final": {(tag[r["from"]], tag[r["to"]]) for r in cl.get("relations", []) if r["type"] == "controls"},
-            "cascade": {(tag[r["from"]], tag[r["to"]]) for r in cl.get("relations", []) if r["type"] == "sets_point_of"},
+            "final": {(tag[r["from"]], tag[r["to"]]) for r in rels if r["type"] == "controls"},
+            "cascade": {(tag[r["from"]], tag[r["to"]]) for r in rels if r["type"] == "sets_point_of"},
             "loops": [{"controller": tag[lp["controller"]], "measurements": {tag[m["id"]] for m in lp["measurements"]},
                        "outputs": {tag[x["id"]] for x in lp["final_elements"] + lp["sets_point_of"]}} for lp in loops]}
 
@@ -212,6 +215,7 @@ def record(result, model, key, key_doc=None, sheets=None, no_loops_model=None):
         rec["bundle_identical_without_loops"] = without_loops(model) == no_loops_model
     if key is not None:
         rec["score"] = score(asserted(model), key)
+        rec["score_strict"] = score(asserted(model, strict=True), key)
         rec["score_with_candidates"] = score(with_candidates(model), key)
         shuffled = [score(shuffled_roles(model, seed), key) if model.get("control_loops") else score(empty(), key)
                     for seed in SHUFFLE_SEEDS]
@@ -412,15 +416,18 @@ def markdown(doc):
                          + _seeds(k) +
                          f"{k['tag_only']['loops']['recall']} / {k['tag_only']['loops']['precision'] or '-'} | "
                          f"{k['empty']['loops']['recall']} | {same} |")
-    lines += ["", "Recall at three levels (loop R / P): asserted (confirmed loops only); asserted plus every review "
-              "candidate (`candidate_loops`: a merged line that needs review, or a tag group) counted as if confirmed; "
-              "the tag-only control.", "", "| Set | Run | Asserted | Asserted + candidates | Tag-only |",
-              "|---|---|---|---|---|"]
+    lines += ["", "Recall at four levels (loop R / P): strictly traced (asserted, dropping tier "
+              "`traced_through_crossing`); asserted (confirmed loops, every tier); asserted plus every review candidate "
+              "(`candidate_loops`) counted as if confirmed; the tag-only control.", "",
+              "| Set | Run | Strictly traced | Asserted | Asserted + candidates | Tag-only |",
+              "|---|---|---|---|---|---|"]
     for name, r in doc["sets"].items():
         for run, x in r["runs"].items():
             if "score" in x:
                 f = lambda s_: f"{s_['loops']['recall']} / {s_['loops']['precision']}"  # noqa: E731
-                lines.append(f"| {name} | {run} | {f(x['score'])} ({x['score']['loops']['valve_loops']}, "
+                lines.append(f"| {name} | {run} | {f(x['score_strict'])} ({x['score_strict']['loops']['valve_loops']}, "
+                             f"{x['score_strict']['loops']['cascades']}) | "
+                             f"{f(x['score'])} ({x['score']['loops']['valve_loops']}, "
                              f"{x['score']['loops']['cascades']}) | {f(x['score_with_candidates'])} "
                              f"({x['score_with_candidates']['loops']['valve_loops']}, "
                              f"{x['score_with_candidates']['loops']['cascades']}) | "
