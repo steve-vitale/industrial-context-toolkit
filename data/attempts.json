@@ -6829,6 +6829,21 @@
       "source": [
         "out/round6/ocr_tag_hints_dev.md",
         "docs/DEPENDENCIES.md"
+        ]
+      },
+      {
+      "id": "A412",
+      "function": "extraction",
+      "date": "2026-11-11",
+      "change": "A narrow model re-check of the symbols the pipeline already flags (scripts/recheck_flagged.py, prompt extraction/recheck_prompt.md). Flagged = rated amber or red by scripts/confidence.py, or carrying the dup_box or tag_placeholder flag; green unflagged symbols are never sent. Each flagged symbol's crop (its box red, nearby detections blue) and current class/tag go to the same model that made the saved reading, in batches of up to 8; the model may only confirm, correct the class, reject, or call it a duplicate of a blue box. Rules fixed before the first run: a change applies only at confidence >= 0.8; a duplicate is removed only while an overlapping symbol is kept; nothing is added, moved or resized; every flagged item gets a before/after/verdict/confidence/reason record. Connections are re-traced with trace_connections.py defaults (re-tracing the saved symbols reproduces the saved r2-tiles-trace links exactly on all 12 development readings), and links the re-trace adds or loses beyond the removed symbols' own links are recorded. Idea credited to the public MIT repository ScottDuncanAI/PID-to-Knowledge-Graph (its QA report's model re-check loop); none of its code is used.",
+      "hypothesis": "Asking the reading's own model a narrow confirm/correct/reject question about only the items the pipeline already flags lowers review load beyond run spread without lowering symbol or connection F1",
+      "evidence": "OPEN100 development sheets 0-5, r2-tiles-trace reading, claude-opus-5-5 (claude CLI), 2 independent re-check runs, 105 flagged of 442 symbols. Review load 36.08 (saved reading, the accept-every-flagged-item control) -> 34.67 and 34.73 (re-check r1, r2; mean -1.38); symbol F1 rough 0.858 -> 0.873 both; symbol+class F1 0.809 -> 0.823 both; connection F1 0.791 -> 0.794 / 0.793. Reject every flagged item: 58.26 (connection F1 0.564). Oracle re-check of exactly the flagged items (reads the key, a ceiling not a method): 31.02. Scorer controls: perfect 0.0, every class wrong 100.0, shifted 129.7, empty 100.0. Run spread: re-check runs 0.06 apart; the reader's own run spread (saved vs the r2-tiles-2x2-repeat reading, re-traced) is 2.49 (38.57). Applied changes: 16 per run (r1 15 rejects + 1 duplicate; r2 16 rejects), all 32 were false positives by the scorer's rough match; 0 class corrections passed the threshold (1-2 proposed below it); 73/71 confirmed; 15/18 not applied for low confidence. 10 of 16 removals are on sheet 1 (79.2 -> 68.3); sheet 5 unchanged; no sheet worsened. Re-trace added 3 (r1) / 1 (r2) links between kept symbols and lost none beyond the removed symbols' own. codex (gpt-6.1-sol) not run: the CLI returned a usage limit until 2026-11-16; gemini not run: no API key on this machine. Cost: 32 claude CLI calls, 583 s summed, notional $3.64 (subscription).",
+      "runs": "2 re-check runs x 6 sheets, one reader (claude); codex and gemini not measured",
+      "verdict": "rejected",
+      "why": "The pre-registered GOAL_ROUND6 rule needs review load to fall beyond run spread. The 1.4-point fall is smaller than the reader's own run-to-run spread on these sheets (2.5), most of it comes from one sheet, and only one of the two available readers could be measured. The paired evidence is clean (every applied change removed a real false positive, no score fell), so it is worth re-running on codex and with replicate readings before any later claim; not adopted into the pipeline.",
+      "source": [
+        "out/recheck_a412/summary.md",
+        "docs/GOAL_ROUND6.md"
       ]
     }
   ],

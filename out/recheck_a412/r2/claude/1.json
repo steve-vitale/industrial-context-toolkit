@@ -1,0 +1,1152 @@
+{
+ "tool": "claude",
+ "sheet": "1",
+ "run": "r2",
+ "reading": "r2-tiles-trace",
+ "symbol_source": "r2-tiles-2x2",
+ "model_requested": "claude-opus-5-5",
+ "models_reported": [
+  "claude-opus-5-5"
+ ],
+ "prompt_file": "extraction/recheck_prompt.md",
+ "prompt_sha256": "39990849937a5d30c881b3cbce164968b366254ebb99c70a9216f0885c8164e3",
+ "image_sha256": "c8c696042bf7a16eb30e492a312af274c312a2049a7eb765ca82f84d3770eba8",
+ "threshold": 0.8,
+ "batch": 8,
+ "ran_at": "2026-11-12T03:56:10+00:00",
+ "seconds": 52.4,
+ "calls": 3,
+ "calls_failed": 0,
+ "cost_usd_notional": 0.3012,
+ "tokens": null,
+ "n_symbols": 45,
+ "n_flagged": 22,
+ "n_answered": 22,
+ "n_changed": 10,
+ "call_summary": [
+  {
+   "ids": [
+    "s12",
+    "s13",
+    "s16",
+    "s17",
+    "s22",
+    "s24",
+    "s28",
+    "s30"
+   ],
+   "seconds": 50.7,
+   "model": "claude-opus-5-5",
+   "error": null,
+   "parse_error": null
+  },
+  {
+   "ids": [
+    "s31",
+    "s33",
+    "s34",
+    "s35",
+    "s36",
+    "s37",
+    "s38",
+    "s39"
+   ],
+   "seconds": 47.9,
+   "model": "claude-opus-5-5",
+   "error": null,
+   "parse_error": null
+  },
+  {
+   "ids": [
+    "s40",
+    "s41",
+    "s42",
+    "s43",
+    "s44",
+    "s45"
+   ],
+   "seconds": 47.3,
+   "model": "claude-opus-5-5",
+   "error": null,
+   "parse_error": null
+  }
+ ],
+ "changes": [
+  {
+   "id": "s12",
+   "flags": [
+    "tier amber (risk 0.1396)"
+   ],
+   "before": {
+    "class": "pump",
+    "tag": "ACC-PU-151"
+   },
+   "verdict": "confirm",
+   "class": "pump",
+   "confidence": 0.75,
+   "reason": "twin-circle pump symbol labelled ACC-PU",
+   "applied": false,
+   "after": {
+    "class": "pump",
+    "kept": true
+   },
+   "note": "confirmed: unchanged"
+  },
+  {
+   "id": "s13",
+   "flags": [
+    "tier amber (risk 0.1396)"
+   ],
+   "before": {
+    "class": "general",
+    "tag": "ACC-SX-154"
+   },
+   "verdict": "confirm",
+   "class": "general",
+   "confidence": 0.55,
+   "reason": "hatched in-line element, likely filter/strainer",
+   "applied": false,
+   "after": {
+    "class": "general",
+    "kept": true
+   },
+   "note": "confirmed: unchanged"
+  },
+  {
+   "id": "s16",
+   "flags": [
+    "tier red (risk 0.6695)"
+   ],
+   "before": {
+    "class": "general",
+    "tag": null
+   },
+   "verdict": "confirm",
+   "class": "general",
+   "confidence": 0.85,
+   "reason": "in-line reducer symbol",
+   "applied": false,
+   "after": {
+    "class": "general",
+    "kept": true
+   },
+   "note": "confirmed: unchanged"
+  },
+  {
+   "id": "s17",
+   "flags": [
+    "tier red (risk 0.6695)"
+   ],
+   "before": {
+    "class": "general",
+    "tag": null
+   },
+   "verdict": "confirm",
+   "class": "general",
+   "confidence": 0.85,
+   "reason": "in-line reducer symbol",
+   "applied": false,
+   "after": {
+    "class": "general",
+    "kept": true
+   },
+   "note": "confirmed: unchanged"
+  },
+  {
+   "id": "s22",
+   "flags": [
+    "tier red (risk 0.7968)"
+   ],
+   "before": {
+    "class": "instrumentation",
+    "tag": "LIT 25094A"
+   },
+   "verdict": "reject",
+   "class": null,
+   "confidence": 0.85,
+   "reason": "only an instrument connection line; bubble is in blue box",
+   "applied": true,
+   "after": {
+    "class": null,
+    "kept": false
+   },
+   "note": "removed"
+  },
+  {
+   "id": "s24",
+   "flags": [
+    "tier red (risk 0.675)"
+   ],
+   "before": {
+    "class": "general",
+    "tag": "TURBINE EXHAUST DUCT"
+   },
+   "verdict": "correct",
+   "class": "tank",
+   "confidence": 0.6,
+   "reason": "turbine exhaust duct drawn as large equipment",
+   "applied": false,
+   "after": {
+    "class": "general",
+    "kept": true
+   },
+   "note": "confidence below 0.8: unchanged"
+  },
+  {
+   "id": "s28",
+   "flags": [
+    "tier amber (risk 0.1426)"
+   ],
+   "before": {
+    "class": "valve",
+    "tag": "LCV 1501"
+   },
+   "verdict": "confirm",
+   "class": "valve",
+   "confidence": 0.7,
+   "reason": "control valve body with diaphragm actuator",
+   "applied": false,
+   "after": {
+    "class": "valve",
+    "kept": true
+   },
+   "note": "confirmed: unchanged"
+  },
+  {
+   "id": "s30",
+   "flags": [
+    "tier amber (risk 0.1151)"
+   ],
+   "before": {
+    "class": "general",
+    "tag": null
+   },
+   "verdict": "confirm",
+   "class": "general",
+   "confidence": 0.5,
+   "reason": "end cap/hotwell symbol at bottom of line",
+   "applied": false,
+   "after": {
+    "class": "general",
+    "kept": true
+   },
+   "note": "confirmed: unchanged"
+  },
+  {
+   "id": "s31",
+   "flags": [
+    "tier red (risk 0.675)"
+   ],
+   "before": {
+    "class": "valve",
+    "tag": "MOV 1511"
+   },
+   "verdict": "reject",
+   "class": null,
+   "confidence": 0.7,
+   "reason": "only the leader line and part of the MOV 1511 bubble; the valve and bubble are already marked in blue",
+   "applied": false,
+   "after": {
+    "class": "valve",
+    "kept": true
+   },
+   "note": "confidence below 0.8: unchanged"
+  },
+  {
+   "id": "s33",
+   "flags": [
+    "tier red (risk 0.675)"
+   ],
+   "before": {
+    "class": "valve",
+    "tag": "MOV 1521"
+   },
+   "verdict": "reject",
+   "class": null,
+   "confidence": 0.7,
+   "reason": "only the leader line and part of the MOV 1521 bubble; the valve and bubble are already marked in blue",
+   "applied": false,
+   "after": {
+    "class": "valve",
+    "kept": true
+   },
+   "note": "confidence below 0.8: unchanged"
+  },
+  {
+   "id": "s34",
+   "flags": [
+    "tier red (risk 0.675)"
+   ],
+   "before": {
+    "class": "valve",
+    "tag": "MOV 1531"
+   },
+   "verdict": "reject",
+   "class": null,
+   "confidence": 0.7,
+   "reason": "only the leader line and part of the MOV 1531 bubble; the valve and bubble are already marked in blue",
+   "applied": false,
+   "after": {
+    "class": "valve",
+    "kept": true
+   },
+   "note": "confidence below 0.8: unchanged"
+  },
+  {
+   "id": "s35",
+   "flags": [
+    "tier red (risk 0.6695)"
+   ],
+   "before": {
+    "class": "tank",
+    "tag": "AIR COOLED CONDENSER"
+   },
+   "verdict": "reject",
+   "class": null,
+   "confidence": 0.85,
+   "reason": "header line with flow arrows above the condenser, not the condenser body",
+   "applied": true,
+   "after": {
+    "class": null,
+    "kept": false
+   },
+   "note": "removed"
+  },
+  {
+   "id": "s36",
+   "flags": [
+    "tier red (risk 0.7927)"
+   ],
+   "before": {
+    "class": "valve",
+    "tag": null
+   },
+   "verdict": "reject",
+   "class": null,
+   "confidence": 0.9,
+   "reason": "left edge of the condenser box, no valve",
+   "applied": true,
+   "after": {
+    "class": null,
+    "kept": false
+   },
+   "note": "removed"
+  },
+  {
+   "id": "s37",
+   "flags": [
+    "tier red (risk 0.6695)"
+   ],
+   "before": {
+    "class": "valve",
+    "tag": null
+   },
+   "verdict": "reject",
+   "class": null,
+   "confidence": 0.95,
+   "reason": "only the text 'AIR'",
+   "applied": true,
+   "after": {
+    "class": null,
+    "kept": false
+   },
+   "note": "removed"
+  },
+  {
+   "id": "s38",
+   "flags": [
+    "tier red (risk 0.7927)"
+   ],
+   "before": {
+    "class": "valve",
+    "tag": null
+   },
+   "verdict": "reject",
+   "class": null,
+   "confidence": 0.95,
+   "reason": "only the text 'CONDENSER'",
+   "applied": true,
+   "after": {
+    "class": null,
+    "kept": false
+   },
+   "note": "removed"
+  },
+  {
+   "id": "s39",
+   "flags": [
+    "tier red (risk 0.7927)"
+   ],
+   "before": {
+    "class": "valve",
+    "tag": null
+   },
+   "verdict": "reject",
+   "class": null,
+   "confidence": 0.95,
+   "reason": "empty area inside the condenser box",
+   "applied": true,
+   "after": {
+    "class": null,
+    "kept": false
+   },
+   "note": "removed"
+  },
+  {
+   "id": "s40",
+   "flags": [
+    "tier red (risk 0.7968)"
+   ],
+   "before": {
+    "class": "tank",
+    "tag": "TURBINE EXHAUST DUCT"
+   },
+   "verdict": "reject",
+   "class": null,
+   "confidence": 0.9,
+   "reason": "empty paper above duct; duct is in a blue box",
+   "applied": true,
+   "after": {
+    "class": null,
+    "kept": false
+   },
+   "note": "removed"
+  },
+  {
+   "id": "s41",
+   "flags": [
+    "tier red (risk 0.7968)"
+   ],
+   "before": {
+    "class": "instrumentation",
+    "tag": "LIT 25094A"
+   },
+   "verdict": "reject",
+   "class": null,
+   "confidence": 0.85,
+   "reason": "empty area inside duct above text; LIT bubbles are elsewhere",
+   "applied": true,
+   "after": {
+    "class": null,
+    "kept": false
+   },
+   "note": "removed"
+  },
+  {
+   "id": "s42",
+   "flags": [
+    "tier red (risk 0.7968)"
+   ],
+   "before": {
+    "class": "instrumentation",
+    "tag": "LIT 25094B"
+   },
+   "verdict": "reject",
+   "class": null,
+   "confidence": 0.85,
+   "reason": "empty area inside duct above text",
+   "applied": true,
+   "after": {
+    "class": null,
+    "kept": false
+   },
+   "note": "removed"
+  },
+  {
+   "id": "s43",
+   "flags": [
+    "tier red (risk 0.7927)"
+   ],
+   "before": {
+    "class": "instrumentation",
+    "tag": "LCV 501"
+   },
+   "verdict": "reject",
+   "class": null,
+   "confidence": 0.85,
+   "reason": "empty interior of duct; no LCV bubble",
+   "applied": true,
+   "after": {
+    "class": null,
+    "kept": false
+   },
+   "note": "removed"
+  },
+  {
+   "id": "s44",
+   "flags": [
+    "tier red (risk 0.7927)"
+   ],
+   "before": {
+    "class": "valve",
+    "tag": null
+   },
+   "verdict": "reject",
+   "class": null,
+   "confidence": 0.75,
+   "reason": "only the duct wall and the pipe tee; no valve",
+   "applied": false,
+   "after": {
+    "class": "valve",
+    "kept": true
+   },
+   "note": "confidence below 0.8: unchanged"
+  },
+  {
+   "id": "s45",
+   "flags": [
+    "tier red (risk 0.7927)"
+   ],
+   "before": {
+    "class": "general",
+    "tag": null
+   },
+   "verdict": "reject",
+   "class": null,
+   "confidence": 0.7,
+   "reason": "plain pipe connection at the duct wall; no symbol",
+   "applied": false,
+   "after": {
+    "class": "general",
+    "kept": true
+   },
+   "note": "confidence below 0.8: unchanged"
+  }
+ ],
+ "link_changes": {
+  "dropped_with_removed_symbols": [],
+  "added": [
+   [
+    "s6",
+    "s7"
+   ]
+  ],
+  "lost_otherwise": []
+ },
+ "prediction": {
+  "symbols": [
+   {
+    "id": "s1",
+    "class": "inlet/outlet",
+    "bbox": {
+     "x_min": 35.7,
+     "y_min": 314.6,
+     "x_max": 107.0,
+     "y_max": 336.8
+    },
+    "tag": "HPD PID 190-1 HPD BLOWDOWN TANK VENT",
+    "confidence": 0.9
+   },
+   {
+    "id": "s2",
+    "class": "inlet/outlet",
+    "bbox": {
+     "x_min": 35.7,
+     "y_min": 368.1,
+     "x_max": 104.9,
+     "y_max": 388.1
+    },
+    "tag": "MSS PID 140-1 (E-1) MAIN STEAM BYPASS",
+    "confidence": 0.9
+   },
+   {
+    "id": "s3",
+    "class": "inlet/outlet",
+    "bbox": {
+     "x_min": 35.7,
+     "y_min": 428.7,
+     "x_max": 106.0,
+     "y_max": 449.2
+    },
+    "tag": "TURB PID 250-1 TURBINE EXHAUST",
+    "confidence": 0.9
+   },
+   {
+    "id": "s4",
+    "class": "inlet/outlet",
+    "bbox": {
+     "x_min": 35.7,
+     "y_min": 491.9,
+     "x_max": 106.0,
+     "y_max": 514.6
+    },
+    "tag": "CND PID 160-1 CONDENSATE SYSTEM",
+    "confidence": 0.9
+   },
+   {
+    "id": "s5",
+    "class": "tank",
+    "bbox": {
+     "x_min": 271.4,
+     "y_min": 84.9,
+     "x_max": 429.3,
+     "y_max": 397.3
+    },
+    "tag": "ACC-AC-150",
+    "confidence": 0.85
+   },
+   {
+    "id": "s6",
+    "class": "instrumentation",
+    "bbox": {
+     "x_min": 154.6,
+     "y_min": 474.1,
+     "x_max": 167.6,
+     "y_max": 495.2
+    },
+    "tag": "LCV 1501",
+    "confidence": 0.85
+   },
+   {
+    "id": "s7",
+    "class": "valve",
+    "bbox": {
+     "x_min": 171.4,
+     "y_min": 498.3,
+     "x_max": 181.1,
+     "y_max": 510.2
+    },
+    "tag": "LCV 1501",
+    "confidence": 0.85
+   },
+   {
+    "id": "s8",
+    "class": "instrumentation",
+    "bbox": {
+     "x_min": 217.3,
+     "y_min": 460.6,
+     "x_max": 231.9,
+     "y_max": 480.0
+    },
+    "tag": "LIT 25094A",
+    "confidence": 0.85
+   },
+   {
+    "id": "s9",
+    "class": "instrumentation",
+    "bbox": {
+     "x_min": 233.0,
+     "y_min": 460.6,
+     "x_max": 248.7,
+     "y_max": 480.0
+    },
+    "tag": "LIT 25094B",
+    "confidence": 0.85
+   },
+   {
+    "id": "s10",
+    "class": "instrumentation",
+    "bbox": {
+     "x_min": 504.2,
+     "y_min": 488.6,
+     "x_max": 517.2,
+     "y_max": 505.9
+    },
+    "tag": "MOV 1511",
+    "confidence": 0.9
+   },
+   {
+    "id": "s11",
+    "class": "valve",
+    "bbox": {
+     "x_min": 504.4,
+     "y_min": 514.6,
+     "x_max": 528.8,
+     "y_max": 531.3
+    },
+    "tag": "MOV 1511",
+    "confidence": 0.75
+   },
+   {
+    "id": "s12",
+    "class": "pump",
+    "bbox": {
+     "x_min": 510.7,
+     "y_min": 461.7,
+     "x_max": 539.9,
+     "y_max": 483.3
+    },
+    "tag": "ACC-PU-151",
+    "confidence": 0.9
+   },
+   {
+    "id": "s13",
+    "class": "general",
+    "bbox": {
+     "x_min": 682.6,
+     "y_min": 294.6,
+     "x_max": 699.9,
+     "y_max": 327.6
+    },
+    "tag": "ACC-SX-154",
+    "confidence": 0.75
+   },
+   {
+    "id": "s14",
+    "class": "pump",
+    "bbox": {
+     "x_min": 594.0,
+     "y_min": 461.7,
+     "x_max": 623.2,
+     "y_max": 483.3
+    },
+    "tag": "ACC-PU-152",
+    "confidence": 0.9
+   },
+   {
+    "id": "s15",
+    "class": "pump",
+    "bbox": {
+     "x_min": 678.3,
+     "y_min": 461.7,
+     "x_max": 707.5,
+     "y_max": 483.3
+    },
+    "tag": "ACC-PU-153",
+    "confidence": 0.9
+   },
+   {
+    "id": "s16",
+    "class": "general",
+    "bbox": {
+     "x_min": 581.5,
+     "y_min": 426.0,
+     "x_max": 590.2,
+     "y_max": 435.7
+    },
+    "tag": null,
+    "confidence": 0.7
+   },
+   {
+    "id": "s17",
+    "class": "general",
+    "bbox": {
+     "x_min": 642.1,
+     "y_min": 426.0,
+     "x_max": 651.8,
+     "y_max": 435.7
+    },
+    "tag": null,
+    "confidence": 0.7
+   },
+   {
+    "id": "s18",
+    "class": "instrumentation",
+    "bbox": {
+     "x_min": 587.5,
+     "y_min": 494.1,
+     "x_max": 601.0,
+     "y_max": 515.7
+    },
+    "tag": "MOV 1521",
+    "confidence": 0.85
+   },
+   {
+    "id": "s19",
+    "class": "valve",
+    "bbox": {
+     "x_min": 594.5,
+     "y_min": 515.7,
+     "x_max": 612.4,
+     "y_max": 532.5
+    },
+    "tag": null,
+    "confidence": 0.75
+   },
+   {
+    "id": "s20",
+    "class": "instrumentation",
+    "bbox": {
+     "x_min": 670.7,
+     "y_min": 488.6,
+     "x_max": 683.2,
+     "y_max": 505.9
+    },
+    "tag": "MOV 1531",
+    "confidence": 0.9
+   },
+   {
+    "id": "s21",
+    "class": "valve",
+    "bbox": {
+     "x_min": 677.8,
+     "y_min": 515.7,
+     "x_max": 695.6,
+     "y_max": 532.5
+    },
+    "tag": null,
+    "confidence": 0.75
+   },
+   {
+    "id": "s23",
+    "class": "inlet/outlet",
+    "bbox": {
+     "x_min": 36.2,
+     "y_min": 597.3,
+     "x_max": 106.0,
+     "y_max": 617.8
+    },
+    "tag": "PID 160-1 (F-1) CND RECEIVER TANK VENT",
+    "confidence": 0.9
+   },
+   {
+    "id": "s24",
+    "class": "general",
+    "bbox": {
+     "x_min": 433.6,
+     "y_min": 736.2,
+     "x_max": 540.6,
+     "y_max": 781.6
+    },
+    "tag": "TURBINE EXHAUST DUCT",
+    "confidence": 0.6
+   },
+   {
+    "id": "s25",
+    "class": "instrumentation",
+    "bbox": {
+     "x_min": 509.3,
+     "y_min": 809.7,
+     "x_max": 523.3,
+     "y_max": 830.8
+    },
+    "tag": "LIT 25094A",
+    "confidence": 0.8
+   },
+   {
+    "id": "s26",
+    "class": "instrumentation",
+    "bbox": {
+     "x_min": 524.4,
+     "y_min": 809.7,
+     "x_max": 540.6,
+     "y_max": 830.8
+    },
+    "tag": "LIT 25094B",
+    "confidence": 0.7
+   },
+   {
+    "id": "s27",
+    "class": "instrumentation",
+    "bbox": {
+     "x_min": 449.8,
+     "y_min": 829.2,
+     "x_max": 464.4,
+     "y_max": 850.3
+    },
+    "tag": "LCV 1501",
+    "confidence": 0.85
+   },
+   {
+    "id": "s28",
+    "class": "valve",
+    "bbox": {
+     "x_min": 465.5,
+     "y_min": 847.0,
+     "x_max": 476.3,
+     "y_max": 862.2
+    },
+    "tag": "LCV 1501",
+    "confidence": 0.85
+   },
+   {
+    "id": "s29",
+    "class": "inlet/outlet",
+    "bbox": {
+     "x_min": 346.6,
+     "y_min": 850.3,
+     "x_max": 417.9,
+     "y_max": 870.8
+    },
+    "tag": "CONDENSATE SYSTEM COND PID 160-1",
+    "confidence": 0.9
+   },
+   {
+    "id": "s30",
+    "class": "general",
+    "bbox": {
+     "x_min": 492.5,
+     "y_min": 862.2,
+     "x_max": 500.1,
+     "y_max": 876.2
+    },
+    "tag": null,
+    "confidence": 0.35
+   },
+   {
+    "id": "s31",
+    "class": "valve",
+    "bbox": {
+     "x_min": 513.4,
+     "y_min": 504.3,
+     "x_max": 530.2,
+     "y_max": 515.6
+    },
+    "tag": "MOV 1511",
+    "confidence": 0.85
+   },
+   {
+    "id": "s32",
+    "class": "instrumentation",
+    "bbox": {
+     "x_min": 595.6,
+     "y_min": 488.6,
+     "x_max": 608.0,
+     "y_max": 505.9
+    },
+    "tag": "MOV 1521",
+    "confidence": 0.9
+   },
+   {
+    "id": "s33",
+    "class": "valve",
+    "bbox": {
+     "x_min": 596.7,
+     "y_min": 504.3,
+     "x_max": 614.0,
+     "y_max": 515.6
+    },
+    "tag": "MOV 1521",
+    "confidence": 0.85
+   },
+   {
+    "id": "s34",
+    "class": "valve",
+    "bbox": {
+     "x_min": 681.0,
+     "y_min": 504.3,
+     "x_max": 697.8,
+     "y_max": 515.6
+    },
+    "tag": "MOV 1531",
+    "confidence": 0.85
+   },
+   {
+    "id": "s44",
+    "class": "valve",
+    "bbox": {
+     "x_min": 489.6,
+     "y_min": 769.7,
+     "x_max": 503.7,
+     "y_max": 784.3
+    },
+    "tag": null,
+    "confidence": 0.8
+   },
+   {
+    "id": "s45",
+    "class": "general",
+    "bbox": {
+     "x_min": 494.0,
+     "y_min": 781.6,
+     "x_max": 501.5,
+     "y_max": 789.2
+    },
+    "tag": null,
+    "confidence": 0.35
+   }
+  ],
+  "connections": [
+   {
+    "from": "s1",
+    "to": "s2"
+   },
+   {
+    "from": "s1",
+    "to": "s3"
+   },
+   {
+    "from": "s1",
+    "to": "s5"
+   },
+   {
+    "from": "s1",
+    "to": "s7"
+   },
+   {
+    "from": "s1",
+    "to": "s8"
+   },
+   {
+    "from": "s10",
+    "to": "s31"
+   },
+   {
+    "from": "s11",
+    "to": "s12"
+   },
+   {
+    "from": "s11",
+    "to": "s19"
+   },
+   {
+    "from": "s11",
+    "to": "s21"
+   },
+   {
+    "from": "s11",
+    "to": "s23"
+   },
+   {
+    "from": "s11",
+    "to": "s5"
+   },
+   {
+    "from": "s12",
+    "to": "s16"
+   },
+   {
+    "from": "s13",
+    "to": "s15"
+   },
+   {
+    "from": "s13",
+    "to": "s17"
+   },
+   {
+    "from": "s14",
+    "to": "s15"
+   },
+   {
+    "from": "s14",
+    "to": "s16"
+   },
+   {
+    "from": "s14",
+    "to": "s17"
+   },
+   {
+    "from": "s14",
+    "to": "s32"
+   },
+   {
+    "from": "s14",
+    "to": "s33"
+   },
+   {
+    "from": "s15",
+    "to": "s17"
+   },
+   {
+    "from": "s15",
+    "to": "s34"
+   },
+   {
+    "from": "s16",
+    "to": "s17"
+   },
+   {
+    "from": "s19",
+    "to": "s21"
+   },
+   {
+    "from": "s19",
+    "to": "s23"
+   },
+   {
+    "from": "s19",
+    "to": "s5"
+   },
+   {
+    "from": "s2",
+    "to": "s3"
+   },
+   {
+    "from": "s2",
+    "to": "s5"
+   },
+   {
+    "from": "s2",
+    "to": "s7"
+   },
+   {
+    "from": "s2",
+    "to": "s8"
+   },
+   {
+    "from": "s20",
+    "to": "s34"
+   },
+   {
+    "from": "s21",
+    "to": "s23"
+   },
+   {
+    "from": "s21",
+    "to": "s5"
+   },
+   {
+    "from": "s23",
+    "to": "s5"
+   },
+   {
+    "from": "s24",
+    "to": "s25"
+   },
+   {
+    "from": "s24",
+    "to": "s30"
+   },
+   {
+    "from": "s25",
+    "to": "s30"
+   },
+   {
+    "from": "s27",
+    "to": "s28"
+   },
+   {
+    "from": "s28",
+    "to": "s29"
+   },
+   {
+    "from": "s28",
+    "to": "s30"
+   },
+   {
+    "from": "s29",
+    "to": "s30"
+   },
+   {
+    "from": "s3",
+    "to": "s5"
+   },
+   {
+    "from": "s3",
+    "to": "s7"
+   },
+   {
+    "from": "s3",
+    "to": "s8"
+   },
+   {
+    "from": "s32",
+    "to": "s33"
+   },
+   {
+    "from": "s4",
+    "to": "s7"
+   },
+   {
+    "from": "s5",
+    "to": "s7"
+   },
+   {
+    "from": "s5",
+    "to": "s8"
+   },
+   {
+    "from": "s6",
+    "to": "s7"
+   },
+   {
+    "from": "s7",
+    "to": "s8"
+   },
+   {
+    "from": "s8",
+    "to": "s9"
+   }
+  ]
+ }
+}
