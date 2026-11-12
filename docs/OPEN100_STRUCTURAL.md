@@ -159,9 +159,10 @@ observations only: no row says where to isolate or names a device as the isolati
 | Control valve | 45 | **not positive isolation**; listed so it is not mistaken for an isolating device |
 | Relief device | 19 | **not positive isolation**; its relief path is a way energy can leave (not assessed) |
 
-Every row of the CSV carries the same status, which is the fixed header of [GOAL_ISOLATION_POC.md](GOAL_ISOLATION_POC.md)
-with its name replaced by "DESIGN MOCKUP, NOT A PROCEDURE.": it is not an isolation or lockout/tagout procedure and
-must not be used as one; every point must be verified by a qualified person against the as-built plant and the
+Every row of the CSV carries the same status (`MOCKUP_STATUS` in `scripts/isolation_wording.py`): "DESIGN MOCKUP FOR
+A PROOF OF CONCEPT AND TESTING GROUND. NOT A PROCEDURE. All results must be verified by a qualified professional.",
+then the fixed header of [GOAL_ISOLATION_POC.md](GOAL_ISOLATION_POC.md) from its third sentence on, byte for byte: it
+is not an isolation or lockout/tagout procedure and must not be used as one; every point must be verified by a qualified person against the as-built plant and the
 site's energy-control program (for example under OSHA 29 CFR 1910.147); a point it does not list may exist and a
 point it lists may not isolate; electrical, pneumatic, hydraulic, stored-pressure, gravity and thermal energy are
 not assessed. `scripts/test_loto_wording.py` fails if any note is directive.

@@ -359,7 +359,7 @@ def isolation_points(model, dirs, equipment, external, area_links, recs):
             kind, note = "control_valve", ("Control valve: %s. Listed so it is not mistaken for an isolating "
                                            "device. Not assessed: which device isolates this line." % NOT_POSITIVE)
         elif any(RELIEF.match(t or "") for t in ops):
-            kind, note = "relief_device", ("Relief device: %s. Its relief path is a way energy can leave the "
+            kind, note = "relief_device", ("Relief device: %s. Its relief path is a way out for energy from the "
                                            "equipment it protects (not assessed)." % NOT_POSITIVE)
         elif degree[v["id"]] <= 1:
             kind, note = "vent_drain_or_test", ("Valve with one process connection on this drawing: possibly a vent, "

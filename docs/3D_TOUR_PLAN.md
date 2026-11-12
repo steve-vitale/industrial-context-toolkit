@@ -365,28 +365,32 @@ The first idea for this mode (2026-10) was a walk-through of isolation in steps,
 in reverse order. That idea is withdrawn: [GOAL_ISOLATION_POC.md](GOAL_ISOLATION_POC.md) rules out steps, sequences,
 valve positions and zero-energy wording in any isolation output, and plans no 3D view.
 
-![Design mockup: the plant ghosted, eleven numbered energy-boundary tags in listing order (each feed, the purge and the stripper product at the battery limit, "boundary, energy can enter"; the R-101 agitator motor and the K-101 motor, "electrical, not assessed"; cooling water at R-101 and E-101 and steam at C-101, "boundary"), each marked * for inferred, a card saying "Design mockup, not a procedure" with "which device isolates each is not assessed; control valves are not positive isolation" and the OSHA 1910.147 note, and a caption saying it is not a LOTO procedure](../drafts/3d-tour/40_loto_mockup.jpg)
+![Design mockup: the plant ghosted, eleven energy-boundary tags, each led by the model ID of what it marks and none numbered (S1, S2, S3 and S4 feeds, S9 purge and S11 stripper product, "boundary, not assessed"; the R-101 agitator motor and the K-101 motor, "electrical, not assessed"; cooling water at R-101 and E-101 and steam at C-101, "boundary, not assessed"), each marked * for inferred, a card printing the fixed mockup status word for word (a design mockup for a proof of concept and testing ground, not a procedure, every result to be verified by a qualified professional, not an isolation or lockout/tagout procedure, energy types not assessed), and a caption saying the tags are in no order and it is not a LOTO procedure](../drafts/3d-tour/40_loto_mockup.jpg)
 
 What the mockup shows (re-rendered 2026-11-11 with non-directive labels), all inferred from the TE seed model and
-marked `*`. Each tag is an observation of where energy can enter. No tag names a device, and none says where or how
-to isolate:
-- each battery-limit stream (four feeds, the purge, the stripper product): "boundary, energy can enter". The model
-  holds no block valves, and its control valves (FV-102 and the rest) are not positive isolation; the scene data
-  lists them as such (`loto_valve_crossings` in `out/scene/te_scene.json`);
+marked `*`. Each tag is an observation of an energy boundary, led by the model ID of what it marks (a stream or a
+unit) rather than a number, so it cannot read as an order. No tag names a device, and none says where or how to
+isolate:
+- each battery-limit stream (four feeds S1 to S4, the purge S9, the stripper product S11): "boundary, not assessed".
+  The model holds no block valves, and its control valves (FV-102 and the rest) are not positive isolation; the scene
+  data lists them as such (`loto_valve_crossings` in `out/scene/te_scene.json`);
 - the K-101 motor and the R-101 agitator motor (SC-212 is the agitator tag): "electrical, not assessed";
 - cooling water at R-101 and E-101 (placed at the utility posts the model draws for TV-121 and FV-117) and steam at
-  C-101 (FV-119): "boundary".
+  C-101 (FV-119): "boundary, not assessed".
 
-Until 2026-11-11 the tags read "battery-limit block valve" and plain "electrical", which named an isolating device
-the seed model does not hold. The status on the scene data and the interactive tour is now the fixed mockup wording in
-`scripts/isolation_wording.py` (the goal's header with its name replaced by "DESIGN MOCKUP, NOT A PROCEDURE.").
+The card prints the fixed mockup status of `scripts/isolation_wording.py` word for word: "DESIGN MOCKUP FOR A PROOF
+OF CONCEPT AND TESTING GROUND. NOT A PROCEDURE. All results must be verified by a qualified professional.", then the
+goal's fixed header from "THIS IS NOT AN ISOLATION OR LOCKOUT/TAGOUT PROCEDURE" on, byte for byte (its "read from
+drawings" sentence applies to the seed model here too: the model is not as-built). Until 2026-11-11 the tags were
+numbered 1 to 11 and read "battery-limit block valve" and plain "electrical", which named an isolating device the
+seed model does not hold.
 
 **This is not a lockout/tagout procedure, and nothing here may be used as one.** A real procedure comes from:
 - the site's energy-control program under OSHA 29 CFR 1910.147;
 - its verified P&IDs and isolation lists;
 - an authorized person who writes and signs it.
 
-The mockup carries no sequence logic. Its numbers are the order the points were listed, not an isolation order.
+The mockup carries no sequence logic and no numbers.
 
 What a site's own record holds (never produced here): a reviewed isolation list per job (point, energy type,
 isolating device, verification method) and its link to the site's permit. The 3D scene would only ever show where a

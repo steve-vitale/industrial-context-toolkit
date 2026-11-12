@@ -17,8 +17,8 @@ simulation.
 ## Why you
 
 Nobody with operations experience has looked at any of it. Models and code checks have, and we know where they stop:
-they can say a tag was copied correctly, not whether an alarm limit makes sense or an isolation point is the
-right one. That is the part we are asking you for.
+they can say a tag was copied correctly, not whether an alarm limit makes sense or whether the energy boundaries a mockup observes are the
+ones a review should consider. That is the part we are asking you for.
 
 ## What we ask
 

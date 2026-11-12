@@ -15,6 +15,7 @@ separately as exact matches, because an ID read wrong is worse than a word read 
 OCR is a proxy for legibility, not proof: an engine can fail on text a person reads easily
 (and vice versa). Requires `pip install rapidocr onnxruntime` (ONNX models, no GPU, no torch).
 
+    python drafts/3d-tour/ocr_readback.py --truth    # rebuild label_truth.json from label_boxes.json
     python drafts/3d-tour/ocr_readback.py            # writes drafts/3d-tour/ocr_readback.json
 """
 import json
@@ -98,7 +99,33 @@ def run(engine, truth, use_cls):
     return report
 
 
+TRUTH_STILLS = ('00_overview_normal', '02_r-101_normal', '21_overview_fault_alarm', '30_flow_legend', '40_loto_mockup')
+
+
+def write_truth():
+    """label_truth.json from the renderer's own label report (label_boxes.json): every label it drew in the
+    published review stills, with its text and pixel box."""
+    boxes = json.loads((HERE / 'label_boxes.json').read_text(encoding='utf-8'))
+    stills = []
+    for s in boxes['stills']:
+        if s['name'] not in TRUTH_STILLS:
+            continue
+        stills.append({'name': s['name'], 'image': s['name'] + '.jpg',
+                       'labels': [{'id': l['id'], 'kind': l['kind'], 'text': l['text'],
+                                   'text_box': [round(v, 1) for v in l['text_box']]}
+                                  for l in s['labels'] if l.get('shown') and l.get('text_box')]})
+    truth = {'source': 'Derived from drafts/3d-tour/label_boxes.json by `python drafts/3d-tour/ocr_readback.py '
+                       '--truth`: the text and pixel box of every label the renderer reports as drawn in each '
+                       'published review still. Ground truth for the OCR read-back check.',
+             'resolution': boxes['resolution'], 'stills': stills}
+    (HERE / 'label_truth.json').write_text(json.dumps(truth, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
+    print('wrote label_truth.json:', {s['name']: len(s['labels']) for s in stills})
+
+
 def main():
+    if '--truth' in sys.argv[1:]:
+        write_truth()
+        return
     from rapidocr import RapidOCR
     engine = RapidOCR()
     truth = json.loads((HERE / 'label_truth.json').read_text(encoding='utf-8'))

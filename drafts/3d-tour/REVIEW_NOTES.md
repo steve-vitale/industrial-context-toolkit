@@ -35,7 +35,8 @@ paywalled and was not read.
 
 **Topology consequence:** the main repository moves the purge stream S9, with FI-110, FV-206 and AI-129, from K-101
 to V-101. The 3D scene builds its pipes from that model, so the purge pipe, the purge instruments and the LOTO
-mockup's point 5 ("Purge: battery-limit block valve") all move to the separator when the tour is rebuilt.
+mockup's purge boundary (then labelled point 5, "Purge: battery-limit block valve"; since 2026-11-11 "S9 Purge:
+boundary, not assessed", with no device named) all move to the separator when the tour is rebuilt.
 
 **Card size:** the sourced sentences are longer. Card height grows from 5–7 lines to 7–10 (the stripper card is 10).
 The scene contract tests still pass with the fixes applied (76/76, including the new font and hygiene checks), and so do the render-verifier unit tests (27/27). Each

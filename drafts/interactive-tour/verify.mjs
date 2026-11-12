@@ -14,7 +14,7 @@
 //   C. legibility          in headless Chrome at 390 px and 1440 px, dark and light: label overlaps, minimum font
 //                          size, WCAG contrast of every visible text, labels that had no room
 //   D. behaviour           replay values equal the raw replay file, the fault 6 alarm shows at its first sample,
-//                          pulses move forward, a selected LOTO boundary greys the lines it feeds, keyboard focus works
+//                          pulses move forward, keyboard focus works
 // Exit 0 when nothing fails, 1 otherwise, 2 when a prerequisite (built page, Chrome) is missing.
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync, statSync } from "node:fs";
 import { dirname, join, relative } from "node:path";
@@ -287,9 +287,8 @@ const VIEWS = [
   { id: "overview", js: "" },
   ...data.tour_order.map((u) => ({ id: `focus-${u}`, js: `document.querySelector('[data-unit-button="${u}"]').click()` })),
   { id: "fault6-alarm", js: "document.querySelector('[data-jump-alarm]').click()" },
-  { id: "loto", js: "document.querySelector('[data-mode-button=\"loto\"]').click(); document.querySelector('[data-loto=\"bl:S1\"]').click()" },
 ];
-const STILLS = { "overview": "overview", "fault6-alarm": "fault6-alarm", "loto": "loto-mockup", "focus-R-101": "reactor", "focus-U-100": "header", "focus-V-101": "separator", "focus-K-101": "compressor" };
+const STILLS = { "overview": "overview", "fault6-alarm": "fault6-alarm", "focus-R-101": "reactor", "focus-U-100": "header", "focus-V-101": "separator", "focus-K-101": "compressor" };
 let browser;
 try { browser = await launch(); } catch (e) { console.log(`no browser: ${e.message}`); process.exit(2); }
 mkdirSync(SHOTS, { recursive: true });
@@ -352,35 +351,8 @@ try {
   // chevrons agree with the path direction they sit on
   const chev = await page.evaluate(`(() => { const bad = []; let n = 0; for (const c of document.querySelectorAll('[data-chev]')) { n++; const p = c.parentElement.querySelector('.tour-flow'); const len = p.getTotalLength(); const d = c.dataset.dir.split(',').map(Number); const box = c.getBBox(); const cx = box.x + box.width / 2, cy = box.y + box.height / 2; let best = 0, bd = 1e9; for (let s = 0; s <= len; s += 0.5) { const q = p.getPointAtLength(s); const dd = Math.hypot(q.x - cx, q.y - cy); if (dd < bd) { bd = dd; best = s; } } const a = p.getPointAtLength(Math.max(0, best - 1)), b = p.getPointAtLength(Math.min(len, best + 1)); if ((b.x - a.x) * d[0] + (b.y - a.y) * d[1] <= 0) bad.push(c.dataset.chev); } return { n, bad }; })()`);
   add("D", "arrows_point_downstream", !chev.bad.length, `${chev.n - chev.bad.length} of ${chev.n} chevrons point along their line's path direction`, chev.bad);
-  // LOTO: select the A feed boundary, then every feed and the compressor motor
-  await page.evaluate("document.querySelector('[data-mode-button=\"loto\"]').click(); document.querySelector('[data-loto=\"bl:S1\"]').click()");
-  await page.sleep(500);
-  const l1 = await offsets();
-  await page.sleep(700);
-  const l2 = await offsets();
-  const off1 = await page.evaluate("[...new Set([...document.querySelectorAll('.it.tour-off[data-route]')].map((e) => e.dataset.route))]");
-  const expect1 = M.energized(data, ["bl:S1"]);
-  const stopped1 = Object.keys(l1).filter((id) => l1[id] === l2[id]);
-  add("D", "loto_one_point", JSON.stringify(off1.sort()) === JSON.stringify(expect1.stopped.slice().sort()) && JSON.stringify(stopped1.sort()) === JSON.stringify(expect1.stopped.slice().sort()),
-    `selecting the A feed boundary: the model says ${expect1.stopped.join(", ")} stop(s); the page greys ${off1.join(", ")} and the pulses stand still on ${stopped1.join(", ")}; the rest keep moving`);
-  const all = ["bl:S1", "bl:S2", "bl:S3", "bl:S4", "motor:K-101"];
-  for (const id of all.slice(1)) await page.evaluate(`document.querySelector('[data-loto="${id}"]').click()`);
-  await page.sleep(500);
-  const l3 = await offsets();
-  await page.sleep(700);
-  const l4 = await offsets();
-  const e = M.energized(data, all);
-  const movingStreams = drawnStreams.map((s) => s.id).filter((id) => l3[id] !== l4[id]);
-  const text = await page.evaluate("document.querySelector('[data-energy]').textContent");
-  const namesNot = e.sources.filter((s) => !s.isolated).every((s) => text.includes(s.text));
-  add("D", "loto_downstream_stops", e.flowing.length === 0 && movingStreams.length === 0 && namesNot && /Not selected \(6\)/.test(text),
-    `selecting every feed boundary and the K-101 motor greys all ${drawnStreams.length} process lines (computed: ${e.flowing.length} flowing; pulses moving on the page: ${movingStreams.length}); the readout lists the ${e.sources.filter((s) => !s.isolated).length} boundaries not selected (outlets, agitator, utilities)`);
-  const recycle = M.energized(data, ["bl:S1", "bl:S2", "bl:S3", "bl:S4"]);
-  add("D", "loto_compressor_still_drives_recycle", recycle.flowing.length > 0, `with only the four feeds selected the K-101 motor still drives the recycle loop: ${recycle.flowing.join(", ")} keep flowing (the readout makes no claim about the unit)`, [], "pass");
-  writeFileSync(join(SHOTS, "loto-all-feeds-and-motor-1440-dark.jpg"), await page.shot(".tour-layout", 1, "jpeg", 1500));
-  stills.push("drafts/interactive-tour/shots/loto-all-feeds-and-motor-1440-dark.jpg");
   // keyboard: the figure takes focus and the arrow keys walk the units in flow order
-  await page.evaluate("document.querySelector('[data-mode-button=\"flow\"]').click(); document.querySelector('[data-unit-button=\"\"]').click(); document.querySelector('[data-stage]').focus()");
+  await page.evaluate("document.querySelector('[data-unit-button=\"\"]').click(); document.querySelector('[data-stage]').focus()");
   await page.key("ArrowRight", "ArrowRight");
   await page.sleep(200);
   const k1 = await page.evaluate("window.__tour.state().focus");

@@ -188,3 +188,13 @@ always outranks these candidates.
   boundaries will be `open`. That is the intended result, not a defect to tune away.
 - No field validation, no qualified person's review of any boundary, and no timed review. Nothing here measures
   whether a boundary would be safe to use.
+
+## Note added 2026-11-11 (after the page was registered; nothing above is changed)
+
+Lines 13 to 15 describe the mockups as they were when this page was written. Until commit 83cfac9 the TE 3D-tour
+scene listed control valves as isolation candidates, and the OPEN100 `loto_isolation_points.csv` view said "isolate
+at the first block valve". Both now give observations only: a boundary or device the drawing or model shows, with
+"not assessed" where a device would be named, and control and relief valves marked "not positive isolation". Each
+carries the fixed mockup status of `scripts/isolation_wording.py`, and `scripts/test_loto_wording.py` checks them.
+The interactive browser tour's lockout/tagout mode has been removed. The mockups still do not meet this goal's
+safeguards (they list no paths out, set no open or closed status and are not scored), and they stay mockups.

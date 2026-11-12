@@ -23,6 +23,8 @@ import subprocess
 import wave
 from pathlib import Path
 
+from isolation_wording import MOCKUP_STATUS
+
 AUTHORSHIP = "Script by Claude from the data files, not operator-reviewed."
 VOICE_NOTE = "Narration: synthetic voice (Windows SAPI), not a person."
 LEGEND = "grey in band | amber outside band | red published alarm | black not connected"
@@ -444,15 +446,13 @@ def build_tour(scene, model, layout, bands, alarms, replay, hazards, fault_start
                       utilities="all", overlays=[badge(), service_legend()], flow_strong=True))
     loto, loto_labels = loto_mockup(scene, model)
     shots.append(shot("40_loto_mockup", overview, "Lockout/tagout view: design mockup only",
-                      "Numbered tags mark energy boundaries inferred from the seed model, in listing order; this is "
-                      "not a LOTO procedure.",
+                      "Tags mark energy boundaries inferred from the seed model, by model ID, in no order; this "
+                      "is not a LOTO procedure.",
                       visible=["unit:" + u for u in unit_ids] + [l["id"] for l in loto_labels], utilities="all",
                       chevrons=False, ghost_all=True,
-                      overlays=[badge(), {"id": "overlay:loto", "kind": "card", "corner": "top_left", "text": "\n".join(
-                          ["Design mockup, not a procedure"] + wrap(
-                              "Energy boundaries inferred from the TE seed model (marked *). Which device isolates "
-                              "each is not assessed; control valves are not positive isolation. Verify with a "
-                              "qualified person and the site's energy-control program (OSHA 1910.147).", 46))}],
+                      # the card carries the fixed mockup status word for word (wrapped only)
+                      overlays=[badge(), {"id": "overlay:loto", "kind": "card", "corner": "top_left",
+                                          "text": "\n".join(wrap(MOCKUP_STATUS, 98))}],
                       optional=True))
 
     segs = []
@@ -502,12 +502,12 @@ def build_tour(scene, model, layout, bands, alarms, replay, hazards, fault_start
 
 def loto_mockup(scene, model):
     """Inferred energy boundaries for the LOTO design mockup: where energy can enter, never which device isolates it.
-    NOT a procedure: the numbers are listing order, and no device is named as an isolation point
-    (docs/GOAL_ISOLATION_POC.md)."""
+    NOT a procedure: each tag carries the model ID of what it marks (a stream or a unit), never a number that could
+    read as an order, and no device is named as an isolation point (docs/GOAL_ISOLATION_POC.md)."""
     points = []
     for b in scene["boundaries"]:
         s = next(x for x in model["streams"] if x["id"] == b["stream"])
-        points.append(("bl:" + b["stream"], f"{s['name']}: boundary, energy can enter*",
+        points.append(("bl:" + b["stream"], f"{s['id']} {s['name']}: boundary, not assessed*",
                        [b["position"][0], b["position"][1], 1.0]))
     for e in scene["equipment"]:
         if e["shape"] == "compressor":
@@ -518,12 +518,12 @@ def loto_mockup(scene, model):
                            [e["position"][0], e["position"][1], e["extent"][2]]))
     for u in scene.get("utilities", []):
         if u["role"] in ("supply", "steam"):
-            what = "cooling water in/out" if u["role"] == "supply" else "steam"
-            points.append(("utility:" + u["id"], f"{u['unit']} {what}: boundary*", u["post"][:2] + [0.9]))
+            what = "cooling water" if u["role"] == "supply" else "steam"
+            points.append(("utility:" + u["id"], f"{u['unit']} {what}: boundary, not assessed*", u["post"][:2] + [0.9]))
     labels, out = [], []
-    for k, (pid, text, anchor) in enumerate(points, 1):
-        out.append({"n": k, "point": pid, "text": text, "anchor": anchor, "basis": "inferred from the seed model"})
-        labels.append({"id": f"loto:{k}", "kind": "loto", "body": f"{k}  {text}", "anchor": anchor})
+    for pid, text, anchor in points:
+        out.append({"point": pid, "text": text, "anchor": anchor, "basis": "inferred from the seed model"})
+        labels.append({"id": f"loto:{pid}", "kind": "loto", "body": text, "anchor": anchor})
     return out, labels
 
 

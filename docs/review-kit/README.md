@@ -12,7 +12,7 @@ There are two tracks, and they must not be mixed:
 | Track | Who | What they can decide | What they must not decide |
 |---|---|---|---|
 | **A. Anyone** | Any careful reader (the project owner, a developer) | Does the text match the drawing? Is the box on the symbol? Can the label be read? Is the screen clear about what it shows? | Whether a line, alarm, isolation point or hazard is *right for the plant* |
-| **B. Operations** | Someone who has run, engineered or supervised a process plant (operator, process engineer, controls engineer, process-safety engineer) | Topology, alarm limits and priorities, which values belong on the screen, LOTO isolation points, hazard relevance, unit purpose text | Nothing outside their own experience; "not my area" is a valid answer |
+| **B. Operations** | Someone who has run, engineered or supervised a process plant (operator, process engineer, controls engineer, process-safety engineer) | Topology, alarm limits and priorities, which values belong on the screen, the LOTO mockup's observed energy boundaries, hazard relevance, unit purpose text | Nothing outside their own experience; "not my area" is a valid answer |
 
 A Track A pass is **not** an operations review. Nothing in Track A may be recorded as `confirm`; see
 [FEEDBACK.md](FEEDBACK.md).
@@ -43,7 +43,7 @@ review is worth more than a rushed complete one.
 
 Hand them [OPS_REVIEWER_BRIEF.md](OPS_REVIEWER_BRIEF.md) beforehand. In the sitting, work through the **Track B**
 section of each checklist, in this order: alarm limits and screen values (30), topology on sheet 0 and the TE
-flowsheet (25), LOTO isolation points (15), hazard citations and purpose cards (15), wrap-up (5). Write down
+flowsheet (25), LOTO mockup boundaries (15), hazard citations and purpose cards (15), wrap-up (5). Write down
 what they say in their words. They do not have to touch the files: the person running the session records the
 decisions, and the `--reviewer` string names the person who made them.
 

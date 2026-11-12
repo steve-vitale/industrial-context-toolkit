@@ -628,24 +628,15 @@ function portFor(stream, end) {
   return nozzle(uid, g.hosts.shell, G.pointOf(g.F, z, g.R, a), [Math.cos(a), Math.sin(a), 0], RP, { name });
 }
 
-// Battery-limit and utility posts: a plinth, a riser and a flange the line lands on from above; feed and product
-// posts carry a hand-wheel valve drawn as placeholder geometry (the model holds no such valve, and the LOTO mockup
-// does not name it as an isolating device).
-function post(id, unit, xy, r, { block = false, label }) {
+// Battery-limit and utility posts: a plinth, a riser and a flange the line lands on from above. No valve is drawn on
+// them: the model holds none, and the tour has no lockout/tagout view (docs/GOAL_ISOLATION_POC.md).
+function post(id, unit, xy, r, { label }) {
   const [x, y] = xy;
   const F = G.frameOf([x, y, 0], [0, 0, 1], [1, 0, 0], [0, 1, 0]);
   boxAt(id, [x - 3.5, y - 3.5, 0], [x + 3.5, y + 3.5, 2], { tone: "mid" }, { name: `${id}.plinth`, owner: id });
   discAt(id, F, 2, 8, r + 0.3, { tone: "mid" }, { name: `${id}.riser`, owner: id });
-  let top = 8;
+  const top = 8;
   const out = { id, unit };
-  if (block) {
-    boxAt(id, [x - 2.2, y - 2.2, 8], [x + 2.2, y + 2.2, 11.5], { tone: "hi" }, { name: `${id}.valve`, owner: id });
-    const stem = G.frameAlong([x, y, 9.75], [0, 1, 0]);
-    discAt(id, stem, 2.2, 4.4, 0.5, { tone: "mid" }, { name: `${id}.stem`, owner: id });
-    discAt(id, stem, 4.4, 4.9, 2.4, { tone: "hi" }, { name: `${id}.handwheel`, owner: id, extra: Ln(G.circleOf(stem, 4.9, 1.4, P, 24), { tone: "faint" }) });
-    out.lock = G.pointOf(stem, 5.6, 0, 0);
-    top = 11.5;
-  }
   discAt(id, F, top, top + 0.8, r * FLANGE, { tone: "hi" }, { name: `${id}.flange`, owner: id });
   vbox(id, [x - 3.6, y - 3.6, 0], [x + 3.6, y + 3.6, top + 0.8]);
   out.port = { p: [x, y, top + 0.8], axis: [0, 0, 1], unit: id };
@@ -653,7 +644,7 @@ function post(id, unit, xy, r, { block = false, label }) {
   return out;
 }
 const POSTS = {};
-for (const s of DATA.streams) if (BL_POSTS[s.id]) POSTS[`BL-${s.id}`] = post(`BL-${s.id}`, BL_POSTS[s.id].unit, BL_POSTS[s.id].xy, RP, { block: true, label: `Battery limit: ${s.name}` });
+for (const s of DATA.streams) if (BL_POSTS[s.id]) POSTS[`BL-${s.id}`] = post(`BL-${s.id}`, BL_POSTS[s.id].unit, BL_POSTS[s.id].xy, RP, { label: `Battery limit: ${s.name}` });
 for (const s of DATA.streams) {
   PORTS[`${s.id}:from`] = s.from === "BL" ? POSTS[`BL-${s.id}`].port : portFor(s, "from");
   PORTS[`${s.id}:to`] = s.to === "BL" ? POSTS[`BL-${s.id}`].port : portFor(s, "to");
@@ -683,7 +674,7 @@ for (const u of DATA.utilities) {
     const reach = g.R + 36 + pairIndex * 9;
     postXY = [g.x + reach * Math.cos(a), g.y + reach * Math.sin(a)];
   }
-  const p = post(`UT-${u.id}`, u.unit, postXY, RU, { block: false, label: `${u.service.replace(/_/g, " ")} (inferred)` });
+  const p = post(`UT-${u.id}`, u.unit, postXY, RU, { label: `${u.service.replace(/_/g, " ")} (inferred)` });
   POSTS[`UT-${u.id}`] = p;
   UTIL[u.id] = { from: u.role === "return" ? port : p.port, to: u.role === "return" ? p.port : port, data: u };
 }
@@ -1289,17 +1280,10 @@ const unitGeom = Object.fromEntries(Object.entries(UNIT_GEOM).map(([id, g]) => {
 }));
 const liquids = Object.fromEntries(Object.entries(WINDOW_LEVELS).map(([id, w]) => [id, w]));
 const levelTag = { "R-101": "LT-108", "V-101": "LT-112", "C-101": "LT-115" };
-const lotoPoints = DATA.loto.points.map((p) => {
-  let where;
-  if (p.kind === "bl") where = POSTS[`BL-${p.target.stream}`].lock;
-  else if (p.kind === "motor" || p.kind === "agitator") where = G.add3(UNIT_GEOM[p.target.unit].motor.at, p.kind === "motor" ? [0, 0, 1.5] : [0, -4.4, 0]);
-  else where = POSTS[`UT-${p.target.utility}`].port.p;
-  return { id: p.id, n: p.n, at: at(where) };
-});
 const sceneOut = {
   schema: "pid-interactive-tour-scene/0", theme: THEME, viewBox: VB, projection: P,
   lines: FLOW.map(({ line, ...rest }) => rest),
-  units: unitGeom, markers: MARKERS.map(({ centre, ...rest }) => rest), loto: lotoPoints,
+  units: unitGeom, markers: MARKERS.map(({ centre, ...rest }) => rest),
   posts: Object.values(POSTS).map((p) => ({ id: p.id, unit: p.unit, at: at(p.port.p), label: p.label })),
   windows: liquids,
   rack: RACK, routes: Object.fromEntries(Object.entries(PLANS).map(([id, p]) => [id, p.simple])),
@@ -1332,7 +1316,7 @@ const OCC = {
 const live = {
   viewBox: VB, P, units: unitGeom, markers: MARKERS.map((m) => ({ tag: m.tag, unit: m.unit, at: m.screen })),
   lines: FLOW.map((f) => ({ id: f.id, kind: f.kind, service: f.service, unit: f.unit, from: f.from, to: f.to, length: f.length })),
-  windows: liquids, levelTag, loto: lotoPoints, glass: GLASS, occ: OCC,
+  windows: liquids, levelTag, glass: GLASS, occ: OCC,
   posts: Object.values(POSTS).map((p) => ({ id: p.id, unit: p.unit, at: at(p.port.p) })),
 };
 
@@ -1347,7 +1331,7 @@ const serviceCss = Object.entries(DATA.services).map(([s, v]) => `[data-service=
 const font = readFileSync(join(ROOT, "assets", "fonts", "AtkinsonHyperlegible-Regular.ttf")).toString("base64");
 const css = readFileSync(join(HERE, "tour.css"), "utf8");
 const backSvg = `<svg xmlns="http://www.w3.org/2000/svg" class="iso-svg tour-svg" viewBox="${VB.join(" ")}" aria-hidden="true" data-layer="ground">${back.join("")}</svg>`;
-const mainSvg = `<svg xmlns="http://www.w3.org/2000/svg" class="iso-svg tour-svg" viewBox="${VB.join(" ")}" role="img" aria-labelledby="fig-title fig-desc" data-layer="plant"><title id="fig-title">Isometric cutaway of the Tennessee Eastman process unit</title><desc id="fig-desc">Six process units drawn as cut-away machines: the feed header, the agitated reactor with its cooling coil, the product condenser, the vapour-liquid separator, the recycle compressor and the product stripper with its trays. Pipes are coloured by service with moving pulses in the flow direction. Geometry is a placeholder; connections come from the process model.</desc><defs>${clips.join("")}</defs><g class="tour-plant">${groups.join("")}</g><g class="tour-loto-layer" aria-hidden="true"></g></svg>`;
+const mainSvg = `<svg xmlns="http://www.w3.org/2000/svg" class="iso-svg tour-svg" viewBox="${VB.join(" ")}" role="img" aria-labelledby="fig-title fig-desc" data-layer="plant"><title id="fig-title">Isometric cutaway of the Tennessee Eastman process unit</title><desc id="fig-desc">Six process units drawn as cut-away machines: the feed header, the agitated reactor with its cooling coil, the product condenser, the vapour-liquid separator, the recycle compressor and the product stripper with its trays. Pipes are coloured by service with moving pulses in the flow direction. Geometry is a placeholder; connections come from the process model.</desc><defs>${clips.join("")}</defs><g class="tour-plant">${groups.join("")}</g></svg>`;
 
 const units = DATA.tour_order.map((id) => unitById[id]);
 const legend = Object.entries(DATA.services).map(([s, v]) => `<li data-service="${s}"><svg class="tour-swatch" viewBox="0 0 28 10" aria-hidden="true"><path d="M2 5h20M18 2l4 3-4 3"/></svg>${esc(v.label)}</li>`).join("");
@@ -1379,10 +1363,6 @@ const body = `
   </aside>
 </div>
 <section class="tour-panel" id="tour-panel" aria-label="Tour controls">
-  <div class="tour-modes" role="group" aria-label="Mode">
-    <button type="button" data-mode-button="flow" aria-pressed="true">Process flow</button>
-    <button type="button" data-mode-button="loto" aria-pressed="false">Lockout/tagout mockup</button>
-  </div>
   <div class="tour-units" role="group" aria-label="Units in flow order">
     <button type="button" data-unit-button="" aria-pressed="true">Overview</button>
     ${units.map((u, i) => `<button type="button" data-unit-button="${u.id}" aria-pressed="false"><span class="tour-n">${i + 1}</span>${esc(u.id)} <span class="tour-uname">${esc(u.name)}</span></button>`).join("")}
@@ -1398,15 +1378,6 @@ const body = `
     <p class="tour-time" data-time aria-live="off"></p>
     <p><button type="button" data-jump-alarm>Jump to the first alarm in fault 6</button></p>
     <div class="tour-alarms" data-alarms aria-live="polite"></div>
-  </div>
-  <div class="tour-loto" data-loto-only hidden>
-    <p class="tour-warning"><strong>Design mockup, not a procedure.</strong> ${esc(DATA.loto.status.replace(/^DESIGN MOCKUP, NOT A PROCEDURE\. /, ""))}</p>
-    <p>Select inferred energy boundaries to grey the lines the stream graph says are fed only through them. This is reachability on the model; which device isolates a boundary is not assessed. The pulses here run at a constant rate; they are not the replay.</p>
-    <div class="tour-points" role="group" aria-label="Inferred energy boundaries">
-      ${DATA.loto.points.map((p) => `<button type="button" data-loto="${esc(p.id)}" aria-pressed="false"><span class="tour-n">${p.n}</span>${esc(p.text)} <span class="tour-inf">inferred</span></button>`).join("")}
-    </div>
-    <p><button type="button" data-loto-all>Select all</button> <button type="button" data-loto-none>Clear</button></p>
-    <div class="tour-energy" data-energy aria-live="polite"></div>
   </div>
 </section>
 </div>

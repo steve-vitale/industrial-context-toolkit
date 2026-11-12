@@ -17,8 +17,10 @@ with the review corrections of 2026-10-15 re-applied (V-101 and K-101 callouts, 
 header bore and an illustrative compressor impeller) (`python scripts/pipeline.py rebuild --from te.tour`, with
 `BLENDER_EXE` set; Blender 5.2.2, stills only, no video). They show the source-checked topology (the purge leaves
 from the separator V-101, with FT-110, FV-110 and AT-129) and the Atkinson Hyperlegible label font. The OCR
-read-back files (`label_truth.json`, `ocr_readback.json`) still describe the 2026-10-13 stills and their
-revision-A tags; they were not re-run. Twelve stills were rendered and measured; eight review JPEGs are committed.
+read-back was re-run on 2026-11-11 against the current published stills: `label_truth.json` is rebuilt from
+`label_boxes.json` (`python drafts/3d-tour/ocr_readback.py --truth`), and `ocr_readback.json` comes from
+`ocr_readback.py` (rapidocr 3 in a scratch virtual environment, classifier off: 57 labels, mean character accuracy
+0.984, 42 of 42 tag and unit IDs read in the crop and in the whole frame; the LOTO card is read back at 1.0). Twelve stills were rendered and measured; eight review JPEGs are committed.
 The render verifier failed none of its 17 checks on
 all twelve: 15 pass, and 2 are informational (drawing coverage, and OCR, which was not run). See
 [verification.md](verification.md) and the label boxes in [label_boxes.json](label_boxes.json). The 2026-10-13
@@ -39,10 +41,10 @@ of nearby geometry; the render audit now checks them for occlusion by ghosted pa
 | ![compressor](05_k-101_normal.jpg) | K-101 cutaway with an illustrative radial impeller |
 | ![fault](21_overview_fault_alarm.jpg) | Fault 6 at the reactor pressure high alarm (+294 min) |
 | ![flow](30_flow_legend.jpg) | Process flow coloured by service, arrows showing direction |
-| ![loto](40_loto_mockup.jpg) | Lockout/tagout view design mockup (re-rendered 2026-11-11). Energy boundaries are inferred from the seed model, in listing order; which device isolates each is not assessed, and control valves are not positive isolation. This is not a procedure. A real LOTO procedure comes from the site's energy-control program (OSHA 1910.147), its verified P&IDs and an authorized person. |
+| ![loto](40_loto_mockup.jpg) | Lockout/tagout view design mockup (re-rendered 2026-11-11). Energy boundaries are inferred from the seed model; each tag is led by the model ID of what it marks, not a number. The card prints the fixed mockup status (a proof of concept and testing ground; every result to be verified by a qualified professional). Which device isolates each is not assessed, and control valves are not positive isolation. This is not a procedure. A real LOTO procedure comes from the site's energy-control program (OSHA 1910.147), its verified P&IDs and an authorized person. |
 
-Not checked on these stills: the OCR read-back ([REVIEW_NOTES.md](REVIEW_NOTES.md) section 3 ran on the earlier
-stills; the OCR engine is not installed on the machine that re-rendered them). A person still has to look
+Not checked on these stills: the verifier's own tesseract OCR check (tesseract is not on the render machine's
+PATH; the separate read-back above did run). A person still has to look
 ([review kit checklist](../../docs/review-kit/CHECKLIST_3D_STILLS.md)).
 
 Not built yet: animated flow and per-asset mechanism animations, and the narrated video (not re-rendered since the
