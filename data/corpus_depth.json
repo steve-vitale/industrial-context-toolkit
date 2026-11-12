@@ -1,5 +1,5 @@
 {
-  "about": "Depth dispositions for every acquired public-source group (docs/DEPTH_GOAL.md), kept beside the acquisition registries so their acquisition-time bytes stay unchanged. Key availability is read from each group's acquisition-record text (cited as registry#id) and is unverified: no source file was opened. A plan or retirement cites tracked files with a quoted #anchor that must appear in them. Status is never stored: scripts/corpus_depth.py derives it. 'registries' pins each registry's sha256 (CRLF normalized to LF); a changed registry fails --check until its dispositions are re-read and the pin updated.",
+  "about": "Depth dispositions for every acquired public-source group (docs/DEPTH_GOAL.md), kept beside the acquisition registries so their acquisition-time bytes stay unchanged. Key availability is VERIFIED from each group's own acquired files (key.verified: date, file, field or column, count, one-line example, and optional checks that `scripts/corpus_depth.py --reverify` recomputes from the pinned bytes); key.evidence still cites the acquisition record (registry#id). Only 'verified key' can carry a plan, which names an existing feature, the key's independence from the tool's input, a development/held-out split recorded before any result and an exposure statement. A 'verified, not a key for any toolkit task' group is deferred with the new capability it needs, or retired only if it can never qualify (no area, duplicate, rights, blocked); 'no usable key' needs a key status with no key. Dispositions cite tracked files with a quoted #anchor that must appear in them. Status is never stored: scripts/corpus_depth.py derives it. 'registries' pins each registry's sha256 (CRLF normalized to LF); a changed registry fails --check until its dispositions are re-read and the pin updated.",
   "registries": {
     "data/public_sources_20261107.json": "e277b1caa29bbff61304bfca4170e118811701849e0fc06ca8e8f719dd9870e4",
     "data/public_sources_20261107_round2.json": "f53bf3274f769c731e779a9ceadfa55eca2a70a52d83ada07096e55f1aa1e6e6",
@@ -10,8 +10,36 @@
   "groups": {
     "uci-steel-energy": {
       "key": {
-        "status": "unknown",
-        "what": "record rules out only a causal or savings key",
+        "status": "verified, not a key for any toolkit task",
+        "what": "a load class per 15-minute row; not a fault, outcome or savings key",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "data.csv",
+          "field": "Load_Type",
+          "count": "35,040 rows: Light_Load 18,072, Medium_Load 9,696, Maximum_Load 7,272",
+          "example": "01/01/2018 00:15, Usage_kWh 3.17, Load_Type Light_Load",
+          "checks": [
+            {
+              "reader": "csv-rows",
+              "path": "data.csv",
+              "expect": 35040
+            },
+            {
+              "reader": "csv-count",
+              "path": "data.csv",
+              "expect": 18072,
+              "column": "Load_Type",
+              "value": "Light_Load"
+            }
+          ]
+        },
+        "evidence": [
+          "data/public_sources_20261107.json#uci-steel-energy"
+        ]
+      },
+      "retired": {
+        "kind": "no area",
+        "reason": "Its only label is a load class of the metered usage. The record rules out a causal or savings key, which is what the opportunity screen and impact estimate would need, and load-class prediction is outside the toolkit areas.",
         "evidence": [
           "data/public_sources_20261107.json#uci-steel-energy"
         ]
@@ -19,17 +47,71 @@
     },
     "uci-ai4i": {
       "key": {
-        "status": "acquisition record says labels exist, unopened",
-        "what": "synthetic failure labels",
+        "status": "verified, not a key for any toolkit task",
+        "what": "synthetic per-row failure flags, rows indexed by UID rather than time",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "data.csv",
+          "field": "Machine failure, TWF, HDF, PWF, OSF, RNF",
+          "count": "10,000 rows; 339 machine failures (TWF 46, HDF 115, PWF 95, OSF 98, RNF 19)",
+          "example": "UID 1, Type M, tool wear 0 min, Machine failure 0",
+          "checks": [
+            {
+              "reader": "csv-rows",
+              "path": "data.csv",
+              "expect": 10000
+            },
+            {
+              "reader": "csv-count",
+              "path": "data.csv",
+              "expect": 339,
+              "column": "Machine failure",
+              "value": "1"
+            }
+          ]
+        },
         "evidence": [
           "data/public_sources_20261107.json#uci-ai4i"
         ]
+      },
+      "deferred": {
+        "date": "2026-11-12",
+        "area": "Process and historian data",
+        "feature": {
+          "id": "failure-class-screen",
+          "description": "flag units likely to fail from operating variables or counters, scored against recorded failure classes"
+        },
+        "evidence": [
+          "data/public_sources_20261107.json#uci-ai4i"
+        ],
+        "note": "synthetic rows with no time order"
       }
     },
     "wine-competition": {
       "key": {
-        "status": "unknown",
-        "what": "not stated",
+        "status": "verified: no key in source",
+        "what": "laboratory co-culture assays",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "dataset competencias.xlsx",
+          "field": "10 sheets: HPLC, HPLCaa and eight qPCR strain sheets",
+          "count": "10 sheets; HPLC 469 rows",
+          "example": "qPCR sheet T73: sample A7/A1, Mean Cp 23.99",
+          "checks": [
+            {
+              "reader": "xlsx-sheets",
+              "path": "dataset competencias.xlsx",
+              "expect": 10
+            }
+          ]
+        },
+        "evidence": [
+          "data/public_sources_20261107.json#wine-competition"
+        ]
+      },
+      "retired": {
+        "kind": "no area",
+        "reason": "Laboratory yeast co-culture assays: no industrial area, no toolkit task.",
         "evidence": [
           "data/public_sources_20261107.json#wine-competition"
         ]
@@ -37,8 +119,29 @@
     },
     "candida-bioreactor": {
       "key": {
-        "status": "unknown",
-        "what": "not stated",
+        "status": "verified: no key in source",
+        "what": "laboratory screening and response-surface results; no labelled outcome",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "Dataset_Experimental_results_flask_bioreactor_cultivation_mutant_yeast_strain_C_utilis 1.xlsx",
+          "field": "biomass g/L, protein %, response-surface factors and responses in multi-block sheets",
+          "count": "10 sheets; one 5 L bioreactor sheet (76 rows)",
+          "example": "sheet 8 RSM Validation: molasses 121.033 g/L, ammonium sulfate 11.203 g/L",
+          "checks": [
+            {
+              "reader": "xlsx-sheets",
+              "path": "Dataset_Experimental_results_flask_bioreactor_cultivation_mutant_yeast_strain_C_utilis 1.xlsx",
+              "expect": 10
+            }
+          ]
+        },
+        "evidence": [
+          "data/public_sources_20261107.json#candida-bioreactor"
+        ]
+      },
+      "retired": {
+        "kind": "no usable key",
+        "reason": "Strain-screening and medium-optimization tables with no labelled outcome or event to check a tool against; the one bioreactor run adds nothing the batch-analysis cases already cover.",
         "evidence": [
           "data/public_sources_20261107.json#candida-bioreactor"
         ]
@@ -46,8 +149,29 @@
     },
     "pomace-fermentation": {
       "key": {
-        "status": "unknown",
-        "what": "fitted-model artifacts retained; no outcome key stated",
+        "status": "verified, not a key for any toolkit task",
+        "what": "factorial laboratory endpoints (72 h) and fitted kinetics; no time-series batch or phase windows",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "zenodo_deposit.zip!dataset_clean.csv",
+          "field": "LA_72, OD_0 to OD_72, pH_72",
+          "count": "504 fermentations: 6 species x 4 carbon sources x 7 media x 3 replicates",
+          "example": "glucose, MRS conventional, replicate A: LA_72 30.86",
+          "checks": [
+            {
+              "reader": "csv-rows",
+              "path": "zenodo_deposit.zip!dataset_clean.csv",
+              "expect": 504
+            }
+          ]
+        },
+        "evidence": [
+          "data/public_sources_20261107.json#pomace-fermentation"
+        ]
+      },
+      "retired": {
+        "kind": "no area",
+        "reason": "Endpoint measurements of a laboratory factorial design, not plant or batch records; the fitted models are regression outputs.",
         "evidence": [
           "data/public_sources_20261107.json#pomace-fermentation"
         ]
@@ -55,8 +179,29 @@
     },
     "sequencing-batch-reactor": {
       "key": {
-        "status": "unknown",
-        "what": "not stated",
+        "status": "verified: no key in source",
+        "what": "a laboratory reactor regime log; no fault, phase or outcome label",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "dataset_SBR.xlsx",
+          "field": "daily temperature, pH, SCFA species (mg/L) and solids per HRT regime",
+          "count": "5 sheets: HRT20 (95 rows), HRT15, HRT15 supernatant, HRT10, HRT10 supernatant",
+          "example": "HRT20 first row: day 1, 25 C, pH 7.66",
+          "checks": [
+            {
+              "reader": "xlsx-sheets",
+              "path": "dataset_SBR.xlsx",
+              "expect": 5
+            }
+          ]
+        },
+        "evidence": [
+          "data/public_sources_20261107.json#sequencing-batch-reactor"
+        ]
+      },
+      "retired": {
+        "kind": "no usable key",
+        "reason": "No labelled outcome or event to check a tool against; daily laboratory concentrations only.",
         "evidence": [
           "data/public_sources_20261107.json#sequencing-batch-reactor"
         ]
@@ -64,28 +209,125 @@
     },
     "distillation-modalities": {
       "key": {
-        "status": "acquisition record says labels exist, unopened",
-        "what": "interpolation/uncertainty annotations: measurement annotations, not outcome labels",
+        "status": "verified: labels not acquired",
+        "what": "anomaly labels and sensor series sit in modality archives skipped at acquisition; acquired files carry only experiment-level names",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "Batch_Distillation_Plant_M-202210_Modality_Availability_Matrix.csv",
+          "field": "experiment_id (train_normal / test_anormal); 00_labels_operation and 01_sensors_* columns",
+          "count": "119 experiments: 38 train_normal, 81 test_anormal; acquired actuator archive holds 357 CSVs (13 actuators)",
+          "example": "operating_point_001/test_anormal_experiment_001",
+          "checks": [
+            {
+              "reader": "csv-rows",
+              "path": "Batch_Distillation_Plant_M-202210_Modality_Availability_Matrix.csv",
+              "expect": 119
+            },
+            {
+              "reader": "regex",
+              "path": "Batch_Distillation_Plant_M-202210_Modality_Availability_Matrix.csv",
+              "expect": 38,
+              "pattern": "^[^,]*/train_normal_experiment_"
+            },
+            {
+              "reader": "zip-members",
+              "path": "02_Batch_Distillation_Plant_M-202210_Timeseries_Actuators.zip",
+              "expect": 357,
+              "suffix": ".csv"
+            }
+          ]
+        },
         "evidence": [
           "data/public_sources_20261107.json#distillation-modalities"
         ]
       },
-      "note": "examples/public-data/README.md suggests deepening the existing public-distillation case; no plan"
+      "retired": {
+        "kind": "duplicate",
+        "reason": "Same laboratory plant as the batch-analysis public-distillation case (the record says it is not a new source family); its anomaly-label and sensor archives were skipped at acquisition, and fetching them is new acquisition, which this goal forbids.",
+        "evidence": [
+          "data/public_sources_20261107.json#distillation-modalities"
+        ]
+      }
     },
     "maintie": {
       "key": {
-        "status": "acquisition record says labels exist, unopened",
-        "what": "expert fine-grained and coarse annotations (gold/silver)",
+        "status": "verified, not a key for any toolkit task",
+        "what": "span-level entity and relation tags on work-order short texts",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "data/gold_release.json",
+          "field": "entities (start, end, type), relations (head, tail, type)",
+          "count": "1,076 gold texts, 3,397 entities, 2,341 relations; 7,000 silver texts",
+          "example": "'air conditioner thermostat not working': object, sensing object, failed state",
+          "checks": [
+            {
+              "reader": "json-len",
+              "path": "data/gold_release.json",
+              "expect": 1076
+            },
+            {
+              "reader": "json-len",
+              "path": "data/silver_release.json",
+              "expect": 7000
+            }
+          ]
+        },
         "evidence": [
           "data/public_sources_20261107.json#maintie"
         ]
       },
-      "note": "named in docs/DEPTH_GOAL.md increment 2 as an option; no key or task committed"
+      "deferred": {
+        "date": "2026-11-12",
+        "area": "Maintenance records and text",
+        "feature": {
+          "id": "work-order-text-reader",
+          "description": "read equipment, activity and state spans from work-order short texts into reviewable fields"
+        },
+        "evidence": [
+          "data/public_sources_20261107.json#maintie"
+        ],
+        "note": "named as an increment-2 option; scored against the gold annotations once built"
+      }
     },
     "maintnorm": {
       "key": {
-        "status": "acquisition record says labels exist, unopened",
-        "what": "token normalization pairs with publisher splits",
+        "status": "verified, not a key for any toolkit task",
+        "what": "token-to-normal-form pairs with publisher splits",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "data/combined/train.norm",
+          "field": "token TAB normalized form, one text per blank-line block",
+          "count": "combined: 9,600 train, 1,200 validation, 1,200 test texts; three company subsets",
+          "example": "REPL -> replace; POS -> position",
+          "checks": [
+            {
+              "reader": "blocks",
+              "path": "data/combined/train.norm",
+              "expect": 9600
+            },
+            {
+              "reader": "blocks",
+              "path": "data/combined/val.norm",
+              "expect": 1200
+            },
+            {
+              "reader": "blocks",
+              "path": "data/combined/test.norm",
+              "expect": 1200
+            }
+          ]
+        },
+        "evidence": [
+          "data/public_sources_20261107.json#maintnorm"
+        ]
+      },
+      "deferred": {
+        "date": "2026-11-12",
+        "area": "Maintenance records and text",
+        "feature": {
+          "id": "work-order-text-normalizer",
+          "description": "normalize abbreviations and misspellings in work-order text before review or mapping"
+        },
         "evidence": [
           "data/public_sources_20261107.json#maintnorm"
         ]
@@ -93,17 +335,73 @@
     },
     "idaes-processes": {
       "key": {
-        "status": "source structure (candidate)",
-        "what": "flowsheet source code, never executed",
+        "status": "verified key",
+        "what": "unit operations and Arc connections in flowsheet source, separate from the notebook's prose",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "idaes_examples/notebooks/docs/flowsheets/methanol_flowsheet.py",
+          "field": "Arc(source=..., destination=...) and unit constructors",
+          "count": "10 arcs and 11 units; methanol_flowsheet_w_recycle.py 13 arcs and 13 units; notebook 17 markdown cells",
+          "example": "s02: M101.outlet to C101.inlet",
+          "checks": [
+            {
+              "reader": "regex",
+              "path": "idaes_examples/notebooks/docs/flowsheets/methanol_flowsheet.py",
+              "expect": 10,
+              "pattern": "=\\s*Arc\\("
+            },
+            {
+              "reader": "regex",
+              "path": "idaes_examples/notebooks/docs/flowsheets/methanol_flowsheet_w_recycle.py",
+              "expect": 13,
+              "pattern": "=\\s*Arc\\("
+            }
+          ]
+        },
         "evidence": [
           "data/public_sources_20261107.json#idaes-processes"
-        ]
+        ],
+        "independence": "independent"
+      },
+      "plan": {
+        "date": "2026-11-12",
+        "feature": "description-workflow",
+        "key": "unit operations and Arc connections in methanol_flowsheet.py and methanol_flowsheet_w_recycle.py, read independently of the description",
+        "task": "scripts/description_workflow.py packet from methanol_synthesis.ipynb's markdown text; score the authored units and stream connections against the arcs, with a shuffled-arc control",
+        "split": {
+          "decided": "2026-11-12",
+          "development": [
+            "methanol_flowsheet.py with the notebook text before the recycle section"
+          ],
+          "held_out": [
+            "methanol_flowsheet_w_recycle.py with the recycle section"
+          ]
+        },
+        "evidence": [
+          "data/public_sources_20261107.json#idaes-processes"
+        ],
+        "note": "the notebook text names the compressor, heaters, reactor, turbine and flash but never the mixer; the authored model is assistant work, the key is not",
+        "exposure": "Held-out key counts were surveyed on 2026-11-12 (its arc and unit counts, and unit-name counts over the whole notebook text); no method was run. Any sealed score on the recycle flowsheet must state this."
       }
     },
     "commons-equipment": {
       "key": {
-        "status": "no key in source",
-        "what": "no field-reading key; fields would need hand-keying",
+        "status": "verified: no key in source",
+        "what": "photographs with captions only; no transcribed nameplate fields",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "data/public-source-evidence/2026-11-07/commons-equipment.json",
+          "field": "extmetadata.ImageDescription",
+          "count": "3 photographs; each description is one caption, no field transcription",
+          "example": "a one-line caption naming the motor's maker"
+        },
+        "evidence": [
+          "data/public_sources_20261107.json#commons-equipment"
+        ]
+      },
+      "retired": {
+        "kind": "no usable key",
+        "reason": "Nameplate fields would have to be hand-keyed; a self- or agent-keyed sheet is not a key here, and the photo-to-record example already teaches the method on two Commons photographs.",
         "evidence": [
           "data/public_sources_20261107.json#commons-equipment"
         ]
@@ -111,8 +409,39 @@
     },
     "doe-mechanical": {
       "key": {
-        "status": "unknown",
-        "what": "not stated",
+        "status": "verified: no key in source",
+        "what": "a training handbook, not a CAD file",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "mechanical-science-v1.pdf",
+          "field": "text layer (PyMuPDF get_text characters)",
+          "count": "v1 122 pages (174,326 characters), v2 130 pages (199,922); five modules: diesel engines, heat exchangers, pumps, valves, miscellaneous components",
+          "example": "Module 1: Diesel Engine Fundamentals",
+          "checks": [
+            {
+              "reader": "pdf-pages",
+              "path": "mechanical-science-v1.pdf",
+              "expect": 122
+            },
+            {
+              "reader": "pdf-pages",
+              "path": "mechanical-science-v2.pdf",
+              "expect": 130
+            },
+            {
+              "reader": "pdf-text-chars",
+              "path": "mechanical-science-v1.pdf",
+              "expect": 174326
+            }
+          ]
+        },
+        "evidence": [
+          "data/public_sources_20261107.json#doe-mechanical"
+        ]
+      },
+      "retired": {
+        "kind": "no area",
+        "reason": "Training prose with no native file to round-trip and no key; it fits no toolkit area.",
         "evidence": [
           "data/public_sources_20261107.json#doe-mechanical"
         ]
@@ -120,8 +449,40 @@
     },
     "doe-engineering-drawings": {
       "key": {
-        "status": "no key in source",
-        "what": "instructional diagrams, no keyed extraction",
+        "status": "verified: no key in source",
+        "what": "instructional symbology diagrams",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "engineering-drawings-v1.pdf",
+          "field": "text layer (PyMuPDF get_text characters; dash-form tags [A-Z]{2,4}-digits (regex \\b[A-Z]{2,4}-\\d{2,5}[A-Z]?\\b))",
+          "count": "120 pages, 108,090 characters; 'P&ID' on 41 pages as teaching text; no page holds 8 or more distinct dash-form tags",
+          "example": "six modules; Module 2 teaches reading P&IDs from examples",
+          "checks": [
+            {
+              "reader": "pdf-pages",
+              "path": "engineering-drawings-v1.pdf",
+              "expect": 120
+            },
+            {
+              "reader": "pdf-text-chars",
+              "path": "engineering-drawings-v1.pdf",
+              "expect": 108090
+            },
+            {
+              "reader": "pdf-pages-matching",
+              "path": "engineering-drawings-v1.pdf",
+              "expect": 41,
+              "pattern": "P&ID"
+            }
+          ]
+        },
+        "evidence": [
+          "data/public_sources_20261107.json#doe-engineering-drawings"
+        ]
+      },
+      "retired": {
+        "kind": "no usable key",
+        "reason": "Teaching diagrams, not a drawing set: no tags to check and no extraction key.",
         "evidence": [
           "data/public_sources_20261107.json#doe-engineering-drawings"
         ]
@@ -129,8 +490,34 @@
     },
     "doe-operations-maintenance": {
       "key": {
-        "status": "unknown",
-        "what": "not stated",
+        "status": "verified: no key in source",
+        "what": "a best-practice guide in prose",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "operations-maintenance-guide.pdf",
+          "field": "text layer (PyMuPDF get_text characters)",
+          "count": "321 pages, 804,030 characters; 9 chapters",
+          "example": "Chapter 5: Types of Maintenance Programs",
+          "checks": [
+            {
+              "reader": "pdf-pages",
+              "path": "operations-maintenance-guide.pdf",
+              "expect": 321
+            },
+            {
+              "reader": "pdf-text-chars",
+              "path": "operations-maintenance-guide.pdf",
+              "expect": 804030
+            }
+          ]
+        },
+        "evidence": [
+          "data/public_sources_20261107.json#doe-operations-maintenance"
+        ]
+      },
+      "retired": {
+        "kind": "no usable key",
+        "reason": "Guidance prose with no records or labels to check a tool against; third-party material is not separately cleared.",
         "evidence": [
           "data/public_sources_20261107.json#doe-operations-maintenance"
         ]
@@ -138,8 +525,49 @@
     },
     "uci-gas-turbine": {
       "key": {
-        "status": "unknown",
-        "what": "record rules out only a causal maintenance or savings key; publisher year split",
+        "status": "verified: no key in source",
+        "what": "CO and NOX are measured outputs (regression targets); no fault or event label",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "original.zip!gt_2011.csv",
+          "field": "AT, AP, AH, AFDP, GTEP, TIT, TAT, TEY, CDP, CO, NOX",
+          "count": "36,733 hourly rows in 5 yearly files (2011 to 2015)",
+          "example": "gt_2011 row 1: TIT 1086.2, CO 0.32663, NOX 81.952",
+          "checks": [
+            {
+              "reader": "csv-rows",
+              "path": "original.zip!gt_2011.csv",
+              "expect": 7411
+            },
+            {
+              "reader": "csv-rows",
+              "path": "original.zip!gt_2012.csv",
+              "expect": 7628
+            },
+            {
+              "reader": "csv-rows",
+              "path": "original.zip!gt_2013.csv",
+              "expect": 7152
+            },
+            {
+              "reader": "csv-rows",
+              "path": "original.zip!gt_2014.csv",
+              "expect": 7158
+            },
+            {
+              "reader": "csv-rows",
+              "path": "original.zip!gt_2015.csv",
+              "expect": 7384
+            }
+          ]
+        },
+        "evidence": [
+          "data/public_sources_20261107_round2.json#uci-gas-turbine"
+        ]
+      },
+      "retired": {
+        "kind": "no usable key",
+        "reason": "No fault, event or maintenance label, so the historian-band route has no fault start to score; emissions are regression targets no toolkit feature predicts.",
         "evidence": [
           "data/public_sources_20261107_round2.json#uci-gas-turbine"
         ]
@@ -147,45 +575,209 @@
     },
     "uci-naval": {
       "key": {
-        "status": "acquisition record says labels exist, unopened",
-        "what": "simulated degradation coefficients",
+        "status": "verified, not a key for any toolkit task",
+        "what": "simulated decay coefficients on a steady-state grid, not a time-ordered history",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "original.zip!UCI CBM Dataset/data.txt",
+          "field": "columns 17-18: compressor and turbine decay state coefficients",
+          "count": "11,934 rows, 18 columns, 1,326 distinct coefficient pairs",
+          "example": "compressor 0.950, turbine 0.975",
+          "checks": [
+            {
+              "reader": "lines",
+              "path": "original.zip!UCI CBM Dataset/data.txt",
+              "expect": 11934
+            }
+          ]
+        },
         "evidence": [
           "data/public_sources_20261107_round2.json#uci-naval"
         ]
+      },
+      "deferred": {
+        "date": "2026-11-12",
+        "area": "Process and historian data",
+        "feature": {
+          "id": "degradation-state-estimate",
+          "description": "estimate component decay state from steady-state operating measurements"
+        },
+        "evidence": [
+          "data/public_sources_20261107_round2.json#uci-naval"
+        ],
+        "note": "a simulated grid, not a history"
       }
     },
     "uci-secom": {
       "key": {
-        "status": "acquisition record says labels exist, unopened",
-        "what": "pass/fail test labels",
+        "status": "verified, not a key for any toolkit task",
+        "what": "pass/fail per production lot with a timestamp; no fault start in a continuous export",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "original.zip!secom_labels.data",
+          "field": "label (-1 pass, 1 fail) and timestamp per lot",
+          "count": "1,567 lots: 1,463 pass, 104 fail; 590 features per lot in secom.data",
+          "example": "-1 \"19/07/2008 11:55:00\"",
+          "checks": [
+            {
+              "reader": "lines",
+              "path": "original.zip!secom_labels.data",
+              "expect": 1567
+            },
+            {
+              "reader": "regex",
+              "path": "original.zip!secom_labels.data",
+              "expect": 104,
+              "pattern": "^1 "
+            }
+          ]
+        },
         "evidence": [
           "data/public_sources_20261107_round2.json#uci-secom"
         ]
       },
-      "note": "named in docs/DEPTH_GOAL.md increment 2 as an option; no key or task committed"
+      "deferred": {
+        "date": "2026-11-12",
+        "area": "Process and historian data",
+        "feature": {
+          "id": "lot-outcome-screen",
+          "description": "screen production lots against recorded pass/fail outcomes and rank the measurements that separate them"
+        },
+        "evidence": [
+          "data/public_sources_20261107_round2.json#uci-secom"
+        ],
+        "note": "named as an increment-2 option"
+      }
     },
     "uci-aps": {
       "key": {
-        "status": "acquisition record says labels exist, unopened",
-        "what": "class labels with publisher train/test split",
+        "status": "verified, not a key for any toolkit task",
+        "what": "per-truck class labels over anonymized aggregate counters, publisher split",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "original.zip!aps_failure_training_set.csv",
+          "field": "class (neg / pos)",
+          "count": "training 60,000 rows (1,000 pos), test 16,000 rows (375 pos)",
+          "example": "class,aa_000,ab_000,... header at line 21",
+          "checks": [
+            {
+              "reader": "csv-rows",
+              "path": "original.zip!aps_failure_training_set.csv",
+              "expect": 60000,
+              "header_line": 20
+            },
+            {
+              "reader": "csv-count",
+              "path": "original.zip!aps_failure_training_set.csv",
+              "expect": 1000,
+              "header_line": 20,
+              "column": "class",
+              "value": "pos"
+            },
+            {
+              "reader": "csv-rows",
+              "path": "original.zip!aps_failure_test_set.csv",
+              "expect": 16000,
+              "header_line": 20
+            }
+          ]
+        },
         "evidence": [
           "data/public_sources_20261107_round2.json#uci-aps"
         ]
+      },
+      "deferred": {
+        "date": "2026-11-12",
+        "area": "Process and historian data",
+        "feature": {
+          "id": "failure-class-screen",
+          "description": "flag units likely to fail from operating variables or counters, scored against recorded failure classes"
+        },
+        "evidence": [
+          "data/public_sources_20261107_round2.json#uci-aps"
+        ],
+        "note": "licence conflict (GPL in source, CC BY on the page) must be resolved before derived use"
       }
     },
     "nestor-excavators": {
       "key": {
-        "status": "unknown",
-        "what": "not stated",
+        "status": "verified key",
+        "what": "dated work orders per asset with order type and cost; the cleaned file adds publisher-coded system and part fields",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "nestor/datasets/excavators.csv",
+          "field": "BscStartDate, Asset, OriginalShorttext, PMType, Cost; cleaned file MajorSystem, Part, Action",
+          "count": "5,485 work orders on 5 assets (A 151, B 1,017, C 992, D 2,374, E 951), 2001-07-05 to 2012-12-13; MajorSystem 38 distinct values",
+          "example": "2004-07-01, asset A, PM01, cost 183.05",
+          "checks": [
+            {
+              "reader": "csv-rows",
+              "path": "nestor/datasets/excavators.csv",
+              "expect": 5485
+            },
+            {
+              "reader": "csv-count",
+              "path": "nestor/datasets/excavators.csv",
+              "expect": 151,
+              "column": "Asset",
+              "value": "A"
+            }
+          ]
+        },
         "evidence": [
           "data/public_sources_20261107_round2.json#nestor-excavators"
-        ]
+        ],
+        "independence": "computed-from-input"
+      },
+      "plan": {
+        "date": "2026-11-12",
+        "feature": "maintenance-history",
+        "key": "independent calculation from the original rows (per-asset counts, order types, cost sums, chronology), beside a raw-asset grouping baseline as for AMPS; the cleaned file's MajorSystem codes as a second, publisher-made grouping check",
+        "task": "maintenance-history packet (scripts/maintenance_history.py) from the excavator export mapped through configuration: a second publisher and layout for increment 3",
+        "split": {
+          "decided": "2026-11-12",
+          "development": [
+            "assets A, B and C"
+          ],
+          "held_out": [
+            "assets D and E"
+          ]
+        },
+        "evidence": [
+          "data/public_sources_20261107_round2.json#nestor-excavators"
+        ],
+        "names": [
+          "Nestor"
+        ],
+        "note": "terms unresolved: local originals only and derived counts only in the repository; rows carry no work-order id, so the source row number is the locator",
+        "exposure": "Held-out key counts were surveyed on 2026-11-12 (work-order counts per asset for all five assets, the date range and the MajorSystem distinct count over all rows); no method was run. Any sealed score on assets D and E must state this."
       }
     },
     "lanl-biomanufacturing": {
       "key": {
-        "status": "unknown",
-        "what": "not stated",
+        "status": "verified, not a key for any toolkit task",
+        "what": "literature-compiled regression targets (PHB accumulation, fold increase)",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "Cyano_Data_6803_09.29.2025_merged.csv",
+          "field": "Maximum PHB Accumulation (%), PHB Increase 7 Days, PHB Increase 14 Days",
+          "count": "255 experiment rows from 21 studies",
+          "example": "Khetkorn 2016, wild type, NaNO3 17.6 mM",
+          "checks": [
+            {
+              "reader": "csv-rows",
+              "path": "Cyano_Data_6803_09.29.2025_merged.csv",
+              "expect": 255
+            }
+          ]
+        },
+        "evidence": [
+          "data/public_sources_20261107_round2.json#lanl-biomanufacturing"
+        ]
+      },
+      "retired": {
+        "kind": "no area",
+        "reason": "A literature-derived machine-learning table compiled from 21 studies, not plant or batch records.",
         "evidence": [
           "data/public_sources_20261107_round2.json#lanl-biomanufacturing"
         ]
@@ -193,8 +785,35 @@
     },
     "historian-rca": {
       "key": {
-        "status": "withheld by publisher",
-        "what": "benchmark intentionally withholds truth",
+        "status": "verified: withheld by publisher",
+        "what": "root causes and event start/end times are held privately by the publisher",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "README.md",
+          "field": "Answer key section; CHALLENGE.md submission rules",
+          "count": "one simulated hold-tank process, 90 tags in tags.csv; 0 answer-key files released",
+          "example": "README: 'The answer key is withheld so the dataset stays usable as a blind test.'",
+          "checks": [
+            {
+              "reader": "csv-rows",
+              "path": "tags.csv",
+              "expect": 90
+            },
+            {
+              "reader": "regex",
+              "path": "README.md",
+              "expect": 1,
+              "pattern": "The answer key is withheld"
+            }
+          ]
+        },
+        "evidence": [
+          "data/public_sources_20261107_round2.json#historian-rca"
+        ]
+      },
+      "retired": {
+        "kind": "blocked",
+        "reason": "No key in the release. The key is given only on request to the organiser or after a submission, and the challenge allows one scored submission per team, so it cannot become an offline, re-runnable matrix cell.",
         "evidence": [
           "data/public_sources_20261107_round2.json#historian-rca"
         ]
@@ -202,26 +821,171 @@
     },
     "modelica-fluid": {
       "key": {
-        "status": "source structure (candidate)",
-        "what": "model source text, not executed",
+        "status": "verified key",
+        "what": "connect() pairs in each example's equations, separate from its Documentation info prose",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "Modelica/Fluid/Examples/PumpingSystem.mo",
+          "field": "connect(a, b) statements; annotation Documentation info",
+          "count": "231 connect statements over 6 examples (126, 40, 23, 18, 13, 11); info text 423 to 5,732 characters",
+          "example": "connect(source.ports[1], pumps.port_a)",
+          "checks": [
+            {
+              "reader": "regex",
+              "path": "Modelica/Fluid/Examples/AST_BatchPlant.mo",
+              "expect": 126,
+              "pattern": "\\bconnect\\("
+            },
+            {
+              "reader": "regex",
+              "path": "Modelica/Fluid/Examples/ControlledTankSystem.mo",
+              "expect": 40,
+              "pattern": "\\bconnect\\("
+            },
+            {
+              "reader": "regex",
+              "path": "Modelica/Fluid/Examples/DrumBoiler.mo",
+              "expect": 23,
+              "pattern": "\\bconnect\\("
+            },
+            {
+              "reader": "regex",
+              "path": "Modelica/Fluid/Examples/Tanks.mo",
+              "expect": 18,
+              "pattern": "\\bconnect\\("
+            },
+            {
+              "reader": "regex",
+              "path": "Modelica/Fluid/Examples/PumpingSystem.mo",
+              "expect": 13,
+              "pattern": "\\bconnect\\("
+            },
+            {
+              "reader": "regex",
+              "path": "Modelica/Fluid/Examples/HeatExchanger.mo",
+              "expect": 11,
+              "pattern": "\\bconnect\\("
+            }
+          ]
+        },
         "evidence": [
           "data/public_sources_20261107_round2.json#modelica-fluid"
-        ]
+        ],
+        "independence": "independent"
+      },
+      "plan": {
+        "date": "2026-11-12",
+        "feature": "description-workflow",
+        "key": "each example's connect() pairs, fluid ports and signal connections scored separately",
+        "task": "description-workflow packet from each example's info text only; a second publisher's models after IDAES (increment 3)",
+        "split": {
+          "decided": "2026-11-12",
+          "development": [
+            "PumpingSystem.mo",
+            "Tanks.mo",
+            "HeatExchanger.mo"
+          ],
+          "held_out": [
+            "AST_BatchPlant.mo",
+            "ControlledTankSystem.mo",
+            "DrumBoiler.mo"
+          ]
+        },
+        "evidence": [
+          "data/public_sources_20261107_round2.json#modelica-fluid"
+        ],
+        "names": [
+          "Modelica"
+        ],
+        "note": "the source text must be cut from the info annotation alone, so the equations never reach the packet",
+        "exposure": "Held-out key counts were surveyed on 2026-11-12 (connect() counts and info-text lengths of all six examples; only PumpingSystem's info text was read); no method was run. Any sealed score on AST_BatchPlant, ControlledTankSystem and DrumBoiler must state this."
       }
     },
     "cad-extra-originals": {
       "key": {
-        "status": "unknown",
-        "what": "contents uninspected",
+        "status": "verified key",
+        "what": "entity and attribute inventory of DXF originals outside the ICT_ID/TAG profile",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "examples_dxf/multi_insert_with_attribs.dxf",
+          "field": "ENTITIES section group codes; ATTRIB tag names",
+          "count": "6 DXFs; 1 INSERT with 3 ATTRIBs (NAME, XPOS, YPOS); no file has an ICT_ID or TAG attribute",
+          "example": "columns_R2018.dxf: 30 LWPOLYLINE, 22 MTEXT",
+          "checks": [
+            {
+              "reader": "dxf-entities",
+              "path": "examples_dxf/multi_insert_with_attribs.dxf",
+              "expect": 3,
+              "entity": "ATTRIB"
+            },
+            {
+              "reader": "dxf-entities",
+              "path": "examples_dxf/multi_insert_with_attribs.dxf",
+              "expect": 1,
+              "entity": "INSERT"
+            },
+            {
+              "reader": "dxf-entities",
+              "path": "examples_dxf/columns_R2018.dxf",
+              "expect": 30,
+              "entity": "LWPOLYLINE"
+            },
+            {
+              "reader": "dxf-entities",
+              "path": "examples_dxf/columns_R2018.dxf",
+              "expect": 22,
+              "entity": "MTEXT"
+            }
+          ]
+        },
         "evidence": [
           "data/public_sources_20261107_round2.json#cad-extra-originals"
-        ]
+        ],
+        "independence": "computed-from-input"
+      },
+      "plan": {
+        "date": "2026-11-12",
+        "feature": "cad-handoff",
+        "key": "an independent group-code count of entities and ATTRIBs in each original",
+        "task": "scripts/cad_handoff.py on files outside its profile: each must be refused as out of profile, nothing written, and any entity counts it reports equal the key; a negative-control set for the native-file round trip (docs/CAD_QUALIFICATION.md)",
+        "split": {
+          "decided": "2026-11-12",
+          "development": [
+            "multi_insert_with_attribs.dxf",
+            "dimension_in_block.dxf",
+            "columns_R2018.dxf"
+          ],
+          "held_out": [
+            "dimension_in_nested_blocks.dxf",
+            "hatch_issues.dxf",
+            "text_in_viewports.dxf"
+          ]
+        },
+        "evidence": [
+          "data/public_sources_20261107_round2.json#cad-extra-originals"
+        ],
+        "note": "library example files: they test refusal and retention, not a plant handoff",
+        "exposure": "Held-out key counts were surveyed on 2026-11-12 (entity and ATTRIB inventories of all six files); no method was run. Any sealed score on the three held-out DXFs must state this."
       }
     },
     "commons-instruments": {
       "key": {
-        "status": "no key in source",
-        "what": "no field-reading key",
+        "status": "verified: no key in source",
+        "what": "photographs with captions only; no transcribed nameplate fields",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "data/public-source-evidence/2026-11-07-round-2/commons-instruments.json",
+          "field": "extmetadata.ImageDescription",
+          "count": "3 photographs; each description is one caption, no field transcription",
+          "example": "two captions name the gauge and its pipe; one is empty"
+        },
+        "evidence": [
+          "data/public_sources_20261107_round2.json#commons-instruments"
+        ]
+      },
+      "retired": {
+        "kind": "no usable key",
+        "reason": "Nameplate fields would have to be hand-keyed; a self- or agent-keyed sheet is not a key here, and the photo-to-record example already teaches the method on two Commons photographs.",
         "evidence": [
           "data/public_sources_20261107_round2.json#commons-instruments"
         ]
@@ -229,12 +993,20 @@
     },
     "pahala-drawings": {
       "key": {
-        "status": "source structure (candidate)",
-        "what": "PDF text layer for tag text, the same text the importer reads; no engineering-reviewed extraction key",
+        "status": "verified key",
+        "what": "PDF text layer for tag text on the development sheets; not reopened (held-out rule)",
+        "verified": {
+          "date": "2026-11-10",
+          "file": "data/attempts.json",
+          "field": "A404 evidence: text-layer tags on P-401 and P-501 only",
+          "count": "P-401 14 and P-501 13 tag-shaped labels matched; P-204 outlined text (118 words), not checked",
+          "example": "A404: planted rename and deletion on P-401 both reported"
+        },
         "evidence": [
           "data/public_sources_20261107_round2.json#pahala-drawings",
           "docs/GOAL_ROUND6.md#CAD-exported PDFs with a text layer"
-        ]
+        ],
+        "independence": "same-layer-as-input"
       },
       "plan": {
         "date": "2026-11-10",
@@ -247,13 +1019,51 @@
           "docs/GOAL_ROUND6.md#Pahala P-401 and P-501",
           "data/attempts.json#PDF text-layer tag check"
         ],
-        "note": "partly circular: the key is the same text layer the importer reads, so a match checks the reading of text, not the drawing. Development runs A403-A408 are single runs; no sealed held-out result yet"
+        "note": "partly circular: the key is the same text layer the importer reads, so a match checks the reading of text, not the drawing. Development runs A403-A408 are single runs; no sealed held-out result yet",
+        "feature": "drawing-set-to-bundle",
+        "split": {
+          "decided": "2026-11-10",
+          "development": [
+            "P-401",
+            "P-501"
+          ],
+          "held_out": [
+            "every other Pahala sheet with a text layer (sealed, GOAL_ROUND6.md)"
+          ]
+        },
+        "exposure": "Nothing of the held-out sheets was read for this record: its facts come from the development run A404 on P-401 and P-501."
       }
     },
     "virden-drawings": {
       "key": {
-        "status": "unknown",
-        "what": "no engineering-reviewed extraction key; text layer not checked",
+        "status": "verified: no key in source",
+        "what": "a scanned set with no text layer",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "original.pdf",
+          "field": "text layer (PyMuPDF get_text characters) and page images",
+          "count": "14 pages, 0 characters of text; each page one 1280 x 2072 JPEG at 150 ppi",
+          "example": "page 1: one RGB JPEG image",
+          "checks": [
+            {
+              "reader": "pdf-pages",
+              "path": "original.pdf",
+              "expect": 14
+            },
+            {
+              "reader": "pdf-text-chars",
+              "path": "original.pdf",
+              "expect": 0
+            }
+          ]
+        },
+        "evidence": [
+          "data/public_sources_20261107_round2.json#virden-drawings"
+        ]
+      },
+      "retired": {
+        "kind": "no usable key",
+        "reason": "No text layer and no published extraction: any key would be hand-authored, and OCR output is a hint, never a key (scripts/pdf_tag_check.py).",
         "evidence": [
           "data/public_sources_20261107_round2.json#virden-drawings"
         ]
@@ -261,17 +1071,108 @@
     },
     "haile-water-treatment": {
       "key": {
-        "status": "unknown",
-        "what": "no engineering-reviewed extraction key; text layer not checked",
+        "status": "verified key",
+        "what": "PDF text layer on a 13-sheet P&ID set, the same kind of key as Pahala",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "original.pdf",
+          "field": "text layer on the P&ID sheets (PyMuPDF get_text characters; dash-form tags [A-Z]{2,4}-digits (regex \\b[A-Z]{2,4}-\\d{2,5}[A-Z]?\\b))",
+          "count": "133 pages; 13 pages (48-60) carry the title '1200 GPM WATER TREATMENT P&ID'; development pages 48-52 hold 841 to 1,298 characters and 13 to 23 distinct dash-form tags each",
+          "example": "page 49: tank and pump tags such as TK-001 and PP-003",
+          "checks": [
+            {
+              "reader": "pdf-pages",
+              "path": "original.pdf",
+              "expect": 133
+            },
+            {
+              "reader": "pdf-pages-matching",
+              "path": "original.pdf",
+              "expect": 13,
+              "pattern": "1200 GPM WATER TREATMENT P&ID"
+            },
+            {
+              "reader": "pdf-text-chars",
+              "path": "original.pdf",
+              "expect": 1120,
+              "pages": [
+                49
+              ]
+            },
+            {
+              "reader": "pdf-unique-matches",
+              "path": "original.pdf",
+              "expect": 13,
+              "page": 49,
+              "pattern": "\\b[A-Z]{2,4}-\\d{2,5}[A-Z]?\\b"
+            }
+          ]
+        },
         "evidence": [
           "data/public_sources_20261107_round2.json#haile-water-treatment"
-        ]
+        ],
+        "independence": "same-layer-as-input"
+      },
+      "plan": {
+        "date": "2026-11-12",
+        "feature": "drawing-set-to-bundle",
+        "key": "the PDF's own text layer (scripts/pdf_tag_check.py), as for Pahala",
+        "task": "round-6 tag-text score from the drawing-set bundle (scripts/import_drawing_set.py) on a second publisher's set",
+        "split": {
+          "decided": "2026-11-12",
+          "development": [
+            "pages 48-52"
+          ],
+          "held_out": [
+            "pages 53-60"
+          ]
+        },
+        "evidence": [
+          "data/public_sources_20261107_round2.json#haile-water-treatment"
+        ],
+        "names": [
+          "Haile"
+        ],
+        "note": "partly circular, as for Pahala. The page survey that found the P&ID pages counted text-layer tags on all 13 pages; no reader or importer was run",
+        "exposure": "Held-out key counts were surveyed on 2026-11-12 (layout-padded pdftotext character counts and dash-form tag counts on all 13 P&ID pages, and tag text printed for each page); no method was run. Any sealed score on pages 53-60 must state this."
       }
     },
     "salina-design-basis": {
       "key": {
-        "status": "unknown",
-        "what": "no engineering-reviewed extraction key; text layer not checked",
+        "status": "verified: no key in source",
+        "what": "a basis-of-design report without drawings",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "original.pdf",
+          "field": "text layer (PyMuPDF get_text characters; dash-form tags [A-Z]{2,4}-digits (regex \\b[A-Z]{2,4}-\\d{2,5}[A-Z]?\\b))",
+          "count": "143 pages, 206,341 characters; 'P&ID' on 3 pages; the one page with 8 or more distinct dash-form tags (page 40) is a design-criteria table of equipment designations",
+          "example": "page 73: P&IDs 'will be provided' in the detail design phase",
+          "checks": [
+            {
+              "reader": "pdf-pages",
+              "path": "original.pdf",
+              "expect": 143
+            },
+            {
+              "reader": "pdf-text-chars",
+              "path": "original.pdf",
+              "expect": 206341
+            },
+            {
+              "reader": "pdf-pages-matching",
+              "path": "original.pdf",
+              "expect": 3,
+              "pattern": "P&ID"
+            }
+          ]
+        },
+        "evidence": [
+          "data/public_sources_20261107_round2.json#salina-design-basis"
+        ]
+      },
+      "retired": {
+        "kind": "no usable key",
+        "reason": "The report describes drawings to come; it contains no P&ID sheet to read or key.",
         "evidence": [
           "data/public_sources_20261107_round2.json#salina-design-basis"
         ]
@@ -279,26 +1180,157 @@
     },
     "ruttan-water-treatment": {
       "key": {
-        "status": "unknown",
-        "what": "no engineering-reviewed extraction key; text layer not checked",
+        "status": "verified key",
+        "what": "PDF text layer on two P&ID sheets named in the drawing list",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "original.pdf",
+          "field": "page 58 drawing list; 'P&ID' in the text layer",
+          "count": "70 pages; the page 58 drawing list names 'P&ID WATER TREATMENT PLAN' and 'P&ID PUMPING STATIONS'; 'P&ID' appears in the text layer of pages 50, 51 and 58",
+          "example": "page 58: drawing 10-1357-02-M772, P&ID WATER TREATMENT PLAN",
+          "checks": [
+            {
+              "reader": "pdf-pages",
+              "path": "original.pdf",
+              "expect": 70
+            },
+            {
+              "reader": "pdf-pages-matching",
+              "path": "original.pdf",
+              "expect": 3,
+              "pattern": "P&ID"
+            }
+          ]
+        },
         "evidence": [
           "data/public_sources_20261107_round2.json#ruttan-water-treatment"
-        ]
+        ],
+        "independence": "same-layer-as-input"
+      },
+      "plan": {
+        "date": "2026-11-12",
+        "feature": "drawing-set-to-bundle",
+        "key": "the PDF's own text layer (scripts/pdf_tag_check.py)",
+        "task": "a held-out-only cross-publisher check of the round-6 tag-text score, run once with the method frozen on the Pahala and Haile development pages",
+        "split": {
+          "decided": "2026-11-12",
+          "development": [],
+          "held_out": [
+            "pages 50-51"
+          ]
+        },
+        "evidence": [
+          "data/public_sources_20261107_round2.json#ruttan-water-treatment"
+        ],
+        "names": [
+          "Ruttan"
+        ],
+        "note": "partly circular, as for Pahala: the key is the same text layer the importer reads, so a match checks the reading of text, not the drawing. Two sheets only: one more publisher, not a generalization claim",
+        "exposure": "Held-out key counts were surveyed on 2026-11-12 (layout-padded pdftotext character counts, dash-form tag counts and some tag text on both pages); no method was run. Any sealed score on pages 50-51 must state this."
       }
     },
     "tina-mining": {
       "key": {
-        "status": "acquisition record says labels exist, unopened",
-        "what": "coded maintenance/alarm events; labels not read",
+        "status": "verified key",
+        "what": "publisher maintenance codes in the sensor stream: a labelled event start per day",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "data/day=2018-01-01/data.parquet",
+          "field": "m_id (maintenance code), alarms, unix; 105 anonymized FEATURE columns",
+          "count": "4 days: 2017-09-06 74,026 rows, no maintenance; 2018-01-01 85,993 rows, 566 M5 rows; 2018-05-01 86,400 rows, no event; 2018-12-25 18,001 rows, 160 M9 rows",
+          "example": "2018-01-01: first M5 row at unix 1514774429",
+          "checks": [
+            {
+              "reader": "parquet-rows",
+              "path": "data/day=2017-09-06/data.parquet",
+              "expect": 74026
+            },
+            {
+              "reader": "parquet-rows",
+              "path": "data/day=2018-01-01/data.parquet",
+              "expect": 85993
+            },
+            {
+              "reader": "parquet-rows",
+              "path": "data/day=2018-05-01/data.parquet",
+              "expect": 86400
+            },
+            {
+              "reader": "parquet-rows",
+              "path": "data/day=2018-12-25/data.parquet",
+              "expect": 18001
+            }
+          ]
+        },
         "evidence": [
           "data/public_sources_20261107_round3.json#tina-mining"
-        ]
+        ],
+        "independence": "independent"
+      },
+      "plan": {
+        "date": "2026-11-12",
+        "feature": "historian-csv",
+        "key": "the publisher's maintenance code m_id: a day's first maintenance row is its labelled event start",
+        "task": "matrix row 6 (scripts/csv_normal_bands.py): bands fitted on the event-free 2018-05-01 export, scored on a day with a maintenance; first flag before and after the event start, and every flag before it; a shifted-start control in every table",
+        "split": {
+          "decided": "2026-11-12",
+          "development": [
+            "fit on 2018-05-01; score 2018-01-01 (M5)"
+          ],
+          "held_out": [
+            "score 2018-12-25 (M9)",
+            "false flags on 2017-09-06 (no maintenance)"
+          ]
+        },
+        "evidence": [
+          "data/public_sources_20261107_round3.json#tina-mining"
+        ],
+        "names": [
+          "TiNA"
+        ],
+        "note": "a maintenance stop is not a fault onset: the machine stops for it, so a flag at the stop is expected and only a flag before it is useful. Columns are anonymized and renamed, so tags carry no meaning. The m_id column must be withheld from the CSV the tool reads",
+        "exposure": "Held-out key counts were surveyed on 2026-11-12 (row, maintenance-row and alarm-row counts for every day, and the M9 code on 2018-12-25); no method was run. Any sealed score on 2018-12-25 and 2017-09-06 must state this."
       }
     },
     "bms-alarms": {
       "key": {
-        "status": "acquisition record says labels exist, unopened",
-        "what": "periodicity labels",
+        "status": "verified, not a key for any toolkit task",
+        "what": "per-alarm periodicity labels; no toolkit feature analyses alarm events",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "DSPub237Metadata.parquet",
+          "field": "IsDailyPeriodic, IsRepeatPeriodic per AlarmId",
+          "count": "237 alarm ids (both 58, daily only 79, repeat only 6, neither 94); 84 in the test metadata; 73,379 events",
+          "example": "A0: daily periodic, repeat periodic",
+          "checks": [
+            {
+              "reader": "parquet-rows",
+              "path": "DSPub237Metadata.parquet",
+              "expect": 237
+            },
+            {
+              "reader": "parquet-rows",
+              "path": "DSPub237Metadata_test.parquet",
+              "expect": 84
+            },
+            {
+              "reader": "parquet-rows",
+              "path": "DSPub237.parquet",
+              "expect": 73379
+            }
+          ]
+        },
+        "evidence": [
+          "data/public_sources_20261107_round3.json#bms-alarms"
+        ]
+      },
+      "deferred": {
+        "date": "2026-11-12",
+        "area": "Process and historian data",
+        "feature": {
+          "id": "alarm-pattern-review",
+          "description": "classify alarm-event streams as daily-periodic, repeating or irregular for alarm review"
+        },
         "evidence": [
           "data/public_sources_20261107_round3.json#bms-alarms"
         ]
@@ -306,8 +1338,52 @@
     },
     "epanet-networks": {
       "key": {
-        "status": "source structure (candidate)",
-        "what": "network topology in the INP sections",
+        "status": "verified, not a key for any toolkit task",
+        "what": "network topology in the INP sections; the input file is the key itself",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "example-networks/Net1.inp",
+          "field": "[JUNCTIONS], [RESERVOIRS], [TANKS], [PIPES], [PUMPS]",
+          "count": "Net1 9 junctions, 12 pipes, 1 pump; Net2 35 junctions, 40 pipes; Net3 92 junctions, 117 pipes, 2 pumps",
+          "example": "Net1: 1 reservoir, 1 tank",
+          "checks": [
+            {
+              "reader": "inp-section",
+              "path": "example-networks/Net1.inp",
+              "expect": 12,
+              "section": "[PIPES]"
+            },
+            {
+              "reader": "inp-section",
+              "path": "example-networks/Net2.inp",
+              "expect": 40,
+              "section": "[PIPES]"
+            },
+            {
+              "reader": "inp-section",
+              "path": "example-networks/Net3.inp",
+              "expect": 117,
+              "section": "[PIPES]"
+            },
+            {
+              "reader": "inp-section",
+              "path": "example-networks/Net1.inp",
+              "expect": 9,
+              "section": "[JUNCTIONS]"
+            }
+          ]
+        },
+        "evidence": [
+          "data/public_sources_20261107_round3.json#epanet-networks"
+        ]
+      },
+      "deferred": {
+        "date": "2026-11-12",
+        "area": "Process models and networks",
+        "feature": {
+          "id": "network-inp-import",
+          "description": "import an EPANET INP network into the plant model, checked lossless against the INP sections like the DEXPI route"
+        },
         "evidence": [
           "data/public_sources_20261107_round3.json#epanet-networks"
         ]
@@ -315,8 +1391,22 @@
     },
     "freecad-originals": {
       "key": {
-        "status": "unknown",
-        "what": "contents uninspected",
+        "status": "verified: no key in source",
+        "what": "native FCStd archives; no attribute or field key; one archive listing was read",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "AttachmentTutorial.FCStd",
+          "field": "archive member names only (no member content read)",
+          "count": "3 models (2 exercises, 1 tutorial); one archive listing read: Document.xml and 7 BREP shape members",
+          "example": "AttachmentTutorial.FCStd lists Document.xml and PartShape.brp"
+        },
+        "evidence": [
+          "data/public_sources_20261107_round3.json#freecad-originals"
+        ]
+      },
+      "retired": {
+        "kind": "blocked",
+        "reason": "No toolkit reader opens FCStd files and the data terms are unresolved. Disclosure: the acquisition limits said to declare a method and exposure split before opening; on 2026-11-12 the member listing of AttachmentTutorial.FCStd was read (names only, no member content). No method ran; a later evaluation must declare this exposure.",
         "evidence": [
           "data/public_sources_20261107_round3.json#freecad-originals"
         ]
@@ -324,8 +1414,34 @@
     },
     "mro-catalog": {
       "key": {
-        "status": "unknown",
-        "what": "two catalog revisions; no key stated",
+        "status": "verified: no key in source",
+        "what": "reseller product listings; no plant record, event or label",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "product-E-14-02-2026.csv",
+          "field": "ID, title, description, link, condition, price, availability, image link, mpn, brand",
+          "count": "35,233 rows (February) and 36,016 rows (September) snapshots",
+          "example": "a drying-oven listing with its inner dimensions",
+          "checks": [
+            {
+              "reader": "csv-rows",
+              "path": "product-E-14-02-2026.csv",
+              "expect": 35233
+            },
+            {
+              "reader": "csv-rows",
+              "path": "product-E-20-09-2026.csv",
+              "expect": 36016
+            }
+          ]
+        },
+        "evidence": [
+          "data/public_sources_20261107_round3.json#mro-catalog"
+        ]
+      },
+      "retired": {
+        "kind": "no area",
+        "reason": "A product catalog, not maintenance or plant records; it fits no toolkit area and has no key.",
         "evidence": [
           "data/public_sources_20261107_round3.json#mro-catalog"
         ]
@@ -333,27 +1449,110 @@
     },
     "nasa-milling": {
       "key": {
-        "status": "acquisition record says labels exist, unopened",
-        "what": "wear labels, unread",
+        "status": "verified, not a key for any toolkit task",
+        "what": "flank wear (VB) measured between runs at irregular intervals; a wear regression key",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "3. Milling.zip!3. Milling/mill.zip",
+          "field": "Readme.pdf variables case, run, VB, time, DOC, feed, material; mill.mat",
+          "count": "16 cases with varying runs; mill.mat is a binary .mat file (format 5.0 header)",
+          "example": "Readme: 'Flank wear, measured after runs'",
+          "checks": [
+            {
+              "reader": "zip-members",
+              "path": "3. Milling.zip!3. Milling/mill.zip",
+              "expect": 2
+            }
+          ]
+        },
         "evidence": [
           "data/public_sources_20261107_round3.json#nasa-milling"
         ]
+      },
+      "deferred": {
+        "date": "2026-11-12",
+        "area": "Process and historian data",
+        "feature": {
+          "id": "tool-wear-estimate",
+          "description": "estimate flank wear from machining-run signals, with a reader for binary .mat files"
+        },
+        "evidence": [
+          "data/public_sources_20261107_round3.json#nasa-milling"
+        ],
+        "note": "the collection terms are not established"
       }
     },
     "nasa-cmapss": {
       "key": {
-        "status": "acquisition record says labels exist, unopened",
-        "what": "nested splits/labels, unopened",
+        "status": "verified, not a key for any toolkit task",
+        "what": "remaining useful life at the end of each test trajectory; no fault-start label",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "6. Turbofan Engine Degradation Simulation Data Set.zip!6. Turbofan Engine Degradation Simulation Data Set/CMAPSSData.zip",
+          "field": "RUL_FD00x.txt and train/test_FD00x.txt (26 columns)",
+          "count": "FD001: 100 training trajectories (20,631 rows), 100 test trajectories, 100 RUL values",
+          "example": "RUL_FD001 begins 112, 98, 69",
+          "checks": [
+            {
+              "reader": "lines",
+              "path": "6. Turbofan Engine Degradation Simulation Data Set.zip!6. Turbofan Engine Degradation Simulation Data Set/CMAPSSData.zip!RUL_FD001.txt",
+              "expect": 100
+            },
+            {
+              "reader": "lines",
+              "path": "6. Turbofan Engine Degradation Simulation Data Set.zip!6. Turbofan Engine Degradation Simulation Data Set/CMAPSSData.zip!train_FD001.txt",
+              "expect": 20631
+            },
+            {
+              "reader": "regex",
+              "path": "6. Turbofan Engine Degradation Simulation Data Set.zip!6. Turbofan Engine Degradation Simulation Data Set/CMAPSSData.zip!RUL_FD001.txt",
+              "expect": 1,
+              "pattern": "\\A\\s*112\\s+98\\s+69\\s"
+            }
+          ]
+        },
         "evidence": [
           "data/public_sources_20261107_round3.json#nasa-cmapss"
         ]
       },
-      "note": "named in docs/DEPTH_GOAL.md increment 2 as an option; no key or task committed"
+      "deferred": {
+        "date": "2026-11-12",
+        "area": "Process and historian data",
+        "feature": {
+          "id": "remaining-life-estimate",
+          "description": "estimate remaining cycles before failure from a run-to-failure history"
+        },
+        "evidence": [
+          "data/public_sources_20261107_round3.json#nasa-cmapss"
+        ],
+        "note": "named as an increment-2 option; the archive terms are not established"
+      }
     },
     "usda-pumping": {
       "key": {
-        "status": "unknown",
-        "what": "not stated",
+        "status": "verified: no key in source",
+        "what": "a handbook chapter; nameplate data appear as prose and one nomenclature figure",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "Chapter 8 - Irrigation Pumping Plants.pdf",
+          "field": "text layer (PyMuPDF get_text characters)",
+          "count": "208 pages, 502,770 characters",
+          "example": "Figure 8C-1: nameplate nomenclature for a pump",
+          "checks": [
+            {
+              "reader": "pdf-pages",
+              "path": "Chapter 8 - Irrigation Pumping Plants.pdf",
+              "expect": 208
+            }
+          ]
+        },
+        "evidence": [
+          "data/public_sources_20261107_round3.json#usda-pumping"
+        ]
+      },
+      "retired": {
+        "kind": "no usable key",
+        "reason": "Instructional text and figures with no field-reading key, and third-party figures need individual rights review.",
         "evidence": [
           "data/public_sources_20261107_round3.json#usda-pumping"
         ]
@@ -361,8 +1560,34 @@
     },
     "phoenix-nameplate": {
       "key": {
-        "status": "unknown",
-        "what": "not stated",
+        "status": "verified: no key in source",
+        "what": "a one-page field guideline, publisher copyright",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "PPI_Pump_Nameplate_Guidelines.pdf",
+          "field": "text layer (PyMuPDF get_text characters)",
+          "count": "1 page, 1,860 characters",
+          "example": "field name: Model",
+          "checks": [
+            {
+              "reader": "pdf-pages",
+              "path": "PPI_Pump_Nameplate_Guidelines.pdf",
+              "expect": 1
+            },
+            {
+              "reader": "pdf-text-chars",
+              "path": "PPI_Pump_Nameplate_Guidelines.pdf",
+              "expect": 1860
+            }
+          ]
+        },
+        "evidence": [
+          "data/public_sources_20261107_round3.json#phoenix-nameplate"
+        ]
+      },
+      "retired": {
+        "kind": "rights",
+        "reason": "Publisher copyright with no open licence, and a guideline of field rules, not a photograph or a key.",
         "evidence": [
           "data/public_sources_20261107_round3.json#phoenix-nameplate"
         ]
@@ -370,8 +1595,22 @@
     },
     "commons-fireboat": {
       "key": {
-        "status": "no key in source",
-        "what": "no OCR/transcription key",
+        "status": "verified: no key in source",
+        "what": "photographs with captions only; no transcribed nameplate fields",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "data/public-source-evidence/2026-11-07-round-3/commons-fireboat.json",
+          "field": "extmetadata.ImageDescription",
+          "count": "1 photograph; each description is one caption, no field transcription",
+          "example": "caption: builder plate of a 600 V DC marine motor"
+        },
+        "evidence": [
+          "data/public_sources_20261107_round3.json#commons-fireboat"
+        ]
+      },
+      "retired": {
+        "kind": "no usable key",
+        "reason": "Nameplate fields would have to be hand-keyed; a self- or agent-keyed sheet is not a key here, and the photo-to-record example already teaches the method on two Commons photographs.",
         "evidence": [
           "data/public_sources_20261107_round3.json#commons-fireboat"
         ]
@@ -379,11 +1618,26 @@
     },
     "nyc-amps-2024w01": {
       "key": {
-        "status": "source structure (candidate)",
-        "what": "linked asset, work-order, parts and labor relationships",
+        "status": "verified key",
+        "what": "linked asset, work-order, labor and transaction records from one source system",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "work-orders-000.json",
+          "field": "evt_code, evt_object (to assets obj_code), labor boo_event",
+          "count": "1,612 work orders, all 1,612 evt_object values found among 933 asset rows; 5,268 labor, 208 transaction, 263 detail rows",
+          "example": "evt_code 2503446, evt_class Boiler, evt_jobtype CM",
+          "checks": [
+            {
+              "reader": "json-len",
+              "path": "work-orders-000.json",
+              "expect": 1612
+            }
+          ]
+        },
         "evidence": [
           "data/public_sources_20261107_round4.json#nyc-amps-2024w01"
-        ]
+        ],
+        "independence": "computed-from-input"
       },
       "plan": {
         "date": "2026-11-08",
@@ -397,22 +1651,114 @@
           "examples/maintenance-history/PLAN.md#2024-01-15 inclusive to 2024-01-22 exclusive",
           "examples/maintenance-history/README.md#Reserved transfer remains unverified"
         ],
-        "note": "the reserved acquisition stopped at HTTP 500 on the fourth related-asset batch; reserved transfer unverified"
+        "note": "the reserved acquisition stopped at HTTP 500 on the fourth related-asset batch; reserved transfer unverified",
+        "feature": "maintenance-history",
+        "split": {
+          "decided": "2026-11-08",
+          "development": [
+            "request cohort 2024-01-01 to 2024-01-08"
+          ],
+          "held_out": [
+            "request cohort 2024-01-15 to 2024-01-22 (not acquired)"
+          ]
+        },
+        "exposure": "Nothing of the held-out cohort was read: it was never acquired."
       }
     },
     "industrial-yeast": {
       "key": {
-        "status": "acquisition record says labels exist, unopened",
-        "what": "publisher evaluation profiles and summaries: reference outputs, not a labelled key",
+        "status": "verified key",
+        "what": "the publisher-logged running cumulative sugar beside the hourly feed rate, and published descriptive statistics",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "fermentation_timeseries.csv",
+          "field": "total_fermentable_sugar_kg (logged cumulative), sugar_feed_rate_kg_rs_h; summary_stats.json",
+          "count": "59 batches, 1,090 hourly rows, 10 full_process batches; 228 rows carry the logged cumulative",
+          "example": "B01: logged 300 kg at hour 0 and 23,000 kg at hour 17; its 17 hourly feeds (hours 1-17) sum to 22,700 kg",
+          "checks": [
+            {
+              "reader": "csv-rows",
+              "path": "fermentation_timeseries.csv",
+              "expect": 1090
+            },
+            {
+              "reader": "csv-nonempty",
+              "path": "fermentation_timeseries.csv",
+              "expect": 228,
+              "column": "total_fermentable_sugar_kg"
+            },
+            {
+              "reader": "csv-count",
+              "path": "batch_metadata.csv",
+              "expect": 10,
+              "column": "data_completeness",
+              "value": "full_process"
+            }
+          ]
+        },
         "evidence": [
           "data/public_sources_20261107_round5.json#industrial-yeast"
-        ]
+        ],
+        "independence": "independent"
+      },
+      "plan": {
+        "date": "2026-11-12",
+        "feature": "batch-analysis",
+        "key": "the logged cumulative sugar (README: delta TFS equals the sum of hourly sugar feed) and summary_stats.json's published full-process statistics",
+        "task": "scripts/batch_analysis.py over each full-process batch with a supplied whole-batch window: integrated sugar feed against the logged delta, means against the published statistics; a wrong-unit control",
+        "split": {
+          "decided": "2026-11-12",
+          "development": [
+            "B01",
+            "B02",
+            "B03",
+            "B04",
+            "B05"
+          ],
+          "held_out": [
+            "B06",
+            "B07",
+            "B08",
+            "B09",
+            "B10"
+          ]
+        },
+        "evidence": [
+          "data/public_sources_20261107_round5.json#industrial-yeast"
+        ],
+        "note": "the tool integrates by trapezoid and the logged delta is an hourly sum, so the scorer must state that difference before the first run; the logged cumulative column must be withheld from the CSV the tool reads",
+        "exposure": "Held-out key counts were surveyed on 2026-11-12 (row and logged-cumulative counts over all batches and the completeness tier of every batch; key values were read for B01 only); no method was run. Any sealed score on B06-B10 must state this."
       }
     },
     "alpi-packaging": {
       "key": {
-        "status": "acquisition record says labels exist, unopened",
-        "what": "publisher processed splits, unopened",
+        "status": "verified, not a key for any toolkit task",
+        "what": "alarm occurrences and publisher-processed forecasting windows",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "alarms_log_data.zip!alarms_log_data/raw/alarms.csv",
+          "field": "timestamp, alarm, serial",
+          "count": "444,834 alarms, 154 codes, 20 machines, 2019-02-21 to 2020-06-17",
+          "example": "2019-02-21 19:57:57.532, alarm 139, serial 4",
+          "checks": [
+            {
+              "reader": "csv-rows",
+              "path": "alarms_log_data.zip!alarms_log_data/raw/alarms.csv",
+              "expect": 444834
+            }
+          ]
+        },
+        "evidence": [
+          "data/public_sources_20261107_round5.json#alpi-packaging"
+        ]
+      },
+      "deferred": {
+        "date": "2026-11-12",
+        "area": "Process and historian data",
+        "feature": {
+          "id": "alarm-sequence-review",
+          "description": "review alarm sequences per machine and flag recurring alarm patterns"
+        },
         "evidence": [
           "data/public_sources_20261107_round5.json#alpi-packaging"
         ]
@@ -420,8 +1766,34 @@
     },
     "synthetic-maint-sensor": {
       "key": {
-        "status": "unknown",
-        "what": "synthetic; no join validation",
+        "status": "verified: no key in source",
+        "what": "synthetic tag and work-order records whose equipment ids do not join",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "sensor_tags.parquet",
+          "field": "Tag_name, Description, Equipment_ID, Equipment_type; maintenance.parquet Equipment_ID",
+          "count": "1,048,779 tag rows with 43,928 distinct Equipment_ID (README: 145 instances); 48,705 maintenance ids, 168 shared",
+          "example": "centrifugal_pump_p101_flow_rate, Equipment_ID P-101",
+          "checks": [
+            {
+              "reader": "parquet-rows",
+              "path": "sensor_tags.parquet",
+              "expect": 1048779
+            },
+            {
+              "reader": "parquet-rows",
+              "path": "maintenance.parquet",
+              "expect": 1048779
+            }
+          ]
+        },
+        "evidence": [
+          "data/public_sources_20261107_round5.json#synthetic-maint-sensor"
+        ]
+      },
+      "retired": {
+        "kind": "no usable key",
+        "reason": "Deliberate impurities leave equipment ids that neither match the stated 145 instances nor join tags to work orders, and point mapping needs a drawing model the source lacks.",
         "evidence": [
           "data/public_sources_20261107_round5.json#synthetic-maint-sensor"
         ]
@@ -429,8 +1801,36 @@
     },
     "uci-steel-faults": {
       "key": {
-        "status": "acquisition record says labels exist, unopened",
-        "what": "defect class labels",
+        "status": "verified, not a key for any toolkit task",
+        "what": "one-hot defect classes of steel plates from image descriptors",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "data.csv",
+          "field": "Pastry, Z_Scratch, K_Scratch, Stains, Dirtiness, Bumps, Other_Faults",
+          "count": "1,941 plates, one class each: Other 673, Bumps 402, K_Scratch 391, Z_Scratch 190, Pastry 158, Stains 72, Dirtiness 55",
+          "example": "plate 1: X 42-50, Pixels_Areas 267, class Pastry",
+          "checks": [
+            {
+              "reader": "csv-rows",
+              "path": "data.csv",
+              "expect": 1941
+            },
+            {
+              "reader": "csv-count",
+              "path": "data.csv",
+              "expect": 673,
+              "column": "Other_Faults",
+              "value": "1"
+            }
+          ]
+        },
+        "evidence": [
+          "data/public_sources_20261107_round5.json#uci-steel-faults"
+        ]
+      },
+      "retired": {
+        "kind": "no area",
+        "reason": "Surface-defect classification from image descriptors of steel plates: product inspection, outside the plant-context areas, with no time order.",
         "evidence": [
           "data/public_sources_20261107_round5.json#uci-steel-faults"
         ]
@@ -438,8 +1838,29 @@
     },
     "uci-ccpp": {
       "key": {
-        "status": "unknown",
-        "what": "output column is a regression target, not a fault label",
+        "status": "verified: no key in source",
+        "what": "PE is a regression target, not a fault or event label",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "data.csv",
+          "field": "AT, V, AP, RH, PE",
+          "count": "9,568 hourly rows, 5 columns",
+          "example": "AT 14.96, V 41.76, AP 1024.07, RH 73.17, PE 463.26",
+          "checks": [
+            {
+              "reader": "csv-rows",
+              "path": "data.csv",
+              "expect": 9568
+            }
+          ]
+        },
+        "evidence": [
+          "data/public_sources_20261107_round5.json#uci-ccpp"
+        ]
+      },
+      "retired": {
+        "kind": "no usable key",
+        "reason": "No fault, event or outcome label; a power-output regression no toolkit feature performs.",
         "evidence": [
           "data/public_sources_20261107_round5.json#uci-ccpp"
         ]
@@ -447,8 +1868,30 @@
     },
     "idta-digital-nameplate": {
       "key": {
-        "status": "source structure (candidate)",
-        "what": "template example values, not a transcription key",
+        "status": "verified: no key in source",
+        "what": "template example values are placeholders, not readings",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "published/Digital nameplate/3/0/3/IDTA 02006-3-0-3_Template_Digital Nameplate.json",
+          "field": "Property and MultiLanguageProperty values",
+          "count": "20 Property and 6 MultiLanguageProperty elements; 23 example values",
+          "example": "SerialNumber '12345678'",
+          "checks": [
+            {
+              "reader": "regex",
+              "path": "published/Digital nameplate/3/0/3/IDTA 02006-3-0-3_Template_Digital Nameplate.json",
+              "expect": 20,
+              "pattern": "\"modelType\"\\s*:\\s*\"Property\""
+            }
+          ]
+        },
+        "evidence": [
+          "data/public_sources_20261107_round5.json#idta-digital-nameplate"
+        ]
+      },
+      "retired": {
+        "kind": "no usable key",
+        "reason": "A field vocabulary with placeholder values; it could name photo-to-record fields but cannot score a reading.",
         "evidence": [
           "data/public_sources_20261107_round5.json#idta-digital-nameplate"
         ]
@@ -456,8 +1899,22 @@
     },
     "biosteam-sugarcane": {
       "key": {
-        "status": "source structure (candidate)",
-        "what": "system definitions in source code, not executed",
+        "status": "verified: no key in source",
+        "what": "systems built from library sub-system factories that were not acquired",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "biorefineries/cane/systems/sugarcane/ethanol.py",
+          "field": "SystemFactory functions calling create_*_system",
+          "count": "5 source files; ethanol.py composes feedstock handling, juicing, fermentation and purification sub-systems",
+          "example": "create_sugarcane_to_ethanol_system calls create_juicing_system"
+        },
+        "evidence": [
+          "data/public_sources_20261107_round5.json#biosteam-sugarcane"
+        ]
+      },
+      "retired": {
+        "kind": "no usable key",
+        "reason": "The unit topology lives in library factories outside the acquired files, so it cannot be read without executing the library.",
         "evidence": [
           "data/public_sources_20261107_round5.json#biosteam-sugarcane"
         ]
@@ -465,8 +1922,22 @@
     },
     "commons-ksb-pump": {
       "key": {
-        "status": "no key in source",
-        "what": "no human field key",
+        "status": "verified: no key in source",
+        "what": "photographs with captions only; no transcribed nameplate fields",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "data/public-source-evidence/2026-11-07-round-5/commons-pump.json",
+          "field": "extmetadata.ImageDescription",
+          "count": "1 photograph; each description is one caption, no field transcription",
+          "example": "caption: a historic pump nameplate displayed at a former mine"
+        },
+        "evidence": [
+          "data/public_sources_20261107_round5.json#commons-ksb-pump"
+        ]
+      },
+      "retired": {
+        "kind": "no usable key",
+        "reason": "Nameplate fields would have to be hand-keyed; a self- or agent-keyed sheet is not a key here, and the photo-to-record example already teaches the method on two Commons photographs.",
         "evidence": [
           "data/public_sources_20261107_round5.json#commons-ksb-pump"
         ]
@@ -474,8 +1945,39 @@
     },
     "nist-pmi-cases": {
       "key": {
-        "status": "source structure (candidate)",
-        "what": "case specifications, contents unopened",
+        "status": "verified, not a key for any toolkit task",
+        "what": "mechanical-part PMI cases in STEP and native formats with specification PDFs",
+        "verified": {
+          "date": "2026-11-12",
+          "file": "step-files.zip",
+          "field": "STEP files and case drawings",
+          "count": "step-files.zip 33 STEP and 11 PDF; native-models.zip 117 files (127 entries with folders)",
+          "example": "CTC-02.pdf: 3-page case drawing",
+          "checks": [
+            {
+              "reader": "zip-members",
+              "path": "step-files.zip",
+              "expect": 33,
+              "suffix": ".stp"
+            },
+            {
+              "reader": "zip-members",
+              "path": "native-models.zip",
+              "expect": 117
+            }
+          ]
+        },
+        "evidence": [
+          "data/public_sources_20261107_round5.json#nist-pmi-cases"
+        ]
+      },
+      "deferred": {
+        "date": "2026-11-12",
+        "area": "CAD",
+        "feature": {
+          "id": "step-pmi-reader",
+          "description": "read STEP semantic PMI and compare it with the case definitions"
+        },
         "evidence": [
           "data/public_sources_20261107_round5.json#nist-pmi-cases"
         ]
