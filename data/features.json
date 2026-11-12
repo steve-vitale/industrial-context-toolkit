@@ -45,6 +45,8 @@
         "scripts/offpage_pairing.py",
         "scripts/line_layers.py",
         "scripts/flow_direction.py",
+        "scripts/loop_assembly.py",
+        "scripts/crossing_question.py",
         "scripts/pdf_tag_check.py",
         "scripts/ocr_tag_hints_score.py",
         "scripts/deliverable_report.py"
@@ -56,6 +58,7 @@
       ],
       "tests": [
         "scripts/test_drawing_set_intake.py",
+        "scripts/test_loop_assembly.py",
         "scripts/test_offpage_pairing.py",
         "scripts/test_pdf_tag_check.py",
         "scripts/test_ocr_tag_hints_score.py"
@@ -63,7 +66,7 @@
       "job": "Read a whole drawing set as one plant, and check the extracted tags against the PDF's own text",
       "you_need": "Each sheet as a PNG with its extraction, drawing number and title; the original PDF for the tag check",
       "time": "Three public Pahala WWTP sheets read in 183 s plus 9 s of tracing, measured once; intake, report and tag check took seconds; review time not measured",
-      "you_get": "One draft model across the sheets with off-page connectors paired by drawing number, title or system code (ties left for a person), the drawn pipe segments and instrument connections as graph relations, a flow direction on each pipe segment the drawing shows one for (arrowhead, off-page flag, pump port or valve continuity; the rest stay undirected), a report with every sheet and the pairs, and per-sheet lists of tags the reader missed or may have misread. Pages without a text layer are reported as needing OCR; with --ocr auto and Tesseract installed they also get OCR tag hints, each with its confidence and box, listed apart and never counted as checked tags",
+      "you_get": "One draft model across the sheets with off-page connectors paired by drawing number, title or system code (ties left for a person), the drawn pipe segments and instrument connections as graph relations, a flow direction on each pipe segment the drawing shows one for (arrowhead, off-page flag, pump port or valve continuity; the rest stay undirected), control loops assembled from the ISA-5.1 tags and confirmed only by traced signal lines (signal_to, controls from confirmed loops, cascades; anything resting on a line joined through a crossing carries its own weakest tier and a review question, every relation shows its tier, and every loop not proved is listed as a review candidate), a report with every sheet and the pairs, and per-sheet lists of tags the reader missed or may have misread. Pages without a text layer are reported as needing OCR; with --ocr auto and Tesseract installed they also get OCR tag hints, each with its confidence and box, listed apart and never counted as checked tags",
       "why": "Plants are drawn across many sheets, and a line or loop that leaves one sheet continues on another. A tag printed in the PDF is a free, exact check on what the reader extracted."
     },
     {

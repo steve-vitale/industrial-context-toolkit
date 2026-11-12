@@ -82,18 +82,18 @@ Example review: not yet: needs review
 
 **Inputs:** Each sheet as a PNG with its extraction, drawing number and title; the original PDF for the tag check
 
-**Outputs:** One draft model across the sheets with off-page connectors paired by drawing number, title or system code (ties left for a person), the drawn pipe segments and instrument connections as graph relations, a flow direction on each pipe segment the drawing shows one for (arrowhead, off-page flag, pump port or valve continuity; the rest stay undirected), a report with every sheet and the pairs, and per-sheet lists of tags the reader missed or may have misread. Pages without a text layer are reported as needing OCR; with --ocr auto and Tesseract installed they also get OCR tag hints, each with its confidence and box, listed apart and never counted as checked tags
+**Outputs:** One draft model across the sheets with off-page connectors paired by drawing number, title or system code (ties left for a person), the drawn pipe segments and instrument connections as graph relations, a flow direction on each pipe segment the drawing shows one for (arrowhead, off-page flag, pump port or valve continuity; the rest stay undirected), control loops assembled from the ISA-5.1 tags and confirmed only by traced signal lines (signal_to, controls from confirmed loops, cascades; anything resting on a line joined through a crossing carries its own weakest tier and a review question, every relation shows its tier, and every loop not proved is listed as a review candidate), a report with every sheet and the pairs, and per-sheet lists of tags the reader missed or may have misread. Pages without a text layer are reported as needing OCR; with --ocr auto and Tesseract installed they also get OCR tag hints, each with its confidence and box, listed apart and never counted as checked tags
 
 **Time:** Three public Pahala WWTP sheets read in 183 s plus 9 s of tracing, measured once; intake, report and tag check took seconds; review time not measured
 
-- **Tools:** `import_drawing_set.py`, `offpage_pairing.py`, `line_layers.py`, `flow_direction.py`, `pdf_tag_check.py`, `ocr_tag_hints_score.py`, `deliverable_report.py`
+- **Tools:** `import_drawing_set.py`, `offpage_pairing.py`, `line_layers.py`, `flow_direction.py`, `loop_assembly.py`, `crossing_question.py`, `pdf_tag_check.py`, `ocr_tag_hints_score.py`, `deliverable_report.py`
 - **How to use it:** [README.md](../examples/own-drawing/README.md)
 
 <details>
 <summary>Example files, tests and independent review</summary>
 
 - **Registered example files:** [`set-manifest.json`](../examples/own-drawing/set-manifest.json), [`offpage-key.json`](../examples/own-drawing/offpage-key.json)
-- **Tests:** `test_drawing_set_intake.py`, `test_offpage_pairing.py`, `test_pdf_tag_check.py`, `test_ocr_tag_hints_score.py`
+- **Tests:** `test_drawing_set_intake.py`, `test_loop_assembly.py`, `test_offpage_pairing.py`, `test_pdf_tag_check.py`, `test_ocr_tag_hints_score.py`
 - **Independent review:** none yet
 
 </details>

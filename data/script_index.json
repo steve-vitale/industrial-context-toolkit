@@ -133,6 +133,11 @@
       "guide": "docs/ONE_MAP.md",
       "purpose": "The shared cross-sheet off-page pairing rule, used by import_drawing_set.py after build_twin.py's in-model pass; ties stay unpaired for a person. one_map.py adopts it after a deliberate map-explorer re-freeze."
     },
+    "scripts/loop_assembly.py": {
+      "kind": "support",
+      "guide": "examples/own-drawing/README.md",
+      "purpose": "Control loops and signal relations for the drawing-set bundle, used by import_drawing_set.py: ISA-5.1 loop identity and roles from the read tags, confirmed only by dashed signal lines traced from the sheet images (a line joined through a crossing needs an independent channel; unproved loops are review candidates); signal_to, controls and cascades with their evidence. Loop grouping then tracing follows the public pid-to-kg skill's idea (A409); independent code."
+    },
     "scripts/extract_text.py": {
       "kind": "tool",
       "guide": "docs/DOCUMENT_TEXT.md"
@@ -385,6 +390,15 @@
     },
     "scripts/flow_direction.py": {
       "kind": "research"
+    },
+    "scripts/loop_score.py": {
+      "kind": "research",
+      "purpose": "Round-6 development scores for control loops, signal_to, controls and cascades, read from the bundle import_drawing_set.py writes, against data/te_control_loops.json on TE revisions A and D, beside perfect, empty, shuffled-roles and tag-only controls."
+    },
+    "scripts/crossing_question.py": {
+      "kind": "support",
+      "guide": "examples/own-drawing/README.md",
+      "purpose": "A blind second evaluator for signal lines the loop tracer joined through a crossing: a crop showing only the two lines, one question to a configurable model (does the dashed line continue across, or do two lines end here?), its own scorecard against true crossings, false merges and controls, and a pre-set gate that decides whether its answers may support a loop."
     },
     "scripts/flow_direction_score.py": {
       "kind": "research",

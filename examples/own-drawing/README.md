@@ -258,6 +258,102 @@ OPEN100 pipe segments and 30% of those on Pahala P-401/P-501 are directed. On th
 direction matched the model's streams, but those sheets are drawn left to right, so a layout guess also scores high
 there; it is an upper bound for clean drawings.
 
+Control loops come next ([`loop_assembly.py`](../../scripts/loop_assembly.py), `control_loops` in `plant_model.json`).
+Instruments are grouped by their ISA-5.1 loop identity (an area prefix such as `10-` and the loop number, read from
+the tags; `AIC 123A` and `AT 123` share loop 123), and each gets a role from its letters, read in ISA order (first
+letter, modifier, functions: `ZSC` is a closed-position switch, not a controller; `ESV` and `SV` are shut-off valves;
+`PSV`, `HS` and letters that do not parse get no loop role). Membership is then confirmed or refuted by the dashed
+signal lines traced from each sheet image, joined across sheets only through an off-page pair. The default is
+inverted: a relation is asserted only when every condition on one positive list holds (`signal_conditions` in the
+script): dashed lines only, at least two dash pieces, a stroke no thicker than the bubbles' outline pen or the sheet's
+pipes, no end in reach of two bubbles, every item with a loop role, a sender and its next receiver (a measurement to
+its controller, a controller to its valve or relay, or two controllers), and any ISA tag an off-page connector names
+reached by the joined lines. Two dashed lines that meet a pipe from either side are one line only when the dash
+pattern carries on in step through it, and such a joined line is marked `merged_through_crossing`. It is read as a
+qualified reader reads it, one line crossing, but everything resting on it (`signal_to`, `controls`, `sets_point_of`,
+the loop) carries its own, weakest tier, `traced_through_crossing`, with one review question attached: does the dashed
+line continue across, or do two lines end here? Being in step is evidence, not proof: two lines drawn to a pipe are in
+step by chance about one time in six, and then the picture is the same as one line crossing. An independent channel
+promotes such a line to its ordinary tier: the reader's own connections (a model reading, not a code tracer) join the
+same two items, or a blind second evaluator ([`crossing_question.py`](../../scripts/crossing_question.py)) answers a
+confident "continues" for every crossing and its own scorecard has enabled it. The enabled evaluator's confident "two
+lines" demotes it to review instead. The gate is recomputed at import from the runs recorded in the scorecard file the
+answers name and the prompt hash; it trusts that file, which is fine for a local run on your own files (a shared
+pipeline taking answers from elsewhere should pin the scorecard's hash). A shared loop number plays no part. A line drawn straight through a bubble it does
+not end at is not read as a signal into it. Anything else is listed under `unresolved_signal_networks` with the
+conditions it failed. A cascade (`sets_point_of`) also needs a traced measurement into the outer controller. No loop is
+hidden: every loop the assembly cannot prove is listed under `candidate_loops`, either `merged_line_needs_review` or
+`grouped_by_tag` (the loop number alone groups a measurement and a valve with the controller), with what it would
+confirm and its question.
+
+Every relation in `control_loops.relations` carries its tier in `confidence`, and every loop its `tier`; counts by tier
+are in `control_loops.counts.relations_by_tier`, and `loops_by_tier` (in the counts, in `meta.loops_status` and in the
+intake's `loops` summary) splits loops, cascades and relations into `strict` and `traced_through_crossing`. A derived
+relation or loop takes the weakest tier of every input that made it possible: anything that exists in its form only
+when a crossing-tier line is counted (a cascade whose direction, or a loop whose measurement or valve, needed one) is
+itself `traced_through_crossing`, so a loop at tier `traced` never rests on crossing-tier support. The tiers, strongest first: `traced_and_grouped`, `traced`,
+`traced_cross_sheet`, `traced_direction_inferred` (a cascade whose direction comes from graph distance) and
+`traced_through_crossing`. **Default filter for consumers: keep only relations whose `confidence` is not
+`traced_through_crossing`, and loops whose `tier` is `traced`** (`loop_assembly.STRICT_TIERS`). That is the strictly
+traced view, and because tiers follow derivation, a loop kept by this filter contains no crossing-tier support: the
+strict view is assembled from the drawing's lines with every unconfirmed merged line (and any plain line an off-page
+pair joins to it) left out before networks are formed, and a cascade is not strict either when such a network
+could change it under another reading of the line: give or take a controller of its chain a valve, relay or
+controller link, or give its outer controller a measurement or a valve of its own loop. Take `traced_through_crossing` relations only into a review step that shows their `review_question`. `controls` (controller to final element) needs a confirmed loop (a traced measurement in, a
+traced output out, directly or through a relay), and `sets_point_of` marks a cascade. A loop that rests on its loop
+number alone stays `unconfirmed`, with the grouped tags listed for review; an item a traced line ties to another loop
+is listed as refuted and as a conflict. Every relation carries its evidence and an ordinal confidence tier (a
+cascade's direction, inferred from which controller is nearer a valve, has its own lower tier);
+`meta.loops_status` counts them, and `--no-loops` turns it off (the bundle is then what it was before, apart from the
+importer's own hash). The graph export does not carry loops yet ([N122](../../docs/TRIED.md)): it lists
+`control_loops` under `not_exported`, where the item count is the number of keys in that block, not the number of
+loops. Nothing is taken from layout. On the development sheets ([scores](../../out/round6/loops_dev.md)), which the
+rules were tuned against, the generated TE revision D, read with its key's symbols, gives **10 of its 19 control
+loops strictly traced** (the default filter: 7 of 11 valve loops, 3 of 8 cascades) with no wrong one. Counting every
+tier, it asserts all 19 (11 of 11, 8 of 8), also with no wrong one, but 18 of its 57 relations are then at tier
+`traced_through_crossing`, because 8 of its true signal lines cross a pipe and two cascade directions rest on one of
+them: those 9 loops are for review, not use. Tag grouping alone gives 11 of 19 at 0.55 precision. Neither channel promotes the crossed lines yet: the key reader's links come from the code tracer, and
+the blind evaluator failed its own scorecard (with the one model available today it supported 3 of the 60-placement
+sweep's 10 chance merges and missed the obvious separate-ends control; A416). TE is drawn by this repository with
+clean, consistent tags, so that is an upper bound. Precision is measured in effect on TE revision D only: the other two development
+sets, TE revision A and OPEN100 0-5, draw no controllers, so they cannot show a false `controls` or cascade. TE
+revision A also traces no signal lines at all, so its "0 relations" proves nothing beyond that. OPEN100's 23 to 25
+traced lines per reading all stay unresolved. Grouping by loop number and then tracing follows the public pid-to-kg
+skill (A409); the code here is the toolkit's own.
+
+What the tracer does not find (recall limits measured on synthetic loops; each misses a true loop): dashes at least
+0.6 of a bubble side long (read as solid lines), diagonal signal lines (only horizontal and vertical runs are traced),
+lines drawn with a heavier pen than the bubbles (bubble pen 1 with line pen 2, or line pen 3 with bubble pen 2), and
+sheets whose pipes are drawn thinner than their signal lines.
+
+Known false-assertion modes (three independent reviews built drawings and models to break the assembly; each case is
+a test in [`test_loop_assembly.py`](../../scripts/test_loop_assembly.py)):
+A case is marked inherently ambiguous when nothing in the drawing could tell a reader, person or machine, that it is
+false: its label comes from how the fixture was built, not from the picture.
+
+| Case | Before | Now |
+|---|---|---|
+| A controller's input and output joined at a corner beside its bubble | false `signal_to` T to V | two lines (fixed) |
+| A line end between two stacked bubbles | attached to both | attaches to neither, unresolved (fixed) |
+| A branching {T, C, V} line | false T to V | unresolved (fixed) |
+| One loop number in two units, no prefix | duplicate loop ids, false refuted members | scoped per sheet (fixed) |
+| Two dashed lines ending at a pipe from either side, in step by chance | merged in 10 of 60 random placements (fixed seed), each a false confirmed `controls` | **inherently ambiguous**, not a defect: 2 of the 10 drawings are pixel-identical to one dashed line crossing the pipe, and the other 8 differ from it only by a uniform 1-2 px shift of the dashes below the pipe, which no drawing convention gives a meaning; a qualified reader reads all 10 as one line crossing, and so does the assembly: each asserts its loop at tier `traced_through_crossing` with the crossing question attached. 0 of 60 placements assert a loop relation at a strictly traced tier (defects: 0) |
+| Two dashed lines ending on a dashed line from either side, the two ends controllers or a controller and a valve | merged across it: false `controls` and a false `sets_point_of` | kept apart, and neither end tees into the dashed line (fixed) |
+| A transmitter misread as a controller (`FT` read as `FC`) beside a real controller | false outer loop, `sets_point_of` | no cascade without a traced measurement into the outer controller (fixed) |
+| A dashed line drawn straight through bubbles it does not end at | false `signal_to` into and out of each bubble, false `controls` | unresolved, `not_through_a_symbol` (fixed) |
+| One stroke between two stacked controllers | false cascade, `traced_direction_inferred` | unresolved (fixed) |
+| A thick process line broken into dash-sized pieces | false `signal_to` | unresolved, `thin_stroke` (fixed) |
+| `ZSO`/`ZSC` position switches beside an `XV` | `ZSC` read as a controller, false loop | switches, unresolved (fixed) |
+| Off-page connectors whose text names other instruments | loop confirmed through them | unresolved, `connector_text_agrees` (fixed) |
+| `PSV`, a plant-coded `MOV`, `TW` or `HS` on a controller line | undirected `signal_to` | unresolved, `known_roles` (fixed) |
+| An I/P relay on the way to the valve | relay listed as refuted | traced (fixed) |
+| Letters out of ISA order (`FCI`, `FTC`, `FIV`) | read as controllers (`FCI`, `FTC`) or a valve (`FIV`) | no role (fixed); `ESDV` is a final element |
+| One controller drawn on two sheets (`FIC 101` twice) with its valve reached through an off-page pair | false `loop_identity` conflict | open: the relation is right, the conflict is not |
+| A controller with its own valve fed by a second controller | cascade direction may be reversed | open: carried at the lower tier `traced_direction_inferred` |
+| Redundant transmitters `FT 3A`/`FT 3B` on one branch into a controller | no loop | known partial: unresolved, accepted |
+| A low-select relay (`FY`) fed by two controllers | no loop | known partial: unresolved, accepted |
+| One off-page connector in two pairs | both valves controlled | open: every line at a paired connector joins |
+
 Measured once on three public Pahala WWTP sheets (P-204, P-401, P-501, EPA docket): the reading took 183 s plus 9 s
 of tracing, giving 85 instruments. The second pass paired P-401 to P-501, where P-501 names P-401 only by its
 title. P-401's reference to P-204 stayed unpaired because P-204's outlet names a different destination. The
