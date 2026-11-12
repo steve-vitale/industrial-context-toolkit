@@ -361,20 +361,25 @@ inferred from the seed model (some placed from control valves' positions) rather
 lists no paths out such as bypasses or instrument connections, and its numbers can be read as an order. A tour view
 of boundary candidates would come only after that goal passes, and would carry the same fixed header.
 
-The idea: a mode of the same scene in which every energy-isolation point is highlighted and tagged, and the tour
-walks through:
-- isolation in steps;
-- verification of zero energy (try the start, check pressure and temperature are gone);
-- restoration in reverse order.
+The first idea for this mode (2026-10) was a walk-through of isolation in steps, a zero-energy check and restoration
+in reverse order. That idea is withdrawn: [GOAL_ISOLATION_POC.md](GOAL_ISOLATION_POC.md) rules out steps, sequences,
+valve positions and zero-energy wording in any isolation output, and plans no 3D view.
 
-![Design mockup: the plant ghosted, eleven numbered isolation tags (battery-limit block valves on each feed, purge and product line, the compressor motor, the agitator motor, cooling water in and out at the reactor and condenser, steam at the stripper), each marked * for inferred, a card saying "Design mockup, not a procedure" with the OSHA 1910.147 note, and a caption saying it is not a LOTO procedure](../drafts/3d-tour/40_loto_mockup.jpg)
+![Design mockup: the plant ghosted, eleven numbered energy-boundary tags in listing order (each feed, the purge and the stripper product at the battery limit, "boundary, energy can enter"; the R-101 agitator motor and the K-101 motor, "electrical, not assessed"; cooling water at R-101 and E-101 and steam at C-101, "boundary"), each marked * for inferred, a card saying "Design mockup, not a procedure" with "which device isolates each is not assessed; control valves are not positive isolation" and the OSHA 1910.147 note, and a caption saying it is not a LOTO procedure](../drafts/3d-tour/40_loto_mockup.jpg)
 
-What the mockup shows, all inferred from the TE seed model and marked `*`:
-- battery-limit block valves on every boundary stream (the contract has no block valves; control valves such as
-  FV-102 are not positive isolation);
-- the K-101 motor and the R-101 agitator motor (electrical isolation; SC-212 is the agitator tag);
-- cooling water in and out at R-101 and E-101 (from TV-121 and FV-117);
-- steam at C-101 (from FV-119).
+What the mockup shows (re-rendered 2026-11-11 with non-directive labels), all inferred from the TE seed model and
+marked `*`. Each tag is an observation of where energy can enter. No tag names a device, and none says where or how
+to isolate:
+- each battery-limit stream (four feeds, the purge, the stripper product): "boundary, energy can enter". The model
+  holds no block valves, and its control valves (FV-102 and the rest) are not positive isolation; the scene data
+  lists them as such (`loto_valve_crossings` in `out/scene/te_scene.json`);
+- the K-101 motor and the R-101 agitator motor (SC-212 is the agitator tag): "electrical, not assessed";
+- cooling water at R-101 and E-101 (placed at the utility posts the model draws for TV-121 and FV-117) and steam at
+  C-101 (FV-119): "boundary".
+
+Until 2026-11-11 the tags read "battery-limit block valve" and plain "electrical", which named an isolating device
+the seed model does not hold. The status on the scene data and the interactive tour is now the fixed mockup wording in
+`scripts/isolation_wording.py` (the goal's header with its name replaced by "DESIGN MOCKUP, NOT A PROCEDURE.").
 
 **This is not a lockout/tagout procedure, and nothing here may be used as one.** A real procedure comes from:
 - the site's energy-control program under OSHA 29 CFR 1910.147;
@@ -383,11 +388,9 @@ What the mockup shows, all inferred from the TE seed model and marked `*`:
 
 The mockup carries no sequence logic. Its numbers are the order the points were listed, not an isolation order.
 
-What a real build would need:
-- a reviewed isolation list per job: point, energy type, isolating device, lock/tag, verification method;
-- the site's procedure as the source of the steps, with the 3D scene only showing where each point is;
-- a link from each point to the site's isolation permit, so the walk-through shows the permit
-  status and nothing else.
+What a site's own record holds (never produced here): a reviewed isolation list per job (point, energy type,
+isolating device, verification method) and its link to the site's permit. The 3D scene would only ever show where a
+reviewed record's points are.
 
 ## Effort and cost for a real site
 

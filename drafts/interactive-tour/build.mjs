@@ -629,7 +629,8 @@ function portFor(stream, end) {
 }
 
 // Battery-limit and utility posts: a plinth, a riser and a flange the line lands on from above; feed and product
-// posts carry a hand-wheel block valve (the LOTO mockup's inferred isolation point).
+// posts carry a hand-wheel valve drawn as placeholder geometry (the model holds no such valve, and the LOTO mockup
+// does not name it as an isolating device).
 function post(id, unit, xy, r, { block = false, label }) {
   const [x, y] = xy;
   const F = G.frameOf([x, y, 0], [0, 0, 1], [1, 0, 0], [0, 1, 0]);
@@ -1399,12 +1400,12 @@ const body = `
     <div class="tour-alarms" data-alarms aria-live="polite"></div>
   </div>
   <div class="tour-loto" data-loto-only hidden>
-    <p class="tour-warning"><strong>Design mockup, not a procedure.</strong> ${esc(DATA.loto.status.replace(/^DESIGN MOCKUP: i/, "I"))}. Nothing here may be used as a lockout/tagout procedure.</p>
-    <p>Select inferred isolation points to see which energy sources remain and where flow stops, computed from the stream graph. The pulses here run at a constant rate; they are not the replay.</p>
-    <div class="tour-points" role="group" aria-label="Inferred isolation points">
+    <p class="tour-warning"><strong>Design mockup, not a procedure.</strong> ${esc(DATA.loto.status.replace(/^DESIGN MOCKUP, NOT A PROCEDURE\. /, ""))}</p>
+    <p>Select inferred energy boundaries to grey the lines the stream graph says are fed only through them. This is reachability on the model; which device isolates a boundary is not assessed. The pulses here run at a constant rate; they are not the replay.</p>
+    <div class="tour-points" role="group" aria-label="Inferred energy boundaries">
       ${DATA.loto.points.map((p) => `<button type="button" data-loto="${esc(p.id)}" aria-pressed="false"><span class="tour-n">${p.n}</span>${esc(p.text)} <span class="tour-inf">inferred</span></button>`).join("")}
     </div>
-    <p><button type="button" data-loto-all>Isolate all</button> <button type="button" data-loto-none>Clear</button></p>
+    <p><button type="button" data-loto-all>Select all</button> <button type="button" data-loto-none>Clear</button></p>
     <div class="tour-energy" data-energy aria-live="polite"></div>
   </div>
 </section>

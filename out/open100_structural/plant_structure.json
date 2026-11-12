@@ -8602,6 +8602,7 @@
   "9"
  ],
  "tour_order_basis": "follows 36 directed sheet-to-sheet connections read from off-page flags; where none says, sheet order. Plants loop (condensate to feedwater to steam and back), so any start point is a choice.",
+ "isolation_points_status": "DESIGN MOCKUP, NOT A PROCEDURE. THIS IS NOT AN ISOLATION OR LOCKOUT/TAGOUT PROCEDURE AND MUST NOT BE USED AS ONE. Every point and every path below must be verified by a qualified person against the as-built plant and the site's energy-control program (for example under OSHA 29 CFR 1910.147). It is read from drawings, which are not as-built: a point it does not list may exist, and a point it lists may not isolate. Electrical, pneumatic, hydraulic, stored-pressure, gravity and thermal energy are not assessed.",
  "isolation_points": [
   {
    "sheet": "0",
@@ -8617,7 +8618,7 @@
     188.2,
     424.5
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "0",
@@ -8634,7 +8635,7 @@
     364.4,
     364.4
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "0",
@@ -8648,7 +8649,7 @@
     355.2,
     382.8
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "0",
@@ -8662,7 +8663,7 @@
     381.7,
     382.8
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "0",
@@ -8676,7 +8677,7 @@
     352.5,
     420.7
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "0",
@@ -8690,7 +8691,7 @@
     366.1,
     420.7
    ],
-   "note": "Valve with one process connection: likely a vent, drain or test connection, used to release or check for trapped pressure."
+   "note": "Valve with one process connection on this drawing: possibly a vent, drain or test connection. Not assessed: what it serves."
   },
   {
    "sheet": "0",
@@ -8706,7 +8707,7 @@
     434.7,
     204.4
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "0",
@@ -8722,7 +8723,7 @@
     435.3,
     162.2
    ],
-   "note": "Relief device: must never be used for isolation, and must not be isolated from the equipment it protects while that equipment can be pressured."
+   "note": "Relief device: not positive isolation. Its relief path is a way energy can leave the equipment it protects (not assessed)."
   },
   {
    "sheet": "0",
@@ -8738,7 +8739,7 @@
     449.9,
     183.3
    ],
-   "note": "Relief device: must never be used for isolation, and must not be isolated from the equipment it protects while that equipment can be pressured."
+   "note": "Relief device: not positive isolation. Its relief path is a way energy can leave the equipment it protects (not assessed)."
   },
   {
    "sheet": "0",
@@ -8754,7 +8755,7 @@
     471.0,
     183.3
    ],
-   "note": "Relief device: must never be used for isolation, and must not be isolated from the equipment it protects while that equipment can be pressured."
+   "note": "Relief device: not positive isolation. Its relief path is a way energy can leave the equipment it protects (not assessed)."
   },
   {
    "sheet": "0",
@@ -8770,7 +8771,7 @@
     491.5,
     183.3
    ],
-   "note": "Relief device: must never be used for isolation, and must not be isolated from the equipment it protects while that equipment can be pressured."
+   "note": "Relief device: not positive isolation. Its relief path is a way energy can leave the equipment it protects (not assessed)."
   },
   {
    "sheet": "0",
@@ -8786,7 +8787,7 @@
     512.6,
     183.3
    ],
-   "note": "Relief device: must never be used for isolation, and must not be isolated from the equipment it protects while that equipment can be pressured."
+   "note": "Relief device: not positive isolation. Its relief path is a way energy can leave the equipment it protects (not assessed)."
   },
   {
    "sheet": "0",
@@ -8802,7 +8803,7 @@
     521.2,
     223.9
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "0",
@@ -8819,7 +8820,7 @@
     499.1,
     280.6
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "0",
@@ -8836,7 +8837,7 @@
     464.5,
     364.4
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "0",
@@ -8850,7 +8851,7 @@
     460.1,
     382.8
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "0",
@@ -8864,7 +8865,7 @@
     486.6,
     382.8
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "0",
@@ -8878,7 +8879,7 @@
     456.9,
     420.7
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "0",
@@ -8892,7 +8893,7 @@
     471.0,
     420.7
    ],
-   "note": "Valve with one process connection: likely a vent, drain or test connection, used to release or check for trapped pressure."
+   "note": "Valve with one process connection on this drawing: possibly a vent, drain or test connection. Not assessed: what it serves."
   },
   {
    "sheet": "0",
@@ -8906,7 +8907,7 @@
     549.1,
     281.2
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "0",
@@ -8922,7 +8923,7 @@
     603.1,
     267.7
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "0",
@@ -8936,7 +8937,7 @@
     647.5,
     280.6
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "0",
@@ -8950,7 +8951,7 @@
     676.1,
     280.6
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "0",
@@ -8968,7 +8969,7 @@
     604.2,
     364.4
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "0",
@@ -8982,7 +8983,7 @@
     600.4,
     382.8
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "0",
@@ -8996,7 +8997,7 @@
     626.9,
     382.8
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "0",
@@ -9010,7 +9011,7 @@
     596.1,
     420.1
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "0",
@@ -9024,7 +9025,7 @@
     610.7,
     420.1
    ],
-   "note": "Valve with one process connection: likely a vent, drain or test connection, used to release or check for trapped pressure."
+   "note": "Valve with one process connection on this drawing: possibly a vent, drain or test connection. Not assessed: what it serves."
   },
   {
    "sheet": "0",
@@ -9043,7 +9044,7 @@
     641.5,
     543.6
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "0",
@@ -9057,7 +9058,7 @@
     642.1,
     576.6
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "0",
@@ -9073,7 +9074,7 @@
     584.7,
     635.6
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "0",
@@ -9087,7 +9088,7 @@
     576.1,
     653.4
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "0",
@@ -9101,7 +9102,7 @@
     602.6,
     653.4
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "0",
@@ -9115,7 +9116,7 @@
     572.3,
     690.7
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "0",
@@ -9129,7 +9130,7 @@
     586.4,
     690.7
    ],
-   "note": "Valve with one process connection: likely a vent, drain or test connection, used to release or check for trapped pressure."
+   "note": "Valve with one process connection on this drawing: possibly a vent, drain or test connection. Not assessed: what it serves."
   },
   {
    "sheet": "1",
@@ -9147,7 +9148,7 @@
     180.6,
     509.2
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "1",
@@ -9163,7 +9164,7 @@
     529.6,
     532.9
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "1",
@@ -9177,7 +9178,7 @@
     589.6,
     436.2
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "1",
@@ -9191,7 +9192,7 @@
     652.9,
     436.2
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "1",
@@ -9207,7 +9208,7 @@
     613.4,
     532.9
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "1",
@@ -9223,7 +9224,7 @@
     697.8,
     532.9
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "1",
@@ -9239,7 +9240,7 @@
     479.0,
     868.6
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "1",
@@ -9253,7 +9254,7 @@
     625.9,
     736.7
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "1",
@@ -9267,7 +9268,7 @@
     661.0,
     736.7
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "1",
@@ -9281,7 +9282,7 @@
     696.2,
     736.7
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "1",
@@ -9295,7 +9296,7 @@
     730.8,
     736.7
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "2",
@@ -9311,7 +9312,7 @@
     209.7,
     382.6
    ],
-   "note": "Relief device: must never be used for isolation, and must not be isolated from the equipment it protects while that equipment can be pressured."
+   "note": "Relief device: not positive isolation. Its relief path is a way energy can leave the equipment it protects (not assessed)."
   },
   {
    "sheet": "2",
@@ -9325,7 +9326,7 @@
     338.9,
     400.4
    ],
-   "note": "Valve with one process connection: likely a vent, drain or test connection, used to release or check for trapped pressure."
+   "note": "Valve with one process connection on this drawing: possibly a vent, drain or test connection. Not assessed: what it serves."
   },
   {
    "sheet": "2",
@@ -9342,7 +9343,7 @@
     362.2,
     442.1
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "2",
@@ -9359,7 +9360,7 @@
     362.2,
     504.7
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "2",
@@ -9375,7 +9376,7 @@
     544.3,
     455.0
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "2",
@@ -9391,7 +9392,7 @@
     545.4,
     140.0
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "2",
@@ -9405,7 +9406,7 @@
     620.0,
     461.5
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "2",
@@ -9419,7 +9420,7 @@
     604.8,
     505.5
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "2",
@@ -9433,7 +9434,7 @@
     282.2,
     606.0
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "2",
@@ -9450,7 +9451,7 @@
     355.7,
     592.5
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "2",
@@ -9464,7 +9465,7 @@
     229.7,
     710.9
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "2",
@@ -9480,7 +9481,7 @@
     303.3,
     697.9
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "2",
@@ -9494,7 +9495,7 @@
     179.5,
     815.2
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "2",
@@ -9510,7 +9511,7 @@
     250.8,
     802.2
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "2",
@@ -9526,7 +9527,7 @@
     400.0,
     629.8
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "2",
@@ -9540,7 +9541,7 @@
     443.3,
     771.9
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "2",
@@ -9554,7 +9555,7 @@
     518.4,
     776.8
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "2",
@@ -9570,7 +9571,7 @@
     460.0,
     715.2
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "2",
@@ -9586,7 +9587,7 @@
     620.0,
     554.2
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "2",
@@ -9600,7 +9601,7 @@
     682.1,
     576.9
    ],
-   "note": "Valve with one process connection: likely a vent, drain or test connection, used to release or check for trapped pressure."
+   "note": "Valve with one process connection on this drawing: possibly a vent, drain or test connection. Not assessed: what it serves."
   },
   {
    "sheet": "2",
@@ -9614,7 +9615,7 @@
     556.2,
     595.2
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "2",
@@ -9628,7 +9629,7 @@
     556.2,
     635.2
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "2",
@@ -9642,7 +9643,7 @@
     556.2,
     675.7
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "2",
@@ -9656,7 +9657,7 @@
     462.1,
     716.3
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "3",
@@ -9673,7 +9674,7 @@
     391.9,
     255.6
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "3",
@@ -9689,7 +9690,7 @@
     308.1,
     277.2
    ],
-   "note": "Valve with one process connection: likely a vent, drain or test connection, used to release or check for trapped pressure."
+   "note": "Valve with one process connection on this drawing: possibly a vent, drain or test connection. Not assessed: what it serves."
   },
   {
    "sheet": "3",
@@ -9706,7 +9707,7 @@
     336.3,
     412.8
    ],
-   "note": "Valve with one process connection: likely a vent, drain or test connection, used to release or check for trapped pressure."
+   "note": "Valve with one process connection on this drawing: possibly a vent, drain or test connection. Not assessed: what it serves."
   },
   {
    "sheet": "3",
@@ -9723,7 +9724,7 @@
     222.7,
     538.0
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "3",
@@ -9740,7 +9741,7 @@
     347.6,
     538.0
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "3",
@@ -9754,7 +9755,7 @@
     374.1,
     536.4
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "3",
@@ -9773,7 +9774,7 @@
     615.6,
     404.2
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "3",
@@ -9790,7 +9791,7 @@
     222.7,
     750.4
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "3",
@@ -9807,7 +9808,7 @@
     343.3,
     750.9
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "3",
@@ -9821,7 +9822,7 @@
     363.8,
     749.8
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "3",
@@ -9839,7 +9840,7 @@
     440.6,
     633.6
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "3",
@@ -9853,7 +9854,7 @@
     464.4,
     610.4
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "3",
@@ -9867,7 +9868,7 @@
     477.9,
     610.4
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "3",
@@ -9884,7 +9885,7 @@
     499.5,
     582.8
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "3",
@@ -9898,7 +9899,7 @@
     560.5,
     612.0
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "3",
@@ -9914,7 +9915,7 @@
     560.5,
     632.6
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "4",
@@ -9930,7 +9931,7 @@
     504.4,
     112.4
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "4",
@@ -9944,7 +9945,7 @@
     525.9,
     112.4
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "4",
@@ -9963,7 +9964,7 @@
     489.3,
     153.0
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "4",
@@ -9979,7 +9980,7 @@
     153.5,
     363.3
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "4",
@@ -9995,7 +9996,7 @@
     198.4,
     389.8
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "4",
@@ -10009,7 +10010,7 @@
     232.5,
     311.9
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "4",
@@ -10023,7 +10024,7 @@
     277.3,
     311.9
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "4",
@@ -10039,7 +10040,7 @@
     329.2,
     322.7
    ],
-   "note": "Relief device: must never be used for isolation, and must not be isolated from the equipment it protects while that equipment can be pressured."
+   "note": "Relief device: not positive isolation. Its relief path is a way energy can leave the equipment it protects (not assessed)."
   },
   {
    "sheet": "4",
@@ -10053,7 +10054,7 @@
     367.1,
     356.8
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "4",
@@ -10069,7 +10070,7 @@
     397.4,
     367.6
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "4",
@@ -10085,7 +10086,7 @@
     157.9,
     466.5
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "4",
@@ -10101,7 +10102,7 @@
     158.9,
     529.7
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "4",
@@ -10115,7 +10116,7 @@
     503.7,
     472.5
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "4",
@@ -10129,7 +10130,7 @@
     530.7,
     472.5
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "4",
@@ -10143,7 +10144,7 @@
     517.2,
     492.5
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "4",
@@ -10157,7 +10158,7 @@
     505.3,
     516.8
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "4",
@@ -10171,7 +10172,7 @@
     518.3,
     516.8
    ],
-   "note": "Valve with one process connection: likely a vent, drain or test connection, used to release or check for trapped pressure."
+   "note": "Valve with one process connection on this drawing: possibly a vent, drain or test connection. Not assessed: what it serves."
   },
   {
    "sheet": "4",
@@ -10185,7 +10186,7 @@
     538.3,
     153.0
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "4",
@@ -10201,7 +10202,7 @@
     578.9,
     166.0
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "4",
@@ -10217,7 +10218,7 @@
     620.5,
     135.7
    ],
-   "note": "Relief device: must never be used for isolation, and must not be isolated from the equipment it protects while that equipment can be pressured."
+   "note": "Relief device: not positive isolation. Its relief path is a way energy can leave the equipment it protects (not assessed)."
   },
   {
    "sheet": "4",
@@ -10233,7 +10234,7 @@
     677.2,
     166.0
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "4",
@@ -10247,7 +10248,7 @@
     659.9,
     187.6
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "4",
@@ -10261,7 +10262,7 @@
     659.9,
     218.9
    ],
-   "note": "Valve with one process connection: likely a vent, drain or test connection, used to release or check for trapped pressure."
+   "note": "Valve with one process connection on this drawing: possibly a vent, drain or test connection. Not assessed: what it serves."
   },
   {
    "sheet": "4",
@@ -10275,7 +10276,7 @@
     688.1,
     187.6
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "4",
@@ -10289,7 +10290,7 @@
     688.1,
     218.9
    ],
-   "note": "Valve with one process connection: likely a vent, drain or test connection, used to release or check for trapped pressure."
+   "note": "Valve with one process connection on this drawing: possibly a vent, drain or test connection. Not assessed: what it serves."
   },
   {
    "sheet": "4",
@@ -10305,7 +10306,7 @@
     718.3,
     166.0
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "4",
@@ -10324,7 +10325,7 @@
     601.0,
     433.6
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "4",
@@ -10342,7 +10343,7 @@
     592.4,
     618.9
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "4",
@@ -10359,7 +10360,7 @@
     691.8,
     600.0
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "4",
@@ -10375,7 +10376,7 @@
     595.6,
     785.9
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "4",
@@ -10389,7 +10390,7 @@
     637.2,
     810.8
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "4",
@@ -10403,7 +10404,7 @@
     650.8,
     810.8
    ],
-   "note": "Valve with one process connection: likely a vent, drain or test connection, used to release or check for trapped pressure."
+   "note": "Valve with one process connection on this drawing: possibly a vent, drain or test connection. Not assessed: what it serves."
   },
   {
    "sheet": "5",
@@ -10417,7 +10418,7 @@
     227.5,
     213.4
    ],
-   "note": "Valve with one process connection: likely a vent, drain or test connection, used to release or check for trapped pressure."
+   "note": "Valve with one process connection on this drawing: possibly a vent, drain or test connection. Not assessed: what it serves."
   },
   {
    "sheet": "5",
@@ -10431,7 +10432,7 @@
     227.5,
     265.3
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "5",
@@ -10448,7 +10449,7 @@
     362.1,
     249.1
    ],
-   "note": "Valve with one process connection: likely a vent, drain or test connection, used to release or check for trapped pressure."
+   "note": "Valve with one process connection on this drawing: possibly a vent, drain or test connection. Not assessed: what it serves."
   },
   {
    "sheet": "5",
@@ -10466,7 +10467,7 @@
     173.5,
     395.0
    ],
-   "note": "Valve with one process connection: likely a vent, drain or test connection, used to release or check for trapped pressure."
+   "note": "Valve with one process connection on this drawing: possibly a vent, drain or test connection. Not assessed: what it serves."
   },
   {
    "sheet": "5",
@@ -10485,7 +10486,7 @@
     506.4,
     158.9
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "5",
@@ -10502,7 +10503,7 @@
     478.9,
     536.9
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "5",
@@ -10518,7 +10519,7 @@
     513.0,
     534.2
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "5",
@@ -10534,7 +10535,7 @@
     540.6,
     534.2
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "5",
@@ -10550,7 +10551,7 @@
     568.7,
     534.2
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "5",
@@ -10567,7 +10568,7 @@
     402.1,
     572.6
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "5",
@@ -10586,7 +10587,7 @@
     375.1,
     585.5
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "5",
@@ -10604,7 +10605,7 @@
     332.4,
     776.3
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "5",
@@ -10622,7 +10623,7 @@
     304.8,
     805.5
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "5",
@@ -10639,7 +10640,7 @@
     416.2,
     748.7
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "5",
@@ -10655,7 +10656,7 @@
     450.2,
     744.9
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "5",
@@ -10671,7 +10672,7 @@
     471.3,
     744.9
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "5",
@@ -10687,7 +10688,7 @@
     491.8,
     744.9
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "5",
@@ -10701,7 +10702,7 @@
     493.4,
     784.4
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "5",
@@ -10715,7 +10716,7 @@
     570.3,
     575.8
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "5",
@@ -10729,7 +10730,7 @@
     730.3,
     669.8
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "5",
@@ -10743,7 +10744,7 @@
     765.4,
     669.8
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "6",
@@ -10759,7 +10760,7 @@
     149.8,
     118.4
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "6",
@@ -10775,7 +10776,7 @@
     149.2,
     274.5
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "6",
@@ -10791,7 +10792,7 @@
     261.1,
     110.2
    ],
-   "note": "Relief device: must never be used for isolation, and must not be isolated from the equipment it protects while that equipment can be pressured."
+   "note": "Relief device: not positive isolation. Its relief path is a way energy can leave the equipment it protects (not assessed)."
   },
   {
    "sheet": "6",
@@ -10807,7 +10808,7 @@
     281.7,
     162.1
    ],
-   "note": "Relief device: must never be used for isolation, and must not be isolated from the equipment it protects while that equipment can be pressured."
+   "note": "Relief device: not positive isolation. Its relief path is a way energy can leave the equipment it protects (not assessed)."
   },
   {
    "sheet": "6",
@@ -10823,7 +10824,7 @@
     330.4,
     227.0
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "6",
@@ -10839,7 +10840,7 @@
     331.4,
     274.5
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "6",
@@ -10855,7 +10856,7 @@
     691.3,
     76.2
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "6",
@@ -10871,7 +10872,7 @@
     712.4,
     117.8
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "6",
@@ -10887,7 +10888,7 @@
     769.1,
     259.4
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "6",
@@ -10901,7 +10902,7 @@
     159.5,
     795.2
    ],
-   "note": "Valve with one process connection: likely a vent, drain or test connection, used to release or check for trapped pressure."
+   "note": "Valve with one process connection on this drawing: possibly a vent, drain or test connection. Not assessed: what it serves."
   },
   {
    "sheet": "7",
@@ -10917,7 +10918,7 @@
     140.0,
     141.6
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "7",
@@ -10931,7 +10932,7 @@
     175.1,
     348.5
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "7",
@@ -10948,7 +10949,7 @@
     342.1,
     449.1
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "7",
@@ -10964,7 +10965,7 @@
     523.1,
     344.8
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "7",
@@ -10981,7 +10982,7 @@
     580.7,
     408.0
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "7",
@@ -10997,7 +10998,7 @@
     580.7,
     454.5
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "7",
@@ -11014,7 +11015,7 @@
     704.4,
     454.5
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "7",
@@ -11030,7 +11031,7 @@
     218.9,
     633.6
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "7",
@@ -11046,7 +11047,7 @@
     218.9,
     723.9
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "7",
@@ -11062,7 +11063,7 @@
     218.9,
     817.4
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "7",
@@ -11076,7 +11077,7 @@
     319.4,
     623.4
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "7",
@@ -11090,7 +11091,7 @@
     319.4,
     713.1
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "7",
@@ -11104,7 +11105,7 @@
     316.1,
     807.1
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "7",
@@ -11118,7 +11119,7 @@
     340.4,
     624.4
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "7",
@@ -11132,7 +11133,7 @@
     340.4,
     714.7
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "7",
@@ -11146,7 +11147,7 @@
     340.4,
     808.2
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "7",
@@ -11162,7 +11163,7 @@
     580.1,
     626.6
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "7",
@@ -11178,7 +11179,7 @@
     704.4,
     626.6
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "7",
@@ -11195,7 +11196,7 @@
     575.8,
     739.5
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "8",
@@ -11211,7 +11212,7 @@
     511.8,
     359.4
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "8",
@@ -11229,7 +11230,7 @@
     538.5,
     481.6
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "8",
@@ -11245,7 +11246,7 @@
     510.7,
     496.7
    ],
-   "note": "Relief device: must never be used for isolation, and must not be isolated from the equipment it protects while that equipment can be pressured."
+   "note": "Relief device: not positive isolation. Its relief path is a way energy can leave the equipment it protects (not assessed)."
   },
   {
    "sheet": "8",
@@ -11261,7 +11262,7 @@
     661.2,
     116.2
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "8",
@@ -11277,7 +11278,7 @@
     699.0,
     194.0
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "8",
@@ -11293,7 +11294,7 @@
     570.9,
     359.4
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "8",
@@ -11307,7 +11308,7 @@
     213.5,
     667.6
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "8",
@@ -11323,7 +11324,7 @@
     272.4,
     667.6
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "8",
@@ -11339,7 +11340,7 @@
     321.0,
     667.6
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "8",
@@ -11353,7 +11354,7 @@
     578.0,
     818.9
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "8",
@@ -11369,7 +11370,7 @@
     633.6,
     902.2
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "9",
@@ -11387,7 +11388,7 @@
     186.0,
     237.8
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "9",
@@ -11404,7 +11405,7 @@
     192.5,
     323.7
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "9",
@@ -11421,7 +11422,7 @@
     303.3,
     323.7
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "9",
@@ -11438,7 +11439,7 @@
     414.7,
     323.7
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "9",
@@ -11455,7 +11456,7 @@
     525.5,
     323.7
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "9",
@@ -11472,7 +11473,7 @@
     636.7,
     323.7
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "9",
@@ -11489,7 +11490,7 @@
     748.1,
     323.7
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "9",
@@ -11507,7 +11508,7 @@
     199.5,
     767.1
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "9",
@@ -11521,7 +11522,7 @@
     247.6,
     714.7
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "9",
@@ -11535,7 +11536,7 @@
     359.0,
     714.7
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "9",
@@ -11549,7 +11550,7 @@
     469.8,
     714.7
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "9",
@@ -11563,7 +11564,7 @@
     581.0,
     714.7
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "9",
@@ -11577,7 +11578,7 @@
     692.4,
     714.7
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "9",
@@ -11591,7 +11592,7 @@
     803.2,
     714.7
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "10",
@@ -11607,7 +11608,7 @@
     119.4,
     191.8
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "10",
@@ -11623,7 +11624,7 @@
     208.6,
     236.1
    ],
-   "note": "Relief device: must never be used for isolation, and must not be isolated from the equipment it protects while that equipment can be pressured."
+   "note": "Relief device: not positive isolation. Its relief path is a way energy can leave the equipment it protects (not assessed)."
   },
   {
    "sheet": "10",
@@ -11639,7 +11640,7 @@
     151.3,
     274.5
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "10",
@@ -11655,7 +11656,7 @@
     120.0,
     400.4
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "10",
@@ -11671,7 +11672,7 @@
     120.0,
     494.4
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "10",
@@ -11687,7 +11688,7 @@
     369.7,
     172.9
    ],
-   "note": "Relief device: must never be used for isolation, and must not be isolated from the equipment it protects while that equipment can be pressured."
+   "note": "Relief device: not positive isolation. Its relief path is a way energy can leave the equipment it protects (not assessed)."
   },
   {
    "sheet": "10",
@@ -11701,7 +11702,7 @@
     420.5,
     202.6
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "10",
@@ -11719,7 +11720,7 @@
     467.0,
     219.4
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "10",
@@ -11733,7 +11734,7 @@
     348.1,
     316.1
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "10",
@@ -11750,7 +11751,7 @@
     577.9,
     109.7
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "10",
@@ -11766,7 +11767,7 @@
     629.2,
     104.8
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "10",
@@ -11783,7 +11784,7 @@
     620.0,
     212.3
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "10",
@@ -11800,7 +11801,7 @@
     648.2,
     193.4
    ],
-   "note": "Relief device: must never be used for isolation, and must not be isolated from the equipment it protects while that equipment can be pressured."
+   "note": "Relief device: not positive isolation. Its relief path is a way energy can leave the equipment it protects (not assessed)."
   },
   {
    "sheet": "10",
@@ -11816,7 +11817,7 @@
     629.2,
     297.2
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "10",
@@ -11832,7 +11833,7 @@
     681.7,
     449.0
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "10",
@@ -11848,7 +11849,7 @@
     737.3,
     453.9
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "10",
@@ -11864,7 +11865,7 @@
     824.3,
     453.9
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "10",
@@ -11880,7 +11881,7 @@
     698.4,
     532.6
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "10",
@@ -11894,7 +11895,7 @@
     788.7,
     532.6
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "10",
@@ -11908,7 +11909,7 @@
     748.1,
     484.5
    ],
-   "note": "Valve with one process connection: likely a vent, drain or test connection, used to release or check for trapped pressure."
+   "note": "Valve with one process connection on this drawing: possibly a vent, drain or test connection. Not assessed: what it serves."
   },
   {
    "sheet": "10",
@@ -11922,7 +11923,7 @@
     834.6,
     484.5
    ],
-   "note": "Valve with one process connection: likely a vent, drain or test connection, used to release or check for trapped pressure."
+   "note": "Valve with one process connection on this drawing: possibly a vent, drain or test connection. Not assessed: what it serves."
   },
   {
    "sheet": "10",
@@ -11936,7 +11937,7 @@
     208.6,
     619.6
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "10",
@@ -11950,7 +11951,7 @@
     198.9,
     638.0
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "10",
@@ -11966,7 +11967,7 @@
     298.3,
     621.2
    ],
-   "note": "Relief device: must never be used for isolation, and must not be isolated from the equipment it protects while that equipment can be pressured."
+   "note": "Relief device: not positive isolation. Its relief path is a way energy can leave the equipment it protects (not assessed)."
   },
   {
    "sheet": "10",
@@ -11982,7 +11983,7 @@
     298.3,
     699.0
    ],
-   "note": "Relief device: must never be used for isolation, and must not be isolated from the equipment it protects while that equipment can be pressured."
+   "note": "Relief device: not positive isolation. Its relief path is a way energy can leave the equipment it protects (not assessed)."
   },
   {
    "sheet": "10",
@@ -11998,7 +11999,7 @@
     298.3,
     778.5
    ],
-   "note": "Relief device: must never be used for isolation, and must not be isolated from the equipment it protects while that equipment can be pressured."
+   "note": "Relief device: not positive isolation. Its relief path is a way energy can leave the equipment it protects (not assessed)."
   },
   {
    "sheet": "10",
@@ -12014,7 +12015,7 @@
     384.3,
     582.3
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "10",
@@ -12030,7 +12031,7 @@
     452.4,
     582.3
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "10",
@@ -12044,7 +12045,7 @@
     384.3,
     793.6
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "10",
@@ -12058,7 +12059,7 @@
     451.8,
     793.6
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "10",
@@ -12074,7 +12075,7 @@
     508.0,
     887.1
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "10",
@@ -12088,7 +12089,7 @@
     744.4,
     587.2
    ],
-   "note": "Valve with one process connection: likely a vent, drain or test connection, used to release or check for trapped pressure."
+   "note": "Valve with one process connection on this drawing: possibly a vent, drain or test connection. Not assessed: what it serves."
   },
   {
    "sheet": "10",
@@ -12102,7 +12103,7 @@
     830.8,
     587.2
    ],
-   "note": "Valve with one process connection: likely a vent, drain or test connection, used to release or check for trapped pressure."
+   "note": "Valve with one process connection on this drawing: possibly a vent, drain or test connection. Not assessed: what it serves."
   },
   {
    "sheet": "10",
@@ -12116,7 +12117,7 @@
     737.3,
     468.9
    ],
-   "note": "Valve with one process connection: likely a vent, drain or test connection, used to release or check for trapped pressure."
+   "note": "Valve with one process connection on this drawing: possibly a vent, drain or test connection. Not assessed: what it serves."
   },
   {
    "sheet": "11",
@@ -12132,7 +12133,7 @@
     131.4,
     349.0
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "11",
@@ -12146,7 +12147,7 @@
     159.5,
     349.0
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "11",
@@ -12163,7 +12164,7 @@
     115.7,
     486.8
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "11",
@@ -12179,7 +12180,7 @@
     169.7,
     506.2
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "11",
@@ -12195,7 +12196,7 @@
     191.4,
     506.2
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "11",
@@ -12211,7 +12212,7 @@
     199.5,
     450.6
    ],
-   "note": "Relief device: must never be used for isolation, and must not be isolated from the equipment it protects while that equipment can be pressured."
+   "note": "Relief device: not positive isolation. Its relief path is a way energy can leave the equipment it protects (not assessed)."
   },
   {
    "sheet": "11",
@@ -12227,7 +12228,7 @@
     228.1,
     464.6
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "11",
@@ -12244,7 +12245,7 @@
     129.7,
     522.5
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "11",
@@ -12261,7 +12262,7 @@
     242.7,
     324.7
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "11",
@@ -12277,7 +12278,7 @@
     298.4,
     276.6
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "11",
@@ -12294,7 +12295,7 @@
     353.0,
     324.7
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "11",
@@ -12308,7 +12309,7 @@
     368.7,
     338.2
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "11",
@@ -12322,7 +12323,7 @@
     422.7,
     423.6
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "11",
@@ -12336,7 +12337,7 @@
     422.7,
     527.9
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "11",
@@ -12350,7 +12351,7 @@
     255.7,
     506.8
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "11",
@@ -12364,7 +12365,7 @@
     242.7,
     525.1
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "11",
@@ -12380,7 +12381,7 @@
     227.0,
     548.3
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "11",
@@ -12396,7 +12397,7 @@
     601.6,
     338.2
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "11",
@@ -12412,7 +12413,7 @@
     591.3,
     419.3
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "11",
@@ -12428,7 +12429,7 @@
     616.2,
     463.0
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "11",
@@ -12444,7 +12445,7 @@
     645.9,
     361.4
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "11",
@@ -12460,7 +12461,7 @@
     704.9,
     482.5
    ],
-   "note": "Relief device: must never be used for isolation, and must not be isolated from the equipment it protects while that equipment can be pressured."
+   "note": "Relief device: not positive isolation. Its relief path is a way energy can leave the equipment it protects (not assessed)."
   },
   {
    "sheet": "11",
@@ -12476,7 +12477,7 @@
     747.0,
     505.2
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "11",
@@ -12494,7 +12495,7 @@
     687.6,
     519.7
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "11",
@@ -12510,7 +12511,7 @@
     591.3,
     527.9
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "11",
@@ -12524,7 +12525,7 @@
     255.7,
     548.9
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "11",
@@ -12540,7 +12541,7 @@
     298.9,
     609.9
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "11",
@@ -12557,7 +12558,7 @@
     241.6,
     683.9
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "11",
@@ -12574,7 +12575,7 @@
     353.0,
     657.5
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "11",
@@ -12588,7 +12589,7 @@
     368.7,
     671.5
    ],
-   "note": "Manual valve in a line: a candidate block (isolation) valve."
+   "note": "Manual valve in a line, as read from the drawing. Not assessed: whether it isolates the line."
   },
   {
    "sheet": "11",
@@ -12604,7 +12605,7 @@
     645.9,
     653.7
    ],
-   "note": "Motor-operated valve: an isolation point for the line, and its motor is an electrical energy source of its own."
+   "note": "Motor-operated valve in a line. Its motor is an electrical energy source of its own (not assessed). Not assessed: whether this valve isolates the line."
   },
   {
    "sheet": "11",
@@ -12620,7 +12621,7 @@
     605.9,
     672.1
    ],
-   "note": "Control valve: not an energy-isolating device by itself. Listed so it is not mistaken for one."
+   "note": "Control valve: not positive isolation. Listed so it is not mistaken for an isolating device. Not assessed: which device isolates this line."
   },
   {
    "sheet": "1",
@@ -12633,7 +12634,7 @@
     320.6,
     157.3
    ],
-   "note": "Motor-driven: electrical isolation at its breaker or disconnect (not on this drawing), plus the suction and discharge block valves."
+   "note": "Motor-driven: electrical energy is not shown on this drawing (not assessed)."
   },
   {
    "sheet": "1",
@@ -12646,7 +12647,7 @@
     373.0,
     157.3
    ],
-   "note": "Motor-driven: electrical isolation at its breaker or disconnect (not on this drawing), plus the suction and discharge block valves."
+   "note": "Motor-driven: electrical energy is not shown on this drawing (not assessed)."
   },
   {
    "sheet": "1",
@@ -12659,7 +12660,7 @@
     425.5,
     157.3
    ],
-   "note": "Motor-driven: electrical isolation at its breaker or disconnect (not on this drawing), plus the suction and discharge block valves."
+   "note": "Motor-driven: electrical energy is not shown on this drawing (not assessed)."
   },
   {
    "sheet": "1",
@@ -12672,7 +12673,7 @@
     320.6,
     235.7
    ],
-   "note": "Motor-driven: electrical isolation at its breaker or disconnect (not on this drawing), plus the suction and discharge block valves."
+   "note": "Motor-driven: electrical energy is not shown on this drawing (not assessed)."
   },
   {
    "sheet": "1",
@@ -12685,7 +12686,7 @@
     373.0,
     235.7
    ],
-   "note": "Motor-driven: electrical isolation at its breaker or disconnect (not on this drawing), plus the suction and discharge block valves."
+   "note": "Motor-driven: electrical energy is not shown on this drawing (not assessed)."
   },
   {
    "sheet": "1",
@@ -12698,7 +12699,7 @@
     425.5,
     235.7
    ],
-   "note": "Motor-driven: electrical isolation at its breaker or disconnect (not on this drawing), plus the suction and discharge block valves."
+   "note": "Motor-driven: electrical energy is not shown on this drawing (not assessed)."
   },
   {
    "sheet": "1",
@@ -12711,7 +12712,7 @@
     320.6,
     314.1
    ],
-   "note": "Motor-driven: electrical isolation at its breaker or disconnect (not on this drawing), plus the suction and discharge block valves."
+   "note": "Motor-driven: electrical energy is not shown on this drawing (not assessed)."
   },
   {
    "sheet": "1",
@@ -12724,7 +12725,7 @@
     373.0,
     314.1
    ],
-   "note": "Motor-driven: electrical isolation at its breaker or disconnect (not on this drawing), plus the suction and discharge block valves."
+   "note": "Motor-driven: electrical energy is not shown on this drawing (not assessed)."
   },
   {
    "sheet": "1",
@@ -12737,7 +12738,7 @@
     425.5,
     314.1
    ],
-   "note": "Motor-driven: electrical isolation at its breaker or disconnect (not on this drawing), plus the suction and discharge block valves."
+   "note": "Motor-driven: electrical energy is not shown on this drawing (not assessed)."
   },
   {
    "sheet": "1",
@@ -12750,7 +12751,7 @@
     320.6,
     392.5
    ],
-   "note": "Motor-driven: electrical isolation at its breaker or disconnect (not on this drawing), plus the suction and discharge block valves."
+   "note": "Motor-driven: electrical energy is not shown on this drawing (not assessed)."
   },
   {
    "sheet": "1",
@@ -12763,7 +12764,7 @@
     373.0,
     392.5
    ],
-   "note": "Motor-driven: electrical isolation at its breaker or disconnect (not on this drawing), plus the suction and discharge block valves."
+   "note": "Motor-driven: electrical energy is not shown on this drawing (not assessed)."
   },
   {
    "sheet": "1",
@@ -12776,7 +12777,7 @@
     425.5,
     392.5
    ],
-   "note": "Motor-driven: electrical isolation at its breaker or disconnect (not on this drawing), plus the suction and discharge block valves."
+   "note": "Motor-driven: electrical energy is not shown on this drawing (not assessed)."
   },
   {
    "sheet": "1",
@@ -12789,7 +12790,7 @@
     539.9,
     484.9
    ],
-   "note": "Motor-driven: electrical isolation at its breaker or disconnect (not on this drawing), plus the suction and discharge block valves."
+   "note": "Motor-driven: electrical energy is not shown on this drawing (not assessed)."
   },
   {
    "sheet": "1",
@@ -12802,7 +12803,7 @@
     624.3,
     484.9
    ],
-   "note": "Motor-driven: electrical isolation at its breaker or disconnect (not on this drawing), plus the suction and discharge block valves."
+   "note": "Motor-driven: electrical energy is not shown on this drawing (not assessed)."
   },
   {
    "sheet": "1",
@@ -12815,7 +12816,7 @@
     708.1,
     484.9
    ],
-   "note": "Motor-driven: electrical isolation at its breaker or disconnect (not on this drawing), plus the suction and discharge block valves."
+   "note": "Motor-driven: electrical energy is not shown on this drawing (not assessed)."
   },
   {
    "sheet": "2",
@@ -12828,7 +12829,7 @@
     320.6,
     634.1
    ],
-   "note": "Motor-driven: electrical isolation at its breaker or disconnect (not on this drawing), plus the suction and discharge block valves."
+   "note": "Motor-driven: electrical energy is not shown on this drawing (not assessed)."
   },
   {
    "sheet": "2",
@@ -12841,7 +12842,7 @@
     268.1,
     738.4
    ],
-   "note": "Motor-driven: electrical isolation at its breaker or disconnect (not on this drawing), plus the suction and discharge block valves."
+   "note": "Motor-driven: electrical energy is not shown on this drawing (not assessed)."
   },
   {
    "sheet": "2",
@@ -12854,7 +12855,7 @@
     215.1,
     842.7
    ],
-   "note": "Motor-driven: electrical isolation at its breaker or disconnect (not on this drawing), plus the suction and discharge block valves."
+   "note": "Motor-driven: electrical energy is not shown on this drawing (not assessed)."
   },
   {
    "sheet": "3",
@@ -12867,7 +12868,7 @@
     315.2,
     594.7
    ],
-   "note": "Motor-driven: electrical isolation at its breaker or disconnect (not on this drawing), plus the suction and discharge block valves."
+   "note": "Motor-driven: electrical energy is not shown on this drawing (not assessed)."
   },
   {
    "sheet": "3",
@@ -12880,7 +12881,7 @@
     315.2,
     813.6
    ],
-   "note": "Motor-driven: electrical isolation at its breaker or disconnect (not on this drawing), plus the suction and discharge block valves."
+   "note": "Motor-driven: electrical energy is not shown on this drawing (not assessed)."
   },
   {
    "sheet": "5",
@@ -12893,7 +12894,7 @@
     470.2,
     639.0
    ],
-   "note": "Motor-driven: electrical isolation at its breaker or disconnect (not on this drawing), plus the suction and discharge block valves."
+   "note": "Motor-driven: electrical energy is not shown on this drawing (not assessed)."
   },
   {
    "sheet": "5",
@@ -12906,7 +12907,7 @@
     401.0,
     859.5
    ],
-   "note": "Motor-driven: electrical isolation at its breaker or disconnect (not on this drawing), plus the suction and discharge block valves."
+   "note": "Motor-driven: electrical energy is not shown on this drawing (not assessed)."
   },
   {
    "sheet": "7",
@@ -12919,7 +12920,7 @@
     284.8,
     650.9
    ],
-   "note": "Motor-driven: electrical isolation at its breaker or disconnect (not on this drawing), plus the suction and discharge block valves."
+   "note": "Motor-driven: electrical energy is not shown on this drawing (not assessed)."
   },
   {
    "sheet": "7",
@@ -12932,7 +12933,7 @@
     284.8,
     740.6
    ],
-   "note": "Motor-driven: electrical isolation at its breaker or disconnect (not on this drawing), plus the suction and discharge block valves."
+   "note": "Motor-driven: electrical energy is not shown on this drawing (not assessed)."
   },
   {
    "sheet": "7",
@@ -12945,7 +12946,7 @@
     284.8,
     835.2
    ],
-   "note": "Motor-driven: electrical isolation at its breaker or disconnect (not on this drawing), plus the suction and discharge block valves."
+   "note": "Motor-driven: electrical energy is not shown on this drawing (not assessed)."
   },
   {
    "sheet": "10",
@@ -12958,7 +12959,7 @@
     279.4,
     664.5
    ],
-   "note": "Motor-driven: electrical isolation at its breaker or disconnect (not on this drawing), plus the suction and discharge block valves."
+   "note": "Motor-driven: electrical energy is not shown on this drawing (not assessed)."
   },
   {
    "sheet": "10",
@@ -12971,7 +12972,7 @@
     279.4,
     740.6
    ],
-   "note": "Motor-driven: electrical isolation at its breaker or disconnect (not on this drawing), plus the suction and discharge block valves."
+   "note": "Motor-driven: electrical energy is not shown on this drawing (not assessed)."
   },
   {
    "sheet": "10",
@@ -12984,7 +12985,7 @@
     279.4,
     820.6
    ],
-   "note": "Motor-driven: electrical isolation at its breaker or disconnect (not on this drawing), plus the suction and discharge block valves."
+   "note": "Motor-driven: electrical energy is not shown on this drawing (not assessed)."
   },
   {
    "sheet": "11",
@@ -12997,7 +12998,7 @@
     329.7,
     386.3
    ],
-   "note": "Motor-driven: electrical isolation at its breaker or disconnect (not on this drawing), plus the suction and discharge block valves."
+   "note": "Motor-driven: electrical energy is not shown on this drawing (not assessed)."
   },
   {
    "sheet": "11",
@@ -13010,7 +13011,7 @@
     322.7,
     725.5
    ],
-   "note": "Motor-driven: electrical isolation at its breaker or disconnect (not on this drawing), plus the suction and discharge block valves."
+   "note": "Motor-driven: electrical energy is not shown on this drawing (not assessed)."
   },
   {
    "sheet": "0",
@@ -13025,7 +13026,7 @@
    ],
    "text": "TBS PID 240-1 TURBINE SYSTEM",
    "flow": "out",
-   "note": "Line crosses to another system (TBS PID 240-1 TURBINE SYSTEM): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (TBS PID 240-1 TURBINE SYSTEM); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "0",
@@ -13040,7 +13041,7 @@
    ],
    "text": "TBS PID 240-1 TURBINE SYSTEM",
    "flow": "out",
-   "note": "Line crosses to another system (TBS PID 240-1 TURBINE SYSTEM): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (TBS PID 240-1 TURBINE SYSTEM); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "0",
@@ -13055,7 +13056,7 @@
    ],
    "text": "HIGH PRESSURE STEAM DRAINS HPD PID 190-1",
    "flow": "out",
-   "note": "Line leaves to a vent or drain system (HIGH PRESSURE STEAM DRAINS HPD PID 190-1): isolate or verify it on that drawing."
+   "note": "Boundary: a line continues to a vent or drain system (HIGH PRESSURE STEAM DRAINS HPD PID 190-1); energy can leave or enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "0",
@@ -13070,7 +13071,7 @@
    ],
    "text": "MAIN STEAM BY-PASS",
    "flow": "out",
-   "note": "Line crosses to another system (MAIN STEAM BY-PASS): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (MAIN STEAM BY-PASS); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "0",
@@ -13085,7 +13086,7 @@
    ],
    "text": "HIGH PRESSURE STEAM DRAINS HPD PID 190-1",
    "flow": "out",
-   "note": "Line leaves to a vent or drain system (HIGH PRESSURE STEAM DRAINS HPD PID 190-1): isolate or verify it on that drawing."
+   "note": "Boundary: a line continues to a vent or drain system (HIGH PRESSURE STEAM DRAINS HPD PID 190-1); energy can leave or enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "0",
@@ -13100,7 +13101,7 @@
    ],
    "text": "HIGH PRESSURE STEAM DRAINS HPD PID 190-1",
    "flow": "out",
-   "note": "Line leaves to a vent or drain system (HIGH PRESSURE STEAM DRAINS HPD PID 190-1): isolate or verify it on that drawing."
+   "note": "Boundary: a line continues to a vent or drain system (HIGH PRESSURE STEAM DRAINS HPD PID 190-1); energy can leave or enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "0",
@@ -13115,7 +13116,7 @@
    ],
    "text": "HIGH PRESSURE STEAM DRAINS HPD PID 190-1",
    "flow": "out",
-   "note": "Line leaves to a vent or drain system (HIGH PRESSURE STEAM DRAINS HPD PID 190-1): isolate or verify it on that drawing."
+   "note": "Boundary: a line continues to a vent or drain system (HIGH PRESSURE STEAM DRAINS HPD PID 190-1); energy can leave or enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "1",
@@ -13130,7 +13131,7 @@
    ],
    "text": "HPD PID 190-1 HPD BLOWDOWN TANK VENT",
    "flow": "in",
-   "note": "Line leaves to a vent or drain system (HPD PID 190-1 HPD BLOWDOWN TANK VENT): isolate or verify it on that drawing."
+   "note": "Boundary: a line continues to a vent or drain system (HPD PID 190-1 HPD BLOWDOWN TANK VENT); energy can leave or enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "1",
@@ -13145,7 +13146,7 @@
    ],
    "text": "TURB PID 250-1 TURBINE EXHAUST",
    "flow": "in",
-   "note": "Line crosses to another system (TURB PID 250-1 TURBINE EXHAUST): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (TURB PID 250-1 TURBINE EXHAUST); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "2",
@@ -13160,7 +13161,7 @@
    ],
    "text": "FWS PID 170-2 (E-1) FEEDWATER SYSTEM",
    "flow": "in",
-   "note": "Line crosses to another system (FWS PID 170-2 (E-1) FEEDWATER SYSTEM): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (FWS PID 170-2 (E-1) FEEDWATER SYSTEM); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "2",
@@ -13175,7 +13176,7 @@
    ],
    "text": "WTS PID 200-4 MAKE-UP WATER",
    "flow": "in",
-   "note": "Line crosses to another system (WTS PID 200-4 MAKE-UP WATER): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (WTS PID 200-4 MAKE-UP WATER); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "2",
@@ -13190,7 +13191,7 @@
    ],
    "text": "PID 240-1 (E-12) GLAND STEAM LEAKOFF",
    "flow": "in",
-   "note": "Line crosses to another system (PID 240-1 (E-12) GLAND STEAM LEAKOFF): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (PID 240-1 (E-12) GLAND STEAM LEAKOFF); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "2",
@@ -13205,7 +13206,7 @@
    ],
    "text": "WWS PID 290-1 WATER SAMPLE SYSTEM",
    "flow": "out",
-   "note": "Line crosses to another system (WWS PID 290-1 WATER SAMPLE SYSTEM): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (WWS PID 290-1 WATER SAMPLE SYSTEM); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "2",
@@ -13220,7 +13221,7 @@
    ],
    "text": "WSS PID 290-1 WATER SAMPLE SYSTEM",
    "flow": "out",
-   "note": "Line crosses to another system (WSS PID 290-1 WATER SAMPLE SYSTEM): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (WSS PID 290-1 WATER SAMPLE SYSTEM); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "2",
@@ -13235,7 +13236,7 @@
    ],
    "text": "MSS PID 240-1 GLAND STEAM QUENCH",
    "flow": "out",
-   "note": "Line crosses to another system (MSS PID 240-1 GLAND STEAM QUENCH): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (MSS PID 240-1 GLAND STEAM QUENCH); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "2",
@@ -13250,7 +13251,7 @@
    ],
    "text": "WPS PID 270-1 WASTE PROCESS SYSTEM",
    "flow": "out",
-   "note": "Line crosses to another system (WPS PID 270-1 WASTE PROCESS SYSTEM): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (WPS PID 270-1 WASTE PROCESS SYSTEM); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "3",
@@ -13265,7 +13266,7 @@
    ],
    "text": "FW SAMPLE WSS PID 290-1",
    "flow": "out",
-   "note": "Line crosses to another system (FW SAMPLE WSS PID 290-1): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (FW SAMPLE WSS PID 290-1); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "3",
@@ -13280,7 +13281,7 @@
    ],
    "text": "FWS TO STEAM GENERATOR FWS PID 170-2",
    "flow": "out",
-   "note": "Line crosses to another system (FWS TO STEAM GENERATOR FWS PID 170-2): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (FWS TO STEAM GENERATOR FWS PID 170-2); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "4",
@@ -13295,7 +13296,7 @@
    ],
    "text": "PDS PID 260-1 PLANT DRAIN SYSTEM",
    "flow": "out",
-   "note": "Line leaves to a vent or drain system (PDS PID 260-1 PLANT DRAIN SYSTEM): isolate or verify it on that drawing."
+   "note": "Boundary: a line continues to a vent or drain system (PDS PID 260-1 PLANT DRAIN SYSTEM); energy can leave or enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "4",
@@ -13310,7 +13311,7 @@
    ],
    "text": "WTS PID 200-4 MAKE-UP WATER",
    "flow": "in",
-   "note": "Line crosses to another system (WTS PID 200-4 MAKE-UP WATER): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (WTS PID 200-4 MAKE-UP WATER); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "4",
@@ -13325,7 +13326,7 @@
    ],
    "text": "TBS PID 240-1 (E-1) LP EXTRACTION STEAM",
    "flow": "in",
-   "note": "Line crosses to another system (TBS PID 240-1 (E-1) LP EXTRACTION STEAM): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (TBS PID 240-1 (E-1) LP EXTRACTION STEAM); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "4",
@@ -13340,7 +13341,7 @@
    ],
    "text": "HPSD PID 190-1 HIGH PRESSURE STM DRAIN",
    "flow": "out",
-   "note": "Line leaves to a vent or drain system (HPSD PID 190-1 HIGH PRESSURE STM DRAIN): isolate or verify it on that drawing."
+   "note": "Boundary: a line continues to a vent or drain system (HPSD PID 190-1 HIGH PRESSURE STM DRAIN); energy can leave or enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "4",
@@ -13355,7 +13356,7 @@
    ],
    "text": "TBS PID 240-1 (D-1) HP EXTRACTION STEAM",
    "flow": "in",
-   "note": "Line crosses to another system (TBS PID 240-1 (D-1) HP EXTRACTION STEAM): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (TBS PID 240-1 (D-1) HP EXTRACTION STEAM); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "5",
@@ -13370,7 +13371,7 @@
    ],
    "text": "WSS PID 290-1 WATER SAMPLE SYSTEM",
    "flow": "out",
-   "note": "Line crosses to another system (WSS PID 290-1 WATER SAMPLE SYSTEM): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (WSS PID 290-1 WATER SAMPLE SYSTEM); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "5",
@@ -13385,7 +13386,7 @@
    ],
    "text": "WSS PID 290-1 WATER SAMPLE SYSTEM",
    "flow": "out",
-   "note": "Line crosses to another system (WSS PID 290-1 WATER SAMPLE SYSTEM): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (WSS PID 290-1 WATER SAMPLE SYSTEM); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "6",
@@ -13400,7 +13401,7 @@
    ],
    "text": "RWS PID 320-1 RAD WASTE SYSTEM",
    "flow": "out",
-   "note": "Line crosses to another system (RWS PID 320-1 RAD WASTE SYSTEM): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (RWS PID 320-1 RAD WASTE SYSTEM); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "6",
@@ -13415,7 +13416,7 @@
    ],
    "text": "SWS PID 130-1 SERVICE WATER SYSTEM",
    "flow": "in",
-   "note": "Line crosses to another system (SWS PID 130-1 SERVICE WATER SYSTEM): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (SWS PID 130-1 SERVICE WATER SYSTEM); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "6",
@@ -13430,7 +13431,7 @@
    ],
    "text": "RWS PID 320-1 RAD WASTE SYSTEM",
    "flow": "out",
-   "note": "Line crosses to another system (RWS PID 320-1 RAD WASTE SYSTEM): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (RWS PID 320-1 RAD WASTE SYSTEM); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "6",
@@ -13445,7 +13446,7 @@
    ],
    "text": "ACW PID 210-2 AUX COOLING WATER",
    "flow": "out",
-   "note": "Line crosses to another system (ACW PID 210-2 AUX COOLING WATER): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (ACW PID 210-2 AUX COOLING WATER); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "6",
@@ -13460,7 +13461,7 @@
    ],
    "text": "ACW PID 210-2 (C-1) AUX COOLING WATER",
    "flow": "in",
-   "note": "Line crosses to another system (ACW PID 210-2 (C-1) AUX COOLING WATER): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (ACW PID 210-2 (C-1) AUX COOLING WATER); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "6",
@@ -13475,7 +13476,7 @@
    ],
    "text": "ACW PID 210-2 AUX COOLING WATER",
    "flow": "out",
-   "note": "Line crosses to another system (ACW PID 210-2 AUX COOLING WATER): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (ACW PID 210-2 AUX COOLING WATER); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "6",
@@ -13490,7 +13491,7 @@
    ],
    "text": "ACW PID 210-2 (C-1) AUX COOLING WATER",
    "flow": "in",
-   "note": "Line crosses to another system (ACW PID 210-2 (C-1) AUX COOLING WATER): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (ACW PID 210-2 (C-1) AUX COOLING WATER); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "7",
@@ -13505,7 +13506,7 @@
    ],
    "text": "ACW PID 210-2 (F-1) AUX COOLING WATER SYSTEM",
    "flow": "in",
-   "note": "Line crosses to another system (ACW PID 210-2 (F-1) AUX COOLING WATER SYSTEM): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (ACW PID 210-2 (F-1) AUX COOLING WATER SYSTEM); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "7",
@@ -13520,7 +13521,7 @@
    ],
    "text": "TBS-240-1 TURBINE",
    "flow": "in",
-   "note": "Line crosses to another system (TBS-240-1 TURBINE): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (TBS-240-1 TURBINE); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "7",
@@ -13535,7 +13536,7 @@
    ],
    "text": "FWS PID 170-2 FEEDWATER SYSTEM",
    "flow": "in",
-   "note": "Line crosses to another system (FWS PID 170-2 FEEDWATER SYSTEM): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (FWS PID 170-2 FEEDWATER SYSTEM); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "7",
@@ -13550,7 +13551,7 @@
    ],
    "text": "TBS PID 250-1 TURBINE",
    "flow": "out",
-   "note": "Line crosses to another system (TBS PID 250-1 TURBINE): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (TBS PID 250-1 TURBINE); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "7",
@@ -13565,7 +13566,7 @@
    ],
    "text": "FWS PID 170-2 FEEDWATER SYSTEM",
    "flow": "out",
-   "note": "Line crosses to another system (FWS PID 170-2 FEEDWATER SYSTEM): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (FWS PID 170-2 FEEDWATER SYSTEM); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "7",
@@ -13580,7 +13581,7 @@
    ],
    "text": "ACW PID 210-2 AUX COOLING WATER SYSTEM",
    "flow": "out",
-   "note": "Line crosses to another system (ACW PID 210-2 AUX COOLING WATER SYSTEM): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (ACW PID 210-2 AUX COOLING WATER SYSTEM); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "8",
@@ -13595,7 +13596,7 @@
    ],
    "text": "SWS PID 130-1 SERVICE WATER SYSTEM",
    "flow": "out",
-   "note": "Line crosses to another system (SWS PID 130-1 SERVICE WATER SYSTEM): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (SWS PID 130-1 SERVICE WATER SYSTEM); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "8",
@@ -13610,7 +13611,7 @@
    ],
    "text": "SWS PID 130-1 SERVICE WATER SYSTEM",
    "flow": "out",
-   "note": "Line crosses to another system (SWS PID 130-1 SERVICE WATER SYSTEM): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (SWS PID 130-1 SERVICE WATER SYSTEM); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "8",
@@ -13625,7 +13626,7 @@
    ],
    "text": "WPS PID 270-1 WASTE PROCESS",
    "flow": "out",
-   "note": "Line crosses to another system (WPS PID 270-1 WASTE PROCESS): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (WPS PID 270-1 WASTE PROCESS); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "8",
@@ -13640,7 +13641,7 @@
    ],
    "text": "SWS PID 130-1 SERVICE WATER SYSTEM",
    "flow": "in",
-   "note": "Line crosses to another system (SWS PID 130-1 SERVICE WATER SYSTEM): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (SWS PID 130-1 SERVICE WATER SYSTEM); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "8",
@@ -13655,7 +13656,7 @@
    ],
    "text": "SWS PID 130-1 SERVICE WATER",
    "flow": "in",
-   "note": "Line crosses to another system (SWS PID 130-1 SERVICE WATER): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (SWS PID 130-1 SERVICE WATER); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "10",
@@ -13670,7 +13671,7 @@
    ],
    "text": "WPS PID 270-1 WASTE PROCESS SYSTEM",
    "flow": "out",
-   "note": "Line crosses to another system (WPS PID 270-1 WASTE PROCESS SYSTEM): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (WPS PID 270-1 WASTE PROCESS SYSTEM); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "10",
@@ -13685,7 +13686,7 @@
    ],
    "text": "RWS PID 320-1 RAD WASTE SYSTEM",
    "flow": "out",
-   "note": "Line crosses to another system (RWS PID 320-1 RAD WASTE SYSTEM): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (RWS PID 320-1 RAD WASTE SYSTEM); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "10",
@@ -13700,7 +13701,7 @@
    ],
    "text": "RWS PID 320-1 RAD WASTE SYSTEM",
    "flow": "out",
-   "note": "Line crosses to another system (RWS PID 320-1 RAD WASTE SYSTEM): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (RWS PID 320-1 RAD WASTE SYSTEM); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "10",
@@ -13715,7 +13716,7 @@
    ],
    "text": "PID 300-1 MAKE-UP WATER",
    "flow": "in",
-   "note": "Line crosses to another system (PID 300-1 MAKE-UP WATER): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (PID 300-1 MAKE-UP WATER); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "10",
@@ -13730,7 +13731,7 @@
    ],
    "text": "WPS PID 270-1 WASTE PROCESS SYSTEM",
    "flow": "out",
-   "note": "Line crosses to another system (WPS PID 270-1 WASTE PROCESS SYSTEM): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (WPS PID 270-1 WASTE PROCESS SYSTEM); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "10",
@@ -13745,7 +13746,7 @@
    ],
    "text": "CAS PID 320-1 CHEMICAL ADDITION SYSTEM",
    "flow": "in",
-   "note": "Line crosses to another system (CAS PID 320-1 CHEMICAL ADDITION SYSTEM): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (CAS PID 320-1 CHEMICAL ADDITION SYSTEM); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "11",
@@ -13760,7 +13761,7 @@
    ],
    "text": "REACTOR WATER SERVICE TANK",
    "flow": "in",
-   "note": "Line crosses to another system (REACTOR WATER SERVICE TANK): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (REACTOR WATER SERVICE TANK); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "0",
@@ -13775,7 +13776,7 @@
    ],
    "text": "EXTRACTION STEAM ES PID 180-1",
    "flow": "out",
-   "note": "Line crosses to another system (EXTRACTION STEAM ES PID 180-1): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (EXTRACTION STEAM ES PID 180-1); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "0",
@@ -13790,7 +13791,7 @@
    ],
    "text": "FWS TO STM BYPASS FWS PID 170-1",
    "flow": "in",
-   "note": "Line crosses to another system (FWS TO STM BYPASS FWS PID 170-1): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (FWS TO STM BYPASS FWS PID 170-1); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "1",
@@ -13805,7 +13806,7 @@
    ],
    "text": "MSS PID 140-1 (E-1) MAIN STEAM BYPASS",
    "flow": "in",
-   "note": "Line crosses to another system (MSS PID 140-1 (E-1) MAIN STEAM BYPASS): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (MSS PID 140-1 (E-1) MAIN STEAM BYPASS); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "1",
@@ -13820,7 +13821,7 @@
    ],
    "text": "CND PID 160-1 CONDENSATE SYSTEM",
    "flow": "out",
-   "note": "Line crosses to another system (CND PID 160-1 CONDENSATE SYSTEM): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (CND PID 160-1 CONDENSATE SYSTEM); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "1",
@@ -13835,7 +13836,7 @@
    ],
    "text": "PID 160-1 (F-1) CND RECEIVER TANK VENT",
    "flow": "in",
-   "note": "Line leaves to a vent or drain system (PID 160-1 (F-1) CND RECEIVER TANK VENT): isolate or verify it on that drawing."
+   "note": "Boundary: a line continues to a vent or drain system (PID 160-1 (F-1) CND RECEIVER TANK VENT); energy can leave or enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "1",
@@ -13850,7 +13851,7 @@
    ],
    "text": "CONDENSATE SYSTEM COND PID 160-1",
    "flow": "out",
-   "note": "Line crosses to another system (CONDENSATE SYSTEM COND PID 160-1): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (CONDENSATE SYSTEM COND PID 160-1); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "2",
@@ -13865,7 +13866,7 @@
    ],
    "text": "ACC PID 150-1 ACC VACUUM PMPS",
    "flow": "out",
-   "note": "Line crosses to another system (ACC PID 150-1 ACC VACUUM PMPS): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (ACC PID 150-1 ACC VACUUM PMPS); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "2",
@@ -13880,7 +13881,7 @@
    ],
    "text": "ACC PID 150-1 (C-12) CONDENSATE RETURN",
    "flow": "in",
-   "note": "Line crosses to another system (ACC PID 150-1 (C-12) CONDENSATE RETURN): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (ACC PID 150-1 (C-12) CONDENSATE RETURN); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "2",
@@ -13895,7 +13896,7 @@
    ],
    "text": "ESS PID 180-1 QUENCH TO DESUPERHEATER",
    "flow": "out",
-   "note": "Line crosses to another system (ESS PID 180-1 QUENCH TO DESUPERHEATER): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (ESS PID 180-1 QUENCH TO DESUPERHEATER); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "3",
@@ -13910,7 +13911,7 @@
    ],
    "text": "FWS TO MAIN STM BYPASS MSS PID 140-1",
    "flow": "out",
-   "note": "Line crosses to another system (FWS TO MAIN STM BYPASS MSS PID 140-1): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (FWS TO MAIN STM BYPASS MSS PID 140-1); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "4",
@@ -13925,7 +13926,7 @@
    ],
    "text": "CND PID 160-1 (E-1) CONDENSATE SYSTEM",
    "flow": "in",
-   "note": "Line crosses to another system (CND PID 160-1 (E-1) CONDENSATE SYSTEM): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (CND PID 160-1 (E-1) CONDENSATE SYSTEM); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "4",
@@ -13940,7 +13941,7 @@
    ],
    "text": "CND PID 160-1 (E-1) CONDENSATE",
    "flow": "in",
-   "note": "Line crosses to another system (CND PID 160-1 (E-1) CONDENSATE): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (CND PID 160-1 (E-1) CONDENSATE); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "4",
@@ -13955,7 +13956,7 @@
    ],
    "text": "MSS PID 140-1 PEGGING STEAM",
    "flow": "in",
-   "note": "Line crosses to another system (MSS PID 140-1 PEGGING STEAM): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (MSS PID 140-1 PEGGING STEAM); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "5",
@@ -13970,7 +13971,7 @@
    ],
    "text": "PID 120-1 (D-1) RHRS",
    "flow": "in",
-   "note": "Line crosses to another system (PID 120-1 (D-1) RHRS): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (PID 120-1 (D-1) RHRS); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "5",
@@ -13985,7 +13986,7 @@
    ],
    "text": "PID 110-1 (H-12) CVCS",
    "flow": "in",
-   "note": "Line crosses to another system (PID 110-1 (H-12) CVCS): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (PID 110-1 (H-12) CVCS); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "5",
@@ -14000,7 +14001,7 @@
    ],
    "text": "PID 120-1 (E-1) RHRS",
    "flow": "in",
-   "note": "Line crosses to another system (PID 120-1 (E-1) RHRS): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (PID 120-1 (E-1) RHRS); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "5",
@@ -14015,7 +14016,7 @@
    ],
    "text": "RES. HEAT REMOVAL SYSTEM RHRS PID-120-01",
    "flow": "out",
-   "note": "Line crosses to another system (RES. HEAT REMOVAL SYSTEM RHRS PID-120-01): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (RES. HEAT REMOVAL SYSTEM RHRS PID-120-01); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "5",
@@ -14030,7 +14031,7 @@
    ],
    "text": "REACTOR COOLANT SYSTEM RCS-PID-100-2",
    "flow": "out",
-   "note": "Line crosses to another system (REACTOR COOLANT SYSTEM RCS-PID-100-2): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (REACTOR COOLANT SYSTEM RCS-PID-100-2); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "5",
@@ -14045,7 +14046,7 @@
    ],
    "text": "PID 110-1 (G-12) CVCS",
    "flow": "in",
-   "note": "Line crosses to another system (PID 110-1 (G-12) CVCS): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (PID 110-1 (G-12) CVCS); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "5",
@@ -14060,7 +14061,7 @@
    ],
    "text": "PID 120-1 (C-1) RHRS",
    "flow": "in",
-   "note": "Line crosses to another system (PID 120-1 (C-1) RHRS): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (PID 120-1 (C-1) RHRS); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "5",
@@ -14075,7 +14076,7 @@
    ],
    "text": "REACTOR COOLANT SYSTEM RC-PID-100-2",
    "flow": "out",
-   "note": "Line crosses to another system (REACTOR COOLANT SYSTEM RC-PID-100-2): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (REACTOR COOLANT SYSTEM RC-PID-100-2); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "5",
@@ -14090,7 +14091,7 @@
    ],
    "text": "CHEMICAL & VOLUME CONTROL CVCS-PID-110-1",
    "flow": "out",
-   "note": "Line crosses to another system (CHEMICAL & VOLUME CONTROL CVCS-PID-110-1): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (CHEMICAL & VOLUME CONTROL CVCS-PID-110-1); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "5",
@@ -14105,7 +14106,7 @@
    ],
    "text": "REACTOR COOLANT SYSTEM RCS-PID-100-2",
    "flow": "out",
-   "note": "Line crosses to another system (REACTOR COOLANT SYSTEM RCS-PID-100-2): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (REACTOR COOLANT SYSTEM RCS-PID-100-2); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "6",
@@ -14120,7 +14121,7 @@
    ],
    "text": "PID 100-1 (G-1) RCS",
    "flow": "in",
-   "note": "Line crosses to another system (PID 100-1 (G-1) RCS): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (PID 100-1 (G-1) RCS); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "6",
@@ -14135,7 +14136,7 @@
    ],
    "text": "PID 100-1 (C-1) RCS",
    "flow": "in",
-   "note": "Line crosses to another system (PID 100-1 (C-1) RCS): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (PID 100-1 (C-1) RCS); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "6",
@@ -14150,7 +14151,7 @@
    ],
    "text": "PID 100-1 (D-1) RCS",
    "flow": "in",
-   "note": "Line crosses to another system (PID 100-1 (D-1) RCS): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (PID 100-1 (D-1) RCS); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "7",
@@ -14165,7 +14166,7 @@
    ],
    "text": "WTS PID 160-1 MAKE-UP WATER",
    "flow": "in",
-   "note": "Line crosses to another system (WTS PID 160-1 MAKE-UP WATER): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (WTS PID 160-1 MAKE-UP WATER); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "8",
@@ -14180,7 +14181,7 @@
    ],
    "text": "ACW PID 210-1 AUC COOLING WATER SYSTEM",
    "flow": "out",
-   "note": "Line crosses to another system (ACW PID 210-1 AUC COOLING WATER SYSTEM): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (ACW PID 210-1 AUC COOLING WATER SYSTEM); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "8",
@@ -14195,7 +14196,7 @@
    ],
    "text": "RCS PID 100-2(C-1) AUX COOLING WATER",
    "flow": "in",
-   "note": "Line crosses to another system (RCS PID 100-2(C-1) AUX COOLING WATER): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (RCS PID 100-2(C-1) AUX COOLING WATER); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "8",
@@ -14210,7 +14211,7 @@
    ],
    "text": "RCS PID 100-2 (A-4) AUX COOLING WATER",
    "flow": "in",
-   "note": "Line crosses to another system (RCS PID 100-2 (A-4) AUX COOLING WATER): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (RCS PID 100-2 (A-4) AUX COOLING WATER); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "8",
@@ -14225,7 +14226,7 @@
    ],
    "text": "ACW PID 210-1 (A-1) AUX COOLING WATER SYSTEM",
    "flow": "in",
-   "note": "Line crosses to another system (ACW PID 210-1 (A-1) AUX COOLING WATER SYSTEM): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (ACW PID 210-1 (A-1) AUX COOLING WATER SYSTEM); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "8",
@@ -14240,7 +14241,7 @@
    ],
    "text": "RCS PID 100-2 AUX COOLING WATER",
    "flow": "out",
-   "note": "Line crosses to another system (RCS PID 100-2 AUX COOLING WATER): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (RCS PID 100-2 AUX COOLING WATER); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "8",
@@ -14255,7 +14256,7 @@
    ],
    "text": "RCS PID 100-2 AUX COOLING WATER",
    "flow": "out",
-   "note": "Line crosses to another system (RCS PID 100-2 AUX COOLING WATER): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (RCS PID 100-2 AUX COOLING WATER); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "9",
@@ -14270,7 +14271,7 @@
    ],
    "text": "RES HEAT REMOVAL SYSTEM RHR PID 120-1",
    "flow": "out",
-   "note": "Line crosses to another system (RES HEAT REMOVAL SYSTEM RHR PID 120-1): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (RES HEAT REMOVAL SYSTEM RHR PID 120-1); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "9",
@@ -14285,7 +14286,7 @@
    ],
    "text": "RES HEAT REMOVAL SYSTEM RHR PID 120-1",
    "flow": "in",
-   "note": "Line crosses to another system (RES HEAT REMOVAL SYSTEM RHR PID 120-1): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (RES HEAT REMOVAL SYSTEM RHR PID 120-1); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "10",
@@ -14300,7 +14301,7 @@
    ],
    "text": "PID 120-1 (C-1) RHRS",
    "flow": "in",
-   "note": "Line crosses to another system (PID 120-1 (C-1) RHRS): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (PID 120-1 (C-1) RHRS); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "10",
@@ -14315,7 +14316,7 @@
    ],
    "text": "PID 100-1 RCS",
    "flow": "out",
-   "note": "Line crosses to another system (PID 100-1 RCS): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (PID 100-1 RCS); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "10",
@@ -14330,7 +14331,7 @@
    ],
    "text": "PID 100-1 (C-1) RCS",
    "flow": "in",
-   "note": "Line crosses to another system (PID 100-1 (C-1) RCS): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (PID 100-1 (C-1) RCS); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "10",
@@ -14345,7 +14346,7 @@
    ],
    "text": "PID 120-1 RHR",
    "flow": "out",
-   "note": "Line crosses to another system (PID 120-1 RHR): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (PID 120-1 RHR); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "11",
@@ -14360,7 +14361,7 @@
    ],
    "text": "REACTOR COOLANT SYSTEM RCS PID 100-1 (H-1)",
    "flow": "in",
-   "note": "Line crosses to another system (REACTOR COOLANT SYSTEM RCS PID 100-1 (H-1)): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (REACTOR COOLANT SYSTEM RCS PID 100-1 (H-1)); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "11",
@@ -14375,7 +14376,7 @@
    ],
    "text": "RES HEAT REMOVAL SYSTEM RCS PID 100-1",
    "flow": "out",
-   "note": "Line crosses to another system (RES HEAT REMOVAL SYSTEM RCS PID 100-1): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (RES HEAT REMOVAL SYSTEM RCS PID 100-1); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "11",
@@ -14390,7 +14391,7 @@
    ],
    "text": "RES HEAT REMOVAL SYSTEM RCS PID 100-1",
    "flow": "out",
-   "note": "Line crosses to another system (RES HEAT REMOVAL SYSTEM RCS PID 100-1): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (RES HEAT REMOVAL SYSTEM RCS PID 100-1); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "11",
@@ -14405,7 +14406,7 @@
    ],
    "text": "CVCS SYSTEM CVCS PID 110-1",
    "flow": "in",
-   "note": "Line crosses to another system (CVCS SYSTEM CVCS PID 110-1): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (CVCS SYSTEM CVCS PID 110-1); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "11",
@@ -14420,7 +14421,7 @@
    ],
    "text": "CVCS SYSTEM CVCS PID 110-1",
    "flow": "out",
-   "note": "Line crosses to another system (CVCS SYSTEM CVCS PID 110-1): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (CVCS SYSTEM CVCS PID 110-1); energy can enter here. Not assessed: which device isolates it."
   },
   {
    "sheet": "11",
@@ -14435,7 +14436,7 @@
    ],
    "text": "RES HEAT REMOVAL SYSTEM RCS PID 100-1",
    "flow": "out",
-   "note": "Line crosses to another system (RES HEAT REMOVAL SYSTEM RCS PID 100-1): energy can come in from there; isolate at the first block valve on this side or on that drawing."
+   "note": "Boundary: a line continues to another system (RES HEAT REMOVAL SYSTEM RCS PID 100-1); energy can enter here. Not assessed: which device isolates it."
   }
  ],
  "instrument_markers": [

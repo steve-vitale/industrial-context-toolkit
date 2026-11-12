@@ -39,7 +39,7 @@ of nearby geometry; the render audit now checks them for occlusion by ghosted pa
 | ![compressor](05_k-101_normal.jpg) | K-101 cutaway with an illustrative radial impeller |
 | ![fault](21_overview_fault_alarm.jpg) | Fault 6 at the reactor pressure high alarm (+294 min) |
 | ![flow](30_flow_legend.jpg) | Process flow coloured by service, arrows showing direction |
-| ![loto](40_loto_mockup.jpg) | Lockout/tagout view design mockup. Isolation points are inferred from the seed model; this is not a procedure. A real LOTO procedure comes from the site's energy-control program (OSHA 1910.147), its verified P&IDs and an authorized person. |
+| ![loto](40_loto_mockup.jpg) | Lockout/tagout view design mockup (re-rendered 2026-11-11). Energy boundaries are inferred from the seed model, in listing order; which device isolates each is not assessed, and control valves are not positive isolation. This is not a procedure. A real LOTO procedure comes from the site's energy-control program (OSHA 1910.147), its verified P&IDs and an authorized person. |
 
 Not checked on these stills: the OCR read-back ([REVIEW_NOTES.md](REVIEW_NOTES.md) section 3 ran on the earlier
 stills; the OCR engine is not installed on the machine that re-rendered them). A person still has to look

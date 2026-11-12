@@ -144,23 +144,31 @@ Geometry is a placeholder throughout: a P&ID gives topology and tags, not layout
 
 ## 5. LOTO isolation view
 
-Here the drawing is real. The isolation points come from the extracted symbols, each with its sheet and box:
+Here the drawing is real. The points come from the extracted symbols, each with its sheet and box. The notes are
+observations only: no row says where to isolate or names a device as the isolation point
+([GOAL_ISOLATION_POC.md](GOAL_ISOLATION_POC.md) sets that rule; this view is a mockup, not that proof of concept).
 
 | Kind | Count | Note on the drawing view |
 |---|---|---|
-| Manual valve in a line | 139 | candidate block valve |
-| Motor-operated valve | 35 | isolation point, and its motor is an energy source of its own |
-| Motor-driven equipment (pumps) | 30 | electrical isolation at its breaker, not on the drawing |
-| Line from another system | 87 | energy can come in from there; isolate there or at the first block valve |
-| Line to a vent or drain system | 8 | |
-| Valve with one connection | 21 | likely a vent, drain or test point |
-| Control valve | 45 | listed so it is **not** mistaken for an isolation device |
-| Relief device | 19 | never used for isolation |
+| Manual valve in a line | 139 | a manual valve the drawing shows; whether it isolates the line is not assessed |
+| Motor-operated valve | 35 | its motor is an electrical energy source of its own (not assessed); whether it isolates is not assessed |
+| Motor-driven equipment (pumps) | 30 | electrical energy is not shown on this drawing (not assessed) |
+| Line from another system | 87 | boundary: the line continues to another system and energy can enter here; which device isolates it is not assessed |
+| Line to a vent or drain system | 8 | boundary: the line continues to a vent or drain system; which device isolates it is not assessed |
+| Valve with one connection | 21 | possibly a vent, drain or test connection; what it serves is not assessed |
+| Control valve | 45 | **not positive isolation**; listed so it is not mistaken for an isolating device |
+| Relief device | 19 | **not positive isolation**; its relief path is a way energy can leave (not assessed) |
 
-The [sheet 7 view](screenshots/open100/loto-isolation-sheet7.png) numbers each point on the original drawing. It is
-framed as on the TE mockup: **a design mockup, not a procedure.** A real lockout/tagout procedure comes from the
-site's energy-control program (OSHA 1910.147), its verified P&IDs and an authorized person. Missed symbols mean
-missed isolation points: a valve the extraction didn't see isn't on this list.
+Every row of the CSV carries the same status, which is the fixed header of [GOAL_ISOLATION_POC.md](GOAL_ISOLATION_POC.md)
+with its name replaced by "DESIGN MOCKUP, NOT A PROCEDURE.": it is not an isolation or lockout/tagout procedure and
+must not be used as one; every point must be verified by a qualified person against the as-built plant and the
+site's energy-control program (for example under OSHA 29 CFR 1910.147); a point it does not list may exist and a
+point it lists may not isolate; electrical, pneumatic, hydraulic, stored-pressure, gravity and thermal energy are
+not assessed. `scripts/test_loto_wording.py` fails if any note is directive.
+
+The [sheet 7 view](screenshots/open100/loto-isolation-sheet7.png) numbers each point on the original drawing, in
+listing order (not an isolation order), and prints the same status in full. A valve the extraction didn't see isn't
+on this list.
 
 ## Reproduce
 

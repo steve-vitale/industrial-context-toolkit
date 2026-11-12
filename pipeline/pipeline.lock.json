@@ -320,13 +320,14 @@
    "inputs": {
     "out/ignition/gateway/build_meta.json": "f38762e2a69c2b0eb9d9bc182d4e57104e0a48a3aff28a2f0e641276d3fce591",
     "out/ignition/gateway/twin_provider.json": "4ede100e6986bcaaf2c4a57e5556c0f6c01820d96757392e19e21dfbc41d18ea",
-    "out/open100_structural/plant_structure.json": "f856d2727ede991fad80a41bfe2eb262eaec7e84837bcac6f394dfdc1c1926a7",
+    "out/open100_structural/plant_structure.json": "1df9eebe0582bdfaef524ee69eda76e30885e92c8e186a7fc90125923fc6ecfd",
     "out/twin/r2-tiles-trace/codex/plant_model.json": "a9b86e8f7b740fb735be15e02014cfbdbbed2dcdeedec3e231fd14d77ea000d8",
     "scripts/ignition/build_open100_mimic.py": "42025dfe7c3a49ada63339675c63d6ef989ec92f1bb3108d956efaeae84396f0",
-    "scripts/render_open100_structural.py": "d178a3cf18c1f5ebcb4fc5b2d62d782231c6ae96191432fea79041bd747ab988"
+    "scripts/isolation_wording.py": "5e21349f42ce059a365dbc0d679b3a8c6213eb33cc680144a0e94c01f505d7d9",
+    "scripts/render_open100_structural.py": "7f334a1a00311bfff2c4e15a0dbfc2d6ad8b2e438c7a0d28d0e43ff0199ee0a6"
    },
    "outputs": {
-    "docs/screenshots/open100/loto-isolation-sheet7.png": "52f11797e27f3b12b62cf326f378bf0b662a908e2568c7859c923c16172dad06",
+    "docs/screenshots/open100/loto-isolation-sheet7.png": "efda6ce1289393213b53b099d8afd9570db0932982e6b614aadb68d4bae37cc2",
     "docs/screenshots/open100/mimic-area-sheet7.png": "84cabc33c6a5f5dee646d118758f71481c9d2138f289ac8b77fed25b161a9f11",
     "docs/screenshots/open100/mimic-plant-overview.png": "9e04176d947fe2f7ce57defd2839a012864b43422e05655764a5708e31d25431",
     "out/open100_structural/mimic/views.json": "a2951743eb952aaf4caad261ceed9d7ed29cf422f87b1bacd9ba7560cd5d8c3f"
@@ -390,7 +391,7 @@
   "open100.scene": {
    "inputs": {
     "assets/fonts/AtkinsonHyperlegible-Regular.ttf": "e15fd8fb72cdeff36164aa706c84a50e3ddcc6b0c5b42ad52b6ae8792ff0a755",
-    "out/open100_structural/plant_structure.json": "f856d2727ede991fad80a41bfe2eb262eaec7e84837bcac6f394dfdc1c1926a7",
+    "out/open100_structural/plant_structure.json": "1df9eebe0582bdfaef524ee69eda76e30885e92c8e186a7fc90125923fc6ecfd",
     "scripts/blender_tour_template.py": "e62b137880b1597be06dd15cd682b933dbe7d3b38954d7b5f0ca5b46dcd6261d",
     "scripts/build_open100_3d.py": "ae3085c37d7de3e92089368431c23cc466ceb78aef210cc58f45f141f24fa360",
     "scripts/label_layout.py": "0c1af7a7dbed9c3e44d95c4537c9070173d2b371b486cd981a13ef9563631709"
@@ -477,14 +478,14 @@
   },
   "open100.structural_check": {
    "inputs": {
-    "docs/DELIVERABLES.md": "0d392d349161b34b802d7550a3e15df97e23e79caf2ee2086a7bc2b788b947cb",
-    "docs/deliverables_matrix.json": "9f1c582ccf2796544ab1cac306d80103006a8156e92131192a705d18f46ffa3e",
+    "docs/DELIVERABLES.md": "5310888b902090ed3fa8c262b12bce09e26f1094eb1075f8a52f76b579c7437b",
+    "docs/deliverables_matrix.json": "2007de3994473da94a7194993427205918a31b97bd9db2b97e9241502dddd89f",
     "out/open100_structural/3d/open100_scene.json": "897f102c7f4162773abe22c8444b4442e6b45aee3093fc1b9a1de985da05f0ad",
     "out/open100_structural/flow_direction.json": "16a57faf86142c8b346ee58fc61baa8dda0b53742267c8fb2631e66295a1420f",
     "out/open100_structural/mimic/views.json": "a2951743eb952aaf4caad261ceed9d7ed29cf422f87b1bacd9ba7560cd5d8c3f",
-    "out/open100_structural/plant_structure.json": "f856d2727ede991fad80a41bfe2eb262eaec7e84837bcac6f394dfdc1c1926a7",
+    "out/open100_structural/plant_structure.json": "1df9eebe0582bdfaef524ee69eda76e30885e92c8e186a7fc90125923fc6ecfd",
     "scripts/deliverables_matrix.py": "4848128cc4770482fccaaa6acca6a9d3e0e84bc8843d57e5cd2535a00e731e5e",
-    "scripts/test_open100_structural.py": "6580c00bebc878362174d92719abcf65fadac5d43e0a567a313c5e1541b38b0e"
+    "scripts/test_open100_structural.py": "32166db9a163a33ed9408d2d7095dd2db59594b4e9e148940b710c8a304d1a62"
    },
    "outputs": {}
   },
@@ -494,11 +495,12 @@
     "data/sheet_registers/open100_dev.csv": "4a90c0b1e7fbb22fdce1db0b0cdd366bb2358e4fb5e5906eb2cbe8b432b084ba",
     "out/open100_structural/flow_direction.json": "16a57faf86142c8b346ee58fc61baa8dda0b53742267c8fb2631e66295a1420f",
     "out/twin/r2-tiles-trace/codex/plant_model.json": "a9b86e8f7b740fb735be15e02014cfbdbbed2dcdeedec3e231fd14d77ea000d8",
-    "scripts/open100_structure.py": "0a7dcffdf0d89b98b3fbda153b5a8f61eaf9acf774e6a2d76721d30b65137c4f"
+    "scripts/isolation_wording.py": "5e21349f42ce059a365dbc0d679b3a8c6213eb33cc680144a0e94c01f505d7d9",
+    "scripts/open100_structure.py": "2db7dcacdc8abf702e4894ca9454d04ce3d485a70522e67a1e3a262a077101f3"
    },
    "outputs": {
-    "out/open100_structural/loto_isolation_points.csv": "3fd5fea8524b83532b72e04812ab7de32973d097200b7c86c3000b0d31a87eda",
-    "out/open100_structural/plant_structure.json": "f856d2727ede991fad80a41bfe2eb262eaec7e84837bcac6f394dfdc1c1926a7"
+    "out/open100_structural/loto_isolation_points.csv": "69f75f76224eeb3cb27684575a159555256d8d26db6522e24f248dcbb988ce0e",
+    "out/open100_structural/plant_structure.json": "1df9eebe0582bdfaef524ee69eda76e30885e92c8e186a7fc90125923fc6ecfd"
    }
   },
   "pi.export_check": {
@@ -580,16 +582,16 @@
     "data/te_process_model.json": "7222ed15fa4b56ae0d38f6401160eef8881ccf1ba511380ba27161883f84921b",
     "data/te_tour_cards.json": "68fb5b7ce2f3f2f8c07b9ea4267515d79c0d92260a6a5ab5c5e825f05d351042",
     "data/te_unit_purposes.json": "747d44e9a432c9908ce3c485d010d70ef60db1c1f29fb04d542881b36ecbcf9d",
-    "drafts/interactive-tour/build.mjs": "4b41e85764105ecb780a90996a025d1e71ed736db92439f897a19e9dca2710cf",
+    "drafts/interactive-tour/build.mjs": "9e3e298a133cc24342576169c80f1231fd9295fbece359cf8543feb11fcd8cb9",
     "drafts/interactive-tour/cdp.mjs": "f4ee2bfb3ed59701eea53fceb61fbc378ff2e98e5af2e3efd9452533c83ab437",
     "drafts/interactive-tour/kit/audit.mjs": "90c5bb4a86f108e8a1d3211dbea326bed16acd887c3438810ea29200a2cde28d",
     "drafts/interactive-tour/kit/iso-kit.mjs": "6d3ecc725d30c3b0346da309cf61dfa5a65017c23620bbd4093009d4fb104018",
     "drafts/interactive-tour/kit/lathe.mjs": "a4e7e974b1a37e603ad2b76363b6f9815cc101dfff0ad277a5d4e8f1dc56fccb",
     "drafts/interactive-tour/kit/tube.mjs": "bcb3cc360f6d83e6a5753f4c464b4587ab7965028b05a5d58e285abce58667c9",
-    "drafts/interactive-tour/live.js": "12456dfead003012a778e369a3273b1213773ff20c296f64caa181d7e8075de1",
-    "drafts/interactive-tour/model.mjs": "95f7396771d3f16d0b1ec935932f425b72d667e51441facc1430334c55e8ccad",
+    "drafts/interactive-tour/live.js": "b9ef6f86af67a76a9f06c38ea25214adc0a3619e17164ed29e711ab4c14265ac",
+    "drafts/interactive-tour/model.mjs": "083511846f41ff653bfad54ec48901f088caa2c45f55f85ad84ebe5e54b7a4b7",
     "drafts/interactive-tour/tour.css": "24a426457f2cf1d786c72a24d37957d57a521184fb27e255e01d52e0cedfc4a8",
-    "drafts/interactive-tour/verify.mjs": "b01da175bee23b0709f8d857514ff0fe3d8be7f013630169fb190e8ef0373273",
+    "drafts/interactive-tour/verify.mjs": "789b63155e513278dbd57b686d688fbb75240111b3eb1335359fff1d9f88fcff",
     "out/ignition/gateway/build_meta.json": "f38762e2a69c2b0eb9d9bc182d4e57104e0a48a3aff28a2f0e641276d3fce591",
     "out/ignition/gateway/twin_provider.json": "4ede100e6986bcaaf2c4a57e5556c0f6c01820d96757392e19e21dfbc41d18ea",
     "out/ignition/normal_bands.json": "5ced675e96408a0afb2f2a3cb2ab445024131a4575ee3122023ad7682a4025d5",
@@ -597,59 +599,61 @@
     "out/pi/attribute_descriptions.csv": "c085bea36ecdafcca15bbf1ec59cb1696e51bc4555af2b95621dfdef557f9af3",
     "out/pi/pi_builder_af.csv": "ba2379b28ab5fae73c7e940496ab4ba5ef6899501eeaee6cb2d39193929db5d8",
     "scripts/blender_tour_template.py": "e62b137880b1597be06dd15cd682b933dbe7d3b38954d7b5f0ca5b46dcd6261d",
-    "scripts/build_3d_scene.py": "711ccbe03fb1f7646476bd6a002a5c37838a075586a70173b6ab6ab24c6c201b",
+    "scripts/build_3d_scene.py": "54ed9ba15316a50003e077246ba4b2ebe3d4af7a9208816463d3600d97b4930d",
     "scripts/display_contract.py": "0f906bbf2210dcfe8ef3bdfdf7be573c8142fd87ac9551917b703d0d6d88ebf5",
     "scripts/export_interactive_tour.py": "73acfd0671a3662d7ecee969d7a092f72bc64b3880474909a924c6179952148d",
     "scripts/ignition/te_channels.py": "bc57a705b86db0ba74a942d31ce402323ddf38365d0a8af4aa80a2152bd628f4",
+    "scripts/isolation_wording.py": "5e21349f42ce059a365dbc0d679b3a8c6213eb33cc680144a0e94c01f505d7d9",
     "scripts/label_layout.py": "0c1af7a7dbed9c3e44d95c4537c9070173d2b371b486cd981a13ef9563631709",
-    "scripts/orientation_tour.py": "c32fd25374b9f5fd8ca602b5c479bdae6ed85fb33e4e93a9b6ee96f265540f4e",
+    "scripts/orientation_tour.py": "6639d6d106e99cb5ffb74e18798f0ba9d75d380d4be5ef22bf7749867ea4329e",
     "scripts/verify_3d_render.py": "842c9ccf7505ef33a0a5f5847a02a207d57dc6bd26ba05374772f0ceebea2def"
    },
    "outputs": {
     "drafts/interactive-tour/audit/geometry.json": "4f67243575286678fbaa25e0521881c3ca7e2342b870790b7622e70176d6f5cc",
-    "drafts/interactive-tour/audit/report.json": "daf2672240ef91bd6b497a5d53f3fdb99d43732de6e659e93ee96d45f6813fdc",
-    "drafts/interactive-tour/audit/report.md": "e66e6337199190fca7fafe4d3f71ad45f4b8bc8930481141b231e83830aa35eb",
-    "drafts/interactive-tour/page/te-tour-light.html": "e4fb1fe5e1d6aeaf4206af83f363a898848f4ea77cbbd9287285fe226c574415",
-    "drafts/interactive-tour/page/te-tour.html": "df4188c447b251cb5f2062974804425e3f66ff0dc7e3cd1ba4bd2089a7f43ba9",
-    "drafts/interactive-tour/shots/compressor-1440-dark.jpg": "fddc5ff371e00e93fe253f71dadc20a8906195a2f2841e426516424026fcc82e",
-    "drafts/interactive-tour/shots/compressor-1440-light.jpg": "5efea77f84ab3055c4bdb125d7703a8eb46b3b9039c8d0e19bcce58ffe4c5b35",
-    "drafts/interactive-tour/shots/compressor-390-dark.jpg": "b352b4edb75ffebda5fcf04d2e450c23a5ed8bb24723243b32f0b1648e5a782c",
-    "drafts/interactive-tour/shots/compressor-390-light.jpg": "24071950916af52c4cb221a6b42d0de07780475d8d86ed78ec1e8e63cfa7474c",
-    "drafts/interactive-tour/shots/fault6-alarm-1440-dark.jpg": "829a77cab5ca901a0447ac0fb9bc0a421609d9741fd2c5f4d3a3dbb5051e3cd1",
-    "drafts/interactive-tour/shots/fault6-alarm-1440-light.jpg": "8af6d869d07dac569096c628c8da177f0212286b48d87dd3b4cad9a1a2b4947e",
-    "drafts/interactive-tour/shots/fault6-alarm-390-dark.jpg": "1ad35bf51a585748bace4dcebc5c2b4c02e8ec0efbb32b21decd2f46d3fff87f",
-    "drafts/interactive-tour/shots/fault6-alarm-390-light.jpg": "74b3ad58191f08bf6bee4cb1fa702cfb4f4928738f2d14de05ac5f62825bf070",
-    "drafts/interactive-tour/shots/header-1440-dark.jpg": "ccdc03dd18b6f8225f5fee1c4dcd2c3313b64e1bb14b8dbfdd8c0b3da50389f0",
-    "drafts/interactive-tour/shots/header-1440-light.jpg": "df41e8b386ca6194dc98a9e6f107db5546d2eca174f27b67da5e663b72b4daf7",
-    "drafts/interactive-tour/shots/header-390-dark.jpg": "4eaedc6a3fd3fbd216006eb3eded4f95e7c26fb57975f423572ffb47ca39cde8",
-    "drafts/interactive-tour/shots/header-390-light.jpg": "c95cbfa279493201261858e8739e0831a48fdb519117654fe965ba28d1928106",
-    "drafts/interactive-tour/shots/loto-all-feeds-and-motor-1440-dark.jpg": "f13fd067440a37531ea1e22c83d49b54f7e9ba6faf317b9321a70ddb6ded9439",
-    "drafts/interactive-tour/shots/loto-mockup-1440-dark.jpg": "3619fb8f9acfc3a2e85fa46488fe32bf749d8be19a86e8cebfa578623dbd12a1",
-    "drafts/interactive-tour/shots/loto-mockup-1440-light.jpg": "87f5c56d8632951209ca5e0bec74169c1e99ff34484c21d170c20ed92450ae26",
-    "drafts/interactive-tour/shots/loto-mockup-390-dark.jpg": "87f1831c989c55d3a389eb4fae9c2150efbdcb0b198cac0e4f0f1980c1c41124",
-    "drafts/interactive-tour/shots/loto-mockup-390-light.jpg": "73316d52a971aa815951940e0c1c5d05309b71fb8acaf1bcb92a9937625e5076",
-    "drafts/interactive-tour/shots/overview-1440-dark.jpg": "fcd74aa304070aa32d41aea1acb4af9666f5acf9c238a08a801d29c824a1531e",
-    "drafts/interactive-tour/shots/overview-1440-light.jpg": "a6922054067548212cedb469af006d36821e245843d1a3757b1ee2eb12e9b66d",
-    "drafts/interactive-tour/shots/overview-390-dark.jpg": "764d07ef10db5ae5f343dcf298188bfc273a2786c7e8601f2079c1b3e23ad7b1",
-    "drafts/interactive-tour/shots/overview-390-light.jpg": "a23fb55035c87a3ea6472ebf3318acf2ad4196edcbd06d9f527abcac77eca60f",
-    "drafts/interactive-tour/shots/reactor-1440-dark.jpg": "eba7f0eedb5756bd63a8bb0fd447db986d14d3c41aa184b3cf79818c3084741d",
-    "drafts/interactive-tour/shots/reactor-1440-light.jpg": "8c744e776819b7b3182ce1c0472e420d900b9db1c6526a4780881890c64158f0",
-    "drafts/interactive-tour/shots/reactor-390-dark.jpg": "fd435fc2133ca76f48570c8661f7a4defd8ececb0c798498e19eee04c53b01cf",
-    "drafts/interactive-tour/shots/reactor-390-light.jpg": "29a26e0cf409d3c2e1662f3bbc4fa09f270e8014fa284b0e81a5b39c6fd6962b",
-    "drafts/interactive-tour/shots/separator-1440-dark.jpg": "6faf4b047ec14effb3a60953a4f4e3144f6b040fd061719380b99c65b57aea31",
-    "drafts/interactive-tour/shots/separator-1440-light.jpg": "14f7ff85046d98908ce4680b8b3c8ce06d878a75d127793cd3986889c4dd3e52",
-    "drafts/interactive-tour/shots/separator-390-dark.jpg": "51859f34609ba85f0ae2cd54123cc2365763d9a6a1de5c2af16c126baac43dfc",
-    "drafts/interactive-tour/shots/separator-390-light.jpg": "16ffea32eaa76ab54f497fc2bd7e4ff9505e701dfa12f639a63230714d3d9e94"
+    "drafts/interactive-tour/audit/report.json": "479c1eee5d976abd10637ab37fc9f61ba6970caabeee4144b90efc3632b5e486",
+    "drafts/interactive-tour/audit/report.md": "2b27f3a8b1ddcfe9d432052473c0ae9facd7f7b6825f5f1d455e1e62d6bba28c",
+    "drafts/interactive-tour/page/te-tour-light.html": "b0d325acca2d90f7678b5fafe6dc298f3aa2efb3dd38afb076cd53f427c2b1d2",
+    "drafts/interactive-tour/page/te-tour.html": "1bd7a23f5e324e87f9c86ee153b659473a4ef152a72c112f057df46b8574915a",
+    "drafts/interactive-tour/shots/compressor-1440-dark.jpg": "c244ee0aefceaeb0e8c00e1a994d515b97b6a0e98235f4bfab77dccd389821df",
+    "drafts/interactive-tour/shots/compressor-1440-light.jpg": "304e0096847f6587e313fde9288e840691aca458489c6108b6095e0a4f2aa79b",
+    "drafts/interactive-tour/shots/compressor-390-dark.jpg": "48d85fd863ca5974031e9414f9a891b5c0a16127ae3c92c5848cd304724d0f38",
+    "drafts/interactive-tour/shots/compressor-390-light.jpg": "0a37a9e6608311caeff3975c6bb4eb276a3661ac8e9f14268678438d617b3462",
+    "drafts/interactive-tour/shots/fault6-alarm-1440-dark.jpg": "f3c0ba18c2533f14694beb24f6fd523f347dba8ca168b5f6451cef3cba5ebd55",
+    "drafts/interactive-tour/shots/fault6-alarm-1440-light.jpg": "bff59af671b043d05f949a84cbca5e482da308a9c23ff923b4ee475966eaf2ea",
+    "drafts/interactive-tour/shots/fault6-alarm-390-dark.jpg": "909c5fbae85902fffaec0925c4693fc976ccfdec1ea8351139a619366dce8aa5",
+    "drafts/interactive-tour/shots/fault6-alarm-390-light.jpg": "b44dc03d7912879c0a0e11db00bc0c0bd198d8bdba852871e3fe0982bce00531",
+    "drafts/interactive-tour/shots/header-1440-dark.jpg": "ce53db235caa1630f1bfea2eda35900313f5bd182ded0df9a90b280204d50f68",
+    "drafts/interactive-tour/shots/header-1440-light.jpg": "bfed4d84eeccfbe653822fb44c1943c7e01077852e602356c9a2729b33d059f0",
+    "drafts/interactive-tour/shots/header-390-dark.jpg": "33565cac61cf1ad8f36c79ec709077c661a91474cfd085f2c1e2007b5d51a522",
+    "drafts/interactive-tour/shots/header-390-light.jpg": "9af6d43180fc3cab7f968e5832c0885df6bee8abacca2b32de063c8159f4d219",
+    "drafts/interactive-tour/shots/loto-all-feeds-and-motor-1440-dark.jpg": "9a749cbebc71aeb56ba829d5ff18421fe424c5ae838e8a9e6a54d5efeb4c8613",
+    "drafts/interactive-tour/shots/loto-mockup-1440-dark.jpg": "9f88792b5438748d51de720405b419b8fda0775d141962ebee37c28b08dce08e",
+    "drafts/interactive-tour/shots/loto-mockup-1440-light.jpg": "17f067063d7b780be7687b0846c80e77b69efa4a9818c4d6a55fc2f82864dbf3",
+    "drafts/interactive-tour/shots/loto-mockup-390-dark.jpg": "b98e15e2362a563b054d70ce7d9ff131db4fe85ce9b89f69e2b08ebdc5fee61c",
+    "drafts/interactive-tour/shots/loto-mockup-390-light.jpg": "ad0544ed82aaa7f33d73c307d9ea8415b0b193882211be4efb548a18b67d065e",
+    "drafts/interactive-tour/shots/overview-1440-dark.jpg": "de0a4d730e67754429b2cc29a6d6a527882976fc95f49a04f5ebc5c6a2e96f7b",
+    "drafts/interactive-tour/shots/overview-1440-light.jpg": "1e8a85e06b550ceb65ba0a6a040b4ce7bdfced5f40d1e358fb112b1e5da0c152",
+    "drafts/interactive-tour/shots/overview-390-dark.jpg": "b3ecf93a3bd96eefcdfc685b7ee4a4221971801835a9a0cb633dd0aa65ab8051",
+    "drafts/interactive-tour/shots/overview-390-light.jpg": "a78e9bf50ffd51a4cef9fdb91cbea048de067937f8b19919d482d871f46ad12c",
+    "drafts/interactive-tour/shots/reactor-1440-dark.jpg": "54256692f8fc768bb9ccbbb929e37d37097089b1118794db3810c1f015248d8d",
+    "drafts/interactive-tour/shots/reactor-1440-light.jpg": "41e57fe87c85d9fab9d434cb6b73df3bc93a7960a677ba5ac82bff83fcd49846",
+    "drafts/interactive-tour/shots/reactor-390-dark.jpg": "53711f1affa34b0f707e7e3ac662abfe92852b06bfad875c62722a4fa742330d",
+    "drafts/interactive-tour/shots/reactor-390-light.jpg": "a1f93986444ddde0ab5bddb2529f8b408e0268552b1a8ae98a2f5f4a103dba34",
+    "drafts/interactive-tour/shots/separator-1440-dark.jpg": "2edb4e5e0942607fa873e35b9c2e03426b4d89e3f1956967191a7760d480e42e",
+    "drafts/interactive-tour/shots/separator-1440-light.jpg": "e3f20dcf4b256bfb46674d76815e350baf3696e661e80172883a30b110b1e37b",
+    "drafts/interactive-tour/shots/separator-390-dark.jpg": "59326a99b783457823b3c8c9dadd3c4322db73298c90a17c81b3c909c863c8c0",
+    "drafts/interactive-tour/shots/separator-390-light.jpg": "3888a44f31bed46cdbc4555ad330fe1b54d932d41d42df59426d8460944808c1"
    }
   },
   "te.mimic": {
    "inputs": {
     "data/te_display_layout.json": "431a91f305eb2fc1235bcf76fcbb79aa1460328c0cfd8e90faf9766524172d08",
     "data/te_process_model.json": "7222ed15fa4b56ae0d38f6401160eef8881ccf1ba511380ba27161883f84921b",
-    "scripts/build_scene_data.py": "e490027bfb7cad92463e15aef591cf3c771a0fd428c9ba7e467ceb6c3caff876",
+    "scripts/build_scene_data.py": "23ca54443f93f47fcf54fa8f43e8b35176efecbe9d172975155e224f992bf770",
     "scripts/export_mimic_layout.py": "2fcbc5601694ad37e2d48df1e0b01f1b2f339fb0b30a6378263677e3212e2261",
     "scripts/ignition/build_hmi.py": "35ffb950772bc56c3dc8048f6aa689457b13f71375b1e7dd01d4d8538aa24a19",
     "scripts/ignition/build_mimic.py": "c9f597f84100922a3f75592459ee7212624275911defe674fa1275c033606dc8",
+    "scripts/isolation_wording.py": "5e21349f42ce059a365dbc0d679b3a8c6213eb33cc680144a0e94c01f505d7d9",
     "scripts/provenance.py": "69697be53c87ddd0efa92907847f14158512d2dfa2d337e79a6bb19145c98433"
    },
    "outputs": {
@@ -946,11 +950,12 @@
   "te.scene": {
    "inputs": {
     "data/te_process_model.json": "7222ed15fa4b56ae0d38f6401160eef8881ccf1ba511380ba27161883f84921b",
-    "scripts/build_scene_data.py": "e490027bfb7cad92463e15aef591cf3c771a0fd428c9ba7e467ceb6c3caff876",
+    "scripts/build_scene_data.py": "23ca54443f93f47fcf54fa8f43e8b35176efecbe9d172975155e224f992bf770",
+    "scripts/isolation_wording.py": "5e21349f42ce059a365dbc0d679b3a8c6213eb33cc680144a0e94c01f505d7d9",
     "scripts/provenance.py": "69697be53c87ddd0efa92907847f14158512d2dfa2d337e79a6bb19145c98433"
    },
    "outputs": {
-    "out/scene/te_scene.json": "e347e5670194d44f389f6836b1a7dbf1b23d8c767c8aa335babad753f2f272e4"
+    "out/scene/te_scene.json": "e4ee38fc138b87d04c6b5160b340b3f3cbdee623e3c1aa6d8e2f58820473478b"
    }
   },
   "te.source": {
@@ -993,28 +998,29 @@
     "out/pi/attribute_descriptions.csv": "c085bea36ecdafcca15bbf1ec59cb1696e51bc4555af2b95621dfdef557f9af3",
     "out/pi/pi_builder_af.csv": "ba2379b28ab5fae73c7e940496ab4ba5ef6899501eeaee6cb2d39193929db5d8",
     "scripts/blender_tour_template.py": "e62b137880b1597be06dd15cd682b933dbe7d3b38954d7b5f0ca5b46dcd6261d",
-    "scripts/build_3d_scene.py": "711ccbe03fb1f7646476bd6a002a5c37838a075586a70173b6ab6ab24c6c201b",
+    "scripts/build_3d_scene.py": "54ed9ba15316a50003e077246ba4b2ebe3d4af7a9208816463d3600d97b4930d",
     "scripts/display_contract.py": "0f906bbf2210dcfe8ef3bdfdf7be573c8142fd87ac9551917b703d0d6d88ebf5",
     "scripts/hazard_citations.py": "4ac4509a23791ece35e428e32cfc3e913e2c1fdc8460a6e5735ac193eaaff9c3",
+    "scripts/isolation_wording.py": "5e21349f42ce059a365dbc0d679b3a8c6213eb33cc680144a0e94c01f505d7d9",
     "scripts/label_layout.py": "0c1af7a7dbed9c3e44d95c4537c9070173d2b371b486cd981a13ef9563631709",
-    "scripts/orientation_tour.py": "c32fd25374b9f5fd8ca602b5c479bdae6ed85fb33e4e93a9b6ee96f265540f4e",
+    "scripts/orientation_tour.py": "6639d6d106e99cb5ffb74e18798f0ba9d75d380d4be5ef22bf7749867ea4329e",
     "scripts/verify_3d_render.py": "842c9ccf7505ef33a0a5f5847a02a207d57dc6bd26ba05374772f0ceebea2def"
    },
    "outputs": {
     "drafts/3d-tour/00_overview_normal.jpg": "7412ca3323d9f2bb95926db768ed04efaf8750f876dd53f384e87bc236b0928d",
     "drafts/3d-tour/01_u-100_normal.jpg": "8d323d4ba7ff7431a5d2e2abd5a59a0725c191006363d34f354e515e39afbe4c",
-    "drafts/3d-tour/02_r-101_normal.jpg": "80f1ccbc0d8f1596fdbc086b6b8da745181385add6ad246c90109a39bdf376cd",
-    "drafts/3d-tour/04_v-101_normal.jpg": "303e660958087ced802a69944f486e827d3c65538b5ed2be374149293149bbce",
+    "drafts/3d-tour/02_r-101_normal.jpg": "5e56333c5f9a21de54b2904dc9ab25b4a3f7d72972f9b6e6ce370ebf751ade4f",
+    "drafts/3d-tour/04_v-101_normal.jpg": "ab6301ea8fb562c1dcfffe467bf6fbaf0728cf2d48b43804a559e64ae8aae698",
     "drafts/3d-tour/05_k-101_normal.jpg": "204f4b58ec99a25313aa087a8e8087bbb7ff532f3b87fa1dea546011a6851b5b",
     "drafts/3d-tour/21_overview_fault_alarm.jpg": "87c4f73b8d3f2e0a8eeaf420bd26cfbed311f0ff9b86ad54b527b44bea4673ab",
     "drafts/3d-tour/30_flow_legend.jpg": "c4eb5c93325ad6354676c0c295ed4886a1b1ee48135b80267eb2854b16bf674c",
-    "drafts/3d-tour/40_loto_mockup.jpg": "261c7afa4b3f56fd17d54f7f03ef09cb14929a681b13b686907611ed2262e625",
+    "drafts/3d-tour/40_loto_mockup.jpg": "097aa737e7f427da4637d483137669a628cc4c569e7fe983400092873fc0684d",
     "drafts/3d-tour/before/00_overview_normal.jpg": "13017c6b44c7c1603f0df9c564c718c93565ed78e52b0af054cc9a4fac6a356c",
     "drafts/3d-tour/before/03_e-101_normal.jpg": "f83b4608cb26ee2783e7e827a84d72828a0050c884d55e8f986d1f6e5d97c3f2",
     "drafts/3d-tour/before/label_boxes.json": "2329e7a8d9a9f8bb0464e997a4b7768aef7ea684b33420c3c58355834d13a446",
-    "drafts/3d-tour/label_boxes.json": "4be4effa91890dcd3bed93a1138d3a82ca272d5ea021b9e83afa057615cdfbd5",
-    "drafts/3d-tour/verification.json": "6e35876c946e964f41d5131e754c61cba82cdbb236fced67541f53a9aa38ccf3",
-    "drafts/3d-tour/verification.md": "3889f7c8e02da48037e38998564ffa97ab50293d9ea1ff0129b9ad607dfe10f6"
+    "drafts/3d-tour/label_boxes.json": "ed1c2fae6ed8d074d19ec9256ebc6adb29024b9ccf433ac6e4c47b19652b2900",
+    "drafts/3d-tour/verification.json": "f63e817992e384b0a566f5c18fc6cde19e3e28ae8346b128e4bfd000d005c4b5",
+    "drafts/3d-tour/verification.md": "366686e195572694236606548b65dd1c9a35af3d318428304e799455eaf2f327"
    }
   }
  }

@@ -444,14 +444,16 @@ def build_tour(scene, model, layout, bands, alarms, replay, hazards, fault_start
                       utilities="all", overlays=[badge(), service_legend()], flow_strong=True))
     loto, loto_labels = loto_mockup(scene, model)
     shots.append(shot("40_loto_mockup", overview, "Lockout/tagout view: design mockup only",
-                      "Numbered tags mark isolation points inferred from the seed model; this is not a LOTO procedure.",
+                      "Numbered tags mark energy boundaries inferred from the seed model, in listing order; this is "
+                      "not a LOTO procedure.",
                       visible=["unit:" + u for u in unit_ids] + [l["id"] for l in loto_labels], utilities="all",
                       chevrons=False, ghost_all=True,
                       overlays=[badge(), {"id": "overlay:loto", "kind": "card", "corner": "top_left", "text": "\n".join(
                           ["Design mockup, not a procedure"] + wrap(
-                              "Isolation points are inferred from the TE seed model (marked *). A real lockout/tagout "
-                              "procedure comes from the site's energy-control program (OSHA 1910.147), its verified "
-                              "P&IDs and an authorized person.", 46))}], optional=True))
+                              "Energy boundaries inferred from the TE seed model (marked *). Which device isolates "
+                              "each is not assessed; control valves are not positive isolation. Verify with a "
+                              "qualified person and the site's energy-control program (OSHA 1910.147).", 46))}],
+                      optional=True))
 
     segs = []
 
@@ -499,23 +501,25 @@ def build_tour(scene, model, layout, bands, alarms, replay, hazards, fault_start
 
 
 def loto_mockup(scene, model):
-    """Inferred isolation points for the LOTO design mockup. NOT a procedure: no sequence is claimed to be correct."""
+    """Inferred energy boundaries for the LOTO design mockup: where energy can enter, never which device isolates it.
+    NOT a procedure: the numbers are listing order, and no device is named as an isolation point
+    (docs/GOAL_ISOLATION_POC.md)."""
     points = []
     for b in scene["boundaries"]:
         s = next(x for x in model["streams"] if x["id"] == b["stream"])
-        points.append(("bl:" + b["stream"], f"{s['name']}: battery-limit block valve*",
+        points.append(("bl:" + b["stream"], f"{s['name']}: boundary, energy can enter*",
                        [b["position"][0], b["position"][1], 1.0]))
     for e in scene["equipment"]:
         if e["shape"] == "compressor":
-            points.append(("motor:" + e["id"], f"{e['id']} motor: electrical*",
+            points.append(("motor:" + e["id"], f"{e['id']} motor: electrical, not assessed*",
                            [e["position"][0] + e["dims"][2] * 0.4, e["position"][1], 0.3 + e["dims"][0] * 0.8]))
         if e.get("agitator"):
-            points.append(("agitator:" + e["id"], f"{e['id']} agitator motor: electrical*",
+            points.append(("agitator:" + e["id"], f"{e['id']} agitator motor: electrical, not assessed*",
                            [e["position"][0], e["position"][1], e["extent"][2]]))
     for u in scene.get("utilities", []):
         if u["role"] in ("supply", "steam"):
             what = "cooling water in/out" if u["role"] == "supply" else "steam"
-            points.append(("utility:" + u["id"], f"{u['unit']} {what}*", u["post"][:2] + [0.9]))
+            points.append(("utility:" + u["id"], f"{u['unit']} {what}: boundary*", u["post"][:2] + [0.9]))
     labels, out = [], []
     for k, (pid, text, anchor) in enumerate(points, 1):
         out.append({"n": k, "point": pid, "text": text, "anchor": anchor, "basis": "inferred from the seed model"})

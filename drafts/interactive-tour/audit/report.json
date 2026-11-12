@@ -220,21 +220,21 @@
    "group": "D",
    "id": "loto_one_point",
    "status": "pass",
-   "summary": "isolating the A feed block valve: the model says S1 stop(s); the page greys S1 and the pulses stand still on S1; the rest keep moving",
+   "summary": "selecting the A feed boundary: the model says S1 stop(s); the page greys S1 and the pulses stand still on S1; the rest keep moving",
    "details": []
   },
   {
    "group": "D",
    "id": "loto_downstream_stops",
    "status": "pass",
-   "summary": "isolating every feed block valve and the K-101 motor stops all 13 process lines (computed: 0 flowing; pulses moving on the page: 0); the readout lists the 6 sources still not isolated (outlets, agitator, utilities)",
+   "summary": "selecting every feed boundary and the K-101 motor greys all 13 process lines (computed: 0 flowing; pulses moving on the page: 0); the readout lists the 6 boundaries not selected (outlets, agitator, utilities)",
    "details": []
   },
   {
    "group": "D",
    "id": "loto_compressor_still_drives_recycle",
    "status": "pass",
-   "summary": "with only the four feeds isolated the K-101 motor still drives the recycle loop: S5, S6, S7, S7b, S8, S8b, S9, S10, S11 keep flowing (the readout does not call the unit isolated)",
+   "summary": "with only the four feeds selected the K-101 motor still drives the recycle loop: S5, S6, S7, S7b, S8, S8b, S9, S10, S11 keep flowing (the readout makes no claim about the unit)",
    "details": []
   },
   {
@@ -269,7 +269,7 @@
    "group": "C",
    "id": "labels_off_geometry",
    "status": "pass",
-   "summary": "no label covers more than 10% of its box with drawn, undimmed pipes or machines (largest share 4.1%); 0 states over the limit",
+   "summary": "no label covers more than 10% of its box with drawn, undimmed pipes or machines (largest share 6.7%); 0 states over the limit",
    "details": []
   },
   {
@@ -348,7 +348,7 @@
    "missing_units": [],
    "small": [],
    "cover": [],
-   "max_cover": 0,
+   "max_cover": 0.039,
    "low": [],
    "hscroll": false
   },
@@ -366,7 +366,7 @@
    "missing_units": [],
    "small": [],
    "cover": [],
-   "max_cover": 0.013,
+   "max_cover": 0,
    "low": [],
    "hscroll": false
   },
@@ -384,7 +384,7 @@
    "missing_units": [],
    "small": [],
    "cover": [],
-   "max_cover": 0,
+   "max_cover": 0.005,
    "low": [],
    "hscroll": false
   },
@@ -402,7 +402,7 @@
    "missing_units": [],
    "small": [],
    "cover": [],
-   "max_cover": 0.041,
+   "max_cover": 0,
    "low": [],
    "hscroll": false
   },
@@ -456,7 +456,7 @@
    "missing_units": [],
    "small": [],
    "cover": [],
-   "max_cover": 0.01,
+   "max_cover": 0,
    "low": [],
    "hscroll": false
   },
@@ -510,7 +510,7 @@
    "missing_units": [],
    "small": [],
    "cover": [],
-   "max_cover": 0,
+   "max_cover": 0.005,
    "low": [],
    "hscroll": false
   },
@@ -528,7 +528,7 @@
    "missing_units": [],
    "small": [],
    "cover": [],
-   "max_cover": 0.028,
+   "max_cover": 0.027,
    "low": [],
    "hscroll": false
   },
@@ -546,7 +546,7 @@
    "missing_units": [],
    "small": [],
    "cover": [],
-   "max_cover": 0.016,
+   "max_cover": 0,
    "low": [],
    "hscroll": false
   },
@@ -618,7 +618,7 @@
    "missing_units": [],
    "small": [],
    "cover": [],
-   "max_cover": 0.013,
+   "max_cover": 0.006,
    "low": [],
    "hscroll": false
   },
@@ -672,7 +672,7 @@
    "missing_units": [],
    "small": [],
    "cover": [],
-   "max_cover": 0,
+   "max_cover": 0.024,
    "low": [],
    "hscroll": false
   },
@@ -690,7 +690,7 @@
    "missing_units": [],
    "small": [],
    "cover": [],
-   "max_cover": 0.01,
+   "max_cover": 0,
    "low": [],
    "hscroll": false
   },
@@ -708,7 +708,7 @@
    "missing_units": [],
    "small": [],
    "cover": [],
-   "max_cover": 0,
+   "max_cover": 0.067,
    "low": [],
    "hscroll": false
   },
@@ -834,7 +834,7 @@
    "missing_units": [],
    "small": [],
    "cover": [],
-   "max_cover": 0.012,
+   "max_cover": 0.006,
    "low": [],
    "hscroll": false
   },
@@ -870,7 +870,7 @@
    "missing_units": [],
    "small": [],
    "cover": [],
-   "max_cover": 0,
+   "max_cover": 0.012,
    "low": [],
    "hscroll": false
   },
@@ -942,7 +942,7 @@
    "missing_units": [],
    "small": [],
    "cover": [],
-   "max_cover": 0.016,
+   "max_cover": 0.021,
    "low": [],
    "hscroll": false
   },

@@ -35,14 +35,14 @@ Result: 38 pass, 5 informational, 0 fail, of 43 checks. Written by `node drafts/
 | D | no_alarm_one_sample_before | pass | one sample earlier (257) the page shows 0 alarms |
 | D | pulses_move_forward | pass | 18 of 18 lines' pulses advance from the line's start (its model 'from' end) toward its end in 0.8 s |
 | D | arrows_point_downstream | pass | 65 of 65 chevrons point along their line's path direction |
-| D | loto_one_point | pass | isolating the A feed block valve: the model says S1 stop(s); the page greys S1 and the pulses stand still on S1; the rest keep moving |
-| D | loto_downstream_stops | pass | isolating every feed block valve and the K-101 motor stops all 13 process lines (computed: 0 flowing; pulses moving on the page: 0); the readout lists the 6 sources still not isolated (outlets, agitator, utilities) |
-| D | loto_compressor_still_drives_recycle | pass | with only the four feeds isolated the K-101 motor still drives the recycle loop: S5, S6, S7, S7b, S8, S8b, S9, S10, S11 keep flowing (the readout does not call the unit isolated) |
+| D | loto_one_point | pass | selecting the A feed boundary: the model says S1 stop(s); the page greys S1 and the pulses stand still on S1; the rest keep moving |
+| D | loto_downstream_stops | pass | selecting every feed boundary and the K-101 motor greys all 13 process lines (computed: 0 flowing; pulses moving on the page: 0); the readout lists the 6 boundaries not selected (outlets, agitator, utilities) |
+| D | loto_compressor_still_drives_recycle | pass | with only the four feeds selected the K-101 motor still drives the recycle loop: S5, S6, S7, S7b, S8, S8b, S9, S10, S11 keep flowing (the readout makes no claim about the unit) |
 | D | keyboard | pass | arrow keys on the focused figure: U-100, then R-101; Escape returns to the overview (yes) |
 | D | controls_named | pass | 0 visible buttons or inputs without an accessible name |
 | C | unit_callouts_identify_bodies | pass | 36 states retain every expected unit label and its own on-body leader |
 | C | label_overlaps | pass | 36 page states (2 themes × 390 and 1440 px × 9 views): 0 with overlapping labels |
-| C | labels_off_geometry | pass | no label covers more than 10% of its box with drawn, undimmed pipes or machines (largest share 4.1%); 0 states over the limit |
+| C | labels_off_geometry | pass | no label covers more than 10% of its box with drawn, undimmed pipes or machines (largest share 6.7%); 0 states over the limit |
 | C | min_font_size | pass | smallest visible text 12 px (minimum 12 px) in every state |
 | C | contrast_wcag_aa | pass | lowest text contrast 6.41:1 over 4366 visible text runs (WCAG AA for normal text: 4.5:1) |
 | C | labels_inside_figure | pass | labels outside the figure: 0 states |

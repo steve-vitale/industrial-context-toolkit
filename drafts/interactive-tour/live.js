@@ -92,7 +92,7 @@ function paintStates() {
   const hours = Math.floor((S.sample * D.replay.minutes_per_sample) / 60);
   const mins = (S.sample * D.replay.minutes_per_sample) % 60;
   timeText.textContent = `Sample ${S.sample} of ${D.replay.runs[S.run].samples - 1} · ${hours} h ${String(mins).padStart(2, "0")} min into the record · ${when}`;
-  readout.textContent = S.mode === "loto" ? `LOTO mockup · ${S.isolated.size} of ${D.loto.points.length} isolated` : `sample ${S.sample} · ${n ? `${n} alarm${n > 1 ? "s" : ""}` : "no alarm"}`;
+  readout.textContent = S.mode === "loto" ? `LOTO mockup · ${S.isolated.size} of ${D.loto.points.length} boundaries selected` : `sample ${S.sample} · ${n ? `${n} alarm${n > 1 ? "s" : ""}` : "no alarm"}`;
   alarmBox.innerHTML = n
     ? alarms.map((a) => {
         const t = tagOf[a.tag];
@@ -347,11 +347,11 @@ function paintLoto() {
   for (const b of document.querySelectorAll("[data-loto]")) b.setAttribute("aria-pressed", String(S.isolated.has(b.dataset.loto)));
   const yes = e.sources.filter((s) => s.isolated);
   const no = e.sources.filter((s) => !s.isolated);
-  energyBox.innerHTML = `<p><strong>Isolated (${yes.length}):</strong></p><ul>${yes.map((s) => `<li>${s.n}. ${esc(s.text)}: ${esc(s.energy)}; carries ${esc(s.carries)}</li>`).join("") || "<li>none</li>"}</ul>`
-    + `<p><strong>Not isolated (${no.length}):</strong></p><ul>${no.map((s) => `<li class="on">${s.n}. ${esc(s.text)}: ${esc(s.energy)}; carries ${esc(s.carries)}</li>`).join("") || "<li>none</li>"}</ul>`
-    + `<p data-stopped><strong>Lines with flow stopped (${e.stopped.length} of ${D.streams.length} streams):</strong> ${esc(e.stopped.join(", ") || "none")}</p>`
-    + `<p data-flowing><strong>Still flowing:</strong> ${esc(e.flowing.join(", ") || "none")}</p>`
-    + `<p><strong>Not modelled:</strong> ${esc(e.not_modelled)}. A real isolation is verified at the point (try-start, zero pressure and temperature) under the site's procedure.</p>`;
+  energyBox.innerHTML = `<p><strong>Selected boundaries (${yes.length}):</strong></p><ul>${yes.map((s) => `<li>${s.n}. ${esc(s.text)}: ${esc(s.energy)}; carries ${esc(s.carries)}</li>`).join("") || "<li>none</li>"}</ul>`
+    + `<p><strong>Not selected (${no.length}):</strong></p><ul>${no.map((s) => `<li class="on">${s.n}. ${esc(s.text)}: ${esc(s.energy)}; carries ${esc(s.carries)}</li>`).join("") || "<li>none</li>"}</ul>`
+    + `<p data-stopped><strong>Lines fed only through the selected boundaries (${e.stopped.length} of ${D.streams.length} streams):</strong> ${esc(e.stopped.join(", ") || "none")}</p>`
+    + `<p data-flowing><strong>Lines fed from elsewhere:</strong> ${esc(e.flowing.join(", ") || "none")}</p>`
+    + `<p><strong>Not modelled:</strong> ${esc(e.not_modelled)}. Whether any energy is absent is not assessed.</p>`;
 }
 function toggleLoto(id) {
   if (S.isolated.has(id)) S.isolated.delete(id); else S.isolated.add(id);
