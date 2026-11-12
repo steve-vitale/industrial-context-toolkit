@@ -4,14 +4,20 @@
   python scripts/corpus_depth.py --write    # write docs/CORPUS_DEPTH.md
   python scripts/corpus_depth.py --check    # exit 1 if a rule is broken or docs/CORPUS_DEPTH.md is stale
   python scripts/corpus_depth.py --strict   # --check, and also exit 1 while any group is UNPLANNED (the goal's gate)
+  python scripts/corpus_depth.py --reverify [--external DIR]
+                                            # opt-in: recompute each key's cited counts from the pinned local bytes
 
 It reads the existing registries and adds one disposition file beside them:
 
 - the acquisition registries `data/public_sources_*.json` (one entry per download group), read only. Their bytes are
   pinned at acquisition, so they are never edited here;
-- `data/corpus_depth.json`, keyed by group id: key availability read from the group's acquisition-record text, an
-  optional dated plan or retirement, and the sha256 of each registry it was read from. A registry that changes fails
-  --check until its dispositions are re-read and the pin updated;
+- `data/corpus_depth.json`, keyed by group id: key availability VERIFIED from the group's own acquired files (the
+  file, the field or column, a count and a one-line example, with the date it was read), an optional dated plan or
+  retirement, and the sha256 of each registry it was read from. A registry that changes fails --check until its
+  dispositions are re-read and the pin updated;
+- `data/corpus_pins.json` for the files a verification may cite: a pinned file of the group (or `archive!member` of a
+  pinned archive; the member is checked against the archive's listing by --reverify, since the pins hold no member
+  list), or the group's own tracked metadata snapshot or a file its disposition cites;
 - `docs/DEPTH_GOAL.md` for each group's area (its "Areas and the sources already acquired" table);
 - `data/corpus.json` and `out/generalization/matrix.json` for what a group actually feeds: a corpus input whose
   `fetch` command or `local_path` names the group, and that input's matrix cells (the matrix must not be stale);
@@ -21,16 +27,24 @@ It reads the existing registries and adds one disposition file beside them:
 
 The status is derived, never typed: **feeds** needs a scored matrix cell (pass or fail) on an input that is neither
 self-generated nor agent-keyed, or a registered benchmark; **planned** needs a plan with a date, the named key, the
-task and tracked evidence files whose quoted anchor is present and which mention the group; **retired** needs a
-reason with the same kind of evidence; anything else is **UNPLANNED**. Stdlib only, no network.
+task, an existing feature, a development/held-out split decided no later than the plan, an exposure statement, a key
+verified as a key for a toolkit task with its independence from the tool's input, and tracked evidence files whose
+quoted anchor is present and which mention the group; **deferred: needs feature** needs a verified key that no
+existing feature consumes, the missing capability (a new id and one line) and the group's area; **retired** needs a
+reason of a kind that can never qualify (no usable key, no area, duplicate, rights, blocked) with the same kind of
+evidence; anything else is **UNPLANNED**. Stdlib only, no network. --check never opens the acquired files (they are
+fetch-by-hash); --reverify reads them, after checking their pinned sha256, where a reader is available.
 """
 import argparse
+import csv
 import functools
 import hashlib
+import io
 import json
 import re
 import subprocess
 import sys
+import zipfile
 from collections import Counter
 from datetime import date
 from pathlib import Path
@@ -50,14 +64,27 @@ BENCHMARKS = "benchmarks/registry.json"
 TARGET = ROOT / "docs" / "CORPUS_DEPTH.md"
 PREFIX = "../"  # repository-relative paths; CORPUS_DEPTH.md sits in docs/
 
-FEEDS, PLANNED, RETIRED, UNPLANNED = "feeds a scored task", "dated plan with named key", "retired", "UNPLANNED"
-STATUS_ORDER = (FEEDS, PLANNED, RETIRED, UNPLANNED)
+FEEDS, PLANNED, DEFERRED, RETIRED, UNPLANNED = ("feeds a scored task", "dated plan with named key",
+                                                "deferred: needs feature", "retired", "UNPLANNED")
+STATUS_ORDER = (FEEDS, PLANNED, DEFERRED, RETIRED, UNPLANNED)
 SCORED = ("pass", "fail")
 HAND_SET = ("status", "feeds", "scored", "evaluated")  # derived only; no registry record or disposition may assert them
-LABELS = "acquisition record says labels exist, unopened"
-# Key availability vocabulary, in the order the next-to-wire ranking prefers.
-KEY_STATUSES = (LABELS, "source structure (candidate)", "unknown", "no key in source", "withheld by publisher")
-KEY_BLOCKED = ("no key in source", "withheld by publisher")
+# Key availability, verified from the group's own files, in the order the next-to-wire ranking prefers. Only the
+# first is a key a toolkit task can be scored against; the second separates labels or structure that exist and can
+# be checked but that no toolkit feature produces or consumes.
+KEY = "verified key"
+NOT_A_TASK_KEY = "verified, not a key for any toolkit task"
+KEY_STATUSES = (KEY, NOT_A_TASK_KEY, "verified: labels not acquired", "verified: no key in source",
+                "verified: withheld by publisher")
+KEY_BLOCKED = KEY_STATUSES[2:]
+VERIFIED_FIELDS = ("date", "file", "field", "count", "example")
+EXAMPLE_MAX = 200  # a one-line example: a derived fact, never a copied passage
+# A retirement is only for a group that can never qualify. A verified key with no consuming feature is DEFERRED.
+RETIRE_KINDS = ("no usable key", "no area", "duplicate", "rights", "blocked")
+# How a plan's key relates to what the tool is given: a separate file or a field withheld from the tool's input; the
+# same layer the tool reads (a match checks reading, not understanding); or our own calculation over the input.
+INDEPENDENCE = ("independent", "same-layer-as-input", "computed-from-input")
+CAPABILITY_ID = re.compile(r"[a-z][a-z0-9]*(-[a-z0-9]+)+")
 
 # Which existing matrix rows and features a group's acquisition categories could exercise once an adapter and a key
 # exist. A candidate fit by category, not a verified applicability: it ranks what to wire next, nothing more.
@@ -292,6 +319,263 @@ def evidence_problems(sid, what, refs, root, registries, mention=None):
     return out
 
 
+def pinned_files(sid, root=ROOT):
+    files = read_json(PINS, root).get(sid) or {}
+    return {rel for rel, meta in files.items() if isinstance(meta, dict) and "sha256" in meta}
+
+
+def verified_problems(sid, key, root=ROOT, own_tracked=()):
+    """A key's `verified` record: every field present, a past ISO date, a one-line example, and a file that is a
+    pinned file of this group (or a member of a pinned archive), or one of the group's own tracked files: its
+    acquisition-time metadata snapshot or a file its disposition cites (own_tracked)."""
+    v = key.get("verified")
+    if not isinstance(v, dict):
+        return [f"{sid}: key status needs a 'verified' record ({', '.join(VERIFIED_FIELDS)}) read from the source's "
+                "own files"]
+    out = [f"{sid}: verified record has no {f}" for f in VERIFIED_FIELDS if not str(v.get(f, "")).strip()]
+    if v.get("date") and not dated(v["date"]):
+        out.append(f"{sid}: verified date {v['date']!r} is not a past ISO date")
+    example = str(v.get("example", ""))
+    if len(example) > EXAMPLE_MAX or "\n" in example:
+        out.append(f"{sid}: verified example must be one line of at most {EXAMPLE_MAX} characters")
+    f = str(v.get("file", ""))
+    if f and f.split("!", 1)[0] not in pinned_files(sid, root) and not (f in own_tracked and is_tracked(f, root)):
+        out.append(f"{sid}: verified file {f!r} is neither a pinned file of this group in {PINS} nor the group's own "
+                   "tracked snapshot or cited evidence")
+    for i, c in enumerate(v.get("checks") or []):
+        if not isinstance(c, dict) or c.get("reader") not in READERS or not isinstance(c.get("expect"), int) \
+                or not str(c.get("path", "")).split("!", 1)[0] in pinned_files(sid, root):
+            out.append(f"{sid}: verified check {i} needs a known reader ({', '.join(sorted(READERS))}), a pinned path "
+                       "and an integer expect")
+    return out
+
+
+def split_problems(sid, plan):
+    """A plan's development / held-out split, recorded before any result: held-out names at least one item, the two
+    lists share none, and the split was decided no later than the plan."""
+    sp = plan.get("split")
+    if not isinstance(sp, dict):
+        return [f"{sid}: plan needs a split (development, held_out, decided) recorded before any result"]
+    dev, held = sp.get("development"), sp.get("held_out")
+    out = []
+    if not isinstance(dev, list) or not isinstance(held, list) or not held:
+        out.append(f"{sid}: plan split needs a development list and a non-empty held_out list")
+    elif set(dev) & set(held):
+        out.append(f"{sid}: plan split puts {sorted(set(dev) & set(held))} in both development and held_out")
+    if not dated(sp.get("decided")) or (dated(plan.get("date")) and sp["decided"] > plan["date"]):
+        out.append(f"{sid}: plan split needs a past ISO 'decided' date no later than the plan date")
+    return out
+
+
+# ---------------------------------------------------------------------------------------------------------------------
+# --reverify: recompute each key's cited counts from the pinned local bytes. Opt-in; never part of --check, because the
+# acquired files are fetch-by-hash and absent from a fresh clone. Each reader takes the bytes of one file (an
+# `archive!member[!member...]` path is opened inside the pinned archive) and the check's parameters.
+
+def _text(data):
+    return data.decode("utf-8-sig", errors="replace")
+
+
+def _csv_rows(data, c):
+    csv.field_size_limit(1 << 30)
+    lines = _text(data).splitlines(keepends=True)[c.get("header_line", 0):]
+    rows = list(csv.reader(io.StringIO("".join(lines))))
+    return rows[0], [r for r in rows[1:] if r]
+
+
+def _col(header, name):
+    return header.index(name)
+
+
+def _dxf_entities(data, c):
+    lines = _text(data).splitlines()
+    pairs = [(lines[i].strip(), lines[i + 1].strip()) for i in range(0, len(lines) - 1, 2)]
+    section, n = None, 0
+    for i, (code, value) in enumerate(pairs):
+        if code == "0" and value == "SECTION" and i + 1 < len(pairs):
+            section = pairs[i + 1][1]
+        elif section == "ENTITIES" and code == "0" and value == c["entity"]:
+            n += 1
+    return n
+
+
+def _inp_section(data, c):
+    n, current = 0, None
+    for line in _text(data).splitlines():
+        t = line.strip()
+        if t.startswith("["):
+            current = t
+        elif current == c["section"] and t and not t.startswith(";"):
+            n += 1
+    return n
+
+
+def _varint(b, i):
+    shift = result = 0
+    while True:
+        byte = b[i]
+        i += 1
+        result |= (byte & 0x7F) << shift
+        shift += 7
+        if not byte & 0x80:
+            return result, i
+
+
+def _skip(b, i, t):
+    """Skip one Thrift compact-protocol value of type t starting at b[i]."""
+    if t in (1, 2):
+        return i
+    if t == 3:
+        return i + 1
+    if t in (4, 5, 6):
+        return _varint(b, i)[1]
+    if t == 7:
+        return i + 8
+    if t == 8:
+        n, i = _varint(b, i)
+        return i + n
+    if t in (9, 10):
+        head = b[i]
+        i += 1
+        n, et = head >> 4, head & 0x0F
+        if n == 15:
+            n, i = _varint(b, i)
+        for _ in range(n):
+            i = i + 1 if et in (1, 2) else _skip(b, i, et)
+        return i
+    if t == 11:
+        n, i = _varint(b, i)
+        if n:
+            kv = b[i]
+            i += 1
+            for _ in range(n):
+                i = _skip(b, i, kv >> 4)
+                i = _skip(b, i, kv & 0x0F)
+        return i
+    if t == 12:
+        while True:
+            head = b[i]
+            i += 1
+            if head == 0:
+                return i
+            if not head >> 4:
+                i = _varint(b, i)[1]
+            i = _skip(b, i, head & 0x0F)
+    raise ValueError(f"unknown thrift type {t}")
+
+
+def _parquet_rows(data, c):
+    """FileMetaData.num_rows (field 3) from the parquet footer, decoded with the Thrift compact protocol."""
+    if data[-4:] != b"PAR1":
+        raise ValueError("not a parquet file")
+    n = int.from_bytes(data[-8:-4], "little")
+    b, i, fid = data[-8 - n:-8], 0, 0
+    while True:
+        head = b[i]
+        i += 1
+        if head == 0:
+            raise ValueError("num_rows not found")
+        delta, t = head >> 4, head & 0x0F
+        if delta:
+            fid += delta
+        else:
+            z, i = _varint(b, i)
+            fid = (z >> 1) ^ -(z & 1)
+        if fid == 3 and t == 6:
+            z, i = _varint(b, i)
+            return (z >> 1) ^ -(z & 1)
+        i = _skip(b, i, t)
+
+
+def _fitz():
+    import fitz  # PyMuPDF, optional (pdf_tag_check.py needs it too)
+    return fitz
+
+
+def _pdf(data):
+    return _fitz().open(stream=data, filetype="pdf")
+
+
+READERS = {
+    "csv-rows": lambda d, c: len(_csv_rows(d, c)[1]),
+    "csv-count": lambda d, c: (lambda h, r: sum(x[_col(h, c["column"])] == c["value"] for x in r))(*_csv_rows(d, c)),
+    "csv-nonempty": lambda d, c: (lambda h, r: sum(bool(x[_col(h, c["column"])].strip()) for x in r))(*_csv_rows(d, c)),
+    "lines": lambda d, c: sum(bool(x.strip()) for x in _text(d).splitlines()),
+    "blocks": lambda d, c: len([x for x in re.split(r"\n\s*\n", _text(d).replace("\r\n", "\n")) if x.strip()]),
+    "regex": lambda d, c: len(re.findall(c["pattern"], _text(d), re.M)),
+    "json-len": lambda d, c: len(json.loads(_text(d))),
+    "zip-members": lambda d, c: sum(not n.endswith("/") and n.lower().endswith(c.get("suffix", "").lower())
+                                    for n in zipfile.ZipFile(io.BytesIO(d)).namelist()),
+    "xlsx-sheets": lambda d, c: len(re.findall(r"<(?:\w+:)?sheet\b", _text(zipfile.ZipFile(io.BytesIO(d))
+                                                                            .read("xl/workbook.xml")))),
+    "dxf-entities": _dxf_entities,
+    "inp-section": _inp_section,
+    "parquet-rows": _parquet_rows,
+    "pdf-pages": lambda d, c: _pdf(d).page_count,
+    "pdf-text-chars": lambda d, c: sum(len(_pdf(d)[n - 1].get_text()) for n in c.get("pages") or
+                                       range(1, _pdf(d).page_count + 1)),
+    "pdf-pages-matching": lambda d, c: sum(bool(re.search(c["pattern"], pg.get_text())) for pg in _pdf(d)),
+    "pdf-unique-matches": lambda d, c: len(set(re.findall(c["pattern"], _pdf(d)[c["page"] - 1].get_text()))),
+}
+OPTIONAL_READERS = {"pdf-pages", "pdf-text-chars", "pdf-pages-matching", "pdf-unique-matches"}
+
+
+def pinned_bytes(sid, path, external, root=ROOT):
+    """The bytes a check names, after the outer file's pinned sha256 is confirmed; nested archive members are opened
+    by name, and a member missing from the archive's listing is an error."""
+    parts = path.split("!")
+    meta = (read_json(PINS, root).get(sid) or {}).get(parts[0]) or {}
+    f = Path(external) / sid / parts[0]
+    if not f.is_file():
+        raise FileNotFoundError(f"{f} is not on this disk")
+    data = f.read_bytes()
+    if hashlib.sha256(data).hexdigest() != meta.get("sha256"):
+        raise ValueError(f"{f} does not match its pinned sha256")
+    for member in parts[1:]:
+        z = zipfile.ZipFile(io.BytesIO(data))
+        if member not in z.namelist():
+            raise KeyError(f"member {member!r} is not in the listing of {parts[0]}")
+        data = z.read(member)
+    return data
+
+
+def reverify(rows, external, root=ROOT):
+    """(lines, mismatches): every check's recomputed count against its expect, and each verified `archive!member`
+    against the archive listing. Missing files and optional readers that are not installed are reported, not
+    counted as mismatches."""
+    lines, bad = [], []
+    for r in rows:
+        v = r["key"].get("verified") or {}
+        targets = [dict(c) for c in v.get("checks") or []]
+        if "!" in str(v.get("file", "")):
+            targets.append({"reader": "member", "path": v["file"]})
+        if not targets:
+            lines.append(f"{r['id']}: no recomputable check recorded")
+            continue
+        for c in targets:
+            label = f"{r['id']}: {c['reader']} {c['path']}" + (f" {c.get('page') or c.get('pattern') or c.get('column') or c.get('section') or c.get('entity') or ''}".rstrip())
+            try:
+                data = pinned_bytes(r["id"], c["path"], external, root)
+                if c["reader"] == "member":
+                    lines.append(f"ok   {label}: member present in the pinned archive")
+                    continue
+                got = READERS[c["reader"]](data, c)
+            except ImportError:
+                lines.append(f"skip {label}: optional reader not installed")
+                continue
+            except FileNotFoundError as e:
+                lines.append(f"skip {label}: {e}")
+                continue
+            except Exception as e:  # noqa: BLE001 (a broken check is a mismatch, reported with its reason)
+                bad.append(f"FAIL {label}: {type(e).__name__}: {e}")
+                continue
+            if got == c["expect"]:
+                lines.append(f"ok   {label}: {got}")
+            else:
+                bad.append(f"FAIL {label}: recorded {c['expect']}, recomputed {got}")
+    return lines, bad
+
+
 def summary(cells):
     """Cells per row as status counts; input identifiers are left out of the page."""
     if not cells:
@@ -343,7 +627,7 @@ def build(root=ROOT):
     for sid, (rel, rec) in groups.items():
         depth = dispositions.get(sid)
         if depth is None:
-            problems.append(f"{sid}: no entry in {SIDECAR} (use key status 'unknown' when the record says nothing)")
+            problems.append(f"{sid}: no entry in {SIDECAR} (verify its key from its own files first)")
             depth = {}
         for word in HAND_SET:
             if word in rec:
@@ -364,11 +648,14 @@ def build(root=ROOT):
             if f"{rel}#{sid}" not in refs:
                 problems.append(f"{sid}: key availability must cite its acquisition record {rel}#{sid}")
             problems += evidence_problems(sid, "key", refs, root, registries)
-        plan, retired = depth.get("plan"), depth.get("retired")
-        if plan and retired:
-            problems.append(f"{sid}: both a plan and a retirement")
+            own = {rec.get("metadata_snapshot")} | {e.partition("#")[0] for d in ("plan", "deferred", "retired")
+                                                     for e in (depth.get(d) or {}).get("evidence") or []}
+            problems += verified_problems(sid, key, root, own - {None})
+        plan, deferred, retired = depth.get("plan"), depth.get("deferred"), depth.get("retired")
+        if sum(bool(x) for x in (plan, deferred, retired)) > 1:
+            problems.append(f"{sid}: more than one of a plan, a deferral and a retirement")
         names = None
-        for what, entry in (("plan", plan), ("retired", retired)):
+        for what, entry in (("plan", plan), ("deferred", deferred), ("retired", retired)):
             if not entry:
                 continue
             names = [sid] + list(entry.get("names") or [])
@@ -379,23 +666,66 @@ def build(root=ROOT):
         plan_ok = bool(plan) and dated(plan.get("date")) and bool(plan.get("key")) and bool(plan.get("task"))
         if plan and not plan_ok:
             problems.append(f"{sid}: plan needs a past ISO date, the key and the task")
+        if plan:
+            plan_problems = split_problems(sid, plan)
+            if plan.get("feature") not in feature_ids:
+                plan_problems.append(f"{sid}: plan feature {plan.get('feature')!r} is not a feature in {FEATURES}")
+            if key.get("status") != KEY:
+                plan_problems.append(f"{sid}: plan needs key status {KEY!r}, not {key.get('status')!r}")
+            if key.get("independence") not in INDEPENDENCE:
+                plan_problems.append(f"{sid}: plan needs key independence, one of {', '.join(INDEPENDENCE)}")
+            if not str(plan.get("exposure", "")).strip():
+                plan_problems.append(f"{sid}: plan needs an exposure statement: what of the held-out key was read, "
+                                     "when, and that no method ran (or that nothing was read)")
+            problems += plan_problems
+            plan_ok = plan_ok and not plan_problems
+        deferred_ok = False
+        if deferred:
+            feat = deferred.get("feature") or {}
+            dp = []
+            if not dated(deferred.get("date")):
+                dp.append(f"{sid}: deferred needs a past ISO date")
+            if key.get("status") != NOT_A_TASK_KEY:
+                dp.append(f"{sid}: deferred needs key status {NOT_A_TASK_KEY!r} (a verified key no feature consumes), "
+                          f"not {key.get('status')!r}")
+            if not CAPABILITY_ID.fullmatch(str(feat.get("id", ""))) or feat.get("id") in feature_ids:
+                dp.append(f"{sid}: deferred feature id {feat.get('id')!r} must be a new hyphenated capability id, not "
+                          f"an existing feature in {FEATURES}")
+            if not str(feat.get("description", "")).strip() or "\n" in str(feat.get("description", "")):
+                dp.append(f"{sid}: deferred feature needs a one-line description")
+            if deferred.get("area") != areas.get(sid):
+                dp.append(f"{sid}: deferred area {deferred.get('area')!r} is not the group's area {areas.get(sid)!r}")
+            problems += dp
+            deferred_ok = not dp
         if retired and not retired.get("reason"):
             problems.append(f"{sid}: retired needs a reason")
+        if retired and retired.get("kind") not in RETIRE_KINDS:
+            problems.append(f"{sid}: retirement kind {retired.get('kind')!r} not one of {', '.join(RETIRE_KINDS)}"
+                            + (" (a verified key no feature consumes is deferred, not retired)"
+                               if retired.get("kind") == "no toolkit task" else ""))
+        if retired and key.get("status") == KEY:
+            problems.append(f"{sid}: retired with a {KEY!r} that fits a toolkit task: plan it instead")
+        if retired and retired.get("kind") == "no usable key" and key.get("status") not in KEY_BLOCKED:
+            problems.append(f"{sid}: retired as 'no usable key' but its key status is {key.get('status')!r}; a "
+                            "verified key no feature consumes is deferred, not retired")
         inputs, found, suites = feeding(sid)
         scored = [c for c in found if counts_as_scored(c)]
         if retired and (scored or suites):
             problems.append(f"{sid}: retired but still feeds {len(scored)} scored cells / {len(suites)} suites")
+        if deferred and (scored or suites):
+            problems.append(f"{sid}: deferred but feeds {len(scored)} scored cells / {len(suites)} suites: plan it")
         if rec.get("evidence_role", "acquired-unscored") != "acquired-unscored" and not (scored or suites):
             problems.append(f"{sid}: evidence_role {rec['evidence_role']!r} claims evaluation that no scored matrix "
                             "cell or registered benchmark backs")
-        status = (RETIRED if retired else FEEDS if (scored or suites) else PLANNED if plan_ok else UNPLANNED)
+        status = (RETIRED if retired else FEEDS if (scored or suites) else PLANNED if plan_ok
+                  else DEFERRED if deferred_ok else UNPLANNED)
         cats = rec.get("categories", [])
         fit_rows, fit_feats = fit(cats)
         out.append({
             "id": sid, "registry": rel, "family": rec.get("source_family", sid),
             "area": areas.get(sid, "?"), "area_key": area_keys.get(areas.get(sid), ""),
             "licence": licence_status(rec.get("license", "")), "origin": rec.get("origin", ""), "categories": cats,
-            "key": key, "plan": plan, "retired": retired, "note": depth.get("note", ""), "inputs": inputs,
+            "key": key, "plan": plan, "deferred": deferred, "retired": retired, "note": depth.get("note", ""), "inputs": inputs,
             "cells": found, "scored": scored, "suites": suites,
             "features": sorted({f for c in scored for f in by_row.get(c["row"], [])}),
             "fit_rows": fit_rows, "fit_features": fit_feats, "status": status})
@@ -450,19 +780,40 @@ def disposition_text(r, prefix=PREFIX):
     if r["status"] == PLANNED:
         p = r["plan"]
         ev = ", ".join(link(e, prefix) for e in p["evidence"])
-        text = f"{p['date']}: key {p['key']}; task {p['task']} ({ev})"
+        sp = p["split"]
+        split = (f"split decided {sp['decided']}: development {'; '.join(sp['development']) or 'none'}; "
+                 f"held out {'; '.join(sp['held_out'])}")
+        text = (f"{p['date']}: key {p['key']}; task {p['task']} (feature {p['feature']}); {split}; exposure: "
+                f"{p['exposure']} ({ev})")
         return text + (f". {p['note']}" if p.get("note") else "")
     if r["status"] == RETIRED:
-        return r["retired"]["reason"] + " (" + ", ".join(link(e, prefix) for e in r["retired"]["evidence"]) + ")"
+        return (f"{r['retired'].get('kind')}: {r['retired']['reason']} ("
+                + ", ".join(link(e, prefix) for e in r["retired"]["evidence"]) + ")")
+    if r["status"] == DEFERRED:
+        d = r["deferred"]
+        return (f"{d['date']}: needs {d['feature']['id']} ({d['feature']['description']}). {d.get('note', '')}".rstrip()
+                + " (" + ", ".join(link(e, prefix) for e in d["evidence"]) + ")")
     if r["status"] == FEEDS:
         return "scored through " + (summary(r["scored"]) if r["scored"] else ", ".join(r["suites"]))
     return r["note"] or "no plan, key or retirement recorded"
+
+
+def key_text(r):
+    k = r["key"]
+    v = k.get("verified") or {}
+    text = f"{k['status']}: {k['what']}"
+    if k.get("independence"):
+        text += f" (independence: {k['independence']})"
+    if v:
+        text += f" [read {v.get('date')}: {v.get('file')}, {v.get('field')}; {v.get('count')}; e.g. {v.get('example')}]"
+    return text
 
 
 def page(rows, earlier, prefix=PREFIX):
     counts = {s: sum(r["status"] == s for r in rows) for s in STATUS_ORDER}
     disposed = len(rows) - counts[UNPLANNED]
     unplanned = [r for r in rows if r["status"] == UNPLANNED]
+    done = ("Increment 1 is done" if not unplanned else "Increment 1 is not done")
     lines = [
         "# Corpus depth: every acquired source group and its disposition", "",
         f"*Generated by `scripts/corpus_depth.py` from the acquisition registries (`{REGISTRY_GLOB}`, read only and "
@@ -474,40 +825,71 @@ def page(rows, earlier, prefix=PREFIX):
         "source either feeds a scored task through the product path, or has a dated plan naming its key, or is "
         "retired with its reason. The status below is derived, not typed: **feeds** needs a scored matrix cell "
         "(pass or fail, not self-generated or agent-keyed) or a registered benchmark; **planned** needs a dated plan "
-        "with its key, task and quoted evidence; **retired** needs a reason with evidence. Everything else is "
+        "with a verified key, its task, an existing feature, a development/held-out split recorded before any "
+        "result, and quoted evidence; **retired** needs a reason of a named kind with evidence. Everything else is "
         "**UNPLANNED**.", "",
         f"**{len(rows)} groups: {counts[FEEDS]} feed a scored task, {counts[PLANNED]} have a dated plan with a "
-        f"named key, {counts[RETIRED]} retired, {counts[UNPLANNED]} UNPLANNED. Increment 1 is not done: "
+        f"named key, {counts[RETIRED]} retired, {counts[UNPLANNED]} UNPLANNED. {done}: "
         f"{disposed} of {len(rows)} groups have a disposition.**", "",
-        f"## UNPLANNED: {len(unplanned)} of {len(rows)}", "",
+        "Key availability is verified from each group's own acquired files: the file, the field or column, a count "
+        "and a one-line example, with the date read. *verified key* means a key exists, can be checked and fits a "
+        "toolkit task; *verified, not a key for any toolkit task* means labels or structure exist and can be "
+        "checked, but no toolkit feature produces or consumes them.", "",
+        "| Key availability (verified) | Groups |", "|---|---|"]
+    lines += [f"| {s} | {sum(r['key']['status'] == s for r in rows)} |" for s in KEY_STATUSES]
+    lines += ["", "| Area | " + " | ".join(STATUS_ORDER) + " |", "|---|" + "---|" * len(STATUS_ORDER)]
+    for area in sorted({r["area"] for r in rows}):
+        n = [sum(r["area"] == area and r["status"] == s for r in rows) for s in STATUS_ORDER]
+        lines.append(f"| {esc(area)} | " + " | ".join(str(x) for x in n) + " |")
+    lines += ["", "| Retirement kind | Groups |", "|---|---|"]
+    lines += [f"| {k} | {sum(bool(r['retired']) and r['retired'].get('kind') == k for r in rows)} |"
+              for k in RETIRE_KINDS]
+    lines += [
+        "", f"## UNPLANNED: {len(unplanned)} of {len(rows)}", "",
         "No new acquisition pass while this list is not empty (`python scripts/corpus_depth.py --strict` fails "
         "until it is).", "",
         ", ".join(f"`{r['id']}`" for r in sorted(unplanned, key=lambda r: (r["area"], r["id"]))) or "None.", "",
         "## Next to wire: the ten highest-value UNPLANNED groups", "",
         "Ranked by how many existing features the group's acquisition categories could exercise, then by the "
-        "matrix rows, then by key availability, then open licence. A group whose acquisition record says it has no "
-        "key, or whose publisher withholds it, ranks after all the others: it cannot feed a scored task until "
-        "someone authors a key. The fit is by category: a candidate, not a verified applicability. Each still needs "
-        "an adapter, a frozen key and a split before it scores anything.", "",
-        "| # | Group | Area | Could exercise (matrix row / features) | Key availability | Licence |",
-        "|---|---|---|---|---|---|"]
-    for n, r in enumerate(ranked(rows)[:10], 1):
-        lines.append(f"| {n} | `{r['id']}` | {esc(r['area'])} | {esc(fit_text(r))} | "
-                     f"{esc(r['key']['status'])}: {esc(r['key']['what'])} | {esc(r['licence'])} |")
-    labelled = [r for r in ranked(rows) if r["key"]["status"] == LABELS]
-    lines += ["", f"### UNPLANNED groups whose acquisition record says labels exist: {len(labelled)}", "",
-              "Fewer features fit these, but the acquisition record says labels or annotations exist. None was "
-              "opened, and some are not keys (for example reference outputs or measurement annotations, as noted). "
-              "Verify one from the source's own files before freezing it as a key. In the ranked order above.", "",
-              "| Group | Area | Could exercise (matrix row / features) | What the record says | Note |",
-              "|---|---|---|---|---|"]
-    for r in labelled:
-        lines.append(f"| `{r['id']}` | {esc(r['area'])} | {esc(fit_text(r))} | {esc(r['key']['what'])} | "
-                     f"{esc(r['note'])} |")
+        "matrix rows, then by key availability, then open licence. A group whose verified key is missing, not "
+        "acquired or withheld ranks after all the others: it cannot feed a scored task until someone authors a "
+        "key. The fit is by category: a candidate, not a verified applicability.", ""]
+    top = ranked(rows)[:10]
+    if top:
+        lines += ["| # | Group | Area | Could exercise (matrix row / features) | Key availability | Licence |",
+                  "|---|---|---|---|---|---|"]
+        for n, r in enumerate(top, 1):
+            lines.append(f"| {n} | `{r['id']}` | {esc(r['area'])} | {esc(fit_text(r))} | "
+                         f"{esc(r['key']['status'])}: {esc(r['key']['what'])} | {esc(r['licence'])} |")
+    else:
+        lines.append("None: every group has a disposition. The planned groups below are what to wire next.")
+    planned = sorted((r for r in rows if r["status"] == PLANNED), key=lambda r: (r["area"], r["id"]))
+    lines += ["", f"### Planned groups and their verified keys: {len(planned)}", "",
+              "Each plan names an existing feature, the key and the split; the split was recorded before any result "
+              "and must not change once a held-out item is scored. A plan is not depth (DEPTH_GOAL.md).", "",
+              "| Group | Area | Feature | Key independence | Key (verified) | Development | Held out | Exposure |",
+              "|---|---|---|---|---|---|---|---|"]
+    for r in planned:
+        sp = r["plan"]["split"]
+        lines.append(f"| `{r['id']}` | {esc(r['area'])} | {esc(r['plan']['feature'])} | "
+                     f"{esc(r['key'].get('independence'))} | {esc(key_text(r))} | "
+                     f"{esc('; '.join(sp['development']) or 'none')} | {esc('; '.join(sp['held_out']))} | "
+                     f"{esc(r['plan']['exposure'])} |")
+    deferred = sorted((r for r in rows if r["status"] == DEFERRED), key=lambda r: (r["area"], r["id"]))
+    lines += ["", f"### Deferred: a verified key waits for a feature: {len(deferred)}", "",
+              "These count as disposed for increment 1 but are not retirements: each has a checkable key, and no "
+              "toolkit feature yet produces or consumes it. Each names the capability it waits for. Building one "
+              "turns its group into a plan.", "",
+              "| Group | Area | Needs (new capability) | Key (verified) |", "|---|---|---|---|"]
+    for r in deferred:
+        f = r["deferred"]["feature"]
+        lines.append(f"| `{r['id']}` | {esc(r['area'])} | {esc(f['id'])}: {esc(f['description'])} | "
+                     f"{esc(key_text(r))} |")
     lines += ["", "## The register", "",
               "One row per acquisition group. *Feeds now* counts the matrix cells of the group's corpus inputs by "
               "row and status; *features* are those whose tools the scored rows run. *What it is* is the "
-              "acquisition record's origin and categories.", "",
+              "acquisition record's origin and categories. *Key availability* gives the verified status and what "
+              "was read: file, field or column, count and a one-line example.", "",
               "| Group | Family | Area | Licence / terms | What it is | Feeds now (matrix cells; features) | "
               "Key availability | Status | Disposition |",
               "|---|---|---|---|---|---|---|---|---|"]
@@ -517,8 +899,8 @@ def page(rows, earlier, prefix=PREFIX):
             feeds += f"; features {', '.join(r['features'])}"
         lines.append(
             f"| `{r['id']}` | {esc(r['family'])} | {esc(r['area'])} | {esc(r['licence'])} | "
-            f"{esc(r['origin'])}; {esc(', '.join(r['categories']))} | {esc(feeds)} | {esc(r['key']['status'])}: "
-            f"{esc(r['key']['what'])} | {status_text(r)} | {esc(disposition_text(r, prefix))} |")
+            f"{esc(r['origin'])}; {esc(', '.join(r['categories']))} | {esc(feeds)} | {esc(key_text(r))} | "
+            f"{status_text(r)} | {esc(disposition_text(r, prefix))} |")
     lines += ["", "## Earlier pinned sources (outside the 49-group goal)", "",
               f"Sources pinned in [corpus_pins.json]({prefix}{PINS}) before the 2026-11-07 passes, by their dataset "
               "identifiers. They are listed so the feeding rule above is seen to find real matrix cells; they carry "
@@ -529,11 +911,18 @@ def page(rows, earlier, prefix=PREFIX):
         lines.append(f"| `{e['id']}` | {len(e['inputs'])} | {esc(summary(e['cells']))} | {len(e['scored'])} | "
                      f"{esc(', '.join(e['features']) or 'none')} |")
     lines += ["", "## Limits", "",
-              "- Areas come from the DEPTH_GOAL table. Key availability comes from each group's acquisition-record "
-              "text (its limits and exposure), not from the source's own files: it is unverified until a key is "
-              "frozen from those files.",
+              "- Areas come from the DEPTH_GOAL table. Key availability was read from each group's own acquired "
+              "files on the date shown; those files are fetch-by-hash and are not in the repository, so --check "
+              "verifies the record's shape and that it cites a pinned file, not the count itself. `--reverify` "
+              "recomputes the recorded checks from the pinned local bytes (PDF checks need PyMuPDF; PDF character "
+              "counts are PyMuPDF get_text lengths, not layout-padded text). Counts without a recorded check are "
+              "dated readings only.",
+              "- Pahala is the exception: its key record comes from the development record (data/attempts.json "
+              "A404) so that no held-out sheet is opened.",
               "- A dated plan is not depth: depth is the six checks in DEPTH_GOAL.md. Development runs on a planned "
               "group (the plan's note) are not a sealed held-out result.",
+              "- A retirement is a disposition, not a verdict on the source: a later feature can reopen a retired "
+              "group with a new plan.",
               "- The next-to-wire fit is a category match. It does not say an adapter exists or that the result "
               "would hold.", ""]
     return "\n".join(lines)
@@ -541,13 +930,26 @@ def page(rows, earlier, prefix=PREFIX):
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    g = ap.add_mutually_exclusive_group()
-    g.add_argument("--write", action="store_true", help="write docs/CORPUS_DEPTH.md")
-    g.add_argument("--check", action="store_true", help="exit 1 on a broken rule or a stale docs/CORPUS_DEPTH.md")
-    g.add_argument("--strict", action="store_true", help="--check, and exit 1 while any group is UNPLANNED")
+    ap.add_argument("--write", action="store_true", help="write docs/CORPUS_DEPTH.md")
+    ap.add_argument("--check", action="store_true", help="exit 1 on a broken rule or a stale docs/CORPUS_DEPTH.md")
+    ap.add_argument("--strict", action="store_true", help="--check, and exit 1 while any group is UNPLANNED")
+    ap.add_argument("--reverify", action="store_true",
+                    help="recompute each key's recorded checks from the pinned local bytes; exit 1 on a mismatch")
+    ap.add_argument("--external", default=str(ROOT / "data" / "external"),
+                    help="folder holding <group>/<pinned file> (default data/external)")
     a = ap.parse_args(argv)
+    if a.write and (a.check or a.strict):
+        ap.error("--write cannot be combined with --check or --strict")
     rows, earlier, bad = build()
     text = page(rows, earlier)
+    if a.reverify:
+        lines, mismatches = reverify(rows, a.external)
+        print("\n".join(lines + mismatches))
+        print(f"reverify: {sum(x.startswith('ok') for x in lines)} ok, {sum(x.startswith('skip') for x in lines)} "
+              f"skipped, {len(mismatches)} mismatched, "
+              f"{sum(x.endswith('no recomputable check recorded') for x in lines)} groups without a check")
+        if mismatches or not (a.check or a.strict):
+            return 1 if mismatches else 0
     if a.check or a.strict:
         current = TARGET.read_text(encoding="utf-8").replace("\r\n", "\n") if TARGET.exists() else None
         if current != text:

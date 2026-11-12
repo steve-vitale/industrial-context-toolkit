@@ -34,12 +34,12 @@ Key availability is a candidate until the first increment verifies it from each 
 | Area | Acquired groups | Candidate key |
 |---|---|---|
 | P&ID drawings | pahala-drawings, haile-water-treatment, salina-design-basis, ruttan-water-treatment, virden-drawings, doe-engineering-drawings | text-layer tags; hand-checked cross-sheet references and pipe/instrument relations on a few sheets; Virden as the scanned/OCR case |
-| Maintenance records and text | maintie, maintnorm, nestor-excavators, tina-mining, nyc-amps-2024w01, mro-catalog, doe-operations-maintenance | published annotations where a dataset has them; the NYC cohort's linked assets, work orders, parts and labor |
-| Process and historian data | historian-rca, bms-alarms, uci-ai4i, uci-aps, uci-secom, uci-gas-turbine, uci-naval, uci-steel-energy, nasa-cmapss, nasa-milling, usda-pumping, candida-bioreactor, pomace-fermentation, sequencing-batch-reactor, lanl-biomanufacturing, distillation-modalities | the datasets' own fault, failure or outcome labels |
-| Process models and networks | idaes-processes, modelica-fluid, epanet-networks | model topology as a key for `piped_to` and connectivity |
-| CAD | cad-extra-originals, freecad-originals, doe-mechanical | native-file round trips (docs/CAD_QUALIFICATION.md) |
-| Photos, nameplates, equipment | phoenix-nameplate, commons-equipment, commons-instruments, commons-fireboat | hand-keyed nameplate fields |
-| Unassigned | wine-competition and the nine pass-5 groups | to be assigned or retired |
+| Maintenance records and text | maintie, maintnorm, nestor-excavators, tina-mining, nyc-amps-2024w01, mro-catalog, doe-operations-maintenance, synthetic-maint-sensor | published annotations where a dataset has them; the NYC cohort's linked assets, work orders, parts and labor |
+| Process and historian data | historian-rca, bms-alarms, uci-ai4i, uci-aps, uci-secom, uci-gas-turbine, uci-naval, uci-steel-energy, nasa-cmapss, nasa-milling, usda-pumping, candida-bioreactor, pomace-fermentation, sequencing-batch-reactor, lanl-biomanufacturing, distillation-modalities, industrial-yeast, alpi-packaging, uci-steel-faults, uci-ccpp | the datasets' own fault, failure or outcome labels |
+| Process models and networks | idaes-processes, modelica-fluid, epanet-networks, biosteam-sugarcane | model topology as a key for `piped_to` and connectivity |
+| CAD | cad-extra-originals, freecad-originals, doe-mechanical, nist-pmi-cases | native-file round trips (docs/CAD_QUALIFICATION.md) |
+| Photos, nameplates, equipment | phoenix-nameplate, commons-equipment, commons-instruments, commons-fireboat, idta-digital-nameplate, commons-ksb-pump | hand-keyed nameplate fields |
+| Unassigned | wine-competition | none: retired, it fits no area; the pass-5 groups were assigned to areas on 2026-11-12 |
 
 ## Increments
 
@@ -53,11 +53,31 @@ Key availability is a candidate until the first increment verifies it from each 
    suite, fails on a broken rule or a stale page; the done gate is `--strict`, which fails while any group is
    UNPLANNED. Key availability there is read from each group's acquisition-record text and is unverified; no
    source's own files were opened.
-2. **One real source per area to depth**, in order of what users ask for:
-   - drawings: Pahala, round 6;
-   - maintenance records: the NYC cohort or MaintIE;
-   - process data: a labelled set such as C-MAPSS or SECOM;
-   - then models, nameplates and CAD.
+   *Status 2026-11-12: done.* 49 of 49 groups have a disposition: 10 dated plans, 12 deferred and 27 retired;
+   `--strict` passes. Every key was verified by opening the group's own pinned files (offline, hashes checked
+   against `data/corpus_pins.json`; nothing downloaded), recorded as the file, field or column, a count and a
+   one-line example. 104 of those counts are recorded as checks that `--reverify` recomputes from the pinned local
+   bytes (all matched; PDF counts are PyMuPDF text lengths). Pahala is the exception: no held-out sheet was opened,
+   and its record cites the development run A404.
+   A plan needs a verified key, the key's independence from the tool's input, an existing feature, a
+   development/held-out split recorded before any result, and an exposure statement. The survey on 2026-11-12 counted
+   key items on held-out sets (Haile pages 53-60, Ruttan pages 50-51, Nestor assets D and E, TiNA's held-out days,
+   industrial-yeast B06-B10, the IDAES recycle flowsheet, the Modelica held-out examples and the held-out DXFs); no
+   method ran, and each plan's exposure says so for any later sealed score. *Deferred: needs feature* is a verified
+   key that no toolkit feature consumes yet, with the new capability it needs; it counts as disposed but is not a
+   retirement. Retirement is kept for groups that can never qualify: no usable key, out of area, duplicate,
+   rights-barred or blocked. The freecad-originals limits asked for a method and exposure split before opening; one
+   archive's member listing was read, which its retirement record discloses. The pass-5 groups were assigned to areas.
+2. **One real source per area to depth**, in order of what users ask for, from the dated plans in
+   [CORPUS_DEPTH.md](CORPUS_DEPTH.md):
+   - drawings: Pahala, round 6; Haile is the second publisher, and Ruttan a held-out-only check;
+   - maintenance records: the NYC AMPS cohort (its held-out cohort is not acquired), else Nestor; TiNA's maintenance
+     codes key the historian bands. MaintIE is deferred until a work-order text reader exists
+     (`work-order-text-reader`);
+   - process data: industrial yeast through the batch analysis. C-MAPSS and SECOM are deferred until a
+     remaining-life estimate (`remaining-life-estimate`) or a lot outcome screen (`lot-outcome-screen`) exists;
+   - then models (IDAES, then Modelica), CAD (the DXF originals, as out-of-profile controls only) and nameplates,
+     which have no acquired source with a field key.
 3. **A second source per area**, from a different publisher, before any claim that a method generalizes in that
    area.
 
