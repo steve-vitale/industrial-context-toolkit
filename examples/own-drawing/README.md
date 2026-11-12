@@ -265,10 +265,16 @@ transmitter, switch, indicator, relay). Membership is then confirmed or refuted 
 sheet image (dashed lines between symbols; two lines that cross are not joined) and by instrument lines between two
 bubbles, joined across sheets only through an off-page pair. A `signal_to` needs a traced line, `controls`
 (controller to final element) needs a confirmed loop (a traced measurement in, a traced output out), and
-`sets_point_of` marks a cascade. A loop that rests on its loop number alone stays `unconfirmed`, with the grouped
+`sets_point_of` marks a cascade. A signal goes only from a role to the next one (a measurement to its controller, a
+controller to its valve), so a line that would skip a step, or a line end in reach of two bubbles, leaves its
+network unresolved instead, and so does a line between two items of one role (two valves, or one valve
+read twice). A loop that rests on its loop number alone stays `unconfirmed`, with the grouped
 tags listed for review; an item a traced line ties to another loop is listed as refuted and as a conflict. Every
-relation carries its evidence and an ordinal confidence tier; `meta.loops_status` counts them, and `--no-loops`
-turns it off (the bundle is then exactly what it was before). Nothing is taken from layout. On the development
+relation carries its evidence and an ordinal confidence tier (a cascade's direction, inferred from which controller
+is nearer a valve, has its own lower tier); `meta.loops_status` counts them, and `--no-loops` turns it off (the
+bundle is then what it was before, apart from the importer's own hash). The graph export does not carry loops yet
+([N122](../../docs/TRIED.md)): it lists `control_loops` under `not_exported`, where the item count is the number of
+keys in that block, not the number of loops. Nothing is taken from layout. On the development
 sheets ([scores](../../out/round6/loops_dev.md)) the generated TE revision D, read with its key's symbols, gives all
 19 of its control loops with no wrong one; revision A draws no controllers, so nothing is asserted. TE is drawn by
 this repository with clean, consistent tags, so that is an upper bound. Grouping by loop number and then tracing

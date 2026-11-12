@@ -575,7 +575,8 @@ def main(argv=None):
     parser.add_argument("--no-flow-direction", action="store_true",
                         help="leave every pipe segment undirected (no drawn flow-direction evidence)")
     parser.add_argument("--no-loops", action="store_true",
-                        help="no control loops or signal relations (the bundle is then exactly increment 2's)")
+                        help="no control loops or signal relations (the bundle is then increment 2's, except "
+                             "meta.intake.importer_sha256, which hashes this file)")
     args = parser.parse_args(argv)
     try:
         result = import_set(args.manifest, args.out, args.check_only, line_layers=not args.no_line_layers,

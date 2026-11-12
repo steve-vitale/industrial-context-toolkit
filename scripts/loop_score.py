@@ -26,7 +26,7 @@ Scores per run, each beside the same deliberately wrong controls:
   signal lines  (revision D, diagnostic) signal_to pairs against the key's drawn signal_edges by tag, cross-sheet
                 flags followed
 Controls: perfect (the key itself), empty (no loops), shuffled roles (the same traced lines, ISA roles permuted among
-the instruments with a fixed seed), tag-only (every controller's tag group asserted as a loop, no line read: the
+the instruments; seeds 0-9, reported with their spread), tag-only (every controller's tag group asserted as a loop, no line read: the
 evidence-free rule this increment refuses).
 
 TE sheets are drawn by this repository from its own model with clean, consistent tags, so every TE score is an upper
@@ -53,7 +53,7 @@ import loop_assembly as la  # noqa: E402
 
 KEY = ROOT / "data" / "te_control_loops.json"
 SETS = ("te-a", "te-d", "open100", "pahala")
-SHUFFLE_SEED = 0
+SHUFFLE_SEEDS = tuple(range(10))  # the shuffled-roles control is reported over these seeds
 
 
 def key_loops(path=KEY):
@@ -118,12 +118,12 @@ def empty():
     return {"controllers": set(), "sensor": set(), "final": set(), "cascade": set(), "loops": []}
 
 
-def shuffled_roles(model):
+def shuffled_roles(model, seed=0):
     """The bundle's own traced signal lines, re-assembled with the ISA roles permuted among the instruments."""
     cand = la.candidates(model)
     ids = sorted(cand)
     roles = [cand[k]["role"] for k in ids]
-    random.Random(SHUFFLE_SEED).shuffle(roles)
+    random.Random(seed).shuffle(roles)
     block = la.assemble(model, (model.get("control_loops") or {}).get("signal_lines", []), roles=dict(zip(ids, roles)))
     return asserted(model, block)
 
@@ -185,9 +185,15 @@ def record(result, model, key, key_doc=None, sheets=None, no_loops_model=None):
         rec["bundle_identical_without_loops"] = without_loops(model) == no_loops_model
     if key is not None:
         rec["score"] = score(asserted(model), key)
+        shuffled = [score(shuffled_roles(model, seed), key) if model.get("control_loops") else score(empty(), key)
+                    for seed in SHUFFLE_SEEDS]
         rec["controls"] = {"perfect": score(perfect(key), key), "empty": score(empty(), key),
-                           "shuffled_roles": score(shuffled_roles(model), key) if model.get("control_loops") else
-                           score(empty(), key),
+                           "shuffled_roles": shuffled[0],
+                           "shuffled_roles_over_seeds": {
+                               "seeds": list(SHUFFLE_SEEDS),
+                               "loop_recall": spread([x["loops"]["recall"] for x in shuffled]),
+                               "loop_precision": spread([x["loops"]["precision"] for x in shuffled]),
+                               "loops_asserted": spread([x["loops"]["asserted"] for x in shuffled])},
                            "tag_only": score(tag_only(model), key)}
         if key_doc is not None:
             rec["signal_lines_vs_drawn"] = signal_diagnostic(model, key_doc, sheets)
@@ -322,6 +328,7 @@ def summarize(results):
             s["loop_recall"] = spread([x["score"]["loops"]["recall"] for x in scored])
             s["loop_precision"] = spread([x["score"]["loops"]["precision"] for x in scored])
             s["loop_recall_by_sheet"] = spread([v["recall"] for x in scored for v in x.get("per_sheet", {}).values()])
+            s["controls_shuffled_roles_over_seeds"] = [x["controls"]["shuffled_roles_over_seeds"] for x in scored]
             s["controls_loop_recall"] = {c: spread([x["controls"][c]["loops"]["recall"] for x in scored])
                                          for c in ("perfect", "empty", "shuffled_roles", "tag_only")}
             s["controls_loop_precision"] = {c: spread([x["controls"][c]["loops"]["precision"] for x in scored])
@@ -333,6 +340,14 @@ def summarize(results):
     return out
 
 
+def _seeds(k):
+    o = k["shuffled_roles_over_seeds"]
+    r, p = o["loop_recall"], o["loop_precision"]
+    rr = f"{r['mean']} ({r['min']}-{r['max']})" if r else "-"
+    pp = f"{p['mean']} ({p['min']}-{p['max']}, {p['n']} of {len(o['seeds'])} seeds assert any)" if p else "none asserted"
+    return f"{rr}; {pp} | "
+
+
 def markdown(doc):
     lines = ["# Control loops and signals, read from the drawing-set bundle (round 6, increment 3)", "",
              "Development sets only. Every number is read from the `control_loops` block of the `plant_model.json` that "
@@ -341,7 +356,8 @@ def markdown(doc):
              "controller, measurement and output; P = share of confirmed loops that are a key loop. TE sheets are drawn "
              "by this repository from its own model, so TE scores are upper bounds for clean drawings.", "",
              "| Set | Run | Confirmed / loops | Valve loops | Cascades | Loop P | Sensor P / R | Final element P / R | "
-             "Cascade P / R | Shuffled roles (loop R / P) | Tag-only (loop R / P) | Empty | Rest of bundle unchanged |",
+             "Cascade P / R | Shuffled roles, 10 seeds (loop R; P mean, range) | Tag-only (loop R / P) | Empty | "
+             "Rest of bundle unchanged |",
              "|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
 
     def pr(x):
@@ -362,7 +378,7 @@ def markdown(doc):
             lines.append(f"| {name} | {run} | {conf} | {s['loops']['valve_loops']} | {s['loops']['cascades']} | "
                          f"{s['loops']['precision'] if s['loops']['precision'] is not None else '-'} | {pr(s['sensor'])} | "
                          f"{pr(s['final'])} | {pr(s['cascade'])} | "
-                         f"{k['shuffled_roles']['loops']['recall']} / {k['shuffled_roles']['loops']['precision'] or '-'} | "
+                         + _seeds(k) +
                          f"{k['tag_only']['loops']['recall']} / {k['tag_only']['loops']['precision'] or '-'} | "
                          f"{k['empty']['loops']['recall']} | {same} |")
     lines += ["", "Diagnostic, TE revision D: `signal_to` pairs against the drawn signal lines of the key (`signal_edges`, "
@@ -400,8 +416,9 @@ def main(argv=None):
             else:
                 results[name] = {"key": None, "runs": {}, "note": "not run: give --pahala-manifest"}
     doc = {"script": "scripts/loop_score.py", "goal": "docs/GOAL_ROUND6.md increment 3",
+           "command": "python scripts/loop_score.py " + " ".join(argv if argv is not None else sys.argv[1:]),
            "held_out_not_read": "OPEN100 sheets 6-11, the DEXPI held-out renders, Pahala sheets other than P-401/P-501",
-           "key_loops": len(key), "shuffle_seed": SHUFFLE_SEED, "sets": results, "summary": summarize(results)}
+           "key_loops": len(key), "shuffle_seeds": list(SHUFFLE_SEEDS), "sets": results, "summary": summarize(results)}
     page = markdown(doc)
     out = Path(a.out)
     out.parent.mkdir(parents=True, exist_ok=True)

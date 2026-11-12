@@ -56,7 +56,7 @@ class TagsAndRoles(unittest.TestCase):
 
     def test_roles_from_the_isa_letters(self):
         cases = {"FIC": "controller", "TIC": "controller", "SC": "controller", "FV": "final_element",
-                 "PSV": "final_element", "PCV": "final_element", "FT": "transmitter", "PDT": "transmitter",
+                 "PSV": "relief_device", "PCV": "final_element", "HS": "hand_switch", "FT": "transmitter", "PDT": "transmitter",
                  "TE": "primary_element", "LSHH": "switch", "FY": "relay", "FI": "indicator", "PI": "indicator",
                  "LAH": "indicator", "F": None}
         for letters, role in cases.items():
@@ -121,7 +121,8 @@ class Assembly(unittest.TestCase):
         b = la.assemble(m, [line("L1", ["FT", "FV"])])
         self.assertEqual(b["loops"], [])
         self.assertEqual(rel(b, "controls"), set())
-        self.assertEqual(rel(b, "signal_to"), {("FT", "FV")})  # the drawn line itself is still reported
+        self.assertEqual(rel(b, "signal_to"), {("FT", "FV")})  # the drawn line is still reported, undirected
+        self.assertEqual(b["relations"][0]["direction"], "unknown")  # a transmitter does not signal a valve
         self.assertEqual(b["tag_groups_without_controller"][0]["loop_identity"], "201")
 
     def test_a_signal_line_across_a_loop_boundary_is_kept_as_a_conflict(self):
@@ -245,14 +246,17 @@ class DashedLines(unittest.TestCase):
         cv2.circle(img, (x, y), 24, 0, 2)
         return [x - 25, y - 25, x + 25, y + 25]
 
+    def syms(self, boxes):
+        return [{"id": k, "class": "instrumentation",
+                 "box": [1000 * b[0] / self.W, 1000 * b[1] / self.H, 1000 * b[2] / self.W, 1000 * b[3] / self.H]}
+                for k, b in boxes.items()]
+
     def trace(self, img, boxes):
         with tempfile.TemporaryDirectory() as t:
             p = Path(t) / "s.png"
             cv2.imwrite(str(p), img)
-            syms = [{"id": k, "class": "instrumentation",
-                     "box": [1000 * b[0] / self.W, 1000 * b[1] / self.H, 1000 * b[2] / self.W, 1000 * b[3] / self.H]}
-                    for k, b in boxes.items()]
-            return {tuple(x["members"]) for x in la.dashed_signal_lines(p, syms)["lines"]}
+            return {tuple(x["members"]) for x in la.dashed_signal_lines(p, self.syms(boxes))["lines"]
+                    if len(x["members"]) >= 2 and not x.get("ambiguous_ends")}
 
     def test_a_dashed_line_with_a_corner_joins_two_bubbles(self):
         boxes = {}
@@ -294,6 +298,54 @@ class DashedLines(unittest.TestCase):
             self.dashed(img, [(100, 475), (100, 100), (475, 100)])
             self.dashed(img, [(100, 300), (475, 300)])
         self.assertEqual(self.trace(self.sheet(draw), boxes), {("A", "B", "T")})
+
+    # Independent review of e1d8302 (adv_image.py cases 1, 1b and 2): regression tests.
+    def test_a_controllers_input_and_output_meeting_at_its_box_stay_two_lines(self):
+        for y_in, x_out in ((315, 380), (322, 378)):
+            boxes = {}
+
+            def draw(img):
+                boxes["T"] = self.bubble(img, 100, y_in)
+                boxes["C"] = self.bubble(img, 400, 300)
+                boxes["V"] = self.bubble(img, 400, 520)
+                self.dashed(img, [(125, y_in), (375, y_in)])
+                self.dashed(img, [(x_out, 325), (x_out, 495)])
+            got = self.trace(self.sheet(draw), boxes)
+            self.assertNotIn(("T", "V"), got)  # a line never skips the bubble it ends on
+            self.assertEqual(got, {("C", "T"), ("C", "V")})
+
+    def test_an_end_between_two_bubbles_attaches_to_neither_and_is_listed(self):
+        boxes = {}
+
+        def draw(img):
+            boxes["T"] = self.bubble(img, 100, 300)
+            boxes["C1"] = self.bubble(img, 400, 275)
+            boxes["C2"] = self.bubble(img, 400, 325)
+            self.dashed(img, [(125, 300), (375, 300)])
+        img = self.sheet(draw)
+        self.assertEqual(self.trace(img, boxes), set())
+        with tempfile.TemporaryDirectory() as t:
+            p = Path(t) / "s.png"
+            cv2.imwrite(str(p), img)
+            r = la.dashed_signal_lines(p, self.syms(boxes))
+        self.assertEqual([x.get("ambiguous_ends") for x in r["lines"]], [[["C1", "C2"]]])
+
+    def test_moving_the_whole_drawing_changes_nothing(self):
+        def drawing(dx, dy):
+            boxes = {}
+
+            def draw(img):
+                boxes["T"] = self.bubble(img, 100 + dx, 100 + dy)
+                boxes["C"] = self.bubble(img, 400 + dx, 100 + dy)
+                boxes["V"] = self.bubble(img, 400 + dx, 400 + dy)
+                self.dashed(img, [(125 + dx, 100 + dy), (375 + dx, 100 + dy)])
+                self.dashed(img, [(400 + dx, 125 + dy), (400 + dx, 375 + dy)])
+                boxes["X"] = self.bubble(img, 700 + dx, 100 + dy)  # a bubble near no line end
+            return self.trace(self.sheet(draw), boxes)
+        base = drawing(0, 0)
+        self.assertEqual(base, {("C", "T"), ("C", "V")})
+        for dx, dy in ((37, 11), (150, 120), (5, 160)):
+            self.assertEqual(drawing(dx, dy), base, (dx, dy))
 
     def test_solid_lines_and_lone_strokes_are_not_signal_lines(self):
         boxes = {}
@@ -348,6 +400,131 @@ class Intake(unittest.TestCase):
             plain = graph_export.build(root / "without" / "plant_model.json")
             self.assertNotIn("control_loops", {x["section"] for x in plain["not_exported"]})
             self.assertEqual(plain["edges"], g["edges"])
+
+
+class ReviewFindings(unittest.TestCase):
+    """Regression tests for the independent review of e1d8302 (adv_assembly.py)."""
+
+    def test_a_branching_line_sends_only_to_the_next_role(self):
+        m = model([inst("T", "FT 1"), inst("C", "FIC 1"), inst("V", "FV 1")])
+        b = la.assemble(m, [line("a", ["T", "C", "V"])])
+        self.assertEqual(b["relations"], [])  # never T -> V
+        self.assertEqual(b["unresolved_signal_networks"][0]["members"], ["C", "T", "V"])
+        split = la.assemble(model([inst("C", "PIC 2"), inst("V1", "PV 2A"), inst("V2", "PV 2B")]),
+                            [line("b", ["C", "V1", "V2"])])
+        self.assertEqual(rel(split, "signal_to"), {("C", "V1"), ("C", "V2")})  # split range stays
+
+    def test_a_very_short_line_between_two_stacked_controllers_is_still_a_cascade(self):
+        m = model([inst("T1", "TT 109"), inst("C1", "TIC 109"), inst("T2", "TT 121"), inst("C2", "TIC 121"),
+                   inst("V", "TV 121")])
+        short = {**line("s", ["C1", "C2"]), "dashes": 2}  # TE revision D draws TIC 109 -> TIC 121 this way
+        b = la.assemble(m, [line("a", ["T1", "C1"]), short, line("c", ["T2", "C2"]), line("d", ["C2", "V"])])
+        self.assertEqual(rel(b, "sets_point_of"), {("C1", "C2")})
+
+    def test_a_line_between_items_with_no_loop_role_is_not_a_signal(self):
+        m = model([inst("A", "MOV 1651", instrument_kind="operated valve"),
+                   inst("B", "MOV 1652", instrument_kind="operated valve")])
+        b = la.assemble(m, [line("a", ["A", "B"])])
+        self.assertEqual(b["relations"], [])
+        self.assertEqual(len(b["unresolved_signal_networks"]), 1)
+
+    def test_a_dashed_line_between_two_items_of_one_role_is_not_a_signal(self):
+        # OPEN100 sheet 3 (claude reading): one MOV 1651 read twice, a 3-dash line between the two readings
+        for where, tags in (("line_items", ("MOV 1651", "MOV 1651")), ("instruments", ("FT 90", "PT 91"))):
+            m = model([])
+            m[where] = [inst("A", tags[0]), inst("B", tags[1])]
+            b = la.assemble(m, [line("a", ["A", "B"])])
+            self.assertEqual(b["relations"], [], tags)
+            self.assertEqual(len(b["unresolved_signal_networks"]), 1, tags)
+
+    def test_a_solid_line_that_skips_a_role_is_not_a_signal(self):
+        m = model([inst("T", "ZT 70"), inst("V", "XV 70")])
+        solid = {"id": "S", "sheet": "0", "line_kind": "instrument_line", "members": ["T", "V"], "lines": ["x"]}
+        self.assertEqual(la.assemble(m, [solid])["relations"], [])
+
+    def test_the_same_loop_number_in_two_units_without_a_prefix(self):
+        m = model([inst("U1T", "FT 101", "0"), inst("U1C", "FIC 101", "0"), inst("U1V", "FV 101", "0"),
+                   inst("U2T", "FT 101", "1"), inst("U2C", "FIC 101", "1"), inst("U2V", "FV 101", "1")])
+        b = la.assemble(m, [line("a", ["U1T", "U1C"]), line("b", ["U1C", "U1V"]),
+                            line("c", ["U2T", "U2C"], "1"), line("d", ["U2C", "U2V"], "1")])
+        ids = [lp["id"] for lp in b["loops"]]
+        self.assertEqual(len(ids), len(set(ids)))
+        self.assertEqual([lp["tag_grouping_refuted"] for lp in b["loops"]], [[], []])
+        self.assertEqual(b["conflicts"], [])
+        cross = la.assemble(m, [line("a", ["U1T", "U2C"]), line("d", ["U2C", "U2V"], "1")])
+        r = next(r for r in cross["relations"] if r["from"] == "U1T")
+        self.assertEqual(r["confidence"], "traced")  # not the same-loop tier across units
+        self.assertIn("loop_identity", {c["kind"] for c in cross["conflicts"]})
+
+    def test_the_sheet_system_code_scopes_a_loop_number_without_a_prefix(self):
+        m = model([inst("A", "FIC 5", "0", system="SYS-0"), inst("B", "FV 5", "1", system="SYS-1")])
+        m["systems"] = [{"id": "SYS-0", "system_code": "FWS"}, {"id": "SYS-1", "system_code": "MSS"}]
+        c = la.candidates(m)
+        self.assertNotEqual(c["A"]["loop_identity"], c["B"]["loop_identity"])
+
+    def test_relief_valves_hand_switches_and_odd_letter_orders(self):
+        self.assertEqual(la.role_of("PSV"), "relief_device")
+        self.assertEqual(la.role_of("TSV"), "relief_device")
+        self.assertEqual(la.role_of("PRV"), "relief_device")
+        self.assertEqual(la.role_of("HS"), "hand_switch")
+        self.assertIsNone(la.role_of("LVC"))
+        m = model([inst("P", "PSV 60"), inst("C", "PIC 60"), inst("T", "PT 60")])
+        b = la.assemble(m, [line("a", ["T", "C"]), line("b", ["C", "P"])])
+        self.assertEqual(rel(b, "controls"), set())
+        m = model([inst("H", "HS 50"), inst("C", "HIC 50"), inst("V", "HV 50")])
+        b = la.assemble(m, [line("a", ["H", "C"]), line("b", ["C", "V"])])
+        self.assertNotEqual(loop(b, "C")["status"], "confirmed")
+        c = la.candidates(model([inst("X", "LVC 7")]))
+        self.assertIn("letters_not_isa_order", c["X"])
+
+    def test_an_inferred_cascade_direction_has_its_own_tier_and_a_tag_veto(self):
+        m = model([inst("AT", "AT 10"), inst("A", "AIC 10"), inst("FT", "FT 12"), inst("F", "FIC 12"),
+                   inst("FV", "FV 12")])
+        b = la.assemble(m, [line("a", ["AT", "A"]), line("b", ["A", "F"]), line("e", ["FT", "F"]),
+                            line("f", ["F", "FV"])])
+        sp = next(r for r in b["relations"] if r["type"] == "sets_point_of")
+        self.assertEqual((sp["from"], sp["to"], sp["confidence"]), ("A", "F", "traced_direction_inferred"))
+        # the would-be outer controller has an untraced final element of its own loop number: no direction
+        m = model([inst("T", "FT 3"), inst("C", "FIC 3"), inst("V", "FV 3"), inst("T2", "FT 4"), inst("C2", "FIC 4"),
+                   inst("V2", "FV 4")])
+        b = la.assemble(m, [line("a", ["T", "C"]), line("b", ["C", "V"]), line("c", ["C", "C2"]),
+                            line("d", ["T2", "C2"])])
+        self.assertEqual(rel(b, "sets_point_of"), set())
+
+    def test_every_line_at_a_paired_connector_joins(self):
+        m = model([inst("T", "FT 401"), inst("C", "FIC 401"), inst("V", "FV 401", sheet="1")],
+                  connectors=[{"id": "OP0", "text": "TO FV 401"}, {"id": "OP1", "text": "FROM FIC 401"}],
+                  pairs=[{"id": "XP-001", "a": "OP0", "b": "OP1", "sheet_a": "0", "sheet_b": "1", "method": "x"}])
+        b = la.assemble(m, [line("L0", ["T", "OP0"]), line("L1", ["T", "C"]), line("L2", ["C", "OP0"]),
+                            line("L3", ["OP1", "V"], "1")])
+        self.assertNotIn(("T", "V"), rel(b, "signal_to"))
+        self.assertTrue(any(set(u["members"]) == {"T", "C", "V"} for u in b["unresolved_signal_networks"]))
+
+    def test_an_ambiguous_line_end_leaves_its_network_unresolved(self):
+        m = model([inst("T", "FT 9"), inst("C", "FIC 9")])
+        x = {**line("a", ["T", "C"]), "ambiguous_ends": [["C", "C2"]]}
+        b = la.assemble(m, [x])
+        self.assertEqual(b["relations"], [])
+        self.assertEqual(len(b["unresolved_signal_networks"]), 1)
+
+
+    def test_the_bundle_keeps_a_traced_lines_ambiguous_ends(self):
+        # the tracer's ambiguous_ends must reach the assembly through the intake path, not stop at the tracer
+        import line_layers as ll
+        syms = {"0": {k: {"asset": k, "box": [0, 0, 1, 1], "class": "instrumentation"} for k in ("T", "C", "V1", "V2")}}
+        traced = {"lines": [{"members": ["C", "T"], "dashes": 5, "ambiguous_ends": [["V1", "V2"]],
+                             "box_0_1000": [1.0, 1.0, 2.0, 2.0]},
+                            {"members": ["V1"], "dashes": 5, "ambiguous_ends": [["C", "T"]],
+                             "box_0_1000": [3.0, 3.0, 4.0, 4.0]}]}
+        old = ll._sheet_symbols, la.dashed_signal_lines
+        ll._sheet_symbols, la.dashed_signal_lines = (lambda m: syms), (lambda *a, **k: traced)
+        try:
+            lines = la.sheet_signal_lines({"instruments": []}, ".")
+        finally:
+            ll._sheet_symbols, la.dashed_signal_lines = old
+        self.assertEqual([x.get("ambiguous_ends") for x in lines], [[["V1", "V2"]], [["C", "T"]]])
+        m = model([inst("T", "FT 9"), inst("C", "FIC 9"), inst("V1", "FV 9"), inst("V2", "FV 9B")])
+        self.assertEqual(la.assemble(m, lines)["relations"], [])
 
 
 class Scorer(unittest.TestCase):

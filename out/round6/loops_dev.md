@@ -2,23 +2,23 @@
 
 Development sets only. Every number is read from the `control_loops` block of the `plant_model.json` that `scripts/import_drawing_set.py` wrote (`scripts/loop_score.py`), against `data/te_control_loops.json` (19 running loops: 11 valve loops, 8 cascades). A loop counts when a confirmed loop has the key's controller, measurement and output; P = share of confirmed loops that are a key loop. TE sheets are drawn by this repository from its own model, so TE scores are upper bounds for clean drawings.
 
-| Set | Run | Confirmed / loops | Valve loops | Cascades | Loop P | Sensor P / R | Final element P / R | Cascade P / R | Shuffled roles (loop R / P) | Tag-only (loop R / P) | Empty | Rest of bundle unchanged |
+| Set | Run | Confirmed / loops | Valve loops | Cascades | Loop P | Sensor P / R | Final element P / R | Cascade P / R | Shuffled roles, 10 seeds (loop R; P mean, range) | Tag-only (loop R / P) | Empty | Rest of bundle unchanged |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| te-a | key symbols + tracer | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 / - | 0.0 / - | 0.0 | True |
-| te-a | te-clean-trace-r1/claude | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 / - | 0.0 / - | 0.0 | True |
-| te-a | te-clean-trace-r1/codex | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 / - | 0.0 / - | 0.0 | True |
-| te-a | te-clean-trace-r2/claude | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 / - | 0.0 / - | 0.0 | True |
-| te-a | te-clean-trace-r2/codex | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 / - | 0.0 / - | 0.0 | True |
-| te-a | te-clean-trace-r3/claude | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 / - | 0.0 / - | 0.0 | True |
-| te-a | te-clean-trace-r3/codex | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 / - | 0.0 / - | 0.0 | True |
-| te-a | te-clean-trace-r4/claude | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 / - | 0.0 / - | 0.0 | True |
-| te-a | te-clean-trace-r4/codex | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 / - | 0.0 / - | 0.0 | True |
-| te-a | te-clean-trace-r5/claude | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 / - | 0.0 / - | 0.0 | True |
-| te-a | te-clean-trace-r5/codex | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 / - | 0.0 / - | 0.0 | True |
-| te-d | key symbols + tracer | 19 / 20 | 11/11 | 8/8 | 1.0 | 1.0 / 1.0 | 1.0 / 1.0 | 1.0 / 1.0 | 0.105 / 0.667 | 0.579 / 0.55 | 0.0 | True |
-| open100 | r2-tiles-trace/claude | 0 / 1 | no key | no key | - | - | - | - | - | - | - | True |
-| open100 | r2-tiles-trace/codex | 0 / 1 | no key | no key | - | - | - | - | - | - | - | True |
-| open100 | r2-tiles-trace/gemini | 0 / 1 | no key | no key | - | - | - | - | - | - | - | True |
+| te-a | key symbols + tracer | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
+| te-a | te-clean-trace-r1/claude | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
+| te-a | te-clean-trace-r1/codex | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
+| te-a | te-clean-trace-r2/claude | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
+| te-a | te-clean-trace-r2/codex | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
+| te-a | te-clean-trace-r3/claude | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
+| te-a | te-clean-trace-r3/codex | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
+| te-a | te-clean-trace-r4/claude | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
+| te-a | te-clean-trace-r4/codex | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
+| te-a | te-clean-trace-r5/claude | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
+| te-a | te-clean-trace-r5/codex | 0 / 1 | 0/11 | 0/8 | - | - / 0.0 | - / 0.0 | - / 0.0 | 0.0 (0.0-0.0); none asserted | 0.0 / - | 0.0 | True |
+| te-d | key symbols + tracer | 19 / 20 | 11/11 | 8/8 | 1.0 | 1.0 / 1.0 | 1.0 / 1.0 | 1.0 / 1.0 | 0.069 (0.0-0.158); 0.625 (0.0-1.0, 10 of 10 seeds assert any) | 0.579 / 0.55 | 0.0 | True |
+| open100 | r2-tiles-trace/claude | 0 / 0 | no key | no key | - | - | - | - | - | - | - | True |
+| open100 | r2-tiles-trace/codex | 0 / 0 | no key | no key | - | - | - | - | - | - | - | True |
+| open100 | r2-tiles-trace/gemini | 0 / 0 | no key | no key | - | - | - | - | - | - | - | True |
 
 Diagnostic, TE revision D: `signal_to` pairs against the drawn signal lines of the key (`signal_edges`, cross-sheet flags followed), unordered, by tag.
 
@@ -75,6 +75,327 @@ Diagnostic, TE revision D: `signal_to` pairs against the drawn signal lines of t
   },
   "loop_precision": null,
   "loop_recall_by_sheet": null,
+  "controls_shuffled_roles_over_seeds": [
+   {
+    "seeds": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
+    ],
+    "loop_recall": {
+     "n": 10,
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "sd": 0.0
+    },
+    "loop_precision": null,
+    "loops_asserted": {
+     "n": 10,
+     "mean": 0,
+     "min": 0,
+     "max": 0,
+     "sd": 0.0
+    }
+   },
+   {
+    "seeds": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
+    ],
+    "loop_recall": {
+     "n": 10,
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "sd": 0.0
+    },
+    "loop_precision": null,
+    "loops_asserted": {
+     "n": 10,
+     "mean": 0,
+     "min": 0,
+     "max": 0,
+     "sd": 0.0
+    }
+   },
+   {
+    "seeds": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
+    ],
+    "loop_recall": {
+     "n": 10,
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "sd": 0.0
+    },
+    "loop_precision": null,
+    "loops_asserted": {
+     "n": 10,
+     "mean": 0,
+     "min": 0,
+     "max": 0,
+     "sd": 0.0
+    }
+   },
+   {
+    "seeds": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
+    ],
+    "loop_recall": {
+     "n": 10,
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "sd": 0.0
+    },
+    "loop_precision": null,
+    "loops_asserted": {
+     "n": 10,
+     "mean": 0,
+     "min": 0,
+     "max": 0,
+     "sd": 0.0
+    }
+   },
+   {
+    "seeds": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
+    ],
+    "loop_recall": {
+     "n": 10,
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "sd": 0.0
+    },
+    "loop_precision": null,
+    "loops_asserted": {
+     "n": 10,
+     "mean": 0,
+     "min": 0,
+     "max": 0,
+     "sd": 0.0
+    }
+   },
+   {
+    "seeds": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
+    ],
+    "loop_recall": {
+     "n": 10,
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "sd": 0.0
+    },
+    "loop_precision": null,
+    "loops_asserted": {
+     "n": 10,
+     "mean": 0,
+     "min": 0,
+     "max": 0,
+     "sd": 0.0
+    }
+   },
+   {
+    "seeds": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
+    ],
+    "loop_recall": {
+     "n": 10,
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "sd": 0.0
+    },
+    "loop_precision": null,
+    "loops_asserted": {
+     "n": 10,
+     "mean": 0,
+     "min": 0,
+     "max": 0,
+     "sd": 0.0
+    }
+   },
+   {
+    "seeds": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
+    ],
+    "loop_recall": {
+     "n": 10,
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "sd": 0.0
+    },
+    "loop_precision": null,
+    "loops_asserted": {
+     "n": 10,
+     "mean": 0,
+     "min": 0,
+     "max": 0,
+     "sd": 0.0
+    }
+   },
+   {
+    "seeds": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
+    ],
+    "loop_recall": {
+     "n": 10,
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "sd": 0.0
+    },
+    "loop_precision": null,
+    "loops_asserted": {
+     "n": 10,
+     "mean": 0,
+     "min": 0,
+     "max": 0,
+     "sd": 0.0
+    }
+   },
+   {
+    "seeds": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
+    ],
+    "loop_recall": {
+     "n": 10,
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "sd": 0.0
+    },
+    "loop_precision": null,
+    "loops_asserted": {
+     "n": 10,
+     "mean": 0,
+     "min": 0,
+     "max": 0,
+     "sd": 0.0
+    }
+   },
+   {
+    "seeds": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
+    ],
+    "loop_recall": {
+     "n": 10,
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "sd": 0.0
+    },
+    "loop_precision": null,
+    "loops_asserted": {
+     "n": 10,
+     "mean": 0,
+     "min": 0,
+     "max": 0,
+     "sd": 0.0
+    }
+   }
+  ],
   "controls_loop_recall": {
    "perfect": {
     "n": 11,
@@ -205,6 +526,43 @@ Diagnostic, TE revision D: `signal_to` pairs against the drawn signal lines of t
    "max": 1.0,
    "sd": 0.0
   },
+  "controls_shuffled_roles_over_seeds": [
+   {
+    "seeds": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
+    ],
+    "loop_recall": {
+     "n": 10,
+     "mean": 0.069,
+     "min": 0.0,
+     "max": 0.158,
+     "sd": 0.056
+    },
+    "loop_precision": {
+     "n": 10,
+     "mean": 0.625,
+     "min": 0.0,
+     "max": 1.0,
+     "sd": 0.403
+    },
+    "loops_asserted": {
+     "n": 10,
+     "mean": 2,
+     "min": 1,
+     "max": 4,
+     "sd": 1.155
+    }
+   }
+  ],
   "controls_loop_recall": {
    "perfect": {
     "n": 1,
