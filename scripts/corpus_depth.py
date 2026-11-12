@@ -5,32 +5,42 @@
   python scripts/corpus_depth.py --check    # exit 1 if a rule is broken or docs/CORPUS_DEPTH.md is stale
   python scripts/corpus_depth.py --strict   # --check, and also exit 1 while any group is UNPLANNED (the goal's gate)
 
-Nothing here is a second source registry. It reads the existing ones:
+It reads the existing registries and adds one disposition file beside them:
 
-- the acquisition registries `data/public_sources_*.json` (one entry per download group; the additive `depth` field
-  holds the key availability, a dated plan or a retirement, each with the file it comes from);
+- the acquisition registries `data/public_sources_*.json` (one entry per download group), read only. Their bytes are
+  pinned at acquisition, so they are never edited here;
+- `data/corpus_depth.json`, keyed by group id: key availability read from the group's acquisition-record text, an
+  optional dated plan or retirement, and the sha256 of each registry it was read from. A registry that changes fails
+  --check until its dispositions are re-read and the pin updated;
 - `docs/DEPTH_GOAL.md` for each group's area (its "Areas and the sources already acquired" table);
 - `data/corpus.json` and `out/generalization/matrix.json` for what a group actually feeds: a corpus input whose
-  `fetch` command or `local_path` names the group, and that input's matrix cells;
-- `benchmarks/registry.json` for any registered suite whose files sit under the group's `data/external/` folder;
+  `fetch` command or `local_path` names the group, and that input's matrix cells (the matrix must not be stale);
+- `benchmarks/registry.json` for any registered suite whose case input files (followed through `*.input.json`) sit
+  under the group's `data/external/` folder;
 - `data/features.json` and the matrix rows' tool files (`scripts/corpus_matrix.py`) for the features a row exercises.
 
-The status is derived, never typed: **feeds** needs a scored matrix cell (pass or fail) or a registered benchmark;
-**planned** needs a `depth.plan` with a date, the named key, the task and evidence files that exist; **retired**
-needs a `depth.retired` reason with evidence; anything else is **UNPLANNED**. Stdlib only, no network.
+The status is derived, never typed: **feeds** needs a scored matrix cell (pass or fail) on an input that is neither
+self-generated nor agent-keyed, or a registered benchmark; **planned** needs a plan with a date, the named key, the
+task and tracked evidence files whose quoted anchor is present and which mention the group; **retired** needs a
+reason with the same kind of evidence; anything else is **UNPLANNED**. Stdlib only, no network.
 """
 import argparse
+import functools
+import hashlib
 import json
 import re
+import subprocess
 import sys
+from collections import Counter
 from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
-import corpus_matrix  # noqa: E402  (row names and row tool files only; importing runs nothing)
+import corpus_matrix  # noqa: E402  (row names, tool files and the staleness check; importing runs nothing)
 
 REGISTRY_GLOB = "data/public_sources_*.json"
+SIDECAR = "data/corpus_depth.json"
 GOAL = "docs/DEPTH_GOAL.md"
 CORPUS = "data/corpus.json"
 MATRIX = "out/generalization/matrix.json"
@@ -43,10 +53,11 @@ PREFIX = "../"  # repository-relative paths; CORPUS_DEPTH.md sits in docs/
 FEEDS, PLANNED, RETIRED, UNPLANNED = "feeds a scored task", "dated plan with named key", "retired", "UNPLANNED"
 STATUS_ORDER = (FEEDS, PLANNED, RETIRED, UNPLANNED)
 SCORED = ("pass", "fail")
-HAND_SET = ("status", "feeds", "scored", "evaluated")  # derived only; a registry may not assert them
-# Key availability vocabulary, in the order the next-to-wire ranking prefers (a key in hand first).
-KEY_STATUSES = ("publisher labels retained, unopened", "source structure (candidate)", "unknown",
-                "no key in source", "withheld by publisher")
+HAND_SET = ("status", "feeds", "scored", "evaluated")  # derived only; no registry record or disposition may assert them
+LABELS = "acquisition record says labels exist, unopened"
+# Key availability vocabulary, in the order the next-to-wire ranking prefers.
+KEY_STATUSES = (LABELS, "source structure (candidate)", "unknown", "no key in source", "withheld by publisher")
+KEY_BLOCKED = ("no key in source", "withheld by publisher")
 
 # Which existing matrix rows and features a group's acquisition categories could exercise once an adapter and a key
 # exist. A candidate fit by category, not a verified applicability: it ranks what to wire next, nothing more.
@@ -96,6 +107,25 @@ def read_json(rel, root=ROOT):
     return json.loads((root / rel).read_bytes())
 
 
+def text_hash(path):
+    return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
+
+
+@functools.lru_cache(maxsize=None)
+def tracked(root=ROOT):
+    """Tracked repository paths; evidence must be committed, not merely present on this disk."""
+    try:
+        out = subprocess.run(["git", "ls-files", "-z"], cwd=root, capture_output=True, check=True).stdout
+        return frozenset(p for p in out.decode("utf-8").split("\0") if p)
+    except (OSError, subprocess.CalledProcessError):
+        return None  # no git: fall back to existence on disk
+
+
+def is_tracked(rel, root=ROOT):
+    paths = tracked(root)
+    return (root / rel).is_file() if paths is None else rel in paths
+
+
 def licence_status(text):
     """Licence/terms status from the acquisition record's own licence string."""
     if UNRESOLVED_TERMS.search(text):
@@ -115,6 +145,25 @@ def load_groups(root=ROOT):
                 problems.append(f"{sid}: in both {groups[sid][0]} and {rel}")
             groups[sid] = (rel, record)
     return groups, problems
+
+
+def load_sidecar(root=ROOT):
+    return read_json(SIDECAR, root)
+
+
+def registry_pin_problems(sidecar, root=ROOT):
+    out = []
+    pins = sidecar.get("registries", {})
+    found = {p.relative_to(root).as_posix() for p in root.glob(REGISTRY_GLOB)}
+    for rel in sorted(found - set(pins)):
+        out.append(f"{rel}: not pinned in {SIDECAR} (read its records into dispositions, then pin its sha256)")
+    for rel, digest in sorted(pins.items()):
+        if rel not in found:
+            out.append(f"{SIDECAR}: pins {rel}, which does not exist")
+        elif text_hash(root / rel) != digest:
+            out.append(f"{rel}: changed since {SIDECAR} pinned it; re-read its dispositions and update the pin "
+                       "(acquisition registries are acquisition-time records and should not change)")
+    return out
 
 
 def goal_areas(groups, root=ROOT):
@@ -147,26 +196,49 @@ def goal_areas(groups, root=ROOT):
 
 
 def linked_inputs(sid, corpus):
-    """Corpus inputs that come from this group: its fetch command names it, or its local_path is its folder."""
+    """Corpus inputs that come from this group: its fetch command names it (wherever the input's local_path then
+    lies, e.g. an agent-keyed folder built from the download), or a local_path segment is the group's folder."""
     out = []
     for inp in corpus["inputs"]:
         fetch = inp.get("fetch") or ""
-        path = (inp.get("local_path") or "").replace("\\", "/")
-        if (re.search(r"(fetch_corpus|fetch_sources)\.py\s+" + re.escape(sid) + r"(\s|$|;|&)", fetch)
-                or path == f"data/external/{sid}" or path.startswith(f"data/external/{sid}/")):
+        segments = (inp.get("local_path") or "").replace("\\", "/").split("/")
+        named = re.search(r"(fetch_corpus\.py|fetch_sources\.py|--source)\s+" + re.escape(sid) + r"(\s|$|;|&)", fetch)
+        if named or sid in segments:
             out.append(inp["id"])
     return out
 
 
-def benchmark_suites(sid, root=ROOT):
-    """Registered benchmark suites that reference a file under this group's data/external folder."""
-    needle = f"data/external/{sid}/"
-    found = []
-    for report in read_json(BENCHMARKS, root)["reports"]:
-        suite = root / report["suite"]
-        if suite.is_file() and needle in suite.read_text(encoding="utf-8", errors="replace"):
-            found.append(report["suite"])
+def suite_paths(rel, root=ROOT, seen=None):
+    """Every file path a registered suite's cases name, following referenced *.input.json files."""
+    seen = set() if seen is None else seen
+    if rel in seen or not (root / rel).is_file():
+        return set()
+    seen.add(rel)
+    found = set()
+
+    def walk(node):
+        if isinstance(node, dict):
+            for k, v in node.items():
+                if k == "path" and isinstance(v, str):
+                    found.add(v.replace("\\", "/"))
+                else:
+                    walk(v)
+        elif isinstance(node, list):
+            for v in node:
+                walk(v)
+    doc = json.loads((root / rel).read_bytes())
+    walk(doc.get("cases", doc) if isinstance(doc, dict) else doc)
+    for p in sorted(found):
+        if p.endswith(".input.json"):
+            found |= suite_paths(p, root, seen)
     return found
+
+
+def benchmark_suites(sid, root=ROOT):
+    """Registered benchmark suites with a case file under this group's data/external folder."""
+    base = f"data/external/{sid}"
+    return [r["suite"] for r in read_json(BENCHMARKS, root)["reports"]
+            if any(p == base or p.startswith(base + "/") for p in suite_paths(r["suite"], root))]
 
 
 def row_features(features):
@@ -191,22 +263,62 @@ def dated(value):
         return False
 
 
-def evidence_problems(sid, what, paths, root):
+def squash(text):
+    return " ".join(text.split())
+
+
+def evidence_problems(sid, what, refs, root, registries, mention=None):
+    """Each ref is `path#anchor`: the path must be tracked; a registry anchor must be this group's id; any other
+    anchor must appear verbatim in the file. With mention, each file must also name the group (its id or a name)."""
     out = []
-    if not paths:
-        out.append(f"{sid}: {what} cites no evidence file")
-    for p in paths:
-        if not (root / p.split("#", 1)[0]).exists():
-            out.append(f"{sid}: {what} evidence {p} does not exist")
+    if not refs:
+        return [f"{sid}: {what} cites no evidence file"]
+    for ref in refs:
+        path, _, anchor = ref.partition("#")
+        if not is_tracked(path, root):
+            out.append(f"{sid}: {what} evidence {path} is not a tracked file")
+            continue
+        text = (root / path).read_text(encoding="utf-8", errors="replace")
+        if path in registries:
+            if anchor != sid or sid not in json.loads(text)["sources"]:
+                out.append(f"{sid}: {what} evidence {ref} must point at this group's own record ({path}#{sid})")
+            continue
+        if not anchor:
+            out.append(f"{sid}: {what} evidence {path} needs a #quoted anchor from the file")
+        elif squash(anchor) not in squash(text):
+            out.append(f"{sid}: {what} evidence anchor {anchor!r} is not in {path}")
+        if mention is not None and not any(term in text for term in mention):
+            out.append(f"{sid}: {what} evidence {path} never names the group ({', '.join(mention)})")
     return out
+
+
+def summary(cells):
+    """Cells per row as status counts; input identifiers are left out of the page."""
+    if not cells:
+        return "none"
+    by_row = {}
+    for c in cells:
+        by_row.setdefault(c["row"], Counter())[c["status"]] += 1
+    return "; ".join(f"{row_label(r)}: " + ", ".join(f"{n} {s}" for s, n in sorted(counts.items()))
+                     for r, counts in sorted(by_row.items()))
 
 
 def build(root=ROOT):
     """All rows, the earlier pinned sources, and every rule problem."""
     groups, problems = load_groups(root)
+    sidecar = load_sidecar(root)
+    registries = set(sidecar.get("registries", {}))
+    problems += registry_pin_problems(sidecar, root)
+    dispositions = sidecar.get("groups", {})
+    problems += [f"{sid}: in {SIDECAR} but in no acquisition registry" for sid in sorted(set(dispositions) - set(groups))]
     areas, area_keys, area_problems = goal_areas(groups, root)
     problems += area_problems
     corpus, matrix = read_json(CORPUS, root), read_json(MATRIX, root)
+    stale = corpus_matrix.stale_cells(matrix, corpus)
+    if stale:
+        problems.append(f"{MATRIX}: {len(stale)} cells are stale against {CORPUS} or their tools (run "
+                        "python scripts/corpus_matrix.py --check): " + "; ".join(stale[:5]))
+    inputs_by_id = corpus_matrix.inputs_by_id(corpus)
     features = read_json(FEATURES, root)
     feature_ids = {f["id"] for f in features["features"]}
     by_row = row_features(features)
@@ -217,6 +329,11 @@ def build(root=ROOT):
         problems += [f"CATEGORY_FIT {cat}: unknown matrix row {r}" for r in rows if r not in corpus_matrix.ROWS]
         problems += [f"CATEGORY_FIT {cat}: unknown feature {f}" for f in feats if f not in feature_ids]
 
+    def counts_as_scored(c):
+        inp = inputs_by_id.get(c["input"], {})
+        return (c["status"] in SCORED and not corpus_matrix.self_generated(c) and not corpus_matrix.self_generated(inp)
+                and not corpus_matrix.agent_keyed(c) and not corpus_matrix.agent_keyed(inp))
+
     def feeding(sid):
         inputs = linked_inputs(sid, corpus)
         found = [c for i in inputs for c in sorted(cells.get(i, []), key=lambda c: c["row"])]
@@ -224,35 +341,48 @@ def build(root=ROOT):
 
     out = []
     for sid, (rel, rec) in groups.items():
-        depth = rec.get("depth") or {}
+        depth = dispositions.get(sid)
+        if depth is None:
+            problems.append(f"{sid}: no entry in {SIDECAR} (use key status 'unknown' when the record says nothing)")
+            depth = {}
         for word in HAND_SET:
-            if word in depth:
-                problems.append(f"{sid}: depth.{word} is derived from the matrix and benchmarks, never set by hand")
+            if word in rec:
+                problems.append(f"{sid}: registry field {word!r} is derived here, never asserted by a record")
+            if word in depth or word in (depth.get("plan") or {}):
+                problems.append(f"{sid}: {word} is derived from the matrix and benchmarks, never set by hand")
         for cat in rec.get("categories", []):
             if cat not in CATEGORY_FIT:
                 problems.append(f"{sid}: category {cat!r} has no CATEGORY_FIT entry in scripts/corpus_depth.py")
         key = depth.get("key")
         if not key:
-            problems.append(f"{sid}: no depth.key (use status 'unknown' when the records say nothing)")
-            key = {"status": "unknown", "what": "", "evidence": ""}
+            problems.append(f"{sid}: no key availability in {SIDECAR}")
+            key = {"status": "unknown", "what": "", "evidence": []}
         elif key.get("status") not in KEY_STATUSES:
-            problems.append(f"{sid}: depth.key.status {key.get('status')!r} not one of {', '.join(KEY_STATUSES)}")
+            problems.append(f"{sid}: key status {key.get('status')!r} not one of {', '.join(KEY_STATUSES)}")
         else:
-            problems += evidence_problems(sid, "depth.key", [key.get("evidence")] if key.get("evidence") else [], root)
+            refs = key.get("evidence") or []
+            if f"{rel}#{sid}" not in refs:
+                problems.append(f"{sid}: key availability must cite its acquisition record {rel}#{sid}")
+            problems += evidence_problems(sid, "key", refs, root, registries)
         plan, retired = depth.get("plan"), depth.get("retired")
         if plan and retired:
             problems.append(f"{sid}: both a plan and a retirement")
-        plan_ok = bool(plan) and dated(plan.get("date")) and plan.get("key") and plan.get("task")
+        names = None
+        for what, entry in (("plan", plan), ("retired", retired)):
+            if not entry:
+                continue
+            names = [sid] + list(entry.get("names") or [])
+            for n in entry.get("names") or []:
+                if n not in rec.get("name", "") and n not in rec.get("source_family", ""):
+                    problems.append(f"{sid}: {what} name {n!r} is not in the acquisition record's name or family")
+            problems += evidence_problems(sid, what, entry.get("evidence") or [], root, registries, mention=names)
+        plan_ok = bool(plan) and dated(plan.get("date")) and bool(plan.get("key")) and bool(plan.get("task"))
         if plan and not plan_ok:
-            problems.append(f"{sid}: depth.plan needs a past ISO date, the key and the task")
-        if plan:
-            problems += evidence_problems(sid, "depth.plan", plan.get("evidence") or [], root)
-        if retired:
-            if not retired.get("reason"):
-                problems.append(f"{sid}: depth.retired needs a reason")
-            problems += evidence_problems(sid, "depth.retired", retired.get("evidence") or [], root)
+            problems.append(f"{sid}: plan needs a past ISO date, the key and the task")
+        if retired and not retired.get("reason"):
+            problems.append(f"{sid}: retired needs a reason")
         inputs, found, suites = feeding(sid)
-        scored = [c for c in found if c["status"] in SCORED]
+        scored = [c for c in found if counts_as_scored(c)]
         if retired and (scored or suites):
             problems.append(f"{sid}: retired but still feeds {len(scored)} scored cells / {len(suites)} suites")
         if rec.get("evidence_role", "acquired-unscored") != "acquired-unscored" and not (scored or suites):
@@ -262,29 +392,26 @@ def build(root=ROOT):
         cats = rec.get("categories", [])
         fit_rows, fit_feats = fit(cats)
         out.append({
-            "id": sid, "registry": rel, "name": rec.get("name", ""), "family": rec.get("source_family", sid),
+            "id": sid, "registry": rel, "family": rec.get("source_family", sid),
             "area": areas.get(sid, "?"), "area_key": area_keys.get(areas.get(sid), ""),
-            "licence": licence_status(rec.get("license", "")), "licence_text": rec.get("license", ""),
-            "origin": rec.get("origin", ""), "categories": cats, "key": key, "plan": plan, "retired": retired,
-            "note": depth.get("note", ""), "inputs": inputs, "cells": found, "suites": suites,
-            "features": sorted({f for c in found for f in by_row.get(c["row"], [])}),
+            "licence": licence_status(rec.get("license", "")), "origin": rec.get("origin", ""), "categories": cats,
+            "key": key, "plan": plan, "retired": retired, "note": depth.get("note", ""), "inputs": inputs,
+            "cells": found, "scored": scored, "suites": suites,
+            "features": sorted({f for c in scored for f in by_row.get(c["row"], [])}),
             "fit_rows": fit_rows, "fit_features": fit_feats, "status": status})
     earlier = []
-    pins = read_json(PINS, root)
-    for sid in pins:
+    for sid in read_json(PINS, root):
         if sid == "about" or sid in groups:
             continue
         inputs, found, suites = feeding(sid)
-        earlier.append({"id": sid, "inputs": inputs, "cells": found, "suites": suites,
-                        "features": sorted({f for c in found for f in by_row.get(c["row"], [])})})
+        scored = [c for c in found if counts_as_scored(c)]
+        earlier.append({"id": sid, "inputs": inputs, "cells": found, "scored": scored, "suites": suites,
+                        "features": sorted({f for c in scored for f in by_row.get(c["row"], [])})})
     return out, earlier, problems
 
 
-KEY_BLOCKED = ("no key in source", "withheld by publisher")
-
-
 def ranked(rows):
-    """UNPLANNED groups by the existing features they could exercise, then key in hand, then open licence.
+    """UNPLANNED groups by the existing features they could exercise, then key availability, then open licence.
 
     A group whose own record says it has no key, or whose publisher withholds it, cannot feed a scored task however
     many features it fits, so it ranks after every group that may have one."""
@@ -298,8 +425,8 @@ def esc(text):
     return str(text).replace("|", "\\|").replace("\n", " ")
 
 
-def link(path, prefix=PREFIX):
-    base = path.split("#", 1)[0]
+def link(ref, prefix=PREFIX):
+    base = ref.split("#", 1)[0]
     return f"[{Path(base).name}]({prefix}{base})"
 
 
@@ -307,15 +434,16 @@ def row_label(n):
     return f"row {n} {corpus_matrix.ROWS[n]['short']}"
 
 
-def cell_text(cells):
-    if not cells:
-        return "none"
-    return "; ".join(f"{row_label(c['row'])} / {c['input']}: {c['status']}" for c in cells)
-
-
 def fit_text(r):
     rows = ", ".join(row_label(n) for n in r["fit_rows"]) or "no matrix row"
     return f"{rows}; features {', '.join(r['fit_features']) or 'none'}"
+
+
+def status_text(r):
+    text = f"**{r['status']}**" if r["status"] == UNPLANNED else r["status"]
+    if r["status"] == PLANNED and r["plan"].get("open"):
+        text += f" ({r['plan']['open']})"
+    return text
 
 
 def disposition_text(r, prefix=PREFIX):
@@ -327,78 +455,83 @@ def disposition_text(r, prefix=PREFIX):
     if r["status"] == RETIRED:
         return r["retired"]["reason"] + " (" + ", ".join(link(e, prefix) for e in r["retired"]["evidence"]) + ")"
     if r["status"] == FEEDS:
-        return "scored through " + (cell_text([c for c in r["cells"] if c["status"] in SCORED]) or
-                                    ", ".join(r["suites"]))
+        return "scored through " + (summary(r["scored"]) if r["scored"] else ", ".join(r["suites"]))
     return r["note"] or "no plan, key or retirement recorded"
 
 
 def page(rows, earlier, prefix=PREFIX):
     counts = {s: sum(r["status"] == s for r in rows) for s in STATUS_ORDER}
+    disposed = len(rows) - counts[UNPLANNED]
     unplanned = [r for r in rows if r["status"] == UNPLANNED]
     lines = [
         "# Corpus depth: every acquired source group and its disposition", "",
-        f"*Generated by `scripts/corpus_depth.py` from the acquisition registries (`{REGISTRY_GLOB}`, additive "
-        f"`depth` field), [{Path(GOAL).name}]({prefix}{GOAL}) (areas), [corpus.json]({prefix}{CORPUS}) and "
-        f"[matrix.json]({prefix}{MATRIX}) (what each group feeds), [registry.json]({prefix}{BENCHMARKS}) and "
-        f"[features.json]({prefix}{FEATURES}). Edit those, then run `python scripts/corpus_depth.py --write`; "
-        "`--check` runs in the test suite.*", "",
+        f"*Generated by `scripts/corpus_depth.py` from the acquisition registries (`{REGISTRY_GLOB}`, read only and "
+        f"hash-pinned), the dispositions in [corpus_depth.json]({prefix}{SIDECAR}), [{Path(GOAL).name}]"
+        f"({prefix}{GOAL}) (areas), [corpus.json]({prefix}{CORPUS}) and [matrix.json]({prefix}{MATRIX}) (what each "
+        f"group feeds), [registry.json]({prefix}{BENCHMARKS}) and [features.json]({prefix}{FEATURES}). Edit those, "
+        "then run `python scripts/corpus_depth.py --write`; `--check` runs in the test suite.*", "",
         f"The standing goal ([DEPTH_GOAL.md]({prefix}{GOAL})): before any further acquisition, every acquired "
         "source either feeds a scored task through the product path, or has a dated plan naming its key, or is "
         "retired with its reason. The status below is derived, not typed: **feeds** needs a scored matrix cell "
-        "(pass or fail) or a registered benchmark; **planned** needs a dated plan with its key, task and evidence; "
-        "**retired** needs a reason with evidence. Everything else is **UNPLANNED**.", "",
+        "(pass or fail, not self-generated or agent-keyed) or a registered benchmark; **planned** needs a dated plan "
+        "with its key, task and quoted evidence; **retired** needs a reason with evidence. Everything else is "
+        "**UNPLANNED**.", "",
         f"**{len(rows)} groups: {counts[FEEDS]} feed a scored task, {counts[PLANNED]} have a dated plan with a "
-        f"named key, {counts[RETIRED]} retired, {counts[UNPLANNED]} UNPLANNED.**", "",
+        f"named key, {counts[RETIRED]} retired, {counts[UNPLANNED]} UNPLANNED. Increment 1 is not done: "
+        f"{disposed} of {len(rows)} groups have a disposition.**", "",
         f"## UNPLANNED: {len(unplanned)} of {len(rows)}", "",
         "No new acquisition pass while this list is not empty (`python scripts/corpus_depth.py --strict` fails "
         "until it is).", "",
         ", ".join(f"`{r['id']}`" for r in sorted(unplanned, key=lambda r: (r["area"], r["id"]))) or "None.", "",
         "## Next to wire: the ten highest-value UNPLANNED groups", "",
         "Ranked by how many existing features the group's acquisition categories could exercise, then by the "
-        "matrix rows, then by key in hand (publisher labels first), then open licence. A group whose own record "
-        "says it has no key, or whose publisher withholds it, ranks after all the others: it cannot feed a scored "
-        "task until someone authors a key. The fit is by category: a "
-        "candidate, not a verified applicability. Each still needs an adapter, a frozen key and a split before "
-        "it scores anything.", "",
+        "matrix rows, then by key availability, then open licence. A group whose acquisition record says it has no "
+        "key, or whose publisher withholds it, ranks after all the others: it cannot feed a scored task until "
+        "someone authors a key. The fit is by category: a candidate, not a verified applicability. Each still needs "
+        "an adapter, a frozen key and a split before it scores anything.", "",
         "| # | Group | Area | Could exercise (matrix row / features) | Key availability | Licence |",
         "|---|---|---|---|---|---|"]
     for n, r in enumerate(ranked(rows)[:10], 1):
         lines.append(f"| {n} | `{r['id']}` | {esc(r['area'])} | {esc(fit_text(r))} | "
                      f"{esc(r['key']['status'])}: {esc(r['key']['what'])} | {esc(r['licence'])} |")
-    labelled = [r for r in ranked(rows) if r["key"]["status"] == KEY_STATUSES[0]]
-    lines += ["", f"### UNPLANNED groups with publisher labels in hand: {len(labelled)}", "",
-              "Fewer features fit these, but a key already exists in their own files (unopened; verify before "
-              "freezing it). In the ranked order above.", "",
-              "| Group | Area | Could exercise (matrix row / features) | Labels | Note |", "|---|---|---|---|---|"]
+    labelled = [r for r in ranked(rows) if r["key"]["status"] == LABELS]
+    lines += ["", f"### UNPLANNED groups whose acquisition record says labels exist: {len(labelled)}", "",
+              "Fewer features fit these, but the acquisition record says labels or annotations exist. None was "
+              "opened, and some are not keys (for example reference outputs or measurement annotations, as noted). "
+              "Verify one from the source's own files before freezing it as a key. In the ranked order above.", "",
+              "| Group | Area | Could exercise (matrix row / features) | What the record says | Note |",
+              "|---|---|---|---|---|"]
     for r in labelled:
         lines.append(f"| `{r['id']}` | {esc(r['area'])} | {esc(fit_text(r))} | {esc(r['key']['what'])} | "
                      f"{esc(r['note'])} |")
     lines += ["", "## The register", "",
-              "One row per acquisition group. *Feeds now* lists the group's corpus inputs and matrix cells with "
-              "their status; *features* are those whose tools the fed matrix rows run.", "",
+              "One row per acquisition group. *Feeds now* counts the matrix cells of the group's corpus inputs by "
+              "row and status; *features* are those whose tools the scored rows run. *What it is* is the "
+              "acquisition record's origin and categories.", "",
               "| Group | Family | Area | Licence / terms | What it is | Feeds now (matrix cells; features) | "
               "Key availability | Status | Disposition |",
               "|---|---|---|---|---|---|---|---|---|"]
     for r in sorted(rows, key=lambda r: (r["area"], STATUS_ORDER.index(r["status"]), r["id"])):
-        feeds = cell_text(r["cells"]) + (f"; suites {', '.join(r['suites'])}" if r["suites"] else "")
+        feeds = summary(r["cells"]) + (f"; suites {', '.join(r['suites'])}" if r["suites"] else "")
         if r["features"]:
             feeds += f"; features {', '.join(r['features'])}"
-        status = f"**{r['status']}**" if r["status"] == UNPLANNED else r["status"]
         lines.append(
             f"| `{r['id']}` | {esc(r['family'])} | {esc(r['area'])} | {esc(r['licence'])} | "
-            f"{esc(r['name'])} ({esc(r['origin'])}) | {esc(feeds)} | {esc(r['key']['status'])}: "
-            f"{esc(r['key']['what'])} | {status} | {esc(disposition_text(r, prefix))} |")
+            f"{esc(r['origin'])}; {esc(', '.join(r['categories']))} | {esc(feeds)} | {esc(r['key']['status'])}: "
+            f"{esc(r['key']['what'])} | {status_text(r)} | {esc(disposition_text(r, prefix))} |")
     lines += ["", "## Earlier pinned sources (outside the 49-group goal)", "",
-              f"Sources pinned in [corpus_pins.json]({prefix}{PINS}) before the 2026-11-07 passes. They are "
-              "listed so the feeding rule above is seen to find real matrix cells; they carry no disposition here.",
-              "", "| Source | Corpus inputs | Matrix cells | Features |", "|---|---|---|---|"]
+              f"Sources pinned in [corpus_pins.json]({prefix}{PINS}) before the 2026-11-07 passes, by their dataset "
+              "identifiers. They are listed so the feeding rule above is seen to find real matrix cells; they carry "
+              "no disposition here. *Scored* counts the cells that would make a group feed (pass or fail, not "
+              "agent-keyed or self-generated).", "",
+              "| Source | Corpus inputs | Matrix cells | Scored | Features |", "|---|---|---|---|---|"]
     for e in earlier:
-        lines.append(f"| `{e['id']}` | {esc(', '.join(e['inputs']) or 'none')} | {esc(cell_text(e['cells']))} | "
+        lines.append(f"| `{e['id']}` | {len(e['inputs'])} | {esc(summary(e['cells']))} | {len(e['scored'])} | "
                      f"{esc(', '.join(e['features']) or 'none')} |")
     lines += ["", "## Limits", "",
-              "- Areas come from the DEPTH_GOAL table; key availability comes from each group's own acquisition "
-              "record (its limits and exposure text), not from opening the files. A label marked retained is "
-              "unverified until a key is frozen from it.",
+              "- Areas come from the DEPTH_GOAL table. Key availability comes from each group's acquisition-record "
+              "text (its limits and exposure), not from the source's own files: it is unverified until a key is "
+              "frozen from those files.",
               "- A dated plan is not depth: depth is the six checks in DEPTH_GOAL.md. Development runs on a planned "
               "group (the plan's note) are not a sealed held-out result.",
               "- The next-to-wire fit is a category match. It does not say an adapter exists or that the result "

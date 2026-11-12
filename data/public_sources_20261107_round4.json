@@ -28,24 +28,7 @@
       "source_family": "nyc-parks-amps",
       "selection": "2024-01-01 <= evt_date < 2024-01-08; all outcomes",
       "metadata_snapshot": "data/public-source-evidence/2026-11-07-round-4/amps-schema.json",
-      "metadata_snapshot_sha256": "0f3067f8db831f878fc448f2f797a27e678c2c16cf9e574670a496c30d23e2ca",
-      "depth": {
-        "key": {
-          "status": "source structure (candidate)",
-          "what": "linked asset, work-order, parts and labor relationships",
-          "evidence": "data/public_sources_20261107_round4.json#nyc-amps-2024w01"
-        },
-        "plan": {
-          "date": "2026-11-08",
-          "key": "independent calculation from the original AMPS rows (examples/maintenance-history/amps.py), beside a raw-asset grouping baseline",
-          "task": "maintenance-history packet (scripts/maintenance_history.py); reserved cohort 2024-01-15 to 2024-01-22",
-          "evidence": [
-            "examples/maintenance-history/PLAN.md",
-            "examples/maintenance-history/README.md"
-          ],
-          "note": "reserved acquisition stopped at HTTP 500; reserved transfer unverified"
-        }
-      }
+      "metadata_snapshot_sha256": "0f3067f8db831f878fc448f2f797a27e678c2c16cf9e574670a496c30d23e2ca"
     }
   }
 }

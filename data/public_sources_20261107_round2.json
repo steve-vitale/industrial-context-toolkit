@@ -24,14 +24,7 @@
       "exposure": "File structure only; no model/task score.",
       "source_family": "uci-gas-turbine",
       "metadata_snapshot": "data/public-source-evidence/2026-11-07-round-2/uci-gas-turbine.json",
-      "metadata_snapshot_sha256": "55b057fa924c48ed3205ab74c43f94f6a4169a93b9a687d477d4af82baf11cdb",
-      "depth": {
-        "key": {
-          "status": "no key in source",
-          "what": "no causal maintenance or savings key; publisher year split",
-          "evidence": "data/public_sources_20261107_round2.json#uci-gas-turbine"
-        }
-      }
+      "metadata_snapshot_sha256": "55b057fa924c48ed3205ab74c43f94f6a4169a93b9a687d477d4af82baf11cdb"
     },
     "uci-naval": {
       "name": "Condition Based Maintenance of Naval Propulsion Plants",
@@ -53,14 +46,7 @@
       "exposure": "File structure only; no model/task score.",
       "source_family": "uci-naval",
       "metadata_snapshot": "data/public-source-evidence/2026-11-07-round-2/uci-naval.json",
-      "metadata_snapshot_sha256": "e38872d734afb35a99ea3e744ab4ca21428543c89fa1b61af8bf22f9d9e7b236",
-      "depth": {
-        "key": {
-          "status": "publisher labels retained, unopened",
-          "what": "simulated degradation coefficients",
-          "evidence": "data/public_sources_20261107_round2.json#uci-naval"
-        }
-      }
+      "metadata_snapshot_sha256": "e38872d734afb35a99ea3e744ab4ca21428543c89fa1b61af8bf22f9d9e7b236"
     },
     "uci-secom": {
       "name": "SECOM",
@@ -83,15 +69,7 @@
       "exposure": "File structure only; no model/task score.",
       "source_family": "uci-secom",
       "metadata_snapshot": "data/public-source-evidence/2026-11-07-round-2/uci-secom.json",
-      "metadata_snapshot_sha256": "ccec4a87675506b9815ebd967e0dc5df99ce5c5676b36174f62cdd1071dcf54d",
-      "depth": {
-        "key": {
-          "status": "publisher labels retained, unopened",
-          "what": "pass/fail test labels",
-          "evidence": "data/public_sources_20261107_round2.json#uci-secom"
-        },
-        "note": "named in docs/DEPTH_GOAL.md increment 2 as an option; no key or task committed"
-      }
+      "metadata_snapshot_sha256": "ccec4a87675506b9815ebd967e0dc5df99ce5c5676b36174f62cdd1071dcf54d"
     },
     "uci-aps": {
       "name": "APS Failure at Scania Trucks",
@@ -113,14 +91,7 @@
       "exposure": "File structure only; no model/task score.",
       "source_family": "uci-aps",
       "metadata_snapshot": "data/public-source-evidence/2026-11-07-round-2/uci-aps.json",
-      "metadata_snapshot_sha256": "fa8e2995e0c66a056479b1658b02e1fff33523b174912db2df62d57ae1316965",
-      "depth": {
-        "key": {
-          "status": "publisher labels retained, unopened",
-          "what": "class labels with publisher train/test split",
-          "evidence": "data/public_sources_20261107_round2.json#uci-aps"
-        }
-      }
+      "metadata_snapshot_sha256": "fa8e2995e0c66a056479b1658b02e1fff33523b174912db2df62d57ae1316965"
     },
     "nestor-excavators": {
       "name": "Historical Nestor excavator work-order examples",
@@ -143,14 +114,7 @@
       "evidence_role": "acquired-unscored",
       "exposure": "File structure only; no model/task score.",
       "source_family": "nestor-excavators",
-      "commit": "1d9cd96f129fb6562f5fdb86ae0a39fb50085048",
-      "depth": {
-        "key": {
-          "status": "unknown",
-          "what": "not stated",
-          "evidence": "data/public_sources_20261107_round2.json#nestor-excavators"
-        }
-      }
+      "commit": "1d9cd96f129fb6562f5fdb86ae0a39fb50085048"
     },
     "lanl-biomanufacturing": {
       "name": "LANL PCC6803 cultivation datasets",
@@ -173,14 +137,7 @@
       "evidence_role": "acquired-unscored",
       "exposure": "File structure only; no model/task score.",
       "source_family": "lanl-pcc6803",
-      "commit": "08cf022aa6537ee4f50dc55683b4b6ee3d3a4529",
-      "depth": {
-        "key": {
-          "status": "unknown",
-          "what": "not stated",
-          "evidence": "data/public_sources_20261107_round2.json#lanl-biomanufacturing"
-        }
-      }
+      "commit": "08cf022aa6537ee4f50dc55683b4b6ee3d3a4529"
     },
     "historian-rca": {
       "name": "HistorianRCA hold-tank benchmark",
@@ -205,14 +162,7 @@
       "evidence_role": "acquired-unscored",
       "exposure": "File structure only; no model/task score.",
       "source_family": "historian-rca",
-      "commit": "8d12a821395ce5f72e464dc78cc2c10d05cbb9ed",
-      "depth": {
-        "key": {
-          "status": "withheld by publisher",
-          "what": "benchmark intentionally withholds truth",
-          "evidence": "data/public_sources_20261107_round2.json#historian-rca"
-        }
-      }
+      "commit": "8d12a821395ce5f72e464dc78cc2c10d05cbb9ed"
     },
     "modelica-fluid": {
       "name": "Modelica fluid examples: pumps, tanks, boiler, exchanger and batch plant",
@@ -236,14 +186,7 @@
       "evidence_role": "acquired-unscored",
       "exposure": "File structure only; no model/task score.",
       "source_family": "modelica-standard-library",
-      "commit": "1625240ba3034459ad1bdbe245d157b2e58cb183",
-      "depth": {
-        "key": {
-          "status": "source structure (candidate)",
-          "what": "model source text, not executed",
-          "evidence": "data/public_sources_20261107_round2.json#modelica-fluid"
-        }
-      }
+      "commit": "1625240ba3034459ad1bdbe245d157b2e58cb183"
     },
     "cad-extra-originals": {
       "name": "Additional CAD exchange geometry and attribute originals",
@@ -265,14 +208,7 @@
       "exposure": "Filenames, sizes and raw hashes only; geometry and attribute contents not inspected by acquisition.",
       "source_family": "ezdxf",
       "content_inspection": false,
-      "commit": "c498560bb491c357deda538360ed0c8fdb11f5a7",
-      "depth": {
-        "key": {
-          "status": "unknown",
-          "what": "contents uninspected",
-          "evidence": "data/public_sources_20261107_round2.json#cad-extra-originals"
-        }
-      }
+      "commit": "c498560bb491c357deda538360ed0c8fdb11f5a7"
     },
     "commons-instruments": {
       "name": "Instrument and regulator photographs",
@@ -294,14 +230,7 @@
       "exposure": "File structure only; no model/task score.",
       "source_family": "commons-individual-photographers",
       "metadata_snapshot": "data/public-source-evidence/2026-11-07-round-2/commons-instruments.json",
-      "metadata_snapshot_sha256": "22d7fafc5c4e70ac9a2ed567d8ebc62b4c72be8d4a869753f11fa14194a4a9bd",
-      "depth": {
-        "key": {
-          "status": "no key in source",
-          "what": "no field-reading key",
-          "evidence": "data/public_sources_20261107_round2.json#commons-instruments"
-        }
-      }
+      "metadata_snapshot_sha256": "22d7fafc5c4e70ac9a2ed567d8ebc62b4c72be8d4a869753f11fa14194a4a9bd"
     },
     "pahala-drawings": {
       "name": "Pahala WWTP concept design/build drawings (2021)",
@@ -325,24 +254,7 @@
       "skipped": "Only the listed subset acquired; downloaded code never executed.",
       "evidence_role": "acquired-unscored",
       "exposure": "File structure only; no model/task score.",
-      "source_family": "pahala-drawings",
-      "depth": {
-        "key": {
-          "status": "source structure (candidate)",
-          "what": "PDF text layer for tag text; no engineering-reviewed extraction key",
-          "evidence": "data/public_sources_20261107_round2.json#pahala-drawings"
-        },
-        "plan": {
-          "date": "2026-11-10",
-          "key": "the PDF's own text layer (scripts/pdf_tag_check.py)",
-          "task": "round-6 tag-text score from the drawing-set bundle (scripts/import_drawing_set.py); P-401 and P-501 development, other Pahala text-layer sheets held out",
-          "evidence": [
-            "docs/GOAL_ROUND6.md",
-            "data/attempts.json"
-          ],
-          "note": "development runs A403-A408 (single runs, no engineering-reviewed key); no sealed held-out result yet"
-        }
-      }
+      "source_family": "pahala-drawings"
     },
     "virden-drawings": {
       "name": "Virden WWTF Phase 2 P&I drawings (2019)",
@@ -366,14 +278,7 @@
       "skipped": "Only the listed subset acquired; downloaded code never executed.",
       "evidence_role": "acquired-unscored",
       "exposure": "File structure only; no model/task score.",
-      "source_family": "virden-drawings",
-      "depth": {
-        "key": {
-          "status": "no key in source",
-          "what": "no engineering-reviewed extraction key",
-          "evidence": "data/public_sources_20261107_round2.json#virden-drawings"
-        }
-      }
+      "source_family": "virden-drawings"
     },
     "haile-water-treatment": {
       "name": "Haile Gold Mine contact wastewater treatment upgrade",
@@ -397,14 +302,7 @@
       "skipped": "Only the listed subset acquired; downloaded code never executed.",
       "evidence_role": "acquired-unscored",
       "exposure": "File structure only; no model/task score.",
-      "source_family": "haile-water-treatment",
-      "depth": {
-        "key": {
-          "status": "no key in source",
-          "what": "no engineering-reviewed extraction key",
-          "evidence": "data/public_sources_20261107_round2.json#haile-water-treatment"
-        }
-      }
+      "source_family": "haile-water-treatment"
     },
     "salina-design-basis": {
       "name": "Salina WWTP improvement project basis of design (2021)",
@@ -428,14 +326,7 @@
       "skipped": "Only the listed subset acquired; downloaded code never executed.",
       "evidence_role": "acquired-unscored",
       "exposure": "File structure only; no model/task score.",
-      "source_family": "salina-design-basis",
-      "depth": {
-        "key": {
-          "status": "no key in source",
-          "what": "no engineering-reviewed extraction key",
-          "evidence": "data/public_sources_20261107_round2.json#salina-design-basis"
-        }
-      }
+      "source_family": "salina-design-basis"
     },
     "ruttan-water-treatment": {
       "name": "Ruttan Mine water treatment public submission (2025)",
@@ -459,14 +350,7 @@
       "skipped": "Only the listed subset acquired; downloaded code never executed.",
       "evidence_role": "acquired-unscored",
       "exposure": "File structure only; no model/task score.",
-      "source_family": "ruttan-water-treatment",
-      "depth": {
-        "key": {
-          "status": "no key in source",
-          "what": "no engineering-reviewed extraction key",
-          "evidence": "data/public_sources_20261107_round2.json#ruttan-water-treatment"
-        }
-      }
+      "source_family": "ruttan-water-treatment"
     }
   },
   "acquisition_totals": {

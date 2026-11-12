@@ -1,0 +1,485 @@
+{
+  "about": "Depth dispositions for every acquired public-source group (docs/DEPTH_GOAL.md), kept beside the acquisition registries so their acquisition-time bytes stay unchanged. Key availability is read from each group's acquisition-record text (cited as registry#id) and is unverified: no source file was opened. A plan or retirement cites tracked files with a quoted #anchor that must appear in them. Status is never stored: scripts/corpus_depth.py derives it. 'registries' pins each registry's sha256 (CRLF normalized to LF); a changed registry fails --check until its dispositions are re-read and the pin updated.",
+  "registries": {
+    "data/public_sources_20261107.json": "e277b1caa29bbff61304bfca4170e118811701849e0fc06ca8e8f719dd9870e4",
+    "data/public_sources_20261107_round2.json": "f53bf3274f769c731e779a9ceadfa55eca2a70a52d83ada07096e55f1aa1e6e6",
+    "data/public_sources_20261107_round3.json": "e175ca3e914bf6e7d575d62aa92e46b663fd2a65ebea01292ca0793eed4c6c54",
+    "data/public_sources_20261107_round4.json": "4029b1938812b7b114853083f105ebe160cf62d95b0e7be6d7ed10a7fbbdea24",
+    "data/public_sources_20261107_round5.json": "07b380fde930476b952935b90cd367245c04432ac0e8226fe3b1b4acb0740292"
+  },
+  "groups": {
+    "uci-steel-energy": {
+      "key": {
+        "status": "unknown",
+        "what": "record rules out only a causal or savings key",
+        "evidence": [
+          "data/public_sources_20261107.json#uci-steel-energy"
+        ]
+      }
+    },
+    "uci-ai4i": {
+      "key": {
+        "status": "acquisition record says labels exist, unopened",
+        "what": "synthetic failure labels",
+        "evidence": [
+          "data/public_sources_20261107.json#uci-ai4i"
+        ]
+      }
+    },
+    "wine-competition": {
+      "key": {
+        "status": "unknown",
+        "what": "not stated",
+        "evidence": [
+          "data/public_sources_20261107.json#wine-competition"
+        ]
+      }
+    },
+    "candida-bioreactor": {
+      "key": {
+        "status": "unknown",
+        "what": "not stated",
+        "evidence": [
+          "data/public_sources_20261107.json#candida-bioreactor"
+        ]
+      }
+    },
+    "pomace-fermentation": {
+      "key": {
+        "status": "unknown",
+        "what": "fitted-model artifacts retained; no outcome key stated",
+        "evidence": [
+          "data/public_sources_20261107.json#pomace-fermentation"
+        ]
+      }
+    },
+    "sequencing-batch-reactor": {
+      "key": {
+        "status": "unknown",
+        "what": "not stated",
+        "evidence": [
+          "data/public_sources_20261107.json#sequencing-batch-reactor"
+        ]
+      }
+    },
+    "distillation-modalities": {
+      "key": {
+        "status": "acquisition record says labels exist, unopened",
+        "what": "interpolation/uncertainty annotations: measurement annotations, not outcome labels",
+        "evidence": [
+          "data/public_sources_20261107.json#distillation-modalities"
+        ]
+      },
+      "note": "examples/public-data/README.md suggests deepening the existing public-distillation case; no plan"
+    },
+    "maintie": {
+      "key": {
+        "status": "acquisition record says labels exist, unopened",
+        "what": "expert fine-grained and coarse annotations (gold/silver)",
+        "evidence": [
+          "data/public_sources_20261107.json#maintie"
+        ]
+      },
+      "note": "named in docs/DEPTH_GOAL.md increment 2 as an option; no key or task committed"
+    },
+    "maintnorm": {
+      "key": {
+        "status": "acquisition record says labels exist, unopened",
+        "what": "token normalization pairs with publisher splits",
+        "evidence": [
+          "data/public_sources_20261107.json#maintnorm"
+        ]
+      }
+    },
+    "idaes-processes": {
+      "key": {
+        "status": "source structure (candidate)",
+        "what": "flowsheet source code, never executed",
+        "evidence": [
+          "data/public_sources_20261107.json#idaes-processes"
+        ]
+      }
+    },
+    "commons-equipment": {
+      "key": {
+        "status": "no key in source",
+        "what": "no field-reading key; fields would need hand-keying",
+        "evidence": [
+          "data/public_sources_20261107.json#commons-equipment"
+        ]
+      }
+    },
+    "doe-mechanical": {
+      "key": {
+        "status": "unknown",
+        "what": "not stated",
+        "evidence": [
+          "data/public_sources_20261107.json#doe-mechanical"
+        ]
+      }
+    },
+    "doe-engineering-drawings": {
+      "key": {
+        "status": "no key in source",
+        "what": "instructional diagrams, no keyed extraction",
+        "evidence": [
+          "data/public_sources_20261107.json#doe-engineering-drawings"
+        ]
+      }
+    },
+    "doe-operations-maintenance": {
+      "key": {
+        "status": "unknown",
+        "what": "not stated",
+        "evidence": [
+          "data/public_sources_20261107.json#doe-operations-maintenance"
+        ]
+      }
+    },
+    "uci-gas-turbine": {
+      "key": {
+        "status": "unknown",
+        "what": "record rules out only a causal maintenance or savings key; publisher year split",
+        "evidence": [
+          "data/public_sources_20261107_round2.json#uci-gas-turbine"
+        ]
+      }
+    },
+    "uci-naval": {
+      "key": {
+        "status": "acquisition record says labels exist, unopened",
+        "what": "simulated degradation coefficients",
+        "evidence": [
+          "data/public_sources_20261107_round2.json#uci-naval"
+        ]
+      }
+    },
+    "uci-secom": {
+      "key": {
+        "status": "acquisition record says labels exist, unopened",
+        "what": "pass/fail test labels",
+        "evidence": [
+          "data/public_sources_20261107_round2.json#uci-secom"
+        ]
+      },
+      "note": "named in docs/DEPTH_GOAL.md increment 2 as an option; no key or task committed"
+    },
+    "uci-aps": {
+      "key": {
+        "status": "acquisition record says labels exist, unopened",
+        "what": "class labels with publisher train/test split",
+        "evidence": [
+          "data/public_sources_20261107_round2.json#uci-aps"
+        ]
+      }
+    },
+    "nestor-excavators": {
+      "key": {
+        "status": "unknown",
+        "what": "not stated",
+        "evidence": [
+          "data/public_sources_20261107_round2.json#nestor-excavators"
+        ]
+      }
+    },
+    "lanl-biomanufacturing": {
+      "key": {
+        "status": "unknown",
+        "what": "not stated",
+        "evidence": [
+          "data/public_sources_20261107_round2.json#lanl-biomanufacturing"
+        ]
+      }
+    },
+    "historian-rca": {
+      "key": {
+        "status": "withheld by publisher",
+        "what": "benchmark intentionally withholds truth",
+        "evidence": [
+          "data/public_sources_20261107_round2.json#historian-rca"
+        ]
+      }
+    },
+    "modelica-fluid": {
+      "key": {
+        "status": "source structure (candidate)",
+        "what": "model source text, not executed",
+        "evidence": [
+          "data/public_sources_20261107_round2.json#modelica-fluid"
+        ]
+      }
+    },
+    "cad-extra-originals": {
+      "key": {
+        "status": "unknown",
+        "what": "contents uninspected",
+        "evidence": [
+          "data/public_sources_20261107_round2.json#cad-extra-originals"
+        ]
+      }
+    },
+    "commons-instruments": {
+      "key": {
+        "status": "no key in source",
+        "what": "no field-reading key",
+        "evidence": [
+          "data/public_sources_20261107_round2.json#commons-instruments"
+        ]
+      }
+    },
+    "pahala-drawings": {
+      "key": {
+        "status": "source structure (candidate)",
+        "what": "PDF text layer for tag text, the same text the importer reads; no engineering-reviewed extraction key",
+        "evidence": [
+          "data/public_sources_20261107_round2.json#pahala-drawings",
+          "docs/GOAL_ROUND6.md#CAD-exported PDFs with a text layer"
+        ]
+      },
+      "plan": {
+        "date": "2026-11-10",
+        "names": [
+          "Pahala"
+        ],
+        "key": "the PDF's own text layer (scripts/pdf_tag_check.py)",
+        "task": "round-6 tag-text score from the drawing-set bundle (scripts/import_drawing_set.py); P-401 and P-501 development, other Pahala text-layer sheets held out",
+        "evidence": [
+          "docs/GOAL_ROUND6.md#Pahala P-401 and P-501",
+          "data/attempts.json#PDF text-layer tag check"
+        ],
+        "note": "partly circular: the key is the same text layer the importer reads, so a match checks the reading of text, not the drawing. Development runs A403-A408 are single runs; no sealed held-out result yet"
+      }
+    },
+    "virden-drawings": {
+      "key": {
+        "status": "unknown",
+        "what": "no engineering-reviewed extraction key; text layer not checked",
+        "evidence": [
+          "data/public_sources_20261107_round2.json#virden-drawings"
+        ]
+      }
+    },
+    "haile-water-treatment": {
+      "key": {
+        "status": "unknown",
+        "what": "no engineering-reviewed extraction key; text layer not checked",
+        "evidence": [
+          "data/public_sources_20261107_round2.json#haile-water-treatment"
+        ]
+      }
+    },
+    "salina-design-basis": {
+      "key": {
+        "status": "unknown",
+        "what": "no engineering-reviewed extraction key; text layer not checked",
+        "evidence": [
+          "data/public_sources_20261107_round2.json#salina-design-basis"
+        ]
+      }
+    },
+    "ruttan-water-treatment": {
+      "key": {
+        "status": "unknown",
+        "what": "no engineering-reviewed extraction key; text layer not checked",
+        "evidence": [
+          "data/public_sources_20261107_round2.json#ruttan-water-treatment"
+        ]
+      }
+    },
+    "tina-mining": {
+      "key": {
+        "status": "acquisition record says labels exist, unopened",
+        "what": "coded maintenance/alarm events; labels not read",
+        "evidence": [
+          "data/public_sources_20261107_round3.json#tina-mining"
+        ]
+      }
+    },
+    "bms-alarms": {
+      "key": {
+        "status": "acquisition record says labels exist, unopened",
+        "what": "periodicity labels",
+        "evidence": [
+          "data/public_sources_20261107_round3.json#bms-alarms"
+        ]
+      }
+    },
+    "epanet-networks": {
+      "key": {
+        "status": "source structure (candidate)",
+        "what": "network topology in the INP sections",
+        "evidence": [
+          "data/public_sources_20261107_round3.json#epanet-networks"
+        ]
+      }
+    },
+    "freecad-originals": {
+      "key": {
+        "status": "unknown",
+        "what": "contents uninspected",
+        "evidence": [
+          "data/public_sources_20261107_round3.json#freecad-originals"
+        ]
+      }
+    },
+    "mro-catalog": {
+      "key": {
+        "status": "unknown",
+        "what": "two catalog revisions; no key stated",
+        "evidence": [
+          "data/public_sources_20261107_round3.json#mro-catalog"
+        ]
+      }
+    },
+    "nasa-milling": {
+      "key": {
+        "status": "acquisition record says labels exist, unopened",
+        "what": "wear labels, unread",
+        "evidence": [
+          "data/public_sources_20261107_round3.json#nasa-milling"
+        ]
+      }
+    },
+    "nasa-cmapss": {
+      "key": {
+        "status": "acquisition record says labels exist, unopened",
+        "what": "nested splits/labels, unopened",
+        "evidence": [
+          "data/public_sources_20261107_round3.json#nasa-cmapss"
+        ]
+      },
+      "note": "named in docs/DEPTH_GOAL.md increment 2 as an option; no key or task committed"
+    },
+    "usda-pumping": {
+      "key": {
+        "status": "unknown",
+        "what": "not stated",
+        "evidence": [
+          "data/public_sources_20261107_round3.json#usda-pumping"
+        ]
+      }
+    },
+    "phoenix-nameplate": {
+      "key": {
+        "status": "unknown",
+        "what": "not stated",
+        "evidence": [
+          "data/public_sources_20261107_round3.json#phoenix-nameplate"
+        ]
+      }
+    },
+    "commons-fireboat": {
+      "key": {
+        "status": "no key in source",
+        "what": "no OCR/transcription key",
+        "evidence": [
+          "data/public_sources_20261107_round3.json#commons-fireboat"
+        ]
+      }
+    },
+    "nyc-amps-2024w01": {
+      "key": {
+        "status": "source structure (candidate)",
+        "what": "linked asset, work-order, parts and labor relationships",
+        "evidence": [
+          "data/public_sources_20261107_round4.json#nyc-amps-2024w01"
+        ]
+      },
+      "plan": {
+        "date": "2026-11-08",
+        "names": [
+          "AMPS"
+        ],
+        "key": "independent calculation from the original AMPS rows (examples/maintenance-history/amps.py), beside a raw-asset grouping baseline",
+        "task": "maintenance-history packet (scripts/maintenance_history.py); reserved cohort 2024-01-15 to 2024-01-22",
+        "open": "reserved cohort not acquired (HTTP 500)",
+        "evidence": [
+          "examples/maintenance-history/PLAN.md#2024-01-15 inclusive to 2024-01-22 exclusive",
+          "examples/maintenance-history/README.md#Reserved transfer remains unverified"
+        ],
+        "note": "the reserved acquisition stopped at HTTP 500 on the fourth related-asset batch; reserved transfer unverified"
+      }
+    },
+    "industrial-yeast": {
+      "key": {
+        "status": "acquisition record says labels exist, unopened",
+        "what": "publisher evaluation profiles and summaries: reference outputs, not a labelled key",
+        "evidence": [
+          "data/public_sources_20261107_round5.json#industrial-yeast"
+        ]
+      }
+    },
+    "alpi-packaging": {
+      "key": {
+        "status": "acquisition record says labels exist, unopened",
+        "what": "publisher processed splits, unopened",
+        "evidence": [
+          "data/public_sources_20261107_round5.json#alpi-packaging"
+        ]
+      }
+    },
+    "synthetic-maint-sensor": {
+      "key": {
+        "status": "unknown",
+        "what": "synthetic; no join validation",
+        "evidence": [
+          "data/public_sources_20261107_round5.json#synthetic-maint-sensor"
+        ]
+      }
+    },
+    "uci-steel-faults": {
+      "key": {
+        "status": "acquisition record says labels exist, unopened",
+        "what": "defect class labels",
+        "evidence": [
+          "data/public_sources_20261107_round5.json#uci-steel-faults"
+        ]
+      }
+    },
+    "uci-ccpp": {
+      "key": {
+        "status": "unknown",
+        "what": "output column is a regression target, not a fault label",
+        "evidence": [
+          "data/public_sources_20261107_round5.json#uci-ccpp"
+        ]
+      }
+    },
+    "idta-digital-nameplate": {
+      "key": {
+        "status": "source structure (candidate)",
+        "what": "template example values, not a transcription key",
+        "evidence": [
+          "data/public_sources_20261107_round5.json#idta-digital-nameplate"
+        ]
+      }
+    },
+    "biosteam-sugarcane": {
+      "key": {
+        "status": "source structure (candidate)",
+        "what": "system definitions in source code, not executed",
+        "evidence": [
+          "data/public_sources_20261107_round5.json#biosteam-sugarcane"
+        ]
+      }
+    },
+    "commons-ksb-pump": {
+      "key": {
+        "status": "no key in source",
+        "what": "no human field key",
+        "evidence": [
+          "data/public_sources_20261107_round5.json#commons-ksb-pump"
+        ]
+      }
+    },
+    "nist-pmi-cases": {
+      "key": {
+        "status": "source structure (candidate)",
+        "what": "case specifications, contents unopened",
+        "evidence": [
+          "data/public_sources_20261107_round5.json#nist-pmi-cases"
+        ]
+      }
+    }
+  }
+}
