@@ -291,7 +291,7 @@
         "method": {
           "name": "adjacent-sample-selected-interpolation-v1",
           "max_gap_s": 1800,
-          "tool_sha256_lf": "bd65873d209bdec1746265735a37e0f843bd4fee993ae1c175a7fb9ae6e47ae0",
+          "tool_sha256_lf": "cccf2b955b73add7fe69f4a2e3c4749259441c2f7c27ee3317dbd5a2844394f1",
           "assumption": "per-signal linear or previous-value hold between adjacent admitted observations; both endpoints required; no extrapolation or gap filling"
         },
         "signal_definitions": {
@@ -382,7 +382,7 @@
       "basis_check": {
         "schema": "analysis-basis-check-1",
         "status": "matched_and_reproduced",
-        "report_sha256": "14131b8d4ad1e939216bcefaf62cdf7d5de29758ebc1c4d95657a0821311371b",
+        "report_sha256": "5a4b7041126fe77da64ae9b6a26d241528f94aff31016afc4a23793246de7457",
         "checks": [
           {
             "role": "csv",
@@ -399,8 +399,8 @@
           {
             "role": "calculation_code_lf",
             "status": "match",
-            "recorded_sha256": "bd65873d209bdec1746265735a37e0f843bd4fee993ae1c175a7fb9ae6e47ae0",
-            "selected_sha256": "bd65873d209bdec1746265735a37e0f843bd4fee993ae1c175a7fb9ae6e47ae0"
+            "recorded_sha256": "cccf2b955b73add7fe69f4a2e3c4749259441c2f7c27ee3317dbd5a2844394f1",
+            "selected_sha256": "cccf2b955b73add7fe69f4a2e3c4749259441c2f7c27ee3317dbd5a2844394f1"
           },
           {
             "role": "complete_result",

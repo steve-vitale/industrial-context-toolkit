@@ -1,0 +1,187 @@
+{
+  "schema": "batch-analysis-result-2",
+  "context": {
+    "site_id": "industrial baker's-yeast plant (publisher does not name it)",
+    "asset_id": "fed-batch fermenter, about 150 m3 geometric (publisher README)",
+    "model_revision": "not supplied",
+    "recipe_id": "not supplied (strain 167, publisher README)",
+    "recipe_revision": "not supplied"
+  },
+  "context_status": "supplied identities and revisions; not verified against installed assets",
+  "inputs": {
+    "csv_sha256": "5c71cc587a89fbba6f4e0be9e9fc2eb05d6572bafa427e01e1f60834a7071ac2",
+    "plan_sha256": "3286df8fc7c630c6a39bb99b49f359de778aa7ab1ae2295a5ce7a20174323407"
+  },
+  "method": {
+    "name": "adjacent-sample-selected-interpolation-v1",
+    "max_gap_s": 3600,
+    "tool_sha256_lf": "cccf2b955b73add7fe69f4a2e3c4749259441c2f7c27ee3317dbd5a2844394f1",
+    "assumption": "per-signal linear or previous-value hold between adjacent admitted observations; both endpoints required; no extrapolation or gap filling"
+  },
+  "signal_definitions": {
+    "sugar_feed_rate_kg_rs_h": {
+      "unit": "kg/h",
+      "asset_id": "sugar feed (publisher log)",
+      "source_ref": "figshare 10.6084/m9.figshare.33201579 fermentation_timeseries.csv sugar_feed_rate_kg_rs_h; logged hourly by operators, kg RS/h",
+      "interpolation": "linear",
+      "quality": null
+    }
+  },
+  "windows": [
+    {
+      "id": "B01",
+      "batch_id": "B01",
+      "phase": "whole logged batch",
+      "start_s": 0,
+      "end_s": 61200,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 61200,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 18,
+          "good_samples": 18,
+          "bad_sample_lines": [],
+          "sample_min": 0.0,
+          "sample_max": 1930.0,
+          "covered_s": 61200.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1319.264705882353,
+          "integral_unit": "kg",
+          "observed_integral": 22427.5,
+          "full_window_integral": 22427.5,
+          "interpolation": "linear",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B02",
+      "batch_id": "B02",
+      "phase": "whole logged batch",
+      "start_s": 0,
+      "end_s": 57600,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 57600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 17,
+          "good_samples": 17,
+          "bad_sample_lines": [],
+          "sample_min": 0.0,
+          "sample_max": 2194.0,
+          "covered_s": 57600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1397.34375,
+          "integral_unit": "kg",
+          "observed_integral": 22357.5,
+          "full_window_integral": 22357.5,
+          "interpolation": "linear",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B03",
+      "batch_id": "B03",
+      "phase": "whole logged batch",
+      "start_s": 0,
+      "end_s": 61200,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 61200,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 18,
+          "good_samples": 18,
+          "bad_sample_lines": [],
+          "sample_min": 0.0,
+          "sample_max": 1967.0,
+          "covered_s": 61200.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1319.6176470588234,
+          "integral_unit": "kg",
+          "observed_integral": 22433.5,
+          "full_window_integral": 22433.5,
+          "interpolation": "linear",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B04",
+      "batch_id": "B04",
+      "phase": "whole logged batch",
+      "start_s": 0,
+      "end_s": 61200,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 61200,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 18,
+          "good_samples": 18,
+          "bad_sample_lines": [],
+          "sample_min": 0.0,
+          "sample_max": 2015.0,
+          "covered_s": 61200.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1325.6764705882354,
+          "integral_unit": "kg",
+          "observed_integral": 22536.5,
+          "full_window_integral": 22536.5,
+          "interpolation": "linear",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B05",
+      "batch_id": "B05",
+      "phase": "whole logged batch",
+      "start_s": 0,
+      "end_s": 61200,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 61200,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 18,
+          "good_samples": 18,
+          "bad_sample_lines": [],
+          "sample_min": 0.0,
+          "sample_max": 1976.0,
+          "covered_s": 61200.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1331.9117647058824,
+          "integral_unit": "kg",
+          "observed_integral": 22642.5,
+          "full_window_integral": 22642.5,
+          "interpolation": "linear",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    }
+  ],
+  "graph_binding": {
+    "status": "not selected; asset IDs are supplied labels only"
+  },
+  "limits": [
+    "Descriptive recorded-data calculation; no diagnosis, prediction or acceptance.",
+    "Sample extrema can miss excursions between observations.",
+    "Observed integrals over incomplete coverage are not full-phase totals.",
+    "Supplied phase labels, units and mappings require engineering review.",
+    "Accepted numeric samples and complete coverage do not verify source quality or original sensor continuity."
+  ]
+}

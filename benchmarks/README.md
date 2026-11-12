@@ -15,6 +15,7 @@ There is no universal best-model score.
 | `source-support`, `claim-judgments-v1` | Labels for fixed supplied claims against a bounded key; missing claims stay in the accuracy denominator | Twelve MGPI/NIST development claims using explicit project paraphrases. Synthetic scorer controls only; reasons and source validity unscored. | [Control results](results/source-support-development-tag-adapter.md), [suite](source-support-development.json) |
 | Same label task, opt-in `provided-model-values-v1` admission | Exact frozen artifact values/roles/groups and approved context are admitted before the unchanged label scorer; coverage and keyed artifact contradictions are separate | Two exposed source-adapted artifacts, 82 value entries/55 provided rows/14 semantic groups each. Fourteen synthetic saved reviewer controls, not model trials or automatic claim discovery. | [Contract and contribution steps](source-support/artifact-values/README.md), [suite](source-support/artifact-values/suite.json), [publication report](results/artifact-value-review-development.md) |
 | `tag-reading`, `tag-text-v1`: `geometry` | Strict tag recall over labelled scored symbols, plus accuracy on geometrically found symbols; lenient text rates are companion diagnostics. No tag precision/F1. | Saved attempts, current frozen source-derived keys and labelled-symbol projection. Exposed development evidence; offline adapter and saved-answer registration, not a new trial. | [Tag report](results/tag-reading-development.md), [JSON](results/tag-reading-development.json), [suite](tag-reading-development.json). No new model trials. |
+| `batch-totals`, `logged-cumulative-v1` | `scripts/batch_analysis.py` full-window feed integrals per supplied window (whole batch and each hour) against the change in a publisher-logged running cumulative, within 0.5 kg | Ten public industrial baker's-yeast batches (figshare 33201579): development B01-B05, then one sealed held-out run on B06-B10 (A418). Deterministic tool runs with four tool-run controls and four scorer controls (perfect, empty, shuffled, recipe constant). The key is the sum of the same logged feeds: integration semantics, not measurement accuracy. | [Case and failures](../examples/batch-analysis/industrial-yeast/README.md), [suite](industrial-yeast-development.json) |
 | The same tag task: `taglist` | Lenient substring recall over listed identifiers. This is upper-bound partial-list coverage, with no box/location assignment or precision/F1. | Saved attempts and current frozen partial lists. Separate mode/cohort from geometry; partial-list coverage does not establish correct item assignment. | [The same report](results/tag-reading-development.md#partial-list-identifier-rates), with a separate mode/cohort. No ranking across modes. |
 
 The third adapter, `source-support` / `claim-judgments-v1`, grades **fixed supplied claims** as supported,
@@ -73,7 +74,7 @@ provides separate structure/quotation/drawing checks; those are not substituted 
 | Historian analysis and impact estimates | Separate public-data matrix runs and calculation tests | Labelled detection conditions, false alarms, measurement uncertainty and calculation truth; distinguish deterministic methods from AI models |
 | MCP, maintenance and other integrations | Bounded protocol/feature tests and selected lab acceptance | Task-specific retrieval/coverage and compatibility tests; no performance claim about an untested company deployment |
 
-These rows identify work to add. Four task adapters are implemented. `tag-reading` is one adapter with
+These rows identify work to add. Five task adapters are implemented. `tag-reading` is one adapter with
 two modes; each keeps its own counts, rates and comparison cohorts. Not every feature has a generalization benchmark. New tasks require a tested evaluator
 contract and known-answer controls, rather than importing an arbitrary score column into a leaderboard. See the full
 [feature inventory](../docs/FEATURES.md) and [eight-workflow matrix](../docs/GENERALIZATION.md).
@@ -122,6 +123,11 @@ unknown. For a new method, retain the old answer artifacts and score both on the
 the corpus. This makes improvements inspectable and keeps failures useful to the next contributor.
 
 ## Report implementation revisions
+
+Registering the `batch-totals` adapter (2026-11-12, A418) changed `scripts/benchmark.py`, so the six earlier
+registered suites were re-scored offline into `*-batch-totals` report prefixes; every count, control, status and
+metric is unchanged apart from the code fingerprint and the cohort and group IDs derived from it. The earlier
+reports are kept.
 
 The registry selects current actual report pairs; earlier tag-adapter reports remain versioned snapshots.
 The opt-in artifact-value admission changes the shared benchmark implementation fingerprint, so all five prior

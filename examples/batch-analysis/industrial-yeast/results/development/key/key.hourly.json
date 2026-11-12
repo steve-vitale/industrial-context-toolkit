@@ -1,0 +1,599 @@
+{
+ "schema": "logged-cumulative-key-1",
+ "source": "figshare 10.6084/m9.figshare.33201579 fermentation_timeseries.csv total_fermentable_sugar_kg",
+ "split": "development",
+ "level": "hourly",
+ "signal": "sugar_feed_rate_kg_rs_h",
+ "unit": "kg",
+ "tolerance_kg": 0.5,
+ "items": [
+  {
+   "id": "B01-h01",
+   "batch_id": "B01",
+   "start_s": 0,
+   "end_s": 3600,
+   "logged_delta_kg": 389
+  },
+  {
+   "id": "B01-h02",
+   "batch_id": "B01",
+   "start_s": 3600,
+   "end_s": 7200,
+   "logged_delta_kg": 560
+  },
+  {
+   "id": "B01-h03",
+   "batch_id": "B01",
+   "start_s": 7200,
+   "end_s": 10800,
+   "logged_delta_kg": 717
+  },
+  {
+   "id": "B01-h04",
+   "batch_id": "B01",
+   "start_s": 10800,
+   "end_s": 14400,
+   "logged_delta_kg": 939
+  },
+  {
+   "id": "B01-h05",
+   "batch_id": "B01",
+   "start_s": 14400,
+   "end_s": 18000,
+   "logged_delta_kg": 1208
+  },
+  {
+   "id": "B01-h06",
+   "batch_id": "B01",
+   "start_s": 18000,
+   "end_s": 21600,
+   "logged_delta_kg": 1202
+  },
+  {
+   "id": "B01-h07",
+   "batch_id": "B01",
+   "start_s": 21600,
+   "end_s": 25200,
+   "logged_delta_kg": 1248
+  },
+  {
+   "id": "B01-h08",
+   "batch_id": "B01",
+   "start_s": 25200,
+   "end_s": 28800,
+   "logged_delta_kg": 1518
+  },
+  {
+   "id": "B01-h09",
+   "batch_id": "B01",
+   "start_s": 28800,
+   "end_s": 32400,
+   "logged_delta_kg": 1719
+  },
+  {
+   "id": "B01-h10",
+   "batch_id": "B01",
+   "start_s": 32400,
+   "end_s": 36000,
+   "logged_delta_kg": 1798
+  },
+  {
+   "id": "B01-h11",
+   "batch_id": "B01",
+   "start_s": 36000,
+   "end_s": 39600,
+   "logged_delta_kg": 1794
+  },
+  {
+   "id": "B01-h12",
+   "batch_id": "B01",
+   "start_s": 39600,
+   "end_s": 43200,
+   "logged_delta_kg": 1930
+  },
+  {
+   "id": "B01-h13",
+   "batch_id": "B01",
+   "start_s": 43200,
+   "end_s": 46800,
+   "logged_delta_kg": 1806
+  },
+  {
+   "id": "B01-h14",
+   "batch_id": "B01",
+   "start_s": 46800,
+   "end_s": 50400,
+   "logged_delta_kg": 1885
+  },
+  {
+   "id": "B01-h15",
+   "batch_id": "B01",
+   "start_s": 50400,
+   "end_s": 54000,
+   "logged_delta_kg": 1888
+  },
+  {
+   "id": "B01-h16",
+   "batch_id": "B01",
+   "start_s": 54000,
+   "end_s": 57600,
+   "logged_delta_kg": 1554
+  },
+  {
+   "id": "B01-h17",
+   "batch_id": "B01",
+   "start_s": 57600,
+   "end_s": 61200,
+   "logged_delta_kg": 545
+  },
+  {
+   "id": "B02-h01",
+   "batch_id": "B02",
+   "start_s": 0,
+   "end_s": 3600,
+   "logged_delta_kg": 528
+  },
+  {
+   "id": "B02-h02",
+   "batch_id": "B02",
+   "start_s": 3600,
+   "end_s": 7200,
+   "logged_delta_kg": 657
+  },
+  {
+   "id": "B02-h03",
+   "batch_id": "B02",
+   "start_s": 7200,
+   "end_s": 10800,
+   "logged_delta_kg": 767
+  },
+  {
+   "id": "B02-h04",
+   "batch_id": "B02",
+   "start_s": 10800,
+   "end_s": 14400,
+   "logged_delta_kg": 895
+  },
+  {
+   "id": "B02-h05",
+   "batch_id": "B02",
+   "start_s": 14400,
+   "end_s": 18000,
+   "logged_delta_kg": 1114
+  },
+  {
+   "id": "B02-h06",
+   "batch_id": "B02",
+   "start_s": 18000,
+   "end_s": 21600,
+   "logged_delta_kg": 1316
+  },
+  {
+   "id": "B02-h07",
+   "batch_id": "B02",
+   "start_s": 21600,
+   "end_s": 25200,
+   "logged_delta_kg": 1529
+  },
+  {
+   "id": "B02-h08",
+   "batch_id": "B02",
+   "start_s": 25200,
+   "end_s": 28800,
+   "logged_delta_kg": 1548
+  },
+  {
+   "id": "B02-h09",
+   "batch_id": "B02",
+   "start_s": 28800,
+   "end_s": 32400,
+   "logged_delta_kg": 1709
+  },
+  {
+   "id": "B02-h10",
+   "batch_id": "B02",
+   "start_s": 32400,
+   "end_s": 36000,
+   "logged_delta_kg": 1832
+  },
+  {
+   "id": "B02-h11",
+   "batch_id": "B02",
+   "start_s": 36000,
+   "end_s": 39600,
+   "logged_delta_kg": 1904
+  },
+  {
+   "id": "B02-h12",
+   "batch_id": "B02",
+   "start_s": 39600,
+   "end_s": 43200,
+   "logged_delta_kg": 2105
+  },
+  {
+   "id": "B02-h13",
+   "batch_id": "B02",
+   "start_s": 43200,
+   "end_s": 46800,
+   "logged_delta_kg": 1957
+  },
+  {
+   "id": "B02-h14",
+   "batch_id": "B02",
+   "start_s": 46800,
+   "end_s": 50400,
+   "logged_delta_kg": 1960
+  },
+  {
+   "id": "B02-h15",
+   "batch_id": "B02",
+   "start_s": 50400,
+   "end_s": 54000,
+   "logged_delta_kg": 2194
+  },
+  {
+   "id": "B02-h16",
+   "batch_id": "B02",
+   "start_s": 54000,
+   "end_s": 57600,
+   "logged_delta_kg": 685
+  },
+  {
+   "id": "B03-h01",
+   "batch_id": "B03",
+   "start_s": 0,
+   "end_s": 3600,
+   "logged_delta_kg": 527
+  },
+  {
+   "id": "B03-h02",
+   "batch_id": "B03",
+   "start_s": 3600,
+   "end_s": 7200,
+   "logged_delta_kg": 616
+  },
+  {
+   "id": "B03-h03",
+   "batch_id": "B03",
+   "start_s": 7200,
+   "end_s": 10800,
+   "logged_delta_kg": 682
+  },
+  {
+   "id": "B03-h04",
+   "batch_id": "B03",
+   "start_s": 10800,
+   "end_s": 14400,
+   "logged_delta_kg": 1022
+  },
+  {
+   "id": "B03-h05",
+   "batch_id": "B03",
+   "start_s": 14400,
+   "end_s": 18000,
+   "logged_delta_kg": 1063
+  },
+  {
+   "id": "B03-h06",
+   "batch_id": "B03",
+   "start_s": 18000,
+   "end_s": 21600,
+   "logged_delta_kg": 1229
+  },
+  {
+   "id": "B03-h07",
+   "batch_id": "B03",
+   "start_s": 21600,
+   "end_s": 25200,
+   "logged_delta_kg": 1404
+  },
+  {
+   "id": "B03-h08",
+   "batch_id": "B03",
+   "start_s": 25200,
+   "end_s": 28800,
+   "logged_delta_kg": 1607
+  },
+  {
+   "id": "B03-h09",
+   "batch_id": "B03",
+   "start_s": 28800,
+   "end_s": 32400,
+   "logged_delta_kg": 1591
+  },
+  {
+   "id": "B03-h10",
+   "batch_id": "B03",
+   "start_s": 32400,
+   "end_s": 36000,
+   "logged_delta_kg": 1792
+  },
+  {
+   "id": "B03-h11",
+   "batch_id": "B03",
+   "start_s": 36000,
+   "end_s": 39600,
+   "logged_delta_kg": 1967
+  },
+  {
+   "id": "B03-h12",
+   "batch_id": "B03",
+   "start_s": 39600,
+   "end_s": 43200,
+   "logged_delta_kg": 1801
+  },
+  {
+   "id": "B03-h13",
+   "batch_id": "B03",
+   "start_s": 43200,
+   "end_s": 46800,
+   "logged_delta_kg": 1933
+  },
+  {
+   "id": "B03-h14",
+   "batch_id": "B03",
+   "start_s": 46800,
+   "end_s": 50400,
+   "logged_delta_kg": 1712
+  },
+  {
+   "id": "B03-h15",
+   "batch_id": "B03",
+   "start_s": 50400,
+   "end_s": 54000,
+   "logged_delta_kg": 1769
+  },
+  {
+   "id": "B03-h16",
+   "batch_id": "B03",
+   "start_s": 54000,
+   "end_s": 57600,
+   "logged_delta_kg": 1452
+  },
+  {
+   "id": "B03-h17",
+   "batch_id": "B03",
+   "start_s": 57600,
+   "end_s": 61200,
+   "logged_delta_kg": 533
+  },
+  {
+   "id": "B04-h01",
+   "batch_id": "B04",
+   "start_s": 0,
+   "end_s": 3600,
+   "logged_delta_kg": 692
+  },
+  {
+   "id": "B04-h02",
+   "batch_id": "B04",
+   "start_s": 3600,
+   "end_s": 7200,
+   "logged_delta_kg": 669
+  },
+  {
+   "id": "B04-h03",
+   "batch_id": "B04",
+   "start_s": 7200,
+   "end_s": 10800,
+   "logged_delta_kg": 770
+  },
+  {
+   "id": "B04-h04",
+   "batch_id": "B04",
+   "start_s": 10800,
+   "end_s": 14400,
+   "logged_delta_kg": 1118
+  },
+  {
+   "id": "B04-h05",
+   "batch_id": "B04",
+   "start_s": 14400,
+   "end_s": 18000,
+   "logged_delta_kg": 1255
+  },
+  {
+   "id": "B04-h06",
+   "batch_id": "B04",
+   "start_s": 18000,
+   "end_s": 21600,
+   "logged_delta_kg": 1188
+  },
+  {
+   "id": "B04-h07",
+   "batch_id": "B04",
+   "start_s": 21600,
+   "end_s": 25200,
+   "logged_delta_kg": 1338
+  },
+  {
+   "id": "B04-h08",
+   "batch_id": "B04",
+   "start_s": 25200,
+   "end_s": 28800,
+   "logged_delta_kg": 1601
+  },
+  {
+   "id": "B04-h09",
+   "batch_id": "B04",
+   "start_s": 28800,
+   "end_s": 32400,
+   "logged_delta_kg": 1753
+  },
+  {
+   "id": "B04-h10",
+   "batch_id": "B04",
+   "start_s": 32400,
+   "end_s": 36000,
+   "logged_delta_kg": 1728
+  },
+  {
+   "id": "B04-h11",
+   "batch_id": "B04",
+   "start_s": 36000,
+   "end_s": 39600,
+   "logged_delta_kg": 1706
+  },
+  {
+   "id": "B04-h12",
+   "batch_id": "B04",
+   "start_s": 39600,
+   "end_s": 43200,
+   "logged_delta_kg": 1962
+  },
+  {
+   "id": "B04-h13",
+   "batch_id": "B04",
+   "start_s": 43200,
+   "end_s": 46800,
+   "logged_delta_kg": 1863
+  },
+  {
+   "id": "B04-h14",
+   "batch_id": "B04",
+   "start_s": 46800,
+   "end_s": 50400,
+   "logged_delta_kg": 1816
+  },
+  {
+   "id": "B04-h15",
+   "batch_id": "B04",
+   "start_s": 50400,
+   "end_s": 54000,
+   "logged_delta_kg": 2015
+  },
+  {
+   "id": "B04-h16",
+   "batch_id": "B04",
+   "start_s": 54000,
+   "end_s": 57600,
+   "logged_delta_kg": 999
+  },
+  {
+   "id": "B04-h17",
+   "batch_id": "B04",
+   "start_s": 57600,
+   "end_s": 61200,
+   "logged_delta_kg": 127
+  },
+  {
+   "id": "B05-h01",
+   "batch_id": "B05",
+   "start_s": 0,
+   "end_s": 3600,
+   "logged_delta_kg": 508
+  },
+  {
+   "id": "B05-h02",
+   "batch_id": "B05",
+   "start_s": 3600,
+   "end_s": 7200,
+   "logged_delta_kg": 606
+  },
+  {
+   "id": "B05-h03",
+   "batch_id": "B05",
+   "start_s": 7200,
+   "end_s": 10800,
+   "logged_delta_kg": 741
+  },
+  {
+   "id": "B05-h04",
+   "batch_id": "B05",
+   "start_s": 10800,
+   "end_s": 14400,
+   "logged_delta_kg": 819
+  },
+  {
+   "id": "B05-h05",
+   "batch_id": "B05",
+   "start_s": 14400,
+   "end_s": 18000,
+   "logged_delta_kg": 1079
+  },
+  {
+   "id": "B05-h06",
+   "batch_id": "B05",
+   "start_s": 18000,
+   "end_s": 21600,
+   "logged_delta_kg": 1400
+  },
+  {
+   "id": "B05-h07",
+   "batch_id": "B05",
+   "start_s": 21600,
+   "end_s": 25200,
+   "logged_delta_kg": 1425
+  },
+  {
+   "id": "B05-h08",
+   "batch_id": "B05",
+   "start_s": 25200,
+   "end_s": 28800,
+   "logged_delta_kg": 1780
+  },
+  {
+   "id": "B05-h09",
+   "batch_id": "B05",
+   "start_s": 28800,
+   "end_s": 32400,
+   "logged_delta_kg": 1643
+  },
+  {
+   "id": "B05-h10",
+   "batch_id": "B05",
+   "start_s": 32400,
+   "end_s": 36000,
+   "logged_delta_kg": 1884
+  },
+  {
+   "id": "B05-h11",
+   "batch_id": "B05",
+   "start_s": 36000,
+   "end_s": 39600,
+   "logged_delta_kg": 1819
+  },
+  {
+   "id": "B05-h12",
+   "batch_id": "B05",
+   "start_s": 39600,
+   "end_s": 43200,
+   "logged_delta_kg": 1900
+  },
+  {
+   "id": "B05-h13",
+   "batch_id": "B05",
+   "start_s": 43200,
+   "end_s": 46800,
+   "logged_delta_kg": 1976
+  },
+  {
+   "id": "B05-h14",
+   "batch_id": "B05",
+   "start_s": 46800,
+   "end_s": 50400,
+   "logged_delta_kg": 1922
+  },
+  {
+   "id": "B05-h15",
+   "batch_id": "B05",
+   "start_s": 50400,
+   "end_s": 54000,
+   "logged_delta_kg": 1810
+  },
+  {
+   "id": "B05-h16",
+   "batch_id": "B05",
+   "start_s": 54000,
+   "end_s": 57600,
+   "logged_delta_kg": 1215
+  },
+  {
+   "id": "B05-h17",
+   "batch_id": "B05",
+   "start_s": 57600,
+   "end_s": 61200,
+   "logged_delta_kg": 231
+  }
+ ]
+}

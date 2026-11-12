@@ -1,0 +1,54 @@
+{
+  "cases": [
+    {
+      "evidence": "Publisher-logged running cumulative (total_fermentable_sugar_kg), withheld from the tool; whole-batch windows; development batches B01-B05",
+      "family": "industrial-yeast",
+      "files": {
+        "input": {
+          "path": "examples/batch-analysis/industrial-yeast/results/development/plans/method.batch.plan.json",
+          "sha256": "b3ddec83362e3976a63fa96836603529bc4f2e825f8615187f73d087087ae29e"
+        },
+        "key": {
+          "path": "examples/batch-analysis/industrial-yeast/results/development/key/key.batch.json",
+          "sha256": "bd121cadf2bf77ceeed795affb5745f3a5021d1d80b4e4f8a7415b3fc896fbcd"
+        }
+      },
+      "id": "yeast-development-batch",
+      "key_author": "Publisher operators' logged cumulative, transcribed by the publisher; derived mechanically by scripts/industrial_yeast_case.py",
+      "license": "CC BY 4.0 (Zhao et al. 2026); derived plans, keys and tool reports only, originals fetch-by-hash",
+      "source_url": "https://doi.org/10.6084/m9.figshare.33201579",
+      "split": "development"
+    },
+    {
+      "evidence": "Publisher-logged running cumulative (total_fermentable_sugar_kg), withheld from the tool; hourly windows; development batches B01-B05",
+      "family": "industrial-yeast",
+      "files": {
+        "input": {
+          "path": "examples/batch-analysis/industrial-yeast/results/development/plans/method.hourly.plan.json",
+          "sha256": "ad09dcb67774b0d1973d484b57eddf06654587e7d13b8b926b32e7e42587e6b0"
+        },
+        "key": {
+          "path": "examples/batch-analysis/industrial-yeast/results/development/key/key.hourly.json",
+          "sha256": "233a583ff8a5a00671b1e50b8122f7f2c324a2b02f1002bc811f2d8948a0dd2f"
+        }
+      },
+      "id": "yeast-development-hourly",
+      "key_author": "Publisher operators' logged cumulative, transcribed by the publisher; derived mechanically by scripts/industrial_yeast_case.py",
+      "license": "CC BY 4.0 (Zhao et al. 2026); derived plans, keys and tool reports only, originals fetch-by-hash",
+      "source_url": "https://doi.org/10.6084/m9.figshare.33201579",
+      "split": "development"
+    }
+  ],
+  "id": "industrial-yeast-development",
+  "protocol": "scripts/batch_analysis.py full-window feed integrals (kg) per supplied window against the change in the publisher-logged running cumulative over the same window; match within 0.5 kg (scripts/score_batch_totals.py, rules frozen 2026-11-12).",
+  "registration": "Industrial-yeast depth task (docs/DEPTH_GOAL.md, attempt A418): development batches B01-B05; held-out batches not yet run. Deterministic tool runs; the key is the sum of the same logged feeds, so this checks integration semantics, units, coverage and windows, not measurement accuracy.",
+  "runs": [
+    "benchmarks/runs/yeast-development-method.json",
+    "benchmarks/runs/yeast-development-trapezoid.json",
+    "benchmarks/runs/yeast-development-trapezoid_zero_start.json",
+    "benchmarks/runs/yeast-development-previous_hold.json",
+    "benchmarks/runs/yeast-development-wrong_unit.json"
+  ],
+  "task": "batch-totals",
+  "version": "1"
+}

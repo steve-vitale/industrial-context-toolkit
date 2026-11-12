@@ -203,7 +203,7 @@ class BatchAnalysis(unittest.TestCase):
         variants = []
         for field in ("interpolation", "quality"):
             p = self.v2_plan(); del p["signals"]["F"][field]; variants.append(p)
-        for method in (None, True, "next", "auto", {}):
+        for method in (None, True, "Next", "nearest", "auto", {}):
             variants.append(self.v2_plan(method))
         for tokens in ([], ["GOOD", "GOOD"], [1], [True], [""], "GOOD", None):
             p = self.v2_plan(); p["signals"]["F"]["quality"]["good_values"] = tokens; variants.append(p)
@@ -214,6 +214,51 @@ class BatchAnalysis(unittest.TestCase):
                 tool.analyze(b"batch_id,time_s,F,Q\nA,0,2,GOOD\n", json.dumps(p).encode())
         with self.assertRaisesRegex(ValueError, "CSV header"):
             tool.analyze(b"batch_id,time_s,F\nA,0,2\n", json.dumps(self.v2_plan()).encode())
+
+    def test_next_is_an_interval_ending_hold_with_its_own_oracle(self):
+        # A log whose value at each time is the rate over the interval it closes (an hourly total): the closing
+        # sample's value times the interval. Same series, three distinct oracles.
+        raw = b"batch_id,time_s,F\nA,0,2\nA,1800,6\nA,3600,6\n"
+        r = tool.analyze(raw, json.dumps(self.v2_plan("next", quality=False)).encode())
+        result = r["windows"][0]["signals"]["F"]
+        self.assertEqual(result["full_window_integral"], 6)
+        self.assertEqual(result["time_weighted_mean_observed"], 6)
+        self.assertEqual(result["interpolation"], "next")
+        self.assertIn("interval-ending", r["method"]["assumption"])
+        self.assertIn("next", tool.markdown(r))
+        self.assertIn("closing sample", tool.markdown(r))
+
+    def test_next_uses_only_the_closing_value_so_a_blank_opening_value_does_not_refuse(self):
+        # Hour 0 of a fed-batch log is blank (feed not yet started); the first hour's feed is logged at its end.
+        r = tool.analyze(b"batch_id,time_s,F\nA,0,\nA,1800,2\nA,3600,4\n",
+                         json.dumps(self.v2_plan("next", quality=False)).encode())["windows"][0]["signals"]["F"]
+        self.assertEqual(r["coverage_status"], "complete")
+        self.assertEqual(r["full_window_integral"], 3)
+        self.assertEqual(r["bad_sample_lines"], [2])
+        self.assertEqual(r["excluded_samples"][0]["reasons"], ["non_numeric_value"])
+        for method in ("linear", "previous"):
+            other = tool.analyze(b"batch_id,time_s,F\nA,0,\nA,1800,2\nA,3600,4\n",
+                                 json.dumps(self.v2_plan(method, quality=False)).encode())["windows"][0]["signals"]["F"]
+            self.assertIsNone(other["full_window_integral"])
+
+    def test_next_refuses_a_bad_closing_value_and_keeps_the_gap_and_edge_rules(self):
+        r = self.quality_result("A,0,2,GOOD\nA,1800,99,FAULT\nA,3600,6,GOOD\n", self.v2_plan("next"))
+        self.assertEqual(r["covered_s"], 1800)
+        self.assertEqual(r["observed_integral"], 3)
+        self.assertIsNone(r["full_window_integral"])
+        r = self.quality_result("A,0,2,GOOD\nA,600,2,GOOD\nA,3600,6,GOOD\n", self.v2_plan("next"))
+        self.assertEqual(r["covered_s"], 600)
+        self.assertIsNone(r["full_window_integral"])
+        r = self.quality_result("A,600,2,GOOD\nA,3600,6,GOOD\n", self.v2_plan("next"))
+        self.assertEqual(r["coverage_status"], "incomplete")
+        self.assertIsNone(r["full_window_integral"])
+
+    def test_reports_without_next_keep_their_method_text(self):
+        for method in ("linear", "previous"):
+            r = tool.analyze(b"batch_id,time_s,F\nA,0,2\nA,1800,6\nA,3600,6\n",
+                             json.dumps(self.v2_plan(method, quality=False)).encode())
+            self.assertNotIn("interval-ending", r["method"]["assumption"])
+            self.assertNotIn("closing sample", tool.markdown(r))
 
     def test_previous_retains_conservative_edges_and_gap_policy(self):
         for rows in ("A,0,2,GOOD\nA,1800,6,FAULT\n", "A,0,2,GOOD\nA,3600,6,GOOD\n"):

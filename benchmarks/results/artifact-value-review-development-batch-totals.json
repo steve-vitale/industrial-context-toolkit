@@ -1,0 +1,3946 @@
+{
+  "case_total": 2,
+  "code_sha256": {
+    "artifact_value_review.py": "3c5db3e9cbdc9c709b1ea091636b4d392a7340cda072f327a1203bdd0c38e522",
+    "benchmark.py": "553f94cfbbb4d81475464131a069a318e24d5fb1e2ed18ffb753f59fa1b176fe",
+    "description_workflow.py": "10882088431bd8091a2a275e472bab580e256098addee7065d18e8e2f5452215",
+    "source_support.py": "56e3bead4f7dc374ba107c765b1f44cda8bb7c664f5619eb24a70b0d4f9c2a4a"
+  },
+  "controls": {
+    "artifact-false-shutdown": {
+      "all_contradicted": {
+        "contradicted": {
+          "predicted": 14,
+          "tp": 1,
+          "truth": 1
+        },
+        "insufficient-evidence": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 0
+        },
+        "judgments": {
+          "predicted": 14,
+          "tp": 1,
+          "truth": 14
+        },
+        "supported": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 13
+        }
+      },
+      "all_insufficient-evidence": {
+        "contradicted": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 1
+        },
+        "insufficient-evidence": {
+          "predicted": 14,
+          "tp": 0,
+          "truth": 0
+        },
+        "judgments": {
+          "predicted": 14,
+          "tp": 0,
+          "truth": 14
+        },
+        "supported": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 13
+        }
+      },
+      "all_supported": {
+        "contradicted": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 1
+        },
+        "insufficient-evidence": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 0
+        },
+        "judgments": {
+          "predicted": 14,
+          "tp": 13,
+          "truth": 14
+        },
+        "supported": {
+          "predicted": 14,
+          "tp": 13,
+          "truth": 13
+        }
+      },
+      "empty": {
+        "contradicted": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 1
+        },
+        "insufficient-evidence": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 0
+        },
+        "judgments": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 14
+        },
+        "supported": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 13
+        }
+      },
+      "reference": {
+        "contradicted": {
+          "predicted": 1,
+          "tp": 1,
+          "truth": 1
+        },
+        "insufficient-evidence": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 0
+        },
+        "judgments": {
+          "predicted": 14,
+          "tp": 14,
+          "truth": 14
+        },
+        "supported": {
+          "predicted": 13,
+          "tp": 13,
+          "truth": 13
+        }
+      }
+    },
+    "artifact-reference": {
+      "all_contradicted": {
+        "contradicted": {
+          "predicted": 14,
+          "tp": 0,
+          "truth": 0
+        },
+        "insufficient-evidence": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 0
+        },
+        "judgments": {
+          "predicted": 14,
+          "tp": 0,
+          "truth": 14
+        },
+        "supported": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 14
+        }
+      },
+      "all_insufficient-evidence": {
+        "contradicted": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 0
+        },
+        "insufficient-evidence": {
+          "predicted": 14,
+          "tp": 0,
+          "truth": 0
+        },
+        "judgments": {
+          "predicted": 14,
+          "tp": 0,
+          "truth": 14
+        },
+        "supported": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 14
+        }
+      },
+      "all_supported": {
+        "contradicted": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 0
+        },
+        "insufficient-evidence": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 0
+        },
+        "judgments": {
+          "predicted": 14,
+          "tp": 14,
+          "truth": 14
+        },
+        "supported": {
+          "predicted": 14,
+          "tp": 14,
+          "truth": 14
+        }
+      },
+      "empty": {
+        "contradicted": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 0
+        },
+        "insufficient-evidence": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 0
+        },
+        "judgments": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 14
+        },
+        "supported": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 14
+        }
+      },
+      "reference": {
+        "contradicted": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 0
+        },
+        "insufficient-evidence": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 0
+        },
+        "judgments": {
+          "predicted": 14,
+          "tp": 14,
+          "truth": 14
+        },
+        "supported": {
+          "predicted": 14,
+          "tp": 14,
+          "truth": 14
+        }
+      }
+    }
+  },
+  "hash_method": "SHA256; CRLF normalized to LF for declared text extensions, raw binary otherwise",
+  "limits": [
+    "Compare only the same cohort and scoring contract; model identity is contributor-declared, not provider-attested.",
+    "Each replicate pools counts over its cases; summary reports mean/range/stdev over replicates, not a significance test or winner.",
+    "Missing/failed attempted answers score empty; unattempted cases remain visible and create different comparison cohorts.",
+    "Public keys and retrospective registration do not establish blindness. Synthetic controls and corrected/development results are separate.",
+    "Source-support grades labels for fixed supplied claims against a supplied key. It does not judge free-form reasoning, source validity, question usefulness or plant truth; cited IDs are checked structurally."
+  ],
+  "registration": "Two existing exposed source-adapted artifacts,14 synthetic reviewer control manifests. No model/provider/human trial, automatic source truth, generic Native compatibility, description-generator accuracy or plant acceptance. Public path curation is a new transport/cohort; actual public-root scoring must precede result publication.",
+  "results": [
+    {
+      "case_count": 1,
+      "cohort": "eda532bec800d5d519fb04e8b7303b40598fe531eccc2697194f84267a376647",
+      "configuration": {
+        "authoring_date_not_inference_date": "2026-11-02",
+        "no_model_call": true,
+        "source_case": "reference",
+        "synthetic_control": true
+      },
+      "counts": {
+        "contradicted": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 0
+        },
+        "insufficient-evidence": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 0
+        },
+        "judgments": {
+          "predicted": 14,
+          "tp": 14,
+          "truth": 14
+        },
+        "supported": {
+          "predicted": 14,
+          "tp": 14,
+          "truth": 14
+        }
+      },
+      "evidence": "Exposed saved artifact and independently reviewed historical key; synthetic reviewer-label controls only, not model or human trials.",
+      "family": "csb-mgpi-artifact-review-development",
+      "interface": "deterministic authored saved JSON; no inference",
+      "method": "reference-keyed-review",
+      "metrics": {
+        "contradicted": {
+          "f1": null,
+          "precision": 0.0,
+          "recall": null
+        },
+        "insufficient-evidence": {
+          "f1": null,
+          "precision": 0.0,
+          "recall": null
+        },
+        "judgments": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "supported": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      },
+      "model": {
+        "id": "synthetic-review-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "not_attempted": [
+        "artifact-false-shutdown"
+      ],
+      "provenance": "Saved key-derived/empty/uniform/missing/invalid/rationale controls. Not a model attempt, independent source family, held-out evaluation, reviewer authentication or plant acceptance. Actual CLI date/status is retained separately.",
+      "ran_at": "2026-11-02",
+      "recipe": [
+        {
+          "path": "benchmarks/source-support/artifact-values/PROTOCOL.md",
+          "sha256": "d9ff0cba444743a9e86f12b21ce8802c18ff4022033ef1d5456da6618aac9532"
+        },
+        {
+          "path": "benchmarks/source-support/artifact-values/EXPOSURE.json",
+          "sha256": "e0e5c1d8ac930dbd87921ebcd2280c3be723716d299e641305e09b275117c087"
+        }
+      ],
+      "rows": [
+        {
+          "artifact_value_review": {
+            "captured_files": {
+              "benchmarks/source-support/artifact-values/cases/reference/input-artifact.json": {
+                "bytes": 1634,
+                "capture_reads": 1,
+                "sha256_raw": "305575cf09305ff88db2aa85b0e437a0d618463009ac3ea4e7e946e11ac82103"
+              },
+              "benchmarks/source-support/artifact-values/cases/reference/input-v1-projection.json": {
+                "bytes": 14035,
+                "capture_reads": 1,
+                "sha256_raw": "d2afab631939e3e780d25b3cec39fd6b85efa8374105efe8b031ea14688e123e"
+              },
+              "benchmarks/source-support/artifact-values/cases/reference/inventory.json": {
+                "bytes": 48560,
+                "capture_reads": 1,
+                "sha256_raw": "5b574292e4e8462f251558f5f76393a6195360f26007c8058dca0361bbc18c3b"
+              },
+              "benchmarks/source-support/artifact-values/cases/reference/model.json": {
+                "bytes": 4114,
+                "capture_reads": 1,
+                "sha256_raw": "317e65cc9aaa7324d8e64c6911ff87f03f9c4182e00fe22fc74b6525766c1277"
+              },
+              "benchmarks/source-support/artifact-values/cases/reference/provided-values.csv": {
+                "bytes": 15100,
+                "capture_reads": 1,
+                "sha256_raw": "b0715347e95ddd62e6d30247f9e7dbe97aa0999e3ba91249a117fec5414cb355"
+              },
+              "benchmarks/source-support/artifact-values/keys/reference.artifact-key.json": {
+                "bytes": 18311,
+                "capture_reads": 1,
+                "sha256_raw": "1e17acde5ce583aaddbfdf5bbd310c6685bdc564aafbb16939f8eca3655c2401"
+              },
+              "benchmarks/source-support/artifact-values/source.txt": {
+                "bytes": 1794,
+                "capture_reads": 1,
+                "sha256_raw": "551078e52d39c0f2dc587951b7534afaf8865c9e7c87e55e26ec27cbff4c74e8"
+              }
+            },
+            "coverage": {
+              "model_entries": 82,
+              "provided_values": 55,
+              "role_only_values": 48,
+              "semantic_component_values": 34,
+              "semantic_groups": 14
+            },
+            "keyed_artifact_contradictions": [],
+            "limits": "Exact declared frozen value/group coverage and fixed-key reviewer labels only. Role exclusions/source judgments need independent review. No automatic claim discovery, rationale-quality, source authority, generator correctness, current installation or plant acceptance.",
+            "protocol": "provided-model-values-v1",
+            "schema": "artifact-value-review-admission-1"
+          },
+          "case": "artifact-reference",
+          "counts": {
+            "contradicted": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 0
+            },
+            "insufficient-evidence": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 0
+            },
+            "judgments": {
+              "predicted": 14,
+              "tp": 14,
+              "truth": 14
+            },
+            "supported": {
+              "predicted": 14,
+              "tp": 14,
+              "truth": 14
+            }
+          },
+          "diagnostics": {
+            "correct_judgments": 14,
+            "exact_label_accuracy": 1.0,
+            "expected_judgments": 14,
+            "incorrect_judgments": [],
+            "missing_judgments": [],
+            "reason_quality_scored": false,
+            "scope": "Fixed supplied claim labels only; citation IDs checked structurally. No automatic prose, source-validity or plant-truth judgment."
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "benchmarks/source-support/artifact-values/predictions/reference-keyed-review.json",
+            "sha256": "da0afdbf798283977019a5d24b5379c7ba729890095b3042150fb50f6ac25b4c"
+          },
+          "recorded_run_at": null,
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": null,
+            "seconds": null
+          },
+          "status": "ok"
+        }
+      ],
+      "run": "artifact-control-reference-keyed-review",
+      "split": "synthetic-control"
+    },
+    {
+      "case_count": 1,
+      "cohort": "eda532bec800d5d519fb04e8b7303b40598fe531eccc2697194f84267a376647",
+      "configuration": {
+        "authoring_date_not_inference_date": "2026-11-02",
+        "no_model_call": true,
+        "source_case": "reference",
+        "synthetic_control": true
+      },
+      "counts": {
+        "contradicted": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 0
+        },
+        "insufficient-evidence": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 0
+        },
+        "judgments": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 14
+        },
+        "supported": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 14
+        }
+      },
+      "evidence": "Exposed saved artifact and independently reviewed historical key; synthetic reviewer-label controls only, not model or human trials.",
+      "family": "csb-mgpi-artifact-review-development",
+      "interface": "deterministic authored saved JSON; no inference",
+      "method": "reference-empty",
+      "metrics": {
+        "contradicted": {
+          "f1": null,
+          "precision": 0.0,
+          "recall": null
+        },
+        "insufficient-evidence": {
+          "f1": null,
+          "precision": 0.0,
+          "recall": null
+        },
+        "judgments": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        "supported": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        }
+      },
+      "model": {
+        "id": "synthetic-review-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "not_attempted": [
+        "artifact-false-shutdown"
+      ],
+      "provenance": "Saved key-derived/empty/uniform/missing/invalid/rationale controls. Not a model attempt, independent source family, held-out evaluation, reviewer authentication or plant acceptance. Actual CLI date/status is retained separately.",
+      "ran_at": "2026-11-02",
+      "recipe": [
+        {
+          "path": "benchmarks/source-support/artifact-values/PROTOCOL.md",
+          "sha256": "d9ff0cba444743a9e86f12b21ce8802c18ff4022033ef1d5456da6618aac9532"
+        },
+        {
+          "path": "benchmarks/source-support/artifact-values/EXPOSURE.json",
+          "sha256": "e0e5c1d8ac930dbd87921ebcd2280c3be723716d299e641305e09b275117c087"
+        }
+      ],
+      "rows": [
+        {
+          "artifact_value_review": {
+            "captured_files": {
+              "benchmarks/source-support/artifact-values/cases/reference/input-artifact.json": {
+                "bytes": 1634,
+                "capture_reads": 1,
+                "sha256_raw": "305575cf09305ff88db2aa85b0e437a0d618463009ac3ea4e7e946e11ac82103"
+              },
+              "benchmarks/source-support/artifact-values/cases/reference/input-v1-projection.json": {
+                "bytes": 14035,
+                "capture_reads": 1,
+                "sha256_raw": "d2afab631939e3e780d25b3cec39fd6b85efa8374105efe8b031ea14688e123e"
+              },
+              "benchmarks/source-support/artifact-values/cases/reference/inventory.json": {
+                "bytes": 48560,
+                "capture_reads": 1,
+                "sha256_raw": "5b574292e4e8462f251558f5f76393a6195360f26007c8058dca0361bbc18c3b"
+              },
+              "benchmarks/source-support/artifact-values/cases/reference/model.json": {
+                "bytes": 4114,
+                "capture_reads": 1,
+                "sha256_raw": "317e65cc9aaa7324d8e64c6911ff87f03f9c4182e00fe22fc74b6525766c1277"
+              },
+              "benchmarks/source-support/artifact-values/cases/reference/provided-values.csv": {
+                "bytes": 15100,
+                "capture_reads": 1,
+                "sha256_raw": "b0715347e95ddd62e6d30247f9e7dbe97aa0999e3ba91249a117fec5414cb355"
+              },
+              "benchmarks/source-support/artifact-values/keys/reference.artifact-key.json": {
+                "bytes": 18311,
+                "capture_reads": 1,
+                "sha256_raw": "1e17acde5ce583aaddbfdf5bbd310c6685bdc564aafbb16939f8eca3655c2401"
+              },
+              "benchmarks/source-support/artifact-values/source.txt": {
+                "bytes": 1794,
+                "capture_reads": 1,
+                "sha256_raw": "551078e52d39c0f2dc587951b7534afaf8865c9e7c87e55e26ec27cbff4c74e8"
+              }
+            },
+            "coverage": {
+              "model_entries": 82,
+              "provided_values": 55,
+              "role_only_values": 48,
+              "semantic_component_values": 34,
+              "semantic_groups": 14
+            },
+            "keyed_artifact_contradictions": [],
+            "limits": "Exact declared frozen value/group coverage and fixed-key reviewer labels only. Role exclusions/source judgments need independent review. No automatic claim discovery, rationale-quality, source authority, generator correctness, current installation or plant acceptance.",
+            "protocol": "provided-model-values-v1",
+            "schema": "artifact-value-review-admission-1"
+          },
+          "case": "artifact-reference",
+          "counts": {
+            "contradicted": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 0
+            },
+            "insufficient-evidence": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 0
+            },
+            "judgments": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 14
+            },
+            "supported": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 14
+            }
+          },
+          "diagnostics": {
+            "correct_judgments": 0,
+            "exact_label_accuracy": 0.0,
+            "expected_judgments": 14,
+            "incorrect_judgments": [],
+            "missing_judgments": [
+              "AV-G01",
+              "AV-G02",
+              "AV-G03",
+              "AV-G04",
+              "AV-G05",
+              "AV-G06",
+              "AV-G07",
+              "AV-G08",
+              "AV-G09",
+              "AV-G10",
+              "AV-G11",
+              "AV-G12",
+              "AV-G13",
+              "AV-G14"
+            ],
+            "reason_quality_scored": false,
+            "scope": "Fixed supplied claim labels only; citation IDs checked structurally. No automatic prose, source-validity or plant-truth judgment."
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "benchmarks/source-support/artifact-values/predictions/reference-empty.json",
+            "sha256": "e026601b5c4ad29501629669a4f49a214c2f7a65eee5de9dee6027f212d4e2a7"
+          },
+          "recorded_run_at": null,
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": null,
+            "seconds": null
+          },
+          "status": "ok"
+        }
+      ],
+      "run": "artifact-control-reference-empty",
+      "split": "synthetic-control"
+    },
+    {
+      "case_count": 1,
+      "cohort": "eda532bec800d5d519fb04e8b7303b40598fe531eccc2697194f84267a376647",
+      "configuration": {
+        "authoring_date_not_inference_date": "2026-11-02",
+        "no_model_call": true,
+        "source_case": "reference",
+        "synthetic_control": true
+      },
+      "counts": {
+        "contradicted": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 0
+        },
+        "insufficient-evidence": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 0
+        },
+        "judgments": {
+          "predicted": 14,
+          "tp": 14,
+          "truth": 14
+        },
+        "supported": {
+          "predicted": 14,
+          "tp": 14,
+          "truth": 14
+        }
+      },
+      "evidence": "Exposed saved artifact and independently reviewed historical key; synthetic reviewer-label controls only, not model or human trials.",
+      "family": "csb-mgpi-artifact-review-development",
+      "interface": "deterministic authored saved JSON; no inference",
+      "method": "reference-all-supported",
+      "metrics": {
+        "contradicted": {
+          "f1": null,
+          "precision": 0.0,
+          "recall": null
+        },
+        "insufficient-evidence": {
+          "f1": null,
+          "precision": 0.0,
+          "recall": null
+        },
+        "judgments": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "supported": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      },
+      "model": {
+        "id": "synthetic-review-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "not_attempted": [
+        "artifact-false-shutdown"
+      ],
+      "provenance": "Saved key-derived/empty/uniform/missing/invalid/rationale controls. Not a model attempt, independent source family, held-out evaluation, reviewer authentication or plant acceptance. Actual CLI date/status is retained separately.",
+      "ran_at": "2026-11-02",
+      "recipe": [
+        {
+          "path": "benchmarks/source-support/artifact-values/PROTOCOL.md",
+          "sha256": "d9ff0cba444743a9e86f12b21ce8802c18ff4022033ef1d5456da6618aac9532"
+        },
+        {
+          "path": "benchmarks/source-support/artifact-values/EXPOSURE.json",
+          "sha256": "e0e5c1d8ac930dbd87921ebcd2280c3be723716d299e641305e09b275117c087"
+        }
+      ],
+      "rows": [
+        {
+          "artifact_value_review": {
+            "captured_files": {
+              "benchmarks/source-support/artifact-values/cases/reference/input-artifact.json": {
+                "bytes": 1634,
+                "capture_reads": 1,
+                "sha256_raw": "305575cf09305ff88db2aa85b0e437a0d618463009ac3ea4e7e946e11ac82103"
+              },
+              "benchmarks/source-support/artifact-values/cases/reference/input-v1-projection.json": {
+                "bytes": 14035,
+                "capture_reads": 1,
+                "sha256_raw": "d2afab631939e3e780d25b3cec39fd6b85efa8374105efe8b031ea14688e123e"
+              },
+              "benchmarks/source-support/artifact-values/cases/reference/inventory.json": {
+                "bytes": 48560,
+                "capture_reads": 1,
+                "sha256_raw": "5b574292e4e8462f251558f5f76393a6195360f26007c8058dca0361bbc18c3b"
+              },
+              "benchmarks/source-support/artifact-values/cases/reference/model.json": {
+                "bytes": 4114,
+                "capture_reads": 1,
+                "sha256_raw": "317e65cc9aaa7324d8e64c6911ff87f03f9c4182e00fe22fc74b6525766c1277"
+              },
+              "benchmarks/source-support/artifact-values/cases/reference/provided-values.csv": {
+                "bytes": 15100,
+                "capture_reads": 1,
+                "sha256_raw": "b0715347e95ddd62e6d30247f9e7dbe97aa0999e3ba91249a117fec5414cb355"
+              },
+              "benchmarks/source-support/artifact-values/keys/reference.artifact-key.json": {
+                "bytes": 18311,
+                "capture_reads": 1,
+                "sha256_raw": "1e17acde5ce583aaddbfdf5bbd310c6685bdc564aafbb16939f8eca3655c2401"
+              },
+              "benchmarks/source-support/artifact-values/source.txt": {
+                "bytes": 1794,
+                "capture_reads": 1,
+                "sha256_raw": "551078e52d39c0f2dc587951b7534afaf8865c9e7c87e55e26ec27cbff4c74e8"
+              }
+            },
+            "coverage": {
+              "model_entries": 82,
+              "provided_values": 55,
+              "role_only_values": 48,
+              "semantic_component_values": 34,
+              "semantic_groups": 14
+            },
+            "keyed_artifact_contradictions": [],
+            "limits": "Exact declared frozen value/group coverage and fixed-key reviewer labels only. Role exclusions/source judgments need independent review. No automatic claim discovery, rationale-quality, source authority, generator correctness, current installation or plant acceptance.",
+            "protocol": "provided-model-values-v1",
+            "schema": "artifact-value-review-admission-1"
+          },
+          "case": "artifact-reference",
+          "counts": {
+            "contradicted": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 0
+            },
+            "insufficient-evidence": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 0
+            },
+            "judgments": {
+              "predicted": 14,
+              "tp": 14,
+              "truth": 14
+            },
+            "supported": {
+              "predicted": 14,
+              "tp": 14,
+              "truth": 14
+            }
+          },
+          "diagnostics": {
+            "correct_judgments": 14,
+            "exact_label_accuracy": 1.0,
+            "expected_judgments": 14,
+            "incorrect_judgments": [],
+            "missing_judgments": [],
+            "reason_quality_scored": false,
+            "scope": "Fixed supplied claim labels only; citation IDs checked structurally. No automatic prose, source-validity or plant-truth judgment."
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "benchmarks/source-support/artifact-values/predictions/reference-all-supported.json",
+            "sha256": "be6945480b5c90d65b74aa44df3a4f687cea2792b37d75903665cbdf14744ea2"
+          },
+          "recorded_run_at": null,
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": null,
+            "seconds": null
+          },
+          "status": "ok"
+        }
+      ],
+      "run": "artifact-control-reference-all-supported",
+      "split": "synthetic-control"
+    },
+    {
+      "case_count": 1,
+      "cohort": "eda532bec800d5d519fb04e8b7303b40598fe531eccc2697194f84267a376647",
+      "configuration": {
+        "authoring_date_not_inference_date": "2026-11-02",
+        "no_model_call": true,
+        "source_case": "reference",
+        "synthetic_control": true
+      },
+      "counts": {
+        "contradicted": {
+          "predicted": 14,
+          "tp": 0,
+          "truth": 0
+        },
+        "insufficient-evidence": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 0
+        },
+        "judgments": {
+          "predicted": 14,
+          "tp": 0,
+          "truth": 14
+        },
+        "supported": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 14
+        }
+      },
+      "evidence": "Exposed saved artifact and independently reviewed historical key; synthetic reviewer-label controls only, not model or human trials.",
+      "family": "csb-mgpi-artifact-review-development",
+      "interface": "deterministic authored saved JSON; no inference",
+      "method": "reference-all-contradicted",
+      "metrics": {
+        "contradicted": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": null
+        },
+        "insufficient-evidence": {
+          "f1": null,
+          "precision": 0.0,
+          "recall": null
+        },
+        "judgments": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        "supported": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        }
+      },
+      "model": {
+        "id": "synthetic-review-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "not_attempted": [
+        "artifact-false-shutdown"
+      ],
+      "provenance": "Saved key-derived/empty/uniform/missing/invalid/rationale controls. Not a model attempt, independent source family, held-out evaluation, reviewer authentication or plant acceptance. Actual CLI date/status is retained separately.",
+      "ran_at": "2026-11-02",
+      "recipe": [
+        {
+          "path": "benchmarks/source-support/artifact-values/PROTOCOL.md",
+          "sha256": "d9ff0cba444743a9e86f12b21ce8802c18ff4022033ef1d5456da6618aac9532"
+        },
+        {
+          "path": "benchmarks/source-support/artifact-values/EXPOSURE.json",
+          "sha256": "e0e5c1d8ac930dbd87921ebcd2280c3be723716d299e641305e09b275117c087"
+        }
+      ],
+      "rows": [
+        {
+          "artifact_value_review": {
+            "captured_files": {
+              "benchmarks/source-support/artifact-values/cases/reference/input-artifact.json": {
+                "bytes": 1634,
+                "capture_reads": 1,
+                "sha256_raw": "305575cf09305ff88db2aa85b0e437a0d618463009ac3ea4e7e946e11ac82103"
+              },
+              "benchmarks/source-support/artifact-values/cases/reference/input-v1-projection.json": {
+                "bytes": 14035,
+                "capture_reads": 1,
+                "sha256_raw": "d2afab631939e3e780d25b3cec39fd6b85efa8374105efe8b031ea14688e123e"
+              },
+              "benchmarks/source-support/artifact-values/cases/reference/inventory.json": {
+                "bytes": 48560,
+                "capture_reads": 1,
+                "sha256_raw": "5b574292e4e8462f251558f5f76393a6195360f26007c8058dca0361bbc18c3b"
+              },
+              "benchmarks/source-support/artifact-values/cases/reference/model.json": {
+                "bytes": 4114,
+                "capture_reads": 1,
+                "sha256_raw": "317e65cc9aaa7324d8e64c6911ff87f03f9c4182e00fe22fc74b6525766c1277"
+              },
+              "benchmarks/source-support/artifact-values/cases/reference/provided-values.csv": {
+                "bytes": 15100,
+                "capture_reads": 1,
+                "sha256_raw": "b0715347e95ddd62e6d30247f9e7dbe97aa0999e3ba91249a117fec5414cb355"
+              },
+              "benchmarks/source-support/artifact-values/keys/reference.artifact-key.json": {
+                "bytes": 18311,
+                "capture_reads": 1,
+                "sha256_raw": "1e17acde5ce583aaddbfdf5bbd310c6685bdc564aafbb16939f8eca3655c2401"
+              },
+              "benchmarks/source-support/artifact-values/source.txt": {
+                "bytes": 1794,
+                "capture_reads": 1,
+                "sha256_raw": "551078e52d39c0f2dc587951b7534afaf8865c9e7c87e55e26ec27cbff4c74e8"
+              }
+            },
+            "coverage": {
+              "model_entries": 82,
+              "provided_values": 55,
+              "role_only_values": 48,
+              "semantic_component_values": 34,
+              "semantic_groups": 14
+            },
+            "keyed_artifact_contradictions": [],
+            "limits": "Exact declared frozen value/group coverage and fixed-key reviewer labels only. Role exclusions/source judgments need independent review. No automatic claim discovery, rationale-quality, source authority, generator correctness, current installation or plant acceptance.",
+            "protocol": "provided-model-values-v1",
+            "schema": "artifact-value-review-admission-1"
+          },
+          "case": "artifact-reference",
+          "counts": {
+            "contradicted": {
+              "predicted": 14,
+              "tp": 0,
+              "truth": 0
+            },
+            "insufficient-evidence": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 0
+            },
+            "judgments": {
+              "predicted": 14,
+              "tp": 0,
+              "truth": 14
+            },
+            "supported": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 14
+            }
+          },
+          "diagnostics": {
+            "correct_judgments": 0,
+            "exact_label_accuracy": 0.0,
+            "expected_judgments": 14,
+            "incorrect_judgments": [
+              {
+                "expected": "supported",
+                "id": "AV-G01",
+                "predicted": "contradicted"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G02",
+                "predicted": "contradicted"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G03",
+                "predicted": "contradicted"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G04",
+                "predicted": "contradicted"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G05",
+                "predicted": "contradicted"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G06",
+                "predicted": "contradicted"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G07",
+                "predicted": "contradicted"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G08",
+                "predicted": "contradicted"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G09",
+                "predicted": "contradicted"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G10",
+                "predicted": "contradicted"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G11",
+                "predicted": "contradicted"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G12",
+                "predicted": "contradicted"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G13",
+                "predicted": "contradicted"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G14",
+                "predicted": "contradicted"
+              }
+            ],
+            "missing_judgments": [],
+            "reason_quality_scored": false,
+            "scope": "Fixed supplied claim labels only; citation IDs checked structurally. No automatic prose, source-validity or plant-truth judgment."
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "benchmarks/source-support/artifact-values/predictions/reference-all-contradicted.json",
+            "sha256": "001f70e9fbd38cbaf4990f8c8ee12dcc47e25fbba45c11de62a42ffaf0bd801a"
+          },
+          "recorded_run_at": null,
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": null,
+            "seconds": null
+          },
+          "status": "ok"
+        }
+      ],
+      "run": "artifact-control-reference-all-contradicted",
+      "split": "synthetic-control"
+    },
+    {
+      "case_count": 1,
+      "cohort": "eda532bec800d5d519fb04e8b7303b40598fe531eccc2697194f84267a376647",
+      "configuration": {
+        "authoring_date_not_inference_date": "2026-11-02",
+        "no_model_call": true,
+        "source_case": "reference",
+        "synthetic_control": true
+      },
+      "counts": {
+        "contradicted": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 0
+        },
+        "insufficient-evidence": {
+          "predicted": 14,
+          "tp": 0,
+          "truth": 0
+        },
+        "judgments": {
+          "predicted": 14,
+          "tp": 0,
+          "truth": 14
+        },
+        "supported": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 14
+        }
+      },
+      "evidence": "Exposed saved artifact and independently reviewed historical key; synthetic reviewer-label controls only, not model or human trials.",
+      "family": "csb-mgpi-artifact-review-development",
+      "interface": "deterministic authored saved JSON; no inference",
+      "method": "reference-all-insufficient-evidence",
+      "metrics": {
+        "contradicted": {
+          "f1": null,
+          "precision": 0.0,
+          "recall": null
+        },
+        "insufficient-evidence": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": null
+        },
+        "judgments": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        "supported": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        }
+      },
+      "model": {
+        "id": "synthetic-review-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "not_attempted": [
+        "artifact-false-shutdown"
+      ],
+      "provenance": "Saved key-derived/empty/uniform/missing/invalid/rationale controls. Not a model attempt, independent source family, held-out evaluation, reviewer authentication or plant acceptance. Actual CLI date/status is retained separately.",
+      "ran_at": "2026-11-02",
+      "recipe": [
+        {
+          "path": "benchmarks/source-support/artifact-values/PROTOCOL.md",
+          "sha256": "d9ff0cba444743a9e86f12b21ce8802c18ff4022033ef1d5456da6618aac9532"
+        },
+        {
+          "path": "benchmarks/source-support/artifact-values/EXPOSURE.json",
+          "sha256": "e0e5c1d8ac930dbd87921ebcd2280c3be723716d299e641305e09b275117c087"
+        }
+      ],
+      "rows": [
+        {
+          "artifact_value_review": {
+            "captured_files": {
+              "benchmarks/source-support/artifact-values/cases/reference/input-artifact.json": {
+                "bytes": 1634,
+                "capture_reads": 1,
+                "sha256_raw": "305575cf09305ff88db2aa85b0e437a0d618463009ac3ea4e7e946e11ac82103"
+              },
+              "benchmarks/source-support/artifact-values/cases/reference/input-v1-projection.json": {
+                "bytes": 14035,
+                "capture_reads": 1,
+                "sha256_raw": "d2afab631939e3e780d25b3cec39fd6b85efa8374105efe8b031ea14688e123e"
+              },
+              "benchmarks/source-support/artifact-values/cases/reference/inventory.json": {
+                "bytes": 48560,
+                "capture_reads": 1,
+                "sha256_raw": "5b574292e4e8462f251558f5f76393a6195360f26007c8058dca0361bbc18c3b"
+              },
+              "benchmarks/source-support/artifact-values/cases/reference/model.json": {
+                "bytes": 4114,
+                "capture_reads": 1,
+                "sha256_raw": "317e65cc9aaa7324d8e64c6911ff87f03f9c4182e00fe22fc74b6525766c1277"
+              },
+              "benchmarks/source-support/artifact-values/cases/reference/provided-values.csv": {
+                "bytes": 15100,
+                "capture_reads": 1,
+                "sha256_raw": "b0715347e95ddd62e6d30247f9e7dbe97aa0999e3ba91249a117fec5414cb355"
+              },
+              "benchmarks/source-support/artifact-values/keys/reference.artifact-key.json": {
+                "bytes": 18311,
+                "capture_reads": 1,
+                "sha256_raw": "1e17acde5ce583aaddbfdf5bbd310c6685bdc564aafbb16939f8eca3655c2401"
+              },
+              "benchmarks/source-support/artifact-values/source.txt": {
+                "bytes": 1794,
+                "capture_reads": 1,
+                "sha256_raw": "551078e52d39c0f2dc587951b7534afaf8865c9e7c87e55e26ec27cbff4c74e8"
+              }
+            },
+            "coverage": {
+              "model_entries": 82,
+              "provided_values": 55,
+              "role_only_values": 48,
+              "semantic_component_values": 34,
+              "semantic_groups": 14
+            },
+            "keyed_artifact_contradictions": [],
+            "limits": "Exact declared frozen value/group coverage and fixed-key reviewer labels only. Role exclusions/source judgments need independent review. No automatic claim discovery, rationale-quality, source authority, generator correctness, current installation or plant acceptance.",
+            "protocol": "provided-model-values-v1",
+            "schema": "artifact-value-review-admission-1"
+          },
+          "case": "artifact-reference",
+          "counts": {
+            "contradicted": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 0
+            },
+            "insufficient-evidence": {
+              "predicted": 14,
+              "tp": 0,
+              "truth": 0
+            },
+            "judgments": {
+              "predicted": 14,
+              "tp": 0,
+              "truth": 14
+            },
+            "supported": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 14
+            }
+          },
+          "diagnostics": {
+            "correct_judgments": 0,
+            "exact_label_accuracy": 0.0,
+            "expected_judgments": 14,
+            "incorrect_judgments": [
+              {
+                "expected": "supported",
+                "id": "AV-G01",
+                "predicted": "insufficient-evidence"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G02",
+                "predicted": "insufficient-evidence"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G03",
+                "predicted": "insufficient-evidence"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G04",
+                "predicted": "insufficient-evidence"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G05",
+                "predicted": "insufficient-evidence"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G06",
+                "predicted": "insufficient-evidence"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G07",
+                "predicted": "insufficient-evidence"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G08",
+                "predicted": "insufficient-evidence"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G09",
+                "predicted": "insufficient-evidence"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G10",
+                "predicted": "insufficient-evidence"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G11",
+                "predicted": "insufficient-evidence"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G12",
+                "predicted": "insufficient-evidence"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G13",
+                "predicted": "insufficient-evidence"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G14",
+                "predicted": "insufficient-evidence"
+              }
+            ],
+            "missing_judgments": [],
+            "reason_quality_scored": false,
+            "scope": "Fixed supplied claim labels only; citation IDs checked structurally. No automatic prose, source-validity or plant-truth judgment."
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "benchmarks/source-support/artifact-values/predictions/reference-all-insufficient-evidence.json",
+            "sha256": "15c95a4be24df9b0b70c92196bec01c62f6b3713fec5620be6d051c6cb7baf8c"
+          },
+          "recorded_run_at": null,
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": null,
+            "seconds": null
+          },
+          "status": "ok"
+        }
+      ],
+      "run": "artifact-control-reference-all-insufficient-evidence",
+      "split": "synthetic-control"
+    },
+    {
+      "case_count": 1,
+      "cohort": "eda532bec800d5d519fb04e8b7303b40598fe531eccc2697194f84267a376647",
+      "configuration": {
+        "authoring_date_not_inference_date": "2026-11-02",
+        "no_model_call": true,
+        "source_case": "reference",
+        "synthetic_control": true
+      },
+      "counts": {
+        "contradicted": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 0
+        },
+        "insufficient-evidence": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 0
+        },
+        "judgments": {
+          "predicted": 13,
+          "tp": 13,
+          "truth": 14
+        },
+        "supported": {
+          "predicted": 13,
+          "tp": 13,
+          "truth": 14
+        }
+      },
+      "evidence": "Exposed saved artifact and independently reviewed historical key; synthetic reviewer-label controls only, not model or human trials.",
+      "family": "csb-mgpi-artifact-review-development",
+      "interface": "deterministic authored saved JSON; no inference",
+      "method": "reference-missing-critical",
+      "metrics": {
+        "contradicted": {
+          "f1": null,
+          "precision": 0.0,
+          "recall": null
+        },
+        "insufficient-evidence": {
+          "f1": null,
+          "precision": 0.0,
+          "recall": null
+        },
+        "judgments": {
+          "f1": 0.9629629629629629,
+          "precision": 1.0,
+          "recall": 0.9285714285714286
+        },
+        "supported": {
+          "f1": 0.9629629629629629,
+          "precision": 1.0,
+          "recall": 0.9285714285714286
+        }
+      },
+      "model": {
+        "id": "synthetic-review-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "not_attempted": [
+        "artifact-false-shutdown"
+      ],
+      "provenance": "Saved key-derived/empty/uniform/missing/invalid/rationale controls. Not a model attempt, independent source family, held-out evaluation, reviewer authentication or plant acceptance. Actual CLI date/status is retained separately.",
+      "ran_at": "2026-11-02",
+      "recipe": [
+        {
+          "path": "benchmarks/source-support/artifact-values/PROTOCOL.md",
+          "sha256": "d9ff0cba444743a9e86f12b21ce8802c18ff4022033ef1d5456da6618aac9532"
+        },
+        {
+          "path": "benchmarks/source-support/artifact-values/EXPOSURE.json",
+          "sha256": "e0e5c1d8ac930dbd87921ebcd2280c3be723716d299e641305e09b275117c087"
+        }
+      ],
+      "rows": [
+        {
+          "artifact_value_review": {
+            "captured_files": {
+              "benchmarks/source-support/artifact-values/cases/reference/input-artifact.json": {
+                "bytes": 1634,
+                "capture_reads": 1,
+                "sha256_raw": "305575cf09305ff88db2aa85b0e437a0d618463009ac3ea4e7e946e11ac82103"
+              },
+              "benchmarks/source-support/artifact-values/cases/reference/input-v1-projection.json": {
+                "bytes": 14035,
+                "capture_reads": 1,
+                "sha256_raw": "d2afab631939e3e780d25b3cec39fd6b85efa8374105efe8b031ea14688e123e"
+              },
+              "benchmarks/source-support/artifact-values/cases/reference/inventory.json": {
+                "bytes": 48560,
+                "capture_reads": 1,
+                "sha256_raw": "5b574292e4e8462f251558f5f76393a6195360f26007c8058dca0361bbc18c3b"
+              },
+              "benchmarks/source-support/artifact-values/cases/reference/model.json": {
+                "bytes": 4114,
+                "capture_reads": 1,
+                "sha256_raw": "317e65cc9aaa7324d8e64c6911ff87f03f9c4182e00fe22fc74b6525766c1277"
+              },
+              "benchmarks/source-support/artifact-values/cases/reference/provided-values.csv": {
+                "bytes": 15100,
+                "capture_reads": 1,
+                "sha256_raw": "b0715347e95ddd62e6d30247f9e7dbe97aa0999e3ba91249a117fec5414cb355"
+              },
+              "benchmarks/source-support/artifact-values/keys/reference.artifact-key.json": {
+                "bytes": 18311,
+                "capture_reads": 1,
+                "sha256_raw": "1e17acde5ce583aaddbfdf5bbd310c6685bdc564aafbb16939f8eca3655c2401"
+              },
+              "benchmarks/source-support/artifact-values/source.txt": {
+                "bytes": 1794,
+                "capture_reads": 1,
+                "sha256_raw": "551078e52d39c0f2dc587951b7534afaf8865c9e7c87e55e26ec27cbff4c74e8"
+              }
+            },
+            "coverage": {
+              "model_entries": 82,
+              "provided_values": 55,
+              "role_only_values": 48,
+              "semantic_component_values": 34,
+              "semantic_groups": 14
+            },
+            "keyed_artifact_contradictions": [],
+            "limits": "Exact declared frozen value/group coverage and fixed-key reviewer labels only. Role exclusions/source judgments need independent review. No automatic claim discovery, rationale-quality, source authority, generator correctness, current installation or plant acceptance.",
+            "protocol": "provided-model-values-v1",
+            "schema": "artifact-value-review-admission-1"
+          },
+          "case": "artifact-reference",
+          "counts": {
+            "contradicted": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 0
+            },
+            "insufficient-evidence": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 0
+            },
+            "judgments": {
+              "predicted": 13,
+              "tp": 13,
+              "truth": 14
+            },
+            "supported": {
+              "predicted": 13,
+              "tp": 13,
+              "truth": 14
+            }
+          },
+          "diagnostics": {
+            "correct_judgments": 13,
+            "exact_label_accuracy": 0.9285714285714286,
+            "expected_judgments": 14,
+            "incorrect_judgments": [],
+            "missing_judgments": [
+              "AV-G12"
+            ],
+            "reason_quality_scored": false,
+            "scope": "Fixed supplied claim labels only; citation IDs checked structurally. No automatic prose, source-validity or plant-truth judgment."
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "benchmarks/source-support/artifact-values/predictions/reference-missing-critical.json",
+            "sha256": "8701e985adcf69c3f9a13ffdb3ab3dadcb392eea4d9d7a3069b43403cda66b2e"
+          },
+          "recorded_run_at": null,
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": null,
+            "seconds": null
+          },
+          "status": "ok"
+        }
+      ],
+      "run": "artifact-control-reference-missing-critical",
+      "split": "synthetic-control"
+    },
+    {
+      "case_count": 1,
+      "cohort": "929dffab4c97a26fb89ba78a843ae0566ad6d07d5b381c056e06b15e0f921774",
+      "configuration": {
+        "authoring_date_not_inference_date": "2026-11-02",
+        "no_model_call": true,
+        "source_case": "false-shutdown",
+        "synthetic_control": true
+      },
+      "counts": {
+        "contradicted": {
+          "predicted": 1,
+          "tp": 1,
+          "truth": 1
+        },
+        "insufficient-evidence": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 0
+        },
+        "judgments": {
+          "predicted": 14,
+          "tp": 14,
+          "truth": 14
+        },
+        "supported": {
+          "predicted": 13,
+          "tp": 13,
+          "truth": 13
+        }
+      },
+      "evidence": "Exposed saved artifact and independently reviewed historical key; synthetic reviewer-label controls only, not model or human trials.",
+      "family": "csb-mgpi-artifact-review-development",
+      "interface": "deterministic authored saved JSON; no inference",
+      "method": "false-shutdown-keyed-review",
+      "metrics": {
+        "contradicted": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "insufficient-evidence": {
+          "f1": null,
+          "precision": 0.0,
+          "recall": null
+        },
+        "judgments": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "supported": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      },
+      "model": {
+        "id": "synthetic-review-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "not_attempted": [
+        "artifact-reference"
+      ],
+      "provenance": "Saved key-derived/empty/uniform/missing/invalid/rationale controls. Not a model attempt, independent source family, held-out evaluation, reviewer authentication or plant acceptance. Actual CLI date/status is retained separately.",
+      "ran_at": "2026-11-02",
+      "recipe": [
+        {
+          "path": "benchmarks/source-support/artifact-values/PROTOCOL.md",
+          "sha256": "d9ff0cba444743a9e86f12b21ce8802c18ff4022033ef1d5456da6618aac9532"
+        },
+        {
+          "path": "benchmarks/source-support/artifact-values/EXPOSURE.json",
+          "sha256": "e0e5c1d8ac930dbd87921ebcd2280c3be723716d299e641305e09b275117c087"
+        }
+      ],
+      "rows": [
+        {
+          "artifact_value_review": {
+            "captured_files": {
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/input-artifact.json": {
+                "bytes": 1654,
+                "capture_reads": 1,
+                "sha256_raw": "3ca7766763adc57913df5c53b11285ed23cb18ccd7e3cdce3bbc0df6e6150534"
+              },
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/input-v1-projection.json": {
+                "bytes": 14022,
+                "capture_reads": 1,
+                "sha256_raw": "e374e29f48992828b02462f2787b553d512abd6d519b9634d1cdbc191b5089d5"
+              },
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/inventory.json": {
+                "bytes": 48694,
+                "capture_reads": 1,
+                "sha256_raw": "c3bdfae0f839954a0995b0c6c0c2b477798d9eb4fc5d6a23604563789469637e"
+              },
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/model.json": {
+                "bytes": 4101,
+                "capture_reads": 1,
+                "sha256_raw": "6ffa56e14e98a5400b0f572db379e284c953c5f764a386cd8593d623d60658e6"
+              },
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/provided-values.csv": {
+                "bytes": 15087,
+                "capture_reads": 1,
+                "sha256_raw": "7b4d8a610270f95368fb732d5a7b3953e9c7c7583e6a32c03b5c326c4247556b"
+              },
+              "benchmarks/source-support/artifact-values/keys/false-shutdown.artifact-key.json": {
+                "bytes": 18408,
+                "capture_reads": 1,
+                "sha256_raw": "b700f1db0036a3593eec5ada28a4ef8099ae49b5b4ea44c338930280efcb1364"
+              },
+              "benchmarks/source-support/artifact-values/source.txt": {
+                "bytes": 1794,
+                "capture_reads": 1,
+                "sha256_raw": "551078e52d39c0f2dc587951b7534afaf8865c9e7c87e55e26ec27cbff4c74e8"
+              }
+            },
+            "coverage": {
+              "model_entries": 82,
+              "provided_values": 55,
+              "role_only_values": 48,
+              "semantic_component_values": 34,
+              "semantic_groups": 14
+            },
+            "keyed_artifact_contradictions": [
+              {
+                "id": "AV-G12",
+                "pointers": [
+                  "/instruments/0/alarm_action_basis"
+                ],
+                "values": {
+                  "/instruments/0/alarm_action_basis": "High level automatically shuts down unloading."
+                }
+              }
+            ],
+            "limits": "Exact declared frozen value/group coverage and fixed-key reviewer labels only. Role exclusions/source judgments need independent review. No automatic claim discovery, rationale-quality, source authority, generator correctness, current installation or plant acceptance.",
+            "protocol": "provided-model-values-v1",
+            "schema": "artifact-value-review-admission-1"
+          },
+          "case": "artifact-false-shutdown",
+          "counts": {
+            "contradicted": {
+              "predicted": 1,
+              "tp": 1,
+              "truth": 1
+            },
+            "insufficient-evidence": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 0
+            },
+            "judgments": {
+              "predicted": 14,
+              "tp": 14,
+              "truth": 14
+            },
+            "supported": {
+              "predicted": 13,
+              "tp": 13,
+              "truth": 13
+            }
+          },
+          "diagnostics": {
+            "correct_judgments": 14,
+            "exact_label_accuracy": 1.0,
+            "expected_judgments": 14,
+            "incorrect_judgments": [],
+            "missing_judgments": [],
+            "reason_quality_scored": false,
+            "scope": "Fixed supplied claim labels only; citation IDs checked structurally. No automatic prose, source-validity or plant-truth judgment."
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "benchmarks/source-support/artifact-values/predictions/false-shutdown-keyed-review.json",
+            "sha256": "44046a15899c09d8d7a682bd83fcab7d5e8e713b435b31104a3ececdc51824c9"
+          },
+          "recorded_run_at": null,
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": null,
+            "seconds": null
+          },
+          "status": "ok"
+        }
+      ],
+      "run": "artifact-control-false-shutdown-keyed-review",
+      "split": "synthetic-control"
+    },
+    {
+      "case_count": 1,
+      "cohort": "929dffab4c97a26fb89ba78a843ae0566ad6d07d5b381c056e06b15e0f921774",
+      "configuration": {
+        "authoring_date_not_inference_date": "2026-11-02",
+        "no_model_call": true,
+        "source_case": "false-shutdown",
+        "synthetic_control": true
+      },
+      "counts": {
+        "contradicted": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 1
+        },
+        "insufficient-evidence": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 0
+        },
+        "judgments": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 14
+        },
+        "supported": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 13
+        }
+      },
+      "evidence": "Exposed saved artifact and independently reviewed historical key; synthetic reviewer-label controls only, not model or human trials.",
+      "family": "csb-mgpi-artifact-review-development",
+      "interface": "deterministic authored saved JSON; no inference",
+      "method": "false-shutdown-empty",
+      "metrics": {
+        "contradicted": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        "insufficient-evidence": {
+          "f1": null,
+          "precision": 0.0,
+          "recall": null
+        },
+        "judgments": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        "supported": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        }
+      },
+      "model": {
+        "id": "synthetic-review-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "not_attempted": [
+        "artifact-reference"
+      ],
+      "provenance": "Saved key-derived/empty/uniform/missing/invalid/rationale controls. Not a model attempt, independent source family, held-out evaluation, reviewer authentication or plant acceptance. Actual CLI date/status is retained separately.",
+      "ran_at": "2026-11-02",
+      "recipe": [
+        {
+          "path": "benchmarks/source-support/artifact-values/PROTOCOL.md",
+          "sha256": "d9ff0cba444743a9e86f12b21ce8802c18ff4022033ef1d5456da6618aac9532"
+        },
+        {
+          "path": "benchmarks/source-support/artifact-values/EXPOSURE.json",
+          "sha256": "e0e5c1d8ac930dbd87921ebcd2280c3be723716d299e641305e09b275117c087"
+        }
+      ],
+      "rows": [
+        {
+          "artifact_value_review": {
+            "captured_files": {
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/input-artifact.json": {
+                "bytes": 1654,
+                "capture_reads": 1,
+                "sha256_raw": "3ca7766763adc57913df5c53b11285ed23cb18ccd7e3cdce3bbc0df6e6150534"
+              },
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/input-v1-projection.json": {
+                "bytes": 14022,
+                "capture_reads": 1,
+                "sha256_raw": "e374e29f48992828b02462f2787b553d512abd6d519b9634d1cdbc191b5089d5"
+              },
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/inventory.json": {
+                "bytes": 48694,
+                "capture_reads": 1,
+                "sha256_raw": "c3bdfae0f839954a0995b0c6c0c2b477798d9eb4fc5d6a23604563789469637e"
+              },
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/model.json": {
+                "bytes": 4101,
+                "capture_reads": 1,
+                "sha256_raw": "6ffa56e14e98a5400b0f572db379e284c953c5f764a386cd8593d623d60658e6"
+              },
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/provided-values.csv": {
+                "bytes": 15087,
+                "capture_reads": 1,
+                "sha256_raw": "7b4d8a610270f95368fb732d5a7b3953e9c7c7583e6a32c03b5c326c4247556b"
+              },
+              "benchmarks/source-support/artifact-values/keys/false-shutdown.artifact-key.json": {
+                "bytes": 18408,
+                "capture_reads": 1,
+                "sha256_raw": "b700f1db0036a3593eec5ada28a4ef8099ae49b5b4ea44c338930280efcb1364"
+              },
+              "benchmarks/source-support/artifact-values/source.txt": {
+                "bytes": 1794,
+                "capture_reads": 1,
+                "sha256_raw": "551078e52d39c0f2dc587951b7534afaf8865c9e7c87e55e26ec27cbff4c74e8"
+              }
+            },
+            "coverage": {
+              "model_entries": 82,
+              "provided_values": 55,
+              "role_only_values": 48,
+              "semantic_component_values": 34,
+              "semantic_groups": 14
+            },
+            "keyed_artifact_contradictions": [
+              {
+                "id": "AV-G12",
+                "pointers": [
+                  "/instruments/0/alarm_action_basis"
+                ],
+                "values": {
+                  "/instruments/0/alarm_action_basis": "High level automatically shuts down unloading."
+                }
+              }
+            ],
+            "limits": "Exact declared frozen value/group coverage and fixed-key reviewer labels only. Role exclusions/source judgments need independent review. No automatic claim discovery, rationale-quality, source authority, generator correctness, current installation or plant acceptance.",
+            "protocol": "provided-model-values-v1",
+            "schema": "artifact-value-review-admission-1"
+          },
+          "case": "artifact-false-shutdown",
+          "counts": {
+            "contradicted": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 1
+            },
+            "insufficient-evidence": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 0
+            },
+            "judgments": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 14
+            },
+            "supported": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 13
+            }
+          },
+          "diagnostics": {
+            "correct_judgments": 0,
+            "exact_label_accuracy": 0.0,
+            "expected_judgments": 14,
+            "incorrect_judgments": [],
+            "missing_judgments": [
+              "AV-G01",
+              "AV-G02",
+              "AV-G03",
+              "AV-G04",
+              "AV-G05",
+              "AV-G06",
+              "AV-G07",
+              "AV-G08",
+              "AV-G09",
+              "AV-G10",
+              "AV-G11",
+              "AV-G12",
+              "AV-G13",
+              "AV-G14"
+            ],
+            "reason_quality_scored": false,
+            "scope": "Fixed supplied claim labels only; citation IDs checked structurally. No automatic prose, source-validity or plant-truth judgment."
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "benchmarks/source-support/artifact-values/predictions/false-shutdown-empty.json",
+            "sha256": "e026601b5c4ad29501629669a4f49a214c2f7a65eee5de9dee6027f212d4e2a7"
+          },
+          "recorded_run_at": null,
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": null,
+            "seconds": null
+          },
+          "status": "ok"
+        }
+      ],
+      "run": "artifact-control-false-shutdown-empty",
+      "split": "synthetic-control"
+    },
+    {
+      "case_count": 1,
+      "cohort": "929dffab4c97a26fb89ba78a843ae0566ad6d07d5b381c056e06b15e0f921774",
+      "configuration": {
+        "authoring_date_not_inference_date": "2026-11-02",
+        "no_model_call": true,
+        "source_case": "false-shutdown",
+        "synthetic_control": true
+      },
+      "counts": {
+        "contradicted": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 1
+        },
+        "insufficient-evidence": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 0
+        },
+        "judgments": {
+          "predicted": 14,
+          "tp": 13,
+          "truth": 14
+        },
+        "supported": {
+          "predicted": 14,
+          "tp": 13,
+          "truth": 13
+        }
+      },
+      "evidence": "Exposed saved artifact and independently reviewed historical key; synthetic reviewer-label controls only, not model or human trials.",
+      "family": "csb-mgpi-artifact-review-development",
+      "interface": "deterministic authored saved JSON; no inference",
+      "method": "false-shutdown-all-supported",
+      "metrics": {
+        "contradicted": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        "insufficient-evidence": {
+          "f1": null,
+          "precision": 0.0,
+          "recall": null
+        },
+        "judgments": {
+          "f1": 0.9285714285714286,
+          "precision": 0.9285714285714286,
+          "recall": 0.9285714285714286
+        },
+        "supported": {
+          "f1": 0.9629629629629629,
+          "precision": 0.9285714285714286,
+          "recall": 1.0
+        }
+      },
+      "model": {
+        "id": "synthetic-review-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "not_attempted": [
+        "artifact-reference"
+      ],
+      "provenance": "Saved key-derived/empty/uniform/missing/invalid/rationale controls. Not a model attempt, independent source family, held-out evaluation, reviewer authentication or plant acceptance. Actual CLI date/status is retained separately.",
+      "ran_at": "2026-11-02",
+      "recipe": [
+        {
+          "path": "benchmarks/source-support/artifact-values/PROTOCOL.md",
+          "sha256": "d9ff0cba444743a9e86f12b21ce8802c18ff4022033ef1d5456da6618aac9532"
+        },
+        {
+          "path": "benchmarks/source-support/artifact-values/EXPOSURE.json",
+          "sha256": "e0e5c1d8ac930dbd87921ebcd2280c3be723716d299e641305e09b275117c087"
+        }
+      ],
+      "rows": [
+        {
+          "artifact_value_review": {
+            "captured_files": {
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/input-artifact.json": {
+                "bytes": 1654,
+                "capture_reads": 1,
+                "sha256_raw": "3ca7766763adc57913df5c53b11285ed23cb18ccd7e3cdce3bbc0df6e6150534"
+              },
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/input-v1-projection.json": {
+                "bytes": 14022,
+                "capture_reads": 1,
+                "sha256_raw": "e374e29f48992828b02462f2787b553d512abd6d519b9634d1cdbc191b5089d5"
+              },
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/inventory.json": {
+                "bytes": 48694,
+                "capture_reads": 1,
+                "sha256_raw": "c3bdfae0f839954a0995b0c6c0c2b477798d9eb4fc5d6a23604563789469637e"
+              },
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/model.json": {
+                "bytes": 4101,
+                "capture_reads": 1,
+                "sha256_raw": "6ffa56e14e98a5400b0f572db379e284c953c5f764a386cd8593d623d60658e6"
+              },
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/provided-values.csv": {
+                "bytes": 15087,
+                "capture_reads": 1,
+                "sha256_raw": "7b4d8a610270f95368fb732d5a7b3953e9c7c7583e6a32c03b5c326c4247556b"
+              },
+              "benchmarks/source-support/artifact-values/keys/false-shutdown.artifact-key.json": {
+                "bytes": 18408,
+                "capture_reads": 1,
+                "sha256_raw": "b700f1db0036a3593eec5ada28a4ef8099ae49b5b4ea44c338930280efcb1364"
+              },
+              "benchmarks/source-support/artifact-values/source.txt": {
+                "bytes": 1794,
+                "capture_reads": 1,
+                "sha256_raw": "551078e52d39c0f2dc587951b7534afaf8865c9e7c87e55e26ec27cbff4c74e8"
+              }
+            },
+            "coverage": {
+              "model_entries": 82,
+              "provided_values": 55,
+              "role_only_values": 48,
+              "semantic_component_values": 34,
+              "semantic_groups": 14
+            },
+            "keyed_artifact_contradictions": [
+              {
+                "id": "AV-G12",
+                "pointers": [
+                  "/instruments/0/alarm_action_basis"
+                ],
+                "values": {
+                  "/instruments/0/alarm_action_basis": "High level automatically shuts down unloading."
+                }
+              }
+            ],
+            "limits": "Exact declared frozen value/group coverage and fixed-key reviewer labels only. Role exclusions/source judgments need independent review. No automatic claim discovery, rationale-quality, source authority, generator correctness, current installation or plant acceptance.",
+            "protocol": "provided-model-values-v1",
+            "schema": "artifact-value-review-admission-1"
+          },
+          "case": "artifact-false-shutdown",
+          "counts": {
+            "contradicted": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 1
+            },
+            "insufficient-evidence": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 0
+            },
+            "judgments": {
+              "predicted": 14,
+              "tp": 13,
+              "truth": 14
+            },
+            "supported": {
+              "predicted": 14,
+              "tp": 13,
+              "truth": 13
+            }
+          },
+          "diagnostics": {
+            "correct_judgments": 13,
+            "exact_label_accuracy": 0.9285714285714286,
+            "expected_judgments": 14,
+            "incorrect_judgments": [
+              {
+                "expected": "contradicted",
+                "id": "AV-G12",
+                "predicted": "supported"
+              }
+            ],
+            "missing_judgments": [],
+            "reason_quality_scored": false,
+            "scope": "Fixed supplied claim labels only; citation IDs checked structurally. No automatic prose, source-validity or plant-truth judgment."
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "benchmarks/source-support/artifact-values/predictions/false-shutdown-all-supported.json",
+            "sha256": "be6945480b5c90d65b74aa44df3a4f687cea2792b37d75903665cbdf14744ea2"
+          },
+          "recorded_run_at": null,
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": null,
+            "seconds": null
+          },
+          "status": "ok"
+        }
+      ],
+      "run": "artifact-control-false-shutdown-all-supported",
+      "split": "synthetic-control"
+    },
+    {
+      "case_count": 1,
+      "cohort": "929dffab4c97a26fb89ba78a843ae0566ad6d07d5b381c056e06b15e0f921774",
+      "configuration": {
+        "authoring_date_not_inference_date": "2026-11-02",
+        "no_model_call": true,
+        "source_case": "false-shutdown",
+        "synthetic_control": true
+      },
+      "counts": {
+        "contradicted": {
+          "predicted": 14,
+          "tp": 1,
+          "truth": 1
+        },
+        "insufficient-evidence": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 0
+        },
+        "judgments": {
+          "predicted": 14,
+          "tp": 1,
+          "truth": 14
+        },
+        "supported": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 13
+        }
+      },
+      "evidence": "Exposed saved artifact and independently reviewed historical key; synthetic reviewer-label controls only, not model or human trials.",
+      "family": "csb-mgpi-artifact-review-development",
+      "interface": "deterministic authored saved JSON; no inference",
+      "method": "false-shutdown-all-contradicted",
+      "metrics": {
+        "contradicted": {
+          "f1": 0.13333333333333333,
+          "precision": 0.07142857142857142,
+          "recall": 1.0
+        },
+        "insufficient-evidence": {
+          "f1": null,
+          "precision": 0.0,
+          "recall": null
+        },
+        "judgments": {
+          "f1": 0.07142857142857142,
+          "precision": 0.07142857142857142,
+          "recall": 0.07142857142857142
+        },
+        "supported": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        }
+      },
+      "model": {
+        "id": "synthetic-review-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "not_attempted": [
+        "artifact-reference"
+      ],
+      "provenance": "Saved key-derived/empty/uniform/missing/invalid/rationale controls. Not a model attempt, independent source family, held-out evaluation, reviewer authentication or plant acceptance. Actual CLI date/status is retained separately.",
+      "ran_at": "2026-11-02",
+      "recipe": [
+        {
+          "path": "benchmarks/source-support/artifact-values/PROTOCOL.md",
+          "sha256": "d9ff0cba444743a9e86f12b21ce8802c18ff4022033ef1d5456da6618aac9532"
+        },
+        {
+          "path": "benchmarks/source-support/artifact-values/EXPOSURE.json",
+          "sha256": "e0e5c1d8ac930dbd87921ebcd2280c3be723716d299e641305e09b275117c087"
+        }
+      ],
+      "rows": [
+        {
+          "artifact_value_review": {
+            "captured_files": {
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/input-artifact.json": {
+                "bytes": 1654,
+                "capture_reads": 1,
+                "sha256_raw": "3ca7766763adc57913df5c53b11285ed23cb18ccd7e3cdce3bbc0df6e6150534"
+              },
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/input-v1-projection.json": {
+                "bytes": 14022,
+                "capture_reads": 1,
+                "sha256_raw": "e374e29f48992828b02462f2787b553d512abd6d519b9634d1cdbc191b5089d5"
+              },
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/inventory.json": {
+                "bytes": 48694,
+                "capture_reads": 1,
+                "sha256_raw": "c3bdfae0f839954a0995b0c6c0c2b477798d9eb4fc5d6a23604563789469637e"
+              },
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/model.json": {
+                "bytes": 4101,
+                "capture_reads": 1,
+                "sha256_raw": "6ffa56e14e98a5400b0f572db379e284c953c5f764a386cd8593d623d60658e6"
+              },
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/provided-values.csv": {
+                "bytes": 15087,
+                "capture_reads": 1,
+                "sha256_raw": "7b4d8a610270f95368fb732d5a7b3953e9c7c7583e6a32c03b5c326c4247556b"
+              },
+              "benchmarks/source-support/artifact-values/keys/false-shutdown.artifact-key.json": {
+                "bytes": 18408,
+                "capture_reads": 1,
+                "sha256_raw": "b700f1db0036a3593eec5ada28a4ef8099ae49b5b4ea44c338930280efcb1364"
+              },
+              "benchmarks/source-support/artifact-values/source.txt": {
+                "bytes": 1794,
+                "capture_reads": 1,
+                "sha256_raw": "551078e52d39c0f2dc587951b7534afaf8865c9e7c87e55e26ec27cbff4c74e8"
+              }
+            },
+            "coverage": {
+              "model_entries": 82,
+              "provided_values": 55,
+              "role_only_values": 48,
+              "semantic_component_values": 34,
+              "semantic_groups": 14
+            },
+            "keyed_artifact_contradictions": [
+              {
+                "id": "AV-G12",
+                "pointers": [
+                  "/instruments/0/alarm_action_basis"
+                ],
+                "values": {
+                  "/instruments/0/alarm_action_basis": "High level automatically shuts down unloading."
+                }
+              }
+            ],
+            "limits": "Exact declared frozen value/group coverage and fixed-key reviewer labels only. Role exclusions/source judgments need independent review. No automatic claim discovery, rationale-quality, source authority, generator correctness, current installation or plant acceptance.",
+            "protocol": "provided-model-values-v1",
+            "schema": "artifact-value-review-admission-1"
+          },
+          "case": "artifact-false-shutdown",
+          "counts": {
+            "contradicted": {
+              "predicted": 14,
+              "tp": 1,
+              "truth": 1
+            },
+            "insufficient-evidence": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 0
+            },
+            "judgments": {
+              "predicted": 14,
+              "tp": 1,
+              "truth": 14
+            },
+            "supported": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 13
+            }
+          },
+          "diagnostics": {
+            "correct_judgments": 1,
+            "exact_label_accuracy": 0.07142857142857142,
+            "expected_judgments": 14,
+            "incorrect_judgments": [
+              {
+                "expected": "supported",
+                "id": "AV-G01",
+                "predicted": "contradicted"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G02",
+                "predicted": "contradicted"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G03",
+                "predicted": "contradicted"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G04",
+                "predicted": "contradicted"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G05",
+                "predicted": "contradicted"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G06",
+                "predicted": "contradicted"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G07",
+                "predicted": "contradicted"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G08",
+                "predicted": "contradicted"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G09",
+                "predicted": "contradicted"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G10",
+                "predicted": "contradicted"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G11",
+                "predicted": "contradicted"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G13",
+                "predicted": "contradicted"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G14",
+                "predicted": "contradicted"
+              }
+            ],
+            "missing_judgments": [],
+            "reason_quality_scored": false,
+            "scope": "Fixed supplied claim labels only; citation IDs checked structurally. No automatic prose, source-validity or plant-truth judgment."
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "benchmarks/source-support/artifact-values/predictions/false-shutdown-all-contradicted.json",
+            "sha256": "001f70e9fbd38cbaf4990f8c8ee12dcc47e25fbba45c11de62a42ffaf0bd801a"
+          },
+          "recorded_run_at": null,
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": null,
+            "seconds": null
+          },
+          "status": "ok"
+        }
+      ],
+      "run": "artifact-control-false-shutdown-all-contradicted",
+      "split": "synthetic-control"
+    },
+    {
+      "case_count": 1,
+      "cohort": "929dffab4c97a26fb89ba78a843ae0566ad6d07d5b381c056e06b15e0f921774",
+      "configuration": {
+        "authoring_date_not_inference_date": "2026-11-02",
+        "no_model_call": true,
+        "source_case": "false-shutdown",
+        "synthetic_control": true
+      },
+      "counts": {
+        "contradicted": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 1
+        },
+        "insufficient-evidence": {
+          "predicted": 14,
+          "tp": 0,
+          "truth": 0
+        },
+        "judgments": {
+          "predicted": 14,
+          "tp": 0,
+          "truth": 14
+        },
+        "supported": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 13
+        }
+      },
+      "evidence": "Exposed saved artifact and independently reviewed historical key; synthetic reviewer-label controls only, not model or human trials.",
+      "family": "csb-mgpi-artifact-review-development",
+      "interface": "deterministic authored saved JSON; no inference",
+      "method": "false-shutdown-all-insufficient-evidence",
+      "metrics": {
+        "contradicted": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        "insufficient-evidence": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": null
+        },
+        "judgments": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        "supported": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        }
+      },
+      "model": {
+        "id": "synthetic-review-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "not_attempted": [
+        "artifact-reference"
+      ],
+      "provenance": "Saved key-derived/empty/uniform/missing/invalid/rationale controls. Not a model attempt, independent source family, held-out evaluation, reviewer authentication or plant acceptance. Actual CLI date/status is retained separately.",
+      "ran_at": "2026-11-02",
+      "recipe": [
+        {
+          "path": "benchmarks/source-support/artifact-values/PROTOCOL.md",
+          "sha256": "d9ff0cba444743a9e86f12b21ce8802c18ff4022033ef1d5456da6618aac9532"
+        },
+        {
+          "path": "benchmarks/source-support/artifact-values/EXPOSURE.json",
+          "sha256": "e0e5c1d8ac930dbd87921ebcd2280c3be723716d299e641305e09b275117c087"
+        }
+      ],
+      "rows": [
+        {
+          "artifact_value_review": {
+            "captured_files": {
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/input-artifact.json": {
+                "bytes": 1654,
+                "capture_reads": 1,
+                "sha256_raw": "3ca7766763adc57913df5c53b11285ed23cb18ccd7e3cdce3bbc0df6e6150534"
+              },
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/input-v1-projection.json": {
+                "bytes": 14022,
+                "capture_reads": 1,
+                "sha256_raw": "e374e29f48992828b02462f2787b553d512abd6d519b9634d1cdbc191b5089d5"
+              },
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/inventory.json": {
+                "bytes": 48694,
+                "capture_reads": 1,
+                "sha256_raw": "c3bdfae0f839954a0995b0c6c0c2b477798d9eb4fc5d6a23604563789469637e"
+              },
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/model.json": {
+                "bytes": 4101,
+                "capture_reads": 1,
+                "sha256_raw": "6ffa56e14e98a5400b0f572db379e284c953c5f764a386cd8593d623d60658e6"
+              },
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/provided-values.csv": {
+                "bytes": 15087,
+                "capture_reads": 1,
+                "sha256_raw": "7b4d8a610270f95368fb732d5a7b3953e9c7c7583e6a32c03b5c326c4247556b"
+              },
+              "benchmarks/source-support/artifact-values/keys/false-shutdown.artifact-key.json": {
+                "bytes": 18408,
+                "capture_reads": 1,
+                "sha256_raw": "b700f1db0036a3593eec5ada28a4ef8099ae49b5b4ea44c338930280efcb1364"
+              },
+              "benchmarks/source-support/artifact-values/source.txt": {
+                "bytes": 1794,
+                "capture_reads": 1,
+                "sha256_raw": "551078e52d39c0f2dc587951b7534afaf8865c9e7c87e55e26ec27cbff4c74e8"
+              }
+            },
+            "coverage": {
+              "model_entries": 82,
+              "provided_values": 55,
+              "role_only_values": 48,
+              "semantic_component_values": 34,
+              "semantic_groups": 14
+            },
+            "keyed_artifact_contradictions": [
+              {
+                "id": "AV-G12",
+                "pointers": [
+                  "/instruments/0/alarm_action_basis"
+                ],
+                "values": {
+                  "/instruments/0/alarm_action_basis": "High level automatically shuts down unloading."
+                }
+              }
+            ],
+            "limits": "Exact declared frozen value/group coverage and fixed-key reviewer labels only. Role exclusions/source judgments need independent review. No automatic claim discovery, rationale-quality, source authority, generator correctness, current installation or plant acceptance.",
+            "protocol": "provided-model-values-v1",
+            "schema": "artifact-value-review-admission-1"
+          },
+          "case": "artifact-false-shutdown",
+          "counts": {
+            "contradicted": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 1
+            },
+            "insufficient-evidence": {
+              "predicted": 14,
+              "tp": 0,
+              "truth": 0
+            },
+            "judgments": {
+              "predicted": 14,
+              "tp": 0,
+              "truth": 14
+            },
+            "supported": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 13
+            }
+          },
+          "diagnostics": {
+            "correct_judgments": 0,
+            "exact_label_accuracy": 0.0,
+            "expected_judgments": 14,
+            "incorrect_judgments": [
+              {
+                "expected": "supported",
+                "id": "AV-G01",
+                "predicted": "insufficient-evidence"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G02",
+                "predicted": "insufficient-evidence"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G03",
+                "predicted": "insufficient-evidence"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G04",
+                "predicted": "insufficient-evidence"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G05",
+                "predicted": "insufficient-evidence"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G06",
+                "predicted": "insufficient-evidence"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G07",
+                "predicted": "insufficient-evidence"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G08",
+                "predicted": "insufficient-evidence"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G09",
+                "predicted": "insufficient-evidence"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G10",
+                "predicted": "insufficient-evidence"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G11",
+                "predicted": "insufficient-evidence"
+              },
+              {
+                "expected": "contradicted",
+                "id": "AV-G12",
+                "predicted": "insufficient-evidence"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G13",
+                "predicted": "insufficient-evidence"
+              },
+              {
+                "expected": "supported",
+                "id": "AV-G14",
+                "predicted": "insufficient-evidence"
+              }
+            ],
+            "missing_judgments": [],
+            "reason_quality_scored": false,
+            "scope": "Fixed supplied claim labels only; citation IDs checked structurally. No automatic prose, source-validity or plant-truth judgment."
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "benchmarks/source-support/artifact-values/predictions/false-shutdown-all-insufficient-evidence.json",
+            "sha256": "15c95a4be24df9b0b70c92196bec01c62f6b3713fec5620be6d051c6cb7baf8c"
+          },
+          "recorded_run_at": null,
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": null,
+            "seconds": null
+          },
+          "status": "ok"
+        }
+      ],
+      "run": "artifact-control-false-shutdown-all-insufficient-evidence",
+      "split": "synthetic-control"
+    },
+    {
+      "case_count": 1,
+      "cohort": "929dffab4c97a26fb89ba78a843ae0566ad6d07d5b381c056e06b15e0f921774",
+      "configuration": {
+        "authoring_date_not_inference_date": "2026-11-02",
+        "no_model_call": true,
+        "source_case": "false-shutdown",
+        "synthetic_control": true
+      },
+      "counts": {
+        "contradicted": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 1
+        },
+        "insufficient-evidence": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 0
+        },
+        "judgments": {
+          "predicted": 13,
+          "tp": 13,
+          "truth": 14
+        },
+        "supported": {
+          "predicted": 13,
+          "tp": 13,
+          "truth": 13
+        }
+      },
+      "evidence": "Exposed saved artifact and independently reviewed historical key; synthetic reviewer-label controls only, not model or human trials.",
+      "family": "csb-mgpi-artifact-review-development",
+      "interface": "deterministic authored saved JSON; no inference",
+      "method": "false-shutdown-missing-critical",
+      "metrics": {
+        "contradicted": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        "insufficient-evidence": {
+          "f1": null,
+          "precision": 0.0,
+          "recall": null
+        },
+        "judgments": {
+          "f1": 0.9629629629629629,
+          "precision": 1.0,
+          "recall": 0.9285714285714286
+        },
+        "supported": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      },
+      "model": {
+        "id": "synthetic-review-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "not_attempted": [
+        "artifact-reference"
+      ],
+      "provenance": "Saved key-derived/empty/uniform/missing/invalid/rationale controls. Not a model attempt, independent source family, held-out evaluation, reviewer authentication or plant acceptance. Actual CLI date/status is retained separately.",
+      "ran_at": "2026-11-02",
+      "recipe": [
+        {
+          "path": "benchmarks/source-support/artifact-values/PROTOCOL.md",
+          "sha256": "d9ff0cba444743a9e86f12b21ce8802c18ff4022033ef1d5456da6618aac9532"
+        },
+        {
+          "path": "benchmarks/source-support/artifact-values/EXPOSURE.json",
+          "sha256": "e0e5c1d8ac930dbd87921ebcd2280c3be723716d299e641305e09b275117c087"
+        }
+      ],
+      "rows": [
+        {
+          "artifact_value_review": {
+            "captured_files": {
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/input-artifact.json": {
+                "bytes": 1654,
+                "capture_reads": 1,
+                "sha256_raw": "3ca7766763adc57913df5c53b11285ed23cb18ccd7e3cdce3bbc0df6e6150534"
+              },
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/input-v1-projection.json": {
+                "bytes": 14022,
+                "capture_reads": 1,
+                "sha256_raw": "e374e29f48992828b02462f2787b553d512abd6d519b9634d1cdbc191b5089d5"
+              },
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/inventory.json": {
+                "bytes": 48694,
+                "capture_reads": 1,
+                "sha256_raw": "c3bdfae0f839954a0995b0c6c0c2b477798d9eb4fc5d6a23604563789469637e"
+              },
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/model.json": {
+                "bytes": 4101,
+                "capture_reads": 1,
+                "sha256_raw": "6ffa56e14e98a5400b0f572db379e284c953c5f764a386cd8593d623d60658e6"
+              },
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/provided-values.csv": {
+                "bytes": 15087,
+                "capture_reads": 1,
+                "sha256_raw": "7b4d8a610270f95368fb732d5a7b3953e9c7c7583e6a32c03b5c326c4247556b"
+              },
+              "benchmarks/source-support/artifact-values/keys/false-shutdown.artifact-key.json": {
+                "bytes": 18408,
+                "capture_reads": 1,
+                "sha256_raw": "b700f1db0036a3593eec5ada28a4ef8099ae49b5b4ea44c338930280efcb1364"
+              },
+              "benchmarks/source-support/artifact-values/source.txt": {
+                "bytes": 1794,
+                "capture_reads": 1,
+                "sha256_raw": "551078e52d39c0f2dc587951b7534afaf8865c9e7c87e55e26ec27cbff4c74e8"
+              }
+            },
+            "coverage": {
+              "model_entries": 82,
+              "provided_values": 55,
+              "role_only_values": 48,
+              "semantic_component_values": 34,
+              "semantic_groups": 14
+            },
+            "keyed_artifact_contradictions": [
+              {
+                "id": "AV-G12",
+                "pointers": [
+                  "/instruments/0/alarm_action_basis"
+                ],
+                "values": {
+                  "/instruments/0/alarm_action_basis": "High level automatically shuts down unloading."
+                }
+              }
+            ],
+            "limits": "Exact declared frozen value/group coverage and fixed-key reviewer labels only. Role exclusions/source judgments need independent review. No automatic claim discovery, rationale-quality, source authority, generator correctness, current installation or plant acceptance.",
+            "protocol": "provided-model-values-v1",
+            "schema": "artifact-value-review-admission-1"
+          },
+          "case": "artifact-false-shutdown",
+          "counts": {
+            "contradicted": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 1
+            },
+            "insufficient-evidence": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 0
+            },
+            "judgments": {
+              "predicted": 13,
+              "tp": 13,
+              "truth": 14
+            },
+            "supported": {
+              "predicted": 13,
+              "tp": 13,
+              "truth": 13
+            }
+          },
+          "diagnostics": {
+            "correct_judgments": 13,
+            "exact_label_accuracy": 0.9285714285714286,
+            "expected_judgments": 14,
+            "incorrect_judgments": [],
+            "missing_judgments": [
+              "AV-G12"
+            ],
+            "reason_quality_scored": false,
+            "scope": "Fixed supplied claim labels only; citation IDs checked structurally. No automatic prose, source-validity or plant-truth judgment."
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "benchmarks/source-support/artifact-values/predictions/false-shutdown-missing-critical.json",
+            "sha256": "8701e985adcf69c3f9a13ffdb3ab3dadcb392eea4d9d7a3069b43403cda66b2e"
+          },
+          "recorded_run_at": null,
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": null,
+            "seconds": null
+          },
+          "status": "ok"
+        }
+      ],
+      "run": "artifact-control-false-shutdown-missing-critical",
+      "split": "synthetic-control"
+    },
+    {
+      "case_count": 1,
+      "cohort": "929dffab4c97a26fb89ba78a843ae0566ad6d07d5b381c056e06b15e0f921774",
+      "configuration": {
+        "authoring_date_not_inference_date": "2026-11-02",
+        "no_model_call": true,
+        "source_case": "false-shutdown",
+        "synthetic_control": true
+      },
+      "counts": {
+        "contradicted": {
+          "predicted": 1,
+          "tp": 1,
+          "truth": 1
+        },
+        "insufficient-evidence": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 0
+        },
+        "judgments": {
+          "predicted": 14,
+          "tp": 14,
+          "truth": 14
+        },
+        "supported": {
+          "predicted": 13,
+          "tp": 13,
+          "truth": 13
+        }
+      },
+      "evidence": "Exposed saved artifact and independently reviewed historical key; synthetic reviewer-label controls only, not model or human trials.",
+      "family": "csb-mgpi-artifact-review-development",
+      "interface": "deterministic authored saved JSON; no inference",
+      "method": "false-correct-label-poor-reason",
+      "metrics": {
+        "contradicted": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "insufficient-evidence": {
+          "f1": null,
+          "precision": 0.0,
+          "recall": null
+        },
+        "judgments": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "supported": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      },
+      "model": {
+        "id": "synthetic-review-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "not_attempted": [
+        "artifact-reference"
+      ],
+      "provenance": "Saved key-derived/empty/uniform/missing/invalid/rationale controls. Not a model attempt, independent source family, held-out evaluation, reviewer authentication or plant acceptance. Actual CLI date/status is retained separately.",
+      "ran_at": "2026-11-02",
+      "recipe": [
+        {
+          "path": "benchmarks/source-support/artifact-values/PROTOCOL.md",
+          "sha256": "d9ff0cba444743a9e86f12b21ce8802c18ff4022033ef1d5456da6618aac9532"
+        },
+        {
+          "path": "benchmarks/source-support/artifact-values/EXPOSURE.json",
+          "sha256": "e0e5c1d8ac930dbd87921ebcd2280c3be723716d299e641305e09b275117c087"
+        }
+      ],
+      "rows": [
+        {
+          "artifact_value_review": {
+            "captured_files": {
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/input-artifact.json": {
+                "bytes": 1654,
+                "capture_reads": 1,
+                "sha256_raw": "3ca7766763adc57913df5c53b11285ed23cb18ccd7e3cdce3bbc0df6e6150534"
+              },
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/input-v1-projection.json": {
+                "bytes": 14022,
+                "capture_reads": 1,
+                "sha256_raw": "e374e29f48992828b02462f2787b553d512abd6d519b9634d1cdbc191b5089d5"
+              },
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/inventory.json": {
+                "bytes": 48694,
+                "capture_reads": 1,
+                "sha256_raw": "c3bdfae0f839954a0995b0c6c0c2b477798d9eb4fc5d6a23604563789469637e"
+              },
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/model.json": {
+                "bytes": 4101,
+                "capture_reads": 1,
+                "sha256_raw": "6ffa56e14e98a5400b0f572db379e284c953c5f764a386cd8593d623d60658e6"
+              },
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/provided-values.csv": {
+                "bytes": 15087,
+                "capture_reads": 1,
+                "sha256_raw": "7b4d8a610270f95368fb732d5a7b3953e9c7c7583e6a32c03b5c326c4247556b"
+              },
+              "benchmarks/source-support/artifact-values/keys/false-shutdown.artifact-key.json": {
+                "bytes": 18408,
+                "capture_reads": 1,
+                "sha256_raw": "b700f1db0036a3593eec5ada28a4ef8099ae49b5b4ea44c338930280efcb1364"
+              },
+              "benchmarks/source-support/artifact-values/source.txt": {
+                "bytes": 1794,
+                "capture_reads": 1,
+                "sha256_raw": "551078e52d39c0f2dc587951b7534afaf8865c9e7c87e55e26ec27cbff4c74e8"
+              }
+            },
+            "coverage": {
+              "model_entries": 82,
+              "provided_values": 55,
+              "role_only_values": 48,
+              "semantic_component_values": 34,
+              "semantic_groups": 14
+            },
+            "keyed_artifact_contradictions": [
+              {
+                "id": "AV-G12",
+                "pointers": [
+                  "/instruments/0/alarm_action_basis"
+                ],
+                "values": {
+                  "/instruments/0/alarm_action_basis": "High level automatically shuts down unloading."
+                }
+              }
+            ],
+            "limits": "Exact declared frozen value/group coverage and fixed-key reviewer labels only. Role exclusions/source judgments need independent review. No automatic claim discovery, rationale-quality, source authority, generator correctness, current installation or plant acceptance.",
+            "protocol": "provided-model-values-v1",
+            "schema": "artifact-value-review-admission-1"
+          },
+          "case": "artifact-false-shutdown",
+          "counts": {
+            "contradicted": {
+              "predicted": 1,
+              "tp": 1,
+              "truth": 1
+            },
+            "insufficient-evidence": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 0
+            },
+            "judgments": {
+              "predicted": 14,
+              "tp": 14,
+              "truth": 14
+            },
+            "supported": {
+              "predicted": 13,
+              "tp": 13,
+              "truth": 13
+            }
+          },
+          "diagnostics": {
+            "correct_judgments": 14,
+            "exact_label_accuracy": 1.0,
+            "expected_judgments": 14,
+            "incorrect_judgments": [],
+            "missing_judgments": [],
+            "reason_quality_scored": false,
+            "scope": "Fixed supplied claim labels only; citation IDs checked structurally. No automatic prose, source-validity or plant-truth judgment."
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "benchmarks/source-support/artifact-values/predictions/false-shutdown-correct-label-poor-reason.json",
+            "sha256": "15b6c5385c818e7f42bf200d92501833089f060c4ff73873f9a46d5f52c17ce1"
+          },
+          "recorded_run_at": null,
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": null,
+            "seconds": null
+          },
+          "status": "ok"
+        }
+      ],
+      "run": "artifact-control-false-correct-label-poor-reason",
+      "split": "synthetic-control"
+    },
+    {
+      "case_count": 1,
+      "cohort": "929dffab4c97a26fb89ba78a843ae0566ad6d07d5b381c056e06b15e0f921774",
+      "configuration": {
+        "authoring_date_not_inference_date": "2026-11-02",
+        "no_model_call": true,
+        "source_case": "false-shutdown",
+        "synthetic_control": true
+      },
+      "counts": {
+        "contradicted": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 1
+        },
+        "insufficient-evidence": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 0
+        },
+        "judgments": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 14
+        },
+        "supported": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 13
+        }
+      },
+      "evidence": "Exposed saved artifact and independently reviewed historical key; synthetic reviewer-label controls only, not model or human trials.",
+      "family": "csb-mgpi-artifact-review-development",
+      "interface": "deterministic authored saved JSON; no inference",
+      "method": "false-literal-unreviewed",
+      "metrics": {
+        "contradicted": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        "insufficient-evidence": {
+          "f1": null,
+          "precision": 0.0,
+          "recall": null
+        },
+        "judgments": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        },
+        "supported": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        }
+      },
+      "model": {
+        "id": "synthetic-review-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "not_attempted": [
+        "artifact-reference"
+      ],
+      "provenance": "Saved key-derived/empty/uniform/missing/invalid/rationale controls. Not a model attempt, independent source family, held-out evaluation, reviewer authentication or plant acceptance. Actual CLI date/status is retained separately.",
+      "ran_at": "2026-11-02",
+      "recipe": [
+        {
+          "path": "benchmarks/source-support/artifact-values/PROTOCOL.md",
+          "sha256": "d9ff0cba444743a9e86f12b21ce8802c18ff4022033ef1d5456da6618aac9532"
+        },
+        {
+          "path": "benchmarks/source-support/artifact-values/EXPOSURE.json",
+          "sha256": "e0e5c1d8ac930dbd87921ebcd2280c3be723716d299e641305e09b275117c087"
+        }
+      ],
+      "rows": [
+        {
+          "artifact_value_review": {
+            "captured_files": {
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/input-artifact.json": {
+                "bytes": 1654,
+                "capture_reads": 1,
+                "sha256_raw": "3ca7766763adc57913df5c53b11285ed23cb18ccd7e3cdce3bbc0df6e6150534"
+              },
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/input-v1-projection.json": {
+                "bytes": 14022,
+                "capture_reads": 1,
+                "sha256_raw": "e374e29f48992828b02462f2787b553d512abd6d519b9634d1cdbc191b5089d5"
+              },
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/inventory.json": {
+                "bytes": 48694,
+                "capture_reads": 1,
+                "sha256_raw": "c3bdfae0f839954a0995b0c6c0c2b477798d9eb4fc5d6a23604563789469637e"
+              },
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/model.json": {
+                "bytes": 4101,
+                "capture_reads": 1,
+                "sha256_raw": "6ffa56e14e98a5400b0f572db379e284c953c5f764a386cd8593d623d60658e6"
+              },
+              "benchmarks/source-support/artifact-values/cases/false-shutdown/provided-values.csv": {
+                "bytes": 15087,
+                "capture_reads": 1,
+                "sha256_raw": "7b4d8a610270f95368fb732d5a7b3953e9c7c7583e6a32c03b5c326c4247556b"
+              },
+              "benchmarks/source-support/artifact-values/keys/false-shutdown.artifact-key.json": {
+                "bytes": 18408,
+                "capture_reads": 1,
+                "sha256_raw": "b700f1db0036a3593eec5ada28a4ef8099ae49b5b4ea44c338930280efcb1364"
+              },
+              "benchmarks/source-support/artifact-values/source.txt": {
+                "bytes": 1794,
+                "capture_reads": 1,
+                "sha256_raw": "551078e52d39c0f2dc587951b7534afaf8865c9e7c87e55e26ec27cbff4c74e8"
+              }
+            },
+            "coverage": {
+              "model_entries": 82,
+              "provided_values": 55,
+              "role_only_values": 48,
+              "semantic_component_values": 34,
+              "semantic_groups": 14
+            },
+            "keyed_artifact_contradictions": [
+              {
+                "id": "AV-G12",
+                "pointers": [
+                  "/instruments/0/alarm_action_basis"
+                ],
+                "values": {
+                  "/instruments/0/alarm_action_basis": "High level automatically shuts down unloading."
+                }
+              }
+            ],
+            "limits": "Exact declared frozen value/group coverage and fixed-key reviewer labels only. Role exclusions/source judgments need independent review. No automatic claim discovery, rationale-quality, source authority, generator correctness, current installation or plant acceptance.",
+            "protocol": "provided-model-values-v1",
+            "schema": "artifact-value-review-admission-1"
+          },
+          "case": "artifact-false-shutdown",
+          "counts": {
+            "contradicted": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 1
+            },
+            "insufficient-evidence": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 0
+            },
+            "judgments": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 14
+            },
+            "supported": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 13
+            }
+          },
+          "diagnostics": {
+            "correct_judgments": 0,
+            "exact_label_accuracy": 0.0,
+            "expected_judgments": 14,
+            "incorrect_judgments": [],
+            "missing_judgments": [
+              "AV-G01",
+              "AV-G02",
+              "AV-G03",
+              "AV-G04",
+              "AV-G05",
+              "AV-G06",
+              "AV-G07",
+              "AV-G08",
+              "AV-G09",
+              "AV-G10",
+              "AV-G11",
+              "AV-G12",
+              "AV-G13",
+              "AV-G14"
+            ],
+            "reason_quality_scored": false,
+            "scope": "Fixed supplied claim labels only; citation IDs checked structurally. No automatic prose, source-validity or plant-truth judgment."
+          },
+          "note": "Unknown judgment label",
+          "prediction_ref": {
+            "path": "benchmarks/source-support/artifact-values/predictions/false-shutdown-literal-unreviewed.json",
+            "sha256": "a0a54dc55febdd0191f1f6fc9f84daae9a6fd830844d3f365b2ff18d596c340a"
+          },
+          "recorded_run_at": null,
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": null,
+            "seconds": null
+          },
+          "status": "invalid-answer"
+        }
+      ],
+      "run": "artifact-control-false-literal-unreviewed",
+      "split": "synthetic-control"
+    }
+  ],
+  "schema": "task-benchmark-1",
+  "scoring_contract": "claim-judgments-v1",
+  "submissions": [
+    {
+      "id": "artifact-control-reference-keyed-review",
+      "path": "benchmarks/source-support/artifact-values/runs/artifact-control-reference-keyed-review.json",
+      "sha256": "e68649005665d935d671f5a984bf2fa11b8e6ddc92944ca788dfee59e00d4218"
+    },
+    {
+      "id": "artifact-control-reference-empty",
+      "path": "benchmarks/source-support/artifact-values/runs/artifact-control-reference-empty.json",
+      "sha256": "048222a29c33f6ed27fa65b6d50c9556134e6e40df81dae6651f2294b37367de"
+    },
+    {
+      "id": "artifact-control-reference-all-supported",
+      "path": "benchmarks/source-support/artifact-values/runs/artifact-control-reference-all-supported.json",
+      "sha256": "24416c674c50386bdb1dc9d85d116c939f55392003b9bb50e62ad1dbc77066cb"
+    },
+    {
+      "id": "artifact-control-reference-all-contradicted",
+      "path": "benchmarks/source-support/artifact-values/runs/artifact-control-reference-all-contradicted.json",
+      "sha256": "38b873c39d7c39c678ea5269d19ffd4bcd1bccf6e265a8b145ca4c576cca8ba6"
+    },
+    {
+      "id": "artifact-control-reference-all-insufficient-evidence",
+      "path": "benchmarks/source-support/artifact-values/runs/artifact-control-reference-all-insufficient-evidence.json",
+      "sha256": "29cbabac70d85a2d07c35430a5abd01d5d87d39f3b474e7fe4079f98185b7afe"
+    },
+    {
+      "id": "artifact-control-reference-missing-critical",
+      "path": "benchmarks/source-support/artifact-values/runs/artifact-control-reference-missing-critical.json",
+      "sha256": "c061cffb075f989d309789a2abd6d8581244664b4ec30fdf7c251dba9e6505d9"
+    },
+    {
+      "id": "artifact-control-false-shutdown-keyed-review",
+      "path": "benchmarks/source-support/artifact-values/runs/artifact-control-false-shutdown-keyed-review.json",
+      "sha256": "e22a98d2ffc27fe5446388fd90e13c91a48d3dd55ee1081badf84ed0243dd1b9"
+    },
+    {
+      "id": "artifact-control-false-shutdown-empty",
+      "path": "benchmarks/source-support/artifact-values/runs/artifact-control-false-shutdown-empty.json",
+      "sha256": "83b7aafb450ba0876c8aa26b2237d03213ec1f825434113d6dd996dda2d9c4ab"
+    },
+    {
+      "id": "artifact-control-false-shutdown-all-supported",
+      "path": "benchmarks/source-support/artifact-values/runs/artifact-control-false-shutdown-all-supported.json",
+      "sha256": "02c683c535aee2175ba7357fe34a16303d306f0ffd90a94931204ed2ed34175e"
+    },
+    {
+      "id": "artifact-control-false-shutdown-all-contradicted",
+      "path": "benchmarks/source-support/artifact-values/runs/artifact-control-false-shutdown-all-contradicted.json",
+      "sha256": "c13eeab4a523f92a05cd28faaf71c7a87411013dfa16f2f9dc116c243b8bceee"
+    },
+    {
+      "id": "artifact-control-false-shutdown-all-insufficient-evidence",
+      "path": "benchmarks/source-support/artifact-values/runs/artifact-control-false-shutdown-all-insufficient-evidence.json",
+      "sha256": "48218a55625aef350a17b16c1022ef2caae4ebd1e3bbcfcbf7d7652015eb6d31"
+    },
+    {
+      "id": "artifact-control-false-shutdown-missing-critical",
+      "path": "benchmarks/source-support/artifact-values/runs/artifact-control-false-shutdown-missing-critical.json",
+      "sha256": "9e23622d37b4b34115614210e19351347b05e2ed4f8eac7e146ebc49d07707a6"
+    },
+    {
+      "id": "artifact-control-false-correct-label-poor-reason",
+      "path": "benchmarks/source-support/artifact-values/runs/artifact-control-false-correct-label-poor-reason.json",
+      "sha256": "3e949c69105351408a08cc245afcc33b06fdf206970ed87f8be9088a2afc24c5"
+    },
+    {
+      "id": "artifact-control-false-literal-unreviewed",
+      "path": "benchmarks/source-support/artifact-values/runs/artifact-control-false-literal-unreviewed.json",
+      "sha256": "71b3ec33a34a434edb30ef2d73a791d50941e31c80cf0a320a2f36c96cef9d24"
+    }
+  ],
+  "suite": "artifact-value-review-exposed-cli-controls",
+  "suite_sha256": "650f60f606896a752a0bdbd9db1b05093153d12a1fe5637473965d737dd9ac29",
+  "suite_version": "1",
+  "summary": [
+    {
+      "case_count": 1,
+      "cohort": "eda532bec800d5d519fb04e8b7303b40598fe531eccc2697194f84267a376647",
+      "configuration": {
+        "authoring_date_not_inference_date": "2026-11-02",
+        "no_model_call": true,
+        "source_case": "reference",
+        "synthetic_control": true
+      },
+      "evidence": "Exposed saved artifact and independently reviewed historical key; synthetic reviewer-label controls only, not model or human trials.",
+      "family": "csb-mgpi-artifact-review-development",
+      "group": "15d71804a1fda836f44dbaa2d76f877642a7f44959798a716127d7b5d075cf6b",
+      "interface": "deterministic authored saved JSON; no inference",
+      "method": "reference-all-insufficient-evidence",
+      "metrics": {
+        "contradicted": {
+          "max_f1": null,
+          "mean_f1": null,
+          "min_f1": null,
+          "stdev_f1": null
+        },
+        "insufficient-evidence": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        },
+        "judgments": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        },
+        "supported": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        }
+      },
+      "model": {
+        "id": "synthetic-review-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "replicates": 1,
+      "runs": [
+        "artifact-control-reference-all-insufficient-evidence"
+      ],
+      "split": "synthetic-control"
+    },
+    {
+      "case_count": 1,
+      "cohort": "929dffab4c97a26fb89ba78a843ae0566ad6d07d5b381c056e06b15e0f921774",
+      "configuration": {
+        "authoring_date_not_inference_date": "2026-11-02",
+        "no_model_call": true,
+        "source_case": "false-shutdown",
+        "synthetic_control": true
+      },
+      "evidence": "Exposed saved artifact and independently reviewed historical key; synthetic reviewer-label controls only, not model or human trials.",
+      "family": "csb-mgpi-artifact-review-development",
+      "group": "1764dc602d7a116cf06ecae47be2520ad1b96edb3ee2aee9bd6cfc3304b5ef8e",
+      "interface": "deterministic authored saved JSON; no inference",
+      "method": "false-correct-label-poor-reason",
+      "metrics": {
+        "contradicted": {
+          "max_f1": 1.0,
+          "mean_f1": 1.0,
+          "min_f1": 1.0,
+          "stdev_f1": null
+        },
+        "insufficient-evidence": {
+          "max_f1": null,
+          "mean_f1": null,
+          "min_f1": null,
+          "stdev_f1": null
+        },
+        "judgments": {
+          "max_f1": 1.0,
+          "mean_f1": 1.0,
+          "min_f1": 1.0,
+          "stdev_f1": null
+        },
+        "supported": {
+          "max_f1": 1.0,
+          "mean_f1": 1.0,
+          "min_f1": 1.0,
+          "stdev_f1": null
+        }
+      },
+      "model": {
+        "id": "synthetic-review-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "replicates": 1,
+      "runs": [
+        "artifact-control-false-correct-label-poor-reason"
+      ],
+      "split": "synthetic-control"
+    },
+    {
+      "case_count": 1,
+      "cohort": "929dffab4c97a26fb89ba78a843ae0566ad6d07d5b381c056e06b15e0f921774",
+      "configuration": {
+        "authoring_date_not_inference_date": "2026-11-02",
+        "no_model_call": true,
+        "source_case": "false-shutdown",
+        "synthetic_control": true
+      },
+      "evidence": "Exposed saved artifact and independently reviewed historical key; synthetic reviewer-label controls only, not model or human trials.",
+      "family": "csb-mgpi-artifact-review-development",
+      "group": "3a4481b981283e4e04a060511ba39a5d87df612698f2351b6e511e60b611e488",
+      "interface": "deterministic authored saved JSON; no inference",
+      "method": "false-shutdown-all-insufficient-evidence",
+      "metrics": {
+        "contradicted": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        },
+        "insufficient-evidence": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        },
+        "judgments": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        },
+        "supported": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        }
+      },
+      "model": {
+        "id": "synthetic-review-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "replicates": 1,
+      "runs": [
+        "artifact-control-false-shutdown-all-insufficient-evidence"
+      ],
+      "split": "synthetic-control"
+    },
+    {
+      "case_count": 1,
+      "cohort": "eda532bec800d5d519fb04e8b7303b40598fe531eccc2697194f84267a376647",
+      "configuration": {
+        "authoring_date_not_inference_date": "2026-11-02",
+        "no_model_call": true,
+        "source_case": "reference",
+        "synthetic_control": true
+      },
+      "evidence": "Exposed saved artifact and independently reviewed historical key; synthetic reviewer-label controls only, not model or human trials.",
+      "family": "csb-mgpi-artifact-review-development",
+      "group": "5e37f6368ca582519a3e7b26e50174ac8667e3ce3d555428f01d697977faa954",
+      "interface": "deterministic authored saved JSON; no inference",
+      "method": "reference-missing-critical",
+      "metrics": {
+        "contradicted": {
+          "max_f1": null,
+          "mean_f1": null,
+          "min_f1": null,
+          "stdev_f1": null
+        },
+        "insufficient-evidence": {
+          "max_f1": null,
+          "mean_f1": null,
+          "min_f1": null,
+          "stdev_f1": null
+        },
+        "judgments": {
+          "max_f1": 0.9629629629629629,
+          "mean_f1": 0.9629629629629629,
+          "min_f1": 0.9629629629629629,
+          "stdev_f1": null
+        },
+        "supported": {
+          "max_f1": 0.9629629629629629,
+          "mean_f1": 0.9629629629629629,
+          "min_f1": 0.9629629629629629,
+          "stdev_f1": null
+        }
+      },
+      "model": {
+        "id": "synthetic-review-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "replicates": 1,
+      "runs": [
+        "artifact-control-reference-missing-critical"
+      ],
+      "split": "synthetic-control"
+    },
+    {
+      "case_count": 1,
+      "cohort": "929dffab4c97a26fb89ba78a843ae0566ad6d07d5b381c056e06b15e0f921774",
+      "configuration": {
+        "authoring_date_not_inference_date": "2026-11-02",
+        "no_model_call": true,
+        "source_case": "false-shutdown",
+        "synthetic_control": true
+      },
+      "evidence": "Exposed saved artifact and independently reviewed historical key; synthetic reviewer-label controls only, not model or human trials.",
+      "family": "csb-mgpi-artifact-review-development",
+      "group": "686887072b1ed49f7fd3f640fae94d75cee578479b9326dcf955f61473535ee9",
+      "interface": "deterministic authored saved JSON; no inference",
+      "method": "false-shutdown-all-contradicted",
+      "metrics": {
+        "contradicted": {
+          "max_f1": 0.13333333333333333,
+          "mean_f1": 0.13333333333333333,
+          "min_f1": 0.13333333333333333,
+          "stdev_f1": null
+        },
+        "insufficient-evidence": {
+          "max_f1": null,
+          "mean_f1": null,
+          "min_f1": null,
+          "stdev_f1": null
+        },
+        "judgments": {
+          "max_f1": 0.07142857142857142,
+          "mean_f1": 0.07142857142857142,
+          "min_f1": 0.07142857142857142,
+          "stdev_f1": null
+        },
+        "supported": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        }
+      },
+      "model": {
+        "id": "synthetic-review-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "replicates": 1,
+      "runs": [
+        "artifact-control-false-shutdown-all-contradicted"
+      ],
+      "split": "synthetic-control"
+    },
+    {
+      "case_count": 1,
+      "cohort": "929dffab4c97a26fb89ba78a843ae0566ad6d07d5b381c056e06b15e0f921774",
+      "configuration": {
+        "authoring_date_not_inference_date": "2026-11-02",
+        "no_model_call": true,
+        "source_case": "false-shutdown",
+        "synthetic_control": true
+      },
+      "evidence": "Exposed saved artifact and independently reviewed historical key; synthetic reviewer-label controls only, not model or human trials.",
+      "family": "csb-mgpi-artifact-review-development",
+      "group": "7327981ead1ec7b3dfabe677667be7ef6fdbb9b8801c43b7b251a758cb39e96f",
+      "interface": "deterministic authored saved JSON; no inference",
+      "method": "false-shutdown-missing-critical",
+      "metrics": {
+        "contradicted": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        },
+        "insufficient-evidence": {
+          "max_f1": null,
+          "mean_f1": null,
+          "min_f1": null,
+          "stdev_f1": null
+        },
+        "judgments": {
+          "max_f1": 0.9629629629629629,
+          "mean_f1": 0.9629629629629629,
+          "min_f1": 0.9629629629629629,
+          "stdev_f1": null
+        },
+        "supported": {
+          "max_f1": 1.0,
+          "mean_f1": 1.0,
+          "min_f1": 1.0,
+          "stdev_f1": null
+        }
+      },
+      "model": {
+        "id": "synthetic-review-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "replicates": 1,
+      "runs": [
+        "artifact-control-false-shutdown-missing-critical"
+      ],
+      "split": "synthetic-control"
+    },
+    {
+      "case_count": 1,
+      "cohort": "929dffab4c97a26fb89ba78a843ae0566ad6d07d5b381c056e06b15e0f921774",
+      "configuration": {
+        "authoring_date_not_inference_date": "2026-11-02",
+        "no_model_call": true,
+        "source_case": "false-shutdown",
+        "synthetic_control": true
+      },
+      "evidence": "Exposed saved artifact and independently reviewed historical key; synthetic reviewer-label controls only, not model or human trials.",
+      "family": "csb-mgpi-artifact-review-development",
+      "group": "913f4fd29a54832515a5ef4c908b096970debbbefa865ed0b3c0e6b3e00a9135",
+      "interface": "deterministic authored saved JSON; no inference",
+      "method": "false-literal-unreviewed",
+      "metrics": {
+        "contradicted": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        },
+        "insufficient-evidence": {
+          "max_f1": null,
+          "mean_f1": null,
+          "min_f1": null,
+          "stdev_f1": null
+        },
+        "judgments": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        },
+        "supported": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        }
+      },
+      "model": {
+        "id": "synthetic-review-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "replicates": 1,
+      "runs": [
+        "artifact-control-false-literal-unreviewed"
+      ],
+      "split": "synthetic-control"
+    },
+    {
+      "case_count": 1,
+      "cohort": "eda532bec800d5d519fb04e8b7303b40598fe531eccc2697194f84267a376647",
+      "configuration": {
+        "authoring_date_not_inference_date": "2026-11-02",
+        "no_model_call": true,
+        "source_case": "reference",
+        "synthetic_control": true
+      },
+      "evidence": "Exposed saved artifact and independently reviewed historical key; synthetic reviewer-label controls only, not model or human trials.",
+      "family": "csb-mgpi-artifact-review-development",
+      "group": "a3daa2bcb4f1494b92a684d1832d8f5b49c8c4d1703ec8d73fb5be4a71428861",
+      "interface": "deterministic authored saved JSON; no inference",
+      "method": "reference-keyed-review",
+      "metrics": {
+        "contradicted": {
+          "max_f1": null,
+          "mean_f1": null,
+          "min_f1": null,
+          "stdev_f1": null
+        },
+        "insufficient-evidence": {
+          "max_f1": null,
+          "mean_f1": null,
+          "min_f1": null,
+          "stdev_f1": null
+        },
+        "judgments": {
+          "max_f1": 1.0,
+          "mean_f1": 1.0,
+          "min_f1": 1.0,
+          "stdev_f1": null
+        },
+        "supported": {
+          "max_f1": 1.0,
+          "mean_f1": 1.0,
+          "min_f1": 1.0,
+          "stdev_f1": null
+        }
+      },
+      "model": {
+        "id": "synthetic-review-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "replicates": 1,
+      "runs": [
+        "artifact-control-reference-keyed-review"
+      ],
+      "split": "synthetic-control"
+    },
+    {
+      "case_count": 1,
+      "cohort": "929dffab4c97a26fb89ba78a843ae0566ad6d07d5b381c056e06b15e0f921774",
+      "configuration": {
+        "authoring_date_not_inference_date": "2026-11-02",
+        "no_model_call": true,
+        "source_case": "false-shutdown",
+        "synthetic_control": true
+      },
+      "evidence": "Exposed saved artifact and independently reviewed historical key; synthetic reviewer-label controls only, not model or human trials.",
+      "family": "csb-mgpi-artifact-review-development",
+      "group": "c89d3b328e927e2a3cb01136a763f7dfdbec24269ecffa5013373fc63054a597",
+      "interface": "deterministic authored saved JSON; no inference",
+      "method": "false-shutdown-keyed-review",
+      "metrics": {
+        "contradicted": {
+          "max_f1": 1.0,
+          "mean_f1": 1.0,
+          "min_f1": 1.0,
+          "stdev_f1": null
+        },
+        "insufficient-evidence": {
+          "max_f1": null,
+          "mean_f1": null,
+          "min_f1": null,
+          "stdev_f1": null
+        },
+        "judgments": {
+          "max_f1": 1.0,
+          "mean_f1": 1.0,
+          "min_f1": 1.0,
+          "stdev_f1": null
+        },
+        "supported": {
+          "max_f1": 1.0,
+          "mean_f1": 1.0,
+          "min_f1": 1.0,
+          "stdev_f1": null
+        }
+      },
+      "model": {
+        "id": "synthetic-review-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "replicates": 1,
+      "runs": [
+        "artifact-control-false-shutdown-keyed-review"
+      ],
+      "split": "synthetic-control"
+    },
+    {
+      "case_count": 1,
+      "cohort": "eda532bec800d5d519fb04e8b7303b40598fe531eccc2697194f84267a376647",
+      "configuration": {
+        "authoring_date_not_inference_date": "2026-11-02",
+        "no_model_call": true,
+        "source_case": "reference",
+        "synthetic_control": true
+      },
+      "evidence": "Exposed saved artifact and independently reviewed historical key; synthetic reviewer-label controls only, not model or human trials.",
+      "family": "csb-mgpi-artifact-review-development",
+      "group": "e8fb906813d8daa3ce77c93601e7600851ec97e25d49071429049ec33d9d2aaf",
+      "interface": "deterministic authored saved JSON; no inference",
+      "method": "reference-all-supported",
+      "metrics": {
+        "contradicted": {
+          "max_f1": null,
+          "mean_f1": null,
+          "min_f1": null,
+          "stdev_f1": null
+        },
+        "insufficient-evidence": {
+          "max_f1": null,
+          "mean_f1": null,
+          "min_f1": null,
+          "stdev_f1": null
+        },
+        "judgments": {
+          "max_f1": 1.0,
+          "mean_f1": 1.0,
+          "min_f1": 1.0,
+          "stdev_f1": null
+        },
+        "supported": {
+          "max_f1": 1.0,
+          "mean_f1": 1.0,
+          "min_f1": 1.0,
+          "stdev_f1": null
+        }
+      },
+      "model": {
+        "id": "synthetic-review-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "replicates": 1,
+      "runs": [
+        "artifact-control-reference-all-supported"
+      ],
+      "split": "synthetic-control"
+    },
+    {
+      "case_count": 1,
+      "cohort": "eda532bec800d5d519fb04e8b7303b40598fe531eccc2697194f84267a376647",
+      "configuration": {
+        "authoring_date_not_inference_date": "2026-11-02",
+        "no_model_call": true,
+        "source_case": "reference",
+        "synthetic_control": true
+      },
+      "evidence": "Exposed saved artifact and independently reviewed historical key; synthetic reviewer-label controls only, not model or human trials.",
+      "family": "csb-mgpi-artifact-review-development",
+      "group": "f406b55b8300597d910cf947dfc0192f87c5056454946fb5cacba0b1c7752cc6",
+      "interface": "deterministic authored saved JSON; no inference",
+      "method": "reference-all-contradicted",
+      "metrics": {
+        "contradicted": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        },
+        "insufficient-evidence": {
+          "max_f1": null,
+          "mean_f1": null,
+          "min_f1": null,
+          "stdev_f1": null
+        },
+        "judgments": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        },
+        "supported": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        }
+      },
+      "model": {
+        "id": "synthetic-review-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "replicates": 1,
+      "runs": [
+        "artifact-control-reference-all-contradicted"
+      ],
+      "split": "synthetic-control"
+    },
+    {
+      "case_count": 1,
+      "cohort": "eda532bec800d5d519fb04e8b7303b40598fe531eccc2697194f84267a376647",
+      "configuration": {
+        "authoring_date_not_inference_date": "2026-11-02",
+        "no_model_call": true,
+        "source_case": "reference",
+        "synthetic_control": true
+      },
+      "evidence": "Exposed saved artifact and independently reviewed historical key; synthetic reviewer-label controls only, not model or human trials.",
+      "family": "csb-mgpi-artifact-review-development",
+      "group": "f6405ed6db06f95af67bfe4fc8e7e8c74468ee1c7684f8da04b14d686214e339",
+      "interface": "deterministic authored saved JSON; no inference",
+      "method": "reference-empty",
+      "metrics": {
+        "contradicted": {
+          "max_f1": null,
+          "mean_f1": null,
+          "min_f1": null,
+          "stdev_f1": null
+        },
+        "insufficient-evidence": {
+          "max_f1": null,
+          "mean_f1": null,
+          "min_f1": null,
+          "stdev_f1": null
+        },
+        "judgments": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        },
+        "supported": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        }
+      },
+      "model": {
+        "id": "synthetic-review-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "replicates": 1,
+      "runs": [
+        "artifact-control-reference-empty"
+      ],
+      "split": "synthetic-control"
+    },
+    {
+      "case_count": 1,
+      "cohort": "929dffab4c97a26fb89ba78a843ae0566ad6d07d5b381c056e06b15e0f921774",
+      "configuration": {
+        "authoring_date_not_inference_date": "2026-11-02",
+        "no_model_call": true,
+        "source_case": "false-shutdown",
+        "synthetic_control": true
+      },
+      "evidence": "Exposed saved artifact and independently reviewed historical key; synthetic reviewer-label controls only, not model or human trials.",
+      "family": "csb-mgpi-artifact-review-development",
+      "group": "f99d305724afa6581ce46f84393e7900e90efff6ec7fd6b7bfa90d5835acaea5",
+      "interface": "deterministic authored saved JSON; no inference",
+      "method": "false-shutdown-all-supported",
+      "metrics": {
+        "contradicted": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        },
+        "insufficient-evidence": {
+          "max_f1": null,
+          "mean_f1": null,
+          "min_f1": null,
+          "stdev_f1": null
+        },
+        "judgments": {
+          "max_f1": 0.9285714285714286,
+          "mean_f1": 0.9285714285714286,
+          "min_f1": 0.9285714285714286,
+          "stdev_f1": null
+        },
+        "supported": {
+          "max_f1": 0.9629629629629629,
+          "mean_f1": 0.9629629629629629,
+          "min_f1": 0.9629629629629629,
+          "stdev_f1": null
+        }
+      },
+      "model": {
+        "id": "synthetic-review-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "replicates": 1,
+      "runs": [
+        "artifact-control-false-shutdown-all-supported"
+      ],
+      "split": "synthetic-control"
+    },
+    {
+      "case_count": 1,
+      "cohort": "929dffab4c97a26fb89ba78a843ae0566ad6d07d5b381c056e06b15e0f921774",
+      "configuration": {
+        "authoring_date_not_inference_date": "2026-11-02",
+        "no_model_call": true,
+        "source_case": "false-shutdown",
+        "synthetic_control": true
+      },
+      "evidence": "Exposed saved artifact and independently reviewed historical key; synthetic reviewer-label controls only, not model or human trials.",
+      "family": "csb-mgpi-artifact-review-development",
+      "group": "faf9f1661edf5393b2a1adc79cee0b891ca447a0eed5f920a6582313e376c23e",
+      "interface": "deterministic authored saved JSON; no inference",
+      "method": "false-shutdown-empty",
+      "metrics": {
+        "contradicted": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        },
+        "insufficient-evidence": {
+          "max_f1": null,
+          "mean_f1": null,
+          "min_f1": null,
+          "stdev_f1": null
+        },
+        "judgments": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        },
+        "supported": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        }
+      },
+      "model": {
+        "id": "synthetic-review-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "replicates": 1,
+      "runs": [
+        "artifact-control-false-shutdown-empty"
+      ],
+      "split": "synthetic-control"
+    }
+  ],
+  "task": "source-support"
+}

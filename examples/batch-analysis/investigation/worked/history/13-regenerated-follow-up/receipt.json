@@ -2,8 +2,8 @@
   "schema": "knowledge-capture-receipt-1",
   "captured_at": "2026-11-03T07:31:56.142981+00:00",
   "packet_id": "fictional-ferm101-investigation",
-  "base_sha256": "26b96c6b9f381e53112a3ded084d33897885cd20ba232d55c3c98c2f6bd34c31",
-  "knowledge_sha256": "b609bae8d53eb23d3345210e1989729a5145bb5bec5a394ea9dbae7d366e6207",
+  "base_sha256": "baed5cc081d39865c4a3ebcdcc3b3c7008f5f6eb1dd4f21f54558fe6793904c8",
+  "knowledge_sha256": "bf43da88c8c4a73f7a59de342e1183ab51ded62bdc64bfa8d89250c496368856",
   "contributor_declaration": "Fictional example author; no authenticated identity.",
   "reason": "Retain this explicit investigation contribution and its exact prior state.",
   "company_acceptance": "not_established",
@@ -18,17 +18,17 @@
   "supplied_sources": [
     {
       "record_id": "source:join-feed-r2",
-      "raw_sha256": "cc8076ecd18a73952745b72f380ebf9d38aa87096eb381fcbf485ea25b4102be",
+      "raw_sha256": "53487878b0940884f9103c92bdb9d07cd6ad292b1ef483d759eb0ee4319c4acc",
       "size_bytes": 10231
     },
     {
       "record_id": "source:join-check-r2",
-      "raw_sha256": "c5d38f800a2a7a31bd7a3a30cdef3ae3e283363cfc23932c1eaad3e0cbe473c7",
+      "raw_sha256": "16fe34f3149e1c503cf8aa05bde290207856293f707c45fb25be1be4340c8cdc",
       "size_bytes": 974
     },
     {
       "record_id": "source:analysis-r2",
-      "raw_sha256": "11a1742f77cd95b580fbd8b5ea3a12cf354714b8b26d86ee644b275a32ec5afa",
+      "raw_sha256": "1b5774963d3ee89d30d5d76ebc2502239bea446a3096c95c1e7422896445ec13",
       "size_bytes": 3367
     },
     {
@@ -78,7 +78,7 @@
             "source_record_id": "source:join-r1",
             "document_id": "JOIN",
             "pinned_revision": "1",
-            "pinned_raw_sha256": "5e3c7f73da62c170d93c70caaf38c70335b40607dadd6161c390121457a7bcae",
+            "pinned_raw_sha256": "d2f72ae3dfd1c291bacbd3bec6f0dc25e1ce4db872dc98d0beadd1aaa51a8a90",
             "selected_source_record_id": "source:join-r1",
             "state": "matches",
             "reason_codes": []
@@ -140,7 +140,7 @@
             "source_record_id": "source:analysis-r1",
             "document_id": "ANALYSIS",
             "pinned_revision": "1",
-            "pinned_raw_sha256": "14131b8d4ad1e939216bcefaf62cdf7d5de29758ebc1c4d95657a0821311371b",
+            "pinned_raw_sha256": "5a4b7041126fe77da64ae9b6a26d241528f94aff31016afc4a23793246de7457",
             "selected_source_record_id": "source:analysis-r1",
             "state": "matches",
             "reason_codes": []
@@ -196,7 +196,7 @@
             "source_record_id": "source:join-r1",
             "document_id": "JOIN",
             "pinned_revision": "1",
-            "pinned_raw_sha256": "5e3c7f73da62c170d93c70caaf38c70335b40607dadd6161c390121457a7bcae",
+            "pinned_raw_sha256": "d2f72ae3dfd1c291bacbd3bec6f0dc25e1ce4db872dc98d0beadd1aaa51a8a90",
             "selected_source_record_id": "source:join-feed-r2",
             "state": "stale",
             "reason_codes": [
@@ -262,7 +262,7 @@
             "source_record_id": "source:analysis-r1",
             "document_id": "ANALYSIS",
             "pinned_revision": "1",
-            "pinned_raw_sha256": "14131b8d4ad1e939216bcefaf62cdf7d5de29758ebc1c4d95657a0821311371b",
+            "pinned_raw_sha256": "5a4b7041126fe77da64ae9b6a26d241528f94aff31016afc4a23793246de7457",
             "selected_source_record_id": "source:analysis-r2",
             "state": "stale",
             "reason_codes": [
@@ -298,7 +298,7 @@
             "source_record_id": "source:join-r1",
             "document_id": "JOIN",
             "pinned_revision": "1",
-            "pinned_raw_sha256": "5e3c7f73da62c170d93c70caaf38c70335b40607dadd6161c390121457a7bcae",
+            "pinned_raw_sha256": "d2f72ae3dfd1c291bacbd3bec6f0dc25e1ce4db872dc98d0beadd1aaa51a8a90",
             "selected_source_record_id": "source:join-r1",
             "state": "matches",
             "reason_codes": []
@@ -308,7 +308,7 @@
             "source_record_id": "source:recipe-check-r1",
             "document_id": "RECIPE-CHECK",
             "pinned_revision": "1",
-            "pinned_raw_sha256": "a226e74e3cabfd39f16337e6d39f88923a0e93b88695196d2be6c873f21ee00d",
+            "pinned_raw_sha256": "3b6f372a8e645ad1101d4dbf63c5c3c00ac70bccad92405b05c14b491baddf47",
             "selected_source_record_id": "source:recipe-check-r1",
             "state": "matches",
             "reason_codes": []
@@ -379,7 +379,7 @@
             "source_record_id": "source:join-r1",
             "document_id": "JOIN",
             "pinned_revision": "1",
-            "pinned_raw_sha256": "5e3c7f73da62c170d93c70caaf38c70335b40607dadd6161c390121457a7bcae",
+            "pinned_raw_sha256": "d2f72ae3dfd1c291bacbd3bec6f0dc25e1ce4db872dc98d0beadd1aaa51a8a90",
             "selected_source_record_id": "source:join-feed-r2",
             "state": "stale",
             "reason_codes": [
@@ -391,7 +391,7 @@
             "source_record_id": "source:recipe-check-r1",
             "document_id": "RECIPE-CHECK",
             "pinned_revision": "1",
-            "pinned_raw_sha256": "a226e74e3cabfd39f16337e6d39f88923a0e93b88695196d2be6c873f21ee00d",
+            "pinned_raw_sha256": "3b6f372a8e645ad1101d4dbf63c5c3c00ac70bccad92405b05c14b491baddf47",
             "selected_source_record_id": "source:recipe-check-r1",
             "state": "matches",
             "reason_codes": []
@@ -450,15 +450,15 @@
   ],
   "files": {
     "before.json": {
-      "raw_sha256": "26b96c6b9f381e53112a3ded084d33897885cd20ba232d55c3c98c2f6bd34c31",
+      "raw_sha256": "baed5cc081d39865c4a3ebcdcc3b3c7008f5f6eb1dd4f21f54558fe6793904c8",
       "size_bytes": 85048
     },
     "change.json": {
-      "raw_sha256": "7425e7b6eee9eca5a88b5deccfb5a20d5afcc57c19a91c56a2071d8f84a32c14",
+      "raw_sha256": "c8fa16c898f82485969e2dece31c05c808a8d6e76a3d7bd57da50feae5f7a8f0",
       "size_bytes": 3546
     },
     "knowledge.json": {
-      "raw_sha256": "b609bae8d53eb23d3345210e1989729a5145bb5bec5a394ea9dbae7d366e6207",
+      "raw_sha256": "bf43da88c8c4a73f7a59de342e1183ab51ded62bdc64bfa8d89250c496368856",
       "size_bytes": 111267
     },
     "handoff.md": {

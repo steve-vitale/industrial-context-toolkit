@@ -349,7 +349,9 @@ def render(sections, skipped):
     out += ["## Registered results not on this board", ""]
     if skipped:
         for entry, task in skipped:
-            out.append(f"- `{task}` ({links(entry)}): scores descriptions, models or claims, not a drawing reader.")
+            what = ("scores a batch tool's recorded totals, not a drawing reader" if task == "batch-totals"
+                    else "scores descriptions, models or claims, not a drawing reader")
+            out.append(f"- `{task}` ({links(entry)}): {what}.")
     else:
         out.append("- None.")
     out += ["", "Generated from the registered reports only; adding a reader means registering its run manifests "

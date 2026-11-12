@@ -36,6 +36,7 @@ SOURCE_TESTS = (
     "scripts/test_pid_markups.py",
     "scripts/test_maintenance_intake.py",
     "scripts/test_batch_analysis.py",
+    "scripts/test_score_batch_totals.py",
     "scripts/test_check_analysis_basis.py",
     "scripts/test_join_batch_records.py",
     "scripts/test_investigation_example.py",

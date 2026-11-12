@@ -45,7 +45,7 @@ Use the existing top-level plan fields and `schema: "batch-analysis-2"`. Each si
 }
 ```
 
-`interpolation` is `linear` or `previous`; there is no automatic selection. `quality` is the declared exact-token
+`interpolation` is `linear`, `previous` or `next` (an interval-ending hold: the closing sample's value covers the interval it ends; see the [main guide](../README.md#calculation-and-refusal-rules)); there is no automatic selection. `quality` is the declared exact-token
 policy, or explicit `null` when no external quality filter is selected. Null is reported as **quality not checked**;
 it makes no assertion of prior filtering or verified good quality. V2 refuses omitted choices. V1 continues
 to refuse these additional fields rather than silently accepting a different contract.

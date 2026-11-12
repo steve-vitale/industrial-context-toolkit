@@ -15,7 +15,8 @@
     "real_unit": "The real unit (Bayer residue treater): model from text, Figure 10/11 checks, replay",
     "tours_3d": "3D and browser tours",
     "review_loop": "Review loop: operations corrections, mapping, outside review",
-    "intake_and_reuse": "Intake and reuse: runbook, DEXPI route, loop audit, CSV tools, vendor kit"
+    "intake_and_reuse": "Intake and reuse: runbook, DEXPI route, loop audit, CSV tools, vendor kit",
+    "batch_analysis": "Batch analysis: recorded phase calculations on public batch records"
   },
   "attempts": [
     {
@@ -6876,6 +6877,21 @@
         "out/round6/crossing_judge_dev.md",
         "scripts/crossing_question.py",
         "examples/own-drawing/README.md"
+      ]
+    },
+    {
+      "id": "A418",
+      "function": "batch_analysis",
+      "date": "2026-11-12",
+      "change": "Industrial-yeast depth task (docs/DEPTH_GOAL.md increment 2, process and historian data). scripts/batch_analysis.py gains a V2 interpolation `next`, an interval-ending hold: each admitted closing sample's value covers the interval it ends, and only that sample must be good (the opening row gives its time); reports without `next` are byte-identical apart from the tool hash, and the 100 batch-analysis example artifacts that pin that hash were re-pinned mechanically (only hex digests changed; regenerated reports checked equal apart from the hash). Task: scripts/industrial_yeast_case.py verifies the pinned originals, keeps the split's batches, gives the tool only sugar_feed_rate_kg_rs_h (total_fermentable_sugar_kg withheld), runs the CLI with whole-batch and hourly windows, and scripts/score_batch_totals.py (rules, controls and decision rule frozen in its docstring) compares each full-window integral with the change in the logged cumulative within 0.5 kg. Registered as benchmark task batch-totals / logged-cumulative-v1. The plan's comparison of means with summary_stats.json was dropped: those statistics pool development and held-out batches as row-level values.",
+      "hypothesis": "An interval-ending hold in the product tool reproduces an hourly-total feed log's publisher-logged cumulative per batch and per hour, where the tool's trapezoid and previous-value hold cannot",
+      "evidence": "Development B01-B05 (dev result, committed with the frozen method and scorer before any held-out batch was run): batch 5/5, hourly 84/84 matched, mean abs error 0.0 kg. Tool-run controls: trapezoid 0/5 (every total incomplete: blank hour-0 feed) and 0/84; trapezoid with hour 0 written as 0 0/5 (short by half the last hour's feed, 63.5-342.5 kg, as stated before the run) and 0/84; previous-value hold 0/5 and 0/84; unit declared kg/s 0/5 and 0/84. Scorer controls: perfect 5/5 and 84/84; empty 0/5 and 0/84; shuffled 2/5 and 0/84; recipe constant (22,700 kg, README) 3/5 and 0/84. Source check: the logged feed sums equal the cumulative's change on 5/5 and 84/84 items.",
+      "runs": "1 deterministic run per split (the tool is deterministic; no run spread)",
+      "verdict": "inconclusive",
+      "why": "Development only: the held-out split B06-B10 had not been run when this entry was committed",
+      "source": [
+        "examples/batch-analysis/industrial-yeast/README.md",
+        "examples/batch-analysis/industrial-yeast/results/development/SCORE.md"
       ]
     }
   ],

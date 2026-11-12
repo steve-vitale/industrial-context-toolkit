@@ -69,8 +69,8 @@ def validate_plan(plan):
         for key in ("asset_id", "source_ref"):
             text(spec[key], f"{tag} {key}")
         if explicit:
-            if spec["interpolation"] not in ("linear", "previous"):
-                raise ValueError(f"{tag} interpolation must be linear or previous")
+            if spec["interpolation"] not in ("linear", "previous", "next"):
+                raise ValueError(f"{tag} interpolation must be linear, previous or next")
             quality = spec["quality"]
             if quality is not None:
                 fields(quality, ("column", "good_values"), f"{tag} quality")
@@ -158,9 +158,11 @@ def summarize(rows, tag, unit, duration, max_gap, interpolation="linear"):
     for left, right in zip(rows, rows[1:]):
         dt = right["time_s"] - left["time_s"]
         a, b = left["values"][tag], right["values"][tag]
-        if dt <= max_gap and a is not None and b is not None:
+        # "next" is an interval-ending hold (a log whose value is the rate over the interval it closes, such as an
+        # hourly total): only the closing sample's value is used, so the opening row supplies its time alone.
+        if dt <= max_gap and b is not None and (a is not None or interpolation == "next"):
             intervals.append(dt)
-            areas.append((a if interpolation == "previous" else a / 2 + b / 2) * dt)
+            areas.append((b if interpolation == "next" else a if interpolation == "previous" else a / 2 + b / 2) * dt)
     covered = math.fsum(intervals)
     area = math.fsum(areas) if intervals else None
     # All adjacent intervals must be admitted; the caller separately checks exact boundaries.
@@ -253,6 +255,11 @@ def analyze(csv_raw, plan_raw, graph_raw=None):
         report["method"].update(name="adjacent-sample-selected-interpolation-v1",
                                 assumption="per-signal linear or previous-value hold between adjacent admitted observations; both endpoints required; no extrapolation or gap filling")
         report["limits"].append("Accepted numeric samples and complete coverage do not verify source quality or original sensor continuity.")
+        if any(spec["interpolation"] == "next" for spec in plan["signals"].values()):
+            report["method"]["assumption"] += ("; next is an interval-ending hold: each admitted closing sample's value "
+                                               "applies to the interval it ends, and the opening row supplies only its time")
+            report["limits"].append("An interval-ending hold is right only for a log whose value covers the interval "
+                                    "it closes (an hourly total or average); confirm the source's convention.")
     return report
 
 
@@ -285,7 +292,12 @@ def markdown(report):
             policy = (f"exact tokens {json.dumps(quality['good_values'], ensure_ascii=False)} in {quality['column']}"
                       if quality is not None else "no external quality filter selected; quality not checked")
             lines.append(f"| {escape(tag)} | {spec['interpolation']} | {escape(policy)} |")
-        lines += ["", "Both good endpoints are required even for previous-value hold; this is not an OPC historian aggregate implementation.", ""]
+        if any(spec["interpolation"] == "next" for spec in report["signal_definitions"].values()):
+            lines += ["", "Linear and previous-value hold require both good endpoints. Interval-ending hold (next) uses the "
+                          "closing sample's value for the interval it ends and needs only that sample good; the opening row "
+                          "supplies its time. This is not an OPC historian aggregate implementation.", ""]
+        else:
+            lines += ["", "Both good endpoints are required even for previous-value hold; this is not an OPC historian aggregate implementation.", ""]
     lines += [f"- {line}" for line in report["limits"]]
     return "\n".join(lines) + "\n"
 

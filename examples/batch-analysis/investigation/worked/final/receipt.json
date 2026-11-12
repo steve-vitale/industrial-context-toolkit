@@ -2,8 +2,8 @@
   "schema": "knowledge-capture-receipt-1",
   "captured_at": "2026-11-03T07:31:56.798602+00:00",
   "packet_id": "fictional-ferm101-investigation",
-  "base_sha256": "b609bae8d53eb23d3345210e1989729a5145bb5bec5a394ea9dbae7d366e6207",
-  "knowledge_sha256": "e2744897a1e7deb228e412d14170f40beb5b2649a3a53061f6d467f549c20de8",
+  "base_sha256": "bf43da88c8c4a73f7a59de342e1183ab51ded62bdc64bfa8d89250c496368856",
+  "knowledge_sha256": "b6bd6dae36a2b0754761b64d98df9c9cc81bd0f7ddeb3faf0e44de4c2cfcc0e7",
   "contributor_declaration": "Fictional example author; no authenticated identity.",
   "reason": "Retain this explicit investigation contribution and its exact prior state.",
   "company_acceptance": "not_established",
@@ -20,7 +20,7 @@
   "supplied_sources": [
     {
       "record_id": "source:join-lab-r2",
-      "raw_sha256": "14462cf2228afc0057e0302089e59850a7bf3a0951e4700cc06b4f0b17a82af5",
+      "raw_sha256": "9e7b4ffdfb6bac18df7adb2931fa2ef811f042f39b2ba3dc2314e3f8d665b2de",
       "size_bytes": 10231
     },
     {
@@ -30,7 +30,7 @@
     },
     {
       "record_id": "source:lab-reuse-check",
-      "raw_sha256": "3f0335670d95326d86bb7ab489a3a537bfae42734946b0a62f3570d03b0d4214",
+      "raw_sha256": "fc7a03367cb31d4bca6433b4665a9cc978f41fc1881a94bcec8ac337ff17e6ce",
       "size_bytes": 1004
     },
     {
@@ -40,7 +40,7 @@
     },
     {
       "record_id": "source:join-check-lab-r2",
-      "raw_sha256": "f3c8aaf632bd7dc86aff75072c4b41014ce1365cc770237fca80b744e35dad7f",
+      "raw_sha256": "8f6570d0fca3570990ec4f53630eac1ec163f3470f7744bc9f98518ba93823fe",
       "size_bytes": 974
     }
   ],
@@ -118,7 +118,7 @@
             "source_record_id": "source:join-r1",
             "document_id": "JOIN",
             "pinned_revision": "1",
-            "pinned_raw_sha256": "5e3c7f73da62c170d93c70caaf38c70335b40607dadd6161c390121457a7bcae",
+            "pinned_raw_sha256": "d2f72ae3dfd1c291bacbd3bec6f0dc25e1ce4db872dc98d0beadd1aaa51a8a90",
             "selected_source_record_id": "source:join-feed-r2",
             "state": "stale",
             "reason_codes": [
@@ -184,7 +184,7 @@
             "source_record_id": "source:analysis-r1",
             "document_id": "ANALYSIS",
             "pinned_revision": "1",
-            "pinned_raw_sha256": "14131b8d4ad1e939216bcefaf62cdf7d5de29758ebc1c4d95657a0821311371b",
+            "pinned_raw_sha256": "5a4b7041126fe77da64ae9b6a26d241528f94aff31016afc4a23793246de7457",
             "selected_source_record_id": "source:analysis-r2",
             "state": "stale",
             "reason_codes": [
@@ -236,7 +236,7 @@
             "source_record_id": "source:join-r1",
             "document_id": "JOIN",
             "pinned_revision": "1",
-            "pinned_raw_sha256": "5e3c7f73da62c170d93c70caaf38c70335b40607dadd6161c390121457a7bcae",
+            "pinned_raw_sha256": "d2f72ae3dfd1c291bacbd3bec6f0dc25e1ce4db872dc98d0beadd1aaa51a8a90",
             "selected_source_record_id": "source:join-lab-r2",
             "state": "stale",
             "reason_codes": [
@@ -302,7 +302,7 @@
             "source_record_id": "source:analysis-r1",
             "document_id": "ANALYSIS",
             "pinned_revision": "1",
-            "pinned_raw_sha256": "14131b8d4ad1e939216bcefaf62cdf7d5de29758ebc1c4d95657a0821311371b",
+            "pinned_raw_sha256": "5a4b7041126fe77da64ae9b6a26d241528f94aff31016afc4a23793246de7457",
             "selected_source_record_id": "source:analysis-r1",
             "state": "matches",
             "reason_codes": []
@@ -343,7 +343,7 @@
             "source_record_id": "source:join-r1",
             "document_id": "JOIN",
             "pinned_revision": "1",
-            "pinned_raw_sha256": "5e3c7f73da62c170d93c70caaf38c70335b40607dadd6161c390121457a7bcae",
+            "pinned_raw_sha256": "d2f72ae3dfd1c291bacbd3bec6f0dc25e1ce4db872dc98d0beadd1aaa51a8a90",
             "selected_source_record_id": "source:join-feed-r2",
             "state": "stale",
             "reason_codes": [
@@ -355,7 +355,7 @@
             "source_record_id": "source:recipe-check-r1",
             "document_id": "RECIPE-CHECK",
             "pinned_revision": "1",
-            "pinned_raw_sha256": "a226e74e3cabfd39f16337e6d39f88923a0e93b88695196d2be6c873f21ee00d",
+            "pinned_raw_sha256": "3b6f372a8e645ad1101d4dbf63c5c3c00ac70bccad92405b05c14b491baddf47",
             "selected_source_record_id": "source:recipe-check-r1",
             "state": "matches",
             "reason_codes": []
@@ -426,7 +426,7 @@
             "source_record_id": "source:join-r1",
             "document_id": "JOIN",
             "pinned_revision": "1",
-            "pinned_raw_sha256": "5e3c7f73da62c170d93c70caaf38c70335b40607dadd6161c390121457a7bcae",
+            "pinned_raw_sha256": "d2f72ae3dfd1c291bacbd3bec6f0dc25e1ce4db872dc98d0beadd1aaa51a8a90",
             "selected_source_record_id": "source:join-lab-r2",
             "state": "stale",
             "reason_codes": [
@@ -438,7 +438,7 @@
             "source_record_id": "source:recipe-check-r1",
             "document_id": "RECIPE-CHECK",
             "pinned_revision": "1",
-            "pinned_raw_sha256": "a226e74e3cabfd39f16337e6d39f88923a0e93b88695196d2be6c873f21ee00d",
+            "pinned_raw_sha256": "3b6f372a8e645ad1101d4dbf63c5c3c00ac70bccad92405b05c14b491baddf47",
             "selected_source_record_id": "source:recipe-check-r1",
             "state": "matches",
             "reason_codes": []
@@ -505,7 +505,7 @@
             "source_record_id": "source:join-check-failed",
             "document_id": "EXTERNAL-REUSE-CHECK",
             "pinned_revision": "1",
-            "pinned_raw_sha256": "6cf8efeaeab899826d6667e8e1aa53e80649eb446be8b11dfcdd8913323d6090",
+            "pinned_raw_sha256": "021b942ddac8bd580eb01803eb89ee76a3f231a1b2d391eb02454909c04977d1",
             "selected_source_record_id": "source:join-check-failed",
             "state": "matches",
             "reason_codes": []
@@ -543,7 +543,7 @@
             "source_record_id": "source:join-check-failed",
             "document_id": "EXTERNAL-REUSE-CHECK",
             "pinned_revision": "1",
-            "pinned_raw_sha256": "6cf8efeaeab899826d6667e8e1aa53e80649eb446be8b11dfcdd8913323d6090",
+            "pinned_raw_sha256": "021b942ddac8bd580eb01803eb89ee76a3f231a1b2d391eb02454909c04977d1",
             "selected_source_record_id": "source:join-check-failed",
             "state": "matches",
             "reason_codes": []
@@ -579,7 +579,7 @@
             "source_record_id": "source:join-feed-r2",
             "document_id": "JOIN",
             "pinned_revision": "2-feed",
-            "pinned_raw_sha256": "cc8076ecd18a73952745b72f380ebf9d38aa87096eb381fcbf485ea25b4102be",
+            "pinned_raw_sha256": "53487878b0940884f9103c92bdb9d07cd6ad292b1ef483d759eb0ee4319c4acc",
             "selected_source_record_id": "source:join-feed-r2",
             "state": "matches",
             "reason_codes": []
@@ -599,7 +599,7 @@
             "source_record_id": "source:analysis-r2",
             "document_id": "ANALYSIS",
             "pinned_revision": "2-feed",
-            "pinned_raw_sha256": "11a1742f77cd95b580fbd8b5ea3a12cf354714b8b26d86ee644b275a32ec5afa",
+            "pinned_raw_sha256": "1b5774963d3ee89d30d5d76ebc2502239bea446a3096c95c1e7422896445ec13",
             "selected_source_record_id": "source:analysis-r2",
             "state": "matches",
             "reason_codes": []
@@ -655,7 +655,7 @@
             "source_record_id": "source:join-feed-r2",
             "document_id": "JOIN",
             "pinned_revision": "2-feed",
-            "pinned_raw_sha256": "cc8076ecd18a73952745b72f380ebf9d38aa87096eb381fcbf485ea25b4102be",
+            "pinned_raw_sha256": "53487878b0940884f9103c92bdb9d07cd6ad292b1ef483d759eb0ee4319c4acc",
             "selected_source_record_id": "source:join-lab-r2",
             "state": "stale",
             "reason_codes": [
@@ -679,7 +679,7 @@
             "source_record_id": "source:analysis-r2",
             "document_id": "ANALYSIS",
             "pinned_revision": "2-feed",
-            "pinned_raw_sha256": "11a1742f77cd95b580fbd8b5ea3a12cf354714b8b26d86ee644b275a32ec5afa",
+            "pinned_raw_sha256": "1b5774963d3ee89d30d5d76ebc2502239bea446a3096c95c1e7422896445ec13",
             "selected_source_record_id": "source:analysis-r1",
             "state": "stale",
             "reason_codes": [
@@ -709,15 +709,15 @@
   ],
   "files": {
     "before.json": {
-      "raw_sha256": "b609bae8d53eb23d3345210e1989729a5145bb5bec5a394ea9dbae7d366e6207",
+      "raw_sha256": "bf43da88c8c4a73f7a59de342e1183ab51ded62bdc64bfa8d89250c496368856",
       "size_bytes": 111267
     },
     "change.json": {
-      "raw_sha256": "2a955948f656ddcb09de3d7eb827a1ec0d6f93a6a719b398f32c14cb846f34d1",
+      "raw_sha256": "35728de0a6c52fdad5b2ea8e60a6a20e1efce2f22ce1aa507b5e68c7e79a765b",
       "size_bytes": 5935
     },
     "knowledge.json": {
-      "raw_sha256": "e2744897a1e7deb228e412d14170f40beb5b2649a3a53061f6d467f549c20de8",
+      "raw_sha256": "b6bd6dae36a2b0754761b64d98df9c9cc81bd0f7ddeb3faf0e44de4c2cfcc0e7",
       "size_bytes": 139611
     },
     "handoff.md": {
