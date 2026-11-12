@@ -15,29 +15,28 @@ Three kinds of evidence, kept apart on every record:
                     appears on two sheets (two units reusing a number), and then each sheet is its own scope. Read from
                     the tags the reader wrote; it proposes membership and never asserts a relation by itself.
   traced_line       a drawn line joins the two symbols: a dashed signal line traced from the sheet image by
-                    dashed_signal_lines(), or an instrument line of the bundle's line layer (scripts/line_layers.py)
-                    with an instrument at both ends. A traced line ends at the first symbol box it reaches; a line end
-                    in reach of two boxes attaches to neither and leaves its network unresolved.
+                    dashed_signal_lines() (an instrument line of the bundle's line layer is listed for review but is
+                    never signal evidence). A traced line ends at the first symbol box it reaches; a line end in reach
+                    of two boxes attaches to neither.
   cross_sheet_flag  traced signal lines that end on two off-page connectors the bundle paired across sheets (every line
-                    at either connector joins).
+                    at either connector joins); a connector text that names an ISA tag must name one the lines reach.
 
-Roles come from the ISA-5.1 letters only (role_of): final element (letters ending in V), controller (C after the
-first letter), transmitter or primary element (T or E), switch (S after the first letter), relay (Y), indicator
-(I, R or A, with H, L or M levels, only). A relief valve (PSV, TSV, PRV, PSE) is a relief_device and a hand switch
-(HS) a hand_switch: neither is a loop's final element or measurement. Letters out of ISA order (LVC) and a
-plant-coded tag the reader did not read as ISA letters (build_twin.plant_coded) get no role.
+Roles come from the ISA-5.1 letters only, read in order by parse_letters and role_of (first letter, first-letter
+modifier, function letters, function modifiers): a final element ends in V, a controller has C or K among its
+functions, then transmitter (T), switch (S; ZSC is a closed-position switch), relay (Y), primary element (E) and
+indicator (I, R, A). Relief devices (PSV, TSV, PSE, PRV), hand switches (HS), plant-coded tags and letters that do
+not parse (LVC) have no loop role, and no signal is read to or from them.
 
-What is asserted, and on what evidence:
-  signal_to       a traced signal between two instruments whose roles are sender and next receiver (NEXT: a
-                  measurement to a controller, a controller to a final element or relay, a relay to a final element),
-                  from sender to receiver. A two-member dashed line whose roles skip a step or give no order keeps
-                  direction "unknown"; a line between two items of one role other than two controllers (two
-                  valves, two measurements, one item read twice) is not a signal; a solid instrument line, or a dashed one of fewer than min_dashes dashes, that
-                  does so is a shared leader or a valve's own transmitter and is not read as a signal. A branching
-                  network is resolved only when one sender reaches only next receivers (one transmitter feeding
-                  controllers, one controller feeding final elements); otherwise it is listed as unresolved.
+What is asserted, and on what evidence. The default is inverted: a relation is asserted only when every condition
+of the positive list in signal_conditions() holds; a network failing any of them is listed under
+unresolved_signal_networks with the conditions it failed, and nothing is asserted on it.
+  signal_to       a traced signal between a sender and its next receiver (NEXT: a measurement to a controller, a
+                  controller to a final element or relay, a relay to a final element), from sender to receiver, or
+                  between two controllers (direction "unknown" until _cascades orders it). A branching network is
+                  asserted only when one sender reaches only its next receivers.
   controls        controller -> final element, only when the loop is confirmed: a traced signal into the
-                  controller from a measurement and a traced signal out of it to that final element.
+                  controller from a measurement and a traced signal out of it to that final element (directly or
+                  through a relay).
   sets_point_of   outer controller -> inner controller, when a traced signal joins two controllers and only one of
                   them is nearer a final element along traced controller-to-controller signals (the inner one), and
                   the would-be outer controller has no untraced final element of its own loop identity.
@@ -89,35 +88,70 @@ def loop_identity(tag):
     return m.group("area") or "", m.group("number"), m.group("suffix") or "", m.group("letters")
 
 
+# ISA-5.1 letters after the first: first-letter modifiers, succeeding (function) letters, function modifiers.
+FIRST_MODIFIERS = set("DFQJ")       # differential, ratio, integrate or totalize, scan (PDIC, FFIC, FQIC)
+FUNCTIONS = set("ABCEGIKLNORSTUVWXYZ")  # alarm ... valve, well, unclassified, relay or compute, driver
+LEVEL_MODIFIERS = set("HLM")        # high, low, middle (PSHH, PAL), read at the end of the letters
+SWITCH_MODIFIERS = set("OC") | LEVEL_MODIFIERS  # a switch's open or closed position (ZSO, ZSC), or its level
+
+
+def parse_letters(letters):
+    """ISA-5.1 letters read in order: {variable, modifier, functions}, or None when they do not parse.
+    The first letter is the measured or initiating variable. Then an optional first-letter modifier (D, F, Q, J).
+    Then the function letters, with level modifiers (H, L, M) at the end, and after a switch S its position
+    modifiers too: in ZSC the C is "closed", not control. A valve letter V must come last (LVC does not parse)."""
+    if not letters or not letters.isalpha():
+        return None
+    first, rest = letters[0], letters[1:]
+    modifier = None
+    if len(rest) > 1 and rest[0] in FIRST_MODIFIERS:
+        modifier, rest = rest[0], rest[1:]
+    if "S" in rest:
+        i = rest.index("S")
+        if rest[i + 1:] and set(rest[i + 1:]) <= SWITCH_MODIFIERS:
+            rest = rest[:i + 1]
+    while len(rest) > 1 and rest[-1] in LEVEL_MODIFIERS and rest[-2] in "ASIRT" + "HLM":
+        rest = rest[:-1]
+    if not rest or set(rest) - FUNCTIONS or ("V" in rest and not rest.endswith("V")):
+        return None
+    return {"variable": first, "modifier": modifier, "functions": rest}
+
+
 def letters_out_of_order(letters):
-    """True when the letters do not read in ISA-5.1 order: a valve letter V anywhere but last (LVC)."""
-    return bool(letters) and "V" in letters[1:-1]
+    """True when the letters are ISA-5.1-shaped but do not read in order (LVC: a valve letter V not last)."""
+    return bool(letters) and "V" in letters[1:-1] and parse_letters(letters) is None
 
 
 def role_of(letters):
-    """The loop role ISA-5.1 letters give, or None. The first letter is the measured variable; the rest decide.
-    A relief valve (PSV, TSV, PRV, a rupture disc PSE) is a relief_device and a hand switch (HS) a hand_switch: neither
-    is a loop's final element or measurement. Letters out of ISA order (LVC) get no role."""
-    if not letters or letters_out_of_order(letters):
+    """The loop role ISA-5.1 letters give, or None, from parse_letters:
+      relief_device   a safety (S) or relief (R) valve or element on pressure, temperature, flow or level: PSV, TSV,
+                      PSE, PRV, FSV. Self-acting, never a loop's final element.
+      final_element   the function letters end in V: FV, FCV, PCV, LCV, XV, HV, SDV, and actuated shut-off valves
+                      named ESV or SV (E or S is then the first letter, not a safety modifier).
+      controller      C or K among the functions: FIC, FRC, PDIC, FFIC, FQIC, HIC, HC.
+      transmitter     T: FT, PIT, AIT, PDT.          switch     S (H first: hand_switch): PSHH, ZSO, ZSC.
+      relay           Y: FY, TY.                     primary_element  E: FE, TE.
+      indicator       I, R or A only: PI, TR, LAH.
+    Anything else (TW, FO, PID, LVC, PVC) has no loop role."""
+    parsed = parse_letters(letters)
+    if parsed is None:
         return None
-    rest = letters[1:]
-    if letters.endswith(("SV", "RV", "SE")):
+    first, fn = parsed["variable"], parsed["functions"]
+    if first in "PTFL" and fn in ("SV", "SE", "RV") and parsed["modifier"] is None:
         return "relief_device"
-    if letters[0] == "H" and rest.startswith("S"):
-        return "hand_switch"
-    if letters.endswith("V"):
+    if fn.endswith("V"):
         return "final_element"
-    if "C" in rest:
+    if "C" in fn or "K" in fn:
         return "controller"
-    if "T" in rest:
+    if "T" in fn:
         return "transmitter"
-    if "E" in rest:
-        return "primary_element"
-    if "S" in rest:
-        return "switch"
-    if "Y" in rest:
+    if "S" in fn:
+        return "hand_switch" if first == "H" else "switch"
+    if "Y" in fn:
         return "relay"
-    if set(rest) - set("HLM") and set(rest) - set("HLM") <= set("IRA"):  # H, L, M: alarm or switch levels
+    if "E" in fn:
+        return "primary_element"
+    if set(fn) <= set("IRA"):
         return "indicator"
     return None
 
@@ -173,8 +207,9 @@ def dashed_signal_lines(image_path, symbols, debug=None, **opt):
     2. What is left is split into pieces. A dash is a thin straight stroke; a thin corner piece is two arms already
        joined. Anything else (text, a crossing where two dashes overlap, arrowheads) is not a dash.
     3. Dashes on one axis whose facing ends are within max_gap_frac of a symbol side, offset no more than a stroke
-       width, form one straight run. Where other ink lies in the gap (a solid line crossing, or the piece two dashes
-       make where dashed lines cross) the gap may be twice that, so a run keeps going straight through a crossing.
+       width, form one straight run. Where a solid line lies in the gap, the two sides join only when the dash pattern
+       carries on in step through it (_in_phase): one line crossing a pipe, not two lines each drawn to it. Where the
+       piece two dashes make where dashed lines cross lies in the gap, the gap may be twice that.
     4. Runs join only where one ENDS: a corner (two runs ending at one point) or a tee (a run ending on the side of
        another). Two runs that both pass through the meeting point cross and are not joined, as line_layers.py treats
        an unmarked crossing.
@@ -183,7 +218,10 @@ def dashed_signal_lines(image_path, symbols, debug=None, **opt):
        step 4, so a controller's input and output stay two lines. An end in reach of two boxes attaches to neither:
        the line lists the boxes under ambiguous_ends instead. A shorter one counts only between two instrument bubbles (a signal drawn
        across the short gap between two stacked controllers). Text strokes can look like dashes; a network is kept
-       only where it reaches two symbols."""
+       only where it reaches two symbols.
+    6. Each line records its stroke width (stroke_px, measured across its dashes on the original ink), the sheet's
+       solid-line width (pipe_px, None without solid lines) and the instrument bubbles' outline width (outline_px), for
+       the thin_stroke condition of signal_conditions()."""
     import cv2
     import numpy as np
     import trace_connections as tc
@@ -193,6 +231,7 @@ def dashed_signal_lines(image_path, symbols, debug=None, **opt):
         raise FileNotFoundError(image_path)
     H, W = gray.shape
     ink = tc.binarize(gray)
+    ink0 = ink.copy()
     boxes, cls = {}, {}
     for s in symbols:
         b = tc.symbol_box(s)
@@ -210,15 +249,20 @@ def dashed_signal_lines(image_path, symbols, debug=None, **opt):
     for x0, y0, x1, y1 in boxes.values():
         ink[max(0, y0 - g):y1 + g + 1, max(0, x0 - g):x1 + g + 1] = 0
     L = max(5, int(round(o["line_frac"] * side)))
-    solid = cv2.morphologyEx(ink, cv2.MORPH_OPEN, cv2.getStructuringElement(cv2.MORPH_RECT, (L, 1))) | \
-        cv2.morphologyEx(ink, cv2.MORPH_OPEN, cv2.getStructuringElement(cv2.MORPH_RECT, (1, L)))
-    solid = cv2.dilate(solid, np.ones((3, 3), np.uint8))
+    solid_h = cv2.morphologyEx(ink, cv2.MORPH_OPEN, cv2.getStructuringElement(cv2.MORPH_RECT, (L, 1)))
+    solid_v = cv2.morphologyEx(ink, cv2.MORPH_OPEN, cv2.getStructuringElement(cv2.MORPH_RECT, (1, L)))
+    solid0 = solid_h | solid_v
+    pipe_px = _solid_width(cv2, ink0, solid_h, solid_v, L)
+    outline_px = _outline_width(cv2, np, ink0, [b for k, b in boxes.items() if cls.get(k) == "instrumentation"]
+                                or list(boxes.values()))
+    solid = cv2.dilate(solid0, np.ones((3, 3), np.uint8))
     res = ink & (1 - solid)
     n, lab, stats, _ = cv2.connectedComponentsWithStats(res, connectivity=8)
     tmax = max(3, int(round(o["max_width_frac"] * side)))
     dmin = max(3, int(round(o["min_dash_frac"] * side)))
     gap = max(3, int(round(o["max_gap_frac"] * side)))
     strokes = []  # (axis, across, lo, hi, piece) on the pixel grid
+    thick = {}  # piece -> stroke width in px (area over length)
     corner_pairs = []  # (h stroke, v stroke, which end of the h arm is the vertex, which end of the v arm)
     npieces = 0
     for i in range(1, n):
@@ -230,6 +274,8 @@ def dashed_signal_lines(image_path, symbols, debug=None, **opt):
             if area < 0.5 * max(w, h):
                 continue
             strokes.append(("h", (y + y1) / 2, x, x1, npieces) if w >= h else ("v", (x + x1) / 2, y, y1, npieces))
+            thick[npieces] = _cross_width(ink0, "h" if w >= h else "v", (y + y1) / 2 if w >= h else (x + x1) / 2,
+                                          (x + x1) // 2 if w >= h else (y + y1) // 2)
             npieces += 1
             continue
         if area > 1.5 * tmax * (w + h):
@@ -251,6 +297,7 @@ def dashed_signal_lines(image_path, symbols, debug=None, **opt):
         strokes.append(("h", hy, x, x1, npieces))
         strokes.append(("v", vx, y, y1, npieces))
         corner_pairs.append((len(strokes) - 2, len(strokes) - 1, "hi" if cx else "lo", "hi" if cy else "lo"))
+        thick[npieces] = _cross_width(ink0, "h", hy, (x + x1) // 2)
         npieces += 1
     parent = list(range(len(strokes)))
 
@@ -262,6 +309,7 @@ def dashed_signal_lines(image_path, symbols, debug=None, **opt):
     by_axis = defaultdict(list)
     for si, st in enumerate(strokes):
         by_axis[st[0]].append(si)
+    crossings = []
     for ax, ids in by_axis.items():  # 3. straight runs
         ids.sort(key=lambda si: (strokes[si][2], strokes[si][1]))
         for a_i, si in enumerate(ids):
@@ -277,8 +325,14 @@ def dashed_signal_lines(image_path, symbols, debug=None, **opt):
                 continue
             nxt = strokes[best][2]
             d = nxt - hi
+            if _ink_between(solid0, ax, c, hi, nxt):
+                if not _in_phase(strokes, ids, si, best, tmax, gap):
+                    continue  # two dashed lines meeting a pipe from either side, not one crossing it: kept apart
+                crossings.append((ax, c, hi, nxt))
+                parent[find(si)] = find(best)
+                continue
             if d > gap + 1:  # a wider gap only where another line crosses it
-                crossed = _ink_between(solid | res, ax, c, hi, nxt) or any(
+                crossed = _ink_between(res, ax, c, hi, nxt) or any(
                     st[0] != ax and st[2] - tmax <= c <= st[3] + tmax and hi < st[1] < nxt for st in strokes)
                 if not crossed:
                     continue
@@ -385,12 +439,111 @@ def dashed_signal_lines(image_path, symbols, debug=None, **opt):
         pts = [p for r in rs for p in (end_pt(r, "lo"), end_pt(r, "hi"))]
         x0, x1 = min(p[0] for p in pts) - tmax / 2, max(p[0] for p in pts) + tmax / 2  # a line has a stroke width
         y0, y1 = min(p[1] for p in pts) - tmax / 2, max(p[1] for p in pts) + tmax / 2
+        widths = sorted(thick[p] for p in pieces)
         lines.append({"members": sorted(hit), "dashes": len(pieces),
+                      "stroke_px": round(widths[len(widths) // 2], 2), "pipe_px": pipe_px, "outline_px": outline_px,
                       **({"ambiguous_ends": sorted(ambiguous)} if ambiguous else {}),
                       "box_0_1000": [round(max(0.0, 1000 * x0 / W), 1), round(max(0.0, 1000 * y0 / H), 1),
                                      round(min(1000.0, 1000 * x1 / W), 1), round(min(1000.0, 1000 * y1 / H), 1)]})
     lines.sort(key=lambda x: (x["members"], x["box_0_1000"]))
-    return {"lines": lines, "side_px": round(side, 1), "settings": o}
+    return {"lines": lines, "side_px": round(side, 1), "pipe_px": pipe_px, "outline_px": outline_px, "settings": o}
+
+
+def _cross_width(ink, axis, c, at):
+    """The ink's width across a stroke, in px, on the original image: from the stroke's centre line at position `at`,
+    count inked pixels outwards on both sides. Measured on the original ink, so a thick line the solid-line filter
+    has hollowed out still reads as thick."""
+    H, W = ink.shape
+    c, at = int(round(c)), int(at)
+
+    def on(k):
+        y, x = (k, at) if axis == "h" else (at, k)
+        return 0 <= y < H and 0 <= x < W and ink[y, x]
+    if not on(c):
+        return 0
+    lo, hi = c, c
+    while on(lo - 1):
+        lo -= 1
+    while on(hi + 1):
+        hi += 1
+    return hi - lo + 1
+
+
+def _solid_width(cv2, ink, solid_h, solid_v, L):
+    """The sheet's solid-line (pipe) width in px: the median of the widths across every straight solid run, measured
+    on the original ink at points along the run, or None when the sheet has none."""
+    w = []
+    for mask, axis in ((solid_h, "h"), (solid_v, "v")):
+        n, _, stats, cent = cv2.connectedComponentsWithStats(mask, connectivity=8)
+        for i in range(1, n):
+            x, y, bw, bh = (int(v) for v in stats[i][:4])
+            length = bw if axis == "h" else bh
+            if length < L:
+                continue
+            c = cent[i][1] if axis == "h" else cent[i][0]
+            start = x if axis == "h" else y
+            for at in range(start + length // 8, start + length, max(1, length // 8)):
+                v = _cross_width(ink, axis, c, at)
+                if v:
+                    w.append(v)
+    if not w:
+        return None
+    w.sort()
+    return float(w[len(w) // 2])
+
+
+def _outline_width(cv2, np, ink, boxes):
+    """The symbol outline width in px: the median over the boxes of 2 * ink area / contour length inside the box (a
+    ring or a stroke of width t has an area of about t times half its contour length)."""
+    w = []
+    for x0, y0, x1, y1 in boxes:
+        crop = np.ascontiguousarray(ink[y0:y1 + 1, x0:x1 + 1]).astype(np.uint8)
+        area = int(crop.sum())
+        if not area:
+            continue
+        cs, _ = cv2.findContours(crop, cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
+        per = sum(cv2.arcLength(c, True) for c in cs)
+        if per:
+            w.append(2 * area / per)
+    return round(float(np.median(w)), 2) if w else None
+
+
+def _in_phase(strokes, ids, si, best, tmax, gap):
+    """True when the dash pattern on one side of a solid line carries on in step on the other side: one dashed line
+    crossing a pipe, not two dashed lines that each end at it. A crossing line's dashes keep their period through the
+    pipe (the pipe may cut a dash short on either side); two lines drawn to the pipe start their patterns afresh. At
+    least two dashes are needed on each side to read the period and the step; with fewer the answer is no."""
+    _, c0, _, _, _ = strokes[si]
+
+    def chain(start, step):
+        out, cur = [start], start
+        while len(out) < 6:
+            lo, hi = strokes[cur][2], strokes[cur][3]
+            cand = [sj for sj in ids if sj not in out and abs(strokes[sj][1] - c0) <= tmax and
+                    (0 < lo - strokes[sj][3] <= gap + 1 if step < 0 else 0 < strokes[sj][2] - hi <= gap + 1)]
+            if not cand:
+                break
+            cur = max(cand, key=lambda sj: strokes[sj][3]) if step < 0 else min(cand, key=lambda sj: strokes[sj][2])
+            out.append(cur)
+        return out
+    left, right = chain(si, -1)[::-1], chain(best, 1)
+    if len(left) < 2 or len(right) < 2:
+        return False
+    lens = sorted(strokes[x][3] - strokes[x][2] + 1 for x in left + right)
+    full = lens[(3 * len(lens)) // 4]
+    starts_l = [strokes[x][2] for x in left]
+    starts_r = [strokes[x][2] for x in right[1:]]  # the first dash past the pipe may be cut at its start
+    diffs = [b - a for a, b in zip(starts_l, starts_l[1:])] + [b - a for a, b in zip(starts_r, starts_r[1:])]
+    if len(starts_r) >= 1 and len(starts_l) >= 1 and not diffs:
+        return False
+    period = sorted(diffs)[len(diffs) // 2] if diffs else 0
+    if period <= 0:
+        return False
+    first_r = right[0]
+    r_len = strokes[first_r][3] - strokes[first_r][2] + 1
+    anchor_r = strokes[first_r][2] if r_len >= 0.8 * full else strokes[first_r][3] - full + 1
+    off = (anchor_r - starts_l[-1]) % period
+    return min(off, period - off) <= max(2, 0.15 * period)
 
 
 def _ink_between(ink, ax, c, a, b):
@@ -420,6 +573,7 @@ def sheet_signal_lines(model, source):
             if len(members) >= 2 or ambiguous:  # an ambiguous end is kept so its network is listed unresolved
                 out.append({"sheet": sheet, "line_kind": "dashed_signal_line", "members": members,
                             "box_0_1000": line["box_0_1000"], "dashes": line["dashes"],
+                            **{k: line.get(k) for k in ("stroke_px", "pipe_px", "outline_px")},
                             **({"ambiguous_ends": ambiguous} if ambiguous else {})})
     layers = model.get("line_layers") or {}
     inst = {i["id"] for i in model.get("instruments", [])}
@@ -460,6 +614,20 @@ def compact(text):
     return re.sub(r"[\s\-_]", "", str(text or "")).upper()
 
 
+CONNECTOR_TAG = re.compile(r"(?:TO|FROM)[\s:]+((?:[0-9][0-9A-Z]{0,5}[\s-]+)?[A-Z]{1,6}[\s-]*[0-9]+(?:\.[0-9]+)?[A-Z]?)\b")
+
+
+def connector_tags(text):
+    """The ISA-5.1 tags with a loop role an off-page connector's text names after TO or FROM ("SIG PID 2 / TO FV 401"
+    names FV 401; "TO PID 2" names nothing, as PID has no loop role)."""
+    out = []
+    for m in CONNECTOR_TAG.finditer(" ".join(str(text or "").upper().split())):
+        ident = loop_identity(m.group(1))
+        if ident and role_of(ident[3]):
+            out.append(" ".join(m.group(1).split()))
+    return out
+
+
 def signal_networks(model, lines):
     """Traced signal lines as networks: each line alone, except that lines ending on two off-page connectors the
     bundle paired across sheets are joined (a signal continued on another sheet). Returns [{members (item ids, connectors left out),
@@ -495,14 +663,15 @@ def signal_networks(model, lines):
         members = sorted({m for x in net["lines"] for m in x["members"] if m not in conn})
         flags = []
         for p in net["flags"]:
+            named = {cid: connector_tags(conn[cid].get("text")) for cid in (p["a"], p["b"])}
+            named = {cid: t for cid, t in named.items() if t}
             names = [{"connector": cid, "names": tag[m]} for cid in (p["a"], p["b"]) for m in members
-                     if tag.get(m) and re.search(r"(?:TO|FROM)" + re.escape(compact(tag[m])) + r"$",
-                                                 compact(conn[cid].get("text")))]
+                     if tag.get(m) and compact(tag[m]) in {compact(t) for t in connector_tags(conn[cid].get("text"))}]
             flags.append({"kind": "cross_sheet_flag", "pair": p["id"], "connectors": [p["a"], p["b"]],
                           "sheets": [p["sheet_a"], p["sheet_b"]], "texts": [p.get("text_a"), p.get("text_b")],
                           "pair_method": p.get("method"),
                           "pair_status": (p.get("verification") or {}).get("status"),
-                          "text_names_reached_instrument": names})
+                          "named_tags": named, "text_names_reached_instrument": names})
         out.append({"members": members, "lines": net["lines"], "flags": flags})
     return out
 
@@ -513,60 +682,112 @@ def _line_evidence(lines):
              **({"instrument_lines": x["lines"]} if "lines" in x else {})} for x in lines]
 
 
+MIN_DASH_PIECES = 2   # a signal line has at least this many dash pieces (one stroke can be a leader or a letter)
+THIN_VS_OUTLINE = 1.5  # ...and its stroke is at most this times the instrument bubbles' outline pen
+THIN_VS_PIPE = 1.25    # ...and, where the sheet has solid lines, at most this times their width
+SIGNAL_ROLES = tuple(RANK)  # the roles a signal may join; relief devices, hand switches and no role never
+
+
+def signal_conditions(net, cand, role, model=None):
+    """THE POSITIVE LIST. A signal relation is asserted on a network of traced lines only when every condition below
+    holds; a network failing any of them is listed under unresolved_signal_networks with the conditions it failed,
+    and nothing is asserted on it. Returns [(condition, detail)] for the failed ones ([] = assert).
+
+      dashed_line          every line is a dashed signal line traced from the sheet image (dashed_signal_lines). A
+                           solid instrument line of the line layer may be an impulse line, a capillary or a shared
+                           leader, so it is never signal evidence by itself.
+      min_dash_pieces      every line has at least MIN_DASH_PIECES dash pieces: one stroke between two stacked bubbles
+                           is a leader, a faceplate edge or part of a letter.
+      thin_stroke          every line's stroke is at most THIN_VS_OUTLINE times the outline pen of the sheet's
+                           instrument bubbles, and where the sheet has solid lines, at most THIN_VS_PIPE times their
+                           width: a process line broken into dash-sized pieces (a scan dropout) is drawn with the
+                           thicker pipe pen. (Where a sheet draws pipes with the same pen as signals, as TE does, the
+                           pipe width cannot tell them apart and the outline pen decides.)
+      not_across_a_pipe    enforced in the tracer (dashed_signal_lines step 3): two dashed runs that meet a solid line
+                           from opposite sides are one line only when the dash pattern carries on in step through it;
+                           two lines drawn to a pipe stay two lines.
+      ends_resolved        no line end is in reach of two symbols (ambiguous_ends).
+      known_roles          every member has a loop role in SIGNAL_ROLES from the full ISA-5.1 letter parse (role_of):
+                           no plant-coded tag, relief device, hand switch or letters that do not parse.
+      role_order           two members: a sender and its next receiver (NEXT: measurement -> controller, controller ->
+                           final element or relay, relay -> final element), or two controllers (a cascade, ordered by
+                           _cascades). More members: one sender, and every other member one of its next receivers.
+      connector_text_agrees  where the network runs through a paired off-page connector whose printed text names an
+                           ISA-5.1 tag with a loop role ("TO FV 401"), the joined lines reach an item with that tag."""
+    failed = []
+    lines = net["lines"]
+    ms = [m for m in net["members"] if m in cand]
+    solid = [x["id"] for x in lines if x["line_kind"] != "dashed_signal_line"]
+    if solid:
+        failed.append(("dashed_line", f"solid instrument line(s) {', '.join(solid)} from the line layer"))
+    few = [x["id"] for x in lines if x["line_kind"] == "dashed_signal_line" and x.get("dashes", 0) < MIN_DASH_PIECES]
+    if few:
+        failed.append(("min_dash_pieces", f"fewer than {MIN_DASH_PIECES} dash pieces on {', '.join(few)}"))
+    thick = []
+    for x in lines:
+        if x["line_kind"] != "dashed_signal_line":
+            continue
+        w, outline, pipe = x.get("stroke_px"), x.get("outline_px"), x.get("pipe_px")
+        if w is None or outline is None or w > THIN_VS_OUTLINE * outline or (pipe is not None and w > THIN_VS_PIPE * pipe):
+            thick.append(f"{x['id']} stroke {w} px (bubble outline {outline} px, solid lines {pipe} px)")
+    if thick:
+        failed.append(("thin_stroke", "; ".join(thick)))
+    ambiguous = [a for x in lines for a in x.get("ambiguous_ends", [])]
+    if ambiguous:
+        failed.append(("ends_resolved", f"a line end in reach of {ambiguous}"))
+    if len(ms) < 2:
+        if not failed:
+            return []  # one item or none: nothing to assert, nothing to review
+        return failed
+    bad = [m for m in ms if role[m] not in SIGNAL_ROLES]
+    if bad:
+        failed.append(("known_roles", "no loop role: " + ", ".join(f"{cand[m]['tag']} ({role[m] or 'none'})"
+                                                                     for m in bad)))
+    else:
+        if len(ms) == 2:
+            a, b = sorted(ms, key=lambda m: RANK[role[m]])
+            ok = role[b] in NEXT.get(role[a], ()) or role[a] == role[b] == "controller"
+        else:
+            low = min(RANK[role[m]] for m in ms)
+            senders = [m for m in ms if RANK[role[m]] == low]
+            ok = len(senders) == 1 and all(role[m] in NEXT.get(role[senders[0]], ()) for m in ms if m != senders[0])
+        if not ok:
+            failed.append(("role_order", "roles " + ", ".join(f"{cand[m]['tag']} {role[m]}" for m in ms)
+                           + " are not a sender and its next receivers"))
+    reached = {compact(cand[m]["tag"]) for m in ms}
+    for f in net["flags"]:
+        for cid, tags in sorted((f.get("named_tags") or {}).items()):
+            if not reached & {compact(t) for t in tags}:
+                failed.append(("connector_text_agrees", f"connector {cid} names {', '.join(tags)}; the joined lines "
+                                                        "reach none of them"))
+    return failed
+
+
 def _directed_links(nets, cand, role):
-    """[(from, to, directed, evidence)] and the unresolved networks, from the roles alone (module docstring)."""
+    """[(from, to, directed, evidence)] for the networks that meet every signal_conditions() condition, and the
+    unresolved networks with the conditions each failed."""
     links, unresolved = [], []
     for net in nets:
         ms = [m for m in net["members"] if m in cand]
         evidence = _line_evidence(net["lines"]) + net["flags"]
-        ambiguous = [a for x in net["lines"] for a in x.get("ambiguous_ends", [])]
-        if ambiguous:
+        failed = signal_conditions(net, cand, role)
+        if failed:
             unresolved.append({"members": ms, "roles": {m: role[m] for m in ms}, "evidence": evidence,
-                               "ambiguous_ends": ambiguous,
-                               "why": "a line end in reach of two or more symbols; which one it reaches is not read, "
-                                      "so no signal_to is asserted on this network"})
+                               "failed_conditions": [c for c, _ in failed],
+                               "why": "; ".join(f"{c}: {d}" for c, d in failed),
+                               **({"ambiguous_ends": [a for x in net["lines"] for a in x.get("ambiguous_ends", [])]}
+                                  if any(x.get("ambiguous_ends") for x in net["lines"]) else {})})
             continue
         if len(ms) < 2:
             continue
-        ranks = {m: RANK.get(role[m]) for m in ms}
-        if all(r is None for r in ranks.values()):
-            unresolved.append({"members": ms, "roles": {m: role[m] for m in ms}, "evidence": evidence,
-                               "why": "no item on this line has a loop role (plant-coded valves, relief devices, hand "
-                                      "switches); not read as a signal"})
-            continue
-        weak = all(x["line_kind"] == "instrument_line" or x.get("dashes", 0) < DASH["min_dashes"]
-                   for x in net["lines"])
-        if weak and not any(role[m] in ("controller", "relay", "final_element") for m in ms):
-            unresolved.append({"members": ms, "roles": {m: role[m] for m in ms}, "evidence": evidence,
-                               "why": "a solid or very short line joining measuring instruments only (a shared "
-                                      "leader or impulse line, as redundant transmitters are drawn); not read as a "
-                                      "signal"})
-            continue
         if len(ms) == 2:
-            a, b = ms if (ranks[ms[0]] or 0) <= (ranks[ms[1]] or 0) else ms[::-1]
-            if role[b] in NEXT.get(role[a], ()) and ranks[a] != ranks[b]:
-                links.append({"from": a, "to": b, "directed": True, "evidence": evidence})
-            elif role[a] == role[b] != "controller" or ranks[a] == ranks[b] != RANK["controller"]:
-                unresolved.append({"members": ms, "roles": {m: role[m] for m in ms}, "evidence": evidence,
-                                   "why": "a line between two items of one role (two valves, two measurements, or "
-                                          "one item read twice): neither signals the other; not read as a signal"})
-            elif weak and not role[a] == role[b] == "controller":  # two controllers: a cascade, ordered below
-                unresolved.append({"members": ms, "roles": {m: role[m] for m in ms}, "evidence": evidence,
-                                   "why": "a solid or very short line whose roles are not sender and next receiver "
-                                          "(a position transmitter on its valve, say); not read as a signal"})
-            else:
-                links.append({"from": ms[0], "to": ms[1], "directed": False, "evidence": evidence})
+            a, b = sorted(ms, key=lambda m: RANK[role[m]])
+            directed = RANK[role[a]] != RANK[role[b]]
+            links.append({"from": a, "to": b, "directed": directed, "evidence": evidence})
             continue
-        low = min((r for r in ranks.values() if r is not None), default=None)
-        senders = [m for m in ms if ranks[m] == low]
-        if low is None or len(senders) != 1 or any(role[m] not in NEXT.get(role[senders[0]], ())
-                                                   for m in ms if m != senders[0]):
-            unresolved.append({"members": ms, "roles": {m: role[m] for m in ms}, "evidence": evidence,
-                               "why": "a branching signal line whose roles leave no single sender, or whose sender "
-                                      "would skip a role (a transmitter straight to a valve); no signal_to is "
-                                      "asserted between its members"})
-            continue
-        links += [{"from": senders[0], "to": m, "directed": True, "evidence": evidence} for m in ms if m != senders[0]]
+        low = min(RANK[role[m]] for m in ms)
+        sender = next(m for m in ms if RANK[role[m]] == low)
+        links += [{"from": sender, "to": m, "directed": True, "evidence": evidence} for m in ms if m != sender]
     return links, unresolved
 
 
@@ -661,7 +882,8 @@ def assemble(model, lines, roles=None):
             elif role.get(lk["to"]) == "relay":
                 finals += [(l2["to"], [lk, l2]) for l2 in outof[lk["to"]] if role.get(l2["to"]) == "final_element"]
         inner = [lk for lk in outof[c] if lk.get("cascade")]
-        traced = {lk["from"] for lk in meas} | {f for f, _ in finals} | {lk["to"] for lk in inner}
+        traced = {lk["from"] for lk in meas} | {f for f, _ in finals} | {lk["to"] for lk in inner} | \
+            {lk["to"] for _, path in finals for lk in path[:-1]}  # a relay on the way to the valve is traced
         group = [m for m in groups[ident[c]] if role[m] in MEASUREMENTS + ("final_element", "relay")
                  and m not in traced]  # (AIC 123A and
         # AIC 123D share loop 123 as two controllers; neither is a member of the other's loop)

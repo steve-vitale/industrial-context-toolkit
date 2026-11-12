@@ -260,25 +260,53 @@ there; it is an upper bound for clean drawings.
 
 Control loops come next ([`loop_assembly.py`](../../scripts/loop_assembly.py), `control_loops` in `plant_model.json`).
 Instruments are grouped by their ISA-5.1 loop identity (an area prefix such as `10-` and the loop number, read from
-the tags; `AIC 123A` and `AT 123` share loop 123), and each gets a role from its letters (controller, final element,
-transmitter, switch, indicator, relay). Membership is then confirmed or refuted by the signal lines traced from each
-sheet image (dashed lines between symbols; two lines that cross are not joined) and by instrument lines between two
-bubbles, joined across sheets only through an off-page pair. A `signal_to` needs a traced line, `controls`
-(controller to final element) needs a confirmed loop (a traced measurement in, a traced output out), and
-`sets_point_of` marks a cascade. A signal goes only from a role to the next one (a measurement to its controller, a
-controller to its valve), so a line that would skip a step, or a line end in reach of two bubbles, leaves its
-network unresolved instead, and so does a line between two items of one role (two valves, or one valve
-read twice). A loop that rests on its loop number alone stays `unconfirmed`, with the grouped
-tags listed for review; an item a traced line ties to another loop is listed as refuted and as a conflict. Every
-relation carries its evidence and an ordinal confidence tier (a cascade's direction, inferred from which controller
-is nearer a valve, has its own lower tier); `meta.loops_status` counts them, and `--no-loops` turns it off (the
-bundle is then what it was before, apart from the importer's own hash). The graph export does not carry loops yet
-([N122](../../docs/TRIED.md)): it lists `control_loops` under `not_exported`, where the item count is the number of
-keys in that block, not the number of loops. Nothing is taken from layout. On the development
-sheets ([scores](../../out/round6/loops_dev.md)) the generated TE revision D, read with its key's symbols, gives all
-19 of its control loops with no wrong one; revision A draws no controllers, so nothing is asserted. TE is drawn by
-this repository with clean, consistent tags, so that is an upper bound. Grouping by loop number and then tracing
-follows the public pid-to-kg skill (A409); the code here is the toolkit's own.
+the tags; `AIC 123A` and `AT 123` share loop 123), and each gets a role from its letters, read in ISA order (first
+letter, modifier, functions: `ZSC` is a closed-position switch, not a controller; `ESV` and `SV` are shut-off valves;
+`PSV`, `HS` and letters that do not parse get no loop role). Membership is then confirmed or refuted by the dashed
+signal lines traced from each sheet image, joined across sheets only through an off-page pair. The default is
+inverted: a relation is asserted only when every condition on one positive list holds (`signal_conditions` in the
+script): dashed lines only, at least two dash pieces, a stroke no thicker than the bubbles' outline pen or the sheet's
+pipes, no end in reach of two bubbles, every item with a loop role, a sender and its next receiver (a measurement to
+its controller, a controller to its valve or relay, or two controllers), and any ISA tag an off-page connector names
+reached by the joined lines. Two dashed lines that meet a pipe from either side are one line only when the dash
+pattern carries on in step through it. Anything else is listed under `unresolved_signal_networks` with the
+conditions it failed. `controls` (controller to final element) needs a confirmed loop (a traced measurement in, a
+traced output out, directly or through a relay), and `sets_point_of` marks a cascade. A loop that rests on its loop
+number alone stays `unconfirmed`, with the grouped tags listed for review; an item a traced line ties to another loop
+is listed as refuted and as a conflict. Every relation carries its evidence and an ordinal confidence tier (a
+cascade's direction, inferred from which controller is nearer a valve, has its own lower tier);
+`meta.loops_status` counts them, and `--no-loops` turns it off (the bundle is then what it was before, apart from the
+importer's own hash). The graph export does not carry loops yet ([N122](../../docs/TRIED.md)): it lists
+`control_loops` under `not_exported`, where the item count is the number of keys in that block, not the number of
+loops. Nothing is taken from layout. On the development sheets ([scores](../../out/round6/loops_dev.md)), which the
+rules were tuned against, the generated TE revision D, read with its key's symbols, gives all 19 of its control loops
+with no wrong one; revision A draws no controllers, so nothing is asserted. TE is drawn by this repository with clean,
+consistent tags, so that is an upper bound. Grouping by loop number and then tracing follows the public pid-to-kg
+skill (A409); the code here is the toolkit's own.
+
+Known false-assertion modes (two independent reviews built drawings and models to break the assembly; each case is a
+test in [`test_loop_assembly.py`](../../scripts/test_loop_assembly.py)):
+
+| Case | Before | Now |
+|---|---|---|
+| A controller's input and output joined at a corner beside its bubble | false `signal_to` T to V | two lines (fixed) |
+| A line end between two stacked bubbles | attached to both | attaches to neither, unresolved (fixed) |
+| A branching {T, C, V} line | false T to V | unresolved (fixed) |
+| One loop number in two units, no prefix | duplicate loop ids, false refuted members | scoped per sheet (fixed) |
+| Two dashed lines ending at a pipe from either side | merged, false `signal_to` across loops | two lines (fixed) |
+| One stroke between two stacked controllers | false cascade, `traced_direction_inferred` | unresolved (fixed) |
+| A thick process line broken into dash-sized pieces | false `signal_to` | unresolved, `thin_stroke` (fixed) |
+| `ZSO`/`ZSC` position switches beside an `XV` | `ZSC` read as a controller, false loop | switches, unresolved (fixed) |
+| Off-page connectors whose text names other instruments | loop confirmed through them | unresolved, `connector_text_agrees` (fixed) |
+| `PSV`, a plant-coded `MOV`, `TW` or `HS` on a controller line | undirected `signal_to` | unresolved, `known_roles` (fixed) |
+| An I/P relay on the way to the valve | relay listed as refuted | traced (fixed) |
+| Two dashed lines meeting a pipe in step with each other's dash pattern | would merge | open: the tracer cannot tell this from one line crossing |
+| Two dashed lines either side of a dashed horizontal line | merged into one line | open: merged; asserted as an undirected controller-to-controller `signal_to` when both ends are controllers |
+| One controller drawn on two sheets (`FIC 101` twice) with its valve reached through an off-page pair | false `loop_identity` conflict | open: the relation is right, the conflict is not |
+| A controller with its own valve fed by a second controller | cascade direction may be reversed | open: carried at the lower tier `traced_direction_inferred` |
+| Redundant transmitters `FT 3A`/`FT 3B` on one branch into a controller | no loop | known partial: unresolved, accepted |
+| A low-select relay (`FY`) fed by two controllers | no loop | known partial: unresolved, accepted |
+| One off-page connector in two pairs | both valves controlled | open: every line at a paired connector joins |
 
 Measured once on three public Pahala WWTP sheets (P-204, P-401, P-501, EPA docket): the reading took 183 s plus 9 s
 of tracing, giving 85 instruments. The second pass paired P-401 to P-501, where P-501 names P-401 only by its

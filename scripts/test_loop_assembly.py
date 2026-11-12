@@ -31,7 +31,7 @@ def model(instruments, connectors=(), pairs=(), line_items=()):
 
 def line(lid, members, sheet="0"):
     return {"id": lid, "sheet": sheet, "line_kind": "dashed_signal_line", "members": sorted(members),
-            "box_0_1000": [10.0, 10.0, 20.0, 20.0], "dashes": 5}
+            "box_0_1000": [10.0, 10.0, 20.0, 20.0], "dashes": 5, "stroke_px": 2, "pipe_px": 4.0, "outline_px": 2.0}
 
 
 def rel(block, typ):
@@ -121,8 +121,8 @@ class Assembly(unittest.TestCase):
         b = la.assemble(m, [line("L1", ["FT", "FV"])])
         self.assertEqual(b["loops"], [])
         self.assertEqual(rel(b, "controls"), set())
-        self.assertEqual(rel(b, "signal_to"), {("FT", "FV")})  # the drawn line is still reported, undirected
-        self.assertEqual(b["relations"][0]["direction"], "unknown")  # a transmitter does not signal a valve
+        self.assertEqual(b["relations"], [])  # a transmitter does not signal a valve: the line is for review
+        self.assertEqual(b["unresolved_signal_networks"][0]["failed_conditions"], ["role_order"])
         self.assertEqual(b["tag_groups_without_controller"][0]["loop_identity"], "201")
 
     def test_a_signal_line_across_a_loop_boundary_is_kept_as_a_conflict(self):
@@ -190,12 +190,13 @@ class Assembly(unittest.TestCase):
         self.assertEqual(mixed["relations"], [])
         self.assertEqual(len(mixed["unresolved_signal_networks"]), 1)
 
-    def test_a_solid_line_between_measuring_instruments_is_not_a_signal(self):
+    def test_a_solid_instrument_line_is_never_signal_evidence(self):
         m = model([inst("A", "PT 900A"), inst("B", "PT 900B"), inst("C", "FIC 901"), inst("T", "FT 901")])
         solid = {"id": "L1", "sheet": "0", "line_kind": "instrument_line", "members": ["A", "B"], "lines": ["S0-IL001"]}
         b = la.assemble(m, [solid, {**solid, "id": "L2", "members": ["C", "T"]}])
-        self.assertEqual(rel(b, "signal_to"), {("T", "C")})  # with a controller on it, a solid line is a signal
-        self.assertEqual(b["unresolved_signal_networks"][0]["members"], ["A", "B"])
+        self.assertEqual(b["relations"], [])  # an impulse line or a shared leader, even with a controller on it
+        self.assertEqual([u["members"] for u in b["unresolved_signal_networks"]], [["A", "B"], ["C", "T"]])
+        self.assertTrue(all("dashed_line" in u["failed_conditions"] for u in b["unresolved_signal_networks"]))
         short = {**line("L3", ["A", "B"]), "dashes": 1}  # a stroke between two stacked transmitters
         self.assertEqual(la.assemble(m, [short])["relations"], [])
 
@@ -525,6 +526,210 @@ class ReviewFindings(unittest.TestCase):
         self.assertEqual([x.get("ambiguous_ends") for x in lines], [[["V1", "V2"]], [["C", "T"]]])
         m = model([inst("T", "FT 9"), inst("C", "FIC 9"), inst("V1", "FV 9"), inst("V2", "FV 9B")])
         self.assertEqual(la.assemble(m, lines)["relations"], [])
+
+
+class ReReview(unittest.TestCase):
+    """The second independent review's drawings and models (fixtures adv.py, adv2.py, adv3.py), kept as permanent
+    tests. The false ones asserted wrong relations at the top tier before the positive list; the true ones must
+    still confirm. Each relation is asserted only when every signal_conditions() condition holds."""
+    D = DashedLines()
+    W, H = 1000, 600
+
+    def image(self, draw, tags, flip=None):
+        img, boxes = np.full((self.H, self.W), 255, np.uint8), {}
+        draw(img, boxes)
+        if flip == "h":
+            img = img[:, ::-1].copy()
+            boxes = {k: [self.W - b[2], b[1], self.W - b[0], b[3]] for k, b in boxes.items()}
+        if flip == "v":
+            img = img[::-1, :].copy()
+            boxes = {k: [b[0], self.H - b[3], b[2], self.H - b[1]] for k, b in boxes.items()}
+        with tempfile.TemporaryDirectory() as t:
+            p = Path(t) / "s.png"
+            cv2.imwrite(str(p), img)
+            r = la.dashed_signal_lines(p, self.D.syms(boxes))
+        lines = [{"id": f"L{i}", "sheet": "0", "line_kind": "dashed_signal_line", **x} for i, x in enumerate(r["lines"])]
+        return la.assemble(model([inst(k, v) for k, v in tags.items()]), lines)
+
+    def bub(self, img, boxes, k, x, y):
+        boxes[k] = self.D.bubble(img, x, y)
+
+    def dsh(self, img, pts, **k):
+        self.D.dashed(img, pts, **k)
+
+    def assert_false_case_unresolved(self, b, *pairs):
+        got = {(r["from"], r["to"]) for r in b["relations"]} | {(r["to"], r["from"]) for r in b["relations"]}
+        for pair in pairs:
+            self.assertNotIn(pair, got)
+
+    # ---- false relations the review found: now unresolved
+    def test_open_case_two_dashed_lines_ending_at_a_pipe_from_either_side_stay_apart(self):
+        for gap in (4, 10):
+            def draw(img, b):
+                self.bub(img, b, "C", 400, 100)
+                self.bub(img, b, "D", 400, 500)
+                cv2.line(img, (50, 300), (950, 300), 0, 4)
+                self.dsh(img, [(400, 125), (400, 300 - gap)])
+                self.dsh(img, [(400, 300 + gap), (400, 475)])
+            b = self.image(draw, {"C": "FIC 10", "D": "FV 11"})
+            self.assertEqual(b["relations"], [], gap)
+
+    def test_open_case_does_not_confirm_a_loop_through_a_pipe(self):
+        def draw(img, b):
+            self.bub(img, b, "T", 100, 100)
+            self.bub(img, b, "C", 400, 100)
+            self.bub(img, b, "D", 400, 500)
+            cv2.line(img, (50, 300), (950, 300), 0, 4)
+            self.dsh(img, [(125, 100), (375, 100)])
+            self.dsh(img, [(400, 125), (400, 296)])
+            self.dsh(img, [(400, 304), (400, 475)])
+        b = self.image(draw, {"T": "FT 10", "C": "FIC 10", "D": "FV 10"})
+        self.assertEqual(rel(b, "controls"), set())
+        self.assert_false_case_unresolved(b, ("C", "D"))
+        self.assertEqual(loop(b, "C")["status"], "partly_confirmed")  # the measurement is still traced
+
+    def test_a_dashed_line_crossing_a_pipe_in_step_is_still_one_line(self):
+        def draw(img, b):
+            self.bub(img, b, "C", 400, 100)
+            self.bub(img, b, "V", 400, 500)
+            self.dsh(img, [(400, 125), (400, 475)])
+            cv2.line(img, (50, 300), (950, 300), 0, 4)  # the pipe drawn over the signal line
+        b = self.image(draw, {"C": "FIC 12", "V": "FV 12"})
+        self.assertEqual(rel(b, "signal_to"), {("C", "V")})
+
+    def test_one_stroke_between_stacked_controllers_is_not_a_cascade(self):
+        def draw(img, b):
+            self.bub(img, b, "A", 400, 100)
+            self.bub(img, b, "B", 400, 170)
+            cv2.line(img, (400, 127), (400, 143), 0, 2)
+            self.bub(img, b, "TA", 100, 100)
+            self.dsh(img, [(125, 100), (375, 100)])
+            self.bub(img, b, "VB", 700, 170)
+            self.dsh(img, [(425, 170), (675, 170)])
+        b = self.image(draw, {"A": "TIC 50", "B": "FIC 51", "TA": "TT 50", "VB": "FV 51"})
+        self.assertEqual(rel(b, "sets_point_of"), set())
+        self.assert_false_case_unresolved(b, ("A", "B"))
+        self.assertIn(["A", "B"], [u["members"] for u in b["unresolved_signal_networks"]])
+        m = model([inst("T1", "TT 50"), inst("A", "TIC 50"), inst("T2", "FT 51"), inst("B", "FIC 51"),
+                   inst("V", "FV 51")])
+        b = la.assemble(m, [line("a", ["T1", "A"]), {**line("s", ["A", "B"]), "dashes": 1}, line("c", ["T2", "B"]),
+                            line("d", ["B", "V"])])
+        self.assertEqual(rel(b, "sets_point_of"), set())
+        self.assertEqual(loop(b, "A")["status"], "partly_confirmed")
+
+    def test_a_thick_broken_process_line_is_not_a_signal(self):
+        for tags in ({"C": "PIC 71", "V": "PV 72"}, {"C": "FT 70", "V": "FV 70"}):
+            def draw(img, b):
+                self.bub(img, b, "C", 100, 300)
+                self.bub(img, b, "V", 700, 300)
+                for x in range(125, 675, 17):
+                    cv2.line(img, (x, 300), (x + 13, 300), 0, 4)
+            b = self.image(draw, tags)
+            self.assertEqual(b["relations"], [], tags)
+            self.assertIn("thin_stroke", b["unresolved_signal_networks"][0]["failed_conditions"])
+
+    def test_position_switches_on_an_on_off_valve_are_switches_not_a_controller(self):
+        self.assertEqual(la.role_of("ZSC"), "switch")
+        self.assertEqual(la.role_of("ZSO"), "switch")
+        self.assertEqual(la.role_of("PSC"), "switch")
+        m = model([inst("O", "ZSO 7"), inst("C", "ZSC 7"), inst("V", "XV 7")])
+        b = la.assemble(m, [{**line("a", ["O", "C"]), "dashes": 2}, line("b", ["C", "V"])])
+        self.assertEqual(b["relations"], [])
+        self.assertEqual(b["loops"], [])
+
+        def draw(img, b):
+            self.bub(img, b, "ZO", 300, 150)
+            self.bub(img, b, "ZC", 300, 220)
+            cv2.line(img, (300, 177), (300, 193), 0, 2)
+            self.bub(img, b, "XV", 600, 220)
+            self.dsh(img, [(325, 220), (575, 220)])
+            self.bub(img, b, "HS", 600, 450)
+            self.dsh(img, [(600, 425), (600, 245)])
+        b = self.image(draw, {"ZO": "ZSO 101", "ZC": "ZSC 101", "XV": "XV 101", "HS": "HS 101"})
+        self.assertEqual(b["relations"], [])
+
+    def test_off_page_text_naming_other_instruments_does_not_join_a_loop(self):
+        def m3(text_a, text_b):
+            return model([inst("T", "FT 401"), inst("C", "FIC 401"), inst("V", "LV 777", sheet="1")],
+                         connectors=[{"id": "O0", "text": text_a}, {"id": "O1", "text": text_b}],
+                         pairs=[{"id": "XP", "a": "O0", "b": "O1", "sheet_a": "0", "sheet_b": "1", "method": "x",
+                                 "text_a": text_a, "text_b": text_b}])
+        lines = [line("a", ["T", "C"]), line("b", ["C", "O0"]), line("c", ["O1", "V"], "1")]
+        b = la.assemble(m3("TO FV 401", "FROM LIC 777"), lines)
+        self.assertEqual(rel(b, "controls"), set())
+        self.assert_false_case_unresolved(b, ("C", "V"))
+        bad = next(u for u in b["unresolved_signal_networks"] if "V" in u["members"])
+        self.assertEqual(bad["failed_conditions"], ["connector_text_agrees", "connector_text_agrees"])
+        b = la.assemble(m3("SIG PID 2 / TO LV 777", "FROM FIC 401"), lines)  # the texts agree with the lines
+        self.assertEqual(rel(b, "controls"), {("C", "V")})
+        b = la.assemble(m3("SIG PID 2", "SIG PID 1"), lines)  # no ISA tag named: the pair alone decides
+        self.assertEqual(rel(b, "controls"), {("C", "V")})
+
+    def test_a_relief_valve_or_a_plant_coded_valve_on_a_controller_line_is_not_a_signal(self):
+        for item in (inst("P", "PSV 80"), inst("P", "MOV 81", instrument_kind="operated valve"),
+                     inst("P", "TW 82")):
+            b = la.assemble(model([inst("C", "PIC 80"), item]), [line("a", ["C", "P"])])
+            self.assertEqual(b["relations"], [], item["tag"])
+            self.assertEqual(b["unresolved_signal_networks"][0]["failed_conditions"], ["known_roles"])
+        b = la.assemble(model([inst("H", "HS 82"), inst("V", "HV 82")]), [line("a", ["H", "V"])])
+        self.assertEqual(b["relations"], [])
+
+    # ---- true loops: still confirmed
+    def test_a_transmitter_through_an_indicator_to_a_controller_confirms(self):
+        m = model([inst("T", "LT 7"), inst("I", "LI 7"), inst("C", "LIC 7"), inst("V", "LV 7")])
+        b = la.assemble(m, [line("a", ["T", "I"]), line("b", ["I", "C"]), line("c", ["C", "V"])])
+        self.assertEqual(loop(b, "C")["status"], "confirmed")
+        self.assertEqual(rel(b, "controls"), {("C", "V")})
+
+    def test_an_i_p_relay_on_the_way_to_the_valve_is_traced_not_refuted(self):
+        m = model([inst("T", "FT 8"), inst("C", "FIC 8"), inst("Y", "FY 8"), inst("V", "FV 8")])
+        b = la.assemble(m, [line("a", ["T", "C"]), line("b", ["C", "Y"]), line("c", ["Y", "V"])])
+        lp = loop(b, "C")
+        self.assertEqual(lp["status"], "confirmed")
+        self.assertEqual(lp["final_elements"][0]["via"], ["Y"])
+        self.assertEqual(lp["tag_grouping_refuted"], [])
+        self.assertEqual(b["conflicts"], [])
+
+    def test_frc_fcv_ait_and_a_suffixed_tic_confirm(self):
+        for tags in (("FT 12", "FRC 12", "FCV 12"), ("AIT 14", "AIC 14", "AV 14"), ("TT 13", "TIC 13A", "TV 13"),
+                     ("PDT 15", "PDIC 15", "PDV 15"), ("FT 16", "FFIC 16", "FV 16")):
+            m = model([inst("T", tags[0]), inst("C", tags[1]), inst("V", tags[2])])
+            b = la.assemble(m, [line("a", ["T", "C"]), line("b", ["C", "V"])])
+            self.assertEqual(loop(b, "C")["status"], "confirmed", tags)
+            self.assertEqual(rel(b, "controls"), {("C", "V")}, tags)
+
+    def test_mirrored_straight_and_dog_leg_loops_confirm(self):
+        def straight(img, b):
+            self.bub(img, b, "T", 100, 100)
+            self.bub(img, b, "C", 400, 100)
+            self.bub(img, b, "V", 400, 400)
+            self.dsh(img, [(125, 100), (375, 100)])
+            self.dsh(img, [(400, 125), (400, 375)])
+
+        def dogleg(img, b):
+            self.bub(img, b, "T", 100, 500)
+            self.bub(img, b, "C", 400, 100)
+            self.bub(img, b, "V", 800, 400)
+            self.dsh(img, [(100, 475), (100, 100), (375, 100)])
+            self.dsh(img, [(425, 100), (800, 100), (800, 375)])
+        for draw in (straight, dogleg):
+            for flip in (None, "h", "v"):
+                b = self.image(draw, {"T": "FT 60", "C": "FIC 60", "V": "FV 60"}, flip)
+                self.assertEqual(rel(b, "controls"), {("C", "V")}, (draw.__name__, flip))
+                self.assertEqual(loop(b, "C")["status"], "confirmed", (draw.__name__, flip))
+
+    # ---- known partial cases (unresolved is the accepted answer; listed in the README)
+    def test_known_partial_redundant_transmitters_and_a_low_select_stay_unresolved(self):
+        m = model([inst("A", "FT 3A"), inst("B", "FT 3B"), inst("C", "FIC 3"), inst("V", "FV 3")])
+        b = la.assemble(m, [line("a", ["A", "B", "C"]), line("b", ["C", "V"])])
+        self.assertEqual(rel(b, "controls"), set())
+        self.assertIn(["A", "B", "C"], [u["members"] for u in b["unresolved_signal_networks"]])
+        m = model([inst("T1", "PT 4"), inst("P", "PIC 4"), inst("T2", "FT 4"), inst("F", "FIC 4"), inst("Y", "FY 4"),
+                   inst("V", "FV 4")])
+        b = la.assemble(m, [line("a", ["T1", "P"]), line("b", ["T2", "F"]), line("c", ["P", "F", "Y"]),
+                            line("d", ["Y", "V"])])
+        self.assertEqual(rel(b, "controls"), set())
+        self.assertIn(["F", "P", "Y"], [u["members"] for u in b["unresolved_signal_networks"]])
 
 
 class Scorer(unittest.TestCase):

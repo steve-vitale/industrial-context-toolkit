@@ -64,9 +64,10 @@ count as delivered.
   *Qualification added 2026-11-11 (A410):* the dashed signal-line tracer behind increment 3 was developed on TE
   revision D, the only development sheets that draw controllers and signal lines, so its loop scores there are
   development fits as well as upper bounds. Revision A draws no loops and OPEN100 0-5 draw no controllers; both
-  check that nothing is asserted, and OPEN100 0-5 is a development fit too: the rule that a solid or very short line
-  between measuring instruments is a shared leader, not a signal, was added after the first version asserted 10-17
-  false signal_to per OPEN100 reading.
+  check that nothing is asserted, and OPEN100 0-5 is a development fit too: the first version asserted 10-17 false
+  signal_to per OPEN100 reading through solid instrument lines, and solid lines are now never signal evidence. The
+  positive list of signal conditions was then shaped by two independent reviews' synthetic drawings, which are tests,
+  not scores.
 - Keep a change only if its relation score rises beyond the run and sheet spread on development, and review load
   does not rise beyond its spread. Record every attempt in `data/attempts.json`, kept or not.
 - Corpus-matrix cells bound to changed code are re-recorded from a fresh clone. Statuses that change must be
