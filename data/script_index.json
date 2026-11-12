@@ -192,6 +192,10 @@
       "kind": "check",
       "guide": "docs/REVIEWING.md"
     },
+    "scripts/recheck_flagged.py": {
+      "kind": "research",
+      "purpose": "A412 (rejected): a narrow same-model re-check of the symbols the pipeline already flags on OPEN100 0-5, scored by review load beside accept-all, reject-all, oracle and scorer controls."
+    },
     "scripts/rescore.py": {
       "kind": "check",
       "guide": "docs/REVIEWING.md"

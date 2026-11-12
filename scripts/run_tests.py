@@ -130,6 +130,7 @@ FULL_ONLY_TESTS = (
     "scripts/test_te_channels.py",
     "scripts/test_along_line.py",
     "scripts/test_trace_connections_v2.py",
+    "scripts/test_recheck_flagged.py",
     "scripts/test_scan_cleanup.py",
     "scripts/test_line_layers.py",
     "scripts/test_drawing_set_intake.py",
