@@ -164,11 +164,11 @@ def ocr_engine():
         import cv2  # noqa: F401  (text isolation and scaling)
         import numpy  # noqa: F401
     except ImportError:
-        return None, None, "OCR hints need NumPy and OpenCV (pip install -r requirements.txt)"
+        return None, None, "OCR hints not made: NumPy and OpenCV are not installed (pip install -r requirements.txt)"
     import extract_text
     tess = extract_text._tesseract()
     if not tess:
-        return None, None, "OCR hints need " + extract_text._not_found("tesseract", "Tesseract OCR")
+        return None, None, "OCR hints not made: " + extract_text._not_found("tesseract", "Tesseract OCR")
     return tess, extract_text._tool_version(tess, "--version", r"tesseract v?([\w.\-]+)"), None
 
 
@@ -180,7 +180,8 @@ def render_page(page):
     for img in page.get_images(full=True):
         for rect in page.get_image_rects(img[0]):
             if rect.width > 0 and rect.get_area() > best:
-                best, dpi = rect.get_area(), img[2] * 72 / rect.width
+                # the longer sides pair up even when the image is placed rotated by 90 degrees
+                best, dpi = rect.get_area(), max(img[2], img[3]) * 72 / max(rect.width, rect.height)
     if best < 0.5 * page.rect.get_area():
         dpi = OCR_DPI
     pixels = page.rect.width * page.rect.height * (dpi / 72) ** 2
@@ -232,6 +233,7 @@ def ocr_words(gray, tess):
     text, glyph, cleaned = isolate_text(gray)
     OCR_INTERPOLATION = cv2.INTER_LINEAR if OCR_INTERP == "linear" else cv2.INTER_CUBIC
     scale = min(OCR_MAX_SCALE, max(1.0, OCR_GLYPH_PX / glyph))
+    scale = min(scale, max(1.0, (OCR_MAX_PIXELS / (text.shape[0] * text.shape[1])) ** 0.5))  # pixel cap after scaling
     if scale > 1:
         text = cv2.resize(text, None, fx=scale, fy=scale, interpolation=OCR_INTERPOLATION)
     with tempfile.TemporaryDirectory() as tmp:
@@ -308,8 +310,10 @@ def check(bundle, pdf, pages, ocr="off"):
             try:
                 hints, render = page_hints(p, tess)
                 entry["ocr_hints"] = compare_hints(hints, extracted, render)
-            except (ValueError, OSError) as error:  # the page keeps its "needs OCR" entry; the reason is recorded
-                result["ocr"].setdefault("errors", []).append({"sheet": sheet, "page": page, "error": str(error)})
+            except Exception as error:  # noqa: BLE001  any OCR failure (cv2.error, MemoryError, a tesseract
+                # refusal) leaves this page's "needs OCR" entry and every text-layer result as they are
+                result["ocr"].setdefault("errors", []).append(
+                    {"sheet": sheet, "page": page, "error": f"{type(error).__name__}: {error}"})
         result["sheets"].append({"sheet": sheet, "page": page, **entry})
     doc.close()
     return result
@@ -376,7 +380,7 @@ def main(argv=None):
     (out / "tag_check.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8", newline="\n")
     (out / "tag_check.md").write_text(markdown(result), encoding="utf-8", newline="\n")
     if result.get("ocr", {}).get("unavailable"):
-        print(f"OCR hints not made: {result['ocr']['unavailable']}", file=sys.stderr)
+        print(result["ocr"]["unavailable"], file=sys.stderr)
     for e in result.get("ocr", {}).get("errors", []):
         print(f"OCR hints not made for sheet {e['sheet']} (page {e['page']}): {e['error']}", file=sys.stderr)
     for s in result["sheets"]:

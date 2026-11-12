@@ -289,8 +289,8 @@ For a page without a text layer, `--ocr auto` adds **OCR tag hints** when the Te
 (see [dependencies](../../docs/DEPENDENCIES.md)). The page image is read by OCR and the same tag rules run on its
 words. Hints are listed separately (`ocr_hints` in the JSON, "OCR hints (not verified tags)" in the report), each
 with the OCR confidence (0-100) and its box. The page stays "not checked": a hint is never reported as a matched,
-missed or misread tag, and an extracted tag with no hint is not a sign of a misread. Without Tesseract the output
-is the same as without `--ocr`, and `ocr` in the JSON says what is missing.
+missed or misread tag, and an extracted tag with no hint is not a sign of a misread. Without Tesseract every
+sheet and the report are the same as without `--ocr`, and `ocr` in the JSON says what is missing.
 
 ```sh
 python scripts/pdf_tag_check.py --bundle my-bundle --pdf scan.pdf --pages 1 --out my-tag-check --ocr auto
@@ -298,8 +298,8 @@ python scripts/pdf_tag_check.py --bundle my-bundle --pdf scan.pdf --pages 1 --ou
 
 Measured on development drawings with their text removed ([scores](../../out/round6/ocr_tag_hints_dev.md)):
 84-98% of the key tags on the generated TE sheets and 70-74% on Pahala P-401/P-501 came back as hints in the right
-place, and every hint with confidence 80 or more was right. On synthetic old-scan copies it found 30% at the
-lightest level and nothing useful beyond it, so it is not shown to help poor archive scans. Text touching a
+place, and on those clean renders every hint with confidence 80 or more was right (83 of 83). On synthetic
+old-scan copies it found 30% at the lightest level (8 of 9 confident hints right) and nothing useful beyond it, so it is not shown to help poor archive scans. Text touching a
 bubble or line, or much larger than the page's usual text, is dropped.
 
 ## 4. Review, then map to real signals

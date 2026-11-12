@@ -144,7 +144,32 @@ class OcrHints(unittest.TestCase):
             with mock.patch.object(t, "ocr_engine", return_value=("tesseract", "5", None)),                     mock.patch.object(t, "page_hints", side_effect=ValueError("tesseract could not read the page")):
                 failed = t.check(bundle, pdf, [1], ocr="auto")
             self.assertEqual(failed["sheets"], off["sheets"])  # a failed OCR run leaves the page as "needs OCR"
-            self.assertEqual(failed["ocr"]["errors"][0]["error"], "tesseract could not read the page")
+            self.assertEqual(failed["ocr"]["errors"][0]["error"], "ValueError: tesseract could not read the page")
+            self.assertTrue(missing["ocr"]["unavailable"].startswith("OCR hints not made: no tesseract program found"))
+            for crash in (MemoryError("render too large"), RuntimeError("cv2.error: resize failed")):
+                with mock.patch.object(t, "ocr_engine", return_value=("tesseract", "5", None)),                         mock.patch.object(t, "page_hints", side_effect=crash):
+                    crashed = t.check(bundle, pdf, [1], ocr="auto")
+                self.assertEqual(crashed["sheets"], off["sheets"])  # the run completes; the page stays "needs OCR"
+                self.assertEqual(crashed["ocr"]["errors"][0]["error"], f"{type(crash).__name__}: {crash}")
+
+
+class RenderResolution(unittest.TestCase):
+    def test_a_rotated_scan_is_rendered_at_its_own_resolution(self):
+        try:
+            import pymupdf
+            import numpy  # noqa: F401
+        except ImportError:
+            self.skipTest("SKIP PyMuPDF/NumPy not installed")
+        with tempfile.TemporaryDirectory() as tmp:
+            png = os.path.join(tmp, "wide.png")
+            pymupdf.Pixmap(pymupdf.csGRAY, pymupdf.IRect(0, 0, 400, 200), False).save(png)  # 400 x 200 px
+            doc = pymupdf.open()
+            page = doc.new_page(width=100, height=200)  # placed turned a quarter: 200 pt tall for the 400 px side
+            page.insert_image(page.rect, filename=png, rotate=90)
+            gray, dpi = t.render_page(page)
+            doc.close()
+        self.assertAlmostEqual(dpi, 144, delta=1)  # 400 px over 200 pt, not 400 px over 100 pt
+        self.assertEqual(gray.shape[1], 200)
 
 
 def tesseract_found():
