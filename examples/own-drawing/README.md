@@ -258,6 +258,22 @@ OPEN100 pipe segments and 30% of those on Pahala P-401/P-501 are directed. On th
 direction matched the model's streams, but those sheets are drawn left to right, so a layout guess also scores high
 there; it is an upper bound for clean drawings.
 
+Control loops come next ([`loop_assembly.py`](../../scripts/loop_assembly.py), `control_loops` in `plant_model.json`).
+Instruments are grouped by their ISA-5.1 loop identity (an area prefix such as `10-` and the loop number, read from
+the tags; `AIC 123A` and `AT 123` share loop 123), and each gets a role from its letters (controller, final element,
+transmitter, switch, indicator, relay). Membership is then confirmed or refuted by the signal lines traced from each
+sheet image (dashed lines between symbols; two lines that cross are not joined) and by instrument lines between two
+bubbles, joined across sheets only through an off-page pair. A `signal_to` needs a traced line, `controls`
+(controller to final element) needs a confirmed loop (a traced measurement in, a traced output out), and
+`sets_point_of` marks a cascade. A loop that rests on its loop number alone stays `unconfirmed`, with the grouped
+tags listed for review; an item a traced line ties to another loop is listed as refuted and as a conflict. Every
+relation carries its evidence and an ordinal confidence tier; `meta.loops_status` counts them, and `--no-loops`
+turns it off (the bundle is then exactly what it was before). Nothing is taken from layout. On the development
+sheets ([scores](../../out/round6/loops_dev.md)) the generated TE revision D, read with its key's symbols, gives all
+19 of its control loops with no wrong one; revision A draws no controllers, so nothing is asserted. TE is drawn by
+this repository with clean, consistent tags, so that is an upper bound. Grouping by loop number and then tracing
+follows the public pid-to-kg skill (A409); the code here is the toolkit's own.
+
 Measured once on three public Pahala WWTP sheets (P-204, P-401, P-501, EPA docket): the reading took 183 s plus 9 s
 of tracing, giving 85 instruments. The second pass paired P-401 to P-501, where P-501 names P-401 only by its
 title. P-401's reference to P-204 stayed unpaired because P-204's outlet names a different destination. The

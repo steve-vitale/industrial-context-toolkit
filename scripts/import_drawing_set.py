@@ -2,7 +2,8 @@
 
 The drawing-set sibling of import_site_drawing.py. It validates each sheet exactly as the one-sheet intake does,
 builds one model across the set (build_twin.py), and pairs off-page connectors across sheets. It never calls a
-model, traces, scores, connects signals or approves operations. Input schema: site-drawing-set-1. See --help.
+model, scores or approves operations; the code tracing it does (line layers, flow marks, signal lines) reads only
+the supplied sheet images. Input schema: site-drawing-set-1. See --help.
 
 Cross-sheet pairing runs in two passes, each recorded on the pair as its method:
   1. build_twin.py's own in-model pass, for references written like "PID 140-1".
@@ -33,6 +34,16 @@ otherwise) with the run's segments and valves in order and every observation on 
 mistaken for missing evidence. Any other item, a junction or a valve with three or more segments ends a run. Nothing is inferred from layout (left to right, top to bottom),
 and a flow direction is not isolation or lockout guidance. meta.flow_direction_status counts all three.
 --no-flow-direction turns it off.
+
+Control loops and signal relations (scripts/loop_assembly.py) are added as `control_loops`: instruments grouped by
+their ISA-5.1 loop identity (area prefix and loop number read from the tag), roles from the ISA letters, and signal
+lines traced from each sheet image (dashed lines between symbols) and from the line layer (instrument lines with an
+instrument at both ends), joined across sheets only through paired off-page connectors. A signal_to relation needs
+a traced line; controls (controller -> final element) needs a confirmed loop, a traced measurement into the
+controller and a traced output to the element; sets_point_of joins a cascade's outer controller to the inner one.
+Tag grouping without a traced line stays an unconfirmed loop member, never a relation; nothing comes from layout.
+Every relation carries its evidence and an ordinal confidence tier. meta.loops_status counts them. When no tag reads
+as an ISA-5.1 instrument with a loop role, nothing is written. --no-loops turns it off.
 """
 import argparse
 import json
@@ -468,7 +479,13 @@ def add_flow_direction(model, source):
             "limit": "drawn flow direction for review, not isolation or lockout guidance"}
 
 
-def import_set(manifest_path, out, check_only=False, line_layers=True, flow_direction=True):
+def add_loops(model, source):
+    """Control loops and signal relations (scripts/loop_assembly.py, module docstring); a status record."""
+    import loop_assembly
+    return loop_assembly.add_loops(model, source)
+
+
+def import_set(manifest_path, out, check_only=False, line_layers=True, flow_direction=True, loops=True):
     out, raw_manifest, producer, loaded, provenance = load_set(manifest_path, out)
     drawings = [s["drawing"] for s in loaded]
     if check_only:
@@ -523,6 +540,9 @@ def import_set(manifest_path, out, check_only=False, line_layers=True, flow_dire
         model["meta"]["line_layers_status"] = layers
         if flow_direction and layers["status"] == "added":
             model["meta"]["flow_direction_status"] = add_flow_direction(model, source)
+        loop_status = add_loops(model, source) if loops else {"status": "not requested"}
+        if loop_status["status"] == "added":
+            model["meta"]["loops_status"] = loop_status
         one.write_json(stage / "plant_model.json", model)
         one.write_json(stage / "intake_manifest.json", provenance)
         (stage / "READ_ME.txt").write_text("UNVERIFIED LOCAL REVIEW BUNDLE (DRAWING SET)\n\n" + "\n".join(LIMITATIONS)
@@ -534,6 +554,7 @@ def import_set(manifest_path, out, check_only=False, line_layers=True, flow_dire
                 **({"flow_direction": {k: v for k, v in model["meta"]["flow_direction_status"].items()
                                        if k not in ("arrowheads_found", "conflict_segments")}}
                    if "flow_direction_status" in model["meta"] else {}),
+                **({"loops": loop_status} if loops else {}),
                 "operational_export_allowed": False, "limitations": LIMITATIONS}
     finally:
         if stage.exists():
@@ -553,10 +574,12 @@ def main(argv=None):
     parser.add_argument("--no-line-layers", action="store_true", help="skip the drawn pipe and instrument layers")
     parser.add_argument("--no-flow-direction", action="store_true",
                         help="leave every pipe segment undirected (no drawn flow-direction evidence)")
+    parser.add_argument("--no-loops", action="store_true",
+                        help="no control loops or signal relations (the bundle is then exactly increment 2's)")
     args = parser.parse_args(argv)
     try:
         result = import_set(args.manifest, args.out, args.check_only, line_layers=not args.no_line_layers,
-                            flow_direction=not args.no_flow_direction)
+                            flow_direction=not args.no_flow_direction, loops=not args.no_loops)
     except (ValueError, OSError, TypeError, KeyError, OverflowError, RecursionError) as error:
         parser.exit(2, f"Drawing set intake failed: {error}\n")
     print(json.dumps(result, indent=2, allow_nan=False))

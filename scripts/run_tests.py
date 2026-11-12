@@ -84,6 +84,7 @@ SOURCE_TESTS = (
     "scripts/test_offpage_pairing.py",
     "scripts/test_pdf_tag_check.py",
     "scripts/test_flow_direction_score.py",
+    "scripts/test_loop_assembly.py",
     "scripts/test_extract_text.py",
     "scripts/test_evaluate_vendor.py",
     "scripts/test_drawing_case.py",

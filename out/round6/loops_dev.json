@@ -1,0 +1,4090 @@
+{
+ "script": "scripts/loop_score.py",
+ "goal": "docs/GOAL_ROUND6.md increment 3",
+ "held_out_not_read": "OPEN100 sheets 6-11, the DEXPI held-out renders, Pahala sheets other than P-401/P-501",
+ "key_loops": 19,
+ "shuffle_seed": 0,
+ "sets": {
+  "te-a": {
+   "key": "data/te_control_loops.json (19 running loops: 11 valve, 8 cascade)",
+   "drawn": "no controllers or signal lines",
+   "runs": {
+    "key symbols + tracer": {
+     "loops_status": {
+      "status": "added",
+      "loops": 1,
+      "confirmed": 0,
+      "partly_confirmed": 0,
+      "unconfirmed": 1,
+      "cascades": 0,
+      "signal_to": 0,
+      "controls": 0,
+      "sets_point_of": 0,
+      "signal_lines": 0,
+      "unresolved_signal_networks": 0,
+      "tag_groups_without_controller": 0,
+      "conflicts": 0
+     },
+     "counts": {
+      "loops": 1,
+      "confirmed": 0,
+      "partly_confirmed": 0,
+      "unconfirmed": 1,
+      "cascades": 0,
+      "signal_to": 0,
+      "controls": 0,
+      "sets_point_of": 0,
+      "signal_lines": 0,
+      "unresolved_signal_networks": 0,
+      "tag_groups_without_controller": 0,
+      "conflicts": 0
+     },
+     "bundle_identical_without_loops": true,
+     "score": {
+      "controllers": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "sensor": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "final": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 11,
+       "precision": null,
+       "recall": 0.0
+      },
+      "cascade": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 8,
+       "precision": null,
+       "recall": 0.0
+      },
+      "loops": {
+       "valve_loops": "0/11",
+       "cascades": "0/8",
+       "recall": 0.0,
+       "asserted": 0,
+       "precision": null,
+       "missed": [
+        "C1",
+        "C10",
+        "C11",
+        "C13",
+        "C14",
+        "C15",
+        "C16",
+        "C17",
+        "C18",
+        "C19",
+        "C2",
+        "C20",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9"
+       ]
+      }
+     },
+     "controls": {
+      "perfect": {
+       "controllers": {
+        "tp": 19,
+        "asserted": 19,
+        "key": 19,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "sensor": {
+        "tp": 19,
+        "asserted": 19,
+        "key": 19,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "final": {
+        "tp": 11,
+        "asserted": 11,
+        "key": 11,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "cascade": {
+        "tp": 8,
+        "asserted": 8,
+        "key": 8,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "loops": {
+        "valve_loops": "11/11",
+        "cascades": "8/8",
+        "recall": 1.0,
+        "asserted": 19,
+        "precision": 1.0,
+        "missed": []
+       }
+      },
+      "empty": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 0,
+        "precision": null,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      },
+      "shuffled_roles": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 0,
+        "precision": null,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      },
+      "tag_only": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 1,
+        "key": 19,
+        "precision": 0.0,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 1,
+        "precision": 0.0,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      }
+     },
+     "signal_lines_vs_drawn": {
+      "tp": 0,
+      "asserted": 0,
+      "key": 0,
+      "precision": null,
+      "recall": null
+     }
+    },
+    "te-clean-trace-r1/claude": {
+     "loops_status": {
+      "status": "added",
+      "loops": 1,
+      "confirmed": 0,
+      "partly_confirmed": 0,
+      "unconfirmed": 1,
+      "cascades": 0,
+      "signal_to": 0,
+      "controls": 0,
+      "sets_point_of": 0,
+      "signal_lines": 0,
+      "unresolved_signal_networks": 0,
+      "tag_groups_without_controller": 11,
+      "conflicts": 0
+     },
+     "counts": {
+      "loops": 1,
+      "confirmed": 0,
+      "partly_confirmed": 0,
+      "unconfirmed": 1,
+      "cascades": 0,
+      "signal_to": 0,
+      "controls": 0,
+      "sets_point_of": 0,
+      "signal_lines": 0,
+      "unresolved_signal_networks": 0,
+      "tag_groups_without_controller": 11,
+      "conflicts": 0
+     },
+     "bundle_identical_without_loops": true,
+     "score": {
+      "controllers": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "sensor": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "final": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 11,
+       "precision": null,
+       "recall": 0.0
+      },
+      "cascade": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 8,
+       "precision": null,
+       "recall": 0.0
+      },
+      "loops": {
+       "valve_loops": "0/11",
+       "cascades": "0/8",
+       "recall": 0.0,
+       "asserted": 0,
+       "precision": null,
+       "missed": [
+        "C1",
+        "C10",
+        "C11",
+        "C13",
+        "C14",
+        "C15",
+        "C16",
+        "C17",
+        "C18",
+        "C19",
+        "C2",
+        "C20",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9"
+       ]
+      }
+     },
+     "controls": {
+      "perfect": {
+       "controllers": {
+        "tp": 19,
+        "asserted": 19,
+        "key": 19,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "sensor": {
+        "tp": 19,
+        "asserted": 19,
+        "key": 19,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "final": {
+        "tp": 11,
+        "asserted": 11,
+        "key": 11,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "cascade": {
+        "tp": 8,
+        "asserted": 8,
+        "key": 8,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "loops": {
+        "valve_loops": "11/11",
+        "cascades": "8/8",
+        "recall": 1.0,
+        "asserted": 19,
+        "precision": 1.0,
+        "missed": []
+       }
+      },
+      "empty": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 0,
+        "precision": null,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      },
+      "shuffled_roles": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 0,
+        "precision": null,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      },
+      "tag_only": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 1,
+        "key": 19,
+        "precision": 0.0,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 1,
+        "precision": 0.0,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      }
+     },
+     "signal_lines_vs_drawn": {
+      "tp": 0,
+      "asserted": 0,
+      "key": 0,
+      "precision": null,
+      "recall": null
+     }
+    },
+    "te-clean-trace-r1/codex": {
+     "loops_status": {
+      "status": "added",
+      "loops": 1,
+      "confirmed": 0,
+      "partly_confirmed": 0,
+      "unconfirmed": 1,
+      "cascades": 0,
+      "signal_to": 0,
+      "controls": 0,
+      "sets_point_of": 0,
+      "signal_lines": 0,
+      "unresolved_signal_networks": 0,
+      "tag_groups_without_controller": 0,
+      "conflicts": 0
+     },
+     "counts": {
+      "loops": 1,
+      "confirmed": 0,
+      "partly_confirmed": 0,
+      "unconfirmed": 1,
+      "cascades": 0,
+      "signal_to": 0,
+      "controls": 0,
+      "sets_point_of": 0,
+      "signal_lines": 0,
+      "unresolved_signal_networks": 0,
+      "tag_groups_without_controller": 0,
+      "conflicts": 0
+     },
+     "bundle_identical_without_loops": true,
+     "score": {
+      "controllers": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "sensor": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "final": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 11,
+       "precision": null,
+       "recall": 0.0
+      },
+      "cascade": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 8,
+       "precision": null,
+       "recall": 0.0
+      },
+      "loops": {
+       "valve_loops": "0/11",
+       "cascades": "0/8",
+       "recall": 0.0,
+       "asserted": 0,
+       "precision": null,
+       "missed": [
+        "C1",
+        "C10",
+        "C11",
+        "C13",
+        "C14",
+        "C15",
+        "C16",
+        "C17",
+        "C18",
+        "C19",
+        "C2",
+        "C20",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9"
+       ]
+      }
+     },
+     "controls": {
+      "perfect": {
+       "controllers": {
+        "tp": 19,
+        "asserted": 19,
+        "key": 19,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "sensor": {
+        "tp": 19,
+        "asserted": 19,
+        "key": 19,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "final": {
+        "tp": 11,
+        "asserted": 11,
+        "key": 11,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "cascade": {
+        "tp": 8,
+        "asserted": 8,
+        "key": 8,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "loops": {
+        "valve_loops": "11/11",
+        "cascades": "8/8",
+        "recall": 1.0,
+        "asserted": 19,
+        "precision": 1.0,
+        "missed": []
+       }
+      },
+      "empty": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 0,
+        "precision": null,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      },
+      "shuffled_roles": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 0,
+        "precision": null,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      },
+      "tag_only": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 1,
+        "key": 19,
+        "precision": 0.0,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 1,
+        "precision": 0.0,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      }
+     },
+     "signal_lines_vs_drawn": {
+      "tp": 0,
+      "asserted": 0,
+      "key": 0,
+      "precision": null,
+      "recall": null
+     }
+    },
+    "te-clean-trace-r2/claude": {
+     "loops_status": {
+      "status": "added",
+      "loops": 1,
+      "confirmed": 0,
+      "partly_confirmed": 0,
+      "unconfirmed": 1,
+      "cascades": 0,
+      "signal_to": 0,
+      "controls": 0,
+      "sets_point_of": 0,
+      "signal_lines": 0,
+      "unresolved_signal_networks": 0,
+      "tag_groups_without_controller": 11,
+      "conflicts": 0
+     },
+     "counts": {
+      "loops": 1,
+      "confirmed": 0,
+      "partly_confirmed": 0,
+      "unconfirmed": 1,
+      "cascades": 0,
+      "signal_to": 0,
+      "controls": 0,
+      "sets_point_of": 0,
+      "signal_lines": 0,
+      "unresolved_signal_networks": 0,
+      "tag_groups_without_controller": 11,
+      "conflicts": 0
+     },
+     "bundle_identical_without_loops": true,
+     "score": {
+      "controllers": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "sensor": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "final": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 11,
+       "precision": null,
+       "recall": 0.0
+      },
+      "cascade": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 8,
+       "precision": null,
+       "recall": 0.0
+      },
+      "loops": {
+       "valve_loops": "0/11",
+       "cascades": "0/8",
+       "recall": 0.0,
+       "asserted": 0,
+       "precision": null,
+       "missed": [
+        "C1",
+        "C10",
+        "C11",
+        "C13",
+        "C14",
+        "C15",
+        "C16",
+        "C17",
+        "C18",
+        "C19",
+        "C2",
+        "C20",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9"
+       ]
+      }
+     },
+     "controls": {
+      "perfect": {
+       "controllers": {
+        "tp": 19,
+        "asserted": 19,
+        "key": 19,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "sensor": {
+        "tp": 19,
+        "asserted": 19,
+        "key": 19,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "final": {
+        "tp": 11,
+        "asserted": 11,
+        "key": 11,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "cascade": {
+        "tp": 8,
+        "asserted": 8,
+        "key": 8,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "loops": {
+        "valve_loops": "11/11",
+        "cascades": "8/8",
+        "recall": 1.0,
+        "asserted": 19,
+        "precision": 1.0,
+        "missed": []
+       }
+      },
+      "empty": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 0,
+        "precision": null,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      },
+      "shuffled_roles": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 0,
+        "precision": null,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      },
+      "tag_only": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 1,
+        "key": 19,
+        "precision": 0.0,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 1,
+        "precision": 0.0,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      }
+     },
+     "signal_lines_vs_drawn": {
+      "tp": 0,
+      "asserted": 0,
+      "key": 0,
+      "precision": null,
+      "recall": null
+     }
+    },
+    "te-clean-trace-r2/codex": {
+     "loops_status": {
+      "status": "added",
+      "loops": 1,
+      "confirmed": 0,
+      "partly_confirmed": 0,
+      "unconfirmed": 1,
+      "cascades": 0,
+      "signal_to": 0,
+      "controls": 0,
+      "sets_point_of": 0,
+      "signal_lines": 0,
+      "unresolved_signal_networks": 0,
+      "tag_groups_without_controller": 0,
+      "conflicts": 0
+     },
+     "counts": {
+      "loops": 1,
+      "confirmed": 0,
+      "partly_confirmed": 0,
+      "unconfirmed": 1,
+      "cascades": 0,
+      "signal_to": 0,
+      "controls": 0,
+      "sets_point_of": 0,
+      "signal_lines": 0,
+      "unresolved_signal_networks": 0,
+      "tag_groups_without_controller": 0,
+      "conflicts": 0
+     },
+     "bundle_identical_without_loops": true,
+     "score": {
+      "controllers": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "sensor": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "final": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 11,
+       "precision": null,
+       "recall": 0.0
+      },
+      "cascade": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 8,
+       "precision": null,
+       "recall": 0.0
+      },
+      "loops": {
+       "valve_loops": "0/11",
+       "cascades": "0/8",
+       "recall": 0.0,
+       "asserted": 0,
+       "precision": null,
+       "missed": [
+        "C1",
+        "C10",
+        "C11",
+        "C13",
+        "C14",
+        "C15",
+        "C16",
+        "C17",
+        "C18",
+        "C19",
+        "C2",
+        "C20",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9"
+       ]
+      }
+     },
+     "controls": {
+      "perfect": {
+       "controllers": {
+        "tp": 19,
+        "asserted": 19,
+        "key": 19,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "sensor": {
+        "tp": 19,
+        "asserted": 19,
+        "key": 19,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "final": {
+        "tp": 11,
+        "asserted": 11,
+        "key": 11,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "cascade": {
+        "tp": 8,
+        "asserted": 8,
+        "key": 8,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "loops": {
+        "valve_loops": "11/11",
+        "cascades": "8/8",
+        "recall": 1.0,
+        "asserted": 19,
+        "precision": 1.0,
+        "missed": []
+       }
+      },
+      "empty": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 0,
+        "precision": null,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      },
+      "shuffled_roles": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 0,
+        "precision": null,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      },
+      "tag_only": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 1,
+        "key": 19,
+        "precision": 0.0,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 1,
+        "precision": 0.0,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      }
+     },
+     "signal_lines_vs_drawn": {
+      "tp": 0,
+      "asserted": 0,
+      "key": 0,
+      "precision": null,
+      "recall": null
+     }
+    },
+    "te-clean-trace-r3/claude": {
+     "loops_status": {
+      "status": "added",
+      "loops": 1,
+      "confirmed": 0,
+      "partly_confirmed": 0,
+      "unconfirmed": 1,
+      "cascades": 0,
+      "signal_to": 0,
+      "controls": 0,
+      "sets_point_of": 0,
+      "signal_lines": 0,
+      "unresolved_signal_networks": 0,
+      "tag_groups_without_controller": 9,
+      "conflicts": 0
+     },
+     "counts": {
+      "loops": 1,
+      "confirmed": 0,
+      "partly_confirmed": 0,
+      "unconfirmed": 1,
+      "cascades": 0,
+      "signal_to": 0,
+      "controls": 0,
+      "sets_point_of": 0,
+      "signal_lines": 0,
+      "unresolved_signal_networks": 0,
+      "tag_groups_without_controller": 9,
+      "conflicts": 0
+     },
+     "bundle_identical_without_loops": true,
+     "score": {
+      "controllers": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "sensor": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "final": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 11,
+       "precision": null,
+       "recall": 0.0
+      },
+      "cascade": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 8,
+       "precision": null,
+       "recall": 0.0
+      },
+      "loops": {
+       "valve_loops": "0/11",
+       "cascades": "0/8",
+       "recall": 0.0,
+       "asserted": 0,
+       "precision": null,
+       "missed": [
+        "C1",
+        "C10",
+        "C11",
+        "C13",
+        "C14",
+        "C15",
+        "C16",
+        "C17",
+        "C18",
+        "C19",
+        "C2",
+        "C20",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9"
+       ]
+      }
+     },
+     "controls": {
+      "perfect": {
+       "controllers": {
+        "tp": 19,
+        "asserted": 19,
+        "key": 19,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "sensor": {
+        "tp": 19,
+        "asserted": 19,
+        "key": 19,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "final": {
+        "tp": 11,
+        "asserted": 11,
+        "key": 11,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "cascade": {
+        "tp": 8,
+        "asserted": 8,
+        "key": 8,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "loops": {
+        "valve_loops": "11/11",
+        "cascades": "8/8",
+        "recall": 1.0,
+        "asserted": 19,
+        "precision": 1.0,
+        "missed": []
+       }
+      },
+      "empty": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 0,
+        "precision": null,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      },
+      "shuffled_roles": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 0,
+        "precision": null,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      },
+      "tag_only": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 1,
+        "key": 19,
+        "precision": 0.0,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 1,
+        "precision": 0.0,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      }
+     },
+     "signal_lines_vs_drawn": {
+      "tp": 0,
+      "asserted": 0,
+      "key": 0,
+      "precision": null,
+      "recall": null
+     }
+    },
+    "te-clean-trace-r3/codex": {
+     "loops_status": {
+      "status": "added",
+      "loops": 1,
+      "confirmed": 0,
+      "partly_confirmed": 0,
+      "unconfirmed": 1,
+      "cascades": 0,
+      "signal_to": 0,
+      "controls": 0,
+      "sets_point_of": 0,
+      "signal_lines": 0,
+      "unresolved_signal_networks": 0,
+      "tag_groups_without_controller": 0,
+      "conflicts": 0
+     },
+     "counts": {
+      "loops": 1,
+      "confirmed": 0,
+      "partly_confirmed": 0,
+      "unconfirmed": 1,
+      "cascades": 0,
+      "signal_to": 0,
+      "controls": 0,
+      "sets_point_of": 0,
+      "signal_lines": 0,
+      "unresolved_signal_networks": 0,
+      "tag_groups_without_controller": 0,
+      "conflicts": 0
+     },
+     "bundle_identical_without_loops": true,
+     "score": {
+      "controllers": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "sensor": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "final": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 11,
+       "precision": null,
+       "recall": 0.0
+      },
+      "cascade": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 8,
+       "precision": null,
+       "recall": 0.0
+      },
+      "loops": {
+       "valve_loops": "0/11",
+       "cascades": "0/8",
+       "recall": 0.0,
+       "asserted": 0,
+       "precision": null,
+       "missed": [
+        "C1",
+        "C10",
+        "C11",
+        "C13",
+        "C14",
+        "C15",
+        "C16",
+        "C17",
+        "C18",
+        "C19",
+        "C2",
+        "C20",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9"
+       ]
+      }
+     },
+     "controls": {
+      "perfect": {
+       "controllers": {
+        "tp": 19,
+        "asserted": 19,
+        "key": 19,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "sensor": {
+        "tp": 19,
+        "asserted": 19,
+        "key": 19,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "final": {
+        "tp": 11,
+        "asserted": 11,
+        "key": 11,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "cascade": {
+        "tp": 8,
+        "asserted": 8,
+        "key": 8,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "loops": {
+        "valve_loops": "11/11",
+        "cascades": "8/8",
+        "recall": 1.0,
+        "asserted": 19,
+        "precision": 1.0,
+        "missed": []
+       }
+      },
+      "empty": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 0,
+        "precision": null,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      },
+      "shuffled_roles": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 0,
+        "precision": null,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      },
+      "tag_only": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 1,
+        "key": 19,
+        "precision": 0.0,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 1,
+        "precision": 0.0,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      }
+     },
+     "signal_lines_vs_drawn": {
+      "tp": 0,
+      "asserted": 0,
+      "key": 0,
+      "precision": null,
+      "recall": null
+     }
+    },
+    "te-clean-trace-r4/claude": {
+     "loops_status": {
+      "status": "added",
+      "loops": 1,
+      "confirmed": 0,
+      "partly_confirmed": 0,
+      "unconfirmed": 1,
+      "cascades": 0,
+      "signal_to": 0,
+      "controls": 0,
+      "sets_point_of": 0,
+      "signal_lines": 0,
+      "unresolved_signal_networks": 0,
+      "tag_groups_without_controller": 9,
+      "conflicts": 0
+     },
+     "counts": {
+      "loops": 1,
+      "confirmed": 0,
+      "partly_confirmed": 0,
+      "unconfirmed": 1,
+      "cascades": 0,
+      "signal_to": 0,
+      "controls": 0,
+      "sets_point_of": 0,
+      "signal_lines": 0,
+      "unresolved_signal_networks": 0,
+      "tag_groups_without_controller": 9,
+      "conflicts": 0
+     },
+     "bundle_identical_without_loops": true,
+     "score": {
+      "controllers": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "sensor": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "final": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 11,
+       "precision": null,
+       "recall": 0.0
+      },
+      "cascade": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 8,
+       "precision": null,
+       "recall": 0.0
+      },
+      "loops": {
+       "valve_loops": "0/11",
+       "cascades": "0/8",
+       "recall": 0.0,
+       "asserted": 0,
+       "precision": null,
+       "missed": [
+        "C1",
+        "C10",
+        "C11",
+        "C13",
+        "C14",
+        "C15",
+        "C16",
+        "C17",
+        "C18",
+        "C19",
+        "C2",
+        "C20",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9"
+       ]
+      }
+     },
+     "controls": {
+      "perfect": {
+       "controllers": {
+        "tp": 19,
+        "asserted": 19,
+        "key": 19,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "sensor": {
+        "tp": 19,
+        "asserted": 19,
+        "key": 19,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "final": {
+        "tp": 11,
+        "asserted": 11,
+        "key": 11,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "cascade": {
+        "tp": 8,
+        "asserted": 8,
+        "key": 8,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "loops": {
+        "valve_loops": "11/11",
+        "cascades": "8/8",
+        "recall": 1.0,
+        "asserted": 19,
+        "precision": 1.0,
+        "missed": []
+       }
+      },
+      "empty": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 0,
+        "precision": null,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      },
+      "shuffled_roles": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 0,
+        "precision": null,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      },
+      "tag_only": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 1,
+        "key": 19,
+        "precision": 0.0,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 1,
+        "precision": 0.0,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      }
+     },
+     "signal_lines_vs_drawn": {
+      "tp": 0,
+      "asserted": 0,
+      "key": 0,
+      "precision": null,
+      "recall": null
+     }
+    },
+    "te-clean-trace-r4/codex": {
+     "loops_status": {
+      "status": "added",
+      "loops": 1,
+      "confirmed": 0,
+      "partly_confirmed": 0,
+      "unconfirmed": 1,
+      "cascades": 0,
+      "signal_to": 0,
+      "controls": 0,
+      "sets_point_of": 0,
+      "signal_lines": 0,
+      "unresolved_signal_networks": 0,
+      "tag_groups_without_controller": 0,
+      "conflicts": 0
+     },
+     "counts": {
+      "loops": 1,
+      "confirmed": 0,
+      "partly_confirmed": 0,
+      "unconfirmed": 1,
+      "cascades": 0,
+      "signal_to": 0,
+      "controls": 0,
+      "sets_point_of": 0,
+      "signal_lines": 0,
+      "unresolved_signal_networks": 0,
+      "tag_groups_without_controller": 0,
+      "conflicts": 0
+     },
+     "bundle_identical_without_loops": true,
+     "score": {
+      "controllers": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "sensor": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "final": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 11,
+       "precision": null,
+       "recall": 0.0
+      },
+      "cascade": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 8,
+       "precision": null,
+       "recall": 0.0
+      },
+      "loops": {
+       "valve_loops": "0/11",
+       "cascades": "0/8",
+       "recall": 0.0,
+       "asserted": 0,
+       "precision": null,
+       "missed": [
+        "C1",
+        "C10",
+        "C11",
+        "C13",
+        "C14",
+        "C15",
+        "C16",
+        "C17",
+        "C18",
+        "C19",
+        "C2",
+        "C20",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9"
+       ]
+      }
+     },
+     "controls": {
+      "perfect": {
+       "controllers": {
+        "tp": 19,
+        "asserted": 19,
+        "key": 19,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "sensor": {
+        "tp": 19,
+        "asserted": 19,
+        "key": 19,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "final": {
+        "tp": 11,
+        "asserted": 11,
+        "key": 11,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "cascade": {
+        "tp": 8,
+        "asserted": 8,
+        "key": 8,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "loops": {
+        "valve_loops": "11/11",
+        "cascades": "8/8",
+        "recall": 1.0,
+        "asserted": 19,
+        "precision": 1.0,
+        "missed": []
+       }
+      },
+      "empty": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 0,
+        "precision": null,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      },
+      "shuffled_roles": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 0,
+        "precision": null,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      },
+      "tag_only": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 1,
+        "key": 19,
+        "precision": 0.0,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 1,
+        "precision": 0.0,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      }
+     },
+     "signal_lines_vs_drawn": {
+      "tp": 0,
+      "asserted": 0,
+      "key": 0,
+      "precision": null,
+      "recall": null
+     }
+    },
+    "te-clean-trace-r5/claude": {
+     "loops_status": {
+      "status": "added",
+      "loops": 1,
+      "confirmed": 0,
+      "partly_confirmed": 0,
+      "unconfirmed": 1,
+      "cascades": 0,
+      "signal_to": 0,
+      "controls": 0,
+      "sets_point_of": 0,
+      "signal_lines": 0,
+      "unresolved_signal_networks": 0,
+      "tag_groups_without_controller": 11,
+      "conflicts": 0
+     },
+     "counts": {
+      "loops": 1,
+      "confirmed": 0,
+      "partly_confirmed": 0,
+      "unconfirmed": 1,
+      "cascades": 0,
+      "signal_to": 0,
+      "controls": 0,
+      "sets_point_of": 0,
+      "signal_lines": 0,
+      "unresolved_signal_networks": 0,
+      "tag_groups_without_controller": 11,
+      "conflicts": 0
+     },
+     "bundle_identical_without_loops": true,
+     "score": {
+      "controllers": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "sensor": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "final": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 11,
+       "precision": null,
+       "recall": 0.0
+      },
+      "cascade": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 8,
+       "precision": null,
+       "recall": 0.0
+      },
+      "loops": {
+       "valve_loops": "0/11",
+       "cascades": "0/8",
+       "recall": 0.0,
+       "asserted": 0,
+       "precision": null,
+       "missed": [
+        "C1",
+        "C10",
+        "C11",
+        "C13",
+        "C14",
+        "C15",
+        "C16",
+        "C17",
+        "C18",
+        "C19",
+        "C2",
+        "C20",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9"
+       ]
+      }
+     },
+     "controls": {
+      "perfect": {
+       "controllers": {
+        "tp": 19,
+        "asserted": 19,
+        "key": 19,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "sensor": {
+        "tp": 19,
+        "asserted": 19,
+        "key": 19,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "final": {
+        "tp": 11,
+        "asserted": 11,
+        "key": 11,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "cascade": {
+        "tp": 8,
+        "asserted": 8,
+        "key": 8,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "loops": {
+        "valve_loops": "11/11",
+        "cascades": "8/8",
+        "recall": 1.0,
+        "asserted": 19,
+        "precision": 1.0,
+        "missed": []
+       }
+      },
+      "empty": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 0,
+        "precision": null,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      },
+      "shuffled_roles": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 0,
+        "precision": null,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      },
+      "tag_only": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 1,
+        "key": 19,
+        "precision": 0.0,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 1,
+        "precision": 0.0,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      }
+     },
+     "signal_lines_vs_drawn": {
+      "tp": 0,
+      "asserted": 0,
+      "key": 0,
+      "precision": null,
+      "recall": null
+     }
+    },
+    "te-clean-trace-r5/codex": {
+     "loops_status": {
+      "status": "added",
+      "loops": 1,
+      "confirmed": 0,
+      "partly_confirmed": 0,
+      "unconfirmed": 1,
+      "cascades": 0,
+      "signal_to": 0,
+      "controls": 0,
+      "sets_point_of": 0,
+      "signal_lines": 0,
+      "unresolved_signal_networks": 0,
+      "tag_groups_without_controller": 0,
+      "conflicts": 0
+     },
+     "counts": {
+      "loops": 1,
+      "confirmed": 0,
+      "partly_confirmed": 0,
+      "unconfirmed": 1,
+      "cascades": 0,
+      "signal_to": 0,
+      "controls": 0,
+      "sets_point_of": 0,
+      "signal_lines": 0,
+      "unresolved_signal_networks": 0,
+      "tag_groups_without_controller": 0,
+      "conflicts": 0
+     },
+     "bundle_identical_without_loops": true,
+     "score": {
+      "controllers": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "sensor": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 19,
+       "precision": null,
+       "recall": 0.0
+      },
+      "final": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 11,
+       "precision": null,
+       "recall": 0.0
+      },
+      "cascade": {
+       "tp": 0,
+       "asserted": 0,
+       "key": 8,
+       "precision": null,
+       "recall": 0.0
+      },
+      "loops": {
+       "valve_loops": "0/11",
+       "cascades": "0/8",
+       "recall": 0.0,
+       "asserted": 0,
+       "precision": null,
+       "missed": [
+        "C1",
+        "C10",
+        "C11",
+        "C13",
+        "C14",
+        "C15",
+        "C16",
+        "C17",
+        "C18",
+        "C19",
+        "C2",
+        "C20",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9"
+       ]
+      }
+     },
+     "controls": {
+      "perfect": {
+       "controllers": {
+        "tp": 19,
+        "asserted": 19,
+        "key": 19,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "sensor": {
+        "tp": 19,
+        "asserted": 19,
+        "key": 19,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "final": {
+        "tp": 11,
+        "asserted": 11,
+        "key": 11,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "cascade": {
+        "tp": 8,
+        "asserted": 8,
+        "key": 8,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "loops": {
+        "valve_loops": "11/11",
+        "cascades": "8/8",
+        "recall": 1.0,
+        "asserted": 19,
+        "precision": 1.0,
+        "missed": []
+       }
+      },
+      "empty": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 0,
+        "precision": null,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      },
+      "shuffled_roles": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 0,
+        "precision": null,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      },
+      "tag_only": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 1,
+        "key": 19,
+        "precision": 0.0,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 1,
+        "precision": 0.0,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      }
+     },
+     "signal_lines_vs_drawn": {
+      "tp": 0,
+      "asserted": 0,
+      "key": 0,
+      "precision": null,
+      "recall": null
+     }
+    }
+   }
+  },
+  "te-d": {
+   "key": "data/te_control_loops.json (19 running loops: 11 valve, 8 cascade)",
+   "drawn": "controllers, dashed signal lines, flags",
+   "runs": {
+    "key symbols + tracer": {
+     "loops_status": {
+      "status": "added",
+      "loops": 20,
+      "confirmed": 19,
+      "partly_confirmed": 0,
+      "unconfirmed": 1,
+      "cascades": 8,
+      "signal_to": 38,
+      "controls": 11,
+      "sets_point_of": 8,
+      "signal_lines": 38,
+      "unresolved_signal_networks": 0,
+      "tag_groups_without_controller": 0,
+      "conflicts": 0
+     },
+     "counts": {
+      "loops": 20,
+      "confirmed": 19,
+      "partly_confirmed": 0,
+      "unconfirmed": 1,
+      "cascades": 8,
+      "signal_to": 38,
+      "controls": 11,
+      "sets_point_of": 8,
+      "signal_lines": 38,
+      "unresolved_signal_networks": 0,
+      "tag_groups_without_controller": 0,
+      "conflicts": 0
+     },
+     "bundle_identical_without_loops": true,
+     "score": {
+      "controllers": {
+       "tp": 19,
+       "asserted": 19,
+       "key": 19,
+       "precision": 1.0,
+       "recall": 1.0
+      },
+      "sensor": {
+       "tp": 19,
+       "asserted": 19,
+       "key": 19,
+       "precision": 1.0,
+       "recall": 1.0
+      },
+      "final": {
+       "tp": 11,
+       "asserted": 11,
+       "key": 11,
+       "precision": 1.0,
+       "recall": 1.0
+      },
+      "cascade": {
+       "tp": 8,
+       "asserted": 8,
+       "key": 8,
+       "precision": 1.0,
+       "recall": 1.0
+      },
+      "loops": {
+       "valve_loops": "11/11",
+       "cascades": "8/8",
+       "recall": 1.0,
+       "asserted": 19,
+       "precision": 1.0,
+       "missed": []
+      }
+     },
+     "controls": {
+      "perfect": {
+       "controllers": {
+        "tp": 19,
+        "asserted": 19,
+        "key": 19,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "sensor": {
+        "tp": 19,
+        "asserted": 19,
+        "key": 19,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "final": {
+        "tp": 11,
+        "asserted": 11,
+        "key": 11,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "cascade": {
+        "tp": 8,
+        "asserted": 8,
+        "key": 8,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "loops": {
+        "valve_loops": "11/11",
+        "cascades": "8/8",
+        "recall": 1.0,
+        "asserted": 19,
+        "precision": 1.0,
+        "missed": []
+       }
+      },
+      "empty": {
+       "controllers": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "sensor": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 19,
+        "precision": null,
+        "recall": 0.0
+       },
+       "final": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 11,
+        "precision": null,
+        "recall": 0.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "0/11",
+        "cascades": "0/8",
+        "recall": 0.0,
+        "asserted": 0,
+        "precision": null,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C4",
+         "C5",
+         "C6",
+         "C7",
+         "C8",
+         "C9"
+        ]
+       }
+      },
+      "shuffled_roles": {
+       "controllers": {
+        "tp": 3,
+        "asserted": 3,
+        "key": 19,
+        "precision": 1.0,
+        "recall": 0.158
+       },
+       "sensor": {
+        "tp": 2,
+        "asserted": 4,
+        "key": 19,
+        "precision": 0.5,
+        "recall": 0.105
+       },
+       "final": {
+        "tp": 3,
+        "asserted": 3,
+        "key": 11,
+        "precision": 1.0,
+        "recall": 0.273
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 1,
+        "key": 8,
+        "precision": 0.0,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "2/11",
+        "cascades": "0/8",
+        "recall": 0.105,
+        "asserted": 3,
+        "precision": 0.667,
+        "missed": [
+         "C1",
+         "C10",
+         "C11",
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C2",
+         "C20",
+         "C3",
+         "C5",
+         "C6",
+         "C8",
+         "C9"
+        ]
+       }
+      },
+      "tag_only": {
+       "controllers": {
+        "tp": 19,
+        "asserted": 20,
+        "key": 19,
+        "precision": 0.95,
+        "recall": 1.0
+       },
+       "sensor": {
+        "tp": 19,
+        "asserted": 19,
+        "key": 19,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "final": {
+        "tp": 11,
+        "asserted": 11,
+        "key": 11,
+        "precision": 1.0,
+        "recall": 1.0
+       },
+       "cascade": {
+        "tp": 0,
+        "asserted": 0,
+        "key": 8,
+        "precision": null,
+        "recall": 0.0
+       },
+       "loops": {
+        "valve_loops": "11/11",
+        "cascades": "0/8",
+        "recall": 0.579,
+        "asserted": 20,
+        "precision": 0.55,
+        "missed": [
+         "C13",
+         "C14",
+         "C15",
+         "C16",
+         "C17",
+         "C18",
+         "C19",
+         "C20"
+        ]
+       }
+      }
+     },
+     "signal_lines_vs_drawn": {
+      "tp": 38,
+      "asserted": 38,
+      "key": 38,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "per_sheet": {
+      "101": {
+       "key_loops": 9,
+       "recall": 1.0,
+       "precision": 1.0
+      },
+      "102": {
+       "key_loops": 4,
+       "recall": 1.0,
+       "precision": 1.0
+      },
+      "103": {
+       "key_loops": 6,
+       "recall": 1.0,
+       "precision": 1.0
+      }
+     }
+    }
+   }
+  },
+  "open100": {
+   "key": null,
+   "note": "no loop key; these sheets draw no controllers: counts only",
+   "runs": {
+    "r2-tiles-trace/claude": {
+     "loops_status": {
+      "status": "added",
+      "loops": 1,
+      "confirmed": 0,
+      "partly_confirmed": 0,
+      "unconfirmed": 1,
+      "cascades": 0,
+      "signal_to": 0,
+      "controls": 0,
+      "sets_point_of": 0,
+      "signal_lines": 22,
+      "unresolved_signal_networks": 19,
+      "tag_groups_without_controller": 70,
+      "conflicts": 0
+     },
+     "counts": {
+      "loops": 1,
+      "confirmed": 0,
+      "partly_confirmed": 0,
+      "unconfirmed": 1,
+      "cascades": 0,
+      "signal_to": 0,
+      "controls": 0,
+      "sets_point_of": 0,
+      "signal_lines": 22,
+      "unresolved_signal_networks": 19,
+      "tag_groups_without_controller": 70,
+      "conflicts": 0
+     },
+     "bundle_identical_without_loops": true
+    },
+    "r2-tiles-trace/codex": {
+     "loops_status": {
+      "status": "added",
+      "loops": 1,
+      "confirmed": 0,
+      "partly_confirmed": 0,
+      "unconfirmed": 1,
+      "cascades": 0,
+      "signal_to": 0,
+      "controls": 0,
+      "sets_point_of": 0,
+      "signal_lines": 12,
+      "unresolved_signal_networks": 10,
+      "tag_groups_without_controller": 52,
+      "conflicts": 0
+     },
+     "counts": {
+      "loops": 1,
+      "confirmed": 0,
+      "partly_confirmed": 0,
+      "unconfirmed": 1,
+      "cascades": 0,
+      "signal_to": 0,
+      "controls": 0,
+      "sets_point_of": 0,
+      "signal_lines": 12,
+      "unresolved_signal_networks": 10,
+      "tag_groups_without_controller": 52,
+      "conflicts": 0
+     },
+     "bundle_identical_without_loops": true
+    },
+    "r2-tiles-trace/gemini": {
+     "loops_status": {
+      "status": "added",
+      "loops": 1,
+      "confirmed": 0,
+      "partly_confirmed": 0,
+      "unconfirmed": 1,
+      "cascades": 0,
+      "signal_to": 0,
+      "controls": 0,
+      "sets_point_of": 0,
+      "signal_lines": 20,
+      "unresolved_signal_networks": 16,
+      "tag_groups_without_controller": 53,
+      "conflicts": 0
+     },
+     "counts": {
+      "loops": 1,
+      "confirmed": 0,
+      "partly_confirmed": 0,
+      "unconfirmed": 1,
+      "cascades": 0,
+      "signal_to": 0,
+      "controls": 0,
+      "sets_point_of": 0,
+      "signal_lines": 20,
+      "unresolved_signal_networks": 16,
+      "tag_groups_without_controller": 53,
+      "conflicts": 0
+     },
+     "bundle_identical_without_loops": true
+    }
+   }
+  }
+ },
+ "summary": {
+  "te-a": {
+   "runs_attempted": 11,
+   "runs_scored": 11,
+   "bundle_identical_without_loops": true,
+   "controller_recall": {
+    "n": 11,
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "sd": 0.0
+   },
+   "controller_precision": null,
+   "sensor_recall": {
+    "n": 11,
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "sd": 0.0
+   },
+   "sensor_precision": null,
+   "final_recall": {
+    "n": 11,
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "sd": 0.0
+   },
+   "final_precision": null,
+   "cascade_recall": {
+    "n": 11,
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "sd": 0.0
+   },
+   "cascade_precision": null,
+   "loop_recall": {
+    "n": 11,
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "sd": 0.0
+   },
+   "loop_precision": null,
+   "loop_recall_by_sheet": null,
+   "controls_loop_recall": {
+    "perfect": {
+     "n": 11,
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0,
+     "sd": 0.0
+    },
+    "empty": {
+     "n": 11,
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "sd": 0.0
+    },
+    "shuffled_roles": {
+     "n": 11,
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "sd": 0.0
+    },
+    "tag_only": {
+     "n": 11,
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "sd": 0.0
+    }
+   },
+   "controls_loop_precision": {
+    "perfect": {
+     "n": 11,
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0,
+     "sd": 0.0
+    },
+    "empty": null,
+    "shuffled_roles": null,
+    "tag_only": {
+     "n": 11,
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "sd": 0.0
+    }
+   }
+  },
+  "te-d": {
+   "runs_attempted": 1,
+   "runs_scored": 1,
+   "bundle_identical_without_loops": true,
+   "controller_recall": {
+    "n": 1,
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "sd": 0.0
+   },
+   "controller_precision": {
+    "n": 1,
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "sd": 0.0
+   },
+   "sensor_recall": {
+    "n": 1,
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "sd": 0.0
+   },
+   "sensor_precision": {
+    "n": 1,
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "sd": 0.0
+   },
+   "final_recall": {
+    "n": 1,
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "sd": 0.0
+   },
+   "final_precision": {
+    "n": 1,
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "sd": 0.0
+   },
+   "cascade_recall": {
+    "n": 1,
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "sd": 0.0
+   },
+   "cascade_precision": {
+    "n": 1,
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "sd": 0.0
+   },
+   "loop_recall": {
+    "n": 1,
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "sd": 0.0
+   },
+   "loop_precision": {
+    "n": 1,
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "sd": 0.0
+   },
+   "loop_recall_by_sheet": {
+    "n": 3,
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0,
+    "sd": 0.0
+   },
+   "controls_loop_recall": {
+    "perfect": {
+     "n": 1,
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0,
+     "sd": 0.0
+    },
+    "empty": {
+     "n": 1,
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "sd": 0.0
+    },
+    "shuffled_roles": {
+     "n": 1,
+     "mean": 0.105,
+     "min": 0.105,
+     "max": 0.105,
+     "sd": 0.0
+    },
+    "tag_only": {
+     "n": 1,
+     "mean": 0.579,
+     "min": 0.579,
+     "max": 0.579,
+     "sd": 0.0
+    }
+   },
+   "controls_loop_precision": {
+    "perfect": {
+     "n": 1,
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0,
+     "sd": 0.0
+    },
+    "empty": null,
+    "shuffled_roles": {
+     "n": 1,
+     "mean": 0.667,
+     "min": 0.667,
+     "max": 0.667,
+     "sd": 0.0
+    },
+    "tag_only": {
+     "n": 1,
+     "mean": 0.55,
+     "min": 0.55,
+     "max": 0.55,
+     "sd": 0.0
+    }
+   }
+  },
+  "open100": {
+   "runs_attempted": 3,
+   "runs_scored": 3,
+   "bundle_identical_without_loops": true,
+   "confirmed_loops": {
+    "n": 3,
+    "mean": 0,
+    "min": 0,
+    "max": 0,
+    "sd": 0.0
+   },
+   "signal_to": {
+    "n": 3,
+    "mean": 0,
+    "min": 0,
+    "max": 0,
+    "sd": 0.0
+   }
+  }
+ }
+}

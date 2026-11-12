@@ -167,6 +167,9 @@ Tell the user, briefly:
 - the pipe and instrument layers (counts, and any inconsistent line that was dropped), and how many pipe segments
   have a flow direction the drawing shows (`flow_direction` in the intake's output; the rest are undirected, and
   a drawn direction is not isolation or lockout guidance);
+- the control loops (`loops` in the intake's output): how many are confirmed by traced signal lines, how many rest on
+  their loop number alone (unconfirmed, for a person to check on the drawing), and any conflict (a traced signal
+  that joins two loop numbers, or a final element two controllers reach);
 - the tag check: misses and possible misreads you confirmed on the drawing, and any page that needs OCR;
 - where the files are and which one to open;
 - anything that failed or looked wrong (a blank region, unreadable text, a page you skipped);
