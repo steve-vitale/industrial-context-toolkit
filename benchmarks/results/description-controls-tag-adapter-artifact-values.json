@@ -1,7 +1,7 @@
 {
   "case_total": 2,
   "code_sha256": {
-    "benchmark.py": "4cee3f9226dd44ff0e15ede4a31e2f1e5536617f010cf8ccb7a740b3d3a62224"
+    "benchmark.py": "9956750dd5cd08cfebbbd46c16960c71d40d0526d688c9ff3869a818667039f6"
   },
   "controls": {
     "branch": {
@@ -189,7 +189,7 @@
   "results": [
     {
       "case_count": 2,
-      "cohort": "cd76f39c6c7357abd7a62928345a81bbcb63057b9c743d8ceed62917154ad123",
+      "cohort": "046fe2acfeccb65f80b8ff4f260c3fe8c91ea757cae2b76243e40d50c63c1e66",
       "configuration": {},
       "counts": {
         "controllers": {
@@ -422,7 +422,7 @@
     },
     {
       "case_count": 2,
-      "cohort": "cd76f39c6c7357abd7a62928345a81bbcb63057b9c743d8ceed62917154ad123",
+      "cohort": "046fe2acfeccb65f80b8ff4f260c3fe8c91ea757cae2b76243e40d50c63c1e66",
       "configuration": {},
       "counts": {
         "controllers": {
@@ -1035,7 +1035,7 @@
     },
     {
       "case_count": 2,
-      "cohort": "cd76f39c6c7357abd7a62928345a81bbcb63057b9c743d8ceed62917154ad123",
+      "cohort": "046fe2acfeccb65f80b8ff4f260c3fe8c91ea757cae2b76243e40d50c63c1e66",
       "configuration": {},
       "counts": {
         "controllers": {
@@ -1320,81 +1320,11 @@
   "summary": [
     {
       "case_count": 2,
-      "cohort": "cd76f39c6c7357abd7a62928345a81bbcb63057b9c743d8ceed62917154ad123",
+      "cohort": "046fe2acfeccb65f80b8ff4f260c3fe8c91ea757cae2b76243e40d50c63c1e66",
       "configuration": {},
       "evidence": "Authored reference answer supplies its own key; scorer plumbing only, no independent interpretation evidence",
       "family": "illustrative-water",
-      "group": "3538fdc1eb5189b248e8cccc372dd57e717ad56871c6b16a1672c7d369f9063f",
-      "interface": "authored fixture",
-      "method": "empty",
-      "metrics": {
-        "controllers": {
-          "max_f1": 0.0,
-          "mean_f1": 0.0,
-          "min_f1": 0.0,
-          "stdev_f1": null
-        },
-        "facts": {
-          "max_f1": 0.0,
-          "mean_f1": 0.0,
-          "min_f1": 0.0,
-          "stdev_f1": null
-        },
-        "final_elements": {
-          "max_f1": 0.0,
-          "mean_f1": 0.0,
-          "min_f1": 0.0,
-          "stdev_f1": null
-        },
-        "instruments": {
-          "max_f1": 0.0,
-          "mean_f1": 0.0,
-          "min_f1": 0.0,
-          "stdev_f1": null
-        },
-        "manual_valves": {
-          "max_f1": 0.0,
-          "mean_f1": 0.0,
-          "min_f1": 0.0,
-          "stdev_f1": null
-        },
-        "relief_devices": {
-          "max_f1": null,
-          "mean_f1": null,
-          "min_f1": null,
-          "stdev_f1": null
-        },
-        "streams": {
-          "max_f1": 0.0,
-          "mean_f1": 0.0,
-          "min_f1": 0.0,
-          "stdev_f1": null
-        },
-        "units": {
-          "max_f1": 0.0,
-          "mean_f1": 0.0,
-          "min_f1": 0.0,
-          "stdev_f1": null
-        }
-      },
-      "model": {
-        "id": "synthetic-control",
-        "provider": "none",
-        "version": "1"
-      },
-      "replicates": 1,
-      "runs": [
-        "description-control-empty"
-      ],
-      "split": "synthetic-control"
-    },
-    {
-      "case_count": 2,
-      "cohort": "cd76f39c6c7357abd7a62928345a81bbcb63057b9c743d8ceed62917154ad123",
-      "configuration": {},
-      "evidence": "Authored reference answer supplies its own key; scorer plumbing only, no independent interpretation evidence",
-      "family": "illustrative-water",
-      "group": "3fbef0200dc8d360911f8bfdef82cab780e00cf2b904cd0f32727fa5c58992ab",
+      "group": "4cb9132f4bbe6502c0c5b9a2aa45de6e8ce5e2fd248dce2fd0da032bfa9b377e",
       "interface": "authored fixture",
       "method": "wrong-endpoint",
       "metrics": {
@@ -1460,11 +1390,81 @@
     },
     {
       "case_count": 2,
-      "cohort": "cd76f39c6c7357abd7a62928345a81bbcb63057b9c743d8ceed62917154ad123",
+      "cohort": "046fe2acfeccb65f80b8ff4f260c3fe8c91ea757cae2b76243e40d50c63c1e66",
       "configuration": {},
       "evidence": "Authored reference answer supplies its own key; scorer plumbing only, no independent interpretation evidence",
       "family": "illustrative-water",
-      "group": "6f15e0969d30336bcc29f50655b77f13a0d032a893f2d37159f5c7b6bdcb8b7f",
+      "group": "d4da8655c35d15e505dcfa11bac952669900ba9fbbd86539d208bcc44a212cd6",
+      "interface": "authored fixture",
+      "method": "empty",
+      "metrics": {
+        "controllers": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        },
+        "facts": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        },
+        "final_elements": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        },
+        "instruments": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        },
+        "manual_valves": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        },
+        "relief_devices": {
+          "max_f1": null,
+          "mean_f1": null,
+          "min_f1": null,
+          "stdev_f1": null
+        },
+        "streams": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        },
+        "units": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        }
+      },
+      "model": {
+        "id": "synthetic-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "replicates": 1,
+      "runs": [
+        "description-control-empty"
+      ],
+      "split": "synthetic-control"
+    },
+    {
+      "case_count": 2,
+      "cohort": "046fe2acfeccb65f80b8ff4f260c3fe8c91ea757cae2b76243e40d50c63c1e66",
+      "configuration": {},
+      "evidence": "Authored reference answer supplies its own key; scorer plumbing only, no independent interpretation evidence",
+      "family": "illustrative-water",
+      "group": "f92f788832f67dfe79524d6575a7d57bfc2b71604edb37633017df7c53d2f337",
       "interface": "authored fixture",
       "method": "reference",
       "metrics": {

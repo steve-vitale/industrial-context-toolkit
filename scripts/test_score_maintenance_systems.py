@@ -7,7 +7,7 @@ from pathlib import Path
 import score_maintenance_systems as s
 
 RAW = [  # BscStartDate, Asset, OriginalShorttext, PMType, Cost
-    ('2001-01-01', 'A', 'replace bucket tooth', 'PM01', '1'),
+    ('2001-01-01', 'A', 'renew authored bucket tooth set', 'PM01', '1'),
     ('2001-01-02', 'A', 'hyd hose leaking', 'PM01', '1'),
     ('2001-01-02', 'A', 'hyd hose leaking', 'PM01', '1'),
     ('2001-01-03', 'A', 'swap \\o\\" ring"', 'PM01', '1'),
@@ -17,7 +17,7 @@ RAW = [  # BscStartDate, Asset, OriginalShorttext, PMType, Cost
     ('2001-01-01', 'B', 'bucket lip', 'PM01', '1'),
 ]
 CLEANED = [  # the publisher's cleaned rows: same rows less one, with MajorSystem
-    ('2001-01-01', 'A', 'replace bucket tooth', 'Bucket'),
+    ('2001-01-01', 'A', 'renew authored bucket tooth set', 'Bucket'),
     ('2001-01-02', 'A', 'hyd hose leaking', 'Hydraulic System'),
     ('2001-01-02', 'A', 'hyd hose leaking', 'Hydraulic System'),
     ('2001-01-03', 'A', 'swap o" ring"""', 'Hydraulic System'),

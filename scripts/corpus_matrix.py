@@ -23,6 +23,11 @@ Rows (all model-free, offline):
      topology where the source holds it: the DEXPI XML (tees are elements), the current TE / Bayer drawer's own
      routes, and a truth derived from the OPEN100 key graph (line_layers.pid2graph_truth). A separate metric from
      row 1, which scores the network layer (all pairs on a line network). Pass = pipe-segment F1 >= PIPE_PASS_F1.
+  9  maintenance_history.py on the Nestor excavator work orders (examples/maintenance-history/nestor.py): the system
+     class each record gets from its short text, scored against the publisher's cleaned MajorSystem codes, which the
+     tool never reads (score_maintenance_systems.py), on the development and the held-out assets. Pass = original-row
+     checks hold, the reference control is perfect and per-record F1 beats every wrong control by >= the margin in
+     nestor.py, on both splits. The originals may not be redistributed, so in a clean clone the cell is UNVERIFIED.
 
 Inputs added 2026-10-29 (scripts/corpus_adapters.py turns each source into what the tool reads): DEXPI 1.2 exports
 from four commercial P&ID tools and the DEXPI reference solutions, and the 1.3 single-feature cases (rows 7 and 4,
@@ -103,6 +108,9 @@ ROWS = {
     8: {"tool": "line_layers.py (pipe layer, oracle symbols)", "short": "Pipe layer",
         "question": "Where the source holds the real pipe topology, does the traced pipe layer (what is piped "
                     "directly to what, through which junctions) match it?"},
+    9: {"tool": "maintenance_history.py (system classes derived from work-order text)", "short": "Maintenance systems",
+        "question": "On a real public work-order export, does the history packet's system grouping, read from each "
+                    "record's short text, agree with the publisher's own system codes beyond every wrong control?"},
 }
 KEYED = ["open100-dev", "open100-holdout", "open100-scan-L1", "open100-scan-L2", "open100-scan-L3",
          "pid2graph-synthetic", "dexpi", "te-rev-a", "te-rev-c", "te-rev-d", "te-rev-c-scan-L3", "bayer-rt1"]
@@ -136,6 +144,7 @@ ROW_INPUTS = {
     7: ["dexpi"] + list(DEXPI_READER_INPUTS) + ["dexpi-1.2-cross-vendor"],
     8: ["open100-dev", "open100-holdout", "dexpi", "te-rev-a", "te-rev-c", "te-rev-d", "bayer-rt1",
         "dexpi-1.2-vendor-renders"] + AGENT_KEYED,
+    9: ["nestor-excavators"],
 }
 # The tool files each row's cells exercise (roots; the scripts/ modules they import are added by tool_files), hashed
 # into every cell so --check can tell a stale cell.
@@ -152,7 +161,12 @@ ROW_TOOL_FILES = {
     7: ["scripts/dexpi_to_twin.py", "scripts/adapt_dexpi.py", "scripts/import_site_drawing.py",
         "scripts/score_pid2graph.py", "scripts/confidence.py"],
     8: ["scripts/line_layers.py", "scripts/trace_connections.py", "scripts/score_pid2graph.py"],
+    9: ["examples/maintenance-history/nestor.py", "examples/maintenance-history/baseline.py",
+        "scripts/maintenance_history.py", "scripts/maintenance_history_report.py", "scripts/score_maintenance_systems.py"],
 }
+# Row 9: the two pinned files the cell reads (the cache folder may also hold the publisher's README, LICENSE and loader).
+NESTOR_FILES = ["nestor/datasets/excavators.csv", "nestor/datasets/excavators-cleaned.csv"]
+NESTOR_CONFIG = ["examples/maintenance-history/nestor/system_vocabulary.json", "examples/maintenance-history/nestor/FREEZE.json"]
 # Cells that exercise other files than their row's roots (the 2026-10-29 inputs): exactly these, plus their imports.
 ADAPTER = "scripts/corpus_adapters.py"
 ROW_TOOL_FILES_ONLY = {
@@ -357,6 +371,10 @@ def source_specs(row, inp):
     elif kind in NOT_SCORED_KINDS:
         if iid == "hai-dcs-loops":
             add(local, ["dcs_*.json"], optional)
+    elif row == 9:
+        add(local, NESTOR_FILES, optional, cache_root=local)
+        for rel in NESTOR_CONFIG:
+            add(rel)
     elif iid == "te-braatz-runs":
         # row6 reads exactly these22 test runs. Training runs, Fortran and checkout README/license files are
         # separate sources; CI's checksum fetch need not reproduce an unrelated local clone inventory.
@@ -1793,7 +1811,33 @@ def row6_heldout(inp):
                      note=f". {evidence_note}; a cyclic process ({cyc})")
 
 
-RUNNERS = {1: row1, 2: row2, 3: row3, 4: row4, 5: row5, 6: row6, 7: row7, 8: row8}
+def row9(inp):
+    """The frozen Nestor method on both splits, from the local pinned originals (A420; held out D-E sealed once)."""
+    sys.path.insert(0, str(ROOT / "examples" / "maintenance-history"))
+    import nestor
+    detail, passed = {"splits": {}}, True
+    with tempfile.TemporaryDirectory(prefix="row9-") as tmp:
+        for split in ("development", "held-out"):
+            report, _ = quiet(nestor.run, split, Path(tmp) / split, ROOT / inp["local_path"])
+            sc = report["score"]["scores"]
+            detail["splits"][split] = {
+                "assets": report["assets"], "join": report["score"]["join"],
+                "procedural_checks": report["procedural"]["checks"],
+                "rates": {name: sc[name]["rates"] for name in ["method", *nestor.scorer.CONTROL_ORDER]},
+                "no_system_records_given_a_class": sc["method"]["assigned_without_key_system"],
+                "margin": report["orders_margin_over_best_wrong_control"], "passed": report["passed"],
+                "control_problems": report["score"]["control_problems"], "tool_issues": report["tool"]["issues"]}
+            passed = passed and report["passed"]
+    dev, held = (detail["splits"][s]["rates"]["method"]["orders"]["f1"] for s in ("development", "held-out"))
+    detail["frozen"] = not nestor.frozen_problems()
+    detail["held_out"] = ("assets D-E: sealed once 2026-11-12 under the frozen method (A420); later cells re-run that "
+                          "frozen method deterministically. Exposure: " + json.loads(
+                              (ROOT / "examples/maintenance-history/nestor/FREEZE.json").read_text(encoding="utf-8"))["exposure"])
+    return cell(9, inp, "pass" if passed and detail["frozen"] else "fail", f"held-out F1 {held:.3f} (dev {dev:.3f})",
+                "" if passed else "a split missed the margin, a control or an original-row check", detail)
+
+
+RUNNERS = {1: row1, 2: row2, 3: row3, 4: row4, 5: row5, 6: row6, 7: row7, 8: row8, 9: row9}
 
 
 class StagingError(Exception):
@@ -1983,7 +2027,8 @@ def run_cell(row, inp):
     c["tool_files"] = hashes
     c["input_bindings"] = bindings
     if (source_manifest(row, inp) != bindings or
-            {f: file_hash(f) for f in tool_files(row, inp["id"])} != {f: h for f, h in hashes.items() if f.startswith("scripts/")}):
+            {f: file_hash(f) for f in tool_files(row, inp["id"])} != {f: h for f, h in hashes.items()
+                                                                     if f in tool_files(row, inp["id"])}):
         c["status"] = "fail"
         c["reason"] += ("; " if c["reason"] else "") + "source bindings changed during the cell run; rerun required"
     return c
@@ -2049,8 +2094,8 @@ def render(matrix, corpus):
          "Generated by `scripts/corpus_matrix.py` from `out/generalization/matrix.json`; the inputs are registered in",
          "`data/corpus.json`. Do not edit by hand: `python scripts/corpus_matrix.py` re-runs it and",
          "`python scripts/corpus_matrix.py --check` confirms this page matches the JSON.", "",
-         "These eight workflows cover tracing, scorer controls, intake/report, loop audit, exports, historian bands, "
-         "DEXPI conversion and pipe topology. They do not cover every tool: point mapping, applying reviews, the "
+         "These nine workflows cover tracing, scorer controls, intake/report, loop audit, exports, historian bands, "
+         "DEXPI conversion, pipe topology and maintenance-history system grouping. They do not cover every tool: point mapping, applying reviews, the "
          "question engine, impact estimates and live replay have their own feature tests and examples. Each cell "
          "runs one selected workflow on one registered public input it applies "
          "to, with no model and no network. **pass** and **FAIL** use the criterion stated for each row below; each "
@@ -2221,6 +2266,11 @@ def detail_line(c):
     if c["row"] == 7 and "sheets" in d:
         return "; ".join(f"{s}: {v['symbols']} symbols, {v['connections']} links, {v['corrections']} corrections"
                          for s, v in d["sheets"].items())
+    if c["row"] == 9 and "splits" in d:
+        return "; ".join(f"{s} {', '.join(v['assets'])}: {v['join']['keyed']} of {v['join']['raw_records']} records "
+                         f"joined to the key, {v['join']['keyed_with_system']} with a system; margin {v['margin']:.3f} over "
+                         f"the best wrong control; {v['no_system_records_given_a_class']} no-system records given a class"
+                         for s, v in d["splits"].items()) + "; " + d["held_out"]
     return ""
 
 
@@ -2394,6 +2444,18 @@ ROW_CRITERIA = {
        f"result was only partly blind. {AGENT_KEYED_TEXT} Their pipe truth is derived from the agent-made key graph as for OPEN100 "
        f"(`pid2graph_truth`; the key's networks reproduce its all-pairs links on every sheet), and the agent-keyed "
        f"sheets are scored with the set registered for that call only (`line_layers.SETS` itself is not edited).",
+    9: "Added 2026-11-12 (depth increment 2, A420). The tool reads only the raw export (date, asset, short text, order "
+       "type; cost ignored) through the profile `examples/maintenance-history/nestor.py` writes, and derives each "
+       "record's system class from its short text with the declared vocabulary "
+       "(`examples/maintenance-history/nestor/system_vocabulary.json`). `score_maintenance_systems.py` then joins the "
+       "records to the publisher's cleaned file and scores per-record class against its MajorSystem codes, beside five "
+       "controls: the key itself (must be 1.0), the AMPS raw-asset grouping baseline (no system), one majority class, "
+       "the answer shuffled within each asset, and the answer against another record's key. Pass, fixed before the "
+       "held-out run: original-row checks hold, the reference is perfect, and per-record F1 beats the best wrong control "
+       "by at least 0.20 on both splits. Development assets A-C (two vocabulary passes were read there); held out D-E, "
+       "scored once under the frozen method; these cells re-run that frozen method. The key was made by the publisher's "
+       "keyword rules over the same text, so a pass is agreement with those rules, not engineering truth. The originals' "
+       "terms are unresolved: they stay in the local cache, and a clean clone reports this cell UNVERIFIED.",
 }
 
 
@@ -2436,7 +2498,24 @@ def row8_table(by, r):
     return out if len(out) > 4 else []
 
 
-ROW_EXTRA = {1: row1_table, 6: row6_table, 8: row8_table}
+def row9_table(by, r):
+    c = by.get((9, "nestor-excavators"))
+    if not c or "splits" not in c["detail"]:
+        return []
+    out = ["Per split, per-record system class (precision / recall / F1) beside every control; group F1 last:", "",
+           "| Split | Answer | Reference | Raw-asset baseline | Majority class | Shuffled within asset | Misaligned key | "
+           "Margin | Answer group F1 |", "|---|---|---|---|---|---|---|---|---|"]
+    def prf(v):
+        return "/".join("-" if v[k] is None else f"{v[k]:.3f}" for k in ("precision", "recall", "f1"))
+    for split, d in c["detail"]["splits"].items():
+        rates = d["rates"]
+        out.append(f"| {split} ({', '.join(d['assets'])}) | " + " | ".join(prf(rates[n]["orders"]) for n in (
+            "method", "reference", "raw-asset-baseline", "majority-system", "shuffled-within-asset", "misaligned-key"))
+            + f" | {d['margin']:.3f} | {rates['method']['groups']['f1']:.3f} |")
+    return out
+
+
+ROW_EXTRA = {1: row1_table, 6: row6_table, 8: row8_table, 9: row9_table}
 
 
 # ------------------------------------------------------------------ main

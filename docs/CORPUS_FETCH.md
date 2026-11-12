@@ -217,10 +217,19 @@ It demonstrates source intake and a manually authored controls question, not a c
 new generalization-matrix cell. The candidate entry records that applicability limit. No new source family or
 extraction score is added.
 
+## Acquired public-source groups, by pin
+
+`python scripts/fetch_public_group.py GROUP [--max-mb N]` fetches one pinned-file group of the acquisition
+registries (`data/public_sources_*.json`) into `data/external/GROUP/`, through the same pin-checking engine as
+`fetch_corpus.py`: a file that already matches its pin in `data/corpus_pins.json` is not fetched again, and changed
+upstream bytes are refused. It is the fetch command of the `nestor-excavators` corpus input (matrix row 9):
+`python scripts/fetch_public_group.py nestor-excavators --max-mb 2`. Rights stay as recorded at acquisition; the
+Nestor terms are unresolved, so its originals are for local use only and none is committed.
+
 ## Linked engineering-context packets
 
 `data/corpus.json` lists these separately under `context_packets`. They exercise the source-bound context workflow,
-not the eight selected workflows in the generalization matrix; they do not add pass/fail cells to that matrix.
+not the nine selected workflows in the generalization matrix; they do not add pass/fail cells to that matrix.
 PRONTO and Bayer use existing source families. The new
 [NIST SMS packet](../examples/context-register/nist-smstestbed/README.md) adds a different public manufacturing
 family: two published device configurations and an archived machine log. All are development cases with

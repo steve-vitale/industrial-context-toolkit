@@ -12,7 +12,12 @@ import sys
 
 ROOT = Path(__file__).resolve().parent.parent
 TASKS = {'drawing-extraction': 'pid2graph-v1', 'description-facts': 'native-facts-v1',
-         'source-support': 'claim-judgments-v1', 'tag-reading': 'tag-text-v1'}
+         'source-support': 'claim-judgments-v1', 'tag-reading': 'tag-text-v1',
+         'maintenance-system-grouping': 'system-groups-v1'}
+# Cases whose input/key files sit in a local cache of originals that may not be redistributed (data/external/<group>,
+# fetch-by-hash). A clean clone lacks the whole cache: --registry then reports the suite UNVERIFIED instead of failing.
+# A present cache with a missing or changed file still fails.
+EXTERNAL = 'data/external/'
 TEXT = {'.json', '.graphml', '.xml', '.md', '.txt', '.csv', '.py'}
 FIELDS = {'units': ('id', ('type',)), 'streams': ('id', ('from', 'to')),
           'instruments': ('tag', ('unit', 'stream', 'variable', 'uom')),
@@ -172,7 +177,37 @@ def metrics(total):
     return result
 
 
+def absent_caches(suite, root):
+    """data/external/<group> folders a suite's case files need that are entirely absent from this checkout."""
+    out = set()
+    for case in suite.get('cases', []) if isinstance(suite, dict) else []:
+        for ref in (case.get('files') or {}).values() if isinstance(case, dict) else []:
+            path = ref.get('path', '') if isinstance(ref, dict) else ''
+            if path.startswith(EXTERNAL):
+                cache = '/'.join(path.split('/')[:3])
+                if not (root / cache).exists():
+                    out.add(cache)
+    return sorted(out)
+
+
+def system_answer(prediction):
+    if prediction is None:
+        return {}
+    assigned = prediction.get('assigned') if isinstance(prediction, dict) else None
+    require(isinstance(assigned, dict) and all(isinstance(k, str) and isinstance(v, str) for k, v in assigned.items()),
+            'Expected {"assigned": {record number: class or ""}}')
+    return assigned
+
+
 def score_case(task, files, prediction):
+    if task == 'maintenance-system-grouping':
+        import score_maintenance_systems as systems
+        case = files['_case']
+        out = systems.evaluate(files['input'], files['key'], case['assets'], system_answer(prediction), case['majority'])
+        method = out['scores']['method']
+        return ({m: counts(**method['counts'][m]) for m in systems.METRICS},
+                {'assigned_without_key_system': method['assigned_without_key_system'],
+                 'keyed_without_system': method['keyed_without_system'], 'join': out['join']})
     if task == 'source-support':
         import source_support
         if '_artifact_value_review' in files:
@@ -217,6 +252,8 @@ def evaluate(suite_path, root=ROOT):
         return benchmark_tags.evaluate(suite_path, root, sys.modules[__name__], suite)
     sources = ['benchmark.py'] + (['score_pid2graph.py', 'evaluate_vendor.py', 'replicate_stats.py',
                                  'score_tags.py', 'test_scorer_controls.py'] if task == 'drawing-extraction' else [])
+    if task == 'maintenance-system-grouping':
+        sources.append('score_maintenance_systems.py')
     if task == 'source-support':
         sources.append('source_support.py')
         if any(isinstance(c, dict) and 'artifact_values_protocol' in c for c in suite.get('cases', [])):
@@ -238,6 +275,10 @@ def evaluate(suite_path, root=ROOT):
             files = {'_artifact_value_review': artifact_value_review.admit(root, case['files']['input'], case['files']['key'])}
         else:
             files = {k: reference(root, v) for k, v in case['files'].items()}
+        if task == 'maintenance-system-grouping':
+            require(isinstance(case.get('assets'), list) and case['assets'] and all(isinstance(a, str) and a for a in case['assets'])
+                    and isinstance(case.get('majority'), str) and case['majority'], 'System case needs assets and a majority class')
+            files['_case'] = {'assets': case['assets'], 'majority': case['majority']}
         # Validate keys independently: a bad key must stop evaluation, never become a model failure.
         score_case(task, files, None)
         if task == 'drawing-extraction':
@@ -256,6 +297,14 @@ def evaluate(suite_path, root=ROOT):
             require(not failures, 'Known-answer control failed: ' + '; '.join(failures))
             require(table['perfect']['key_items'] > 0, 'Drawing key has no scored items')
             controls[case['id']] = table
+        elif task == 'maintenance-system-grouping':
+            import score_maintenance_systems as systems
+            out = systems.evaluate(files['input'], files['key'], case['assets'], {}, case['majority'])
+            require(not out['control_problems'], 'Known-answer control failed: ' + '; '.join(out['control_problems']))
+            require(out['join']['keyed_with_system'] > 0, 'System key has no scored records')
+            # The answer-independent controls; the answer-dependent ones (shuffled, misaligned) are in each run row.
+            controls[case['id']] = {name: out['scores'][name]['rates'] for name in ('reference', 'raw-asset-baseline', 'majority-system')}
+            controls[case['id']]['_join'] = out['join']
         elif task == 'source-support':
             import source_support
             controls[case['id']] = (files['_artifact_value_review'].controls() if '_artifact_value_review' in files else
@@ -341,6 +390,12 @@ def evaluate(suite_path, root=ROOT):
                     summed = total.setdefault(metric, counts(0, 0, 0))
                     for field in summed:
                         summed[field] += row[field]
+                if task == 'maintenance-system-grouping':
+                    import score_maintenance_systems as systems
+                    out = systems.evaluate(loaded[cid]['input'], loaded[cid]['key'], case['assets'],
+                                           system_answer(prediction) if status == 'ok' else {}, case['majority'])
+                    diagnostics['controls'] = {n: out['scores'][n]['rates'] for n in systems.CONTROL_ORDER}
+                    diagnostics['margin_over_best_wrong_control'] = systems.margin(out['scores'])
                 rows.append({'case': cid, 'status': status, 'note': note, 'counts': scored, 'diagnostics': diagnostics,
                              'reported_resources': reported, 'recorded_run_at': recorded_run_at,
                              'prediction_ref': ref})
@@ -378,7 +433,9 @@ def evaluate(suite_path, root=ROOT):
                        'Missing/failed attempted answers score empty; unattempted cases remain visible and create different comparison cohorts.',
                        'Public keys and retrospective registration do not establish blindness. Synthetic controls and corrected/development results are separate.',
                        *(['Description facts grade literal selected fields only: no prose names, source validity, dimensions, limits, layout quality or plant truth.']
-                         if task != 'source-support' else [])] +
+                         if task not in ('source-support', 'maintenance-system-grouping') else [])] +
+                      (['System grouping scores per-record classes against a publisher\'s own system coding, itself made by keyword rules over the same short text: agreement with those rules, not engineering truth, failure diagnosis or repair effectiveness. Records the key gives no system are outside the precision denominator and counted separately.']
+                       if task == 'maintenance-system-grouping' else []) +
                       (['Source-support grades labels for fixed supplied claims against a supplied key. It does not judge free-form reasoning, source validity, question usefulness or plant truth; cited IDs are checked structurally.']
                        if task == 'source-support' else [])}
 
@@ -421,12 +478,41 @@ def markdown(report):
                     coverage['semantic_groups'], contradictions, ', '.join(case['diagnostics'].get('missing_judgments', [])) or 'none']) + ' |')
         lines += ['', 'The label F1 rows below are companion diagnostics. F1 differs from exact accuracy when judgments are missing. '
                   'Inspect each claim and its reason; a correct label can accompany a false explanation.', '', '## Per-label diagnostics', '']
-    lines += [
-             '| Model / version | Method / interface | Family / split / evidence | Cohort | Cases | Replicates | Metric | Mean F1 | Min–max | SD |',
-             '|---|---|---|---|---|---|---|---|---|---|']
+    if report['task'] == 'maintenance-system-grouping':
+        lines += ['## Per-record system classes beside the wrong controls', '',
+                  'Per-record precision / recall / F1 for the scored answer and every control on the same keyed records. `reference` is '
+                  'the key itself (must be 1.0); `raw-asset-baseline` is the predeclared raw-asset-ID grouping, which has no system; '
+                  '`majority-system` gives every record one fixed class; `shuffled-within-asset` permutes the answer\'s own classes; '
+                  '`misaligned-key` scores the answer against another record\'s key. Records the key gives no system are outside '
+                  'precision and counted in the last column.', '',
+                  '| Run | Case / split | Answer or control | Orders P | Orders R | Orders F1 | Membership F1 | Groups F1 | No-system records given a class |',
+                  '|---|---|---|---|---|---|---|---|---|']
+        def r4(value):
+            return 'n/a' if value is None else f'{value:.4f}'
+        for run in report['results']:
+            for case in run['rows']:
+                d = case['diagnostics']
+                method = metrics(case['counts'])
+                rows_out = [('answer', method, d.get('assigned_without_key_system'))]
+                rows_out += [(name, values, '') for name, values in d.get('controls', {}).items()]
+                for name, values, extra in rows_out:
+                    lines.append('| ' + ' | '.join(safe(v) for v in [run['run'], case['case'] + ' / ' + run['split'], name,
+                        r4(values['orders']['precision']),
+                        r4(values['orders']['recall']), r4(values['orders']['f1']), r4(values['membership']['f1']),
+                        r4(values['groups']['f1']), extra]) + ' |')
+                lines.append('| ' + ' | '.join(safe(v) for v in [run['run'], case['case'] + ' / ' + run['split'], 'margin over the best wrong control (orders F1)',
+                             '', '', r4(d.get('margin_over_best_wrong_control')), '', '', '']) + ' |')
+        lines += ['', 'The group F1 does not separate the answer from the shuffled or misaligned controls: most systems recur on '
+                  'every asset under any labelling with the same class counts. Read the per-record and membership columns. '
+                  'The model/method summary (one deterministic run per cohort, no replicates) is in the JSON only, so that '
+                  'no table here shows the answer without its controls.', '']
+    else:
+        lines += [
+                 '| Model / version | Method / interface | Family / split / evidence | Cohort | Cases | Replicates | Metric | Mean F1 | Min–max | SD |',
+                 '|---|---|---|---|---|---|---|---|---|---|']
     def fmt(value):
         return 'unavailable' if value is None else f'{value:.4f}'
-    for row in report['summary']:
+    for row in report['summary'] if report['task'] != 'maintenance-system-grouping' else []:
         for metric, values in row['metrics'].items():
             if values['mean_f1'] is None or (report['task'] == 'description-facts' and metric == 'facts') or \
                     (report['task'] == 'source-support' and metric == 'judgments'):
@@ -466,6 +552,11 @@ def main(argv=None):
             registry = read_json(args.registry)
             require(isinstance(registry.get('reports'), list) and registry['reports'], 'Registry needs reports')
             for entry in registry['reports']:
+                absent = absent_caches(read_json(local(args.root, entry['suite'])), args.root)
+                if absent:
+                    print('UNVERIFIED: ' + entry['suite'] + ': local original cache absent (' + ', '.join(absent) +
+                          '); committed report not recomputed here')
+                    continue
                 result = main(['--suite', str(local(args.root, entry['suite'])), '--root', str(args.root),
                                '--out', str(local(args.root, entry['report'])), '--check'])
                 require(result == 0, 'Registered benchmark report failed: ' + entry['suite'])

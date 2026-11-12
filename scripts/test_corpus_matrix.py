@@ -324,6 +324,26 @@ class Rendering(unittest.TestCase):
                     self.assertTrue((Path(d) / f"{s}.graphml").is_file())
             self.assertEqual(set(notes), set(inp["sheets"]))
 
+    def test_row9_binds_the_two_read_originals_as_an_optional_cache_and_its_frozen_config(self):
+        inp = cm.inputs_by_id(cm.load_corpus())["nestor-excavators"]
+        self.assertFalse(inp["committed"])
+        self.assertTrue(inp["fetch"].startswith("python scripts/fetch_public_group.py nestor-excavators"))
+        specs = {s["path"]: s for s in cm.source_specs(9, inp)}
+        cache = specs["data/external/nestor-excavators"]
+        self.assertEqual(cache["patterns"], sorted(cm.NESTOR_FILES))
+        self.assertTrue(cache["optional"])
+        self.assertEqual(cache["cache_root"], "data/external/nestor-excavators")
+        for rel in cm.NESTOR_CONFIG:
+            self.assertFalse(specs[rel]["optional"], rel)
+        self.assertIn("scripts/maintenance_intake.py", cm.tool_files(9, "nestor-excavators"))
+        self.assertIn("examples/maintenance-history/nestor.py", cm.tool_files(9, "nestor-excavators"))
+        rates = {"precision": 0.5, "recall": 0.5, "f1": 0.5}
+        split = {"assets": ["A"], "margin": 0.3, "rates": {n: {"orders": rates, "groups": rates} for n in (
+            "method", "reference", "raw-asset-baseline", "majority-system", "shuffled-within-asset", "misaligned-key")}}
+        table = "\n".join(cm.row9_table({(9, "nestor-excavators"): {"detail": {"splits": {"development": split}}}}, 9))
+        for column in ("Reference", "Raw-asset baseline", "Majority class", "Shuffled within asset", "Misaligned key"):
+            self.assertIn(column, table)
+
     def test_heldout_historian_sources_registered_with_fetch(self):
         import fetch_corpus as fc
         inputs = cm.inputs_by_id(cm.load_corpus())

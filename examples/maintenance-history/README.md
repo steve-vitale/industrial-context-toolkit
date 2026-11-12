@@ -107,6 +107,90 @@ The fictional fixtures are repository-authored and redistributable for clean-clo
 offline CI. No industrial plant data, authenticated company decisions, accepted
 corrections, MTBF, root cause or savings are established.
 
+## A second publisher: Nestor excavator records grouped by system
+
+The Nestor excavator records (`nestor-excavators` in [corpus_depth.json](../../data/corpus_depth.json))
+are 5,485 historical work orders on five mining excavators (A-E): a start date, the asset
+letter, a short free text, an order type and a cost, with **no work-order ID**. The publisher
+also distributes a cleaned file that adds a system code (`MajorSystem`) to most rows. The
+question a manager asks: which systems keep coming back on each excavator, and which records
+show it?
+
+**Task (`maintenance-system-grouping`, attempt A420).** The tool reads only the raw export
+(`Cost` is ignored), takes the record number as the ID (`identity: "record"`), keeps one
+split's assets (`select`) and derives each record's system from its short text with the
+declared [vocabulary](nestor/system_vocabulary.json) (`derive`); recurring groups are then
+(asset, system) with two or more records. [`score_maintenance_systems.py`](../../scripts/score_maintenance_systems.py)
+joins the packet's records to the cleaned file, which the tool never reads, and scores each
+record's class against `MajorSystem` beside five controls.
+
+**How circular it is.** The key is a separate publisher field withheld from the tool, the
+least circular choice this source offers: per-asset counts, order types, cost sums,
+chronology or repeat intervals would all be our own calculation over the tool's input. But
+the publisher made `MajorSystem` with keyword rules over the same short text (the cleaned
+file's `Rule` column), so agreement measures how well a ten-rule declared vocabulary
+reproduces those rules, not whether a system is right. Some key codes are artefacts of
+substring matching: on development, a cab-heater fault is coded Bucket because "GET" (ground
+engaging tools) matches inside "getting".
+
+| Per-record system class | Development A-C (fit) | Held out D-E (one sealed run) |
+|---|---:|---:|
+| Raw rows / joined to the cleaned file / with a system | 2,160 / 2,018 / 1,186 | 3,325 / 3,289 / 1,877 |
+| **Tool: precision / recall / F1** | 0.975 / 0.951 / **0.963** | 0.970 / 0.916 / **0.943** |
+| Reference (the key itself) | 1.000 | 1.000 |
+| AMPS raw-asset grouping baseline (no system) | 0.000 | 0.000 |
+| Majority class for every record | 0.412 | 0.394 |
+| The tool's own classes shuffled within each asset | 0.232 | 0.198 |
+| The tool's classes against another record's key | 0.145 | 0.142 |
+| Margin over the best wrong control (bar 0.20, fixed before the held-out run) | 0.551 | 0.549 |
+| Membership F1, (record, system) pairs inside recurring groups | 0.862 | 0.835 |
+| (Asset, system) group F1 | 0.980 | 0.900 |
+| No-system records given a class (outside precision) | 130 of 832 | 229 of 1,412 |
+
+The [benchmark report](../../benchmarks/results/nestor-system-grouping.md) has every
+control on every metric. The split (A-C development, D-E held out) was decided on
+2026-11-12 before any result; two vocabulary passes were read on A-C only; the tool
+options, vocabulary, scorer and margin were then frozen in [FREEZE.json](nestor/FREEZE.json)
+and D-E scored once. Exposure: held-out key counts were surveyed on 2026-11-12 (work-order
+counts per asset for all five assets, the date range and the MajorSystem distinct count over
+all rows); no method was run. During development two whole-file parse counts that include D-E rows were also printed (cleaned file 5,308 rows; raw file read with a backslash escape 5,326 rows), and no D-E text, code or per-asset figure. Original-row checks pass on both splits: selected and excluded
+counts, per-asset counts, every record's date, asset and text at its locator, and chronology.
+
+**Failures on the real source, and what was done with each.**
+
+- *Fixed in the tool (RED-first tests in `scripts/test_maintenance_history.py`):* the export
+  has no ID column (now `identity: "record"`); one split could not be scored without the
+  other's records becoming unlinked issues (now `select`); the tool could not group by system
+  at all (now `derive`); and an export with no completion column raised a missing-completion
+  issue on every record (now only a mapped, blank value does).
+- *Fixed in the scorer on development, before the freeze:* the raw file is ordered so that
+  neighbouring rows usually share a system, so a key shifted by one row still scored 0.775
+  and was not a wrong control; it now shifts by half an asset (0.145). The reference control
+  first used only a record's first system and missed multi-system rows; it now uses the full set.
+- *Limits, not tuned after the held-out run:* the held-out key spells `Hydraulic Cylinder`
+  (7 rows) where development has `Hydraulic Cylinders`, and codes `Slew` (7) and `Driveshaft`
+  (3), which the development key does not use; four held-out key groups are missed for these
+  reasons. `Radiator` went to 27 held-out rows the key codes Engine or Hydraulic System
+  (overheating and coolant terms). The group F1 does not separate (the shuffled and misaligned
+  controls reach it too), so read per-record and membership F1. A no-system key row (`NA`,
+  42% of joined rows) is outside precision; 16% of them got a class on the held-out assets.
+  142 and 36 raw rows have no cleaned row and are unscored; one development raw row is
+  malformed in the source (its text runs into the order-type and cost columns), and the tool
+  reports its order type as an unknown code. Cost is not read: the tool has no work-order
+  cost field, and the unit (AUD, per the publisher's loader) is not a confirmed ledger meaning.
+- Both splits are one publisher, one fleet and one coding scheme: a held-out check, not a
+  second source, and no failure diagnosis, repair effectiveness or plant acceptance.
+
+Reproduce offline from the local pinned originals (their terms are unresolved, so none is
+committed; the fetch is by hash and refuses changed bytes):
+
+```sh
+python scripts/fetch_public_group.py nestor-excavators --max-mb 2   # only if data/external/nestor-excavators is absent
+python examples/maintenance-history/nestor.py --split development --out ../nestor-dev
+python scripts/benchmark.py --registry benchmarks/registry.json     # UNVERIFIED without the local cache
+python scripts/corpus_matrix.py --rows 9 --out-dir ../nestor-matrix
+```
+
 ## Use it as a bounded starting assignment
 
 Select one asset/system, agree the cohort and source-owner meanings, deliver the

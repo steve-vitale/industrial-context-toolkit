@@ -749,7 +749,7 @@
         "names": [
           "Nestor"
         ],
-        "note": "terms unresolved: local originals only and derived counts only in the repository; rows carry no work-order id, so the source row number is the locator",
+        "note": "terms unresolved: local originals only and derived counts only in the repository; rows carry no work-order id, so the source row number is the locator; A420 (2026-11-12): the scored task is per-record system grouping, the tool's derived class against the cleaned file's MajorSystem, which the tool never reads (benchmarks/maintenance-systems/suite.json, corpus-matrix row 9). That key is a separate publisher field, but the publisher made it with keyword rules over the same short text, so it is less circular than the computed-from-input counts, not independent engineering truth; development A-C, held-out D-E scored once",
         "exposure": "Held-out key counts were surveyed on 2026-11-12 (work-order counts per asset for all five assets, the date range and the MajorSystem distinct count over all rows); no method was run. Any sealed score on assets D and E must state this."
       }
     },

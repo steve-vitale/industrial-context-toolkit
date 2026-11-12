@@ -13,7 +13,7 @@ Strict recall includes unfound labelled symbols; found accuracy is conditional o
 - **Provider / version:** Anthropic / provider build not recorded beyond the saved model identifier
 - **Method / client:** historical 2x2 tiled model extraction + deterministic trace replacement / Claude Code CLI
 - **Family / split / evidence:** dexpi-trainingtestcases / development / exposed historical model answers; CURRENT frozen derived cache keys, original producing key/converter identity unknown
-- **Cohort:** 13890e30cebd7c27ac6488235bb260913ccd00a805245458d1d48c351afa9c92; **group:** 7ece7da2c77c596127529d3836eaa17bb5940aa94612e86b503a3ea838887dff
+- **Cohort:** c29f507b690ef52ba59746011168ec5112d9c35d32075c13a4c4f1847059e295; **group:** 9839b94b54ce04c580567531c01fec37c52802dc66c2c974333f33bf4b57ac05
 - **Selected cases / repeats:** 3 / 5
 - **Configuration:** {"overlap": 0.15, "reasoning_effort": "not recorded", "temperature": "not recorded", "tiles": "2x2", "trace": "replace"}
 
@@ -29,7 +29,7 @@ Strict recall includes unfound labelled symbols; found accuracy is conditional o
 - **Provider / version:** OpenAI / provider build not recorded beyond the saved model identifier
 - **Method / client:** historical 2x2 tiled model extraction + deterministic trace replacement / Codex CLI
 - **Family / split / evidence:** dexpi-trainingtestcases / development / exposed historical model answers; CURRENT frozen derived cache keys, original producing key/converter identity unknown
-- **Cohort:** 13890e30cebd7c27ac6488235bb260913ccd00a805245458d1d48c351afa9c92; **group:** b5c77918ef4f3884bc9a1e7ed4279a43269d94aab9d84f7dcaf67b9ff3ae6f48
+- **Cohort:** c29f507b690ef52ba59746011168ec5112d9c35d32075c13a4c4f1847059e295; **group:** c756f21bd3c84717924ea30dbdbe555bbb5d7ee5937732a26ffaf81fd87ec48e
 - **Selected cases / repeats:** 3 / 5
 - **Configuration:** {"overlap": 0.15, "reasoning_effort": "not recorded", "temperature": "not recorded", "tiles": "2x2", "trace": "replace"}
 
@@ -49,7 +49,7 @@ Substring recall measures coverage of partial lists, without assigning identifie
 - **Provider / version:** OpenAI / provider build not recorded beyond the saved model identifier
 - **Method / client:** historical 2x2 tiled model extraction + deterministic trace replacement / Codex CLI
 - **Family / split / evidence:** dexpi-trainingtestcases / development / exposed historical model answers; CURRENT frozen derived cache keys, original producing key/converter identity unknown
-- **Cohort:** 25d3c96cc1e6030f45137603a5ff1f3013ef90ca53305a4c317d5ec963c7723d; **group:** 31e5d5317b117636817a04874292cc8a542fc54ce0638fde93bce0ae83aeeb7e
+- **Cohort:** 170682030ada42cd0c34dd5ef0876dbc31796d8d1a3c82eec52d9ac6d8f42ad6; **group:** c0faadca272adcb40b06105356b555b3eb6aacaa83c630e8294db8a9deef2bdc
 - **Selected cases / repeats:** 2 / 5
 - **Configuration:** {"overlap": 0.15, "reasoning_effort": "not recorded", "temperature": "not recorded", "tiles": "2x2", "trace": "replace"}
 
@@ -69,7 +69,7 @@ Substring recall measures coverage of partial lists, without assigning identifie
 - **Provider / version:** Anthropic / provider build not recorded beyond the saved model identifier
 - **Method / client:** historical 2x2 tiled model extraction + deterministic trace replacement / Claude Code CLI
 - **Family / split / evidence:** dexpi-trainingtestcases / development / exposed historical model answers; CURRENT frozen derived cache keys, original producing key/converter identity unknown
-- **Cohort:** 25d3c96cc1e6030f45137603a5ff1f3013ef90ca53305a4c317d5ec963c7723d; **group:** c8d7ccd4b46e99117bc831ef1297fafde3a4dd91f1452c26b2dbdfb9689eb04a
+- **Cohort:** 170682030ada42cd0c34dd5ef0876dbc31796d8d1a3c82eec52d9ac6d8f42ad6; **group:** c2ffc57dc6dfe4ac92b199f9bf22e6d4e41a6ae32093b0e0b982f8dfddac5d7e
 - **Selected cases / repeats:** 2 / 5
 - **Configuration:** {"overlap": 0.15, "reasoning_effort": "not recorded", "temperature": "not recorded", "tiles": "2x2", "trace": "replace"}
 

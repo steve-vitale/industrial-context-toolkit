@@ -1,0 +1,61 @@
+{
+  "cases": [
+    {
+      "assets": [
+        "A",
+        "B",
+        "C"
+      ],
+      "evidence": "frozen method, development fit (two vocabulary passes read on these assets)",
+      "family": "nestor-excavators",
+      "files": {
+        "input": {
+          "path": "data/external/nestor-excavators/nestor/datasets/excavators.csv",
+          "sha256": "4fdc10728bb8d579ae310ee12bb613dc7068ded2050c301674e78bbfbbd189f0"
+        },
+        "key": {
+          "path": "data/external/nestor-excavators/nestor/datasets/excavators-cleaned.csv",
+          "sha256": "006c4f71bc1ff2edc2adf064107a054a6cf2f2027a53ba2cf748ccb7b4e517a2"
+        }
+      },
+      "id": "nestor-excavators-a-c",
+      "key_author": "publisher: the cleaned file MajorSystem column (Hodkiewicz and Ho 2016 keyword cleaning rules over the same short text)",
+      "license": "terms unresolved (data/corpus_depth.json#nestor-excavators): originals stay in the local fetch-by-hash cache; only derived answers and counts are committed",
+      "majority": "Hydraulic System",
+      "source_url": "https://github.com/usnistgov/nestor/tree/1d9cd96f129fb6562f5fdb86ae0a39fb50085048/nestor/datasets",
+      "split": "development"
+    },
+    {
+      "assets": [
+        "D",
+        "E"
+      ],
+      "evidence": "frozen method, one sealed run 2026-11-12; exposure: Held-out key counts were surveyed on 2026-11-12 (work-order counts per asset for all five assets, the date range and the MajorSystem distinct count over all rows); no method was run. Any sealed score on assets D and E must state this.",
+      "family": "nestor-excavators",
+      "files": {
+        "input": {
+          "path": "data/external/nestor-excavators/nestor/datasets/excavators.csv",
+          "sha256": "4fdc10728bb8d579ae310ee12bb613dc7068ded2050c301674e78bbfbbd189f0"
+        },
+        "key": {
+          "path": "data/external/nestor-excavators/nestor/datasets/excavators-cleaned.csv",
+          "sha256": "006c4f71bc1ff2edc2adf064107a054a6cf2f2027a53ba2cf748ccb7b4e517a2"
+        }
+      },
+      "id": "nestor-excavators-d-e",
+      "key_author": "publisher: the cleaned file MajorSystem column (Hodkiewicz and Ho 2016 keyword cleaning rules over the same short text)",
+      "license": "terms unresolved (data/corpus_depth.json#nestor-excavators): originals stay in the local fetch-by-hash cache; only derived answers and counts are committed",
+      "majority": "Hydraulic System",
+      "source_url": "https://github.com/usnistgov/nestor/tree/1d9cd96f129fb6562f5fdb86ae0a39fb50085048/nestor/datasets",
+      "split": "held-out"
+    }
+  ],
+  "id": "nestor-excavators-system-grouping",
+  "protocol": "system-groups-v1: per-record system class vs the cleaned file MajorSystem (split on _, NA = no system), joined on date, asset and normalized text; groups and membership at two or more records per asset; five controls",
+  "registration": "Depth increment 2, attempt A420. Split decided 2026-11-12 before any result: development assets A-C, held out D-E. Method, scorer and pass margin frozen before the one held-out run. Key computed by the publisher from the same text (keyword rules), so a high score is agreement with those rules. Originals are not redistributed: in a clean clone this suite is UNVERIFIED and its committed report stands as recorded.",
+  "runs": [
+    "benchmarks/maintenance-systems/runs/a420-maintenance-history.json"
+  ],
+  "task": "maintenance-system-grouping",
+  "version": "1"
+}

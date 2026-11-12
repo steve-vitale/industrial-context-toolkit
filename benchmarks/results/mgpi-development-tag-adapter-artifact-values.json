@@ -1,7 +1,7 @@
 {
   "case_total": 2,
   "code_sha256": {
-    "benchmark.py": "4cee3f9226dd44ff0e15ede4a31e2f1e5536617f010cf8ccb7a740b3d3a62224"
+    "benchmark.py": "9956750dd5cd08cfebbbd46c16960c71d40d0526d688c9ff3869a818667039f6"
   },
   "controls": {
     "mgpi-v1": {
@@ -189,7 +189,7 @@
   "results": [
     {
       "case_count": 1,
-      "cohort": "9abe8727f1a262ae7e4885391baf17530b2caeaba2fdcb11d0fdeb5225149bca",
+      "cohort": "f8be0493cbdea617d2092de6ff4687af8c375800103cc5119424d2cfe060aa46",
       "configuration": {
         "development_exposure": "Source narrative and Figure3 seen during scouting; original key hidden before initial candidate freeze.",
         "model_settings": "not recorded; no provider-attested run identity",
@@ -378,7 +378,7 @@
     },
     {
       "case_count": 1,
-      "cohort": "c5deefec898fcfe38cb16b2c19e5924bab8077b72eceaf8d6f1cecc4c91b6b3f",
+      "cohort": "478ff9e97797cce664e742ea76956b70804b7355e89e3a7f8f61b353c81659eb",
       "configuration": {
         "development_exposure": "Source narrative and Figure3 seen during scouting; original key hidden before initial candidate freeze.",
         "model_settings": "not recorded; no provider-attested run identity",
@@ -560,7 +560,7 @@
     },
     {
       "case_count": 1,
-      "cohort": "c5deefec898fcfe38cb16b2c19e5924bab8077b72eceaf8d6f1cecc4c91b6b3f",
+      "cohort": "478ff9e97797cce664e742ea76956b70804b7355e89e3a7f8f61b353c81659eb",
       "configuration": {
         "development_exposure": "Source narrative and Figure3 seen during scouting; original key hidden before initial candidate freeze.",
         "model_settings": "not recorded; no provider-attested run identity",
@@ -905,7 +905,7 @@
     },
     {
       "case_count": 1,
-      "cohort": "c5deefec898fcfe38cb16b2c19e5924bab8077b72eceaf8d6f1cecc4c91b6b3f",
+      "cohort": "478ff9e97797cce664e742ea76956b70804b7355e89e3a7f8f61b353c81659eb",
       "configuration": {
         "development_exposure": "Source narrative and Figure3 seen during scouting; original key hidden before initial candidate freeze.",
         "model_settings": "not recorded; no provider-attested run identity",
@@ -1101,7 +1101,7 @@
     },
     {
       "case_count": 1,
-      "cohort": "c5deefec898fcfe38cb16b2c19e5924bab8077b72eceaf8d6f1cecc4c91b6b3f",
+      "cohort": "478ff9e97797cce664e742ea76956b70804b7355e89e3a7f8f61b353c81659eb",
       "configuration": {
         "development_exposure": "Source narrative and Figure3 seen during scouting; original key hidden before initial candidate freeze.",
         "model_settings": "not recorded; no provider-attested run identity",
@@ -1317,155 +1317,7 @@
   "summary": [
     {
       "case_count": 1,
-      "cohort": "c5deefec898fcfe38cb16b2c19e5924bab8077b72eceaf8d6f1cecc4c91b6b3f",
-      "configuration": {
-        "development_exposure": "Source narrative and Figure3 seen during scouting; original key hidden before initial candidate freeze.",
-        "model_settings": "not recorded; no provider-attested run identity",
-        "source_scope": "v2"
-      },
-      "evidence": "Separate agent original-source key; curated source adaptation; no human validation",
-      "family": "csb-mgpi",
-      "group": "06305436c208f3f6de9c44599ac8b4739f66061dee8ac189e71811e0b0b0e882",
-      "interface": "deterministic authored control",
-      "method": "planted unscored false automatic shutdown",
-      "metrics": {
-        "controllers": {
-          "max_f1": null,
-          "mean_f1": null,
-          "min_f1": null,
-          "stdev_f1": null
-        },
-        "facts": {
-          "max_f1": 1.0,
-          "mean_f1": 1.0,
-          "min_f1": 1.0,
-          "stdev_f1": null
-        },
-        "final_elements": {
-          "max_f1": null,
-          "mean_f1": null,
-          "min_f1": null,
-          "stdev_f1": null
-        },
-        "instruments": {
-          "max_f1": 1.0,
-          "mean_f1": 1.0,
-          "min_f1": 1.0,
-          "stdev_f1": null
-        },
-        "manual_valves": {
-          "max_f1": null,
-          "mean_f1": null,
-          "min_f1": null,
-          "stdev_f1": null
-        },
-        "relief_devices": {
-          "max_f1": null,
-          "mean_f1": null,
-          "min_f1": null,
-          "stdev_f1": null
-        },
-        "streams": {
-          "max_f1": 1.0,
-          "mean_f1": 1.0,
-          "min_f1": 1.0,
-          "stdev_f1": null
-        },
-        "units": {
-          "max_f1": 1.0,
-          "mean_f1": 1.0,
-          "min_f1": 1.0,
-          "stdev_f1": null
-        }
-      },
-      "model": {
-        "id": "planted-control",
-        "provider": "none",
-        "version": "1"
-      },
-      "replicates": 1,
-      "runs": [
-        "mgpi-false-shutdown"
-      ],
-      "split": "development"
-    },
-    {
-      "case_count": 1,
-      "cohort": "c5deefec898fcfe38cb16b2c19e5924bab8077b72eceaf8d6f1cecc4c91b6b3f",
-      "configuration": {
-        "development_exposure": "Source narrative and Figure3 seen during scouting; original key hidden before initial candidate freeze.",
-        "model_settings": "not recorded; no provider-attested run identity",
-        "source_scope": "v2"
-      },
-      "evidence": "Separate agent original-source key; curated source adaptation; no human validation",
-      "family": "csb-mgpi",
-      "group": "18a041421a28e9858a8776f283ee225ce7cebb80183d824a408abaec29dd463e",
-      "interface": "deterministic authored control",
-      "method": "planted empty output",
-      "metrics": {
-        "controllers": {
-          "max_f1": null,
-          "mean_f1": null,
-          "min_f1": null,
-          "stdev_f1": null
-        },
-        "facts": {
-          "max_f1": 0.0,
-          "mean_f1": 0.0,
-          "min_f1": 0.0,
-          "stdev_f1": null
-        },
-        "final_elements": {
-          "max_f1": null,
-          "mean_f1": null,
-          "min_f1": null,
-          "stdev_f1": null
-        },
-        "instruments": {
-          "max_f1": 0.0,
-          "mean_f1": 0.0,
-          "min_f1": 0.0,
-          "stdev_f1": null
-        },
-        "manual_valves": {
-          "max_f1": null,
-          "mean_f1": null,
-          "min_f1": null,
-          "stdev_f1": null
-        },
-        "relief_devices": {
-          "max_f1": null,
-          "mean_f1": null,
-          "min_f1": null,
-          "stdev_f1": null
-        },
-        "streams": {
-          "max_f1": 0.0,
-          "mean_f1": 0.0,
-          "min_f1": 0.0,
-          "stdev_f1": null
-        },
-        "units": {
-          "max_f1": 0.0,
-          "mean_f1": 0.0,
-          "min_f1": 0.0,
-          "stdev_f1": null
-        }
-      },
-      "model": {
-        "id": "planted-control",
-        "provider": "none",
-        "version": "1"
-      },
-      "replicates": 1,
-      "runs": [
-        "mgpi-empty"
-      ],
-      "split": "development"
-    },
-    {
-      "case_count": 1,
-      "cohort": "9abe8727f1a262ae7e4885391baf17530b2caeaba2fdcb11d0fdeb5225149bca",
+      "cohort": "f8be0493cbdea617d2092de6ff4687af8c375800103cc5119424d2cfe060aa46",
       "configuration": {
         "development_exposure": "Source narrative and Figure3 seen during scouting; original key hidden before initial candidate freeze.",
         "model_settings": "not recorded; no provider-attested run identity",
@@ -1473,7 +1325,7 @@
       },
       "evidence": "Separate agent original-source key; curated source adaptation; no human validation",
       "family": "csb-mgpi",
-      "group": "35370407d42f239fa19a0121a6e1f77ded0080c09c0c9bb354966ef2ccdb6ae4",
+      "group": "33349fb1a42014fb3f3a5e9603189025bb99c654c15b2fd1b9e9d626c189111c",
       "interface": "ongoing maintainer coding-agent session",
       "method": "initial source adaptation and model",
       "metrics": {
@@ -1539,7 +1391,7 @@
     },
     {
       "case_count": 1,
-      "cohort": "c5deefec898fcfe38cb16b2c19e5924bab8077b72eceaf8d6f1cecc4c91b6b3f",
+      "cohort": "478ff9e97797cce664e742ea76956b70804b7355e89e3a7f8f61b353c81659eb",
       "configuration": {
         "development_exposure": "Source narrative and Figure3 seen during scouting; original key hidden before initial candidate freeze.",
         "model_settings": "not recorded; no provider-attested run identity",
@@ -1547,7 +1399,81 @@
       },
       "evidence": "Separate agent original-source key; curated source adaptation; no human validation",
       "family": "csb-mgpi",
-      "group": "5747a712e3717a7bd66f80cca429e5c3ea40071267fa21aed9588de10f8dc2ed",
+      "group": "387385cf7b7900e49b41d77bf6e8595d1e9ce98bf120f8c2358e884b60c5d714",
+      "interface": "deterministic authored control",
+      "method": "planted unscored false automatic shutdown",
+      "metrics": {
+        "controllers": {
+          "max_f1": null,
+          "mean_f1": null,
+          "min_f1": null,
+          "stdev_f1": null
+        },
+        "facts": {
+          "max_f1": 1.0,
+          "mean_f1": 1.0,
+          "min_f1": 1.0,
+          "stdev_f1": null
+        },
+        "final_elements": {
+          "max_f1": null,
+          "mean_f1": null,
+          "min_f1": null,
+          "stdev_f1": null
+        },
+        "instruments": {
+          "max_f1": 1.0,
+          "mean_f1": 1.0,
+          "min_f1": 1.0,
+          "stdev_f1": null
+        },
+        "manual_valves": {
+          "max_f1": null,
+          "mean_f1": null,
+          "min_f1": null,
+          "stdev_f1": null
+        },
+        "relief_devices": {
+          "max_f1": null,
+          "mean_f1": null,
+          "min_f1": null,
+          "stdev_f1": null
+        },
+        "streams": {
+          "max_f1": 1.0,
+          "mean_f1": 1.0,
+          "min_f1": 1.0,
+          "stdev_f1": null
+        },
+        "units": {
+          "max_f1": 1.0,
+          "mean_f1": 1.0,
+          "min_f1": 1.0,
+          "stdev_f1": null
+        }
+      },
+      "model": {
+        "id": "planted-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "replicates": 1,
+      "runs": [
+        "mgpi-false-shutdown"
+      ],
+      "split": "development"
+    },
+    {
+      "case_count": 1,
+      "cohort": "478ff9e97797cce664e742ea76956b70804b7355e89e3a7f8f61b353c81659eb",
+      "configuration": {
+        "development_exposure": "Source narrative and Figure3 seen during scouting; original key hidden before initial candidate freeze.",
+        "model_settings": "not recorded; no provider-attested run identity",
+        "source_scope": "v2"
+      },
+      "evidence": "Separate agent original-source key; curated source adaptation; no human validation",
+      "family": "csb-mgpi",
+      "group": "6d2d0812b3455dd4300747c1be89907ac64703b64eb432dd72fc6157d06228cd",
       "interface": "deterministic authored control",
       "method": "planted wrong chemical endpoint",
       "metrics": {
@@ -1613,7 +1539,7 @@
     },
     {
       "case_count": 1,
-      "cohort": "c5deefec898fcfe38cb16b2c19e5924bab8077b72eceaf8d6f1cecc4c91b6b3f",
+      "cohort": "478ff9e97797cce664e742ea76956b70804b7355e89e3a7f8f61b353c81659eb",
       "configuration": {
         "development_exposure": "Source narrative and Figure3 seen during scouting; original key hidden before initial candidate freeze.",
         "model_settings": "not recorded; no provider-attested run identity",
@@ -1621,7 +1547,81 @@
       },
       "evidence": "Separate agent original-source key; curated source adaptation; no human validation",
       "family": "csb-mgpi",
-      "group": "77d1885a9e690b6035a43542ee596980cb934d19782bd74198679b52eea891b0",
+      "group": "9611c5417e7f5219ffcd46f20e0dd0eb14eae64cf1059b4164278a6fb7ce8219",
+      "interface": "deterministic authored control",
+      "method": "planted empty output",
+      "metrics": {
+        "controllers": {
+          "max_f1": null,
+          "mean_f1": null,
+          "min_f1": null,
+          "stdev_f1": null
+        },
+        "facts": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        },
+        "final_elements": {
+          "max_f1": null,
+          "mean_f1": null,
+          "min_f1": null,
+          "stdev_f1": null
+        },
+        "instruments": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        },
+        "manual_valves": {
+          "max_f1": null,
+          "mean_f1": null,
+          "min_f1": null,
+          "stdev_f1": null
+        },
+        "relief_devices": {
+          "max_f1": null,
+          "mean_f1": null,
+          "min_f1": null,
+          "stdev_f1": null
+        },
+        "streams": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        },
+        "units": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        }
+      },
+      "model": {
+        "id": "planted-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "replicates": 1,
+      "runs": [
+        "mgpi-empty"
+      ],
+      "split": "development"
+    },
+    {
+      "case_count": 1,
+      "cohort": "478ff9e97797cce664e742ea76956b70804b7355e89e3a7f8f61b353c81659eb",
+      "configuration": {
+        "development_exposure": "Source narrative and Figure3 seen during scouting; original key hidden before initial candidate freeze.",
+        "model_settings": "not recorded; no provider-attested run identity",
+        "source_scope": "v2"
+      },
+      "evidence": "Separate agent original-source key; curated source adaptation; no human validation",
+      "family": "csb-mgpi",
+      "group": "c22d495e7020869c1b578739a9595f5087b7d62145e56f08919e6a4f633ccf6c",
       "interface": "ongoing maintainer coding-agent session",
       "method": "expanded original-source scope and reviewed model",
       "metrics": {

@@ -918,6 +918,23 @@
     5
    ],
    "evidence_role": "Platform export plumbing on an authored source adaptation. Separate original-source agent inventories; no heldout interpretation, plant approval or current installed-state claim."
+  },
+  {
+   "id": "nestor-excavators",
+   "name": "Nestor excavator work orders: 5,485 historical maintenance work orders on five mining excavators (start date, asset, short text, order type, cost) and the publisher's cleaned file with system codes",
+   "family": "nestor-excavators",
+   "kind": "maintenance-records",
+   "source_url": "https://github.com/usnistgov/nestor/tree/1d9cd96f129fb6562f5fdb86ae0a39fb50085048/nestor/datasets",
+   "license": "Dataset terms unresolved (data/public_sources_20261107_round2.json, nestor-excavators). Local use only: fetched by hash into data/external/nestor-excavators (gitignored); no original row or excerpt is committed, only derived counts and the tool's per-record classes",
+   "attribution": "Hodkiewicz, M. and Ho, M. (2016), Cleaning historical maintenance work order data for reliability analysis, Journal of Quality in Maintenance Engineering 22(2); historical CSVs distributed by NIST Nestor",
+   "local_path": "data/external/nestor-excavators",
+   "committed": false,
+   "fetch": "python scripts/fetch_public_group.py nestor-excavators --max-mb 2",
+   "real": true,
+   "evaluation_role": "development assets A-C; held out D-E, scored once under the frozen method (A420)",
+   "exercises": [
+    9
+   ]
   }
  ],
  "candidates": [
