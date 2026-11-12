@@ -17,8 +17,8 @@ simulation.
 ## Why you
 
 Nobody with operations experience has looked at any of it. Models and code checks have, and we know where they stop:
-they can say a tag was copied correctly, not whether an alarm limit makes sense or an isolation point is the
-right one. That is the part we are asking you for.
+they can say a tag was copied correctly, not whether an alarm limit makes sense or whether the energy boundaries a mockup observes are the
+ones a review should consider. That is the part we are asking you for.
 
 ## What we ask
 
@@ -32,7 +32,7 @@ answers.
 2. **Topology (25 min).** On one drawing (sheet 0), are the connections the model found the ones the drawing
    shows? On the TE flowsheet, is the flow (feeds, reactor, condenser, separator, compressor, stripper, recycle,
    purge) right?
-3. **Lockout/tagout view (15 min).** A design mockup marks 11 points to isolate. Are these the right *kinds* of
+3. **Lockout/tagout view (15 min).** A design mockup marks 11 energy boundaries (no isolating device named). Are these the right *kinds* of
    energy source for these units, and what is missing? This is a question about a training view. It is not a
    procedure.
 4. **Hazard examples and unit descriptions (15 min).** Each tour stop cites a public incident (CSB, OSHA or EPA)

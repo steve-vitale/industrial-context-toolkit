@@ -23,24 +23,22 @@ sys.path.insert(0, str(ROOT / "scripts"))
 sys.path.insert(0, str(ROOT / "scripts" / "ignition"))
 import build_open100_mimic  # noqa: E402
 from preview_mimic import render  # noqa: E402
+from isolation_wording import MOCKUP_STATUS  # noqa: E402
 
 OUT = ROOT / "out" / "open100_structural"
 SHOTS = ROOT / "docs" / "screenshots" / "open100"
 DRAWINGS = ROOT / "data" / "external" / "pid2graph" / "PID2Graph" / "Complete" / "PID2Graph OPEN100"
 BANNER = "OFFLINE RENDER OF THE PERSPECTIVE VIEW / NOT A GATEWAY SCREENSHOT / STRUCTURE ONLY, NO PROCESS DATA"
-LOTO_FRAME = ("DESIGN MOCKUP, NOT A PROCEDURE. Isolation points are read from the extracted symbols of this drawing and "
-              "are unverified. A real lockout/tagout procedure comes from the site's energy-control program "
-              "(OSHA 1910.147), its verified P&IDs and an authorized person. A valve the extraction missed is not "
-              "on this view.")
+LOTO_FRAME = MOCKUP_STATUS + " Read from the unverified extracted symbols: a valve the extraction missed is not on this view."
 LOTO_STYLE = {  # kind -> (outline colour, legend text)
-    "manual_block_valve": ((200, 30, 30), "Manual valve in a line: candidate block valve"),
-    "motor_operated_valve": ((200, 30, 30), "Motor-operated valve: isolation point + its own electrical energy"),
-    "motor_driven_equipment": ((150, 40, 170), "Motor-driven equipment: electrical isolation at its breaker"),
-    "boundary_connection": ((30, 90, 220), "Line from another system: isolate there or at the first block valve"),
-    "vent_drain_connection": ((0, 140, 60), "Line to a vent or drain system"),
-    "vent_drain_or_test": ((0, 140, 60), "One-connection valve: likely vent, drain or test point"),
-    "control_valve": ((120, 120, 120), "Control valve: NOT an isolation device on its own"),
-    "relief_device": ((230, 140, 0), "Relief device: never use for isolation"),
+    "manual_block_valve": ((200, 30, 30), "Manual valve in a line (whether it isolates: not assessed)"),
+    "motor_operated_valve": ((200, 30, 30), "Motor-operated valve; its motor is electrical energy (not assessed)"),
+    "motor_driven_equipment": ((150, 40, 170), "Motor-driven equipment: electrical energy not on this drawing"),
+    "boundary_connection": ((30, 90, 220), "Boundary: line continues to another system; energy can enter"),
+    "vent_drain_connection": ((0, 140, 60), "Boundary: line continues to a vent or drain system"),
+    "vent_drain_or_test": ((0, 140, 60), "One-connection valve: possibly vent, drain or test"),
+    "control_valve": ((120, 120, 120), "Control valve: NOT POSITIVE ISOLATION"),
+    "relief_device": ((230, 140, 0), "Relief device: NOT POSITIVE ISOLATION"),
 }
 
 
@@ -109,24 +107,26 @@ def loto_still(structure, sheet, path, crop=None):
             legend_rows.append((k, "%s (%d): %s" % (LOTO_STYLE[k][1], len(n), ", ".join(map(str, n[:14])) +
                                                      (" ..." if len(n) > 14 else ""))))
     pad = 16
-    top_h = 92
+    # The whole status is printed, never cut: the band grows with the wrapped text.
+    measure = ImageDraw.Draw(Image.new("RGB", (1, 1)))
+    words, line, lines = LOTO_FRAME.split(), "", []
+    for w in words:
+        if measure.textlength(line + " " + w, font=small) > im.size[0] - 2 * pad:
+            lines.append(line)
+            line = w
+        else:
+            line = (line + " " + w).strip()
+    lines.append(line)
+    top_h = 38 + 18 * len(lines) + 12
     leg_h = 28 * len(legend_rows) + 2 * pad
     canvas = Image.new("RGB", (im.size[0], im.size[1] + top_h + leg_h), "white")
     canvas.paste(im, (0, top_h))
     d2 = ImageDraw.Draw(canvas)
     d2.rectangle((0, 0, canvas.size[0], top_h), fill=(80, 20, 15))
     area = next(a for a in structure["areas"] if a["sheet"] == sheet)
-    d2.text((pad, 10), "LOTO isolation view (design mockup) · OPEN100 sheet %s · %s" % (sheet, area["label"]),
+    d2.text((pad, 10), "LOTO view (design mockup, not a procedure) · OPEN100 sheet %s · %s" % (sheet, area["label"]),
             fill="white", font=big)
-    words, line, lines = LOTO_FRAME.split(), "", []
-    for w in words:
-        if d2.textlength(line + " " + w, font=small) > canvas.size[0] - 2 * pad:
-            lines.append(line)
-            line = w
-        else:
-            line = (line + " " + w).strip()
-    lines.append(line)
-    for i, l in enumerate(lines[:3]):
+    for i, l in enumerate(lines):
         d2.text((pad, 38 + i * 18), l, fill=(255, 230, 220), font=small)
     y = im.size[1] + top_h + pad
     for k, text in legend_rows:

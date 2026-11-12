@@ -82,18 +82,18 @@ Example review: not yet: needs review
 
 **Inputs:** Each sheet as a PNG with its extraction, drawing number and title; the original PDF for the tag check
 
-**Outputs:** One draft model across the sheets with off-page connectors paired by drawing number, title or system code (ties left for a person), the drawn pipe segments and instrument connections as graph relations, a flow direction on each pipe segment the drawing shows one for (arrowhead, off-page flag, pump port or valve continuity; the rest stay undirected), control loops assembled from the ISA-5.1 tags and confirmed only by traced signal lines (signal_to, controls from confirmed loops, cascades; anything resting on a line joined through a crossing carries its own weakest tier and a review question, every relation shows its tier, and every loop not proved is listed as a review candidate), a report with every sheet and the pairs, and per-sheet lists of tags the reader missed or may have misread. Pages without a text layer are reported as needing OCR
+**Outputs:** One draft model across the sheets with off-page connectors paired by drawing number, title or system code (ties left for a person), the drawn pipe segments and instrument connections as graph relations, a flow direction on each pipe segment the drawing shows one for (arrowhead, off-page flag, pump port or valve continuity; the rest stay undirected), control loops assembled from the ISA-5.1 tags and confirmed only by traced signal lines (signal_to, controls from confirmed loops, cascades; anything resting on a line joined through a crossing carries its own weakest tier and a review question, every relation shows its tier, and every loop not proved is listed as a review candidate), a report with every sheet and the pairs, and per-sheet lists of tags the reader missed or may have misread. Pages without a text layer are reported as needing OCR; with --ocr auto and Tesseract installed they also get OCR tag hints, each with its confidence and box, listed apart and never counted as checked tags
 
 **Time:** Three public Pahala WWTP sheets read in 183 s plus 9 s of tracing, measured once; intake, report and tag check took seconds; review time not measured
 
-- **Tools:** `import_drawing_set.py`, `offpage_pairing.py`, `line_layers.py`, `flow_direction.py`, `loop_assembly.py`, `crossing_question.py`, `pdf_tag_check.py`, `deliverable_report.py`
+- **Tools:** `import_drawing_set.py`, `offpage_pairing.py`, `line_layers.py`, `flow_direction.py`, `loop_assembly.py`, `crossing_question.py`, `pdf_tag_check.py`, `ocr_tag_hints_score.py`, `deliverable_report.py`
 - **How to use it:** [README.md](../examples/own-drawing/README.md)
 
 <details>
 <summary>Example files, tests and independent review</summary>
 
 - **Registered example files:** [`set-manifest.json`](../examples/own-drawing/set-manifest.json), [`offpage-key.json`](../examples/own-drawing/offpage-key.json)
-- **Tests:** `test_drawing_set_intake.py`, `test_loop_assembly.py`, `test_offpage_pairing.py`, `test_pdf_tag_check.py`
+- **Tests:** `test_drawing_set_intake.py`, `test_loop_assembly.py`, `test_offpage_pairing.py`, `test_pdf_tag_check.py`, `test_ocr_tag_hints_score.py`
 - **Independent review:** none yet
 
 </details>
@@ -588,18 +588,18 @@ Example review: not yet: needs review
 
 **Inputs:** Your reader's per-sheet output and a small adapter to the documented prediction format; answer keys to score it
 
-**Outputs:** An importable prediction file, the same review bundle and exports as the current reader, and a registered result shown beside the controls, labelled development, validation or held-out. The worked example re-expresses an existing reading; no other reader has been run yet
+**Outputs:** An importable prediction file, the same review bundle and exports as the current reader, and a registered result shown beside the controls, labelled development, validation or held-out. The worked example re-expresses an existing reading; one external reader, the public pid-to-kg skill, has been converted from its graph.json and compared on the development sets only, unregistered
 
 **Time:** Seconds to convert and import one sheet; scoring as for the vendor-evaluation kit
 
-- **Tools:** `reader_template.py`, `reader_leaderboard.py`
+- **Tools:** `reader_template.py`, `reader_external_kg.py`, `reader_leaderboard.py`
 - **How to use it:** [PLUG_IN_A_READER.md](../docs/PLUG_IN_A_READER.md)
 
 <details>
 <summary>Example files, tests and independent review</summary>
 
-- **Registered example files:** [`reader_output_sheet0.json`](../examples/plug-in-a-reader/reader_output_sheet0.json), [`prediction_sheet0.json`](../examples/plug-in-a-reader/prediction_sheet0.json), [`manifest.json`](../examples/plug-in-a-reader/manifest.json), [`LEADERBOARD.md`](../benchmarks/LEADERBOARD.md)
-- **Tests:** `test_reader_template.py`, `test_reader_leaderboard.py`
+- **Registered example files:** [`reader_output_sheet0.json`](../examples/plug-in-a-reader/reader_output_sheet0.json), [`prediction_sheet0.json`](../examples/plug-in-a-reader/prediction_sheet0.json), [`manifest.json`](../examples/plug-in-a-reader/manifest.json), [`LEADERBOARD.md`](../benchmarks/LEADERBOARD.md), [`comparison.md`](../out/ext_pidkg/comparison.md)
+- **Tests:** `test_reader_template.py`, `test_reader_external_kg.py`, `test_reader_leaderboard.py`
 - **Independent review:** none yet
 
 </details>

@@ -31,7 +31,7 @@ View each still at 100 % on a normal monitor.
    operator needs missing?
 2. **Flow (`30`):** is the order "feeds and recycle meet, react, condense, separate, recycle, strip" how you would
    explain this process? The purge now leaves from the separator, as the simulator code shows (journal entry 42).
-3. **LOTO mockup (`40`):** are these the energy sources you would expect to isolate for these units (process
+3. **LOTO mockup (`40`):** are these the energy boundaries you would expect a review to consider for these units (process
    feeds, purge, product, motors, cooling water, steam)? What is missing (e.g. the separator and stripper
    liquid outlets, analyser sample lines, instrument air, relief paths)? This is a design question about the view.
    It is not a procedure, and the numbering is not an isolation order.

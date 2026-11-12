@@ -69,10 +69,13 @@
       "guide": "examples/own-drawing/README.md",
       "purpose": "Several sheets and their extractions to one review bundle, pairing off-page connectors across sheets by drawing number, title and system code (offpage_pairing.py)."
     },
+    "scripts/isolation_wording.py": {
+      "kind": "support"
+    },
     "scripts/pdf_tag_check.py": {
       "kind": "check",
       "guide": "examples/own-drawing/README.md",
-      "purpose": "Compare a bundle's extracted tags with the PDF's own text layer: tags the reader missed and possible misreads."
+      "purpose": "Compare a bundle's extracted tags with the PDF's own text layer: tags the reader missed and possible misreads. Optional --ocr auto adds OCR tag hints (never verified tags) for pages without a text layer."
     },
     "scripts/generate.py": {
       "kind": "tool",
@@ -197,6 +200,10 @@
       "kind": "check",
       "guide": "docs/REVIEWING.md"
     },
+    "scripts/recheck_flagged.py": {
+      "kind": "research",
+      "purpose": "A412 (rejected): a narrow same-model re-check of the symbols the pipeline already flags on OPEN100 0-5, scored by review load beside accept-all, reject-all, oracle and scorer controls."
+    },
     "scripts/rescore.py": {
       "kind": "check",
       "guide": "docs/REVIEWING.md"
@@ -206,6 +213,10 @@
       "guide": "docs/PLUG_IN_A_READER.md"
     },
     "scripts/reader_template.py": {
+      "kind": "tool",
+      "guide": "docs/PLUG_IN_A_READER.md"
+    },
+    "scripts/reader_external_kg.py": {
       "kind": "tool",
       "guide": "docs/PLUG_IN_A_READER.md"
     },
@@ -226,6 +237,10 @@
     "scripts/feature_catalog.py": {
       "kind": "check",
       "guide": "docs/FEATURES.md"
+    },
+    "scripts/corpus_depth.py": {
+      "kind": "check",
+      "guide": "docs/CORPUS_DEPTH.md"
     },
     "scripts/corpus_matrix.py": {
       "kind": "check",
@@ -388,6 +403,14 @@
     "scripts/flow_direction_score.py": {
       "kind": "research",
       "purpose": "Round-6 development scores for flow direction on piped_to, read from the bundle import_drawing_set.py writes (OPEN100 0-5, TE revisions A and D, Pahala P-401/P-501), beside reversed, layout-guess and empty controls."
+    },
+    "scripts/external_reader_comparison.py": {
+      "kind": "research",
+      "purpose": "Development-set comparison of an external reader entered through the reader slot (pid-to-kg) with our readers: frozen-scorer symbols, connections and review load beside the controls, TE tags, the drawing-set bundle, TE flow direction, off-page links and control loops."
+    },
+    "scripts/ocr_tag_hints_score.py": {
+      "kind": "research",
+      "purpose": "Round-6 development scores for pdf_tag_check.py's OCR tag hints (TE revisions A and D, degraded TE A, Pahala P-401/P-501 rendered without text, OPEN100 0-5 scans without a key), beside perfect, empty, random and shifted-box controls."
     },
     "scripts/hazard_citations.py": {
       "kind": "research"

@@ -6787,6 +6787,22 @@
       ]
     },
     {
+      "id": "A409",
+      "function": "extraction",
+      "date": "2026-11-11",
+      "change": "Ran an external reader through the reader slot: the public P&ID skill pid-to-kg (MIT, © the pid-to-kg contributors; repository by Scott Duncan; github.com/ScottDuncanAI/PID-to-Knowledge-Graph, commit 7ee3a82), headless (claude -p, the skill copied into a fresh project folder per run, claude-opus-5-5[1m], Python 3.12 with its OCR, max 150 turns), three runs per development sheet: OPEN100 0-5, TE revisions A and D, Pahala P-401/P-501 (the PDF pages). scripts/reader_external_kg.py converts its graph.json into the prediction format (rules fixed before any score; the key converted through it scores perfect); scripts/external_reader_comparison.py scores the runs as replicates with the unchanged evaluate_vendor.py beside the controls and our committed readings, adds TE tags, the drawing-set bundle, TE direction truth, the off-page key and the TE loop list, and applies the round-6 decision rule (run ranges must not overlap and a paired sheet-bootstrap interval of the difference must exclude 0). Setup differences from a person using it, all stated in the comparison: OPEN100 and TE PNGs saved as one-page PDFs (the skill reads PDFs, so they take its scanned-page route), headless with nobody to answer its questions, Python and packages installed beforehand, one run per sheet with each set assembled afterwards by its own builder (no model), shell limited to python -I and ls. Home-field advantage, also stated there: our prompt and tracer were built and tuned on these development sheets, the prompt asks for the key's six classes and its valve definition matches the key's control-valve convention, the TE sheets are drawn by this repository's code, and pid-to-kg targets a different ontology (a control valve is one Component with an actuator attribute; no flange kind).",
+      "hypothesis": "With the same model, its reading method reads our development sheets at least as well as our current reader, and its loop assembly gives a usable first loop layer",
+      "evidence": "Review load, mean (run range) over 3 runs. OPEN100 0-5: 102.8 (92.3-112.9), symbol F1 rough 0.722, connection 0.388; its symbols with our tracer 73.6 (60.6-80.1); ours r2-tiles-trace claude 36.1, codex 20.5, gemini 59.2 (one run each), ours tiles with model links claude 73.2 (72.8-73.5, two runs): every difference beyond run and sheet spread (claude +66.7, sheet bootstrap +38.6 to +97.0). By class it matched or led on valves (0.88-0.93 vs claude 0.90) and flags, and trailed on instruments (0.78-0.80 vs 0.94) and general fittings (0.15-0.19 vs 0.40). TE A: 60.6 (51.8-64.9) vs ours 2.1-2.2 over five runs, beyond spread. Its run-1 corrections there were 12 missed symbols, 49 false links and 61 missed links (connection F1 0.54, mean over runs); its symbols with our tracer scored within spread of its own links (62.7). It reads a control valve as one item where the key draws a valve body plus an actuator bubble; in a post-hoc breakdown in the comparison (not used for the verdict), key valves left unpaired make up 7-11 of its 11-12 missed symbols per run, matching the 7-11 valves it paired with a key actuator bubble; how much of the link error the convention causes is not measured. TE D: 31.5 (27.8-37.0), with our tracer 19.7 (16.1-23.3), beyond spread; no reading of ours exists there. Tags: TE A 125/129, TE D 170/186 and 170/170 of found symbols, never another real tag; Pahala P-401 14/14 every run (ours 14/14), P-501 13/13 in runs 2 and 3 (ours 13/13) and 0/13 in run 1, which wrote tags reordered ('500-ZSO-101' for the printed 'ZSO 500, 101'). Loops on TE D (signal lines drawn): 10/11 valve loops and 7/8 cascades of data/te_control_loops.json in every run; TE A draws no controllers. Ours builds no loops. Its directed pairs: precision 1.000 in every run where the stream truth reaches (layout control 0.75-0.93). Off-page OPEN100 0-5: 3-4/6 continuations (ours 5/6, A407). Cost of the 42 replicate runs: 40.5 USD list-price equivalent (OPEN100 0-5 1.21 USD and 328 s per run, against our claude reading's 0.47 USD and 91 s per sheet); in these headless runs the model listed every non-blank tile as reviewed in its page file while opening 14-76% of them as images on average per set. The cost comparison is approximate: the CLI's list-price equivalent against our run records' notional price.",
+      "runs": "3 per sheet (42 headless runs); converter, scorers and builders deterministic",
+      "verdict": "rejected",
+      "why": "Not adopted as a reader or a dependency: with the same model its review load is higher than every reading of ours on OPEN100 0-5 and TE A, beyond run and sheet spread (with home-field advantage to ours, stated in the comparison), and it costs more per sheet on the approximate cost comparison. On TE D, where no reading of ours exists, its own links (31.5) score higher than its symbols with our tracer (19.7), beyond spread. Its loop assembly recovered 17 of 19 TE D loops in every run, a relation we do not yet build, so the method idea (ISA tag grouping plus signal tracing) is recorded for round 6 increment 3 in our own code. Development sheets only, TE drawn by this repository: no generalization or ranking claim",
+      "source": [
+        "out/ext_pidkg/comparison.md",
+        "out/scorecard_ext-pidkg-r1_dev.md",
+        "docs/PLUG_IN_A_READER.md"
+      ]
+    },
+    {
       "id": "A410",
       "function": "line_tracing",
       "date": "2026-11-11",
@@ -6800,6 +6816,50 @@
         "out/round6/loops_dev.md",
         "docs/GOAL_ROUND6.md",
         "examples/own-drawing/README.md"
+      ]
+    },
+    {
+      "id": "A411",
+      "function": "tag_reading",
+      "date": "2026-11-11",
+      "change": "Optional OCR tag hints in scripts/pdf_tag_check.py (--ocr auto; default off): on a page the text-layer check does not check, the page is rendered (at the resolution of an image covering it, else 300 dpi), a degraded scan is cleaned by scan_cleanup.prepare (frozen, A189), only character-sized connected ink is kept (pipes, bubbles and frames removed), characters are scaled to about 22 px, and the separately installed Tesseract program reads it (sparse text, capitals/digits/punctuation only, eng data installed with it, nothing downloaded). The same tag rules (stacked bubble letters over a number, single-word tags) run on its words. Each hint carries the lowest OCR confidence of its words and a 0-1000 box; hints are listed under ocr_hints (hint_matches_extracted, hint_not_extracted, extracted_without_hint), the page stays checked: false, and nothing is added to matched, missed_by_reader or not_in_text_layer. Idea credited to the public pid-to-kg skill's OCR hints (ScottDuncanAI/PID-to-Knowledge-Graph, MIT; head-to-head recorded as A409); none of its code or its engine (RapidOCR) is used. Scored by scripts/ocr_tag_hints_score.py on development sets only.",
+      "hypothesis": "OCR of the page image gives useful, located tag hints for pages with no text layer, if hints are kept apart from verified text-layer tags and carry their confidence",
+      "evidence": "Settings chosen on the clean TE revision A and D sheets only, by text F1 over 93 key tags: glyph height 18/22/28 px x linear/cubic/Lanczos upscaling x ink cut (Otsu; midway between paper and darkest ink; 37.5% of the way, 160 grey on white paper) x OCR box padding 0.25/0.5 of its height (0.5 joined almost no bubbles: F1 0.24-0.30): Otsu 0.68-0.69, midway 0.69-0.82, 37.5% 0.88-0.89; kept 22 px, linear, 37.5%, padding 0.25. Selection used TE A and D only, but Pahala, the degraded TE A copies and OPEN100 0-5 were also scored at intermediate settings (midway ink cut, before the final cut was chosen) and their results were seen; the final settings were then run once on every set: TE A 31/37 key tags from 37 hints (precision 0.84, recall 0.84), TE D 55/56 from 63 (0.87 / 0.98); Pahala P-401/P-501 rendered without their text layer, against the tags pdf_tag_check.py reads from the same pages' text layer: 300 dpi 19/27 from 26 hints (0.73 / 0.70), 200 dpi 20/27 (0.77 / 0.74); P-401 14/14 at both, P-501 5-6/13 (every 'ZSO/ZSC 500, 101' bubble lost the outer digits that touch its circle; the wrong hints carry confidence 0). Hints at OCR confidence 80 or more were right 83 of 83 times on TE A, TE D and Pahala 300 dpi (11 of 11 at 200 dpi). Located scores equal text scores (every right hint inside its truth box widened by 15/1000). Controls on the same truth: perfect 1.00, empty 0, random tag-shaped strings in the hints' boxes 0.00, shifted boxes (150/1000 of the page) keep the text scores but located precision 0.00 on every set. Degraded TE A (degrade_scans.py levels, scan_cleanup.prepare in front): L1 11/37 from 22 hints (0.50 / 0.30; confident 8/9), L2 0 hints, L3 9 hints, none right; L3 pages took close to a minute each in the recorded run (out/round6/ocr_tag_hints_dev.json; timing varies with machine load). OPEN100 sheets 0-5 have no tag key: 120 hints on the clean renders, 20 / 0 / 12 at L1 / L2 / L3 with 6 / 0 / 0 agreeing in text and place with a clean-sheet hint (counts only). With --ocr off, tag_check.json and tag_check.md on Pahala pages 13, 21, 22 are byte-identical to the previous code; with --ocr auto and no Tesseract every sheet entry and the report are unchanged and the JSON gains only an 'ocr' entry naming what is missing; an OCR failure on a page (any exception) leaves that page as 'needs OCR' and is recorded in ocr.errors. For context, A409 (the outside-skill comparison, now merged) reports 101 of 105 TE key tags held by the outside skill's hints under its own truth; here TE A+D give 86 of 93 under this check's tag rules (two to five letters and a number), not a matched comparison.",
+      "runs": "1 per set (deterministic for one Tesseract build; tesseract 5.4.0.20240606 here)",
+      "verdict": "kept",
+      "why": "Opt-in and kept apart: on clean rendered drawings 70-98% of the tags come back as located hints and every hint at confidence 80+ was right on the clean renders (83/83; 8 of 9 on the lightest synthetic scan), beside controls at 0; the default output is unchanged. Limits: the settings were chosen on TE A and D, which are drawn by this repository (upper bound for clean drawings); Pahala, the degraded sheets and OPEN100 were seen at intermediate settings before the final ink cut was chosen (on TE A and D only), and are development material; synthetic scans at L2/L3 give nothing usable, so it is not shown to help real archive scans; text touching graphics or much larger than the page's typical text is dropped; one-letter equipment tags (R-101) are skipped by the tag rules by design",
+      "source": [
+        "out/round6/ocr_tag_hints_dev.md",
+        "docs/DEPENDENCIES.md"
+      ]
+    },
+    {
+      "id": "A412",
+      "function": "extraction",
+      "date": "2026-11-11",
+      "change": "A narrow model re-check of the symbols the pipeline already flags (scripts/recheck_flagged.py, prompt extraction/recheck_prompt.md). Flagged = rated amber or red by scripts/confidence.py, or carrying the dup_box or tag_placeholder flag; green unflagged symbols are never sent. Each flagged symbol's crop (its box red, nearby detections blue) and current class/tag go to the same model that made the saved reading, in batches of up to 8; the model may only confirm, correct the class, reject, or call it a duplicate of a blue box. Rules fixed before the first run: a change applies only at confidence >= 0.8; a duplicate is removed only while an overlapping symbol is kept; nothing is added, moved or resized; every flagged item gets a before/after/verdict/confidence/reason record. Connections are re-traced with trace_connections.py defaults (re-tracing the saved symbols reproduces the saved r2-tiles-trace links exactly on all 12 development readings), and links the re-trace adds or loses beyond the removed symbols' own links are recorded. Idea credited to the public MIT repository ScottDuncanAI/PID-to-Knowledge-Graph (its QA report's model re-check loop); none of its code is used.",
+      "hypothesis": "Asking the reading's own model a narrow confirm/correct/reject question about only the items the pipeline already flags lowers review load beyond run spread without lowering symbol or connection F1",
+      "evidence": "OPEN100 development sheets 0-5, r2-tiles-trace reading, claude-opus-5-5 (claude CLI), 2 independent re-check runs (r1 and r2 ran concurrently), 105 flagged of 442 symbols. Review load 36.08 (saved reading, the accept-every-flagged-item control) -> 34.67 and 34.73; symbol F1 rough 0.858 -> 0.873 both; symbol+class F1 0.809 -> 0.823 both; connection F1 (the relation score) 0.791 -> 0.794 / 0.793. Reject every flagged item: 58.26 (connection F1 0.564). Oracle re-check of exactly the flagged items (reads the key, a ceiling not a method): 31.02. Scorer controls: perfect 0.0, every class wrong 100.0, shifted 129.7, empty 100.0. Paired sheet bootstrap of the review-load change (10,000 resamples, micro-averaged, same reading before and after): r1 -1.40 (95% -3.53 to -0.42), r2 -1.34 (-3.53 to -0.36); without sheet 1 r1 -0.78 (-1.23 to -0.24), r2 -0.71 (-1.16 to -0.22). The fall is small and real on the paired test. (The unpaired gap between the saved and the r2-tiles-2x2-repeat readings, 2.49, is one pair of readings and is not the right noise for a paired change.) Applied changes: 16 per run (r1 15 rejects + 1 duplicate; r2 16 rejects), 18 distinct symbols (14 in both runs), every one a false positive by the scorer's rough match; 0 class corrections passed the threshold (1-2 proposed below it); 73/71 confirmed; 15/18 not applied for low confidence. Per sheet before -> r1/r2: 8.0 -> 6.7/6.7, 79.2 -> 68.3/68.3, 44.1 -> 43.3/43.3, 35.7 -> 35.1/35.1, 48.9 -> 47.6/48.0, 44.7 -> 44.7/44.7. Re-trace added 3 (r1) / 1 (r2) links between kept symbols and lost none beyond the removed symbols' own. The link_changes field was added to the already-written r1/r2 sheet files after the runs; it is a pure set function of committed links and removed ids and reproduces from committed data. codex (gpt-6.1-sol) not run: the CLI returned a usage limit until 2026-11-16; gemini not run: no API key on this machine. Cost: 32 claude CLI calls, 583 s summed, notional $3.64 (subscription).",
+      "runs": "2 re-check runs x 6 sheets, one reader (claude); codex and gemini not measured",
+      "verdict": "rejected",
+      "why": "GOAL_ROUND6 keeps a change only when its relation score rises beyond the run and sheet spread, with review load as the guard that must not rise. Here the relation score, connection F1, moved only +0.002 to +0.003 (0.791 -> 0.794 / 0.793), not beyond spread; the review-load fall, though real on the paired test, is the guard, not the target. It also fails the product-path rule: the output comes from a research script, not the bundle import_drawing_set.py writes. Only one of the two available readers was measured. Not adopted; a re-run on codex, and a version inside the intake, would be the next evidence.",
+      "source": [
+        "out/recheck_a412/summary.md",
+        "docs/GOAL_ROUND6.md"
+      ]
+    },
+    {
+      "id": "A415",
+      "function": "extraction",
+      "date": "2026-11-11",
+      "change": "Ablations of three pid-to-kg techniques, two runs each, same model, recipe and isolation as A409, only user-level settings changed: OCR off (its requirements without the OCR package, which its README documents for Python 3.13+; no OCR hints, orientation or text-size render choice) on TE A, TE D and Pahala; its QA re-check loop off (the request asks it to build once and report) on OPEN100 0-5 and TE D; a 2x2 tile grid through render_pages.py's own flags (--long-edge 5000 --tile 3000 --overlap 900) on OPEN100 0-5. A first launch of all 46 runs was set aside unscored: the lane lists' Windows line endings put a carriage return in the folder names, the runs could not open their own files there and copied pages to scratch folders, which changes how they read tiles; they were re-run under clean names. A scan of every scored run found no path into another run's folder; outside its own folder a scored run touched only the CLI's own task-output temp files.",
+      "hypothesis": "Each technique measurably helps its reading on the sheets where it should matter",
+      "evidence": "Review load, mean (run range), against the 3-run baseline of A409. OCR off: TE A 57.6 (50.8-64.4) vs 60.6 (51.8-64.9); TE D 31.5 (29.0-34.0) vs 31.5 (27.8-37.0); TE tags 82/86 and 120/124 vs 125/129 and 170/186; Pahala tags P-401 14/14 and P-501 13/13 in both runs. QA loop off: OPEN100 108.3 (105.6-111.0) vs 102.8 (92.3-112.9); TE D 24.0 (20.3-27.8) vs 31.5 (27.8-37.0); TE D tags 109/124. 2x2 tiles: OPEN100 98.4 (89.1-107.7) vs 102.8; tiles opened 96% vs 76%. Loops on TE D 10/11 and 7/8 in every ablation run; directed-pair precision 1.000 throughout. Every review-load difference is within run and sheet spread (run ranges overlap). Cost: 46 runs, 43.1 USD list-price equivalent; the set-aside first launch cost 50.4 USD.",
+      "runs": "2 per ablation per sheet (46 headless runs, after 46 set-aside runs)",
+      "verdict": "inconclusive",
+      "why": "None of the three techniques moved its review load, tags or loops beyond run and sheet spread on these sheets, so none is adopted on this evidence. Its OCR hints held 42 of 43 TE A and 59 of 62 TE D key tags in every OCR-on run (the comparison's OCR table, from runs.json), so OCR as a separate check for our pages without a text layer remains untested rather than shown useless. Two runs per ablation on three to six sheets cannot rule out a small effect",
+      "source": [
+        "out/ext_pidkg/comparison.md"
       ]
     },
     {
@@ -7897,20 +7957,6 @@
       ]
     },
     {
-      "id": "N100",
-      "function": "intake_and_reuse",
-      "status": "done",
-      "idea": "Avoid eager cap-sized allocation in native source acquisition and rechecks without reducing integrity, byte limits or complete output fidelity.",
-      "why_not_yet": "Completed A267 with an exact bounded helper, boundary/short-read/IO/route-order controls, same regression bytes on old/new methods, complete raw artifacts and independently reviewed single-host observations. Every existing guard and the256MiB limit remain; company capacity, RSS and broad throughput are not established.",
-      "source": [
-        "docs/JOURNAL.md#126-bound-read-requests-without-reducing-source-integrity-checks",
-        "scripts/dexpi_reader.py",
-        "scripts/test_dexpi_reader.py",
-        "examples/from-dexpi-xml/README.md",
-        "docs/STATUS.md"
-      ]
-    },
-    {
       "id": "N097",
       "function": "intake_and_reuse",
       "status": "done",
@@ -7940,6 +7986,20 @@
       "why_not_yet": "Completed A268 with UTF-8/key/integer-domain preflight and independent93refusal controls; original mutation-before-encoding failures are preserved. No general transaction, rollback or concurrent-writer claim.",
       "source": [
         "docs/JOURNAL.md#127-preserve-structured-source-evidence-only-when-explicitly-requested",
+        "docs/STATUS.md"
+      ]
+    },
+    {
+      "id": "N100",
+      "function": "intake_and_reuse",
+      "status": "done",
+      "idea": "Avoid eager cap-sized allocation in native source acquisition and rechecks without reducing integrity, byte limits or complete output fidelity.",
+      "why_not_yet": "Completed A267 with an exact bounded helper, boundary/short-read/IO/route-order controls, same regression bytes on old/new methods, complete raw artifacts and independently reviewed single-host observations. Every existing guard and the256MiB limit remain; company capacity, RSS and broad throughput are not established.",
+      "source": [
+        "docs/JOURNAL.md#126-bound-read-requests-without-reducing-source-integrity-checks",
+        "scripts/dexpi_reader.py",
+        "scripts/test_dexpi_reader.py",
+        "examples/from-dexpi-xml/README.md",
         "docs/STATUS.md"
       ]
     },

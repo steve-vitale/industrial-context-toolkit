@@ -39,6 +39,9 @@ import label_layout as LL  # noqa: E402
 
 PI_ROOT = "TE Plant"
 IGN_ROOT = "TE_Plant"
+# Labels exempt from the all-caps check, each with its reason. The LOTO card prints the fixed mockup status of
+# scripts/isolation_wording.py word for word, and its capitals are the goal's own (docs/GOAL_ISOLATION_POC.md).
+CAPS_EXEMPT = {"overlay:loto": "fixed safety status, quoted verbatim"}
 
 
 # ------------------------------------------------------------------ loading exports
@@ -509,6 +512,8 @@ def check_legibility(rep, boxes, scene=None, pixel_check=None, ocr=None):
                                       f"(< one line height, {line:.0f}px), so they read as one string")
         # No ALL-CAPS runs inside the picture (three or more consecutive all-caps words of letters).
         for e in shown:
+            if e.get("id") in CAPS_EXEMPT:
+                continue
             for line in e.get("text", "").split(chr(10)):
                 words = [w for w in re.findall(r"[A-Za-z][A-Za-z'/-]*", line)]
                 run = best = 0

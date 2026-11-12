@@ -27,7 +27,7 @@ measured the same way as everything else here.
 | instrument connection / `measures` | instrument-connection F1 | same | OPEN100 0-5 0.835 (A196) |
 | flow direction on `piped_to` | share of pipe segments directed, and direction precision where drawn evidence exists | TE generated sheets (truth from `data/te_process_model.json`); OPEN100 arrow nodes for detection only | 32% of process links directed on OPEN100; arrowhead detection 83% precision, 77% recall on sheets 6-11 (A037) |
 | `signal_to`, `controls`, loops | loop recall and precision (sensor, controller, final element) | TE generated sheets (`data/te_control_loops.json`) | not scored before |
-| tag text | tag match against the PDF text layer (`pdf_tag_check.py`) | CAD-exported PDFs with a text layer | Pahala P-401 14/14, P-501 13/13, one development run, 2026-11-10 |
+| tag text | tag match against the PDF text layer (`pdf_tag_check.py`); for pages without one, optional OCR hints (A411), never counted as matches | CAD-exported PDFs with a text layer | Pahala P-401 14/14, P-501 13/13, one development run, 2026-11-10 |
 
 **Review load stays the primary reader score.** No round-6 change may raise it beyond the run-to-run spread on the
 development sets.

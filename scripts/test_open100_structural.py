@@ -169,7 +169,7 @@ def committed_outputs():
           all(p["sheet"] in sheets and p["kind"] in kinds and len(p["box_0_1000"]) == 4
               and all(0 <= v <= 1000 for v in p["box_0_1000"]) for p in pts))
     check("control valves and relief devices are never listed as isolation points",
-          all("not an energy-isolating device" in p["note"] or "never be used for isolation" in p["note"]
+          all("not positive isolation" in p["note"]
               for p in pts if p["kind"] in ("control_valve", "relief_device")))
     check("every extracted pump is listed as motor-driven equipment",
           {e["id"] for e in sdoc["equipment"] if e["class"] == "pump"} ==

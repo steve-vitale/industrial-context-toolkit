@@ -425,9 +425,13 @@ def main():
           all(any(o['id'] == 'overlay:purpose' for o in x['overlays']) and any(o['id'] == 'overlay:why' for o in x['overlays'])
               for x in real['shots'] if x.get('focus') and x['name'].endswith('_normal')))
     loto = real['loto_mockup']
-    check('LOTO mockup: every point inferred, status says not a procedure and cites OSHA 1910.147',
+    import isolation_wording
+    check('LOTO mockup: every point inferred, status is the fixed mockup wording (not a procedure, OSHA 1910.147)',
           loto['points'] and all(p['basis'].startswith('inferred') for p in loto['points']) and
-          'not a lockout/tagout procedure' in loto['status'] and '1910.147' in loto['status'])
+          loto['status'] == isolation_wording.MOCKUP_STATUS and 'LOCKOUT/TAGOUT PROCEDURE' in loto['status'] and
+          '1910.147' in loto['status'])
+    check('LOTO mockup: no point names a valve (the model holds no isolating device; scripts/test_loto_wording.py '
+          'checks the wording)', not [p['text'] for p in loto['points'] if 'valve' in p['text'].lower()])
     check('every stop cites a public incident from the prototype file',
           all(s['citation'] and hz.domain_ok(s['citation']['url']) for s in stops.values()))
     check('reactor leads with the Kuraray reactor-pressure case (aptness check), Bayer phrased generally',

@@ -43,6 +43,7 @@ sys.path.insert(0, str(ROOT / "scripts" / "ignition"))
 from display_contract import require_display_layout, stream_is_directed  # noqa: E402
 import label_layout  # noqa: E402
 import orientation_tour  # noqa: E402
+from isolation_wording import MOCKUP_STATUS  # noqa: E402
 
 TEMPLATE = ROOT / "scripts" / "blender_tour_template.py"
 LABEL_FONT = ROOT / "assets" / "fonts" / "AtkinsonHyperlegible-Regular.ttf"  # SIL OFL 1.1; see NOTICE.md
@@ -793,9 +794,9 @@ def tour_scene(scene, model, layout, bands=None, alarms=None, replay=None, hazar
         return scene
     scene["emphasis_rings"] = []   # emphasis is now a limit annotation on the tag pills, not a ring and a box
     scene["labels"] += tour["extra_labels"]
-    scene["loto_mockup"] = {"status": "DESIGN MOCKUP: isolation points inferred from the TE seed model; not a lockout/"
-                            "tagout procedure (a real one comes from the site's energy-control program, OSHA 1910.147, "
-                            "verified P&IDs and an authorized person)", "points": tour["loto"]}
+    scene["loto_mockup"] = {"status": MOCKUP_STATUS, "basis": "energy boundaries inferred from the TE seed model; "
+                            "which device isolates each is not assessed; numbers are listing order",
+                            "points": tour["loto"]}
     scene["level_bands"] = level_bands(scene, bands)
     scene["purposes_source"] = (purposes or {}).get("source", "none loaded")
     shots = tour["shots"]

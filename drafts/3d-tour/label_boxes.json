@@ -4327,17 +4327,17 @@
     "unit:V-101",
     "unit:K-101",
     "unit:C-101",
-    "loto:1",
-    "loto:2",
-    "loto:3",
-    "loto:4",
-    "loto:5",
-    "loto:6",
-    "loto:7",
-    "loto:8",
-    "loto:9",
-    "loto:10",
-    "loto:11",
+    "loto:bl:S1",
+    "loto:bl:S2",
+    "loto:bl:S3",
+    "loto:bl:S4",
+    "loto:bl:S9",
+    "loto:bl:S11",
+    "loto:agitator:R-101",
+    "loto:motor:K-101",
+    "loto:utility:FV-119-steam",
+    "loto:utility:TV-121-supply",
+    "loto:utility:FV-117-supply",
     "overlay:badge",
     "overlay:loto",
     "overlay:caption"
@@ -4385,16 +4385,16 @@
      "text": "R-101  Reactor",
      "lines": 1,
      "text_box": [
-      603.6601066589355,
-      242.2692632675171,
-      811.7887115478516,
-      265.0725030899048
+      708.9683532714844,
+      260.970139503479,
+      917.0969581604004,
+      283.77331495285034
      ],
      "plate_box": [
-      582.7730941772461,
-      230.65759420394897,
-      833.3084678649902,
-      277.4021887779236
+      687.949333190918,
+      249.33497428894043,
+      938.4847068786621,
+      296.07956886291504
      ],
      "in_front": true,
      "anchor_px": [
@@ -4405,9 +4405,9 @@
      "label_occluded_fraction": 0.0,
      "label_occluded_by": null,
      "contrast": {
-      "background": 0.025070050731301308,
+      "background": 0.024044062942266464,
       "text": 1.0,
-      "ratio": 13.986936065332785,
+      "ratio": 14.180745332933776,
       "method": "median vs 97th/3rd percentile luminance in text box"
      }
     },
@@ -4544,22 +4544,22 @@
      }
     },
     {
-     "id": "loto:1",
+     "id": "loto:bl:S1",
      "kind": "loto",
      "shown": true,
-     "text": "1  A feed: battery-limit block valve*",
+     "text": "S1 A feed: boundary, not assessed*",
      "lines": 1,
      "text_box": [
-      320.4601764678955,
-      409.1265678405762,
-      735.0026321411133,
-      433.1818628311157
+      318.44181060791016,
+      408.9781880378723,
+      737.0209693908691,
+      432.7864193916321
      ],
      "plate_box": [
-      302.3371982574463,
-      399.27382707595825,
-      754.0291786193848,
-      443.2830834388733
+      300.37038803100586,
+      399.12564039230347,
+      755.9959602355957,
+      442.8880262374878
      ],
      "in_front": true,
      "anchor_px": [
@@ -4577,22 +4577,22 @@
      }
     },
     {
-     "id": "loto:2",
+     "id": "loto:bl:S2",
      "kind": "loto",
      "shown": true,
-     "text": "2  D feed: battery-limit block valve*",
+     "text": "S2 D feed: boundary, not assessed*",
      "lines": 1,
      "text_box": [
-      285.8763027191162,
-      487.7862739562988,
-      705.966796875,
-      511.8416976928711
+      168.18554878234863,
+      246.32746696472168,
+      592.0929908752441,
+      270.1357626914978
      ],
      "plate_box": [
-      267.7895164489746,
-      477.8513288497925,
-      725.0237274169922,
-      521.8606495857239
+      150.2710247039795,
+      236.64479970932007,
+      611.2196159362793,
+      280.40737867355347
      ],
      "in_front": true,
      "anchor_px": [
@@ -4610,22 +4610,22 @@
      }
     },
     {
-     "id": "loto:3",
+     "id": "loto:bl:S3",
      "kind": "loto",
      "shown": true,
-     "text": "3  E feed: battery-limit block valve*",
+     "text": "S3 E feed: boundary, not assessed*",
      "lines": 1,
      "text_box": [
-      138.79550457000732,
-      262.54708528518677,
-      556.4418983459473,
-      286.6024446487427
+      252.0425033569336,
+      473.09184551239014,
+      673.725528717041,
+      496.90001249313354
      ],
      "plate_box": [
-      120.8624267578125,
-      252.8475522994995,
-      575.6551551818848,
-      296.85693740844727
+      234.0404748916626,
+      463.17222118377686,
+      692.7668380737305,
+      506.9347357749939
      ],
      "in_front": true,
      "anchor_px": [
@@ -4636,29 +4636,29 @@
      "label_occluded_fraction": 0.0,
      "label_occluded_by": null,
      "contrast": {
-      "background": 0.0775994062423706,
+      "background": 0.07769434154033661,
       "text": 1.0,
-      "ratio": 8.228878416609259,
+      "ratio": 8.222760596391202,
       "method": "median vs 97th/3rd percentile luminance in text box"
      }
     },
     {
-     "id": "loto:4",
+     "id": "loto:bl:S4",
      "kind": "loto",
      "shown": true,
-     "text": "4  A and C feed: battery-limit block valve*",
+     "text": "S4 A and C feed: boundary, not assessed*",
      "lines": 1,
      "text_box": [
-      1169.4208145141602,
-      838.5351258516312,
-      1668.2125854492188,
-      862.5905978679657
+      1167.4573516845703,
+      838.7822699546814,
+      1670.1758193969727,
+      862.5904369354248
      ],
      "plate_box": [
-      1150.4104614257812,
-      828.233528137207,
-      1686.2636947631836,
-      872.2429132461548
+      1148.4984970092773,
+      828.4803664684296,
+      1688.1752014160156,
+      872.2427523136139
      ],
      "in_front": true,
      "anchor_px": [
@@ -4676,22 +4676,22 @@
      }
     },
     {
-     "id": "loto:5",
+     "id": "loto:bl:S9",
      "kind": "loto",
      "shown": true,
-     "text": "5  Purge: battery-limit block valve*",
+     "text": "S9 Purge: boundary, not assessed*",
      "lines": 1,
      "text_box": [
-      864.9832534790039,
-      710.6400561332703,
-      1276.3966369628906,
+      862.5941276550293,
+      711.6013062000275,
+      1278.7858200073242,
       735.5468451976776
      ],
      "plate_box": [
-      846.1210441589355,
-      700.4722416400909,
-      1295.0276184082031,
-      745.3320908546448
+      843.9264106750488,
+      701.4323008060455,
+      1297.222023010254,
+      745.3320586681366
      ],
      "in_front": true,
      "anchor_px": [
@@ -4709,22 +4709,22 @@
      }
     },
     {
-     "id": "loto:6",
+     "id": "loto:bl:S11",
      "kind": "loto",
      "shown": true,
-     "text": "6  Stripper product: battery-limit block valve*",
+     "text": "S11 Stripper product: boundary, not assessed*",
      "lines": 1,
      "text_box": [
-      1186.4883041381836,
-      773.2178056240082,
-      1725.4293823242188,
-      797.2733902931213
+      1181.3944244384766,
+      773.2179665565491,
+      1730.5233764648438,
+      797.2734546661377
      ],
      "plate_box": [
-      1167.4600982666016,
-      762.9846203327179,
-      1743.420524597168,
-      806.9941663742065
+      1162.371482849121,
+      762.9845237731934,
+      1748.5092544555664,
+      806.9941020011902
      ],
      "in_front": true,
      "anchor_px": [
@@ -4742,22 +4742,22 @@
      }
     },
     {
-     "id": "loto:7",
+     "id": "loto:agitator:R-101",
      "kind": "loto",
      "shown": true,
-     "text": "7  R-101 agitator motor: electrical*",
+     "text": "R-101 agitator motor: electrical, not assessed*",
      "lines": 1,
      "text_box": [
-      618.8346290588379,
-      176.4967131614685,
-      1029.7531127929688,
-      201.40347003936768
+      433.361291885376,
+      580.9445858001709,
+      984.5475769042969,
+      605.8512783050537
      ],
      "plate_box": [
-      600.2298545837402,
-      166.88710927963257,
-      1048.641700744629,
-      211.7467975616455
+      414.9502372741699,
+      570.912276506424,
+      1003.4834289550781,
+      615.7720613479614
      ],
      "in_front": true,
      "anchor_px": [
@@ -4775,22 +4775,22 @@
      }
     },
     {
-     "id": "loto:8",
+     "id": "loto:motor:K-101",
      "kind": "loto",
      "shown": true,
-     "text": "8  K-101 motor: electrical*",
+     "text": "K-101 motor: electrical, not assessed*",
      "lines": 1,
      "text_box": [
-      1026.6050720214844,
-      562.2322511672974,
-      1337.5392150878906,
-      582.195965051651
+      1303.044548034668,
+      497.8109550476074,
+      1752.5985717773438,
+      521.0974431037903
      ],
      "plate_box": [
-      1008.5615158081055,
-      552.2195756435394,
-      1355.1183700561523,
-      592.1414351463318
+      1284.0482711791992,
+      487.8655171394348,
+      1770.4077529907227,
+      531.1067390441895
      ],
      "in_front": true,
      "anchor_px": [
@@ -4801,29 +4801,29 @@
      "label_occluded_fraction": 0.0,
      "label_occluded_by": null,
      "contrast": {
-      "background": 0.07954174280166626,
+      "background": 0.0775994062423706,
       "text": 1.0,
-      "ratio": 8.105495397013405,
+      "ratio": 8.228878416609259,
       "method": "median vs 97th/3rd percentile luminance in text box"
      }
     },
     {
-     "id": "loto:9",
+     "id": "loto:utility:FV-119-steam",
      "kind": "loto",
      "shown": true,
-     "text": "9  C-101 steam*",
+     "text": "C-101 steam: boundary, not assessed*",
      "lines": 1,
      "text_box": [
-      1057.9729843139648,
-      662.224692106247,
-      1247.9449081420898,
-      681.227445602417
+      925.6818580627441,
+      655.6780207157135,
+      1380.2352905273438,
+      678.7723875045776
      ],
      "plate_box": [
-      1040.0886154174805,
-      652.1074104309082,
-      1265.4256439208984,
-      691.0693395137787
+      907.1182250976562,
+      645.5676591396332,
+      1398.3956909179688,
+      688.6169528961182
      ],
      "in_front": true,
      "anchor_px": [
@@ -4834,29 +4834,29 @@
      "label_occluded_fraction": 0.0,
      "label_occluded_by": null,
      "contrast": {
-      "background": 0.07838338613510132,
+      "background": 0.0775994062423706,
       "text": 1.0,
-      "ratio": 8.178628338210808,
+      "ratio": 8.228878416609259,
       "method": "median vs 97th/3rd percentile luminance in text box"
      }
     },
     {
-     "id": "loto:10",
+     "id": "loto:utility:TV-121-supply",
      "kind": "loto",
      "shown": true,
-     "text": "10  R-101 cooling water in/out*",
+     "text": "R-101 cooling water: boundary, not assessed*",
      "lines": 1,
      "text_box": [
-      438.22179794311523,
-      562.5734281539917,
-      807.0705986022949,
-      587.48002409935
+      352.46289253234863,
+      784.7812271118164,
+      892.829704284668,
+      809.6878552436829
      ],
      "plate_box": [
-      419.80570793151855,
-      552.5602054595947,
-      826.1919593811035,
-      597.4199903011322
+      334.1363525390625,
+      774.5358431339264,
+      911.8613433837891,
+      819.3956118822098
      ],
      "in_front": true,
      "anchor_px": [
@@ -4874,22 +4874,22 @@
      }
     },
     {
-     "id": "loto:11",
+     "id": "loto:utility:FV-117-supply",
      "kind": "loto",
      "shown": true,
-     "text": "11  E-101 cooling water in/out*",
+     "text": "E-101 cooling water: boundary, not assessed*",
      "lines": 1,
      "text_box": [
-      647.7236366271973,
-      635.3070187568665,
-      1008.4165191650391,
-      660.2136147022247
+      1034.084358215332,
+      601.2084066867828,
+      1573.0503845214844,
+      626.1150670051575
      ],
      "plate_box": [
-      629.0885925292969,
-      625.2178359031677,
-      1027.3274230957031,
-      670.0774919986725
+      1015.0455093383789,
+      591.1548864841461,
+      1591.3711166381836,
+      636.0145747661591
      ],
      "in_front": true,
      "anchor_px": [
@@ -4937,20 +4937,20 @@
      "id": "overlay:loto",
      "kind": "overlay_card",
      "shown": true,
-     "text": "Design mockup, not a procedure\nIsolation points are inferred from the TE seed\nmodel (marked *). A real lockout/tagout\nprocedure comes from the site's energy-control\nprogram (OSHA 1910.147), its verified P&IDs\nand an authorized person.",
-     "lines": 6,
+     "text": "DESIGN MOCKUP FOR A PROOF OF CONCEPT AND TESTING GROUND. NOT A PROCEDURE. All results must be\nverified by a qualified professional. THIS IS NOT AN ISOLATION OR LOCKOUT/TAGOUT PROCEDURE AND\nMUST NOT BE USED AS ONE. Every point and every path below must be verified by a qualified person\nagainst the as-built plant and the site's energy-control program (for example under OSHA 29 CFR\n1910.147). It is read from drawings, which are not as-built: a point it does not list may exist,\nand a point it lists may not isolate. Electrical, pneumatic, hydraulic, stored-pressure, gravity\nand thermal energy are not assessed.",
+     "lines": 7,
      "text_box": [
-      33.986384868621826,
-      34.01141881942749,
-      536.5350151062012,
-      192.67815828323364
+      33.9721405506134,
+      33.99551868438721,
+      1239.9953842163086,
+      220.0767946243286
      ],
      "in_front": true,
      "plate_box": [
       22.000000000000007,
       22.000000000000007,
-      548.539507030613,
-      204.66871161593326
+      1252.0284932454429,
+      232.07203720344438
      ],
      "label_occluded_by": null,
      "contrast": {
@@ -4964,13 +4964,13 @@
      "id": "overlay:caption",
      "kind": "overlay_caption",
      "shown": true,
-     "text": "Lockout/tagout view: design mockup only\nNumbered tags mark isolation points inferred from the seed model; this is not a LOTO procedure.",
+     "text": "Lockout/tagout view: design mockup only\nTags mark energy boundaries inferred from the seed model, by model ID, in no order; this is not a LOTO procedure.",
      "lines": 2,
      "text_box": [
       33.9799690246582,
       992.1142244338989,
-      1162.112159729004,
-      1046.027382016182
+      1371.3560485839844,
+      1046.0194359719753
      ],
      "in_front": true,
      "plate_box": [
@@ -4981,9 +4981,9 @@
      ],
      "label_occluded_by": null,
      "contrast": {
-      "background": 0.023043015971779823,
+      "background": 0.02296506240963936,
       "text": 1.0,
-      "ratio": 14.375090979343838,
+      "ratio": 14.39044887133935,
       "method": "median vs 97th/3rd percentile luminance in text box"
      }
     }
@@ -4997,17 +4997,17 @@
     "unit:V-101": 0.0,
     "unit:K-101": 0.0,
     "unit:C-101": 0.0,
-    "loto:1": 0.0,
-    "loto:2": 0.0,
-    "loto:3": 0.0,
-    "loto:4": 0.0,
-    "loto:5": 0.0,
-    "loto:6": 0.0,
-    "loto:7": 0.0,
-    "loto:8": 0.0,
-    "loto:9": 0.0,
-    "loto:10": 0.0,
-    "loto:11": 0.0
+    "loto:bl:S1": 0.0,
+    "loto:bl:S2": 0.0,
+    "loto:bl:S3": 0.0,
+    "loto:bl:S4": 0.0,
+    "loto:bl:S9": 0.0,
+    "loto:bl:S11": 0.0,
+    "loto:agitator:R-101": 0.0,
+    "loto:motor:K-101": 0.0,
+    "loto:utility:FV-119-steam": 0.0,
+    "loto:utility:TV-121-supply": 0.0,
+    "loto:utility:FV-117-supply": 0.0
    }
   }
  ]
