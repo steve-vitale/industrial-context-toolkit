@@ -141,13 +141,13 @@ Sources pinned in [corpus_pins.json](../data/corpus_pins.json) before the 2026-1
 
 | Source | Corpus inputs | Matrix cells | Scored | Features |
 |---|---|---|---|---|
-| `dexpi-ttc-all` | 8 | row 1 Line tracer: 1 needs data; row 4 Loop audit: 6 needs data; row 7 DEXPI route: 7 needs data; row 8 Pipe layer: 1 needs data | 0 | none |
+| `dexpi-ttc-all` | 8 | row 1 Line tracer: 1 fail; row 4 Loop audit: 3 n/a, 3 pass; row 7 DEXPI route: 5 fail, 2 pass; row 8 Pipe layer: 1 fail | 12 | dexpi-to-bundle, drawing-set-to-bundle, drawing-to-bundle, graph-export, loop-audit, vendor-evaluation |
 | `hai` | 2 | row 4 Loop audit: 1 n/a; row 6 Historian bands: 1 pass | 1 | historian-csv |
 | `skab` | 1 | row 6 Historian bands: 1 fail | 1 | historian-csv |
-| `idaes-hda` | 1 | row 5 Exports: 1 needs data | 0 | none |
-| `pronto-more` | 3 | row 1 Line tracer: 1 needs data; row 2 Scorer controls: 1 pass; row 3 Intake + report: 1 needs data; row 4 Loop audit: 1 n/a; row 6 Historian bands: 2 fail; row 8 Pipe layer: 1 needs data | 2 | historian-csv |
-| `dwsim-fossee` | 1 | row 5 Exports: 1 needs data | 0 | none |
-| `wikimedia-pid` | 2 | row 1 Line tracer: 2 needs data; row 2 Scorer controls: 2 pass; row 3 Intake + report: 2 needs data; row 4 Loop audit: 1 n/a; row 8 Pipe layer: 2 needs data | 0 | none |
+| `idaes-hda` | 1 | row 5 Exports: 1 pass | 1 | description-to-model, platform-exports |
+| `pronto-more` | 3 | row 1 Line tracer: 1 pass; row 2 Scorer controls: 1 pass; row 3 Intake + report: 1 pass; row 4 Loop audit: 1 n/a; row 6 Historian bands: 2 fail; row 8 Pipe layer: 1 fail | 2 | historian-csv |
+| `dwsim-fossee` | 1 | row 5 Exports: 1 pass | 1 | description-to-model, platform-exports |
+| `wikimedia-pid` | 2 | row 1 Line tracer: 2 fail; row 2 Scorer controls: 2 pass; row 3 Intake + report: 2 pass; row 4 Loop audit: 1 n/a; row 8 Pipe layer: 2 fail | 0 | none |
 | `uci-hydraulic` | 1 | row 6 Historian bands: 1 fail | 1 | historian-csv |
 | `metropt3` | 1 | row 6 Historian bands: 1 fail | 1 | historian-csv |
 | `battledim-2019` | 1 | row 6 Historian bands: 1 fail | 1 | historian-csv |
