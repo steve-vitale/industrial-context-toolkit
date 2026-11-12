@@ -80,7 +80,7 @@ def render(root, profile, result, history):
         if dossier['recurring_work']:
             body += '<section><h2>Recurring-work review candidates</h2>'
             for group in dossier['recurring_work']:
-                body += '<p><strong>' + str(group['selected_order_count']) + ' orders:</strong> ' + esc(', '.join(group['orders'])) + '. ' + esc('; '.join(k + '=' + v for k, v in group['fields'].items())) + '</p><p>' + esc(group['action']) + '</p>'
+                body += '<p><strong>' + str(group['selected_order_count']) + ' orders:</strong> ' + esc(', '.join(group['orders'])) + '. ' + esc('; '.join(k + '=' + v for k, v in group['fields'].items())) + (' (derived from description by the declared vocabulary: ' + esc(', '.join(group['derived_fields'])) + ')' if group.get('derived_fields') else '') + '</p><p>' + esc(group['action']) + '</p>'
             body += '</section>'
         if dossier['unclassified_orders']:
             body += '<p>Grouping fields unavailable for: ' + esc(', '.join(dossier['unclassified_orders'])) + '. These orders remain in the chronology.</p>'
@@ -88,6 +88,8 @@ def render(root, profile, result, history):
         for order in dossier['work_orders']:
             row = order['record']; date = row['_dates']['created']
             body += '<article><h2>' + esc(row['id']) + ': ' + esc(date['value'] or date['raw'] or 'Creation date unavailable') + '</h2><p>' + esc(row.get('description', '')) + '</p><p>' + evidence(row['origin'], '../') + '</p><p>Created: ' + date_text(date) + '<br>Completed: ' + date_text(row['_dates'].get('completed')) + '<br>Parent: ' + esc(row.get('parent_id') or 'not supplied') + '.</p>'
+            for field, d in row.get('_derived', {}).items():
+                body += '<p>' + esc(field + '=' + d['value']) + ' is derived from ' + esc(d['source']) + ' term ' + esc(repr(d['term'])) + ' by declared rule ' + str(d['rule']) + ' of the profile vocabulary, not a source code.</p>'
             body += '<p>Code meanings: ' + esc('; '.join(k + '=' + v for k, v in row['_labels'].items()) or 'No code labels supplied') + '. Flags: ' + esc('; '.join(k + '=' + v for k, v in row['_flags'].items()) or 'not supplied') + '.</p>'
             body += '<p>Labor: ' + hours(order['booked_hours']) + '.</p>'
             for kind in ('transactions', 'details', 'labor'):

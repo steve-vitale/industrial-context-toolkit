@@ -1,0 +1,18 @@
+{
+  "schema": "maintenance-history-derive-vocabulary-1",
+  "target": "work_class",
+  "source": "description",
+  "basis": "Authored 2026-11-12 for the Nestor excavator records from the development assets A, B and C only (their short texts and the cleaned file's MajorSystem values); assets D and E unread. Whole-word terms, first listed rule wins. A derived class is a reviewable reading of the description, not a source code.",
+  "rules": [
+    {"value": "Turbochargers", "terms": ["TURBO", "TURBOS", "TURBOCHARGER", "TURBOCHARGERS"]},
+    {"value": "Induction and Exhaust", "terms": ["EXHAUST", "EHAUST", "MUFFLER", "MUFFLERS", "MANIFOLD", "AIRCLEANER", "AIRCLEANERS"]},
+    {"value": "Radiator", "terms": ["RADIATOR", "RADIATORS", "RAD", "OVERHEATING", "OERHEATING", "OVER HEATING", "COOLANT"]},
+    {"value": "Final Drive", "terms": ["FINAL DRIVE", "FINAL DRIVES", "FINAL", "TRAVEL MOTOR", "TRAVEL MOTORS"]},
+    {"value": "Hydraulic Cylinders", "terms": ["CYL", "CYLINDER", "CYLINDERS", "GLAND"]},
+    {"value": "Bucket", "terms": ["BUCKET", "TOOTH", "TEETH", "LIP", "ADAPTOR", "ADAPTORS", "ADAPTER", "ADAPTERS", "SHROUD", "SHROUDS", "TIP", "TIPS", "WEAR PACKAGE", "GET"]},
+    {"value": "Engine", "terms": ["ENGINE", "ENGINES", "ENG", "START", "STARTING", "STARTER", "JUMP", "FILTER", "FILTERS", "AIR CLEANER", "AIR CLEANERS", "BELT", "BELTS"]},
+    {"value": "Superstructure", "terms": ["HANDRAIL", "HANDRAILS", "UNDERCARRIAGE", "CARBODY", "STRUCTURE", "SUPERSTRUCTURE", "HAND RAIL", "HAND RAILS", "SAFETY RAILS", "CAR BODY", "DECK"]},
+    {"value": "Transmission", "terms": ["TRANS", "TRANSMISSION"]},
+    {"value": "Hydraulic System", "terms": ["HYD", "HYDRAULIC", "HYDRAULICS", "HOSE", "HOSES", "SLEW", "OIL", "LEAK", "LEAKING", "LEAKS", "VALVE", "VALVES", "COOLER", "STEEL LINE", "PIPE", "CONTAMINATION"]}
+  ]
+}

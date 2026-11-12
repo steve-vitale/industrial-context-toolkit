@@ -1,0 +1,60 @@
+{
+  "schema": "nestor-system-grouping-freeze-1",
+  "frozen_at": "2026-11-12",
+  "attempt": "A420",
+  "task": "maintenance-system-grouping (system-groups-v1): per-order system class derived by scripts/maintenance_history.py from the raw short text, scored against the cleaned file MajorSystem codes the tool never reads",
+  "split": {
+    "decided": "2026-11-12",
+    "development": [
+      "A",
+      "B",
+      "C"
+    ],
+    "held_out": [
+      "D",
+      "E"
+    ]
+  },
+  "held_out_content_inspected": false,
+  "exposure": "Held-out key counts were surveyed on 2026-11-12 (work-order counts per asset for all five assets, the date range and the MajorSystem distinct count over all rows); no method was run. Any sealed score on assets D and E must state this.",
+  "files_sha256_lf": {
+    "scripts/maintenance_history.py": "224bfaf067df753d850b88e287b337fb2552d796a3ba2b1d0568f7767fde1e9e",
+    "scripts/maintenance_history_report.py": "de0d6c6857f0762d7a114c08756f6dfd7cde7d712ff7d28c072c92263095e698",
+    "scripts/maintenance_intake.py": "a8d158dfe3ca9282b5ab94aebb7d9c0d844168eeecda05f0fbd6827e1cd64832",
+    "scripts/score_maintenance_systems.py": "4ea1c3fa378f9af662ee0dbda5726976eb636713208195749a41e896cdebfbf4",
+    "examples/maintenance-history/nestor.py": "9f16827b76cdd2fdb9e9cb381b47467bf44aad7ccdfb8d2396b9e8a50d5189c3",
+    "examples/maintenance-history/baseline.py": "f4838f2ee077849b941d099031acef4a1abf24e2027e42756010f185d8b03181",
+    "examples/maintenance-history/nestor/system_vocabulary.json": "0c54b1bad4a8d9f06145ef2de186a4400284293ca42c43962ce61fffdb5a0bb4"
+  },
+  "majority_control": "Hydraulic System",
+  "pass_margin": 0.2,
+  "development_outcome": {
+    "orders": {
+      "precision": 0.9749,
+      "recall": 0.9511,
+      "f1": 0.9629
+    },
+    "membership": {
+      "precision": 0.8764,
+      "recall": 0.848,
+      "f1": 0.862
+    },
+    "groups": {
+      "precision": 1.0,
+      "recall": 0.96,
+      "f1": 0.9796
+    },
+    "best_wrong_control_orders_f1": 0.4123,
+    "join": {
+      "raw_records": 2160,
+      "cleaned_records": 2018,
+      "keyed": 2018,
+      "unkeyed_raw": 142,
+      "unmatched_cleaned": 0,
+      "keyed_with_system": 1186
+    },
+    "procedural_checks_passed": true
+  },
+  "development_iterations": "Two vocabulary passes on A-C (first pass orders F1 0.9468; second added generic terms after reading A-C misses: AIR CLEANER moved to Engine, TRAVEL MOTOR, COOLANT, WEAR PACKAGE, GET, BELT, rail and deck terms, STEEL LINE, PIPE, CONTAMINATION). The scorer controls were also changed on development: the reference control now uses the full key system set, and misaligned-key shifts by half an asset because neighbouring raw rows share systems.",
+  "stopping_rule": "Evaluate D-E once with this frozen method, scorer and margin; record the result kept or not; no vocabulary, scorer or margin change after the held-out run."
+}
