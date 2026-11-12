@@ -59,6 +59,39 @@ written once with `flowsheet_topology.py key`; its first parse refused the class
 mapping line (`Splitter` is a splitter, as `Separator` already was) was added. Only its counts (13 units, 13 arcs,
 as surveyed on 2026-11-12) and the key-control check were displayed; no answer had been produced for it.
 
+### Held out (the one sealed run, 2026-11-12)
+
+Held-out key counts were surveyed on 2026-11-12 (its arc and unit counts, and unit-name counts over the whole
+notebook text); no method was run. Any sealed score on the recycle flowsheet must state this.
+
+| Run | Built | Unit-role F1 | Connection F1 (per replicate) | Mean (SD) | Reversed / shuffled (wrong) | Mention-order chain |
+|---|---|---|---|---|---|---|
+| v1, frozen in `6c512e23` | 3 of 3 | 0.875 (7/9) each | 0.353, 0.353, 0.353 | 0.353 (0.000) | 0.000 / 0.235 | 0.087-0.174 |
+
+Key controls on the held-out key: reference 1.000, reversed 0.077, shuffled 0.308, empty 0.000.
+**Verdict: rejected** under the rule above: mean connection F1 0.353 < 0.75, and only 0.118 above the shuffled
+control (bar 0.30). Report: [flowsheet-topology-idaes-methanol.md](../results/flowsheet-topology-idaes-methanol.md);
+ledger entry A419 ([TRIED.md](../../docs/TRIED.md)).
+
+### Failures and limits
+
+1. **The prose does not state the process order, and the workflow will not invent it (limit).** All six v1 answers
+   that left units unconnected say so in `meta.unknowns`: the units appear in a degrees-of-freedom sentence and as
+   "pre-reactor"/"post-reactor", not as a sequence. Only one development replicate read that sentence as an order.
+   This is the contract working as written (no connection the source does not give), so it was not loosened.
+2. **No recycle, splitter or second mixer (limit).** The recycle section says "back to the start of the process" and
+   a 10-50% purge, without naming the splitting equipment or the return point; all three held-out answers kept that
+   as an unknown. The native model has no splitter or mixer type (a vessel or feed header named so is read as one).
+3. **Boundary credit inflates sparse answers (scorer limit, reported).** Feeds into the mixer and the liquid
+   product count as arcs, so an answer with no unit-to-unit connection scores 0.35-0.46. The margin over the
+   shuffled control in the pass rule is what catches this; read connection F1 beside its controls.
+4. **The held-out input mixes two configurations (task-design limit).** It is the whole notebook, so it describes
+   the process both without and with the recycle; one answer noted that the intended configuration is not stated.
+5. **Fixed: the workflow could not build a feed mixer (v0).** See the development section; tests in
+   `scripts/test_description_workflow.py`.
+6. **Same-family model, one notebook, one publisher.** The model may also have seen these public IDAES files in
+   training; the answers show no sign of it (no connection beyond the prose).
+
 ## Score and controls
 
 Units: agreement of coarse unit roles (mixer, compressor, expander, pump, heat exchange, reactor, separator, splitter,
@@ -75,7 +108,7 @@ role-preserving alignment of answer units to key units that matches the most key
 - **Cell pass** (corpus matrix row 9): every replicate built; mean connection F1 >= 0.75 and mean unit F1 >= 0.75;
   key controls pass; mean connection F1 at least 0.30 above the mean of each answer-derived wrong control.
 - **Verdict of the held-out run:** *kept* if the held-out cell passes and its mean connection F1 is above the
-  mean-order chain's by more than the larger of the two replicate ranges; *inconclusive* if it passes without that
+  mention-order chain (typo "mean-order" corrected after the run; meaning unchanged)'s by more than the larger of the two replicate ranges; *inconclusive* if it passes without that
   margin (the structure then adds nothing measurable over mention order); *rejected* if it fails.
 - One sealed held-out run of three replicates, after the method, scorer and this file are committed. No change
   after it.

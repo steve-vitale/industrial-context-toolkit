@@ -1,0 +1,51 @@
+{
+  "id": "heldout-v1-r3",
+  "ran_at": "2026-11-12",
+  "model": {
+    "provider": "anthropic",
+    "id": "claude-opus-5-5",
+    "version": "served id from CLI modelUsage; build not provider-attested"
+  },
+  "interface": "claude-code-cli -p, --tools \"\" (no tools), --system-prompt (one neutral line), empty temporary folder, --strict-mcp-config, --disable-slash-commands",
+  "method": "description_workflow.py packet (A419 contract: source-named equipment kept, order-based connections recorded as assumptions, mixer outline stated) answered with no tools, check diagnostics returned up to 4 rounds, then build",
+  "configuration": {
+    "max_check_rounds": 4,
+    "requested_model": null,
+    "cli_version": "2.1.317 (Claude Code)",
+    "packet_sha256": {
+      "prompt.md": "0aea1367666632cba8856914151ad4fd648442b44956f1c5516de40a25ae483f",
+      "contract.md": "12b0aadc4badb0bf5dde7cfb95fbd3fb6362b135a7705ab65a815ebdc2ee1efd",
+      "reference_source.txt": "4b36c932249a9db29c782771dd2cf6b76466a390e3565faf2a55aaa5ad4a196f",
+      "reference_answer.json": "9711b7f1f7613f2d25d598dc38e1476032d92d384322788fac71734f8440fcc8",
+      "source_numbered.txt": "57760e8f314d36bc606b0d7e24781eec708b5ea38c2d8dd01f25d1d3bfea527d"
+    }
+  },
+  "recorded_tool": "scripts/run_description_author.py",
+  "provenance": "A419 sealed held-out run: the one run of the method frozen in commit 6c512e23e6a02a4510e3b64da35d0b79416a36d7, three replicates, scored once. Held-out key counts were surveyed on 2026-11-12 (its arc and unit counts, and unit-name counts over the whole notebook text); no method was run. Any sealed score on the recycle flowsheet must state this.",
+  "recipe": [
+    {
+      "path": "benchmarks/flowsheet-topology/recipe/heldout-v1/prompt.md",
+      "sha256": "0aea1367666632cba8856914151ad4fd648442b44956f1c5516de40a25ae483f",
+      "role": "main_prompt"
+    },
+    {
+      "path": "benchmarks/flowsheet-topology/recipe/heldout-v1/contract.md",
+      "sha256": "12b0aadc4badb0bf5dde7cfb95fbd3fb6362b135a7705ab65a815ebdc2ee1efd",
+      "role": "contract"
+    },
+    {
+      "path": "benchmarks/flowsheet-topology/recipe/run_description_author.py.txt",
+      "sha256": "f8df9aeca8d1b90f8caea9e256516197e17a23f8daa13120c4e1ecea810039b2",
+      "role": "runner"
+    }
+  ],
+  "cases": [
+    "methanol-recycle"
+  ],
+  "predictions": {
+    "methanol-recycle": {
+      "path": "benchmarks/flowsheet-topology/runs/heldout-v1-r3/prediction.json",
+      "sha256": "c063ab890ecf4eaf828848db371374a4bbd0b8d2d5c3483e1c2f25fedd1e61a6"
+    }
+  }
+}

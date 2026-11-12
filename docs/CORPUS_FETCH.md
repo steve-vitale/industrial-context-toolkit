@@ -220,7 +220,7 @@ extraction score is added.
 ## Linked engineering-context packets
 
 `data/corpus.json` lists these separately under `context_packets`. They exercise the source-bound context workflow,
-not the eight selected workflows in the generalization matrix; they do not add pass/fail cells to that matrix.
+not the nine selected workflows in the generalization matrix; they do not add pass/fail cells to that matrix.
 PRONTO and Bayer use existing source families. The new
 [NIST SMS packet](../examples/context-register/nist-smstestbed/README.md) adds a different public manufacturing
 family: two published device configurations and an archived machine log. All are development cases with

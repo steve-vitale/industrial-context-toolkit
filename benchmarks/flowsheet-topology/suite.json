@@ -23,6 +23,25 @@
           "sha256": "6949a3be2ef2070fc69ced5e287eaa2c4fd9b1cf04e47e6491c59949d7a3ccdc"
         }
       }
+    },
+    {
+      "id": "methanol-recycle",
+      "family": "idaes-methanol",
+      "split": "held-out",
+      "evidence": "Third-party flowsheet code keys third-party prose; same author and notebook, one publisher (IDAES)",
+      "source_url": "https://github.com/IDAES/examples/tree/eb64e38ac429b7e3ae4f8db071f8d8cad2eef675/idaes_examples/notebooks/docs/flowsheets",
+      "license": "IDAES BSD-style license with DOE notice (benchmarks/flowsheet-topology/IDAES-LICENSE.md); derived prose and keys committed, originals fetch-by-hash (data/corpus_pins.json idaes-processes)",
+      "key_author": "Parsed mechanically from the IDAES flowsheet code by scripts/flowsheet_topology.py key (ast, never executed); not written by this repository. Held-out key: written once before the held-out run; only its counts (13 units, 13 arcs) and the key-control check were displayed, and its first parse added the Splitter class mapping. Held-out key counts were surveyed on 2026-11-12 (its arc and unit counts, and unit-name counts over the whole notebook text); no method was run. Any sealed score on the recycle flowsheet must state this.",
+      "files": {
+        "input": {
+          "path": "benchmarks/flowsheet-topology/inputs/methanol-recycle.txt",
+          "sha256": "c2bfe1b3c28762f78aaa5e546ccce9a9407fb00324d251a5690b8f95c4af0bc7"
+        },
+        "key": {
+          "path": "benchmarks/flowsheet-topology/keys/methanol-recycle.json",
+          "sha256": "337d8b4ec2b8620dff873bff4118a0c704d862d798aa0669cf1fca4cea152f19"
+        }
+      }
     }
   ],
   "runs": [
@@ -31,6 +50,9 @@
     "benchmarks/flowsheet-topology/runs/dev-v0-r3.json",
     "benchmarks/flowsheet-topology/runs/dev-v1-r1.json",
     "benchmarks/flowsheet-topology/runs/dev-v1-r2.json",
-    "benchmarks/flowsheet-topology/runs/dev-v1-r3.json"
+    "benchmarks/flowsheet-topology/runs/dev-v1-r3.json",
+    "benchmarks/flowsheet-topology/runs/heldout-v1-r1.json",
+    "benchmarks/flowsheet-topology/runs/heldout-v1-r2.json",
+    "benchmarks/flowsheet-topology/runs/heldout-v1-r3.json"
   ]
 }

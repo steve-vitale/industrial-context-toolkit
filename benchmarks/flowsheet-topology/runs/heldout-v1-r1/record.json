@@ -1,0 +1,36 @@
+{
+  "schema": "description-author-run/1",
+  "ran_at": "2026-11-12T18:45:51Z",
+  "interface": "claude-code-cli -p, --tools \"\" (no tools), --system-prompt (one neutral line), empty temporary folder, --strict-mcp-config, --disable-slash-commands",
+  "requested_model": null,
+  "cli_version": "2.1.317 (Claude Code)",
+  "system_line": "You author structured JSON for an engineering description workflow. Follow the user's output format exactly.",
+  "packet_sha256": {
+    "prompt.md": "0aea1367666632cba8856914151ad4fd648442b44956f1c5516de40a25ae483f",
+    "contract.md": "12b0aadc4badb0bf5dde7cfb95fbd3fb6362b135a7705ab65a815ebdc2ee1efd",
+    "reference_source.txt": "4b36c932249a9db29c782771dd2cf6b76466a390e3565faf2a55aaa5ad4a196f",
+    "reference_answer.json": "9711b7f1f7613f2d25d598dc38e1476032d92d384322788fac71734f8440fcc8",
+    "source_numbered.txt": "57760e8f314d36bc606b0d7e24781eec708b5ea38c2d8dd01f25d1d3bfea527d"
+  },
+  "source_sha256": "c2bfe1b3c28762f78aaa5e546ccce9a9407fb00324d251a5690b8f95c4af0bc7",
+  "max_rounds": 4,
+  "rounds": [
+    {
+      "round": 1,
+      "prompt_sha256": "cab2b4ceac5364d1ee404099bf84999a6b07aed688fde2017f4a7388a5655493",
+      "served_model": "claude-opus-5-5",
+      "seconds": 100.5,
+      "cost_usd_notional": 0.274504,
+      "error": null,
+      "check": {
+        "ok": true,
+        "errors": []
+      }
+    }
+  ],
+  "built": true,
+  "build_errors": [],
+  "served_model": "claude-opus-5-5",
+  "seconds": 100.5,
+  "cost_usd_notional": 0.2745
+}
