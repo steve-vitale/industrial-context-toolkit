@@ -72,7 +72,13 @@ class Drift(unittest.TestCase):
 
     def test_missing_data_count_drift_is_not_a_pass(self):
         changed = copy.deepcopy(cc.matrix_cells())
-        next(c for c in changed if c["status"] == "needs data")["status"] = "pass"
+        # Any cell moving between "needs data" and a scored status must fail both counts, in either direction
+        # (the recorded matrix may hold no needs-data cell at all).
+        waiting = [c for c in changed if c["status"] == "needs data"]
+        if waiting:
+            waiting[0]["status"] = "pass"
+        else:
+            next(c for c in changed if c["status"] == "pass")["status"] = "needs data"
         with patch.object(cc, "matrix_cells", return_value=changed):
             results = {r["id"]: r for r in cc.run(publications=publication())}
         self.assertEqual(results["M-needs-data"]["status"], "FAIL")

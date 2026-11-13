@@ -27,21 +27,23 @@ See [reviewing the evidence](REVIEWING.md) for test prerequisites, omissions and
 ## Tool coverage
 
 The [corpus matrix](GENERALIZATION.md) covers eleven selected workflows:
-48 cells pass, 12 fail, 5 are not applicable and 34 need data in the current recorded matrix. Row 9
+66 cells pass, 25 fail, 8 are not applicable and 0 need data in the current recorded matrix. It was
+re-recorded on 2026-11-12 with every optional cache present locally: 34 cells that had needed data ran for the
+first time under their existing criteria, and no pass/fail cell changed (the hai-dcs-loops n/a cell gained a
+detail). A clean clone reports those cells' caches as UNVERIFIED until they are fetched. Row 9
 (added 2026-11-12, A419) scores the description workflow on the IDAES methanol prose; both of its cells fail. Its
 held-out connection F1 0.353 is boundary credit only: 0 of 9 unit-to-unit arcs (internal-arc F1 0.000). Row 10
 (added 2026-11-12, A420) scores maintenance-history system grouping on the Nestor excavator records: the `derive`
 option applies a declared vocabulary faithfully, and a vocabulary written from development assets A-C, including
 their publisher codes, agrees with the publisher's keyword-rule codes on held-out D-E at per-record F1 0.943 (0.887
 with no-system rows counted as errors; class-name words alone 0.501). It does not show what a user without a key
-would write, or engineering correctness; the vocabulary is a per-dataset profile artifact, not part of the product. The missing-data
-cells name absent optional caches; they are neither passes nor evidence that earlier failures were fixed.
+would write, or engineering correctness; the vocabulary is a per-dataset profile artifact, not part of the product.
 Row 11 is the batch tool on public industrial baker's-yeast batches ([case](../examples/batch-analysis/industrial-yeast/README.md), A418). On ten real batches, the batch tool's `next` integral reproduces the publisher's logged running cumulative on 9 of 10 batches and 166 of 169 hours; the one mismatch (B09 hours 11-13) is an inconsistency inside the source. The key is the publisher's own sum of the same feed column, so this checks the interval convention, unit, window and coverage, and the source's internal consistency. It is not a measurement or outcome benchmark.
 It does not give the process-data area depth on an outcome key.
 Rows have different run dates, recorded on the matrix page. Pipe tracing reaches F1 0.912 on the OPEN100 validation sheets
 (derived truth, only partly blind). The historical mixed vendor-render pool failed at 0.776; its per-sheet counts
 remain in the [earlier full-cache matrix](../examples/map-component-cycle/history/legacy-generator-rebuild-01/corpus/matrix.json).
-The current vendor cell needs data, so that historical score was not reproduced in the current run. These are
+The current vendor cell, run with its cache present, fails at the same 0.776. These are
 tool/input checks, not a complete-route success rate. Earlier scan, vendor and historian failures remain evidence.
 
 ## Results (held-out drawings, and how they were used)
