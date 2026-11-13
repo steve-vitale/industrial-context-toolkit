@@ -7,7 +7,7 @@ or measured operational benefit is established. A successful example does not es
 | Evidence | What it answers |
 |---|---|
 | This page and the [claim receipt](../out/claims_check.md) | What the published research numbers mean, and whether they match their committed evidence. |
-| [Generalization matrix](GENERALIZATION.md) | Where eight selected workflows pass or fail on registered public inputs. |
+| [Generalization matrix](GENERALIZATION.md) | Where nine selected workflows pass or fail on registered public inputs. |
 | [Task/model benchmarks](../benchmarks/README.md) | How saved attempts compare on matching task, source, key and scorer cohorts. |
 | [Feature reference](FEATURES.md) | Which committed examples have current independent coding-agent reviews. |
 | [Evaluation protocol](EVALUATION.md) and [preregistered rounds](GOAL.md) | What was decided before a run, what was inspected and which layer each score measures. |
@@ -26,8 +26,10 @@ See [reviewing the evidence](REVIEWING.md) for test prerequisites, omissions and
 
 ## Tool coverage
 
-The [corpus matrix](GENERALIZATION.md) covers eight selected workflows:
-46 cells pass, 10 fail, 5 are not applicable and 34 need data in the current recorded matrix. The missing-data
+The [corpus matrix](GENERALIZATION.md) covers nine selected workflows:
+46 cells pass, 12 fail, 5 are not applicable and 34 need data in the current recorded matrix. Row 9
+(added 2026-11-12, A419) scores the description workflow on the IDAES methanol prose; both of its cells fail. Its
+held-out connection F1 0.353 is boundary credit only: 0 of 9 unit-to-unit arcs (internal-arc F1 0.000). The missing-data
 cells name absent optional caches; they are neither passes nor evidence that earlier failures were fixed.
 Rows have different run dates, recorded on the matrix page. Pipe tracing reaches F1 0.912 on the OPEN100 validation sheets
 (derived truth, only partly blind). The historical mixed vendor-render pool failed at 0.776; its per-sheet counts

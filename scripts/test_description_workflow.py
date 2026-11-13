@@ -224,6 +224,43 @@ class DescriptionWorkflowTests(unittest.TestCase):
             self.assertFalse(report['ok'])
             self.assertIn(expected, '\n'.join(report['errors']))
 
+    def test_off_outline_endpoint_diagnostic_names_the_outline_it_missed(self):
+        """A419: three assistant replicates spent four rounds each on a mixer route the diagnostic never located."""
+        answer = workflow.reference_answer()
+        answer['layout']['sheets'][0]['routes'][1].update(pts=[[950, 900], [1655, 900]])
+        errors = '\n'.join(self.check_value(answer)['errors'])
+        self.assertIn('route endpoint [950, 900] must touch the named equipment outline', errors)
+        self.assertIn('TK-1 outline x 700-900, y 760-1040', errors)
+
+    def test_contract_states_the_fixed_mixer_outline(self):
+        """The check ignores a mixer's r (fixed 35-pixel half-size); the contract must not say it is used."""
+        self.assertNotIn('mixer uses at/r', workflow.CONTRACT)
+        self.assertIn('mixer uses at only', workflow.CONTRACT)
+        answer = workflow.reference_answer()
+        model, sheet = answer['model'], answer['layout']['sheets'][0]
+        model['units'].append({'id': 'MX-1', 'name': 'Feed mixer', 'type': 'feed_header',
+                               'source': 'source.txt:L2-L2'})
+        sheet['units']['MX-1'] = {'shape': 'mixer', 'at': [500, 1300], 'r': 40}
+        model['streams'].append({'id': 'S4', 'name': 'Mixer feed', 'from': 'BL', 'to': 'MX-1',
+                                 'source': 'source.txt:L4-L4'})
+        sheet['flags']['IN2'] = {'stream': 'S4', 'label': 'MIXER FEED', 'at': [120, 1300], 'dir': 'right'}
+        route = {'id': 'S4', 'stream': 'S4', 'from': {'flag': 'IN2'}, 'to': {'unit': 'MX-1'}}
+        sheet['routes'].append(dict(route, pts=[[350, 1300], [460, 1300]]))  # stops at r=40: misses the outline
+        errors = '\n'.join(self.check_value(answer)['errors'])
+        self.assertIn('MX-1 outline x 465-535, y 1265-1335', errors)
+        sheet['routes'][-1] = dict(route, pts=[[350, 1300], [465, 1300]])
+        self.assertTrue(self.check_value(answer)['ok'], self.check_value(answer))
+
+    def test_contract_keeps_source_named_equipment_and_order_based_connections_reviewable(self):
+        """A419: replicates dropped a source-named turbine (no supported type) and every connection the source gives
+        only by process order. The contract asks for both, each recorded in meta.assumptions for review."""
+        text = ' '.join(workflow.CONTRACT.split())
+        self.assertIn('Do not drop equipment the source names', text)
+        self.assertIn('closest supported type', text)
+        self.assertIn('order in which material passes through', text)
+        self.assertIn('meta.assumptions', text)
+        self.assertIn('Never connect units whose order the source does not give', text)
+
     def test_controller_output_contract_has_typed_targets(self):
         for output in ({'unsupported_key': 'FV-101'}, {'final_element': 'FT-101'},
                        {'final_element': 'FV-101', 'setpoint_of': 'FIC-101'},

@@ -1,0 +1,51 @@
+{
+  "id": "dev-v0-r1",
+  "ran_at": "2026-11-12",
+  "model": {
+    "provider": "anthropic",
+    "id": "claude-opus-5-5",
+    "version": "served id from CLI modelUsage; build not provider-attested"
+  },
+  "interface": "claude-code-cli -p, --tools \"\" (no tools), --system-prompt (one neutral line), empty temporary folder, --strict-mcp-config, --disable-slash-commands",
+  "method": "description_workflow.py packet (contract before A419) answered with no tools, check diagnostics returned up to 4 rounds, then build",
+  "configuration": {
+    "max_check_rounds": 4,
+    "requested_model": null,
+    "cli_version": "2.1.317 (Claude Code)",
+    "packet_sha256": {
+      "prompt.md": "845ae86753e139466131b93d030a253e2558fb11ccafe8d5d5ee2889bf959b5f",
+      "contract.md": "1c65eeaa19b74c0b76b516b6fff16393f28ef1cf9a6116dc289b1103a294364c",
+      "reference_source.txt": "4b36c932249a9db29c782771dd2cf6b76466a390e3565faf2a55aaa5ad4a196f",
+      "reference_answer.json": "9711b7f1f7613f2d25d598dc38e1476032d92d384322788fac71734f8440fcc8",
+      "source_numbered.txt": "1ebb2983e85d76d33c77a9cf6c44897c68a0b8beaecd93622abe915a3df32dc7"
+    }
+  },
+  "recorded_tool": "scripts/run_description_author.py",
+  "provenance": "A419 development run v0: the workflow as it stood on main 9ba93ccc. The scored answer is the model.json build writes; no build means a failed, empty answer.",
+  "recipe": [
+    {
+      "path": "benchmarks/flowsheet-topology/recipe/dev-v0/prompt.md",
+      "sha256": "845ae86753e139466131b93d030a253e2558fb11ccafe8d5d5ee2889bf959b5f",
+      "role": "main_prompt"
+    },
+    {
+      "path": "benchmarks/flowsheet-topology/recipe/dev-v0/contract.md",
+      "sha256": "1c65eeaa19b74c0b76b516b6fff16393f28ef1cf9a6116dc289b1103a294364c",
+      "role": "contract"
+    },
+    {
+      "path": "benchmarks/flowsheet-topology/recipe/run_description_author.py.txt",
+      "sha256": "f8df9aeca8d1b90f8caea9e256516197e17a23f8daa13120c4e1ecea810039b2",
+      "role": "runner"
+    }
+  ],
+  "cases": [
+    "methanol-no-recycle"
+  ],
+  "predictions": {
+    "methanol-no-recycle": {
+      "path": "benchmarks/flowsheet-topology/runs/dev-v0-r1/prediction.json",
+      "sha256": "a3a2d8710615bd77508e8852ddf001b2ac990160a6c2d0eaef57804e2b0d1993"
+    }
+  }
+}

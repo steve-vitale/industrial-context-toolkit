@@ -1,6 +1,6 @@
 """Run selected workflows across registered public inputs and publish the pass/fail matrix (docs/GENERALIZATION.md).
 
-The eight rows below cover selected workflows, not every tool in docs/SCRIPTS.md. This script runs each row on its
+The nine rows below cover selected workflows, not every tool in docs/SCRIPTS.md. This script runs each row on its
 applicable registered public inputs and records one cell per (workflow, input): pass, fail, n/a
 (the tool can't apply to this input, with the reason), needs data (the input isn't cached; the cell names the fetch
 command) or needs deps (a third-party module is missing). A red cell is the point: it says where a tool has not been
@@ -23,6 +23,9 @@ Rows (all model-free, offline):
      topology where the source holds it: the DEXPI XML (tees are elements), the current TE / Bayer drawer's own
      routes, and a truth derived from the OPEN100 key graph (line_layers.pid2graph_truth). A separate metric from
      row 1, which scores the network layer (all pairs on a line network). Pass = pipe-segment F1 >= PIPE_PASS_F1.
+  9  description_workflow.py check + build on saved assistant answers for a real process description, the model it
+     builds scored by flowsheet_topology.py against units and Arc connections parsed from the source's own flowsheet
+     code (re-derived from the pinned original each run). Pass = DESCRIPTION_PASS, fixed before the first model run.
 
 Inputs added 2026-10-29 (scripts/corpus_adapters.py turns each source into what the tool reads): DEXPI 1.2 exports
 from four commercial P&ID tools and the DEXPI reference solutions, and the 1.3 single-feature cases (rows 7 and 4,
@@ -103,6 +106,9 @@ ROWS = {
     8: {"tool": "line_layers.py (pipe layer, oracle symbols)", "short": "Pipe layer",
         "question": "Where the source holds the real pipe topology, does the traced pipe layer (what is piped "
                     "directly to what, through which junctions) match it?"},
+    9: {"tool": "description_workflow.py check + build, scored by flowsheet_topology.py", "short": "Description topology",
+        "question": "When a user describes a real process in prose, does the model the description workflow builds "
+                    "have the units and connections of that process's own flowsheet code?"},
 }
 KEYED = ["open100-dev", "open100-holdout", "open100-scan-L1", "open100-scan-L2", "open100-scan-L3",
          "pid2graph-synthetic", "dexpi", "te-rev-a", "te-rev-c", "te-rev-d", "te-rev-c-scan-L3", "bayer-rt1"]
@@ -136,6 +142,7 @@ ROW_INPUTS = {
     7: ["dexpi"] + list(DEXPI_READER_INPUTS) + ["dexpi-1.2-cross-vendor"],
     8: ["open100-dev", "open100-holdout", "dexpi", "te-rev-a", "te-rev-c", "te-rev-d", "bayer-rt1",
         "dexpi-1.2-vendor-renders"] + AGENT_KEYED,
+    9: ["idaes-methanol-dev", "idaes-methanol-heldout"],
 }
 # The tool files each row's cells exercise (roots; the scripts/ modules they import are added by tool_files), hashed
 # into every cell so --check can tell a stale cell.
@@ -152,6 +159,9 @@ ROW_TOOL_FILES = {
     7: ["scripts/dexpi_to_twin.py", "scripts/adapt_dexpi.py", "scripts/import_site_drawing.py",
         "scripts/score_pid2graph.py", "scripts/confidence.py"],
     8: ["scripts/line_layers.py", "scripts/trace_connections.py", "scripts/score_pid2graph.py"],
+    # build() runs the last three as subprocesses, so they are explicit roots.
+    9: ["scripts/description_workflow.py", "scripts/flowsheet_topology.py", "scripts/generate.py",
+        "scripts/question_engine.py", "scripts/graph_export.py"],
 }
 # Cells that exercise other files than their row's roots (the 2026-10-29 inputs): exactly these, plus their imports.
 ADAPTER = "scripts/corpus_adapters.py"
@@ -354,6 +364,11 @@ def source_specs(row, inp):
         add((ca.DEXPI_ROOT.relative_to(ca.ROOT) / f"dexpi {version}" / "example pids").as_posix(), patterns, optional)
     elif iid == VENDOR:
         add(local, ["*.png", "*.graphml", "*.json"], optional)
+    elif kind == DESCRIPTION_KIND:
+        add(local, optional=optional)  # the original flowsheet code the key is re-derived from
+        for rel in [inp["source_text"], inp["topology_key"], *inp["answers"]]:
+            add(rel)
+        add("data/questions.json")  # build's default question catalog
     elif kind in NOT_SCORED_KINDS:
         if iid == "hai-dcs-loops":
             add(local, ["dcs_*.json"], optional)
@@ -1793,7 +1808,67 @@ def row6_heldout(inp):
                      note=f". {evidence_note}; a cyclic process ({cyc})")
 
 
-RUNNERS = {1: row1, 2: row2, 3: row3, 4: row4, 5: row5, 6: row6, 7: row7, 8: row8}
+DESCRIPTION_KIND = "description-topology"
+DESCRIPTION_PASS = {"connections_f1": 0.75, "units_f1": 0.75, "margin_over_wrong": 0.30}
+
+
+def row9(inp):
+    """Re-derive the key from the pinned flowsheet code, rebuild every saved answer through the workflow, score."""
+    import description_workflow as dw
+    import flowsheet_topology as ft
+    key = ft.key_from_flowsheet(ROOT / inp["local_path"], inp["commit"])
+    committed = json.loads((ROOT / inp["topology_key"]).read_text(encoding="utf-8"))
+    problems = []
+    if key != committed:
+        problems.append("the key re-derived from the pinned flowsheet differs from the committed key")
+    controls = ft.key_controls(key)
+    problems += ft.check_key_controls(controls)
+    reps = []
+    with tempfile.TemporaryDirectory(prefix="matrix-row9-") as tmp:
+        tmp = Path(tmp)
+        quiet(dw.prepare, ROOT / inp["source_text"], tmp / "packet")
+        for n, rel in enumerate(inp["answers"], 1):
+            try:
+                report = quiet(dw.build, tmp / "packet", ROOT / rel, tmp / f"r{n}")
+            except (ValueError, OSError, KeyError, TypeError) as exc:  # the CLI reports these as a refusal
+                report = {"ok": False, "errors": [f"{type(exc).__name__}: {exc}"]}
+            if not report.get("ok"):
+                reps.append({"answer": rel, "built": False, "errors": report.get("errors", [])[:3]})
+                continue
+            counts, diag = ft.score(key, json.loads((tmp / f"r{n}" / "model.json").read_text(encoding="utf-8")))
+            reps.append({"answer": rel, "built": True,
+                         **{m: round(ft.f1(counts[m]) or 0.0, 3) for m in ft.METRICS},
+                         **{f"{c}_connections": round(ft.f1(diag["controls"][c]["connections"]) or 0.0, 3)
+                            for c in diag["controls"]},
+                         "missing_arcs": diag["missing_arcs"], "unexpected_streams": diag["unexpected_streams"]})
+
+    def mean(field):
+        return round(sum(r.get(field, 0.0) for r in reps) / len(reps), 3) if reps else 0.0
+    unbuilt = [r["answer"] for r in reps if not r["built"]]
+    if unbuilt:
+        problems.append(f"{len(unbuilt)} of {len(reps)} saved answers did not pass the workflow's build")
+    conn, units = mean("connections"), mean("units")
+    wrong = {c: mean(f"{c}_connections") for c in ft.WRONG_ANSWER_CONTROLS}
+    chain = mean("mention_order_chain_connections")
+    if conn < DESCRIPTION_PASS["connections_f1"]:
+        problems.append(f"mean connection F1 {conn} < {DESCRIPTION_PASS['connections_f1']}")
+    if units < DESCRIPTION_PASS["units_f1"]:
+        problems.append(f"mean unit F1 {units} < {DESCRIPTION_PASS['units_f1']}")
+    for c, v in wrong.items():
+        if conn - v < DESCRIPTION_PASS["margin_over_wrong"]:
+            problems.append(f"connection F1 only {round(conn - v, 3)} above the {c} control ({v})")
+    detail = {"split": inp["split"], "replicates": reps,
+              "mean": {"connections": conn, "units": units, "boundaries": mean("boundaries")},
+              "answer_controls_mean": {**wrong, "mention_order_chain": chain},
+              "key_controls": {n: {m: round(ft.f1(r) or 0.0, 3) for m, r in t.items()} for n, t in controls.items()},
+              "key": {"units": len(key["units"]), "arcs": len(key["arcs"]), "sha256": key["source"]["sha256"]},
+              "exposure": inp.get("exposure", "")}
+    value = (f"connections F1 {conn:.3f}, units {units:.3f} (chain {chain:.3f}, wrong max {max(wrong.values()):.3f}; "
+             f"{len(reps)} answers)")
+    return cell(9, inp, "fail" if problems else "pass", value, "; ".join(problems), detail)
+
+
+RUNNERS = {1: row1, 2: row2, 3: row3, 4: row4, 5: row5, 6: row6, 7: row7, 8: row8, 9: row9}
 
 
 class StagingError(Exception):
@@ -2049,8 +2124,8 @@ def render(matrix, corpus):
          "Generated by `scripts/corpus_matrix.py` from `out/generalization/matrix.json`; the inputs are registered in",
          "`data/corpus.json`. Do not edit by hand: `python scripts/corpus_matrix.py` re-runs it and",
          "`python scripts/corpus_matrix.py --check` confirms this page matches the JSON.", "",
-         "These eight workflows cover tracing, scorer controls, intake/report, loop audit, exports, historian bands, "
-         "DEXPI conversion and pipe topology. They do not cover every tool: point mapping, applying reviews, the "
+         "These nine workflows cover tracing, scorer controls, intake/report, loop audit, exports, historian bands, "
+         "DEXPI conversion, pipe topology and topology from a written description. They do not cover every tool: point mapping, applying reviews, the "
          "question engine, impact estimates and live replay have their own feature tests and examples. Each cell "
          "runs one selected workflow on one registered public input it applies "
          "to, with no model and no network. **pass** and **FAIL** use the criterion stated for each row below; each "
@@ -2394,6 +2469,20 @@ ROW_CRITERIA = {
        f"result was only partly blind. {AGENT_KEYED_TEXT} Their pipe truth is derived from the agent-made key graph as for OPEN100 "
        f"(`pid2graph_truth`; the key's networks reproduce its all-pairs links on every sheet), and the agent-keyed "
        f"sheets are scored with the set registered for that call only (`line_layers.SETS` itself is not edited).",
+    9: "Added 2026-11-12 (A419), criterion fixed before the first model run (benchmarks/flowsheet-topology/README.md). "
+       "Input: the markdown prose of the IDAES `methanol_synthesis.ipynb` (code cells and outputs dropped), up to the "
+       "recycle section for `idaes-methanol-dev` and all of it for `idaes-methanol-heldout`. Key: the units and "
+       "`Arc(source=..., destination=...)` connections in `methanol_flowsheet.py` and "
+       "`methanol_flowsheet_w_recycle.py`, parsed (never executed) by `flowsheet_topology.key_from_flowsheet` from the "
+       "pinned original each run and compared with the committed key. Each saved answer (a model's reply to the "
+       "workflow's own packet, with no tools; `scripts/run_description_author.py`) goes through "
+       "`description_workflow.py build`; the model.json it writes is scored: connection F1 over directed unit-to-unit "
+       "edges after a role-preserving alignment, and unit-role F1. The model call is not re-run here. Pass: every "
+       f"answer builds, mean connection F1 >= {DESCRIPTION_PASS['connections_f1']}, mean unit F1 >= "
+       f"{DESCRIPTION_PASS['units_f1']}, the key controls pass (reference 1.000, reversed/shuffled/empty <= 0.35) and "
+       f"mean connection F1 at least {DESCRIPTION_PASS['margin_over_wrong']} above each answer-derived wrong control "
+       "(reversed, shuffled). The mention-order chain of the answer's own units is reported as a naive baseline, not "
+       "part of the pass.",
 }
 
 
@@ -2436,7 +2525,21 @@ def row8_table(by, r):
     return out if len(out) > 4 else []
 
 
-ROW_EXTRA = {1: row1_table, 6: row6_table, 8: row8_table}
+def row9_table(by, r):
+    out = ["Per answer (connection F1; units; reversed / shuffled / mention-order chain connection F1; key arcs "
+           "missed):", "", "| Input | Answers |", "|---|---|"]
+    for i in ROW_INPUTS[9]:
+        c = by.get((9, i))
+        if c and "replicates" in c["detail"]:
+            out.append(f"| `{i}` | " + "; ".join(
+                (f"{Path(x['answer']).parent.name}: {x['connections']}; {x['units']}; {x['reversed_connections']} / "
+                 f"{x['shuffled_connections']} / {x['mention_order_chain_connections']}; "
+                 f"{', '.join(x['missing_arcs']) or 'none'}") if x["built"] else
+                f"{Path(x['answer']).parent.name}: not built" for x in c["detail"]["replicates"]) + " |")
+    return out if len(out) > 4 else []
+
+
+ROW_EXTRA = {1: row1_table, 6: row6_table, 8: row8_table, 9: row9_table}
 
 
 # ------------------------------------------------------------------ main

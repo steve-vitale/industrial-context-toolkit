@@ -320,7 +320,8 @@ def contract_problems(model, layout):
             else:
                 box=bounds[(rk[0],end['unit'])];x,y=at
                 if not (box[0]-3<=x<=box[2]+3 and box[1]-3<=y<=box[3]+3 and min(abs(x-box[0]),abs(x-box[2]),abs(y-box[1]),abs(y-box[3]))<=3):
-                    problem(path+'.'+side,'route endpoint must touch the named equipment outline bounds')
+                    problem(path+'.'+side,f"route endpoint {at} must touch the named equipment outline bounds "
+                            f"({end['unit']} outline x {box[0]:g}-{box[2]:g}, y {box[1]:g}-{box[3]:g}, within 3 pixels)")
             try:actual=resolve(rk,side)
             except InputError as exc:problem(path+'.'+side,str(exc));continue
             expected=streams[r['stream']][side]
@@ -438,6 +439,14 @@ output.split_range lists distinct supplied valves, or output.setpoint_of names a
 just to make validation pass. No fabricated verification or operations-review metadata is permitted in this
 first-draft authoring route. Existing advanced model workflows remain separate.
 
+Do not drop equipment the source names because no supported type fits it (for example a turbine): represent it
+with the closest supported type, keep the source's name for it, and record the substitution in meta.assumptions.
+Connections need not be stated as pipes. Where the source gives the order in which material passes through
+equipment (before, after, prior to, entering, downstream of, the outlet of, or a list of units in process order),
+represent each connection that order implies as a stream citing the lines that give it, and record each such
+stream in meta.assumptions as an order-based interpretation for review. Never connect units whose order the source
+does not give; keep those questions in meta.unknowns.
+
 ## Layout
 
 Use the reference layout structure. `sheet_px` is [3200,2130]; keep equipment/routes in the drawing frame, clear
@@ -450,7 +459,8 @@ every model item and connection. Layout positions are proposed geometry, not phy
 Equipment type determines its supported symbol: tank/vessel/pressure_vessel/reactor/separator use vertical_vessel; stripper uses column; heat_exchanger/condenser use horizontal_exchanger; pump/compressor retain their symbol; feed_header uses mixer. Advanced alternate symbols need a separate reviewed drafting workflow.
 
 Units: vertical_vessel uses cx/top/bottom/w/head; column adds trays; pump uses at/r; horizontal_exchanger uses
-x0/x1/cy/h; compressor uses at/r; mixer uses at/r. A generic symbol must not imply dimensions stated nowhere.
+x0/x1/cy/h; compressor uses at/r; mixer uses at only (a fixed 70 by 70 pixel outline centred on at; any r is
+ignored). A generic symbol must not imply dimensions stated nowhere.
 Use mounts {tag:[x,y]} for unit-mounted instruments. Place inline items on their known route with place
 {tag:[x,y]}; points must lie on that polyline. Avoid symbols, text and unintended line joins. A route names its
 stream, from/to endpoint objects, and orthogonal pts. Endpoint objects use unit or flag; a true branch can use

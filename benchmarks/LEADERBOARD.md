@@ -25,7 +25,7 @@ No reader result is registered on a held-out split yet. Older one-time held-out 
 
 ### pid2graph-open100 · split `validation`
 
-Task `drawing-extraction`; 6 cases (open100-10, open100-11, open100-6, open100-7, open100-8, open100-9); cohort `56d307467fea`. Evidence: [report](results/open100-validation-overflow-guard-artifact-values.md), [JSON](results/open100-validation-overflow-guard-artifact-values.json), [suite](open100-validation.json). Historical same-plant validation also used for method selection; third-party keys. Ranked by mean review load. Tag reading is not keyed for this family.
+Task `drawing-extraction`; 6 cases (open100-10, open100-11, open100-6, open100-7, open100-8, open100-9); cohort `c9d1295cb296`. Evidence: [report](results/open100-validation-overflow-guard-artifact-values-flowsheet-adapter.md), [JSON](results/open100-validation-overflow-guard-artifact-values-flowsheet-adapter.json), [suite](open100-validation.json). Historical same-plant validation also used for method selection; third-party keys. Ranked by mean review load. Tag reading is not keyed for this family.
 
 | Rank | Reader (model · method · interface) | Runs × cases | Review load per 100 key items (lower is better) | Symbol F1 rough | Symbol F1 strict | Connection F1 | Tag reading | Run dates |
 |---|---|---|---|---|---|---|---|---|
@@ -42,7 +42,7 @@ Task `drawing-extraction`; 6 cases (open100-10, open100-11, open100-6, open100-7
 
 ### dexpi-trainingtestcases · split `development` · `tag-reading (geometry)`
 
-3 cases (dexpi-c01, dexpi-c02, dexpi-c03); cohort `13890e30cebd`. Evidence: [report](results/tag-reading-development-artifact-values.md), [JSON](results/tag-reading-development-artifact-values.json), [suite](tag-reading-development.json). Exposed historical model answers; CURRENT frozen derived cache keys, original producing key/converter identity unknown. Development: not ranked. Symbol and connection F1 are not part of this task.
+3 cases (dexpi-c01, dexpi-c02, dexpi-c03); cohort `09240811448b`. Evidence: [report](results/tag-reading-development-artifact-values-flowsheet-adapter.md), [JSON](results/tag-reading-development-artifact-values-flowsheet-adapter.json), [suite](tag-reading-development.json). Exposed historical model answers; CURRENT frozen derived cache keys, original producing key/converter identity unknown. Development: not ranked. Symbol and connection F1 are not part of this task.
 
 | Rank | Reader (model · method · interface) | Runs × cases | Strict tag recall (labelled symbols) | Strict accuracy on found symbols | Run dates |
 |---|---|---|---|---|---|
@@ -53,7 +53,7 @@ Task `drawing-extraction`; 6 cases (open100-10, open100-11, open100-6, open100-7
 
 ### dexpi-trainingtestcases · split `development` · `tag-reading (taglist)`
 
-2 cases (dexpi-c08a, dexpi-c08b); cohort `25d3c96cc1e6`. Evidence: [report](results/tag-reading-development-artifact-values.md), [JSON](results/tag-reading-development-artifact-values.json), [suite](tag-reading-development.json). Exposed historical model answers; CURRENT frozen derived cache keys, original producing key/converter identity unknown. Development: not ranked. Symbol and connection F1 are not part of this task.
+2 cases (dexpi-c08a, dexpi-c08b); cohort `8b296022d165`. Evidence: [report](results/tag-reading-development-artifact-values-flowsheet-adapter.md), [JSON](results/tag-reading-development-artifact-values-flowsheet-adapter.json), [suite](tag-reading-development.json). Exposed historical model answers; CURRENT frozen derived cache keys, original producing key/converter identity unknown. Development: not ranked. Symbol and connection F1 are not part of this task.
 
 | Rank | Reader (model · method · interface) | Runs × cases | Identifier recall (partial list, lenient substring) | Class agreement on found identifiers | Run dates |
 |---|---|---|---|---|---|
@@ -64,9 +64,10 @@ Task `drawing-extraction`; 6 cases (open100-10, open100-11, open100-6, open100-7
 
 ## Registered results not on this board
 
-- `description-facts` ([report](results/description-controls-tag-adapter-artifact-values.md), [JSON](results/description-controls-tag-adapter-artifact-values.json), [suite](description-controls-recipe-preserved.json)): scores descriptions, models or claims, not a drawing reader.
-- `description-facts` ([report](results/mgpi-development-tag-adapter-artifact-values.md), [JSON](results/mgpi-development-tag-adapter-artifact-values.json), [suite](mgpi-development-recipe-preserved.json)): scores descriptions, models or claims, not a drawing reader.
-- `source-support` ([report](results/source-support-development-tag-adapter-artifact-values.md), [JSON](results/source-support-development-tag-adapter-artifact-values.json), [suite](source-support-development.json)): scores descriptions, models or claims, not a drawing reader.
-- `source-support` ([report](results/artifact-value-review-development.md), [JSON](results/artifact-value-review-development.json), [suite](source-support/artifact-values/suite.json)): scores descriptions, models or claims, not a drawing reader.
+- `description-facts` ([report](results/description-controls-tag-adapter-artifact-values-flowsheet-adapter.md), [JSON](results/description-controls-tag-adapter-artifact-values-flowsheet-adapter.json), [suite](description-controls-recipe-preserved.json)): scores descriptions, models or claims, not a drawing reader.
+- `description-facts` ([report](results/mgpi-development-tag-adapter-artifact-values-flowsheet-adapter.md), [JSON](results/mgpi-development-tag-adapter-artifact-values-flowsheet-adapter.json), [suite](mgpi-development-recipe-preserved.json)): scores descriptions, models or claims, not a drawing reader.
+- `source-support` ([report](results/source-support-development-tag-adapter-artifact-values-flowsheet-adapter.md), [JSON](results/source-support-development-tag-adapter-artifact-values-flowsheet-adapter.json), [suite](source-support-development.json)): scores descriptions, models or claims, not a drawing reader.
+- `source-support` ([report](results/artifact-value-review-development-flowsheet-adapter.md), [JSON](results/artifact-value-review-development-flowsheet-adapter.json), [suite](source-support/artifact-values/suite.json)): scores descriptions, models or claims, not a drawing reader.
+- `flowsheet-topology` ([report](results/flowsheet-topology-idaes-methanol.md), [JSON](results/flowsheet-topology-idaes-methanol.json), [suite](flowsheet-topology/suite.json)): scores descriptions, models or claims, not a drawing reader.
 
 Generated from the registered reports only; adding a reader means registering its run manifests and report (see [benchmarks/README.md](README.md) and [CONTRIBUTING.md](../CONTRIBUTING.md#submit-model-and-method-results)), then regenerating this page.

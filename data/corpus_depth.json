@@ -380,7 +380,7 @@
         "evidence": [
           "data/public_sources_20261107.json#idaes-processes"
         ],
-        "note": "the notebook text names the compressor, heaters, reactor, turbine and flash but never the mixer; the authored model is assistant work, the key is not",
+        "note": "the notebook text names the compressor, heaters, reactor, turbine and flash but never the mixer; the authored model is assistant work, the key is not; A419 (2026-11-12) ran this plan through the product path: corpus-matrix row 9 cells idaes-methanol-dev and idaes-methanol-heldout, suite benchmarks/flowsheet-topology/suite.json (task flowsheet-topology). The held-out input is the whole notebook text: the development text verbatim plus the recycle paragraphs. Development v1 connection F1 0.624 (0.462-0.947), held-out 0.353 (shuffled control 0.235), all boundary credit: 0 of 9 unit-to-unit arcs, internal-arc F1 0.000: rejected under the pre-registered rule; failures and limits in benchmarks/flowsheet-topology/README.md",
         "exposure": "Held-out key counts were surveyed on 2026-11-12 (its arc and unit counts, and unit-name counts over the whole notebook text); no method was run. Any sealed score on the recycle flowsheet must state this."
       }
     },
