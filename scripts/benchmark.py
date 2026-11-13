@@ -13,7 +13,8 @@ import sys
 ROOT = Path(__file__).resolve().parent.parent
 TASKS = {'drawing-extraction': 'pid2graph-v1', 'description-facts': 'native-facts-v1',
          'source-support': 'claim-judgments-v1', 'tag-reading': 'tag-text-v1',
-         'flowsheet-topology': 'role-aligned-arcs-v1', 'maintenance-system-grouping': 'system-groups-v1'}
+         'flowsheet-topology': 'role-aligned-arcs-v1', 'maintenance-system-grouping': 'system-groups-v1',
+         'batch-totals': 'logged-cumulative-v1'}
 # Cases whose input/key files sit in a local cache of originals that may not be redistributed (data/external/<group>,
 # fetch-by-hash). A clean clone lacks the whole cache: --registry then reports the suite UNVERIFIED instead of failing.
 # A present cache with a missing or changed file still fails.
@@ -204,6 +205,11 @@ def system_answer(prediction):
 
 
 def score_case(task, files, prediction):
+    if task == 'batch-totals':
+        import score_batch_totals
+        key = score_batch_totals.validate_key(read_json(files['key']))
+        score_batch_totals.check_input(key, read_json(files['input']))
+        return score_batch_totals.benchmark_counts(key, prediction)
     if task == 'flowsheet-topology':
         import flowsheet_topology
         return flowsheet_topology.score(read_json(files['key']), prediction)
@@ -259,6 +265,8 @@ def evaluate(suite_path, root=ROOT):
         return benchmark_tags.evaluate(suite_path, root, sys.modules[__name__], suite)
     sources = ['benchmark.py'] + (['score_pid2graph.py', 'evaluate_vendor.py', 'replicate_stats.py',
                                  'score_tags.py', 'test_scorer_controls.py'] if task == 'drawing-extraction' else [])
+    if task == 'batch-totals':
+        sources.append('score_batch_totals.py')
     if task == 'flowsheet-topology':
         sources.append('flowsheet_topology.py')
     if task == 'maintenance-system-grouping':
@@ -306,6 +314,10 @@ def evaluate(suite_path, root=ROOT):
             require(not failures, 'Known-answer control failed: ' + '; '.join(failures))
             require(table['perfect']['key_items'] > 0, 'Drawing key has no scored items')
             controls[case['id']] = table
+        elif task == 'batch-totals':
+            import score_batch_totals
+            controls[case['id']] = {name: {k: row[k] for k in ('matched', 'answered', 'items', 'match_rate')}
+                                    for name, row in score_batch_totals.controls(read_json(files['key'])).items()}
         elif task == 'flowsheet-topology':
             import flowsheet_topology
             table = flowsheet_topology.key_controls(read_json(files['key']))
@@ -455,13 +467,15 @@ def evaluate(suite_path, root=ROOT):
                        'Missing/failed attempted answers score empty; unattempted cases remain visible and create different comparison cohorts.',
                        'Public keys and retrospective registration do not establish blindness. Synthetic controls and corrected/development results are separate.',
                        *(['Description facts grade literal selected fields only: no prose names, source validity, dimensions, limits, layout quality or plant truth.']
-                         if task not in ('source-support', 'flowsheet-topology', 'maintenance-system-grouping') else []),
+                         if task not in ('source-support', 'flowsheet-topology', 'maintenance-system-grouping', 'batch-totals') else []),
                        *(['Flowsheet topology grades coarse unit roles and directed unit-to-unit connections after a role-preserving alignment: '
                           'no names, ports, conditions, stream identities or engineering correctness; two units of one role can be swapped unseen. '
                           'The key is the flowsheet code, a model, not plant truth.']
                          if task == 'flowsheet-topology' else [])] +
                       (['System grouping scores per-record classes against a publisher\'s own system coding, itself made by keyword rules over the same short text: agreement with those rules, not engineering truth, failure diagnosis or repair effectiveness. Records the key gives no system are outside the precision denominator and counted separately.']
                        if task == 'maintenance-system-grouping' else []) +
+                      (['Batch totals compare the tool report with a publisher-logged running cumulative that is the sum of the same logged feeds: the score checks integration semantics, units, coverage and window handling, not measurement accuracy, transcription or plant truth.']
+                       if task == 'batch-totals' else []) +
                       (['Source-support grades labels for fixed supplied claims against a supplied key. It does not judge free-form reasoning, source validity, question usefulness or plant truth; cited IDs are checked structurally.']
                        if task == 'source-support' else [])}
 
@@ -504,6 +518,15 @@ def markdown(report):
                     coverage['semantic_groups'], contradictions, ', '.join(case['diagnostics'].get('missing_judgments', [])) or 'none']) + ' |')
         lines += ['', 'The label F1 rows below are companion diagnostics. F1 differs from exact accuracy when judgments are missing. '
                   'Inspect each claim and its reason; a correct label can accompany a false explanation.', '', '## Per-label diagnostics', '']
+    if report['task'] == 'batch-totals':
+        lines += ['## Deliberately wrong controls (built by the scorer from each key)', '',
+                  'Matched / key items within 0.5 kg. Tool-run controls (wrong interpolation, wrong unit) are separate runs below. '
+                  'Recall in the F1 table is matched / key items; an incomplete or missing total is unanswered, never zero.', '',
+                  '| Case | ' + ' | '.join(next(iter(report['controls'].values()))) + ' |',
+                  '|---|' + '---|' * len(next(iter(report['controls'].values())))]
+        for cid, table in report['controls'].items():
+            lines.append('| ' + safe(cid) + ' | ' + ' | '.join(f"{v['matched']} / {v['items']}" for v in table.values()) + ' |')
+        lines += ['']
     if report['task'] == 'flowsheet-topology':
         def score_of(row):
             total = row['predicted'] + row['truth']

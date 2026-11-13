@@ -324,6 +324,19 @@ class Rendering(unittest.TestCase):
                     self.assertTrue((Path(d) / f"{s}.graphml").is_file())
             self.assertEqual(set(notes), set(inp["sheets"]))
 
+    def test_row11_batch_totals_runs_the_product_tool_on_the_yeast_batches(self):
+        inp = cm.inputs_by_id(cm.load_corpus())["industrial-yeast"]
+        self.assertEqual(inp["exercises"], [11])
+        self.assertEqual(inp["fetch"], "python scripts/fetch_corpus.py industrial-yeast")
+        files = cm.tool_files(11, "industrial-yeast")
+        for rel in ("scripts/batch_analysis.py", "scripts/score_batch_totals.py", "scripts/industrial_yeast_case.py"):
+            self.assertIn(rel, files)
+        specs = {s["path"]: s for s in cm.source_specs(11, inp)}
+        self.assertTrue(specs["data/external/industrial-yeast"]["optional"])
+        self.assertFalse(specs["examples/batch-analysis/industrial-yeast/results"]["optional"])
+        self.assertEqual(cm.missing_files(dict(inp, local_path="data/external/no-such-yeast-cache")),
+                         ["data/external/no-such-yeast-cache"])
+
     def test_row10_binds_the_two_read_originals_as_an_optional_cache_and_its_frozen_config(self):
         inp = cm.inputs_by_id(cm.load_corpus())["nestor-excavators"]
         self.assertFalse(inp["committed"])

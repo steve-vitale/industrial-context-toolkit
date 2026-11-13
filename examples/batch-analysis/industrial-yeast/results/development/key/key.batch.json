@@ -1,0 +1,46 @@
+{
+ "schema": "logged-cumulative-key-1",
+ "source": "figshare 10.6084/m9.figshare.33201579 fermentation_timeseries.csv total_fermentable_sugar_kg",
+ "split": "development",
+ "level": "batch",
+ "signal": "sugar_feed_rate_kg_rs_h",
+ "unit": "kg",
+ "tolerance_kg": 0.5,
+ "items": [
+  {
+   "id": "B01",
+   "batch_id": "B01",
+   "start_s": 0,
+   "end_s": 61200,
+   "logged_delta_kg": 22700
+  },
+  {
+   "id": "B02",
+   "batch_id": "B02",
+   "start_s": 0,
+   "end_s": 57600,
+   "logged_delta_kg": 22700
+  },
+  {
+   "id": "B03",
+   "batch_id": "B03",
+   "start_s": 0,
+   "end_s": 61200,
+   "logged_delta_kg": 22700
+  },
+  {
+   "id": "B04",
+   "batch_id": "B04",
+   "start_s": 0,
+   "end_s": 61200,
+   "logged_delta_kg": 22600
+  },
+  {
+   "id": "B05",
+   "batch_id": "B05",
+   "start_s": 0,
+   "end_s": 61200,
+   "logged_delta_kg": 22758
+  }
+ ]
+}

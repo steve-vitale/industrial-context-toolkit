@@ -1,0 +1,64 @@
+{
+  "cases": [
+    "yeast-development-batch",
+    "yeast-development-hourly",
+    "yeast-held-out-batch",
+    "yeast-held-out-hourly"
+  ],
+  "configuration": {
+    "interpolation": "linear",
+    "max_gap_s": 3600,
+    "quality": null,
+    "unit": "kg/h"
+  },
+  "id": "yeast-trapezoid",
+  "interface": "scripts/batch_analysis.py CLI via scripts/industrial_yeast_case.py",
+  "method": "control: batch_analysis.py linear (trapezoid)",
+  "model": {
+    "id": "deterministic-tool",
+    "provider": "none",
+    "version": "scripts/batch_analysis.py as committed with A418"
+  },
+  "predictions": {
+    "yeast-development-batch": {
+      "path": "examples/batch-analysis/industrial-yeast/results/development/reports/trapezoid.batch/batch_analysis.json",
+      "sha256": "c506ce411b9f08104533a26f78fdc2d5b4d5dce96e7e39e1bc52cae110ef4f78"
+    },
+    "yeast-development-hourly": {
+      "path": "examples/batch-analysis/industrial-yeast/results/development/reports/trapezoid.hourly/batch_analysis.json",
+      "sha256": "7cf437fc762d1ad07f55c04f63ab600ccdb58c027f66e53bdf66d1f5541a3211"
+    },
+    "yeast-held-out-batch": {
+      "path": "examples/batch-analysis/industrial-yeast/results/held-out/reports/trapezoid.batch/batch_analysis.json",
+      "sha256": "5406806af351f512dfd1fc87846297ad6d8a32b8a0bb4702d8b72d6e9789bd2c"
+    },
+    "yeast-held-out-hourly": {
+      "path": "examples/batch-analysis/industrial-yeast/results/held-out/reports/trapezoid.hourly/batch_analysis.json",
+      "sha256": "3715164a836da72de59803e7a738a0cf5975f3f0c039654a4ca0ae6350d42ead"
+    }
+  },
+  "provenance": "Deterministic product-tool run, no AI model. The report bytes are the tool's own output; RECEIPT.json in each results folder records the command, source pins and code hashes.",
+  "ran_at": "2026-11-12",
+  "recipe": [
+    {
+      "path": "scripts/industrial_yeast_case.py",
+      "sha256": "5c54fd2d8d59442b58c19db9c058c3ce44dd1360d4e5af03bfde8991d3cb428f"
+    },
+    {
+      "path": "examples/batch-analysis/industrial-yeast/results/development/plans/trapezoid.batch.plan.json",
+      "sha256": "3286df8fc7c630c6a39bb99b49f359de778aa7ab1ae2295a5ce7a20174323407"
+    },
+    {
+      "path": "examples/batch-analysis/industrial-yeast/results/development/plans/trapezoid.hourly.plan.json",
+      "sha256": "2c96539c222478e3c347c915d67574ecdcb1b55a762a2dac5151f936d3ca1b98"
+    },
+    {
+      "path": "examples/batch-analysis/industrial-yeast/results/held-out/plans/trapezoid.batch.plan.json",
+      "sha256": "df8001f74160a01d7b6f35a523815afbfbe6035af15586c4c693d7152f487962"
+    },
+    {
+      "path": "examples/batch-analysis/industrial-yeast/results/held-out/plans/trapezoid.hourly.plan.json",
+      "sha256": "3a41831e2527ee1783f13c728862727ab3471d0f46db43aa767b243be3303692"
+    }
+  ]
+}

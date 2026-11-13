@@ -90,6 +90,29 @@ class BenchmarkTests(unittest.TestCase):
         self.run['predictions']['case1'] = self.ref('answer.json')
         self.assertEqual(self.evaluate()['results'][0]['metrics']['facts']['f1'], 1)
 
+    def test_batch_totals_adapter_scores_tool_reports_with_controls(self):
+        import test_score_batch_totals as fixture
+        self.save('input.json', fixture.plan())
+        self.save('key.json', fixture.key())
+        self.case['files'] = {'input': self.ref('input.json'), 'key': self.ref('key.json')}
+        self.suite['task'] = 'batch-totals'
+        for unit, tp in (('kg/h', 2), ('kg/s', 0)):
+            with self.subTest(unit=unit):
+                self.save('answer.json', fixture.report('next', unit))
+                self.run['predictions']['case1'] = self.ref('answer.json')
+                report = self.evaluate()
+                counts = report['results'][0]['counts']['batch_feed_totals']
+                self.assertEqual((counts['tp'], counts['truth']), (tp, 2))
+                self.assertIn('score_batch_totals.py', report['code_sha256'])
+                self.assertEqual(report['controls']['case1']['perfect']['matched'], 2)
+                self.assertEqual(report['controls']['case1']['empty']['answered'], 0)
+                self.assertIn('Deliberately wrong controls', b.markdown(report))
+        plan = fixture.plan(); plan['signals']['total_fermentable_sugar_kg'] = plan['signals']['F']
+        self.save('input.json', plan)
+        self.case['files']['input'] = self.ref('input.json')
+        with self.assertRaises(ValueError):
+            self.evaluate()
+
     def test_failed_missing_and_malformed_attempts_are_not_dropped(self):
         for value in ({'prediction': None, 'error': 'failed'}, {'units': 'invalid'}, {'a': 1, 'prediction': []}):
             with self.subTest(value=value):

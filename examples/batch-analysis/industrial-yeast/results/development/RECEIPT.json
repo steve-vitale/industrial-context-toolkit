@@ -1,0 +1,127 @@
+{
+ "source": "industrial-yeast",
+ "split": "development",
+ "batches": [
+  "B01",
+  "B02",
+  "B03",
+  "B04",
+  "B05"
+ ],
+ "metadata": {
+  "B01": {
+   "time_start_h": "0",
+   "time_end_h": "17",
+   "n_records": "18"
+  },
+  "B02": {
+   "time_start_h": "0",
+   "time_end_h": "16",
+   "n_records": "17"
+  },
+  "B03": {
+   "time_start_h": "0",
+   "time_end_h": "17",
+   "n_records": "18"
+  },
+  "B04": {
+   "time_start_h": "0",
+   "time_end_h": "17",
+   "n_records": "18"
+  },
+  "B05": {
+   "time_start_h": "0",
+   "time_end_h": "17",
+   "n_records": "18"
+  }
+ },
+ "originals": {
+  "fermentation_timeseries.csv": {
+   "bytes": 50988,
+   "sha256": "dcef289e927f61d774bebe1f28c5370b69314ac512703672ddcd687f14b9d421"
+  },
+  "batch_metadata.csv": {
+   "bytes": 6600,
+   "sha256": "85eae02c4f14390d2357d2478f064b9e870f466c4064759ffa25080f74f558f0"
+  }
+ },
+ "tool_input_csv": {
+  "sha256": "6455343f490c76aea094f1fa1a9c101ad20cdb1dd8530b63210f97340329feec",
+  "zero_start_control_sha256": "5c71cc587a89fbba6f4e0be9e9fc2eb05d6572bafa427e01e1f60834a7071ac2",
+  "columns": [
+   "batch_id",
+   "time_s",
+   "sugar_feed_rate_kg_rs_h"
+  ],
+  "rows": 89,
+  "withheld": "total_fermentable_sugar_kg",
+  "kept": "temporary folder only; rebuilt from the pinned original"
+ },
+ "code_sha256_lf": {
+  "scripts/batch_analysis.py": "2bbe48827758d367be59ab2de932f27ca0d82a3707858fa5381e749dc575ef37",
+  "scripts/score_batch_totals.py": "f5f61ee569cd7aa886947b900a1d8eb5ea3812c42891a1e64c4452ff678b237a",
+  "scripts/industrial_yeast_case.py": "5c54fd2d8d59442b58c19db9c058c3ce44dd1360d4e5af03bfde8991d3cb428f"
+ },
+ "runs": {
+  "method.batch": {
+   "command": "python -B scripts/batch_analysis.py --csv <temporary batch.csv> --plan plans/method.batch.plan.json --out reports/method.batch",
+   "interpolation": "next",
+   "unit": "kg/h",
+   "hour0_blank_written_as_zero": false
+  },
+  "trapezoid.batch": {
+   "command": "python -B scripts/batch_analysis.py --csv <temporary batch.csv> --plan plans/trapezoid.batch.plan.json --out reports/trapezoid.batch",
+   "interpolation": "linear",
+   "unit": "kg/h",
+   "hour0_blank_written_as_zero": false
+  },
+  "trapezoid_zero_start.batch": {
+   "command": "python -B scripts/batch_analysis.py --csv <temporary batch.zero-start.csv> --plan plans/trapezoid_zero_start.batch.plan.json --out reports/trapezoid_zero_start.batch",
+   "interpolation": "linear",
+   "unit": "kg/h",
+   "hour0_blank_written_as_zero": true
+  },
+  "previous_hold.batch": {
+   "command": "python -B scripts/batch_analysis.py --csv <temporary batch.csv> --plan plans/previous_hold.batch.plan.json --out reports/previous_hold.batch",
+   "interpolation": "previous",
+   "unit": "kg/h",
+   "hour0_blank_written_as_zero": false
+  },
+  "wrong_unit.batch": {
+   "command": "python -B scripts/batch_analysis.py --csv <temporary batch.csv> --plan plans/wrong_unit.batch.plan.json --out reports/wrong_unit.batch",
+   "interpolation": "next",
+   "unit": "kg/s",
+   "hour0_blank_written_as_zero": false
+  },
+  "method.hourly": {
+   "command": "python -B scripts/batch_analysis.py --csv <temporary batch.csv> --plan plans/method.hourly.plan.json --out reports/method.hourly",
+   "interpolation": "next",
+   "unit": "kg/h",
+   "hour0_blank_written_as_zero": false
+  },
+  "trapezoid.hourly": {
+   "command": "python -B scripts/batch_analysis.py --csv <temporary batch.csv> --plan plans/trapezoid.hourly.plan.json --out reports/trapezoid.hourly",
+   "interpolation": "linear",
+   "unit": "kg/h",
+   "hour0_blank_written_as_zero": false
+  },
+  "trapezoid_zero_start.hourly": {
+   "command": "python -B scripts/batch_analysis.py --csv <temporary batch.zero-start.csv> --plan plans/trapezoid_zero_start.hourly.plan.json --out reports/trapezoid_zero_start.hourly",
+   "interpolation": "linear",
+   "unit": "kg/h",
+   "hour0_blank_written_as_zero": true
+  },
+  "previous_hold.hourly": {
+   "command": "python -B scripts/batch_analysis.py --csv <temporary batch.csv> --plan plans/previous_hold.hourly.plan.json --out reports/previous_hold.hourly",
+   "interpolation": "previous",
+   "unit": "kg/h",
+   "hour0_blank_written_as_zero": false
+  },
+  "wrong_unit.hourly": {
+   "command": "python -B scripts/batch_analysis.py --csv <temporary batch.csv> --plan plans/wrong_unit.hourly.plan.json --out reports/wrong_unit.hourly",
+   "interpolation": "next",
+   "unit": "kg/s",
+   "hour0_blank_written_as_zero": false
+  }
+ }
+}

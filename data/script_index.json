@@ -710,6 +710,14 @@
       "kind": "research",
       "guide": "examples/from-description/README.md",
       "purpose": "Stands in for the approved assistant on the description workflow's documented route for the A419 benchmark: gives a model only the prepared packet (no tools, empty folder), returns check diagnostics for correction up to a round limit, then builds; the scored output is the build's model.json."
+    },
+    "scripts/score_batch_totals.py": {
+      "kind": "support",
+      "guide": "examples/batch-analysis/industrial-yeast/README.md"
+    },
+    "scripts/industrial_yeast_case.py": {
+      "kind": "research",
+      "guide": "examples/batch-analysis/industrial-yeast/README.md"
     }
   }
 }

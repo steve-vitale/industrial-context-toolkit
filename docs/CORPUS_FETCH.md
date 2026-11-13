@@ -54,6 +54,7 @@ saved. `--max-mb` (default 500) caps what one run may download. Tests: `python s
 | `metropt3` | CC BY 4.0 | one zip (218 MB) | Historian bands (row 6) on a train compressor with reported air leaks: held out for drift, now development for auto/cyclic |
 | `battledim` | CC BY 4.0 | 2018 pressures, flows, level, leak configuration, README (29 MB) | Historian bands (row 6) on a simulated water network with 14 leaks: held out for drift, now development for auto/cyclic |
 | `battledim-2019` | CC BY 4.0 | 2019 pressures, flows, level, leak configuration, README (29.5 MB) | Held-out year for auto/cyclic (19 leaks), same simulated L-Town network as 2018; carry-over across years only |
+| `industrial-yeast` | CC BY 4.0 | the five figshare files of 59 baker's-yeast production batches (98 kB); name, licence and URLs read from its acquisition record | Batch totals (row 11): the batch tool's feed totals against the publisher-logged cumulative on ten full-process batches, development B01-B05, held out B06-B10 (A418) |
 
 The sources added 2026-10-29 are pinned file by file in `data/corpus_pins.json` (bytes, SHA-256, and CRC-32 or the
 inner flowsheet's SHA-256 where there is one). A file already on disk that matches its pin is not fetched again, so

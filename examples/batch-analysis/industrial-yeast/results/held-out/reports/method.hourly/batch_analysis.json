@@ -1,0 +1,2558 @@
+{
+  "schema": "batch-analysis-result-2",
+  "context": {
+    "site_id": "industrial baker's-yeast plant (publisher does not name it)",
+    "asset_id": "fed-batch fermenter, about 150 m3 geometric (publisher README)",
+    "model_revision": "not supplied",
+    "recipe_id": "not supplied (strain 167, publisher README)",
+    "recipe_revision": "not supplied"
+  },
+  "context_status": "supplied identities and revisions; not verified against installed assets",
+  "inputs": {
+    "csv_sha256": "15e2022566c64a54ce06fcc944223e7d6574c89b696ebf68213b8eaa9674c4d7",
+    "plan_sha256": "c2fb7ef38150378011106efbfbbca3e8844e4e92f93127b277b515be04e24871"
+  },
+  "method": {
+    "name": "adjacent-sample-selected-interpolation-v1",
+    "max_gap_s": 3600,
+    "tool_sha256_lf": "2bbe48827758d367be59ab2de932f27ca0d82a3707858fa5381e749dc575ef37",
+    "assumption": "per-signal linear, previous-value or interval-ending (next) hold between adjacent observations; linear and previous need both endpoints good, next needs only the closing sample good (its value covers the interval it ends; the opening row supplies only its time); no extrapolation or gap filling"
+  },
+  "signal_definitions": {
+    "sugar_feed_rate_kg_rs_h": {
+      "unit": "kg/h",
+      "asset_id": "sugar feed (publisher log)",
+      "source_ref": "figshare 10.6084/m9.figshare.33201579 fermentation_timeseries.csv sugar_feed_rate_kg_rs_h; logged hourly by operators, kg RS/h",
+      "interpolation": "next",
+      "quality": null
+    }
+  },
+  "windows": [
+    {
+      "id": "B06-h01",
+      "batch_id": "B06",
+      "phase": "logged hour 1",
+      "start_s": 0,
+      "end_s": 3600,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 1,
+          "bad_sample_lines": [
+            2
+          ],
+          "sample_min": 726.0,
+          "sample_max": 726.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 726.0,
+          "integral_unit": "kg",
+          "observed_integral": 726.0,
+          "full_window_integral": 726.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": [
+            {
+              "record_end_line": 2,
+              "raw_value": "",
+              "reasons": [
+                "non_numeric_value"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "B06-h02",
+      "batch_id": "B06",
+      "phase": "logged hour 2",
+      "start_s": 3600,
+      "end_s": 7200,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 594.0,
+          "sample_max": 726.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 594.0,
+          "integral_unit": "kg",
+          "observed_integral": 594.0,
+          "full_window_integral": 594.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B06-h03",
+      "batch_id": "B06",
+      "phase": "logged hour 3",
+      "start_s": 7200,
+      "end_s": 10800,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 594.0,
+          "sample_max": 700.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 700.0,
+          "integral_unit": "kg",
+          "observed_integral": 700.0,
+          "full_window_integral": 700.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B06-h04",
+      "batch_id": "B06",
+      "phase": "logged hour 4",
+      "start_s": 10800,
+      "end_s": 14400,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 700.0,
+          "sample_max": 892.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 892.0,
+          "integral_unit": "kg",
+          "observed_integral": 892.0,
+          "full_window_integral": 892.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B06-h05",
+      "batch_id": "B06",
+      "phase": "logged hour 5",
+      "start_s": 14400,
+      "end_s": 18000,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 892.0,
+          "sample_max": 1185.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1185.0,
+          "integral_unit": "kg",
+          "observed_integral": 1185.0,
+          "full_window_integral": 1185.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B06-h06",
+      "batch_id": "B06",
+      "phase": "logged hour 6",
+      "start_s": 18000,
+      "end_s": 21600,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1185.0,
+          "sample_max": 1246.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1246.0,
+          "integral_unit": "kg",
+          "observed_integral": 1246.0,
+          "full_window_integral": 1246.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B06-h07",
+      "batch_id": "B06",
+      "phase": "logged hour 7",
+      "start_s": 21600,
+      "end_s": 25200,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1246.0,
+          "sample_max": 1475.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1475.0,
+          "integral_unit": "kg",
+          "observed_integral": 1475.0,
+          "full_window_integral": 1475.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B06-h08",
+      "batch_id": "B06",
+      "phase": "logged hour 8",
+      "start_s": 25200,
+      "end_s": 28800,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1475.0,
+          "sample_max": 1543.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1543.0,
+          "integral_unit": "kg",
+          "observed_integral": 1543.0,
+          "full_window_integral": 1543.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B06-h09",
+      "batch_id": "B06",
+      "phase": "logged hour 9",
+      "start_s": 28800,
+      "end_s": 32400,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1543.0,
+          "sample_max": 1597.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1597.0,
+          "integral_unit": "kg",
+          "observed_integral": 1597.0,
+          "full_window_integral": 1597.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B06-h10",
+      "batch_id": "B06",
+      "phase": "logged hour 10",
+      "start_s": 32400,
+      "end_s": 36000,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1597.0,
+          "sample_max": 1980.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1980.0,
+          "integral_unit": "kg",
+          "observed_integral": 1980.0,
+          "full_window_integral": 1980.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B06-h11",
+      "batch_id": "B06",
+      "phase": "logged hour 11",
+      "start_s": 36000,
+      "end_s": 39600,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1715.0,
+          "sample_max": 1980.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1715.0,
+          "integral_unit": "kg",
+          "observed_integral": 1715.0,
+          "full_window_integral": 1715.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B06-h12",
+      "batch_id": "B06",
+      "phase": "logged hour 12",
+      "start_s": 39600,
+      "end_s": 43200,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1715.0,
+          "sample_max": 1841.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1841.0,
+          "integral_unit": "kg",
+          "observed_integral": 1841.0,
+          "full_window_integral": 1841.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B06-h13",
+      "batch_id": "B06",
+      "phase": "logged hour 13",
+      "start_s": 43200,
+      "end_s": 46800,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1819.0,
+          "sample_max": 1841.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1819.0,
+          "integral_unit": "kg",
+          "observed_integral": 1819.0,
+          "full_window_integral": 1819.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B06-h14",
+      "batch_id": "B06",
+      "phase": "logged hour 14",
+      "start_s": 46800,
+      "end_s": 50400,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1813.0,
+          "sample_max": 1819.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1813.0,
+          "integral_unit": "kg",
+          "observed_integral": 1813.0,
+          "full_window_integral": 1813.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B06-h15",
+      "batch_id": "B06",
+      "phase": "logged hour 15",
+      "start_s": 50400,
+      "end_s": 54000,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1813.0,
+          "sample_max": 1887.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1887.0,
+          "integral_unit": "kg",
+          "observed_integral": 1887.0,
+          "full_window_integral": 1887.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B06-h16",
+      "batch_id": "B06",
+      "phase": "logged hour 16",
+      "start_s": 54000,
+      "end_s": 57600,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1306.0,
+          "sample_max": 1887.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1306.0,
+          "integral_unit": "kg",
+          "observed_integral": 1306.0,
+          "full_window_integral": 1306.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B06-h17",
+      "batch_id": "B06",
+      "phase": "logged hour 17",
+      "start_s": 57600,
+      "end_s": 61200,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 381.0,
+          "sample_max": 1306.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 381.0,
+          "integral_unit": "kg",
+          "observed_integral": 381.0,
+          "full_window_integral": 381.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B07-h01",
+      "batch_id": "B07",
+      "phase": "logged hour 1",
+      "start_s": 0,
+      "end_s": 3600,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 1,
+          "bad_sample_lines": [
+            20
+          ],
+          "sample_min": 611.0,
+          "sample_max": 611.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 611.0,
+          "integral_unit": "kg",
+          "observed_integral": 611.0,
+          "full_window_integral": 611.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": [
+            {
+              "record_end_line": 20,
+              "raw_value": "",
+              "reasons": [
+                "non_numeric_value"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "B07-h02",
+      "batch_id": "B07",
+      "phase": "logged hour 2",
+      "start_s": 3600,
+      "end_s": 7200,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 611.0,
+          "sample_max": 626.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 626.0,
+          "integral_unit": "kg",
+          "observed_integral": 626.0,
+          "full_window_integral": 626.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B07-h03",
+      "batch_id": "B07",
+      "phase": "logged hour 3",
+      "start_s": 7200,
+      "end_s": 10800,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 576.0,
+          "sample_max": 626.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 576.0,
+          "integral_unit": "kg",
+          "observed_integral": 576.0,
+          "full_window_integral": 576.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B07-h04",
+      "batch_id": "B07",
+      "phase": "logged hour 4",
+      "start_s": 10800,
+      "end_s": 14400,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 576.0,
+          "sample_max": 764.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 764.0,
+          "integral_unit": "kg",
+          "observed_integral": 764.0,
+          "full_window_integral": 764.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B07-h05",
+      "batch_id": "B07",
+      "phase": "logged hour 5",
+      "start_s": 14400,
+      "end_s": 18000,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 764.0,
+          "sample_max": 1088.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1088.0,
+          "integral_unit": "kg",
+          "observed_integral": 1088.0,
+          "full_window_integral": 1088.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B07-h06",
+      "batch_id": "B07",
+      "phase": "logged hour 6",
+      "start_s": 18000,
+      "end_s": 21600,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1088.0,
+          "sample_max": 1300.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1300.0,
+          "integral_unit": "kg",
+          "observed_integral": 1300.0,
+          "full_window_integral": 1300.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B07-h07",
+      "batch_id": "B07",
+      "phase": "logged hour 7",
+      "start_s": 21600,
+      "end_s": 25200,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1244.0,
+          "sample_max": 1300.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1244.0,
+          "integral_unit": "kg",
+          "observed_integral": 1244.0,
+          "full_window_integral": 1244.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B07-h08",
+      "batch_id": "B07",
+      "phase": "logged hour 8",
+      "start_s": 25200,
+      "end_s": 28800,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1244.0,
+          "sample_max": 1427.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1427.0,
+          "integral_unit": "kg",
+          "observed_integral": 1427.0,
+          "full_window_integral": 1427.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B07-h09",
+      "batch_id": "B07",
+      "phase": "logged hour 9",
+      "start_s": 28800,
+      "end_s": 32400,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1427.0,
+          "sample_max": 1610.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1610.0,
+          "integral_unit": "kg",
+          "observed_integral": 1610.0,
+          "full_window_integral": 1610.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B07-h10",
+      "batch_id": "B07",
+      "phase": "logged hour 10",
+      "start_s": 32400,
+      "end_s": 36000,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1610.0,
+          "sample_max": 1715.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1715.0,
+          "integral_unit": "kg",
+          "observed_integral": 1715.0,
+          "full_window_integral": 1715.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B07-h11",
+      "batch_id": "B07",
+      "phase": "logged hour 11",
+      "start_s": 36000,
+      "end_s": 39600,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1715.0,
+          "sample_max": 1915.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1915.0,
+          "integral_unit": "kg",
+          "observed_integral": 1915.0,
+          "full_window_integral": 1915.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B07-h12",
+      "batch_id": "B07",
+      "phase": "logged hour 12",
+      "start_s": 39600,
+      "end_s": 43200,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1746.0,
+          "sample_max": 1915.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1746.0,
+          "integral_unit": "kg",
+          "observed_integral": 1746.0,
+          "full_window_integral": 1746.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B07-h13",
+      "batch_id": "B07",
+      "phase": "logged hour 13",
+      "start_s": 43200,
+      "end_s": 46800,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1746.0,
+          "sample_max": 1846.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1846.0,
+          "integral_unit": "kg",
+          "observed_integral": 1846.0,
+          "full_window_integral": 1846.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B07-h14",
+      "batch_id": "B07",
+      "phase": "logged hour 14",
+      "start_s": 46800,
+      "end_s": 50400,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1809.0,
+          "sample_max": 1846.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1809.0,
+          "integral_unit": "kg",
+          "observed_integral": 1809.0,
+          "full_window_integral": 1809.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B07-h15",
+      "batch_id": "B07",
+      "phase": "logged hour 15",
+      "start_s": 50400,
+      "end_s": 54000,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1761.0,
+          "sample_max": 1809.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1761.0,
+          "integral_unit": "kg",
+          "observed_integral": 1761.0,
+          "full_window_integral": 1761.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B07-h16",
+      "batch_id": "B07",
+      "phase": "logged hour 16",
+      "start_s": 54000,
+      "end_s": 57600,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1761.0,
+          "sample_max": 1888.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1888.0,
+          "integral_unit": "kg",
+          "observed_integral": 1888.0,
+          "full_window_integral": 1888.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B07-h17",
+      "batch_id": "B07",
+      "phase": "logged hour 17",
+      "start_s": 57600,
+      "end_s": 61200,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 825.0,
+          "sample_max": 1888.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 825.0,
+          "integral_unit": "kg",
+          "observed_integral": 825.0,
+          "full_window_integral": 825.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B08-h01",
+      "batch_id": "B08",
+      "phase": "logged hour 1",
+      "start_s": 0,
+      "end_s": 3600,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 1,
+          "bad_sample_lines": [
+            38
+          ],
+          "sample_min": 469.0,
+          "sample_max": 469.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 469.0,
+          "integral_unit": "kg",
+          "observed_integral": 469.0,
+          "full_window_integral": 469.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": [
+            {
+              "record_end_line": 38,
+              "raw_value": "",
+              "reasons": [
+                "non_numeric_value"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "B08-h02",
+      "batch_id": "B08",
+      "phase": "logged hour 2",
+      "start_s": 3600,
+      "end_s": 7200,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 469.0,
+          "sample_max": 521.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 521.0,
+          "integral_unit": "kg",
+          "observed_integral": 521.0,
+          "full_window_integral": 521.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B08-h03",
+      "batch_id": "B08",
+      "phase": "logged hour 3",
+      "start_s": 7200,
+      "end_s": 10800,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 521.0,
+          "sample_max": 734.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 734.0,
+          "integral_unit": "kg",
+          "observed_integral": 734.0,
+          "full_window_integral": 734.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B08-h04",
+      "batch_id": "B08",
+      "phase": "logged hour 4",
+      "start_s": 10800,
+      "end_s": 14400,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 734.0,
+          "sample_max": 946.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 946.0,
+          "integral_unit": "kg",
+          "observed_integral": 946.0,
+          "full_window_integral": 946.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B08-h05",
+      "batch_id": "B08",
+      "phase": "logged hour 5",
+      "start_s": 14400,
+      "end_s": 18000,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 946.0,
+          "sample_max": 1227.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1227.0,
+          "integral_unit": "kg",
+          "observed_integral": 1227.0,
+          "full_window_integral": 1227.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B08-h06",
+      "batch_id": "B08",
+      "phase": "logged hour 6",
+      "start_s": 18000,
+      "end_s": 21600,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1121.0,
+          "sample_max": 1227.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1121.0,
+          "integral_unit": "kg",
+          "observed_integral": 1121.0,
+          "full_window_integral": 1121.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B08-h07",
+      "batch_id": "B08",
+      "phase": "logged hour 7",
+      "start_s": 21600,
+      "end_s": 25200,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1121.0,
+          "sample_max": 1306.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1306.0,
+          "integral_unit": "kg",
+          "observed_integral": 1306.0,
+          "full_window_integral": 1306.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B08-h08",
+      "batch_id": "B08",
+      "phase": "logged hour 8",
+      "start_s": 25200,
+      "end_s": 28800,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1306.0,
+          "sample_max": 1478.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1478.0,
+          "integral_unit": "kg",
+          "observed_integral": 1478.0,
+          "full_window_integral": 1478.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B08-h09",
+      "batch_id": "B08",
+      "phase": "logged hour 9",
+      "start_s": 28800,
+      "end_s": 32400,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1478.0,
+          "sample_max": 1691.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1691.0,
+          "integral_unit": "kg",
+          "observed_integral": 1691.0,
+          "full_window_integral": 1691.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B08-h10",
+      "batch_id": "B08",
+      "phase": "logged hour 10",
+      "start_s": 32400,
+      "end_s": 36000,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1691.0,
+          "sample_max": 1755.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1755.0,
+          "integral_unit": "kg",
+          "observed_integral": 1755.0,
+          "full_window_integral": 1755.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B08-h11",
+      "batch_id": "B08",
+      "phase": "logged hour 11",
+      "start_s": 36000,
+      "end_s": 39600,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1730.0,
+          "sample_max": 1755.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1730.0,
+          "integral_unit": "kg",
+          "observed_integral": 1730.0,
+          "full_window_integral": 1730.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B08-h12",
+      "batch_id": "B08",
+      "phase": "logged hour 12",
+      "start_s": 39600,
+      "end_s": 43200,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1730.0,
+          "sample_max": 1962.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1962.0,
+          "integral_unit": "kg",
+          "observed_integral": 1962.0,
+          "full_window_integral": 1962.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B08-h13",
+      "batch_id": "B08",
+      "phase": "logged hour 13",
+      "start_s": 43200,
+      "end_s": 46800,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1815.0,
+          "sample_max": 1962.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1815.0,
+          "integral_unit": "kg",
+          "observed_integral": 1815.0,
+          "full_window_integral": 1815.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B08-h14",
+      "batch_id": "B08",
+      "phase": "logged hour 14",
+      "start_s": 46800,
+      "end_s": 50400,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1815.0,
+          "sample_max": 1880.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1880.0,
+          "integral_unit": "kg",
+          "observed_integral": 1880.0,
+          "full_window_integral": 1880.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B08-h15",
+      "batch_id": "B08",
+      "phase": "logged hour 15",
+      "start_s": 50400,
+      "end_s": 54000,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1880.0,
+          "sample_max": 2054.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 2054.0,
+          "integral_unit": "kg",
+          "observed_integral": 2054.0,
+          "full_window_integral": 2054.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B08-h16",
+      "batch_id": "B08",
+      "phase": "logged hour 16",
+      "start_s": 54000,
+      "end_s": 57600,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1527.0,
+          "sample_max": 2054.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1527.0,
+          "integral_unit": "kg",
+          "observed_integral": 1527.0,
+          "full_window_integral": 1527.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B08-h17",
+      "batch_id": "B08",
+      "phase": "logged hour 17",
+      "start_s": 57600,
+      "end_s": 61200,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 483.0,
+          "sample_max": 1527.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 483.0,
+          "integral_unit": "kg",
+          "observed_integral": 483.0,
+          "full_window_integral": 483.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B09-h01",
+      "batch_id": "B09",
+      "phase": "logged hour 1",
+      "start_s": 0,
+      "end_s": 3600,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 1,
+          "bad_sample_lines": [
+            56
+          ],
+          "sample_min": 526.0,
+          "sample_max": 526.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 526.0,
+          "integral_unit": "kg",
+          "observed_integral": 526.0,
+          "full_window_integral": 526.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": [
+            {
+              "record_end_line": 56,
+              "raw_value": "",
+              "reasons": [
+                "non_numeric_value"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "B09-h02",
+      "batch_id": "B09",
+      "phase": "logged hour 2",
+      "start_s": 3600,
+      "end_s": 7200,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 521.0,
+          "sample_max": 526.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 521.0,
+          "integral_unit": "kg",
+          "observed_integral": 521.0,
+          "full_window_integral": 521.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B09-h03",
+      "batch_id": "B09",
+      "phase": "logged hour 3",
+      "start_s": 7200,
+      "end_s": 10800,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 521.0,
+          "sample_max": 588.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 588.0,
+          "integral_unit": "kg",
+          "observed_integral": 588.0,
+          "full_window_integral": 588.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B09-h04",
+      "batch_id": "B09",
+      "phase": "logged hour 4",
+      "start_s": 10800,
+      "end_s": 14400,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 588.0,
+          "sample_max": 868.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 868.0,
+          "integral_unit": "kg",
+          "observed_integral": 868.0,
+          "full_window_integral": 868.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B09-h05",
+      "batch_id": "B09",
+      "phase": "logged hour 5",
+      "start_s": 14400,
+      "end_s": 18000,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 868.0,
+          "sample_max": 1201.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1201.0,
+          "integral_unit": "kg",
+          "observed_integral": 1201.0,
+          "full_window_integral": 1201.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B09-h06",
+      "batch_id": "B09",
+      "phase": "logged hour 6",
+      "start_s": 18000,
+      "end_s": 21600,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1201.0,
+          "sample_max": 1475.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1475.0,
+          "integral_unit": "kg",
+          "observed_integral": 1475.0,
+          "full_window_integral": 1475.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B09-h07",
+      "batch_id": "B09",
+      "phase": "logged hour 7",
+      "start_s": 21600,
+      "end_s": 25200,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1437.0,
+          "sample_max": 1475.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1437.0,
+          "integral_unit": "kg",
+          "observed_integral": 1437.0,
+          "full_window_integral": 1437.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B09-h08",
+      "batch_id": "B09",
+      "phase": "logged hour 8",
+      "start_s": 25200,
+      "end_s": 28800,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1406.0,
+          "sample_max": 1437.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1406.0,
+          "integral_unit": "kg",
+          "observed_integral": 1406.0,
+          "full_window_integral": 1406.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B09-h09",
+      "batch_id": "B09",
+      "phase": "logged hour 9",
+      "start_s": 28800,
+      "end_s": 32400,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1406.0,
+          "sample_max": 1561.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1561.0,
+          "integral_unit": "kg",
+          "observed_integral": 1561.0,
+          "full_window_integral": 1561.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B09-h10",
+      "batch_id": "B09",
+      "phase": "logged hour 10",
+      "start_s": 32400,
+      "end_s": 36000,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1561.0,
+          "sample_max": 1772.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1772.0,
+          "integral_unit": "kg",
+          "observed_integral": 1772.0,
+          "full_window_integral": 1772.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B09-h11",
+      "batch_id": "B09",
+      "phase": "logged hour 11",
+      "start_s": 36000,
+      "end_s": 39600,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1772.0,
+          "sample_max": 1981.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1981.0,
+          "integral_unit": "kg",
+          "observed_integral": 1981.0,
+          "full_window_integral": 1981.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B09-h12",
+      "batch_id": "B09",
+      "phase": "logged hour 12",
+      "start_s": 39600,
+      "end_s": 43200,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1973.0,
+          "sample_max": 1981.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1973.0,
+          "integral_unit": "kg",
+          "observed_integral": 1973.0,
+          "full_window_integral": 1973.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B09-h13",
+      "batch_id": "B09",
+      "phase": "logged hour 13",
+      "start_s": 43200,
+      "end_s": 46800,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1814.0,
+          "sample_max": 1973.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1814.0,
+          "integral_unit": "kg",
+          "observed_integral": 1814.0,
+          "full_window_integral": 1814.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B09-h14",
+      "batch_id": "B09",
+      "phase": "logged hour 14",
+      "start_s": 46800,
+      "end_s": 50400,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1807.0,
+          "sample_max": 1814.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1807.0,
+          "integral_unit": "kg",
+          "observed_integral": 1807.0,
+          "full_window_integral": 1807.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B09-h15",
+      "batch_id": "B09",
+      "phase": "logged hour 15",
+      "start_s": 50400,
+      "end_s": 54000,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1807.0,
+          "sample_max": 1834.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1834.0,
+          "integral_unit": "kg",
+          "observed_integral": 1834.0,
+          "full_window_integral": 1834.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B09-h16",
+      "batch_id": "B09",
+      "phase": "logged hour 16",
+      "start_s": 54000,
+      "end_s": 57600,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1387.0,
+          "sample_max": 1834.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1387.0,
+          "integral_unit": "kg",
+          "observed_integral": 1387.0,
+          "full_window_integral": 1387.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B09-h17",
+      "batch_id": "B09",
+      "phase": "logged hour 17",
+      "start_s": 57600,
+      "end_s": 61200,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 458.0,
+          "sample_max": 1387.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 458.0,
+          "integral_unit": "kg",
+          "observed_integral": 458.0,
+          "full_window_integral": 458.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B10-h01",
+      "batch_id": "B10",
+      "phase": "logged hour 1",
+      "start_s": 0,
+      "end_s": 3600,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 1,
+          "bad_sample_lines": [
+            74
+          ],
+          "sample_min": 563.0,
+          "sample_max": 563.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 563.0,
+          "integral_unit": "kg",
+          "observed_integral": 563.0,
+          "full_window_integral": 563.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": [
+            {
+              "record_end_line": 74,
+              "raw_value": "",
+              "reasons": [
+                "non_numeric_value"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "B10-h02",
+      "batch_id": "B10",
+      "phase": "logged hour 2",
+      "start_s": 3600,
+      "end_s": 7200,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 563.0,
+          "sample_max": 574.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 574.0,
+          "integral_unit": "kg",
+          "observed_integral": 574.0,
+          "full_window_integral": 574.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B10-h03",
+      "batch_id": "B10",
+      "phase": "logged hour 3",
+      "start_s": 7200,
+      "end_s": 10800,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 574.0,
+          "sample_max": 657.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 657.0,
+          "integral_unit": "kg",
+          "observed_integral": 657.0,
+          "full_window_integral": 657.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B10-h04",
+      "batch_id": "B10",
+      "phase": "logged hour 4",
+      "start_s": 10800,
+      "end_s": 14400,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 657.0,
+          "sample_max": 877.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 877.0,
+          "integral_unit": "kg",
+          "observed_integral": 877.0,
+          "full_window_integral": 877.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B10-h05",
+      "batch_id": "B10",
+      "phase": "logged hour 5",
+      "start_s": 14400,
+      "end_s": 18000,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 877.0,
+          "sample_max": 1132.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1132.0,
+          "integral_unit": "kg",
+          "observed_integral": 1132.0,
+          "full_window_integral": 1132.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B10-h06",
+      "batch_id": "B10",
+      "phase": "logged hour 6",
+      "start_s": 18000,
+      "end_s": 21600,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1132.0,
+          "sample_max": 1243.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1243.0,
+          "integral_unit": "kg",
+          "observed_integral": 1243.0,
+          "full_window_integral": 1243.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B10-h07",
+      "batch_id": "B10",
+      "phase": "logged hour 7",
+      "start_s": 21600,
+      "end_s": 25200,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1243.0,
+          "sample_max": 1267.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1267.0,
+          "integral_unit": "kg",
+          "observed_integral": 1267.0,
+          "full_window_integral": 1267.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B10-h08",
+      "batch_id": "B10",
+      "phase": "logged hour 8",
+      "start_s": 25200,
+      "end_s": 28800,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1267.0,
+          "sample_max": 1433.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1433.0,
+          "integral_unit": "kg",
+          "observed_integral": 1433.0,
+          "full_window_integral": 1433.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B10-h09",
+      "batch_id": "B10",
+      "phase": "logged hour 9",
+      "start_s": 28800,
+      "end_s": 32400,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1433.0,
+          "sample_max": 1569.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1569.0,
+          "integral_unit": "kg",
+          "observed_integral": 1569.0,
+          "full_window_integral": 1569.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B10-h10",
+      "batch_id": "B10",
+      "phase": "logged hour 10",
+      "start_s": 32400,
+      "end_s": 36000,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1569.0,
+          "sample_max": 1702.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1702.0,
+          "integral_unit": "kg",
+          "observed_integral": 1702.0,
+          "full_window_integral": 1702.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B10-h11",
+      "batch_id": "B10",
+      "phase": "logged hour 11",
+      "start_s": 36000,
+      "end_s": 39600,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1702.0,
+          "sample_max": 1889.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1889.0,
+          "integral_unit": "kg",
+          "observed_integral": 1889.0,
+          "full_window_integral": 1889.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B10-h12",
+      "batch_id": "B10",
+      "phase": "logged hour 12",
+      "start_s": 39600,
+      "end_s": 43200,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1889.0,
+          "sample_max": 2010.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 2010.0,
+          "integral_unit": "kg",
+          "observed_integral": 2010.0,
+          "full_window_integral": 2010.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B10-h13",
+      "batch_id": "B10",
+      "phase": "logged hour 13",
+      "start_s": 43200,
+      "end_s": 46800,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1954.0,
+          "sample_max": 2010.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1954.0,
+          "integral_unit": "kg",
+          "observed_integral": 1954.0,
+          "full_window_integral": 1954.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B10-h14",
+      "batch_id": "B10",
+      "phase": "logged hour 14",
+      "start_s": 46800,
+      "end_s": 50400,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1801.0,
+          "sample_max": 1954.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1801.0,
+          "integral_unit": "kg",
+          "observed_integral": 1801.0,
+          "full_window_integral": 1801.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B10-h15",
+      "batch_id": "B10",
+      "phase": "logged hour 15",
+      "start_s": 50400,
+      "end_s": 54000,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1801.0,
+          "sample_max": 1911.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1911.0,
+          "integral_unit": "kg",
+          "observed_integral": 1911.0,
+          "full_window_integral": 1911.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B10-h16",
+      "batch_id": "B10",
+      "phase": "logged hour 16",
+      "start_s": 54000,
+      "end_s": 57600,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 1518.0,
+          "sample_max": 1911.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 1518.0,
+          "integral_unit": "kg",
+          "observed_integral": 1518.0,
+          "full_window_integral": 1518.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    },
+    {
+      "id": "B10-h17",
+      "batch_id": "B10",
+      "phase": "logged hour 17",
+      "start_s": 57600,
+      "end_s": 61200,
+      "source_ref": "publisher hourly log rows (time_h)",
+      "duration_s": 3600,
+      "signals": {
+        "sugar_feed_rate_kg_rs_h": {
+          "unit": "kg/h",
+          "sample_count": 2,
+          "good_samples": 2,
+          "bad_sample_lines": [],
+          "sample_min": 600.0,
+          "sample_max": 1518.0,
+          "covered_s": 3600.0,
+          "coverage_fraction": 1.0,
+          "coverage_status": "complete",
+          "time_weighted_mean_observed": 600.0,
+          "integral_unit": "kg",
+          "observed_integral": 600.0,
+          "full_window_integral": 600.0,
+          "interpolation": "next",
+          "quality_policy": "no external quality filter selected; quality not checked",
+          "excluded_samples": []
+        }
+      }
+    }
+  ],
+  "graph_binding": {
+    "status": "not selected; asset IDs are supplied labels only"
+  },
+  "limits": [
+    "Descriptive recorded-data calculation; no diagnosis, prediction or acceptance.",
+    "Sample extrema can miss excursions between observations.",
+    "Observed integrals over incomplete coverage are not full-phase totals.",
+    "Supplied phase labels, units and mappings require engineering review.",
+    "Accepted numeric samples and complete coverage do not verify source quality or original sensor continuity.",
+    "An interval-ending hold is right only for a log whose value covers the interval it closes (an hourly total or average); confirm the source's convention."
+  ]
+}

@@ -262,6 +262,22 @@ class PinnedFilesTest(unittest.TestCase):
         self.assertTrue(set(fc.FILE_SOURCES) <= set(pins))
         self.assertIn("never vendored", fc.FILE_SOURCES["skab"]["license"])
 
+    def test_industrial_yeast_is_fetchable_by_hash_from_its_acquisition_record(self):
+        registry = json.loads((ROOT / "data/public_sources_20261107_round5.json").read_text(encoding="utf-8"))
+        self.assertIn("industrial-yeast", fc.FILE_SOURCES)
+        self.assertEqual(fc.FILE_SOURCES["industrial-yeast"], registry["sources"]["industrial-yeast"])
+        self.assertEqual(fc.validate_file_pins(fc.load_pins(), {"industrial-yeast": fc.FILE_SOURCES["industrial-yeast"]}), [])
+        pins = fc.load_pins()["industrial-yeast"]
+        seen = []
+        with tempfile.TemporaryDirectory() as tmp:
+            def fake(url, rng=None):
+                seen.append(url)
+                name = next(n for n, p in pins.items() if p["url"] == url)
+                raise fc.PinError(f"offline test: {name}")
+            with self.assertRaises(fc.PinError):
+                fc.fetch_pinned("industrial-yeast", 1, Path(tmp), fetch=fake)
+        self.assertTrue(seen and all(u.startswith("https://ndownloader.figshare.com/files/") for u in seen))
+
     def test_public_acquisition_provenance_and_totals_are_bound(self):
         import hashlib
         pins = fc.load_pins()

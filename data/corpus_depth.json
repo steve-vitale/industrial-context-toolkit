@@ -1699,7 +1699,7 @@
         "evidence": [
           "data/public_sources_20261107_round5.json#industrial-yeast"
         ],
-        "independence": "independent"
+        "independence": "derived from the tool's input column (not independent)"
       },
       "plan": {
         "date": "2026-11-12",
@@ -1728,7 +1728,8 @@
         ],
         "note": "the tool integrates by trapezoid and the logged delta is an hourly sum, so the scorer must state that difference before the first run; the logged cumulative column must be withheld from the CSV the tool reads",
         "exposure": "Held-out key counts were surveyed on 2026-11-12 (row and logged-cumulative counts over all batches and the completeness tier of every batch; key values were read for B01 only); no method was run. Any sealed score on B06-B10 must state this."
-      }
+      },
+      "note": "2026-11-12, A418: an integration-semantics check with all six depth mechanics in place (corpus-matrix row 11 and benchmark task batch-totals), not process-data depth on an outcome key. On ten real batches, the batch tool's `next` integral reproduces the publisher's logged running cumulative on 9 of 10 batches and 166 of 169 hours; the one mismatch (B09 hours 11-13) is an inconsistency inside the source. The key is the publisher's own sum of the same feed column, so this checks the interval convention, unit, window and coverage, and the source's internal consistency. It is not a measurement or outcome benchmark. Development B01-B05 5/5 and 84/84; sealed held-out B06-B10 4/5 and 82/85, kept at the floor of the pre-set rule. The plan's comparison with summary_stats.json was dropped: it pools both splits. Held-out exposure, as planned: Held-out key counts were surveyed on 2026-11-12 (row and logged-cumulative counts over all batches and the completeness tier of every batch; key values were read for B01 only); no method was run. Any sealed score on B06-B10 must state this."
     },
     "alpi-packaging": {
       "key": {

@@ -15,6 +15,7 @@ prediction or a new feed policy needs more evidence and a suitable model.
 | First example below | Fictional V1 calculation: learn phase windows, units and missing-duration behavior. |
 | [Quality and interpolation](semantics/README.md) | Fictional V2 controls: declare signal semantics and keep both assumption-sensitive results. |
 | [Measured laboratory record](public-distillation/README.md) | Fixed-source calculation and independently checked key, with the source's processing and anomaly qualifications. |
+| [Industrial production batches](industrial-yeast/README.md) | A registered, scored task on 10 public baker's-yeast batches: the tool's feed totals against the publisher's logged cumulative, with a sealed held-out split and wrong-answer controls. |
 | [Retain the finding](context-handoff/README.md) | Existing context tools and pure snapshot reader: keep missing event/recipe/lab/model evidence, then reopen an answer when its report changes. |
 | [Join batch, recipe, event, lab and outcome records](record-joins/README.md) | Reusable local manifest/CSV route: compare declared basis and availability, withhold incomplete metrics and check upstream calculations. Fictional source/revision tutorial; no causal or plant-acceptance claim. |
 | [Keep an investigation reconstructable](investigation/README.md) | Follow a question through evidence, a contradicted explanation and source revisions. Use the [own-input guide](investigation/OWN-INPUT.md) to assemble a proposed colleague handoff; an engineer or manager still reviews the scientific meaning and owns the decision. |
@@ -118,6 +119,11 @@ direction convention. A mean pH is only a descriptive numeric summary, not an ac
 Select observations on the **closed** phase interval. Admit an interval only between two adjacent good samples
 inside it, with elapsed time at most `max_gap_s`. V1 and V2's `linear` choice use the trapezoid area
 `(left/2 + right/2) * elapsed_seconds`; V2's `previous` choice uses `left * elapsed_seconds`.
+V2's `next` choice is an interval-ending hold for logs whose value covers the interval it closes (an hourly total
+or an hourly average written at the end of the hour): it uses `right * elapsed_seconds`, and because the opening
+value is not used, only the closing sample must be good; the opening row still supplies the interval's start time.
+Choose it only when the source says so: on the [industrial-yeast batches](industrial-yeast/README.md) the
+publisher's running cumulative is the sum of each hour's logged feed, which only `next` reproduces.
 There is no interpolation across bad observations, long gaps or missing phase edges. Partial intervals spanning
 a phase edge are not clipped or interpolated to the boundary.
 

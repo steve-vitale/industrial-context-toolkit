@@ -1,26 +1,9 @@
 {
  "about": "Generalization matrix written by scripts/corpus_matrix.py; rendered as docs/GENERALIZATION.md.",
- "ran_at": "2026-11-12 21:03 UTC",
- "seconds": 443.1,
+ "ran_at": "2026-11-12 22:00 UTC",
+ "seconds": 446.9,
  "rows_run_this_time": [
   2
- ],
- "inputs_run_this_time": [
-  "bayer-rt1",
-  "commons-pid-sheets",
-  "dexpi",
-  "omre-1958-pid",
-  "open100-dev",
-  "open100-holdout",
-  "open100-scan-L1",
-  "open100-scan-L2",
-  "open100-scan-L3",
-  "pid2graph-synthetic",
-  "pronto-fig1",
-  "te-rev-a",
-  "te-rev-c",
-  "te-rev-c-scan-L3",
-  "te-rev-d"
  ],
  "tracer_pass_f1": 0.88,
  "pipe_pass_f1": 0.88,
@@ -43,7 +26,7 @@
       "predicted": 346,
       "truth": 359,
       "review_load_per_100": 3.3,
-      "seconds": 2.0,
+      "seconds": 1.6,
       "scan_cleaned": false
      },
      "1": {
@@ -55,7 +38,7 @@
       "predicted": 72,
       "truth": 60,
       "review_load_per_100": 11.9,
-      "seconds": 0.9,
+      "seconds": 0.7,
       "scan_cleaned": false
      },
      "2": {
@@ -67,7 +50,7 @@
       "predicted": 160,
       "truth": 153,
       "review_load_per_100": 8.3,
-      "seconds": 1.5,
+      "seconds": 1.4,
       "scan_cleaned": false
      },
      "3": {
@@ -79,7 +62,7 @@
       "predicted": 92,
       "truth": 98,
       "review_load_per_100": 8.2,
-      "seconds": 0.9,
+      "seconds": 0.6,
       "scan_cleaned": false
      },
      "4": {
@@ -91,7 +74,7 @@
       "predicted": 117,
       "truth": 130,
       "review_load_per_100": 7.5,
-      "seconds": 0.8,
+      "seconds": 0.6,
       "scan_cleaned": false
      },
      "5": {
@@ -103,7 +86,7 @@
       "predicted": 278,
       "truth": 341,
       "review_load_per_100": 18.5,
-      "seconds": 2.1,
+      "seconds": 1.7,
       "scan_cleaned": false
      }
     },
@@ -124,8 +107,8 @@
      "agrees": true
     }
    ],
-   "seconds": 8.5,
-   "ran_at": "2026-11-12 20:55 UTC",
+   "seconds": 6.8,
+   "ran_at": "2026-11-12 21:56 UTC",
    "tool_files": {
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
     "scripts/scan_cleanup.py": "sha256:f396c492a2e6e894",
@@ -136,7 +119,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:75b876b098ca32ad762d54d5560ad44a70d399aa3c0a131e6765b914238040fb",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100",
@@ -203,7 +186,7 @@
       "predicted": 121,
       "truth": 101,
       "review_load_per_100": 29.2,
-      "seconds": 2.0,
+      "seconds": 1.6,
       "scan_cleaned": false
      },
      "7": {
@@ -215,7 +198,7 @@
       "predicted": 150,
       "truth": 141,
       "review_load_per_100": 23.1,
-      "seconds": 2.1,
+      "seconds": 1.5,
       "scan_cleaned": false
      },
      "8": {
@@ -227,7 +210,7 @@
       "predicted": 47,
       "truth": 51,
       "review_load_per_100": 8.8,
-      "seconds": 1.7,
+      "seconds": 1.4,
       "scan_cleaned": false
      },
      "9": {
@@ -239,7 +222,7 @@
       "predicted": 161,
       "truth": 170,
       "review_load_per_100": 4.0,
-      "seconds": 1.8,
+      "seconds": 1.5,
       "scan_cleaned": false
      },
      "10": {
@@ -251,7 +234,7 @@
       "predicted": 212,
       "truth": 207,
       "review_load_per_100": 11.4,
-      "seconds": 1.9,
+      "seconds": 1.7,
       "scan_cleaned": false
      },
      "11": {
@@ -263,7 +246,7 @@
       "predicted": 140,
       "truth": 142,
       "review_load_per_100": 9.2,
-      "seconds": 1.3,
+      "seconds": 1.1,
       "scan_cleaned": false
      }
     },
@@ -276,8 +259,8 @@
     "scan_cleanup": "auto"
    },
    "published": [],
-   "seconds": 10.8,
-   "ran_at": "2026-11-12 20:55 UTC",
+   "seconds": 8.8,
+   "ran_at": "2026-11-12 21:57 UTC",
    "tool_files": {
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
     "scripts/scan_cleanup.py": "sha256:f396c492a2e6e894",
@@ -288,7 +271,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:0f9f7c54ce3e3d9e0c47b287fa3e42a816ad26806b4d5fa533a33e372dfc1e3c",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100",
@@ -345,7 +328,7 @@
       "predicted": 121,
       "truth": 101,
       "review_load_per_100": 29.2,
-      "seconds": 3.4,
+      "seconds": 2.5,
       "scan_cleaned": true
      },
      "7": {
@@ -357,7 +340,7 @@
       "predicted": 150,
       "truth": 141,
       "review_load_per_100": 23.1,
-      "seconds": 3.4,
+      "seconds": 2.5,
       "scan_cleaned": true
      },
      "8": {
@@ -369,7 +352,7 @@
       "predicted": 47,
       "truth": 51,
       "review_load_per_100": 8.8,
-      "seconds": 2.8,
+      "seconds": 2.4,
       "scan_cleaned": true
      },
      "9": {
@@ -381,7 +364,7 @@
       "predicted": 164,
       "truth": 170,
       "review_load_per_100": 3.5,
-      "seconds": 3.0,
+      "seconds": 2.6,
       "scan_cleaned": true
      },
      "10": {
@@ -393,7 +376,7 @@
       "predicted": 216,
       "truth": 207,
       "review_load_per_100": 8.5,
-      "seconds": 2.8,
+      "seconds": 2.6,
       "scan_cleaned": true
      },
      "11": {
@@ -405,7 +388,7 @@
       "predicted": 144,
       "truth": 142,
       "review_load_per_100": 10.9,
-      "seconds": 2.2,
+      "seconds": 1.7,
       "scan_cleaned": true
      }
     },
@@ -418,8 +401,8 @@
     "scan_cleanup": "auto"
    },
    "published": [],
-   "seconds": 17.8,
-   "ran_at": "2026-11-12 20:55 UTC",
+   "seconds": 14.3,
+   "ran_at": "2026-11-12 21:57 UTC",
    "tool_files": {
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
     "scripts/scan_cleanup.py": "sha256:f396c492a2e6e894",
@@ -430,7 +413,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:8b1a9ea383d4d822dbaede9e481ae86c58305a95f81ad9fdab4aaa140ec444c4",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100 scan-L1",
@@ -487,7 +470,7 @@
       "predicted": 130,
       "truth": 101,
       "review_load_per_100": 27.6,
-      "seconds": 4.0,
+      "seconds": 3.3,
       "scan_cleaned": true
      },
      "7": {
@@ -499,7 +482,7 @@
       "predicted": 154,
       "truth": 141,
       "review_load_per_100": 24.1,
-      "seconds": 4.6,
+      "seconds": 4.1,
       "scan_cleaned": true
      },
      "8": {
@@ -511,7 +494,7 @@
       "predicted": 56,
       "truth": 51,
       "review_load_per_100": 12.1,
-      "seconds": 3.8,
+      "seconds": 2.8,
       "scan_cleaned": true
      },
      "9": {
@@ -523,7 +506,7 @@
       "predicted": 164,
       "truth": 170,
       "review_load_per_100": 3.5,
-      "seconds": 6.6,
+      "seconds": 5.2,
       "scan_cleaned": true
      },
      "10": {
@@ -535,7 +518,7 @@
       "predicted": 238,
       "truth": 207,
       "review_load_per_100": 12.6,
-      "seconds": 11.1,
+      "seconds": 11.0,
       "scan_cleaned": true
      },
      "11": {
@@ -547,7 +530,7 @@
       "predicted": 228,
       "truth": 142,
       "review_load_per_100": 66.4,
-      "seconds": 2.5,
+      "seconds": 2.9,
       "scan_cleaned": true
      }
     },
@@ -560,8 +543,8 @@
     "scan_cleanup": "auto"
    },
    "published": [],
-   "seconds": 32.8,
-   "ran_at": "2026-11-12 20:56 UTC",
+   "seconds": 29.4,
+   "ran_at": "2026-11-12 21:57 UTC",
    "tool_files": {
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
     "scripts/scan_cleanup.py": "sha256:f396c492a2e6e894",
@@ -572,7 +555,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:393a3c13ee09cea3942c96be296704a817e7377b310d0cbb0ffc910ac3453e69",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100 scan-L2",
@@ -629,7 +612,7 @@
       "predicted": 125,
       "truth": 101,
       "review_load_per_100": 26.0,
-      "seconds": 4.0,
+      "seconds": 4.8,
       "scan_cleaned": true
      },
      "7": {
@@ -641,7 +624,7 @@
       "predicted": 143,
       "truth": 141,
       "review_load_per_100": 38.7,
-      "seconds": 7.7,
+      "seconds": 10.6,
       "scan_cleaned": true
      },
      "8": {
@@ -653,7 +636,7 @@
       "predicted": 49,
       "truth": 51,
       "review_load_per_100": 11.0,
-      "seconds": 3.9,
+      "seconds": 5.2,
       "scan_cleaned": true
      },
      "9": {
@@ -665,7 +648,7 @@
       "predicted": 98,
       "truth": 170,
       "review_load_per_100": 33.6,
-      "seconds": 7.2,
+      "seconds": 9.4,
       "scan_cleaned": true
      },
      "10": {
@@ -677,7 +660,7 @@
       "predicted": 311,
       "truth": 207,
       "review_load_per_100": 33.4,
-      "seconds": 16.2,
+      "seconds": 22.7,
       "scan_cleaned": true
      },
      "11": {
@@ -689,7 +672,7 @@
       "predicted": 198,
       "truth": 142,
       "review_load_per_100": 40.3,
-      "seconds": 3.6,
+      "seconds": 4.7,
       "scan_cleaned": true
      }
     },
@@ -702,8 +685,8 @@
     "scan_cleanup": "auto"
    },
    "published": [],
-   "seconds": 42.7,
-   "ran_at": "2026-11-12 20:56 UTC",
+   "seconds": 57.3,
+   "ran_at": "2026-11-12 21:57 UTC",
    "tool_files": {
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
     "scripts/scan_cleanup.py": "sha256:f396c492a2e6e894",
@@ -714,7 +697,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:c8977fa8ad553b790412573093da55bb304c4ff8335aca9cb1d53231e1359272",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100 scan-L3",
@@ -763,7 +746,7 @@
    "detail": {},
    "published": [],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 20:54 UTC",
+   "ran_at": "2026-11-12 21:58 UTC",
    "tool_files": {
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
     "scripts/scan_cleanup.py": "sha256:f396c492a2e6e894",
@@ -774,7 +757,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:1b2592d4625cb1b321479f1a4ed048382229f6266bbe37ee8f52e614e204a53b",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/pid2graph/PID2Graph/Complete/Dataset PID",
@@ -802,7 +785,7 @@
    "detail": {},
    "published": [],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 20:54 UTC",
+   "ran_at": "2026-11-12 21:58 UTC",
    "tool_files": {
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
     "scripts/scan_cleanup.py": "sha256:f396c492a2e6e894",
@@ -813,7 +796,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:523cb4f8fb860bc230c634f68ba4802f129cb6a771fb8055c875044f289febc2",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/dexpi/sheets",
@@ -852,7 +835,7 @@
       "predicted": 59,
       "truth": 59,
       "review_load_per_100": 0.0,
-      "seconds": 1.6,
+      "seconds": 1.8,
       "scan_cleaned": false
      },
      "102": {
@@ -864,7 +847,7 @@
       "predicted": 34,
       "truth": 34,
       "review_load_per_100": 0.0,
-      "seconds": 1.6,
+      "seconds": 1.9,
       "scan_cleaned": false
      },
      "103": {
@@ -876,7 +859,7 @@
       "predicted": 24,
       "truth": 24,
       "review_load_per_100": 0.0,
-      "seconds": 1.6,
+      "seconds": 1.9,
       "scan_cleaned": false
      }
     },
@@ -889,8 +872,8 @@
     "scan_cleanup": "auto"
    },
    "published": [],
-   "seconds": 4.7,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "seconds": 5.6,
+   "ran_at": "2026-11-12 21:58 UTC",
    "tool_files": {
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
     "scripts/scan_cleanup.py": "sha256:f396c492a2e6e894",
@@ -901,7 +884,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:f39df9224944f462995e4a369e54d459061a1eb5136395f7d0dd63fe65a15e48",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/te_pid/rev-a",
@@ -946,7 +929,7 @@
       "predicted": 107,
       "truth": 107,
       "review_load_per_100": 0.0,
-      "seconds": 1.7,
+      "seconds": 2.2,
       "scan_cleaned": false
      },
      "102": {
@@ -958,7 +941,7 @@
       "predicted": 55,
       "truth": 55,
       "review_load_per_100": 0.0,
-      "seconds": 1.6,
+      "seconds": 2.3,
       "scan_cleaned": false
      },
      "103": {
@@ -970,7 +953,7 @@
       "predicted": 46,
       "truth": 46,
       "review_load_per_100": 0.0,
-      "seconds": 1.6,
+      "seconds": 1.8,
       "scan_cleaned": false
      }
     },
@@ -983,8 +966,8 @@
     "scan_cleanup": "auto"
    },
    "published": [],
-   "seconds": 4.9,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "seconds": 6.3,
+   "ran_at": "2026-11-12 21:58 UTC",
    "tool_files": {
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
     "scripts/scan_cleanup.py": "sha256:f396c492a2e6e894",
@@ -995,7 +978,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:d27e901a323b58c22e1abbbeb896742e26fea8d0a4762a27cd80ba3d0365ff4b",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/te_pid/rev-c",
@@ -1040,7 +1023,7 @@
       "predicted": 107,
       "truth": 107,
       "review_load_per_100": 0.0,
-      "seconds": 1.6,
+      "seconds": 1.8,
       "scan_cleaned": false
      },
      "102": {
@@ -1052,7 +1035,7 @@
       "predicted": 55,
       "truth": 55,
       "review_load_per_100": 0.0,
-      "seconds": 1.6,
+      "seconds": 1.9,
       "scan_cleaned": false
      },
      "103": {
@@ -1064,7 +1047,7 @@
       "predicted": 46,
       "truth": 46,
       "review_load_per_100": 0.0,
-      "seconds": 1.6,
+      "seconds": 2.4,
       "scan_cleaned": false
      }
     },
@@ -1077,8 +1060,8 @@
     "scan_cleanup": "auto"
    },
    "published": [],
-   "seconds": 4.8,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "seconds": 6.2,
+   "ran_at": "2026-11-12 21:59 UTC",
    "tool_files": {
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
     "scripts/scan_cleanup.py": "sha256:f396c492a2e6e894",
@@ -1089,7 +1072,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:10238b7408368b3969cf11d3b3245be04333eb02e994d0d7a565335675caa1f1",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/te_pid",
@@ -1126,7 +1109,7 @@
    "detail": {},
    "published": [],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "ran_at": "2026-11-12 21:59 UTC",
    "tool_files": {
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
     "scripts/scan_cleanup.py": "sha256:f396c492a2e6e894",
@@ -1137,7 +1120,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:4b09e37f4ecc16092b8bc59601bba5960a6ca0a6adc5bb48eded043a65396e00",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/te_pid/rev-c/scan-L3",
@@ -1175,7 +1158,7 @@
       "predicted": 52,
       "truth": 52,
       "review_load_per_100": 0.0,
-      "seconds": 1.5,
+      "seconds": 2.2,
       "scan_cleaned": false
      }
     },
@@ -1188,8 +1171,8 @@
     "scan_cleanup": "auto"
    },
    "published": [],
-   "seconds": 1.5,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "seconds": 2.3,
+   "ran_at": "2026-11-12 21:59 UTC",
    "tool_files": {
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
     "scripts/scan_cleanup.py": "sha256:f396c492a2e6e894",
@@ -1200,7 +1183,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:cd5464ca3a1276896e03ab0e18ac4d6d9331c59f465f351c2c4b6260e282b20f",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/bayer_rt/pid",
@@ -1232,14 +1215,14 @@
    },
    "published": [],
    "seconds": 0.2,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "ran_at": "2026-11-12 21:59 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
     "scripts/corpus_adapters.py": "sha256:c589799614ebb821",
     "scripts/dexpi_to_twin.py": "sha256:24920399a29e7556",
     "scripts/draw_pid_from_model.py": "sha256:019f4a4903cba9e8",
-    "scripts/fetch_corpus.py": "sha256:fb9f6480a2209054",
+    "scripts/fetch_corpus.py": "sha256:ff2f6e0bfc4f0770",
     "scripts/generate.py": "sha256:6f47eed857558e2f",
     "scripts/import_site_drawing.py": "sha256:5a214b340518fa41",
     "scripts/line_layers.py": "sha256:960e0f77f2c90122",
@@ -1255,7 +1238,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:626cf2ec5bb2eaaf3b84d6e6c1bdcf53bcaf803b09c6a193351663c030fe9fde",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/dexpi-ttc-all/extracted/TrainingTestCases-a23d61e2e089eb2ca464cd552f9ae580a2785963-a23d61e2e089eb2ca464cd552f9ae580a2785963/dexpi 1.2/example pids",
@@ -1300,7 +1283,7 @@
    "detail": {},
    "published": [],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 20:54 UTC",
+   "ran_at": "2026-11-12 21:59 UTC",
    "tool_files": {
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
     "scripts/scan_cleanup.py": "sha256:f396c492a2e6e894",
@@ -1312,7 +1295,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:da2aeb600b86eda12be6aeadb36d181c7ed24a5cc07fae475ef87f076b2c2560",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/agent_keys/omre-1958-pid",
@@ -1351,7 +1334,7 @@
    "detail": {},
    "published": [],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 20:54 UTC",
+   "ran_at": "2026-11-12 21:59 UTC",
    "tool_files": {
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
     "scripts/scan_cleanup.py": "sha256:f396c492a2e6e894",
@@ -1367,7 +1350,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:2618da56aa8ded60fbb9d1951ae403eb5c49032d87a023c8078d729bc396e0ee",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/agent_keys/commons-pid-sheets",
@@ -1446,7 +1429,7 @@
    "detail": {},
    "published": [],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 20:54 UTC",
+   "ran_at": "2026-11-12 21:59 UTC",
    "tool_files": {
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
     "scripts/scan_cleanup.py": "sha256:f396c492a2e6e894",
@@ -1458,7 +1441,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:5e51fb802fa028403c6add07427f33c05e8aed7855bd7dbdfdcff38be93ffa17",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/agent_keys/pronto-fig1",
@@ -1511,8 +1494,8 @@
     "control_failures": []
    },
    "published": [],
-   "seconds": 1.7,
-   "ran_at": "2026-11-12 21:02 UTC",
+   "seconds": 1.6,
+   "ran_at": "2026-11-12 22:00 UTC",
    "tool_files": {
     "scripts/evaluate_vendor.py": "sha256:bce4550e564142d6",
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
@@ -1525,7 +1508,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:75b876b098ca32ad762d54d5560ad44a70d399aa3c0a131e6765b914238040fb",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100",
@@ -1603,7 +1586,7 @@
     }
    ],
    "seconds": 1.6,
-   "ran_at": "2026-11-12 21:02 UTC",
+   "ran_at": "2026-11-12 22:00 UTC",
    "tool_files": {
     "scripts/evaluate_vendor.py": "sha256:bce4550e564142d6",
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
@@ -1616,7 +1599,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:0f9f7c54ce3e3d9e0c47b287fa3e42a816ad26806b4d5fa533a33e372dfc1e3c",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100",
@@ -1691,7 +1674,7 @@
    "key_only_duplicate_of": "open100-holdout",
    "note": "key-only input: this row reads only the answer key, which is open100-holdout's, so the cell is the same computation as open100-holdout and carries no scan-specific information (the scan pixels are not exercised here)",
    "seconds": 1.6,
-   "ran_at": "2026-11-12 21:02 UTC",
+   "ran_at": "2026-11-12 22:00 UTC",
    "tool_files": {
     "scripts/evaluate_vendor.py": "sha256:bce4550e564142d6",
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
@@ -1704,7 +1687,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:8b1a9ea383d4d822dbaede9e481ae86c58305a95f81ad9fdab4aaa140ec444c4",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100 scan-L1",
@@ -1768,8 +1751,8 @@
    "published": [],
    "key_only_duplicate_of": "open100-holdout",
    "note": "key-only input: this row reads only the answer key, which is open100-holdout's, so the cell is the same computation as open100-holdout and carries no scan-specific information (the scan pixels are not exercised here)",
-   "seconds": 1.7,
-   "ran_at": "2026-11-12 21:02 UTC",
+   "seconds": 1.6,
+   "ran_at": "2026-11-12 22:00 UTC",
    "tool_files": {
     "scripts/evaluate_vendor.py": "sha256:bce4550e564142d6",
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
@@ -1782,7 +1765,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:393a3c13ee09cea3942c96be296704a817e7377b310d0cbb0ffc910ac3453e69",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100 scan-L2",
@@ -1846,8 +1829,8 @@
    "published": [],
    "key_only_duplicate_of": "open100-holdout",
    "note": "key-only input: this row reads only the answer key, which is open100-holdout's, so the cell is the same computation as open100-holdout and carries no scan-specific information (the scan pixels are not exercised here)",
-   "seconds": 1.8,
-   "ran_at": "2026-11-12 21:02 UTC",
+   "seconds": 1.6,
+   "ran_at": "2026-11-12 22:00 UTC",
    "tool_files": {
     "scripts/evaluate_vendor.py": "sha256:bce4550e564142d6",
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
@@ -1860,7 +1843,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:c8977fa8ad553b790412573093da55bb304c4ff8335aca9cb1d53231e1359272",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100 scan-L3",
@@ -1922,8 +1905,8 @@
     "control_failures": []
    },
    "published": [],
-   "seconds": 8.3,
-   "ran_at": "2026-11-12 21:02 UTC",
+   "seconds": 7.4,
+   "ran_at": "2026-11-12 22:00 UTC",
    "tool_files": {
     "scripts/evaluate_vendor.py": "sha256:bce4550e564142d6",
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
@@ -1936,7 +1919,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:1b2592d4625cb1b321479f1a4ed048382229f6266bbe37ee8f52e614e204a53b",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/pid2graph/PID2Graph/Complete/Dataset PID",
@@ -2019,7 +2002,7 @@
    },
    "published": [],
    "seconds": 0.5,
-   "ran_at": "2026-11-12 21:03 UTC",
+   "ran_at": "2026-11-12 22:00 UTC",
    "tool_files": {
     "scripts/evaluate_vendor.py": "sha256:bce4550e564142d6",
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
@@ -2032,7 +2015,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:523cb4f8fb860bc230c634f68ba4802f129cb6a771fb8055c875044f289febc2",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/dexpi/sheets",
@@ -2084,7 +2067,7 @@
    },
    "published": [],
    "seconds": 0.5,
-   "ran_at": "2026-11-12 21:03 UTC",
+   "ran_at": "2026-11-12 22:00 UTC",
    "tool_files": {
     "scripts/evaluate_vendor.py": "sha256:bce4550e564142d6",
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
@@ -2097,7 +2080,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:f39df9224944f462995e4a369e54d459061a1eb5136395f7d0dd63fe65a15e48",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/te_pid/rev-a",
@@ -2147,8 +2130,8 @@
     "control_failures": []
    },
    "published": [],
-   "seconds": 0.6,
-   "ran_at": "2026-11-12 21:03 UTC",
+   "seconds": 0.5,
+   "ran_at": "2026-11-12 22:00 UTC",
    "tool_files": {
     "scripts/evaluate_vendor.py": "sha256:bce4550e564142d6",
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
@@ -2161,7 +2144,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:d27e901a323b58c22e1abbbeb896742e26fea8d0a4762a27cd80ba3d0365ff4b",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/te_pid/rev-c",
@@ -2212,7 +2195,7 @@
    },
    "published": [],
    "seconds": 0.6,
-   "ran_at": "2026-11-12 21:03 UTC",
+   "ran_at": "2026-11-12 22:00 UTC",
    "tool_files": {
     "scripts/evaluate_vendor.py": "sha256:bce4550e564142d6",
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
@@ -2225,7 +2208,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:10238b7408368b3969cf11d3b3245be04333eb02e994d0d7a565335675caa1f1",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/te_pid",
@@ -2276,7 +2259,7 @@
    },
    "published": [],
    "seconds": 0.6,
-   "ran_at": "2026-11-12 21:03 UTC",
+   "ran_at": "2026-11-12 22:00 UTC",
    "tool_files": {
     "scripts/evaluate_vendor.py": "sha256:bce4550e564142d6",
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
@@ -2289,7 +2272,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:4b09e37f4ecc16092b8bc59601bba5960a6ca0a6adc5bb48eded043a65396e00",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/te_pid/rev-c/scan-L3",
@@ -2339,8 +2322,8 @@
     "control_failures": []
    },
    "published": [],
-   "seconds": 0.5,
-   "ran_at": "2026-11-12 21:03 UTC",
+   "seconds": 0.4,
+   "ran_at": "2026-11-12 22:00 UTC",
    "tool_files": {
     "scripts/evaluate_vendor.py": "sha256:bce4550e564142d6",
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
@@ -2353,7 +2336,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:cd5464ca3a1276896e03ab0e18ac4d6d9331c59f465f351c2c4b6260e282b20f",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/bayer_rt/pid",
@@ -2406,7 +2389,7 @@
    "published": [],
    "key": "agent-made",
    "seconds": 1.1,
-   "ran_at": "2026-11-12 21:03 UTC",
+   "ran_at": "2026-11-12 22:00 UTC",
    "tool_files": {
     "scripts/evaluate_vendor.py": "sha256:bce4550e564142d6",
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
@@ -2420,7 +2403,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:da2aeb600b86eda12be6aeadb36d181c7ed24a5cc07fae475ef87f076b2c2560",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/agent_keys/omre-1958-pid",
@@ -2490,8 +2473,8 @@
    },
    "published": [],
    "key": "agent-made",
-   "seconds": 1.8,
-   "ran_at": "2026-11-12 21:03 UTC",
+   "seconds": 1.7,
+   "ran_at": "2026-11-12 22:00 UTC",
    "tool_files": {
     "scripts/evaluate_vendor.py": "sha256:bce4550e564142d6",
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
@@ -2509,7 +2492,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:2618da56aa8ded60fbb9d1951ae403eb5c49032d87a023c8078d729bc396e0ee",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/agent_keys/commons-pid-sheets",
@@ -2621,7 +2604,7 @@
    "published": [],
    "key": "agent-made",
    "seconds": 0.4,
-   "ran_at": "2026-11-12 21:03 UTC",
+   "ran_at": "2026-11-12 22:00 UTC",
    "tool_files": {
     "scripts/evaluate_vendor.py": "sha256:bce4550e564142d6",
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
@@ -2635,7 +2618,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:5e51fb802fa028403c6add07427f33c05e8aed7855bd7dbdfdcff38be93ffa17",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/agent_keys/pronto-fig1",
@@ -2689,7 +2672,7 @@
    },
    "published": [],
    "seconds": 0.5,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "ran_at": "2026-11-12 21:59 UTC",
    "tool_files": {
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
     "scripts/confidence.py": "sha256:0fc9948199d89edf",
@@ -2708,7 +2691,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:75b876b098ca32ad762d54d5560ad44a70d399aa3c0a131e6765b914238040fb",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100",
@@ -2779,7 +2762,7 @@
    },
    "published": [],
    "seconds": 0.3,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "ran_at": "2026-11-12 21:59 UTC",
    "tool_files": {
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
     "scripts/confidence.py": "sha256:0fc9948199d89edf",
@@ -2798,7 +2781,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:0f9f7c54ce3e3d9e0c47b287fa3e42a816ad26806b4d5fa533a33e372dfc1e3c",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100",
@@ -2871,7 +2854,7 @@
    "key_only_duplicate_of": "open100-holdout",
    "note": "key-only input: this row reads only the answer key, which is open100-holdout's, so the cell is the same computation as open100-holdout and carries no scan-specific information (the scan pixels are not exercised here)",
    "seconds": 0.3,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "ran_at": "2026-11-12 21:59 UTC",
    "tool_files": {
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
     "scripts/confidence.py": "sha256:0fc9948199d89edf",
@@ -2890,7 +2873,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:8b1a9ea383d4d822dbaede9e481ae86c58305a95f81ad9fdab4aaa140ec444c4",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100 scan-L1",
@@ -2963,7 +2946,7 @@
    "key_only_duplicate_of": "open100-holdout",
    "note": "key-only input: this row reads only the answer key, which is open100-holdout's, so the cell is the same computation as open100-holdout and carries no scan-specific information (the scan pixels are not exercised here)",
    "seconds": 0.3,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "ran_at": "2026-11-12 21:59 UTC",
    "tool_files": {
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
     "scripts/confidence.py": "sha256:0fc9948199d89edf",
@@ -2982,7 +2965,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:393a3c13ee09cea3942c96be296704a817e7377b310d0cbb0ffc910ac3453e69",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100 scan-L2",
@@ -3054,8 +3037,8 @@
    "published": [],
    "key_only_duplicate_of": "open100-holdout",
    "note": "key-only input: this row reads only the answer key, which is open100-holdout's, so the cell is the same computation as open100-holdout and carries no scan-specific information (the scan pixels are not exercised here)",
-   "seconds": 0.3,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "seconds": 0.4,
+   "ran_at": "2026-11-12 21:59 UTC",
    "tool_files": {
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
     "scripts/confidence.py": "sha256:0fc9948199d89edf",
@@ -3074,7 +3057,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:c8977fa8ad553b790412573093da55bb304c4ff8335aca9cb1d53231e1359272",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100 scan-L3",
@@ -3132,8 +3115,8 @@
    "reason": "needs data: python scripts/fetch_pid2graph.py --get \"Complete/Dataset PID/\" (missing data/external/pid2graph/PID2Graph/Complete/Dataset PID)",
    "detail": {},
    "published": [],
-   "seconds": 0.2,
-   "ran_at": "2026-11-12 20:54 UTC",
+   "seconds": 0.0,
+   "ran_at": "2026-11-12 21:59 UTC",
    "tool_files": {
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
     "scripts/confidence.py": "sha256:0fc9948199d89edf",
@@ -3152,7 +3135,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:1b2592d4625cb1b321479f1a4ed048382229f6266bbe37ee8f52e614e204a53b",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/pid2graph/PID2Graph/Complete/Dataset PID",
@@ -3190,7 +3173,7 @@
    "detail": {},
    "published": [],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 20:54 UTC",
+   "ran_at": "2026-11-12 21:59 UTC",
    "tool_files": {
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
     "scripts/confidence.py": "sha256:0fc9948199d89edf",
@@ -3209,7 +3192,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:523cb4f8fb860bc230c634f68ba4802f129cb6a771fb8055c875044f289febc2",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/dexpi/sheets",
@@ -3262,7 +3245,7 @@
    },
    "published": [],
    "seconds": 0.2,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "ran_at": "2026-11-12 21:59 UTC",
    "tool_files": {
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
     "scripts/confidence.py": "sha256:0fc9948199d89edf",
@@ -3281,7 +3264,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:f39df9224944f462995e4a369e54d459061a1eb5136395f7d0dd63fe65a15e48",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/te_pid/rev-a",
@@ -3340,7 +3323,7 @@
    },
    "published": [],
    "seconds": 0.2,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "ran_at": "2026-11-12 21:59 UTC",
    "tool_files": {
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
     "scripts/confidence.py": "sha256:0fc9948199d89edf",
@@ -3359,7 +3342,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:d27e901a323b58c22e1abbbeb896742e26fea8d0a4762a27cd80ba3d0365ff4b",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/te_pid/rev-c",
@@ -3417,8 +3400,8 @@
     "report_written": true
    },
    "published": [],
-   "seconds": 0.2,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "seconds": 0.3,
+   "ran_at": "2026-11-12 21:59 UTC",
    "tool_files": {
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
     "scripts/confidence.py": "sha256:0fc9948199d89edf",
@@ -3437,7 +3420,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:10238b7408368b3969cf11d3b3245be04333eb02e994d0d7a565335675caa1f1",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/te_pid",
@@ -3495,8 +3478,8 @@
     "report_written": true
    },
    "published": [],
-   "seconds": 0.2,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "seconds": 0.3,
+   "ran_at": "2026-11-12 21:59 UTC",
    "tool_files": {
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
     "scripts/confidence.py": "sha256:0fc9948199d89edf",
@@ -3515,7 +3498,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:cd5464ca3a1276896e03ab0e18ac4d6d9331c59f465f351c2c4b6260e282b20f",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/bayer_rt/pid",
@@ -3576,7 +3559,7 @@
     }
    ],
    "seconds": 0.3,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "ran_at": "2026-11-12 21:59 UTC",
    "tool_files": {
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
     "scripts/confidence.py": "sha256:0fc9948199d89edf",
@@ -3595,7 +3578,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:baf06b0c6d55f7a408b566ee064f388c77385d62faad38bddbcb7b1a15ab8d5e",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100/0.png",
@@ -3660,7 +3643,7 @@
    "detail": {},
    "published": [],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 20:54 UTC",
+   "ran_at": "2026-11-12 21:59 UTC",
    "tool_files": {
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
     "scripts/confidence.py": "sha256:0fc9948199d89edf",
@@ -3680,7 +3663,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:da2aeb600b86eda12be6aeadb36d181c7ed24a5cc07fae475ef87f076b2c2560",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/agent_keys/omre-1958-pid",
@@ -3729,7 +3712,7 @@
    "detail": {},
    "published": [],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 20:54 UTC",
+   "ran_at": "2026-11-12 21:59 UTC",
    "tool_files": {
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
     "scripts/confidence.py": "sha256:0fc9948199d89edf",
@@ -3753,7 +3736,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:2618da56aa8ded60fbb9d1951ae403eb5c49032d87a023c8078d729bc396e0ee",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/agent_keys/commons-pid-sheets",
@@ -3842,7 +3825,7 @@
    "detail": {},
    "published": [],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 20:54 UTC",
+   "ran_at": "2026-11-12 21:59 UTC",
    "tool_files": {
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
     "scripts/confidence.py": "sha256:0fc9948199d89edf",
@@ -3862,7 +3845,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:5e51fb802fa028403c6add07427f33c05e8aed7855bd7dbdfdcff38be93ffa17",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/agent_keys/pronto-fig1",
@@ -3931,7 +3914,7 @@
     }
    ],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "ran_at": "2026-11-12 21:51 UTC",
    "tool_files": {
     "scripts/loop_audit.py": "sha256:ec7837928220abff",
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf"
@@ -3940,7 +3923,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:f39df9224944f462995e4a369e54d459061a1eb5136395f7d0dd63fe65a15e48",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/te_pid/rev-a/key.json",
@@ -4004,7 +3987,7 @@
     }
    ],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "ran_at": "2026-11-12 21:51 UTC",
    "tool_files": {
     "scripts/loop_audit.py": "sha256:ec7837928220abff",
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf"
@@ -4013,7 +3996,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:d27e901a323b58c22e1abbbeb896742e26fea8d0a4762a27cd80ba3d0365ff4b",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/te_pid/rev-c/key.json",
@@ -4077,7 +4060,7 @@
     }
    ],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "ran_at": "2026-11-12 21:51 UTC",
    "tool_files": {
     "scripts/loop_audit.py": "sha256:ec7837928220abff",
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf"
@@ -4086,7 +4069,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:10238b7408368b3969cf11d3b3245be04333eb02e994d0d7a565335675caa1f1",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/te_pid/key.json",
@@ -4165,7 +4148,7 @@
    },
    "published": [],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "ran_at": "2026-11-12 21:51 UTC",
    "tool_files": {
     "scripts/loop_audit.py": "sha256:ec7837928220abff",
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf"
@@ -4174,7 +4157,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:cd5464ca3a1276896e03ab0e18ac4d6d9331c59f465f351c2c4b6260e282b20f",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/bayer_rt/pid/key.json",
@@ -4208,8 +4191,8 @@
    "reason": "needs data: python scripts/adapt_dexpi.py fetch && python scripts/adapt_dexpi.py build (missing data/external/dexpi/sheets)",
    "detail": {},
    "published": [],
-   "seconds": 0.1,
-   "ran_at": "2026-11-12 20:54 UTC",
+   "seconds": 0.0,
+   "ran_at": "2026-11-12 21:51 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
@@ -4229,7 +4212,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:523cb4f8fb860bc230c634f68ba4802f129cb6a771fb8055c875044f289febc2",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/dataset_adapters/dexpi_examples.json",
@@ -4306,8 +4289,8 @@
    "reason": "needs data: python scripts/fetch_corpus.py dexpi-ttc-all (missing data/external/dexpi-ttc-all/extracted)",
    "detail": {},
    "published": [],
-   "seconds": 0.4,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "seconds": 0.1,
+   "ran_at": "2026-11-12 21:51 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
@@ -4315,7 +4298,7 @@
     "scripts/dexpi_reader.py": "sha256:14a6f23fea2bdb57",
     "scripts/dexpi_to_twin.py": "sha256:24920399a29e7556",
     "scripts/draw_pid_from_model.py": "sha256:019f4a4903cba9e8",
-    "scripts/fetch_corpus.py": "sha256:fb9f6480a2209054",
+    "scripts/fetch_corpus.py": "sha256:ff2f6e0bfc4f0770",
     "scripts/generate.py": "sha256:6f47eed857558e2f",
     "scripts/import_site_drawing.py": "sha256:5a214b340518fa41",
     "scripts/line_layers.py": "sha256:960e0f77f2c90122",
@@ -4332,7 +4315,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:f2d189c6ff71c532a96ee9a9057178a7b680062bcec55130d46a022b7ad12b32",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/dexpi-ttc-all/extracted/TrainingTestCases-a23d61e2e089eb2ca464cd552f9ae580a2785963-a23d61e2e089eb2ca464cd552f9ae580a2785963/dexpi 1.3/example pids",
@@ -4360,7 +4343,7 @@
    "detail": {},
    "published": [],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "ran_at": "2026-11-12 21:51 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
@@ -4368,7 +4351,7 @@
     "scripts/dexpi_reader.py": "sha256:14a6f23fea2bdb57",
     "scripts/dexpi_to_twin.py": "sha256:24920399a29e7556",
     "scripts/draw_pid_from_model.py": "sha256:019f4a4903cba9e8",
-    "scripts/fetch_corpus.py": "sha256:fb9f6480a2209054",
+    "scripts/fetch_corpus.py": "sha256:ff2f6e0bfc4f0770",
     "scripts/generate.py": "sha256:6f47eed857558e2f",
     "scripts/import_site_drawing.py": "sha256:5a214b340518fa41",
     "scripts/line_layers.py": "sha256:960e0f77f2c90122",
@@ -4385,7 +4368,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:40441e33caa4bcc37d52cfcb126abbc2cede19fd5e613216eb1c671f01b99010",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/dexpi-ttc-all/extracted/TrainingTestCases-a23d61e2e089eb2ca464cd552f9ae580a2785963-a23d61e2e089eb2ca464cd552f9ae580a2785963/dexpi 1.2/example pids",
@@ -4411,7 +4394,7 @@
    "detail": {},
    "published": [],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "ran_at": "2026-11-12 21:51 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
@@ -4419,7 +4402,7 @@
     "scripts/dexpi_reader.py": "sha256:14a6f23fea2bdb57",
     "scripts/dexpi_to_twin.py": "sha256:24920399a29e7556",
     "scripts/draw_pid_from_model.py": "sha256:019f4a4903cba9e8",
-    "scripts/fetch_corpus.py": "sha256:fb9f6480a2209054",
+    "scripts/fetch_corpus.py": "sha256:ff2f6e0bfc4f0770",
     "scripts/generate.py": "sha256:6f47eed857558e2f",
     "scripts/import_site_drawing.py": "sha256:5a214b340518fa41",
     "scripts/line_layers.py": "sha256:960e0f77f2c90122",
@@ -4436,7 +4419,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:96e215bc68d7be88dd95244d34e8cfd51cdaf567a5e7dcb848ff2342eb748b87",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/dexpi-ttc-all/extracted/TrainingTestCases-a23d61e2e089eb2ca464cd552f9ae580a2785963-a23d61e2e089eb2ca464cd552f9ae580a2785963/dexpi 1.2/example pids",
@@ -4462,7 +4445,7 @@
    "detail": {},
    "published": [],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "ran_at": "2026-11-12 21:51 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
@@ -4470,7 +4453,7 @@
     "scripts/dexpi_reader.py": "sha256:14a6f23fea2bdb57",
     "scripts/dexpi_to_twin.py": "sha256:24920399a29e7556",
     "scripts/draw_pid_from_model.py": "sha256:019f4a4903cba9e8",
-    "scripts/fetch_corpus.py": "sha256:fb9f6480a2209054",
+    "scripts/fetch_corpus.py": "sha256:ff2f6e0bfc4f0770",
     "scripts/generate.py": "sha256:6f47eed857558e2f",
     "scripts/import_site_drawing.py": "sha256:5a214b340518fa41",
     "scripts/line_layers.py": "sha256:960e0f77f2c90122",
@@ -4487,7 +4470,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:2f89d783653680a0392ff128b98ea4cd9ebd9dcb478f2c488a8d053dd20edd41",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/dexpi-ttc-all/extracted/TrainingTestCases-a23d61e2e089eb2ca464cd552f9ae580a2785963-a23d61e2e089eb2ca464cd552f9ae580a2785963/dexpi 1.2/example pids",
@@ -4513,7 +4496,7 @@
    "detail": {},
    "published": [],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "ran_at": "2026-11-12 21:51 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
@@ -4521,7 +4504,7 @@
     "scripts/dexpi_reader.py": "sha256:14a6f23fea2bdb57",
     "scripts/dexpi_to_twin.py": "sha256:24920399a29e7556",
     "scripts/draw_pid_from_model.py": "sha256:019f4a4903cba9e8",
-    "scripts/fetch_corpus.py": "sha256:fb9f6480a2209054",
+    "scripts/fetch_corpus.py": "sha256:ff2f6e0bfc4f0770",
     "scripts/generate.py": "sha256:6f47eed857558e2f",
     "scripts/import_site_drawing.py": "sha256:5a214b340518fa41",
     "scripts/line_layers.py": "sha256:960e0f77f2c90122",
@@ -4538,7 +4521,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:a2ee3ba7893ea90a8252386573cb6a4e85ab21a099b330ec7001a04a9407fa29",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/dexpi-ttc-all/extracted/TrainingTestCases-a23d61e2e089eb2ca464cd552f9ae580a2785963-a23d61e2e089eb2ca464cd552f9ae580a2785963/dexpi 1.2/example pids",
@@ -4564,7 +4547,7 @@
    "detail": {},
    "published": [],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "ran_at": "2026-11-12 21:51 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
@@ -4572,7 +4555,7 @@
     "scripts/dexpi_reader.py": "sha256:14a6f23fea2bdb57",
     "scripts/dexpi_to_twin.py": "sha256:24920399a29e7556",
     "scripts/draw_pid_from_model.py": "sha256:019f4a4903cba9e8",
-    "scripts/fetch_corpus.py": "sha256:fb9f6480a2209054",
+    "scripts/fetch_corpus.py": "sha256:ff2f6e0bfc4f0770",
     "scripts/generate.py": "sha256:6f47eed857558e2f",
     "scripts/import_site_drawing.py": "sha256:5a214b340518fa41",
     "scripts/line_layers.py": "sha256:960e0f77f2c90122",
@@ -4589,7 +4572,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:0cabba8be50f9002b2b73c1ccfbe190f06e10b78f33bf63708c2b8ec5dca7a0b",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/dexpi-ttc-all/extracted/TrainingTestCases-a23d61e2e089eb2ca464cd552f9ae580a2785963-a23d61e2e089eb2ca464cd552f9ae580a2785963/dexpi 1.2/example pids",
@@ -4617,18 +4600,18 @@
    },
    "published": [],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 20:54 UTC",
+   "ran_at": "2026-11-12 21:51 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/corpus_adapters.py": "sha256:c589799614ebb821",
-    "scripts/fetch_corpus.py": "sha256:fb9f6480a2209054",
+    "scripts/fetch_corpus.py": "sha256:ff2f6e0bfc4f0770",
     "scripts/score_pid2graph.py": "sha256:decd9b48d8ae85c4"
    },
    "input_bindings": {
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:689ffdba757440c3e28caf758227470d63d0092d500ead62950ad6b4e644bef5",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/hai/graph/boiler",
@@ -4654,7 +4637,7 @@
    "detail": {},
    "published": [],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "ran_at": "2026-11-12 21:51 UTC",
    "tool_files": {
     "scripts/loop_audit.py": "sha256:ec7837928220abff",
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf"
@@ -4663,7 +4646,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:da2aeb600b86eda12be6aeadb36d181c7ed24a5cc07fae475ef87f076b2c2560",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": []
    }
   },
@@ -4677,7 +4660,7 @@
    "detail": {},
    "published": [],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "ran_at": "2026-11-12 21:51 UTC",
    "tool_files": {
     "scripts/loop_audit.py": "sha256:ec7837928220abff",
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf"
@@ -4686,7 +4669,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:5e51fb802fa028403c6add07427f33c05e8aed7855bd7dbdfdcff38be93ffa17",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": []
    }
   },
@@ -4705,8 +4688,8 @@
     "stderr": ""
    },
    "published": [],
-   "seconds": 0.3,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "seconds": 0.2,
+   "ran_at": "2026-11-12 21:51 UTC",
    "tool_files": {
     "scripts/generate.py": "sha256:6f47eed857558e2f",
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
@@ -4717,7 +4700,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:0223b0adea0d45c9bb4f12e64c0bf712907ae2b12596ac94ef06ec1cebb11dfa",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/te_process_model.json",
@@ -4756,7 +4739,7 @@
     }
    ],
    "seconds": 0.2,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "ran_at": "2026-11-12 21:51 UTC",
    "tool_files": {
     "scripts/generate.py": "sha256:6f47eed857558e2f",
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
@@ -4767,7 +4750,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:3d202c996f63b56efa997968400638cee934fd1e06e3ca02037dde5dca083a7c",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/bayer_rt/process_model.json",
@@ -4808,7 +4791,7 @@
    },
    "published": [],
    "seconds": 0.2,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "ran_at": "2026-11-12 21:51 UTC",
    "tool_files": {
     "scripts/generate.py": "sha256:6f47eed857558e2f",
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
@@ -4819,7 +4802,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:885b2d480c738a4d02da4332e6408548923e0657f4df2ab19e84aa152656bf52",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/fixtures/water_utility_twin.json",
@@ -4843,12 +4826,12 @@
    "reason": "needs data: python scripts/fetch_corpus.py idaes-hda (missing data/external/idaes-hda/idaes_examples/notebooks/docs/tut/core/HDA_solved.json)",
    "detail": {},
    "published": [],
-   "seconds": 0.1,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "seconds": 0.0,
+   "ran_at": "2026-11-12 21:51 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/corpus_adapters.py": "sha256:c589799614ebb821",
-    "scripts/fetch_corpus.py": "sha256:fb9f6480a2209054",
+    "scripts/fetch_corpus.py": "sha256:ff2f6e0bfc4f0770",
     "scripts/generate.py": "sha256:6f47eed857558e2f",
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
     "scripts/pi_mapping.py": "sha256:c9007ef93990a5ab",
@@ -4859,7 +4842,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:a9f7bc2dfe6172d2a5865b6e7d1aaeebb269c5305ba72ca79e610bfad0a277d0",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/idaes-hda/idaes_examples/notebooks/docs/tut/core/HDA_solved.json",
@@ -4883,11 +4866,11 @@
    "detail": {},
    "published": [],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "ran_at": "2026-11-12 21:51 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/corpus_adapters.py": "sha256:c589799614ebb821",
-    "scripts/fetch_corpus.py": "sha256:fb9f6480a2209054",
+    "scripts/fetch_corpus.py": "sha256:ff2f6e0bfc4f0770",
     "scripts/generate.py": "sha256:6f47eed857558e2f",
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
     "scripts/pi_mapping.py": "sha256:c9007ef93990a5ab",
@@ -4898,7 +4881,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:7fe825e5228fe23d1fffce2a4eaf85f06117f6f35028fd17c6430a0dc291a582",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/dwsim-fossee/zips",
@@ -4928,7 +4911,7 @@
    },
    "published": [],
    "seconds": 0.2,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "ran_at": "2026-11-12 21:51 UTC",
    "tool_files": {
     "scripts/generate.py": "sha256:6f47eed857558e2f",
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
@@ -4939,7 +4922,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:2e60fbdf5da77a69d66e35ca133ff58676762e097f62fe70899d4eb031e183cf",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "examples/from-description/mgpi/model-expanded-source.json",
@@ -5404,8 +5387,8 @@
      "agrees": true
     }
    ],
-   "seconds": 2.4,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "seconds": 2.2,
+   "ran_at": "2026-11-12 21:51 UTC",
    "tool_files": {
     "scripts/csv_normal_bands.py": "sha256:88baa8aa94fd2900",
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf"
@@ -5414,7 +5397,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:8b80f31a8bc9e54983b6773724eb2c3d0dd21b867b525bcf517294453b0850e7",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/te-braatz",
@@ -5561,7 +5544,7 @@
    },
    "published": [],
    "seconds": 0.3,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "ran_at": "2026-11-12 21:51 UTC",
    "tool_files": {
     "scripts/csv_normal_bands.py": "sha256:88baa8aa94fd2900",
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf"
@@ -5570,7 +5553,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:7f559215fb2f519ea02a00a1c48e46ea0a1c615c18c3e4408abb46a46c0e21d2",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/pronto/historian",
@@ -5657,13 +5640,13 @@
     "development_data": "development data for the drift method (it was tuned and frozen on PRONTO days 2-4, SKAB, HAI 21.03 and the TE runs; data/attempts.json A163, A165, A171), so a pass here is not a held-out result"
    },
    "published": [],
-   "seconds": 0.9,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "seconds": 0.8,
+   "ran_at": "2026-11-12 21:51 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/corpus_adapters.py": "sha256:c589799614ebb821",
     "scripts/csv_normal_bands.py": "sha256:88baa8aa94fd2900",
-    "scripts/fetch_corpus.py": "sha256:fb9f6480a2209054",
+    "scripts/fetch_corpus.py": "sha256:ff2f6e0bfc4f0770",
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
     "scripts/score_pid2graph.py": "sha256:decd9b48d8ae85c4"
    },
@@ -5671,7 +5654,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:027b1c441f53696bf6cd72a46c58ee81d58ef1ca77219d086d093a1a8f66eb03",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/pronto-more/PRONTO benchmark case study",
@@ -5761,12 +5744,12 @@
    },
    "published": [],
    "seconds": 0.7,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "ran_at": "2026-11-12 21:51 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/corpus_adapters.py": "sha256:c589799614ebb821",
     "scripts/csv_normal_bands.py": "sha256:88baa8aa94fd2900",
-    "scripts/fetch_corpus.py": "sha256:fb9f6480a2209054",
+    "scripts/fetch_corpus.py": "sha256:ff2f6e0bfc4f0770",
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
     "scripts/score_pid2graph.py": "sha256:decd9b48d8ae85c4"
    },
@@ -5774,7 +5757,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:12b93a7af40734e51f41505b5a06b8ee0df344c85e8af37d6d8c53365f13525b",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/pronto-more/PRONTO benchmark case study",
@@ -7041,13 +7024,13 @@
     "development_data": "development data for the drift method (it was tuned and frozen on PRONTO days 2-4, SKAB, HAI 21.03 and the TE runs; data/attempts.json A163, A165, A171), so a pass here is not a held-out result"
    },
    "published": [],
-   "seconds": 9.7,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "seconds": 9.4,
+   "ran_at": "2026-11-12 21:51 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/corpus_adapters.py": "sha256:c589799614ebb821",
     "scripts/csv_normal_bands.py": "sha256:88baa8aa94fd2900",
-    "scripts/fetch_corpus.py": "sha256:fb9f6480a2209054",
+    "scripts/fetch_corpus.py": "sha256:ff2f6e0bfc4f0770",
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
     "scripts/score_pid2graph.py": "sha256:decd9b48d8ae85c4"
    },
@@ -7055,7 +7038,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:3142c7316e92ed52a5d7933c72c383e472dc602b6ddc3e5307c50a35e5c243b6",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/skab/data",
@@ -7254,13 +7237,13 @@
    },
    "published": [],
    "note": "`k_target_met` is false on 2 of 2 runs (test1, test4): K=20 (the largest K the tool tries) did not bring held-out normal flags under the tool's 0.5% target, so the bands ran with a K that misses the tool's own selection rule; the verdict uses the row's criterion, which does not include that target",
-   "seconds": 183.2,
-   "ran_at": "2026-11-12 20:57 UTC",
+   "seconds": 180.6,
+   "ran_at": "2026-11-12 21:51 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/corpus_adapters.py": "sha256:c589799614ebb821",
     "scripts/csv_normal_bands.py": "sha256:88baa8aa94fd2900",
-    "scripts/fetch_corpus.py": "sha256:fb9f6480a2209054",
+    "scripts/fetch_corpus.py": "sha256:ff2f6e0bfc4f0770",
     "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
     "scripts/score_pid2graph.py": "sha256:decd9b48d8ae85c4"
    },
@@ -7268,7 +7251,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:c16535ef307e4ab969534cd904f6e8747f8cf42560ec57c369b12de4e7eaa4ba",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/hai/hai-21.03",
@@ -7373,8 +7356,8 @@
     "earlier_drift_split": "held-out source for the drift method's second iteration: the split and the label mapping were fixed before any run (data/attempts.json A165) and the method was frozen on the development sources before this source was first scored, once (A171); the matrix re-runs that same frozen method (deterministic), nothing was tuned on the result"
    },
    "published": [],
-   "seconds": 19.2,
-   "ran_at": "2026-11-12 21:01 UTC",
+   "seconds": 17.9,
+   "ran_at": "2026-11-12 21:54 UTC",
    "tool_files": {
     "scripts/csv_normal_bands.py": "sha256:88baa8aa94fd2900",
     "scripts/historian_adapters.py": "sha256:1020bb06a248667a",
@@ -7384,7 +7367,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:53170733637934c9ed1ae907e4368217d7309b45467256310913ec9ee8c5abb4",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/uci-hydraulic",
@@ -7501,8 +7484,8 @@
    },
    "published": [],
    "note": "`k_target_met` is false on 4 of 4 runs (failure1, failure2, failure3, failure4): K=20 (the largest K the tool tries) did not bring held-out normal flags under the tool's 0.5% target, so the bands ran with a K that misses the tool's own selection rule; the verdict uses the row's criterion, which does not include that target",
-   "seconds": 11.1,
-   "ran_at": "2026-11-12 21:01 UTC",
+   "seconds": 10.3,
+   "ran_at": "2026-11-12 21:55 UTC",
    "tool_files": {
     "scripts/csv_normal_bands.py": "sha256:88baa8aa94fd2900",
     "scripts/historian_adapters.py": "sha256:1020bb06a248667a",
@@ -7512,7 +7495,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:679a6d43b3e930b9252dd687221cc7877290d4af9ee580711db21bfc400ad1fd",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/metropt3/metropt3.zip",
@@ -7807,8 +7790,8 @@
     "earlier_drift_split": "held-out source for the drift method's second iteration: the split and the label mapping were fixed before any run (data/attempts.json A165) and the method was frozen on the development sources before this source was first scored, once (A171); the matrix re-runs that same frozen method (deterministic), nothing was tuned on the result"
    },
    "published": [],
-   "seconds": 8.3,
-   "ran_at": "2026-11-12 21:01 UTC",
+   "seconds": 7.5,
+   "ran_at": "2026-11-12 21:55 UTC",
    "tool_files": {
     "scripts/csv_normal_bands.py": "sha256:88baa8aa94fd2900",
     "scripts/historian_adapters.py": "sha256:1020bb06a248667a",
@@ -7818,7 +7801,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:dcb975f6e31b68d21da46a3791dca33cb7601d25ff0166a3923b6565b59cec81",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/battledim",
@@ -8236,8 +8219,8 @@
     "adapter": "scripts/historian_adapters.py"
    },
    "published": [],
-   "seconds": 16.2,
-   "ran_at": "2026-11-12 21:01 UTC",
+   "seconds": 14.7,
+   "ran_at": "2026-11-12 21:55 UTC",
    "tool_files": {
     "scripts/csv_normal_bands.py": "sha256:88baa8aa94fd2900",
     "scripts/historian_adapters.py": "sha256:1020bb06a248667a",
@@ -8247,7 +8230,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:15b0da0879209671650a13e2a91f9b263433544261633e2043d2c1801ad62a27",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/battledim-2019",
@@ -8279,8 +8262,8 @@
    "reason": "needs data: python scripts/adapt_dexpi.py fetch && python scripts/adapt_dexpi.py build (missing data/external/dexpi/sheets)",
    "detail": {},
    "published": [],
-   "seconds": 0.1,
-   "ran_at": "2026-11-12 20:54 UTC",
+   "seconds": 0.0,
+   "ran_at": "2026-11-12 21:55 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
@@ -8299,7 +8282,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:523cb4f8fb860bc230c634f68ba4802f129cb6a771fb8055c875044f289febc2",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/dataset_adapters/dexpi_examples.json",
@@ -8387,8 +8370,8 @@
    "reason": "needs data: python scripts/fetch_corpus.py dexpi-ttc-all (missing data/external/dexpi-ttc-all/extracted)",
    "detail": {},
    "published": [],
-   "seconds": 0.3,
-   "ran_at": "2026-11-12 21:01 UTC",
+   "seconds": 0.0,
+   "ran_at": "2026-11-12 21:55 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
@@ -8396,7 +8379,7 @@
     "scripts/dexpi_reader.py": "sha256:14a6f23fea2bdb57",
     "scripts/dexpi_to_twin.py": "sha256:24920399a29e7556",
     "scripts/draw_pid_from_model.py": "sha256:019f4a4903cba9e8",
-    "scripts/fetch_corpus.py": "sha256:fb9f6480a2209054",
+    "scripts/fetch_corpus.py": "sha256:ff2f6e0bfc4f0770",
     "scripts/generate.py": "sha256:6f47eed857558e2f",
     "scripts/import_site_drawing.py": "sha256:5a214b340518fa41",
     "scripts/line_layers.py": "sha256:960e0f77f2c90122",
@@ -8412,7 +8395,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:f2d189c6ff71c532a96ee9a9057178a7b680062bcec55130d46a022b7ad12b32",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/dexpi-ttc-all/extracted/TrainingTestCases-a23d61e2e089eb2ca464cd552f9ae580a2785963-a23d61e2e089eb2ca464cd552f9ae580a2785963/dexpi 1.3/example pids",
@@ -8440,7 +8423,7 @@
    "detail": {},
    "published": [],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 21:01 UTC",
+   "ran_at": "2026-11-12 21:55 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
@@ -8448,7 +8431,7 @@
     "scripts/dexpi_reader.py": "sha256:14a6f23fea2bdb57",
     "scripts/dexpi_to_twin.py": "sha256:24920399a29e7556",
     "scripts/draw_pid_from_model.py": "sha256:019f4a4903cba9e8",
-    "scripts/fetch_corpus.py": "sha256:fb9f6480a2209054",
+    "scripts/fetch_corpus.py": "sha256:ff2f6e0bfc4f0770",
     "scripts/generate.py": "sha256:6f47eed857558e2f",
     "scripts/import_site_drawing.py": "sha256:5a214b340518fa41",
     "scripts/line_layers.py": "sha256:960e0f77f2c90122",
@@ -8464,7 +8447,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:40441e33caa4bcc37d52cfcb126abbc2cede19fd5e613216eb1c671f01b99010",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/dexpi-ttc-all/extracted/TrainingTestCases-a23d61e2e089eb2ca464cd552f9ae580a2785963-a23d61e2e089eb2ca464cd552f9ae580a2785963/dexpi 1.2/example pids",
@@ -8490,7 +8473,7 @@
    "detail": {},
    "published": [],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 21:01 UTC",
+   "ran_at": "2026-11-12 21:55 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
@@ -8498,7 +8481,7 @@
     "scripts/dexpi_reader.py": "sha256:14a6f23fea2bdb57",
     "scripts/dexpi_to_twin.py": "sha256:24920399a29e7556",
     "scripts/draw_pid_from_model.py": "sha256:019f4a4903cba9e8",
-    "scripts/fetch_corpus.py": "sha256:fb9f6480a2209054",
+    "scripts/fetch_corpus.py": "sha256:ff2f6e0bfc4f0770",
     "scripts/generate.py": "sha256:6f47eed857558e2f",
     "scripts/import_site_drawing.py": "sha256:5a214b340518fa41",
     "scripts/line_layers.py": "sha256:960e0f77f2c90122",
@@ -8514,7 +8497,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:96e215bc68d7be88dd95244d34e8cfd51cdaf567a5e7dcb848ff2342eb748b87",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/dexpi-ttc-all/extracted/TrainingTestCases-a23d61e2e089eb2ca464cd552f9ae580a2785963-a23d61e2e089eb2ca464cd552f9ae580a2785963/dexpi 1.2/example pids",
@@ -8540,7 +8523,7 @@
    "detail": {},
    "published": [],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 21:01 UTC",
+   "ran_at": "2026-11-12 21:55 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
@@ -8548,7 +8531,7 @@
     "scripts/dexpi_reader.py": "sha256:14a6f23fea2bdb57",
     "scripts/dexpi_to_twin.py": "sha256:24920399a29e7556",
     "scripts/draw_pid_from_model.py": "sha256:019f4a4903cba9e8",
-    "scripts/fetch_corpus.py": "sha256:fb9f6480a2209054",
+    "scripts/fetch_corpus.py": "sha256:ff2f6e0bfc4f0770",
     "scripts/generate.py": "sha256:6f47eed857558e2f",
     "scripts/import_site_drawing.py": "sha256:5a214b340518fa41",
     "scripts/line_layers.py": "sha256:960e0f77f2c90122",
@@ -8564,7 +8547,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:2f89d783653680a0392ff128b98ea4cd9ebd9dcb478f2c488a8d053dd20edd41",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/dexpi-ttc-all/extracted/TrainingTestCases-a23d61e2e089eb2ca464cd552f9ae580a2785963-a23d61e2e089eb2ca464cd552f9ae580a2785963/dexpi 1.2/example pids",
@@ -8590,7 +8573,7 @@
    "detail": {},
    "published": [],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 21:01 UTC",
+   "ran_at": "2026-11-12 21:55 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
@@ -8598,7 +8581,7 @@
     "scripts/dexpi_reader.py": "sha256:14a6f23fea2bdb57",
     "scripts/dexpi_to_twin.py": "sha256:24920399a29e7556",
     "scripts/draw_pid_from_model.py": "sha256:019f4a4903cba9e8",
-    "scripts/fetch_corpus.py": "sha256:fb9f6480a2209054",
+    "scripts/fetch_corpus.py": "sha256:ff2f6e0bfc4f0770",
     "scripts/generate.py": "sha256:6f47eed857558e2f",
     "scripts/import_site_drawing.py": "sha256:5a214b340518fa41",
     "scripts/line_layers.py": "sha256:960e0f77f2c90122",
@@ -8614,7 +8597,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:a2ee3ba7893ea90a8252386573cb6a4e85ab21a099b330ec7001a04a9407fa29",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/dexpi-ttc-all/extracted/TrainingTestCases-a23d61e2e089eb2ca464cd552f9ae580a2785963-a23d61e2e089eb2ca464cd552f9ae580a2785963/dexpi 1.2/example pids",
@@ -8640,7 +8623,7 @@
    "detail": {},
    "published": [],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 21:01 UTC",
+   "ran_at": "2026-11-12 21:55 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
@@ -8648,7 +8631,7 @@
     "scripts/dexpi_reader.py": "sha256:14a6f23fea2bdb57",
     "scripts/dexpi_to_twin.py": "sha256:24920399a29e7556",
     "scripts/draw_pid_from_model.py": "sha256:019f4a4903cba9e8",
-    "scripts/fetch_corpus.py": "sha256:fb9f6480a2209054",
+    "scripts/fetch_corpus.py": "sha256:ff2f6e0bfc4f0770",
     "scripts/generate.py": "sha256:6f47eed857558e2f",
     "scripts/import_site_drawing.py": "sha256:5a214b340518fa41",
     "scripts/line_layers.py": "sha256:960e0f77f2c90122",
@@ -8664,7 +8647,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:0cabba8be50f9002b2b73c1ccfbe190f06e10b78f33bf63708c2b8ec5dca7a0b",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/dexpi-ttc-all/extracted/TrainingTestCases-a23d61e2e089eb2ca464cd552f9ae580a2785963-a23d61e2e089eb2ca464cd552f9ae580a2785963/dexpi 1.2/example pids",
@@ -8690,7 +8673,7 @@
    "detail": {},
    "published": [],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 21:01 UTC",
+   "ran_at": "2026-11-12 21:55 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
@@ -8698,7 +8681,7 @@
     "scripts/dexpi_reader.py": "sha256:14a6f23fea2bdb57",
     "scripts/dexpi_to_twin.py": "sha256:24920399a29e7556",
     "scripts/draw_pid_from_model.py": "sha256:019f4a4903cba9e8",
-    "scripts/fetch_corpus.py": "sha256:fb9f6480a2209054",
+    "scripts/fetch_corpus.py": "sha256:ff2f6e0bfc4f0770",
     "scripts/generate.py": "sha256:6f47eed857558e2f",
     "scripts/import_site_drawing.py": "sha256:5a214b340518fa41",
     "scripts/line_layers.py": "sha256:960e0f77f2c90122",
@@ -8714,7 +8697,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:49de0ddce4561ec479fc7fb48a0478a32637763cc812be6a987eea0185ab72ac",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/dexpi-ttc-all/extracted/TrainingTestCases-a23d61e2e089eb2ca464cd552f9ae580a2785963-a23d61e2e089eb2ca464cd552f9ae580a2785963/dexpi 1.2/example pids",
@@ -8915,8 +8898,8 @@
     }
    },
    "published": [],
-   "seconds": 7.0,
-   "ran_at": "2026-11-12 21:01 UTC",
+   "seconds": 8.0,
+   "ran_at": "2026-11-12 21:59 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
@@ -8936,7 +8919,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:75b876b098ca32ad762d54d5560ad44a70d399aa3c0a131e6765b914238040fb",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100",
@@ -9162,8 +9145,8 @@
     "blindness": "A177 held these sheets out for the frozen A191-A195 rules (A196, seen once before as a baseline); not fully blind overall: A170's crossing error class was first noticed on sheet 6, then confirmed on development DEXPI C01. A191 changes the derived truth too (388 to 386 segments), so the change from 0.898 to 0.912 is not pure tracing gain"
    },
    "published": [],
-   "seconds": 9.5,
-   "ran_at": "2026-11-12 21:02 UTC",
+   "seconds": 10.9,
+   "ran_at": "2026-11-12 21:59 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
@@ -9183,7 +9166,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:0f9f7c54ce3e3d9e0c47b287fa3e42a816ad26806b4d5fa533a33e372dfc1e3c",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/pid2graph/PID2Graph/Complete/PID2Graph OPEN100",
@@ -9232,8 +9215,8 @@
    "reason": "needs data: python scripts/adapt_dexpi.py fetch && python scripts/adapt_dexpi.py build (missing data/external/dexpi/sheets)",
    "detail": {},
    "published": [],
-   "seconds": 0.2,
-   "ran_at": "2026-11-12 20:54 UTC",
+   "seconds": 0.0,
+   "ran_at": "2026-11-12 21:59 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
@@ -9253,7 +9236,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:523cb4f8fb860bc230c634f68ba4802f129cb6a771fb8055c875044f289febc2",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/dataset_adapters/dexpi_examples.json",
@@ -9322,7 +9305,7 @@
    "detail": {},
    "published": [],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 21:02 UTC",
+   "ran_at": "2026-11-12 21:59 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
@@ -9342,7 +9325,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:f39df9224944f462995e4a369e54d459061a1eb5136395f7d0dd63fe65a15e48",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/te_pid/rev-a/manifest.json",
@@ -9367,7 +9350,7 @@
    "detail": {},
    "published": [],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 21:02 UTC",
+   "ran_at": "2026-11-12 21:59 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
@@ -9387,7 +9370,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:d27e901a323b58c22e1abbbeb896742e26fea8d0a4762a27cd80ba3d0365ff4b",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/te_pid/rev-c/manifest.json",
@@ -9504,8 +9487,8 @@
     "worst_sheet": "101"
    },
    "published": [],
-   "seconds": 5.9,
-   "ran_at": "2026-11-12 21:02 UTC",
+   "seconds": 6.6,
+   "ran_at": "2026-11-12 21:59 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
@@ -9525,7 +9508,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:10238b7408368b3969cf11d3b3245be04333eb02e994d0d7a565335675caa1f1",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/te_pid",
@@ -9629,8 +9612,8 @@
     "worst_sheet": "RT1"
    },
    "published": [],
-   "seconds": 1.8,
-   "ran_at": "2026-11-12 21:02 UTC",
+   "seconds": 2.3,
+   "ran_at": "2026-11-12 21:59 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
@@ -9650,7 +9633,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:cd5464ca3a1276896e03ab0e18ac4d6d9331c59f465f351c2c4b6260e282b20f",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/bayer_rt/pid",
@@ -9706,15 +9689,15 @@
     "held_out": "initial baseline held out (A173 mapping and scoring plan, A174 scored once). For the later pipe changes A191-A195, A177 made SPPID development data and kept Comos and AVEVA held out, seen once before as a baseline (frozen run A196); the pooled vendor result mixes those splits. A192 fixes junction matching in the scorer: SPPID 0.679 to 0.852 without a tracing change, about two thirds of its total development gain to 0.939. The row-1 tracer is unchanged on these renders by the auto scan clean-up (A189). Matrix re-runs are deterministic checks of the frozen rules"
    },
    "published": [],
-   "seconds": 0.1,
-   "ran_at": "2026-11-12 21:02 UTC",
+   "seconds": 0.0,
+   "ran_at": "2026-11-12 21:59 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
     "scripts/corpus_adapters.py": "sha256:c589799614ebb821",
     "scripts/dexpi_to_twin.py": "sha256:24920399a29e7556",
     "scripts/draw_pid_from_model.py": "sha256:019f4a4903cba9e8",
-    "scripts/fetch_corpus.py": "sha256:fb9f6480a2209054",
+    "scripts/fetch_corpus.py": "sha256:ff2f6e0bfc4f0770",
     "scripts/generate.py": "sha256:6f47eed857558e2f",
     "scripts/import_site_drawing.py": "sha256:5a214b340518fa41",
     "scripts/line_layers.py": "sha256:960e0f77f2c90122",
@@ -9729,7 +9712,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:626cf2ec5bb2eaaf3b84d6e6c1bdcf53bcaf803b09c6a193351663c030fe9fde",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/dexpi-ttc-all/extracted/TrainingTestCases-a23d61e2e089eb2ca464cd552f9ae580a2785963-a23d61e2e089eb2ca464cd552f9ae580a2785963/dexpi 1.2/example pids",
@@ -9774,7 +9757,7 @@
    "detail": {},
    "published": [],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 20:54 UTC",
+   "ran_at": "2026-11-12 21:59 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
@@ -9795,7 +9778,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:da2aeb600b86eda12be6aeadb36d181c7ed24a5cc07fae475ef87f076b2c2560",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/agent_keys/omre-1958-pid",
@@ -9834,7 +9817,7 @@
    "detail": {},
    "published": [],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 20:54 UTC",
+   "ran_at": "2026-11-12 21:59 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
@@ -9859,7 +9842,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:2618da56aa8ded60fbb9d1951ae403eb5c49032d87a023c8078d729bc396e0ee",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/agent_keys/commons-pid-sheets",
@@ -9938,7 +9921,7 @@
    "detail": {},
    "published": [],
    "seconds": 0.0,
-   "ran_at": "2026-11-12 20:54 UTC",
+   "ran_at": "2026-11-12 21:59 UTC",
    "tool_files": {
     "scripts/adapt_dexpi.py": "sha256:519025621ad2df4a",
     "scripts/build_twin.py": "sha256:8e9a5e26b9938a8a",
@@ -9959,7 +9942,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:5e51fb802fa028403c6add07427f33c05e8aed7855bd7dbdfdcff38be93ffa17",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/agent_keys/pronto-fig1",
@@ -10101,8 +10084,8 @@
     "exposure": ""
    },
    "published": [],
-   "seconds": 3.5,
-   "ran_at": "2026-11-12 21:02 UTC",
+   "seconds": 3.2,
+   "ran_at": "2026-11-12 21:56 UTC",
    "tool_files": {
     "scripts/description_workflow.py": "sha256:a04f3514a42267a2",
     "scripts/draw_pid_from_model.py": "sha256:019f4a4903cba9e8",
@@ -10119,7 +10102,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:c1008540209a4fef17be30a54c158cf883b4af420d406ecfc8e3e3808bba5118",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "benchmarks/flowsheet-topology/inputs/methanol-no-recycle.txt",
@@ -10328,8 +10311,8 @@
     "exposure": "Held-out key counts were surveyed on 2026-11-12 (its arc and unit counts, and unit-name counts over the whole notebook text); no method was run. Any sealed score on the recycle flowsheet must state this."
    },
    "published": [],
-   "seconds": 3.1,
-   "ran_at": "2026-11-12 21:02 UTC",
+   "seconds": 3.0,
+   "ran_at": "2026-11-12 21:56 UTC",
    "tool_files": {
     "scripts/description_workflow.py": "sha256:a04f3514a42267a2",
     "scripts/draw_pid_from_model.py": "sha256:019f4a4903cba9e8",
@@ -10346,7 +10329,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:f1dd45f1bbad0b0af62a628e97426d88f9754725a273ad533b0a1a1429d44e28",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "benchmarks/flowsheet-topology/inputs/methanol-recycle.txt",
@@ -10815,8 +10798,8 @@
     "held_out": "assets D-E: sealed once 2026-11-12 under the frozen method (A420); later cells re-run that frozen method deterministically. Exposure: Held-out key counts were surveyed on 2026-11-12 (work-order counts per asset for all five assets, the date range and the MajorSystem distinct count over all rows); no method was run. Any sealed score on assets D and E must state this."
    },
    "published": [],
-   "seconds": 3.1,
-   "ran_at": "2026-11-12 21:02 UTC",
+   "seconds": 2.8,
+   "ran_at": "2026-11-12 21:56 UTC",
    "tool_files": {
     "examples/maintenance-history/baseline.py": "sha256:f4838f2ee077849b",
     "examples/maintenance-history/nestor.py": "sha256:9f16827b76cdd2fd",
@@ -10849,7 +10832,7 @@
     "schema_version": "corpus-source-bindings-1",
     "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
     "registry_entry_sha256": "sha256:5789be6eafa72f2590a5ddf0805db1f00f784f2601241179cd240c039dab0c1e",
-    "runner_sha256": "sha256:a94bcf66e5a7d0843a8e051a8520253849cea5dfbeca9e0b095a130acd60edec",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
     "sources": [
      {
       "path": "data/external/nestor-excavators",
@@ -10894,6 +10877,215 @@
       "directory": false,
       "files": {
        "scripts/confidence_model.json": "sha256:7229d8b942dfd6338eb189c5493ee5365e23f69492f1fa634d29ceb6aa29fa69"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "row": 11,
+   "input": "industrial-yeast",
+   "family": "industrial-yeast",
+   "status": "pass",
+   "value": "development batch 5/5, hourly 84/84; held-out batch 4/5, hourly 82/85",
+   "reason": "",
+   "detail": {
+    "splits": {
+     "development": {
+      "batches": [
+       "B01",
+       "B02",
+       "B03",
+       "B04",
+       "B05"
+      ],
+      "matches_committed_results": true,
+      "meets_rule": true,
+      "reasons": [],
+      "batch": {
+       "matched": 5,
+       "items": 5,
+       "controls": {
+        "trapezoid": "0/5",
+        "trapezoid_zero_start": "0/5",
+        "previous_hold": "0/5",
+        "wrong_unit": "0/5",
+        "perfect": "5/5",
+        "empty": "0/5",
+        "shuffled": "2/5",
+        "recipe_constant": "3/5"
+       }
+      },
+      "hourly": {
+       "matched": 84,
+       "items": 84,
+       "controls": {
+        "trapezoid": "0/84",
+        "trapezoid_zero_start": "0/84",
+        "previous_hold": "0/84",
+        "wrong_unit": "0/84",
+        "perfect": "84/84",
+        "empty": "0/84",
+        "shuffled": "0/84",
+        "recipe_constant": "0/84"
+       }
+      }
+     },
+     "held-out": {
+      "batches": [
+       "B06",
+       "B07",
+       "B08",
+       "B09",
+       "B10"
+      ],
+      "matches_committed_results": true,
+      "meets_rule": true,
+      "reasons": [],
+      "batch": {
+       "matched": 4,
+       "items": 5,
+       "controls": {
+        "trapezoid": "0/5",
+        "trapezoid_zero_start": "0/5",
+        "previous_hold": "0/5",
+        "wrong_unit": "0/5",
+        "perfect": "5/5",
+        "empty": "0/5",
+        "shuffled": "2/5",
+        "recipe_constant": "3/5"
+       }
+      },
+      "hourly": {
+       "matched": 82,
+       "items": 85,
+       "controls": {
+        "trapezoid": "0/85",
+        "trapezoid_zero_start": "0/85",
+        "previous_hold": "1/85",
+        "wrong_unit": "0/85",
+        "perfect": "85/85",
+        "empty": "0/85",
+        "shuffled": "1/85",
+        "recipe_constant": "0/85"
+       }
+      }
+     }
+    }
+   },
+   "published": [],
+   "seconds": 2.8,
+   "ran_at": "2026-11-12 21:56 UTC",
+   "tool_files": {
+    "scripts/batch_analysis.py": "sha256:2bbe48827758d367",
+    "scripts/graph_export.py": "sha256:bd4854c679193c49",
+    "scripts/graph_review_records.py": "sha256:404cffabf1028eff",
+    "scripts/industrial_yeast_case.py": "sha256:5c54fd2d8d59442b",
+    "scripts/output_paths.py": "sha256:16ace3cf89be6baf",
+    "scripts/score_batch_totals.py": "sha256:f5f61ee569cd7aa8"
+   },
+   "input_bindings": {
+    "schema_version": "corpus-source-bindings-1",
+    "hash_method": "SHA-256; CRLF-to-LF for declared text suffixes; exact bytes for other formats",
+    "registry_entry_sha256": "sha256:fb7b89004e7416fc03d98365d233d276343fbb02ed6a4da7813bf270598bb485",
+    "runner_sha256": "sha256:5eb6507c63bfe9890aee775200f5fbeb13e792bcbdfa0583e982c9870fa3eb02",
+    "sources": [
+     {
+      "path": "data/external/industrial-yeast",
+      "patterns": [
+       "**/*"
+      ],
+      "optional": true,
+      "cache_root": "data/external/industrial-yeast",
+      "exists": true,
+      "directory": true,
+      "files": {
+       "data/external/industrial-yeast/batch_metadata.csv": "sha256:fac70b46a251f2ca27efd3898bac1b4e34504bdab7605f60c1a05735bcfd06fb",
+       "data/external/industrial-yeast/evaluation_profiles.csv": "sha256:331d9c7175390981c95fb12bea2975ae35b372bf2a85a6f902deefb3de46c757",
+       "data/external/industrial-yeast/fermentation_timeseries.csv": "sha256:084c166d4af0c4646c9eca1c3cb3b27712d934605c5ceaebae5c3764e68b5bf6",
+       "data/external/industrial-yeast/README.md": "sha256:1e432859fa1d576e1f8401304d1c2fbdacc5acd5cde418e5679831470c882e97",
+       "data/external/industrial-yeast/summary_stats.json": "sha256:1bcb76d57216f4a05baab39158ed53e1e95b665325214e67f8f39396f99d86fc"
+      }
+     },
+     {
+      "path": "examples/batch-analysis/industrial-yeast/results",
+      "patterns": [
+       "**/*"
+      ],
+      "optional": false,
+      "exists": true,
+      "directory": true,
+      "files": {
+       "examples/batch-analysis/industrial-yeast/results/development/key/key.batch.json": "sha256:bd121cadf2bf77ceeed795affb5745f3a5021d1d80b4e4f8a7415b3fc896fbcd",
+       "examples/batch-analysis/industrial-yeast/results/development/key/key.hourly.json": "sha256:233a583ff8a5a00671b1e50b8122f7f2c324a2b02f1002bc811f2d8948a0dd2f",
+       "examples/batch-analysis/industrial-yeast/results/development/plans/method.batch.plan.json": "sha256:b3ddec83362e3976a63fa96836603529bc4f2e825f8615187f73d087087ae29e",
+       "examples/batch-analysis/industrial-yeast/results/development/plans/method.hourly.plan.json": "sha256:ad09dcb67774b0d1973d484b57eddf06654587e7d13b8b926b32e7e42587e6b0",
+       "examples/batch-analysis/industrial-yeast/results/development/plans/previous_hold.batch.plan.json": "sha256:bc5b3186386a18627cb565acc17d1870dad29738beb5d768a38c5ac99a6aa25b",
+       "examples/batch-analysis/industrial-yeast/results/development/plans/previous_hold.hourly.plan.json": "sha256:a3c01b02131b711215ac837b0edf2ed09e4cebb2ba4f79bcc4cc0f52a049f043",
+       "examples/batch-analysis/industrial-yeast/results/development/plans/trapezoid.batch.plan.json": "sha256:3286df8fc7c630c6a39bb99b49f359de778aa7ab1ae2295a5ce7a20174323407",
+       "examples/batch-analysis/industrial-yeast/results/development/plans/trapezoid.hourly.plan.json": "sha256:2c96539c222478e3c347c915d67574ecdcb1b55a762a2dac5151f936d3ca1b98",
+       "examples/batch-analysis/industrial-yeast/results/development/plans/trapezoid_zero_start.batch.plan.json": "sha256:3286df8fc7c630c6a39bb99b49f359de778aa7ab1ae2295a5ce7a20174323407",
+       "examples/batch-analysis/industrial-yeast/results/development/plans/trapezoid_zero_start.hourly.plan.json": "sha256:2c96539c222478e3c347c915d67574ecdcb1b55a762a2dac5151f936d3ca1b98",
+       "examples/batch-analysis/industrial-yeast/results/development/plans/wrong_unit.batch.plan.json": "sha256:d6ce964b1fa20365752b4ff5b945f066fb3ba0c6ea1c56677c9ca4b3c21a958c",
+       "examples/batch-analysis/industrial-yeast/results/development/plans/wrong_unit.hourly.plan.json": "sha256:94b2bb115b130726c1c546fb2a588741794939dce0c39a4fb15e302ddb154508",
+       "examples/batch-analysis/industrial-yeast/results/development/RECEIPT.json": "sha256:4dbf754ef775817354d6ce009310da118192c058f92427bba950cc08fe3208c5",
+       "examples/batch-analysis/industrial-yeast/results/development/reports/method.batch/batch_analysis.json": "sha256:8440c8c985a3317e60dd75971d040df1045e9b57f3a9e5ed0dc3be4f7a749ff9",
+       "examples/batch-analysis/industrial-yeast/results/development/reports/method.batch/batch_analysis.md": "sha256:827c705c944c5d47cfc498080d57488111fa47c08cdd6a2173fcea113de5b6c9",
+       "examples/batch-analysis/industrial-yeast/results/development/reports/method.hourly/batch_analysis.json": "sha256:8a8b46b2d2a4ee60d6d4c2842e0b8b606c567d7c23fb43dac9026e33423a3b6f",
+       "examples/batch-analysis/industrial-yeast/results/development/reports/method.hourly/batch_analysis.md": "sha256:3dc3984230fc3fd56140b6712ec7a0e888f2406af1b3a55c883863b041cf5aee",
+       "examples/batch-analysis/industrial-yeast/results/development/reports/previous_hold.batch/batch_analysis.json": "sha256:608d1fcdb7e4b0c396f9da64ecc01000051a4c5cd1526cc03f40d130436cd2e7",
+       "examples/batch-analysis/industrial-yeast/results/development/reports/previous_hold.batch/batch_analysis.md": "sha256:5eb4c955238eff64f277120c814043644ff4ada9f61043306d925d29da308591",
+       "examples/batch-analysis/industrial-yeast/results/development/reports/previous_hold.hourly/batch_analysis.json": "sha256:14de654b91092a2c90a02f33974d93fcd67510eace1dee493b95f4dcf6046e16",
+       "examples/batch-analysis/industrial-yeast/results/development/reports/previous_hold.hourly/batch_analysis.md": "sha256:3aed62a97f5700b19796067062661777d3e3c110bb197a74682abdcf7f1922e2",
+       "examples/batch-analysis/industrial-yeast/results/development/reports/trapezoid.batch/batch_analysis.json": "sha256:c506ce411b9f08104533a26f78fdc2d5b4d5dce96e7e39e1bc52cae110ef4f78",
+       "examples/batch-analysis/industrial-yeast/results/development/reports/trapezoid.batch/batch_analysis.md": "sha256:441abfe3a6b819daefe3e173f4c79aed4cbf80a9ecd90eedde6db9cdc290fccd",
+       "examples/batch-analysis/industrial-yeast/results/development/reports/trapezoid.hourly/batch_analysis.json": "sha256:7cf437fc762d1ad07f55c04f63ab600ccdb58c027f66e53bdf66d1f5541a3211",
+       "examples/batch-analysis/industrial-yeast/results/development/reports/trapezoid.hourly/batch_analysis.md": "sha256:800681fa7c7ab7035fc9226c2da51cad61a583fe2303f62344058f95836c0e8e",
+       "examples/batch-analysis/industrial-yeast/results/development/reports/trapezoid_zero_start.batch/batch_analysis.json": "sha256:f4618a363857e68a15ab7fd531eee0050707f69943524ac2c07034e1a0bba7c8",
+       "examples/batch-analysis/industrial-yeast/results/development/reports/trapezoid_zero_start.batch/batch_analysis.md": "sha256:8aa80bff1611232d739fa52405405c24060ffe1356fdc301877bf5929a1f6772",
+       "examples/batch-analysis/industrial-yeast/results/development/reports/trapezoid_zero_start.hourly/batch_analysis.json": "sha256:b459ba4b78c0eebe5d27ea1f518ae26622c4f3b0a96fee6a657b47e6c8eac21a",
+       "examples/batch-analysis/industrial-yeast/results/development/reports/trapezoid_zero_start.hourly/batch_analysis.md": "sha256:49663cc04b232aa7d7bff3b58c18a07484e5a77d5a0687573c3330ba026e2ecb",
+       "examples/batch-analysis/industrial-yeast/results/development/reports/wrong_unit.batch/batch_analysis.json": "sha256:2a5440fc3f8ba150c0698549ff373edb5a67e3b3b6d13d705911c4e50ce156ea",
+       "examples/batch-analysis/industrial-yeast/results/development/reports/wrong_unit.batch/batch_analysis.md": "sha256:794f4df6219ed587a865516ef8b545fbb5efbb395117cb97189b2d61ebbc0970",
+       "examples/batch-analysis/industrial-yeast/results/development/reports/wrong_unit.hourly/batch_analysis.json": "sha256:08c9e31d527699dd707713b07bfefa0d5d4458bbd5d490262b24e41d9f3a1e24",
+       "examples/batch-analysis/industrial-yeast/results/development/reports/wrong_unit.hourly/batch_analysis.md": "sha256:0261a6df278941f54f206ec04569ca5d41046b3f0d47193a1c20ad22bd47195b",
+       "examples/batch-analysis/industrial-yeast/results/development/score.json": "sha256:72c95389538f4bd0fdd824d7edcfbff8f02c099ae43eb56952b304ecd1bc9b29",
+       "examples/batch-analysis/industrial-yeast/results/development/SCORE.md": "sha256:4743f68eb8b1cabc161854ca385937c0cafef3fd7fdfd1d4a939602c2b76eef2",
+       "examples/batch-analysis/industrial-yeast/results/held-out/key/key.batch.json": "sha256:8188857eb8d384d448c9f634294a571ca54c0cdc97a00badec83703848ca9862",
+       "examples/batch-analysis/industrial-yeast/results/held-out/key/key.hourly.json": "sha256:47670fdb63748de6c23510bda6c0ea5dfebdfad239e73ba06bb932307de15085",
+       "examples/batch-analysis/industrial-yeast/results/held-out/plans/method.batch.plan.json": "sha256:ae5d2bb1a99b74028121717fa88154ae29ea72960d6bc1b153c6c58f902e892d",
+       "examples/batch-analysis/industrial-yeast/results/held-out/plans/method.hourly.plan.json": "sha256:c2fb7ef38150378011106efbfbbca3e8844e4e92f93127b277b515be04e24871",
+       "examples/batch-analysis/industrial-yeast/results/held-out/plans/previous_hold.batch.plan.json": "sha256:df5206a76799fdfa263694f3a4efe3ab7922b26cfdd67f92a36a601f8919d4d8",
+       "examples/batch-analysis/industrial-yeast/results/held-out/plans/previous_hold.hourly.plan.json": "sha256:70058aa14e0d965eae9b19f88f4e69d7e682d2719df0aff1630b5001c61550b9",
+       "examples/batch-analysis/industrial-yeast/results/held-out/plans/trapezoid.batch.plan.json": "sha256:df8001f74160a01d7b6f35a523815afbfbe6035af15586c4c693d7152f487962",
+       "examples/batch-analysis/industrial-yeast/results/held-out/plans/trapezoid.hourly.plan.json": "sha256:3a41831e2527ee1783f13c728862727ab3471d0f46db43aa767b243be3303692",
+       "examples/batch-analysis/industrial-yeast/results/held-out/plans/trapezoid_zero_start.batch.plan.json": "sha256:df8001f74160a01d7b6f35a523815afbfbe6035af15586c4c693d7152f487962",
+       "examples/batch-analysis/industrial-yeast/results/held-out/plans/trapezoid_zero_start.hourly.plan.json": "sha256:3a41831e2527ee1783f13c728862727ab3471d0f46db43aa767b243be3303692",
+       "examples/batch-analysis/industrial-yeast/results/held-out/plans/wrong_unit.batch.plan.json": "sha256:2790274406c1c7e8fd37ca519c1407165dedf20c554df2289afafbbf74bb2ddf",
+       "examples/batch-analysis/industrial-yeast/results/held-out/plans/wrong_unit.hourly.plan.json": "sha256:1f877c5894ea38440e8186ce04fcc8ec0e8a22e79135544a277559b271d64cb4",
+       "examples/batch-analysis/industrial-yeast/results/held-out/RECEIPT.json": "sha256:8b9e911d6a323f9afd1acd88942e08fa4824071ab7bb521750b92a99d5f96f61",
+       "examples/batch-analysis/industrial-yeast/results/held-out/reports/method.batch/batch_analysis.json": "sha256:db044012e3467662251612d6f78b9cc2f02711affb925ec445f0ed0d89bc0424",
+       "examples/batch-analysis/industrial-yeast/results/held-out/reports/method.batch/batch_analysis.md": "sha256:241bfdeb51a298476cf1a9959eef94acea4901098e4041cdb3228868260af906",
+       "examples/batch-analysis/industrial-yeast/results/held-out/reports/method.hourly/batch_analysis.json": "sha256:ac7f262e270337050b6f78e596885350d29d16ef5bdb39f41ad1181b3d22a5fb",
+       "examples/batch-analysis/industrial-yeast/results/held-out/reports/method.hourly/batch_analysis.md": "sha256:d444ab826cf7944e72531eab2a2e6daff5d552d34c024f9ae5b5c19c19a35741",
+       "examples/batch-analysis/industrial-yeast/results/held-out/reports/previous_hold.batch/batch_analysis.json": "sha256:f00b06fd7712fd9e44b9c413b463cfcc3cb29d4e00d7bf9282bdfbbde1985d71",
+       "examples/batch-analysis/industrial-yeast/results/held-out/reports/previous_hold.batch/batch_analysis.md": "sha256:36752f3ab3a69a29882b138ae94d629f2759a9d39d3bfcf2f78f3ea0b90b0705",
+       "examples/batch-analysis/industrial-yeast/results/held-out/reports/previous_hold.hourly/batch_analysis.json": "sha256:4bf7f5278cfdebe2f213bb4d88e272dc18ae1234206b1a576402f6158d6df1f9",
+       "examples/batch-analysis/industrial-yeast/results/held-out/reports/previous_hold.hourly/batch_analysis.md": "sha256:b37473d88d36949e31ef9b6a54e6989121e175724310c2b3822d7a7851973f34",
+       "examples/batch-analysis/industrial-yeast/results/held-out/reports/trapezoid.batch/batch_analysis.json": "sha256:5406806af351f512dfd1fc87846297ad6d8a32b8a0bb4702d8b72d6e9789bd2c",
+       "examples/batch-analysis/industrial-yeast/results/held-out/reports/trapezoid.batch/batch_analysis.md": "sha256:952192b9d003589656a11072bd7db86a9cb269f08c91fbb5080cba76ae038dd7",
+       "examples/batch-analysis/industrial-yeast/results/held-out/reports/trapezoid.hourly/batch_analysis.json": "sha256:3715164a836da72de59803e7a738a0cf5975f3f0c039654a4ca0ae6350d42ead",
+       "examples/batch-analysis/industrial-yeast/results/held-out/reports/trapezoid.hourly/batch_analysis.md": "sha256:46162e569a614a7ce37704b03e7de9fe581750a19f22b1f3703021286f13152a",
+       "examples/batch-analysis/industrial-yeast/results/held-out/reports/trapezoid_zero_start.batch/batch_analysis.json": "sha256:a8c859da2d0597f3fe67a2084b9e1aeeadb4c6fec2bdc3d737c3c0430c08b477",
+       "examples/batch-analysis/industrial-yeast/results/held-out/reports/trapezoid_zero_start.batch/batch_analysis.md": "sha256:b54c97651f31edbda480e0a16189ee686a5ea846e7ff6f7c064b89d317f57569",
+       "examples/batch-analysis/industrial-yeast/results/held-out/reports/trapezoid_zero_start.hourly/batch_analysis.json": "sha256:2571402429f4e4ac7f9c7ca3268fc123d40acec80bbf4c34c643cfcce4755a42",
+       "examples/batch-analysis/industrial-yeast/results/held-out/reports/trapezoid_zero_start.hourly/batch_analysis.md": "sha256:c8a3dfabace35e1c25b96152e3a4f082de342aee8b2857e64d6edf7301707862",
+       "examples/batch-analysis/industrial-yeast/results/held-out/reports/wrong_unit.batch/batch_analysis.json": "sha256:8f41210023914052c8ce0b1dd5ea42f60cc9f2bdd99cebf25fd5f50efa25ad86",
+       "examples/batch-analysis/industrial-yeast/results/held-out/reports/wrong_unit.batch/batch_analysis.md": "sha256:eca707dab1d5664a10fdc7fbc9e614078b2200069e3cfb4c6ede0033895f7d5c",
+       "examples/batch-analysis/industrial-yeast/results/held-out/reports/wrong_unit.hourly/batch_analysis.json": "sha256:6d168d387dbc3405b1f4f98468b755990375ffe0d768e783dc78175daf8dd9f2",
+       "examples/batch-analysis/industrial-yeast/results/held-out/reports/wrong_unit.hourly/batch_analysis.md": "sha256:969c434906f2558fc7a368c70ff13a421cd8c3cddf23b95a6e6833875ebe856b",
+       "examples/batch-analysis/industrial-yeast/results/held-out/score.json": "sha256:d67ffea660b34b70818c86805947b95dd542378a29e73f69ceed352fd756bc7d",
+       "examples/batch-analysis/industrial-yeast/results/held-out/SCORE.md": "sha256:9415ef5736776e70598b96e688953c6aadc9100b44a408b44f0424704d588335"
       }
      }
     ]

@@ -1,0 +1,694 @@
+{
+ "schema": "batch-analysis-2",
+ "context": {
+  "site_id": "industrial baker's-yeast plant (publisher does not name it)",
+  "asset_id": "fed-batch fermenter, about 150 m3 geometric (publisher README)",
+  "model_revision": "not supplied",
+  "recipe_id": "not supplied (strain 167, publisher README)",
+  "recipe_revision": "not supplied"
+ },
+ "max_gap_s": 3600,
+ "signals": {
+  "sugar_feed_rate_kg_rs_h": {
+   "unit": "kg/s",
+   "asset_id": "sugar feed (publisher log)",
+   "source_ref": "figshare 10.6084/m9.figshare.33201579 fermentation_timeseries.csv sugar_feed_rate_kg_rs_h; logged hourly by operators, kg RS/h",
+   "interpolation": "next",
+   "quality": null
+  }
+ },
+ "windows": [
+  {
+   "id": "B01-h01",
+   "batch_id": "B01",
+   "phase": "logged hour 1",
+   "start_s": 0,
+   "end_s": 3600,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B01-h02",
+   "batch_id": "B01",
+   "phase": "logged hour 2",
+   "start_s": 3600,
+   "end_s": 7200,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B01-h03",
+   "batch_id": "B01",
+   "phase": "logged hour 3",
+   "start_s": 7200,
+   "end_s": 10800,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B01-h04",
+   "batch_id": "B01",
+   "phase": "logged hour 4",
+   "start_s": 10800,
+   "end_s": 14400,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B01-h05",
+   "batch_id": "B01",
+   "phase": "logged hour 5",
+   "start_s": 14400,
+   "end_s": 18000,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B01-h06",
+   "batch_id": "B01",
+   "phase": "logged hour 6",
+   "start_s": 18000,
+   "end_s": 21600,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B01-h07",
+   "batch_id": "B01",
+   "phase": "logged hour 7",
+   "start_s": 21600,
+   "end_s": 25200,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B01-h08",
+   "batch_id": "B01",
+   "phase": "logged hour 8",
+   "start_s": 25200,
+   "end_s": 28800,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B01-h09",
+   "batch_id": "B01",
+   "phase": "logged hour 9",
+   "start_s": 28800,
+   "end_s": 32400,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B01-h10",
+   "batch_id": "B01",
+   "phase": "logged hour 10",
+   "start_s": 32400,
+   "end_s": 36000,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B01-h11",
+   "batch_id": "B01",
+   "phase": "logged hour 11",
+   "start_s": 36000,
+   "end_s": 39600,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B01-h12",
+   "batch_id": "B01",
+   "phase": "logged hour 12",
+   "start_s": 39600,
+   "end_s": 43200,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B01-h13",
+   "batch_id": "B01",
+   "phase": "logged hour 13",
+   "start_s": 43200,
+   "end_s": 46800,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B01-h14",
+   "batch_id": "B01",
+   "phase": "logged hour 14",
+   "start_s": 46800,
+   "end_s": 50400,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B01-h15",
+   "batch_id": "B01",
+   "phase": "logged hour 15",
+   "start_s": 50400,
+   "end_s": 54000,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B01-h16",
+   "batch_id": "B01",
+   "phase": "logged hour 16",
+   "start_s": 54000,
+   "end_s": 57600,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B01-h17",
+   "batch_id": "B01",
+   "phase": "logged hour 17",
+   "start_s": 57600,
+   "end_s": 61200,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B02-h01",
+   "batch_id": "B02",
+   "phase": "logged hour 1",
+   "start_s": 0,
+   "end_s": 3600,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B02-h02",
+   "batch_id": "B02",
+   "phase": "logged hour 2",
+   "start_s": 3600,
+   "end_s": 7200,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B02-h03",
+   "batch_id": "B02",
+   "phase": "logged hour 3",
+   "start_s": 7200,
+   "end_s": 10800,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B02-h04",
+   "batch_id": "B02",
+   "phase": "logged hour 4",
+   "start_s": 10800,
+   "end_s": 14400,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B02-h05",
+   "batch_id": "B02",
+   "phase": "logged hour 5",
+   "start_s": 14400,
+   "end_s": 18000,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B02-h06",
+   "batch_id": "B02",
+   "phase": "logged hour 6",
+   "start_s": 18000,
+   "end_s": 21600,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B02-h07",
+   "batch_id": "B02",
+   "phase": "logged hour 7",
+   "start_s": 21600,
+   "end_s": 25200,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B02-h08",
+   "batch_id": "B02",
+   "phase": "logged hour 8",
+   "start_s": 25200,
+   "end_s": 28800,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B02-h09",
+   "batch_id": "B02",
+   "phase": "logged hour 9",
+   "start_s": 28800,
+   "end_s": 32400,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B02-h10",
+   "batch_id": "B02",
+   "phase": "logged hour 10",
+   "start_s": 32400,
+   "end_s": 36000,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B02-h11",
+   "batch_id": "B02",
+   "phase": "logged hour 11",
+   "start_s": 36000,
+   "end_s": 39600,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B02-h12",
+   "batch_id": "B02",
+   "phase": "logged hour 12",
+   "start_s": 39600,
+   "end_s": 43200,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B02-h13",
+   "batch_id": "B02",
+   "phase": "logged hour 13",
+   "start_s": 43200,
+   "end_s": 46800,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B02-h14",
+   "batch_id": "B02",
+   "phase": "logged hour 14",
+   "start_s": 46800,
+   "end_s": 50400,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B02-h15",
+   "batch_id": "B02",
+   "phase": "logged hour 15",
+   "start_s": 50400,
+   "end_s": 54000,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B02-h16",
+   "batch_id": "B02",
+   "phase": "logged hour 16",
+   "start_s": 54000,
+   "end_s": 57600,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B03-h01",
+   "batch_id": "B03",
+   "phase": "logged hour 1",
+   "start_s": 0,
+   "end_s": 3600,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B03-h02",
+   "batch_id": "B03",
+   "phase": "logged hour 2",
+   "start_s": 3600,
+   "end_s": 7200,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B03-h03",
+   "batch_id": "B03",
+   "phase": "logged hour 3",
+   "start_s": 7200,
+   "end_s": 10800,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B03-h04",
+   "batch_id": "B03",
+   "phase": "logged hour 4",
+   "start_s": 10800,
+   "end_s": 14400,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B03-h05",
+   "batch_id": "B03",
+   "phase": "logged hour 5",
+   "start_s": 14400,
+   "end_s": 18000,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B03-h06",
+   "batch_id": "B03",
+   "phase": "logged hour 6",
+   "start_s": 18000,
+   "end_s": 21600,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B03-h07",
+   "batch_id": "B03",
+   "phase": "logged hour 7",
+   "start_s": 21600,
+   "end_s": 25200,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B03-h08",
+   "batch_id": "B03",
+   "phase": "logged hour 8",
+   "start_s": 25200,
+   "end_s": 28800,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B03-h09",
+   "batch_id": "B03",
+   "phase": "logged hour 9",
+   "start_s": 28800,
+   "end_s": 32400,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B03-h10",
+   "batch_id": "B03",
+   "phase": "logged hour 10",
+   "start_s": 32400,
+   "end_s": 36000,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B03-h11",
+   "batch_id": "B03",
+   "phase": "logged hour 11",
+   "start_s": 36000,
+   "end_s": 39600,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B03-h12",
+   "batch_id": "B03",
+   "phase": "logged hour 12",
+   "start_s": 39600,
+   "end_s": 43200,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B03-h13",
+   "batch_id": "B03",
+   "phase": "logged hour 13",
+   "start_s": 43200,
+   "end_s": 46800,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B03-h14",
+   "batch_id": "B03",
+   "phase": "logged hour 14",
+   "start_s": 46800,
+   "end_s": 50400,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B03-h15",
+   "batch_id": "B03",
+   "phase": "logged hour 15",
+   "start_s": 50400,
+   "end_s": 54000,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B03-h16",
+   "batch_id": "B03",
+   "phase": "logged hour 16",
+   "start_s": 54000,
+   "end_s": 57600,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B03-h17",
+   "batch_id": "B03",
+   "phase": "logged hour 17",
+   "start_s": 57600,
+   "end_s": 61200,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B04-h01",
+   "batch_id": "B04",
+   "phase": "logged hour 1",
+   "start_s": 0,
+   "end_s": 3600,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B04-h02",
+   "batch_id": "B04",
+   "phase": "logged hour 2",
+   "start_s": 3600,
+   "end_s": 7200,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B04-h03",
+   "batch_id": "B04",
+   "phase": "logged hour 3",
+   "start_s": 7200,
+   "end_s": 10800,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B04-h04",
+   "batch_id": "B04",
+   "phase": "logged hour 4",
+   "start_s": 10800,
+   "end_s": 14400,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B04-h05",
+   "batch_id": "B04",
+   "phase": "logged hour 5",
+   "start_s": 14400,
+   "end_s": 18000,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B04-h06",
+   "batch_id": "B04",
+   "phase": "logged hour 6",
+   "start_s": 18000,
+   "end_s": 21600,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B04-h07",
+   "batch_id": "B04",
+   "phase": "logged hour 7",
+   "start_s": 21600,
+   "end_s": 25200,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B04-h08",
+   "batch_id": "B04",
+   "phase": "logged hour 8",
+   "start_s": 25200,
+   "end_s": 28800,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B04-h09",
+   "batch_id": "B04",
+   "phase": "logged hour 9",
+   "start_s": 28800,
+   "end_s": 32400,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B04-h10",
+   "batch_id": "B04",
+   "phase": "logged hour 10",
+   "start_s": 32400,
+   "end_s": 36000,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B04-h11",
+   "batch_id": "B04",
+   "phase": "logged hour 11",
+   "start_s": 36000,
+   "end_s": 39600,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B04-h12",
+   "batch_id": "B04",
+   "phase": "logged hour 12",
+   "start_s": 39600,
+   "end_s": 43200,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B04-h13",
+   "batch_id": "B04",
+   "phase": "logged hour 13",
+   "start_s": 43200,
+   "end_s": 46800,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B04-h14",
+   "batch_id": "B04",
+   "phase": "logged hour 14",
+   "start_s": 46800,
+   "end_s": 50400,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B04-h15",
+   "batch_id": "B04",
+   "phase": "logged hour 15",
+   "start_s": 50400,
+   "end_s": 54000,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B04-h16",
+   "batch_id": "B04",
+   "phase": "logged hour 16",
+   "start_s": 54000,
+   "end_s": 57600,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B04-h17",
+   "batch_id": "B04",
+   "phase": "logged hour 17",
+   "start_s": 57600,
+   "end_s": 61200,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B05-h01",
+   "batch_id": "B05",
+   "phase": "logged hour 1",
+   "start_s": 0,
+   "end_s": 3600,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B05-h02",
+   "batch_id": "B05",
+   "phase": "logged hour 2",
+   "start_s": 3600,
+   "end_s": 7200,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B05-h03",
+   "batch_id": "B05",
+   "phase": "logged hour 3",
+   "start_s": 7200,
+   "end_s": 10800,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B05-h04",
+   "batch_id": "B05",
+   "phase": "logged hour 4",
+   "start_s": 10800,
+   "end_s": 14400,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B05-h05",
+   "batch_id": "B05",
+   "phase": "logged hour 5",
+   "start_s": 14400,
+   "end_s": 18000,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B05-h06",
+   "batch_id": "B05",
+   "phase": "logged hour 6",
+   "start_s": 18000,
+   "end_s": 21600,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B05-h07",
+   "batch_id": "B05",
+   "phase": "logged hour 7",
+   "start_s": 21600,
+   "end_s": 25200,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B05-h08",
+   "batch_id": "B05",
+   "phase": "logged hour 8",
+   "start_s": 25200,
+   "end_s": 28800,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B05-h09",
+   "batch_id": "B05",
+   "phase": "logged hour 9",
+   "start_s": 28800,
+   "end_s": 32400,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B05-h10",
+   "batch_id": "B05",
+   "phase": "logged hour 10",
+   "start_s": 32400,
+   "end_s": 36000,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B05-h11",
+   "batch_id": "B05",
+   "phase": "logged hour 11",
+   "start_s": 36000,
+   "end_s": 39600,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B05-h12",
+   "batch_id": "B05",
+   "phase": "logged hour 12",
+   "start_s": 39600,
+   "end_s": 43200,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B05-h13",
+   "batch_id": "B05",
+   "phase": "logged hour 13",
+   "start_s": 43200,
+   "end_s": 46800,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B05-h14",
+   "batch_id": "B05",
+   "phase": "logged hour 14",
+   "start_s": 46800,
+   "end_s": 50400,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B05-h15",
+   "batch_id": "B05",
+   "phase": "logged hour 15",
+   "start_s": 50400,
+   "end_s": 54000,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B05-h16",
+   "batch_id": "B05",
+   "phase": "logged hour 16",
+   "start_s": 54000,
+   "end_s": 57600,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B05-h17",
+   "batch_id": "B05",
+   "phase": "logged hour 17",
+   "start_s": 57600,
+   "end_s": 61200,
+   "source_ref": "publisher hourly log rows (time_h)"
+  }
+ ]
+}

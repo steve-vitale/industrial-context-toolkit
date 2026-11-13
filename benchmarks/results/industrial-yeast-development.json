@@ -1,0 +1,4093 @@
+{
+  "case_total": 2,
+  "code_sha256": {
+    "benchmark.py": "553f94cfbbb4d81475464131a069a318e24d5fb1e2ed18ffb753f59fa1b176fe",
+    "score_batch_totals.py": "f5f61ee569cd7aa886947b900a1d8eb5ea3812c42891a1e64c4452ff678b237a"
+  },
+  "controls": {
+    "yeast-development-batch": {
+      "empty": {
+        "answered": 0,
+        "items": 5,
+        "match_rate": 0.0,
+        "matched": 0
+      },
+      "perfect": {
+        "answered": 5,
+        "items": 5,
+        "match_rate": 1.0,
+        "matched": 5
+      },
+      "recipe_constant": {
+        "answered": 5,
+        "items": 5,
+        "match_rate": 0.6,
+        "matched": 3
+      },
+      "shuffled": {
+        "answered": 5,
+        "items": 5,
+        "match_rate": 0.4,
+        "matched": 2
+      }
+    },
+    "yeast-development-hourly": {
+      "empty": {
+        "answered": 0,
+        "items": 84,
+        "match_rate": 0.0,
+        "matched": 0
+      },
+      "perfect": {
+        "answered": 84,
+        "items": 84,
+        "match_rate": 1.0,
+        "matched": 84
+      },
+      "recipe_constant": {
+        "answered": 84,
+        "items": 84,
+        "match_rate": 0.0,
+        "matched": 0
+      },
+      "shuffled": {
+        "answered": 83,
+        "items": 84,
+        "match_rate": 0.0,
+        "matched": 0
+      }
+    }
+  },
+  "hash_method": "SHA256; CRLF normalized to LF for declared text extensions, raw binary otherwise",
+  "limits": [
+    "Compare only the same cohort and scoring contract; model identity is contributor-declared, not provider-attested.",
+    "Each replicate pools counts over its cases; summary reports mean/range/stdev over replicates, not a significance test or winner.",
+    "Missing/failed attempted answers score empty; unattempted cases remain visible and create different comparison cohorts.",
+    "Public keys and retrospective registration do not establish blindness. Synthetic controls and corrected/development results are separate.",
+    "Batch totals compare the tool report with a publisher-logged running cumulative that is the sum of the same logged feeds: the score checks integration semantics, units, coverage and window handling, not measurement accuracy, transcription or plant truth."
+  ],
+  "registration": "Industrial-yeast depth task (docs/DEPTH_GOAL.md, attempt A418): development batches B01-B05; held-out batches not yet run. Deterministic tool runs; the key is the sum of the same logged feeds, so this checks integration semantics, units, coverage and windows, not measurement accuracy.",
+  "results": [
+    {
+      "case_count": 1,
+      "cohort": "d662a472f40b597006ee2721f4cf0bdbf23ae1fead3cd1fcb361fea46223ed2f",
+      "configuration": {
+        "interpolation": "next",
+        "max_gap_s": 3600,
+        "quality": null,
+        "unit": "kg/h"
+      },
+      "counts": {
+        "hourly_feed_totals": {
+          "predicted": 84,
+          "tp": 84,
+          "truth": 84
+        }
+      },
+      "evidence": "Publisher-logged running cumulative (total_fermentable_sugar_kg), withheld from the tool; hourly windows; development batches B01-B05",
+      "family": "industrial-yeast",
+      "interface": "scripts/batch_analysis.py CLI via scripts/industrial_yeast_case.py",
+      "method": "batch_analysis.py V2 interval-ending hold (next), kg/h",
+      "metrics": {
+        "hourly_feed_totals": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      },
+      "model": {
+        "id": "deterministic-tool",
+        "provider": "none",
+        "version": "scripts/batch_analysis.py as committed with A418"
+      },
+      "not_attempted": [],
+      "provenance": "Deterministic product-tool run, no AI model. The report bytes are the tool's own output; RECEIPT.json in each results folder records the command, source pins and code hashes.",
+      "ran_at": "2026-11-12",
+      "recipe": [
+        {
+          "path": "scripts/industrial_yeast_case.py",
+          "sha256": "5c54fd2d8d59442b58c19db9c058c3ce44dd1360d4e5af03bfde8991d3cb428f"
+        },
+        {
+          "path": "examples/batch-analysis/industrial-yeast/results/development/plans/method.batch.plan.json",
+          "sha256": "b3ddec83362e3976a63fa96836603529bc4f2e825f8615187f73d087087ae29e"
+        },
+        {
+          "path": "examples/batch-analysis/industrial-yeast/results/development/plans/method.hourly.plan.json",
+          "sha256": "ad09dcb67774b0d1973d484b57eddf06654587e7d13b8b926b32e7e42587e6b0"
+        }
+      ],
+      "rows": [
+        {
+          "case": "yeast-development-hourly",
+          "counts": {
+            "hourly_feed_totals": {
+              "predicted": 84,
+              "tp": 84,
+              "truth": 84
+            }
+          },
+          "diagnostics": {
+            "mean_abs_error_kg": 0.0,
+            "mismatched_or_unanswered": []
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "examples/batch-analysis/industrial-yeast/results/development/reports/method.hourly/batch_analysis.json",
+            "sha256": "0352c38fd8969f2bba67f375216b690a027fec8055202cd360c8b5bf4195d04d"
+          },
+          "recorded_run_at": null,
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": null,
+            "seconds": null
+          },
+          "status": "ok"
+        }
+      ],
+      "run": "yeast-development-method",
+      "split": "development"
+    },
+    {
+      "case_count": 1,
+      "cohort": "457a005e63643b4bd9426aaefe8eb49c7142b2a5bf0094833b3f622f064d3776",
+      "configuration": {
+        "interpolation": "next",
+        "max_gap_s": 3600,
+        "quality": null,
+        "unit": "kg/h"
+      },
+      "counts": {
+        "batch_feed_totals": {
+          "predicted": 5,
+          "tp": 5,
+          "truth": 5
+        }
+      },
+      "evidence": "Publisher-logged running cumulative (total_fermentable_sugar_kg), withheld from the tool; whole-batch windows; development batches B01-B05",
+      "family": "industrial-yeast",
+      "interface": "scripts/batch_analysis.py CLI via scripts/industrial_yeast_case.py",
+      "method": "batch_analysis.py V2 interval-ending hold (next), kg/h",
+      "metrics": {
+        "batch_feed_totals": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      },
+      "model": {
+        "id": "deterministic-tool",
+        "provider": "none",
+        "version": "scripts/batch_analysis.py as committed with A418"
+      },
+      "not_attempted": [],
+      "provenance": "Deterministic product-tool run, no AI model. The report bytes are the tool's own output; RECEIPT.json in each results folder records the command, source pins and code hashes.",
+      "ran_at": "2026-11-12",
+      "recipe": [
+        {
+          "path": "scripts/industrial_yeast_case.py",
+          "sha256": "5c54fd2d8d59442b58c19db9c058c3ce44dd1360d4e5af03bfde8991d3cb428f"
+        },
+        {
+          "path": "examples/batch-analysis/industrial-yeast/results/development/plans/method.batch.plan.json",
+          "sha256": "b3ddec83362e3976a63fa96836603529bc4f2e825f8615187f73d087087ae29e"
+        },
+        {
+          "path": "examples/batch-analysis/industrial-yeast/results/development/plans/method.hourly.plan.json",
+          "sha256": "ad09dcb67774b0d1973d484b57eddf06654587e7d13b8b926b32e7e42587e6b0"
+        }
+      ],
+      "rows": [
+        {
+          "case": "yeast-development-batch",
+          "counts": {
+            "batch_feed_totals": {
+              "predicted": 5,
+              "tp": 5,
+              "truth": 5
+            }
+          },
+          "diagnostics": {
+            "mean_abs_error_kg": 0.0,
+            "mismatched_or_unanswered": []
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "examples/batch-analysis/industrial-yeast/results/development/reports/method.batch/batch_analysis.json",
+            "sha256": "b98ffee43bc831627f02dab06de6f59c7ec0593c61886e6ca21210670f3595dd"
+          },
+          "recorded_run_at": null,
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": null,
+            "seconds": null
+          },
+          "status": "ok"
+        }
+      ],
+      "run": "yeast-development-method",
+      "split": "development"
+    },
+    {
+      "case_count": 1,
+      "cohort": "d662a472f40b597006ee2721f4cf0bdbf23ae1fead3cd1fcb361fea46223ed2f",
+      "configuration": {
+        "interpolation": "linear",
+        "max_gap_s": 3600,
+        "quality": null,
+        "unit": "kg/h"
+      },
+      "counts": {
+        "hourly_feed_totals": {
+          "predicted": 79,
+          "tp": 0,
+          "truth": 84
+        }
+      },
+      "evidence": "Publisher-logged running cumulative (total_fermentable_sugar_kg), withheld from the tool; hourly windows; development batches B01-B05",
+      "family": "industrial-yeast",
+      "interface": "scripts/batch_analysis.py CLI via scripts/industrial_yeast_case.py",
+      "method": "control: batch_analysis.py linear (trapezoid)",
+      "metrics": {
+        "hourly_feed_totals": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        }
+      },
+      "model": {
+        "id": "deterministic-tool",
+        "provider": "none",
+        "version": "scripts/batch_analysis.py as committed with A418"
+      },
+      "not_attempted": [],
+      "provenance": "Deterministic product-tool run, no AI model. The report bytes are the tool's own output; RECEIPT.json in each results folder records the command, source pins and code hashes.",
+      "ran_at": "2026-11-12",
+      "recipe": [
+        {
+          "path": "scripts/industrial_yeast_case.py",
+          "sha256": "5c54fd2d8d59442b58c19db9c058c3ce44dd1360d4e5af03bfde8991d3cb428f"
+        },
+        {
+          "path": "examples/batch-analysis/industrial-yeast/results/development/plans/trapezoid.batch.plan.json",
+          "sha256": "3286df8fc7c630c6a39bb99b49f359de778aa7ab1ae2295a5ce7a20174323407"
+        },
+        {
+          "path": "examples/batch-analysis/industrial-yeast/results/development/plans/trapezoid.hourly.plan.json",
+          "sha256": "2c96539c222478e3c347c915d67574ecdcb1b55a762a2dac5151f936d3ca1b98"
+        }
+      ],
+      "rows": [
+        {
+          "case": "yeast-development-hourly",
+          "counts": {
+            "hourly_feed_totals": {
+              "predicted": 79,
+              "tp": 0,
+              "truth": 84
+            }
+          },
+          "diagnostics": {
+            "mean_abs_error_kg": 109.23417721518987,
+            "mismatched_or_unanswered": [
+              {
+                "answer_kg": null,
+                "batch_id": "B01",
+                "error_kg": null,
+                "id": "B01-h01",
+                "key_kg": 389,
+                "matched": false
+              },
+              {
+                "answer_kg": 474.5,
+                "batch_id": "B01",
+                "error_kg": -85.5,
+                "id": "B01-h02",
+                "key_kg": 560,
+                "matched": false
+              },
+              {
+                "answer_kg": 638.5,
+                "batch_id": "B01",
+                "error_kg": -78.5,
+                "id": "B01-h03",
+                "key_kg": 717,
+                "matched": false
+              },
+              {
+                "answer_kg": 828.0,
+                "batch_id": "B01",
+                "error_kg": -111.0,
+                "id": "B01-h04",
+                "key_kg": 939,
+                "matched": false
+              },
+              {
+                "answer_kg": 1073.5,
+                "batch_id": "B01",
+                "error_kg": -134.5,
+                "id": "B01-h05",
+                "key_kg": 1208,
+                "matched": false
+              },
+              {
+                "answer_kg": 1205.0,
+                "batch_id": "B01",
+                "error_kg": 3.0,
+                "id": "B01-h06",
+                "key_kg": 1202,
+                "matched": false
+              },
+              {
+                "answer_kg": 1225.0,
+                "batch_id": "B01",
+                "error_kg": -23.0,
+                "id": "B01-h07",
+                "key_kg": 1248,
+                "matched": false
+              },
+              {
+                "answer_kg": 1383.0,
+                "batch_id": "B01",
+                "error_kg": -135.0,
+                "id": "B01-h08",
+                "key_kg": 1518,
+                "matched": false
+              },
+              {
+                "answer_kg": 1618.5,
+                "batch_id": "B01",
+                "error_kg": -100.5,
+                "id": "B01-h09",
+                "key_kg": 1719,
+                "matched": false
+              },
+              {
+                "answer_kg": 1758.5,
+                "batch_id": "B01",
+                "error_kg": -39.5,
+                "id": "B01-h10",
+                "key_kg": 1798,
+                "matched": false
+              },
+              {
+                "answer_kg": 1796.0,
+                "batch_id": "B01",
+                "error_kg": 2.0,
+                "id": "B01-h11",
+                "key_kg": 1794,
+                "matched": false
+              },
+              {
+                "answer_kg": 1862.0,
+                "batch_id": "B01",
+                "error_kg": -68.0,
+                "id": "B01-h12",
+                "key_kg": 1930,
+                "matched": false
+              },
+              {
+                "answer_kg": 1868.0,
+                "batch_id": "B01",
+                "error_kg": 62.0,
+                "id": "B01-h13",
+                "key_kg": 1806,
+                "matched": false
+              },
+              {
+                "answer_kg": 1845.5,
+                "batch_id": "B01",
+                "error_kg": -39.5,
+                "id": "B01-h14",
+                "key_kg": 1885,
+                "matched": false
+              },
+              {
+                "answer_kg": 1886.5,
+                "batch_id": "B01",
+                "error_kg": -1.5,
+                "id": "B01-h15",
+                "key_kg": 1888,
+                "matched": false
+              },
+              {
+                "answer_kg": 1721.0,
+                "batch_id": "B01",
+                "error_kg": 167.0,
+                "id": "B01-h16",
+                "key_kg": 1554,
+                "matched": false
+              },
+              {
+                "answer_kg": 1049.5,
+                "batch_id": "B01",
+                "error_kg": 504.5,
+                "id": "B01-h17",
+                "key_kg": 545,
+                "matched": false
+              },
+              {
+                "answer_kg": null,
+                "batch_id": "B02",
+                "error_kg": null,
+                "id": "B02-h01",
+                "key_kg": 528,
+                "matched": false
+              },
+              {
+                "answer_kg": 592.5,
+                "batch_id": "B02",
+                "error_kg": -64.5,
+                "id": "B02-h02",
+                "key_kg": 657,
+                "matched": false
+              },
+              {
+                "answer_kg": 712.0,
+                "batch_id": "B02",
+                "error_kg": -55.0,
+                "id": "B02-h03",
+                "key_kg": 767,
+                "matched": false
+              },
+              {
+                "answer_kg": 831.0,
+                "batch_id": "B02",
+                "error_kg": -64.0,
+                "id": "B02-h04",
+                "key_kg": 895,
+                "matched": false
+              },
+              {
+                "answer_kg": 1004.5,
+                "batch_id": "B02",
+                "error_kg": -109.5,
+                "id": "B02-h05",
+                "key_kg": 1114,
+                "matched": false
+              },
+              {
+                "answer_kg": 1215.0,
+                "batch_id": "B02",
+                "error_kg": -101.0,
+                "id": "B02-h06",
+                "key_kg": 1316,
+                "matched": false
+              },
+              {
+                "answer_kg": 1422.5,
+                "batch_id": "B02",
+                "error_kg": -106.5,
+                "id": "B02-h07",
+                "key_kg": 1529,
+                "matched": false
+              },
+              {
+                "answer_kg": 1538.5,
+                "batch_id": "B02",
+                "error_kg": -9.5,
+                "id": "B02-h08",
+                "key_kg": 1548,
+                "matched": false
+              },
+              {
+                "answer_kg": 1628.5,
+                "batch_id": "B02",
+                "error_kg": -80.5,
+                "id": "B02-h09",
+                "key_kg": 1709,
+                "matched": false
+              },
+              {
+                "answer_kg": 1770.5,
+                "batch_id": "B02",
+                "error_kg": -61.5,
+                "id": "B02-h10",
+                "key_kg": 1832,
+                "matched": false
+              },
+              {
+                "answer_kg": 1868.0,
+                "batch_id": "B02",
+                "error_kg": -36.0,
+                "id": "B02-h11",
+                "key_kg": 1904,
+                "matched": false
+              },
+              {
+                "answer_kg": 2004.5,
+                "batch_id": "B02",
+                "error_kg": -100.5,
+                "id": "B02-h12",
+                "key_kg": 2105,
+                "matched": false
+              },
+              {
+                "answer_kg": 2031.0,
+                "batch_id": "B02",
+                "error_kg": 74.0,
+                "id": "B02-h13",
+                "key_kg": 1957,
+                "matched": false
+              },
+              {
+                "answer_kg": 1958.5,
+                "batch_id": "B02",
+                "error_kg": -1.5,
+                "id": "B02-h14",
+                "key_kg": 1960,
+                "matched": false
+              },
+              {
+                "answer_kg": 2077.0,
+                "batch_id": "B02",
+                "error_kg": -117.0,
+                "id": "B02-h15",
+                "key_kg": 2194,
+                "matched": false
+              },
+              {
+                "answer_kg": 1439.5,
+                "batch_id": "B02",
+                "error_kg": 754.5,
+                "id": "B02-h16",
+                "key_kg": 685,
+                "matched": false
+              },
+              {
+                "answer_kg": null,
+                "batch_id": "B03",
+                "error_kg": null,
+                "id": "B03-h01",
+                "key_kg": 527,
+                "matched": false
+              },
+              {
+                "answer_kg": 571.5,
+                "batch_id": "B03",
+                "error_kg": -44.5,
+                "id": "B03-h02",
+                "key_kg": 616,
+                "matched": false
+              },
+              {
+                "answer_kg": 649.0,
+                "batch_id": "B03",
+                "error_kg": -33.0,
+                "id": "B03-h03",
+                "key_kg": 682,
+                "matched": false
+              },
+              {
+                "answer_kg": 852.0,
+                "batch_id": "B03",
+                "error_kg": -170.0,
+                "id": "B03-h04",
+                "key_kg": 1022,
+                "matched": false
+              },
+              {
+                "answer_kg": 1042.5,
+                "batch_id": "B03",
+                "error_kg": -20.5,
+                "id": "B03-h05",
+                "key_kg": 1063,
+                "matched": false
+              },
+              {
+                "answer_kg": 1146.0,
+                "batch_id": "B03",
+                "error_kg": -83.0,
+                "id": "B03-h06",
+                "key_kg": 1229,
+                "matched": false
+              },
+              {
+                "answer_kg": 1316.5,
+                "batch_id": "B03",
+                "error_kg": -87.5,
+                "id": "B03-h07",
+                "key_kg": 1404,
+                "matched": false
+              },
+              {
+                "answer_kg": 1505.5,
+                "batch_id": "B03",
+                "error_kg": -101.5,
+                "id": "B03-h08",
+                "key_kg": 1607,
+                "matched": false
+              },
+              {
+                "answer_kg": 1599.0,
+                "batch_id": "B03",
+                "error_kg": 8.0,
+                "id": "B03-h09",
+                "key_kg": 1591,
+                "matched": false
+              },
+              {
+                "answer_kg": 1691.5,
+                "batch_id": "B03",
+                "error_kg": -100.5,
+                "id": "B03-h10",
+                "key_kg": 1792,
+                "matched": false
+              },
+              {
+                "answer_kg": 1879.5,
+                "batch_id": "B03",
+                "error_kg": -87.5,
+                "id": "B03-h11",
+                "key_kg": 1967,
+                "matched": false
+              },
+              {
+                "answer_kg": 1884.0,
+                "batch_id": "B03",
+                "error_kg": 83.0,
+                "id": "B03-h12",
+                "key_kg": 1801,
+                "matched": false
+              },
+              {
+                "answer_kg": 1867.0,
+                "batch_id": "B03",
+                "error_kg": -66.0,
+                "id": "B03-h13",
+                "key_kg": 1933,
+                "matched": false
+              },
+              {
+                "answer_kg": 1822.5,
+                "batch_id": "B03",
+                "error_kg": 110.5,
+                "id": "B03-h14",
+                "key_kg": 1712,
+                "matched": false
+              },
+              {
+                "answer_kg": 1740.5,
+                "batch_id": "B03",
+                "error_kg": -28.5,
+                "id": "B03-h15",
+                "key_kg": 1769,
+                "matched": false
+              },
+              {
+                "answer_kg": 1610.5,
+                "batch_id": "B03",
+                "error_kg": 158.5,
+                "id": "B03-h16",
+                "key_kg": 1452,
+                "matched": false
+              },
+              {
+                "answer_kg": 992.5,
+                "batch_id": "B03",
+                "error_kg": 459.5,
+                "id": "B03-h17",
+                "key_kg": 533,
+                "matched": false
+              },
+              {
+                "answer_kg": null,
+                "batch_id": "B04",
+                "error_kg": null,
+                "id": "B04-h01",
+                "key_kg": 692,
+                "matched": false
+              },
+              {
+                "answer_kg": 680.5,
+                "batch_id": "B04",
+                "error_kg": 11.5,
+                "id": "B04-h02",
+                "key_kg": 669,
+                "matched": false
+              },
+              {
+                "answer_kg": 719.5,
+                "batch_id": "B04",
+                "error_kg": -50.5,
+                "id": "B04-h03",
+                "key_kg": 770,
+                "matched": false
+              },
+              {
+                "answer_kg": 944.0,
+                "batch_id": "B04",
+                "error_kg": -174.0,
+                "id": "B04-h04",
+                "key_kg": 1118,
+                "matched": false
+              },
+              {
+                "answer_kg": 1186.5,
+                "batch_id": "B04",
+                "error_kg": -68.5,
+                "id": "B04-h05",
+                "key_kg": 1255,
+                "matched": false
+              },
+              {
+                "answer_kg": 1221.5,
+                "batch_id": "B04",
+                "error_kg": 33.5,
+                "id": "B04-h06",
+                "key_kg": 1188,
+                "matched": false
+              },
+              {
+                "answer_kg": 1263.0,
+                "batch_id": "B04",
+                "error_kg": -75.0,
+                "id": "B04-h07",
+                "key_kg": 1338,
+                "matched": false
+              },
+              {
+                "answer_kg": 1469.5,
+                "batch_id": "B04",
+                "error_kg": -131.5,
+                "id": "B04-h08",
+                "key_kg": 1601,
+                "matched": false
+              },
+              {
+                "answer_kg": 1677.0,
+                "batch_id": "B04",
+                "error_kg": -76.0,
+                "id": "B04-h09",
+                "key_kg": 1753,
+                "matched": false
+              },
+              {
+                "answer_kg": 1740.5,
+                "batch_id": "B04",
+                "error_kg": 12.5,
+                "id": "B04-h10",
+                "key_kg": 1728,
+                "matched": false
+              },
+              {
+                "answer_kg": 1717.0,
+                "batch_id": "B04",
+                "error_kg": 11.0,
+                "id": "B04-h11",
+                "key_kg": 1706,
+                "matched": false
+              },
+              {
+                "answer_kg": 1834.0,
+                "batch_id": "B04",
+                "error_kg": -128.0,
+                "id": "B04-h12",
+                "key_kg": 1962,
+                "matched": false
+              },
+              {
+                "answer_kg": 1912.5,
+                "batch_id": "B04",
+                "error_kg": 49.5,
+                "id": "B04-h13",
+                "key_kg": 1863,
+                "matched": false
+              },
+              {
+                "answer_kg": 1839.5,
+                "batch_id": "B04",
+                "error_kg": 23.5,
+                "id": "B04-h14",
+                "key_kg": 1816,
+                "matched": false
+              },
+              {
+                "answer_kg": 1915.5,
+                "batch_id": "B04",
+                "error_kg": -99.5,
+                "id": "B04-h15",
+                "key_kg": 2015,
+                "matched": false
+              },
+              {
+                "answer_kg": 1507.0,
+                "batch_id": "B04",
+                "error_kg": 508.0,
+                "id": "B04-h16",
+                "key_kg": 999,
+                "matched": false
+              },
+              {
+                "answer_kg": 563.0,
+                "batch_id": "B04",
+                "error_kg": 436.0,
+                "id": "B04-h17",
+                "key_kg": 127,
+                "matched": false
+              },
+              {
+                "answer_kg": null,
+                "batch_id": "B05",
+                "error_kg": null,
+                "id": "B05-h01",
+                "key_kg": 508,
+                "matched": false
+              },
+              {
+                "answer_kg": 557.0,
+                "batch_id": "B05",
+                "error_kg": -49.0,
+                "id": "B05-h02",
+                "key_kg": 606,
+                "matched": false
+              },
+              {
+                "answer_kg": 673.5,
+                "batch_id": "B05",
+                "error_kg": -67.5,
+                "id": "B05-h03",
+                "key_kg": 741,
+                "matched": false
+              },
+              {
+                "answer_kg": 780.0,
+                "batch_id": "B05",
+                "error_kg": -39.0,
+                "id": "B05-h04",
+                "key_kg": 819,
+                "matched": false
+              },
+              {
+                "answer_kg": 949.0,
+                "batch_id": "B05",
+                "error_kg": -130.0,
+                "id": "B05-h05",
+                "key_kg": 1079,
+                "matched": false
+              },
+              {
+                "answer_kg": 1239.5,
+                "batch_id": "B05",
+                "error_kg": -160.5,
+                "id": "B05-h06",
+                "key_kg": 1400,
+                "matched": false
+              },
+              {
+                "answer_kg": 1412.5,
+                "batch_id": "B05",
+                "error_kg": -12.5,
+                "id": "B05-h07",
+                "key_kg": 1425,
+                "matched": false
+              },
+              {
+                "answer_kg": 1602.5,
+                "batch_id": "B05",
+                "error_kg": -177.5,
+                "id": "B05-h08",
+                "key_kg": 1780,
+                "matched": false
+              },
+              {
+                "answer_kg": 1711.5,
+                "batch_id": "B05",
+                "error_kg": 68.5,
+                "id": "B05-h09",
+                "key_kg": 1643,
+                "matched": false
+              },
+              {
+                "answer_kg": 1763.5,
+                "batch_id": "B05",
+                "error_kg": -120.5,
+                "id": "B05-h10",
+                "key_kg": 1884,
+                "matched": false
+              },
+              {
+                "answer_kg": 1851.5,
+                "batch_id": "B05",
+                "error_kg": 32.5,
+                "id": "B05-h11",
+                "key_kg": 1819,
+                "matched": false
+              },
+              {
+                "answer_kg": 1859.5,
+                "batch_id": "B05",
+                "error_kg": -40.5,
+                "id": "B05-h12",
+                "key_kg": 1900,
+                "matched": false
+              },
+              {
+                "answer_kg": 1938.0,
+                "batch_id": "B05",
+                "error_kg": -38.0,
+                "id": "B05-h13",
+                "key_kg": 1976,
+                "matched": false
+              },
+              {
+                "answer_kg": 1949.0,
+                "batch_id": "B05",
+                "error_kg": 27.0,
+                "id": "B05-h14",
+                "key_kg": 1922,
+                "matched": false
+              },
+              {
+                "answer_kg": 1866.0,
+                "batch_id": "B05",
+                "error_kg": 56.0,
+                "id": "B05-h15",
+                "key_kg": 1810,
+                "matched": false
+              },
+              {
+                "answer_kg": 1512.5,
+                "batch_id": "B05",
+                "error_kg": 297.5,
+                "id": "B05-h16",
+                "key_kg": 1215,
+                "matched": false
+              },
+              {
+                "answer_kg": 723.0,
+                "batch_id": "B05",
+                "error_kg": 492.0,
+                "id": "B05-h17",
+                "key_kg": 231,
+                "matched": false
+              }
+            ]
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "examples/batch-analysis/industrial-yeast/results/development/reports/trapezoid.hourly/batch_analysis.json",
+            "sha256": "4a991ad4b085e7d195a542f8cd838f05e2c24b5509c58d56991ace345304baf1"
+          },
+          "recorded_run_at": null,
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": null,
+            "seconds": null
+          },
+          "status": "ok"
+        }
+      ],
+      "run": "yeast-development-trapezoid",
+      "split": "development"
+    },
+    {
+      "case_count": 1,
+      "cohort": "457a005e63643b4bd9426aaefe8eb49c7142b2a5bf0094833b3f622f064d3776",
+      "configuration": {
+        "interpolation": "linear",
+        "max_gap_s": 3600,
+        "quality": null,
+        "unit": "kg/h"
+      },
+      "counts": {
+        "batch_feed_totals": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 5
+        }
+      },
+      "evidence": "Publisher-logged running cumulative (total_fermentable_sugar_kg), withheld from the tool; whole-batch windows; development batches B01-B05",
+      "family": "industrial-yeast",
+      "interface": "scripts/batch_analysis.py CLI via scripts/industrial_yeast_case.py",
+      "method": "control: batch_analysis.py linear (trapezoid)",
+      "metrics": {
+        "batch_feed_totals": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        }
+      },
+      "model": {
+        "id": "deterministic-tool",
+        "provider": "none",
+        "version": "scripts/batch_analysis.py as committed with A418"
+      },
+      "not_attempted": [],
+      "provenance": "Deterministic product-tool run, no AI model. The report bytes are the tool's own output; RECEIPT.json in each results folder records the command, source pins and code hashes.",
+      "ran_at": "2026-11-12",
+      "recipe": [
+        {
+          "path": "scripts/industrial_yeast_case.py",
+          "sha256": "5c54fd2d8d59442b58c19db9c058c3ce44dd1360d4e5af03bfde8991d3cb428f"
+        },
+        {
+          "path": "examples/batch-analysis/industrial-yeast/results/development/plans/trapezoid.batch.plan.json",
+          "sha256": "3286df8fc7c630c6a39bb99b49f359de778aa7ab1ae2295a5ce7a20174323407"
+        },
+        {
+          "path": "examples/batch-analysis/industrial-yeast/results/development/plans/trapezoid.hourly.plan.json",
+          "sha256": "2c96539c222478e3c347c915d67574ecdcb1b55a762a2dac5151f936d3ca1b98"
+        }
+      ],
+      "rows": [
+        {
+          "case": "yeast-development-batch",
+          "counts": {
+            "batch_feed_totals": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 5
+            }
+          },
+          "diagnostics": {
+            "mean_abs_error_kg": null,
+            "mismatched_or_unanswered": [
+              {
+                "answer_kg": null,
+                "batch_id": "B01",
+                "error_kg": null,
+                "id": "B01",
+                "key_kg": 22700,
+                "matched": false
+              },
+              {
+                "answer_kg": null,
+                "batch_id": "B02",
+                "error_kg": null,
+                "id": "B02",
+                "key_kg": 22700,
+                "matched": false
+              },
+              {
+                "answer_kg": null,
+                "batch_id": "B03",
+                "error_kg": null,
+                "id": "B03",
+                "key_kg": 22700,
+                "matched": false
+              },
+              {
+                "answer_kg": null,
+                "batch_id": "B04",
+                "error_kg": null,
+                "id": "B04",
+                "key_kg": 22600,
+                "matched": false
+              },
+              {
+                "answer_kg": null,
+                "batch_id": "B05",
+                "error_kg": null,
+                "id": "B05",
+                "key_kg": 22758,
+                "matched": false
+              }
+            ]
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "examples/batch-analysis/industrial-yeast/results/development/reports/trapezoid.batch/batch_analysis.json",
+            "sha256": "d59cc43ee18fb1504bd9c4c337f37f60965bfcd6f97cbd63986f29fe087b2c46"
+          },
+          "recorded_run_at": null,
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": null,
+            "seconds": null
+          },
+          "status": "ok"
+        }
+      ],
+      "run": "yeast-development-trapezoid",
+      "split": "development"
+    },
+    {
+      "case_count": 1,
+      "cohort": "d662a472f40b597006ee2721f4cf0bdbf23ae1fead3cd1fcb361fea46223ed2f",
+      "configuration": {
+        "interpolation": "linear",
+        "max_gap_s": 3600,
+        "quality": null,
+        "unit": "kg/h"
+      },
+      "counts": {
+        "hourly_feed_totals": {
+          "predicted": 84,
+          "tp": 0,
+          "truth": 84
+        }
+      },
+      "evidence": "Publisher-logged running cumulative (total_fermentable_sugar_kg), withheld from the tool; hourly windows; development batches B01-B05",
+      "family": "industrial-yeast",
+      "interface": "scripts/batch_analysis.py CLI via scripts/industrial_yeast_case.py",
+      "method": "control: batch_analysis.py linear, blank hour-0 feed written as 0",
+      "metrics": {
+        "hourly_feed_totals": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        }
+      },
+      "model": {
+        "id": "deterministic-tool",
+        "provider": "none",
+        "version": "scripts/batch_analysis.py as committed with A418"
+      },
+      "not_attempted": [],
+      "provenance": "Deterministic product-tool run, no AI model. The report bytes are the tool's own output; RECEIPT.json in each results folder records the command, source pins and code hashes.",
+      "ran_at": "2026-11-12",
+      "recipe": [
+        {
+          "path": "scripts/industrial_yeast_case.py",
+          "sha256": "5c54fd2d8d59442b58c19db9c058c3ce44dd1360d4e5af03bfde8991d3cb428f"
+        },
+        {
+          "path": "examples/batch-analysis/industrial-yeast/results/development/plans/trapezoid_zero_start.batch.plan.json",
+          "sha256": "3286df8fc7c630c6a39bb99b49f359de778aa7ab1ae2295a5ce7a20174323407"
+        },
+        {
+          "path": "examples/batch-analysis/industrial-yeast/results/development/plans/trapezoid_zero_start.hourly.plan.json",
+          "sha256": "2c96539c222478e3c347c915d67574ecdcb1b55a762a2dac5151f936d3ca1b98"
+        }
+      ],
+      "rows": [
+        {
+          "case": "yeast-development-hourly",
+          "counts": {
+            "hourly_feed_totals": {
+              "predicted": 84,
+              "tp": 0,
+              "truth": 84
+            }
+          },
+          "diagnostics": {
+            "mean_abs_error_kg": 118.4702380952381,
+            "mismatched_or_unanswered": [
+              {
+                "answer_kg": 194.5,
+                "batch_id": "B01",
+                "error_kg": -194.5,
+                "id": "B01-h01",
+                "key_kg": 389,
+                "matched": false
+              },
+              {
+                "answer_kg": 474.5,
+                "batch_id": "B01",
+                "error_kg": -85.5,
+                "id": "B01-h02",
+                "key_kg": 560,
+                "matched": false
+              },
+              {
+                "answer_kg": 638.5,
+                "batch_id": "B01",
+                "error_kg": -78.5,
+                "id": "B01-h03",
+                "key_kg": 717,
+                "matched": false
+              },
+              {
+                "answer_kg": 828.0,
+                "batch_id": "B01",
+                "error_kg": -111.0,
+                "id": "B01-h04",
+                "key_kg": 939,
+                "matched": false
+              },
+              {
+                "answer_kg": 1073.5,
+                "batch_id": "B01",
+                "error_kg": -134.5,
+                "id": "B01-h05",
+                "key_kg": 1208,
+                "matched": false
+              },
+              {
+                "answer_kg": 1205.0,
+                "batch_id": "B01",
+                "error_kg": 3.0,
+                "id": "B01-h06",
+                "key_kg": 1202,
+                "matched": false
+              },
+              {
+                "answer_kg": 1225.0,
+                "batch_id": "B01",
+                "error_kg": -23.0,
+                "id": "B01-h07",
+                "key_kg": 1248,
+                "matched": false
+              },
+              {
+                "answer_kg": 1383.0,
+                "batch_id": "B01",
+                "error_kg": -135.0,
+                "id": "B01-h08",
+                "key_kg": 1518,
+                "matched": false
+              },
+              {
+                "answer_kg": 1618.5,
+                "batch_id": "B01",
+                "error_kg": -100.5,
+                "id": "B01-h09",
+                "key_kg": 1719,
+                "matched": false
+              },
+              {
+                "answer_kg": 1758.5,
+                "batch_id": "B01",
+                "error_kg": -39.5,
+                "id": "B01-h10",
+                "key_kg": 1798,
+                "matched": false
+              },
+              {
+                "answer_kg": 1796.0,
+                "batch_id": "B01",
+                "error_kg": 2.0,
+                "id": "B01-h11",
+                "key_kg": 1794,
+                "matched": false
+              },
+              {
+                "answer_kg": 1862.0,
+                "batch_id": "B01",
+                "error_kg": -68.0,
+                "id": "B01-h12",
+                "key_kg": 1930,
+                "matched": false
+              },
+              {
+                "answer_kg": 1868.0,
+                "batch_id": "B01",
+                "error_kg": 62.0,
+                "id": "B01-h13",
+                "key_kg": 1806,
+                "matched": false
+              },
+              {
+                "answer_kg": 1845.5,
+                "batch_id": "B01",
+                "error_kg": -39.5,
+                "id": "B01-h14",
+                "key_kg": 1885,
+                "matched": false
+              },
+              {
+                "answer_kg": 1886.5,
+                "batch_id": "B01",
+                "error_kg": -1.5,
+                "id": "B01-h15",
+                "key_kg": 1888,
+                "matched": false
+              },
+              {
+                "answer_kg": 1721.0,
+                "batch_id": "B01",
+                "error_kg": 167.0,
+                "id": "B01-h16",
+                "key_kg": 1554,
+                "matched": false
+              },
+              {
+                "answer_kg": 1049.5,
+                "batch_id": "B01",
+                "error_kg": 504.5,
+                "id": "B01-h17",
+                "key_kg": 545,
+                "matched": false
+              },
+              {
+                "answer_kg": 264.0,
+                "batch_id": "B02",
+                "error_kg": -264.0,
+                "id": "B02-h01",
+                "key_kg": 528,
+                "matched": false
+              },
+              {
+                "answer_kg": 592.5,
+                "batch_id": "B02",
+                "error_kg": -64.5,
+                "id": "B02-h02",
+                "key_kg": 657,
+                "matched": false
+              },
+              {
+                "answer_kg": 712.0,
+                "batch_id": "B02",
+                "error_kg": -55.0,
+                "id": "B02-h03",
+                "key_kg": 767,
+                "matched": false
+              },
+              {
+                "answer_kg": 831.0,
+                "batch_id": "B02",
+                "error_kg": -64.0,
+                "id": "B02-h04",
+                "key_kg": 895,
+                "matched": false
+              },
+              {
+                "answer_kg": 1004.5,
+                "batch_id": "B02",
+                "error_kg": -109.5,
+                "id": "B02-h05",
+                "key_kg": 1114,
+                "matched": false
+              },
+              {
+                "answer_kg": 1215.0,
+                "batch_id": "B02",
+                "error_kg": -101.0,
+                "id": "B02-h06",
+                "key_kg": 1316,
+                "matched": false
+              },
+              {
+                "answer_kg": 1422.5,
+                "batch_id": "B02",
+                "error_kg": -106.5,
+                "id": "B02-h07",
+                "key_kg": 1529,
+                "matched": false
+              },
+              {
+                "answer_kg": 1538.5,
+                "batch_id": "B02",
+                "error_kg": -9.5,
+                "id": "B02-h08",
+                "key_kg": 1548,
+                "matched": false
+              },
+              {
+                "answer_kg": 1628.5,
+                "batch_id": "B02",
+                "error_kg": -80.5,
+                "id": "B02-h09",
+                "key_kg": 1709,
+                "matched": false
+              },
+              {
+                "answer_kg": 1770.5,
+                "batch_id": "B02",
+                "error_kg": -61.5,
+                "id": "B02-h10",
+                "key_kg": 1832,
+                "matched": false
+              },
+              {
+                "answer_kg": 1868.0,
+                "batch_id": "B02",
+                "error_kg": -36.0,
+                "id": "B02-h11",
+                "key_kg": 1904,
+                "matched": false
+              },
+              {
+                "answer_kg": 2004.5,
+                "batch_id": "B02",
+                "error_kg": -100.5,
+                "id": "B02-h12",
+                "key_kg": 2105,
+                "matched": false
+              },
+              {
+                "answer_kg": 2031.0,
+                "batch_id": "B02",
+                "error_kg": 74.0,
+                "id": "B02-h13",
+                "key_kg": 1957,
+                "matched": false
+              },
+              {
+                "answer_kg": 1958.5,
+                "batch_id": "B02",
+                "error_kg": -1.5,
+                "id": "B02-h14",
+                "key_kg": 1960,
+                "matched": false
+              },
+              {
+                "answer_kg": 2077.0,
+                "batch_id": "B02",
+                "error_kg": -117.0,
+                "id": "B02-h15",
+                "key_kg": 2194,
+                "matched": false
+              },
+              {
+                "answer_kg": 1439.5,
+                "batch_id": "B02",
+                "error_kg": 754.5,
+                "id": "B02-h16",
+                "key_kg": 685,
+                "matched": false
+              },
+              {
+                "answer_kg": 263.5,
+                "batch_id": "B03",
+                "error_kg": -263.5,
+                "id": "B03-h01",
+                "key_kg": 527,
+                "matched": false
+              },
+              {
+                "answer_kg": 571.5,
+                "batch_id": "B03",
+                "error_kg": -44.5,
+                "id": "B03-h02",
+                "key_kg": 616,
+                "matched": false
+              },
+              {
+                "answer_kg": 649.0,
+                "batch_id": "B03",
+                "error_kg": -33.0,
+                "id": "B03-h03",
+                "key_kg": 682,
+                "matched": false
+              },
+              {
+                "answer_kg": 852.0,
+                "batch_id": "B03",
+                "error_kg": -170.0,
+                "id": "B03-h04",
+                "key_kg": 1022,
+                "matched": false
+              },
+              {
+                "answer_kg": 1042.5,
+                "batch_id": "B03",
+                "error_kg": -20.5,
+                "id": "B03-h05",
+                "key_kg": 1063,
+                "matched": false
+              },
+              {
+                "answer_kg": 1146.0,
+                "batch_id": "B03",
+                "error_kg": -83.0,
+                "id": "B03-h06",
+                "key_kg": 1229,
+                "matched": false
+              },
+              {
+                "answer_kg": 1316.5,
+                "batch_id": "B03",
+                "error_kg": -87.5,
+                "id": "B03-h07",
+                "key_kg": 1404,
+                "matched": false
+              },
+              {
+                "answer_kg": 1505.5,
+                "batch_id": "B03",
+                "error_kg": -101.5,
+                "id": "B03-h08",
+                "key_kg": 1607,
+                "matched": false
+              },
+              {
+                "answer_kg": 1599.0,
+                "batch_id": "B03",
+                "error_kg": 8.0,
+                "id": "B03-h09",
+                "key_kg": 1591,
+                "matched": false
+              },
+              {
+                "answer_kg": 1691.5,
+                "batch_id": "B03",
+                "error_kg": -100.5,
+                "id": "B03-h10",
+                "key_kg": 1792,
+                "matched": false
+              },
+              {
+                "answer_kg": 1879.5,
+                "batch_id": "B03",
+                "error_kg": -87.5,
+                "id": "B03-h11",
+                "key_kg": 1967,
+                "matched": false
+              },
+              {
+                "answer_kg": 1884.0,
+                "batch_id": "B03",
+                "error_kg": 83.0,
+                "id": "B03-h12",
+                "key_kg": 1801,
+                "matched": false
+              },
+              {
+                "answer_kg": 1867.0,
+                "batch_id": "B03",
+                "error_kg": -66.0,
+                "id": "B03-h13",
+                "key_kg": 1933,
+                "matched": false
+              },
+              {
+                "answer_kg": 1822.5,
+                "batch_id": "B03",
+                "error_kg": 110.5,
+                "id": "B03-h14",
+                "key_kg": 1712,
+                "matched": false
+              },
+              {
+                "answer_kg": 1740.5,
+                "batch_id": "B03",
+                "error_kg": -28.5,
+                "id": "B03-h15",
+                "key_kg": 1769,
+                "matched": false
+              },
+              {
+                "answer_kg": 1610.5,
+                "batch_id": "B03",
+                "error_kg": 158.5,
+                "id": "B03-h16",
+                "key_kg": 1452,
+                "matched": false
+              },
+              {
+                "answer_kg": 992.5,
+                "batch_id": "B03",
+                "error_kg": 459.5,
+                "id": "B03-h17",
+                "key_kg": 533,
+                "matched": false
+              },
+              {
+                "answer_kg": 346.0,
+                "batch_id": "B04",
+                "error_kg": -346.0,
+                "id": "B04-h01",
+                "key_kg": 692,
+                "matched": false
+              },
+              {
+                "answer_kg": 680.5,
+                "batch_id": "B04",
+                "error_kg": 11.5,
+                "id": "B04-h02",
+                "key_kg": 669,
+                "matched": false
+              },
+              {
+                "answer_kg": 719.5,
+                "batch_id": "B04",
+                "error_kg": -50.5,
+                "id": "B04-h03",
+                "key_kg": 770,
+                "matched": false
+              },
+              {
+                "answer_kg": 944.0,
+                "batch_id": "B04",
+                "error_kg": -174.0,
+                "id": "B04-h04",
+                "key_kg": 1118,
+                "matched": false
+              },
+              {
+                "answer_kg": 1186.5,
+                "batch_id": "B04",
+                "error_kg": -68.5,
+                "id": "B04-h05",
+                "key_kg": 1255,
+                "matched": false
+              },
+              {
+                "answer_kg": 1221.5,
+                "batch_id": "B04",
+                "error_kg": 33.5,
+                "id": "B04-h06",
+                "key_kg": 1188,
+                "matched": false
+              },
+              {
+                "answer_kg": 1263.0,
+                "batch_id": "B04",
+                "error_kg": -75.0,
+                "id": "B04-h07",
+                "key_kg": 1338,
+                "matched": false
+              },
+              {
+                "answer_kg": 1469.5,
+                "batch_id": "B04",
+                "error_kg": -131.5,
+                "id": "B04-h08",
+                "key_kg": 1601,
+                "matched": false
+              },
+              {
+                "answer_kg": 1677.0,
+                "batch_id": "B04",
+                "error_kg": -76.0,
+                "id": "B04-h09",
+                "key_kg": 1753,
+                "matched": false
+              },
+              {
+                "answer_kg": 1740.5,
+                "batch_id": "B04",
+                "error_kg": 12.5,
+                "id": "B04-h10",
+                "key_kg": 1728,
+                "matched": false
+              },
+              {
+                "answer_kg": 1717.0,
+                "batch_id": "B04",
+                "error_kg": 11.0,
+                "id": "B04-h11",
+                "key_kg": 1706,
+                "matched": false
+              },
+              {
+                "answer_kg": 1834.0,
+                "batch_id": "B04",
+                "error_kg": -128.0,
+                "id": "B04-h12",
+                "key_kg": 1962,
+                "matched": false
+              },
+              {
+                "answer_kg": 1912.5,
+                "batch_id": "B04",
+                "error_kg": 49.5,
+                "id": "B04-h13",
+                "key_kg": 1863,
+                "matched": false
+              },
+              {
+                "answer_kg": 1839.5,
+                "batch_id": "B04",
+                "error_kg": 23.5,
+                "id": "B04-h14",
+                "key_kg": 1816,
+                "matched": false
+              },
+              {
+                "answer_kg": 1915.5,
+                "batch_id": "B04",
+                "error_kg": -99.5,
+                "id": "B04-h15",
+                "key_kg": 2015,
+                "matched": false
+              },
+              {
+                "answer_kg": 1507.0,
+                "batch_id": "B04",
+                "error_kg": 508.0,
+                "id": "B04-h16",
+                "key_kg": 999,
+                "matched": false
+              },
+              {
+                "answer_kg": 563.0,
+                "batch_id": "B04",
+                "error_kg": 436.0,
+                "id": "B04-h17",
+                "key_kg": 127,
+                "matched": false
+              },
+              {
+                "answer_kg": 254.0,
+                "batch_id": "B05",
+                "error_kg": -254.0,
+                "id": "B05-h01",
+                "key_kg": 508,
+                "matched": false
+              },
+              {
+                "answer_kg": 557.0,
+                "batch_id": "B05",
+                "error_kg": -49.0,
+                "id": "B05-h02",
+                "key_kg": 606,
+                "matched": false
+              },
+              {
+                "answer_kg": 673.5,
+                "batch_id": "B05",
+                "error_kg": -67.5,
+                "id": "B05-h03",
+                "key_kg": 741,
+                "matched": false
+              },
+              {
+                "answer_kg": 780.0,
+                "batch_id": "B05",
+                "error_kg": -39.0,
+                "id": "B05-h04",
+                "key_kg": 819,
+                "matched": false
+              },
+              {
+                "answer_kg": 949.0,
+                "batch_id": "B05",
+                "error_kg": -130.0,
+                "id": "B05-h05",
+                "key_kg": 1079,
+                "matched": false
+              },
+              {
+                "answer_kg": 1239.5,
+                "batch_id": "B05",
+                "error_kg": -160.5,
+                "id": "B05-h06",
+                "key_kg": 1400,
+                "matched": false
+              },
+              {
+                "answer_kg": 1412.5,
+                "batch_id": "B05",
+                "error_kg": -12.5,
+                "id": "B05-h07",
+                "key_kg": 1425,
+                "matched": false
+              },
+              {
+                "answer_kg": 1602.5,
+                "batch_id": "B05",
+                "error_kg": -177.5,
+                "id": "B05-h08",
+                "key_kg": 1780,
+                "matched": false
+              },
+              {
+                "answer_kg": 1711.5,
+                "batch_id": "B05",
+                "error_kg": 68.5,
+                "id": "B05-h09",
+                "key_kg": 1643,
+                "matched": false
+              },
+              {
+                "answer_kg": 1763.5,
+                "batch_id": "B05",
+                "error_kg": -120.5,
+                "id": "B05-h10",
+                "key_kg": 1884,
+                "matched": false
+              },
+              {
+                "answer_kg": 1851.5,
+                "batch_id": "B05",
+                "error_kg": 32.5,
+                "id": "B05-h11",
+                "key_kg": 1819,
+                "matched": false
+              },
+              {
+                "answer_kg": 1859.5,
+                "batch_id": "B05",
+                "error_kg": -40.5,
+                "id": "B05-h12",
+                "key_kg": 1900,
+                "matched": false
+              },
+              {
+                "answer_kg": 1938.0,
+                "batch_id": "B05",
+                "error_kg": -38.0,
+                "id": "B05-h13",
+                "key_kg": 1976,
+                "matched": false
+              },
+              {
+                "answer_kg": 1949.0,
+                "batch_id": "B05",
+                "error_kg": 27.0,
+                "id": "B05-h14",
+                "key_kg": 1922,
+                "matched": false
+              },
+              {
+                "answer_kg": 1866.0,
+                "batch_id": "B05",
+                "error_kg": 56.0,
+                "id": "B05-h15",
+                "key_kg": 1810,
+                "matched": false
+              },
+              {
+                "answer_kg": 1512.5,
+                "batch_id": "B05",
+                "error_kg": 297.5,
+                "id": "B05-h16",
+                "key_kg": 1215,
+                "matched": false
+              },
+              {
+                "answer_kg": 723.0,
+                "batch_id": "B05",
+                "error_kg": 492.0,
+                "id": "B05-h17",
+                "key_kg": 231,
+                "matched": false
+              }
+            ]
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "examples/batch-analysis/industrial-yeast/results/development/reports/trapezoid_zero_start.hourly/batch_analysis.json",
+            "sha256": "6bb710ed429b10e41691fe681654235adf0819bdac08ed6d862069c9196a64cb"
+          },
+          "recorded_run_at": null,
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": null,
+            "seconds": null
+          },
+          "status": "ok"
+        }
+      ],
+      "run": "yeast-development-trapezoid_zero_start",
+      "split": "development"
+    },
+    {
+      "case_count": 1,
+      "cohort": "457a005e63643b4bd9426aaefe8eb49c7142b2a5bf0094833b3f622f064d3776",
+      "configuration": {
+        "interpolation": "linear",
+        "max_gap_s": 3600,
+        "quality": null,
+        "unit": "kg/h"
+      },
+      "counts": {
+        "batch_feed_totals": {
+          "predicted": 5,
+          "tp": 0,
+          "truth": 5
+        }
+      },
+      "evidence": "Publisher-logged running cumulative (total_fermentable_sugar_kg), withheld from the tool; whole-batch windows; development batches B01-B05",
+      "family": "industrial-yeast",
+      "interface": "scripts/batch_analysis.py CLI via scripts/industrial_yeast_case.py",
+      "method": "control: batch_analysis.py linear, blank hour-0 feed written as 0",
+      "metrics": {
+        "batch_feed_totals": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        }
+      },
+      "model": {
+        "id": "deterministic-tool",
+        "provider": "none",
+        "version": "scripts/batch_analysis.py as committed with A418"
+      },
+      "not_attempted": [],
+      "provenance": "Deterministic product-tool run, no AI model. The report bytes are the tool's own output; RECEIPT.json in each results folder records the command, source pins and code hashes.",
+      "ran_at": "2026-11-12",
+      "recipe": [
+        {
+          "path": "scripts/industrial_yeast_case.py",
+          "sha256": "5c54fd2d8d59442b58c19db9c058c3ce44dd1360d4e5af03bfde8991d3cb428f"
+        },
+        {
+          "path": "examples/batch-analysis/industrial-yeast/results/development/plans/trapezoid_zero_start.batch.plan.json",
+          "sha256": "3286df8fc7c630c6a39bb99b49f359de778aa7ab1ae2295a5ce7a20174323407"
+        },
+        {
+          "path": "examples/batch-analysis/industrial-yeast/results/development/plans/trapezoid_zero_start.hourly.plan.json",
+          "sha256": "2c96539c222478e3c347c915d67574ecdcb1b55a762a2dac5151f936d3ca1b98"
+        }
+      ],
+      "rows": [
+        {
+          "case": "yeast-development-batch",
+          "counts": {
+            "batch_feed_totals": {
+              "predicted": 5,
+              "tp": 0,
+              "truth": 5
+            }
+          },
+          "diagnostics": {
+            "mean_abs_error_kg": 212.1,
+            "mismatched_or_unanswered": [
+              {
+                "answer_kg": 22427.5,
+                "batch_id": "B01",
+                "error_kg": -272.5,
+                "id": "B01",
+                "key_kg": 22700,
+                "matched": false
+              },
+              {
+                "answer_kg": 22357.5,
+                "batch_id": "B02",
+                "error_kg": -342.5,
+                "id": "B02",
+                "key_kg": 22700,
+                "matched": false
+              },
+              {
+                "answer_kg": 22433.5,
+                "batch_id": "B03",
+                "error_kg": -266.5,
+                "id": "B03",
+                "key_kg": 22700,
+                "matched": false
+              },
+              {
+                "answer_kg": 22536.5,
+                "batch_id": "B04",
+                "error_kg": -63.5,
+                "id": "B04",
+                "key_kg": 22600,
+                "matched": false
+              },
+              {
+                "answer_kg": 22642.5,
+                "batch_id": "B05",
+                "error_kg": -115.5,
+                "id": "B05",
+                "key_kg": 22758,
+                "matched": false
+              }
+            ]
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "examples/batch-analysis/industrial-yeast/results/development/reports/trapezoid_zero_start.batch/batch_analysis.json",
+            "sha256": "fc79ad8b676a0ac14f4fd97fed1f9a38fae2ad1cd910188cea2587089b10489d"
+          },
+          "recorded_run_at": null,
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": null,
+            "seconds": null
+          },
+          "status": "ok"
+        }
+      ],
+      "run": "yeast-development-trapezoid_zero_start",
+      "split": "development"
+    },
+    {
+      "case_count": 1,
+      "cohort": "d662a472f40b597006ee2721f4cf0bdbf23ae1fead3cd1fcb361fea46223ed2f",
+      "configuration": {
+        "interpolation": "previous",
+        "max_gap_s": 3600,
+        "quality": null,
+        "unit": "kg/h"
+      },
+      "counts": {
+        "hourly_feed_totals": {
+          "predicted": 79,
+          "tp": 0,
+          "truth": 84
+        }
+      },
+      "evidence": "Publisher-logged running cumulative (total_fermentable_sugar_kg), withheld from the tool; hourly windows; development batches B01-B05",
+      "family": "industrial-yeast",
+      "interface": "scripts/batch_analysis.py CLI via scripts/industrial_yeast_case.py",
+      "method": "control: batch_analysis.py previous-value hold",
+      "metrics": {
+        "hourly_feed_totals": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        }
+      },
+      "model": {
+        "id": "deterministic-tool",
+        "provider": "none",
+        "version": "scripts/batch_analysis.py as committed with A418"
+      },
+      "not_attempted": [],
+      "provenance": "Deterministic product-tool run, no AI model. The report bytes are the tool's own output; RECEIPT.json in each results folder records the command, source pins and code hashes.",
+      "ran_at": "2026-11-12",
+      "recipe": [
+        {
+          "path": "scripts/industrial_yeast_case.py",
+          "sha256": "5c54fd2d8d59442b58c19db9c058c3ce44dd1360d4e5af03bfde8991d3cb428f"
+        },
+        {
+          "path": "examples/batch-analysis/industrial-yeast/results/development/plans/previous_hold.batch.plan.json",
+          "sha256": "bc5b3186386a18627cb565acc17d1870dad29738beb5d768a38c5ac99a6aa25b"
+        },
+        {
+          "path": "examples/batch-analysis/industrial-yeast/results/development/plans/previous_hold.hourly.plan.json",
+          "sha256": "a3c01b02131b711215ac837b0edf2ed09e4cebb2ba4f79bcc4cc0f52a049f043"
+        }
+      ],
+      "rows": [
+        {
+          "case": "yeast-development-hourly",
+          "counts": {
+            "hourly_feed_totals": {
+              "predicted": 79,
+              "tp": 0,
+              "truth": 84
+            }
+          },
+          "diagnostics": {
+            "mean_abs_error_kg": 218.46835443037975,
+            "mismatched_or_unanswered": [
+              {
+                "answer_kg": null,
+                "batch_id": "B01",
+                "error_kg": null,
+                "id": "B01-h01",
+                "key_kg": 389,
+                "matched": false
+              },
+              {
+                "answer_kg": 389.0,
+                "batch_id": "B01",
+                "error_kg": -171.0,
+                "id": "B01-h02",
+                "key_kg": 560,
+                "matched": false
+              },
+              {
+                "answer_kg": 560.0,
+                "batch_id": "B01",
+                "error_kg": -157.0,
+                "id": "B01-h03",
+                "key_kg": 717,
+                "matched": false
+              },
+              {
+                "answer_kg": 717.0,
+                "batch_id": "B01",
+                "error_kg": -222.0,
+                "id": "B01-h04",
+                "key_kg": 939,
+                "matched": false
+              },
+              {
+                "answer_kg": 939.0,
+                "batch_id": "B01",
+                "error_kg": -269.0,
+                "id": "B01-h05",
+                "key_kg": 1208,
+                "matched": false
+              },
+              {
+                "answer_kg": 1208.0,
+                "batch_id": "B01",
+                "error_kg": 6.0,
+                "id": "B01-h06",
+                "key_kg": 1202,
+                "matched": false
+              },
+              {
+                "answer_kg": 1202.0,
+                "batch_id": "B01",
+                "error_kg": -46.0,
+                "id": "B01-h07",
+                "key_kg": 1248,
+                "matched": false
+              },
+              {
+                "answer_kg": 1248.0,
+                "batch_id": "B01",
+                "error_kg": -270.0,
+                "id": "B01-h08",
+                "key_kg": 1518,
+                "matched": false
+              },
+              {
+                "answer_kg": 1518.0,
+                "batch_id": "B01",
+                "error_kg": -201.0,
+                "id": "B01-h09",
+                "key_kg": 1719,
+                "matched": false
+              },
+              {
+                "answer_kg": 1719.0,
+                "batch_id": "B01",
+                "error_kg": -79.0,
+                "id": "B01-h10",
+                "key_kg": 1798,
+                "matched": false
+              },
+              {
+                "answer_kg": 1798.0,
+                "batch_id": "B01",
+                "error_kg": 4.0,
+                "id": "B01-h11",
+                "key_kg": 1794,
+                "matched": false
+              },
+              {
+                "answer_kg": 1794.0,
+                "batch_id": "B01",
+                "error_kg": -136.0,
+                "id": "B01-h12",
+                "key_kg": 1930,
+                "matched": false
+              },
+              {
+                "answer_kg": 1930.0,
+                "batch_id": "B01",
+                "error_kg": 124.0,
+                "id": "B01-h13",
+                "key_kg": 1806,
+                "matched": false
+              },
+              {
+                "answer_kg": 1806.0,
+                "batch_id": "B01",
+                "error_kg": -79.0,
+                "id": "B01-h14",
+                "key_kg": 1885,
+                "matched": false
+              },
+              {
+                "answer_kg": 1885.0,
+                "batch_id": "B01",
+                "error_kg": -3.0,
+                "id": "B01-h15",
+                "key_kg": 1888,
+                "matched": false
+              },
+              {
+                "answer_kg": 1888.0,
+                "batch_id": "B01",
+                "error_kg": 334.0,
+                "id": "B01-h16",
+                "key_kg": 1554,
+                "matched": false
+              },
+              {
+                "answer_kg": 1554.0,
+                "batch_id": "B01",
+                "error_kg": 1009.0,
+                "id": "B01-h17",
+                "key_kg": 545,
+                "matched": false
+              },
+              {
+                "answer_kg": null,
+                "batch_id": "B02",
+                "error_kg": null,
+                "id": "B02-h01",
+                "key_kg": 528,
+                "matched": false
+              },
+              {
+                "answer_kg": 528.0,
+                "batch_id": "B02",
+                "error_kg": -129.0,
+                "id": "B02-h02",
+                "key_kg": 657,
+                "matched": false
+              },
+              {
+                "answer_kg": 657.0,
+                "batch_id": "B02",
+                "error_kg": -110.0,
+                "id": "B02-h03",
+                "key_kg": 767,
+                "matched": false
+              },
+              {
+                "answer_kg": 767.0,
+                "batch_id": "B02",
+                "error_kg": -128.0,
+                "id": "B02-h04",
+                "key_kg": 895,
+                "matched": false
+              },
+              {
+                "answer_kg": 895.0,
+                "batch_id": "B02",
+                "error_kg": -219.0,
+                "id": "B02-h05",
+                "key_kg": 1114,
+                "matched": false
+              },
+              {
+                "answer_kg": 1114.0,
+                "batch_id": "B02",
+                "error_kg": -202.0,
+                "id": "B02-h06",
+                "key_kg": 1316,
+                "matched": false
+              },
+              {
+                "answer_kg": 1316.0,
+                "batch_id": "B02",
+                "error_kg": -213.0,
+                "id": "B02-h07",
+                "key_kg": 1529,
+                "matched": false
+              },
+              {
+                "answer_kg": 1529.0,
+                "batch_id": "B02",
+                "error_kg": -19.0,
+                "id": "B02-h08",
+                "key_kg": 1548,
+                "matched": false
+              },
+              {
+                "answer_kg": 1548.0,
+                "batch_id": "B02",
+                "error_kg": -161.0,
+                "id": "B02-h09",
+                "key_kg": 1709,
+                "matched": false
+              },
+              {
+                "answer_kg": 1709.0,
+                "batch_id": "B02",
+                "error_kg": -123.0,
+                "id": "B02-h10",
+                "key_kg": 1832,
+                "matched": false
+              },
+              {
+                "answer_kg": 1832.0,
+                "batch_id": "B02",
+                "error_kg": -72.0,
+                "id": "B02-h11",
+                "key_kg": 1904,
+                "matched": false
+              },
+              {
+                "answer_kg": 1904.0,
+                "batch_id": "B02",
+                "error_kg": -201.0,
+                "id": "B02-h12",
+                "key_kg": 2105,
+                "matched": false
+              },
+              {
+                "answer_kg": 2105.0,
+                "batch_id": "B02",
+                "error_kg": 148.0,
+                "id": "B02-h13",
+                "key_kg": 1957,
+                "matched": false
+              },
+              {
+                "answer_kg": 1957.0,
+                "batch_id": "B02",
+                "error_kg": -3.0,
+                "id": "B02-h14",
+                "key_kg": 1960,
+                "matched": false
+              },
+              {
+                "answer_kg": 1960.0,
+                "batch_id": "B02",
+                "error_kg": -234.0,
+                "id": "B02-h15",
+                "key_kg": 2194,
+                "matched": false
+              },
+              {
+                "answer_kg": 2194.0,
+                "batch_id": "B02",
+                "error_kg": 1509.0,
+                "id": "B02-h16",
+                "key_kg": 685,
+                "matched": false
+              },
+              {
+                "answer_kg": null,
+                "batch_id": "B03",
+                "error_kg": null,
+                "id": "B03-h01",
+                "key_kg": 527,
+                "matched": false
+              },
+              {
+                "answer_kg": 527.0,
+                "batch_id": "B03",
+                "error_kg": -89.0,
+                "id": "B03-h02",
+                "key_kg": 616,
+                "matched": false
+              },
+              {
+                "answer_kg": 616.0,
+                "batch_id": "B03",
+                "error_kg": -66.0,
+                "id": "B03-h03",
+                "key_kg": 682,
+                "matched": false
+              },
+              {
+                "answer_kg": 682.0,
+                "batch_id": "B03",
+                "error_kg": -340.0,
+                "id": "B03-h04",
+                "key_kg": 1022,
+                "matched": false
+              },
+              {
+                "answer_kg": 1022.0,
+                "batch_id": "B03",
+                "error_kg": -41.0,
+                "id": "B03-h05",
+                "key_kg": 1063,
+                "matched": false
+              },
+              {
+                "answer_kg": 1063.0,
+                "batch_id": "B03",
+                "error_kg": -166.0,
+                "id": "B03-h06",
+                "key_kg": 1229,
+                "matched": false
+              },
+              {
+                "answer_kg": 1229.0,
+                "batch_id": "B03",
+                "error_kg": -175.0,
+                "id": "B03-h07",
+                "key_kg": 1404,
+                "matched": false
+              },
+              {
+                "answer_kg": 1404.0,
+                "batch_id": "B03",
+                "error_kg": -203.0,
+                "id": "B03-h08",
+                "key_kg": 1607,
+                "matched": false
+              },
+              {
+                "answer_kg": 1607.0,
+                "batch_id": "B03",
+                "error_kg": 16.0,
+                "id": "B03-h09",
+                "key_kg": 1591,
+                "matched": false
+              },
+              {
+                "answer_kg": 1591.0,
+                "batch_id": "B03",
+                "error_kg": -201.0,
+                "id": "B03-h10",
+                "key_kg": 1792,
+                "matched": false
+              },
+              {
+                "answer_kg": 1792.0,
+                "batch_id": "B03",
+                "error_kg": -175.0,
+                "id": "B03-h11",
+                "key_kg": 1967,
+                "matched": false
+              },
+              {
+                "answer_kg": 1967.0,
+                "batch_id": "B03",
+                "error_kg": 166.0,
+                "id": "B03-h12",
+                "key_kg": 1801,
+                "matched": false
+              },
+              {
+                "answer_kg": 1801.0,
+                "batch_id": "B03",
+                "error_kg": -132.0,
+                "id": "B03-h13",
+                "key_kg": 1933,
+                "matched": false
+              },
+              {
+                "answer_kg": 1933.0,
+                "batch_id": "B03",
+                "error_kg": 221.0,
+                "id": "B03-h14",
+                "key_kg": 1712,
+                "matched": false
+              },
+              {
+                "answer_kg": 1712.0,
+                "batch_id": "B03",
+                "error_kg": -57.0,
+                "id": "B03-h15",
+                "key_kg": 1769,
+                "matched": false
+              },
+              {
+                "answer_kg": 1769.0,
+                "batch_id": "B03",
+                "error_kg": 317.0,
+                "id": "B03-h16",
+                "key_kg": 1452,
+                "matched": false
+              },
+              {
+                "answer_kg": 1452.0,
+                "batch_id": "B03",
+                "error_kg": 919.0,
+                "id": "B03-h17",
+                "key_kg": 533,
+                "matched": false
+              },
+              {
+                "answer_kg": null,
+                "batch_id": "B04",
+                "error_kg": null,
+                "id": "B04-h01",
+                "key_kg": 692,
+                "matched": false
+              },
+              {
+                "answer_kg": 692.0,
+                "batch_id": "B04",
+                "error_kg": 23.0,
+                "id": "B04-h02",
+                "key_kg": 669,
+                "matched": false
+              },
+              {
+                "answer_kg": 669.0,
+                "batch_id": "B04",
+                "error_kg": -101.0,
+                "id": "B04-h03",
+                "key_kg": 770,
+                "matched": false
+              },
+              {
+                "answer_kg": 770.0,
+                "batch_id": "B04",
+                "error_kg": -348.0,
+                "id": "B04-h04",
+                "key_kg": 1118,
+                "matched": false
+              },
+              {
+                "answer_kg": 1118.0,
+                "batch_id": "B04",
+                "error_kg": -137.0,
+                "id": "B04-h05",
+                "key_kg": 1255,
+                "matched": false
+              },
+              {
+                "answer_kg": 1255.0,
+                "batch_id": "B04",
+                "error_kg": 67.0,
+                "id": "B04-h06",
+                "key_kg": 1188,
+                "matched": false
+              },
+              {
+                "answer_kg": 1188.0,
+                "batch_id": "B04",
+                "error_kg": -150.0,
+                "id": "B04-h07",
+                "key_kg": 1338,
+                "matched": false
+              },
+              {
+                "answer_kg": 1338.0,
+                "batch_id": "B04",
+                "error_kg": -263.0,
+                "id": "B04-h08",
+                "key_kg": 1601,
+                "matched": false
+              },
+              {
+                "answer_kg": 1601.0,
+                "batch_id": "B04",
+                "error_kg": -152.0,
+                "id": "B04-h09",
+                "key_kg": 1753,
+                "matched": false
+              },
+              {
+                "answer_kg": 1753.0,
+                "batch_id": "B04",
+                "error_kg": 25.0,
+                "id": "B04-h10",
+                "key_kg": 1728,
+                "matched": false
+              },
+              {
+                "answer_kg": 1728.0,
+                "batch_id": "B04",
+                "error_kg": 22.0,
+                "id": "B04-h11",
+                "key_kg": 1706,
+                "matched": false
+              },
+              {
+                "answer_kg": 1706.0,
+                "batch_id": "B04",
+                "error_kg": -256.0,
+                "id": "B04-h12",
+                "key_kg": 1962,
+                "matched": false
+              },
+              {
+                "answer_kg": 1962.0,
+                "batch_id": "B04",
+                "error_kg": 99.0,
+                "id": "B04-h13",
+                "key_kg": 1863,
+                "matched": false
+              },
+              {
+                "answer_kg": 1863.0,
+                "batch_id": "B04",
+                "error_kg": 47.0,
+                "id": "B04-h14",
+                "key_kg": 1816,
+                "matched": false
+              },
+              {
+                "answer_kg": 1816.0,
+                "batch_id": "B04",
+                "error_kg": -199.0,
+                "id": "B04-h15",
+                "key_kg": 2015,
+                "matched": false
+              },
+              {
+                "answer_kg": 2015.0,
+                "batch_id": "B04",
+                "error_kg": 1016.0,
+                "id": "B04-h16",
+                "key_kg": 999,
+                "matched": false
+              },
+              {
+                "answer_kg": 999.0,
+                "batch_id": "B04",
+                "error_kg": 872.0,
+                "id": "B04-h17",
+                "key_kg": 127,
+                "matched": false
+              },
+              {
+                "answer_kg": null,
+                "batch_id": "B05",
+                "error_kg": null,
+                "id": "B05-h01",
+                "key_kg": 508,
+                "matched": false
+              },
+              {
+                "answer_kg": 508.0,
+                "batch_id": "B05",
+                "error_kg": -98.0,
+                "id": "B05-h02",
+                "key_kg": 606,
+                "matched": false
+              },
+              {
+                "answer_kg": 606.0,
+                "batch_id": "B05",
+                "error_kg": -135.0,
+                "id": "B05-h03",
+                "key_kg": 741,
+                "matched": false
+              },
+              {
+                "answer_kg": 741.0,
+                "batch_id": "B05",
+                "error_kg": -78.0,
+                "id": "B05-h04",
+                "key_kg": 819,
+                "matched": false
+              },
+              {
+                "answer_kg": 819.0,
+                "batch_id": "B05",
+                "error_kg": -260.0,
+                "id": "B05-h05",
+                "key_kg": 1079,
+                "matched": false
+              },
+              {
+                "answer_kg": 1079.0,
+                "batch_id": "B05",
+                "error_kg": -321.0,
+                "id": "B05-h06",
+                "key_kg": 1400,
+                "matched": false
+              },
+              {
+                "answer_kg": 1400.0,
+                "batch_id": "B05",
+                "error_kg": -25.0,
+                "id": "B05-h07",
+                "key_kg": 1425,
+                "matched": false
+              },
+              {
+                "answer_kg": 1425.0,
+                "batch_id": "B05",
+                "error_kg": -355.0,
+                "id": "B05-h08",
+                "key_kg": 1780,
+                "matched": false
+              },
+              {
+                "answer_kg": 1780.0,
+                "batch_id": "B05",
+                "error_kg": 137.0,
+                "id": "B05-h09",
+                "key_kg": 1643,
+                "matched": false
+              },
+              {
+                "answer_kg": 1643.0,
+                "batch_id": "B05",
+                "error_kg": -241.0,
+                "id": "B05-h10",
+                "key_kg": 1884,
+                "matched": false
+              },
+              {
+                "answer_kg": 1884.0,
+                "batch_id": "B05",
+                "error_kg": 65.0,
+                "id": "B05-h11",
+                "key_kg": 1819,
+                "matched": false
+              },
+              {
+                "answer_kg": 1819.0,
+                "batch_id": "B05",
+                "error_kg": -81.0,
+                "id": "B05-h12",
+                "key_kg": 1900,
+                "matched": false
+              },
+              {
+                "answer_kg": 1900.0,
+                "batch_id": "B05",
+                "error_kg": -76.0,
+                "id": "B05-h13",
+                "key_kg": 1976,
+                "matched": false
+              },
+              {
+                "answer_kg": 1976.0,
+                "batch_id": "B05",
+                "error_kg": 54.0,
+                "id": "B05-h14",
+                "key_kg": 1922,
+                "matched": false
+              },
+              {
+                "answer_kg": 1922.0,
+                "batch_id": "B05",
+                "error_kg": 112.0,
+                "id": "B05-h15",
+                "key_kg": 1810,
+                "matched": false
+              },
+              {
+                "answer_kg": 1810.0,
+                "batch_id": "B05",
+                "error_kg": 595.0,
+                "id": "B05-h16",
+                "key_kg": 1215,
+                "matched": false
+              },
+              {
+                "answer_kg": 1215.0,
+                "batch_id": "B05",
+                "error_kg": 984.0,
+                "id": "B05-h17",
+                "key_kg": 231,
+                "matched": false
+              }
+            ]
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "examples/batch-analysis/industrial-yeast/results/development/reports/previous_hold.hourly/batch_analysis.json",
+            "sha256": "e6806d5132f9bf209791edc5a64184b169758834dfd56b66fcef00115b51ab50"
+          },
+          "recorded_run_at": null,
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": null,
+            "seconds": null
+          },
+          "status": "ok"
+        }
+      ],
+      "run": "yeast-development-previous_hold",
+      "split": "development"
+    },
+    {
+      "case_count": 1,
+      "cohort": "457a005e63643b4bd9426aaefe8eb49c7142b2a5bf0094833b3f622f064d3776",
+      "configuration": {
+        "interpolation": "previous",
+        "max_gap_s": 3600,
+        "quality": null,
+        "unit": "kg/h"
+      },
+      "counts": {
+        "batch_feed_totals": {
+          "predicted": 0,
+          "tp": 0,
+          "truth": 5
+        }
+      },
+      "evidence": "Publisher-logged running cumulative (total_fermentable_sugar_kg), withheld from the tool; whole-batch windows; development batches B01-B05",
+      "family": "industrial-yeast",
+      "interface": "scripts/batch_analysis.py CLI via scripts/industrial_yeast_case.py",
+      "method": "control: batch_analysis.py previous-value hold",
+      "metrics": {
+        "batch_feed_totals": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        }
+      },
+      "model": {
+        "id": "deterministic-tool",
+        "provider": "none",
+        "version": "scripts/batch_analysis.py as committed with A418"
+      },
+      "not_attempted": [],
+      "provenance": "Deterministic product-tool run, no AI model. The report bytes are the tool's own output; RECEIPT.json in each results folder records the command, source pins and code hashes.",
+      "ran_at": "2026-11-12",
+      "recipe": [
+        {
+          "path": "scripts/industrial_yeast_case.py",
+          "sha256": "5c54fd2d8d59442b58c19db9c058c3ce44dd1360d4e5af03bfde8991d3cb428f"
+        },
+        {
+          "path": "examples/batch-analysis/industrial-yeast/results/development/plans/previous_hold.batch.plan.json",
+          "sha256": "bc5b3186386a18627cb565acc17d1870dad29738beb5d768a38c5ac99a6aa25b"
+        },
+        {
+          "path": "examples/batch-analysis/industrial-yeast/results/development/plans/previous_hold.hourly.plan.json",
+          "sha256": "a3c01b02131b711215ac837b0edf2ed09e4cebb2ba4f79bcc4cc0f52a049f043"
+        }
+      ],
+      "rows": [
+        {
+          "case": "yeast-development-batch",
+          "counts": {
+            "batch_feed_totals": {
+              "predicted": 0,
+              "tp": 0,
+              "truth": 5
+            }
+          },
+          "diagnostics": {
+            "mean_abs_error_kg": null,
+            "mismatched_or_unanswered": [
+              {
+                "answer_kg": null,
+                "batch_id": "B01",
+                "error_kg": null,
+                "id": "B01",
+                "key_kg": 22700,
+                "matched": false
+              },
+              {
+                "answer_kg": null,
+                "batch_id": "B02",
+                "error_kg": null,
+                "id": "B02",
+                "key_kg": 22700,
+                "matched": false
+              },
+              {
+                "answer_kg": null,
+                "batch_id": "B03",
+                "error_kg": null,
+                "id": "B03",
+                "key_kg": 22700,
+                "matched": false
+              },
+              {
+                "answer_kg": null,
+                "batch_id": "B04",
+                "error_kg": null,
+                "id": "B04",
+                "key_kg": 22600,
+                "matched": false
+              },
+              {
+                "answer_kg": null,
+                "batch_id": "B05",
+                "error_kg": null,
+                "id": "B05",
+                "key_kg": 22758,
+                "matched": false
+              }
+            ]
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "examples/batch-analysis/industrial-yeast/results/development/reports/previous_hold.batch/batch_analysis.json",
+            "sha256": "99ef7ac9d0cd17035b6ef034e75dbf12221bb53a0e06cf1555f3b3773b481288"
+          },
+          "recorded_run_at": null,
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": null,
+            "seconds": null
+          },
+          "status": "ok"
+        }
+      ],
+      "run": "yeast-development-previous_hold",
+      "split": "development"
+    },
+    {
+      "case_count": 1,
+      "cohort": "d662a472f40b597006ee2721f4cf0bdbf23ae1fead3cd1fcb361fea46223ed2f",
+      "configuration": {
+        "interpolation": "next",
+        "max_gap_s": 3600,
+        "quality": null,
+        "unit": "kg/s"
+      },
+      "counts": {
+        "hourly_feed_totals": {
+          "predicted": 84,
+          "tp": 0,
+          "truth": 84
+        }
+      },
+      "evidence": "Publisher-logged running cumulative (total_fermentable_sugar_kg), withheld from the tool; hourly windows; development batches B01-B05",
+      "family": "industrial-yeast",
+      "interface": "scripts/batch_analysis.py CLI via scripts/industrial_yeast_case.py",
+      "method": "control: batch_analysis.py next, unit declared kg/s",
+      "metrics": {
+        "hourly_feed_totals": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        }
+      },
+      "model": {
+        "id": "deterministic-tool",
+        "provider": "none",
+        "version": "scripts/batch_analysis.py as committed with A418"
+      },
+      "not_attempted": [],
+      "provenance": "Deterministic product-tool run, no AI model. The report bytes are the tool's own output; RECEIPT.json in each results folder records the command, source pins and code hashes.",
+      "ran_at": "2026-11-12",
+      "recipe": [
+        {
+          "path": "scripts/industrial_yeast_case.py",
+          "sha256": "5c54fd2d8d59442b58c19db9c058c3ce44dd1360d4e5af03bfde8991d3cb428f"
+        },
+        {
+          "path": "examples/batch-analysis/industrial-yeast/results/development/plans/wrong_unit.batch.plan.json",
+          "sha256": "d6ce964b1fa20365752b4ff5b945f066fb3ba0c6ea1c56677c9ca4b3c21a958c"
+        },
+        {
+          "path": "examples/batch-analysis/industrial-yeast/results/development/plans/wrong_unit.hourly.plan.json",
+          "sha256": "94b2bb115b130726c1c546fb2a588741794939dce0c39a4fb15e302ddb154508"
+        }
+      ],
+      "rows": [
+        {
+          "case": "yeast-development-hourly",
+          "counts": {
+            "hourly_feed_totals": {
+              "predicted": 84,
+              "tp": 0,
+              "truth": 84
+            }
+          },
+          "diagnostics": {
+            "mean_abs_error_kg": 4861135.023809524,
+            "mismatched_or_unanswered": [
+              {
+                "answer_kg": 1400400.0,
+                "batch_id": "B01",
+                "error_kg": 1400011.0,
+                "id": "B01-h01",
+                "key_kg": 389,
+                "matched": false
+              },
+              {
+                "answer_kg": 2016000.0,
+                "batch_id": "B01",
+                "error_kg": 2015440.0,
+                "id": "B01-h02",
+                "key_kg": 560,
+                "matched": false
+              },
+              {
+                "answer_kg": 2581200.0,
+                "batch_id": "B01",
+                "error_kg": 2580483.0,
+                "id": "B01-h03",
+                "key_kg": 717,
+                "matched": false
+              },
+              {
+                "answer_kg": 3380400.0,
+                "batch_id": "B01",
+                "error_kg": 3379461.0,
+                "id": "B01-h04",
+                "key_kg": 939,
+                "matched": false
+              },
+              {
+                "answer_kg": 4348800.0,
+                "batch_id": "B01",
+                "error_kg": 4347592.0,
+                "id": "B01-h05",
+                "key_kg": 1208,
+                "matched": false
+              },
+              {
+                "answer_kg": 4327200.0,
+                "batch_id": "B01",
+                "error_kg": 4325998.0,
+                "id": "B01-h06",
+                "key_kg": 1202,
+                "matched": false
+              },
+              {
+                "answer_kg": 4492800.0,
+                "batch_id": "B01",
+                "error_kg": 4491552.0,
+                "id": "B01-h07",
+                "key_kg": 1248,
+                "matched": false
+              },
+              {
+                "answer_kg": 5464800.0,
+                "batch_id": "B01",
+                "error_kg": 5463282.0,
+                "id": "B01-h08",
+                "key_kg": 1518,
+                "matched": false
+              },
+              {
+                "answer_kg": 6188400.0,
+                "batch_id": "B01",
+                "error_kg": 6186681.0,
+                "id": "B01-h09",
+                "key_kg": 1719,
+                "matched": false
+              },
+              {
+                "answer_kg": 6472800.0,
+                "batch_id": "B01",
+                "error_kg": 6471002.0,
+                "id": "B01-h10",
+                "key_kg": 1798,
+                "matched": false
+              },
+              {
+                "answer_kg": 6458400.0,
+                "batch_id": "B01",
+                "error_kg": 6456606.0,
+                "id": "B01-h11",
+                "key_kg": 1794,
+                "matched": false
+              },
+              {
+                "answer_kg": 6948000.0,
+                "batch_id": "B01",
+                "error_kg": 6946070.0,
+                "id": "B01-h12",
+                "key_kg": 1930,
+                "matched": false
+              },
+              {
+                "answer_kg": 6501600.0,
+                "batch_id": "B01",
+                "error_kg": 6499794.0,
+                "id": "B01-h13",
+                "key_kg": 1806,
+                "matched": false
+              },
+              {
+                "answer_kg": 6786000.0,
+                "batch_id": "B01",
+                "error_kg": 6784115.0,
+                "id": "B01-h14",
+                "key_kg": 1885,
+                "matched": false
+              },
+              {
+                "answer_kg": 6796800.0,
+                "batch_id": "B01",
+                "error_kg": 6794912.0,
+                "id": "B01-h15",
+                "key_kg": 1888,
+                "matched": false
+              },
+              {
+                "answer_kg": 5594400.0,
+                "batch_id": "B01",
+                "error_kg": 5592846.0,
+                "id": "B01-h16",
+                "key_kg": 1554,
+                "matched": false
+              },
+              {
+                "answer_kg": 1962000.0,
+                "batch_id": "B01",
+                "error_kg": 1961455.0,
+                "id": "B01-h17",
+                "key_kg": 545,
+                "matched": false
+              },
+              {
+                "answer_kg": 1900800.0,
+                "batch_id": "B02",
+                "error_kg": 1900272.0,
+                "id": "B02-h01",
+                "key_kg": 528,
+                "matched": false
+              },
+              {
+                "answer_kg": 2365200.0,
+                "batch_id": "B02",
+                "error_kg": 2364543.0,
+                "id": "B02-h02",
+                "key_kg": 657,
+                "matched": false
+              },
+              {
+                "answer_kg": 2761200.0,
+                "batch_id": "B02",
+                "error_kg": 2760433.0,
+                "id": "B02-h03",
+                "key_kg": 767,
+                "matched": false
+              },
+              {
+                "answer_kg": 3222000.0,
+                "batch_id": "B02",
+                "error_kg": 3221105.0,
+                "id": "B02-h04",
+                "key_kg": 895,
+                "matched": false
+              },
+              {
+                "answer_kg": 4010400.0,
+                "batch_id": "B02",
+                "error_kg": 4009286.0,
+                "id": "B02-h05",
+                "key_kg": 1114,
+                "matched": false
+              },
+              {
+                "answer_kg": 4737600.0,
+                "batch_id": "B02",
+                "error_kg": 4736284.0,
+                "id": "B02-h06",
+                "key_kg": 1316,
+                "matched": false
+              },
+              {
+                "answer_kg": 5504400.0,
+                "batch_id": "B02",
+                "error_kg": 5502871.0,
+                "id": "B02-h07",
+                "key_kg": 1529,
+                "matched": false
+              },
+              {
+                "answer_kg": 5572800.0,
+                "batch_id": "B02",
+                "error_kg": 5571252.0,
+                "id": "B02-h08",
+                "key_kg": 1548,
+                "matched": false
+              },
+              {
+                "answer_kg": 6152400.0,
+                "batch_id": "B02",
+                "error_kg": 6150691.0,
+                "id": "B02-h09",
+                "key_kg": 1709,
+                "matched": false
+              },
+              {
+                "answer_kg": 6595200.0,
+                "batch_id": "B02",
+                "error_kg": 6593368.0,
+                "id": "B02-h10",
+                "key_kg": 1832,
+                "matched": false
+              },
+              {
+                "answer_kg": 6854400.0,
+                "batch_id": "B02",
+                "error_kg": 6852496.0,
+                "id": "B02-h11",
+                "key_kg": 1904,
+                "matched": false
+              },
+              {
+                "answer_kg": 7578000.0,
+                "batch_id": "B02",
+                "error_kg": 7575895.0,
+                "id": "B02-h12",
+                "key_kg": 2105,
+                "matched": false
+              },
+              {
+                "answer_kg": 7045200.0,
+                "batch_id": "B02",
+                "error_kg": 7043243.0,
+                "id": "B02-h13",
+                "key_kg": 1957,
+                "matched": false
+              },
+              {
+                "answer_kg": 7056000.0,
+                "batch_id": "B02",
+                "error_kg": 7054040.0,
+                "id": "B02-h14",
+                "key_kg": 1960,
+                "matched": false
+              },
+              {
+                "answer_kg": 7898400.0,
+                "batch_id": "B02",
+                "error_kg": 7896206.0,
+                "id": "B02-h15",
+                "key_kg": 2194,
+                "matched": false
+              },
+              {
+                "answer_kg": 2466000.0,
+                "batch_id": "B02",
+                "error_kg": 2465315.0,
+                "id": "B02-h16",
+                "key_kg": 685,
+                "matched": false
+              },
+              {
+                "answer_kg": 1897200.0,
+                "batch_id": "B03",
+                "error_kg": 1896673.0,
+                "id": "B03-h01",
+                "key_kg": 527,
+                "matched": false
+              },
+              {
+                "answer_kg": 2217600.0,
+                "batch_id": "B03",
+                "error_kg": 2216984.0,
+                "id": "B03-h02",
+                "key_kg": 616,
+                "matched": false
+              },
+              {
+                "answer_kg": 2455200.0,
+                "batch_id": "B03",
+                "error_kg": 2454518.0,
+                "id": "B03-h03",
+                "key_kg": 682,
+                "matched": false
+              },
+              {
+                "answer_kg": 3679200.0,
+                "batch_id": "B03",
+                "error_kg": 3678178.0,
+                "id": "B03-h04",
+                "key_kg": 1022,
+                "matched": false
+              },
+              {
+                "answer_kg": 3826800.0,
+                "batch_id": "B03",
+                "error_kg": 3825737.0,
+                "id": "B03-h05",
+                "key_kg": 1063,
+                "matched": false
+              },
+              {
+                "answer_kg": 4424400.0,
+                "batch_id": "B03",
+                "error_kg": 4423171.0,
+                "id": "B03-h06",
+                "key_kg": 1229,
+                "matched": false
+              },
+              {
+                "answer_kg": 5054400.0,
+                "batch_id": "B03",
+                "error_kg": 5052996.0,
+                "id": "B03-h07",
+                "key_kg": 1404,
+                "matched": false
+              },
+              {
+                "answer_kg": 5785200.0,
+                "batch_id": "B03",
+                "error_kg": 5783593.0,
+                "id": "B03-h08",
+                "key_kg": 1607,
+                "matched": false
+              },
+              {
+                "answer_kg": 5727600.0,
+                "batch_id": "B03",
+                "error_kg": 5726009.0,
+                "id": "B03-h09",
+                "key_kg": 1591,
+                "matched": false
+              },
+              {
+                "answer_kg": 6451200.0,
+                "batch_id": "B03",
+                "error_kg": 6449408.0,
+                "id": "B03-h10",
+                "key_kg": 1792,
+                "matched": false
+              },
+              {
+                "answer_kg": 7081200.0,
+                "batch_id": "B03",
+                "error_kg": 7079233.0,
+                "id": "B03-h11",
+                "key_kg": 1967,
+                "matched": false
+              },
+              {
+                "answer_kg": 6483600.0,
+                "batch_id": "B03",
+                "error_kg": 6481799.0,
+                "id": "B03-h12",
+                "key_kg": 1801,
+                "matched": false
+              },
+              {
+                "answer_kg": 6958800.0,
+                "batch_id": "B03",
+                "error_kg": 6956867.0,
+                "id": "B03-h13",
+                "key_kg": 1933,
+                "matched": false
+              },
+              {
+                "answer_kg": 6163200.0,
+                "batch_id": "B03",
+                "error_kg": 6161488.0,
+                "id": "B03-h14",
+                "key_kg": 1712,
+                "matched": false
+              },
+              {
+                "answer_kg": 6368400.0,
+                "batch_id": "B03",
+                "error_kg": 6366631.0,
+                "id": "B03-h15",
+                "key_kg": 1769,
+                "matched": false
+              },
+              {
+                "answer_kg": 5227200.0,
+                "batch_id": "B03",
+                "error_kg": 5225748.0,
+                "id": "B03-h16",
+                "key_kg": 1452,
+                "matched": false
+              },
+              {
+                "answer_kg": 1918800.0,
+                "batch_id": "B03",
+                "error_kg": 1918267.0,
+                "id": "B03-h17",
+                "key_kg": 533,
+                "matched": false
+              },
+              {
+                "answer_kg": 2491200.0,
+                "batch_id": "B04",
+                "error_kg": 2490508.0,
+                "id": "B04-h01",
+                "key_kg": 692,
+                "matched": false
+              },
+              {
+                "answer_kg": 2408400.0,
+                "batch_id": "B04",
+                "error_kg": 2407731.0,
+                "id": "B04-h02",
+                "key_kg": 669,
+                "matched": false
+              },
+              {
+                "answer_kg": 2772000.0,
+                "batch_id": "B04",
+                "error_kg": 2771230.0,
+                "id": "B04-h03",
+                "key_kg": 770,
+                "matched": false
+              },
+              {
+                "answer_kg": 4024800.0,
+                "batch_id": "B04",
+                "error_kg": 4023682.0,
+                "id": "B04-h04",
+                "key_kg": 1118,
+                "matched": false
+              },
+              {
+                "answer_kg": 4518000.0,
+                "batch_id": "B04",
+                "error_kg": 4516745.0,
+                "id": "B04-h05",
+                "key_kg": 1255,
+                "matched": false
+              },
+              {
+                "answer_kg": 4276800.0,
+                "batch_id": "B04",
+                "error_kg": 4275612.0,
+                "id": "B04-h06",
+                "key_kg": 1188,
+                "matched": false
+              },
+              {
+                "answer_kg": 4816800.0,
+                "batch_id": "B04",
+                "error_kg": 4815462.0,
+                "id": "B04-h07",
+                "key_kg": 1338,
+                "matched": false
+              },
+              {
+                "answer_kg": 5763600.0,
+                "batch_id": "B04",
+                "error_kg": 5761999.0,
+                "id": "B04-h08",
+                "key_kg": 1601,
+                "matched": false
+              },
+              {
+                "answer_kg": 6310800.0,
+                "batch_id": "B04",
+                "error_kg": 6309047.0,
+                "id": "B04-h09",
+                "key_kg": 1753,
+                "matched": false
+              },
+              {
+                "answer_kg": 6220800.0,
+                "batch_id": "B04",
+                "error_kg": 6219072.0,
+                "id": "B04-h10",
+                "key_kg": 1728,
+                "matched": false
+              },
+              {
+                "answer_kg": 6141600.0,
+                "batch_id": "B04",
+                "error_kg": 6139894.0,
+                "id": "B04-h11",
+                "key_kg": 1706,
+                "matched": false
+              },
+              {
+                "answer_kg": 7063200.0,
+                "batch_id": "B04",
+                "error_kg": 7061238.0,
+                "id": "B04-h12",
+                "key_kg": 1962,
+                "matched": false
+              },
+              {
+                "answer_kg": 6706800.0,
+                "batch_id": "B04",
+                "error_kg": 6704937.0,
+                "id": "B04-h13",
+                "key_kg": 1863,
+                "matched": false
+              },
+              {
+                "answer_kg": 6537600.0,
+                "batch_id": "B04",
+                "error_kg": 6535784.0,
+                "id": "B04-h14",
+                "key_kg": 1816,
+                "matched": false
+              },
+              {
+                "answer_kg": 7254000.0,
+                "batch_id": "B04",
+                "error_kg": 7251985.0,
+                "id": "B04-h15",
+                "key_kg": 2015,
+                "matched": false
+              },
+              {
+                "answer_kg": 3596400.0,
+                "batch_id": "B04",
+                "error_kg": 3595401.0,
+                "id": "B04-h16",
+                "key_kg": 999,
+                "matched": false
+              },
+              {
+                "answer_kg": 457200.0,
+                "batch_id": "B04",
+                "error_kg": 457073.0,
+                "id": "B04-h17",
+                "key_kg": 127,
+                "matched": false
+              },
+              {
+                "answer_kg": 1828800.0,
+                "batch_id": "B05",
+                "error_kg": 1828292.0,
+                "id": "B05-h01",
+                "key_kg": 508,
+                "matched": false
+              },
+              {
+                "answer_kg": 2181600.0,
+                "batch_id": "B05",
+                "error_kg": 2180994.0,
+                "id": "B05-h02",
+                "key_kg": 606,
+                "matched": false
+              },
+              {
+                "answer_kg": 2667600.0,
+                "batch_id": "B05",
+                "error_kg": 2666859.0,
+                "id": "B05-h03",
+                "key_kg": 741,
+                "matched": false
+              },
+              {
+                "answer_kg": 2948400.0,
+                "batch_id": "B05",
+                "error_kg": 2947581.0,
+                "id": "B05-h04",
+                "key_kg": 819,
+                "matched": false
+              },
+              {
+                "answer_kg": 3884400.0,
+                "batch_id": "B05",
+                "error_kg": 3883321.0,
+                "id": "B05-h05",
+                "key_kg": 1079,
+                "matched": false
+              },
+              {
+                "answer_kg": 5040000.0,
+                "batch_id": "B05",
+                "error_kg": 5038600.0,
+                "id": "B05-h06",
+                "key_kg": 1400,
+                "matched": false
+              },
+              {
+                "answer_kg": 5130000.0,
+                "batch_id": "B05",
+                "error_kg": 5128575.0,
+                "id": "B05-h07",
+                "key_kg": 1425,
+                "matched": false
+              },
+              {
+                "answer_kg": 6408000.0,
+                "batch_id": "B05",
+                "error_kg": 6406220.0,
+                "id": "B05-h08",
+                "key_kg": 1780,
+                "matched": false
+              },
+              {
+                "answer_kg": 5914800.0,
+                "batch_id": "B05",
+                "error_kg": 5913157.0,
+                "id": "B05-h09",
+                "key_kg": 1643,
+                "matched": false
+              },
+              {
+                "answer_kg": 6782400.0,
+                "batch_id": "B05",
+                "error_kg": 6780516.0,
+                "id": "B05-h10",
+                "key_kg": 1884,
+                "matched": false
+              },
+              {
+                "answer_kg": 6548400.0,
+                "batch_id": "B05",
+                "error_kg": 6546581.0,
+                "id": "B05-h11",
+                "key_kg": 1819,
+                "matched": false
+              },
+              {
+                "answer_kg": 6840000.0,
+                "batch_id": "B05",
+                "error_kg": 6838100.0,
+                "id": "B05-h12",
+                "key_kg": 1900,
+                "matched": false
+              },
+              {
+                "answer_kg": 7113600.0,
+                "batch_id": "B05",
+                "error_kg": 7111624.0,
+                "id": "B05-h13",
+                "key_kg": 1976,
+                "matched": false
+              },
+              {
+                "answer_kg": 6919200.0,
+                "batch_id": "B05",
+                "error_kg": 6917278.0,
+                "id": "B05-h14",
+                "key_kg": 1922,
+                "matched": false
+              },
+              {
+                "answer_kg": 6516000.0,
+                "batch_id": "B05",
+                "error_kg": 6514190.0,
+                "id": "B05-h15",
+                "key_kg": 1810,
+                "matched": false
+              },
+              {
+                "answer_kg": 4374000.0,
+                "batch_id": "B05",
+                "error_kg": 4372785.0,
+                "id": "B05-h16",
+                "key_kg": 1215,
+                "matched": false
+              },
+              {
+                "answer_kg": 831600.0,
+                "batch_id": "B05",
+                "error_kg": 831369.0,
+                "id": "B05-h17",
+                "key_kg": 231,
+                "matched": false
+              }
+            ]
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "examples/batch-analysis/industrial-yeast/results/development/reports/wrong_unit.hourly/batch_analysis.json",
+            "sha256": "95096783842a318a6871960fd794152c6bf4808d8e3df6ca4be0fd63f63d78e7"
+          },
+          "recorded_run_at": null,
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": null,
+            "seconds": null
+          },
+          "status": "ok"
+        }
+      ],
+      "run": "yeast-development-wrong_unit",
+      "split": "development"
+    },
+    {
+      "case_count": 1,
+      "cohort": "457a005e63643b4bd9426aaefe8eb49c7142b2a5bf0094833b3f622f064d3776",
+      "configuration": {
+        "interpolation": "next",
+        "max_gap_s": 3600,
+        "quality": null,
+        "unit": "kg/s"
+      },
+      "counts": {
+        "batch_feed_totals": {
+          "predicted": 5,
+          "tp": 0,
+          "truth": 5
+        }
+      },
+      "evidence": "Publisher-logged running cumulative (total_fermentable_sugar_kg), withheld from the tool; whole-batch windows; development batches B01-B05",
+      "family": "industrial-yeast",
+      "interface": "scripts/batch_analysis.py CLI via scripts/industrial_yeast_case.py",
+      "method": "control: batch_analysis.py next, unit declared kg/s",
+      "metrics": {
+        "batch_feed_totals": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0
+        }
+      },
+      "model": {
+        "id": "deterministic-tool",
+        "provider": "none",
+        "version": "scripts/batch_analysis.py as committed with A418"
+      },
+      "not_attempted": [],
+      "provenance": "Deterministic product-tool run, no AI model. The report bytes are the tool's own output; RECEIPT.json in each results folder records the command, source pins and code hashes.",
+      "ran_at": "2026-11-12",
+      "recipe": [
+        {
+          "path": "scripts/industrial_yeast_case.py",
+          "sha256": "5c54fd2d8d59442b58c19db9c058c3ce44dd1360d4e5af03bfde8991d3cb428f"
+        },
+        {
+          "path": "examples/batch-analysis/industrial-yeast/results/development/plans/wrong_unit.batch.plan.json",
+          "sha256": "d6ce964b1fa20365752b4ff5b945f066fb3ba0c6ea1c56677c9ca4b3c21a958c"
+        },
+        {
+          "path": "examples/batch-analysis/industrial-yeast/results/development/plans/wrong_unit.hourly.plan.json",
+          "sha256": "94b2bb115b130726c1c546fb2a588741794939dce0c39a4fb15e302ddb154508"
+        }
+      ],
+      "rows": [
+        {
+          "case": "yeast-development-batch",
+          "counts": {
+            "batch_feed_totals": {
+              "predicted": 5,
+              "tp": 0,
+              "truth": 5
+            }
+          },
+          "diagnostics": {
+            "mean_abs_error_kg": 81667068.4,
+            "mismatched_or_unanswered": [
+              {
+                "answer_kg": 81720000.0,
+                "batch_id": "B01",
+                "error_kg": 81697300.0,
+                "id": "B01",
+                "key_kg": 22700,
+                "matched": false
+              },
+              {
+                "answer_kg": 81720000.0,
+                "batch_id": "B02",
+                "error_kg": 81697300.0,
+                "id": "B02",
+                "key_kg": 22700,
+                "matched": false
+              },
+              {
+                "answer_kg": 81720000.0,
+                "batch_id": "B03",
+                "error_kg": 81697300.0,
+                "id": "B03",
+                "key_kg": 22700,
+                "matched": false
+              },
+              {
+                "answer_kg": 81360000.0,
+                "batch_id": "B04",
+                "error_kg": 81337400.0,
+                "id": "B04",
+                "key_kg": 22600,
+                "matched": false
+              },
+              {
+                "answer_kg": 81928800.0,
+                "batch_id": "B05",
+                "error_kg": 81906042.0,
+                "id": "B05",
+                "key_kg": 22758,
+                "matched": false
+              }
+            ]
+          },
+          "note": null,
+          "prediction_ref": {
+            "path": "examples/batch-analysis/industrial-yeast/results/development/reports/wrong_unit.batch/batch_analysis.json",
+            "sha256": "7ee3a49e03a1901e42dd09f417c5cde8df5cf802bfa47ef7d6ad4deab5a4277d"
+          },
+          "recorded_run_at": null,
+          "reported_resources": {
+            "cost_usd": null,
+            "cost_usd_notional": null,
+            "seconds": null
+          },
+          "status": "ok"
+        }
+      ],
+      "run": "yeast-development-wrong_unit",
+      "split": "development"
+    }
+  ],
+  "schema": "task-benchmark-1",
+  "scoring_contract": "logged-cumulative-v1",
+  "submissions": [
+    {
+      "id": "yeast-development-method",
+      "path": "benchmarks/runs/yeast-development-method.json",
+      "sha256": "440e8b2ac8a4dd0123440480240248d679fa2c5019d5b30d5e8c51709fa15043"
+    },
+    {
+      "id": "yeast-development-trapezoid",
+      "path": "benchmarks/runs/yeast-development-trapezoid.json",
+      "sha256": "422296e8a8438837b3438d7851c0812383d146a8d482b40d2718639273fc3963"
+    },
+    {
+      "id": "yeast-development-trapezoid_zero_start",
+      "path": "benchmarks/runs/yeast-development-trapezoid_zero_start.json",
+      "sha256": "6800950a3e1480b0f230a4fd3248324f663697f0c434b45b95de3e8664e3a44c"
+    },
+    {
+      "id": "yeast-development-previous_hold",
+      "path": "benchmarks/runs/yeast-development-previous_hold.json",
+      "sha256": "7e6040a5a2557fba7661a00dbf036cb4a0f70169f5ac4229a9f3273f9d5d89be"
+    },
+    {
+      "id": "yeast-development-wrong_unit",
+      "path": "benchmarks/runs/yeast-development-wrong_unit.json",
+      "sha256": "e4f80a9c30c6b2cb69c3ee9b32f02bb50222e0f16de6560499d76716253eb63f"
+    }
+  ],
+  "suite": "industrial-yeast-development",
+  "suite_sha256": "d88276bb9eaa4beb4ad41212494e873d7dbec577e6374e0dbd0d3c0c4ad52820",
+  "suite_version": "1",
+  "summary": [
+    {
+      "case_count": 1,
+      "cohort": "d662a472f40b597006ee2721f4cf0bdbf23ae1fead3cd1fcb361fea46223ed2f",
+      "configuration": {
+        "interpolation": "next",
+        "max_gap_s": 3600,
+        "quality": null,
+        "unit": "kg/s"
+      },
+      "evidence": "Publisher-logged running cumulative (total_fermentable_sugar_kg), withheld from the tool; hourly windows; development batches B01-B05",
+      "family": "industrial-yeast",
+      "group": "1698859932aac616ce81f497075521d5d656b0fc8ebc5e7c3c42658e2eed147c",
+      "interface": "scripts/batch_analysis.py CLI via scripts/industrial_yeast_case.py",
+      "method": "control: batch_analysis.py next, unit declared kg/s",
+      "metrics": {
+        "hourly_feed_totals": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        }
+      },
+      "model": {
+        "id": "deterministic-tool",
+        "provider": "none",
+        "version": "scripts/batch_analysis.py as committed with A418"
+      },
+      "replicates": 1,
+      "runs": [
+        "yeast-development-wrong_unit"
+      ],
+      "split": "development"
+    },
+    {
+      "case_count": 1,
+      "cohort": "d662a472f40b597006ee2721f4cf0bdbf23ae1fead3cd1fcb361fea46223ed2f",
+      "configuration": {
+        "interpolation": "next",
+        "max_gap_s": 3600,
+        "quality": null,
+        "unit": "kg/h"
+      },
+      "evidence": "Publisher-logged running cumulative (total_fermentable_sugar_kg), withheld from the tool; hourly windows; development batches B01-B05",
+      "family": "industrial-yeast",
+      "group": "63038fd55cc4db4eaf17ca95b92e21349dc3779c66d7b3bd3a60addd2add8ba2",
+      "interface": "scripts/batch_analysis.py CLI via scripts/industrial_yeast_case.py",
+      "method": "batch_analysis.py V2 interval-ending hold (next), kg/h",
+      "metrics": {
+        "hourly_feed_totals": {
+          "max_f1": 1.0,
+          "mean_f1": 1.0,
+          "min_f1": 1.0,
+          "stdev_f1": null
+        }
+      },
+      "model": {
+        "id": "deterministic-tool",
+        "provider": "none",
+        "version": "scripts/batch_analysis.py as committed with A418"
+      },
+      "replicates": 1,
+      "runs": [
+        "yeast-development-method"
+      ],
+      "split": "development"
+    },
+    {
+      "case_count": 1,
+      "cohort": "d662a472f40b597006ee2721f4cf0bdbf23ae1fead3cd1fcb361fea46223ed2f",
+      "configuration": {
+        "interpolation": "linear",
+        "max_gap_s": 3600,
+        "quality": null,
+        "unit": "kg/h"
+      },
+      "evidence": "Publisher-logged running cumulative (total_fermentable_sugar_kg), withheld from the tool; hourly windows; development batches B01-B05",
+      "family": "industrial-yeast",
+      "group": "678cec669484f6fddc64adfaa0faefcbaf8c6405b042c6f36457d708fe104139",
+      "interface": "scripts/batch_analysis.py CLI via scripts/industrial_yeast_case.py",
+      "method": "control: batch_analysis.py linear, blank hour-0 feed written as 0",
+      "metrics": {
+        "hourly_feed_totals": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        }
+      },
+      "model": {
+        "id": "deterministic-tool",
+        "provider": "none",
+        "version": "scripts/batch_analysis.py as committed with A418"
+      },
+      "replicates": 1,
+      "runs": [
+        "yeast-development-trapezoid_zero_start"
+      ],
+      "split": "development"
+    },
+    {
+      "case_count": 1,
+      "cohort": "d662a472f40b597006ee2721f4cf0bdbf23ae1fead3cd1fcb361fea46223ed2f",
+      "configuration": {
+        "interpolation": "previous",
+        "max_gap_s": 3600,
+        "quality": null,
+        "unit": "kg/h"
+      },
+      "evidence": "Publisher-logged running cumulative (total_fermentable_sugar_kg), withheld from the tool; hourly windows; development batches B01-B05",
+      "family": "industrial-yeast",
+      "group": "92088f017407144c9bd0f86a4d5a3ed6a7586a7f4d04290aa16dd9b166de2dcf",
+      "interface": "scripts/batch_analysis.py CLI via scripts/industrial_yeast_case.py",
+      "method": "control: batch_analysis.py previous-value hold",
+      "metrics": {
+        "hourly_feed_totals": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        }
+      },
+      "model": {
+        "id": "deterministic-tool",
+        "provider": "none",
+        "version": "scripts/batch_analysis.py as committed with A418"
+      },
+      "replicates": 1,
+      "runs": [
+        "yeast-development-previous_hold"
+      ],
+      "split": "development"
+    },
+    {
+      "case_count": 1,
+      "cohort": "d662a472f40b597006ee2721f4cf0bdbf23ae1fead3cd1fcb361fea46223ed2f",
+      "configuration": {
+        "interpolation": "linear",
+        "max_gap_s": 3600,
+        "quality": null,
+        "unit": "kg/h"
+      },
+      "evidence": "Publisher-logged running cumulative (total_fermentable_sugar_kg), withheld from the tool; hourly windows; development batches B01-B05",
+      "family": "industrial-yeast",
+      "group": "9dad6724d9c9c1bb1cde016c1f3626b4cadc25ecf3507c00e167ae27a8556ffa",
+      "interface": "scripts/batch_analysis.py CLI via scripts/industrial_yeast_case.py",
+      "method": "control: batch_analysis.py linear (trapezoid)",
+      "metrics": {
+        "hourly_feed_totals": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        }
+      },
+      "model": {
+        "id": "deterministic-tool",
+        "provider": "none",
+        "version": "scripts/batch_analysis.py as committed with A418"
+      },
+      "replicates": 1,
+      "runs": [
+        "yeast-development-trapezoid"
+      ],
+      "split": "development"
+    },
+    {
+      "case_count": 1,
+      "cohort": "457a005e63643b4bd9426aaefe8eb49c7142b2a5bf0094833b3f622f064d3776",
+      "configuration": {
+        "interpolation": "linear",
+        "max_gap_s": 3600,
+        "quality": null,
+        "unit": "kg/h"
+      },
+      "evidence": "Publisher-logged running cumulative (total_fermentable_sugar_kg), withheld from the tool; whole-batch windows; development batches B01-B05",
+      "family": "industrial-yeast",
+      "group": "b39943c2ad5a98bb1d3f0efad2a463c7c2bf3c6eecb17a5dbad9a22032afafad",
+      "interface": "scripts/batch_analysis.py CLI via scripts/industrial_yeast_case.py",
+      "method": "control: batch_analysis.py linear (trapezoid)",
+      "metrics": {
+        "batch_feed_totals": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        }
+      },
+      "model": {
+        "id": "deterministic-tool",
+        "provider": "none",
+        "version": "scripts/batch_analysis.py as committed with A418"
+      },
+      "replicates": 1,
+      "runs": [
+        "yeast-development-trapezoid"
+      ],
+      "split": "development"
+    },
+    {
+      "case_count": 1,
+      "cohort": "457a005e63643b4bd9426aaefe8eb49c7142b2a5bf0094833b3f622f064d3776",
+      "configuration": {
+        "interpolation": "next",
+        "max_gap_s": 3600,
+        "quality": null,
+        "unit": "kg/h"
+      },
+      "evidence": "Publisher-logged running cumulative (total_fermentable_sugar_kg), withheld from the tool; whole-batch windows; development batches B01-B05",
+      "family": "industrial-yeast",
+      "group": "b9f6659750da70976569d091685af09cf1d1b59ad2aea968ef14bed193f9be2c",
+      "interface": "scripts/batch_analysis.py CLI via scripts/industrial_yeast_case.py",
+      "method": "batch_analysis.py V2 interval-ending hold (next), kg/h",
+      "metrics": {
+        "batch_feed_totals": {
+          "max_f1": 1.0,
+          "mean_f1": 1.0,
+          "min_f1": 1.0,
+          "stdev_f1": null
+        }
+      },
+      "model": {
+        "id": "deterministic-tool",
+        "provider": "none",
+        "version": "scripts/batch_analysis.py as committed with A418"
+      },
+      "replicates": 1,
+      "runs": [
+        "yeast-development-method"
+      ],
+      "split": "development"
+    },
+    {
+      "case_count": 1,
+      "cohort": "457a005e63643b4bd9426aaefe8eb49c7142b2a5bf0094833b3f622f064d3776",
+      "configuration": {
+        "interpolation": "previous",
+        "max_gap_s": 3600,
+        "quality": null,
+        "unit": "kg/h"
+      },
+      "evidence": "Publisher-logged running cumulative (total_fermentable_sugar_kg), withheld from the tool; whole-batch windows; development batches B01-B05",
+      "family": "industrial-yeast",
+      "group": "c99c2b35aea6232628b29974db213ca7e8641d73f3a7385620e28cd28515199c",
+      "interface": "scripts/batch_analysis.py CLI via scripts/industrial_yeast_case.py",
+      "method": "control: batch_analysis.py previous-value hold",
+      "metrics": {
+        "batch_feed_totals": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        }
+      },
+      "model": {
+        "id": "deterministic-tool",
+        "provider": "none",
+        "version": "scripts/batch_analysis.py as committed with A418"
+      },
+      "replicates": 1,
+      "runs": [
+        "yeast-development-previous_hold"
+      ],
+      "split": "development"
+    },
+    {
+      "case_count": 1,
+      "cohort": "457a005e63643b4bd9426aaefe8eb49c7142b2a5bf0094833b3f622f064d3776",
+      "configuration": {
+        "interpolation": "next",
+        "max_gap_s": 3600,
+        "quality": null,
+        "unit": "kg/s"
+      },
+      "evidence": "Publisher-logged running cumulative (total_fermentable_sugar_kg), withheld from the tool; whole-batch windows; development batches B01-B05",
+      "family": "industrial-yeast",
+      "group": "de44206a6dcb1244f432901140c7312c384b372b4b029228318964db893cb00d",
+      "interface": "scripts/batch_analysis.py CLI via scripts/industrial_yeast_case.py",
+      "method": "control: batch_analysis.py next, unit declared kg/s",
+      "metrics": {
+        "batch_feed_totals": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        }
+      },
+      "model": {
+        "id": "deterministic-tool",
+        "provider": "none",
+        "version": "scripts/batch_analysis.py as committed with A418"
+      },
+      "replicates": 1,
+      "runs": [
+        "yeast-development-wrong_unit"
+      ],
+      "split": "development"
+    },
+    {
+      "case_count": 1,
+      "cohort": "457a005e63643b4bd9426aaefe8eb49c7142b2a5bf0094833b3f622f064d3776",
+      "configuration": {
+        "interpolation": "linear",
+        "max_gap_s": 3600,
+        "quality": null,
+        "unit": "kg/h"
+      },
+      "evidence": "Publisher-logged running cumulative (total_fermentable_sugar_kg), withheld from the tool; whole-batch windows; development batches B01-B05",
+      "family": "industrial-yeast",
+      "group": "e11222d30c170defc102c28ca29869be93705b48f1898fe7b97a065981b7466e",
+      "interface": "scripts/batch_analysis.py CLI via scripts/industrial_yeast_case.py",
+      "method": "control: batch_analysis.py linear, blank hour-0 feed written as 0",
+      "metrics": {
+        "batch_feed_totals": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        }
+      },
+      "model": {
+        "id": "deterministic-tool",
+        "provider": "none",
+        "version": "scripts/batch_analysis.py as committed with A418"
+      },
+      "replicates": 1,
+      "runs": [
+        "yeast-development-trapezoid_zero_start"
+      ],
+      "split": "development"
+    }
+  ],
+  "task": "batch-totals"
+}

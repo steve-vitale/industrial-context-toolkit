@@ -1,0 +1,62 @@
+{
+ "schema": "batch-analysis-2",
+ "context": {
+  "site_id": "industrial baker's-yeast plant (publisher does not name it)",
+  "asset_id": "fed-batch fermenter, about 150 m3 geometric (publisher README)",
+  "model_revision": "not supplied",
+  "recipe_id": "not supplied (strain 167, publisher README)",
+  "recipe_revision": "not supplied"
+ },
+ "max_gap_s": 3600,
+ "signals": {
+  "sugar_feed_rate_kg_rs_h": {
+   "unit": "kg/h",
+   "asset_id": "sugar feed (publisher log)",
+   "source_ref": "figshare 10.6084/m9.figshare.33201579 fermentation_timeseries.csv sugar_feed_rate_kg_rs_h; logged hourly by operators, kg RS/h",
+   "interpolation": "linear",
+   "quality": null
+  }
+ },
+ "windows": [
+  {
+   "id": "B01",
+   "batch_id": "B01",
+   "phase": "whole logged batch",
+   "start_s": 0,
+   "end_s": 61200,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B02",
+   "batch_id": "B02",
+   "phase": "whole logged batch",
+   "start_s": 0,
+   "end_s": 57600,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B03",
+   "batch_id": "B03",
+   "phase": "whole logged batch",
+   "start_s": 0,
+   "end_s": 61200,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B04",
+   "batch_id": "B04",
+   "phase": "whole logged batch",
+   "start_s": 0,
+   "end_s": 61200,
+   "source_ref": "publisher hourly log rows (time_h)"
+  },
+  {
+   "id": "B05",
+   "batch_id": "B05",
+   "phase": "whole logged batch",
+   "start_s": 0,
+   "end_s": 61200,
+   "source_ref": "publisher hourly log rows (time_h)"
+  }
+ ]
+}

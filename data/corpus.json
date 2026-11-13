@@ -1,5 +1,5 @@
 {
- "about": "Every public input the generalization matrix (scripts/corpus_matrix.py, docs/GENERALIZATION.md) runs the repository's tools against, plus public sources not yet added. local_path is relative to the repository root. committed=true means a clean clone has it; otherwise fetch is the command that builds or downloads it, and the matrix marks the cells 'needs data: <fetch>' until it is run. 'exercises' names the matrix rows the input feeds (1 tracer, 2 scorer controls, 3 intake + report, 4 loop audit, 5 exports, 6 historian bands, 7 DEXPI route, 8 pipe layer). Licenses of inputs are as stated in NOTICE.md; candidate licenses are copied from a license check done 2026-10-29 and are not legal advice. Inputs of kind needs_key (a sheet without a machine-readable key) or needs_confirmation (a pairing a person must confirm) get an n/a cell with the reason in 'not_scored' and are never scored. 'attribution' is the credit line to give when reusing the source; 'real' says whether the data were measured or drawn by people outside this repository (true) or simulated/synthetic (false).",
+ "about": "Every public input the generalization matrix (scripts/corpus_matrix.py, docs/GENERALIZATION.md) runs the repository's tools against, plus public sources not yet added. local_path is relative to the repository root. committed=true means a clean clone has it; otherwise fetch is the command that builds or downloads it, and the matrix marks the cells 'needs data: <fetch>' until it is run. 'exercises' names the matrix rows the input feeds (1 tracer, 2 scorer controls, 3 intake + report, 4 loop audit, 5 exports, 6 historian bands, 7 DEXPI route, 8 pipe layer, 9 description topology, 10 maintenance systems, 11 batch totals). Licenses of inputs are as stated in NOTICE.md; candidate licenses are copied from a license check done 2026-10-29 and are not legal advice. Inputs of kind needs_key (a sheet without a machine-readable key) or needs_confirmation (a pairing a person must confirm) get an n/a cell with the reason in 'not_scored' and are never scored. 'attribution' is the credit line to give when reusing the source; 'real' says whether the data were measured or drawn by people outside this repository (true) or simulated/synthetic (false).",
  "context_packets": [
   {
    "id": "pronto-linked-context",
@@ -989,6 +989,23 @@
    "evaluation_role": "development assets A-C; held out D-E, scored once under the frozen method (A420)",
    "exercises": [
     10
+   ]
+  },
+  {
+   "id": "industrial-yeast",
+   "name": "Industrial baker's-yeast fed-batch production records (figshare 33201579): the ten full-process batches' hourly sugar feed and logged running cumulative",
+   "family": "industrial-yeast",
+   "kind": "batch-records",
+   "source_url": "https://doi.org/10.6084/m9.figshare.33201579",
+   "license": "CC BY 4.0 (Zhao et al. 2026). Originals fetched by hash into data/external/industrial-yeast (gitignored); only derived plans, keys, tool reports and scores are committed",
+   "attribution": "Zhao L., Ren C., Wang Y., Wu Y., Han L., Liu X., Kang L., Guo Q., An industrial baker's-yeast fed-batch fermentation dataset of 59 production batches, figshare (2026), doi:10.6084/m9.figshare.33201579",
+   "local_path": "data/external/industrial-yeast",
+   "committed": false,
+   "fetch": "python scripts/fetch_corpus.py industrial-yeast",
+   "real": true,
+   "evaluation_role": "development B01-B05; held out B06-B10, sealed until the A418 method and scorer were committed, then run once",
+   "exercises": [
+    11
    ]
   }
  ],

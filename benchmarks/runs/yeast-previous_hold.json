@@ -1,0 +1,64 @@
+{
+  "cases": [
+    "yeast-development-batch",
+    "yeast-development-hourly",
+    "yeast-held-out-batch",
+    "yeast-held-out-hourly"
+  ],
+  "configuration": {
+    "interpolation": "previous",
+    "max_gap_s": 3600,
+    "quality": null,
+    "unit": "kg/h"
+  },
+  "id": "yeast-previous_hold",
+  "interface": "scripts/batch_analysis.py CLI via scripts/industrial_yeast_case.py",
+  "method": "control: batch_analysis.py previous-value hold",
+  "model": {
+    "id": "deterministic-tool",
+    "provider": "none",
+    "version": "scripts/batch_analysis.py as committed with A418"
+  },
+  "predictions": {
+    "yeast-development-batch": {
+      "path": "examples/batch-analysis/industrial-yeast/results/development/reports/previous_hold.batch/batch_analysis.json",
+      "sha256": "608d1fcdb7e4b0c396f9da64ecc01000051a4c5cd1526cc03f40d130436cd2e7"
+    },
+    "yeast-development-hourly": {
+      "path": "examples/batch-analysis/industrial-yeast/results/development/reports/previous_hold.hourly/batch_analysis.json",
+      "sha256": "14de654b91092a2c90a02f33974d93fcd67510eace1dee493b95f4dcf6046e16"
+    },
+    "yeast-held-out-batch": {
+      "path": "examples/batch-analysis/industrial-yeast/results/held-out/reports/previous_hold.batch/batch_analysis.json",
+      "sha256": "f00b06fd7712fd9e44b9c413b463cfcc3cb29d4e00d7bf9282bdfbbde1985d71"
+    },
+    "yeast-held-out-hourly": {
+      "path": "examples/batch-analysis/industrial-yeast/results/held-out/reports/previous_hold.hourly/batch_analysis.json",
+      "sha256": "4bf7f5278cfdebe2f213bb4d88e272dc18ae1234206b1a576402f6158d6df1f9"
+    }
+  },
+  "provenance": "Deterministic product-tool run, no AI model. The report bytes are the tool's own output; RECEIPT.json in each results folder records the command, source pins and code hashes.",
+  "ran_at": "2026-11-12",
+  "recipe": [
+    {
+      "path": "scripts/industrial_yeast_case.py",
+      "sha256": "5c54fd2d8d59442b58c19db9c058c3ce44dd1360d4e5af03bfde8991d3cb428f"
+    },
+    {
+      "path": "examples/batch-analysis/industrial-yeast/results/development/plans/previous_hold.batch.plan.json",
+      "sha256": "bc5b3186386a18627cb565acc17d1870dad29738beb5d768a38c5ac99a6aa25b"
+    },
+    {
+      "path": "examples/batch-analysis/industrial-yeast/results/development/plans/previous_hold.hourly.plan.json",
+      "sha256": "a3c01b02131b711215ac837b0edf2ed09e4cebb2ba4f79bcc4cc0f52a049f043"
+    },
+    {
+      "path": "examples/batch-analysis/industrial-yeast/results/held-out/plans/previous_hold.batch.plan.json",
+      "sha256": "df5206a76799fdfa263694f3a4efe3ab7922b26cfdd67f92a36a601f8919d4d8"
+    },
+    {
+      "path": "examples/batch-analysis/industrial-yeast/results/held-out/plans/previous_hold.hourly.plan.json",
+      "sha256": "70058aa14e0d965eae9b19f88f4e69d7e682d2719df0aff1630b5001c61550b9"
+    }
+  ]
+}

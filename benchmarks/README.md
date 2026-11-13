@@ -17,6 +17,7 @@ There is no universal best-model score.
 | Same label task, opt-in `provided-model-values-v1` admission | Exact frozen artifact values/roles/groups and approved context are admitted before the unchanged label scorer; coverage and keyed artifact contradictions are separate | Two exposed source-adapted artifacts, 82 value entries/55 provided rows/14 semantic groups each. Fourteen synthetic saved reviewer controls, not model trials or automatic claim discovery. | [Contract and contribution steps](source-support/artifact-values/README.md), [suite](source-support/artifact-values/suite.json), [publication report](results/artifact-value-review-development.md) |
 | `maintenance-system-grouping`, `system-groups-v1` | Per-record system class from `maintenance_history.py`'s declared `derive` vocabulary against the publisher's separately coded system field, plus recurring (asset, system) groups and their members | Nestor excavator work orders (A420): a vocabulary written from development assets A-C, including their publisher codes, scored once on held-out D-E after a freeze: per-record F1 0.943 (0.887 with no-system rows counted as errors) beside reference 1.0, raw-asset baseline 0, majority 0.394, shuffled 0.198, misaligned 0.142, and a post-hoc key-free control (class-name words only) at 0.501. It shows the `derive` option applies a declared vocabulary faithfully and that the vocabulary carries over within one publisher's coding; not what a user without a key would write, nor engineering correctness. The vocabulary is a per-dataset profile artifact. Originals stay in a local fetch-by-hash cache, so a clean clone reports this suite UNVERIFIED. | [Report](results/nestor-system-grouping.md), [suite](maintenance-systems/suite.json), [write-up](../examples/maintenance-history/README.md#a-second-publisher-nestor-excavator-records-grouped-by-system) |
 | `tag-reading`, `tag-text-v1`: `geometry` | Strict tag recall over labelled scored symbols, plus accuracy on geometrically found symbols; lenient text rates are companion diagnostics. No tag precision/F1. | Saved attempts, current frozen source-derived keys and labelled-symbol projection. Exposed development evidence; offline adapter and saved-answer registration, not a new trial. | [Tag report](results/tag-reading-development.md), [JSON](results/tag-reading-development.json), [suite](tag-reading-development.json). No new model trials. |
+| `batch-totals`, `logged-cumulative-v1` | `scripts/batch_analysis.py` full-window feed integrals per supplied window (whole batch and each hour) against the change in a publisher-logged running cumulative, within 0.5 kg | Ten public industrial baker's-yeast batches (figshare 33201579): development B01-B05, then one sealed held-out run on B06-B10 (A418). Deterministic tool runs with four tool-run controls and four scorer controls (perfect, empty, shuffled, recipe constant). The key is the publisher's own sum of the same feed column: an integration-semantics check (interval convention, unit, window, coverage, source consistency), not a measurement or outcome benchmark. | [Case and failures](../examples/batch-analysis/industrial-yeast/README.md), [suite](industrial-yeast-batch-totals.json), [report](results/industrial-yeast-batch-totals.md): development 5/5 batches and 84/84 hours; held out 4/5 and 82/85, kept |
 | The same tag task: `taglist` | Lenient substring recall over listed identifiers. This is upper-bound partial-list coverage, with no box/location assignment or precision/F1. | Saved attempts and current frozen partial lists. Separate mode/cohort from geometry; partial-list coverage does not establish correct item assignment. | [The same report](results/tag-reading-development.md#partial-list-identifier-rates), with a separate mode/cohort. No ranking across modes. |
 
 The third adapter, `source-support` / `claim-judgments-v1`, grades **fixed supplied claims** as supported,
@@ -125,6 +126,15 @@ the corpus. This makes improvements inspectable and keeps failures useful to the
 
 ## Report implementation revisions
 
+Registering the `batch-totals` adapter (2026-11-12, A418) changed `scripts/benchmark.py`, so the six earlier
+registered suites were re-scored offline into `*-batch-totals` report prefixes; every count, control, status and
+metric is unchanged apart from the code fingerprint and the cohort and group IDs derived from it. The earlier
+reports are kept.
+The development-only suite `industrial-yeast-development.json` and its report were committed before the held-out
+run (dd040dad) and are no longer registered. A later wording-only change to the batch tool's report text regenerated
+the case's tool reports (scores byte-identical), so that suite now refuses on its pinned report bytes in the current
+tree; it reproduces at dd040dad.
+
 The registry selects current actual report pairs; earlier tag-adapter reports remain versioned snapshots.
 The opt-in artifact-value admission changes the shared benchmark implementation fingerprint, so all five prior
 suites require actual successor re-scores, alongside the new saved-control suite. Registering the adapter changes the shared implementation fingerprint and derived comparison IDs. The
@@ -134,6 +144,12 @@ not new model trials or measured improvements in interpretation.
 Registering `flowsheet-topology` (A419) changed `benchmark.py` again, so every earlier registered suite has an
 actual offline successor re-score under a `*-flowsheet-adapter` report prefix: counts, controls and metrics are
 unchanged; code fingerprints and the derived cohort/group IDs change, which reorders some summaries.
+
+Registering `batch-totals` (A418) changed `benchmark.py` once more, so every registered suite, including
+`maintenance-system-grouping`, has an actual offline successor re-score under a `*-yeast-adapter` report prefix,
+and the batch-totals suite itself under `industrial-yeast-batch-totals-merged`. Compared with the reports they
+succeed, every count, status, control and metric is identical; only content hashes and the cohort/group IDs
+derived from them differ.
 
 Every earlier suite, run and report remains unchanged as a historical snapshot. Use the registry for current
 reproduction, and inspect its selected report prefix before comparing implementations. Earlier source-preserved

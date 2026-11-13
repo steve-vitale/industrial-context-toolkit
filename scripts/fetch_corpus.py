@@ -39,6 +39,8 @@ fetched again, so a re-run with everything present needs no network:
   battledim      BattLeDIM 2018 SCADA CSVs and leak configuration (CC BY 4.0). read by historian_adapters.py.
                  These three were held out for drift, then used to develop the cyclic/auto method.
   battledim-2019 BattLeDIM 2019 SCADA CSVs, configuration, README (CC BY 4.0): held out for cyclic/auto, same network.
+  industrial-yeast  the five figshare files of the industrial baker's-yeast batches (CC BY 4.0), read by
+                 scripts/industrial_yeast_case.py (matrix row 11); name, licence and URLs from its acquisition record.
 
 Model use: none. Stdlib only. No downloaded code is executed. Claude (the coding agent) wrote the code.
 
@@ -46,6 +48,7 @@ Model use: none. Stdlib only. No downloaded code is executed. Claude (the coding
   python scripts/fetch_corpus.py dtu-te [--max-mb 500]
   python scripts/fetch_corpus.py dexpi-ttc-all | hai | skab | pronto-more | idaes-hda | dwsim-fossee | wikimedia-pid
   python scripts/fetch_corpus.py uci-hydraulic | metropt3 | battledim | battledim-2019
+  python scripts/fetch_corpus.py industrial-yeast
 """
 import argparse
 import csv
@@ -254,6 +257,11 @@ FILE_SOURCES = {
         "skipped": "the demands, the 2018 development year, the .xlsx copies and the EPANET models: the row-6 "
                    "adapter reads the 2019 pressures, flows and level and the leak table only"},
 }
+# Acquired public-source groups that a scored task reads (docs/DEPTH_GOAL.md increment 2). Each is fetched by hash
+# from its own acquisition record, so that record stays the one source of its name, licence and URLs.
+SCORED_ACQUISITIONS = {"industrial-yeast": "data/public_sources_20261107_round5.json"}
+for _sid, _rel in SCORED_ACQUISITIONS.items():
+    FILE_SOURCES[_sid] = json.loads((ROOT / _rel).read_text(encoding="utf-8"))["sources"][_sid]
 
 
 def load_pins(path=PINS):

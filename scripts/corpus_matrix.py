@@ -1,6 +1,6 @@
 """Run selected workflows across registered public inputs and publish the pass/fail matrix (docs/GENERALIZATION.md).
 
-The nine rows below cover selected workflows, not every tool in docs/SCRIPTS.md. This script runs each row on its
+The eleven rows below cover selected workflows, not every tool in docs/SCRIPTS.md. This script runs each row on its
 applicable registered public inputs and records one cell per (workflow, input): pass, fail, n/a
 (the tool can't apply to this input, with the reason), needs data (the input isn't cached; the cell names the fetch
 command) or needs deps (a third-party module is missing). A red cell is the point: it says where a tool has not been
@@ -32,6 +32,10 @@ Rows (all model-free, offline):
      key-free control (maintenance_system_posthoc.py). Pass = original-row checks hold, the reference control is
      perfect and per-record F1 beats every wrong control by >= the margin in nestor.py, on both splits. The originals
      may not be redistributed, so in a clean clone the cell is UNVERIFIED.
+ 11  batch_analysis.py on real recorded batches (scripts/industrial_yeast_case.py): the public industrial-yeast
+     batches' whole-batch and hourly sugar-feed integrals against the publisher-logged running cumulative, which the
+     tool never sees, on the development and the sealed held-out split (A418). Pass = on each split the frozen
+     decision rule in scripts/score_batch_totals.py holds and the re-run equals the committed results byte for byte.
 
 Inputs added 2026-10-29 (scripts/corpus_adapters.py turns each source into what the tool reads): DEXPI 1.2 exports
 from four commercial P&ID tools and the DEXPI reference solutions, and the 1.3 single-feature cases (rows 7 and 4,
@@ -118,6 +122,9 @@ ROWS = {
     10: {"tool": "maintenance_history.py (system classes derived from work-order text)", "short": "Maintenance systems",
         "question": "On a real public work-order export, does the history packet's system grouping, read from each "
                     "record's short text, agree with the publisher's own system codes beyond every wrong control?"},
+    11: {"tool": "batch_analysis.py (recorded batch totals)", "short": "Batch totals",
+         "question": "On real production batches, do the batch tool's recorded feed totals, per batch and per hour, "
+                     "equal the publisher's logged running cumulative that the tool never sees?"},
 }
 KEYED = ["open100-dev", "open100-holdout", "open100-scan-L1", "open100-scan-L2", "open100-scan-L3",
          "pid2graph-synthetic", "dexpi", "te-rev-a", "te-rev-c", "te-rev-d", "te-rev-c-scan-L3", "bayer-rt1"]
@@ -153,6 +160,7 @@ ROW_INPUTS = {
         "dexpi-1.2-vendor-renders"] + AGENT_KEYED,
     9: ["idaes-methanol-dev", "idaes-methanol-heldout"],
     10: ["nestor-excavators"],
+    11: ["industrial-yeast"],
 }
 # The tool files each row's cells exercise (roots; the scripts/ modules they import are added by tool_files), hashed
 # into every cell so --check can tell a stale cell.
@@ -175,6 +183,7 @@ ROW_TOOL_FILES = {
     10: ["examples/maintenance-history/nestor.py", "examples/maintenance-history/baseline.py",
          "scripts/maintenance_history.py", "scripts/maintenance_history_report.py", "scripts/score_maintenance_systems.py",
          "scripts/maintenance_system_posthoc.py"],
+    11: ["scripts/industrial_yeast_case.py", "scripts/batch_analysis.py", "scripts/score_batch_totals.py"],
 }
 # Row 10: the two pinned files the cell reads (the cache folder may also hold the publisher's README, LICENSE and loader).
 NESTOR_FILES = ["nestor/datasets/excavators.csv", "nestor/datasets/excavators-cleaned.csv"]
@@ -440,6 +449,8 @@ def source_specs(row, inp):
             add(rel)
     if row == 7 and iid == "dexpi":
         add("examples/from-dexpi/README.md")
+    if row == 11:
+        add("examples/batch-analysis/industrial-yeast/results", ["**/*"])
     return sorted(specs, key=lambda s: (s["path"], s["patterns"]))
 
 
@@ -1188,6 +1199,44 @@ def row6(inp):
                 "; ".join(problems), detail, pub)
 
 
+# ------------------------------------------------------------------ row 9: batch analysis on recorded batches
+
+def row11(inp):
+    """The industrial-yeast case runner (scripts/industrial_yeast_case.py) on both splits, offline from the pinned
+    originals: scripts/batch_analysis.py's whole-batch and hourly feed integrals against the logged cumulative.
+    Pass (fixed in scripts/score_batch_totals.py before the sealed held-out run, A418): on each split the method
+    meets the decision rule (batch >= 4/5, hourly >= 0.95, above every control but perfect) and the re-run is
+    byte-identical to the committed results."""
+    import industrial_yeast_case as yc
+    import score_batch_totals as sbt
+    detail, problems, values = {"splits": {}}, [], []
+    for split in ("development", "held-out"):
+        with tempfile.TemporaryDirectory() as tmp:
+            fresh = Path(tmp) / "run"
+            s = yc.run(split, fresh, ROOT / inp["local_path"])
+            committed = yc.RESULTS / split
+            names = sorted(p.relative_to(fresh).as_posix() for p in fresh.rglob("*") if p.is_file())
+            same = all((committed / n).is_file() and (fresh / n).read_bytes() ==
+                       (committed / n).read_bytes().replace(b"\r\n", b"\n") for n in names)
+        kept, why = sbt.decide({lvl: {"method": s["levels"][lvl]["tool"]["method"],
+                                      "controls": {**{n: v for n, v in s["levels"][lvl]["tool"].items() if n != "method"},
+                                                   **s["levels"][lvl]["controls"]}} for lvl in sbt.LEVELS})
+        m = {lvl: s["levels"][lvl]["tool"]["method"] for lvl in sbt.LEVELS}
+        detail["splits"][split] = {
+            "batches": s["batches"], "matches_committed_results": same, "meets_rule": kept, "reasons": why,
+            **{lvl: {"matched": m[lvl]["matched"], "items": m[lvl]["items"],
+                     "controls": {n: f"{v['matched']}/{v['items']}" for n, v in
+                                  list(s["levels"][lvl]["tool"].items())[1:] + list(s["levels"][lvl]["controls"].items())}}
+               for lvl in sbt.LEVELS}}
+        values.append(f"{split} batch {m['batch']['matched']}/{m['batch']['items']}, hourly "
+                      f"{m['hourly']['matched']}/{m['hourly']['items']}")
+        if not kept:
+            problems.append(f"{split}: " + "; ".join(why))
+        if not same:
+            problems.append(f"{split}: re-run differs from {yc.RESULTS.relative_to(ROOT).as_posix()}/{split}")
+    return cell(11, inp, "fail" if problems else "pass", "; ".join(values), "; ".join(problems), detail)
+
+
 # ------------------------------------------------------------------ row 7: DEXPI route
 
 def row7(inp):
@@ -1922,7 +1971,7 @@ def row10(inp):
                 "" if passed else "a split missed the margin, a control or an original-row check", detail)
 
 
-RUNNERS = {1: row1, 2: row2, 3: row3, 4: row4, 5: row5, 6: row6, 7: row7, 8: row8, 9: row9, 10: row10}
+RUNNERS = {1: row1, 2: row2, 3: row3, 4: row4, 5: row5, 6: row6, 7: row7, 8: row8, 9: row9, 10: row10, 11: row11}
 
 
 class StagingError(Exception):
@@ -2179,8 +2228,9 @@ def render(matrix, corpus):
          "Generated by `scripts/corpus_matrix.py` from `out/generalization/matrix.json`; the inputs are registered in",
          "`data/corpus.json`. Do not edit by hand: `python scripts/corpus_matrix.py` re-runs it and",
          "`python scripts/corpus_matrix.py --check` confirms this page matches the JSON.", "",
-         "These ten workflows cover tracing, scorer controls, intake/report, loop audit, exports, historian bands, "
-         "DEXPI conversion, pipe topology, topology from a written description and maintenance-history system grouping. They do not cover every tool: point mapping, applying reviews, the "
+         "These eleven workflows cover tracing, scorer controls, intake/report, loop audit, exports, historian bands, "
+         "DEXPI conversion, pipe topology, topology from a written description, maintenance-history system grouping "
+         "and recorded batch totals. They do not cover every tool: point mapping, applying reviews, the "
          "question engine, impact estimates and live replay have their own feature tests and examples. Each cell "
          "runs one selected workflow on one registered public input it applies "
          "to, with no model and no network. **pass** and **FAIL** use the criterion stated for each row below; each "
@@ -2287,6 +2337,10 @@ def key_only_count_text(matrix):
 
 def detail_line(c):
     d = c["detail"]
+    if c["row"] == 11 and "splits" in d:
+        return "; ".join(f"{s}: controls batch " + ", ".join(f"{n} {v}" for n, v in x["batch"]["controls"].items())
+                         + "; hourly " + ", ".join(f"{n} {v}" for n, v in x["hourly"]["controls"].items())
+                         for s, x in d["splits"].items())
     if c["row"] == 1 and "sheets" in d:
         return (f"P {d['precision']} / R {d['recall']}, review load {d['review_load_per_100']}, {len(d['sheets'])} "
                 f"sheets, worst {d['worst_sheet']} ({d['sheets'][d['worst_sheet']]['connection_f1']})" +
@@ -2384,6 +2438,16 @@ AGENT_KEYED_TEXT = ("`omre-1958-pid` (bottom-right quadrant), `commons-pid-sheet
 
 
 ROW_CRITERIA = {
+    11: "Pass, fixed in `scripts/score_batch_totals.py` before the sealed held-out run (A418, 2026-11-12): on the "
+       "development batches B01-B05 and the held-out batches B06-B10 alike, the tool's whole-batch totals match the "
+       "change in the publisher-logged cumulative (within 0.5 kg) on at least 4 of 5 batches and its hourly "
+       "increments on at least 0.95 of logged hours, each above every deliberately wrong control (trapezoid; "
+       "trapezoid with the blank hour-0 feed written as 0; previous-value hold; unit declared kg/s; empty; shuffled "
+       "between batches; the README's recipe constant), and the re-run equals the committed results in "
+       "`examples/batch-analysis/industrial-yeast/results` byte for byte. The tool reads only the feed column; the "
+       "key is a column it never sees, but it is the publisher's sum of the same logged feeds, so a pass checks "
+       "integration semantics, unit, window and coverage, not measurement accuracy. One plant, one strain, ten "
+       "batches. The held-out cell re-runs the frozen method; its figure was first recorded once in A418.",
     1: f"{VENDOR_TEXT} {AGENT_KEYED_TEXT} Symbols come from the answer key (ids, classes, boxes), so only the line tracing is measured. Connection F1 "
        f"is micro-averaged over the set's sheets by `score_pid2graph`. Pass: F1 >= {TRACER_PASS_F1}, i.e. within "
        f"0.05 of the published development-set figure (0.93). The `--oracle` command line refuses sheets outside "

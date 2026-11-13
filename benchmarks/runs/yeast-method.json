@@ -1,0 +1,64 @@
+{
+  "cases": [
+    "yeast-development-batch",
+    "yeast-development-hourly",
+    "yeast-held-out-batch",
+    "yeast-held-out-hourly"
+  ],
+  "configuration": {
+    "interpolation": "next",
+    "max_gap_s": 3600,
+    "quality": null,
+    "unit": "kg/h"
+  },
+  "id": "yeast-method",
+  "interface": "scripts/batch_analysis.py CLI via scripts/industrial_yeast_case.py",
+  "method": "batch_analysis.py V2 interval-ending hold (next), kg/h",
+  "model": {
+    "id": "deterministic-tool",
+    "provider": "none",
+    "version": "scripts/batch_analysis.py as committed with A418"
+  },
+  "predictions": {
+    "yeast-development-batch": {
+      "path": "examples/batch-analysis/industrial-yeast/results/development/reports/method.batch/batch_analysis.json",
+      "sha256": "8440c8c985a3317e60dd75971d040df1045e9b57f3a9e5ed0dc3be4f7a749ff9"
+    },
+    "yeast-development-hourly": {
+      "path": "examples/batch-analysis/industrial-yeast/results/development/reports/method.hourly/batch_analysis.json",
+      "sha256": "8a8b46b2d2a4ee60d6d4c2842e0b8b606c567d7c23fb43dac9026e33423a3b6f"
+    },
+    "yeast-held-out-batch": {
+      "path": "examples/batch-analysis/industrial-yeast/results/held-out/reports/method.batch/batch_analysis.json",
+      "sha256": "db044012e3467662251612d6f78b9cc2f02711affb925ec445f0ed0d89bc0424"
+    },
+    "yeast-held-out-hourly": {
+      "path": "examples/batch-analysis/industrial-yeast/results/held-out/reports/method.hourly/batch_analysis.json",
+      "sha256": "ac7f262e270337050b6f78e596885350d29d16ef5bdb39f41ad1181b3d22a5fb"
+    }
+  },
+  "provenance": "Deterministic product-tool run, no AI model. The report bytes are the tool's own output; RECEIPT.json in each results folder records the command, source pins and code hashes.",
+  "ran_at": "2026-11-12",
+  "recipe": [
+    {
+      "path": "scripts/industrial_yeast_case.py",
+      "sha256": "5c54fd2d8d59442b58c19db9c058c3ce44dd1360d4e5af03bfde8991d3cb428f"
+    },
+    {
+      "path": "examples/batch-analysis/industrial-yeast/results/development/plans/method.batch.plan.json",
+      "sha256": "b3ddec83362e3976a63fa96836603529bc4f2e825f8615187f73d087087ae29e"
+    },
+    {
+      "path": "examples/batch-analysis/industrial-yeast/results/development/plans/method.hourly.plan.json",
+      "sha256": "ad09dcb67774b0d1973d484b57eddf06654587e7d13b8b926b32e7e42587e6b0"
+    },
+    {
+      "path": "examples/batch-analysis/industrial-yeast/results/held-out/plans/method.batch.plan.json",
+      "sha256": "ae5d2bb1a99b74028121717fa88154ae29ea72960d6bc1b153c6c58f902e892d"
+    },
+    {
+      "path": "examples/batch-analysis/industrial-yeast/results/held-out/plans/method.hourly.plan.json",
+      "sha256": "c2fb7ef38150378011106efbfbbca3e8844e4e92f93127b277b515be04e24871"
+    }
+  ]
+}

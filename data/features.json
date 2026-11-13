@@ -447,7 +447,7 @@
         "scripts/test_corpus_matrix.py"
       ],
       "job": "Find out whether a tool will work on drawings or data like mine, not just the ones it was built on",
-      "why": "A workflow that only saw one set of drawings can fail on the next. Eight selected workflows run across registered applicable inputs, showing where they hold and break, red cells included; other features have their own tests and examples.",
+      "why": "A workflow that only saw one set of drawings can fail on the next. Nine selected workflows run across registered applicable inputs, showing where they hold and break, red cells included; other features have their own tests and examples.",
       "you_need": "Nothing to read the page; the public datasets (fetched by script) to re-run it",
       "time": "Reading: minutes. Re-running everything: about 25 minutes of cell time, plus downloading the public data once",
       "you_get": "A pass/fail grid with reasons and declared code, input/key, registry and runner bindings from actual runs. Missing optional caches are explicitly unverified; strict --require-inputs requires them. Workflow criteria and independent-source limits remain separate from completion percentages"
@@ -1532,6 +1532,9 @@
         "examples/batch-analysis/public-distillation/source/operation.csv",
         "examples/batch-analysis/public-distillation/source/plant-description.yaml",
         "examples/batch-analysis/public-distillation/source/settings.csv",
+    "examples/batch-analysis/industrial-yeast/README.md",
+    "examples/batch-analysis/industrial-yeast/results/development/SCORE.md",
+    "examples/batch-analysis/industrial-yeast/results/held-out/SCORE.md",
         "examples/batch-analysis/semantics/ACCEPTANCE.md",
         "examples/batch-analysis/semantics/README.md",
         "examples/batch-analysis/semantics/expected/linear/batch_analysis.json",
@@ -1585,6 +1588,7 @@
       ],
       "tests": [
         "scripts/test_batch_analysis.py",
+    "scripts/test_score_batch_totals.py",
         "scripts/test_checkout_contracts.py",
         "scripts/test_check_analysis_basis.py",
         "scripts/test_join_batch_records.py",

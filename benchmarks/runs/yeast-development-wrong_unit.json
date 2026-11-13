@@ -1,0 +1,46 @@
+{
+  "cases": [
+    "yeast-development-batch",
+    "yeast-development-hourly"
+  ],
+  "configuration": {
+    "interpolation": "next",
+    "max_gap_s": 3600,
+    "quality": null,
+    "unit": "kg/s"
+  },
+  "id": "yeast-development-wrong_unit",
+  "interface": "scripts/batch_analysis.py CLI via scripts/industrial_yeast_case.py",
+  "method": "control: batch_analysis.py next, unit declared kg/s",
+  "model": {
+    "id": "deterministic-tool",
+    "provider": "none",
+    "version": "scripts/batch_analysis.py as committed with A418"
+  },
+  "predictions": {
+    "yeast-development-batch": {
+      "path": "examples/batch-analysis/industrial-yeast/results/development/reports/wrong_unit.batch/batch_analysis.json",
+      "sha256": "7ee3a49e03a1901e42dd09f417c5cde8df5cf802bfa47ef7d6ad4deab5a4277d"
+    },
+    "yeast-development-hourly": {
+      "path": "examples/batch-analysis/industrial-yeast/results/development/reports/wrong_unit.hourly/batch_analysis.json",
+      "sha256": "95096783842a318a6871960fd794152c6bf4808d8e3df6ca4be0fd63f63d78e7"
+    }
+  },
+  "provenance": "Deterministic product-tool run, no AI model. The report bytes are the tool's own output; RECEIPT.json in each results folder records the command, source pins and code hashes.",
+  "ran_at": "2026-11-12",
+  "recipe": [
+    {
+      "path": "scripts/industrial_yeast_case.py",
+      "sha256": "5c54fd2d8d59442b58c19db9c058c3ce44dd1360d4e5af03bfde8991d3cb428f"
+    },
+    {
+      "path": "examples/batch-analysis/industrial-yeast/results/development/plans/wrong_unit.batch.plan.json",
+      "sha256": "d6ce964b1fa20365752b4ff5b945f066fb3ba0c6ea1c56677c9ca4b3c21a958c"
+    },
+    {
+      "path": "examples/batch-analysis/industrial-yeast/results/development/plans/wrong_unit.hourly.plan.json",
+      "sha256": "94b2bb115b130726c1c546fb2a588741794939dce0c39a4fb15e302ddb154508"
+    }
+  ]
+}

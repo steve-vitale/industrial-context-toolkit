@@ -133,6 +133,21 @@ Key availability is a candidate until the first increment verifies it from each 
    `scripts/benchmark.py` changes the scorer-code hash in every registered report: they were regenerated with
    identical counts and scores (now in an order that does not move with that hash), and the task-benchmarks
    feature review reads as stale until re-reviewed.
+   *Status 2026-11-12, process data (A418): industrial-yeast: integration-semantics check, all six mechanics in
+   place; process-data depth on an outcome key still open (C-MAPSS/SECOM, deferred).* Process data does **not**
+   count as having reached depth. On ten real batches, the batch tool's `next` integral reproduces the publisher's
+   logged running cumulative on 9 of 10 batches and 166 of 169 hours; the one mismatch (B09 hours 11-13) is an
+   inconsistency inside the source. The key is the publisher's own sum of the same feed column, so this checks the
+   interval convention, unit, window and coverage, and the source's internal consistency. It is not a measurement
+   or outcome benchmark. The mechanics: benchmark task `batch-totals` / `logged-cumulative-v1` in
+   `benchmarks/registry.json`; a frozen scorer (`scripts/score_batch_totals.py`) with perfect, empty, shuffled and
+   recipe-constant controls beside four tool-run controls; development B01-B05 (5/5, 84/84) and one sealed
+   held-out run on B06-B10 (4/5, 82/85), kept at the floor of the rule fixed before it, with the freeze shown only
+   by commit order; corpus-matrix row 11 (rows 9 and 10 are IDAES and Nestor), which re-runs both splits offline from the pinned originals; the numbers
+   are `scripts/batch_analysis.py` reports, after the tool gained an interval-ending hold (`next`); and the
+   failures in [the case README](../examples/batch-analysis/industrial-yeast/README.md). The register derives
+   *feeds a scored task* for the group, with the key's independence recorded as derived from the tool's input
+   column.
 3. **A second source per area**, from a different publisher, before any claim that a method generalizes in that
    area.
 

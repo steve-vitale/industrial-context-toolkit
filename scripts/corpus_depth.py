@@ -82,8 +82,11 @@ EXAMPLE_MAX = 200  # a one-line example: a derived fact, never a copied passage
 # A retirement is only for a group that can never qualify. A verified key with no consuming feature is DEFERRED.
 RETIRE_KINDS = ("no usable key", "no area", "duplicate", "rights", "blocked")
 # How a plan's key relates to what the tool is given: a separate file or a field withheld from the tool's input; the
-# same layer the tool reads (a match checks reading, not understanding); or our own calculation over the input.
-INDEPENDENCE = ("independent", "same-layer-as-input", "computed-from-input")
+# same layer the tool reads (a match checks reading, not understanding); our own calculation over the input; or a
+# field withheld from the tool that the source itself derived from the column the tool reads (a match checks the
+# tool's arithmetic conventions and the source's consistency, not measurement or outcome).
+DERIVED = "derived from the tool's input column (not independent)"
+INDEPENDENCE = ("independent", "same-layer-as-input", "computed-from-input", DERIVED)
 CAPABILITY_ID = re.compile(r"[a-z][a-z0-9]*(-[a-z0-9]+)+")
 
 # Which existing matrix rows and features a group's acquisition categories could exercise once an adapter and a key
@@ -114,7 +117,7 @@ CATEGORY_FIT = {
     "parts": ([], []),
     "equipment-records": ([], ["photo-to-record", "one-map"]),
     "photo": ([], ["photo-to-record"]),
-    "batch": ([], ["batch-analysis"]),
+    "batch": ([11], ["batch-analysis"]),
     "laboratory": ([], ["batch-analysis"]),
     "quality": ([], []),
     "manufacturing": ([], []),
