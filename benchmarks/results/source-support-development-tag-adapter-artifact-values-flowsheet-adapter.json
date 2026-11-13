@@ -1,7 +1,7 @@
 {
   "case_total": 2,
   "code_sha256": {
-    "benchmark.py": "7a9af339f42b74d276bfb8694d5a7087a7def872f43bb81d9fff7227ccd8ae25",
+    "benchmark.py": "c3e20b636f0afae1395870eddc5e2d26ecf91ed41b0faf4ccd67d2cfbda678f5",
     "source_support.py": "56e3bead4f7dc374ba107c765b1f44cda8bb7c664f5619eb24a70b0d4f9c2a4a"
   },
   "controls": {
@@ -242,7 +242,7 @@
   "results": [
     {
       "case_count": 1,
-      "cohort": "9866d14aed9da36770294ad07590961565f5c8152431971719cc9008f15c6872",
+      "cohort": "576a23b355fb7cc358d11a071b2bfc410538c48e865f61448140251d3125ff59",
       "configuration": {
         "key_exposure": "reference projects frozen labels/reasons; other controls are empty or uniform labels",
         "model_call": false,
@@ -368,7 +368,7 @@
     },
     {
       "case_count": 1,
-      "cohort": "f3045e22b6e0a5f3142e07bfd1c7d31f90dcc3db44bc152b7fe904e331044f9a",
+      "cohort": "4094e330f909ce06be1a52a1e35bc487fddcb7293a101da8691c1eefcceed07b",
       "configuration": {
         "key_exposure": "reference projects frozen labels/reasons; other controls are empty or uniform labels",
         "model_call": false,
@@ -494,7 +494,7 @@
     },
     {
       "case_count": 1,
-      "cohort": "9866d14aed9da36770294ad07590961565f5c8152431971719cc9008f15c6872",
+      "cohort": "576a23b355fb7cc358d11a071b2bfc410538c48e865f61448140251d3125ff59",
       "configuration": {
         "key_exposure": "reference projects frozen labels/reasons; other controls are empty or uniform labels",
         "model_call": false,
@@ -627,7 +627,7 @@
     },
     {
       "case_count": 1,
-      "cohort": "f3045e22b6e0a5f3142e07bfd1c7d31f90dcc3db44bc152b7fe904e331044f9a",
+      "cohort": "4094e330f909ce06be1a52a1e35bc487fddcb7293a101da8691c1eefcceed07b",
       "configuration": {
         "key_exposure": "reference projects frozen labels/reasons; other controls are empty or uniform labels",
         "model_call": false,
@@ -760,7 +760,7 @@
     },
     {
       "case_count": 1,
-      "cohort": "9866d14aed9da36770294ad07590961565f5c8152431971719cc9008f15c6872",
+      "cohort": "576a23b355fb7cc358d11a071b2bfc410538c48e865f61448140251d3125ff59",
       "configuration": {
         "key_exposure": "reference projects frozen labels/reasons; other controls are empty or uniform labels",
         "model_call": false,
@@ -907,7 +907,7 @@
     },
     {
       "case_count": 1,
-      "cohort": "f3045e22b6e0a5f3142e07bfd1c7d31f90dcc3db44bc152b7fe904e331044f9a",
+      "cohort": "4094e330f909ce06be1a52a1e35bc487fddcb7293a101da8691c1eefcceed07b",
       "configuration": {
         "key_exposure": "reference projects frozen labels/reasons; other controls are empty or uniform labels",
         "model_call": false,
@@ -1054,7 +1054,7 @@
     },
     {
       "case_count": 1,
-      "cohort": "9866d14aed9da36770294ad07590961565f5c8152431971719cc9008f15c6872",
+      "cohort": "576a23b355fb7cc358d11a071b2bfc410538c48e865f61448140251d3125ff59",
       "configuration": {
         "key_exposure": "reference projects frozen labels/reasons; other controls are empty or uniform labels",
         "model_call": false,
@@ -1201,7 +1201,7 @@
     },
     {
       "case_count": 1,
-      "cohort": "f3045e22b6e0a5f3142e07bfd1c7d31f90dcc3db44bc152b7fe904e331044f9a",
+      "cohort": "4094e330f909ce06be1a52a1e35bc487fddcb7293a101da8691c1eefcceed07b",
       "configuration": {
         "key_exposure": "reference projects frozen labels/reasons; other controls are empty or uniform labels",
         "model_call": false,
@@ -1348,7 +1348,7 @@
     },
     {
       "case_count": 1,
-      "cohort": "9866d14aed9da36770294ad07590961565f5c8152431971719cc9008f15c6872",
+      "cohort": "576a23b355fb7cc358d11a071b2bfc410538c48e865f61448140251d3125ff59",
       "configuration": {
         "key_exposure": "reference projects frozen labels/reasons; other controls are empty or uniform labels",
         "model_call": false,
@@ -1495,7 +1495,7 @@
     },
     {
       "case_count": 1,
-      "cohort": "f3045e22b6e0a5f3142e07bfd1c7d31f90dcc3db44bc152b7fe904e331044f9a",
+      "cohort": "4094e330f909ce06be1a52a1e35bc487fddcb7293a101da8691c1eefcceed07b",
       "configuration": {
         "key_exposure": "reference projects frozen labels/reasons; other controls are empty or uniform labels",
         "model_call": false,
@@ -1676,57 +1676,7 @@
   "summary": [
     {
       "case_count": 1,
-      "cohort": "f3045e22b6e0a5f3142e07bfd1c7d31f90dcc3db44bc152b7fe904e331044f9a",
-      "configuration": {
-        "key_exposure": "reference projects frozen labels/reasons; other controls are empty or uniform labels",
-        "model_call": false,
-        "provider_settings": null
-      },
-      "evidence": "Independent coding-agent original-source key; fixed claims and explicit paraphrases, exposed development sources; no model trial or human approval",
-      "family": "nist-smstestbed",
-      "group": "03adbbef49717183424ee5d2087c34263cad702be86d2e6fddd44b9f7c1a6791",
-      "interface": "deterministic authored control",
-      "method": "reference",
-      "metrics": {
-        "contradicted": {
-          "max_f1": 1.0,
-          "mean_f1": 1.0,
-          "min_f1": 1.0,
-          "stdev_f1": null
-        },
-        "insufficient-evidence": {
-          "max_f1": 1.0,
-          "mean_f1": 1.0,
-          "min_f1": 1.0,
-          "stdev_f1": null
-        },
-        "judgments": {
-          "max_f1": 1.0,
-          "mean_f1": 1.0,
-          "min_f1": 1.0,
-          "stdev_f1": null
-        },
-        "supported": {
-          "max_f1": 1.0,
-          "mean_f1": 1.0,
-          "min_f1": 1.0,
-          "stdev_f1": null
-        }
-      },
-      "model": {
-        "id": "synthetic-control",
-        "provider": "none",
-        "version": "1"
-      },
-      "replicates": 1,
-      "runs": [
-        "source-support-reference"
-      ],
-      "split": "development"
-    },
-    {
-      "case_count": 1,
-      "cohort": "9866d14aed9da36770294ad07590961565f5c8152431971719cc9008f15c6872",
+      "cohort": "576a23b355fb7cc358d11a071b2bfc410538c48e865f61448140251d3125ff59",
       "configuration": {
         "key_exposure": "reference projects frozen labels/reasons; other controls are empty or uniform labels",
         "model_call": false,
@@ -1734,57 +1684,7 @@
       },
       "evidence": "Independent coding-agent original-source key; fixed claims and explicit paraphrases, exposed development sources; no model trial or human approval",
       "family": "csb-mgpi",
-      "group": "224cde52dc3351a6a06ffbf8ab53d78e53a65d5bdadfa4d1c8bda60c1ed515f2",
-      "interface": "deterministic authored control",
-      "method": "all-supported",
-      "metrics": {
-        "contradicted": {
-          "max_f1": 0.0,
-          "mean_f1": 0.0,
-          "min_f1": 0.0,
-          "stdev_f1": null
-        },
-        "insufficient-evidence": {
-          "max_f1": 0.0,
-          "mean_f1": 0.0,
-          "min_f1": 0.0,
-          "stdev_f1": null
-        },
-        "judgments": {
-          "max_f1": 0.3333333333333333,
-          "mean_f1": 0.3333333333333333,
-          "min_f1": 0.3333333333333333,
-          "stdev_f1": null
-        },
-        "supported": {
-          "max_f1": 0.5,
-          "mean_f1": 0.5,
-          "min_f1": 0.5,
-          "stdev_f1": null
-        }
-      },
-      "model": {
-        "id": "synthetic-control",
-        "provider": "none",
-        "version": "1"
-      },
-      "replicates": 1,
-      "runs": [
-        "source-support-all-supported"
-      ],
-      "split": "development"
-    },
-    {
-      "case_count": 1,
-      "cohort": "f3045e22b6e0a5f3142e07bfd1c7d31f90dcc3db44bc152b7fe904e331044f9a",
-      "configuration": {
-        "key_exposure": "reference projects frozen labels/reasons; other controls are empty or uniform labels",
-        "model_call": false,
-        "provider_settings": null
-      },
-      "evidence": "Independent coding-agent original-source key; fixed claims and explicit paraphrases, exposed development sources; no model trial or human approval",
-      "family": "nist-smstestbed",
-      "group": "288f5de3863e34184cc6cf43b451bb093cc1a33bb836ca002e330b3efa6df512",
+      "group": "d47fca459a2d8e94f7cb76bc9b5bcc2aed7f504c327720ea82fc7cd2c3b490be",
       "interface": "deterministic authored control",
       "method": "all-contradicted",
       "metrics": {
@@ -1826,7 +1726,7 @@
     },
     {
       "case_count": 1,
-      "cohort": "9866d14aed9da36770294ad07590961565f5c8152431971719cc9008f15c6872",
+      "cohort": "576a23b355fb7cc358d11a071b2bfc410538c48e865f61448140251d3125ff59",
       "configuration": {
         "key_exposure": "reference projects frozen labels/reasons; other controls are empty or uniform labels",
         "model_call": false,
@@ -1834,7 +1734,7 @@
       },
       "evidence": "Independent coding-agent original-source key; fixed claims and explicit paraphrases, exposed development sources; no model trial or human approval",
       "family": "csb-mgpi",
-      "group": "2b660a7dcbf1d17168de1299e314549ef1abd4562baf78ba0ae91cb424fd40df",
+      "group": "ed024cfabfeac70d33a0ac7dac1f47ff3b9260c51efbab36cab473177a8e1195",
       "interface": "deterministic authored control",
       "method": "all-insufficient",
       "metrics": {
@@ -1876,7 +1776,7 @@
     },
     {
       "case_count": 1,
-      "cohort": "9866d14aed9da36770294ad07590961565f5c8152431971719cc9008f15c6872",
+      "cohort": "576a23b355fb7cc358d11a071b2bfc410538c48e865f61448140251d3125ff59",
       "configuration": {
         "key_exposure": "reference projects frozen labels/reasons; other controls are empty or uniform labels",
         "model_call": false,
@@ -1884,14 +1784,14 @@
       },
       "evidence": "Independent coding-agent original-source key; fixed claims and explicit paraphrases, exposed development sources; no model trial or human approval",
       "family": "csb-mgpi",
-      "group": "6273b6d59ce27cf1d4d6ea23d0abfbde66397a374738963f5d609cdc8c0e1134",
+      "group": "c629f44ac7ccc4b3fb7487b3a04fb94ddf516796e9983a2682befe3cb28fad69",
       "interface": "deterministic authored control",
-      "method": "all-contradicted",
+      "method": "all-supported",
       "metrics": {
         "contradicted": {
-          "max_f1": 0.5,
-          "mean_f1": 0.5,
-          "min_f1": 0.5,
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
           "stdev_f1": null
         },
         "insufficient-evidence": {
@@ -1904,6 +1804,56 @@
           "max_f1": 0.3333333333333333,
           "mean_f1": 0.3333333333333333,
           "min_f1": 0.3333333333333333,
+          "stdev_f1": null
+        },
+        "supported": {
+          "max_f1": 0.5,
+          "mean_f1": 0.5,
+          "min_f1": 0.5,
+          "stdev_f1": null
+        }
+      },
+      "model": {
+        "id": "synthetic-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "replicates": 1,
+      "runs": [
+        "source-support-all-supported"
+      ],
+      "split": "development"
+    },
+    {
+      "case_count": 1,
+      "cohort": "576a23b355fb7cc358d11a071b2bfc410538c48e865f61448140251d3125ff59",
+      "configuration": {
+        "key_exposure": "reference projects frozen labels/reasons; other controls are empty or uniform labels",
+        "model_call": false,
+        "provider_settings": null
+      },
+      "evidence": "Independent coding-agent original-source key; fixed claims and explicit paraphrases, exposed development sources; no model trial or human approval",
+      "family": "csb-mgpi",
+      "group": "256adb9db9d41b341f3e12aadbf7249fe28eb4a643d8ca941103a14a4d71ea3b",
+      "interface": "deterministic authored control",
+      "method": "empty",
+      "metrics": {
+        "contradicted": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        },
+        "insufficient-evidence": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        },
+        "judgments": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
           "stdev_f1": null
         },
         "supported": {
@@ -1920,13 +1870,13 @@
       },
       "replicates": 1,
       "runs": [
-        "source-support-all-contradicted"
+        "source-support-empty"
       ],
       "split": "development"
     },
     {
       "case_count": 1,
-      "cohort": "9866d14aed9da36770294ad07590961565f5c8152431971719cc9008f15c6872",
+      "cohort": "576a23b355fb7cc358d11a071b2bfc410538c48e865f61448140251d3125ff59",
       "configuration": {
         "key_exposure": "reference projects frozen labels/reasons; other controls are empty or uniform labels",
         "model_call": false,
@@ -1934,7 +1884,7 @@
       },
       "evidence": "Independent coding-agent original-source key; fixed claims and explicit paraphrases, exposed development sources; no model trial or human approval",
       "family": "csb-mgpi",
-      "group": "6426e447125df1a9e449a73bde76ba48e51f318cc5eb6bfa41f5e73c8bdb4ee6",
+      "group": "5ab74d5a656479af4bd2e7dc9acf110e6e90fe07dea22b62365e2c178abf6596",
       "interface": "deterministic authored control",
       "method": "reference",
       "metrics": {
@@ -1976,7 +1926,7 @@
     },
     {
       "case_count": 1,
-      "cohort": "f3045e22b6e0a5f3142e07bfd1c7d31f90dcc3db44bc152b7fe904e331044f9a",
+      "cohort": "4094e330f909ce06be1a52a1e35bc487fddcb7293a101da8691c1eefcceed07b",
       "configuration": {
         "key_exposure": "reference projects frozen labels/reasons; other controls are empty or uniform labels",
         "model_call": false,
@@ -1984,14 +1934,14 @@
       },
       "evidence": "Independent coding-agent original-source key; fixed claims and explicit paraphrases, exposed development sources; no model trial or human approval",
       "family": "nist-smstestbed",
-      "group": "9a41e187dd38e88661ede213374b61a319e962f5203cae2fba62fabc04420208",
+      "group": "dedc220a6d2c972f333feac7ef99fcfe19dc1a02ac3438f89cd16b5133c55721",
       "interface": "deterministic authored control",
-      "method": "empty",
+      "method": "all-contradicted",
       "metrics": {
         "contradicted": {
-          "max_f1": 0.0,
-          "mean_f1": 0.0,
-          "min_f1": 0.0,
+          "max_f1": 0.5,
+          "mean_f1": 0.5,
+          "min_f1": 0.5,
           "stdev_f1": null
         },
         "insufficient-evidence": {
@@ -2001,9 +1951,9 @@
           "stdev_f1": null
         },
         "judgments": {
-          "max_f1": 0.0,
-          "mean_f1": 0.0,
-          "min_f1": 0.0,
+          "max_f1": 0.3333333333333333,
+          "mean_f1": 0.3333333333333333,
+          "min_f1": 0.3333333333333333,
           "stdev_f1": null
         },
         "supported": {
@@ -2020,63 +1970,13 @@
       },
       "replicates": 1,
       "runs": [
-        "source-support-empty"
+        "source-support-all-contradicted"
       ],
       "split": "development"
     },
     {
       "case_count": 1,
-      "cohort": "9866d14aed9da36770294ad07590961565f5c8152431971719cc9008f15c6872",
-      "configuration": {
-        "key_exposure": "reference projects frozen labels/reasons; other controls are empty or uniform labels",
-        "model_call": false,
-        "provider_settings": null
-      },
-      "evidence": "Independent coding-agent original-source key; fixed claims and explicit paraphrases, exposed development sources; no model trial or human approval",
-      "family": "csb-mgpi",
-      "group": "a6edba22c9095fa8e7aa5c79d4421265796c79c678a2e36b3fd55554f9c35685",
-      "interface": "deterministic authored control",
-      "method": "empty",
-      "metrics": {
-        "contradicted": {
-          "max_f1": 0.0,
-          "mean_f1": 0.0,
-          "min_f1": 0.0,
-          "stdev_f1": null
-        },
-        "insufficient-evidence": {
-          "max_f1": 0.0,
-          "mean_f1": 0.0,
-          "min_f1": 0.0,
-          "stdev_f1": null
-        },
-        "judgments": {
-          "max_f1": 0.0,
-          "mean_f1": 0.0,
-          "min_f1": 0.0,
-          "stdev_f1": null
-        },
-        "supported": {
-          "max_f1": 0.0,
-          "mean_f1": 0.0,
-          "min_f1": 0.0,
-          "stdev_f1": null
-        }
-      },
-      "model": {
-        "id": "synthetic-control",
-        "provider": "none",
-        "version": "1"
-      },
-      "replicates": 1,
-      "runs": [
-        "source-support-empty"
-      ],
-      "split": "development"
-    },
-    {
-      "case_count": 1,
-      "cohort": "f3045e22b6e0a5f3142e07bfd1c7d31f90dcc3db44bc152b7fe904e331044f9a",
+      "cohort": "4094e330f909ce06be1a52a1e35bc487fddcb7293a101da8691c1eefcceed07b",
       "configuration": {
         "key_exposure": "reference projects frozen labels/reasons; other controls are empty or uniform labels",
         "model_call": false,
@@ -2084,7 +1984,7 @@
       },
       "evidence": "Independent coding-agent original-source key; fixed claims and explicit paraphrases, exposed development sources; no model trial or human approval",
       "family": "nist-smstestbed",
-      "group": "ac41bdbba4df9e5e5b033f5e7990e2cae2360af21e1727abdb78dae6f37676d4",
+      "group": "b83592ea5336ff72422f57c15030d7a770446814bfdb72e74eade1d38bc2143d",
       "interface": "deterministic authored control",
       "method": "all-insufficient",
       "metrics": {
@@ -2126,7 +2026,7 @@
     },
     {
       "case_count": 1,
-      "cohort": "f3045e22b6e0a5f3142e07bfd1c7d31f90dcc3db44bc152b7fe904e331044f9a",
+      "cohort": "4094e330f909ce06be1a52a1e35bc487fddcb7293a101da8691c1eefcceed07b",
       "configuration": {
         "key_exposure": "reference projects frozen labels/reasons; other controls are empty or uniform labels",
         "model_call": false,
@@ -2134,7 +2034,7 @@
       },
       "evidence": "Independent coding-agent original-source key; fixed claims and explicit paraphrases, exposed development sources; no model trial or human approval",
       "family": "nist-smstestbed",
-      "group": "d668774af2ccaaf7ed76b12bbcfb2ff845938b9f695415cdbbd300302dcfebad",
+      "group": "192062b8ef9a4be99619d17310db11566842b27b1415b23622e8ec70b1fc5ba3",
       "interface": "deterministic authored control",
       "method": "all-supported",
       "metrics": {
@@ -2171,6 +2071,106 @@
       "replicates": 1,
       "runs": [
         "source-support-all-supported"
+      ],
+      "split": "development"
+    },
+    {
+      "case_count": 1,
+      "cohort": "4094e330f909ce06be1a52a1e35bc487fddcb7293a101da8691c1eefcceed07b",
+      "configuration": {
+        "key_exposure": "reference projects frozen labels/reasons; other controls are empty or uniform labels",
+        "model_call": false,
+        "provider_settings": null
+      },
+      "evidence": "Independent coding-agent original-source key; fixed claims and explicit paraphrases, exposed development sources; no model trial or human approval",
+      "family": "nist-smstestbed",
+      "group": "1bdd8490fb0f99ac451533bb20b93fa33d62fbb7be5200009890ce4e3ea67d96",
+      "interface": "deterministic authored control",
+      "method": "empty",
+      "metrics": {
+        "contradicted": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        },
+        "insufficient-evidence": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        },
+        "judgments": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        },
+        "supported": {
+          "max_f1": 0.0,
+          "mean_f1": 0.0,
+          "min_f1": 0.0,
+          "stdev_f1": null
+        }
+      },
+      "model": {
+        "id": "synthetic-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "replicates": 1,
+      "runs": [
+        "source-support-empty"
+      ],
+      "split": "development"
+    },
+    {
+      "case_count": 1,
+      "cohort": "4094e330f909ce06be1a52a1e35bc487fddcb7293a101da8691c1eefcceed07b",
+      "configuration": {
+        "key_exposure": "reference projects frozen labels/reasons; other controls are empty or uniform labels",
+        "model_call": false,
+        "provider_settings": null
+      },
+      "evidence": "Independent coding-agent original-source key; fixed claims and explicit paraphrases, exposed development sources; no model trial or human approval",
+      "family": "nist-smstestbed",
+      "group": "acb59e43dacbbd233731763adf088031c53e40f40d8b3498dcf23ee25e441afb",
+      "interface": "deterministic authored control",
+      "method": "reference",
+      "metrics": {
+        "contradicted": {
+          "max_f1": 1.0,
+          "mean_f1": 1.0,
+          "min_f1": 1.0,
+          "stdev_f1": null
+        },
+        "insufficient-evidence": {
+          "max_f1": 1.0,
+          "mean_f1": 1.0,
+          "min_f1": 1.0,
+          "stdev_f1": null
+        },
+        "judgments": {
+          "max_f1": 1.0,
+          "mean_f1": 1.0,
+          "min_f1": 1.0,
+          "stdev_f1": null
+        },
+        "supported": {
+          "max_f1": 1.0,
+          "mean_f1": 1.0,
+          "min_f1": 1.0,
+          "stdev_f1": null
+        }
+      },
+      "model": {
+        "id": "synthetic-control",
+        "provider": "none",
+        "version": "1"
+      },
+      "replicates": 1,
+      "runs": [
+        "source-support-reference"
       ],
       "split": "development"
     }

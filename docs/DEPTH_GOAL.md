@@ -105,6 +105,34 @@ Key availability is a candidate until the first increment verifies it from each 
    connections. A fairer second attempt (one human answer to the workflow's own unknowns, on a separate held-out
    flowsheet) is N125. One notebook, one publisher, one model family (Claude; the Codex CLI is out until 2026-11-16).
    Modelica remains this area's next source, and a second publisher comes before any generalization claim.
+   *Status 2026-11-12, maintenance records: Nestor at depth (A420), with a narrow claim; the other areas are open.*
+   The AMPS held-out cohort is still not acquired, so Nestor went first. Task `maintenance-system-grouping`: the
+   maintenance-history packet's per-record system class, derived from the short text by a declared vocabulary,
+   against the cleaned file's `MajorSystem`, which the tool never reads. That key is the least circular one this
+   source offers (counts, cost sums, chronology or repeat intervals would be our own calculation over the tool's
+   input), but the publisher made it with keyword rules over the same text. What it shows: the tool's `derive`
+   option applies a user-declared vocabulary faithfully and groups by it, and a 10-rule vocabulary written from
+   development assets A-C, including their publisher codes, agrees with `MajorSystem` on held-out D-E at
+   per-record F1 0.943 (0.887 if no-system rows given a class count as errors); class-name words alone score 0.501
+   (a post-hoc key-free control). A vocabulary fitted on one part of a fleet carries over to the rest under one
+   publisher's coding scheme. It does not show what a user without a key would write, and it does not measure
+   engineering correctness. The vocabulary is a per-dataset profile artifact, not part of the product. The six
+   checks: (1) registered in `benchmarks/registry.json` with key, provenance and limits; (2) frozen scorer
+   `scripts/score_maintenance_systems.py` with five controls (reference, raw-asset baseline, majority class,
+   shuffled within asset, misaligned key) in every table, plus the post-hoc key-free control and no-key-as-FP
+   columns from `scripts/maintenance_system_posthoc.py` in the benchmark, README and matrix row-10 tables; (3) development A-C per-record F1 0.963 and one sealed held-out
+   run on D-E at 0.943, against a best wrong control of 0.394 (margin 0.549, bar 0.20 fixed before the run),
+   kept, recorded with the plan's exposure sentence; (4) corpus-matrix row 10 (row 9 is IDAES) re-runs offline from the local pinned
+   originals and is UNVERIFIED in a clean clone, because their terms are unresolved and they are not committed;
+   (5) the scored output is the packet `scripts/maintenance_history.py` writes, which gained `identity: "record"`,
+   `select` and `derive`, RED-first; (6) failures are fixed or listed as limits in
+   [examples/maintenance-history/README.md](../examples/maintenance-history/README.md#a-second-publisher-nestor-excavator-records-grouped-by-system).
+   `nestor-excavators` now derives as *feeds*. Both splits are one publisher and one fleet, so increment 3 still
+   needs a second maintenance source. Adding row 10 changed the matrix runner, so every other cell was re-run in
+   the cache state it was recorded in; their statuses, values and reasons are unchanged. Changing
+   `scripts/benchmark.py` changes the scorer-code hash in every registered report: they were regenerated with
+   identical counts and scores (now in an order that does not move with that hash), and the task-benchmarks
+   feature review reads as stale until re-reviewed.
 3. **A second source per area**, from a different publisher, before any claim that a method generalizes in that
    area.
 

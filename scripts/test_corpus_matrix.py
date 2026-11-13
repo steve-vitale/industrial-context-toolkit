@@ -324,6 +324,32 @@ class Rendering(unittest.TestCase):
                     self.assertTrue((Path(d) / f"{s}.graphml").is_file())
             self.assertEqual(set(notes), set(inp["sheets"]))
 
+    def test_row10_binds_the_two_read_originals_as_an_optional_cache_and_its_frozen_config(self):
+        inp = cm.inputs_by_id(cm.load_corpus())["nestor-excavators"]
+        self.assertFalse(inp["committed"])
+        self.assertEqual(inp["exercises"], [10])
+        self.assertTrue(inp["fetch"].startswith("python scripts/fetch_public_group.py nestor-excavators"))
+        specs = {s["path"]: s for s in cm.source_specs(10, inp)}
+        cache = specs["data/external/nestor-excavators"]
+        self.assertEqual(cache["patterns"], sorted(cm.NESTOR_FILES))
+        self.assertTrue(cache["optional"])
+        self.assertEqual(cache["cache_root"], "data/external/nestor-excavators")
+        for rel in cm.NESTOR_CONFIG:
+            self.assertFalse(specs[rel]["optional"], rel)
+        tools = cm.tool_files(10, "nestor-excavators")
+        for rel in ("scripts/maintenance_intake.py", "examples/maintenance-history/nestor.py", "scripts/maintenance_system_posthoc.py"):
+            self.assertIn(rel, tools)
+        rates = {"precision": 0.5, "recall": 0.5, "f1": 0.5}
+        names = ("method", "reference", "raw-asset-baseline", "majority-system", "shuffled-within-asset", "misaligned-key")
+        split = {"assets": ["A"], "margin": 0.3, "rates": {n: {"orders": rates, "groups": rates} for n in names},
+                 "orders_no_key_as_fp": {n: rates for n in names},
+                 "keyfree_control": {"rates": {"orders": rates, "groups": rates}, "orders_no_key_as_fp": rates}}
+        table = "\n".join(cm.row10_table({(10, "nestor-excavators"): {"detail": {"splits": {"development": split}}}}, 10))
+        for column in ("Key-free control", "no-key as FP", "Reference", "Raw-asset baseline", "Majority class",
+                       "Shuffled within asset", "Misaligned key"):
+            self.assertIn(column, table)
+        self.assertNotIn("AMPS", cm.ROW_CRITERIA[10])
+
     def test_heldout_historian_sources_registered_with_fetch(self):
         import fetch_corpus as fc
         inputs = cm.inputs_by_id(cm.load_corpus())

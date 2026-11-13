@@ -380,7 +380,7 @@
         "evidence": [
           "data/public_sources_20261107.json#idaes-processes"
         ],
-        "note": "the notebook text names the compressor, heaters, reactor, turbine and flash but never the mixer; the authored model is assistant work, the key is not; A419 (2026-11-12) ran this plan through the product path: corpus-matrix row 9 cells idaes-methanol-dev and idaes-methanol-heldout, suite benchmarks/flowsheet-topology/suite.json (task flowsheet-topology). The held-out input is the whole notebook text: the development text verbatim plus the recycle paragraphs. Development v1 connection F1 0.624 (0.462-0.947), held-out 0.353 (shuffled control 0.235), all boundary credit: 0 of 9 unit-to-unit arcs, internal-arc F1 0.000: rejected under the pre-registered rule; failures and limits in benchmarks/flowsheet-topology/README.md",
+        "note": "the notebook text names the compressor, heaters, reactor, turbine and flash but never the mixer; the authored model is assistant work, the key is not; A419 (2026-11-12) ran this plan through the product path: corpus-matrix row 10 cells idaes-methanol-dev and idaes-methanol-heldout, suite benchmarks/flowsheet-topology/suite.json (task flowsheet-topology). The held-out input is the whole notebook text: the development text verbatim plus the recycle paragraphs. Development v1 connection F1 0.624 (0.462-0.947), held-out 0.353 (shuffled control 0.235), all boundary credit: 0 of 9 unit-to-unit arcs, internal-arc F1 0.000: rejected under the pre-registered rule; failures and limits in benchmarks/flowsheet-topology/README.md",
         "exposure": "Held-out key counts were surveyed on 2026-11-12 (its arc and unit counts, and unit-name counts over the whole notebook text); no method was run. Any sealed score on the recycle flowsheet must state this."
       }
     },
@@ -749,7 +749,7 @@
         "names": [
           "Nestor"
         ],
-        "note": "terms unresolved: local originals only and derived counts only in the repository; rows carry no work-order id, so the source row number is the locator",
+        "note": "terms unresolved: local originals only and derived counts only in the repository; rows carry no work-order id, so the source row number is the locator; A420 (2026-11-12): the scored task is per-record system grouping, the tool's derived class against the cleaned file's MajorSystem, which the tool never reads (benchmarks/maintenance-systems/suite.json, corpus-matrix row 10). It shows the derive option applies a declared vocabulary faithfully, and that a 10-rule vocabulary written from A-C, including their publisher codes, agrees with the publisher's keyword-rule codes on held-out D-E at per-record F1 0.943 (0.887 with no-system rows counted as errors; class-name words alone 0.501). It does not show what a user without a key would write or measure engineering correctness; the vocabulary is a per-dataset profile artifact, not part of the product",
         "exposure": "Held-out key counts were surveyed on 2026-11-12 (work-order counts per asset for all five assets, the date range and the MajorSystem distinct count over all rows); no method was run. Any sealed score on assets D and E must state this."
       }
     },

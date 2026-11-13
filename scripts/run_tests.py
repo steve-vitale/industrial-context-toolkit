@@ -31,6 +31,8 @@ SOURCE_TESTS = (
     "scripts/test_context_review.py",
     "scripts/test_foundation_handoff.py",
     "scripts/test_maintenance_history.py",
+    "scripts/test_score_maintenance_systems.py",
+    "scripts/test_fetch_public_group.py",
     "scripts/test_pid_path_review.py",
     "scripts/test_pid_connections.py",
     "scripts/test_pid_markups.py",

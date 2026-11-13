@@ -26,6 +26,12 @@ Rows (all model-free, offline):
   9  description_workflow.py check + build on saved assistant answers for a real process description, the model it
      builds scored by flowsheet_topology.py against units and Arc connections parsed from the source's own flowsheet
      code (re-derived from the pinned original each run). Pass = DESCRIPTION_PASS, fixed before the first model run.
+ 10  maintenance_history.py on the Nestor excavator work orders (examples/maintenance-history/nestor.py): the system
+     class each record gets from its short text, scored against the publisher's cleaned MajorSystem codes, which the
+     tool never reads (score_maintenance_systems.py), on the development and the held-out assets, beside a post-hoc
+     key-free control (maintenance_system_posthoc.py). Pass = original-row checks hold, the reference control is
+     perfect and per-record F1 beats every wrong control by >= the margin in nestor.py, on both splits. The originals
+     may not be redistributed, so in a clean clone the cell is UNVERIFIED.
 
 Inputs added 2026-10-29 (scripts/corpus_adapters.py turns each source into what the tool reads): DEXPI 1.2 exports
 from four commercial P&ID tools and the DEXPI reference solutions, and the 1.3 single-feature cases (rows 7 and 4,
@@ -109,6 +115,9 @@ ROWS = {
     9: {"tool": "description_workflow.py check + build, scored by flowsheet_topology.py", "short": "Description topology",
         "question": "When a user describes a real process in prose, does the model the description workflow builds "
                     "have the units and connections of that process's own flowsheet code?"},
+    10: {"tool": "maintenance_history.py (system classes derived from work-order text)", "short": "Maintenance systems",
+        "question": "On a real public work-order export, does the history packet's system grouping, read from each "
+                    "record's short text, agree with the publisher's own system codes beyond every wrong control?"},
 }
 KEYED = ["open100-dev", "open100-holdout", "open100-scan-L1", "open100-scan-L2", "open100-scan-L3",
          "pid2graph-synthetic", "dexpi", "te-rev-a", "te-rev-c", "te-rev-d", "te-rev-c-scan-L3", "bayer-rt1"]
@@ -143,6 +152,7 @@ ROW_INPUTS = {
     8: ["open100-dev", "open100-holdout", "dexpi", "te-rev-a", "te-rev-c", "te-rev-d", "bayer-rt1",
         "dexpi-1.2-vendor-renders"] + AGENT_KEYED,
     9: ["idaes-methanol-dev", "idaes-methanol-heldout"],
+    10: ["nestor-excavators"],
 }
 # The tool files each row's cells exercise (roots; the scripts/ modules they import are added by tool_files), hashed
 # into every cell so --check can tell a stale cell.
@@ -162,7 +172,13 @@ ROW_TOOL_FILES = {
     # build() runs the last three as subprocesses, so they are explicit roots.
     9: ["scripts/description_workflow.py", "scripts/flowsheet_topology.py", "scripts/generate.py",
         "scripts/question_engine.py", "scripts/graph_export.py"],
+    10: ["examples/maintenance-history/nestor.py", "examples/maintenance-history/baseline.py",
+         "scripts/maintenance_history.py", "scripts/maintenance_history_report.py", "scripts/score_maintenance_systems.py",
+         "scripts/maintenance_system_posthoc.py"],
 }
+# Row 10: the two pinned files the cell reads (the cache folder may also hold the publisher's README, LICENSE and loader).
+NESTOR_FILES = ["nestor/datasets/excavators.csv", "nestor/datasets/excavators-cleaned.csv"]
+NESTOR_CONFIG = ["examples/maintenance-history/nestor/system_vocabulary.json", "examples/maintenance-history/nestor/FREEZE.json"]
 # Cells that exercise other files than their row's roots (the 2026-10-29 inputs): exactly these, plus their imports.
 ADAPTER = "scripts/corpus_adapters.py"
 ROW_TOOL_FILES_ONLY = {
@@ -372,6 +388,10 @@ def source_specs(row, inp):
     elif kind in NOT_SCORED_KINDS:
         if iid == "hai-dcs-loops":
             add(local, ["dcs_*.json"], optional)
+    elif row == 10:
+        add(local, NESTOR_FILES, optional, cache_root=local)
+        for rel in NESTOR_CONFIG:
+            add(rel)
     elif iid == "te-braatz-runs":
         # row6 reads exactly these22 test runs. Training runs, Fortran and checkout README/license files are
         # separate sources; CI's checksum fetch need not reproduce an unrelated local clone inventory.
@@ -1868,7 +1888,41 @@ def row9(inp):
     return cell(9, inp, "fail" if problems else "pass", value, "; ".join(problems), detail)
 
 
-RUNNERS = {1: row1, 2: row2, 3: row3, 4: row4, 5: row5, 6: row6, 7: row7, 8: row8, 9: row9}
+def row10(inp):
+    """The frozen Nestor method on both splits, from the local pinned originals (A420; held out D-E sealed once), and
+    the post-hoc key-free control (class-name words through the same tool), added at review."""
+    sys.path.insert(0, str(ROOT / "examples" / "maintenance-history"))
+    import nestor
+    import maintenance_system_posthoc as posthoc
+    detail, passed = {"splits": {}}, True
+    with tempfile.TemporaryDirectory(prefix="row10-") as tmp:
+        for split in ("development", "held-out"):
+            report, _ = quiet(nestor.run, split, Path(tmp) / split, ROOT / inp["local_path"])
+            sc = report["score"]["scores"]
+            detail["splits"][split] = {
+                "assets": report["assets"], "join": report["score"]["join"],
+                "procedural_checks": report["procedural"]["checks"],
+                "rates": {name: sc[name]["rates"] for name in ["method", *nestor.scorer.CONTROL_ORDER]},
+                "orders_no_key_as_fp": {name: posthoc.strict_rates(sc[name]) for name in ["method", *nestor.scorer.CONTROL_ORDER]},
+                "no_system_records_given_a_class": sc["method"]["assigned_without_key_system"],
+                "margin": report["orders_margin_over_best_wrong_control"], "passed": report["passed"],
+                "control_problems": report["score"]["control_problems"], "tool_issues": report["tool"]["issues"]}
+            keyfree = quiet(posthoc.keyfree_answer, split, ROOT / inp["local_path"])
+            kf = nestor.scorer.evaluate(ROOT / inp["local_path"] / nestor.RAW, ROOT / inp["local_path"] / nestor.CLEANED,
+                                        nestor.SPLITS[split], keyfree, nestor.MAJORITY)["scores"]["method"]
+            detail["splits"][split]["keyfree_control"] = {"rates": kf["rates"], "orders_no_key_as_fp": posthoc.strict_rates(kf),
+                                                          "no_system_records_given_a_class": kf["assigned_without_key_system"]}
+            passed = passed and report["passed"]
+    dev, held = (detail["splits"][s]["rates"]["method"]["orders"]["f1"] for s in ("development", "held-out"))
+    detail["frozen"] = not nestor.frozen_problems()
+    detail["held_out"] = ("assets D-E: sealed once 2026-11-12 under the frozen method (A420); later cells re-run that "
+                          "frozen method deterministically. Exposure: " + json.loads(
+                              (ROOT / "examples/maintenance-history/nestor/FREEZE.json").read_text(encoding="utf-8"))["exposure"])
+    return cell(10, inp, "pass" if passed and detail["frozen"] else "fail", f"held-out F1 {held:.3f} (dev {dev:.3f})",
+                "" if passed else "a split missed the margin, a control or an original-row check", detail)
+
+
+RUNNERS = {1: row1, 2: row2, 3: row3, 4: row4, 5: row5, 6: row6, 7: row7, 8: row8, 9: row9, 10: row10}
 
 
 class StagingError(Exception):
@@ -2058,7 +2112,8 @@ def run_cell(row, inp):
     c["tool_files"] = hashes
     c["input_bindings"] = bindings
     if (source_manifest(row, inp) != bindings or
-            {f: file_hash(f) for f in tool_files(row, inp["id"])} != {f: h for f, h in hashes.items() if f.startswith("scripts/")}):
+            {f: file_hash(f) for f in tool_files(row, inp["id"])} != {f: h for f, h in hashes.items()
+                                                                     if f in tool_files(row, inp["id"])}):
         c["status"] = "fail"
         c["reason"] += ("; " if c["reason"] else "") + "source bindings changed during the cell run; rerun required"
     return c
@@ -2124,8 +2179,8 @@ def render(matrix, corpus):
          "Generated by `scripts/corpus_matrix.py` from `out/generalization/matrix.json`; the inputs are registered in",
          "`data/corpus.json`. Do not edit by hand: `python scripts/corpus_matrix.py` re-runs it and",
          "`python scripts/corpus_matrix.py --check` confirms this page matches the JSON.", "",
-         "These nine workflows cover tracing, scorer controls, intake/report, loop audit, exports, historian bands, "
-         "DEXPI conversion, pipe topology and topology from a written description. They do not cover every tool: point mapping, applying reviews, the "
+         "These ten workflows cover tracing, scorer controls, intake/report, loop audit, exports, historian bands, "
+         "DEXPI conversion, pipe topology, topology from a written description and maintenance-history system grouping. They do not cover every tool: point mapping, applying reviews, the "
          "question engine, impact estimates and live replay have their own feature tests and examples. Each cell "
          "runs one selected workflow on one registered public input it applies "
          "to, with no model and no network. **pass** and **FAIL** use the criterion stated for each row below; each "
@@ -2296,6 +2351,11 @@ def detail_line(c):
     if c["row"] == 7 and "sheets" in d:
         return "; ".join(f"{s}: {v['symbols']} symbols, {v['connections']} links, {v['corrections']} corrections"
                          for s, v in d["sheets"].items())
+    if c["row"] == 10 and "splits" in d:
+        return "; ".join(f"{s} {', '.join(v['assets'])}: {v['join']['keyed']} of {v['join']['raw_records']} records "
+                         f"joined to the key, {v['join']['keyed_with_system']} with a system; margin {v['margin']:.3f} over "
+                         f"the best wrong control; {v['no_system_records_given_a_class']} no-system records given a class"
+                         for s, v in d["splits"].items()) + "; " + d["held_out"]
     return ""
 
 
@@ -2483,6 +2543,23 @@ ROW_CRITERIA = {
        f"mean connection F1 at least {DESCRIPTION_PASS['margin_over_wrong']} above each answer-derived wrong control "
        "(reversed, shuffled). The mention-order chain of the answer's own units is reported as a naive baseline, not "
        "part of the pass.",
+    10: "Added 2026-11-12 (depth increment 2, A420; matrix row 9 until IDAES took it). The tool reads only the raw export (date, asset, short text, order "
+       "type; cost ignored) through the profile `examples/maintenance-history/nestor.py` writes, and derives each "
+       "record's system class from its short text with the declared vocabulary "
+       "(`examples/maintenance-history/nestor/system_vocabulary.json`). `score_maintenance_systems.py` then joins the "
+       "records to the publisher's cleaned file and scores per-record class against its MajorSystem codes, beside five "
+       "controls: the key itself (must be 1.0), the raw-asset grouping baseline (no system), one majority class, "
+       "the answer shuffled within each asset, and the answer against another record's key. Pass, fixed before the "
+       "held-out run: original-row checks hold, the reference is perfect, and per-record F1 beats the best wrong control "
+       "by at least 0.20 on both splits. Development assets A-C (two vocabulary passes were read there); held out D-E, "
+       "scored once under the frozen method; these cells re-run that frozen method. The key was made by the publisher's "
+       "keyword rules over the same text, so a pass is agreement with those rules, not engineering truth. The originals' "
+       "terms are unresolved: they stay in the local cache, and a clean clone reports this cell UNVERIFIED. Added at review, "
+       "after the sealed run (post hoc, outside the pass): the key-free control (the same tool with only the class names' "
+       "own words as its vocabulary) and precision/F1 with every no-system record given a class counted as a false "
+       "positive. What a pass shows: the derive option applies a declared vocabulary faithfully, and a vocabulary "
+       "written from A-C, including their publisher codes, carries over to D-E under one publisher's coding scheme; the "
+       "vocabulary is a per-dataset profile artifact, not part of the product.",
 }
 
 
@@ -2539,7 +2616,35 @@ def row9_table(by, r):
     return out if len(out) > 4 else []
 
 
-ROW_EXTRA = {1: row1_table, 6: row6_table, 8: row8_table, 9: row9_table}
+def row10_table(by, r):
+    c = by.get((10, "nestor-excavators"))
+    if not c or "splits" not in c["detail"]:
+        return []
+    names = [("method", "Answer"), ("keyfree", "Key-free control, class-name words (post hoc)"), ("reference", "Reference"),
+             ("raw-asset-baseline", "Raw-asset baseline"), ("majority-system", "Majority class"),
+             ("shuffled-within-asset", "Shuffled within asset"), ("misaligned-key", "Misaligned key")]
+    out = ["Per split, per-record system class: precision / recall / F1 as frozen (no-system key records outside "
+           "precision), then precision / F1 with every no-system record given a class counted as a false positive; the "
+           "key-free control was added at review, after the sealed run:", "",
+           "| Split | Answer or control | P / R / F1 (frozen) | P / F1 (no-key as FP) | Group F1 |", "|---|---|---|---|---|"]
+    def fmt(v, keys):
+        return "/".join("-" if v.get(k) is None else f"{v[k]:.3f}" for k in keys)
+    for split, d in c["detail"]["splits"].items():
+        for key, label in names:
+            if key == "keyfree":
+                k = d.get("keyfree_control")
+                if not k:
+                    continue
+                rates, strict = k["rates"], k["orders_no_key_as_fp"]
+            else:
+                rates, strict = d["rates"][key], d.get("orders_no_key_as_fp", {}).get(key, {})
+            out.append(f"| {split} ({', '.join(d['assets'])}) | {label} | {fmt(rates['orders'], ('precision', 'recall', 'f1'))} | "
+                       f"{fmt(strict, ('precision', 'f1'))} | {rates['groups']['f1']:.3f} |")
+        out.append(f"| {split} ({', '.join(d['assets'])}) | Margin over the best wrong control (frozen F1) | {d['margin']:.3f} | | |")
+    return out
+
+
+ROW_EXTRA = {1: row1_table, 6: row6_table, 8: row8_table, 9: row9_table, 10: row10_table}
 
 
 # ------------------------------------------------------------------ main

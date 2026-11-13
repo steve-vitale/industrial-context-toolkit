@@ -13,7 +13,7 @@ Strict recall includes unfound labelled symbols; found accuracy is conditional o
 - **Provider / version:** OpenAI / provider build not recorded beyond the saved model identifier
 - **Method / client:** historical 2x2 tiled model extraction + deterministic trace replacement / Codex CLI
 - **Family / split / evidence:** dexpi-trainingtestcases / development / exposed historical model answers; CURRENT frozen derived cache keys, original producing key/converter identity unknown
-- **Cohort:** 09240811448bcd9ca77ada66d6d035a10512964c7c06f00f8759742f72e011c9; **group:** 1ee24eab003033f7c55c00393d0de22a3ccff49edef910bd771edc6ee06d02fc
+- **Cohort:** dcb50cce18ca72766818e14a1b902d22bec96f3f60ddd00f15c1d1134dbd0c9b; **group:** 651f32c00739123c30373b7b21e4f0a15085a7534cfe100cc0d6f373513d3c79
 - **Selected cases / repeats:** 3 / 5
 - **Configuration:** {"overlap": 0.15, "reasoning_effort": "not recorded", "temperature": "not recorded", "tiles": "2x2", "trace": "replace"}
 
@@ -29,7 +29,7 @@ Strict recall includes unfound labelled symbols; found accuracy is conditional o
 - **Provider / version:** Anthropic / provider build not recorded beyond the saved model identifier
 - **Method / client:** historical 2x2 tiled model extraction + deterministic trace replacement / Claude Code CLI
 - **Family / split / evidence:** dexpi-trainingtestcases / development / exposed historical model answers; CURRENT frozen derived cache keys, original producing key/converter identity unknown
-- **Cohort:** 09240811448bcd9ca77ada66d6d035a10512964c7c06f00f8759742f72e011c9; **group:** 802c4ddeb222a04aac0bea4fe9d8f883362dd5849fa9b2a369f078fcd1f1d4d6
+- **Cohort:** dcb50cce18ca72766818e14a1b902d22bec96f3f60ddd00f15c1d1134dbd0c9b; **group:** 87728676378a5d5209da7fe73cfa7812ab25dcad1b2ed33d313a7707f5359648
 - **Selected cases / repeats:** 3 / 5
 - **Configuration:** {"overlap": 0.15, "reasoning_effort": "not recorded", "temperature": "not recorded", "tiles": "2x2", "trace": "replace"}
 
@@ -44,32 +44,12 @@ Strict recall includes unfound labelled symbols; found accuracy is conditional o
 
 Substring recall measures coverage of partial lists, without assigning identifiers to the correct item. Class agreement is a share of found identifiers, not precision.
 
-### claude-opus-5-5[1m]
-
-- **Provider / version:** Anthropic / provider build not recorded beyond the saved model identifier
-- **Method / client:** historical 2x2 tiled model extraction + deterministic trace replacement / Claude Code CLI
-- **Family / split / evidence:** dexpi-trainingtestcases / development / exposed historical model answers; CURRENT frozen derived cache keys, original producing key/converter identity unknown
-- **Cohort:** 8b296022d165f2a3611ab6d88a2022a1ecce6cb5ee67f051e86b2d660acc054c; **group:** b0178b30684a5bd2a734876bb81706f13e530d71b18b39155b094b76c8ddc6ff
-- **Selected cases / repeats:** 2 / 5
-- **Configuration:** {"overlap": 0.15, "reasoning_effort": "not recorded", "temperature": "not recorded", "tiles": "2x2", "trace": "replace"}
-
-| Rate | Mean | Range | SD | Defined / total |
-|---|---|---|---|---|
-| identifier_recall | 0.9945 | 0.9793–1.0000 | 0.0090 | 5 / 5 |
-| found_identifier_class_agreement | 0.9861 | 0.9859–0.9862 | 0.0001 | 5 / 5 |
-| identifier_recall / list equipment | 0.9900 | 0.9500–1.0000 | 0.0224 | 5 / 5 |
-| found_identifier_class_agreement / list equipment | 1.0000 | 1.0000–1.0000 | 0.0000 | 5 / 5 |
-| identifier_recall / list instrument | 1.0000 | 1.0000–1.0000 | 0.0000 | 5 / 5 |
-| found_identifier_class_agreement / list instrument | 1.0000 | 1.0000–1.0000 | 0.0000 | 5 / 5 |
-| identifier_recall / list valve | 0.9924 | 0.9747–1.0000 | 0.0113 | 5 / 5 |
-| found_identifier_class_agreement / list valve | 0.9745 | 0.9740–0.9747 | 0.0003 | 5 / 5 |
-
 ### gpt-6.1-sol
 
 - **Provider / version:** OpenAI / provider build not recorded beyond the saved model identifier
 - **Method / client:** historical 2x2 tiled model extraction + deterministic trace replacement / Codex CLI
 - **Family / split / evidence:** dexpi-trainingtestcases / development / exposed historical model answers; CURRENT frozen derived cache keys, original producing key/converter identity unknown
-- **Cohort:** 8b296022d165f2a3611ab6d88a2022a1ecce6cb5ee67f051e86b2d660acc054c; **group:** b033b44b16b9044dcf47743fc5eac0523f1ad258f8cd66e56827a6908d64c2ad
+- **Cohort:** c1491c96fedd718afb65d6e40d9c26888b100c7cda2f8f930c8b6b6c0ee48950; **group:** ae4c1d3a31adb3be308fa49b906eb8fe55fd0c990c060c8b2a5de5085746ebde
 - **Selected cases / repeats:** 2 / 5
 - **Configuration:** {"overlap": 0.15, "reasoning_effort": "not recorded", "temperature": "not recorded", "tiles": "2x2", "trace": "replace"}
 
@@ -83,6 +63,26 @@ Substring recall measures coverage of partial lists, without assigning identifie
 | found_identifier_class_agreement / list instrument | 1.0000 | 1.0000–1.0000 | 0.0000 | 5 / 5 |
 | identifier_recall / list valve | 1.0000 | 1.0000–1.0000 | 0.0000 | 5 / 5 |
 | found_identifier_class_agreement / list valve | 0.9747 | 0.9620–0.9873 | 0.0127 | 5 / 5 |
+
+### claude-opus-5-5[1m]
+
+- **Provider / version:** Anthropic / provider build not recorded beyond the saved model identifier
+- **Method / client:** historical 2x2 tiled model extraction + deterministic trace replacement / Claude Code CLI
+- **Family / split / evidence:** dexpi-trainingtestcases / development / exposed historical model answers; CURRENT frozen derived cache keys, original producing key/converter identity unknown
+- **Cohort:** c1491c96fedd718afb65d6e40d9c26888b100c7cda2f8f930c8b6b6c0ee48950; **group:** d4251069c9cb91845a2b8f539e0643d394a22c9079d83fa3242be4be4f05b7d1
+- **Selected cases / repeats:** 2 / 5
+- **Configuration:** {"overlap": 0.15, "reasoning_effort": "not recorded", "temperature": "not recorded", "tiles": "2x2", "trace": "replace"}
+
+| Rate | Mean | Range | SD | Defined / total |
+|---|---|---|---|---|
+| identifier_recall | 0.9945 | 0.9793–1.0000 | 0.0090 | 5 / 5 |
+| found_identifier_class_agreement | 0.9861 | 0.9859–0.9862 | 0.0001 | 5 / 5 |
+| identifier_recall / list equipment | 0.9900 | 0.9500–1.0000 | 0.0224 | 5 / 5 |
+| found_identifier_class_agreement / list equipment | 1.0000 | 1.0000–1.0000 | 0.0000 | 5 / 5 |
+| identifier_recall / list instrument | 1.0000 | 1.0000–1.0000 | 0.0000 | 5 / 5 |
+| found_identifier_class_agreement / list instrument | 1.0000 | 1.0000–1.0000 | 0.0000 | 5 / 5 |
+| identifier_recall / list valve | 0.9924 | 0.9747–1.0000 | 0.0113 | 5 / 5 |
+| found_identifier_class_agreement / list valve | 0.9745 | 0.9740–0.9747 | 0.0003 | 5 / 5 |
 
 <details>
 <summary>Per-run counts and coverage (20 run/cohort records)</summary>

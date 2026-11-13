@@ -6,9 +6,9 @@ Only rows with the same cohort are directly comparable. See JSON for exact cases
 
 | Model / version | Method / interface | Family / split / evidence | Cohort | Cases | Replicates | Metric | Mean F1 | Min–max | SD |
 |---|---|---|---|---|---|---|---|---|---|
-| synthetic-control / 1 | empty answer / authored fixture | pid2graph-open100 / validation / contributed demonstration case, model-drafted key, scripted sampled review, fictional roles; provenance in examples/contribute-a-pid/open100-0-demo/case.json | 462c932451b3 | 1 | 1 | symbols_rough | 0.0000 | 0.0000–0.0000 | unavailable |
-| synthetic-control / 1 | empty answer / authored fixture | pid2graph-open100 / validation / contributed demonstration case, model-drafted key, scripted sampled review, fictional roles; provenance in examples/contribute-a-pid/open100-0-demo/case.json | 462c932451b3 | 1 | 1 | symbols_strict | 0.0000 | 0.0000–0.0000 | unavailable |
-| synthetic-control / 1 | empty answer / authored fixture | pid2graph-open100 / validation / contributed demonstration case, model-drafted key, scripted sampled review, fictional roles; provenance in examples/contribute-a-pid/open100-0-demo/case.json | 462c932451b3 | 1 | 1 | networks | 0.0000 | 0.0000–0.0000 | unavailable |
+| synthetic-control / 1 | empty answer / authored fixture | pid2graph-open100 / validation / contributed demonstration case, model-drafted key, scripted sampled review, fictional roles; provenance in examples/contribute-a-pid/open100-0-demo/case.json | f3866b16b908 | 1 | 1 | symbols_rough | 0.0000 | 0.0000–0.0000 | unavailable |
+| synthetic-control / 1 | empty answer / authored fixture | pid2graph-open100 / validation / contributed demonstration case, model-drafted key, scripted sampled review, fictional roles; provenance in examples/contribute-a-pid/open100-0-demo/case.json | f3866b16b908 | 1 | 1 | symbols_strict | 0.0000 | 0.0000–0.0000 | unavailable |
+| synthetic-control / 1 | empty answer / authored fixture | pid2graph-open100 / validation / contributed demonstration case, model-drafted key, scripted sampled review, fictional roles; provenance in examples/contribute-a-pid/open100-0-demo/case.json | f3866b16b908 | 1 | 1 | networks | 0.0000 | 0.0000–0.0000 | unavailable |
 
 ## Coverage and failures
 

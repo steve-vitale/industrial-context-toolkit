@@ -620,5 +620,75 @@ class TagBenchmarkTests(unittest.TestCase):
                 self.assertEqual(command(bad,'diff','--cached','--check').returncode==0,should_pass)
 
 
+class SystemGroupingBenchmarkTests(unittest.TestCase):
+    """maintenance-system-grouping: controls in every row, and a fetch-by-hash cache that may be absent."""
+
+    def setUp(self):
+        import importlib.util
+        self.tmp = tempfile.TemporaryDirectory(prefix='system-benchmark-')
+        self.addCleanup(self.tmp.cleanup)
+        self.root = Path(self.tmp.name)
+        spec = importlib.util.spec_from_file_location('system_scorer_fixture', ROOT / 'scripts/test_score_maintenance_systems.py')
+        fixture = importlib.util.module_from_spec(spec); spec.loader.exec_module(fixture)
+        cache = self.root / 'data/external/demo-group'
+        cache.mkdir(parents=True)
+        fixture.write(cache)
+        (self.root / 'recipe.txt').write_bytes(b'Authored vocabulary; no inference.\n')
+        self.save('answer.json', {'assigned': {'2': 'Bucket', '3': 'Hydraulic System', '4': 'Engine', '5': '', '6': 'Bucket',
+                                               '7': 'Engine', '8': 'Hydraulic System'}})
+        ref = lambda rel: {'path': rel, 'sha256': b.file_hash(self.root / rel)}
+        case = {'id': 'demo-a', 'family': 'demo', 'split': 'development', 'evidence': 'authored software control',
+                'source_url': 'https://example.invalid/demo', 'license': 'authored', 'key_author': 'authored',
+                'assets': ['A'], 'majority': 'Hydraulic System',
+                'files': {'input': ref('data/external/demo-group/raw.csv'), 'key': ref('data/external/demo-group/cleaned.csv')}}
+        self.save('run.json', {'id': 'demo-run', 'ran_at': '2026-11-12', 'interface': 'test', 'method': 'authored answer',
+                               'provenance': 'authored', 'model': {'provider': 'none', 'id': 'authored', 'version': '1'},
+                               'configuration': {}, 'recipe': [ref('recipe.txt')], 'cases': ['demo-a'],
+                               'predictions': {'demo-a': ref('answer.json')}})
+        self.save('suite.json', {'id': 'demo-systems', 'version': '1', 'task': 'maintenance-system-grouping', 'optional_cache': True,
+                                 'protocol': 'system-groups-v1', 'registration': 'authored software control',
+                                 'cases': [case], 'runs': ['run.json']})
+        self.save('registry.json', {'schema': 'benchmark-registry-1', 'reports': [{'suite': 'suite.json', 'report': 'report'}]})
+
+    def save(self, name, value):
+        (self.root / name).write_text(json.dumps(value, indent=2), encoding='utf-8')
+
+    def test_answer_rows_carry_every_control_and_reference_is_perfect(self):
+        report = b.evaluate(self.root / 'suite.json', self.root)
+        row = report['results'][0]['rows'][0]
+        self.assertEqual(row['counts']['orders'], {'tp': 3, 'predicted': 4, 'truth': 5})
+        self.assertEqual(set(row['diagnostics']['controls']), {'reference', 'raw-asset-baseline', 'majority-system',
+                                                                'shuffled-within-asset', 'misaligned-key'})
+        self.assertEqual(report['controls']['demo-a']['reference']['orders']['f1'], 1.0)
+        # No-key records given a class count as false positives in the strict columns: record 6 (key NA, answered Bucket).
+        self.assertEqual(row['diagnostics']['orders_no_key_as_fp'], {'precision': 0.6, 'recall': 0.6, 'f1': 0.6})
+        self.assertIn('no-key as FP', b.markdown(report))
+        text = b.markdown(report)
+        for name in ('answer', 'reference', 'raw-asset-baseline', 'majority-system', 'shuffled-within-asset', 'misaligned-key'):
+            self.assertIn('| ' + name + ' |', text)
+        self.assertNotIn('| Model / version |', text)
+
+    def test_absent_cache_is_unverified_but_a_present_changed_cache_fails(self):
+        import contextlib
+        import io
+        import shutil
+        self.assertEqual(b.main(['--suite', str(self.root / 'suite.json'), '--root', str(self.root), '--out', str(self.root / 'report')]), 0)
+        registry = ['--registry', str(self.root / 'registry.json'), '--root', str(self.root)]
+        self.assertEqual(b.main(registry), 0)
+        (self.root / 'data/external/demo-group/cleaned.csv').write_text('changed', encoding='utf-8')
+        with contextlib.redirect_stderr(io.StringIO()):
+            self.assertEqual(b.main(registry), 2)
+        shutil.rmtree(self.root / 'data/external/demo-group')
+        out = io.StringIO()
+        with contextlib.redirect_stdout(out):
+            self.assertEqual(b.main(registry), 0)
+        self.assertIn('UNVERIFIED: suite.json', out.getvalue())
+        # Only a suite that opts in may be skipped: without optional_cache the same absent cache fails.
+        suite = json.loads((self.root / 'suite.json').read_text(encoding='utf-8')); suite.pop('optional_cache')
+        self.save('suite.json', suite)
+        with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(b.main(registry), 2)
+
+
 if __name__ == '__main__':
     unittest.main()
