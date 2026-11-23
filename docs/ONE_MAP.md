@@ -339,6 +339,16 @@ flagged and never decided. Manufacturer, model or serial number that no maintena
 index row holds is a `work order closeout note`. Values compare ignoring case and repeated spaces; an open work order
 (no `closed_on`) is not compared.
 
+**Change record copies.** A `records` entry with register `change_record` is a read-only copy of the site's accepted
+changes from its governed change service ([format](CONTEXT_MAP_FORMAT.md#the-records-layer)). A row whose
+`affects_register` names a register makes that register's row for the same item a review row `may be out of date
+since a change` for the row's owner, with the change id, date, wording and `external_ref`, and what the row says for
+the change's `attribute` beside the change's `new_value`. No value is changed and nothing is decided. A row that
+already holds `new_value` raises nothing; for each item, register and attribute only the latest change (by
+`changed_on`, then change id) is compared; a `rejected` change row raises nothing; a register supplied without a row
+for the item raises nothing. An `affects_register` that is not a register is a `change record note` for the change
+record's owner.
+
 ## Changes, affected records and change flags
 
 Three read-only reports on built graphs (`scripts/map_changes.py`, run through `one_map.py`); each writes Markdown and

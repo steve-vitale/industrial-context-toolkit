@@ -206,6 +206,7 @@ The full field definitions (type, required, fact kind, description, allowed valu
 | `inspection_record` inspection records (vessels, piping, RBI) | tag, plant, unit*, inspected_on | inspection_type, component, finding, result, measured_value, minimum_allowed, uom, remaining_life_years, rbi_risk, interval_months, next_due, inspector, certification, work_order, report_document | Maintenance | inspection_status | API 510, 570, 580, 581 (named, not adopted); ISO 14224 maintenance data (informative) |
 | `document_register` document register | document, revision | title, doc_type, cfihos_document_type, vdi2770_class, doc_status, owner, path, covers, based_on, manufacturer | Doc control | document_revision | CFIHOS document type; VDI 2770; AAS Handover Documentation |
 | `glossary` glossary (plant terms and nicknames), since 1.1 | term, plant, unit* | synonyms, definition, maps_to_class, maps_to_item, owner, certification, certified_by, certified_on | Doc control | - | none adopted |
+| `change_record` change records (read-only copy), since 1.2 | change_id, tag, plant, unit*, changed_on, change | change_kind, attribute, old_value, new_value, uom, reason, raised_by, decided_by, decided_on, source_quote, affects_register, external_ref | Change process owner | - | OSHA 29 CFR 1910.119(l) management of change (named, not adopted) |
 | `ruling` local rulings | ruling_id, concerns, ruling, reason, by, on | attribute, chosen_source, chosen_value, authority, evidence | the person ruling | - | none adopted |
 
 Department grouping: engineering (`tag_register`, `drawing_register`, `datasheet`, `line_list`,
@@ -213,8 +214,8 @@ Department grouping: engineering (`tag_register`, `drawing_register`, `datasheet
 maintenance (`maintenance_export`, `work_order`, `pm_plan`, `calibration_record`, `spares_bom`,
 `criticality_ranking`, `inspection_record`), procurement and supply chain (`mro_item`, `purchase_order`,
 `approved_vendor`), production (`operating_limit`), quality and food safety (`ccp`, `capa`), safety and EHS
-(`relief_device_register`, `isolation_point`, `permit`), cross-cutting (`glossary`). The `tag_register` also takes an
-optional `class` column (since 1.1).
+(`relief_device_register`, `isolation_point`, `permit`), cross-cutting (`glossary`, `change_record`). The
+`tag_register` also takes an optional `class` column (since 1.1).
 
 Notes on particular registers:
 
@@ -247,6 +248,17 @@ Notes on particular registers:
   by tag (`record_copy: true` in `registers.json`). They are authoritative for nothing. Issuing, approving and
   closing a permit, and requisitioning, approving and receiving a purchase, are workflows that belong to the permit
   system, the purchasing system and an external governed service; the map never writes back.
+- **`change_record`** (since 1.2) is a **read-only copy** of accepted changes from whatever governed change service
+  the site uses (a turnaround or project work list, a change-management system): one row per change and tag it
+  touched, repeating the change id for each further tag. It shows what changed on an item, why, who decided and when,
+  and where the full record is (`external_ref`, the id or link in the change service), so the map can be kept current.
+  Like `permit` it is `record_copy: true` and authoritative for nothing: `old_value` and `new_value` are what the
+  change record says, never facts the map takes. When `affects_register` names a register (`alarm_list`, `datasheet`),
+  that register's row for the same tag becomes a review item for its owner ("may be out of date since change
+  CHG-2026-0412"); the row's value is never changed, and a row that already holds `new_value` for the named
+  `attribute` raises nothing ([`one_map.py`](ONE_MAP.md) applies this to its graph). Raising, reviewing, approving,
+  routing and closing a change stay in the change service and the site's change process; the format has no approval
+  state, assignment or due date for a change.
 - **`capa`** holds corrective and preventive actions (and corrections), one row per CAPA and linked tag or
   document: a CAPA links to the plant by `tag` and to the record it changes by `document` (the HACCP plan, a
   procedure, a P&ID), repeating the CAPA id for each further link. It also covers deviations, through
@@ -595,7 +607,8 @@ link. That is what this format does for every standard; it never ships a standar
 | ISO 15926 | not checked | Paid | Background reference only | none |
 
 Not verified in this pass, and therefore only named, never adopted: ISA-18.2 (alarms), IEC 61511 (safety
-instrumented functions), Codex HACCP principles, OSHA 29 CFR 1910.147 (lockout), ISO 8000 (material master data).
+instrumented functions), Codex HACCP principles, OSHA 29 CFR 1910.147 (lockout), OSHA 29 CFR 1910.119(l)
+(management of change), ISO 8000 (material master data).
 
 Only one CFIHOS code was opened and checked (`CFIHOS-10000395`, drawing position number). Every other CFIHOS
 reference in the mapping table is marked `to_confirm`, including the exact table and column names of CFIHOS
@@ -694,9 +707,10 @@ under the authority map, and contractor tags that differ from site tags go throu
 - This draft is `1.2.0-draft` (1.1 added `class`, the glossary register, `Certification`, `expectations`,
   `settings.as_of`, `settings.authority_certification`, the `glossary` mention match and two coverage parts; 1.2
   appended the `network_member` relation, the `@network` pseudo-class, the item kind `line_network`, relation
-  `attributes`, list-valued facts and the edge tables in `relations.json`; all optional). `registers.json`,
-  `classes.json`, `relations.json` and the rules template carry the same version. `scripts/context_map.py` reads and
-  writes it; it is still a draft, so a change before release needs only this version line and the converter test.
+  `attributes`, list-valued facts and the edge tables in `relations.json`, and, on 2026-11-23, the `change_record`
+  register; all optional). `registers.json`, `classes.json`, `relations.json` and the rules template carry the same
+  version. `scripts/context_map.py` reads and writes it; it is still a draft, so a change before release needs only
+  this version line and the converter test.
 
 ## Non-goals
 
@@ -704,8 +718,8 @@ under the authority map, and contractor tags that differ from site tags go throu
   ruling history. Those belong to an external governed service.
 - **Not a reasoning ontology.** A small class tree, relation semantics and completeness rules (1.1), checked by
   plain code; no ISO 15926 upper ontology, no OWL, no inference engine. The JSON-LD view is optional.
-- **Not a replacement or sync for the CMMS, document system, historian or permit system.** The map reads exports;
-  it never writes back.
+- **Not a replacement or sync for the CMMS, document system, historian, permit system or change service.** The map
+  reads exports; it never writes back.
 - **Not a redistribution of standards.** Identifiers and links only; no definitions, code tables, RDL files or
   schemas from paid or no-derivatives sources.
 - **No unit conversion or text normalization** in this version. Values compare as written, with their unit.
@@ -738,7 +752,8 @@ The owner answered the eight open questions of the first draft on 2026-11-04. Ea
    codes are links only, pending confirmation of terms with IOGP and POSC Caesar.
 8. **Next registers.** Added now: CAPA register, equipment criticality ranking, inspection records (vessels, piping,
    RBI). Planned next: PFDs and heat and material balances; electrical single-line diagrams and motor schedules;
-   training records; safety data sheets (SDS) and chemical inventory.
+   training records; safety data sheets (SDS) and chemical inventory. Added 2026-11-23 in 1.2: change records
+   (`change_record`), a read-only copy of the site's accepted changes kept like permits and purchase orders.
 
 Still open, outside these decisions: confirming the CFIHOS 2.0 codes and terms (item 7) before any code ships, and
 choosing a site override example once a real site's authority choices are known.
@@ -752,6 +767,8 @@ also:     map {site,...}, settings {owners, authority, authority_reasons, fact_k
 required: format, map.site, plant.scopes, plant.items; item = {id: SITE/PLANT/UNIT/TAG, tag, scope}
 hierarchy: plant words site > plant > unit > system; ISA-95/88 equivalents only in standards-mapping.csv
 registers: schemas/context-map/registers.json (fields, required, fact_kind, owner, authority_for); templates/<id>.csv match it
+change:   change_record = read-only copy of accepted changes; affects_register -> review row on that register's row
+          for the tag, never a changed value; no approval state, assignment or due date
 datasheet: long form stored; templates/datasheet-wide/*.csv convert by registers.json datasheet_wide_forms.conversion
 absent register = not supplied; [] = supplied, no rows
 value:    scalar (inherits row source/revision/locator) or {value, uom, source, revision, locator, status, fact_kind}; no per-value std

@@ -439,5 +439,82 @@ class ChangeFlags(MocBuilds, unittest.TestCase):
         self.assertIn((mc.FLAG_PHA, "cause of interlock IL-7 (IL-P1)", "IL-P1"), mc.flags(v2, "S1/P1/PAST1/TT-2207"))
 
 
+CHANGE_HEADER = ["change_id", "tag", "plant", "unit", "changed_on", "change", "change_kind", "attribute", "old_value",
+                 "new_value", "uom", "reason", "raised_by", "decided_by", "decided_on", "source_quote",
+                 "affects_register", "external_ref", "locator", "status", "note"]
+ALARM_HEADER = ["tag", "plant", "unit", "alarm_type", "setpoint", "uom", "priority", "operator_action",
+                "rationalized_on", "locator", "status", "note"]
+TT = "S1/P1/PAST1/TT-2207"
+
+
+def change(cid, tag, on, new_value, register="alarm_list", attribute="setpoint", status="unverified"):
+    row = dict(change_id=cid, tag=tag, plant="P1", unit="PAST1", changed_on=on, change=f"{attribute} to {new_value}",
+               attribute=attribute, new_value=new_value, affects_register=register, status=status,
+               external_ref=f"https://changes.example.com/{cid}")
+    return [row.get(k, "") for k in CHANGE_HEADER]
+
+
+class ChangeRecordCopies(unittest.TestCase):
+    """change_record rows (a read-only copy of accepted changes) with affects_register flag the named register's row
+    for the same tag as possibly out of date; they never change a value."""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.dir = Path(self.tmp.name) / "in"
+        shutil.copytree(PAST, self.dir)
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def build(self, changes, alarm_setpoint="72.5"):
+        write_csv(self.dir / "records" / "alarm_list.csv", ALARM_HEADER,
+                  [["TT-2207", "P1", "PAST1", "L", alarm_setpoint, "degC", "High", "Confirm divert", "2026-01-12", "",
+                    "unverified", ""]])
+        write_csv(self.dir / "records" / "change_record.csv", CHANGE_HEADER, changes)
+        site = json.loads((self.dir / "site.json").read_text(encoding="utf-8"))
+        site["records"] += [{"id": "ALARMS-P1", "register": "alarm_list", "path": "records/alarm_list.csv",
+                             "revision": "4", "scopes": ["S1/P1"]},
+                            {"id": "CHANGES-P1", "register": "change_record", "path": "records/change_record.csv",
+                             "revision": "2026-11-01", "scopes": ["S1/P1"]}]
+        (self.dir / "site.json").write_text(json.dumps(site, indent=1), encoding="utf-8")
+        g, _, rows, _ = quiet(om.build, self.dir / "site.json", Path(self.tmp.name) / "out", full=True)
+        return g, [r for r in rows if r["kind"] in (om.CHANGE_STALE, om.CHANGE_NOTE)]
+
+    def test_affected_register_row_becomes_a_review_item_and_no_value_changes(self):
+        g, rows = self.build([change("CHG-2026-0412", "TT-2207", "2026-10-20", "72.8"),
+                              change("CHG-2026-0388", "P-101", "2026-09-30", "double mechanical", register="datasheet",
+                                     attribute="seal_type")])
+        by_item = {r["item"]: r for r in rows}
+        self.assertEqual(sorted(by_item), ["S1/P1/PAST1/P-101", TT], [r["why"] for r in rows])
+        alarm = by_item[TT]
+        self.assertEqual((alarm["kind"], alarm["owner"]), (om.CHANGE_STALE, "I&C"))
+        for words in ("alarm list ALARMS-P1 (row 2) may be out of date since change CHG-2026-0412 (2026-10-20",
+                      "it says setpoint 72.5, the change says 72.8", "https://changes.example.com/CHG-2026-0412",
+                      "nothing was changed here"):
+            self.assertIn(words, alarm["why"])
+        pump = by_item["S1/P1/PAST1/P-101"]
+        self.assertEqual(pump["owner"], "Engineering")
+        self.assertIn("datasheet PUMP-DATASHEETS may be out of date since change CHG-2026-0388", pump["why"])
+        self.assertNotIn("it says", pump["why"], "the datasheet holds no seal_type, so nothing is quoted")
+        # read-only: the alarm row keeps its value, and a change record is never a value conflict
+        self.assertIn("72.5", (self.dir / "records" / "alarm_list.csv").read_text(encoding="utf-8"))
+        self.assertFalse([c for c in conflicts_of(g) if "CHG-2026" in json.dumps(c)])
+        self.assertEqual(om.problems(g), [])
+
+    def test_row_already_holding_the_new_value_or_superseded_or_rejected_raises_nothing(self):
+        _, rows = self.build([change("CHG-2026-0412", "TT-2207", "2026-10-20", "72.8")], alarm_setpoint="72.8")
+        self.assertEqual(rows, [])
+        _, rows = self.build([change("CHG-2026-0101", "TT-2207", "2026-01-05", "72.6"),
+                              change("CHG-2026-0412", "TT-2207", "2026-10-20", "72.8")], alarm_setpoint="72.8")
+        self.assertEqual(rows, [], "only the latest change per item, register and attribute is compared")
+        _, rows = self.build([change("CHG-2026-0412", "TT-2207", "2026-10-20", "72.8", status="rejected")])
+        self.assertEqual(rows, [])
+
+    def test_unknown_register_is_a_note_not_a_flag(self):
+        _, rows = self.build([change("CHG-2026-0412", "TT-2207", "2026-10-20", "72.8", register="alarm_lists")])
+        self.assertEqual([(r["kind"], r["owner"]) for r in rows], [(om.CHANGE_NOTE, "Change process owner")])
+        self.assertIn("'alarm_lists', which is not a register", rows[0]["why"])
+
+
 if __name__ == "__main__":
     unittest.main()

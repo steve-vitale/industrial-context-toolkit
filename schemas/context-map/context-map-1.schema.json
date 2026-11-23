@@ -219,7 +219,7 @@
   "RecordsLayer": {
    "type": "object",
    "description": "One array per register id. A register that is absent was not supplied; an empty array was supplied with no rows. Both are valid.",
-   "propertyNames": {"enum": ["tag_register", "tag_alias", "drawing_register", "maintenance_export", "datasheet", "line_list", "relief_device_register", "instrument_index", "loop_list", "io_list", "alarm_list", "interlock_list", "work_order", "pm_plan", "calibration_record", "mro_item", "spares_bom", "purchase_order", "approved_vendor", "operating_limit", "ccp", "isolation_point", "permit", "capa", "criticality_ranking", "inspection_record", "document_register", "glossary", "ruling"]},
+   "propertyNames": {"enum": ["tag_register", "tag_alias", "drawing_register", "maintenance_export", "datasheet", "line_list", "relief_device_register", "instrument_index", "loop_list", "io_list", "alarm_list", "interlock_list", "work_order", "pm_plan", "calibration_record", "mro_item", "spares_bom", "purchase_order", "approved_vendor", "operating_limit", "ccp", "isolation_point", "permit", "capa", "criticality_ranking", "inspection_record", "document_register", "glossary", "change_record", "ruling"]},
    "additionalProperties": {"type": "array", "items": {"$ref": "#/$defs/RecordRow"}}
   },
   "RecordRow": {

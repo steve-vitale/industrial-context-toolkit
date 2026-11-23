@@ -3494,6 +3494,169 @@
    ]
   },
   {
+   "id": "change_record",
+   "name": "change records (record copies)",
+   "layer": "records",
+   "department": "cross",
+   "default_owner": "Change process owner",
+   "authority_for": [],
+   "key": [
+    "change_id",
+    "tag"
+   ],
+   "template": "templates/change_record.csv",
+   "standards": [
+    "OSHA 29 CFR 1910.119(l) management of change (US regulatory context, not adopted)"
+   ],
+   "notes": "A read-only copy of accepted changes from the site's governed change service (a turnaround or project work list, a change-management system): one row per change and tag it touched. It says what changed on an item, why, who decided and where the full record is; it is authoritative for nothing. Raising, reviewing, approving, routing and closing a change is a workflow that belongs to the change service and an external governed service; the map never writes back. A row with affects_register makes that register's row for the same tag a review item, never a changed value.",
+   "fields": [
+    {
+     "name": "change_id",
+     "type": "text",
+     "required": true,
+     "description": "Change number as the change service writes it. Repeat it on a further row for each further tag the change touched."
+    },
+    {
+     "name": "tag",
+     "type": "tag",
+     "required": true,
+     "description": "The tag exactly as the plant writes it (P-101, TT-2207). Never renumbered.",
+     "fact_kind": "tags"
+    },
+    {
+     "name": "plant",
+     "type": "scope",
+     "required": true,
+     "description": "Plant id, or a site scope id such as UTIL for site utilities, as declared in the map's scopes."
+    },
+    {
+     "name": "unit",
+     "type": "scope",
+     "required": "if_plant_has_units",
+     "description": "Unit id inside the plant. Required when the plant declares units."
+    },
+    {
+     "name": "changed_on",
+     "type": "date",
+     "required": true,
+     "description": "Date the change took effect, as the change service records it."
+    },
+    {
+     "name": "change",
+     "type": "text",
+     "required": true,
+     "description": "What changed, in the change service's own words."
+    },
+    {
+     "name": "change_kind",
+     "type": "enum",
+     "required": false,
+     "description": "What sort of change it was.",
+     "values": [
+      "schedule",
+      "status",
+      "field_change",
+      "setting",
+      "document",
+      "equipment",
+      "other"
+     ]
+    },
+    {
+     "name": "attribute",
+     "type": "text",
+     "required": false,
+     "description": "The value that changed (setpoint, seal_type, interval), where the change names one."
+    },
+    {
+     "name": "old_value",
+     "type": "text",
+     "required": false,
+     "description": "The value before the change, as the change record writes it."
+    },
+    {
+     "name": "new_value",
+     "type": "text",
+     "required": false,
+     "description": "The value after the change, as the change record writes it."
+    },
+    {
+     "name": "uom",
+     "type": "text",
+     "required": false,
+     "description": "Unit of old_value and new_value, as written."
+    },
+    {
+     "name": "reason",
+     "type": "text",
+     "required": false,
+     "description": "Why the change was made, as the change record states it."
+    },
+    {
+     "name": "raised_by",
+     "type": "text",
+     "required": false,
+     "description": "Person or role who raised the change."
+    },
+    {
+     "name": "decided_by",
+     "type": "text",
+     "required": false,
+     "description": "Person or role who accepted the change, as the change record names them."
+    },
+    {
+     "name": "decided_on",
+     "type": "date",
+     "required": false,
+     "description": "Date the change was accepted."
+    },
+    {
+     "name": "source_quote",
+     "type": "text",
+     "required": false,
+     "description": "The words in the change record this row was read from, quoted exactly."
+    },
+    {
+     "name": "affects_register",
+     "type": "text",
+     "required": false,
+     "description": "Register id from registers.json (alarm_list, datasheet, ...) whose row for this tag may now be out of date."
+    },
+    {
+     "name": "external_ref",
+     "type": "text",
+     "required": false,
+     "description": "Id or link of the full change record in the change service."
+    },
+    {
+     "name": "locator",
+     "type": "text",
+     "required": false,
+     "description": "Where in the source this row's values are, when it is not simply this file and row (page, sheet and cell, clause, screen)."
+    },
+    {
+     "name": "status",
+     "type": "enum",
+     "required": false,
+     "description": "Review status of the row. Empty means unverified.",
+     "values": [
+      "unverified",
+      "confirmed",
+      "corrected",
+      "rejected",
+      "stale"
+     ]
+    },
+    {
+     "name": "note",
+     "type": "text",
+     "required": false,
+     "description": "Free text for the person who fills the row in. Never parsed into a value."
+    }
+   ],
+   "record_copy": true
+  },
+  {
    "id": "ruling",
    "name": "local rulings",
    "layer": "decisions",

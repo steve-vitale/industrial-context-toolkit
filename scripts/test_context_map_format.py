@@ -369,7 +369,31 @@ class ContextMapFormat(unittest.TestCase):
             self.assertIn("external governed service", r["notes"], rid)
             self.assertIn("read-only copy", r["notes"], rid)
         self.assertEqual([rid for rid, r in self.registers.items() if r.get("record_copy")],
-                         ["purchase_order", "permit"])
+                         ["purchase_order", "permit", "change_record"])
+
+    def test_change_record_is_a_read_only_copy_not_a_workflow(self):
+        r = self.registers["change_record"]
+        self.assertIs(r.get("record_copy"), True)
+        self.assertEqual(r["authority_for"], [], "a change record copy is authoritative for nothing")
+        self.assertEqual(r["key"], ["change_id", "tag"])
+        for words in ("read-only copy", "external governed service", "never writes back"):
+            self.assertIn(words, r["notes"])
+        fields = {f["name"]: f for f in r["fields"]}
+        required = {n for n, f in fields.items() if f["required"] is True}
+        self.assertEqual(required, {"change_id", "tag", "plant", "changed_on", "change"})
+        self.assertTrue({"affects_register", "external_ref", "decided_by", "decided_on", "reason"} <= set(fields))
+        for workflow in ("approval_status", "approver", "assigned_to", "assignee", "due_on", "reminder", "next_step",
+                         "change_status", "routing"):
+            self.assertNotIn(workflow, fields, "the toolkit holds no change workflow")
+        self.assertNotIn("fact_kind", fields["new_value"], "a copied new value is never a fact the map takes")
+        rows = read_csv(DIR / r["template"])
+        named = [dict(zip(rows[0], row)) for row in rows[1:]]
+        self.assertTrue({x["tag"] for x in named} <= PASTEURIZER_TAGS)
+        affected = {x["affects_register"] for x in named if x["affects_register"]}
+        self.assertTrue(affected, "the template shows affects_register")
+        self.assertTrue(affected <= set(self.registers) - {"change_record"}, affected)
+        self.assertIn("change_record", {row[1] for row in read_csv(MAPPING)[1:]})
+        self.assertIn("`change_record`", DOC.read_text(encoding="utf-8"))
 
     def test_relation_names_are_frozen(self):
         rel = self.schema["$defs"]["RelationType"]

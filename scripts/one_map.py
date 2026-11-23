@@ -1907,6 +1907,65 @@ def work_order_closeout(m, lists):
                                         f"for it holds {name}, so nothing was compared"})
 
 
+CHANGE_STALE = "may be out of date since a change"
+CHANGE_NOTE = "change record note"
+
+
+def change_record_flags(m, lists):
+    """`change_record` rows (a read-only copy of the site's accepted changes) that name an `affects_register`: that
+    register's row for the same item becomes a review row for its owner, "may be out of date since change X". No
+    value is changed and nothing is decided; the change record is authoritative for nothing. For each item,
+    register and attribute only the latest change (by changed_on, then change id) is compared, and a record row that
+    already holds the change's new_value for its attribute raises nothing. A rejected row raises nothing. A register
+    that is supplied but holds no row for the item raises nothing either (absent says nothing). A register id that
+    is not in registers.json is a change record note for the change record's owner."""
+    rows = [r for r in m.records.get("change_record") or [] if r["status"] != "rejected"]
+    if not rows:
+        return
+    regs = registers()
+    owners = {s["id"]: s.get("owner") for s in m.sources}
+    for rec in ("maintenance_export", "instrument_index", "datasheet"):
+        owners.update({x["id"]: x["owner"] for x in lists.get(rec, [])})
+    latest = {}
+    for row in rows:
+        v = row["values"]
+        if row["item"] and v.get("affects_register"):
+            key = (row["item"], v["affects_register"], v.get("attribute", ""))
+            latest[key] = max(latest.get(key, ("", "")), (v.get("changed_on", ""), v.get("change_id", "")))
+    for row in rows:
+        v, nid, src = row["values"], row["item"], row["source"]
+        reg = v.get("affects_register")
+        if not reg or nid is None:
+            continue
+        cid, attr = v.get("change_id"), v.get("attribute", "")
+        said = (f"change {cid} ({v.get('changed_on')}: {v.get('change')}; {src['document']} {src['locator']}"
+                + (f"; full record {v['external_ref']}" if v.get("external_ref") else "") + ")")
+        if reg not in regs or reg == "change_record":
+            m.review.append({"item": nid, "kind": CHANGE_NOTE, "owner": owners.get(src["document"]) or "needs owner",
+                             "why": f"{said} names affects_register {reg!r}, which is not a register in "
+                                    "registers.json; nothing was flagged"})
+            continue
+        if latest.get((nid, reg, attr)) != (v.get("changed_on", ""), cid):
+            continue
+        tag, name = m.nodes[nid]["tag"], RECORD_NAMES.get(reg) or regs[reg]["name"]
+        found = [(r["source"]["document"], r["source"]["locator"], r["values"].get(attr) if attr else None)
+                 for r in m.records.get(reg) or [] if r["item"] == nid]
+        for lid, held in sorted(m.held.get(nid, {}).items()):
+            if m.record_of.get(lid) == reg:
+                c = held.get(attr) if attr else None
+                found.append((lid, c["source"].get("locator") if c else None, c["value"] if c else None))
+        for lid, locator, have in found:
+            if have is not None and v.get("new_value") and same_value(have, v["new_value"]):
+                continue
+            holds = (f"; it says {attr} {have}" + (f", the change says {v['new_value']}" if v.get("new_value") else "")
+                     if have is not None else "")
+            m.review.append({"item": nid, "kind": CHANGE_STALE,
+                             "owner": owners.get(lid) or m.cfg["owners"].get(reg) or regs[reg]["default_owner"],
+                             "why": f"{tag}: the {name} {lid}" + (f" ({locator})" if locator else "")
+                                    + f" may be out of date since {said}{holds}. Confirm the row or update it in "
+                                    "its own record; nothing was changed here"})
+
+
 def coverage_sources(m, register, lists):
     """Which record is the record for which scopes: P&ID sheets cover their unit; lists, datasheets, loop lists and
     `records` their declared scopes; a document manifest the whole site."""
@@ -2411,6 +2470,7 @@ def assemble(cfg, register, fragments):
     classify(m)
     load_records(m)
     work_order_closeout(m, lists)
+    change_record_flags(m, lists)
     pair_offpage(m, fragments)
     groups = loops(m, lists)
     docs = documents(m, cfg, lists)
