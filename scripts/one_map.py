@@ -1938,7 +1938,7 @@ def change_record_flags(m, lists):
         if not reg or nid is None:
             continue
         cid, attr = v.get("change_id"), v.get("attribute", "")
-        said = (f"change {cid} ({v.get('changed_on')}: {v.get('change')}; {src['document']} {src['locator']}"
+        said = (f"change {cid} ({v.get('changed_on') or 'undated'}: {v.get('change')}; {src['document']} {src['locator']}"
                 + (f"; full record {v['external_ref']}" if v.get("external_ref") else "") + ")")
         if reg not in regs or reg == "change_record":
             m.review.append({"item": nid, "kind": CHANGE_NOTE, "owner": owners.get(src["document"]) or "needs owner",

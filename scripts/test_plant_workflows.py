@@ -510,6 +510,12 @@ class ChangeRecordCopies(unittest.TestCase):
         _, rows = self.build([change("CHG-2026-0412", "TT-2207", "2026-10-20", "72.8", status="rejected")])
         self.assertEqual(rows, [])
 
+    def test_undated_change_says_undated(self):
+        _, rows = self.build([change("CHG-2026-0412", "TT-2207", "", "72.8")])
+        self.assertEqual(len(rows), 1)
+        self.assertIn("since change CHG-2026-0412 (undated:", rows[0]["why"])
+        self.assertNotIn("None", rows[0]["why"])
+
     def test_unknown_register_is_a_note_not_a_flag(self):
         _, rows = self.build([change("CHG-2026-0412", "TT-2207", "2026-10-20", "72.8", register="alarm_lists")])
         self.assertEqual([(r["kind"], r["owner"]) for r in rows], [(om.CHANGE_NOTE, "Change process owner")])
