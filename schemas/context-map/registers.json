@@ -3508,7 +3508,7 @@
    "standards": [
     "OSHA 29 CFR 1910.119(l) management of change (US regulatory context, not adopted)"
    ],
-   "notes": "A read-only copy of accepted changes from the site's governed change service (a turnaround or project work list, a change-management system): one row per change and tag it touched. It says what changed on an item, why, who decided and where the full record is; it is authoritative for nothing. Raising, reviewing, approving, routing and closing a change is a workflow that belongs to the change service and an external governed service; the map never writes back. A row with affects_register makes that register's row for the same tag a review item, never a changed value.",
+   "notes": "A read-only copy of accepted changes from the site's governed change service (a turnaround or project work list, a change-management system): one row per change and tag it touched. It says what changed on an item, why, who decided and where the full record is; it is authoritative for nothing. Raising, reviewing, approving, routing and closing a change is a workflow that belongs to the change service and an external governed service; the map never writes back. A row with affects_register makes that register's row for the same tag a review item, never a changed value; affects_row narrows it to the row named by that register's key columns (alarm_type=L).",
    "fields": [
     {
      "name": "change_id",
@@ -3621,6 +3621,12 @@
      "type": "text",
      "required": false,
      "description": "Register id from registers.json (alarm_list, datasheet, ...) whose row for this tag may now be out of date."
+    },
+    {
+     "name": "affects_row",
+     "type": "text",
+     "required": false,
+     "description": "Which row of the affects_register register the change concerns, by that register's own key columns other than tag, plant and unit: semicolon-separated column=value pairs (alarm_type=L on the alarm list), compared exactly after trimming and ignoring case. Empty means every row of that register for this tag. A column the register does not have, or a filter that matches none of the tag's rows, is a change record note, never a silent nothing."
     },
     {
      "name": "external_ref",

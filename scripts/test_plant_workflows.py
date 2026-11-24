@@ -441,15 +441,15 @@ class ChangeFlags(MocBuilds, unittest.TestCase):
 
 CHANGE_HEADER = ["change_id", "tag", "plant", "unit", "changed_on", "change", "change_kind", "attribute", "old_value",
                  "new_value", "uom", "reason", "raised_by", "decided_by", "decided_on", "source_quote",
-                 "affects_register", "external_ref", "locator", "status", "note"]
+                 "affects_register", "affects_row", "external_ref", "locator", "status", "note"]
 ALARM_HEADER = ["tag", "plant", "unit", "alarm_type", "setpoint", "uom", "priority", "operator_action",
                 "rationalized_on", "locator", "status", "note"]
 TT = "S1/P1/PAST1/TT-2207"
 
 
-def change(cid, tag, on, new_value, register="alarm_list", attribute="setpoint", status="unverified"):
+def change(cid, tag, on, new_value, register="alarm_list", attribute="setpoint", status="unverified", row=""):
     row = dict(change_id=cid, tag=tag, plant="P1", unit="PAST1", changed_on=on, change=f"{attribute} to {new_value}",
-               attribute=attribute, new_value=new_value, affects_register=register, status=status,
+               attribute=attribute, new_value=new_value, affects_register=register, affects_row=row, status=status,
                external_ref=f"https://changes.example.com/{cid}")
     return [row.get(k, "") for k in CHANGE_HEADER]
 
@@ -466,8 +466,8 @@ class ChangeRecordCopies(unittest.TestCase):
     def tearDown(self):
         self.tmp.cleanup()
 
-    def build(self, changes, alarm_setpoint="72.5"):
-        write_csv(self.dir / "records" / "alarm_list.csv", ALARM_HEADER,
+    def build(self, changes, alarm_setpoint="72.5", alarms=None):
+        write_csv(self.dir / "records" / "alarm_list.csv", ALARM_HEADER, alarms or
                   [["TT-2207", "P1", "PAST1", "L", alarm_setpoint, "degC", "High", "Confirm divert", "2026-01-12", "",
                     "unverified", ""]])
         write_csv(self.dir / "records" / "change_record.csv", CHANGE_HEADER, changes)
@@ -520,6 +520,46 @@ class ChangeRecordCopies(unittest.TestCase):
         _, rows = self.build([change("CHG-2026-0412", "TT-2207", "2026-10-20", "72.8", register="alarm_lists")])
         self.assertEqual([(r["kind"], r["owner"]) for r in rows], [(om.CHANGE_NOTE, "Change process owner")])
         self.assertIn("'alarm_lists', which is not a register", rows[0]["why"])
+
+    # three alarms on one tag: a change to the LOW alarm names its row by the alarm list's key column alarm_type
+    THREE = [["TT-2207", "P1", "PAST1", t, sp, "degC", "High", "", "", "", "unverified", ""]
+             for t, sp in (("LL", "72.0"), ("L", "72.5"), ("H", "76.0"))]
+
+    def test_affects_row_flags_only_the_named_row(self):
+        _, rows = self.build([change("CHG-2026-0412", "TT-2207", "2026-10-20", "72.8", row=" alarm_type = l ")],
+                             alarms=self.THREE)
+        self.assertEqual([(r["kind"], r["owner"]) for r in rows], [(om.CHANGE_STALE, "I&C")], [r["why"] for r in rows])
+        self.assertIn("alarm list ALARMS-P1 (row 3) may be out of date", rows[0]["why"])
+        self.assertIn("it says setpoint 72.5, the change says 72.8", rows[0]["why"])
+
+    def test_empty_affects_row_flags_every_row_for_the_tag(self):
+        _, rows = self.build([change("CHG-2026-0412", "TT-2207", "2026-10-20", "72.8")], alarms=self.THREE)
+        self.assertEqual(len(rows), 3, [r["why"] for r in rows])
+        self.assertEqual({r["kind"] for r in rows}, {om.CHANGE_STALE})
+
+    def test_latest_change_is_per_row(self):
+        _, rows = self.build([change("CHG-2026-0412", "TT-2207", "2026-10-20", "72.8", row="alarm_type=L"),
+                              change("CHG-2026-0300", "TT-2207", "2026-08-01", "76.5", row="alarm_type=H")],
+                             alarms=self.THREE)
+        self.assertEqual(sorted(r["why"].split("(row ")[1][0] for r in rows), ["3", "4"],
+                         "an older change to another row is not superseded by a newer change to this one")
+
+    def test_affects_row_with_an_unknown_column_is_a_note_not_a_flag(self):
+        for bad, words in (("alarm_class=low", "'alarm_class' that the alarm list does not have"),
+                           ("low", "pair(s) without '='")):
+            self.tearDown()
+            self.setUp()  # each case builds in a fresh folder
+            _, rows = self.build([change("CHG-2026-0412", "TT-2207", "2026-10-20", "72.8", row=bad)],
+                                 alarms=self.THREE)
+            self.assertEqual([(r["kind"], r["owner"]) for r in rows], [(om.CHANGE_NOTE, "Change process owner")], bad)
+            self.assertIn(words, rows[0]["why"])
+            self.assertIn("nothing was flagged", rows[0]["why"])
+
+    def test_affects_row_matching_no_row_is_a_note_not_a_flag(self):
+        _, rows = self.build([change("CHG-2026-0412", "TT-2207", "2026-10-20", "72.8", row="alarm_type=HH")],
+                             alarms=self.THREE)
+        self.assertEqual([(r["kind"], r["owner"]) for r in rows], [(om.CHANGE_NOTE, "Change process owner")])
+        self.assertIn("'alarm_type=HH', which matches no alarm list row for TT-2207", rows[0]["why"])
 
 
 if __name__ == "__main__":

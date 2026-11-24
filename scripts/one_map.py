@@ -1911,6 +1911,30 @@ CHANGE_STALE = "may be out of date since a change"
 CHANGE_NOTE = "change record note"
 
 
+def _norm(x):
+    return str(x or "").strip().casefold()
+
+
+def parse_affects_row(text):
+    """`affects_row` text -> ([(column, value)], [malformed pairs]). Pairs are semicolon-separated `column=value`;
+    the column is trimmed and lower-cased, the value trimmed (it compares ignoring case)."""
+    pairs, bad = [], []
+    for part in (text or "").split(";"):
+        if not part.strip():
+            continue
+        col, eq, val = part.partition("=")
+        if not eq or not col.strip():
+            bad.append(part.strip())
+        else:
+            pairs.append((col.strip().lower(), val.strip()))
+    return pairs, bad
+
+
+def _row_filter_key(v):
+    pairs, bad = parse_affects_row(v.get("affects_row", ""))
+    return tuple(sorted((c, _norm(x)) for c, x in pairs)) + tuple(bad)
+
+
 def change_record_flags(m, lists):
     """`change_record` rows (a read-only copy of the site's accepted changes) that name an `affects_register`: that
     register's row for the same item becomes a review row for its owner, "may be out of date since change X". No
@@ -1918,7 +1942,13 @@ def change_record_flags(m, lists):
     register and attribute only the latest change (by changed_on, then change id) is compared, and a record row that
     already holds the change's new_value for its attribute raises nothing. A rejected row raises nothing. A register
     that is supplied but holds no row for the item raises nothing either (absent says nothing). A register id that
-    is not in registers.json is a change record note for the change record's owner."""
+    is not in registers.json is a change record note for the change record's owner.
+
+    An optional `affects_row` narrows the flag to the register's rows whose columns match: semicolon-separated
+    `column=value` pairs, normally the register's key columns other than tag, plant and unit (`alarm_type=L` on
+    the alarm list), compared exactly after trimming and ignoring case. Empty flags every row for the item. A pair
+    without `=`, a column the register does not have, or a filter that matches none of the item's rows is a change
+    record note for the change record's owner; nothing is flagged silently or by guess."""
     rows = [r for r in m.records.get("change_record") or [] if r["status"] != "rejected"]
     if not rows:
         return
@@ -1930,7 +1960,7 @@ def change_record_flags(m, lists):
     for row in rows:
         v = row["values"]
         if row["item"] and v.get("affects_register"):
-            key = (row["item"], v["affects_register"], v.get("attribute", ""))
+            key = (row["item"], v["affects_register"], v.get("attribute", ""), _row_filter_key(v))
             latest[key] = max(latest.get(key, ("", "")), (v.get("changed_on", ""), v.get("change_id", "")))
     for row in rows:
         v, nid, src = row["values"], row["item"], row["source"]
@@ -1945,15 +1975,36 @@ def change_record_flags(m, lists):
                              "why": f"{said} names affects_register {reg!r}, which is not a register in "
                                     "registers.json; nothing was flagged"})
             continue
-        if latest.get((nid, reg, attr)) != (v.get("changed_on", ""), cid):
+        note_owner = owners.get(src["document"]) or "needs owner"
+        pairs, bad = parse_affects_row(v.get("affects_row", ""))
+        columns = {f["name"] for f in regs[reg]["fields"]}
+        unknown = sorted({c for c, _ in pairs} - columns)
+        if bad or unknown:
+            what = (f"pair(s) without '=' ({', '.join(repr(b) for b in bad)})" if bad else
+                    f"column(s) {', '.join(repr(c) for c in unknown)} that the {regs[reg]['name']} does not have")
+            m.review.append({"item": nid, "kind": CHANGE_NOTE, "owner": note_owner,
+                             "why": f"{said} names affects_row {v['affects_row']!r} with {what}; nothing was "
+                                    "flagged. Correct affects_row in the change record copy"})
+            continue
+        if latest.get((nid, reg, attr, _row_filter_key(v))) != (v.get("changed_on", ""), cid):
             continue
         tag, name = m.nodes[nid]["tag"], RECORD_NAMES.get(reg) or regs[reg]["name"]
-        found = [(r["source"]["document"], r["source"]["locator"], r["values"].get(attr) if attr else None)
-                 for r in m.records.get(reg) or [] if r["item"] == nid]
+        found = [(r["source"]["document"], r["source"]["locator"], r["values"].get(attr) if attr else None,
+                  r["values"]) for r in m.records.get(reg) or [] if r["item"] == nid]
         for lid, held in sorted(m.held.get(nid, {}).items()):
             if m.record_of.get(lid) == reg:
                 c = held.get(attr) if attr else None
-                found.append((lid, c["source"].get("locator") if c else None, c["value"] if c else None))
+                found.append((lid, c["source"].get("locator") if c else None, c["value"] if c else None,
+                              {k: f["value"] for k, f in held.items() if isinstance(f, dict) and "value" in f}))
+        if pairs and found:
+            found = [f for f in found if all(_norm(f[3].get(c)) == _norm(want) for c, want in pairs)]
+            if not found:
+                m.review.append({"item": nid, "kind": CHANGE_NOTE, "owner": note_owner,
+                                 "why": f"{tag}: {said} names affects_row {v['affects_row']!r}, which matches no "
+                                        f"{name} row for {tag}; nothing was flagged. Check affects_row or the "
+                                        "register"})
+                continue
+        found = [f[:3] for f in found]
         for lid, locator, have in found:
             if have is not None and v.get("new_value") and same_value(have, v["new_value"]):
                 continue

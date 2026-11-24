@@ -347,7 +347,11 @@ the change's `attribute` beside the change's `new_value`. No value is changed an
 already holds `new_value` raises nothing; for each item, register and attribute only the latest change (by
 `changed_on`, then change id) is compared; a `rejected` change row raises nothing; a register supplied without a row
 for the item raises nothing. An `affects_register` that is not a register is a `change record note` for the change
-record's owner.
+record's owner. An `affects_row` (semicolon-separated `column=value` pairs on the register's key columns, such as
+`alarm_type=L`) flags only the matching rows, so a change to one alarm of a tag does not flag its other alarms;
+values compare exactly after trimming and ignoring case, and the latest-change rule applies per row filter. Empty
+flags every row for the item. A pair without `=`, a column the register does not have, or a filter matching none of
+the item's rows is a `change record note` for the change record's owner, and nothing is flagged.
 
 ## Changes, affected records and change flags
 

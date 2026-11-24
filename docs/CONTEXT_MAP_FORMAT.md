@@ -206,7 +206,7 @@ The full field definitions (type, required, fact kind, description, allowed valu
 | `inspection_record` inspection records (vessels, piping, RBI) | tag, plant, unit*, inspected_on | inspection_type, component, finding, result, measured_value, minimum_allowed, uom, remaining_life_years, rbi_risk, interval_months, next_due, inspector, certification, work_order, report_document | Maintenance | inspection_status | API 510, 570, 580, 581 (named, not adopted); ISO 14224 maintenance data (informative) |
 | `document_register` document register | document, revision | title, doc_type, cfihos_document_type, vdi2770_class, doc_status, owner, path, covers, based_on, manufacturer | Doc control | document_revision | CFIHOS document type; VDI 2770; AAS Handover Documentation |
 | `glossary` glossary (plant terms and nicknames), since 1.1 | term, plant, unit* | synonyms, definition, maps_to_class, maps_to_item, owner, certification, certified_by, certified_on | Doc control | - | none adopted |
-| `change_record` change records (read-only copy), since 1.2 | change_id, tag, plant, unit*, changed_on, change | change_kind, attribute, old_value, new_value, uom, reason, raised_by, decided_by, decided_on, source_quote, affects_register, external_ref | Change process owner | - | OSHA 29 CFR 1910.119(l) management of change (named, not adopted) |
+| `change_record` change records (read-only copy), since 1.2 | change_id, tag, plant, unit*, changed_on, change | change_kind, attribute, old_value, new_value, uom, reason, raised_by, decided_by, decided_on, source_quote, affects_register, affects_row, external_ref | Change process owner | - | OSHA 29 CFR 1910.119(l) management of change (named, not adopted) |
 | `ruling` local rulings | ruling_id, concerns, ruling, reason, by, on | attribute, chosen_source, chosen_value, authority, evidence | the person ruling | - | none adopted |
 
 Department grouping: engineering (`tag_register`, `drawing_register`, `datasheet`, `line_list`,
@@ -256,7 +256,13 @@ Notes on particular registers:
   change record says, never facts the map takes. When `affects_register` names a register (`alarm_list`, `datasheet`),
   that register's row for the same tag becomes a review item for its owner ("may be out of date since change
   CHG-2026-0412"); the row's value is never changed, and a row that already holds `new_value` for the named
-  `attribute` raises nothing ([`one_map.py`](ONE_MAP.md) applies this to its graph). Raising, reviewing, approving,
+  `attribute` raises nothing ([`one_map.py`](ONE_MAP.md) applies this to its graph). A register can hold several
+  rows for one tag (the alarm list keys on `tag, plant, unit, alarm_type`, so one pressure transmitter can have a
+  low-low, a low and a high row); the optional `affects_row` names the one the change concerns by that register's own key columns other than
+  tag, plant and unit, as semicolon-separated `column=value` pairs (`alarm_type=L`), compared exactly after trimming
+  and ignoring case. Empty `affects_row` means every row of the register for the tag, as before. An `affects_row`
+  that names a column the register does not have, or matches none of the tag's rows, is a change record note for the
+  change record's owner, never a silent nothing. Raising, reviewing, approving,
   routing and closing a change stay in the change service and the site's change process; the format has no approval
   state, assignment or due date for a change.
 - **`capa`** holds corrective and preventive actions (and corrections), one row per CAPA and linked tag or
@@ -768,7 +774,8 @@ required: format, map.site, plant.scopes, plant.items; item = {id: SITE/PLANT/UN
 hierarchy: plant words site > plant > unit > system; ISA-95/88 equivalents only in standards-mapping.csv
 registers: schemas/context-map/registers.json (fields, required, fact_kind, owner, authority_for); templates/<id>.csv match it
 change:   change_record = read-only copy of accepted changes; affects_register -> review row on that register's row
-          for the tag, never a changed value; no approval state, assignment or due date
+          for the tag, never a changed value; affects_row "col=val;col=val" (register key columns, e.g. alarm_type=L)
+          narrows it to one row, empty = all rows, unknown column or no match = change record note; no approval state, assignment or due date
 datasheet: long form stored; templates/datasheet-wide/*.csv convert by registers.json datasheet_wide_forms.conversion
 absent register = not supplied; [] = supplied, no rows
 value:    scalar (inherits row source/revision/locator) or {value, uom, source, revision, locator, status, fact_kind}; no per-value std
