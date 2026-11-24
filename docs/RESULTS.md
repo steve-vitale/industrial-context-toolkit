@@ -46,12 +46,12 @@ remain in the [earlier full-cache matrix](../examples/map-component-cycle/histor
 The current vendor cell, run with its cache present, fails at the same 0.776. These are
 tool/input checks, not a complete-route success rate. Earlier scan, vendor and historian failures remain evidence.
 
-## Results (held-out drawings, and how they were used)
+## Results (validation split used for selection, and how it was used)
 
 On the six OPEN100 validation drawings, the five round-5 runs average symbol F1 0.93 and connections 0.87
 for GPT with tiling and code tracing. These use the selection split described below.
 
-**The number to quote.** On six held-out OPEN100 drawings, GPT with tiling and code line tracing leaves **20.1**
+**The number to quote.** On six OPEN100 validation drawings (a split that also selected the method, not an untouched test), GPT with tiling and code line tracing leaves **20.1**
 differences from the answer key per 100 key items for a person to check, and Claude leaves **29.8**. Each is the
 mean of five round-5 runs ([replicates_r5_holdout-a.md](../out/replicates_r5_holdout-a.md)). This is the review load:
 missed, extra or wrong symbols and connections per 100 key items. Lower is better; 100 means as many counted
@@ -83,7 +83,7 @@ round-2 decisions were taken on (Gemini's are earlier runs; it was not run after
 bold method on A give the figures above ([GOAL.md](../docs/GOAL.md#results-round-2-scored-after-the-addendum-above-each-method-once-per-holdout)).
 
 - Reviewers get a risk-ranked queue. The twin built from 12 sheets has 2,886 items: 377 red, 698 amber and 1,811
-  green. Green items were 94–100% right on the held-out drawings. The tiers come from agreement between
+  green. Green items were 94–100% right on the OPEN100 validation drawings (selection split, not an untouched test). The tiers come from agreement between
   extractions (other models, the other pass, the line tracer, a clean tag). What the item does is a separate floor:
   an item whose tag reads as a relief device, shutdown valve, trip switch or isolation valve is never green
   ("safety-relevant: always checked"), which moved 22 instruments from green to amber. The floor only sees what a

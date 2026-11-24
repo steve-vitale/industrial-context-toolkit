@@ -120,9 +120,9 @@ That writes `mysheets/0.png`, `1.png` and so on, one per page, which is the nami
 works in PowerShell. The drawings behind the results are about 2,600 px wide and the tracer was tuned on them; how
 much a very different image size changes the result has not been tested.
 
-**Scanned archives:** expect much more to check. On synthetic old-scan copies of the held-out sheets the review load
+**Scanned archives:** expect much more to check. On synthetic old-scan copies of the OPEN100 validation sheets the review load
 roughly tripled (GPT 17.8 to 51.5 differences per 100 answer-key items), mostly because the line tracer loses faded
-lines ([round 4](../../README.md#results-held-out-drawings-and-how-they-were-used)). Try one clean sheet first.
+lines ([round 4](../../README.md#results-validation-split-used-for-selection-and-how-it-was-used)). Try one clean sheet first.
 
 ## 2. An extraction of it
 
@@ -147,7 +147,7 @@ to review bundle in 88 seconds of commands (extraction 36 s, tracing 4 s, intake
 minute of reading. Scored afterwards against that sheet's answer key, it matched the published mean for that sheet
 (review load 11.0 per 100 against 10.99; journal entry 63). Reviewing the bundle is the part nobody has timed.
 The tracer's settings were tuned on six OPEN100 sheets, so expect it to do worse on faded scans and very different
-drafting styles ([results](../../README.md#results-held-out-drawings-and-how-they-were-used)).
+drafting styles ([results](../../README.md#results-validation-split-used-for-selection-and-how-it-was-used)).
 
 ### Optional: clean a scan before tracing
 
