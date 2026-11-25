@@ -10,19 +10,32 @@ check, question and keep current.**
 More of your engineering team's work will be done with assistants that read your records. They need the
 correct data, in a usable format, refreshed at the right interval, connected, with a system of record for
 engineering context and change. That means records the assistant can reach, each fact tied to a tag, a named
-owner for each kind of fact, checks that ride closeouts, and a governed record of changes and reasons.
+owner for each record, checks that ride closeouts, and a governed record of changes and reasons.
 [Read the end picture.](docs/END_PICTURE.md)
 
 [![Six conditions for an engineering team ready for agents, and a path that starts with one unit](assets/end-picture.svg)](docs/END_PICTURE.md)
 
-## Two ways in
+## Start without installing anything
 
-- **See where you stand.** Rate one unit against the six conditions with the
-  [readiness self-assessment](docs/READINESS_AUDIT.md) and read which tier of assistant work its records support
-  today, from finding documents to a governed agent service. Then read the
+- **Map where your records live.** Five minutes, offline: which assistant you're allowed, which systems hold your
+  drawings, work orders and datasheets, and what that assistant can actually reach today. You get one first job that
+  fits your setup. [Open the worksheet](examples/readiness-audit/worksheet.html) (download it and open it from disk).
+- **See a records disagreement worked end to end.** A replaced valve whose work order, equipment list and
+  datasheet no longer agree, traced to the owner of each record:
+  [read the manager's brief](examples/manager-review/BRIEF.md), or download the
+  [offline packet](examples/manager-review/manager-review.zip?raw=1) and open `index.html` in a browser.
+- **See where your unit stands.** Rate one unit with the [readiness self-assessment](docs/READINESS_AUDIT.md) and
+  read which tier of assistant work its records support today, then compare with the
   [worked sample](examples/readiness-audit/SAMPLE_REPORT.md) for a fictional dairy unit.
-- **Try one job on your own records.** Follow the [quick start](#quick-start-see-it-in-one-minute-offline), then
-  pick a job from the [job table](#start-wherever-you-are).
+- **Ask your approved Copilot one question.** The [first-question guide](examples/first-pilot/README.md) has a
+  prompt to copy and a way to check the answer against the records.
+
+
+Questions about applying this at your plant? [Connect with me on LinkedIn](https://www.linkedin.com/in/steve-vitale/).
+
+To run the tools on your own records, use the [Python quick start](#quick-start-with-python-see-it-in-one-minute-offline)
+or [Claude Code](#use-it-on-your-own-drawings-with-claude-code), then pick a job from the
+[job table](#start-wherever-you-are).
 
 ## Try one job: a P&ID to a reviewed draft model
 
@@ -41,7 +54,7 @@ records stay visible, each sent to the owner of that record.
 *A public sheet read by the toolkit: every extracted item boxed by type, with the counts a reviewer starts from.
 [Open the full sample report.](examples/own-drawing/deliverable/REPORT.html)*
 
-## Quick start: see it in one minute, offline
+## Quick start with Python: see it in one minute, offline
 
 No accounts, model calls or extra packages. You need [Python](https://www.python.org/downloads/) 3.10 or newer.
 
@@ -107,6 +120,7 @@ output.
 |---|---|
 | `REPORT.html` | Every sheet with its extracted items boxed, counts, cross-sheet pairs, review status and next steps |
 | `review_queue.csv` | One row per item for a reviewer to confirm, correct or reject |
+| `review.html` (optional) | `python -S scripts/review_page.py my-bundle`: the same review as an offline page, one item at a time with a crop of the drawing and 1/2/3 keys; it downloads the filled `review_queue.csv` for `apply_review.py`. Nothing leaves the computer |
 | `plant_model.json` | The draft model: assets, represented connections and the source of each |
 | `svg/sheet_0.svg` | The extracted links drawn over the sheet |
 | `ignition/tags.json`, `pi/` | Draft Ignition tags and PI AF staging, with placeholder values until mapped |
@@ -310,7 +324,6 @@ to evaluate a managed context/governance service alongside existing company syst
 - **Improve it:** [Contribute cases, model runs and tested changes](CONTRIBUTING.md)
 
 Code is MIT; drawing-derived assets have their own terms in [NOTICE.md](NOTICE.md).
-Questions about applying this at your plant? [Connect with me on LinkedIn](https://www.linkedin.com/in/steve-vitale/).
 AI coding agents wrote most of the implementation; the [journal](docs/JOURNAL.md) records authorship and mistakes.
 
 <details>

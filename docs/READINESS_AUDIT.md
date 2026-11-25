@@ -35,7 +35,7 @@ The last family is the one most plants skip and most questions need: why somethi
 | 1 | Not reachable. Records live on paper, in personal folders or in one person's memory. | Where each record in the family actually is |
 | 2 | Reachable by export. Someone can produce a file on request. | A sample export of each record, and who produced it |
 | 3 | Reachable by the team's assistant. The approved assistant can open them without a manual step. | A test question answered from the real records |
-| 4 | Reachable with owners and refresh dates. Each record has a named owner and a date it was last refreshed. | The register of records, with owner and date columns |
+| 4 | Reachable through a register of records the assistant can read, so it knows what exists and what it can't see. | The register, checked against what is actually there |
 
 ### 2. Tied to equipment
 
@@ -43,7 +43,7 @@ The last family is the one most plants skip and most questions need: why somethi
 |---|---|---|
 | 1 | Facts are free text. Tags are missing or spelled several ways. | A sample of records from the family, checked for tags |
 | 2 | Most facts carry a tag, but the same item has different tags in different records. | Tags compared across the records in the family and the P&ID |
-| 3 | Every fact in the sample carries one agreed tag. | The same sample, matched tag by tag |
+| 3 | Every fact in the sample carries one agreed identity: an equipment tag, or for unit-wide records such as procedures and calculations, the system or unit. | The same sample, matched identity by identity |
 | 4 | Every fact carries the tag and its source: file, row or drawing location. | A fact picked at random and traced to its source |
 
 ### 3. Owned
@@ -51,7 +51,7 @@ The last family is the one most plants skip and most questions need: why somethi
 | Level | In plain words | Evidence looked at |
 |---|---|---|
 | 1 | Nobody is named. Disagreements stay open or get settled by whoever notices. | A recent disagreement and what happened to it |
-| 2 | Owners exist by habit, without names written down. | Who people say owns each record |
+| 2 | Owners are departments or habit, not named people. | Who people say owns each record |
 | 3 | Each record has a named owner. | The owner list, checked against practice |
 | 4 | Named owners, and disagreements go to them with the evidence attached. | A disagreement followed from detection to ruling |
 
@@ -94,15 +94,21 @@ that touches its relief devices.
 
 | Tier | What the assistant does | Example question or task | Minimum levels, in every family the question uses |
 |---|---|---|---|
+| **0. Work from handed files** | Reads an export someone hands it for each question. The answer is only as current as that export. | "Here's this week's CMMS export: which critical valves have no PM plan?" | Visible 2 |
 | **1. Find documents** | Searches and summarizes files the user can open, such as a work Copilot over SharePoint. It finds documents; it doesn't reconcile them. | "Find the startup procedure for the pasteurizer." | Visible 3 |
-| **2. Answer about equipment** | Answers about one tag from several records in reach and shows where each fact came from. | "What size is FDV-2210, and which record says so?" | Visible 3, Tied to equipment 3 |
-| **3. Investigate across families** | Joins records from different families and systems for a unit, such as work orders with datasheets, trends and the MOC log. It flags records that disagree and drafts the note to each owner. | "Which valves replaced this year still show the old size on the datasheet, and was an MOC raised for any of them?" | Visible 3, Tied to equipment 4, Owned 3, Connected 3 |
+| **2. Answer about equipment** | Answers about one tag from several records in reach and names the document each fact came from. | "What size is FDV-2210, and which record says so?" | Visible 3, Tied to equipment 3 |
+| **3. Investigate across families** | Joins records from different families and systems for a unit, such as work orders with datasheets, trends and the MOC log. It flags records that disagree and drafts the note to each owner. | "Which valves replaced this year still show the old size on the datasheet, and was an MOC raised for any of them?" | Visible 3, Tied to equipment 4, Owned 3, Kept current 3, Connected 3 |
 | **4. Work inside a governed service** | Proposes record changes as work orders, revisions and MOCs close, routes them to the owners, and keeps each decision with its reason and approver. People approve; the assistant does the legwork. | "FDV-2210's work order closed. Propose the datasheet and CMMS updates and route them to their owners." | All six conditions at 4 |
 
 **Safety-critical families need more before any tier above 1.** For relief devices, safety instrumented
 functions, HAZOP actions, MOC packages and food safety control points, the records also need their released
-status visible (draft, released, or a dated copy) and a named owner. Even then, an answer is a sourced draft for
+status visible (draft, released, or a dated copy) and a named person, not a department, who owns them. These
+are two separate checks. Until both hold, the family stays at tier 1 or below. Even then, an answer is a sourced draft for
 the responsible engineer, never the decision.
+
+**Levels describe the records, not the assistant.** Before relying on a tier, ask three real questions at that
+tier and check each answer against its source. Every answer is only as current as the last refresh of the
+records it used, so it should give that date.
 
 Most units are at different tiers for different families. Moving one family up a tier is usually one or two
 conditions, not all six. The [worked sample](../examples/readiness-audit/SAMPLE_REPORT.md) rates a fictional
@@ -113,6 +119,10 @@ share. The toolkit prepares the records and the [context-map format](CONTEXT_MAP
 read; see the [foundation roadmap](ENGINEERING_FOUNDATION.md).
 
 ## How to use it
+
+Before rating anything, map where the unit's records live with the
+[offline worksheet](../examples/readiness-audit/worksheet.html): which assistant you may use, which systems hold each
+kind of record, and what that assistant can reach today. Nothing is sent anywhere.
 
 1. Pick one unit and the record families your questions need. Sample a handful of records from each.
 2. For each family and condition, find the level whose description holds for the records you sampled, using the evidence

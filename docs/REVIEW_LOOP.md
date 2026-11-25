@@ -67,6 +67,16 @@ The reviewer fills in the `OPS_` columns:
 | `OPS_alarm_priority_H_M_L_none` | `H`, `M`, `L` or `none` |
 | `OPS_notes` | Free text, kept with the decision |
 
+**Or review in a browser (optional).** For an own-drawing bundle, `python -S scripts/review_page.py my-bundle`
+writes `my-bundle/review.html`, one offline file with no network access. It lists the queue with safety-relevant items
+first and then in the sheet's own check-first order. Each item shows a crop of the drawing with its box, what was
+extracted and why it is worth a look; press 1 to confirm, 2 to correct (type the corrected value) or 3 to reject, J/K
+to move, with an optional note and filters by type, tier and undecided items. Decisions are kept in the browser,
+keyed to the bundle's content hash, so closing the tab loses nothing. "Download decisions" writes
+`review_decisions.csv`: the same sheet with the `OPS_` columns filled as in the table above. Pass it to
+`apply_review.py` as `reviewed.csv`. A Correct with no value is left blank in the download, since the importer would
+refuse it.
+
 **Apply it:**
 ```
 python scripts/apply_review.py data/te_process_model.json reviewed.csv --reviewer "Name, role" --dry-run

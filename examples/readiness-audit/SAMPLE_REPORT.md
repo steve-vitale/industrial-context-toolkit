@@ -26,8 +26,9 @@ inputs. No plant was visited and nobody was interviewed. It shows how to apply t
 - **Missing PM plan.** FDV-2210 is ranked critical but has no PM plan row. Owner: Maintenance.
 - **Records not yet confirmed.** The HACCP plan names FDV-2210 in a corrective action, and the criticality
   ranking lists it. Both need their owners to confirm the review was done. Owners: Quality, Maintenance.
-- **Closeout view.** Of 17 affected records and documents, 7 changed, 7 were unchanged, 2 need a person to
-  confirm a review and 1 rule is still open.
+- **Closeout view.** The closeout check produced 17 rows across FDV-2210 and TT-2208 (a record can appear once
+  per tag, and the rows include review flags and one rule): 7 changed, 7 unchanged, 2 need a person to confirm a
+  review and 1 rule is still open.
 
 ## 3. Where the unit stands
 
@@ -37,8 +38,8 @@ fictional exports show.
 | Condition | Level | Evidence |
 |---|---|---|
 | **Visible** | 2 of 4: reachable by export | Every record in scope is a CSV or text export. Nothing in the example shows an assistant reading them without a manual step. |
-| **Tied to equipment** | 3 of 4: one agreed tag | Records join on tags such as FDV-2210 and TT-2208. Each row has a source (file and row). Free text in the SOP names the tag in a sentence, so it needed matching by the toolkit. |
-| **Owned** | 3 of 4: named owner per record | The review queue assigns each disagreement to Maintenance, Engineering, Doc control, I&C, Quality or Production. The serial disagreement went from detection to a ruling. The size disagreement has owners but no ruling. |
+| **Tied to equipment** | 3 of 4: one agreed tag | Records join on tags such as FDV-2210 and TT-2208. The SOP names the tag inside a sentence, so it needed matching by the toolkit. The sources (file and row) were added by the toolkit; the records don't carry them, which is what level 4 needs. |
+| **Owned** | 2 of 4: departments, not named people | The review queue assigns each disagreement to a department: Maintenance, Engineering, Doc control, I&C, Quality or Production. No record names a person. The serial disagreement still went from detection to a ruling; the size disagreement has no ruling. |
 | **Kept current** | 2 of 4: some updates at closeout | The closeout check found the equipment export and the datasheet were not updated after the valve was replaced. No record carries a refresh interval, and the critical valve has no PM plan. |
 | **Connected** | 2 of 4: reachable by export | The records join by hand-built exports. No historian is in scope. The example has no connection to a CMMS. |
 | **Recorded** | 2 of 4: changes are in files | The ruling is a row in a CSV with a nameplate photo reference (fictional). The decision history is kept in generated files. It is not in a governed system of record. |
@@ -47,21 +48,26 @@ The table above rates the records examined together. Rated by family, the unit l
 
 | Family | Records examined | Tier for questions using only this family | What holds it there |
 |---|---|---|---|
-| Maintenance | Equipment export, work order history, criticality ranking | 2, with a manual step | Visible 2: someone produces the export each time |
-| Equipment and instrument data | Valve datasheets, instrument index, loop list | 2, with a manual step | Visible 2; the datasheet is not updated at closeout |
-| Drawings | P&ID PAST1-01 revisions C and D, drawing register | 2, with a manual step | Visible 2 |
-| Operations | One SOP | 2, with a manual step | Visible 2; the SOP names FDV-2210 inside a sentence, so it matches by text only |
-| Process safety and quality | HACCP plan | 1: the safety-critical bar is not met | Quality has not confirmed the HACCP review of FDV-2210 after the replacement |
+| Maintenance | Equipment export, work order history, criticality ranking | 0: handed files | Visible 2: someone produces the export each time |
+| Equipment and instrument data | Valve datasheets, instrument index, loop list | 0: handed files | Visible 2 |
+| Drawings | P&ID PAST1-01 revisions C and D, drawing register | 0: handed files | Visible 2 |
+| Operations | One SOP | 0: handed files | Visible 2 |
+| Process safety and quality | HACCP plan | 0, and capped at 1 even when reachable | Visible 2. The plan's released status after the replacement isn't shown, and it is owned by a department, not a named person |
 | Control and process data | Not examined | Unknown | No historian in scope |
 | Vendor and project records | Not examined | Unknown | |
-| Decisions and conversations | One walkdown ruling | 1 | The ruling is a CSV row; Recorded 2 |
+| Decisions and conversations | One walkdown ruling | 0: handed files | Visible 2: the ruling is a row in a CSV export |
 
 **What that means for questions.** "What size is FDV-2210, and which record says so?" uses maintenance,
-equipment data and drawings, so it gets tier 2 with a manual step: an assistant handed the exports can answer it
-and show the disagreement. "Did the FDV-2210 replacement affect the HACCP plan?" touches a safety-critical family
-at tier 1, so the honest answer today is a list of documents for Quality to read, not an answer. Tier 3 for the
-maintenance questions needs Visible and Connected at 3 and every fact carrying its source. Tier 4 needs every
-condition at 4 and a governed system of record.
+equipment data and drawings, so today it is tier 0: an assistant handed the three exports can answer it and show
+the disagreement, as of the export dates. Making those exports reachable by the approved assistant without a
+manual step (Visible 3) moves it to tier 2, because the tags already agree. "Did the FDV-2210 replacement affect
+the HACCP plan?" touches a safety-critical family, so the honest answer today is a list of documents for Quality
+to read, not an answer. Tier 3 for the maintenance questions also needs sources carried by the records, a named
+person per record, closeout checks, and the systems readable together. Tier 4 needs every condition at 4 and a
+governed system of record.
+
+The Quality confirmation of the HACCP review is a separate item: it is a closeout step for this change, not the
+safety-critical bar.
 
 ## 4. Top five next jobs
 

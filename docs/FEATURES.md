@@ -869,14 +869,14 @@ Example review: **reviewed example**
 
 **Time:** Seconds per apply; the review itself is people's time
 
-- **Tools:** `apply_review.py`, `review_kit.py`, `map_points.py`, `map_pi_points.py`
+- **Tools:** `apply_review.py`, `review_page.py`, `review_kit.py`, `map_points.py`, `map_pi_points.py`
 - **How to use it:** [README.md](../examples/review-and-mapping/README.md)
 
 <details>
 <summary>Example files, tests and independent review</summary>
 
 - **Registered example files:** [`reviewed_sheet0.csv`](../examples/review-and-mapping/reviewed_sheet0.csv), [`2026-10-29-bundle.md`](../examples/review-and-mapping/records/2026-10-29-bundle.md), [`mapping_dry_run.md`](../examples/review-and-mapping/mapping_dry_run.md), [`graph_after_review.json`](../examples/review-and-mapping/graph_after_review.json), [`REPORT_after_review.html`](../examples/review-and-mapping/REPORT_after_review.html), [`pi_mapping_dry_run.txt`](../examples/review-and-mapping/pi_mapping_dry_run.txt), [`README.md`](../out/review_kit/sheet-8/README.md), [`model.json`](../examples/review-and-mapping/native-identity/expected/model.json), [`change_record.json`](../examples/review-and-mapping/native-identity/expected/change_record.json), [`change_record.md`](../examples/review-and-mapping/native-identity/expected/change_record.md), [`review_associations.json`](../examples/review-and-mapping/review_associations.json)
-- **Tests:** `test_apply_review.py`, `test_map_points.py`, `test_pi_mapping.py`, `test_review_kit.py`, `test_deliverable_report.py`, `test_review_identity.py`
+- **Tests:** `test_apply_review.py`, `test_map_points.py`, `test_pi_mapping.py`, `test_review_kit.py`, `test_deliverable_report.py`, `test_review_identity.py`, `test_review_page.py`
 - **Independent review:** Independent coding-agent saved-artifact/source reviewer; ROOT operated the actual rebuild. No human engineering sign-off., 2026-11-09: pass
 
 </details>
