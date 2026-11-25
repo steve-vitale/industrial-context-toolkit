@@ -36,8 +36,7 @@ column is ignored and named in the report. Lines starting with `#` are skipped.
 Tags match on printed text, ignoring case, spaces and hyphens (`FIC 101` on the sheet matches `FIC-101` in the list).
 Nothing else is normalised: strip DCS suffixes such as `.PV` or `/PID1` before exporting. A row with an empty
 required field, more fields than the header, a controller listed twice, or a controller that names itself as its
-own output stops the audit with that row's line number. (The one-map intake reads the same contract but keeps a
-row with an empty field and records the blank for review: [ONE_MAP.md](../../docs/ONE_MAP.md#lining-up-and-locating-step-2).)
+own output stops the audit with that row's line number.
 
 A controller may name itself as its own measurement: that is a **combined instrument**, one bubble that measures and
 controls (DEXPI draws `PICSA 4712.02` this way, a sensor, controller, switch and alarm in one symbol). The measurement

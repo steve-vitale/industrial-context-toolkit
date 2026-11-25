@@ -1279,6 +1279,54 @@ def loop_candidates(members, signals):
     return dict(sorted(cands.items())), report
 
 
+def read_loop_list(path):
+    """The loop list in loop_audit.py's contract, read for the map: physical line numbers, comment lines skipped,
+    header checks as loop_audit.read_loops. Unlike the grader (where the list is an answer key and an empty field
+    stops the audit), a row with a blank controller, measurement or output is kept: `empty` names the blanks, which
+    the map records as missing and never fills in. A duplicate controller or a controller that is its own output
+    still stops the build. Each row also carries the optional `status` column."""
+    try:
+        raw = Path(path).read_text(encoding="utf-8-sig")
+    except (OSError, UnicodeDecodeError) as exc:
+        raise InputError(f"loop list {path}: can't read as UTF-8 ({exc})") from None
+    reader = csv.reader(["\n" if ln.lstrip().startswith("#") else ln for ln in raw.splitlines(keepends=True)])
+    header = header_line = None
+    for row in reader:
+        if row and any(c.strip() for c in row):
+            header, header_line = [c.strip().lower() for c in row], reader.line_num
+            break
+    need = loop_audit.REQUIRED
+    if header is None:
+        raise InputError(f"{path}: no header row (expected columns {', '.join(need)})")
+    missing = [c for c in need if c not in header]
+    if missing:
+        raise InputError(f"{path} line {header_line}: header lacks column(s) {', '.join(missing)}")
+    dupes = sorted({c for c in header if c and header.count(c) > 1})
+    if dupes:
+        raise InputError(f"{path} line {header_line}: column(s) {', '.join(dupes)} appear more than once")
+    out, seen = [], {}
+    for row in reader:
+        if not row or not any(c.strip() for c in row):
+            continue
+        line = reader.line_num
+        if len(row) > len(header):
+            raise InputError(f"{path} line {line}: {len(row)} fields, the header has {len(header)}")
+        rec = {name: (row[i].strip() if i < len(row) else "") for i, name in enumerate(header)}
+        ctl = loop_audit.compact(rec["controller"])
+        if ctl and ctl in seen:
+            raise InputError(f"{path} line {line}: controller {rec['controller']} already listed on line {seen[ctl]}")
+        if ctl and loop_audit.compact(rec["output"]) == ctl:
+            raise InputError(f"{path} line {line}: {rec['controller']} names itself as its own output")
+        if ctl:
+            seen[ctl] = line
+        out.append({"line": line, "controller": rec["controller"], "measurement": rec["measurement"],
+                    "output": rec["output"], "description": rec.get("description", ""),
+                    "status": rec.get("status", ""), "empty": [c for c in need if not rec[c]]})
+    if not out:
+        raise InputError(f"{path}: header but no loops")
+    return out
+
+
 def loops(m, lists):
     """Each listed loop becomes edges sourced to the loop list (its status), then is located on the drawings:
     located and consistent / partly located / not found. Drawing-only loop candidates are flagged, not asserted."""
@@ -1300,12 +1348,7 @@ def loops(m, lists):
         scope = spec.get("scope")
         if scope not in m.nodes or m.nodes[scope]["kind"] != "unit":
             raise InputError(f"loop list {spec.get('id')}: scope {scope!r} is not a unit in the site file")
-        try:
-            # partial rows (a blank controller, measurement or output, as DCS exports routinely have) are kept:
-            # each blank is recorded in the loop's `empty_fields` and its review row, never filled in
-            rows, _ = loop_audit.read_loops(path, allow_partial=True)
-        except loop_audit.InputError as exc:
-            raise InputError(str(exc)) from None
+        rows = read_loop_list(path)
         lid = part(spec.get("id"), "loop list id")
         m.record_of[lid] = "loop_list"
         raw = path.read_bytes()
