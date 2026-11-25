@@ -340,6 +340,16 @@ conflict (`conflicts.md`, "Decision history"). When a ruling chose a value (or a
 something else, the record's owner gets a review row `record differs from a ruling` asking them to update it: the
 ruling settles the dispute, the record stays its owner's to change.
 
+**A walkdown with nothing to settle is still kept.** A field verification ruling (`authority` `field`, with
+`evidence`) that concerns an item and attribute with no detected conflict, e.g. a nameplate that matches the
+record, becomes a dated **field verification** on the item: `node.field_verifications` lists the ruling id,
+attribute, the value seen (`chosen_value`), who, when, the evidence, the reason, the ruling file and line, what the
+item's record says (`record_says`) and whether the two agree (`agrees`). It never resolves or raises a conflict.
+When the value seen differs from the record, the record's owner gets an amber review row `record differs from a
+field verification` asking them to check it. Verifications persist in `state.json` across incremental runs (the
+same ruling is kept once); `--full` starts again from the files given. A ruling by a `person` or a `record` on an
+item with no detected conflict, or a field verification on an item that is not on the map, is still refused.
+
 **Work order closeout.** A `records` entry with register `work_order` whose rows have `closed_on` and any of
 `installed_manufacturer`, `installed_model`, `installed_serial_number`, `installed_size` is compared with the item's
 records. An installed value that differs from the maintenance equipment export or instrument index is a
@@ -504,7 +514,9 @@ reports: one_map.py changes OLD NEW [--tags|--scope] (one-map-changes-1); affect
         HACCP reassessment / PHA revalidation / criticality review are flags, never decisions (map_changes.py)
 closeout: work_order rows with closed_on + installed_* -> value_disagreement vs maintenance export/instrument index,
         "replacement may not be like-for-like" vs datasheet; --decisions reads decisions.csv or ruling CSVs
-        (authority field + evidence = field verification ruling), history kept, "record differs from a ruling"
+        (authority field + evidence = field verification ruling), history kept, "record differs from a ruling";
+        a field ruling on an item/attribute with no conflict -> node.field_verifications (record_says, agrees),
+        never a conflict; a differing value -> "record differs from a field verification" review row
 ask:    python scripts/one_map.py ask --map graph.json --question-kind KIND --item X   (read-only, with sources)
 check:  python scripts/one_map.py check graph.json   (every twin-graph-1 rule plus the one-map rules;
         graph_export.py --check still accepts only twin-graph-1)

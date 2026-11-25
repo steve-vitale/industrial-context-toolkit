@@ -211,6 +211,69 @@ class FieldVerificationRulings(unittest.TestCase):
             self.assertIn(words, str(cm.exception), row)
 
 
+class FieldVerification(unittest.TestCase):
+    """A walkdown ruling on an item and attribute with no detected conflict is still evidence: a dated field
+    verification kept on the item. It never resolves or creates a conflict."""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.site = Site(self.tmp.name, [])  # no closeout: FDV-2210 serial_number has no conflict
+        self.out = Path(self.tmp.name) / "out"
+        self.base, _ = self.site.build(self.out)
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def build(self, *rows, **kw):
+        p = Path(self.tmp.name) / "rulings.csv"
+        write_csv(p, RULING_HEADER, rows)
+        return self.site.build(self.out, decisions=[str(p)], **kw)
+
+    def walk(self, value, rid="R-0102"):
+        return [rid, FDV, "serial_number", "no_conflict", "", value,
+                f"Walkdown: the nameplate reads {value}", "Maintenance planner", "2026-11-03", "field",
+                "photo walkdown-2026-11-03/FDV-2210-nameplate.jpg"]
+
+    def test_confirming_walkdown_is_kept_as_a_field_verification_on_the_item(self):
+        self.assertFalse([c for c in conflicts_of(self.base) if c["subject"] == FDV and c["attribute"] == "serial_number"])
+        g, rows = self.build(self.walk("AV-51007"))
+        node = next(n for n in g["nodes"] if n["id"] == FDV)
+        (v,) = node["field_verifications"]
+        self.assertEqual((v["ruling_id"], v["attribute"], v["value"], v["by"], v["on"], v["record_says"], v["agrees"]),
+                         ("R-0102", "serial_number", "AV-51007", "Maintenance planner", "2026-11-03", "AV-51007", True))
+        self.assertIn("nameplate", v["evidence"])
+        self.assertEqual(v["source"]["locator"], "rulings.csv line 2")
+        self.assertEqual(conflicts_of(g), conflicts_of(self.base))  # none created, none resolved
+        self.assertFalse([r for r in rows if r["kind"] == om.FIELD_DIFFERS])
+        self.assertEqual(om.problems(g), [])
+        # kept across an incremental run without the file, and the same file again adds no second record
+        g2, _, _, _ = quiet(om.build, self.site.dir / "site.json", self.out)  # incremental: reads the state file
+        self.assertEqual(next(n for n in g2["nodes"] if n["id"] == FDV)["field_verifications"], [v])
+        g3, _ = self.build(self.walk("AV-51007"))
+        self.assertEqual(len(next(n for n in g3["nodes"] if n["id"] == FDV)["field_verifications"]), 1)
+
+    def test_walkdown_that_differs_from_the_record_asks_its_owner_and_raises_no_conflict(self):
+        g, rows = self.build(self.walk("AV-88412"))
+        v = next(n for n in g["nodes"] if n["id"] == FDV)["field_verifications"][0]
+        self.assertEqual((v["record_says"], v["agrees"]), ("AV-51007", False))
+        self.assertEqual(conflicts_of(g), conflicts_of(self.base))
+        (row,) = [r for r in rows if r["kind"] == om.FIELD_DIFFERS]
+        self.assertEqual((row["tier"], row["item"], row["owner"]), ("amber", FDV, "Maintenance"))
+        for words in ("field verification R-0102", "AV-88412 on 2026-11-03", "still says AV-51007"):
+            self.assertIn(words, row["why"])
+
+    def test_only_field_rulings_with_evidence_on_a_known_item_are_kept(self):
+        person = self.walk("AV-51007")[:9] + ["person", ""]
+        with self.assertRaises(om.InputError) as cm:  # a person's ruling still needs a conflict to rule on
+            self.build(person)
+        self.assertIn("no detected conflict", str(cm.exception))
+        ghost = self.walk("X")
+        ghost[1] = "S1/P1/PAST1/XV-9999"
+        with self.assertRaises(om.InputError) as cm:
+            self.build(ghost)
+        self.assertIn("not on the map", str(cm.exception))
+
+
 MOC_EXPECTED = ROOT / "examples" / "one-map" / "expected" / "pasteurizer-moc"
 MOC_FILES = ("release/changes.md", "release/changes.json", "moc-open/affected.md", "moc-open/affected.json",
              "moc-pack/changes.md", "moc-pack/changes.json", "moc-close/closeout.md", "moc-close/closeout.json",

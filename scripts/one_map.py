@@ -2029,6 +2029,7 @@ RULING_STATUS = {"accept_source": "resolved", "accept_value": "resolved", "no_co
                  "authority_override": "resolved", "defer": "disputed"}
 RULING_AUTHORITIES = ("field", "record", "person")
 RULED = "record differs from a ruling"
+FIELD_DIFFERS = "record differs from a field verification"
 
 
 def read_decisions(path, site):
@@ -2079,9 +2080,11 @@ def read_decisions(path, site):
     return out
 
 
-def apply_decisions(conflicts, previous, decisions_paths, site=""):
+def apply_decisions(conflicts, previous, decisions_paths, site="", verifications=None):
     """Carry earlier human statuses forward; apply new decisions and rulings (each file in order, each row once).
-    Nothing is auto-resolved."""
+    Nothing is auto-resolved. With a `verifications` list, a field verification ruling (authority `field`) on an
+    item and attribute with no detected conflict is appended there as (item, record, file name, line) instead of
+    being refused: a confirming walkdown is evidence, but it has no conflict to resolve."""
     for cid, old in (previous or {}).items():
         if cid in conflicts:
             conflicts[cid]["status"], conflicts[cid]["history"] = old["status"], old["history"]
@@ -2097,6 +2100,9 @@ def apply_decisions(conflicts, previous, decisions_paths, site=""):
                 _, item, attr = cid
                 hits = sorted(k for k, c in conflicts.items()
                               if c["subject"] == item and c["attribute"] == attr and c.get("detected", True))
+                if not hits and verifications is not None and rec["authority"] == "field":
+                    verifications.append((item, rec, Path(path).name, n))
+                    continue
                 if len(hits) != 1:
                     raise InputError(f"{Path(path).name} line {n}: {item} {attr} has "
                                      f"{'no' if not hits else len(hits)} detected conflict(s)"
@@ -2133,6 +2139,44 @@ def ruling_rows(m):
                                     + f"; {last.get('ruling_id') or 'decision'} on {cid}); the "
                                       f"{RECORD_NAMES.get(rec, rec.replace('_', ' '))} {src.get('document')} "
                                       f"({src.get('locator') or 'no locator'}) still says {says}: update it"})
+
+
+def field_verifications(m, found, previous):
+    """Field verification rulings with no conflict to resolve, kept on their item as dated evidence: who walked
+    down what, when, the value seen and the evidence, beside what the item's record says. They never resolve or
+    raise a conflict. A value the record does not hold is a review row asking the record's owner to check it.
+    Earlier runs' verifications are carried forward from the state file; the same ruling is kept once."""
+    kept = {}
+    for v in previous or []:
+        kept[short(v)] = v
+    for item, rec, name, n in found:
+        if item not in m.nodes or not m.nodes[item].get("tag"):
+            raise InputError(f"{name} line {n}: {item} is not on the map (a field verification needs its item)")
+        v = {k: rec[k] for k in ("ruling_id", "attribute", "ruling", "by", "on", "authority", "evidence")}
+        v.update(value=rec.get("chosen_value", ""), reason=rec["note"], item=item,
+                 source={"kind": "document", "document": name, "locator": f"{name} line {n}"})
+        kept.setdefault(short(v), v)
+    out = sorted(kept.values(), key=lambda v: (v["item"], v["on"], v["ruling_id"], v["attribute"]))
+    for v in out:
+        node = m.nodes.get(v["item"])
+        if node is None:
+            continue
+        have = next((x for x in node["attributes"] if x["name"] == v["attribute"]), None)
+        says = have["value"] if have else None
+        shown = dict((k, x) for k, x in v.items() if k != "item")
+        shown.update(record_says=says, agrees=bool(v["value"]) and says is not None and same_value(says, v["value"]))
+        node.setdefault("field_verifications", []).append(shown)
+        if v["value"] and says is not None and not same_value(says, v["value"]):
+            src = have["source"]
+            rec = m.record_type(src)
+            m.review.append({"item": v["item"], "kind": FIELD_DIFFERS,
+                             "owner": m.cfg["owners"].get(rec) or "needs owner",
+                             "why": f"{node['tag']} {v['attribute']}: field verification {v['ruling_id']} by "
+                                    f"{v['by']} saw {v['value']} on {v['on']} ({v['evidence']}); the "
+                                    f"{RECORD_NAMES.get(rec, (rec or 'record').replace('_', ' '))} "
+                                    f"{src.get('document')} ({src.get('locator') or 'no locator'}) still says {says}: "
+                                    "check it (no conflict is raised; the record stays its owner's to change)"})
+    return out
 
 
 def conflict_nodes(m):
@@ -2577,8 +2621,10 @@ def build(site_path, out_dir, *, full=False, decisions=None, register_path=None)
                     reopened.append(f"answer {q}/{a['answer_id']}: cites {rec['evidence']['source']['id']}, whose "
                                     "content or basis changed; reopen it with context_register.py apply")
     reopened = sorted(set(reopened))
-    m.conflicts = apply_decisions(m.conflicts, prev.get("conflicts"), decisions, cfg["site"])
+    found = []
+    m.conflicts = apply_decisions(m.conflicts, prev.get("conflicts"), decisions, cfg["site"], verifications=found)
     ruling_rows(m)
+    verified = field_verifications(m, found, prev.get("field_verifications"))
     conflict_nodes(m)
     nodes = [m.nodes[k] for k in sorted(m.nodes)]
     edges = [m.edges[k] for k in sorted(m.edges)]
@@ -2613,7 +2659,8 @@ def build(site_path, out_dir, *, full=False, decisions=None, register_path=None)
              "sheets": {r["doc"]: {"rev": r["rev"], "sha256": fragments[r["doc"]]["sha256"], "plant": r["plant"],
                                    "unit": r["unit"], "owner": r["owner"], "fragment": fragments[r["doc"]]}
                         for r in register},
-             "documents": current, "conflicts": m.conflicts}
+             "documents": current, "conflicts": m.conflicts,
+             **({"field_verifications": verified} if verified else {})}
     files["state.json"] = json.dumps(state, indent=1, ensure_ascii=False, sort_keys=True) + "\n"
     out_dir.mkdir(parents=True, exist_ok=True)
     if (out_dir / "queues").exists():

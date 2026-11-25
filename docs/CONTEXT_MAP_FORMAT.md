@@ -359,7 +359,9 @@ default `person`). A **field verification ruling** is a walkdown result settling
 `field` with `evidence` (the photo file, nameplate reading or locator). It extends one map's `decisions.csv` and is
 filled in through the `ruling` template; `one_map.py build --decisions` reads either file, keeps every ruling as a
 history line on the conflict, and, when the ruling chose a value a record still contradicts, asks that record's
-owner to update the record. Software never makes a ruling.
+owner to update the record. A field verification ruling on an item and attribute with no conflict (a walkdown that
+confirms the record) is kept on the item as a dated field verification; it resolves and raises no conflict.
+Software never makes a ruling.
 
 **Outside the format:** who a conflict is routed to beyond its default owner, approvals, sign-off chains,
 notifications and the history of a ruling's discussion. Those belong to an external governed service. A ruling may
