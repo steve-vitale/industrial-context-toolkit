@@ -1293,25 +1293,25 @@ def loops(m, lists):
         if scope not in m.nodes or m.nodes[scope]["kind"] != "unit":
             raise InputError(f"loop list {spec.get('id')}: scope {scope!r} is not a unit in the site file")
         try:
-            rows, _ = loop_audit.read_loops(path)
+            # partial rows (a blank controller, measurement or output, as DCS exports routinely have) are kept:
+            # each blank is recorded in the loop's `empty_fields` and its review row, never filled in
+            rows, _ = loop_audit.read_loops(path, allow_partial=True)
         except loop_audit.InputError as exc:
             raise InputError(str(exc)) from None
-        # optional status column: the loop list's own status for each loop (read_loops validates the rest)
-        status_col = {norm(r.get("controller")): r.get("status", "") for r in read_csv(path, "loop list", ())}
         lid = part(spec.get("id"), "loop list id")
         m.record_of[lid] = "loop_list"
         raw = path.read_bytes()
         by_norm = in_scope[scope]
-        ctl_norms = {norm(r["controller"]) for r in rows}
+        ctl_norms = {norm(r["controller"]) for r in rows if r["controller"]}
         drawn_cands, _ = loop_candidates({k: m.nodes[k]["tag"] for k in by_norm.values()
                                           if m.nodes[k]["kind"] in ("instrument", "controller", "final_element")
                                           and m.nodes[k].get("appearances")}, signals[scope])
         for lp in rows:
             src = {"kind": "document", "document": lid, "revision": spec.get("revision"), "sha256": sha_bytes(raw),
                    "locator": f"{spec.get('path')} line {lp['line']}"}
-            st = status_col.get(norm(lp["controller"]))
-            st = st if st in gx.STATUSES else "unverified"
-            ids = {k: by_norm.get(norm(lp[k])) for k in ("controller", "measurement", "output")}
+            # optional status column: the loop list's own status for each loop
+            st = lp["status"] if lp["status"] in gx.STATUSES else "unverified"
+            ids = {k: by_norm.get(norm(lp[k])) if lp[k] else None for k in ("controller", "measurement", "output")}
             located = {k: bool(v and m.nodes[v].get("appearances")) for k, v in ids.items()}
             if ids["controller"]:
                 listed_ctl[scope].add(ids["controller"])
@@ -1335,12 +1335,13 @@ def loops(m, lists):
             n_located = sum(located.values())
             outcome = ("located and consistent" if n_located == 3 and sig_in and sig_out else
                        "not found on any sheet" if n_located == 0 else "partly located")
-            missing = [f"{lp[k]} ({k}) " + ("not in the lists or drawings of this unit" if not ids[k]
-                                             else "not on any registered sheet") for k in ("controller", "measurement",
-                                                                                          "output") if not located[k]]
-            if n_located and not sig_in:
+            missing = [f"{k}: empty in the loop list (not filled in)" if not lp[k] else
+                       f"{lp[k]} ({k}) " + ("not in the lists or drawings of this unit" if not ids[k]
+                                            else "not on any registered sheet") for k in ("controller", "measurement",
+                                                                                         "output") if not located[k]]
+            if n_located and not sig_in and lp["measurement"] and lp["controller"]:
                 missing.append(f"no drawn signal line {lp['measurement']} -> {lp['controller']}")
-            if n_located and not sig_out:
+            if n_located and not sig_out and lp["controller"] and lp["output"]:
                 missing.append(f"no drawn signal line {lp['controller']} -> {lp['output']}")
             sheets = sorted({a["sheet"] for v in ids.values() if v for a in m.nodes[v].get("appearances", [])})
             zones = sorted({f"{a['sheet']}:{a['zone']}" for v in ids.values() if v
@@ -1350,14 +1351,19 @@ def loops(m, lists):
             res = {"scope": scope, "loop_list": lid, "line": lp["line"], "controller": lp["controller"],
                    "measurement": lp["measurement"], "output": lp["output"], "outcome": outcome,
                    "sheets": sheets, "zones": zones, "missing": missing, "route": route,
-                   "item": ids["controller"] or qid(scope, lp["controller"])}
+                   "item": ids["controller"] or qid(scope, lp["controller"] or f"{lid}-line-{lp['line']}")}
+            if lp["empty"]:  # only partial rows carry the key, so complete lists keep their outputs
+                res["empty_fields"] = lp["empty"]
             results.append(res)
-            # drawing pairs the controller differently from the list
+            # drawing pairs the controller differently from the list (a blank in the list is a gap, not a pairing)
             if ids["controller"]:
                 c = drawn_cands.get(ids["controller"], {"in": {}, "out": {}})
                 for role, got in (("measurement", c["in"]), ("output", c["out"])):
                     for other, how in sorted(got.items()):
-                        if norm(m.nodes[other]["tag"]) != norm(lp[role]) and "signal_line" in how:
+                        if not lp[role]:
+                            missing.append(f"the drawings suggest {m.nodes[other]['tag']} as the {role} "
+                                           f"({' + '.join(sorted(how))}); not filled in")
+                        elif norm(m.nodes[other]["tag"]) != norm(lp[role]) and "signal_line" in how:
                             m.conflict("loop_pairing", ids["controller"], role, m.nodes[other]["appearances"][0],
                                        m.nodes[other]["tag"], src, lp[role], record="loop_list",
                                        what=f"a drawn signal line pairs {m.nodes[other]['tag']} with {lp['controller']}; "
@@ -2172,7 +2178,8 @@ def queue_rows(m):
         ok = lp["outcome"] == "located and consistent" and lp["item"] not in conflicted
         rows.append({"tier": "green" if ok and not safety else "amber", "owner": lp["route"] if not ok else
                      cfg["owners"].get("loop_list") or "needs owner", "plant": plant, "unit": unit,
-                     "item": f"loop {lp['controller']} ({lp['loop_list']} line {lp['line']})", "kind": "listed loop",
+                     "item": f"loop {lp['controller'] or '(no controller)'} ({lp['loop_list']} line {lp['line']})",
+                     "kind": "listed loop",
                      "why": (f"safety-relevant ({safety}): always checked; " if safety else "") + lp["outcome"]
                      + (f" on {', '.join(lp['zones'] or lp['sheets'])}" if lp["sheets"] else "")
                      + (": " + "; ".join(lp["missing"]) if lp["missing"] else ""), "safety": safety})
@@ -2345,8 +2352,8 @@ def report_md(g, run, groups, reopened, loops_, uncovered):
               "| Loop list | Controller | Measurement | Output | Outcome | Where | Routed to | Missing |",
               "|---|---|---|---|---|---|---|---|"]
     for lp in loops_:
-        lines.append(f"| {lp['loop_list']} line {lp['line']} | {lp['controller']} | {lp['measurement']} | "
-                     f"{lp['output']} | {lp['outcome']} | {', '.join(lp['zones'] or lp['sheets']) or '-'} | "
+        lines.append(f"| {lp['loop_list']} line {lp['line']} | {lp['controller'] or '(empty)'} | "
+                     f"{lp['measurement'] or '(empty)'} | {lp['output'] or '(empty)'} | {lp['outcome']} | {', '.join(lp['zones'] or lp['sheets']) or '-'} | "
                      f"{lp['route'] if lp['outcome'] != 'located and consistent' else 'spot-check'} | "
                      f"{'; '.join(lp['missing']) or '-'} |")
     lines += ["", "## Loop-number groups on the drawings (secondary; compared with the list, never asserted)", ""]

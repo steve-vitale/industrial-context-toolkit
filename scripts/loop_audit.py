@@ -84,8 +84,12 @@ def compact(text):
     return re.sub(r"[\s\-_]", "", text or "").upper()
 
 
-def read_loops(path):
-    """The loop list as dicts with their physical line numbers. Raises InputError naming the line."""
+def read_loops(path, allow_partial=False):
+    """The loop list as dicts with their physical line numbers. Raises InputError naming the line.
+
+    allow_partial=True (the map's intake, not the grader): a row with an empty controller, measurement or output
+    is kept with `empty` naming the blank fields and `status` from an optional status column, so the caller can
+    record them as missing; a blank is never filled in. The grader keeps refusing an incomplete answer key."""
     path = Path(path)
     try:
         raw = path.read_text(encoding="utf-8-sig")
@@ -118,18 +122,22 @@ def read_loops(path):
             raise InputError(f"{path} line {line}: {len(row)} fields, the header has {len(header)}")
         rec = {name: (row[i].strip() if i < len(row) else "") for i, name in enumerate(header)}
         empty = [c for c in REQUIRED if not rec[c]]
-        if empty:
+        if empty and not allow_partial:
             raise InputError(f"{path} line {line}: empty {', '.join(empty)}")
         ctl = compact(rec["controller"])
-        if ctl in seen:
+        if ctl and ctl in seen:
             raise InputError(f"{path} line {line}: controller {rec['controller']} already listed on line {seen[ctl]}")
-        if compact(rec["output"]) == ctl:
+        if ctl and compact(rec["output"]) == ctl:
             raise InputError(f"{path} line {line}: {rec['controller']} names itself as its own output")
         # measurement == controller is allowed: a combined instrument (one bubble that measures and controls, as
         # DEXPI and many P&IDs draw it, e.g. PICSA 4712.02). The measurement is then inside the controller symbol.
-        seen[ctl] = line
-        loops.append({"line": line, "controller": rec["controller"], "measurement": rec["measurement"],
-                      "output": rec["output"], "description": rec.get("description", "")})
+        if ctl:
+            seen[ctl] = line
+        lp = {"line": line, "controller": rec["controller"], "measurement": rec["measurement"],
+              "output": rec["output"], "description": rec.get("description", "")}
+        if allow_partial:
+            lp.update(empty=empty, status=rec.get("status", ""))
+        loops.append(lp)
     if not loops:
         raise InputError(f"{path}: header but no loops")
     return loops, ignored

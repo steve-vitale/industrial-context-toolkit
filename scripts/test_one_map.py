@@ -299,6 +299,31 @@ class TwoStarts(unittest.TestCase):
         self.assertEqual(drafts, {"S1/P2/300/FIC-3101", "S1/P2/300/FT-3101", "S1/P2/300/FV-3101",
                                   "S1/P2/300/P-101", "S1/P2/300/V-301"})
 
+    def test_partial_loop_rows_are_kept_with_the_empty_fields_as_review_items(self):
+        # a DCS export routinely leaves a field blank; the row is kept, the blank is visible and never filled in
+        loops_csv = self.inputs / "lists" / "dcs_loops_unit200.csv"
+        loops_csv.write_text(loops_csv.read_text(encoding="utf-8")
+                             + "FIC-2203B,,FV-2203,Feed flow trim (no measurement exported),unverified\n"
+                             + ",LT-2204,,Level indication only,unverified\n", encoding="utf-8", newline="\n")
+        with self.assertRaises(loop_audit.InputError):  # the grader still refuses an incomplete answer key
+            loop_audit.read_loops(loops_csv)
+        g, _, rows, _ = om.build(self.inputs / "site.json", self.dir / "out")
+        got = {lp["line"]: lp for lp in g["loops"] if lp.get("empty_fields")}
+        self.assertEqual({k: v["empty_fields"] for k, v in got.items()}, {6: ["measurement"], 7: ["controller", "output"]})
+        trim, level = got[6], got[7]
+        self.assertNotEqual(trim["outcome"], "located and consistent")
+        self.assertEqual(trim["route"], "I&C")  # the loop list's owner explains its own blank
+        self.assertIn("measurement: empty in the loop list (not filled in)", trim["missing"])
+        self.assertEqual(level["item"], "S1/P1/200/DCS-LOOPS-200-line-7")
+        # nothing is invented for a blank: no edge from or to a guessed tag, no pairing conflict against a blank
+        self.assertFalse([e for e in g["edges"] if e["type"] == "controls" and e["to"].endswith("/FIC-2203B")])
+        self.assertFalse([n for n in g["nodes"] if n["kind"] == "conflict" and n["conflict"]["type"] == "loop_pairing"
+                          and n["conflict"]["subject"].endswith("/FIC-2203B")])
+        queue = {r["item"]: r for r in rows if r["kind"] == "listed loop"}
+        self.assertEqual(queue["loop FIC-2203B (DCS-LOOPS-200 line 6)"]["tier"], "amber")
+        self.assertEqual(queue["loop (no controller) (DCS-LOOPS-200 line 7)"]["tier"], "amber")
+        self.assertEqual(om.problems(g), [])
+
     def test_generated_loop_list_round_trips_through_the_import_path(self):
         counts = om.draft_lists(self.inputs / "site.json", self.dir / "drafts")
         self.assertEqual(counts, {"p2-300/equipment.csv": 3, "p2-300/instrument_index.csv": 2,

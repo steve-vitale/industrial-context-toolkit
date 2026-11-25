@@ -275,6 +275,16 @@ located** or **not found on any sheet**. Only the last two go to review: to the 
 by no record, otherwise to the P&IDs' owner. A drawn signal line that pairs a listed controller differently becomes
 a `loop_pairing` conflict.
 
+**Partial loop list rows are kept.** A DCS export often leaves the controller, measurement or output blank. The
+map keeps such a row instead of refusing the list: the loop's entry in `graph["loops"]` names the blanks in
+`empty_fields`, its `missing` reads `measurement: empty in the loop list (not filled in)`, and its review row goes
+amber to the loop list's owner. A blank is never filled in from the drawings and never becomes a `loop_pairing`
+conflict; a drawn candidate is only quoted in the row (`the drawings suggest FT-2203 as the measurement ...; not
+filled in`). Edges are made only between the tags the row does hold. A row with no controller is keyed by its
+line (`S1/P1/200/DCS-LOOPS-200-line-7`). A duplicate controller or a controller that is its own output still
+stops the build. `loop_audit.py` keeps refusing an empty field: there the list is an
+answer key.
+
 Loop-number grouping on the P&IDs is secondary. Inside one unit only, instruments sharing a loop number with
 compatible letters (`FT-2203`, `FIC-2203`, `FV-2203`; `TE-2207A/B`; split-range `FV-10A/B`), or joined by a drawn
 signal line, form a candidate. A candidate the loop list lacks is flagged to its owner (`unlisted_loop`); it is
@@ -498,7 +508,7 @@ closeout: work_order rows with closed_on + installed_* -> value_disagreement vs 
 ask:    python scripts/one_map.py ask --map graph.json --question-kind KIND --item X   (read-only, with sources)
 check:  python scripts/one_map.py check graph.json   (every twin-graph-1 rule plus the one-map rules;
         graph_export.py --check still accepts only twin-graph-1)
-graph:  graph["loops"] lists each listed loop's outcome; node.appearances lists sheet/zone locations (values
+graph:  graph["loops"] lists each listed loop's outcome (a partial row keeps empty_fields, never filled in); node.appearances lists sheet/zone locations (values
         printed there under printed; reader_symbol, reader_class, reader_confidence, printed_tag for
         converted reads); coverage.sources carry each record's owner; node.listed_in names the
         records holding an item ([] = P&ID only); node.tag_status = placeholder for a placeholder tag
