@@ -18,7 +18,8 @@ owner for each kind of fact, checks that ride closeouts, and a governed record o
 ## Two ways in
 
 - **See where you stand.** Rate one unit against the six conditions with the
-  [readiness self-assessment](docs/READINESS_AUDIT.md), then read the
+  [readiness self-assessment](docs/READINESS_AUDIT.md) and read which tier of assistant work its records support
+  today, from finding documents to a governed agent service. Then read the
   [worked sample](examples/readiness-audit/SAMPLE_REPORT.md) for a fictional dairy unit.
 - **Try one job on your own records.** Follow the [quick start](#quick-start-see-it-in-one-minute-offline), then
   pick a job from the [job table](#start-wherever-you-are).

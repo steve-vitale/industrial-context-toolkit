@@ -17,6 +17,11 @@ refreshed at the right interval, connected to the people who own it, with a reco
 | **5. Connected** | CMMS, historian and documents are reachable by the team's approved assistant, by export or by connector. | A question that spans a work order, a trend and a datasheet gets one answer with all three cited. | [Connectivity paths](INTERNAL_CONNECTIVITY.md), [historian CSV](../examples/historian-csv/README.md), [PI mapping](PI_MAPPING.md) |
 | **6. Recorded** | Changes and the reasons behind them live in a governed system of record. | Six months from now, you can see what changed on a unit, who ruled on it and why. | [Context lifecycle](CONTEXT_LIFECYCLE.md), [foundation handoff](FOUNDATION_HANDOFF.md) |
 
+Each condition raises what an assistant can safely do with your records, from finding documents to working
+inside a governed service that keeps the records current. The
+[self-assessment](READINESS_AUDIT.md#what-your-records-can-support) maps the conditions to four tiers of
+assistant work.
+
 ## Where most plants start
 
 Records sit in a CMMS export, a shared drive, a drawing vault and people's heads. Tags are spelled three ways.

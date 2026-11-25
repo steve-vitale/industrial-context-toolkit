@@ -63,12 +63,34 @@ for the records examined.
 | 3 | Changes and the reasons for them are kept in one place, but not tied to the equipment records. | The change log and how it links to records |
 | 4 | Changes and reasons live in a governed system of record, tied to the equipment and the records they changed. | A change traced from request to closeout |
 
+## What your records can support
+
+The levels matter because each kind of assistant work needs a minimum set of them. An assistant used above what
+the records support still answers. It answers confidently from the wrong revision, the wrong unit or a stale
+export, and nobody can tell. Read the tier your unit supports today from the lowest condition it needs.
+
+| Tier | What the assistant does | Example question or task | Minimum levels |
+|---|---|---|---|
+| **1. Find documents** | Searches and summarizes files the user can open, such as a work Copilot over SharePoint. | "Find the startup procedure for the pasteurizer." | Visible 3 |
+| **2. Answer about equipment** | Answers a question about one tag from several records and shows where each fact came from. | "What size is FDV-2210, and which record says so?" | Visible 3, Tied to equipment 3 |
+| **3. Investigate across systems** | Joins the CMMS, documents and historian for a unit, flags records that disagree and drafts the note to each owner. | "Which valves in this unit were replaced in the last year but still show the old size on the datasheet?" | Tied to equipment 4, Owned 3, Connected 3 |
+| **4. Work inside a governed service** | Proposes record changes, keeps them current as work orders, revisions and MOCs close, and keeps each decision with its reason and approver. People approve; the assistant does the legwork. | "FDV-2210's work order closed. Propose the datasheet and CMMS updates and route them to their owners." | Owned 4, Kept current 4, Connected 4, Recorded 4 |
+
+Most units start at tier 1 for some records and below it for others. Moving up a tier is usually one or two
+conditions, not all six. The [worked sample](../examples/readiness-audit/SAMPLE_REPORT.md) shows a unit at tier 2 with a manual step
+and the jobs that would take it to tier 3.
+
+Tier 4 is not something this repository provides. It needs a governed system of record that people and agents
+share. The toolkit prepares the records and the [context-map format](CONTEXT_MAP_FORMAT.md) such a service can
+read; see the [foundation roadmap](ENGINEERING_FOUNDATION.md).
+
 ## How to use it
 
 1. Pick one unit and a handful of records: the equipment list, recent work orders, datasheets and drawings.
 2. For each condition, find the level whose description holds for the records you sampled, using the evidence
    column as a guide.
-3. List the lowest levels. Each one points to a job: for example, level 2 on "Tied to equipment" calls for a
+3. Read which tier the unit supports today, then list the conditions that hold it below the next tier. Each
+   one points to a job: for example, level 2 on "Tied to equipment" calls for a
    [record reconciliation](MAINTENANCE_INTAKE.md).
 
 A [worked sample](../examples/readiness-audit/SAMPLE_REPORT.md) for a fictional unit shows the result.

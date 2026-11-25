@@ -43,7 +43,15 @@ fictional exports show.
 | **Connected** | 2 of 4: reachable by export | The records join by hand-built exports. No historian is in scope. The example has no connection to a CMMS. |
 | **Recorded** | 2 of 4: changes are in files | The ruling is a row in a CSV with a nameplate photo reference (fictional). The decision history is kept in generated files. It is not in a governed system of record. |
 
+**Tier supported today: 2 of 4, with a manual step.** Every record joins on one agreed tag, so an assistant
+handed these exports can answer "what size is FDV-2210, and which record says so?" and show both answers. But
+Visible is 2: someone has to produce the exports each time, and the answer is only as fresh as the last one.
+Tier 3 needs Visible and Connected at 3, so the assistant reads the records itself, and Tied to equipment at 4,
+every fact carrying its source. Tier 4 needs every condition at 4 and a governed system of record.
+
 ## 4. Top five next jobs
+
+Jobs 1 to 3 settle what the records say today. Jobs 4 and 5 are what tier 3 and tier 4 need.
 
 | # | Job | Owner | Example that shows it |
 |---|---|---|---|
