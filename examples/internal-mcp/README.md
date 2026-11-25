@@ -30,6 +30,11 @@ python -m pip install -r requirements-mcp.txt
 python scripts/check_snapshot_mcp.py
 ```
 
+**Requirements.** `scripts/serve_snapshot.py` needs the optional MCP Python SDK: the `mcp` package, pinned to 2.3.0
+in [`requirements-mcp.txt`](../../requirements-mcp.txt), which also brings the Pydantic API the server imports. It
+is not in the standard library or in `requirements.txt`. Without it the server stops before reading any snapshot,
+names the missing package and prints the install command above (exit 2); any other import failure is shown as is.
+
 The check builds a graph from the committed `data/bayer_rt/process_model.json` and
 `examples/opportunity-screen/bayer/questions.json`, serialized as UTF-8 JSON with LF endings, one-space indent
 and a final newline. It uses temporary local files and tests in-memory, stdio and loopback HTTP clients. It

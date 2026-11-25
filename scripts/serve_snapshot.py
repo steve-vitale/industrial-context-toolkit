@@ -288,6 +288,22 @@ def _knowledge_extension(knowledge_path, graph_packet=None):
         offset = page['next_offset']
     return OnboardingExtension()
 
+SDK_PACKAGES = ('mcp', 'pydantic')  # the optional SDK and the Pydantic API this server imports from it
+
+
+def missing_sdk(exc):
+    """The install message when exc is a missing optional SDK package; None for any other import failure."""
+    root = (getattr(exc, 'name', None) or '').split('.')[0]
+    if not isinstance(exc, ModuleNotFoundError) or root not in SDK_PACKAGES:
+        return None
+    return (f"serve_snapshot.py needs the optional MCP Python SDK, and the package {root!r} is not installed. "
+            "This server was tested with mcp==2.3.0 (pinned in requirements-mcp.txt; it brings Pydantic). "
+            "In the approved server environment, from the repository root, run: "
+            "python -m pip install -r requirements-mcp.txt  "
+            "(use the company's approved package mirror where required). "
+            "Reading a snapshot file without MCP needs no SDK.")
+
+
 def create_server(path=None, context_path=None, knowledge_path=None):
     from mcp.server import MCPServer
     from mcp.types import CallToolResult, ReadResourceResult, TextContent, TextResourceContents, ToolAnnotations
@@ -403,8 +419,12 @@ def main(argv=None):
         parser.error('port must be 1 to 65535')
     try:
         server = create_server(args.graph, args.context, args.knowledge)
-    except ImportError:
-        parser.error('Install the optional MCP SDK in the approved server environment')
+    except ImportError as exc:
+        message = missing_sdk(exc)
+        if message is None:
+            raise
+        print(message, file=sys.stderr)
+        return 2
     except (OSError, ValueError, UnicodeError, RecursionError) as exc:
         print(f'Cannot load {"graph" if args.graph is not None else "knowledge"} snapshot: {exc}', file=sys.stderr)
         return 2

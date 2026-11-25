@@ -237,6 +237,22 @@ class OnboardingFrontdoorControls(unittest.TestCase):
                     server.main(argv)
                 self.assertEqual(raised.exception.code, 2)
 
+    def test_missing_sdk_names_the_package_and_install_command_before_reading_a_snapshot(self):
+        import contextlib
+        import io
+        path = str(ROOT / 'examples/graph-export/bayer_graph.json')
+        err = io.StringIO()
+        with patch.dict('sys.modules', {'mcp': None, 'mcp.server': None}), \
+                patch.object(server, 'Snapshot', side_effect=AssertionError('Must not read a snapshot first')), \
+                contextlib.redirect_stderr(err):
+            self.assertEqual(server.main(['--graph', path]), 2)
+        for words in ("package 'mcp'", 'mcp==2.3.0', 'python -m pip install -r requirements-mcp.txt'):
+            self.assertIn(words, err.getvalue())
+        # an unrelated import failure is not reported as a missing SDK
+        with patch.dict('sys.modules', {'knowledge_snapshot': None}):
+            self.assertIsNone(server.missing_sdk(ModuleNotFoundError("No module named 'knowledge_snapshot'",
+                                                                     name='knowledge_snapshot')))
+
     def test_knowledge_cli_retains_stdio_and_loopback_transport_selection(self):
         from unittest.mock import Mock
         service = Mock()
