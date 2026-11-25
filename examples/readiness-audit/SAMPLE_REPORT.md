@@ -43,11 +43,25 @@ fictional exports show.
 | **Connected** | 2 of 4: reachable by export | The records join by hand-built exports. No historian is in scope. The example has no connection to a CMMS. |
 | **Recorded** | 2 of 4: changes are in files | The ruling is a row in a CSV with a nameplate photo reference (fictional). The decision history is kept in generated files. It is not in a governed system of record. |
 
-**Tier supported today: 2 of 4, with a manual step.** Every record joins on one agreed tag, so an assistant
-handed these exports can answer "what size is FDV-2210, and which record says so?" and show both answers. But
-Visible is 2: someone has to produce the exports each time, and the answer is only as fresh as the last one.
-Tier 3 needs Visible and Connected at 3, so the assistant reads the records itself, and Tied to equipment at 4,
-every fact carrying its source. Tier 4 needs every condition at 4 and a governed system of record.
+The table above rates the records examined together. Rated by family, the unit looks different:
+
+| Family | Records examined | Tier for questions using only this family | What holds it there |
+|---|---|---|---|
+| Maintenance | Equipment export, work order history, criticality ranking | 2, with a manual step | Visible 2: someone produces the export each time |
+| Equipment and instrument data | Valve datasheets, instrument index, loop list | 2, with a manual step | Visible 2; the datasheet is not updated at closeout |
+| Drawings | P&ID PAST1-01 revisions C and D, drawing register | 2, with a manual step | Visible 2 |
+| Operations | One SOP | 2, with a manual step | Visible 2; the SOP names FDV-2210 inside a sentence, so it matches by text only |
+| Process safety and quality | HACCP plan | 1: the safety-critical bar is not met | Quality has not confirmed the HACCP review of FDV-2210 after the replacement |
+| Control and process data | Not examined | Unknown | No historian in scope |
+| Vendor and project records | Not examined | Unknown | |
+| Decisions and conversations | One walkdown ruling | 1 | The ruling is a CSV row; Recorded 2 |
+
+**What that means for questions.** "What size is FDV-2210, and which record says so?" uses maintenance,
+equipment data and drawings, so it gets tier 2 with a manual step: an assistant handed the exports can answer it
+and show the disagreement. "Did the FDV-2210 replacement affect the HACCP plan?" touches a safety-critical family
+at tier 1, so the honest answer today is a list of documents for Quality to read, not an answer. Tier 3 for the
+maintenance questions needs Visible and Connected at 3 and every fact carrying its source. Tier 4 needs every
+condition at 4 and a governed system of record.
 
 ## 4. Top five next jobs
 

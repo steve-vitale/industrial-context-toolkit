@@ -4,8 +4,27 @@ This page helps you see where one unit stands against the six conditions in [the
 answers one question: if your team's assistants were pointed at this unit's records today, what would they
 find, and what would they get wrong?
 
-Each condition has four levels. A unit sits at one level per condition. The level is the lowest one that holds
-for the records examined.
+Each condition has four levels. Rate each record family in the unit separately: maintenance records are often
+far ahead of process safety records. Within a family, the level is the lowest one that holds for the records
+examined.
+
+## Record families
+
+A unit's engineering context is spread across many more records than the equipment list, work orders and
+drawings. Rate each family separately. The families are a starting checklist; add any your site keeps.
+
+| Family | Typical records | Usual owner | Usual home |
+|---|---|---|---|
+| **Drawings** | P&IDs, PFDs, loop diagrams, isometrics, electrical one-lines, plot plans, as-builts | Engineering, doc control | Doc control's system, CAD folders |
+| **Equipment and instrument data** | Equipment datasheets and specs, instrument index, I/O list, cause and effect matrix, alarm database, motor list, nameplate photos | Engineering, I&C | Engineering folders, spreadsheets, I&C database |
+| **Maintenance** | Asset register, work orders, PM job plans, spare parts and bills of materials, calibration records, inspection and thickness readings, condition monitoring | Maintenance, reliability, quality | CMMS, calibration system, reliability software |
+| **Operations** | SOPs, operating limits, alarm response, isolation and lockout lists, shift logs, operator rounds | Operations | Doc control's system, binders, logbooks |
+| **Process safety and quality** | HAZOP and LOPA worksheets, safety requirements specs, relief studies and relief device register, MOC packages, pre-startup safety reviews, incident investigations, HACCP plans, environmental registers | Process safety, quality, environmental | MOC tool, quality system, reports, folders |
+| **Control and process data** | Historian tags and trends, control narratives, DCS or PLC configuration, HMI screens | Controls, I&C | Historian, control system |
+| **Vendor and project records** | Vendor manuals, pump curves, purchase specs, calculations, turnover and commissioning packages, punch lists | Engineering, projects, maintenance | Vendor PDFs, project folders, vendor portals |
+| **Decisions and conversations** | Meeting notes and transcripts, emails, chat threads, decision logs, field markups | Whoever made the decision | Inboxes, team sites, notebooks |
+
+The last family is the one most plants skip and most questions need: why something is the way it is.
 
 ## The levels
 
@@ -13,7 +32,7 @@ for the records examined.
 
 | Level | In plain words | Evidence looked at |
 |---|---|---|
-| 1 | Not reachable. Records live on paper, in personal folders or in one person's memory. | Where the equipment list, work orders, datasheets and drawings actually are |
+| 1 | Not reachable. Records live on paper, in personal folders or in one person's memory. | Where each record in the family actually is |
 | 2 | Reachable by export. Someone can produce a file on request. | A sample export of each record, and who produced it |
 | 3 | Reachable by the team's assistant. The approved assistant can open them without a manual step. | A test question answered from the real records |
 | 4 | Reachable with owners and refresh dates. Each record has a named owner and a date it was last refreshed. | The register of records, with owner and date columns |
@@ -22,8 +41,8 @@ for the records examined.
 
 | Level | In plain words | Evidence looked at |
 |---|---|---|
-| 1 | Facts are free text. Tags are missing or spelled several ways. | A sample of rows from each record, checked for tags |
-| 2 | Most facts carry a tag, but the same item has different tags in different records. | Tags compared across the equipment list, work orders and drawings |
+| 1 | Facts are free text. Tags are missing or spelled several ways. | A sample of records from the family, checked for tags |
+| 2 | Most facts carry a tag, but the same item has different tags in different records. | Tags compared across the records in the family and the P&ID |
 | 3 | Every fact in the sample carries one agreed tag. | The same sample, matched tag by tag |
 | 4 | Every fact carries the tag and its source: file, row or drawing location. | A fact picked at random and traced to its source |
 
@@ -49,9 +68,9 @@ for the records examined.
 
 | Level | In plain words | Evidence looked at |
 |---|---|---|
-| 1 | The CMMS, historian and document store cannot be read together. | How a recent cross-system question was answered |
+| 1 | The family's systems (CMMS, historian, doc control, MOC tool, quality system) cannot be read together. | How a recent cross-system question was answered |
 | 2 | Each can be exported. Someone joins the exports by hand. | The export routes and their formats |
-| 3 | The team's approved assistant reads them by export or connector. | A test question that spans two systems |
+| 3 | The team's approved assistant reads them by export or connector. | A test question that spans two families |
 | 4 | Connected, with identities matched between systems (a historian tag to an equipment tag) and the mapping owned. | The tag mapping and who maintains it |
 
 ### 6. Recorded
@@ -67,18 +86,27 @@ for the records examined.
 
 The levels matter because each kind of assistant work needs a minimum set of them. An assistant used above what
 the records support still answers. It answers confidently from the wrong revision, the wrong unit or a stale
-export, and nobody can tell. Read the tier your unit supports today from the lowest condition it needs.
+export, and nobody can tell.
 
-| Tier | What the assistant does | Example question or task | Minimum levels |
+**A tier belongs to a question, not to a plant.** The tier available for a question is the lowest tier of the
+record families that question needs. A unit can support tier 3 on maintenance questions and tier 1 on anything
+that touches its relief devices.
+
+| Tier | What the assistant does | Example question or task | Minimum levels, in every family the question uses |
 |---|---|---|---|
-| **1. Find documents** | Searches and summarizes files the user can open, such as a work Copilot over SharePoint. | "Find the startup procedure for the pasteurizer." | Visible 3 |
-| **2. Answer about equipment** | Answers a question about one tag from several records and shows where each fact came from. | "What size is FDV-2210, and which record says so?" | Visible 3, Tied to equipment 3 |
-| **3. Investigate across systems** | Joins the CMMS, documents and historian for a unit, flags records that disagree and drafts the note to each owner. | "Which valves in this unit were replaced in the last year but still show the old size on the datasheet?" | Tied to equipment 4, Owned 3, Connected 3 |
-| **4. Work inside a governed service** | Proposes record changes, keeps them current as work orders, revisions and MOCs close, and keeps each decision with its reason and approver. People approve; the assistant does the legwork. | "FDV-2210's work order closed. Propose the datasheet and CMMS updates and route them to their owners." | Owned 4, Kept current 4, Connected 4, Recorded 4 |
+| **1. Find documents** | Searches and summarizes files the user can open, such as a work Copilot over SharePoint. It finds documents; it doesn't reconcile them. | "Find the startup procedure for the pasteurizer." | Visible 3 |
+| **2. Answer about equipment** | Answers about one tag from several records in reach and shows where each fact came from. | "What size is FDV-2210, and which record says so?" | Visible 3, Tied to equipment 3 |
+| **3. Investigate across families** | Joins records from different families and systems for a unit, such as work orders with datasheets, trends and the MOC log. It flags records that disagree and drafts the note to each owner. | "Which valves replaced this year still show the old size on the datasheet, and was an MOC raised for any of them?" | Visible 3, Tied to equipment 4, Owned 3, Connected 3 |
+| **4. Work inside a governed service** | Proposes record changes as work orders, revisions and MOCs close, routes them to the owners, and keeps each decision with its reason and approver. People approve; the assistant does the legwork. | "FDV-2210's work order closed. Propose the datasheet and CMMS updates and route them to their owners." | All six conditions at 4 |
 
-Most units start at tier 1 for some records and below it for others. Moving up a tier is usually one or two
-conditions, not all six. The [worked sample](../examples/readiness-audit/SAMPLE_REPORT.md) shows a unit at tier 2 with a manual step
-and the jobs that would take it to tier 3.
+**Safety-critical families need more before any tier above 1.** For relief devices, safety instrumented
+functions, HAZOP actions, MOC packages and food safety control points, the records also need their released
+status visible (draft, released, or a dated copy) and a named owner. Even then, an answer is a sourced draft for
+the responsible engineer, never the decision.
+
+Most units are at different tiers for different families. Moving one family up a tier is usually one or two
+conditions, not all six. The [worked sample](../examples/readiness-audit/SAMPLE_REPORT.md) rates a fictional
+unit family by family.
 
 Tier 4 is not something this repository provides. It needs a governed system of record that people and agents
 share. The toolkit prepares the records and the [context-map format](CONTEXT_MAP_FORMAT.md) such a service can
@@ -86,11 +114,11 @@ read; see the [foundation roadmap](ENGINEERING_FOUNDATION.md).
 
 ## How to use it
 
-1. Pick one unit and a handful of records: the equipment list, recent work orders, datasheets and drawings.
-2. For each condition, find the level whose description holds for the records you sampled, using the evidence
+1. Pick one unit and the record families your questions need. Sample a handful of records from each.
+2. For each family and condition, find the level whose description holds for the records you sampled, using the evidence
    column as a guide.
-3. Read which tier the unit supports today, then list the conditions that hold it below the next tier. Each
-   one points to a job: for example, level 2 on "Tied to equipment" calls for a
+3. Pick the three or four questions your team most wants an assistant to answer. Read the tier each one gets
+   today, then list the conditions that hold it below the next tier. Each one points to a job: for example, level 2 on "Tied to equipment" calls for a
    [record reconciliation](MAINTENANCE_INTAKE.md).
 
 A [worked sample](../examples/readiness-audit/SAMPLE_REPORT.md) for a fictional unit shows the result.
