@@ -43,6 +43,13 @@ record addition reopens neither answer. Exact earlier packets remain nested and 
 Eighteen regression methods additionally exercise new edges/conflicts, typed/duplicate/unknown input,
 scope-qualified identity, source/claim status, omitted media, rejected records, direction, bounded scope,
 tampered/rehashed answers and HTML, existing/nested destinations and escaped HTML/JSON CSV cells.
+
+**Re-pinned 2026-11-25.** Every packet binds the exact text of `pid_path_review.py`, `one_map.py` and
+`graph_export.py` (`tool_bindings`). `one_map.py` gained map-intake changes for another task (partial loop list
+rows, field verifications without a conflict, record-row tag spelling variants); none is reached by these
+prepared graphs. `reproduce.py` regenerated all 14 packets: every `result.json` is byte-identical except the
+`one_map.py` binding (`db67f6e1...` to `0d13e189...`), and each `receipt.json` differs only in that result's
+hash. `replay.json`, reports and registers are unchanged; no query, policy or outcome moved.
 Browser inspection of the actual generated HTML confirmed the visible source conflict and separate item/
 association columns. This is display QA, not a human recipient or mobile usability trial.
 
