@@ -211,6 +211,58 @@ class FieldVerificationRulings(unittest.TestCase):
             self.assertIn(words, str(cm.exception), row)
 
 
+class TagSpellingVariants(unittest.TestCase):
+    """A record row that writes FDV 2210 or FDV2210 for FDV-2210 (only the separator between the ISA letters and the
+    number differs) resolves to the item with matched_by spelling_variant and its original text kept. Two items
+    that share the spelling key are never merged: the row resolves to neither and is a conflict for review."""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def test_separator_variants_resolve_and_keep_the_original_text(self):
+        spaced = ["WO-60311", "FDV 2210"] + REPLACED[2:]
+        joined = ["WO-55121", "P101", "P1", "PAST1", "corrective", "2026-08-04", "2026-08-04", "Seal", "", "", "", ""]
+        exact = ["WO-55122", "P-102", "P1", "PAST1", "corrective", "2026-08-04", "2026-08-04", "Seal", "", "", "", ""]
+        g, rows = Site(self.tmp.name, [spaced, joined, exact]).build(Path(self.tmp.name) / "out")
+        wo = {r["id"]: r for r in g["records"]["work_order"]}
+        self.assertEqual((wo["WO-60311"]["item"], wo["WO-60311"]["matched_by"], wo["WO-60311"]["matched_text"]),
+                         (FDV, "spelling_variant", "FDV 2210"))
+        self.assertEqual((wo["WO-55121"]["item"], wo["WO-55121"]["matched_text"]), ("S1/P1/PAST1/P-101", "P101"))
+        self.assertEqual(wo["WO-60311"]["values"]["tag"], "FDV 2210")  # the record's own text is never rewritten
+        self.assertNotIn("matched_by", wo["WO-55122"])  # an exact tag is unchanged
+        # the closeout now sees the replaced valve, exactly as with FDV-2210
+        serial = [c for c in conflicts_of(g) if c["subject"] == FDV and c["attribute"] == "serial_number"]
+        self.assertEqual([c["source_a"]["says"] for c in serial], ["AV-88412"])
+        self.assertFalse([r for r in rows if r["kind"] == "record row, item not on the map"])
+        self.assertEqual(om.problems(g), [])
+
+    def test_only_separators_between_letters_and_number_are_variants(self):
+        for text in ("FDV-2210A", "FD-V2210", "fdv-2210", "FDV-22 10", "FDV_2210", "FDV--2210"):
+            self.assertNotEqual(om.spelling_key(text), om.spelling_key("FDV-2210"), text)
+        for text in ("FDV 2210", "FDV2210", "FDV-2210"):
+            self.assertEqual(om.spelling_key(text), ("FDV", "2210"), text)
+
+    def test_two_items_with_one_spelling_key_are_a_conflict_not_a_merge(self):
+        site = Site(self.tmp.name, [["WO-60311", "FDV 2210"] + REPLACED[2:]])
+        p = site.dir / "lists" / "maintenance_equipment.csv"
+        rows = list(csv.DictReader(io.StringIO(p.read_text(encoding="utf-8"))))
+        twin = dict(next(r for r in rows if r["tag"] == "FDV-2210"), tag="FDV2210")
+        write_csv(p, list(rows[0]), [list(r.values()) for r in rows + [twin]])
+        g, _ = site.build(Path(self.tmp.name) / "out")
+        wo = next(r for r in g["records"]["work_order"] if r["id"] == "WO-60311")
+        self.assertIsNone(wo["item"])
+        (c,) = [c for c in conflicts_of(g) if c["type"] == "ambiguous_reference"]
+        self.assertIn("FDV 2210", c["what"])
+        self.assertIn("S1/P1/PAST1/FDV-2210", c["source_b"]["says"])
+        self.assertIn("S1/P1/PAST1/FDV2210", c["source_b"]["says"])
+        self.assertEqual(c["record_owner"], "Maintenance")
+        self.assertFalse([c for c in conflicts_of(g) if c["subject"] == FDV and c["attribute"] == "serial_number"
+                          and c["source_a"]["source"]["document"] == "WO-HISTORY"])
+
+
 class FieldVerification(unittest.TestCase):
     """A walkdown ruling on an item and attribute with no detected conflict is still evidence: a dated field
     verification kept on the item. It never resolves or creates a conflict."""

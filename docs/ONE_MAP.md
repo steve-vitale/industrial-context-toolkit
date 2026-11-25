@@ -176,6 +176,17 @@ must agree exactly, so `P101` never reaches `P-1010` or `P-101A`, and `TT2205` n
 document names the same item both ways, its edge keeps the exact mention's locator and lists the others under
 `more_locators`. The matching is deterministic: the same files give the same links in the same order.
 
+**Record rows (`records`, e.g. work orders) and tag spellings.** A record row's tag resolves to an item by the exact
+tag or qualified id first. When nothing matches exactly, a **spelling variant** is tried: only the separator between
+the ISA letters and the number may differ (one hyphen, one space or none), so `FDV 2210` and `FDV2210` reach
+`FDV-2210` and `P 101` reaches `P-101`. Case, underscores, doubled separators, suffixes and everything after the
+first digit must agree (`FDV-2210A`, `fdv-2210` and `FDV_2210` are not variants). A variant that names exactly one
+item in the row's scope links with `matched_by: spelling_variant` and `matched_text` holding the record's own text;
+the row's values are never rewritten. When two items in the scope share the spelling (`FDV-2210` and `FDV2210` both
+on the map) the row resolves to neither and an `ambiguous_reference` conflict goes to the record's owner. A tag that
+is exact somewhere on the map is never re-read as a variant. Every committed one-map site in the repository
+(including the OPEN100 sheet-0 drawing-to-map example) builds byte-identically with this rule.
+
 ## Inputs
 
 | Input | Format | Role |
@@ -315,7 +326,7 @@ owning scope of a shared system. An optional `routing` table overrides the recor
 | `asset_presence` | an item is in a record but on no P&ID sheet, or on a P&ID sheet but in no record |
 | `value_disagreement` | two records (datasheet, maintenance equipment export, instrument index) give different values for one attribute; source A is the authority for that fact kind |
 | `mention_not_in_register` | a document mentions a tag the covering record lacks |
-| `ambiguous_reference` | a document names a tag in two scopes and its covers do not choose |
+| `ambiguous_reference` | a document names a tag in two scopes and its covers do not choose, or a record row's tag spelling matches two items |
 | `superseded_basis` | a document's `based_on` revision is not the current one |
 | `loop_pairing` | a drawn signal line pairs a listed controller with another tag |
 | `unlisted_loop` | the P&IDs show a possible loop the unit's loop list lacks |
@@ -499,7 +510,8 @@ docs:   documents are read by extract_text.py (PDF, Word, Excel, PowerPoint, HTM
         "<piece locator>[, line N], column C"; non-ok text status -> "document text note" to the document owner
 match:  exact tag/alias/site id -> link; format-only (separators/case) and unique on the map -> link with
         matched=format-insensitive; same normalized tag in 2+ scopes, suffix near miss, lower-case + space ->
-        "possible mention, confirm" review row
+        "possible mention, confirm" review row; record row tags: exact, else one separator between ISA letters and
+        number (FDV 2210 / FDV2210 -> FDV-2210) -> matched_by=spelling_variant, matched_text kept; 2+ items -> ambiguous_reference
 never:  asserts an ambiguous or near-miss mention; asserts a loop from P&IDs; groups across units; treats a P&ID
         value as a value conflict; resolves a conflict; renumbers a tag; gives a shared system two owners
 zones:  scripts/sheet_zone.py: ROW-COL, default 8x12, A at the bottom, 1 at the right, box centre, over --zone-frame

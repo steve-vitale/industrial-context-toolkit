@@ -144,6 +144,14 @@ def norm(tag):
     return re.sub(r"[\s\-_]", "", tag or "").upper()
 
 
+def spelling_key(tag):
+    """('FDV', '2210') for FDV-2210, FDV 2210 and FDV2210: the ISA letters and the rest from the first digit, with one
+    hyphen or space (or nothing) between them ignored. Case, underscores, doubled separators and anything after the
+    first digit must agree exactly. None when the text is not letters followed by two or more digits."""
+    m = re.fullmatch(r"([A-Z]{1,5})[ -]?(\d{2}.*)", tag or "")
+    return (m.group(1), m.group(2)) if m else None
+
+
 def loop_key(tag):
     """(letters, loop number, suffix) from 'FV-2203A' -> ('FV', '2203', 'A'); None when it is not a loop tag."""
     m = re.fullmatch(r"([A-Z]{1,5})[\s-]*(\d{2,6})([A-Z]{0,2})", (tag or "").strip().upper())
@@ -1755,15 +1763,21 @@ def classify(m):
             n["class"], n["class_how"] = cid, how
 
 
-def resolver(m):
+def resolver(m, variants=False):
     """resolve(tag or qualified id, scope) -> a node id: the id itself, SCOPE/TAG, or the one item with that tag
-    inside the scope (a plant-level row). None when it is absent or not unique."""
-    by_tag = defaultdict(list)
+    inside the scope (a plant-level row). None when it is absent or not unique.
+
+    variants=True returns (node id or None, spelling-variant candidates): when nothing matches exactly, the items in
+    the scope whose tag has the same spelling_key (FDV 2210 / FDV2210 for FDV-2210). One candidate is a
+    spelling-variant match; more than one is ambiguous and resolves to none of them."""
+    by_tag, by_key = defaultdict(list), defaultdict(list)
     for n in m.nodes.values():
         if n.get("tag") and n.get("scope") and n["kind"] not in ("document", "conflict", "offpage_connector"):
             by_tag[n["tag"]].append(n["id"])
+            if variants and spelling_key(n["tag"]):
+                by_key[spelling_key(n["tag"])].append(n["id"])
 
-    def resolve(text, scope):
+    def exact(text, scope):
         if not text:
             return None
         if "/" in text:
@@ -1772,7 +1786,14 @@ def resolver(m):
             return qid(scope, text)
         hits = [x for x in by_tag.get(text, ()) if x.startswith(scope + "/")]
         return hits[0] if len(hits) == 1 else None
-    return resolve
+
+    def with_variants(text, scope):
+        found = exact(text, scope)
+        if found or not text or "/" in text or text in by_tag:
+            return found, []
+        cands = sorted(x for x in by_key.get(spelling_key(text), ()) if x.startswith(scope + "/"))
+        return (cands[0] if len(cands) == 1 else None), cands
+    return with_variants if variants else exact
 
 
 def load_records(m):
@@ -1782,6 +1803,7 @@ def load_records(m):
     glossary and answers; they never create items."""
     cfg, regs = m.cfg, registers()
     resolve = resolver(m)
+    resolve_variant = resolver(m, variants=True)
     for spec in cfg["raw"].get("records") or []:
         reg_id = spec.get("register")
         if reg_id not in regs:
@@ -1816,12 +1838,21 @@ def load_records(m):
             if not any(onto_mod.within(scope, s) or onto_mod.within(s, scope) for s in scopes):
                 raise InputError(f"{lid} row {n}: {scope} is outside the record's declared scopes ({', '.join(scopes)})")
             tag = r.get(tag_field) if tag_field else None
-            item = resolve(tag, scope) if tag else None
+            item, variants = resolve_variant(tag, scope) if tag else (None, [])
             row = {"register": reg_id, "id": r.get(key) if key else None, "item": item, "scope": scope,
                    "values": {k: v for k, v in r.items() if v},
                    "source": dict(base, locator=f"row {n}" + (f"; {r['locator']}" if r.get("locator") else "")),
                    "status": r.get("status") or "unverified"}
+            if item and variants:  # FDV 2210 for FDV-2210: linked, the record's own text kept
+                row.update(matched_by="spelling_variant", matched_text=tag)
             out.append(row)
+            if len(variants) > 1:  # two items share the spelling: never merged, a conflict for the record owner
+                m.conflict("ambiguous_reference", qid(scope, tag), f"{lid} row {n} {tag_field}", row["source"], tag,
+                           {"kind": "map", "document": "one map"}, "exists as " + ", ".join(variants),
+                           record="document", document_owner=owner,
+                           what=f"{reg['name']} {lid} row {n} names {tag}; its spelling matches "
+                                f"{', '.join(variants)} on the map (separators differ); not asserted")
+                continue
             if reg_id == "ccp" and item and not m.nodes[item].get("safety"):
                 # a CCP's monitoring instrument is food-safety relevant: the review queue's safety floor holds it
                 m.nodes[item]["safety"] = f"CCP monitoring instrument ({r.get('ccp_id')})"
