@@ -127,4 +127,3 @@ and wrong-baseline request open. Native CAD editability and preservation remain 
 
 Once an organization accepts the revision, its accepted model/records may feed the existing
 [context/map revision route](RUNNING_THE_MAP.md). This tool does not update the map, MOC record or source system.
-For a larger drawing backlog, [connect with me on LinkedIn and message me there](https://www.linkedin.com/in/steve-vitale/).

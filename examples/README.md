@@ -15,8 +15,8 @@ from shared record context, edits and three source revisions; its full map/produ
 goal remains unfinished.
 For equipment-data proposals and native drawing evidence, use the
 [CAD handoff](cad-handoff/README.md) and [qualification index](cad-handoff/qualification/README.md).
-Manual calculation/automation worksheets and scope/quote/receiving forms live in
-[consulting-start](consulting-start/README.md); they are methods, not additional executable integrations.
+A [worked readiness self-assessment](readiness-audit/README.md) applies the six conditions in the
+[end picture](../docs/END_PICTURE.md) to the fictional pasteurizer unit.
 
 Inside an example, `inputs/` or `source/` retains the basis; `worked/`, `expected/` or named results retain
 actual/expected outputs as its guide states. `PLAN`, `ACCEPTANCE`, `FREEZE`, inventories and historical failures

@@ -132,8 +132,7 @@ if useful; company receipt/readback establishes an accepted correction. A local 
 records agree, but cannot establish company acceptance, PM adequacy, operating readiness or measured savings.
 Keep earlier versions. If they supply a new source later, compare it rather than discarding the earlier basis.
 
-Self-service use is a complete outcome. If the user asks for a larger scope or ongoing help,
-[connect with me on LinkedIn and message me there](https://www.linkedin.com/in/steve-vitale/).
+Self-service use is a complete outcome.
 
 ## What has been simulated
 

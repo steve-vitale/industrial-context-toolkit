@@ -43,5 +43,3 @@ record and next-revision report. Keep the company system as the authority for ac
 The software checks installed manufacturer/model/serial/size discrepancies in supplied records. It does not
 inspect the equipment, decide whether a replacement requires MOC or validate a PM strategy. Measure actual
 collection, review and correction effort using [the acceptance plan](ACCEPTANCE.md).
-
-For help scoping a unit, [connect with me on LinkedIn and message me there](https://www.linkedin.com/in/steve-vitale/).

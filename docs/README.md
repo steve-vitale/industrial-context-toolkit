@@ -41,8 +41,8 @@ identities, relationships, generated files or mapped data.
 For a plant starting point, choose [maintenance reconciliation](MAINTENANCE_START.md),
 [asset-history investigation](MAINTENANCE_HISTORY.md) or
 [drawing recovery](DRAWING_RECOVERY.md), then inspect the [replacement handoff](../examples/maintenance-handoff/README.md).
-[Working together](WORK_WITH_ME.md) describes a bounded engagement; the [delivery roadmap](DELIVERY_ROADMAP.md)
-separates public software work from recipient and company-system acceptance.
+[Where the end picture leads](END_PICTURE.md) and the [readiness self-assessment](READINESS_AUDIT.md)
+show where your unit stands.
 
 | Path | Type and what to learn | Use it on your records |
 |---|---|---|
@@ -63,7 +63,7 @@ separates public software work from recipient and company-system acceptance.
 | Correct a draft model and assign supplied signal addresses | [Model review](REVIEW_LOOP.md) · [PI mapping](PI_MAPPING.md) |
 | Calculate impact from an actual measured change | [Impact estimate](IMPACT_ESTIMATE.md) |
 | Connect process observations to an investigation and choose an analysis | [Process analytics](PROCESS_ANALYTICS.md): historian bands, batch phases, measured impact and conditional modeling gaps |
-| Scope an external calculation and retain its numerical basis | [Calculation worksheet](../examples/consulting-start/CALCULATION_REVIEW.md) · [Flowstead lessons and limited browser check](PROCESS_ANALYTICS.md#lessons-from-flowstead-accessible-calculations-with-a-retained-basis) |
+| Retain an external calculation's numerical basis | [Flowstead lessons and limited browser check](PROCESS_ANALYTICS.md#lessons-from-flowstead-accessible-calculations-with-a-retained-basis) |
 | Calculate recorded feed/energy by explicit phase, optionally bound to twin asset IDs | [Fictional batch tutorial and reusable tool](../examples/batch-analysis/README.md) |
 | Compare selected batch/event/recipe/lab/outcome records and check their calculation inputs | [Recorded batch joins](../examples/batch-analysis/record-joins/README.md): explicit identities, availability, gaps and retained originals |
 | Check a supplied loop list | [Loop audit](../examples/loop-audit/README.md) |
@@ -88,16 +88,14 @@ separates public software work from recipient and company-system acceptance.
 | Grow from one team to a site or 50–100 plants; recognize failures and when to involve a managed service | [Organizational scaling and readiness](SCALING_ENGINEERING_CONTEXT.md) |
 | Choose an implementation for separated IT/OT, no-port plants or approved hybrid access | [Environment choices and tradeoffs](INTERNAL_CONNECTIVITY.md#choose-the-data-path-before-the-assistant) |
 | Test a real recipient, company handoff and next revision | [Acceptance exercise](ACCEPTANCE.md) |
-| Scope a first paid maintenance/drawing review | [Working together](WORK_WITH_ME.md) · [Scope, quote and handover forms](../examples/consulting-start/README.md) |
+| See where your unit stands on engineering-record readiness | [End picture](END_PICTURE.md) · [Readiness self-assessment](READINESS_AUDIT.md) · [Worked sample](../examples/readiness-audit/SAMPLE_REPORT.md) |
 
 These tasks are optional branches, not prerequisites for every investigation. A plain source-question brief may
 be enough. Exact file contracts belong in the [workflow map](WORKFLOWS.md); all tools are in [FEATURES.md](FEATURES.md).
 
 ## Reference and research records
 
-For current commercial overlap and useful workflow ideas, see the
-[engineering-platform comparison](COMPETITIVE_WORKFLOWS.md) and the broader [prior-art survey](PRIOR_ART.md).
-The comparison distinguishes vendor descriptions, toolkit evidence and untested consulting opportunities.
+For current commercial overlap and useful workflow ideas, see the [prior-art survey](PRIOR_ART.md).
 
 | Read this when… | Canonical reference |
 |---|---|

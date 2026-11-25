@@ -119,14 +119,10 @@ supply missing layout/behavior. A future projection should reuse these contracts
 with explicit field mappings and omissions rather than silently treating them as
 equivalent editable models.
 
-The [calculation review](../examples/consulting-start/CALCULATION_REVIEW.md),
-[automation requirements/handoff](../examples/consulting-start/AUTOMATION_HANDOFF.md)
-and [scope/quote/receiving forms](../examples/consulting-start/README.md) are manual
-methods beside these file contracts. They record supplied requirements, external
-tool/reference assumptions, unresolved questions and receiving checks. They do
+Calculation and automation reviews are manual methods beside these file contracts. They record supplied
+requirements, external tool/reference assumptions, unresolved questions and receiving checks. They do
 not add a numerical solver, MTP/rMTP adapter, PLC deployment or ongoing service.
-The [platform comparison](COMPETITIVE_WORKFLOWS.md) explains the existing-tool and
-unfinished-client-job basis; no customer demand or comparative advantage is measured.
+See [prior art](PRIOR_ART.md) for existing tools.
 
 <a id="three-files-with-different-jobs"></a>
 

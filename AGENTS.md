@@ -44,6 +44,9 @@ examples, generated artifacts, logs or tests. Say "a maintained company tool" or
 "a governed receiving service". `scripts/test_vendor_neutral.py` fails if a
 tracked file names one of the owner's private products.
 
+Commercial material (offers, scopes, pricing, sales notes, competitor comparisons, delivery roadmaps) does not
+belong in this repository.
+
 If your user asks what this repository can do for them, or wants help with their own records, start with
 [the agent task guide](docs/AGENT_START_HERE.md). Recommend one useful job from their context, inspect available
 records, do the supported preparation/run when authorized, and return a sourced finding or a specific next step.

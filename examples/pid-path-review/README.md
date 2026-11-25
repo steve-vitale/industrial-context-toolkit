@@ -50,5 +50,3 @@ For your own job, substitute a graph from the [supported model/map routes](../..
 IDs and supplied source/review meaning. Follow the [tool contract](../../docs/PID_GRAPH_QUESTIONS.md).
 Original document verification, graph preparation, source authority and engineering acceptance remain your
 review work. The consumer does not produce full line/valve registers, operating consequences or CAD files.
-The [consulting scope](../consulting-start/README.md) shows how to agree a bounded paid assignment while
-keeping the public example useful for self-service.

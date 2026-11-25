@@ -186,7 +186,7 @@ source or observation, not another rendering of the same claim.
 
 ### Human-editable components and retained corrections
 
-The [Claude-to-CAD source review](COMPETITIVE_WORKFLOWS.md#moshe-baum-keep-generated-components-useful-for-the-engineer-who-edits-them)
+A public account of generating CAD with a coding assistant
 adds acceptance requirements to component generation:
 
 - **Name the editing target.** A draft needs a retained working source and useful
@@ -303,7 +303,7 @@ a generated model or infer that a shared template was adopted at every site.
 **Hand over service operations when other people rely on this context staying current, permission-correct and
 traceable, and the current company arrangement cannot sustainably provide that.**
 
-For a bounded assignment, a named publisher, reviewer and backup can use these tools with existing company
+For a bounded job, a named publisher, reviewer and backup can use these tools with existing company
 records and approvals. As the result becomes a continuing dependency for other teams, the obligation changes:
 someone must operate access, publication, revision handling, conflicts, recovery and support after the original
 author moves on. Avoid quietly turning a collection of personal scripts into that business-critical service.

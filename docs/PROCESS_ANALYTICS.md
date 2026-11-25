@@ -134,10 +134,9 @@ Useful lessons for the existing manager workflow:
   existing [context path](CONTEXT_REGISTER.md). A source revision should trigger a review of the calculation's
   basis; no automatic simulator-to-context adapter or dependent-model execution exists here.
 
-Use the [manual calculation worksheet](../examples/consulting-start/CALCULATION_REVIEW.md) to scope an
-optional review using a suitable existing simulator. It records baseline/scenario inputs, uncertainty,
-references, failure cases, recipient and next revision. This is a potential consulting extension, not an
-established service result or permission to treat preliminary safety calculations as accepted designs.
+An optional review can use a suitable existing simulator. Record baseline and scenario inputs, uncertainty,
+references, failure cases, recipient and next revision. This toolkit supplies no simulator, and preliminary
+safety calculations are not accepted designs.
 
 The toolkit's earlier [42 FOSSEE DWSIM flowsheets](GENERALIZATION.md) test structural adaptation and
 generation plumbing. They do not execute DWSIM, validate thermodynamics or establish a Flowstead adapter.

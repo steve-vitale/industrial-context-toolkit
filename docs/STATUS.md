@@ -197,8 +197,7 @@ with browser-only viewing and separate rebuild/verifier requirements. It is no c
 
 ## Open work and company handoff
 
-The [self-service gap record](SELF_SERVICE_GAPS.md) states which of the four current improvements have evidence
-and which remain open. In particular, [native CAD diagnosis](../examples/cad-handoff/native/diagnostic/README.md)
+In particular, [native CAD diagnosis](../examples/cad-handoff/native/diagnostic/README.md)
 does not establish a successful native edit/save/reopen; this LibreCAD route remains unqualified for the attributed profile.
 The subsequent QCAD native API returns are actual edit/document-reopen observations, with complete offline receiving
 reviews, but unresolved strict differences and no interactive, visual or company acceptance.
@@ -291,9 +290,7 @@ The exposed three-sheet schedule exercise matches ten policy outcomes beside an 
 retains a missing-network-meaning preparation failure, and demonstrates selective prior-answer reopening.
 Its 17 regression methods are software controls, not independent drawing interpretation or engineering
 acceptance. Public multi-sheet reader validation, full line/valve registers, failure consequences and
-native CAD qualification remain open. The [first paid-assignment forms](../examples/consulting-start/README.md)
-make scope, quote preparation and recipient acceptance concrete; actual customers, willingness to pay,
-prices and measured savings are not established by these documents.
+native CAD qualification remain open. No customer outcome or measured saving is established by these documents.
 
 Use the [acceptance exercise](ACCEPTANCE.md) for concrete tests, records and failure cases. It is prepared;
 actual participant, recipient, native-system and tenant observations remain **not run**.

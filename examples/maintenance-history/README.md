@@ -211,11 +211,8 @@ python scripts/benchmark.py --registry benchmarks/registry.json     # UNVERIFIED
 python scripts/corpus_matrix.py --rows 10 --out-dir ../nestor-matrix
 ```
 
-## Use it as a bounded starting assignment
+## Use it as a bounded starting job
 
 Select one asset/system, agree the cohort and source-owner meanings, deliver the
-traceable history and unknowns, and check one returned export. Scope preparation,
-source clarification, field verification and failure investigation explicitly in
-the [existing consulting forms](../consulting-start/README.md). This is a useful
-self-service job without an engagement. For larger help,
-[connect with me on LinkedIn and message me there](https://www.linkedin.com/in/steve-vitale/).
+traceable history and unknowns, and check one returned export. Treat preparation,
+source clarification, field verification and failure investigation as separate scopes.

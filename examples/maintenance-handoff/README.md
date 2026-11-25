@@ -1,7 +1,7 @@
 # One replacement, several records, one checkable handoff
 
 **Fictional tutorial using existing reusable tools.** No network, account or model call. It follows the existing
-pasteurizer example; this is not a plant engagement or a timed human-benefit result.
+pasteurizer example; this is not a plant result or a timed human-benefit result.
 
 The question: **after FDV-2210 was replaced, do the records describe the same installed valve?**
 
