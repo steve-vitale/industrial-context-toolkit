@@ -43,7 +43,7 @@ The [corrected-return brief](../examples/drawing-handoff/next-return-2/REVISION-
 keeps both versions and separates supported corrections from unresolved instructions and pending approval.
 For a prepared multi-sheet graph, the [path review](PID_GRAPH_QUESTIONS.md) shows supported or qualified
 connections and missing continuations. A missing route is an evidence gap, not proof of disconnection.
-To agree a bounded outside assignment, use the [paid review scope and acceptance forms](../examples/consulting-start/README.md).
+To agree a bounded review inside your team, use the [scope form](../examples/manager-review/templates/scope.md).
 
 When one decision crosses work history, a drawing return and source notes, the
 [foundation cycle](FOUNDATION_HANDOFF.md) gives a concrete handoff and next-change
@@ -100,12 +100,9 @@ reconstruct the result and the receiving owner can maintain it.
 
 Do not turn counts of flags or linked records into uptime, PM compliance or cost savings. Those require their
 own definitions, complete coverage, operating/exposure data and qualified review. No sample ROI or benchmark
-percentage in this toolkit is a site saving. Price a consulting scope after source/fieldwork uncertainty is understood.
+percentage in this toolkit is a site saving.
 
 This decision-first approach is consistent with NIST's discussion of
 [different information needs for maintenance decisions](https://www.nist.gov/publications/selecting-optimal-data-creating-informed-maintenance-decisions-manufacturing)
 and PNNL's discussion of [prioritizing O&M work with defined metrics](https://www.pnnl.gov/projects/om-best-practices/prioritizing-om-actions).
 These resources support the method, not the accuracy or benefit of this toolkit's examples.
-
-For help with preparation, a larger package or ongoing ownership,
-[connect with me on LinkedIn and message me there](https://www.linkedin.com/in/steve-vitale/).

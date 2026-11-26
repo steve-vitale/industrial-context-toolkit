@@ -5,7 +5,7 @@ them do it better, and what this repository adds. This is a survey made on 2026-
 Where a figure comes from a page summary and wasn't checked against the source text, it says so. "Not found" means
 the search didn't find it, not that it doesn't exist.
 
-**2026-11-08 update:** the [engineering-platform comparison](COMPETITIVE_WORKFLOWS.md) adds Entellia/Flow2MTP,
+**2026-11-08 update:** a review of engineering platforms added Entellia/Flow2MTP,
 current Cognite contextualization and Siemens' project-connected engineering assistant. Connected engineering,
 brownfield preparation, reusable templates and professional review all have commercial overlap. The older
 survey below is historical search scope, not a claim of an uncontested market or feature exclusivity.

@@ -126,4 +126,4 @@ the next refresh trigger and receiving acceptance. Qualify the actual destinatio
 mapping/readback, conflicts, permissions and recovery separately. This workflow
 does not establish a maintained connector, live synchronization, human benefit,
 plant truth, CAD qualification or product compatibility. See the
-[foundation roadmap](ENGINEERING_FOUNDATION.md) and [consulting scope](WORK_WITH_ME.md).
+[foundation roadmap](ENGINEERING_FOUNDATION.md).

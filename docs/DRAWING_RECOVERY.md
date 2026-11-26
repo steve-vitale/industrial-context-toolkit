@@ -46,5 +46,3 @@ serialization; do not send that file through the older reader and infer compatib
 Start with controlled exchanges and explicit refreshes. Automatic bidirectional synchronization, field accuracy
 and a generic intelligent-CAD round trip are not established capabilities. Compare any speed claim against the
 same accepted scope, including fieldwork, drafting, engineering review, corrections and handoff.
-
-For help scoping a drawing package, [connect with me on LinkedIn and message me there](https://www.linkedin.com/in/steve-vitale/).

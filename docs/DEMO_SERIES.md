@@ -63,10 +63,10 @@ the unresolved evidence and the next owner, so the viewer can distinguish a gene
 company record. Use the supplied refusal controls to test a wrong or stale input, rather than relying on a clean
 happy-path screenshot.
 
-The [Entellia/Flow2MTP review](COMPETITIVE_WORKFLOWS.md) reinforces the value of showing one unit through
+Connected-engineering platforms from other vendors show the value of showing one unit through
 successive engineering steps. Within an episode, keep its asset IDs, input/output revisions and review
 decisions visible. If the job extends to automation, separate requested behavior, supplier response and
-receiving evidence with the [manual worksheet](../examples/consulting-start/AUTOMATION_HANDOFF.md).
+receiving evidence.
 The five separate fixtures above remain separate; no integrated automation or MTP workflow is implied.
 
 For your own trial, record one observable benefit and baseline before running it: whether a recipient can find

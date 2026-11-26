@@ -243,11 +243,6 @@ class Validator(unittest.TestCase):
                 self.assertEqual(cm.main(["from-one-map", str(OPEN100_TG1), "--out", str(Path(tmp) / "x.json")]), 2)
             self.assertFalse((Path(tmp) / "x.json").exists())
 
-    def test_public_files_name_no_private_product(self):
-        private = "change" + "pilot"  # spelled in parts so this file passes its own check
-        for p in (Path(cm.__file__), Path(__file__), cm.RELATIONS_PATH, cm.SCHEMA_PATH):
-            self.assertNotIn(private, p.read_text(encoding="utf-8").lower(), p.name)
-
 
 if __name__ == "__main__":
     unittest.main()

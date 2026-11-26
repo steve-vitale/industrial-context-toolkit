@@ -131,7 +131,8 @@ python scripts/deliverable_report.py work/<plant>/bundle
 
 Open `work/<plant>/bundle/REPORT.html` for the user: every sheet with its extracted items boxed, counts, the
 "Across sheets" pairs, review status and next steps. `review_queue.csv` is where a reviewer confirms, corrects or
-rejects items.
+rejects items. For a reviewer who would rather click than edit a spreadsheet, `python -S scripts/review_page.py
+work/<plant>/bundle` writes an offline `review.html` (keys 1/2/3) that downloads the filled queue for `apply_review.py`.
 
 ### 5. Check the tags against the PDF (PDF input only)
 

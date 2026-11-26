@@ -316,3 +316,8 @@ examples/map-component-cycle/inputs/** -text
 examples/map-component-cycle/baseline/** -text linguist-generated=true whitespace=cr-at-eol,-blank-at-eof,-trailing-space
 examples/map-component-cycle/history/** -text whitespace=cr-at-eol,-blank-at-eof,-trailing-space
 examples/map-component-cycle/development/** -text linguist-generated=true whitespace=cr-at-eol,-blank-at-eof,-trailing-space
+
+# The readiness worksheet is a hand-written offline page; its screenshot is binary.
+/examples/readiness-audit/worksheet.html text eol=lf
+/examples/readiness-audit/**/*.png -text
+docs/screenshots/review-page.png binary

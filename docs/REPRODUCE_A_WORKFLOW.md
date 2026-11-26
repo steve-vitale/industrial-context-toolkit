@@ -65,7 +65,7 @@ all-clear. Never modify a frozen key to make the result agree.
 | Reproduce a saved drawing/model score | Use [benchmark registry scoring](../benchmarks/README.md), [prediction rescoring](../predictions/README.md) and [reviewer checks](../AGENTS.md#ten-minutes-no-accounts-no-network). | A new model run, unseen-data performance or a plant guarantee. Claim matching and actual rescoring are different checks. |
 | New image/scan/photo interpretation | Supply the permitted original, declared model/OCR/version/prompt and preprocessing, a source/key basis, uncertainty and saved failures. Follow [drawing contribution](CONTRIBUTE_A_PID.md), [reader slot](PLUG_IN_A_READER.md) or [photo example](../examples/photo-to-record/README.md). | Installed identity, unreadable values or connections absent from the evidence. |
 | Native receiving-system acceptance | Follow the selected editor/gateway/version's exact import/edit/save/close/reopen/readback and next-revision checks. [CAD protocol](../examples/cad-handoff/qualification/PROTOCOL.md) and [Ignition record](IGNITION_ACCEPTANCE.md) define separate scopes. | Company release, operating authorization, PI acceptance or acceptance in another version. |
-| Calculation or automation consulting scope | Use [calculation review](../examples/consulting-start/CALCULATION_REVIEW.md) or [automation handoff](../examples/consulting-start/AUTOMATION_HANDOFF.md). Retain the client's existing tool, inputs, reference and receiving basis. | A toolkit simulator, MTP adapter, generated PLC logic, verified thermodynamics or a funded client requirement. |
+| Calculation or automation review | Retain the existing tool, inputs, reference and receiving basis. | A toolkit simulator, MTP adapter, generated PLC logic or verified thermodynamics. |
 
 For the larger historical TE/OPEN100 assemblies, use the [advanced reproduction guide](REPLICATE_AT_YOUR_PLANT.md).
 For all repository checks, use [run_tests.py](../scripts/run_tests.py) with the pinned requirements and inspect
@@ -86,7 +86,6 @@ reported skips. A green CI job can contain skipped checks; local replay is not r
    interpretation, rework and receiving effort before claiming a saving.
 
 The assistant and numerical/drawing reader are replaceable. The useful retained work is the source, interpretation,
-review and receiving basis. Check [existing/free tools](COMPETITIVE_WORKFLOWS.md) before adding a platform or
-format; a self-service outcome is valid without contacting the author. Larger scopes can use the
-[consulting forms](../examples/consulting-start/README.md). No human participant, plant access or paid engagement
-is fabricated by these exercises; those remaining [acceptance gaps](SELF_SERVICE_GAPS.md) stay explicit.
+review and receiving basis. Check existing and free tools ([prior art](PRIOR_ART.md)) before adding a platform or
+format. No human participant or plant access is fabricated by these exercises; those acceptance
+gaps stay explicit (see [STATUS.md](STATUS.md)).

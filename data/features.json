@@ -398,6 +398,7 @@
       "title": "Reviewer decisions back into the model, and instruments mapped to supplied addresses",
       "tools": [
         "scripts/apply_review.py",
+        "scripts/review_page.py",
         "scripts/review_kit.py",
         "scripts/map_points.py",
         "scripts/map_pi_points.py"
@@ -422,7 +423,8 @@
         "scripts/test_pi_mapping.py",
         "scripts/test_review_kit.py",
         "scripts/test_deliverable_report.py",
-        "scripts/test_review_identity.py"
+        "scripts/test_review_identity.py",
+        "scripts/test_review_page.py"
       ],
       "job": "Apply review decisions and assign supplied OPC or PI addresses",
       "you_need": "A filled review sheet; the plant's I/O list",

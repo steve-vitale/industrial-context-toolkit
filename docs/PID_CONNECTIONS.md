@@ -89,5 +89,4 @@ Agree the scope and receiving format before expanding to a drawing backlog. Afte
 against the exact new revision and verify the actual receiving CAD file separately when CAD delivery is required.
 No automatic edits, drawing release, map update or MOC closeout occur.
 
-For help with a larger backlog, [connect with me on LinkedIn and message me there](https://www.linkedin.com/in/steve-vitale/).
 The [public-methods review](PID_RULES_RESEARCH.md) explains DEXPI reuse and why design heuristics need applicability review.

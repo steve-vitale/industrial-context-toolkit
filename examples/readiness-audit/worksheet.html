@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Where your plant's records live</title>
+<style>
+  :root { --ink:#1d2733; --muted:#5b6876; --line:#c9d1da; --accent:#1f5f8b; --soft:#eef3f8; --warn:#8a4b00; --warnbg:#fff4e0; }
+  * { box-sizing: border-box; }
+  body { font: 16px/1.5 system-ui, "Segoe UI", Arial, sans-serif; color: var(--ink); margin: 0; background: #fff; }
+  main { max-width: 900px; margin: 0 auto; padding: 18px 16px 48px; }
+  h1 { font-size: 26px; margin: 0 0 4px; }
+  h2 { font-size: 20px; margin: 28px 0 6px; border-bottom: 2px solid var(--line); padding-bottom: 3px; }
+  h3 { font-size: 16px; margin: 16px 0 4px; }
+  p { margin: 6px 0; }
+  .muted { color: var(--muted); }
+  .small { font-size: 13px; }
+  .note { background: var(--soft); border-left: 4px solid var(--accent); padding: 8px 12px; margin: 12px 0; }
+  input[type=text], select { font: inherit; padding: 6px 8px; border: 1px solid var(--line); border-radius: 4px; max-width: 100%; background: #fff; }
+  input[type=text] { width: 100%; }
+  .fam { border: 1px solid var(--line); border-radius: 6px; padding: 8px 12px; margin: 8px 0; }
+  .fam .hint { color: var(--muted); font-size: 14px; }
+  .fam .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 4px; }
+  .fam .other { display: none; flex: 1 1 220px; }
+  .opts { display: flex; flex-wrap: wrap; gap: 4px 18px; margin: 4px 0; }
+  .opts label, .radios label { white-space: nowrap; }
+  .radios { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+  .q { margin: 12px 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { border: 1px solid var(--line); padding: 5px 7px; text-align: left; vertical-align: top; }
+  th { background: var(--soft); }
+  .check { color: var(--warn); font-size: 12px; white-space: nowrap; }
+  .flags, .caveats { margin: 6px 0 6px 20px; padding: 0; }
+  .flags li { margin: 3px 0; }
+  .job { font-size: 18px; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 10px 0; background: var(--soft); }
+  button { font: inherit; padding: 8px 14px; border: 1px solid var(--accent); background: var(--accent); color: #fff; border-radius: 4px; cursor: pointer; }
+  button.plain { background: #fff; color: var(--accent); }
+  .bar { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+  a { color: var(--accent); }
+  #printsummary { display: none; }
+  @page { margin: 12mm; }
+  @media print {
+    body { font-size: 10pt; }
+    main > *:not(#printsummary) { display: none !important; }
+    #printsummary { display: block; }
+    main { padding: 0; max-width: none; }
+    #printsummary h1 { font-size: 15pt; }
+    #printsummary h3 { margin: 8px 0 2px; }
+    #printsummary table { font-size: 8.5pt; }
+    #printsummary th, #printsummary td { padding: 2px 4px; }
+    #printsummary p { margin: 3px 0; }
+    #printsummary ul { margin: 2px 0 2px 16px; padding: 0; }
+  }
+</style>
+</head>
+<body>
+<main>
+<h1>Where your plant's records live</h1>
+<p class="muted">About five minutes. You already know the answers: which systems you run, where documents are kept, how changes get recorded. No quality ratings, nothing to look up.</p>
+<div class="note"><strong>Nothing leaves this page.</strong> It works offline from the file on your computer. Nothing is sent anywhere. "Save as file" only writes a small text file to your own computer, and you decide who gets it.</div>
+<label>Unit or area (optional) <input type="text" id="unit" autocomplete="off" placeholder="for example: pasteurizer unit PAST1"></label>
+<div class="bar">
+  <button type="button" id="example">Try the example</button>
+  <button type="button" class="plain" id="clear">Start over</button>
+</div>
+
+<h2>1. Your assistant</h2>
+<p>Which assistant is your company allowed to use?</p>
+<div class="opts" id="assistants"></div>
+
+<h2>2. Where each kind of record lives</h2>
+<p class="muted">Pick the main home. Leave a kind blank if it does not apply to this unit.</p>
+<div id="families"></div>
+
+<h2>3. Drawings</h2>
+<div class="q">What form are your drawings in? (tick all that apply)<div class="opts" id="formats"></div></div>
+<div class="q">Is there one master copy everyone uses?<div class="radios" id="master"></div></div>
+<div class="q">Is there a drawing register or index?<div class="radios" id="register"></div></div>
+
+<h2>4. How changes get recorded today</h2>
+<div class="q">After a job closes, who updates the drawings and equipment list?<div class="opts" id="update"></div></div>
+<div class="q">If you needed to know why a valve was changed two years ago, where would you look?<div class="opts" id="why"></div></div>
+
+<h2>Your picture</h2>
+<div id="out"></div>
+<div class="bar">
+  <button type="button" id="print">Print</button>
+  <button type="button" class="plain" id="save">Save as file</button>
+</div>
+<p class="second-look">Want a second look at your setup? Send me this page on LinkedIn: <a href="https://www.linkedin.com/in/steve-vitale/">https://www.linkedin.com/in/steve-vitale/</a></p>
+<p>Next: run the first job on one recent change, then rate a unit with the <a href="../../docs/READINESS_AUDIT.md">self-assessment</a>.</p>
+<p class="muted small">This is your own description of your setup, not an audit. Whether an assistant can reach a system depends on your IT settings and licences, so confirm every "can it reach it" answer with IT. Anything an assistant gives you is a draft for the responsible engineer.</p>
+
+<section id="printsummary"><div id="printbody"></div><p class="second-look">Want a second look at your setup? Send me this page on LinkedIn: <a href="https://www.linkedin.com/in/steve-vitale/">https://www.linkedin.com/in/steve-vitale/</a></p></section>
+</main>
+
+<script type="application/json" id="inventory-data">
+{
+ "assistants": [
+  [
+   "m365",
+   "Microsoft 365 Copilot"
+  ],
+  [
+   "chatgpt",
+   "ChatGPT Enterprise / Team / Edu"
+  ],
+  [
+   "gemini",
+   "Gemini in Google Workspace"
+  ],
+  [
+   "other",
+   "Another approved assistant"
+  ],
+  [
+   "none",
+   "None yet"
+  ],
+  [
+   "unsure",
+   "Not sure"
+  ]
+ ],
+ "systems": [
+  {
+   "id": "sap",
+   "label": "SAP PM / S/4HANA",
+   "group": "cmms",
+   "export": "report"
+  },
+  {
+   "id": "maximo",
+   "label": "IBM Maximo",
+   "group": "cmms",
+   "export": "report"
+  },
+  {
+   "id": "infor",
+   "label": "Infor EAM",
+   "group": "cmms",
+   "export": "report"
+  },
+  {
+   "id": "emaint",
+   "label": "eMaint",
+   "group": "cmms",
+   "export": "report"
+  },
+  {
+   "id": "fiix",
+   "label": "Fiix",
+   "group": "cmms",
+   "export": "report"
+  },
+  {
+   "id": "upkeep",
+   "label": "UpKeep",
+   "group": "cmms",
+   "export": "report"
+  },
+  {
+   "id": "limble",
+   "label": "Limble",
+   "group": "cmms",
+   "export": "report"
+  },
+  {
+   "id": "sheets",
+   "label": "Spreadsheets",
+   "group": "sheet",
+   "export": "files"
+  },
+  {
+   "id": "sheets_drive",
+   "label": "Spreadsheets on a shared drive",
+   "group": "sheet",
+   "export": "files"
+  },
+  {
+   "id": "sharepoint",
+   "label": "SharePoint",
+   "group": "sharepoint",
+   "export": "files"
+  },
+  {
+   "id": "opentext",
+   "label": "OpenText (Documentum / Content Server)",
+   "group": "doc",
+   "export": "report"
+  },
+  {
+   "id": "hexagon",
+   "label": "Hexagon / Meridian",
+   "group": "doc",
+   "export": "report"
+  },
+  {
+   "id": "projectwise",
+   "label": "Bentley ProjectWise",
+   "group": "doc",
+   "export": "report"
+  },
+  {
+   "id": "autodesk",
+   "label": "Autodesk Vault / Docs",
+   "group": "doc",
+   "export": "report"
+  },
+  {
+   "id": "netdrive",
+   "label": "Shared network drive",
+   "group": "drive",
+   "export": "files"
+  },
+  {
+   "id": "projfolders",
+   "label": "Project folders on a drive",
+   "group": "drive",
+   "export": "files"
+  },
+  {
+   "id": "instrdb",
+   "label": "Instrument database (e.g. AVEVA / SmartPlant Instrumentation)",
+   "group": "doc",
+   "export": "report"
+  },
+  {
+   "id": "insidecmms",
+   "label": "Inside the CMMS",
+   "group": "cmms",
+   "export": "report"
+  },
+  {
+   "id": "doccontrol",
+   "label": "Document control system",
+   "group": "doc",
+   "export": "report"
+  },
+  {
+   "id": "moc",
+   "label": "MOC software (e.g. Sphera, Enablon, Intelex, Cority, Gensuite)",
+   "group": "doc",
+   "export": "report"
+  },
+  {
+   "id": "quality",
+   "label": "Quality system (e.g. MasterControl, ETQ)",
+   "group": "doc",
+   "export": "report"
+  },
+  {
+   "id": "pi",
+   "label": "AVEVA PI",
+   "group": "hist",
+   "export": "report"
+  },
+  {
+   "id": "ignition",
+   "label": "Ignition",
+   "group": "hist",
+   "export": "report"
+  },
+  {
+   "id": "canary",
+   "label": "Canary",
+   "group": "hist",
+   "export": "report"
+  },
+  {
+   "id": "dcs",
+   "label": "DCS / PLC historian",
+   "group": "hist",
+   "export": "report"
+  },
+  {
+   "id": "nohist",
+   "label": "None",
+   "group": "none",
+   "export": "na"
+  },
+  {
+   "id": "vendorportal",
+   "label": "Vendor portals",
+   "group": "doc",
+   "export": "report"
+  },
+  {
+   "id": "email",
+   "label": "Email",
+   "group": "chat",
+   "export": "hard"
+  },
+  {
+   "id": "chat",
+   "label": "Teams / Slack chat",
+   "group": "chat",
+   "export": "hard"
+  },
+  {
+   "id": "notes",
+   "label": "Meeting notes on SharePoint / OneNote",
+   "group": "sharepoint",
+   "export": "files"
+  },
+  {
+   "id": "notebooks",
+   "label": "Notebooks",
+   "group": "paper",
+   "export": "scan"
+  },
+  {
+   "id": "other",
+   "label": "Other (type it)",
+   "group": "other",
+   "export": "unknown"
+  },
+  {
+   "id": "paper",
+   "label": "Paper / binders",
+   "group": "paper",
+   "export": "scan"
+  },
+  {
+   "id": "dontknow",
+   "label": "Don't know",
+   "group": "unknown",
+   "export": "unknown"
+  },
+  {
+   "id": "gdrive",
+   "label": "Google Drive",
+   "group": "drive",
+   "export": "files"
+  },
+  {
+   "id": "none",
+   "label": "We don't keep these",
+   "group": "none",
+   "export": "na"
+  }
+ ],
+ "families": [
+  {
+   "name": "Drawings",
+   "hint": "P&IDs, loop diagrams, isometrics, electrical one-lines, as-builts",
+   "options": [
+    "sharepoint",
+    "opentext",
+    "hexagon",
+    "projectwise",
+    "autodesk",
+    "netdrive",
+    "gdrive",
+    "other",
+    "paper",
+    "dontknow",
+    "none"
+   ]
+  },
+  {
+   "name": "Equipment and instrument data",
+   "hint": "datasheets, instrument index, I/O list, alarm database, nameplate photos",
+   "options": [
+    "sheets_drive",
+    "sharepoint",
+    "instrdb",
+    "insidecmms",
+    "other",
+    "paper",
+    "dontknow",
+    "none"
+   ]
+  },
+  {
+   "name": "Maintenance",
+   "hint": "asset register, work orders, PM job plans, spare parts, calibration and inspection records",
+   "options": [
+    "sap",
+    "maximo",
+    "infor",
+    "emaint",
+    "fiix",
+    "upkeep",
+    "limble",
+    "sheets",
+    "other",
+    "paper",
+    "dontknow",
+    "none"
+   ]
+  },
+  {
+   "name": "Operations",
+   "hint": "SOPs, operating limits, alarm response, lockout lists, shift logs",
+   "options": [
+    "sharepoint",
+    "doccontrol",
+    "netdrive",
+    "gdrive",
+    "other",
+    "paper",
+    "dontknow",
+    "none"
+   ]
+  },
+  {
+   "name": "Process safety and quality",
+   "hint": "HAZOP and LOPA worksheets, relief studies, MOC packages, incident investigations, HACCP plans",
+   "options": [
+    "moc",
+    "quality",
+    "sharepoint",
+    "netdrive",
+    "other",
+    "paper",
+    "dontknow",
+    "none"
+   ]
+  },
+  {
+   "name": "Control and process data",
+   "hint": "historian tags and trends, control narratives, DCS or PLC configuration, HMI screens",
+   "options": [
+    "pi",
+    "ignition",
+    "canary",
+    "dcs",
+    "nohist",
+    "other",
+    "paper",
+    "dontknow",
+    "none"
+   ]
+  },
+  {
+   "name": "Vendor and project records",
+   "hint": "vendor manuals, pump curves, purchase specs, calculations, turnover packages",
+   "options": [
+    "sharepoint",
+    "netdrive",
+    "vendorportal",
+    "projfolders",
+    "gdrive",
+    "other",
+    "paper",
+    "dontknow",
+    "none"
+   ]
+  },
+  {
+   "name": "Decisions and conversations",
+   "hint": "meeting notes, emails, chat threads, decision logs, field markups",
+   "options": [
+    "email",
+    "chat",
+    "notes",
+    "notebooks",
+    "gdrive",
+    "other",
+    "paper",
+    "dontknow",
+    "none"
+   ]
+  }
+ ],
+ "familyIndex": {
+  "Drawings": 0,
+  "Equipment and instrument data": 1,
+  "Maintenance": 2,
+  "Operations": 3,
+  "Process safety and quality": 4,
+  "Control and process data": 5,
+  "Vendor and project records": 6,
+  "Decisions and conversations": 7
+ },
+ "yesno": [
+  [
+   "yes",
+   "Yes"
+  ],
+  [
+   "no",
+   "No"
+  ],
+  [
+   "unsure",
+   "Not sure"
+  ]
+ ],
+ "formats": [
+  [
+   "cad",
+   "CAD files"
+  ],
+  [
+   "pdf",
+   "PDFs made from CAD"
+  ],
+  [
+   "scans",
+   "Scans"
+  ],
+  [
+   "paper",
+   "Paper"
+  ]
+ ],
+ "updateOptions": [
+  [
+   "doccontrol",
+   "Doc control on a request"
+  ],
+  [
+   "engineer",
+   "The engineer who did the work"
+  ],
+  [
+   "whoever",
+   "Whoever remembers"
+  ],
+  [
+   "nobody",
+   "Nobody formally"
+  ],
+  [
+   "unsure",
+   "Not sure"
+  ]
+ ],
+ "whyOptions": [
+  [
+   "moc",
+   "MOC record"
+  ],
+  [
+   "email",
+   "Search email"
+  ],
+  [
+   "ask",
+   "Ask someone"
+  ],
+  [
+   "cannot",
+   "We couldn't find out"
+  ]
+ ],
+ "reach": {
+  "m365": {
+   "sap": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/connectors-gallery-partners"
+   },
+   "maximo": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/connectors-gallery-partners"
+   },
+   "infor": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/connectors-gallery-partners"
+   },
+   "emaint": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/connectors-gallery-partners"
+   },
+   "fiix": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/connectors-gallery-partners"
+   },
+   "upkeep": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/connectors-gallery-partners"
+   },
+   "limble": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/connectors-gallery-partners"
+   },
+   "sheets": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "sheets_drive": {
+    "v": "connector",
+    "unverified": false,
+    "source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/fileshare-connector"
+   },
+   "sharepoint": {
+    "v": "yes",
+    "unverified": false,
+    "source": "https://learn.microsoft.com/en-us/copilot/plan/microsoft-365-copilot-privacy"
+   },
+   "opentext": {
+    "v": "connector",
+    "unverified": false,
+    "source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/connectors-gallery-partners"
+   },
+   "hexagon": {
+    "v": "custom",
+    "unverified": true,
+    "source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/connectors-gallery-partners"
+   },
+   "projectwise": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/connectors-gallery-partners"
+   },
+   "autodesk": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/connectors-gallery-partners"
+   },
+   "netdrive": {
+    "v": "connector",
+    "unverified": false,
+    "source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/fileshare-connector"
+   },
+   "projfolders": {
+    "v": "connector",
+    "unverified": false,
+    "source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/fileshare-connector"
+   },
+   "instrdb": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/connectors-gallery-partners"
+   },
+   "insidecmms": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/connectors-gallery-partners"
+   },
+   "doccontrol": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "moc": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "quality": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "pi": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/connectors-gallery-partners"
+   },
+   "ignition": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/connectors-gallery-partners"
+   },
+   "canary": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/connectors-gallery-partners"
+   },
+   "dcs": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/connectors-gallery-partners"
+   },
+   "nohist": {
+    "v": "no",
+    "unverified": false,
+    "source": ""
+   },
+   "vendorportal": {
+    "v": "no",
+    "unverified": false,
+    "source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/connectors-gallery-microsoft"
+   },
+   "email": {
+    "v": "yes",
+    "unverified": false,
+    "source": "https://learn.microsoft.com/en-us/copilot/plan/microsoft-365-copilot-privacy"
+   },
+   "chat": {
+    "v": "yes",
+    "unverified": false,
+    "source": "https://learn.microsoft.com/en-us/copilot/plan/microsoft-365-copilot-privacy"
+   },
+   "notes": {
+    "v": "yes",
+    "unverified": false,
+    "source": "https://learn.microsoft.com/en-us/copilot/plan/microsoft-365-copilot-privacy"
+   },
+   "notebooks": {
+    "v": "no",
+    "unverified": false,
+    "source": "https://learn.microsoft.com/en-us/copilot/plan/microsoft-365-copilot-privacy"
+   },
+   "other": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "paper": {
+    "v": "no",
+    "unverified": false,
+    "source": "https://learn.microsoft.com/en-us/copilot/plan/microsoft-365-copilot-privacy"
+   },
+   "dontknow": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "gdrive": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "none": {
+    "v": "no",
+    "unverified": false,
+    "source": ""
+   }
+  },
+  "chatgpt": {
+   "sap": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://openai.com/business/apps/"
+   },
+   "maximo": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://openai.com/business/apps/"
+   },
+   "infor": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://openai.com/business/apps/"
+   },
+   "emaint": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://openai.com/business/apps/"
+   },
+   "fiix": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://openai.com/business/apps/"
+   },
+   "upkeep": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://openai.com/business/apps/"
+   },
+   "limble": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://openai.com/business/apps/"
+   },
+   "sheets": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "sheets_drive": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://openai.com/business/apps/"
+   },
+   "sharepoint": {
+    "v": "connector",
+    "unverified": false,
+    "source": "https://help.openai.com/en/articles/12143177-sharepoint-synced-connectors-setup"
+   },
+   "opentext": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://openai.com/business/apps/"
+   },
+   "hexagon": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://openai.com/business/apps/"
+   },
+   "projectwise": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://openai.com/business/apps/"
+   },
+   "autodesk": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://openai.com/business/apps/"
+   },
+   "netdrive": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://openai.com/business/apps/"
+   },
+   "projfolders": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://openai.com/business/apps/"
+   },
+   "instrdb": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://openai.com/business/apps/"
+   },
+   "insidecmms": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://openai.com/business/apps/"
+   },
+   "doccontrol": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://openai.com/business/apps/"
+   },
+   "moc": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "quality": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "pi": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://openai.com/business/apps/"
+   },
+   "ignition": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://openai.com/business/apps/"
+   },
+   "canary": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://openai.com/business/apps/"
+   },
+   "dcs": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://openai.com/business/apps/"
+   },
+   "nohist": {
+    "v": "no",
+    "unverified": false,
+    "source": ""
+   },
+   "vendorportal": {
+    "v": "no",
+    "unverified": false,
+    "source": "https://openai.com/business/apps/"
+   },
+   "email": {
+    "v": "connector",
+    "unverified": false,
+    "source": "https://help.openai.com/en/articles/11509118-admin-controls-security-and-compliance-in-connectors-enterprise-edu-and-business"
+   },
+   "chat": {
+    "v": "connector",
+    "unverified": false,
+    "source": "https://help.openai.com/en/articles/11509118-admin-controls-security-and-compliance-in-connectors-enterprise-edu-and-business"
+   },
+   "notes": {
+    "v": "connector",
+    "unverified": false,
+    "source": "https://help.openai.com/en/articles/12143177-sharepoint-synced-connectors-setup"
+   },
+   "notebooks": {
+    "v": "no",
+    "unverified": false,
+    "source": "https://openai.com/business/apps/"
+   },
+   "other": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "paper": {
+    "v": "no",
+    "unverified": false,
+    "source": "https://openai.com/business/apps/"
+   },
+   "dontknow": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "gdrive": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "none": {
+    "v": "no",
+    "unverified": false,
+    "source": ""
+   }
+  },
+  "gemini": {
+   "sap": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source"
+   },
+   "maximo": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source"
+   },
+   "infor": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source"
+   },
+   "emaint": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source"
+   },
+   "fiix": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source"
+   },
+   "upkeep": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source"
+   },
+   "limble": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source"
+   },
+   "sheets": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "sheets_drive": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source"
+   },
+   "sharepoint": {
+    "v": "connector",
+    "unverified": false,
+    "source": "https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source"
+   },
+   "opentext": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source"
+   },
+   "hexagon": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source"
+   },
+   "projectwise": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source"
+   },
+   "autodesk": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source"
+   },
+   "netdrive": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source"
+   },
+   "projfolders": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source"
+   },
+   "instrdb": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "insidecmms": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source"
+   },
+   "doccontrol": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source"
+   },
+   "moc": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "quality": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "pi": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source"
+   },
+   "ignition": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source"
+   },
+   "canary": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source"
+   },
+   "dcs": {
+    "v": "custom",
+    "unverified": false,
+    "source": "https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source"
+   },
+   "nohist": {
+    "v": "no",
+    "unverified": false,
+    "source": ""
+   },
+   "vendorportal": {
+    "v": "no",
+    "unverified": false,
+    "source": "https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source"
+   },
+   "email": {
+    "v": "connector",
+    "unverified": false,
+    "source": "https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source"
+   },
+   "chat": {
+    "v": "connector",
+    "unverified": false,
+    "source": "https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source"
+   },
+   "notes": {
+    "v": "connector",
+    "unverified": false,
+    "source": "https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source"
+   },
+   "notebooks": {
+    "v": "no",
+    "unverified": false,
+    "source": "https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source"
+   },
+   "other": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "paper": {
+    "v": "no",
+    "unverified": false,
+    "source": "https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source"
+   },
+   "dontknow": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "gdrive": {
+    "v": "yes",
+    "unverified": false,
+    "source": "https://support.google.com/a/users/answer/17010577"
+   },
+   "none": {
+    "v": "no",
+    "unverified": false,
+    "source": ""
+   }
+  },
+  "other": {
+   "sap": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "maximo": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "infor": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "emaint": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "fiix": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "upkeep": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "limble": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "sheets": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "sheets_drive": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "sharepoint": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "opentext": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "hexagon": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "projectwise": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "autodesk": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "netdrive": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "projfolders": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "instrdb": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "insidecmms": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "doccontrol": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "moc": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "quality": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "pi": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "ignition": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "canary": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "dcs": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "nohist": {
+    "v": "no",
+    "unverified": false,
+    "source": ""
+   },
+   "vendorportal": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "email": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "chat": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "notes": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "notebooks": {
+    "v": "no",
+    "unverified": false,
+    "source": ""
+   },
+   "other": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "paper": {
+    "v": "no",
+    "unverified": false,
+    "source": ""
+   },
+   "dontknow": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "gdrive": {
+    "v": "unknown",
+    "unverified": false,
+    "source": ""
+   },
+   "none": {
+    "v": "no",
+    "unverified": false,
+    "source": ""
+   }
+  }
+ },
+ "caveats": {
+  "m365": [
+   "The 'yes' cells need a Microsoft 365 Copilot licence. The free Copilot Chat only reads files you upload.",
+   "Shared drive connector: it needs an agent on your own network, reads text from PDF and Office files only, indexes CAD files by name only, and takes files up to 100 MB. The OpenText connector is partner-built and needs a partner licence."
+  ],
+  "chatgpt": [
+   "The SharePoint app has to be enabled by an admin. It reads PDF, Office, CSV and TXT files only, up to 100 MB each."
+  ],
+  "gemini": [
+   "The SharePoint, Outlook and Teams routes need Gemini Enterprise with a connector. Files can be up to 50 MB."
+  ]
+ },
+ "checked": "2026-11-24",
+ "flags": {
+  "working-copies": "Your assistant may find a working copy instead of the released one.",
+  "no-current-drawing": "Nobody can say which drawing is current.",
+  "records-fall-behind": "Records fall behind after every job.",
+  "reasons-in-heads": "The reasons for changes live in people's heads.",
+  "no-connector": "No assistant has a ready-made connector to {system}. Start from an export.",
+  "cad-files": "Assistants read the PDF, not the CAD file. A connector indexes a CAD file's name only.",
+  "scanned-drawings": "Scanned drawings need text recognition before an assistant can read them. SharePoint can add it to new uploads, but check whether your assistant uses it.",
+  "no-assistant": "Find out which assistant your company allows before anything else.",
+  "paper-or-unknown": "Some records are on paper, or nobody knows where they are."
+ },
+ "jobs": [
+  {
+   "id": "reconcile",
+   "name": "Reconcile the equipment list against the work orders",
+   "why": "Your maintenance system can export, and your equipment data is already in files. Comparing the two finds records that disagree about the same valve or pump, and you can do it yourself.",
+   "link": "../../docs/MAINTENANCE_START.md"
+  },
+  {
+   "id": "drawing-register",
+   "name": "Build a drawing register and find the current revision",
+   "why": "Your drawings are PDFs or scans and there is no register you can rely on, so nobody can say which copy is current. Fix that before an assistant reads them.",
+   "link": "../../docs/DRAWING_RECOVERY.md"
+  },
+  {
+   "id": "ask-one-question",
+   "name": "Ask your assistant one question and check the answer",
+   "why": "Your assistant can already open some of these records. Ask it one real question, then check every fact in the answer against its source.",
+   "link": "../../examples/first-pilot/README.md"
+  },
+  {
+   "id": "list-records",
+   "name": "List the records for one unit",
+   "why": "Not much here is reachable by an assistant yet. Start by listing what exists, where it lives and who owns it, for one unit.",
+   "link": "../../docs/ORGANIZATION_START.md"
+  }
+ ],
+ "example": {
+  "unit": "Lakeside dairy, pasteurizer unit PAST1 (fictional)",
+  "assistant": "m365",
+  "homes": {
+   "Drawings": {
+    "sys": "netdrive",
+    "wc": "yes"
+   },
+   "Equipment and instrument data": {
+    "sys": "sheets_drive",
+    "wc": "no"
+   },
+   "Maintenance": {
+    "sys": "sap",
+    "wc": "no"
+   },
+   "Operations": {
+    "sys": "sharepoint",
+    "wc": "no"
+   },
+   "Process safety and quality": {
+    "sys": "sharepoint",
+    "wc": "no"
+   },
+   "Control and process data": {
+    "sys": "nohist",
+    "wc": "no"
+   }
+  },
+  "formats": [
+   "pdf"
+  ],
+  "master": "no",
+  "register": "yes",
+  "update": "whoever",
+  "why": "email"
+ }
+}
+</script>
+<script>
+"use strict";
+/*
+ Rules this page implements (scripts/test_readiness_worksheet.py and scripts/check_readiness_worksheet_browser.js check them):
+ - It asks only facts people know. It rates nothing and computes no tier.
+ - Reach: REACH[assistant][system] from the embedded table, checked against vendor documentation (each cell carries its source). Values: yes,
+   connector, custom (no ready-made connector), no, unknown ("check with IT"). "None yet" and "Not sure" use the unknown column (paper = no).
+   Export comes from the kind of system.
+ - Flags: fixed sentences, each triggered by one answer (see the flags object in the data).
+ - ONE first job, by this priority (the order of the jobs array in the data):
+     1 reconcile          maintenance lives in a CMMS that can export, and the equipment data is in files or a system that can export.
+     2 drawing-register   drawings are PDFs or scans and the register answer is No or Not sure.
+     3 ask-one-question   an assistant is allowed and at least one record kind is definitely reachable (reach is "yes").
+     4 list-records       everything else, once at least one home is picked.
+*/
+var D = JSON.parse(document.getElementById("inventory-data").textContent);
+var SYS = {};
+D.systems.forEach(function (s) { SYS[s.id] = s; });
+var REACH_TEXT = {"yes": "Yes", "connector": "Only if your IT has turned on or added a connector", "custom": "No ready-made connector: needs a custom build, or an export put where the assistant can read it", "no": "No: needs an export or a copy somewhere it can read", "unknown": "Check with IT"};
+var EXPORT_TEXT = {"report": "Usually, by a report or export", "files": "Already files", "scan": "Needs scanning", "hard": "Hard; one thread at a time", "unknown": "Not known", "na": "-"};
+
+function el(tag, attrs, kids) {
+  var e = document.createElement(tag), k;
+  for (k in (attrs || {})) {
+    if (k === "text") e.textContent = attrs[k];
+    else if (k === "class") e.className = attrs[k];
+    else e.setAttribute(k, attrs[k]);
+  }
+  (kids || []).forEach(function (c) { e.appendChild(typeof c === "string" ? document.createTextNode(c) : c); });
+  return e;
+}
+function $(id) { return document.getElementById(id); }
+
+/* ---------- pure logic ---------- */
+function reachOf(assistant, sys) {
+  if (!sys || SYS[sys].group === "none") return {v: "na"};
+  var col = (assistant === "none" || assistant === "unsure" || !assistant) ? "other" : assistant;   /* no named assistant: nothing is known beyond paper */
+  var e = (D.reach[col] || {})[sys];
+  return e ? {v: e.v, unverified: !!e.unverified, source: e.source} : {v: "unknown"};
+}
+function exportOf(sys) { return sys ? SYS[sys].export : null; }
+function computeRows(st) {
+  return D.families.map(function (f, i) {
+    var h = st.homes[i], sys = h.sys;
+    var r = {family: f.name, sys: sys, wc: h.wc, label: "", reach: null, exp: null, notes: []};
+    if (!sys) { r.label = "Not answered"; return r; }
+    r.label = sys === "other" ? (h.other || "Other (not typed)") : SYS[sys].label;
+    r.reach = reachOf(st.assistant, sys);
+    r.exp = exportOf(sys);
+    if (sys === "paper") r.notes.push("Nobody can search it until it is scanned");
+    if (sys === "dontknow") r.notes.push("Find out where it is first");
+    if (sys === "none") r.notes.push("Not kept");
+    if (h.wc === "yes") r.notes.push("Working copies on a shared drive");
+    return r;
+  });
+}
+function computeFlags(st) {
+  var out = [], F = D.flags;
+  var custom = [];
+  D.families.forEach(function (f, i) {
+    var sys = st.homes[i].sys;
+    if (sys && (SYS[sys].group === "cmms" || SYS[sys].group === "hist") && reachOf(st.assistant, sys).v === "custom" && custom.indexOf(SYS[sys].label) < 0) custom.push(SYS[sys].label);
+  });
+  custom.forEach(function (name) { out.push({id: "no-connector", text: F["no-connector"].replace("{system}", name)}); });
+  var wc = [];
+  D.families.forEach(function (f, i) { if (st.homes[i].sys && st.homes[i].sys !== "none" && st.homes[i].wc === "yes") wc.push(f.name); });
+  if (wc.length) out.push({id: "working-copies", text: F["working-copies"], detail: wc.join(", ")});
+  if (st.drawings.master === "no" || st.drawings.master === "unsure" || st.drawings.register === "no" || st.drawings.register === "unsure") out.push({id: "no-current-drawing", text: F["no-current-drawing"]});
+  if (st.changes.update === "whoever" || st.changes.update === "nobody") out.push({id: "records-fall-behind", text: F["records-fall-behind"]});
+  if (st.changes.why === "ask" || st.changes.why === "cannot") out.push({id: "reasons-in-heads", text: F["reasons-in-heads"]});
+  if (st.drawings.formats.indexOf("cad") >= 0) out.push({id: "cad-files", text: F["cad-files"]});
+  if (st.drawings.formats.indexOf("scans") >= 0) out.push({id: "scanned-drawings", text: F["scanned-drawings"]});
+  if (st.assistant === "none" || st.assistant === "unsure") out.push({id: "no-assistant", text: F["no-assistant"]});
+  var lost = [];
+  D.families.forEach(function (f, i) { if (st.homes[i].sys === "paper" || st.homes[i].sys === "dontknow") lost.push(f.name); });
+  if (lost.length) out.push({id: "paper-or-unknown", text: F["paper-or-unknown"], detail: lost.join(", ")});
+  return out;
+}
+function chooseJob(st, rows) {
+  var any = rows.some(function (r) { return r.sys; });
+  if (!any) return null;
+  var m = st.homes[D.familyIndex["Maintenance"]], e = st.homes[D.familyIndex["Equipment and instrument data"]];
+  var cmms = m.sys && SYS[m.sys].group === "cmms" && SYS[m.sys].export === "report";
+  var eqData = e.sys && (SYS[e.sys].export === "report" || SYS[e.sys].export === "files");
+  if (cmms && eqData) return "reconcile";
+  var fmt = st.drawings.formats;
+  if ((fmt.indexOf("pdf") >= 0 || fmt.indexOf("scans") >= 0) && (st.drawings.register === "no" || st.drawings.register === "unsure")) return "drawing-register";
+  var approved = ["m365", "chatgpt", "gemini", "other"].indexOf(st.assistant) >= 0;
+  var reachable = rows.some(function (r) { return r.reach && r.reach.v === "yes"; });
+  if (approved && reachable) return "ask-one-question";
+  return "list-records";
+}
+function jobById(id) { return D.jobs.filter(function (j) { return j.id === id; })[0]; }
+function compute(st) {
+  var rows = computeRows(st), jobId = chooseJob(st, rows);
+  return {rows: rows, flags: computeFlags(st), job: jobId ? jobById(jobId) : null};
+}
+
+/* ---------- build the form ---------- */
+function radioGroup(box, name, items) {
+  items.forEach(function (it) {
+    var rb = el("input", {type: "radio", name: name, value: it[0], id: name + "_" + it[0]});
+    rb.addEventListener("change", update);
+    box.appendChild(el("label", {}, [rb, " " + it[1]]));
+  });
+}
+function checkGroup(box, name, items) {
+  items.forEach(function (it) {
+    var cb = el("input", {type: "checkbox", name: name, value: it[0], id: name + "_" + it[0]});
+    cb.addEventListener("change", update);
+    box.appendChild(el("label", {}, [cb, " " + it[1]]));
+  });
+}
+function build() {
+  radioGroup($("assistants"), "assistant", D.assistants);
+  D.families.forEach(function (f, i) {
+    var sel = el("select", {id: "home" + i, "aria-label": "Where " + f.name + " live"});
+    sel.appendChild(el("option", {value: "", text: "Choose where it lives"}));
+    f.options.forEach(function (id) { sel.appendChild(el("option", {value: id, text: SYS[id].label})); });
+    sel.addEventListener("change", update);
+    var other = el("input", {type: "text", id: "other" + i, class: "other", maxlength: "80", placeholder: "Type it", "aria-label": "Other home of " + f.name});
+    other.addEventListener("input", update);
+    var wc = el("div", {"class": "radios small"});
+    wc.appendChild(el("span", {text: "Do people also keep working copies on a shared drive (an M: drive, a team folder)?"}));
+    radioGroup(wc, "wc" + i, D.yesno);
+    $("families").appendChild(el("div", {"class": "fam"}, [el("strong", {text: f.name}), el("div", {"class": "hint", text: f.hint}), el("div", {"class": "row"}, [sel, other]), wc]));
+  });
+  checkGroup($("formats"), "fmt", D.formats);
+  radioGroup($("master"), "master", D.yesno);
+  radioGroup($("register"), "register", D.yesno);
+  radioGroup($("update"), "update", D.updateOptions);
+  radioGroup($("why"), "why", D.whyOptions);
+}
+function checkedValue(name) { var e = document.querySelector('input[name="' + name + '"]:checked'); return e ? e.value : ""; }
+function readState() {
+  var st = {unit: $("unit").value.trim(), assistant: checkedValue("assistant"), homes: [], drawings: {formats: [], master: checkedValue("master"), register: checkedValue("register")},
+            changes: {update: checkedValue("update"), why: checkedValue("why")}};
+  D.families.forEach(function (f, i) { st.homes.push({sys: $("home" + i).value, other: $("other" + i).value.trim(), wc: checkedValue("wc" + i)}); });
+  document.querySelectorAll('input[name="fmt"]:checked').forEach(function (c) { st.drawings.formats.push(c.value); });
+  return st;
+}
+function setState(s) {
+  clearAll(true);
+  $("unit").value = s.unit || "";
+  setRadio("assistant", s.assistant);
+  D.families.forEach(function (f, i) {
+    var h = (s.homes || {})[f.name] || {};
+    $("home" + i).value = h.sys || ""; $("other" + i).value = h.other || ""; setRadio("wc" + i, h.wc);
+  });
+  (s.formats || []).forEach(function (v) { $("fmt_" + v).checked = true; });
+  setRadio("master", s.master); setRadio("register", s.register); setRadio("update", s.update); setRadio("why", s.why);
+  update();
+}
+function setRadio(name, v) { document.querySelectorAll('input[name="' + name + '"]').forEach(function (r) { r.checked = (r.value === v); }); }
+function clearAll(noUpdate) {
+  $("unit").value = "";
+  document.querySelectorAll("input[type=radio], input[type=checkbox]").forEach(function (c) { c.checked = false; });
+  D.families.forEach(function (f, i) { $("home" + i).value = ""; $("other" + i).value = ""; });
+  if (!noUpdate) update();
+}
+
+/* ---------- render ---------- */
+function link(href, text) { return el("a", {href: href, text: text}); }
+function reachCell(r) {
+  if (!r.reach) return el("td", {text: "-"});
+  if (r.reach.v === "na") return el("td", {text: "-"});
+  var td = el("td", {text: REACH_TEXT[r.reach.v]});
+  if (r.reach.unverified && r.reach.v !== "unknown") td.appendChild(el("span", {"class": "check", text: " (unconfirmed: check with IT)"}));
+  return td;
+}
+function assistantLabel(a) { var x = D.assistants.filter(function (i) { return i[0] === a; })[0]; return x ? x[1] : "Not answered"; }
+function tableFor(res, assistant) {
+  var reachHead = assistant === "none" ? "An assistant would need these routes" : "Can your assistant reach it today?";
+  var t = el("table", {}, [el("tr", {}, ["Kind of record", "Lives in", reachHead, "Can someone export it?", "Note"].map(function (h) { return el("th", {text: h}); }))]);
+  res.rows.forEach(function (r) {
+    t.appendChild(el("tr", {}, [el("td", {text: r.family}), el("td", {text: r.label}), reachCell(r), el("td", {text: r.exp ? EXPORT_TEXT[r.exp] : "-"}), el("td", {text: r.notes.join("; ")})]));
+  });
+  return t;
+}
+function caveatList(assistant) {
+  var ul = el("ul", {"class": "caveats small"});
+  ((D.caveats || {})[assistant] || []).forEach(function (c) { ul.appendChild(el("li", {text: c})); });
+  return ul;
+}
+function sourcesBox(st, res) {
+  var seen = [], col = (st.assistant === "none" || st.assistant === "unsure" || !st.assistant) ? "other" : st.assistant;
+  res.rows.forEach(function (r) { if (r.reach && r.reach.source && seen.indexOf(r.reach.source) < 0) seen.push(r.reach.source); });
+  var d = el("details", {}, [el("summary", {text: "Where the reach answers come from"})]);
+  if (!seen.length) d.appendChild(el("p", {"class": "muted small", text: "No source: nothing is known about this assistant yet. Ask IT."}));
+  var ul = el("ul", {"class": "small"});
+  seen.forEach(function (u) { ul.appendChild(el("li", {text: u})); });
+  d.appendChild(ul);
+  d.appendChild(el("p", {"class": "muted small", text: "Vendor documentation, checked " + D.checked + ". Settings and licences differ by company, so confirm with IT."}));
+  return d;
+}
+function flagList(res) {
+  var ul = el("ul", {"class": "flags"});
+  res.flags.forEach(function (f) { ul.appendChild(el("li", {text: f.text + (f.detail ? " (" + f.detail + ")" : "")})); });
+  return ul;
+}
+function jobBox(res) {
+  if (!res.job) return el("p", {"class": "muted", text: "Pick where at least one kind of record lives to get a suggestion."});
+  return el("div", {"class": "job"}, [el("strong", {text: "Suggested first job: " + res.job.name + ". "}), res.job.why + " ", link(res.job.link, "Open the guide")]);
+}
+function update() {
+  var st = readState(), res = compute(st);
+  D.families.forEach(function (f, i) { $("other" + i).style.display = $("home" + i).value === "other" ? "block" : "none"; });
+  var out = $("out");
+  out.textContent = "";
+  out.appendChild(el("h3", {text: "Assistant: " + assistantLabel(st.assistant)}));
+  out.appendChild(el("div", {"class": "scroll"}, [tableFor(res, st.assistant)]));
+  out.appendChild(caveatList(st.assistant));
+  out.appendChild(sourcesBox(st, res));
+  out.appendChild(el("h3", {text: "Things to know"}));
+  out.appendChild(res.flags.length ? flagList(res) : el("p", {"class": "muted", text: "Nothing flagged from your answers so far."}));
+  out.appendChild(el("h3", {text: "Where to start"}));
+  out.appendChild(jobBox(res));
+  renderPrint(st, res);
+  return res;
+}
+function renderPrint(st, res) {
+  var p = $("printbody");
+  p.textContent = "";
+  p.appendChild(el("h1", {text: "Where our records live" + (st.unit ? ": " + st.unit : "")}));
+  p.appendChild(el("p", {text: "Date: " + new Date().toISOString().slice(0, 10) + ". Assistant: " + assistantLabel(st.assistant) + ". Our own description; reach answers marked check with IT are unconfirmed."}));
+  p.appendChild(tableFor(res, st.assistant));
+  p.appendChild(caveatList(st.assistant));
+  p.appendChild(el("h3", {text: "Things to know"}));
+  p.appendChild(res.flags.length ? flagList(res) : el("p", {text: "Nothing flagged."}));
+  p.appendChild(el("h3", {text: "Where to start"}));
+  p.appendChild(res.job ? el("p", {}, [el("strong", {text: res.job.name + ". "}), res.job.why]) : el("p", {text: "Not enough answers yet."}));
+}
+function summaryText(st, res) {
+  var L = [];
+  L.push("Where our records live" + (st.unit ? ": " + st.unit : ""));
+  L.push("Date: " + new Date().toISOString().slice(0, 10));
+  L.push("Assistant: " + assistantLabel(st.assistant));
+  L.push("");
+  L.push("Kind of record | Lives in | " + (st.assistant === "none" ? "An assistant would need these routes" : "Assistant reach") + " | Export | Note");
+  res.rows.forEach(function (r) {
+    L.push([r.family, r.label, r.reach && r.reach.v !== "na" ? REACH_TEXT[r.reach.v] + (r.reach.unverified && r.reach.v !== "unknown" ? " (unconfirmed: check with IT)" : "") : "-", r.exp ? EXPORT_TEXT[r.exp] : "-", r.notes.join("; ")].join(" | "));
+  });
+  ((D.caveats || {})[st.assistant] || []).forEach(function (c) { L.push("Note: " + c); });
+  L.push("");
+  L.push("Drawings: formats " + (st.drawings.formats.join(", ") || "not answered") + "; one master copy: " + (st.drawings.master || "not answered") + "; register: " + (st.drawings.register || "not answered"));
+  L.push("After a job closes, drawings and equipment list are updated by: " + (labelOf(D.updateOptions, st.changes.update) || "not answered"));
+  L.push("To find why a valve was changed: " + (labelOf(D.whyOptions, st.changes.why) || "not answered"));
+  L.push("");
+  L.push("Things to know:");
+  if (!res.flags.length) L.push("- Nothing flagged.");
+  res.flags.forEach(function (f) { L.push("- " + f.text + (f.detail ? " (" + f.detail + ")" : "")); });
+  L.push("");
+  L.push("Suggested first job: " + (res.job ? res.job.name + ". " + res.job.why : "not enough answers yet"));
+  return L.join("\r\n") + "\r\n";
+}
+function labelOf(list, v) { var x = list.filter(function (i) { return i[0] === v; })[0]; return x ? x[1] : ""; }
+
+/* ---------- example and buttons ---------- */
+function init() {
+  build();
+  $("unit").addEventListener("input", update);
+  $("example").addEventListener("click", function () { setState(D.example); });
+  $("clear").addEventListener("click", function () { clearAll(); });
+  $("print").addEventListener("click", function () { update(); window.print(); });
+  $("save").addEventListener("click", function () {
+    var st = readState(), res = compute(st);
+    var blob = new Blob([summaryText(st, res)], {type: "text/plain"});
+    var a = el("a", {href: URL.createObjectURL(blob), download: "where-our-records-live.txt"});
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+  });
+  update();
+}
+init();
+</script>
+</body>
+</html>

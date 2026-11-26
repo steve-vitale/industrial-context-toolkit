@@ -22,5 +22,4 @@ The live site's exact build/commit was not established. No private records, simu
 third-party test implementation were copied into this repository. No network/privacy audit, mobile trial,
 file round trip, dynamic simulation, equipment sizing or design/safety acceptance was performed.
 
-For lessons and an own-job review path, use [process analytics](../../../docs/PROCESS_ANALYTICS.md)
-and the [manual calculation worksheet](../../consulting-start/CALCULATION_REVIEW.md).
+For lessons and an own-job review path, use [process analytics](../../../docs/PROCESS_ANALYTICS.md).

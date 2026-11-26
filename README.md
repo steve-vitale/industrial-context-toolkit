@@ -5,6 +5,40 @@
 **Turn your P&IDs, equipment lists and work orders into one sourced map of your plant that people and agents can
 check, question and keep current.**
 
+## The end picture
+
+More of your engineering team's work will be done with assistants that read your records. They need the
+correct data, in a usable format, refreshed at the right interval, connected, with a system of record for
+engineering context and change. That means records the assistant can reach, each fact tied to a tag, a named
+owner for each record, checks that ride closeouts, and a governed record of changes and reasons.
+[Read the end picture.](docs/END_PICTURE.md)
+
+[![Six conditions for an engineering team ready for agents, and a path that starts with one unit](assets/end-picture.svg)](docs/END_PICTURE.md)
+
+## Start without installing anything
+
+- **Map where your records live.** Five minutes, offline: which assistant you're allowed, which systems hold your
+  drawings, work orders and datasheets, and what that assistant can actually reach today. You get one first job that
+  fits your setup. [Open the worksheet](examples/readiness-audit/worksheet.html) (download it and open it from disk).
+- **See a records disagreement worked end to end.** A replaced valve whose work order, equipment list and
+  datasheet no longer agree, traced to the owner of each record:
+  [read the manager's brief](examples/manager-review/BRIEF.md), or download the
+  [offline packet](examples/manager-review/manager-review.zip?raw=1) and open `index.html` in a browser.
+- **See where your unit stands.** Rate one unit with the [readiness self-assessment](docs/READINESS_AUDIT.md) and
+  read which tier of assistant work its records support today, then compare with the
+  [worked sample](examples/readiness-audit/SAMPLE_REPORT.md) for a fictional dairy unit.
+- **Ask your approved Copilot one question.** The [first-question guide](examples/first-pilot/README.md) has a
+  prompt to copy and a way to check the answer against the records.
+
+
+Questions about applying this at your plant? [Connect with me on LinkedIn](https://www.linkedin.com/in/steve-vitale/).
+
+To run the tools on your own records, use the [Python quick start](#quick-start-with-python-see-it-in-one-minute-offline)
+or [Claude Code](#use-it-on-your-own-drawings-with-claude-code), then pick a job from the
+[job table](#start-wherever-you-are).
+
+## Try one job: a P&ID to a reviewed draft model
+
 Give it a P&ID as a PDF or image and you get back:
 
 1. **A draft asset model:** equipment, instruments, valves, off-page connectors and the links between them, each
@@ -20,7 +54,7 @@ records stay visible, each sent to the owner of that record.
 *A public sheet read by the toolkit: every extracted item boxed by type, with the counts a reviewer starts from.
 [Open the full sample report.](examples/own-drawing/deliverable/REPORT.html)*
 
-## Quick start: see it in one minute, offline
+## Quick start with Python: see it in one minute, offline
 
 No accounts, model calls or extra packages. You need [Python](https://www.python.org/downloads/) 3.10 or newer.
 
@@ -86,6 +120,7 @@ output.
 |---|---|
 | `REPORT.html` | Every sheet with its extracted items boxed, counts, cross-sheet pairs, review status and next steps |
 | `review_queue.csv` | One row per item for a reviewer to confirm, correct or reject |
+| `review.html` (optional) | `python -S scripts/review_page.py my-bundle`: the same review as an offline page, one item at a time with a crop of the drawing and 1/2/3 keys; it downloads the filled `review_queue.csv` for `apply_review.py`. Nothing leaves the computer |
 | `plant_model.json` | The draft model: assets, represented connections and the source of each |
 | `svg/sheet_0.svg` | The extracted links drawn over the sheet |
 | `ignition/tags.json`, `pi/` | Draft Ignition tags and PI AF staging, with placeholder values until mapped |
@@ -99,13 +134,16 @@ output.
 - **Accuracy depends on the drawing.** The public benchmark numbers don't transfer automatically to your drafting
   style. Faded scans need much more review, and the tag check needs a PDF text layer (scans need OCR). Measure a reader on your own sheets with the
   [vendor-evaluation kit](examples/vendor-evaluation/README.md).
-- **Tested on public and fictional inputs only.** No plant acceptance, timed review or live signal mapping is
-  established. [Results and limits](docs/RESULTS.md) has the details.
+- **Tested on public and fictional inputs only.** The tools are prototypes. No plant acceptance, timed review or
+  live signal mapping is established. Site accuracy, installed signal identity, native platform acceptance and
+  operational benefit need evidence from your environment. [Results and limits](docs/RESULTS.md) has the details.
 - **Your company systems stay in charge** of approvals, assignments and continuing ownership. When shared
   context needs managed upkeep, carry it into a maintained company tool
   ([foundation roadmap](docs/ENGINEERING_FOUNDATION.md)).
 
-## More ways in
+## Everything in the toolbox
+
+### More ways in
 
 - **Maintenance or engineering manager?** [Start with the decision you need to make](docs/MANAGERS_START_HERE.md),
   or read the no-install [manager review packet](examples/manager-review/README.md).
@@ -142,9 +180,7 @@ These tools accept your own records in their documented formats. Choose the work
 **Working on a plant problem?** Start with [maintenance records that disagree](docs/MAINTENANCE_START.md)
 or [missing or outdated engineering drawings](docs/DRAWING_RECOVERY.md). The
 [replacement walkthrough](examples/maintenance-handoff/README.md) follows one fictional valve through the
-work order, equipment register, datasheet, field evidence and next revision. For help with a larger scope,
-[connect with me on LinkedIn and message me there](https://www.linkedin.com/in/steve-vitale/).
-See [working together](docs/WORK_WITH_ME.md) for inputs, deliverables and how a scoped engagement starts.
+work order, equipment register, datasheet, field evidence and next revision.
 
 | Your engineering job | Starting material and guide | Work product |
 |---|---|---|
@@ -167,7 +203,7 @@ See [working together](docs/WORK_WITH_ME.md) for inputs, deliverables and how a 
 | Keep the map current through plant routines | [Running the map](docs/RUNNING_THE_MAP.md) · [an MOC on the map](examples/one-map/README.md#the-pasteurizer-through-an-moc-pid-revision-moc-open-and-close-work-order-walkdown) | P&ID revision change reports, MOC-open affected records by owner and the closeout check, work order closeout, walkdown rulings, HACCP/PHA/criticality change flags. |
 | Prepare platform files and supplied point mappings | [Generation/export contracts](docs/WORKFLOWS.md) · [review and mapping](examples/review-and-mapping/README.md) · [PI mapping](docs/PI_MAPPING.md) | Draft Ignition tag files, PI AF staging and explicit mapping records. Review signal identities and verify acceptance in the receiving system. |
 | Evaluate or improve a method | [Drawing comparison](examples/vendor-evaluation/README.md) · [task/model benchmarks](benchmarks/README.md) · [review a frozen model](benchmarks/source-support/artifact-values/README.md) | Compare saved answers against reviewed source/key cases, with missing answers, mistakes and evidence limits visible. |
-| Retain team knowledge or scope outside help | [Onboarding contributions](docs/ENGINEERING_ONBOARDING.md) · [consulting starter](examples/consulting-start/README.md) | Source-qualified notes and subsequent revisions, or manual scope/quote/receiving forms for one agreed job. Calculation and automation worksheets record a review basis; they do not implement a solver or controls. |
+| Retain team knowledge | [Onboarding contributions](docs/ENGINEERING_ONBOARDING.md) | Source-qualified notes and subsequent revisions. |
 
 **Prefer a first result without installation?** Use the [first-question guide](examples/first-pilot/README.md)
 by hand or with company-approved Copilot. For a team assignment, the [organization starting guide](docs/ORGANIZATION_START.md)
@@ -281,10 +317,6 @@ For a small team, a whole site or a global network of 50–100 plants, use the
 to evaluate a managed context/governance service alongside existing company systems.
 
 ## Status
-
-The tools are prototypes tested on public and fictional inputs. Their output is a draft for engineering review;
-site accuracy, installed signal identity, native platform acceptance and operational benefit need evidence from
-your environment. Public benchmark numbers do not transfer automatically to a new drawing style or plant.
 
 - **Use it:** [Documentation map](docs/README.md) · [Plan work at your plant](docs/AT_YOUR_PLANT.md)
 - **Connect it:** [Approved clients and IT/OT paths](docs/INTERNAL_CONNECTIVITY.md)
