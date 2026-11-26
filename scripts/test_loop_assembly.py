@@ -718,6 +718,7 @@ class ReReview(unittest.TestCase):
             self.assertNotIn(pair, got)
 
     # ---- false relations the review found: now unresolved
+    @unittest.skipUnless(HAVE_CV2, "needs OpenCV and NumPy")
     def test_open_case_two_dashed_lines_ending_at_a_pipe_from_either_side_stay_apart(self):
         for gap in (4, 10):
             def draw(img, b):
@@ -729,6 +730,7 @@ class ReReview(unittest.TestCase):
             b = self.image(draw, {"C": "FIC 10", "D": "FV 11"})
             self.assertEqual(b["relations"], [], gap)
 
+    @unittest.skipUnless(HAVE_CV2, "needs OpenCV and NumPy")
     def test_open_case_does_not_confirm_a_loop_through_a_pipe(self):
         def draw(img, b):
             self.bub(img, b, "T", 100, 100)
@@ -743,6 +745,7 @@ class ReReview(unittest.TestCase):
         self.assert_false_case_unresolved(b, ("C", "D"))
         self.assertEqual(loop(b, "C")["status"], "partly_confirmed")  # the measurement is still traced
 
+    @unittest.skipUnless(HAVE_CV2, "needs OpenCV and NumPy")
     def test_a_dashed_line_crossing_a_pipe_in_step_is_still_one_line(self):
         def draw(img, b):
             self.bub(img, b, "C", 400, 100)
@@ -752,6 +755,7 @@ class ReReview(unittest.TestCase):
         b = self.image(draw, {"C": "FIC 12", "V": "FV 12"})
         self.assertEqual(rel(b, "signal_to"), {("C", "V")})
 
+    @unittest.skipUnless(HAVE_CV2, "needs OpenCV and NumPy")
     def test_one_stroke_between_stacked_controllers_is_not_a_cascade(self):
         def draw(img, b):
             self.bub(img, b, "A", 400, 100)
@@ -772,6 +776,7 @@ class ReReview(unittest.TestCase):
         self.assertEqual(rel(b, "sets_point_of"), set())
         self.assertEqual(loop(b, "A")["status"], "partly_confirmed")
 
+    @unittest.skipUnless(HAVE_CV2, "needs OpenCV and NumPy")
     def test_a_thick_broken_process_line_is_not_a_signal(self):
         for tags in ({"C": "PIC 71", "V": "PV 72"}, {"C": "FT 70", "V": "FV 70"}):
             def draw(img, b):
@@ -783,6 +788,7 @@ class ReReview(unittest.TestCase):
             self.assertEqual(b["relations"], [], tags)
             self.assertIn("thin_stroke", b["unresolved_signal_networks"][0]["failed_conditions"])
 
+    @unittest.skipUnless(HAVE_CV2, "needs OpenCV and NumPy")
     def test_position_switches_on_an_on_off_valve_are_switches_not_a_controller(self):
         self.assertEqual(la.role_of("ZSC"), "switch")
         self.assertEqual(la.role_of("ZSO"), "switch")
@@ -853,6 +859,7 @@ class ReReview(unittest.TestCase):
             self.assertEqual(loop(b, "C")["status"], "confirmed", tags)
             self.assertEqual(rel(b, "controls"), {("C", "V")}, tags)
 
+    @unittest.skipUnless(HAVE_CV2, "needs OpenCV and NumPy")
     def test_mirrored_straight_and_dog_leg_loops_confirm(self):
         def straight(img, b):
             self.bub(img, b, "T", 100, 100)
@@ -905,6 +912,7 @@ class ThirdReview(unittest.TestCase):
     def loop_relations(self, b):
         return {(r["type"], r["from"], r["to"]) for r in b["relations"] if r["type"] in ("controls", "sets_point_of")}
 
+    @unittest.skipUnless(HAVE_CV2, "needs OpenCV and NumPy")
     def test_random_placements_of_two_lines_ending_at_a_pipe_assert_nothing_strictly_traced(self):
         # Two lines drawn to a pipe and in step by chance are, to within a pixel, one line crossing it: inherently
         # ambiguous, read as a qualified reader reads them, at tier traced_through_crossing with the question attached.
@@ -934,6 +942,7 @@ class ThirdReview(unittest.TestCase):
         self.assertEqual(defects, 0)
         self.assertGreater(ambiguous, 0)  # the sweep does reach the chance merge it guards against
 
+    @unittest.skipUnless(HAVE_CV2, "needs OpenCV and NumPy")
     def test_lines_ending_on_a_dashed_line_from_either_side_confirm_nothing(self):
         def lines_to_a_dashed(img, b):
             self.bub(img, b, "C", 400, 100)
@@ -985,6 +994,7 @@ class ThirdReview(unittest.TestCase):
         self.assertEqual(next(r for r in b["relations"] if r["type"] == "controls")["confidence"], "traced_and_grouped")
         self.assertEqual(loop(b, "C")["tier"], "traced")
 
+    @unittest.skipUnless(HAVE_CV2, "needs OpenCV and NumPy")
     def test_a_transmitter_misread_as_a_controller_is_not_an_outer_loop(self):
         for tags in ({"T": "FC 101", "C": "FIC 101", "V": "FV 101"}, {"T": "FT 101", "C": "FIC 101", "V": "FC 101"}):
             def basic(img, b):
@@ -1003,6 +1013,7 @@ class ThirdReview(unittest.TestCase):
         b = la.assemble(m, [line("b", ["C1", "C2"]), line("c", ["T2", "C2"]), line("d", ["C2", "V"])])
         self.assertEqual(rel(b, "sets_point_of"), set())
 
+    @unittest.skipUnless(HAVE_CV2, "needs OpenCV and NumPy")
     def test_a_line_drawn_through_bubbles_it_does_not_end_at_is_unresolved(self):
         def through(img, b):
             self.bub(img, b, "T", 60, 300)

@@ -13,6 +13,7 @@ import importlib.util
 import re
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -78,6 +79,7 @@ SOURCE_TESTS = (
     "scripts/test_own_drawing_example.py",
     "scripts/test_loop_audit.py",
     "scripts/test_one_map.py",
+    "scripts/test_handoff_view.py",
     "scripts/test_map_explorer.py",
     "scripts/test_ontology.py",
     "scripts/test_plant_workflows.py",
@@ -547,7 +549,11 @@ def main(argv=None):
     selected = SOURCE_TESTS if args.source_only else TESTS
     failed = 0
     unittest_skips, platform_skips, other_skips = 0, [], []
-    for script in selected:
+    started = time.monotonic()
+    for number, script in enumerate(selected, 1):
+        # Progress before the script runs: a slow one is visibly working, not hung.
+        print(f"[{number}/{len(selected)}] running {script} ... ({time.monotonic() - started:.0f}s elapsed)", flush=True)
+        script_started = time.monotonic()
         # -S makes the source-only promise testable even on a machine with packages installed.
         command = [sys.executable] + (["-S"] if args.source_only else []) + [script]
         try:
@@ -559,7 +565,7 @@ def main(argv=None):
         failed += result.returncode != 0
         status = "PASS" if result.returncode == 0 else "FAIL"
         last = (result.stdout.strip().splitlines() or result.stderr.strip().splitlines() or [""])[-1]
-        print(f"{status}  {script}: {last}".rstrip())
+        print(f"{status}  {script}: {last} [{time.monotonic() - script_started:.1f}s]".rstrip(), flush=True)
         cases, platform, other = coverage_notices(result.stdout, result.stderr)
         unittest_skips += cases
         if cases:
@@ -571,6 +577,7 @@ def main(argv=None):
                 print(f"      SKIP ({category}) {reason}")
         if result.returncode:
             print(result.stdout[-2000:], result.stderr[-2000:])
+    print(f"Finished in {time.monotonic() - started:.0f}s.")
     print(f"{label}: {len(selected) - failed}/{len(selected)} scripts passed; {failed} failed; "
           f"{unittest_skips} unittest case(s) skipped; {len(platform_skips)} platform notice(s); "
           f"{len(other_skips)} additional skipped-check notice(s).")

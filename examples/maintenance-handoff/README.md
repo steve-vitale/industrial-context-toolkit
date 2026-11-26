@@ -19,12 +19,20 @@ python scripts/one_map.py build examples/one-map/inputs/pasteurizer/site.json --
 python scripts/one_map.py build examples/one-map/inputs/pasteurizer/site-moc-close.json --out out/maintenance-handoff/after --decisions examples/one-map/inputs/pasteurizer/walkdown_rulings.csv
 python scripts/one_map.py changes out/maintenance-handoff/before/graph.json out/maintenance-handoff/after/graph.json --tags FDV-2210 TT-2208 --out out/maintenance-handoff/changes
 python scripts/one_map.py affected --tags FDV-2210 TT-2208 --closeout out/maintenance-handoff/before/graph.json out/maintenance-handoff/after/graph.json --out out/maintenance-handoff/closeout
+python examples/maintenance-handoff/render_handoff.py --after out/maintenance-handoff/after --tag FDV-2210 --out out/maintenance-handoff/HANDOFF.html
 ```
+
+The last command writes one web page, `HANDOFF.html`, that opens in any browser with no network: each record's value
+beside the file it came from, disagreements highlighted, the ruling applied, and what still needs a correction and
+by whom.
+
+![The handoff page for FDV-2210: serial settled by the ruling, size still open, owners named](handoff.png)
 
 ## Inspect the work product
 
 | File | Check |
 |---|---|
+| `HANDOFF.html` | The same answer on one page for a reader who will not open markdown or CSV. Re-generated from `after/`; it decides nothing. |
 | `after/conflicts.md` and `after/queues/review_queue.csv` | Source disagreement, field-ruling history, owner correction request and unresolved datasheet discrepancy. |
 | `changes/changes.md` | Before/after tags, work order, drawing and document revisions; earlier evidence remains available. |
 | `closeout/closeout.md` | Changed and unchanged affected records, missing PM plan and remaining manual confirmations. |

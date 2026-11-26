@@ -1,6 +1,7 @@
 {
   "schema": "foundation-freeze-1",
   "repinned_2026_11_10": "vendor names removed from text only; no method or key change",
+  "repinned_2026_11_24": "scripts/maintenance_history.py and maintenance_history_report.py gained additive profile options in 623986d5 (A420) for a different task; the development and reserved runs reproduce checks.json and summary.json byte-identical with the new code; no key or criterion change",
   "created_utc": "2026-11-09",
   "plan_commit": "28b98645aae77cd555c446058c921e1f6ae9376b",
   "hash_method": "SHA256 with LF normalization for portable text pins",
@@ -36,8 +37,8 @@
     "scripts/context_register.py": "5a902bb2a405599b4d864e9e7ca77162d51488d8920bd24874bb9c426b06f30d",
     "scripts/foundation_handoff.py": "fd1bfd01b04bb03b807a02600a1e33609e2dbe58d979ed2adb8dfad85f7d65a2",
     "scripts/graph_export.py": "bd4854c679193c49b555128b8c4d87225d2c4cfb596459fecdf61393fd697dcb",
-    "scripts/maintenance_history.py": "56825891adb88ccd7d4de23a2a4c9cf6c5627897ec49c71c8498fe01f4f29f84",
-    "scripts/maintenance_history_report.py": "d605ae25162ca25e54826eeb3bba32cf431eadc1126bedce3a4ad6d66e1e060b",
+    "scripts/maintenance_history.py": "224bfaf067df753d850b88e287b337fb2552d796a3ba2b1d0568f7767fde1e9e",
+    "scripts/maintenance_history_report.py": "de0d6c6857f0762d7a114c08756f6dfd7cde7d712ff7d28c072c92263095e698",
     "scripts/maintenance_intake.py": "a8d158dfe3ca9282b5ab94aebb7d9c0d844168eeecda05f0fbd6827e1cd64832",
     "scripts/receive_drawings.py": "85532f178a7cb80fd85d58ea02e17c88677531dcee646e8cb01c594c9fb7341f",
     "scripts/serve_snapshot.py": "d2db1d659a718e66cee71347e40f9508f491bbe49dc3a43b26de1a1e7c704b08",

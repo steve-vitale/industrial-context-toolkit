@@ -297,9 +297,9 @@ AI coding agents wrote most of the implementation; the [journal](docs/JOURNAL.md
 <details>
 <summary>Links retained for earlier research references</summary>
 
-### Results (held-out drawings, and how they were used)
+### Results (validation split used for selection, and how it was used)
 
-Moved to [results and interpretation](docs/RESULTS.md#results-held-out-drawings-and-how-they-were-used).
+Moved to [results and interpretation](docs/RESULTS.md#results-validation-split-used-for-selection-and-how-it-was-used).
 
 ### From a first packet to company context
 

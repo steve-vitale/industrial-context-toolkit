@@ -10,6 +10,7 @@ import contextlib
 import copy
 import io
 import json
+import os
 import shutil
 import subprocess
 import tempfile
@@ -23,6 +24,14 @@ sys.path.insert(0, str(ROOT / "scripts"))
 import corpus_matrix as cm  # noqa: E402
 
 REQUIRED = ("id", "name", "family", "kind", "source_url", "license", "local_path", "committed", "fetch", "exercises")
+
+
+def unavailable_cells():
+    """(row, input id) of every recorded cell whose declared input caches are entirely absent here."""
+    matrix = json.loads(cm.OUT_JSON.read_text(encoding="utf-8"))
+    inputs = cm.inputs_by_id(cm.load_corpus())
+    return [(c["row"], c["input"]) for c in matrix.get("cells", [])
+            if c.get("input_bindings") and cm.input_binding_problems(c, inputs[c["input"]])[1]]
 
 
 class Registry(unittest.TestCase):
@@ -100,7 +109,24 @@ class Rendering(unittest.TestCase):
 
     def test_check_passes(self):
         self.assertTrue(cm.OUT_JSON.is_file(), "run python scripts/corpus_matrix.py first")
-        self.assertEqual(cm.main(["--check"]), 0)
+        # Always required: page, tool, runner and registry bindings, and every input that is present.
+        shown = io.StringIO()
+        with contextlib.redirect_stdout(shown):
+            status = cm.main(["--check"])
+        self.assertEqual(status, 0, shown.getvalue())
+        unavailable = unavailable_cells()
+        if not unavailable:
+            return
+        inputs = cm.inputs_by_id(cm.load_corpus())
+        fetches = sorted({inputs[iid]["fetch"] for _, iid in unavailable if (inputs[iid].get("fetch") or "").strip()})
+        message = (f"{len(unavailable)} matrix cells need downloaded data that is absent here, so their recorded "
+                   "results were not re-checked against source bytes. Fetch with: " + "; ".join(fetches))
+        if os.environ.get("TOOLKIT_REQUIRE_DATA") == "1":
+            self.fail("TOOLKIT_REQUIRE_DATA=1 requires the cached data: " + message)
+        if os.environ.get("CI"):
+            return  # CI keeps its existing contract: the check above passes; the absent caches are reported, not skipped
+        print("SKIP " + message)
+        self.skipTest(message)
 
     def test_fabricated_failure_reaches_gaps(self):
         corpus = cm.load_corpus()

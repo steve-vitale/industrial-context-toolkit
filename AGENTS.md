@@ -155,7 +155,7 @@ Pick whichever matters to your user and follow it from source to number. Each of
 
 | Claim | Start at | Then check |
 |---|---|---|
-| Symbol and connection F1 on held-out drawings | `out/replicates_r5_holdout-a.md` | `docs/EVALUATION.md` (rules written before the runs) and `docs/GOAL.md` (holdout A also chose the method; holdout B, 20 synthetic drawings from another collection, was only reported) |
+| Symbol and connection F1 on the OPEN100 validation split (used for selection, not an untouched test) | `out/replicates_r5_holdout-a.md` | `docs/EVALUATION.md` (rules written before the runs) and `docs/GOAL.md` (holdout A also chose the method; holdout B, 20 synthetic drawings from another collection, was only reported) |
 | A generated P&ID had 0 of 19 control loops | `out/te_loop_audit.md` | `data/te_control_loops.json` cites the simulator source lines for every loop |
 | The Ignition verifier caught 5 planted faults first | `docs/IGNITION_ACCEPTANCE.md` | the receipts in `out/ignition/gateway/receipts/` |
 | The Bayer model got the report's own drawing wrong in four places | `docs/BAYER_RT.md` | `out/bayer_rt/fig10_compare.md`; the report itself is public (CSB 2008-08-I-WV) |

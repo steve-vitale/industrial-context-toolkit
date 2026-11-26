@@ -47,7 +47,7 @@ including its full cached-data suite and saved-result rescoring. An independent
 local Git clone replayed its 37 development methods, four historical fault controls
 and source/registry checks using only the standard library. The newer review-page
 slice has separate [43-method and browser evidence](../examples/map-component-cycle/DEVELOPMENT.md);
-exact final-head release/product gates remain required. PR51 remains draft.
+exact final-head release/product gates remain required. PR51 was merged on 2026-11-10.
 
 The verified merged baseline before the foundation addition is **`55ec333`**:
 PR46 and PR47 are merged.
